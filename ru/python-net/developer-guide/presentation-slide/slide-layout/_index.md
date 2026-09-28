@@ -12,10 +12,10 @@ keywords:
 - дизайн слайда
 - неиспользуемый макет
 - видимость нижнего колонтитула
-- заглавный слайд
+- титульный слайд
 - заголовок и содержимое
 - заголовок раздела
-- два содержания
+- два блока содержимого
 - сравнение
 - только заголовок
 - пустой макет
@@ -32,38 +32,40 @@ description: "Применяйте, создавайте и изменяйте �
 ---
 ## **Обзор**
 
-Схема слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение схемы обеспечивает единообразную структуру слайдов, позволяя каждому слайду содержать собственное содержание.
+Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает слайдам согласованную структуру, одновременно позволяя каждому слайду содержать свой собственный контент.
 
-Наиболее распространённые схемы включают:
+Наиболее часто используемые макеты включают:
 
 - **Title Slide**: Содержит заполнители заголовка и подзаголовка.
-- **Title and Content**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
-- **Blank**: Не содержит заполнителей содержимого и полезен, когда каждую фигуру позиционируют вручную.
+- **Title and Content**: Содержит заполнитель заголовка и универсальный заполнитель контента.
+- **Blank**: Не содержит заполнителей контента и полезен, когда каждая форма будет позиционироваться вручную.
 
-## **Понимание наследования схем**
+## **Понимание наследования макетов**
 
 Презентация имеет три связанных уровня:
 
-1. A [Главный слайд](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslide/) определяет тему, общие форматирования, фон и общие объекты.
-1. A [Схема слайда](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/) принадлежит главному слайду и определяет конкретное расположение заполнителей.
-1. A [Обычный слайд](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/) использует одну схему и хранит содержимое, введённое для этого слайда.
+1. A [master slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslide/) определяет тему, общие форматирования, фон и общие объекты.
+1. A [layout slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/) принадлежит мастеру и определяет определённую расстановку заполнителей.
+1. A [normal slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/) использует один макет и сохраняет введённый для него контент.
 
-Обычный слайд наследует тему и форматирование от своей схемы, а схема наследует их от главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его фигуры‑заполнители генерируются из выбранной схемы, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
+Normal slide наследует тему и форматирование от своего макета, а макет наследуется от своего мастера. Значение, установленное непосредственно на normal slide, переопределяет унаследованное значение на этом уровне. При создании normal slide его формы‑заполнители генерируются из выбранного макета, тогда как контент, введённый в эти заполнители, принадлежит normal slide.
 
-Добавьте необходимые заполнители в схему до создания из неё слайдов. Добавление другого заполнителя в схему позже не добавит автоматически соответствующую фигуру‑заполнитель в существующие обычные слайды.
+Добавьте требуемые заполнители в макет до создания слайдов из него. Добавление другого заполнителя в макет позже не добавляет автоматически соответствующую форму‑заполнитель в существующие normal slides.
 
-У этой связи два важных последствия:
+У этой зависимости есть два важных следствия:
 
-- Изменение унаследованного форматирования или геометрии существующего заполнителя в схеме может обновить каждый слайд, зависящий от неё. Перед редактированием схемы, уже используемой, проверьте её зависимые слайды и просмотрите получившуюся презентацию.
-- Схему, которая всё ещё используется слайдом, нельзя удалить. Сначала переназначьте её зависимые слайды на другую схему или удалите только неиспользуемые схемы.
+- Изменение унаследованного форматирования или геометрии существующего заполнителя в макете может обновить каждый слайд, зависящий от него. Перед редактированием макета, уже используемого, проверьте его зависимые слайды и просмотрите получившуюся презентацию.
+- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
 
-Для получения дополнительной информации о верхнем уровне этой иерархии см. [Слайд‑мастер](/slides/ru/python-net/slide-master/).
+Для получения дополнительной информации о верхнем уровне этой иерархии смотрите [Slide Master](/slides/ru/python-net/slide-master/).
 
-## **Выбор и применение схемы слайда**
+Чтобы скрыть унаследованные логотипы или декоративные элементы мастера на одном слайде или через общий макет, смотрите [Control the Visibility of Master Graphics](/slides/ru/python-net/slide-master/). Пример сравнивает два слайда, использующие один и тот же мастер.
 
-Используйте тип схемы, когда презентация следует стандартным определениям схем PowerPoint. Имена схем редактируемы пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+## **Выбор и применение макета слайда**
 
-Следующий пример ищет **Title and Content** на первом главном слайде. Если эта схема недоступна, он преднамеренно переключается на **Blank**. Второй проверочный null необходим, потому что презентация может содержать только пользовательские схемы. Затем выбранная схема применяется к первому обычному слайду через свойство [Slide.layout_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/layout_slide/).
+Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируются пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+
+Следующий пример ищет **Title and Content** в первом мастере. Если этот макет недоступен, он намеренно переключается на **Blank**. Второй проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Выбранный макет затем применяется к первому normal slide через свойство [Slide.layout_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/layout_slide/).
 
 ```python
 import aspose.slides as slides
@@ -82,13 +84,13 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Изменение схемы слайда не удаляет обычные фигуры, добавленные напрямую на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новой схемой могут измениться, поэтому проверяйте результат при переключении между существенно разными схемами.
+Изменение макета слайда не удаляет обычные формы, добавленные непосредственно на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно разными макетами.
 
-## **Добавление схемы слайда**
+## **Добавление макета слайда**
 
-Выбор и создание — отдельные операции. Предыдущий пример выбирает существующую схему; он её не создаёт. Чтобы создать схему, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterlayoutslidecollection/add/) в коллекции схем целевого главного слайда.
+Выбор и создание – отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт новый. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterlayoutslidecollection/add/) у коллекции макетов целевого мастера.
 
-Следующий пример всегда добавляет новую схему **Title and Content** с именем `Report Title and Content`, затем добавляет обычный слайд на её основе. Имена схем должны быть уникальными в пределах коллекции.
+Следующий пример всегда добавляет новый макет **Title and Content** с именем `Report Title and Content`, затем добавляет normal slide на его основе. Имена макетов должны быть уникальны в пределах коллекции.
 
 ```python
 import aspose.slides as slides
@@ -101,18 +103,18 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Добавляйте схему только тогда, когда шаблон действительно нуждается в ещё одной переиспользуемой структуре. Если подходящая схема уже существует, выберите и повторно используйте её вместо создания дубликата.
+Добавляйте макет только тогда, когда шаблон действительно нуждается в новой переиспользуемой структуре. Если подходящий макет уже существует, выберите и используйте его вместо создания дубликата.
 
-## **Добавление заполнителей в схему слайда**
+## **Добавление заполнителей в макет слайда**
 
-Свойство [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/placeholder_manager/) предоставляет [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/) для добавления фигур‑заполнителей в схему.
+Свойство [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/placeholder_manager/) предоставляет [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/) для добавления форм‑заполнителей в макет.
 
-| Заполнитель PowerPoint | `LayoutPlaceholderManager` Method |
+| Заполнитель PowerPoint | Метод `LayoutPlaceholderManager` |
 | ---------------------- | --------------------------------- |
 | ![Содержание](content.png) | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
-| ![Содержание (Вертикальное)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Содержание (вертикальное)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
 | ![Текст](text.png) | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
-| ![Текст (Вертикальное)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Текст (вертикальный)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
 | ![Изображение](picture.png) | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
 | ![Диаграмма](chart.png) | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
 | ![Таблица](table.png) | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
@@ -120,7 +122,7 @@ with slides.Presentation("input.pptx") as presentation:
 | ![Медиа](media.png) | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
 | ![Онлайн‑изображение](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Следующий пример проверяет наличие схемы **Blank**, добавляет к ней четыре заполнителя, а затем создаёт обычный слайд, использующий изменённую схему. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог сгенерировать соответствующие фигуры‑заполнители на этом слайде.
+Следующий пример проверяет, существует ли макет **Blank**, добавляет к нему четыре заполнителя и затем создаёт normal slide, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания normal slide, чтобы Aspose.Slides мог сгенерировать соответствующие формы‑заполнители на этом слайде.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +145,15 @@ with slides.Presentation() as presentation:
 
 Результат:
 
-![Заполнители на схеме слайда](add_placeholders.png)
+![Заполнители на макете слайда](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Изменение унаследованного форматирования или геометрии существующих заполнителей схемы может затронуть зависимые слайды. Новый заполнитель схемы не добавляется автоматически в существующие обычные слайды. Тестируйте изменения схемы на копии презентации и проверяйте каждый зависимый слайд.
+Изменение унаследованного форматирования или геометрии существующих заполнителей макета может влиять на зависимые слайды. Ново‑добавленный заполнитель макета не заполняет автоматически существующие normal slides. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
 {{% /alert %}}
 
-## **Удаление неиспользуемых схем слайдов**
+## **Удаление неиспользуемых макетов слайдов**
 
-Используйте метод [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) для удаления схем, на которые не ссылается ни один обычный слайд. Метод оставляет нетронутыми схемы, которые всё ещё используются.
+Используйте метод [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) для удаления макетов, на которые не ссылаются normal slides. Метод оставляет макеты, всё ещё используемые, без изменений.
 
 ```python
 import aspose.slides as slides
@@ -161,11 +163,13 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Чтобы удалить конкретную схему, сначала используйте её свойство [has_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/has_depending_slides/) или метод [get_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/get_depending_slides/). Переназначьте все зависимые слайды до вызова [LayoutSlide.remove](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/remove/). Попытка удалить используемую схему вызывает [PptxEditException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxeditexception/).
+Чтобы удалить конкретный макет, сначала используйте его свойство [has_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/has_depending_slides/) или метод [get_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/get_depending_slides/). Переназначьте любые зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/remove/). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxeditexception/).
 
-## **Управление отображением нижнего колонтитула в схеме слайда**
+## **Управление видимостью нижнего колонтитула на макете слайда**
 
-У схемы есть собственные заполнители нижнего колонтитула, номера слайда и даты/времени. Используйте свойство [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/header_footer_manager/) для управления этими заполнителями в одной схеме. Это полезно, когда, например, схемы содержимого должны показывать нижний колонтитул, а схемы заголовков — нет.
+У макета есть свои собственные заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте свойство [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/header_footer_manager/) для управления этими заполнителями в одном макете. Это полезно, когда, например, макеты содержимого должны показывать нижний колонтитул, а макеты заголовков – нет.
+
+Следующий пример безопасно выбирает макет и делает его элементы нижнего колонтитула видимыми:
 
 ```python
 import aspose.slides as slides
@@ -189,9 +193,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Управление отображением нижнего колонтитула в мастере и его дочерних схемах**
+## **Управление видимостью нижнего колонтитула на мастере и его дочерних макетах**
 
-Чтобы применить одинаковые настройки нижних колонтитулов по всей иерархии мастера, используйте свойство [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslide/header_footer_manager/). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslideheaderfootermanager/) работают на мастере и его зависимых схемах и обычных слайдах; они не направлены только на один обычный слайд.
+Чтобы применить согласованные настройки нижнего колонтитула по всей иерархии мастера, используйте свойство [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslide/header_footer_manager/). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslideheaderfootermanager/) работают с мастером и его зависимыми макетами и normal slides; они не направлены только на один normal slide.
 
 ```python
 import aspose.slides as slides
@@ -207,20 +211,20 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**В чём разница между главным слайдом и схемой слайда?**
+**В чем разница между master slide и layout slide?**
 
-Главный слайд определяет тему презентации и общее форматирование. Схема слайда принадлежит главному слайду и задаёт один переиспользуемый набор размещения заполнителей. Обычные слайды используют эти схемы и хранят содержание, специфичное для каждого слайда.
+Master slide определяет тему презентации и общее форматирование. Layout slide принадлежит мастеру и задаёт одну переиспользуемую расстановку заполнителей. Normal slides используют эти макеты и хранят контент, специфичный для конкретного слайда.
 
-**Можно ли скопировать схему слайда из одной презентации в другую?**
+**Могу ли я скопировать layout slide из одной презентации в другую?**
 
-Да. Добавьте копию в целевую коллекцию с помощью метода [add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/globallayoutslidecollection/add_clone/). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходной схемой.
+Да. Добавьте копию в целевую коллекцию с помощью метода [add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/globallayoutslidecollection/add_clone/). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
-**Что происходит, когда я изменяю схему, которая уже используется?**
+**Что происходит, когда я изменяю макет, который уже используется?**
 
-Зависимые слайды наследуют изменения схемы, если они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на множестве слайдов. Используйте [get_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/get_depending_slides/) для определения затронутых слайдов перед редактированием схемы.
+Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [get_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/get_depending_slides/) для определения затронутых слайдов перед редактированием макета.
 
-**Что происходит, если я удаляю схему, которая всё ещё используется?**
+**Что происходит, если я удаляю макет, который всё ещё используется?**
 
-Aspose.Slides генерирует [PptxEditException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [remove_unused_layout_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) для удаления только неиспользуемых схем.
+Aspose.Slides вызывает [PptxEditException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [remove_unused_layout_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) для удаления только не ссылочных макетов.

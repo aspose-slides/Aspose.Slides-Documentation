@@ -1,57 +1,65 @@
 ---
-title: إدارة ماسترات شرائح العروض التقديمية في C++
-linktitle: ماستر الشريحة
+title: إدارة قوالب شرائح العرض التقديمي في C++
+linktitle: قالب الشريحة
 type: docs
 weight: 80
 url: /ar/cpp/slide-master/
 keywords:
-- ماستر الشريحة
+- قالب الشريحة
 - شريحة رئيسية
-- شريحة رئيسية لـ PPT
-- شرائح ماستر متعددة
-- مقارنة شرائح الماستر
+- شريحة رئيسية PPT
+- شرائح رئيسية متعددة
+- مقارنة شرائح رئيسية
 - خلفية
 - عنصر نائب
-- استنساخ شريحة ماستر
-- نسخ شريحة ماستر
-- تكرار شريحة ماستر
-- شريحة ماستر غير مستخدمة
+- استنساخ شريحة رئيسية
+- نسخ شريحة رئيسية
+- تكرار شريحة رئيسية
+- شريحة رئيسية غير مستخدمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إدارة ماسترات الشرائح في Aspose.Slides للغة C++: الوصول، التحرير، الاستنساخ، المقارنة، وإزالة شرائح الماستر في عروض PowerPoint و OpenDocument."
+description: "إدارة قوالب الشرائح في Aspose.Slides لـ C++: الوصول، التعديل، الاستنساخ، المقارنة، وإزالة الشرائح الرئيسية في عروض PowerPoint و OpenDocument."
 ---
 ## **نظرة عامة**
 
-**الشريحة الرئيسية** (slide master) تُعرّف إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن تحتوي على أشكال مشتركة، شعارات، خلفيات، أنماط نصية، إعدادات موضوع، وإعدادات تذييل. في PowerPoint، تعديل الشريحة الرئيسية هو الطريقة المعتادة للحفاظ على تناسق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
+**قالب الشريحة الرئيسي** يعرّف إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن يحتوي على أشكال مشتركة، شعارات، خلفيات، أنماط نص، إعدادات سمة، وإعدادات تذييل. في PowerPoint، يُعد تحرير قالب الشريحة الرئيسي الطريقة المعتادة للحفاظ على اتساق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
 
-يدعم Aspose.Slides للغة C++ نفس النموذج. يمكن للعرض التقديمي أن يحتوي على شريحة رئيسية واحدة أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى شريحة رئيسية مباشرةً. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتلك الشريحة التخطيطية تنتمي إلى شريحة رئيسية.
+يدعم Aspose.Slides for C++ نفس النموذج. يمكن للعرض التقديمي أن يحتوي على شريحة رئيسية واحدة أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى شريحة رئيسية مباشرة. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتعود شريحة التخطيط إلى شريحة رئيسية.
 
-التسلسل الهيكلي هو:
+التسلسل الهرمي هو:
 
-1. **الشريحة الرئيسية** - تُعرّف التصميم المشترك والموضوع.
-1. **شريحة التخطيط** - تُعرّف ترتيبًا محددًا للعنصر النائب وتنسيق على مستوى التخطيط.
+1. **قالب الشريحة الرئيسي** - يحدد التصميم المشترك والسمة.
+1. **شريحة التخطيط** - تحدد ترتيبًا محددًا للعناصر النائبة وتنسيق المستوى التخطيط.
 1. **الشريحة العادية** - تحتوي على محتوى العرض الفعلي وتستخدم شريحة تخطيط واحدة.
 
-![تسلسل الشريحة الرئيسية، شرائح التخطيط، والشرائح العادية](slide-master_2.jpg)
+![تسلسل شريحة القالب الرئيسي، شرائح التخطيط، والشرائح العادية](slide-master_2.jpg)
 
-في Aspose.Slides، تُمثّل الشريحة الرئيسية بواجهة [IMasterSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/). جميع الشرائح الرئيسية في العرض التقديمي متاحة عبر مجموعة [Presentation::get_Masters](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_masters/) التي تُنفّذ [IMasterSlideCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/).
+في Aspose.Slides، يتم تمثيل قالب الشريحة الرئيسي بواسطة الواجهة [IMasterSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/). جميع القوالب الرئيسية في العرض التقديمي متاحة عبر مجموعة [Presentation::get_Masters](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_masters/) التي تُطبق [IMasterSlideCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/).
 
-{{% alert color="info" title="Inheritance" %}}
-عندما يتم تعريف الخاصية نفسها في أكثر من مستوى، يفوز المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة رئيسية وشريحة تخطيط خلفية، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، انظر [Apply or Change Slide Layouts](/slides/ar/cpp/slide-layout/).
+{{% alert color="info" title="الوراثة" %}}
+عند تعريف الخاصية نفسها في أكثر من مستوى، يفوز المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة رئيسية وشريحة تخطيط خلفيةً، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/slides/ar/cpp/slide-layout/).
 {{% /alert %}}
 
-## **الوصول إلى الشرائح الرئيسية**
+## **الوصول إلى قوالب الشرائح**
 
-في PowerPoint، يمكنك فتح عرض الشريحة الرئيسية من **View** > **Slide Master**.
+في PowerPoint، يمكنك فتح عرض قالب الشريحة من **View** > **Slide Master**.
 
-![أمر شريحة رئيسية في علامة تبويب العرض في PowerPoint](slide-master_3.jpg)
+![أمر قالب الشريحة في علامة تبويب العرض في PowerPoint](slide-master_3.jpg)
 
-في Aspose.Slides، استخدم مجموعة `get_Masters()` للوصول إلى الشرائح الرئيسية:
+في Aspose.Slides، استخدم مجموعة `get_Masters()` للوصول إلى القوالب الرئيسية:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -64,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-يمكنك أيضًا الحصول على الشريحة الرئيسية المستخدمة من قبل شريحة عادية عبر تخطيطها:
+يمكنك أيضًا الحصول على الشريحة الرئيسية المستخدمة بواسطة شريحة عادية عبر تخطيطها:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -79,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **ما الذي تحتويه شريحة رئيسية**
+## **ما يحتويه قالب الشريحة الرئيسي**
 
-الشريحة الرئيسية هي كائن شبيه بالشريحة. تُنفّذ [IBaseSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/)، لذا تُظهر العديد من خصائص الشرائح نفسها المستخدمة في الشرائح العادية وتخطيطات الشرائح. تُدرج الأعضاء الخاصة بالماستر في صفحة API لـ[IMasterSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/).
+قالب الشريحة هو كائن شبيه بالشريحة. يتم تطبيق [IBaseSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/) عليه، لذا فهو يعرض العديد من خصائص الشريحة نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. الأعضاء الخاصة بالقالب مُدرجة في صفحة API [IMasterSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/).
 
-تشمل الأعضاء الشائعة الاستخدام في الشريحة الرئيسية:
+الأعضاء الشائعة الاستخدام في قالب الشريحة تشمل:
 
-| Member | Purpose |
+| عضو | الغرض |
 | --- | --- |
-| `get_Background()` | يضبط خلفية الشريحة على مستوى الماستر. |
-| `get_Shapes()` | يخزن الأشكال الموضوعة على الماستر، مثل الشعارات وإطارات الصور والنص المشترك. |
-| `get_LayoutSlides()` | يخزن شرائح التخطيط التي تنتمي إلى الماستر. |
-| `get_ThemeManager()` | يوفّر الوصول إلى واجهات برمجة تطبيقات موضوع الماستر. |
-| `get_HeaderFooterManager()` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للماستر وتخطيطاته الفرعية. |
-| `GetDependingSlides()` | يُعيد الشرائح العادية التي تعتمد على الماستر عبر تخطيطاتها. |
+| `get_Background()` | يضبط خلفية الشريحة على مستوى القالب. |
+| `get_Shapes()` | يخزن الأشكال الموضوعة على القالب، مثل الشعارات وإطارات الصور والنص المشترك. |
+| `get_LayoutSlides()` | يخزن شرائح التخطيط التي تنتمي إلى القالب. |
+| `get_ThemeManager()` | يوفر وصولًا إلى واجهات برمجة تطبيقات سمة القالب. |
+| `get_HeaderFooterManager()` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للقالب وتخطيطاته الفرعية. |
+| `GetDependingSlides()` | يرجع الشرائح العادية التي تعتمد على القالب عبر تخطيطاتها. |
 
-## **إضافة صورة إلى شريحة رئيسية**
+## **إضافة صورة إلى قالب الشريحة الرئيسي**
 
-عند إضافة صورة إلى شريحة رئيسية، تظهر على الشرائح التي تستخدم تخطيطات من ذلك الماستر. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، والعناصر البصرية المتكررة الأخرى.
+عند إضافة صورة إلى قالب شريحة رئيسية، تظهر على الشرائح التي تستخدم تخطيطات من ذلك القالب. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، وعناصر بصرية أخرى متكررة.
 
-المثال التالي يضيف شعارًا إلى الشريحة الرئيسية الأولى:
+المثال التالي يضيف شعارًا إلى أول قالب شريحة رئيسية:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -119,19 +146,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-لمزيد من المعلومات حول إطارات الصور، انظر [Picture Frame](/slides/ar/cpp/picture-frame/).
+لمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/slides/ar/cpp/picture-frame/).
+
+## **التحكم في رؤية رسومات القالب**
+
+استخدم [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/set_showmastershapes/) لإخفاء الرسومات الموروثة من القالب، مثل الشعارات أو الأشكال الزخرفية، دون حذفها من القالب. مرّر `false` إلى [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slide/set_showmastershapes/) على الشريحة التي يجب أن تُحذف تلك الرسومات و`true` على الشرائح التي يجب أن تُظهرها.
+
+المثال التالي المستقل يُنشئ شريطًا زمنيًا أزرقًا زخرفيًا على قالب شريحة رئيسية وشريحتيْن تستخدمان نفس التخطيط الفارغ. الشريط مرئي على الشريحة الأولى ومُخفي على الثانية. لا يُطلب عرض تقديمي أو صورة إدخال.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+يستخدم المثال تخطيط **Blank** المرفق مع عرض تقديمي جديد ويحذف العناصر النائبة الخاصة بالشريحة الأولية.
+
+### **اختر نطاق الإعداد**
+
+تستخدم الشريحة العادية القالب الخاص بها عبر [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/get_layoutslide/) و[ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_masterslide/). ضبط الخاصية على شريحة فردية يؤثر فقط على تلك الشريحة. تمرير `false` إلى [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/layoutslide/set_showmastershapes/) يخفي رسومات القالب للشرائح التي تستخدم ذلك التخطيط المشترك، حتى وإن كان إعدادها الخاص `true`. لإخفاء الرسومات على شريحة واحدة فقط، غير الخاصية على الشريحة واترك التخطيط المشترك دون تغيير.
+
+الإعداد غير مدعوم كعنصر تحكم في الرؤية على القالب نفسه. في القالب يعيد دائمًا `false`، وتعيين `true` يثير استثناء `System::NotSupportedException`. طبّق الإعداد على شريحة عادية أو تخطيط بدلاً من ذلك.
+
+### **تمييز الرسومات عن الخلفية**
+
+| العملية | التأثير |
+| --- | --- |
+| إخفاء رسومات القالب | يتحكم في رؤية الأشكال الموروثة من القالب دون حذفها أو تغيير أشكال الشريحة نفسها. |
+| تغيير تعبئة خلفية الشريحة | يغيّر لون الخلفية أو التدرج أو الصورة. رسومات القالب هي أشكال منفصلة ويمكن أن تظل مرئية فوق تلك الخلفية. راجع [Presentation Background](/slides/ar/cpp/presentation-background/). |
+| حذف شكل من القالب | يزيل الشكل المشترك المصدر، وبالتالي لا يصبح متاحًا لأي شريحة تستخدم ذلك القالب. |
 
 ## **العمل مع العناصر النائبة**
 
-عادةً ما تُعرّف العناصر النائبة في شرائح التخطيط. تُوفر الشريحة الرئيسية النمط والموضوع المشتركين الذين يرثهما تلك التخطيطات، بينما يحدد كل تخطيط أي العناصر النائبة متاحة وأين توضع.
+عادةً ما تُعرّف العناصر النائبة على شرائح التخطيط. يوفر القالب الرئيسي النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما يقرر كل تخطيط أي العناصر النائبة متاحة وأين توضع.
 
-في PowerPoint، تتوفر أوامر العنصر النائب في عرض شريحة رئيسية.
+في PowerPoint، أوامر العنصر النائب متاحة في عرض قالب الشريحة.
 
-![أمر إدراج عنصر نائب في عرض شريحة رئيسية في PowerPoint](slide-master_5.png)
+![أمر إدراج عنصر نائب في عرض قالب الشريحة في PowerPoint](slide-master_5.png)
 
-لإضافة عناصر نائب جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الماستر:
+لإضافة عناصر نائبة جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى القالب:
 
 ```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -153,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-يمكنك أيضًا تنسيق أشكال العنصر النائب الموجودة بالفعل في شريحة رئيسية. المثال التالي يجد العنصر النائب للعنوان ويطبق تعبئة تدرج خطي:
+يمكنك أيضًا تنسيق أشكال العناصر النائبة الموجودة بالفعل على قالب الشريحة. المثال التالي يجد العنصر النائب للعنوان ويطبق تعبئة تدرج خطية:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -194,15 +319,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![عنصر نائب للعنوان مُنسق يُورّثه الشرائح العادية](slide-master_8.png)
+![العنصر النائب للعنوان المُنسق الموروث من الشرائح العادية](slide-master_8.png)
 
-لمزيد من خيارات تنسيق العناصر النائبة والنص، انظر [Set Prompt Text in Placeholder](/slides/ar/cpp/manage-placeholder/) و[Text Formatting](/slides/ar/cpp/text-formatting/).
+لمزيد من خيارات تنسيق العناصر النائبة والنص، راجع [Set Prompt Text in Placeholder](/slides/ar/cpp/manage-placeholder/) و[Text Formatting](/slides/ar/cpp/text-formatting/).
 
-## **تغيير خلفية الشريحة الرئيسية**
+## **تغيير خلفية قالب الشريحة الرئيسي**
 
-تُورّث خلفية الماستر إلى التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يضبط لون خلفية صلب للشريحة الرئيسية الأولى:
+تُورث خلفية القالب من قبل التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يضبط لون خلفية صلبة للصفحة الأولى من القالب الرئيسي:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -216,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-لمواضيع ذات صلة، انظر [Presentation Background](/slides/ar/cpp/presentation-background/) و[Presentation Theme](/slides/ar/cpp/presentation-theme/).
+للمواضيع ذات الصلة، راجع [Presentation Background](/slides/ar/cpp/presentation-background/) و[Presentation Theme](/slides/ar/cpp/presentation-theme/).
 
-## **استنساخ شريحة رئيسية إلى عرض تقديمي آخر**
+## **استنساخ قالب شريحة رئيسية إلى عرض تقديمي آخر**
 
-استخدم [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/addclone/) لنسخ شريحة رئيسية إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الماستر المنسخ في التخطيطات والشرائح في العرض الهدف.
+استخدم [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/addclone/) لنسخ قالب شريحة رئيسية إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام القالب المنسوخ بواسطة التخطيطات والشرائح في العرض الوجهة.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -234,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-إذا كنت بحاجة إلى استنساخ الشرائح العادية مع الماستر الخاص بها، انظر [Clone Slides](/slides/ar/cpp/clone-slides/).
+إذا كنت بحاجة إلى استنساخ الشرائح العادية مع القالب الخاص بها، راجع [Clone Slides](/slides/ar/cpp/clone-slides/).
 
-## **إضافة عدة شرائح رئيسية**
+## **إضافة عدة قوالب شرائح**
 
-يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. هذا مفيد عندما تتطلب أقسام مختلفة علامات تجارية أو هيكل صفحة أو إعدادات موضوع مختلفة.
+يمكن للعرض التقديمي أن يحتوي على عدة قوالب شرائح. هذا مفيد عندما تتطلب الأقسام المختلفة علامات تجارية مختلفة أو بنية صفحات أو إعدادات سمة مختلفة.
 
-![أوامر PowerPoint لإدراج وإدارة الشرائح الرئيسية](slide-master_9.jpg)
+![أوامر PowerPoint لإدراج وإدارة قوالب الشرائح](slide-master_9.jpg)
 
-المثال التالي يستنسخ الماستر الافتراضي، يمنح النسخة نسخة خلفية مختلفة، ينشئ تخطيطًا تحت ذلك الماستر المستنسخ، ويضيف شريحة جديدة تستند إلى ذلك التخطيط:
+المثال التالي يستنسخ القالب الافتراضي، يعطي النسخة خلفية مختلفة، يُنشئ تخطيطًا تحت القالب المستنسخ، ثم يضيف شريحة جديدة بناءً على ذلك التخطيط:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -269,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **مقارنة الشرائح الرئيسية**
+## **مقارنة قوالب الشرائح**
 
-يمكن مقارنة الشرائح الرئيسية باستخدام طريقة `Equals` الموروثة من [IBaseSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/). تتحقق المقارنة من الهيكل والمحتوى الثابت، مثل الأشكال والنص والتنسيق والرسوم المتحركة وإعدادات الشريحة الأخرى. لا تُقارن المعرفات الفريدة مثل معرفات الشرائح، ولا القيم الديناميكية للعناصر النائبة مثل التاريخ الحالي.
+يمكن مقارنة قوالب الشرائح باستخدام طريقة `Equals` الموروثة من [IBaseSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/). تتحقق المقارنة من الهيكل والمحتوى الثابت مثل الأشكال والنص والتنسيق والرسوم المتحركة وإعدادات الشريحة الأخرى. لا تقارن المعرفات الفريدة مثل معرفات الشرائح أو قيم العناصر النائبة الديناميكية مثل التاريخ الحالي.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -306,13 +474,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-لمزيد من المعلومات، انظر [Compare Presentation Slides](/slides/ar/cpp/compare-slides/).
+لمزيد من المعلومات، راجع [Compare Presentation Slides](/slides/ar/cpp/compare-slides/).
 
-## **تعيين عرض شريحة رئيسية كعرض افتراضي**
+## **تعيين عرض قالب الشريحة كعرض افتراضي**
 
-استخدم طريقة `set_LastView` على [ViewProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتح PowerPoint أولاً. المثال التالي يفتح العرض التقديمي في عرض شريحة رئيسية:
+استخدم طريقة `set_LastView` على [ViewProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتح PowerPoint أولاً. المثال التالي يفتح العرض التقديمي في وضع قالب الشريحة:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -320,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-لمزيد من إعدادات العرض، انظر [Save Presentation](/slides/ar/cpp/save-presentation/).
+لمزيد من إعدادات العرض، راجع [Save Presentation](/slides/ar/cpp/save-presentation/).
 
-## **إزالة الشرائح الرئيسية غير المستخدمة**
+## **إزالة قوالب الشرائح غير المستخدمة**
 
-أحيانًا يحتوي العروض التقديمية على شرائح رئيسية لم تعد تُستَخدم من قبل أي شرائح عادية. يمكن أن يقلل إزالة الماسترات غير المستخدمة من حجم الملف ويبسط صيانة القالب.
+في بعض الأحيان يحتوي العرض التقديمي على قوالب شرائح لم تعد تُستَخدم من قبل أي شرائح عادية. إزالة القوالب غير المستخدمة يمكن أن يقلل من حجم الملف ويبسّط صيانة القالب.
 
-استخدم [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/ar/cpp/aspose.slides/masterslidecollection/removeunused/) لإزالة الماسترات غير المستخدمة من مجموعة `get_Masters()`:
+استخدم [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/ar/cpp/aspose.slides/masterslidecollection/removeunused/) لإزالة القوالب غير المستخدمة من مجموعة `get_Masters()`:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -336,9 +517,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-يمكنك أيضًا استخدام طريقة الكود القليل [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
+يمكنك أيضًا استخدام طريقة الكود المنخفض [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -346,20 +534,20 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **الأسئلة المتكررة**
+## **FAQ**
 
-**ما الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
+**ما الفرق بين قالب الشريحة الرئيسي وشريحة التخطيط؟**
 
-الشريحة الرئيسية تُعرّف إعدادات التصميم المشتركة مثل الموضوع، الخلفية، الأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة رئيسية وتُعرّف ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم شريحة تخطيط، لذا فهي ترث من كل من التخطيط والماستر.
+قالب الشريحة الرئيسي يحدد إعدادات التصميم المشتركة مثل السمة، الخلفية، الأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى قالب الشريحة الرئيسي وتحدد ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم شريحة التخطيط، لذا ترث من كل من التخطيط والقالب.
 
-**هل يمكن أن يحتوي عرض تقديمي واحد على عدة شرائح رئيسية؟**
+**هل يمكن لعرض تقديمي واحد أن يحتوي على عدة قوالب شرائح؟**
 
-نعم. يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. استخدم عدة ماسترات عندما تحتاج أقسام مختلفة إلى أنظمة بصرية أو علامات تجارية مختلفة.
+نعم. يمكن للعرض التقديمي أن يحتوي على عدة قوالب شرائح. استخدم قوالب متعددة عندما تحتاج أقسام مختلفة إلى أنظمة بصرية أو علامات تجارية مختلفة.
 
-**هل يجب إضافة العناصر النائبة إلى شريحة رئيسية أم إلى شريحة تخطيط؟**
+**هل يجب إضافة العناصر النائبة إلى قالب الشريحة الرئيسي أم إلى شريحة التخطيط؟**
 
-في معظم الحالات، أضف العناصر النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيق المشترك على الشريحة الرئيسية، ثم ضع عناصر النائب على التخطيطات التي ستستخدمها الشرائح العادية.
+في أغلب الحالات، أضف العناصر النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيقات المشتركة على القالب الرئيسي، ثم ضع عناصر النائب على التخطيطات التي ستستخدمها الشرائح العادية.
 
-**هل يمكن حذف شريحة رئيسية لا تزال مستخدمة؟**
+**هل يمكن حذف قالب شريحة رئيسية لا يزال قيد الاستخدام؟**
 
-لا. لا يمكن حذف شريحة رئيسية لديها شرائح معتمدة بأمان مباشرةً. انقل تلك الشرائح أولاً إلى تخطيطات تحت ماستر آخر، أو استخدم طريقة تنظيف الماسترات غير المستخدمة التي تُزيل فقط الماسترات غير المستعملة.
+لا. لا يمكن حذف قالب شريحة رئيسية لديه شرائح معتمدة بأمان مباشرة. انقل تلك الشرائح إلى تخطيطات تحت قالب آخر، أو استخدم طريقة تنظيف القوالب غير المستخدمة التي تزيل فقط القوالب التي لا تُستَخدم.

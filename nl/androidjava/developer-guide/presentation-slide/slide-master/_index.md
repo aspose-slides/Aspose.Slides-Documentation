@@ -1,17 +1,17 @@
 ---
-title: Beheer slide masters van presentaties op Android
-linktitle: Slide master
+title: Beheer dia-masters van presentatie op Android
+linktitle: Dia-master
 type: docs
 weight: 70
 url: /nl/androidjava/slide-master/
 keywords:
-- slide master
+- dia-master
 - masterdia
-- PPT masterdia
+- PPT-masterdia
 - meerdere masterdia's
 - masterdia's vergelijken
 - achtergrond
-- placeholder
+- tijdelijke aanduiding
 - masterdia klonen
 - masterdia kopiëren
 - masterdia dupliceren
@@ -22,37 +22,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Beheer slide masters in Aspose.Slides voor Android via Java: toegang, bewerken, klonen, vergelijken en verwijderen van masterdia's in PowerPoint- en OpenDocument-presentaties."
+description: "Beheer dia-masters in Aspose.Slides voor Android via Java: toegang, bewerken, klonen, vergelijken en verwijderen van masterdia's in PowerPoint- en OpenDocument-presentaties."
 ---
 ## **Overzicht**
 
-Een **slide master** bepaalt gedeelde ontwerpinstellingen voor een groep dia's. Hij kan gemeenschappelijke vormen, logo's, achtergronden, tekststijlen, themainstellingen en voettekstinstellingen bevatten. In PowerPoint is het bewerken van een slide master de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak op elke dia te herhalen.
+Een **dia‑master** definieert gedeelde ontwerpeigenschappen voor een groep dia’s. Het kan gemeenschappelijke vormen, logo’s, achtergronden, tekststijlen, themainstellingen en voetteksteigenschappen bevatten. In PowerPoint is het bewerken van een dia‑master de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak voor elke dia te herhalen.
 
-Aspose.Slides for Android via Java ondersteunt hetzelfde model. Een presentatie kan één of meer masterdia's bevatten, en elke masterdia kan meerdere layoutdia's bevatten. Normale dia's verwijzen meestal niet rechtstreeks naar een masterdia. In plaats daarvan gebruikt een normale dia een layoutdia, en die layoutdia behoort tot een masterdia.
+Aspose.Slides voor Android via Java ondersteunt hetzelfde model. Een presentatie kan één of meer masterdia’s bevatten, en elke masterdia kan meerdere layout‑dia’s bevatten. Gewone dia’s verwijzen meestal niet rechtstreeks naar een masterdia. In plaats daarvan gebruikt een gewone dia een layout‑dia, en die layout‑dia behoort tot een masterdia.
 
-The hierarchy is:
+De hiërarchie is:
 
-1. **Slide master** - bepaalt het gedeelde ontwerp en thema.  
-1. **Layout slide** - bepaalt een specifieke rangschikking van placeholders en lay‑out‑niveau‑opmaak.  
-1. **Normal slide** - bevat de daadwerkelijke presentatiewaarde en gebruikt één layoutdia.  
+1. **Dia‑master** – definieert het gedeelde ontwerp en thema.  
+1. **Layout‑dia** – definieert een specifieke rangschikking van tijdelijke aanduidingen en lay-out‑niveau opmaak.  
+1. **Normale dia** – bevat de feitelijke presentatie‑inhoud en gebruikt één layout‑dia.
 
-![De hiërarchie van masterdia's, layoutdia's en normale dia's](slide-master_2.jpg)
+![De hiërarchie van masterdia’s, layout‑dia’s en normale dia’s](slide-master_2.jpg)
 
-In Aspose.Slides wordt een slide master weergegeven door de [IMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/) interface. Alle masterdia's in een presentatie zijn beschikbaar via de [Presentation.getMasters](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getMasters--) collectie, die de [IMasterSlideCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/) implementeert. Voor het volledige Android‑via‑Java API‑oppervlak, zie de [com.aspose.slides API reference](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/).
+In Aspose.Slides wordt een dia‑master weergegeven door de [IMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/)‑interface. Alle masterdia’s in een presentatie zijn beschikbaar via de [Presentation.getMasters](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getMasters--)‑collectie, die [IMasterSlideCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/) implementeert. Voor het volledige Android‑via‑Java‑API‑oppervlak, zie de [com.aspose.slides API‑referentie](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/).
 
-{{% alert color="info" title="Erfenis" %}}
-Wanneer dezelfde eigenschap op meer dan één niveau is gedefinieerd, heeft het specifieker niveau voorrang. Bijvoorbeeld, als een masterdia en een layoutdia beiden een achtergrond definiëren, gebruiken dia's gebaseerd op die layout de achtergrond van de layout. Voor meer informatie over layoutdia's, zie [Apply or Change Slide Layouts](/slides/nl/androidjava/slide-layout/).
+{{% alert color="info" title="Inheritance" %}}
+Wanneer dezelfde eigenschap op meer dan één niveau wordt gedefinieerd, wint het meer specifieke niveau. Bijvoorbeeld, als een masterdia en een layout‑dia beide een achtergrond definiëren, gebruiken dia’s die op die layout zijn gebaseerd de achtergrond van de layout. Voor meer informatie over layout‑dia’s, zie [Apply or Change Slide Layouts](/slides/nl/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **Toegang tot slide masters**
+## **Toegang tot Dia‑masters**
 
-In PowerPoint kun je de Slide Master‑weergave openen via **View** > **Slide Master**.
+In PowerPoint kun je de Dia‑master‑weergave openen via **Beeld** > **Dia‑master**.
 
-![De Slide Master‑opdracht op het PowerPoint‑tabblad View](slide-master_3.jpg)
+![De Dia‑master‑opdracht op het PowerPoint‑tabblad Beeld](slide-master_3.jpg)
 
-In Aspose.Slides gebruik je de `getMasters()`‑collectie om masterdia's te benaderen:
+In Aspose.Slides gebruik je de `getMasters()`‑collectie om masterdia’s te benaderen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-Je kunt ook de masterdia die door een normale dia wordt gebruikt verkrijgen via zijn layout:
+Je kunt ook de masterdia ophalen die door een normale dia wordt gebruikt via de bijbehorende layout:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,28 +86,30 @@ try {
 }
 ```
 
-## **Wat een slide master bevat**
+## **Wat een Dia‑master Bevat**
 
-Een masterdia is een dia‑achtig object. Het implementeert [IBaseSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/), waardoor het veel van dezelfde dia‑eigenschappen biedt die door normale en layoutdia's worden gebruikt.
+Een masterdia is een object dat op een dia lijkt. Het implementeert [IBaseSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/), waardoor het veel van dezelfde dia‑eigenschappen blootlegt die door normale en layout‑dia’s worden gebruikt.
 
 Veelgebruikte leden van een masterdia zijn onder andere:
 
 | Lid | Doel |
 | --- | --- |
 | `getBackground()` | Stelt de achtergrond van de master‑dia in. |
-| `getShapes()` | Bewaar vormen die op de master zijn geplaatst, zoals logo's, afbeeldingkaders en gedeelde tekst. |
-| `getLayoutSlides()` | Bewaar de layoutdia's die tot de master behoren. |
-| `getThemeManager()` | Biedt toegang tot de master‑thema‑API's. |
-| `getHeaderFooterManager()` | Beheert kopteksten, voetteksten, datums en dia‑nummers voor de master en zijn onderliggende lay-outs. |
-| `getDependingSlides()` | Geeft normale dia's terug die via hun lay-outs afhankelijk zijn van de master. |
+| `getShapes()` | Bewaart vormen die op de master zijn geplaatst, zoals logo’s, foto‑frames en gedeelde tekst. |
+| `getLayoutSlides()` | Bewaart de layout‑dia’s die bij de master horen. |
+| `getThemeManager()` | Biedt toegang tot de master‑thema‑API’s. |
+| `getHeaderFooterManager()` | Beheert kop‑ en voetteksten, datums en dia‑nummers voor de master en haar onderliggende layouts. |
+| `getDependingSlides()` | Retourneert normale dia’s die via hun layouts van de master afhangen. |
 
-## **Afbeelding toevoegen aan een slide master**
+## **Een Afbeelding Toevoegen aan een Dia‑master**
 
-Wanneer je een afbeelding toevoegt aan een masterdia, verschijnt deze op dia's die lay-outs van die master gebruiken. Dit is handig voor logo's, watermerken, decoratieve banden en andere herhaalde visuele elementen.
+Wanneer je een afbeelding toevoegt aan een masterdia, verschijnt deze op dia’s die layouts van die master gebruiken. Dit is handig voor logo’s, watermerken, decoratieve banden en andere herhaalde visuele elementen.
 
 Het volgende voorbeeld voegt een logo toe aan de eerste masterdia:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-Voor meer informatie over afbeeldingkaders, zie [Afbeeldingskader](/slides/nl/androidjava/picture-frame/).
+Voor meer informatie over foto‑frames, zie [Picture Frame](/slides/nl/androidjava/picture-frame/).
 
-## **Werken met placeholders**
+## **De Zichtbaarheid van Master‑Grafische Objecten Sturen**
 
-Placeholders worden normaal gedefinieerd op layoutdia's. De masterdia levert de gedeelde stijl en het thema die die lay-outs overnemen, terwijl elke lay-out bepaalt welke placeholders beschikbaar zijn en waar ze worden geplaatst.
+Gebruik [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) om geërfde master‑grafische objecten, zoals logo’s of decoratieve vormen, te verbergen zonder ze van de master te verwijderen. Geef `false` door aan [Slide.setShowMasterShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) op de dia die die grafische objecten moet weglaten en houd `true` op dia’s die ze wel moeten weergeven.
 
-In PowerPoint zijn placeholder‑opdrachten beschikbaar in de Slide Master‑weergave.
-
-![De Insert Placeholder‑opdracht in de PowerPoint‑Slide‑Master‑weergave](slide-master_5.png)
-
-Om nieuwe placeholders toe te voegen met Aspose.Slides, werk je met de layoutdia die bij de master hoort:
+Het volgende zelf‑voorzienende voorbeeld maakt een blauwe decoratieve band op een master en twee dia’s die dezelfde lege layout gebruiken. De band is zichtbaar op de eerste dia en verborgen op de tweede. Er is geen invoerpresentatie of afbeelding nodig.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het voorbeeld gebruikt de **Blank**‑layout die wordt meegeleverd met een nieuwe presentatie en verwijdert de initiële tijdelijke aanduidingen van de eerste dia.
+
+### **Kies de Reikwijdte van de Instelling**
+
+Een normale dia gebruikt zijn master via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islide/#getLayoutSlide--) en [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). De eigenschap op een individuele dia instellen heeft alleen effect op die specifieke dia. `false` doorgeven aan [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) verbergt master‑grafische objecten voor alle dia’s die die gedeelde layout gebruiken, zelfs als hun eigen instelling `true` is. Om grafische objecten slechts op één dia te verbergen, wijzig je de dia‑eigenschap en laat je de gedeelde layout ongewijzigd.
+
+De instelling wordt niet ondersteund als een zichtbaarheid‑controle op de masterdia zelf. Op een master geeft [getShowMasterShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) altijd `false` terug, en `true` doorgeven aan [setShowMasterShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) veroorzaakt een uitzondering. Pas het toe op een normale dia of een layout.
+
+### **Grafische Objecten Onderscheiden van de Achtergrond**
+
+| Handeling | Effect |
+| --- | --- |
+| Master‑grafische objecten verbergen | Stelt de zichtbaarheid van geërfde master‑vormen in zonder ze te verwijderen of de eigen vormen van de dia te wijzigen. |
+| Dia‑achtergrond vullen wijzigen | Verandert de achtergrondkleur, -gradient of -afbeelding. Master‑grafische objecten zijn afzonderlijke vormen en kunnen zichtbaar blijven boven die achtergrond. Zie [Presentation Background](/slides/nl/androidjava/presentation-background/). |
+| Een vorm van de master verwijderen | Verwijdert de gedeelde bronvorm, zodat deze niet langer beschikbaar is voor enige dia die die master gebruikt. |
+
+## **Werken met Tijdelijke Aanduidingen**
+
+Tijdelijke aanduidingen worden normaal gedefinieerd op layout‑dia’s. De masterdia levert de gedeelde stijl en het thema die die layouts erven, terwijl elke layout beslist welke tijdelijke aanduidingen beschikbaar zijn en waar ze worden geplaatst.
+
+In PowerPoint zijn tijdelijke‑aanduidings‑opdrachten beschikbaar in de Dia‑master‑weergave.
+
+![De opdracht Tijdelijke aanduiding invoegen in de PowerPoint‑Dia‑master‑weergave](slide-master_5.png)
+
+Om nieuwe tijdelijke aanduidingen toe te voegen met Aspose.Slides, werk je met de layout‑dia die bij de master hoort:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-Je kunt ook placeholder‑vormen die al op een masterdia bestaan opmaken. Het volgende voorbeeld vindt de titel‑placeholder en past een lineaire gradient‑vulling toe:
+Je kunt ook de vormen van bestaande tijdelijke aanduidingen op een masterdia opmaken. Het volgende voorbeeld vindt de titel‑tijdelijke aanduiding en past een lineaire gradient‑vulling toe:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![Opgemaakte titel‑placeholder geërfd door normale dia's](slide-master_8.png)
+![Opgepaste titel‑tijdelijke aanduiding geërfd door normale dia’s](slide-master_8.png)
 
-Voor meer opties voor placeholders en tekstopmaak, zie [Set Prompt Text in Placeholder](/slides/nl/androidjava/manage-placeholder/) en [Text Formatting](/slides/nl/androidjava/text-formatting/).
+Voor meer opties voor tijdelijke aanduidingen en tekstopmaak, zie [Set Prompt Text in Placeholder](/slides/nl/androidjava/manage-placeholder/) en [Text Formatting](/slides/nl/androidjava/text-formatting/).
 
-## **Achtergrond van een slide master wijzigen**
+## **Een Dia‑master‑Achtergrond Wijzigen**
 
-Een master‑achtergrond wordt geërfd door lay-outs en dia's die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste masterdia:
+Een master‑achtergrond wordt geërfd door layouts en dia’s die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste masterdia:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-Voor gerelateerde onderwerpen, zie [Presentation Background](/slides/nl/androidjava/presentation-background/) en [Presentation Theme](/slides/nl/androidjava/presentation-theme/).
+Zie voor gerelateerde onderwerpen [Presentation Background](/slides/nl/androidjava/presentation-background/) en [Presentation Theme](/slides/nl/androidjava/presentation-theme/).
 
-## **Een slide master klonen naar een andere presentatie**
+## **Een Dia‑master Klonen naar Een Andere Presentatie**
 
-Gebruik [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) om een masterdia te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens door lay-outs en dia's in de doelpresentatie worden gebruikt.
+Gebruik [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) om een masterdia naar een andere presentatie te kopiëren. De gekopieerde master kan vervolgens worden gebruikt door layouts en dia’s in de bestemmingspresentatie.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-Als je normale dia's samen met hun master wilt klonen, zie [Clone Slides](/slides/nl/androidjava/clone-slides/).
+Als je normale dia’s wilt klonen samen met hun master, zie [Clone Slides](/slides/nl/androidjava/clone-slides/).
 
-## **Meerdere slide masters toevoegen**
+## **Meerdere Dia‑masters Toevoegen**
 
-Een presentatie kan meerdere masterdia's bevatten. Dit is handig wanneer verschillende secties verschillende branding, paginastuctuur of thema‑instellingen vereisen.
+Een presentatie kan meerdere masterdia’s bevatten. Dit is nuttig wanneer verschillende secties verschillende branding, paginastuctuur of themainstellingen vereisen.
 
-![PowerPoint‑opdrachten voor het invoegen en beheren van masterdia's](slide-master_9.jpg)
+![PowerPoint‑opdrachten voor het invoegen en beheren van masterdia’s](slide-master_9.jpg)
 
-Het volgende voorbeeld kloont de standaard master, geeft de kloon een andere achtergrond, maakt een layout onder die gekloonde master en voegt een nieuwe dia toe gebaseerd op die layout:
+Het volgende voorbeeld kloont de standaard‑master, geeft de kloon een andere achtergrond, maakt een layout onder die gekloonde master en voegt een nieuwe dia toe gebaseerd op die layout:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -275,11 +348,13 @@ try {
 }
 ```
 
-## **Slide masters vergelijken**
+## **Dia‑masters Vergelijken**
 
-Masterdia's kunnen worden vergeleken met de `equals`‑methode die ze erven van [IBaseSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/). De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Het vergelijkt geen unieke identifiers, zoals dia‑ID's, of dynamische placeholder‑waarden, zoals de huidige datum.
+Masterdia’s kunnen worden vergeleken met de `equals`‑methode die wordt geërfd van [IBaseSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/). De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Unieke identifiers zoals dia‑ID’s of dynamische tijdelijke‑aanduidingswaarden zoals de huidige datum worden niet vergeleken.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -308,11 +383,13 @@ try {
 
 Voor meer informatie, zie [Compare Presentation Slides](/slides/nl/androidjava/compare-slides/).
 
-## **Slide Master‑weergave als standaardweergave instellen**
+## **Dia‑master‑Weergave Als Standaard‑Weergave Instellen**
 
-Gebruik de `setLastView`‑methode op [ViewProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint eerst opent. Het volgende voorbeeld opent de presentatie in Slide Master‑weergave:
+Gebruik de `setLastView`‑methode op [ViewProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint eerst opent. Het volgende voorbeeld opent de presentatie in de Dia‑master‑weergave:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,13 +401,15 @@ try {
 
 Voor meer weergave‑instellingen, zie [Save Presentation](/slides/nl/androidjava/save-presentation/).
 
-## **Ongebruikte masterdia's verwijderen**
+## **Ongebruikte Masterdia’s Verwijderen**
 
-Presentaties kunnen soms masterdia's bevatten die niet meer door enige normale dia worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het onderhoud van sjablonen vereenvoudigen.
+Presentaties kunnen soms masterdia’s bevatten die door geen enkele normale dia meer worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verminderen en het onderhoud van sjablonen vereenvoudigen.
 
 Gebruik `removeUnused` om ongebruikte masters uit de `getMasters()`‑collectie te verwijderen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -343,6 +422,8 @@ try {
 Je kunt ook de low‑code‑methode [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) gebruiken:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,18 +435,18 @@ try {
 
 ## **FAQ**
 
-**Wat is het verschil tussen een slide master en een layoutdia?**
+**Wat is het verschil tussen een dia‑master en een layout‑dia?**
 
-Een slide master bepaalt gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekststijlen. Een layoutdia behoort tot een masterdia en bepaalt een specifieke rangschikking van placeholders. Een normale dia gebruikt een layoutdia, zodat hij zowel van de layout als van de master erft.
+Een dia‑master definieert gedeelde ontwerp‑instellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekststijlen. Een layout‑dia behoort tot een masterdia en definieert een specifieke rangschikking van tijdelijke aanduidingen. Een normale dia gebruikt een layout‑dia, zodat hij zowel van de layout als van de master erft.
 
-**Kan één presentatie meerdere slide masters bevatten?**
+**Kan een presentatie meerdere dia‑masters bevatten?**
 
-Ja. Een presentatie kan meerdere slide masters bevatten. Gebruik meerdere masters wanneer verschillende secties verschillende visuele systemen of branding nodig hebben.
+Ja. Een presentatie kan meerdere masterdia’s bevatten. Gebruik meerdere masters wanneer verschillende secties verschillende visuele systemen of branding vereisen.
 
-**Moet ik placeholders toevoegen aan een masterdia of aan een layoutdia?**
+**Moet ik tijdelijke aanduidingen toevoegen aan een masterdia of een layout‑dia?**
 
-In de meeste gevallen voeg je placeholders toe aan layoutdia's. Plaats gedeelde visuele elementen en gedeelde opmaak op de masterdia, en plaats inhouds‑placeholders op de lay-outs die normale dia's zullen gebruiken.
+In de meeste gevallen voeg je tijdelijke aanduidingen toe aan layout‑dia’s. Plaats gedeelde visuele elementen en gedeelde opmaak op de masterdia en zet inhoudelijke tijdelijk‑aanduidingen op de layouts die normale dia’s gaan gebruiken.
 
 **Kan ik een masterdia verwijderen die nog in gebruik is?**
 
-Nee. Een masterdia met afhankelijke dia's kan niet veilig direct worden verwijderd. Verplaats die dia's eerst naar lay-outs onder een andere master, of gebruik een opruimmethode voor ongebruikte masters die alleen masters verwijdert die niet in gebruik zijn.
+Nee. Een masterdia met afhankelijke dia’s kan niet veilig direct worden verwijderd. Verplaats die dia’s eerst naar layouts onder een andere master, of gebruik een opruimmethode die alleen ongebruikte masters verwijdert.

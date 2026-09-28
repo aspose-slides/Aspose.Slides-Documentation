@@ -1,55 +1,55 @@
 ---
-title: "إدارة ماسترات شرائح العرض التقديمي في PHP"
-linktitle: "ماستر الشريحة"
+title: إدارة الشرائح الرئيسية للعرض التقديمي في PHP
+linktitle: الشريحة الرئيسية
 type: docs
 weight: 70
 url: /ar/php-java/slide-master/
 keywords:
-- ماستر الشريحة
-- شريحة ماستر
-- شريحة ماستر PPT
-- شرائح ماستر متعددة
-- مقارنة شرائح الماستر
+- الشريحة الرئيسية
+- شريحة رئيسية
+- شريحة رئيسية PPT
+- شرائح رئيسية متعددة
+- مقارنة الشرائح الرئيسية
 - خلفية
 - عنصر نائب
-- استنساخ شريحة ماستر
-- نسخ شريحة ماستر
-- تكرار شريحة ماستر
-- شريحة ماستر غير مستخدمة
+- استنساخ شريحة رئيسية
+- نسخ شريحة رئيسية
+- تكرار شريحة رئيسية
+- شريحة رئيسية غير مستخدمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدارة ماسترات الشرائح في Aspose.Slides للـ PHP عبر Java: الوصول، التحرير، الاستنساخ، المقارنة، وإزالة ماسترات الشرائح في عروض PowerPoint وOpenDocument."
+description: "إدارة الشرائح الرئيسية في Aspose.Slides للـ PHP عبر Java: الوصول، التحرير، الاستنساخ، المقارنة، وإزالة الشرائح الرئيسية في عروض PowerPoint و OpenDocument."
 ---
 ## **نظرة عامة**
 
-**شريحة الماستر** تُعرّف إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن تحتوي على أشكال شائعة، شعارات، خلفيات، أنماط نص، إعدادات السمة، وإعدادات التذييل. في PowerPoint، تعديل شريحة الماستر هو الطريقة المعتادة للحفاظ على اتساق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
+**الشريحة الرئيسية** (slide master) تُعرّف إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن تحتوي على أشكال شائعة، شعارات، خلفيات، أنماط نص، إعدادات سمة، وإعدادات تذييل. في PowerPoint، يُعد تحرير الشريحة الرئيسية هو الطريقة المعتادة للحفاظ على تناسق العرض دون تكرار نفس التنسيق على كل شريحة.
 
-Aspose.Slides for PHP via Java يدعم نفس النموذج. يمكن للعرض التقديمي أن يحتوي على شريحة ماستر واحدة أو أكثر، ويمكن لكل شريحة ماستر أن تحتوي على عدة شرائح تخطيط. الشرائح العادية عادةً لا تشير إلى شريحة ماستر مباشرة. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتلك الشريحة التخطيط تنتمي إلى شريحة ماستر.
+Aspose.Slides for PHP via Java يدعم نفس النموذج. يمكن للعرض التقديمي أن يحتوي على شريحة رئيسية واحدة أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. الشرائح العادية عادةً لا تشير مباشرةً إلى شريحة رئيسية. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتابعة لتلك الشريحة التخطيطية التي تنتمي إلى شريحة رئيسية.
 
 التسلسل الهرمي هو:
 
-1. **شريحة الماستر** - تُعرّف التصميم المشترك والسمة.
-1. **شريحة التخطيط** - تُعرّف ترتيبًا محددًا للأماكن النائبة وتنسيق المستوى التخطيطي.
-1. **شريحة عادية** - تحتوي على محتوى العرض الفعلي وتستخدم شريحة تخطيط واحدة.
+1. **الشريحة الرئيسية** - تُعرّف التصميم والسمة المشتركة.  
+1. **شريحة التخطيط** - تُعرّف ترتيبًا محددًا للعناصر النائبة وتنسيقًا على مستوى التخطيط.  
+1. **الشريحة العادية** - تحتوي على محتوى العرض الفعلي وتستخدم شريحة تخطيط واحدة.
 
-![تسلسل شريحة الماستر، شرائح التخطيط، والشرائح العادية](slide-master_2.jpg)
+![تسلسل الشرائح الرئيسية، شرائح التخطيط، والشرائح العادية](slide-master_2.jpg)
 
-في Aspose.Slides، تُمثَّل شريحة الماستر بواسطة الفئة [MasterSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/). جميع شرائح الماستر في عرض تقديمي متاحة عبر طريقة [Presentation.getMasters](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getMasters)، التي تُعيد كائن [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/).
+في Aspose.Slides، تمثّل الشريحة الرئيسية الفئة [MasterSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/). جميع الشرائح الرئيسية في عرض تقديمي متاحة عبر طريقة [Presentation.getMasters](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getMasters)، التي تُعيد كائن [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-عند تعريف الخاصية نفسها في أكثر من مستوى، يفوز المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة ماستر وشريحة تخطيط خلفية، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/slides/ar/php-java/slide-layout/).
+عند تعريف الخاصية نفسها في أكثر من مستوى، يفوز المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة رئيسية وشريحة تخطيط خلفية، فإن الشرائح المستندة إلى هذا التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/slides/ar/php-java/slide-layout/).
 {{% /alert %}}
 
-## **الوصول إلى شرائح الماستر**
+## **الوصول إلى الشرائح الرئيسية**
 
-في PowerPoint، يمكنك فتح عرض شريحة الماستر من **View** > **Slide Master**.
+في PowerPoint، يمكنك فتح عرض الشريحة الرئيسية من **عرض** > **الشريحة الرئيسية**.
 
-![أمر شريحة الماستر في علامة تبويب عرض PowerPoint](slide-master_3.jpg)
+![أمر الشريحة الرئيسية في علامة تبويب عرض PowerPoint](slide-master_3.jpg)
 
-في Aspose.Slides، استخدم طريقة `getMasters` للوصول إلى شرائح الماستر:
+في Aspose.Slides، استخدم طريقة `getMasters` للوصول إلى الشرائح الرئيسية:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-يمكنك أيضًا الحصول على شريحة الماستر المستخدمة من قبل شريحة عادية عبر تخطيطها:
+يمكنك أيضًا الحصول على الشريحة الرئيسية المستخدمة بواسطة شريحة عادية من خلال تخطيطها:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -81,26 +81,26 @@ try {
 }
 ```
 
-## **ما يحتويه شريحة الماستر**
+## **ما الذي تحتويه الشريحة الرئيسية**
 
-شريحة الماستر هي كائن شبيه بالشريحة. تمتد من [BaseSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/)، لذا تكشف عن العديد من خصائص الشرائح نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. يتم سرد الأعضاء الخاصة بالماستر في صفحة API الخاصة بـ [MasterSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/).
+الشريحة الرئيسية هي كائن شبيه بالشريحة. إنها ترث من [BaseSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/)، وبالتالي تُظهر العديد من خصائص الشريحة نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. يتم سرد الأعضاء الخاصة بالشريحة الرئيسية في صفحة API لـ [MasterSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/).
 
-الأعضاء الشائعة الاستخدام في شريحة الماستر تشمل:
+من بين الأعضاء الشائعة المستخدمة في الشريحة الرئيسية:
 
 | العضو | الغرض |
 | --- | --- |
-| `getBackground` | يحدد خلفية الشريحة على مستوى الماستر. |
-| `getShapes` | يخزن الأشكال الموضوعة على الماستر، مثل الشعارات، إطارات الصور، والنص المشترك. |
-| `getLayoutSlides` | يخزن شرائح التخطيط التي تنتمي إلى الماستر. |
-| `getThemeManager` | يوفر الوصول إلى واجهات برمجة تطبيقات سمة الماستر. |
-| `getHeaderFooterManager` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للماستر وتخطيطاته الفرعية. |
-| `getDependingSlides` | يرجع الشرائح العادية التي تعتمد على الماستر عبر تخطيطاتها. |
+| `getBackground` | يحدد خلفية الشريحة على مستوى الرئيس. |
+| `getShapes` | يخزن الأشكال الموضوعة على الرئيس، مثل الشعارات، إطارات الصور، والنص المشترك. |
+| `getLayoutSlides` | يخزن شرائح التخطيط التي تابعة للرئيس. |
+| `getThemeManager` | يوفّر وصولاً إلى واجهات برمجة تطبيقات سمة الرئيس. |
+| `getHeaderFooterManager` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للرئيس وتخطيطاته الفرعية. |
+| `getDependingSlides` | يُعيد الشرائح العادية التي تعتمد على الرئيس عبر تخطيطاتها. |
 
-## **إضافة صورة إلى شريحة الماستر**
+## **إضافة صورة إلى الشريحة الرئيسية**
 
-عند إضافة صورة إلى شريحة ماستر، تظهر على الشرائح التي تستخدم تخطيطات من ذلك الماستر. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، وعناصر بصرية متكررة أخرى.
+عند إضافة صورة إلى شريحة رئيسية، تظهر على الشرائح التي تستخدم تخطيطات من ذلك الرئيس. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، وغيرها من العناصر البصرية المتكررة.
 
-المثال التالي يضيف شعارًا إلى شريحة الماستر الأولى:
+المثال التالي يضيف شعارًا إلى الشريحة الرئيسية الأولى:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -130,15 +130,72 @@ try {
 
 لمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/slides/ar/php-java/picture-frame/).
 
-## **العمل مع الأماكن النائبة**
+## **التحكم في إظهار رسومات الرئيس**
 
-عادةً ما تُعرّف الأماكن النائبة في شرائح التخطيط. توفر شريحة الماستر النمط المشترك والسمة التي يرثها تلك التخطيطات، بينما يحدد كل تخطيط الأماكن النائبة المتاحة وموقعها.
+استخدم [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#setShowMasterShapes) لإخفاء الرسومات الموروثة من الرئيس، مثل الشعارات أو الأشكال الزخرفية، دون حذفها من الرئيس. مرّر `false` إلى [Slide::setShowMasterShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#setShowMasterShapes) على الشريحة التي يجب أن تُغفل هذه الرسومات واحتفظ بـ `true` على الشرائح التي يجب أن تُظهرها.
 
-في PowerPoint، أوامر الأماكن النائبة متاحة في عرض شريحة الماستر.
+المثال التالي المستقل يُنشئ شريطًا زخرفيًا أزرق على الرئيس وشريحتين تستخدمان نفس التخطيط الفارغ. الشريط مرئي على الشريحة الأولى ومخفي على الثانية. لا يلزم أي عرض تقديمي أو صورة كمدخل.
 
-![أمر إدراج المكان النائب في عرض شريحة الماستر في PowerPoint](slide-master_5.png)
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
 
-لإضافة أماكن نائبة جديدة مع Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الماستر:
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+يستخدم المثال تخطيط **Blank** المرفق مع عرض تقديمي جديد ويزيل العناصر النائبة للشفرة الأولية.
+
+### **اختيار نطاق الإعداد**
+
+الشريحة العادية تستخدم رئيسها عبر [Slide::getLayoutSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#getLayoutSlide) و[LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/layoutslide/#getMasterSlide). ضبط الخاصية على شريحة فردية يؤثر فقط على تلك الشريحة. تمرير `false` إلى [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/layoutslide/#setShowMasterShapes) يخفي رسومات الرئيس للشرائح التي تستخدم ذلك التخطيط المشترك، حتى وإن كان إعدادها الخاص `true`. لإخفاء الرسومات على شريحة واحدة فقط، غير خاصية الشريحة واترك التخطيط المشترك دون تغيير.
+
+الإعداد غير مدعوم كتحكم في الرؤية على الشريحة الرئيسية نفسها. على الرئيس، تُعيد [getShowMasterShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/#getShowMasterShapes) دائمًا `false`، وتمرير `true` إلى [setShowMasterShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/#setShowMasterShapes) يثير استثناءً. طبّقها على شريحة عادية أو على تخطيط بدلاً من ذلك.
+
+### **تمييز الرسومات عن الخلفية**
+
+| العملية | التأثير |
+| --- | --- |
+| إخفاء رسومات الرئيس | يتحكم في رؤية الأشكال الموروثة من الرئيس دون حذفها أو تعديل أشكال الشريحة الخاصة. |
+| تغيير ملء خلفية الشريحة | يغيّر لون الخلفية أو التدرج أو الصورة. رسومات الرئيس هي أشكال منفصلة ويمكن أن تظل مرئية فوق الخلفية. راجع [Presentation Background](/slides/ar/php-java/presentation-background/). |
+| حذف شكل من الرئيس | يزيل الشكل المصدر المشترك، وبالتالي لا يصبح متاحًا لأي شريحة تستخدم ذلك الرئيس. |
+
+## **العمل مع العناصر النائبة**
+
+عادةً ما تُعرّف العناصر النائبة على شرائح التخطيط. توفر الشريحة الرئيسية النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما يقرر كل تخطيط أي العناصر النائبة متاحة وأين تُوضع.
+
+في PowerPoint، أوامر العنصر النائب متوفرة في عرض الشريحة الرئيسية.
+
+![أمر إدراج عنصر نائب في عرض الشريحة الرئيسية في PowerPoint](slide-master_5.png)
+
+لإضافة عناصر نائبة جديدة مع Aspose.Slides، اعمل على شريحة التخطيط التابعة للرئيس:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -164,7 +221,7 @@ try {
 }
 ```
 
-يمكنك أيضًا تنسيق أشكال الأماكن النائبة الموجودة بالفعل على شريحة ماستر. المثال التالي يجد مكان العنوان ويطبق تعبئة تدرج خطية:
+يمكنك أيضًا تنسيق أشكال العناصر النائبة الموجودة بالفعل على شريحة رئيسية. المثال التالي يجد العنصر النائب للعنوان ويطبق ملءً متدرجًا خطيًا:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -206,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![مكان عنوان منسق موروث للشرائح العادية](slide-master_8.png)
+![العنوان النائب المُنسق الموروث من الشرائح العادية](slide-master_8.png)
 
-لمزيد من خيارات تنسيق الأماكن النائبة والنص، راجع [Set Prompt Text in Placeholder](/slides/ar/php-java/manage-placeholder/) و[Text Formatting](/slides/ar/php-java/text-formatting/).
+لمزيد من خيارات تنسيق العناصر النائبة والنص، راجع [Set Prompt Text in Placeholder](/slides/ar/php-java/manage-placeholder/) و[Text Formatting](/slides/ar/php-java/text-formatting/).
 
-## **تغيير خلفية شريحة الماستر**
+## **تغيير خلفية الشريحة الرئيسية**
 
-خلفية الماستر تُورّث إلى التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يحدد لون خلفية صلب للشريحة الماستر الأولى:
+خلفية الرئيس تُورّث إلى التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يحدد لون خلفية صلبة للشريحة الرئيسية الأولى:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -232,11 +289,11 @@ try {
 }
 ```
 
-للمواضيع ذات الصلة، راجع [Presentation Background](/slides/ar/php-java/presentation-background/) و[Presentation Theme](/slides/ar/php-java/presentation-theme/).
+لموضوعات ذات صلة، راجع [Presentation Background](/slides/ar/php-java/presentation-background/) و[Presentation Theme](/slides/ar/php-java/presentation-theme/).
 
-## **استنساخ شريحة الماستر إلى عرض تقديمي آخر**
+## **استنساخ شريحة رئيسية إلى عرض تقديمي آخر**
 
-استخدم `addClone` من [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/) لنسخ شريحة ماستر إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الماستر المنسوخ بواسطة التخطيطات والشرائح في العرض الهدف.
+استخدم `addClone` من [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/) لنسخ شريحة رئيسية إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الرئيس المنسوخ في التخطيطات والشرائح في العرض الهدف.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -252,15 +309,15 @@ try {
 }
 ```
 
-إذا كنت بحاجة لاستنساخ الشرائح العادية مع الماستر الخاص بها، راجع [Clone Slides](/slides/ar/php-java/clone-slides/).
+إذا احتجت إلى استنساخ الشرائح العادية مع رئيسها، راجع [Clone Slides](/slides/ar/php-java/clone-slides/).
 
-## **إضافة عدة شرائح ماستر**
+## **إضافة عدة شرائح رئيسية**
 
-يمكن للعرض التقديمي أن يحتوي على عدة شرائح ماستر. هذا مفيد عندما تتطلب الأقسام المختلفة علامات تجارية مختلفة أو بنية صفحات أو إعدادات سمة مختلفة.
+يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. هذا مفيد عندما تتطلب أقسام مختلفة علامة تجارية مختلفة أو بنية صفحات أو إعدادات سمة مختلفة.
 
-![أوامر PowerPoint لإدراج وإدارة شرائح الماستر](slide-master_9.jpg)
+![أوامر PowerPoint لإدراج وإدارة الشرائح الرئيسية](slide-master_9.jpg)
 
-المثال التالي يستنسخ الماستر الافتراضي، يعطي النسخة الخلفية مختلفة، ينشئ تخطيطًا تحت ذلك الماستر المستنسخ، ويضيف شريحة جديدة تستند إلى ذلك التخطيط:
+المثال التالي يستنسخ الرئيس الافتراضي، يمنح النسخة المنسوخة خلفية مختلفة، ينشئ تخطيطًا تحت ذلك الرئيس المستنسخ، ويضيف شريحة جديدة مستندة إلى ذلك التخطيط:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -285,9 +342,9 @@ try {
 }
 ```
 
-## **مقارنة شرائح الماستر**
+## **مقارنة الشرائح الرئيسية**
 
-يمكن مقارنة شرائح الماستر باستخدام طريقة `equals` الموروثة من [BaseSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/). المقارنة تتحقق من الهيكل والمحتوى الثابت مثل الأشكال، النص، التنسيق، الرسوم المتحركة، وإعدادات الشريحة الأخرى. لا يتم مقارنة المعرفات الفريدة مثل معرفات الشرائح، أو قيم الأماكن النائبة الديناميكية مثل التاريخ الحالي.
+يمكن مقارنة الشرائح الرئيسية باستخدام طريقة `equals` الموروثة من [BaseSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/). تتحقق المقارنة من البنية والمحتوى الثابت، مثل الأشكال والنص والتنسيق والحركات وإعدادات الشريحة الأخرى. لا تقارن المعرفات الفريدة، مثل معرفات الشرائح، أو قيم العناصر النائبة الديناميكية، مثل التاريخ الحالي.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -316,9 +373,9 @@ try {
 
 لمزيد من المعلومات، راجع [Compare Presentation Slides](/slides/ar/php-java/compare-slides/).
 
-## **تعيين عرض شريحة الماستر كعرض افتراضي**
+## **تعيين عرض الشريحة الرئيسية كعرض افتراضي**
 
-استخدم طريقة `setLastView` على [ViewProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتحه PowerPoint أولاً. المثال التالي يفتح العرض التقديمي في عرض شريحة الماستر:
+استخدم طريقة `setLastView` على [ViewProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتح PowerPoint أولاً. المثال التالي يفتح العرض في وضع الشريحة الرئيسية:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -332,11 +389,11 @@ try {
 
 لمزيد من إعدادات العرض، راجع [Save Presentation](/slides/ar/php-java/save-presentation/).
 
-## **إزالة شرائح الماستر غير المستخدمة**
+## **إزالة الشرائح الرئيسية غير المستخدمة**
 
-أحيانًا يحتوي العرض التقديمي على شرائح ماستر لم تعد مستخدمة من قبل أي شرائح عادية. إزالة الماسترات غير المستخدمة يمكن أن يقلل حجم الملف ويبسط صيانة القالب.
+أحيانًا يحتوي العرض على شرائح رئيسية لم تعد تُستخدم من قبل أي شرائح عادية. إزالة الرؤساء غير المستخدمين يمكن أن يقلل من حجم الملف ويسهل صيانة القالب.
 
-استخدم `removeUnused` من [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/) لإزالة الماسترات غير المستخدمة من مجموعة `getMasters`:
+استخدم `removeUnused` من [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/) لإزالة الرؤساء غير المستخدمين من مجموعة `getMasters`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -348,7 +405,7 @@ try {
 }
 ```
 
-يمكنك أيضًا استخدام طريقة منخفضة الكود `removeUnusedMasterSlides` من الفئة [Compress](https://reference.aspose.com/slides/ar/php-java/aspose.slides/compress/):
+يمكنك أيضًا استخدام طريقة منخفضة الشيفرة `removeUnusedMasterSlides` من فئة [Compress](https://reference.aspose.com/slides/ar/php-java/aspose.slides/compress/):
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -360,20 +417,20 @@ try {
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين شريحة الماستر وشريحة التخطيط؟**
+**ما الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
 
-شريحة الماستر تُعرّف إعدادات التصميم المشتركة مثل السمة، الخلفية، الأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة ماستر وتُعرّف ترتيبًا محددًا للأماكن النائبة. الشريحة العادية تستخدم شريحة تخطيط، وبالتالي ترث من كلا من التخطيط والماستر.
+الشريحة الرئيسية تُعرّف إعدادات التصميم المشتركة مثل السمة، الخلفية، الأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة رئيسية وتُعرّف ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم شريحة تخطيط، لذا فإنها ترث من كلٍ من التخطيط والرئيس.
 
-**هل يمكن لعرض تقديمي واحد أن يحتوي على عدة شرائح ماستر؟**
+**هل يمكن أن يحتوي عرض تقديمي على عدة شرائح رئيسية؟**
 
-نعم. يمكن للعرض التقديمي أن يحتوي على عدة شرائح ماستر. استخدم عدة ماسترات عندما تحتاج أقسام مختلفة إلى أنظمة بصرية أو علامات تجارية مختلفة.
+نعم. يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. استخدم رؤساء متعددين عندما تحتاج أقسام مختلفة إلى أنظمة بصرية أو علامات تجارية مختلفة.
 
-**هل يجب إضافة الأماكن النائبة إلى شريحة ماستر أم إلى شريحة تخطيط؟**
+**هل يجب إضافة العناصر النائبة إلى شريحة رئيسية أم شريحة تخطيط؟**
 
-في معظم الحالات، أضف الأماكن النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيق المشترك على شريحة الماستر، ثم ضع أماكن محتوى على التخطيطات التي ستستخدمها الشرائح العادية.
+في معظم الحالات، أضف العناصر النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيق المشترك على الشريحة الرئيسية، ثم ضع عناصر النائب للمحتوى على التخطيطات التي ستستخدمها الشرائح العادية.
 
-**هل يمكن حذف شريحة ماستر لا تزال قيد الاستخدام؟**
+**هل يمكن حذف شريحة رئيسية لا زالت مستخدمة؟**
 
-لا. لا يمكن حذف شريحة ماستر لديها شرائح تابعة بأمان مباشرة. يجب أولًا نقل تلك الشرائح إلى تخطيطات تحت ماستر آخر، أو استخدام طريقة تنظيف الماسترات غير المستخدمة التي تزيل فقط الماسترات غير المستخدمة.
+لا. لا يمكن حذف شريحة رئيسية لها شرائح معتمدة بأمان مباشرةً. انقل تلك الشرائح إلى تخطيطات تحت رئيس آخر، أو استخدم طريقة تنظيف الرؤساء غير المستخدمة التي تحذف فقط الرؤساء غير المستعملة.

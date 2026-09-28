@@ -1,17 +1,17 @@
 ---
-title: Správa master slideů prezentace v Pythonu
-linktitle: Master slide
+title: Správa slide masterů v Pythonu
+linktitle: Slide master
 type: docs
 weight: 80
 url: /cs/python-net/slide-master/
 keywords:
 - master snímku
-- master snímku
-- PPT master snímku
+- master snímek
+- PPT master snímek
 - více master snímků
 - porovnání master snímků
 - pozadí
-- zástupný prvek
+- zástupný objekt
 - klonovat master snímek
 - kopírovat master snímek
 - duplikovat master snímek
@@ -21,35 +21,35 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Spravujte master slide v Aspose.Slides pro Python pomocí .NET: přístup, úpravy, klonování, porovnávání a odstraňování master slide v prezentacích PowerPoint a OpenDocument."
+description: "Spravujte slide mastery v Aspose.Slides for Python via .NET: přístup, úpravy, klonování, porovnání a odstraňování master snímků v prezentacích PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-**slide master** definuje sdílená nastavení designu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení tématu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž byste opakovali stejné formátování na každém snímku.
+**Slide master** definuje sdílená nastavení designu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž byste opakovali stejné formátování na každém snímku.
 
-Aspose.Slides pro Python via .NET podporuje stejný model. Prezentace může obsahovat jeden nebo více master slideů a každý master slide může obsahovat několik layout slideů. Normální snímky se obvykle nepřímo neodkazují na master slide. Místo toho normální snímek používá layout slide, který patří k master slide.
+Aspose.Slides for Python via .NET podporuje stejný model. Prezentace může obsahovat jeden nebo více master slidů a každý master slide může obsahovat několik layout slidů. Normální snímky se obvykle nepřímo neodkazují na master slide. Místo toho normální snímek používá layout slide, který patří k master slide.
 
 Hierarchie je:
 
-1. **Slide master** – definuje sdílený design a téma.  
-1. **Layout slide** – definuje konkrétní uspořádání placeholderů a formátování na úrovni rozvržení.  
+1. **Slide master** – definuje sdílený design a motiv.  
+1. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování na úrovni rozvržení.  
 1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden layout slide.
 
-![Hierarchie master slideů, layout slideů a normálních snímků](slide-master_2.jpg)
+![Hierarchie master slidů, layout slidů a normálních slidů](slide-master_2.jpg)
 
-V Aspose.Slides je slide master reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslide/) . Všechny master slide v prezentaci jsou dostupné prostřednictvím kolekce `Presentation.masters`.
+V Aspose.Slides je slide master reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslide/) . Všechny master slidy v prezentaci jsou dostupné prostřednictvím kolekce `Presentation.masters`.
 
 {{% alert color="info" title="Dědičnost" %}}
-Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud master slide i layout slide oba definují pozadí, snímky založené na tomto layoutu použijí pozadí layoutu. Další informace o layout slidech najdete v [Apply or Change Slide Layouts](/slides/cs/python-net/slide-layout/).
+Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud master slide a layout slide oba definují pozadí, snímky založené na tomto rozvržení použijí pozadí rozvržení. Další informace o layout slidech naleznete v [Apply or Change Slide Layouts](/slides/cs/python-net/slide-layout/).
 {{% /alert %}}
 
-## **Přístup k Slide Masterům**
+## **Přístup k slide masterům**
 
-V PowerPointu můžete otevřít zobrazení Slide Masteru z **View** > **Slide Master**.
+V PowerPointu můžete otevřít zobrazení Slide Master z **View** > **Slide Master**.
 
 ![Příkaz Slide Master na kartě View v PowerPointu](slide-master_3.jpg)
 
-V Aspose.Slides použijte kolekci `masters` pro přístup k master slideům:
+V Aspose.Slides použijte kolekci `masters` k přístupu k master slideům:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Můžete také získat master slide použité normálním snímkem přes jeho layout:
+Můžete také získat master slide použitý normálním snímkem prostřednictvím jeho rozvržení:
 
 ```python
 import aspose.slides as slides
@@ -77,24 +77,24 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Co Slide Master obsahuje**
+## **Co obsahuje slide master**
 
-Master slide je objekt podobný snímku. Dědí běžné chování snímku z třídy [BaseSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/baseslide/) , takže poskytuje mnoho stejných vlastností snímků používaných normálními a layout snímky. Členové specifické pro master jsou uvedeni na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslide/) .
+Master slide je objekt podobný snímku. Dědí společné chování snímku ze třídy [BaseSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/baseslide/) , takže poskytuje mnoho stejných vlastností snímků, které se používají u normálních a layout slidů. Členy specifické pro master jsou uvedeny na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslide/) .
 
-Často používaní členové master slide zahrnují:
+Běžně používané členy master slide zahrnují:
 
 | Člen | Účel |
 | --- | --- |
-| `background` | Nastavuje pozadí slide na úrovni masteru. |
-| `shapes` | Ukládá tvary umístěné na masteru, jako loga, rámečky obrázků a sdílený text. |
-| `layout_slides` | Ukládá layout slide patřící k masteru. |
-| `theme_manager` | Poskytuje přístup k API master tématu. |
-| `header_footer_manager` | Řídí záhlaví, zápatí, data a čísla snímků pro master a jeho podřízené layouty. |
-| `get_depending_slides` | Vrací normální snímky, které závisí na masteru přes své layouty. |
+| `background` | Nastavuje pozadí na úrovni master slide. |
+| `shapes` | Uchovává tvary umístěné na masteru, jako jsou loga, rámy obrázků a sdílený text. |
+| `layout_slides` | Uchovává layout slidů patřící k masteru. |
+| `theme_manager` | Poskytuje přístup k API motivu masteru. |
+| `header_footer_manager` | Řídí záhlaví, zápatí, data a čísla snímků pro master a jeho podřízené rozvržení. |
+| `get_depending_slides` | Vrací normální snímky, které závisí na masteru prostřednictvím svých layoutů. |
 
-## **Přidání obrázku do Slide Masteru**
+## **Přidání obrázku do slide masteru**
 
-Když přidáte obrázek do master slide, objeví se na snímcích, které používají layouty z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pásky a další opakující se vizuální prvky.
+Když přidáte obrázek do master slide, objeví se na snímcích, které používají rozvržení z tohoto masteru. Je to užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
 
 Následující příklad přidá logo na první master slide:
 
@@ -120,17 +120,66 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Další informace o rámečcích obrázků najdete v [Picture Frame](/slides/cs/python-net/picture-frame/).
+Pro více informací o rámečcích obrázků viz [Picture Frame](/slides/cs/python-net/picture-frame/).
 
-## **Práce s placeholdery**
+## **Ovládání viditelnosti grafiky masteru**
 
-Placeholdery jsou obvykle definovány na layout slidech. Master slide poskytuje sdílený styl a téma, které layouty zdědí, zatímco každý layout rozhoduje, které placeholdery jsou k dispozici a kde jsou umístěny.
+Použijte [BaseSlide.show_master_shapes](https://reference.aspose.com/slides/cs/python-net/aspose.slides/baseslide/show_master_shapes/) k skrytí zděděné grafiky masteru, jako jsou loga nebo dekorativní tvary, aniž byste je mazali z masteru. Nastavte [Slide.show_master_shapes](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/show_master_shapes/) na `False` na snímku, který má tyto grafiky vynechat, a ponechte jej `True` na snímcích, které je mají zobrazovat.
 
-V PowerPointu jsou příkazy placeholderů dostupné v zobrazení Slide Master.
+Následující samostatný příklad vytvoří modrý dekorativní pás na masteru a dvou snímcích, které používají stejné prázdné rozvržení. Pás je viditelný na prvním snímku a skrytý na druhém. Nevstupní prezentace ani obrázek nejsou vyžadovány.
 
-![Příkaz Vložit placeholder v zobrazení Slide Master v PowerPointu](slide-master_5.png)
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-Pro přidání nových placeholderů s Aspose.Slides pracujte s layout slidem patřícím k masteru:
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
+    layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_slide.show_master_shapes = True
+
+    slide_height = presentation.slide_size.size.height
+    band = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 60, slide_height)
+    band.fill_format.fill_type = slides.FillType.SOLID
+    band.fill_format.solid_fill_color.color = draw.Color.steel_blue
+    band.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    visible_slide = presentation.slides[0]
+    visible_slide.layout_slide = layout_slide
+    visible_slide.shapes.clear()
+
+    hidden_slide = presentation.slides.add_empty_slide(layout_slide)
+
+    visible_slide.show_master_shapes = True
+    hidden_slide.show_master_shapes = False
+
+    presentation.save("master-graphics.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Příklad používá rozvržení **Blank** dodávané s novou prezentací a odstraňuje vlastní zástupné objekty počátečního snímku.
+
+### **Zvolte rozsah nastavení**
+
+Normální snímek používá svůj master prostřednictvím [Slide.layout_slide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/layout_slide/) a [LayoutSlide.master_slide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/master_slide/). Nastavení vlastnosti na jednotlivém snímku ovlivní jen tento snímek. Nastavení [LayoutSlide.show_master_shapes](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/show_master_shapes/) na `False` skryje grafiku masteru pro snímky, které používají toto sdílené rozvržení, i když jejich vlastní nastavení je `True`. Chcete-li skrýt grafiku jen na jednom snímku, změňte vlastnost snímku a ponechte sdílené rozvržení beze změny.
+
+Nastavení není podporováno jako řízení viditelnosti přímo na master slide. Na masteru vždy vrací `False` a při přiřazení `True` vyvolá výjimku. Použijte ho na normální snímek nebo na layout.
+
+### **Rozlišení grafiky od pozadí**
+
+| Operace | Efekt |
+| --- | --- |
+| Skrýt grafiku masteru | Řídí viditelnost zděděných tvarů masteru bez jejich mazání nebo změny tvarů snímku. |
+| Změnit výplň pozadí snímku | Mění barvu, gradient nebo obrázek pozadí. Grafika masteru jsou samostatné tvary a mohou zůstávat viditelné nad tímto pozadím. Viz [Presentation Background](/slides/cs/python-net/presentation-background/). |
+| Smazat tvar z masteru | Odstraní sdílený zdrojový tvar, takže již není dostupný pro žádný snímek používající tento master. |
+
+## **Práce se zástupnými objekty**
+
+Zástupné objekty jsou normálně definovány na layout slidech. Master slide poskytuje sdílený styl a motiv, který tyto layouty dědí, zatímco každý layout rozhoduje, které zástupné objekty jsou dostupné a kde jsou umístěny.
+
+V PowerPointu jsou příkazy pro zástupné objekty dostupné v zobrazení Slide Master.
+
+![Příkaz Insert Placeholder v zobrazení Slide Master v PowerPointu](slide-master_5.png)
+
+Chcete-li přidat nové zástupné objekty pomocí Aspose.Slides, pracujte s layout slide, který patří k masteru:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +200,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Můžete také formátovat tvary placeholderů, které již na master slide existují. Následující příklad najde placeholder nadpisu a použije lineární gradientní výplň:
+Můžete také formátovat tvary zástupných objektů, které již na master slide existují. Následující příklad najde zástupný objekt titulu a použije lineární gradientní výplň:
 
 ```python
 import aspose.pydrawing as draw
@@ -183,13 +232,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Formátovaný placeholder nadpisu zděděný normálními snímky](slide-master_8.png)
+![Formátovaný zástupný objekt titulu zděděný normálními snímky](slide-master_8.png)
 
-Další možnosti formátování placeholderů a textu najdete v [Set Prompt Text in Placeholder](/slides/cs/python-net/manage-placeholder/) a [Text Formatting](/slides/cs/python-net/text-formatting/).
+Pro více možností formátování zástupných objektů a textu viz [Set Prompt Text in Placeholder](/slides/cs/python-net/manage-placeholder/) a [Text Formatting](/slides/cs/python-net/text-formatting/).
 
-## **Změna pozadí Slide Masteru**
+## **Změna pozadí slide masteru**
 
-Pozadí masteru je zděděno layouty a snímky, které jej nepřepíší. Následující příklad nastavuje jednotnou barvu pozadí pro první master slide:
+Master pozadí je zděděno layouty a snímky, které jej nepřepisují. Následující příklad nastaví jednotnou barvu pozadí pro první master slide:
 
 ```python
 import aspose.pydrawing as draw
@@ -207,9 +256,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 Pro související témata viz [Presentation Background](/slides/cs/python-net/presentation-background/) a [Presentation Theme](/slides/cs/python-net/presentation-theme/).
 
-## **Klónování Slide Masteru do jiné prezentace**
+## **Klonování slide masteru do jiné prezentace**
 
-Použijte metodu `add_clone` na třídě [MasterSlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/) pro zkopírování master slide do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
+Použijte metodu `add_clone` na třídě [MasterSlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/) k zkopírování master slide do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +271,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pokud potřebujete klonovat normální snímky spolu s jejich masterem, podívejte se na [Clone Slides](/slides/cs/python-net/clone-slides/).
+Pokud potřebujete klonovat normální snímky spolu s jejich masterem, viz [Clone Slides](/slides/cs/python-net/clone-slides/).
 
-## **Přidání více Slide Masterů**
+## **Přidání více slide masterů**
 
-Prezentace může obsahovat více master slideů. To je užitečné, když různé sekce vyžadují odlišnou značku, strukturu stránky nebo nastavení tématu.
+Prezentace může obsahovat několik master slidů. Je to užitečné, když různé sekce vyžadují odlišné brandování, strukturu stránek nebo nastavení motivu.
 
-![Příkazy PowerPointu pro vkládání a správu master slideů](slide-master_9.jpg)
+![Příkazy PowerPointu pro vkládání a správu master slidů](slide-master_9.jpg)
 
-Následující příklad klonuje výchozí master, nastaví klonu jiné pozadí, získá prázdný layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
+Následující příklad klonuje výchozí master, dá klonu jiné pozadí, získá prázdné rozvržení pod tímto klonovaným masterem a přidá nový snímek založený na tomto rozvržení:
 
 ```python
 import aspose.pydrawing as draw
@@ -256,9 +305,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Porovnání Slide Masterů**
+## **Porovnání slide masterů**
 
-Master slide lze porovnat pomocí metody `equals` zděděné z třídy [BaseSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/baseslide/) . Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty placeholderů, jako je aktuální datum.
+Master slid lze porovnat metodou `equals` zděděnou ze třídy [BaseSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/baseslide/) . Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, jako je aktuální datum.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +330,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-Další informace najdete v [Compare Presentation Slides](/slides/cs/python-net/compare-slides/).
+Pro více informací viz [Compare Presentation Slides](/slides/cs/python-net/compare-slides/).
 
-## **Nastavit zobrazení Slide Master jako výchozí zobrazení**
+## **Nastavení zobrazení Slide Master jako výchozího zobrazení**
 
-Použijte vlastnost `last_view` na objektu prezentace [ViewProperties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/) pro kontrolu zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
+Použijte vlastnost `last_view` na [ViewProperties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/) prezentace k řízení zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +344,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Další nastavení zobrazení viz [Save Presentation](/slides/cs/python-net/save-presentation/).
+Pro další nastavení zobrazení viz [Save Presentation](/slides/cs/python-net/save-presentation/).
 
-## **Odstranění nepoužívaných Master Slideů**
+## **Odstranění nepoužívaných master slidů**
 
-Prezentace někdy obsahují master slide, které již nejsou použity žádnými normálními snímky. Odstranění nepoužívaných masterů může snížit velikost souboru a zjednodušit údržbu šablon.
+Prezentace někdy obsahují master slid, který již není používán žádným normálním snímkem. Odstranění nepoužívaných masterů může zmenšit velikost souboru a zjednodušit údržbu šablony.
 
-Použijte `remove_unused` pro odstranění nepoužívaných masterů z kolekce `masters`:
+Použijte `remove_unused` k odstranění nepoužívaných masterů z kolekce `masters`:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +360,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Můžete také použít nízkokódovou metodu `remove_unused_master_slides` ze třídy [Compress](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/) :
+Můžete také použít low-code metodu `remove_unused_master_slides` z třídy [Compress](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/) :
 
 ```python
 import aspose.slides as slides
@@ -321,20 +370,16 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-### Jaký je rozdíl mezi slide master a layout slide?
+**Jaký je rozdíl mezi slide masterem a layout slidem?**  
+Slide master definuje sdílená nastavení designu, jako jsou motiv, pozadí, společné tvary a styly textu. Layout slide patří k master slide a definuje konkrétní uspořádání zástupných objektů. Normální snímek používá layout slide, takže dědí jak od layoutu, tak od masteru.
 
-Slide master definuje sdílená nastavení designu, jako jsou téma, pozadí, společné tvary a styly textu. Layout slide patří k master slide a definuje konkrétní uspořádání placeholderů. Normální snímek používá layout slide, a tak zdědí jak z layoutu, tak z masteru.
+**Může jedna prezentace obsahovat několik slide masterů?**  
+Ano. Prezentace může obsahovat několik slide masterů. Používejte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo brandování.
 
-### Může jedna prezentace obsahovat několik slide masterů?
+**Mám přidávat zástupné objekty na master slide nebo na layout slide?**  
+Ve většině případů přidávejte zástupné objekty na layout slid. Sdílené vizuální prvky a formátování umístěte na master slide a obsahové zástupné objekty na layouty, které budou použity normálními snímky.
 
-Ano. Prezentace může obsahovat několik slide masterů. Používejte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo značkování.
-
-### Mám přidávat placeholdery do master slide nebo do layout slide?
-
-Ve většině případů přidávejte placeholdery do layout slide. Na master slide umístěte sdílené vizuální prvky a formátování, na layouty pak vložte obsahové placeholdery, které budou používat normální snímky.
-
-### Mohu smazat master slide, který je stále používán?
-
-Ne. Master slide, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesunte tyto snímky na layouty pod jiným masterem nebo použijte metodu úklidu nevyužitých masterů, která odstraní pouze master slide, které nejsou v používání.
+**Mohu smazat master slide, který je stále používán?**  
+Ne. Master slide, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky do layoutů pod jiný master, nebo použijte metodu pro úklid nepoužívaných masterů, která odstraňuje jen mastery, které nejsou v použití.

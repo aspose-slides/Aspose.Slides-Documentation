@@ -1,69 +1,71 @@
 ---
-title: Áp dụng hoặc Thay đổi Bố cục Slide trong Java
-linktitle: Bố cục Slide
+title: "Áp dụng hoặc Thay đổi Bố cục Slide trong Java"
+linktitle: "Bố cục Slide"
 type: docs
 weight: 60
 url: /vi/java/slide-layout/
 keywords:
-- bố cục slide
-- bố cục nội dung
-- vị trí giữ chỗ
-- thiết kế bản trình bày
-- thiết kế slide
-- bố cục không sử dụng
-- hiển thị chân trang
-- slide tiêu đề
-- tiêu đề và nội dung
-- tiêu đề mục
-- hai nội dung
-- so sánh
-- chỉ tiêu đề
-- bố cục trống
-- nội dung có chú thích
-- hình ảnh có chú thích
-- tiêu đề và văn bản dọc
-- tiêu đề dọc và văn bản
-- PowerPoint
-- OpenDocument
-- bản trình bày
-- Java
-- Aspose.Slides
-description: "Áp dụng, tạo và chỉnh sửa bố cục slide trong Aspose.Slides cho Java, thêm vị trí giữ chỗ, xóa các bố cục không sử dụng và kiểm soát hiển thị chân trang."
+- "bố cục slide"
+- "bố cục nội dung"
+- "khung giữ chỗ"
+- "thiết kế bản trình chiếu"
+- "thiết kế slide"
+- "bố cục không sử dụng"
+- "hiển thị chân trang"
+- "slide tiêu đề"
+- "tiêu đề và nội dung"
+- "tiêu đề phần"
+- "hai nội dung"
+- "so sánh"
+- "chỉ tiêu đề"
+- "bố cục trống"
+- "nội dung có chú thích"
+- "hình ảnh có chú thích"
+- "tiêu đề và văn bản dọc"
+- "tiêu đề dọc và văn bản"
+- "PowerPoint"
+- "OpenDocument"
+- "bản trình chiếu"
+- "Java"
+- "Aspose.Slides"
+description: "Áp dụng, tạo và chỉnh sửa bố cục slide trong Aspose.Slides cho Java, thêm khung giữ chỗ, xóa các bố cục không sử dụng và kiểm soát hiển thị chân trang."
 ---
 ## **Tổng quan**
 
-Một bố cục slide xác định vị trí và định dạng của các vị trí giữ chỗ như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán trong khi vẫn cho phép mỗi slide chứa nội dung riêng của nó.
+Bố cục slide xác định vị trí và định dạng của các khung giữ chỗ như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán đồng thời cho phép mỗi slide chứa nội dung riêng của nó.
 
 Các bố cục phổ biến nhất bao gồm:
 
-- **Title Slide**: Chứa các vị trí giữ chỗ tiêu đề và phụ đề.
-- **Title and Content**: Chứa một vị trí giữ chỗ tiêu đề và một vị trí giữ chỗ nội dung đa dụng.
-- **Blank**: Không chứa vị trí giữ chỗ nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
+- **Title Slide**: Chứa các khung giữ chỗ tiêu đề và phụ đề.
+- **Title and Content**: Chứa một khung giữ chỗ tiêu đề và một khung giữ chỗ nội dung đa mục đích.
+- **Blank**: Không chứa khung giữ chỗ nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
 
-## **Hiểu kế thừa bố cục**
+## **Hiểu về kế thừa bố cục**
 
-Một bản trình bày có ba cấp độ liên quan:
+Một bản trình chiếu có ba cấp độ liên quan:
 
-1. A [master slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) xác định giao diện, định dạng chung, nền và các đối tượng chung.
-1. A [layout slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/) thuộc về một master và xác định một cách sắp xếp cụ thể của các vị trí giữ chỗ.
-1. A [normal slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/) sử dụng một bố cục và lưu trữ nội dung được nhập cho slide đó.
+1. Một [master slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) định nghĩa chủ đề, định dạng chung, nền và các đối tượng chung.
+2. Một [layout slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/) thuộc về một master và xác định một cách bố trí cụ thể của các khung giữ chỗ.
+3. Một [normal slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/) sử dụng một bố cục và lưu trữ nội dung được nhập cho slide đó.
 
-Một slide bình thường kế thừa giao diện và định dạng từ bố cục của nó, và bố cục kế thừa từ master. Giá trị được đặt trực tiếp trên slide bình thường sẽ ghi đè giá trị kế thừa ở mức đó. Khi tạo một slide bình thường, các hình dạng vị trí giữ chỗ của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các vị trí giữ chỗ đó thuộc về slide bình thường.
+Một normal slide kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục lại kế thừa từ master. Giá trị được đặt trực tiếp trên một normal slide sẽ ghi đè giá trị kế thừa ở cấp độ đó. Khi một normal slide được tạo, các hình dạng khung giữ chỗ của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các khung giữ chỗ đó thuộc về normal slide.
 
-Thêm các vị trí giữ chỗ cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một vị trí giữ chỗ khác vào bố cục sau này sẽ không tự động thêm một hình dạng vị trí giữ chỗ tương ứng vào các slide bình thường đã tồn tại.
+Thêm các khung giữ chỗ cần thiết vào bố cục trước khi tạo slide từ nó. Thêm một khung giữ chỗ khác vào bố cục sau này sẽ không tự động thêm hình dạng khung giữ chỗ tương ứng vào các normal slide đã tồn tại.
 
 Mối quan hệ này có hai hậu quả quan trọng:
 
-- Thay đổi định dạng kế thừa hoặc hình học của vị trí giữ chỗ hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bản trình bày kết quả.
+- Thay đổi định dạng kế thừa hoặc hình học của khung giữ chỗ hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bản trình chiếu kết quả.
 - Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Hãy gán lại các slide phụ thuộc của nó sang một bố cục khác trước, hoặc chỉ xóa các bố cục không được sử dụng.
 
-Để biết thêm thông tin về cấp cao nhất của cây phân cấp này, xem [Slide Master](/slides/vi/java/slide-master/).
+Để biết thêm thông tin về cấp cao nhất của cấu trúc này, xem [Slide Master](/slides/vi/java/slide-master/).
 
-## **Chọn và áp dụng bố cục slide**
+Để ẩn logo hoặc các hình dạng trang trí được kế thừa từ master trên một slide hoặc thông qua một bố cục chia sẻ, xem [Control the Visibility of Master Graphics](/slides/vi/java/slide-master/). Ví dụ so sánh hai slide sử dụng cùng một master.
 
-Sử dụng loại bố cục khi bản trình bày tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên bố cục có thể được chỉnh sửa bởi người dùng và có thể được địa phương hoá, do đó việc chọn dựa trên tên kém đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+## **Chọn và Áp dụng Bố cục Slide**
 
-Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không khả dụng, nó cố ý quay lại **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình bày có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua phương thức [ISlide.setLayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
+Sử dụng kiểu bố cục khi bản trình chiếu tuân theo các định nghĩa bố cục tiêu chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được bản địa hóa, vì vậy việc chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không khả dụng, nó sẽ cố ý quay lại **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình chiếu có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua phương thức [ISlide.setLayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
 
 ```java
 import com.aspose.slides.*;
@@ -88,11 +90,11 @@ try {
 }
 ```
 
-Thay đổi bố cục của một slide không xóa các hình dạng thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí các vị trí giữ chỗ, định dạng kế thừa và sự tương ứng giữa các vị trí giữ chỗ hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển giữa các bố cục có sự khác biệt đáng kể.
+Thay đổi bố cục của một slide không loại bỏ các hình dạng thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí khung giữ chỗ, định dạng kế thừa và sự tương ứng giữa các khung giữ chỗ hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển đổi giữa các bố cục có sự khác biệt đáng kể.
 
-## **Thêm một bố cục slide**
+## **Thêm Bố cục Slide**
 
-Việc chọn và tạo là hai thao tác riêng biệt. Ví dụ trước chỉ chọn một bố cục hiện có; nó không tạo mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) trên bộ sưu tập bố cục của master mục tiêu.
+Lựa chọn và tạo mới là các thao tác riêng biệt. Ví dụ trước chỉ chọn một bố cục đã tồn tại; nó không tạo ra một bố cục mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) trên bộ sưu tập bố cục của master mục tiêu.
 
 Ví dụ sau luôn thêm một bố cục **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một slide bình thường dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
 
@@ -111,14 +113,14 @@ try {
 }
 ```
 
-Chỉ thêm một bố cục khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã tồn tại một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
+Chỉ thêm một bố cục khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã có một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
 
-## **Thêm vị trí giữ chỗ vào một bố cục slide**
+## **Thêm Khung giữ chỗ vào Bố cục Slide**
 
-Phương thức [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/) để thêm các hình dạng vị trí giữ chỗ vào một bố cục.
+Phương thức [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/) để thêm các hình dạng khung giữ chỗ vào một bố cục.
 
-| Vị trí giữ chỗ PowerPoint | `ILayoutPlaceholderManager` Phương thức |
-| -------------------------- | ---------------------------------------- |
+| Khung giữ chỗ PowerPoint | `ILayoutPlaceholderManager` Method |
+| ------------------------ | ---------------------------------- |
 | ![Nội dung](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![Nội dung (Dọc)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
 | ![Văn bản](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
@@ -130,7 +132,7 @@ Phương thức [ILayoutSlide.getPlaceholderManager](https://reference.aspose.co
 | ![Phương tiện](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![Hình ảnh trực tuyến](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Ví dụ sau kiểm tra rằng bố cục **Blank** tồn tại, thêm bốn vị trí giữ chỗ vào nó, và sau đó tạo một slide bình thường sử dụng bố cục đã sửa đổi. Thứ tự này có mục đích: các vị trí giữ chỗ được thêm trước khi slide bình thường được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng vị trí giữ chỗ tương ứng trên slide đó.
+Ví dụ sau xác nhận rằng bố cục **Blank** tồn tại, thêm bốn khung giữ chỗ vào nó, và sau đó tạo một slide bình thường sử dụng bố cục đã chỉnh sửa. Thứ tự này có mục đích: các khung giữ chỗ được thêm trước khi slide bình thường được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng khung giữ chỗ tương ứng trên slide đó.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +160,15 @@ try {
 
 Kết quả:
 
-![Các vị trí giữ chỗ trên bố cục slide](add_placeholders.png)
+![Các khung giữ chỗ trên bố cục slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Thay đổi định dạng kế thừa hoặc hình học của các vị trí giữ chỗ bố cục hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một vị trí giữ chỗ bố cục mới được thêm sẽ không được tự động bổ sung vào các slide bình thường đã tồn tại. Hãy thử nghiệm các thay đổi bố cục trên một bản sao của bản trình bày và kiểm tra mọi slide phụ thuộc.
+Thay đổi định dạng kế thừa hoặc hình học của các khung giữ chỗ bố cục hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một khung giữ chỗ bố cục mới được thêm vào không được tự động bổ sung vào các slide bình thường đã tồn tại. Hãy kiểm tra các thay đổi bố cục trên một bản sao của bản trình chiếu và kiểm tra từng slide phụ thuộc.
 {{% /alert %}}
 
-## **Xóa các bố cục slide không sử dụng**
+## **Xóa Bố cục Slide Không Sử Dụng**
 
-Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để xóa các bố cục mà không có slide bình thường nào tham chiếu. Phương thức sẽ để lại các bố cục vẫn đang được sử dụng.
+Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để xóa các bố cục mà không slide bình thường nào tham chiếu. Phương thức này giữ nguyên các bố cức vẫn đang được sử dụng.
 
 ```java
 import com.aspose.slides.*;
@@ -180,11 +182,13 @@ try {
 }
 ```
 
-Để xóa một bố cục cụ thể, trước tiên sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) của nó. Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.remove](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#remove--). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/).
+Để xóa một bố cục cụ thể, trước tiên sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) của nó. Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.remove](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#remove--). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/).
 
-## **Kiểm soát hiển thị chân trang trên một bố cục slide**
+## **Kiểm soát hiển thị Chân trang trên Bố cục Slide**
 
-Một bố cục có các vị trí giữ chỗ chân trang, số slide và ngày‑giờ riêng. Sử dụng phương thức [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) để kiểm soát các vị trí giữ chỗ này cho một bố cục. Điều này hữu ích khi, ví dụ, các bố cục nội dung nên hiển thị chân trang nhưng các bố cục tiêu đề thì không.
+Một bố cục có các khung giữ chỗ chân trang, số slide và ngày‑giờ riêng. Sử dụng phương thức [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) để kiểm soát các khung giữ chỗ này cho một bố cục. Điều này hữu ích khi, ví dụ, các bố cục nội dung nên hiển thị chân trang nhưng các bố cục tiêu đề thì không.
+
+Ví dụ sau chọn một bố cục một cách an toàn và hiển thị các thành phần chân trang của nó:
 
 ```java
 import com.aspose.slides.*;
@@ -214,9 +218,9 @@ try {
 }
 ```
 
-## **Kiểm soát hiển thị chân trang trên Master và các bố cục con của nó**
+## **Kiểm soát hiển thị Chân trang trên Master và các Bố cục Con của nó**
 
-Để áp dụng cài đặt chân trang nhất quán trên toàn bộ cây master, sử dụng phương thức [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . Các phương thức truyền tải của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các bố cục slide phụ thuộc cũng như các slide bình thường; chúng không chỉ áp dụng cho một slide bình thường duy nhất.
+Để áp dụng cài đặt chân trang nhất quán trên toàn bộ cấp độ master, sử dụng phương thức [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Các phương thức lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các slide bố cục và slide bình thường phụ thuộc; chúng không chỉ áp dụng cho một slide bình thường duy nhất.
 
 ```java
 import com.aspose.slides.*;
@@ -236,20 +240,20 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **CÂU HỎI THƯỜNG GẶP**
 
 **Sự khác nhau giữa Master Slide và Layout Slide là gì?**
 
-Master Slide xác định giao diện và định dạng chung của bản trình bày. Layout Slide thuộc về một master và xác định một cách sắp xếp tái sử dụng các vị trí giữ chỗ. Các slide bình thường sử dụng những bố cục này và lưu trữ nội dung riêng của từng slide.
+Một master slide định nghĩa chủ đề và định dạng chung của bản trình chiếu. Một layout slide thuộc về một master và xác định một cách sắp xếp có thể tái sử dụng của các khung giữ chỗ. Các slide bình thường sử dụng các bố cục này và lưu trữ nội dung riêng cho từng slide.
 
-**Tôi có thể sao chép một Layout Slide từ một bản trình bày sang bản khác không?**
+**Tôi có thể sao chép một Layout Slide từ một bản trình chiếu sang bản khác không?**
 
-Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Khi sao chép giữa các bản trình bày, cũng cần xác minh phông chữ, giao diện, hình ảnh và các tài nguyên khác được bố cục nguồn sử dụng.
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Khi sao chép giữa các bản trình chiếu, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác được bố cục nguồn sử dụng.
 
-**Điều gì xảy ra khi tôi sửa đổi một Layout đang được sử dụng?**
+**Điều gì xảy ra khi tôi chỉnh sửa một Layout đã được sử dụng?**
 
-Các slide phụ thuộc sẽ kế thừa các thay đổi bố cục trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng ở cấp địa phương. Vì vậy, hình học của vị trí giữ chỗ và kiểu kế thừa có thể thay đổi đồng thời trên nhiều slide. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa bố cục.
+Các slide phụ thuộc sẽ kế thừa các thay đổi bố cục trừ khi chúng ghi đè định dạng hoặc đối tượng ảnh hưởng tại chỗ. Do đó hình học của khung giữ chỗ và kiểu kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa bố cục.
 
-**Điều gì xảy ra nếu tôi xóa một Layout vẫn đang được sử dụng?**
+**Điều gì xảy ra nếu tôi xóa một Layout đang được sử dụng?**
 
-Aspose.Slides sẽ ném ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc sử dụng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để chỉ xóa các bố cục không được tham chiếu.
+Aspose.Slides sẽ ném ra một [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/). Trước tiên hãy gán lại các slide phụ thuộc, hoặc sử dụng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để chỉ xóa các bố cục không được tham chiếu.

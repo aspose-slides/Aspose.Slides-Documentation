@@ -11,10 +11,10 @@ keywords:
 - presentationsdesign
 - bilddesign
 - oanvänd layout
-- fotofältsynlighet
-- titelbild
+- sidfotssynlighet
+- titelsida
 - titel och innehåll
-- sektionrubrik
+- avsnittsrubrik
 - två innehåll
 - jämförelse
 - endast titel
@@ -29,42 +29,44 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Tillämpa, skapa och modifiera bildlayouter i Aspose.Slides för Python via Java, lägg till platshållare, ta bort oanvända layouter och kontrollera fotofältsynlighet."
+description: "Tillämpa, skapa och modifiera bildlayouter i Aspose.Slides för Python via Java, lägg till platshållare, ta bort oanvända layouter och kontrollera sidfotssynlighet."
 ---
 ## **Översikt**
 
-En bildlayout definierar positionerna och formateringen av platshållare såsom titlar, text, bilder, diagram och tabeller. Att tillämpa en layout ger bilder en konsekvent struktur samtidigt som varje bild kan innehålla sitt eget innehåll.
+En bildlayout definierar positionerna och formateringen av platshållare såsom titlar, text, bilder, diagram och tabeller. Att använda en layout ger bilder en konsekvent struktur samtidigt som varje bild kan innehålla sitt eget innehåll.
 
-De vanligaste layouterna inkluderar:
+De vanligaste layouterna är:
 
-- **Titelbild**: Innehåller platshållare för titel och undertitel.
-- **Titel och innehåll**: Innehåller en titelplatshållare och en generisk innehållsplats.
-- **Tom**: Innehåller inga innehållsplatshållare och är användbar när varje form placeras manuellt.
+- **Title Slide**: Innehåller platshållare för titel och undertitel.
+- **Title and Content**: Innehåller en titelplatshållare och en allmän innehållsplatshållare.
+- **Blank**: Innehåller inga innehållsplatshållare och är användbar när varje form placeras manuellt.
 
 ## **Förstå layoutarv**
 
 En presentation har tre relaterade nivåer:
 
-1. En [masterbild](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslide/) definierar temat, delad formatering, bakgrunder och gemensamma objekt.
-1. En [layoutbild](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/) tillhör en master och definierar en särskild placering av platshållare.
-1. En [normal bild](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/) använder en layout och lagrar det innehåll som matats in för den bilden.
+1. En [master slide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslide/) definierar temat, delad formatering, bakgrunder och gemensamma objekt.
+1. En [layout slide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/) tillhör en master och definierar en särskild placering av platshållare.
+1. En [normal slide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/) använder en layout och lagrar det innehåll som matats in för den bilden.
 
 En normal bild ärver tema och formatering från sin layout, och layouten ärver från sin master. Ett värde som sätts direkt på en normal bild åsidosätter det ärvda värdet på den nivån. När en normal bild skapas genereras dess platshållarformer från den valda layouten, medan innehållet som matas in i dessa platshållare tillhör den normala bilden.
 
-Lägg till nödvändiga platshållare i en layout innan du skapar bilder från den. Att senare lägga till en ytterligare platshållare i en layout lägger inte automatiskt till motsvarande platshållarform i befintliga normala bilder.
+Lägg till nödvändiga platshållare i en layout innan du skapar bilder från den. Att lägga till en ny platshållare i en layout senare lägger inte automatiskt till motsvarande platshållarform i befintliga normala bilder.
 
-Detta förhållande har två viktiga följder:
+Detta förhållande har två viktiga konsekvenser:
 
-- Att ändra ärvd formatering eller befintlig platshållargeometri i en layout kan uppdatera alla bilder som beror på den. Innan du redigerar en layout som redan används, inspektera dess beroende bilder och granska den resulterande presentationen.
+- Att ändra ärvd formatering eller befintlig platshållargeometri i en layout kan uppdatera alla bilder som är beroende av den. Innan du redigerar en layout som redan används, inspektera dess beroende bilder och granska den resulterande presentationen.
 - En layout som fortfarande används av en bild kan inte tas bort. Tilldela först dess beroende bilder till en annan layout, eller ta bara bort oanvända layouter.
 
-För mer information om den översta nivån i detta hierarki, se [Slide Master](/slides/sv/python-java/slide-master/).
+För mer information om den översta nivån i denna hierarki, se [Slide Master](/slides/sv/python-java/slide-master/).
+
+För att dölja ärvda logotyper eller dekorativa masterformer på en bild eller via en delad layout, se [Control the Visibility of Master Graphics](/slides/sv/python-java/slide-master/). Exemplet jämför två bilder som använder samma master.
 
 ## **Välj och tillämpa en bildlayout**
 
-Använd en layouttyp när presentationen följer standarddefinitionerna för PowerPoint‑layouter. Layoutnamn kan redigeras av användaren och kan lokalanpassas, så namn‑baserad urval är mindre pålitligt om du inte kontrollerar källmallen.
+Använd en layouttyp när presentationen följer standarddefinitioner för PowerPoint‑layouter. Layoutnamn kan redigeras av användaren och kan lokalanpassas, så namnbaserad urval är mindre pålitligt om du inte kontrollerar källmallarna.
 
-Följande exempel söker efter **Titel och innehåll** på den första masteren. Om den layouten inte är tillgänglig faller det avsiktligt tillbaka till **Tom**. Den andra kontrollen för `None` är nödvändig eftersom en presentation kan innehålla endast anpassade layouter. Den valda layouten appliceras sedan på den första normala bilden via metoden [Slide.setLayoutSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#setLayoutSlide).
+Det följande exemplet söker efter **Title and Content** på den första masteren. Om den layouten saknas faller det avsiktligt tillbaka till **Blank**. Den andra kontrollen för `None` är nödvändig eftersom en presentation kan innehålla enbart anpassade layouter. Den valda layouten tillämpas sedan på den första normala bilden via metoden [Slide.setLayoutSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#setLayoutSlide).
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Att ändra en bilds layout tar inte bort vanliga former som lagts till direkt på bilden. Däremot kan platshållarpositioner, ärvd formatering och korrespondensen mellan befintliga platshållare och den nya layouten förändras, så inspektera resultatet när du byter mellan väsentligt olika layouter.
+Att ändra en bilds layout tar inte bort vanliga former som lagts till direkt på bilden. Dock kan platshållarpositioner, ärvd formatering och sambandet mellan befintliga platshållare och den nya layouten ändras, så inspektera utdata när du byter mellan väsentligt olika layouter.
 
 ## **Lägg till en layoutbild**
 
-Urval och skapande är separata operationer. Det föregående exemplet väljer en befintlig layout; det skapar ingen. För att skapa en layout, anropa metoden [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterlayoutslidecollection/#add) på mål‑masterens layoutsamling.
+Urval och skapande är separata operationer. Det föregående exemplet väljer en befintlig layout; det skapar ingen. För att skapa en layout, anropa metoden [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterlayoutslidecollection/#add) på mål‑masterns layoutsamling.
 
-Följande exempel lägger alltid till en ny **Titel och innehåll**‑layout med namnet `Report Title and Content`, och sedan lägger till en normal bild baserad på den. Layoutnamn måste vara unika inom samlingen.
+Det följande exemplet lägger alltid till en ny **Title and Content**‑layout med namnet `Report Title and Content`, och lägger sedan till en normal bild baserad på den. Layoutnamn måste vara unika inom samlingen.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Lägg till en layout endast när mallen verkligen behöver en ytterligare återanvändbar struktur. Om en lämplig layout redan finns, välj och återanvänd den istället för att skapa en dubblett.
+Lägg bara till en layout när mallen verkligen behöver en ytterligare återanvändbar struktur. Om en lämplig layout redan finns, välj och återanvänd den i stället för att skapa en dubblett.
 
-## **Lägg till platshållare på en layoutbild**
+## **Lägg till platshållare i en layoutbild**
 
-Metoden [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getPlaceholderManager) ger en [LayoutPlaceholderManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/) för att lägga till platshållarformer i en layout.
+Metoden [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getPlaceholderManager) tillhandahåller en [LayoutPlaceholderManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/) för att lägga till platshållarformer i en layout.
 
-| PowerPoint‑platshållare | [LayoutPlaceholderManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/)‑metod |
-| ----------------------- | -------------------------------------- |
-| ![Content](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| PowerPoint‑platshållare               | [LayoutPlaceholderManager] metod |
+| ------------------------------------- | --------------------------------- |
+| ![Innehåll](content.png)              | [addContentPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Innehåll (Vertikal)](contentV.png)  | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                     | [addTextPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertikal)](textV.png)         | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Bild](picture.png)                  | [addPicturePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagram](chart.png)                 | [addChartPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabell](table.png)                  | [addTablePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)             | [addSmartArtPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                   | [addMediaPlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Onlinebild](onlineImage.png)        | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Följande exempel verifierar att **Tom**‑layouten finns, lägger till fyra platshållare i den och skapar sedan en normal bild som använder den modifierade layouten. Ordningen är avsiktlig: platshållarna läggs till innan den normala bilden skapas, så att Aspose.Slides kan generera motsvarande platshållarformer på den bilden.
+Det följande exemplet verifierar att **Blank**‑layouten finns, lägger till fyra platshållare i den och skapar sedan en normal bild som använder den modifierade layouten. Ordningen är avsiktlig: platshållarna läggs till innan den normala bilden skapas, så att Aspose.Slides kan generera motsvarande platshållarformer på den bilden.
 
 ```python
 import jpype
@@ -173,8 +175,8 @@ Resultatet:
 
 ![Platshållarna på layoutbilden](add_placeholders.png)
 
-{{% alert color="warning" title="Warning" %}}
-Att ändra ärvd formatering eller geometrin för befintliga layout‑platshållare kan påverka beroende bilder. En nylagd layout‑platshållare fylls inte på i befintliga normala bilder. Testa layout‑ändringar på en kopia av presentationen och inspektera varje beroende bild.
+{{% alert color="warning" title="Varning" %}}
+Att ändra ärvd formatering eller geometrin för befintliga layout‑platshållare kan påverka beroende bilder. En nylagd layout‑platshållare fylls inte retroaktivt i befintliga normala bilder. Testa layout‑ändringar på en kopia av presentationen och inspektera varje beroende bild.
 {{% /alert %}}
 
 ## **Ta bort oanvända layoutbilder**
@@ -198,13 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-För att ta bort en specifik layout, använd först dess [hasDependingSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#hasDependingSlides)‑ eller [getDependingSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getDependingSlides)‑metod. Tilldela om eventuella beroende bilder innan du anropar [LayoutSlide.remove](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#remove). Försök att ta bort en layout som används ger ett [PptxEditException](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pptxeditexception/).
+För att ta bort en specifik layout, använd först dess [hasDependingSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#hasDependingSlides)‑ eller [getDependingSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getDependingSlides)‑metod. Tilldela eventuella beroende bilder innan du anropar [LayoutSlide.remove](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#remove). Försök att ta bort en layout som används resulterar i ett [PptxEditException](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pptxeditexception/).
 
-## **Styr fotofältets synlighet på en layoutbild**
+## **Styr sidfotssynlighet på en layoutbild**
 
-En layout har egna fotofält, bildnummer‑ och datum‑tid‑platshållare. Använd metoden [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) för att kontrollera dessa platshållare för en layout. Detta är användbart när t.ex. innehålls‑layouter ska visa fotofält men titel‑layouter inte ska.
+En layout har egna sidfot‑, bild‑nummer‑ och datum‑tid‑platshållare. Använd metoden [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) för att kontrollera dessa platshållare för en layout. Detta är användbart när t.ex. innehållslayouter ska visa sidfot men titellayouter inte ska göra det.
 
-Följande exempel väljer en layout på ett säkert sätt och gör dess fotofältselement synliga:
+Det följande exemplet väljer säkert en layout och gör dess sidfots‑element synliga:
 
 ```python
 import jpype
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Styr fotofältets synlighet på en master och dess underliggande layouter**
+## **Styr sidfotssynlighet på en master och dess underliggande layouter**
 
-För att tillämpa enhetliga fotofältsinställningar över en master‑hierarki, använd metoden [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Spridningsmetoderna i [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslideheaderfootermanager/) verkar på masteren samt dess beroende layoutbilder och normala bilder; de riktar sig inte enbart mot en enskild normal bild.
+För att tillämpa enhetliga sidfot‑inställningar över en master‑hierarki, använd metoden [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Spridningsmetoderna för [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslideheaderfootermanager/) verkar på master‑objektet samt dess beroende layout‑ och normala bilder; de riktar sig inte enbart mot en enskild normal bild.
 
 ```python
 import jpype
@@ -264,20 +266,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vad är skillnaden mellan en masterbild och en layoutbild?**
+**Vad är skillnaden mellan en Master Slide och en Layout Slide?**
 
-En masterbild definierar presentationens tema och delad formatering. En layoutbild tillhör en master och definierar en återanvändbar placering av platshållare. Normala bilder använder dessa layouter och lagrar bildspecifikt innehåll.
+En master‑slide definierar presentationens tema och delade formateringar. En layout‑slide tillhör en master och definierar en återanvändbar placering av platshållare. Normala bilder använder dessa layouter och lagrar bildspecifikt innehåll.
 
-**Kan jag kopiera en layoutbild från en presentation till en annan?**
+**Kan jag kopiera en Layout Slide från en presentation till en annan?**
 
-Ja. Lägg till en kopia i destinationssamlingen med metoden [addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/globallayoutslidecollection/#addClone). När du kopierar mellan presentationer, kontrollera även typsnitt, teman, bilder och andra resurser som används av käll‑layouten.
+Ja. Lägg till en kopia i destinationssamlingen med metoden [addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/globallayoutslidecollection/#addClone). När du kopierar mellan presentationer bör du även verifiera typsnitt, teman, bilder och andra resurser som layouten använder.
 
-**Vad händer när jag modifierar en layout som redan är i bruk?**
+**Vad händer när jag ändrar en layout som redan är i bruk?**
 
-Beroende bilder ärver layout‑ändringarna om de inte åsidosätter den berörda formateringen eller objekten lokalt. Platshållargeometri och ärvd stil kan därför ändras på många bilder samtidigt. Använd [getDependingSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getDependingSlides) för att identifiera de berörda bilderna innan du redigerar layouten.
+Beroende bilder ärver layout‑ändringarna om de inte har överskuggat den berörda formateringen eller objekten lokalt. Platshållargeometri och ärvd stil kan därför ändras på många bilder samtidigt. Använd [getDependingSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/#getDependingSlides) för att identifiera de påverkade bilderna innan du redigerar layouten.
 
 **Vad händer om jag tar bort en layout som fortfarande är i bruk?**
 
-Aspose.Slides kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pptxeditexception/). Tilldela om de beroende bilderna först, eller använd [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) för att endast ta bort orefererade layouter.
+Aspose.Slides kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pptxeditexception/). Tilldela först de beroende bilderna, eller använd [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) för att bara ta bort orefererade layouter.

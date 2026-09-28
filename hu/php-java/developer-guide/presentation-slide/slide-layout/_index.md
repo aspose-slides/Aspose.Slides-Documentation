@@ -5,65 +5,67 @@ type: docs
 weight: 60
 url: /hu/php-java/slide-layout/
 keywords:
-  - diaelrendezés
-  - tartalomelrendezés
-  - helyőrző
-  - prezentáció tervezés
-  - dia tervezés
-  - nem használt elrendezés
-  - lábléc láthatóság
-  - cím dia
-  - cím és tartalom
-  - szakaszcím
-  - két tartalom
-  - összehasonlítás
-  - csak cím
-  - üres elrendezés
-  - tartalom felirattal
-  - kép felirattal
-  - cím és függőleges szöveg
-  - függőleges cím és szöveg
-  - PowerPoint
-  - OpenDocument
-  - prezentáció
-  - PHP
-  - Aspose.Slides
-description: "Alkalmazzon, hozzon létre és módosítson diaelrendezéseket az Aspose.Slides for PHP (Java) segítségével, adjon hozzá helyőrzőket, távolítson el nem használt elrendezéseket, és szabályozza a lábléc láthatóságát."
+- diaelrendezés
+- tartalom elrendezés
+- helyettesítő
+- prezentáció tervezés
+- dia tervezés
+- nem használt elrendezés
+- lábléc láthatóság
+- cím dia
+- cím és tartalom
+- szakaszcím
+- két tartalom
+- összehasonlítás
+- csak cím
+- üres elrendezés
+- tartalom felirattal
+- kép felirattal
+- cím és függőleges szöveg
+- függőleges cím és szöveg
+- PowerPoint
+- OpenDocument
+- prezentáció
+- PHP
+- Aspose.Slides
+description: "Diaelrendezések alkalmazása, létrehozása és módosítása az Aspose.Slides for PHP Java-on keresztül, helyettesítők hozzáadása, nem használt elrendezések eltávolítása és a lábléc láthatóságának vezérlése."
 ---
 ## **Áttekintés**
 
-A diavetítés elrendezése meghatározza a helyőrzők, például címek, szöveg, képek, diagramok és táblázatok pozícióit és formázását. Egy elrendezés alkalmazása egységes szerkezetet ad a diáknak, miközben lehetővé teszi, hogy minden dia a saját tartalmát tartalmazza.
+Egy diaképek elrendezése meghatározza a helyettesítők, például címek, szöveg, képek, diagramok és táblák pozícióját és formázását. Az elrendezés alkalmazása egységes felépítést biztosít a diák számára, miközben minden diának lehetővé teszi saját tartalmának elhelyezését.
 
 A leggyakoribb elrendezések a következők:
 
-- **Title Slide**: Tartalmaz cím és alcím helyőrzőket.
-- **Title and Content**: Tartalmaz egy cím helyőrzőt és egy általános célú tartalom helyőrzőt.
-- **Blank**: Nem tartalmaz tartalomhelyőrzőket, és akkor hasznos, ha minden alakzatot kézzel helyezünk el.
+- **Címdia**: Cím és alcím helyettesítőket tartalmaz.
+- **Cím és tartalom**: Cím helyettesítőt és egy általános célú tartalom helyettesítőt tartalmaz.
+- **Üres**: Nem tartalmaz tartalom helyettesítőket, és akkor hasznos, ha minden alakzatot manuálisan helyezünk el.
 
-## **Megérteni az elrendezés öröklődését**
+## **Az elrendezés öröklődésének megértése**
 
 Egy prezentációnak három kapcsolódó szintje van:
 
-1. A [mester dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) meghatározza a témát, a megosztott formázást, a hátteret és a közös objektumokat.
-1. A [elrendezés dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/) a mesterhez tartozik, és egy adott helyőrző elrendezést definiál.
-1. A [normál dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/) egy elrendezést használ, és a diára beírt tartalmat tárolja.
+1. A [master dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) meghatározza a témát, a közös formázást, a háttérképeket és a közös objektumokat.
+1. A [layout dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/) egy masterhez tartozik, és meghatároz egy adott helyettesítők elrendezését.
+1. A [normál dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/) egy elrendezést használ, és tárolja az adott diára bevitt tartalmat.
 
-Egy normál dia a témát és a formázást az elrendezéséből örökli, az elrendezés pedig a mesterétől örököl. Egy normál dián közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normál diát hoznak létre, a helyőrző alakzatok a kiválasztott elrendezésből generálódnak, míg a helyőrzőkbe beírt tartalom a normál dia része.
+Egy normál dia a témát és a formázást örökli az elrendezéséből, az elrendezés pedig a masterből. A normál dián közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normál diát hoznak létre, a helyettesítő alakzatok a kiválasztott elrendezésből generálódnak, míg a helyettesítőkbe bevitt tartalom a normál dia része.
 
-Adjon hozzá szükséges helyőrzőket egy elrendezéshez, mielőtt diát hozna létre belőle. Egy helyőrző későbbi hozzáadása az elrendezéshez nem ad automatikusan hozzá megfelelő helyőrző alakzatot a már létező normál diákhoz.
+Adjunk hozzá a szükséges helyettesítőket az elrendezéshez, mielőtt diákra alkalmaznánk azt. Egy másik helyettesítő későbbi hozzáadása egy elrendezéshez nem generál automatikusan helyettesítő alakzatot a már létező normál diákon.
 
-Ez a kapcsolat két fontos következménnyel jár:
+Ennek a viszonynak két fontos következménye van:
 
-- Az örökölt formázás vagy a meglévő helyőrző geometria módosítása egy elrendezésen minden olyan diát frissíthet, amely attól függ. Mielőtt szerkesztené egy már használt elrendezést, ellenőrizze a függő diák listáját, és tekintse át a keletkező prezentációt.
-- Egy elrendezést, amelyet még használ egy dia, nem lehet eltávolítani. Először rendelje át a függő diákot egy másik elrendezéshez, vagy csak a nem használt elrendezéseket távolítsa el.
+- Az örökölt formázás vagy a meglévő helyettesítők geometriájának módosítása egy elrendezésen frissítheti az összes tőle függő diát. Mielőtt egy már használatban lévő elrendezést szerkesztenénk, ellenőrizzük a függő diákat és tekintsük át a kapott prezentációt.
+- Egy olyan elrendezést, amelyet még használ egy dia, nem lehet eltávolítani. Előbb rendeljük át a függő diákot egy másik elrendezésre, vagy csak a nem használt elrendezéseket távolítsuk el.
 
-További információkért a hierarchia legfelső szintjéről lásd a [Slide Master](/slides/hu/php-java/slide-master/).
+További információkért a hierarchia felső szintjéről lásd a [Slide Master](/slides/hu/php-java/slide-master/) oldalt.
+
+Az örökölt logók vagy díszítő master alakzatok elrejtéséhez egy dián vagy egy megosztott elrendezésen keresztül lásd a [Control the Visibility of Master Graphics](/slides/hu/php-java/slide-master/) oldalt. A példa két diát hasonlít össze, amelyek ugyanazt a mastert használják.
 
 ## **Elrendezés kiválasztása és alkalmazása**
 
-Használjon elrendezéstípusú megközelítést, ha a prezentáció a standard PowerPoint elrendezésdefiníciókat követi. Az elrendezésneveket a felhasználó szerkesztheti és lokalizálhatja, ezért a név alapján történő kiválasztás kevésbé megbízható, hacsak nem a forrás sablont felügyeli.
+Használjunk elrendezéstípust, ha a prezentáció a szokásos PowerPoint elrendezésdefiníciókat követi. Az elrendezésnevek felhasználó által szerkeszthetők és lokalizálhatók, ezért a névre alapozott kiválasztás kevésbé megbízható, hacsak nem kontrolláljuk a forrássablont.
 
-Az alábbi példa az **Title and Content** elrendezést keresi az első mesterben. Ha ez az elrendezés nem érhető el, szándékosan a **Blank** elrendezésre tér vissza. A második null‑ellenőrzés szükséges, mert egy prezentáció tartalmazhat csak egyedi elrendezéseket. A kiválasztott elrendezést ezután a [Slide.setLayoutSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#setLayoutSlide) metódussal alkalmazzák az első normál diára.
+Az alábbi példa a **Title and Content** elrendezést keresi az első masterben. Ha ez az elrendezés nem érhető el, szándékosan a **Blank** elrendezésre tér vissza. A második null ellenőrzés szükséges, mert egy prezentáció csak egyedi elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [Slide.setLayoutSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#setLayoutSlide) metódussal alkalmazzuk az első normál diára.
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-Egy dia elrendezésének módosítása nem távolítja el a diára közvetlenül hozzáadott szokásos alakzatokat. Azonban a helyőrző pozíciók, az örökölt formázás és a meglévő helyőrzők és az új elrendezés közötti megfelelés változhat, ezért ellenőrizze a kimenetet, ha lényegesen eltérő elrendezések között vált.
+Egy dia elrendezésének módosítása nem távolítja el a közvetlenül a diára hozzáadott szokásos alakzatokat. Azonban a helyettesítők pozíciója, az örökölt formázás és a meglévő helyettesítők és az új elrendezés közti megfelelés változhat, ezért érdemes ellenőrizni a kimenetet, ha jelentősen eltérő elrendezések között váltunk.
 
 ## **Elrendezés dia hozzáadása**
 
-A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Egy új elrendezés létrehozásához hívja meg a [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterlayoutslidecollection/#add) metódust a cél mester elrendezésgyűjteményén.
+A kiválasztás és a létrehozás külön műveletek. Az előző példa egy létező elrendezést választ ki; nem hoz létre újat. Elrendezés létrehozásához hívjuk meg a [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterlayoutslidecollection/#add) metódust a cél master elrendezésgyűjteményén.
 
-Az alábbi példa mindig hozzáad egy új **Title and Content** elrendezést `Report Title and Content` néven, majd egy normál diát hoz létre ezen alapulva. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
+Az alábbi példa mindig hozzáad egy új **Title and Content** elrendezést `Report Title and Content` néven, majd létrehoz egy rá épülő normál diát. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
 
 ```php
 use aspose\slides\Presentation;
@@ -115,26 +117,26 @@ try {
 }
 ```
 
-Csak akkor adjon hozzá elrendezést, ha a sablon valóban szükségelteti egy új, újrahasznosítható struktúrát. Ha már létezik megfelelő elrendezés, válassza ki és használja újra a duplikálás helyett.
+Csak akkor adjunk hozzá elrendezést, ha a sablon valóban igényel egy új újrahasználható struktúrát. Ha már létezik megfelelő elrendezés, válasszuk ki és használjuk fel azt a duplikátum létrehozása helyett.
 
-## **Helyőrzők hozzáadása egy elrendezés diához**
+## **Helyettesítők hozzáadása egy elrendezés diához**
 
-A [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getPlaceholderManager) metódus egy [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/) objektumot ad vissza helyőrző alakzatok hozzáadásához egy elrendezéshez.
+A [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getPlaceholderManager) metódus egy [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/) objektumot ad vissza, amellyel helyettesítő alakzatokat adhatunk hozzá egy elrendezéshez.
 
-| PowerPoint helyőrző               | `LayoutPlaceholderManager` metódus |
-| --------------------------------- | ---------------------------------- |
-| ![Tartalom](content.png)          | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Tartalom (Függőleges)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Szöveg](text.png)               | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Szöveg (Függőleges)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Kép](picture.png)               | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Diagram](chart.png)             | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Táblázat](table.png)            | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)         | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Média](media.png)               | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online kép](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| PowerPoint Placeholder              | `LayoutPlaceholderManager` metódus |
+| ----------------------------------- | ---------------------------------- |
+| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Az alábbi példa ellenőrzi, hogy a **Blank** elrendezés létezik‑e, négy helyőrzőt ad hozzá, majd létrehoz egy normál diát, amely a módosított elrendezést használja. A sorrend szándékos: a helyőrzőket a normál dia létrehozása előtt adjuk hozzá, így az Aspose.Slides képes a megfelelő helyőrző alakzatokat generálni azon a diasoron.
+Az alábbi példa ellenőrzi, hogy a **Blank** elrendezés létezik-e, négy helyettesítőt ad hozzá, majd egy normál diát hoz létre, amely a módosított elrendezést használja. A sorrend szándékos: a helyettesítőket a normál dia létrehozása előtt adjuk hozzá, így az Aspose.Slides a megfelelő helyettesítő alakzatokat tudja generálni azon a dián.
 
 ```php
 use aspose\slides\Presentation;
@@ -164,17 +166,15 @@ try {
 
 Az eredmény:
 
-![A helyőrzők az elrendezésen](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-{{% alert color="warning" title="Figyelmeztetés" %}}
-
-Az örökölt formázás vagy a meglévő elrendezés helyőrzőinek geometriája módosítása befolyásolhatja a függő diákot. Egy újonnan hozzáadott elrendezéshelyőrző nem kerül utólagos kitöltésre a már létező normál diákba. Tesztelje az elrendezésváltozásokat egy másolat prezentáción, és ellenőrizze minden függő diát.
-
+{{% alert color="warning" title="Warning" %}}
+Az örökölt formázás vagy az existing layout placeholders geometriájának módosítása befolyásolhatja a függő diákot. Egy újonnan hozzáadott elrendezéshelyettesítő nem kerül automatikusan a már létező normál diákba. Teszteljük az elrendezésváltozásokat a prezentáció egy másolatán, és ellenőrizzük minden függő diát.
 {{% /alert %}}
 
 ## **Nem használt elrendezés diák eltávolítása**
 
-Használja a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust a nem hivatkozott elrendezések eltávolításához. A metódus érintetlenül hagyja a még használt elrendezéseket.
+Használjuk a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust a olyan elrendezések eltávolításához, amelyekre egyetlen normál dia sem hivatkozik. A metódus érintetlenül hagyja az még használatban lévő elrendezéseket.
 
 ```php
 use aspose\slides\Compress;
@@ -190,13 +190,13 @@ try {
 }
 ```
 
-Egy konkrét elrendezés eltávolításához előbb ellenőrizze a [hasDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#hasDependingSlides) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getDependingSlides) metódus visszatérési értékét. Minden függő diát rendelje át, mielőtt meghívná a [LayoutSlide.remove](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#remove) metódust. Egy használt elrendezés eltávolítására kísérlet [PptxEditException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxeditexception/) hibát vált ki.
+Egy konkrét elrendezés eltávolításához előbb ellenőrizzük a [hasDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#hasDependingSlides) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getDependingSlides) metódus segítségével. Mielőtt meghívnánk a [LayoutSlide.remove](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#remove) metódust, rendeljük át a függő diákat. Egy használt elrendezés eltávolítása [PptxEditException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxeditexception/) kivételt vált ki.
 
 ## **Lábléc láthatóságának vezérlése egy elrendezés dián**
 
-Egy elrendezés saját lábléc, dia‑sorszám és dátum‑idő helyőrzőkkel rendelkezik. Használja a [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) metódust ezen helyőrzők vezérléséhez egyetlen elrendezésnél. Ez akkor hasznos, ha például a tartalomelrendezéseknek láblécet kell mutatniuk, míg a címelrendezéseknek nem.
+Egy elrendezésnek saját lábléc, dia-szám és dátum-idő helyettesítői vannak. A [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) metódussal vezérelhetjük ezeket a helyettesítőket egy adott elrendezéshez. Ez akkor hasznos, ha például a tartalom elrendezéseknek láblécet kell mutatni, de a cím elrendezéseknek nem.
 
-Az alábbi példa biztonságosan kiválaszt egy elrendezést, és láthatóvá teszi a láblécelemeket:
+Az alábbi példa biztonságosan kiválaszt egy elrendezést, és láthatóvá teszi a lábléc elemeit:
 
 ```php
 use aspose\slides\Presentation;
@@ -228,9 +228,9 @@ try {
 }
 ```
 
-## **Lábléc láthatóságának vezérlése egy mester és annak alá‑rendelt elrendezései között**
+## **Lábléc láthatóságának vezérlése egy masteren és annak gyermek elrendezésein**
 
-Az egységes láblécbeállítások alkalmazásához a mesterhierarchiában használja a [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/#getHeaderFooterManager) metódust. A [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslideheaderfootermanager/) terjesztési metódusai a mesteren, annak függő elrendezés‑diáin és normál diáin is működnek; nem csak egyetlen normál diát céloznak.
+Az egységes lábléc beállítások master hierarchiában történő alkalmazásához használjuk a [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/#getHeaderFooterManager) metódust. A [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslideheaderfootermanager/) terjesztési metódusai a masteren, annak függő elrendezés diákon és normál diákon is működnek; nem csak egyetlen normál diára vonatkoznak.
 
 ```php
 use aspose\slides\Presentation;
@@ -253,18 +253,18 @@ try {
 
 ## **GYIK**
 
-**Mi a különbség a Mester dia és az Elrendezés dia között?**
+**Mi a különbség a master dia és az elrendezés dia között?**
 
-A mester dia meghatározza a prezentáció témáját és a megosztott formázást. Az elrendezés dia a mesterhez tartozik, és egy újrahasznosítható helyőrző‑elrendezést definiál. A normál diák ezeket az elrendezéseket használják, és a dia‑specifikus tartalmat tárolják.
+A master dia meghatározza a prezentáció témáját és a közös formázást. Egy elrendezés dia a masterhez tartozik, és egy újrahasználható helyettesítő elrendezést definiál. A normál diákok ezeket az elrendezéseket használják, és a diaspecifikus tartalmat tárolják.
 
 **Másolhatok elrendezés diát egy prezentációból a másikba?**
 
-Igen. Használja az [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/globallayoutslidecollection/#addClone) metódust a célgyűjteményhez való másoláshoz. Másoláskor ellenőrizze a betűtípusokat, témákat, képeket és egyéb forrás‑elrendezés által használt erőforrásokat.
+Igen. Adjon egy másolatot a célgyűjteményhez a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/globallayoutslidecollection/#addClone) metódussal. Másoláskor ellenőrizze a betűtípusokat, témákat, képeket és egyéb forrásokat, amelyeket a forrás elrendezés használ.
 
-**Mi történik, ha egy már használatban lévő elrendezést módosítok?**
+**Mi történik, ha módosítok egy már használatban lévő elrendezést?**
 
-A függő diák öröklik az elrendezés változásait, kivéve, ha a formázást vagy az objektumokat lokálisan felülírják. Így a helyőrző geometria és az örökölt stílus sok dián egyszerre megváltozhat. A módosítás előtt használja a [getDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getDependingSlides) metódust a érintett diák azonosításához.
+A függő diák öröklik az elrendezés módosításait, hacsak nem írják felül a formázást vagy az objektumokat helyileg. Így a helyettesítők geometriája és az örökölt stílusok sok dián egyszerre változhatnak. Szerkesztés előtt használja a [getDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getDependingSlides) metódust az érintett diák azonosításához.
 
-**Mi történik, ha egy még használatban lévő elrendezést eltávolítok?**
+**Mi történik, ha eltávolítok egy még használatban lévő elrendezést?**
 
-Az Aspose.Slides [PptxEditException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxeditexception/) hibát dob. Először rendelje át a függő diákot, vagy használja a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust a csak nem hivatkozott elrendezések eltávolításához.
+Az Aspose.Slides [PptxEditException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxeditexception/)-t dob. Előbb rendelje át a függő diákat, vagy használja a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust csak a nem hivatkozott elrendezések eltávolításához.

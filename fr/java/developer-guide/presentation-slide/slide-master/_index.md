@@ -1,59 +1,59 @@
 ---
-title: Gérer les masques de diapositives de présentation en Java
-linktitle: Masque de diapositive
+title: Gérer les maîtres de diapositives de présentation en Java
+linktitle: Maître de diapositive
 type: docs
 weight: 70
 url: /fr/java/slide-master/
 keywords:
-- masque de diapositive
+- maître de diapositive
 - diapositive maître
 - diapositive maître PPT
-- plusieurs masques de diapositives
-- comparer les masques de diapositives
-- arrière‑plan
+- plusieurs diapositives maîtres
+- comparer les diapositives maîtres
+- arrière-plan
 - espace réservé
-- cloner le masque de diapositive
-- copier le masque de diapositive
-- dupliquer le masque de diapositive
-- masque de diapositive inutilisé
+- cloner diapositive maître
+- copier diapositive maître
+- dupliquer diapositive maître
+- diapositive maître inutilisée
 - PowerPoint
 - OpenDocument
 - présentation
 - Java
 - Aspose.Slides
-description: "Gérez les masques de diapositives dans Aspose.Slides pour Java : accédez, modifiez, clonez, comparez et supprimez les masques de diapositives dans les présentations PowerPoint et OpenDocument."
+description: "Gérez les maîtres de diapositives dans Aspose.Slides pour Java : accédez, modifiez, clonez, comparez et supprimez les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
 ---
-## **Aperçu**
+## **Vue d'ensemble**
 
-Un **masque de diapositive** définit les paramètres de conception communs pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, la modification d’un masque de diapositive est la manière habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
+Un **maître de diapositive** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, la modification d’un maître de diapositive est la façon habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Aspose.Slides for Java prend en charge le même modèle. Une présentation peut contenir une ou plusieurs masques de diapositive, et chaque masque peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas directement référence à un masque de diapositive. Au lieu de cela, une diapositive normale utilise une diapositive de mise en page, et cette diapositive de mise en page appartient à un masque de diapositive.
+Aspose.Slides for Java prend en charge le même modèle. Une présentation peut contenir un ou plusieurs maîtres de diapositive, et chaque maître peut contenir plusieurs diapositives de disposition. Les diapositives normales ne se réfèrent généralement pas directement à un maître. Au lieu de cela, une diapositive normale utilise une diapositive de disposition, et cette diapositive de disposition appartient à un maître.
 
 La hiérarchie est :
 
-1. **Masque de diapositive** – définit la conception et le thème partagés.  
-1. **Diapositive de mise en page** – définit un agencement spécifique d’espaces réservés et de formatage au niveau de la mise en page.  
-1. **Diapositive normale** – contient le contenu réel de la présentation et utilise une diapositive de mise en page.
+1. **Maître de diapositive** – définit la conception et le thème partagés.  
+1. **Diapositive de disposition** – définit un agencement spécifique d’espaces réservés et de mise en forme au niveau de la disposition.  
+1. **Diapositive normale** – contient le contenu réel de la présentation et utilise une diapositive de disposition.
 
 ![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-Dans Aspose.Slides, un masque de diapositive est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/). Tous les masques d’une présentation sont accessibles via la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#getMasters--) qui implémente [IMasterSlideCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/).
+Dans Aspose.Slides, un maître de diapositive est représenté par l’interface [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/). Tous les maîtres d’une présentation sont accessibles via la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#getMasters--) qui implémente [IMasterSlideCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/).
 
-{{% alert color="info" title="Héritage" %}}
-
-Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un masque et une mise en page définissent tous deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l’arrière‑plan de la mise en page. Pour plus d’informations sur les diapositives de mise en page, voir [Apply or Change Slide Layouts](/slides/fr/java/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un maître et une disposition définissent tous deux un arrière‑plan, les diapositives basées sur cette disposition utilisent l’arrière‑plan de la disposition. Pour plus d’informations sur les dispositions, voir [Appliquer ou modifier les dispositions des diapositives](/slides/fr/java/slide-layout/).
 {{% /alert %}}
 
-## **Accéder aux masques de diapositive**
+## **Accéder aux maîtres de diapositive**
 
-Dans PowerPoint, vous pouvez ouvrir la vue Masque des diapositives depuis **Affichage** > **Masque des diapositives**.
+Dans PowerPoint, vous pouvez ouvrir la vue Maître de diapositive depuis **Affichage** > **Maître de diapositive**.
 
 ![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-Dans Aspose.Slides, utilisez la collection `getMasters()` pour accéder aux masques :
+Dans Aspose.Slides, utilisez la collection `getMasters()` pour accéder aux maîtres :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -67,9 +67,11 @@ try {
 }
 ```
 
-Vous pouvez également obtenir le masque utilisé par une diapositive normale via sa mise en page :
+Vous pouvez également obtenir le maître utilisé par une diapositive normale via sa disposition :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -83,28 +85,30 @@ try {
 }
 ```
 
-## **Contenu d’un masque de diapositive**
+## **Ce qu’un maître de diapositive contient**
 
-Un masque de diapositive est un objet semblable à une diapositive. Il implémente [IBaseSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibaseslide/), de sorte qu’il expose de nombreuses propriétés de diapositive utilisées par les diapositives normales et de mise en page. Les membres spécifiques au masque sont répertoriés sur la page API [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/).
+Un maître de diapositive est un objet semblable à une diapositive. Il implémente [IBaseSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibaseslide/), ce qui lui donne accès aux mêmes propriétés de diapositive que les diapositives normales et de disposition. Les membres spécifiques au maître sont répertoriés sur la page API [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/).
 
-Parmi les membres de masque les plus couramment utilisés :
+Les membres de maître de diapositive les plus couramment utilisés sont :
 
-| Membre | Objectif |
+| Membre | Utilité |
 | --- | --- |
-| `getBackground()` | Définit l’arrière‑plan au niveau du masque. |
-| `getShapes()` | Stocke les formes placées sur le masque, comme les logos, les cadres d’image et le texte partagé. |
-| `getLayoutSlides()` | Stocke les diapositives de mise en page appartenant au masque. |
-| `getThemeManager()` | Fournit l’accès aux API du thème du masque. |
-| `getHeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le masque et ses mises en page enfants. |
-| `getDependingSlides()` | Retourne les diapositives normales qui dépendent du masque via leurs mises en page. |
+| `getBackground()` | Définit l’arrière‑plan au niveau du maître. |
+| `getShapes()` | Contient les formes placées sur le maître, comme les logos, les cadres d’image et le texte partagé. |
+| `getLayoutSlides()` | Contient les diapositives de disposition appartenant au maître. |
+| `getThemeManager()` | Fournit l’accès aux API du thème du maître. |
+| `getHeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le maître et ses dispositions enfants. |
+| `getDependingSlides()` | Renvoie les diapositives normales qui dépendent du maître via leurs dispositions. |
 
-## **Ajouter une image à un masque de diapositive**
+## **Ajouter une image à un maître de diapositive**
 
-Lorsque vous ajoutez une image à un masque, elle apparaît sur les diapositives qui utilisent les mises en page de ce masque. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels récurrents.
+Lorsque vous ajoutez une image à un maître, elle apparaît sur les diapositives qui utilisent les dispositions de ce maître. C’est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
 
-L’exemple suivant ajoute un logo au premier masque :
+L’exemple suivant ajoute un logo au premier maître :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -132,17 +136,73 @@ try {
 
 Pour plus d’informations sur les cadres d’image, voir [Picture Frame](/slides/fr/java/picture-frame/).
 
+## **Contrôler la visibilité des graphiques du maître**
+
+Utilisez [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) pour masquer les graphiques hérités du maître, tels que les logos ou formes décoratives, sans les supprimer du maître. Passez `false` à [Slide.setShowMasterShapes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slide/#setShowMasterShapes-boolean-) sur la diapositive qui doit ignorer ces graphiques et gardez `true` sur les diapositives qui doivent les afficher.
+
+L’exemple autonome ci‑dessous crée une bande décorative bleue sur un maître et deux diapositives utilisant la même disposition vierge. La bande est visible sur la première diapositive et masquée sur la seconde. Aucun fichier de présentation ou image d’entrée n’est requis.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    Color bandColor = new Color(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+L’exemple utilise la disposition **Blank** fournie avec une nouvelle présentation et supprime les espaces réservés propres à la diapositive initiale.
+
+### **Choisir la portée du paramètre**
+
+Une diapositive normale utilise son maître via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/#getLayoutSlide--) et [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ilayoutslide/#getMasterSlide--). Le réglage de la propriété sur une diapositive individuelle n’affecte que celle‑ci. Passer `false` à [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) masque les graphiques du maître pour toutes les diapositives qui utilisent cette disposition partagée, même si leur propre réglage est `true`. Pour masquer les graphiques sur une seule diapositive, modifiez la propriété de la diapositive et laissez la disposition partagée inchangée.
+
+Le paramètre n’est pas pris en charge comme contrôle de visibilité sur le maître lui‑même. Sur un maître, [getShowMasterShapes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/masterslide/#getShowMasterShapes--) renvoie toujours `false`, et passer `true` à [setShowMasterShapes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) génère une exception. Appliquez‑le à une diapositive normale ou à une disposition.
+
+### **Distinction entre graphiques et arrière‑plan**
+
+| Opération | Effet |
+| --- | --- |
+| Masquer les graphiques du maître | Contrôle la visibilité des formes héritées du maître sans les supprimer ni modifier les formes propres à la diapositive. |
+| Modifier le remplissage d’arrière‑plan de la diapositive | Change la couleur, le dégradé ou l’image d’arrière‑plan. Les graphiques du maître sont des formes distinctes et peuvent rester visibles au‑dessus de cet arrière‑plan. Voir [Presentation Background](/slides/fr/java/presentation-background/). |
+| Supprimer une forme du maître | Supprime la forme source partagée, de sorte qu’elle n’est plus disponible pour aucune diapositive utilisant ce maître. |
+
 ## **Travailler avec les espaces réservés**
 
-Les espaces réservés sont généralement définis sur les diapositives de mise en page. Le masque fournit le style et le thème partagés que ces mises en page héritent, chaque mise en page décidant quels espaces réservés sont disponibles et où ils sont placés.
+Les espaces réservés sont généralement définis sur les diapositives de disposition. Le maître fournit le style et le thème partagés que ces dispositions héritent, chaque disposition décidant quels espaces réservés sont disponibles et où ils sont placés.
 
-Dans PowerPoint, les commandes d’espaces réservés sont disponibles en vue Masque des diapositives.
+Dans PowerPoint, les commandes d’espace réservé sont disponibles en mode Maître de diapositive.
 
 ![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la diapositive de mise en page appartenant au masque :
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la diapositive de disposition appartenant au maître :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -161,9 +221,12 @@ try {
 }
 ```
 
-Vous pouvez également formater les formes d’espace réservé déjà présentes sur un masque. L’exemple suivant trouve l’espace réservé de titre et applique un remplissage en dégradé linéaire :
+Vous pouvez également mettre en forme les formes d’espace réservé déjà présentes sur un maître. L’exemple suivant trouve l’espace réservé au titre et applique un remplissage en dégradé linéaire :
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -188,7 +251,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0f, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
@@ -199,13 +262,16 @@ try {
 
 ![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-Pour plus d’options de formatage des espaces réservés et du texte, voir [Set Prompt Text in Placeholder](/slides/fr/java/manage-placeholder/) et [Text Formatting](/slides/fr/java/text-formatting/).
+Pour d’autres options de formatage d’espaces réservés et de texte, voir [Set Prompt Text in Placeholder](/slides/fr/java/manage-placeholder/) et [Text Formatting](/slides/fr/java/text-formatting/).
 
-## **Modifier l’arrière‑plan d’un masque de diapositive**
+## **Modifier l’arrière‑plan d’un maître de diapositive**
 
-Un arrière‑plan de masque est hérité par les mises en page et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier masque :
+Un arrière‑plan de maître est hérité par les dispositions et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier maître :
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -221,13 +287,15 @@ try {
 }
 ```
 
-Pour les sujets associés, voir [Presentation Background](/slides/fr/java/presentation-background/) et [Presentation Theme](/slides/fr/java/presentation-theme/).
+Pour des sujets connexes, voir [Presentation Background](/slides/fr/java/presentation-background/) et [Presentation Theme](/slides/fr/java/presentation-theme/).
 
-## **Cloner un masque de diapositive vers une autre présentation**
+## **Cloner un maître de diapositive vers une autre présentation**
 
-Utilisez [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) pour copier un masque dans une autre présentation. Le masque copié peut alors être utilisé par les mises en page et les diapositives de la présentation cible.
+Utilisez [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) pour copier un maître dans une autre présentation. Le maître copié peut alors être utilisé par les dispositions et diapositives de la présentation cible.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -241,17 +309,20 @@ try {
 }
 ```
 
-Si vous devez cloner des diapositives normales avec leur masque, voir [Clone Slides](/slides/fr/java/clone-slides/).
+Si vous devez cloner des diapositives normales avec leur maître, voir [Clone Slides](/slides/fr/java/clone-slides/).
 
-## **Ajouter plusieurs masques de diapositive**
+## **Ajouter plusieurs maîtres de diapositive**
 
-Une présentation peut contenir plusieurs masques. Cela est utile lorsque différentes sections nécessitent des marques, des structures de page ou des réglages de thème différents.
+Une présentation peut contenir plusieurs maîtres. Cela est utile lorsque différentes sections nécessitent des marques, structures de page ou paramètres de thème différents.
 
 ![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-L’exemple suivant clone le masque par défaut, donne au clone un arrière‑plan différent, crée une mise en page sous ce masque cloné et ajoute une nouvelle diapositive basée sur cette mise en page :
+L’exemple suivant clone le maître par défaut, donne au clone un arrière‑plan différent, crée une disposition sous ce maître cloné et ajoute une nouvelle diapositive basée sur cette disposition :
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -276,11 +347,13 @@ try {
 }
 ```
 
-## **Comparer des masques de diapositive**
+## **Comparer des maîtres de diapositive**
 
-Les masques peuvent être comparés avec la méthode `equals` héritée de [IBaseSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibaseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres réglages de diapositive. Elle ne compare pas les identifiants uniques, comme les IDs de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
+Les maîtres peuvent être comparés avec la méthode `equals` héritée de [IBaseSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibaseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et les autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositive, ni les valeurs dynamiques d’espaces réservés, comme la date actuelle.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -309,11 +382,13 @@ try {
 
 Pour plus d’informations, voir [Compare Presentation Slides](/slides/fr/java/compare-slides/).
 
-## **Définir la vue Masque de diapositive comme vue par défaut**
+## **Définir la vue Maître de diapositive comme vue par défaut**
 
-Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/java/com.aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Masque de diapositive :
+Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/java/com.aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Maître de diapositive :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -325,13 +400,15 @@ try {
 
 Pour d’autres réglages de vue, voir [Save Presentation](/slides/fr/java/save-presentation/).
 
-## **Supprimer les masques de diapositive inutilisés**
+## **Supprimer les maîtres de diapositive inutilisés**
 
-Les présentations contiennent parfois des masques qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masques inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+Parfois, des présentations contiennent des maîtres qui ne sont plus utilisés par aucune diapositive normale. Supprimer les maîtres inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
 
-Utilisez `removeUnused` pour supprimer les masques inutilisés de la collection `getMasters()` :
+Utilisez `removeUnused` pour supprimer les maîtres inutilisés de la collection `getMasters()` :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -341,9 +418,11 @@ try {
 }
 ```
 
-Vous pouvez également utiliser la méthode low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fr/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+Vous pouvez également recourir à la méthode low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fr/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -355,18 +434,18 @@ try {
 
 ## **FAQ**
 
-**Quelle est la différence entre un masque de diapositive et une diapositive de mise en page ?**
+**Quelle est la différence entre un maître de diapositive et une diapositive de disposition ?**
 
-Un masque définit les paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une diapositive de mise en page appartient à un masque et définit un agencement spécifique d’espaces réservés. Une diapositive normale utilise une diapositive de mise en page, héritant ainsi à la fois du layout et du masque.
+Un maître de diapositive définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une diapositive de disposition appartient à un maître et définit un agencement spécifique d’espaces réservés. Une diapositive normale utilise une diapositive de disposition, héritant ainsi à la fois de la disposition et du maître.
 
-**Une présentation peut‑elle contenir plusieurs masques de diapositive ?**
+**Une présentation peut‑elle contenir plusieurs maîtres de diapositive ?**
 
-Oui. Une présentation peut contenir plusieurs masques. Utilisez plusieurs masques lorsque différentes sections nécessitent des systèmes visuels ou des marques différents.
+Oui. Une présentation peut contenir plusieurs maîtres. Utilisez plusieurs maîtres lorsque différentes sections nécessitent des systèmes visuels ou des marques différents.
 
-**Dois‑je ajouter des espaces réservés à un masque ou à une diapositive de mise en page ?**
+**Dois‑je ajouter des espaces réservés à un maître ou à une diapositive de disposition ?**
 
-Dans la plupart des cas, ajoutez les espaces réservés aux diapositives de mise en page. Placez les éléments visuels partagés et le formatage commun sur le masque, puis les espaces réservés de contenu sur les mises en page utilisées par les diapositives normales.
+Dans la plupart des cas, ajoutez les espaces réservés aux diapositives de disposition. Placez les éléments visuels partagés et le formatage partagé sur le maître, puis ajoutez les espaces réservés de contenu sur les dispositions que les diapositives normales utiliseront.
 
-**Puis‑je supprimer un masque qui est encore utilisé ?**
+**Puis‑je supprimer un maître de diapositive qui est encore utilisé ?**
 
-Non. Un masque ayant des diapositives dépendantes ne peut pas être supprimé directement en toute sécurité. Déplacez d’abord ces diapositives vers des mises en page sous un autre masque, ou utilisez une méthode de nettoyage des masques inutilisés qui ne supprime que les masques qui ne sont pas en usage.
+Non. Un maître qui possède des diapositives dépendantes ne peut pas être supprimé en toute sécurité. Déplacez d’abord ces diapositives vers des dispositions sous un autre maître, ou utilisez une méthode de nettoyage des maîtres inutilisés qui ne supprime que les maîtres qui ne sont pas en usage.

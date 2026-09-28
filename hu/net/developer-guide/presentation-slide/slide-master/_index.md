@@ -1,58 +1,60 @@
 ---
 title: Prezentáció slide masterek kezelése .NET-ben
-linktitle: Dia master
+linktitle: Dia mester
 type: docs
 weight: 80
 url: /hu/net/slide-master/
 keywords:
-- dia master
-- master dia
-- PPT master dia
-- több master dia
-- master diák összehasonlítása
+- dia mester
+- mester dia
+- PPT mester dia
+- több mester dia
+- mester diák összehasonlítása
 - háttér
 - helyőrző
-- master dia klónozása
-- master dia másolása
-- master dia duplikálása
-- használaton kívüli master dia
+- mester dia klónozása
+- mester dia másolása
+- mester dia duplikálása
+- használaton kívüli mester dia
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Slide masterek kezelése az Aspose.Slides for .NET-ben: hozzáférés, szerkesztés, klónozás, összehasonlítás és master diák eltávolítása PowerPoint és OpenDocument prezentációkban."
+description: "Slide masterek kezelése az Aspose.Slides for .NET-ben: hozzáférés, szerkesztés, klónozás, összehasonlítás és mester diák eltávolítása PowerPoint és OpenDocument prezentációkban."
 ---
 ## **Áttekintés**
 
-Egy **slide master** meghatározza a közös tervezési beállításokat egy diacsoport számára. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, téma‑beállításokat és láblécbeállításokat. A PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a bemutató egységes maradjon anélkül, hogy minden dián megismételné a formázást.
+Egy **slide master** meghatározza a megosztott tervezési beállításokat egy diacsoport számára. Tartalmazhat közös alakzatokat, logókat, háttereket, szövegstílusokat, téma-beállításokat és lábléc-beállításokat. A PowerPointban a slide master szerkesztése a szokásos módja annak, hogy egy prezentáció konzisztens maradjon anélkül, hogy minden dián ugyanazt a formázást kellene ismételni.
 
-Aspose.Slides for .NET támogatja ugyanazt a modellt. Egy bemutató egy vagy több master slide‑t tartalmazhat, és minden master slide több layout slide‑t is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master slide‑ra. Ehelyett egy normál dia egy layout slide‑ot használ, amely egy master slide‑hoz tartozik.
+Az Aspose.Slides for .NET ugyanazt a modellt támogatja. Egy prezentáció egy vagy több master diát tartalmazhat, és minden master dia több layout diát tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master diára. Ehelyett egy normál dia egy layout diát használ, és ez a layout dia egy master diához tartozik.
 
 A hierarchia:
 
-1. **Slide master** - meghatározza a közös tervezést és témát.  
-1. **Layout slide** - meghatározza a helyőrzők és az elrendezési szintű formázás konkrét elrendezését.  
-1. **Normal slide** - tartalmazza a tényleges bemutató tartalmat, és egy layout slide‑ot használ.
+1. **Slide master** – meghatározza a megosztott tervezést és témát.  
+2. **Layout slide** – meghatározza a helyőrzők és a layout‑szintű formázás adott elrendezését.  
+3. **Normal slide** – a tényleges prezentációs tartalmat tartalmazza, és egy layout diát használ.
 
-![A master diák, layout diák és normál diák hierarchiája](slide-master_2.jpg)
+![A mesterdiák, elrendezési diák és normál diák hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slides‑ban a slide master a [IMasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslide/) interfész által van képviselve. A bemutató összes master slide‑ja elérhető a [Presentation.Masters](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/masters/) gyűjteményen keresztül, amely a [IMasterSlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection/) implementálja.
+Az Aspose.Slidesban egy slide master a [IMasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslide/) interfész által van megjelenítve. A prezentáció összes master diája a [Presentation.Masters](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/masters/) gyűjteményen keresztül érhető el, amely megvalósítja az [IMasterSlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection/) interfészt.
 
 {{% alert color="info" title="Inheritance" %}}
-Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy master slide és egy layout slide is meghatároz egy hátteret, akkor a layout alapján készült diák a layout háttérszínét használják. További információ a layout diákról a [Apply or Change Slide Layouts](/slides/hu/net/slide-layout/) oldalon található.
+Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy master dia és egy layout dia is háttérszínt határoz meg, a layoutot használó diák a layout háttérszínét alkalmazzák. Az elrendezési diákról további információkat a [Apply or Change Slide Layouts](/slides/hu/net/slide-layout/) oldalon talál.
 {{% /alert %}}
 
-## **A slide master-ek elérése**
+## **Slide Masterok elérése**
 
-PowerPointban a Slide Master nézetet a **View** > **Slide Master** menüpontból nyithatja meg.
+PowerPointban a **View** > **Slide Master** menüből nyitható meg a Slide Master nézet.
 
-![A Slide Master parancs a PowerPoint Nézet fülön](slide-master_3.jpg)
+![A Slide Master parancs a PowerPoint View lapján](slide-master_3.jpg)
 
-Az Aspose.Slides‑ban a `Masters` gyűjteményt használja a master slide‑ok eléréséhez:
+Az Aspose.Slidesban a `Masters` gyűjteményt kell használni a master diák eléréséhez:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var firstMasterSlide = presentation.Masters[0];
@@ -63,9 +65,11 @@ Console.WriteLine("Master slides: " + masterSlideCount);
 Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
-Egy normál dia által használt master slide‑ot a saját layoutján keresztül is lekérhetjük:
+A normál dia által használt master diát a saját layoutján keresztül is lekérhetjük:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var slide = presentation.Slides[0];
@@ -76,26 +80,31 @@ var masterSlideName = masterSlide.Name;
 Console.WriteLine(masterSlideName);
 ```
 
-## **Mit tartalmaz egy Slide Master**
+## **Mi található egy Slide Masterban**
 
-A master slide egy dia‑szerű objektum. Implementálja a [IBaseSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/) interfészt, így ugyanazokat a dia‑tulajdonságokat teszi elérhetővé, mint a normál és layout diák. A master‑specifikus tagok a [IMasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslide/) API‑oldalon vannak felsorolva.
+A master dia egy diához hasonló objektum. Implementálja a [IBaseSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/) interfészt, így sok közös diatulajdonságot tesz elérhetővé, amelyeket a normál és layout diák is használnak. A master‑specifikus tagok a [IMasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslide/) API‑oldalon vannak felsorolva.
 
-A gyakran használt master slide tagok a következők:
+A leggyakrabban használt master dia tagok:
 
-| Tag | Leírás |
+| Tag | Cél |
 | --- | --- |
-| `Background` | Beállítja a master szintű dia háttérét. |
-| `Shapes` | Tárolja a masteren elhelyezett alakzatokat, mint logók, képkockák és megosztott szöveg. |
-| `LayoutSlides` | Tárolja a masterhez tartozó layout diákat. |
+| `Background` | A master‑szintű dia háttér beállítása. |
+| `Shapes` | A masterre elhelyezett alakzatok tárolása, például logók, képkockák és megosztott szöveg. |
+| `LayoutSlides` | A masterhez tartozó layout diák tárolása. |
 | `ThemeManager` | Hozzáférést biztosít a master téma API‑khoz. |
-| `HeaderFooterManager` | Kezeli a fejléceket, lábléceket, dátumokat és dia számokat a master és annak alatti layoutok számára. |
-| `GetDependingSlides` | Visszaadja azokat a normál diákat, amelyek a layoutjaikon keresztül a masterre támaszkodnak. |
+| `HeaderFooterManager` | Fejléc, lábléc, dátum és dia‑szám vezérlése a master és annak gyermek‑layoutjai számára. |
+| `GetDependingSlides` | Visszaadja azokat a normál diákat, amelyek a masteren keresztül a layoutjaik miatt függnek tőle. |
 
-## **Kép hozzáadása a Slide Masterhez**
+## **Kép hozzáadása egy Slide Masterhez**
 
-Amikor egy képet ad hozzá egy master slide‑hoz, az a master‑hoz tartozó layout‑okat használó diákon is megjelenik. Hasznos logók, vízjelek, díszszalagok és egyéb ismétlődő vizuális elemek esetén.
+Amikor képet adunk egy master diához, az a master‑layoutot használó diákon is megjelenik. Ez hasznos logók, vízjelekkel, dekoratív sávokkal és más ismétlődő vizuális elemekkel.
+
+Az alábbi példa egy logót ad az első master diához:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -113,19 +122,72 @@ masterSlide.Shapes.AddPictureFrame(
 presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
 ```
 
-További információ a képkockákról a [Picture Frame](/slides/hu/net/picture-frame/) oldalon található.
+A képkeretekről további információt a [Picture Frame](/slides/hu/net/picture-frame/) oldalon talál.
 
-## **Helyőrzőkkel való munka**
+## **A master grafika láthatóságának vezérlése**
 
-A helyőrzők általában a layout diákon vannak definiálva. A master slide biztosítja a közös stílust és témát, amelyet a layout‑ok örökölnek, míg minden egyes layout dönt arról, hogy mely helyőrzők állnak rendelkezésre és hol helyezkednek el.
+Az örökölt master grafika (például logók vagy dekoratív alakzatok) elrejtéséhez a [IBaseSlide.ShowMasterShapes](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/showmastershapes/) használható, anélkül, hogy törölnénk őket a masterről. Az adott dián állítsd a [Slide.ShowMasterShapes](https://reference.aspose.com/slides/hu/net/aspose.slides/slide/showmastershapes/) értékét `false`‑ra, ha el akarod rejteni a grafikát, és `true`‑ra, ha meg akarod jeleníteni.
+
+Az alábbi önálló példa egy kék dekoratív sávot hoz létre egy masteren, és két diát, amelyek ugyanazt az üres layoutot használják. A sáv látható az első dián, a másodikon rejtve. Nincs bemeneti prezentáció vagy kép szükséges.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var masterSlide = presentation.Masters[0];
+var layoutSlide = masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank);
+layoutSlide.ShowMasterShapes = true;
+
+var slideHeight = presentation.SlideSize.Size.Height;
+var band = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var visibleSlide = presentation.Slides[0];
+visibleSlide.LayoutSlide = layoutSlide;
+visibleSlide.Shapes.Clear();
+
+var hiddenSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+
+visibleSlide.ShowMasterShapes = true;
+hiddenSlide.ShowMasterShapes = false;
+
+presentation.Save("master-graphics.pptx", SaveFormat.Pptx);
+```
+
+A példa a **Blank** layoutot használja egy új prezentációból, és eltávolítja az első dia saját helyőrzőit.
+
+### **A beállítás hatókörének kiválasztása**
+
+Egy normál dia a masterét a [ISlide.LayoutSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/layoutslide/) és a [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/ilayoutslide/masterslide/) segítségével használja. Az egyes dián végzett beállítás csak azon a dián hat. Ha a [LayoutSlide.ShowMasterShapes](https://reference.aspose.com/slides/hu/net/aspose.slides/layoutslide/showmastershapes/) értékét `false`‑ra állítod, a master grafika el lesz rejtve minden olyan dián, amely azt a közös layoutot használja, még akkor is, ha saját beállításuk `true`. Csak egy dián szeretnél grafikát elrejteni, akkor módosítsd a dia tulajdonságát, és hagyd változatlanul a közös layoutot.
+
+A beállítás nem támogatott láthatóság‑vezérlőként a master dián magán. A masteren mindig `false`‑t ad vissza, a `true` érték hozzárendelése `NotSupportedException`‑t vált ki. Alkalmazd normál dián vagy layouton.
+
+### **Grafika és háttér megkülönböztetése**
+
+| Művelet | Hatás |
+| --- | --- |
+| Master grafika elrejtése | Az örökölt master alakzatok láthatóságának vezérlése a törlés vagy a dia saját alakzatainak módosítása nélkül. |
+| Dia háttér kitöltésének módosítása | A háttér színét, színátmenetét vagy képét változtatja. A master grafika különálló alakzat, és látható maradhat a háttér felett. Lásd a [Presentation Background](/slides/hu/net/presentation-background/). |
+| Alakzat törlése a masterről | A megosztott forrásalkot eltávolítja, ezért már nem lesz elérhető semelyik, a mastert használó dián sem. |
+
+## **Helyőrzők kezelése**
+
+A helyőrzőket általában a layout diák definiálják. A master dia biztosítja a megosztott stílust és témát, amelyet a layoutok örökölnek, míg minden layout dönti el, hogy mely helyőrzők érhetők el és hová kerülnek.
 
 PowerPointban a helyőrzőparancsok a Slide Master nézetben érhetők el.
 
-![A Helyőrző beszúrása parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
+![A Placeholder beszúrása a PowerPoint Slide Master nézetben](slide-master_5.png)
 
-Új helyőrzők hozzáadásához az Aspose.Slides‑ban dolgozzunk a master‑hez tartozó layout slide‑on:
+Új helyőrzők hozzáadásához az Aspose.Slidesban dolgozz a masterhez tartozó layout diával:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -143,9 +205,13 @@ presentation.Slides.AddEmptySlide(blankLayoutSlide);
 presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
 ```
 
-Már meglévő helyőrző alakzatokat is formázhat a master slide‑on. Az alábbi példa megkeresi a cím helyőrzőt és lineáris gradient kitöltést alkalmaz rá:
+Már létező helyőrzőalakzatokat is formázhatsz egy master dián. Az alábbi példa megtalálja a cím helyőrzőt, és lineáris színátmenetes kitöltést alkalmaz rá:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -181,13 +247,17 @@ static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType pla
 
 ![Formázott cím helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
 
-További helyőrző‑ és szövegformázási lehetőségek a [Set Prompt Text in Placeholder](/slides/hu/net/manage-placeholder/) és a [Text Formatting](/slides/hu/net/text-formatting/) oldalon találhatók.
+További helyőrző- és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/net/manage-placeholder/) és a [Text Formatting](/slides/hu/net/text-formatting/) oldalakat.
 
 ## **Slide Master háttér módosítása**
 
-A master háttér öröklődik a layout‑ok és azok a diák számára, amelyek nem írják felül. Az alábbi példa egy egyszínű háttérszínt állít be az első master slide‑ra:
+A master háttér azokat a layoutokat és diákot örökli, amelyek nem írják felül. Az alábbi példa egy szilárd háttérszínt állít be az első master diára:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -201,11 +271,14 @@ presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
 
 Kapcsolódó témák: [Presentation Background](/slides/hu/net/presentation-background/) és [Presentation Theme](/slides/hu/net/presentation-theme/).
 
-## **Slide Master klónozása egy másik bemutatóba**
+## **Slide Master klónozása egy másik prezentációba**
 
-A [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection/addclone/) segítségével egy master slide‑t másolhat egy másik bemutatóba. A másolt master ezután a célbemutató layout‑jai és diái számára használható.
+Az [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection/addclone/) használatával egy master diát másik prezentációba másolhatod. A másolt master ezután a célprezentáció layoutjai és diái számára is használható.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var sourcePresentation = new Presentation("source.pptx");
 using var destinationPresentation = new Presentation("destination.pptx");
 
@@ -215,17 +288,21 @@ var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSli
 destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
 ```
 
-Ha a normál diákot is a saját master‑jével együtt kívánja klónozni, lásd a [Clone Slides](/slides/hu/net/clone-slides/) oldalt.
+Ha a normál diákot a saját masterével együtt kell klónozni, lásd a [Clone Slides](/slides/hu/net/clone-slides/) oldalt.
 
 ## **Több Slide Master hozzáadása**
 
-Egy bemutató több master slide‑t is tartalmazhat. Hasznos, ha különböző szakaszok más‑más márkázást, oldalszerkezetet vagy téma‑beállításokat igényelnek.
+Egy prezentáció több master diát is tartalmazhat. Ez akkor hasznos, ha különböző szakaszok különböző márkaarculatot, oldalszerkezetet vagy téma‑beállításokat igényelnek.
 
 ![PowerPoint parancsok a master diák beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-Az alábbi példa klónozza az alapértelmezett master‑t, a klónnak más háttérszínt ad, egy layout‑ot hoz létre a klónozott master alatt, majd egy új diát ad hozzá ehhez a layout‑hoz:
+Az alábbi példa klónozza az alapértelmezett mastert, a klónnak más háttérszínt ad, létrehoz egy layoutot a klónozott master alatt, és egy új diát ad hozzá, amely ezt a layoutot használja:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var defaultMasterSlide = presentation.Masters[0];
@@ -244,11 +321,13 @@ presentation.Slides.AddEmptySlide(sectionBlankLayout);
 presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
 ```
 
-## **Slide Master‑ek összehasonlítása**
+## **Slide Masterok összehasonlítása**
 
-A master slide‑ek összehasonlíthatók az [IBaseSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/) által örökölt `Equals` metódussal. Az összehasonlítás a struktúrát és a statikus tartalmakat (alakzatok, szöveg, formázás, animációk, egyéb dia‑beállítások) vizsgálja. Nem hasonlítja össze az egyedi azonosítókat (például dia‑ID‑k) vagy a dinamikus helyőrzőértékeket (például a aktuális dátumot).
+A master diák összehasonlíthatók az [IBaseSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/) által örökölt `Equals` metódussal. Az összehasonlítás a struktúrát és a statikus tartalmat ellenőrzi, például alakzatokat, szöveget, formázást, animációkat és egyéb dia‑beállításokat. Nem hasonlítja össze az egyedi azonosítókat, mint a dia‑ID‑k, vagy a dinamikus helyőrzőértékeket, mint az aktuális dátum.
 
 ```csharp
+using Aspose.Slides;
+
 using var firstPresentation = new Presentation("first.pptx");
 using var secondPresentation = new Presentation("second.pptx");
 
@@ -274,37 +353,46 @@ for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; 
 }
 ```
 
-További információ a [Compare Presentation Slides](/slides/hu/net/compare-slides/) oldalon.
+További információkért lásd a [Compare Presentation Slides](/slides/hu/net/compare-slides/) oldalt.
 
 ## **Slide Master nézet beállítása alapértelmezett nézetnek**
 
-A [ViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/viewproperties/) `LastView` tulajdonságával szabályozhatja, hogy a PowerPoint melyik nézetet nyissa meg először. Az alábbi példa a bemutatót Slide Master nézetben nyitja meg:
+A [ViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/viewproperties/) `LastView` tulajdonságával vezérelheted, hogy a PowerPoint milyen nézettel nyíljon meg először. Az alábbi példa a prezentációt Slide Master nézetben nyitja meg:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.ViewProperties.LastView = ViewType.SlideMasterView;
 presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
-További nézetbeállítások a [Save Presentation](/slides/hu/net/save-presentation/) oldalon találhatók.
+További nézetbeállításokért lásd a [Save Presentation](/slides/hu/net/save-presentation/) oldalt.
 
-## **Használaton kívüli master slide‑ok eltávolítása**
+## **Használaton kívüli Master Diák eltávolítása**
 
-Előfordulhat, hogy egy bemutató tartalmaz olyan master slide‑okat, amelyeket már egyetlen normál dia sem használ. A használaton kívüli master‑ok eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
+Előfordul, hogy egy prezentáció olyan master diákat tartalmaz, amelyeket már egyetlen normál dia sem használ. A nem használt master-ek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
 
-A `Masters` gyűjteményből a [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/hu/net/aspose.slides/masterslidecollection/removeunused/) metódussal távolíthatja el a használaton kívüli master‑okat:
+A [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/hu/net/aspose.slides/masterslidecollection/removeunused/) metódussal eltávolíthatod a nem használt master diákot a `Masters` gyűjteményből:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.Masters.RemoveUnused(ignorePreserveField: true);
 presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
 
-Alacsony kóddal a [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/hu/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) metódust is használhatja:
+Alacsony kódú megoldásként használhatod a [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/hu/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) metódust is:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
@@ -314,13 +402,13 @@ presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ## **GYIK**
 
 **Mi a különbség a slide master és a layout slide között?**  
-A slide master a közös tervezési beállításokat (téma, háttér, közös alakzatok, szövegstílusok) határozza meg. Egy layout slide egy master slide‑hoz tartozik, és egy adott helyőrző‑elrendezést definiál. Egy normál dia egy layout slide‑ot használ, így mind a layout, mind a master beállításait örökli.
+Egy slide master megosztott tervezési beállításokat, például témát, hátteret, közös alakzatokat és szövegstílusokat definiál. Egy layout slide egy master slide-hez tartozik, és egy adott helyőrző‑elrendezést határoz meg. Egy normál dia egy layout slide‑ot használ, így mind a layoutot, mind a master‑t örökli.
 
-**Tartalmazhat egy bemutató több slide master‑t?**  
-Igen. Egy bemutató több slide master‑t is tartalmazhat. Használjon több master‑t, ha a különböző szakaszok eltérő vizuális rendszert vagy márkázást igényelnek.
+**Lehet egy prezentációban több slide master?**  
+Igen. Egy prezentáció tartalmazhat több slide masterdát. Használj több master‑t, ha a különböző szakaszok más‑más vizuális rendszert vagy márkaarculatot igényelnek.
 
-**Helyőrzőket a master slide‑ra vagy a layout slide‑ra kell-e felvennem?**  
-A legtöbb esetben a helyőrzőket a layout slide‑okra helyezzük. A közös vizuális elemeket és a közös formázást a master slide‑ra, a tartalomhelyőrzőket pedig a layout slide‑okra tesszük.
+**Hol kell helyőrzőket elhelyezni – a master slide‑ban vagy a layout slide‑ban?**  
+A legtöbb esetben a helyőrzőket a layout slide‑okban kell elhelyezni. A megosztott vizuális elemeket és a közös formázást a master slide‑ra helyezd, a tartalmi helyőrzőket pedig a normál diák által használt layoutokra.
 
-**Törölhetek egy még használatban lévő master slide‑t?**  
-Nem. Egy olyan master slide, amelyhez függő diák tartoznak, nem távolítható el közvetlenül. Először mozgassa át ezeket a diákot egy másik master alatti layout‑ra, vagy használjon olyan takarítási módszert, amely csak a nem használt master slide‑okat távolítja el.
+**Törölhetek egy master slide‑t, amely még használatban van?**  
+Nem. Egy master slide, amelynek függő diái vannak, nem távolítható el biztonságosan. Először mozgasd át ezeket a diákat egy másik master alatti layoutokra, vagy használd a nem használt master‑takarítási módszert, amely csak a használaton kívüli master‑okat távolítja el.

@@ -1,11 +1,11 @@
 ---
 title: Gestionar maestros de diapositivas de presentación en Android
-linktitle: Maestra de diapositiva
+linktitle: Maestro de diapositiva
 type: docs
 weight: 70
 url: /es/androidjava/slide-master/
 keywords:
-- maestra de diapositiva
+- maestro de diapositiva
 - diapositiva maestra
 - diapositiva maestra PPT
 - varias diapositivas maestras
@@ -15,46 +15,46 @@ keywords:
 - clonar diapositiva maestra
 - copiar diapositiva maestra
 - duplicar diapositiva maestra
-- diapositiva maestra no usada
+- diapositiva maestra sin usar
 - PowerPoint
 - OpenDocument
 - presentación
 - Android
 - Java
 - Aspose.Slides
-description: "Gestiona las maestras de diapositivas en Aspose.Slides para Android mediante Java: accede, edita, clona, compara y elimina diapositivas maestras en presentaciones de PowerPoint y OpenDocument."
+description: "Gestionar maestros de diapositivas en Aspose.Slides para Android mediante Java: acceder, editar, clonar, comparar y eliminar diapositivas maestras en presentaciones de PowerPoint y OpenDocument."
 ---
 ## **Visión general**
 
-Una **maestra de diapositivas** define configuraciones de diseño compartidas para un grupo de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, configuraciones de tema y de pie de página. En PowerPoint, editar una maestra de diapositivas es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
+Un **slide master** define los ajustes de diseño compartidos para un grupo de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, ajustes de tema y ajustes de pie de página. En PowerPoint, editar un slide master es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
 
-Aspose.Slides para Android mediante Java es compatible con el mismo modelo. Una presentación puede contener una o más diapositivas maestras, y cada diapositiva maestra puede contener varias diapositivas de diseño. Las diapositivas normales normalmente no hacen referencia a una diapositiva maestra directamente. En su lugar, una diapositiva normal usa una diapositiva de diseño, y esa diapositiva de diseño pertenece a una diapositiva maestra.
+Aspose.Slides for Android via Java admite el mismo modelo. Una presentación puede contener una o más master slides, y cada master slide puede contener varias layout slides. Normalmente, las diapositivas normales no hacen referencia directamente a un master slide. En su lugar, una diapositiva normal utiliza una layout slide, y esa layout slide pertenece a un master slide.
 
 La jerarquía es:
 
-1. **Maestra de diapositivas** – define el diseño y tema compartidos.  
-1. **Diapositiva de diseño** – define una disposición específica de marcadores de posición y formato a nivel de diseño.  
-1. **Diapositiva normal** – contiene el contenido real de la presentación y usa una diapositiva de diseño.
+1. **Slide master** - define el diseño y tema compartidos.  
+1. **Layout slide** - define una disposición específica de marcadores de posición y formato a nivel de diseño.  
+1. **Normal slide** - contiene el contenido real de la presentación y usa una layout slide.
 
-![La jerarquía de diapositivas maestras, diapositivas de diseño y diapositivas normales](slide-master_2.jpg)
+![La jerarquía de master slides, layout slides y normal slides](slide-master_2.jpg)
 
-En Aspose.Slides, una maestra de diapositivas está representada por la interfaz [IMasterSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslide/). Todas las maestras de diapositivas de una presentación están disponibles a través de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/#getMasters--) , que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/). Para obtener la referencia completa de la API Android mediante Java, consulte la [referencia de la API com.aspose.slides](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/).
+En Aspose.Slides, un slide master está representado por la interfaz [IMasterSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslide/) . Todos los master slides en una presentación están disponibles a través de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/#getMasters--) , que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/) . Para obtener la superficie completa de la API Android via Java, consulte la [com.aspose.slides API reference](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/) .
 
-{{% alert color="info" title="Herencia" %}}
-
-Cuando la misma propiedad se define en más de un nivel, gana el nivel más específico. Por ejemplo, si una diapositiva maestra y una diapositiva de diseño definen un fondo, las diapositivas basadas en ese diseño usan el fondo del diseño. Para obtener más información sobre las diapositivas de diseño, vea [Aplicar o cambiar diseños de diapositivas](/slides/es/androidjava/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Cuando la misma propiedad se define en más de un nivel, prevalece el nivel más específico. Por ejemplo, si un master slide y una layout slide ambos definen un fondo, las diapositivas basadas en esa layout usan el fondo de la layout. Para obtener más información sobre las layout slides, consulte [Aplicar o cambiar diseños de diapositivas](/slides/es/androidjava/slide-layout/) .
 {{% /alert %}}
 
-## **Acceder a las maestras de diapositivas**
+## **Acceso a los slide masters**
 
-En PowerPoint, puede abrir la vista Maestra de diapositivas desde **Vista** > **Maestra de diapositivas**.
+En PowerPoint, puede abrir la vista Slide Master desde **Vista** > **Slide Master**.
 
-![El comando Maestra de diapositivas en la pestaña Vista de PowerPoint](slide-master_3.jpg)
+![El comando Slide Master en la pestaña Vista de PowerPoint](slide-master_3.jpg)
 
-En Aspose.Slides, use la colección `getMasters()` para acceder a las maestras de diapositivas:
+En Aspose.Slides, utilice la colección `getMasters()` para acceder a los master slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +68,11 @@ try {
 }
 ```
 
-También puede obtener la diapositiva maestra usada por una diapositiva normal a través de su diseño:
+También puede obtener el master slide usado por una diapositiva normal a través de su layout:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,28 +86,28 @@ try {
 }
 ```
 
-## **Qué contiene una maestra de diapositivas**
+## **Qué contiene un Slide Master**
 
-Una diapositiva maestra es un objeto similar a una diapositiva. Implementa [IBaseSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseslide/), por lo que expone muchas de las mismas propiedades de diapositiva usadas por diapositivas normales y de diseño.
-
-Los miembros de la diapositiva maestra más usados incluyen:
+Un master slide es un objeto similar a una diapositiva. Implementa [IBaseSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseslide/) , por lo que expone muchas de las mismas propiedades de diapositiva usadas por diapositivas normales y de layout.
 
 | Miembro | Propósito |
 | --- | --- |
-| `getBackground()` | Establece el fondo de la diapositiva a nivel de maestra. |
-| `getShapes()` | Almacena las formas colocadas en la maestra, como logotipos, marcos de imágenes y texto compartido. |
-| `getLayoutSlides()` | Almacena las diapositivas de diseño que pertenecen a la maestra. |
-| `getThemeManager()` | Proporciona acceso a las API del tema de la maestra. |
-| `getHeaderFooterManager()` | Controla encabezados, pies de página, fechas y números de diapositiva para la maestra y sus diseños secundarios. |
-| `getDependingSlides()` | Devuelve las diapositivas normales que dependen de la maestra a través de sus diseños. |
+| `getBackground()` | Establece el fondo de la diapositiva a nivel de master. |
+| `getShapes()` | Almacena las formas colocadas en el master, como logotipos, marcos de imagen y texto compartido. |
+| `getLayoutSlides()` | Almacena las layout slides que pertenecen al master. |
+| `getThemeManager()` | Proporciona acceso a las API del tema del master. |
+| `getHeaderFooterManager()` | Controla encabezados, pies de página, fechas y números de diapositiva para el master y sus diseños secundarios. |
+| `getDependingSlides()` | Devuelve las diapositivas normales que dependen del master a través de sus layouts. |
 
-## **Añadir una imagen a una maestra de diapositivas**
+## **Agregar una imagen a un Slide Master**
 
-Cuando añade una imagen a una diapositiva maestra, aparece en las diapositivas que usan diseños de esa maestra. Esto es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
+Cuando agrega una imagen a un master slide, aparece en las diapositivas que usan layouts de ese master. Es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
 
-El siguiente ejemplo añade un logotipo a la primera maestra de diapositivas:
+El siguiente ejemplo agrega un logotipo al primer master slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +133,75 @@ try {
 }
 ```
 
-Para obtener más información sobre marcos de imágenes, vea [Marco de imagen](/slides/es/androidjava/picture-frame/).
+Para obtener más información sobre marcos de imagen, consulte [Marco de imagen](/slides/es/androidjava/picture-frame/) .
+
+## **Controlar la visibilidad de los gráficos del Master**
+
+Utilice [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) para ocultar los gráficos heredados del master, como logotipos o formas decorativas, sin eliminarlos del master. Pase `false` a [Slide.setShowMasterShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) en la diapositiva que debe omitir esos gráficos y mantenga `true` en las diapositivas que deben mostrarlos.
+
+El siguiente ejemplo independiente crea una banda decorativa azul en un master y dos diapositivas que usan el mismo layout en blanco. La banda es visible en la primera diapositiva y está oculta en la segunda. No se requiere una presentación o imagen de entrada.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+El ejemplo utiliza el layout **Blank** suministrado con una nueva presentación y elimina los marcadores de posición propios de la diapositiva inicial.
+
+### **Elija el alcance de la configuración**
+
+Una diapositiva normal utiliza su master a través de [ISlide.getLayoutSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/islide/#getLayoutSlide--) y [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--) . Establecer la propiedad en una diapositiva individual afecta solo a esa diapositiva. Pasar `false` a [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) oculta los gráficos del master para las diapositivas que usan ese layout compartido, incluso si su propia configuración es `true`. Para ocultar los gráficos en una única diapositiva, cambie la propiedad de la diapositiva y deje el layout compartido sin modificar.
+
+La configuración no se admite como control de visibilidad en el propio master slide. En un master, [getShowMasterShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) siempre devuelve `false`, y pasar `true` a [setShowMasterShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) genera una excepción. Aplíquelo a una diapositiva normal o a un layout en su lugar.
+
+### **Distinguir los gráficos del fondo**
+
+| Operación | Efecto |
+| --- | --- |
+| Ocultar los gráficos del master | Controla la visibilidad de las formas heredadas del master sin eliminarlas ni cambiar las propias formas de la diapositiva. |
+| Cambiar el relleno del fondo de la diapositiva | Cambia el color, degradado o imagen de fondo. Los gráficos del master son formas independientes y pueden permanecer visibles sobre ese fondo. Consulte [Presentation Background](/slides/es/androidjava/presentation-background/) . |
+| Eliminar una forma del master | Elimina la forma fuente compartida, por lo que ya no está disponible para ninguna diapositiva que use ese master. |
 
 ## **Trabajar con marcadores de posición**
 
-Los marcadores de posición se definen normalmente en las diapositivas de diseño. La diapositiva maestra proporciona el estilo y tema compartidos que esos diseños heredan, mientras que cada diseño decide qué marcadores de posición están disponibles y dónde se colocan.
+Los marcadores de posición se definen normalmente en las layout slides. El master slide proporciona el estilo y tema compartidos que esas layouts heredan, mientras que cada layout decide qué marcadores de posición están disponibles y dónde se colocan.
 
-En PowerPoint, los comandos de marcador de posición están disponibles en la vista Maestra de diapositivas.
+En PowerPoint, los comandos de marcador de posición están disponibles en la vista Slide Master.
 
-![El comando Insertar marcador de posición en la vista Maestra de diapositivas de PowerPoint](slide-master_5.png)
+![El comando Insertar marcador de posición en la vista Slide Master de PowerPoint](slide-master_5.png)
 
-Para añadir nuevos marcadores de posición con Aspose.Slides, trabaje con la diapositiva de diseño que pertenece a la maestra:
+Para agregar nuevos marcadores de posición con Aspose.Slides, trabaje con la layout slide que pertenece al master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -162,9 +220,12 @@ try {
 }
 ```
 
-También puede dar formato a las formas de marcador de posición que ya existen en una diapositiva maestra. El siguiente ejemplo busca el marcador de posición del título y le aplica un relleno de degradado lineal:
+También puede formatear formas de marcador de posición que ya existen en un master slide. El siguiente ejemplo encuentra el marcador de posición de título y le aplica un relleno de degradado lineal:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -183,8 +244,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -200,17 +261,20 @@ try {
 
 ![Marcador de posición de título formateado heredado por diapositivas normales](slide-master_8.png)
 
-Para más opciones de formato de marcadores de posición y texto, vea [Establecer texto del aviso en marcador de posición](/slides/es/androidjava/manage-placeholder/) y [Formato de texto](/slides/es/androidjava/text-formatting/).
+Para obtener más opciones de formato de marcadores de posición y de texto, consulte [Establecer texto de sugerencia en marcador de posición](/slides/es/androidjava/manage-placeholder/) y [Formato de texto](/slides/es/androidjava/text-formatting/) .
 
-## **Cambiar el fondo de una maestra de diapositivas**
+## **Cambiar el fondo de un Slide Master**
 
-Un fondo de maestra se hereda por los diseños y diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para la primera maestra de diapositivas:
+Un fondo de master se hereda por los layouts y las diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para el primer master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -222,13 +286,15 @@ try {
 }
 ```
 
-Para temas relacionados, vea [Fondo de la presentación](/slides/es/androidjava/presentation-background/) y [Tema de la presentación](/slides/es/androidjava/presentation-theme/).
+Para temas relacionados, consulte [Fondo de la presentación](/slides/es/androidjava/presentation-background/) y [Tema de la presentación](/slides/es/androidjava/presentation-theme/) .
 
-## **Clonar una maestra de diapositivas a otra presentación**
+## **Clonar un Slide Master a otra presentación**
 
-Utilice [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) para copiar una maestra de diapositivas a otra presentación. La maestra copiada puede entonces usarse en los diseños y diapositivas de la presentación de destino.
+Use [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) para copiar un master slide a otra presentación. El master copiado puede entonces ser usado por layouts y diapositivas en la presentación de destino.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -242,22 +308,25 @@ try {
 }
 ```
 
-Si necesita clonar diapositivas normales junto con su maestra, vea [Clonar diapositivas](/slides/es/androidjava/clone-slides/).
+Si necesita clonar diapositivas normales junto con su master, consulte [Clonar diapositivas](/slides/es/androidjava/clone-slides/) .
 
-## **Añadir varias maestras de diapositivas**
+## **Agregar varios Slide Masters**
 
-Una presentación puede contener varias maestras de diapositivas. Esto es útil cuando diferentes secciones requieren distintas marcas, estructura de página o configuraciones de tema.
+Una presentación puede contener varios master slides. Esto es útil cuando diferentes secciones requieren diferentes marcas, estructuras de página o ajustes de tema.
 
-![Comandos de PowerPoint para insertar y gestionar maestras de diapositivas](slide-master_9.jpg)
+![Comandos de PowerPoint para insertar y gestionar master slides](slide-master_9.jpg)
 
-El siguiente ejemplo clona la maestra predeterminada, le asigna un fondo diferente, crea un diseño bajo esa maestra clonada y añade una nueva diapositiva basada en ese diseño:
+El siguiente ejemplo clona el master predeterminado, le da al clon un fondo diferente, crea un layout bajo ese master clonado y agrega una nueva diapositiva basada en ese layout:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -277,11 +346,13 @@ try {
 }
 ```
 
-## **Comparar maestras de diapositivas**
+## **Comparar Slide Masters**
 
-Las maestras de diapositivas pueden compararse con el método `equals` heredado de [IBaseSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otras configuraciones de diapositiva. No compara identificadores únicos, como los IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
+Los master slides pueden compararse con el método `equals` heredado de [IBaseSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ibaseslide/) . La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otros ajustes de diapositiva. No compara identificadores únicos, como IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -308,13 +379,15 @@ try {
 }
 ```
 
-Para más información, vea [Comparar diapositivas de presentación](/slides/es/androidjava/compare-slides/).
+Para obtener más información, consulte [Comparar diapositivas de presentación](/slides/es/androidjava/compare-slides/) .
 
-## **Establecer la vista Maestra de diapositivas como vista predeterminada**
+## **Establecer la vista Slide Master como vista predeterminada**
 
-Utilice el método `setLastView` en [ViewProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Maestra de diapositivas:
+Use el método `setLastView` en [ViewProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en vista Slide Master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,15 +397,17 @@ try {
 }
 ```
 
-Para más configuraciones de vista, vea [Guardar presentación](/slides/es/androidjava/save-presentation/).
+Para más ajustes de vista, consulte [Guardar presentación](/slides/es/androidjava/save-presentation/) .
 
-## **Eliminar maestras de diapositivas no usadas**
+## **Eliminar master slides no utilizados**
 
-Algunas presentaciones contienen maestras de diapositivas que ya no son usadas por ninguna diapositiva normal. Eliminar maestras no usadas puede reducir el tamaño del archivo y simplificar el mantenimiento de la plantilla.
+Las presentaciones a veces contienen master slides que ya no son usados por ninguna diapositiva normal. Eliminar masters no utilizados puede reducir el tamaño del archivo y simplificar el mantenimiento de plantillas.
 
-Use `removeUnused` para eliminar maestras no usadas de la colección `getMasters()`:
+Use `removeUnused` para eliminar masters no utilizados de la colección `getMasters()` :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -342,9 +417,11 @@ try {
 }
 ```
 
-También puede usar el método de bajo código [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-):
+También puede usar el método de bajo código [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,20 +431,20 @@ try {
 }
 ```
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Cuál es la diferencia entre una maestra de diapositivas y una diapositiva de diseño?**
+**¿Cuál es la diferencia entre un slide master y una layout slide?**
 
-Una maestra de diapositivas define configuraciones de diseño compartidas como tema, fondo, formas comunes y estilos de texto. Una diapositiva de diseño pertenece a una maestra y define una disposición específica de marcadores de posición. Una diapositiva normal usa una diapositiva de diseño, por lo que hereda tanto del diseño como de la maestra.
+Un slide master define ajustes de diseño compartidos como tema, fondo, formas comunes y estilos de texto. Una layout slide pertenece a un slide master y define una disposición específica de marcadores de posición. Una diapositiva normal usa una layout slide, por lo que hereda tanto de la layout como del master.
 
-**¿Puede una presentación contener varias maestras de diapositivas?**
+**¿Puede una presentación contener varios slide masters?**
 
-Sí. Una presentación puede contener varias maestras de diapositivas. Use varias maestras cuando diferentes secciones necesiten sistemas visuales o marcas distintas.
+Sí. Una presentación puede contener varios slide masters. Use varios masters cuando diferentes secciones necesiten sistemas visuales o marcas diferentes.
 
-**¿Debo añadir marcadores de posición a una maestra de diapositivas o a una diapositiva de diseño?**
+**¿Debo agregar marcadores de posición a un master slide o a una layout slide?**
 
-En la mayoría de los casos, añada marcadores de posición a las diapositivas de diseño. Coloque los elementos visuales compartidos y el formato común en la maestra, y los marcadores de posición de contenido en los diseños que usarán las diapositivas normales.
+En la mayoría de los casos, agregue marcadores de posición a las layout slides. Coloque elementos visuales compartidos y formato compartido en el master slide, y luego coloque los marcadores de posición de contenido en los layouts que usarán las diapositivas normales.
 
-**¿Puedo eliminar una maestra de diapositivas que todavía se está usando?**
+**¿Puedo eliminar un master slide que aún se está usando?**
 
-No. Una maestra que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueva esas diapositivas a diseños bajo otra maestra, o utilice un método de limpieza de maestras no usadas que elimine sólo las que no están en uso.
+No. Un master slide que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueva esas diapositivas a layouts bajo otro master, o use un método de limpieza de masters no usados que elimine solo los masters que no están en uso.

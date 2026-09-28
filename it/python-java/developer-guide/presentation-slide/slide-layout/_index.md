@@ -1,20 +1,20 @@
 ---
-title: Applicare o modificare i layout di slide in Python tramite Java
-linktitle: Layout di slide
+title: Applica o modifica layout diapositive in Python tramite Java
+linktitle: Layout diapositiva
 type: docs
 weight: 60
 url: /it/python-java/slide-layout/
 keywords:
-- layout di slide
-- layout di contenuto
+- layout diapositiva
+- layout contenuto
 - segnaposto
-- design della presentazione
-- design della slide
+- progettazione presentazione
+- progettazione diapositiva
 - layout inutilizzato
-- visibilità del piè di pagina
-- slide titolo
+- visibilità piè di pagina
+- diapositiva titolo
 - titolo e contenuto
-- intestazione di sezione
+- intestazione sezione
 - due contenuti
 - confronto
 - solo titolo
@@ -29,42 +29,44 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Applica, crea e modifica i layout di slide in Aspose.Slides per Python tramite Java, aggiungi segnaposti, rimuovi layout inutilizzati e controlla la visibilità del piè di pagina."
+description: "Applica, crea e modifica i layout diapositive in Aspose.Slides per Python tramite Java, aggiungi segnaposto, rimuovi layout inutilizzati e controlla la visibilità del piè di pagina."
 ---
 ## **Panoramica**
 
-Un layout di slide definisce le posizioni e la formattazione dei segnaposto come titoli, testo, immagini, grafici e tabelle. Applicare un layout conferisce alle slide una struttura coerente consentendo a ciascuna slide di contenere i propri contenuti.
+Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposto come titoli, testo, immagini, grafici e tabelle. Applicare un layout conferisce alle diapositive una struttura coerente consentendo al contempo a ciascuna diapositiva di contenere il proprio contenuto.
 
 I layout più comuni includono:
 
-- **Slide Titolo**: contiene i segnaposto per titolo e sottotitolo.
-- **Titolo e Contenuto**: contiene un segnaposto per il titolo e un segnaposto di contenuto generico.
-- **Vuota**: non contiene segnaposto di contenuto ed è utile quando ogni forma viene posizionata manualmente.
+- **Titolo diapositiva**: contiene segnaposto per titolo e sottotitolo.
+- **Titolo e contenuto**: contiene un segnaposto per il titolo e un segnaposto di contenuto di uso generale.
+- **Vuota**: non contiene segnaposto di contenuto ed è utile quando ogni forma verrà posizionata manualmente.
 
-## **Comprendere l’Ereditarietà dei Layout**
+## **Comprendere l'ereditarietà dei layout**
 
 Una presentazione ha tre livelli correlati:
 
-1. Una [slide master](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
-2. Una [slide di layout](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/) appartiene a un master e definisce una disposizione specifica dei segnaposto.
-3. Una [slide normale](https://reference.aspose.com/slides/it/python-java/aspose.slides/slide/) utilizza un layout e memorizza i contenuti inseriti per quella slide.
+1. Un [master slide](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
+2. Un [layout slide](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/) appartiene a un master e definisce una particolare disposizione dei segnaposto.
+3. Una [normal slide](https://reference.aspose.com/slides/it/python-java/aspose.slides/slide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
 
-Una slide normale eredita tema e formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una slide normale sovrascrive il valore ereditato a quel livello. Quando viene creata una slide normale, le forme segnaposto vengono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposto appartiene alla slide normale.
+Una normal slide eredita tema e formattazione dal proprio layout, e il layout eredita dal master. Un valore impostato direttamente su una normal slide sovrascrive il valore ereditato a quel livello. Quando una normal slide viene creata, le forme dei segnaposto sono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposto appartiene alla normal slide.
 
-Aggiungi i segnaposto necessari a un layout prima di creare slide da esso. L’aggiunta successiva di un altro segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle slide normali esistenti.
+Aggiungi i segnaposto richiesti a un layout prima di creare diapositive da esso. L'aggiunta successiva di un altro segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle normal slide esistenti.
 
-Questa relazione comporta due conseguenze importanti:
+Questa relazione ha due conseguenze importanti:
 
-- Modificare la formattazione ereditata o la geometria dei segnaposto esistenti su un layout può aggiornare ogni slide che dipende da esso. Prima di modificare un layout già in uso, verifica le slide dipendenti e revisiona la presentazione risultante.
-- Un layout ancora utilizzato da una slide non può essere rimosso. Riassegna prima le slide dipendenti a un altro layout, o rimuovi solo i layout inutilizzati.
+- Modificare la formattazione ereditata o la geometria dei segnaposto esistenti su un layout può aggiornare ogni diapositiva che dipende da esso. Prima di modificare un layout già in uso, ispeziona le diapositive dipendenti e rivedi la presentazione risultante.
+- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le diapositive dipendenti a un altro layout, o rimuovi solo i layout non utilizzati.
 
-Per ulteriori informazioni sul livello superiore di questa gerarchia, consulta [Slide Master](/slides/it/python-java/slide-master/).
+Per ulteriori informazioni sul livello superiore di questa gerarchia, vedere [Slide Master](/slides/it/python-java/slide-master/).
 
-## **Selezionare e Applicare un Layout di Slide**
+Per nascondere i loghi ereditati o le forme decorative del master su una diapositiva o tramite un layout condiviso, vedere [Control the Visibility of Master Graphics](/slides/it/python-java/slide-master/). L'esempio confronta due diapositive che utilizzano lo stesso master.
 
-Usa un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall’utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello sorgente.
+## **Selezionare e applicare un layout di diapositiva**
 
-L’esempio seguente cerca **Titolo e Contenuto** nel primo master. Se quel layout non è disponibile, ricade deliberatamente su **Vuota**. Il secondo controllo per `None` è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene poi applicato alla prima slide normale tramite il metodo [Slide.setLayoutSlide](https://reference.aspose.com/slides/it/python-java/aspose.slides/slide/#setLayoutSlide).
+Utilizza un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello di origine.
+
+L'esempio seguente cerca **Titolo e contenuto** sul primo master. Se quel layout non è disponibile, ricade deliberatamente su **Vuota**. Il secondo controllo per `None` è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima normal slide tramite il metodo [Slide.setLayoutSlide](https://reference.aspose.com/slides/it/python-java/aspose.slides/slide/#setLayoutSlide).
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Cambiare il layout di una slide non rimuove le forme ordinarie aggiunte direttamente alla slide. Tuttavia, le posizioni dei segnaposto, la formattazione ereditata e la corrispondenza tra i segnaposto esistenti e il nuovo layout possono cambiare, quindi verifica l’output quando si passa da layout sostanzialmente diversi.
+Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposto, la formattazione ereditata e la corrispondenza tra i segnaposto esistenti e il nuovo layout possono cambiare, quindi verifica l'output quando passi da layout sostanzialmente diversi.
 
-## **Aggiungere una Slide di Layout**
+## **Aggiungere una diapositiva di layout**
 
-Selezione e creazione sono operazioni separate. L’esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterlayoutslidecollection/#add) sulla raccolta di layout del master di destinazione.
+Selezione e creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterlayoutslidecollection/#add) sulla collezione di layout del master di destinazione.
 
-L’esempio seguente aggiunge sempre un nuovo layout **Titolo e Contenuto** denominato `Report Title and Content`, poi aggiunge una slide normale basata su di esso. I nomi dei layout devono essere univoci all’interno della raccolta.
+L'esempio seguente aggiunge sempre un nuovo layout **Titolo e contenuto** denominato `Report Title and Content`, quindi aggiunge una normal slide basata su di esso. I nomi dei layout devono essere unici all'interno della collezione.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Aggiungi un layout solo quando il modello richiede realmente un’altra struttura riutilizzabile. Se esiste già un layout adatto, selezionalo e riutilizzalo invece di creare un duplicato.
+Aggiungi un layout solo quando il modello necessita realmente di un'altra struttura riutilizzabile. Se esiste già un layout adatto, selezionalo e riutilizzalo invece di crearne uno duplicato.
 
-## **Aggiungere Segnaposto a una Slide di Layout**
+## **Aggiungere segnaposto a una diapositiva di layout**
 
-Il metodo [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getPlaceholderManager) restituisce un [LayoutPlaceholderManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/) per aggiungere forme segnaposto a un layout.
+Il metodo [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getPlaceholderManager) fornisce un [LayoutPlaceholderManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/) per aggiungere forme segnaposto a un layout.
 
-| Segnaposto PowerPoint              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/) Metodo |
-| ----------------------------------- | ---------------------------------- |
-| ![Content](content.png)             | [addContentPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [addTextPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [addPicturePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [addChartPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [addTablePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [addSmartArtPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [addMediaPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| Segnaposto PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/) Metodo |
+| ---------------------- | ----------------------------------- |
+| ![Contenuto](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Contenuto (Verticale)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Testo](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Testo (Verticale)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Immagine](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Grafico](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabella](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Immagine online](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-L’esempio seguente verifica che il layout **Vuota** esista, aggiunge quattro segnaposto e poi crea una slide normale che utilizza il layout modificato. L’ordine è intenzionale: i segnaposto vengono aggiunti prima della creazione della slide normale, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella slide.
+L'esempio seguente verifica che il layout **Vuota** esista, aggiunge quattro segnaposto a esso e quindi crea una normal slide che utilizza il layout modificato. L'ordine è intenzionale: i segnaposto vengono aggiunti prima che la normal slide sia creata, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
 
 ```python
 import jpype
@@ -171,15 +173,15 @@ finally:
 
 Il risultato:
 
-![I segnaposto sulla slide di layout](add_placeholders.png)
+![I segnaposto sulla diapositiva di layout](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Modificare la formattazione ereditata o la geometria dei segnaposto esistenti su un layout può influire sulle slide dipendenti. Un segnaposto di layout aggiunto di recente non viene retroattivamente inserito nelle slide normali esistenti. Testa le modifiche al layout su una copia della presentazione e controlla ogni slide dipendente.
+Modificare la formattazione ereditata o la geometria dei segnaposto di layout esistenti può influire sulle diapositive dipendenti. Un segnaposto di layout appena aggiunto non viene retrofittato nelle normal slide esistenti. Prova le modifiche al layout su una copia della presentazione e ispeziona ogni diapositiva dipendente.
 {{% /alert %}}
 
-## **Rimuovere le Slide di Layout Non Utilizzate**
+## **Rimuovere layout diapositive non utilizzati**
 
-Usa il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) per rimuovere i layout a cui nessuna slide normale fa riferimento. Il metodo lascia intatti i layout ancora in uso.
+Utilizza il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) per rimuovere i layout a cui nessuna normal slide fa riferimento. Il metodo lascia intatti i layout ancora in uso.
 
 ```python
 import jpype
@@ -198,13 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-Per rimuovere un layout specifico, utilizza prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#hasDependingSlides) o [getDependingSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getDependingSlides). Riassegna le slide dipendenti prima di chiamare [LayoutSlide.remove](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#remove). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/python-java/aspose.slides/pptxeditexception/).
+Per rimuovere un layout specifico, usa prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#hasDependingSlides) o [getDependingSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getDependingSlides). Riassegna le eventuali diapositive dipendenti prima di chiamare [LayoutSlide.remove](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#remove). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/python-java/aspose.slides/pptxeditexception/).
 
-## **Controllare la Visibilità del Footer su una Slide di Layout**
+## **Controllare la visibilità del piè di pagina su una diapositiva di layout**
 
-Un layout ha i propri segnaposto per footer, numero di slide e data/ora. Usa il metodo [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) per controllare questi segnaposto su un singolo layout. È utile, ad esempio, quando i layout di contenuto devono mostrare i footer ma i layout di titolo no.
+Un layout ha i propri segnaposto per piè di pagina, numero diapositiva e data/ora. Usa il metodo [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) per controllare questi segnaposto per un singolo layout. Questo è utile quando, ad esempio, i layout di contenuto dovrebbero mostrare i piè di pagina ma i layout di titolo no.
 
-L’esempio seguente seleziona in modo sicuro un layout e rende visibili i suoi elementi di footer:
+L'esempio seguente seleziona in modo sicuro un layout e rende visibili gli elementi del piè di pagina:
 
 ```python
 import jpype
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Controllare la Visibilità del Footer su un Master e le Sue Slide di Layout Figlie**
+## **Controllare la visibilità del piè di pagina su un master e i suoi layout figli**
 
-Per applicare impostazioni di footer coerenti su tutta la gerarchia del master, usa il metodo [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterslide/#getHeaderFooterManager). I metodi di propagazione di [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterslideheaderfootermanager/) operano sul master e sulle slide di layout e slide normali dipendenti; non si rivolgono a una singola slide normale.
+Per applicare impostazioni di piè di pagina coerenti su un'intera gerarchia di master, utilizza il metodo [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterslide/#getHeaderFooterManager). I metodi di propagazione di [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/masterslideheaderfootermanager/) operano sul master e sulle sue diapositive di layout dipendenti e su quelle normali; non si applicano a una sola normal slide.
 
 ```python
 import jpype
@@ -266,18 +268,18 @@ finally:
 
 ## **FAQ**
 
-**Qual è la differenza tra una Slide Master e una Slide di Layout?**
+**Qual è la differenza tra un Master Slide e un Layout Slide?**
 
-Una slide master definisce il tema della presentazione e la formattazione condivisa. Una slide di layout appartiene a un master e definisce una disposizione riutilizzabile di segnaposto. Le slide normali usano questi layout e memorizzano i contenuti specifici della slide.
+Un master slide definisce il tema della presentazione e la formattazione condivisa. Un layout slide appartiene a un master e definisce una disposizione riutilizzabile di segnaposto. Le normal slide utilizzano quei layout e memorizzano il contenuto specifico della diapositiva.
 
-**Posso copiare una Slide di Layout da una presentazione all’altra?**
+**Posso copiare un Layout Slide da una presentazione a un'altra?**
 
-Sì. Aggiungi una copia alla raccolta di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/python-java/aspose.slides/globallayoutslidecollection/#addClone). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse usate dal layout di origine.
+Sì. Aggiungi una copia alla collezione di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/python-java/aspose.slides/globallayoutslidecollection/#addClone). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
 
-**Cosa succede se modifico un Layout già in uso?**
+**Cosa succede se modifico un layout già in uso?**
 
-Le slide dipendenti ereditano le modifiche al layout, a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposto e lo stile ereditato possono quindi cambiare su molte slide simultaneamente. Usa [getDependingSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getDependingSlides) per identificare le slide interessate prima di modificare il layout.
+Le diapositive dipendenti ereditano le modifiche al layout a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposto e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [getDependingSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/layoutslide/#getDependingSlides) per identificare le diapositive interessate prima di modificare il layout.
 
-**Cosa succede se rimuovo un Layout ancora in uso?**
+**Cosa succede se rimuovo un layout ancora in uso?**
 
-Aspose.Slides lancia una [PptxEditException](https://reference.aspose.com/slides/it/python-java/aspose.slides/pptxeditexception/). Riassegna prima le slide dipendenti, o usa [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) per rimuovere solo i layout non referenziati.
+Aspose.Slides genera una [PptxEditException](https://reference.aspose.com/slides/it/python-java/aspose.slides/pptxeditexception/). Riassegna prima le diapositive dipendenti, oppure utilizza [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) per rimuovere solo i layout non referenziati.

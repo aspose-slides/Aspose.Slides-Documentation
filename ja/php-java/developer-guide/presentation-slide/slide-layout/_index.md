@@ -1,6 +1,6 @@
 ---
-title: PHP でスライド レイアウトを適用または変更
-linktitle: スライド レイアウト
+title: PHP でスライドレイアウトを適用または変更する
+linktitle: スライドレイアウト
 type: docs
 weight: 60
 url: /ja/php-java/slide-layout/
@@ -13,57 +13,59 @@ keywords:
 - 未使用 レイアウト
 - フッター 表示
 - タイトル スライド
-- タイトルとコンテンツ
+- タイトル と コンテンツ
 - セクション ヘッダー
-- 2 つのコンテンツ
+- 2 カラム コンテンツ
 - 比較
 - タイトル のみ
 - 空白 レイアウト
 - キャプション付き コンテンツ
 - キャプション付き 画像
-- タイトルと縦書きテキスト
-- 縦タイトルとテキスト
+- タイトル と 縦テキスト
+- 縦 タイトル と テキスト
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java でスライド レイアウトを適用、作成、変更し、プレースホルダーを追加し、未使用のレイアウトを削除し、フッターの表示を制御します。"
+description: "Java を介して PHP 用 Aspose.Slides のスライドレイアウトを適用、作成、変更し、プレースホルダーを追加、未使用レイアウトを削除、フッターの表示を制御します。"
 ---
 ## **概要**
 
-スライドレイアウトは、タイトル、テキスト、画像、チャート、テーブルなどのプレースホルダーの位置と書式を定義します。レイアウトを適用すると、スライド全体に一貫した構造が与えられ、各スライドは独自のコンテンツを保持できます。
+スライドレイアウトは、タイトル、テキスト、画像、チャート、テーブルなどのプレースホルダーの位置と書式を定義します。レイアウトを適用することで、スライドは一貫した構造を持ちつつ、各スライドが独自のコンテンツを保持できます。
 
-主なレイアウトは次のとおりです。
+最も一般的なレイアウトは次のとおりです：
 
-- **タイトル スライド**: タイトルとサブタイトルのプレースホルダーを含みます。
-- **タイトルとコンテンツ**: タイトルプレースホルダーと汎用コンテンツ プレースホルダーを含みます。
-- **空白**: コンテンツ プレースホルダーがなく、すべての図形を手動で配置したい場合に便利です。
+- **タイトルスライド**: タイトルとサブタイトルのプレースホルダーを含みます。
+- **タイトルとコンテンツ**: タイトルのプレースホルダーと汎用コンテンツプレースホルダーを含みます。
+- **空白**: コンテンツプレースホルダーがなく、すべての図形を手動で配置する場合に便利です。
 
 ## **レイアウト継承の理解**
 
-プレゼンテーションには次の 3 つの関連レベルがあります。
+プレゼンテーションには、次の3つの関連レベルがあります：
 
-1. A [master slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) はテーマ、共有書式、背景、共通オブジェクトを定義します。
-1. A [layout slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/) はマスターに属し、特定のプレースホルダー配置を定義します。
-1. A [normal slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/) は 1 つのレイアウトを使用し、そのスライド固有のコンテンツを保存します。
+1. A [master slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) defines the theme, shared formatting, backgrounds, and common objects. → **マスタースライド**は、テーマ、共有書式、背景、および共通オブジェクトを定義します。
+2. A [layout slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/) belongs to a master and defines a particular arrangement of placeholders. → **レイアウトスライド**はマスターに属し、特定のプレースホルダー配置を定義します。
+3. A [normal slide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/) uses one layout and stores the content entered for that slide. → **通常スライド**は1つのレイアウトを使用し、そのスライドに入力されたコンテンツを保存します。
 
-通常のスライドはレイアウトからテーマと書式を継承し、レイアウトはマスターから継承します。通常のスライドで直接設定した値は、そのレベルで継承された値を上書きします。通常のスライドが作成されると、選択されたレイアウトからプレースホルダー形状が生成されますが、これらのプレースホルダーに入力されたコンテンツは通常のスライドに属します。
+通常スライドはレイアウトからテーマと書式を継承し、レイアウトはマスターから継承します。通常スライドに直接設定された値は、そのレベルで継承された値を上書きします。通常スライドが作成されると、プレースホルダー形状は選択されたレイアウトから生成され、プレースホルダーに入力されたコンテンツは通常スライドに属します。
 
-スライドを作成する前にレイアウトに必要なプレースホルダーを追加してください。後からレイアウトに別のプレースホルダーを追加しても、既存の通常スライドに自動的に対応するプレースホルダー形状は追加されません。
+レイアウトからスライドを作成する前に、必要なプレースホルダーをレイアウトに追加してください。後からレイアウトに別のプレースホルダーを追加しても、既存の通常スライドに自動的に対応するプレースホルダー形状は追加されません。
 
-この関係には 2 つの重要な影響があります。
+この関係には2つの重要な結果があります：
 
-- レイアウト上の継承された書式や既存プレースホルダーのジオメトリを変更すると、それに依存するすべてのスライドが更新されます。使用中のレイアウトを編集する前に、依存スライドを確認し、結果のプレゼンテーションをレビューしてください。
-- まだスライドで使用されているレイアウトは削除できません。先に依存スライドを別のレイアウトに再割り当てするか、未使用のレイアウトのみを削除してください。
+- レイアウト上の継承された書式や既存プレースホルダーのジオメトリを変更すると、それに依存するすべてのスライドが更新されます。すでに使用中のレイアウトを編集する前に、依存スライドを確認し、結果のプレゼンテーションをレビューしてください。
+- スライドで使用中のレイアウトは削除できません。先に依存スライドを別のレイアウトに再割り当てするか、未使用のレイアウトだけを削除してください。
 
-この階層の最上位については、[Slide Master](/slides/ja/php-java/slide-master/) を参照してください。
+この階層の最上位レベルの詳細については、[Slide Master](/slides/ja/php-java/slide-master/) を参照してください。
+
+スライドまたは共有レイアウト上で継承されたロゴや装飾的なマスター形状を非表示にする方法は、[Control the Visibility of Master Graphics](/slides/ja/php-java/slide-master/) を参照してください。この例は同じマスターを使用する2枚のスライドを比較しています。
 
 ## **スライドレイアウトの選択と適用**
 
-プレゼンテーションが標準の PowerPoint レイアウト定義に従う場合は、レイアウトタイプを使用します。レイアウト名はユーザーが編集可能でローカライズできるため、テンプレートのソースを管理していない限り、名前ベースの選択は信頼性が低くなります。
+プレゼンテーションが標準的な PowerPoint レイアウト定義に従う場合は、レイアウトタイプを使用します。レイアウト名はユーザーが編集可能でローカライズできるため、ソーステンプレートを管理できない限り、名前ベースの選択は信頼性が低くなります。
 
-次の例は最初のマスター上で **Title and Content** を探します。そのレイアウトが利用できない場合は、意図的に **Blank** にフォールバックします。2 回目の null チェックは、プレゼンテーションにカスタムレイアウトしか含まれていない可能性があるために必要です。選択されたレイアウトは、[Slide.setLayoutSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/#setLayoutSlide) メソッドを使って最初の通常スライドに適用されます。
+次の例は、最初のマスター上で **Title and Content** を探します。該当レイアウトがない場合は、意図的に **Blank** にフォールバックします。2 番目の null チェックは、プレゼンテーションにカスタムレイアウトだけが含まれる可能性があるために必要です。選択されたレイアウトは、[Slide.setLayoutSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/#setLayoutSlide) メソッドを介して最初の通常スライドに適用されます。
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-スライドのレイアウトを変更しても、スライドに直接追加された通常の図形は削除されません。ただし、プレースホルダーの位置、継承された書式、および既存プレースホルダーと新しいレイアウト間の対応が変わる可能性があるため、レイアウト間の大幅な違いを切り替える際は出力を確認してください。
+スライドのレイアウトを変更しても、スライドに直接追加された普通の図形は削除されません。ただし、プレースホルダーの位置、継承書式、および既存プレースホルダーと新レイアウト間の対応が変わる可能性があるため、レイアウトが大きく異なる場合は出力を確認してください。
 
 ## **レイアウトスライドの追加**
 
-選択と作成は別々の操作です。前の例は既存レイアウトを選択しただけで、作成はしていません。レイアウトを作成するには、対象マスターのレイアウトコレクション上で [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterlayoutslidecollection/#add) メソッドを呼び出します。
+選択と作成は別々の操作です。前の例は既存レイアウトを選択しており、作成はしていません。レイアウトを作成するには、対象マスターのレイアウトコレクションで [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterlayoutslidecollection/#add) メソッドを呼び出します。
 
-次の例は常に **Title and Content** レイアウトを `Report Title and Content` という名前で新規追加し、そのレイアウトに基づく通常スライドを追加します。レイアウト名はコレクション内で一意である必要があります。
+次の例は常に **Title and Content** レイアウトを `Report Title and Content` という名前で新規作成し、それに基づく通常スライドを追加します。レイアウト名はコレクション内で一意である必要があります。
 
 ```php
 use aspose\slides\Presentation;
@@ -115,26 +117,26 @@ try {
 }
 ```
 
-テンプレートが本当に別の再利用可能構造を必要とする場合にのみレイアウトを追加してください。適切なレイアウトがすでに存在する場合は、重複作成せずに選択して再利用してください。
+テンプレートが本当に別の再利用可能構造を必要とする場合にのみレイアウトを追加してください。適切なレイアウトが既に存在する場合は、重複作成せずに選択して再利用してください。
 
-## **レイアウトスライドへのプレースホルダー追加**
+## **レイアウトスライドへのプレースホルダーの追加**
 
 [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getPlaceholderManager) メソッドは、レイアウトにプレースホルダー形状を追加するための [LayoutPlaceholderManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/) を提供します。
 
-| PowerPoint Placeholder              | `LayoutPlaceholderManager` Method |
-| ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| PowerPoint プレースホルダー | `LayoutPlaceholderManager` メソッド |
+| --------------------------- | ----------------------------------- |
+| ![Content](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-次の例は **Blank** レイアウトが存在することを確認し、4 つのプレースホルダーを追加した後、その修正済みレイアウトを使用する通常スライドを作成します。順序は意図的です。プレースホルダーは通常スライド作成前に追加されるため、Aspose.Slides はそのスライド上に対応するプレースホルダー形状を生成できます。
+次の例は **Blank** レイアウトが存在することを確認し、4 つのプレースホルダーを追加してから、変更されたレイアウトを使用する通常スライドを作成します。順序は意図的です。プレースホルダーは通常スライドが作成される前に追加されるため、Aspose.Slides はそのスライド上に対応するプレースホルダー形状を生成できます。
 
 ```php
 use aspose\slides\Presentation;
@@ -162,12 +164,12 @@ try {
 }
 ```
 
-結果:
+結果：
 
-![The placeholders on the layout slide](add_placeholders.png)
+![レイアウトスライド上のプレースホルダー](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-継承された書式や既存レイアウトプレースホルダーのジオメトリを変更すると、依存スライドに影響を与える可能性があります。新しく追加されたレイアウトプレースホルダーは既存の通常スライドには自動的に反映されません。レイアウト変更はプレゼンテーションのコピーでテストし、すべての依存スライドを確認してください。
+継承された書式や既存レイアウトプレースホルダーのジオメトリを変更すると、依存スライドに影響を与える可能性があります。新しく追加したレイアウトプレースホルダーは既存の通常スライドには自動的に反映されません。プレゼンテーションのコピーでレイアウト変更をテストし、すべての依存スライドを確認してください。
 {{% /alert %}}
 
 ## **未使用レイアウトスライドの削除**
@@ -188,11 +190,11 @@ try {
 }
 ```
 
-特定のレイアウトを削除するには、まずその [hasDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#hasDependingSlides) または [getDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getDependingSlides) メソッドを使用してください。依存スライドを別のレイアウトに再割り当てた後で [LayoutSlide.remove](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#remove) を呼び出します。使用中のレイアウトを削除しようとすると [PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) がスローされます。
+特定のレイアウトを削除するには、まずそのレイアウトの [hasDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#hasDependingSlides) または [getDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getDependingSlides) メソッドを使用します。削除前に依存スライドを別のレイアウトに再割り当てしてください。使用中のレイアウトを削除しようとすると、[PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) がスローされます。
 
-## **レイアウトスライドのフッター表示制御**
+## **レイアウトスライドでのフッター表示の制御**
 
-レイアウトには独自のフッター、スライド番号、日時プレースホルダーがあります。これらのプレースホルダーをレイアウト単位で制御するには、[LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) メソッドを使用します。たとえば、コンテンツレイアウトではフッターを表示し、タイトルレイアウトでは非表示にしたい場合に便利です。
+レイアウトには独自のフッター、スライド番号、日付/時刻プレースホルダーがあります。[LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) メソッドを使用して、特定のレイアウトのこれらプレースホルダーを制御できます。たとえば、コンテンツレイアウトではフッターを表示し、タイトルレイアウトでは表示しないといったケースに便利です。
 
 次の例はレイアウトを安全に選択し、フッター要素を表示可能にします。
 
@@ -226,9 +228,9 @@ try {
 }
 ```
 
-## **マスタと子レイアウトのフッター表示制御**
+## **マスターとその子レイアウトでのフッター表示の制御**
 
-マスタ階層全体で一貫したフッター設定を適用するには、[MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/#getHeaderFooterManager) メソッドを使用します。[MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslideheaderfootermanager/) の伝搬メソッドはマスターとその依存レイアウトスライドおよび通常スライドに作用し、単一の通常スライドだけを対象にはしません。
+マスター階層全体で一貫したフッター設定を適用するには、[MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/#getHeaderFooterManager) メソッドを使用します。[MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslideheaderfootermanager/) の伝搬メソッドは、マスターとその依存レイアウトスライドおよび通常スライドに対して動作し、単一の通常スライドだけを対象にすることはできません。
 
 ```php
 use aspose\slides\Presentation;
@@ -253,16 +255,16 @@ try {
 
 **マスタースライドとレイアウトスライドの違いは何ですか？**
 
-マスタースライドはプレゼンテーションのテーマと共有書式を定義します。レイアウトスライドはマスターに属し、プレースホルダーの再利用可能な配置を定義します。通常のスライドはそれらのレイアウトを使用し、スライド固有のコンテンツを保存します。
+マスタースライドはプレゼンテーションのテーマと共有書式を定義します。レイアウトスライドはマスターに属し、プレースホルダーの再利用可能な配置を1つ定義します。通常スライドはこれらのレイアウトを使用し、スライド固有のコンテンツを保存します。
 
-**レイアウトスライドを別のプレゼンテーションにコピーできますか？**
+**あるプレゼンテーションから別のプレゼンテーションへレイアウトスライドをコピーできますか？**
 
-はい。目的のコレクションに対して [addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/globallayoutslidecollection/#addClone) メソッドでコピーを追加します。コピー元レイアウトで使用されているフォント、テーマ、画像、その他リソースも同時に確認してください。
+はい。目的のコレクションに [addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/globallayoutslidecollection/#addClone) メソッドでコピーを追加します。コピー先のプレゼンテーションでは、フォント、テーマ、画像、その他ソースレイアウトが使用するリソースも確認してください。
 
-**使用中のレイアウトを変更するとどうなりますか？**
+**すでに使用中のレイアウトを変更するとどうなりますか？**
 
-依存スライドはレイアウトの変更を継承します（ローカルで書式やオブジェクトを上書きしていない限り）。プレースホルダーのジオメトリや継承スタイルが多くのスライドで一度に変わる可能性があります。編集前に [getDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getDependingSlides) で影響スライドを特定してください。
+依存スライドはレイアウトの変更を継承します（ローカルで上書きしていない限り）。プレースホルダーのジオメトリや継承されたスタイルが多くのスライドで同時に変わる可能性があります。編集前に [getDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/#getDependingSlides) で影響を受けるスライドを特定してください。
 
-**使用中のレイアウトを削除しようとするとどうなりますか？**
+**まだ使用中のレイアウトを削除しようとするとどうなりますか？**
 
-Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) をスローします。まず依存スライドを別のレイアウトに再割り当てるか、[removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) を使用して未参照のレイアウトのみを削除してください。
+Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) をスローします。先に依存スライドを別のレイアウトに再割り当てするか、[removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) を使用して未参照のレイアウトだけを削除してください。

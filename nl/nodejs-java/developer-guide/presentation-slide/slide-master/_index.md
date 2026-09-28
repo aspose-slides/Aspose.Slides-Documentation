@@ -1,5 +1,5 @@
 ---
-title: Beheer presentatie‑dia‑masters in JavaScript
+title: Beheer dia‑masters in presentaties met JavaScript
 linktitle: Dia‑master
 type: docs
 weight: 70
@@ -11,7 +11,7 @@ keywords:
 - meerdere masterdia's
 - masterdia's vergelijken
 - achtergrond
-- plaatsbepaling
+- tijdelijke aanduiding
 - masterdia klonen
 - masterdia kopiëren
 - masterdia dupliceren
@@ -22,37 +22,37 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Beheer dia‑masters in Aspose.Slides voor Node.js via Java: toegang, bewerken, klonen, vergelijken en verwijderen van masterdia's in PowerPoint- en OpenDocument‑presentaties."
+description: "Beheer dia‑masters in Aspose.Slides voor Node.js via Java: benader, bewerk, kloon, vergelijk en verwijder masterdia's in PowerPoint‑ en OpenDocument‑presentaties."
 ---
 ## **Overzicht**
 
 Een **dia‑master** definieert gedeelde ontwerpinstellingen voor een groep dia's. Hij kan gemeenschappelijke vormen, logo's, achtergronden, tekststijlen, themainstellingen en voettekstinstellingen bevatten. In PowerPoint is het bewerken van een dia‑master de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak op elke dia te herhalen.
 
-Aspose.Slides voor Node.js via Java ondersteunt hetzelfde model. Een presentatie kan één of meerdere dia‑masters bevatten, en elke dia‑master kan verschillende lay‑outdia's bevatten. Normale dia's verwijzen meestal niet rechtstreeks naar een dia‑master. In plaats daarvan gebruikt een normale dia een lay‑outdia, en die lay‑outdia behoort tot een dia‑master.
+Aspose.Slides voor Node.js via Java ondersteunt hetzelfde model. Een presentatie kan één of meer dia‑masters bevatten, en elke dia‑master kan verschillende lay-outdia's bevatten. Normale dia's verwijzen meestal niet rechtstreeks naar een dia‑master. In plaats daarvan gebruikt een normale dia een lay-outdia, en die lay-outdia behoort tot een dia‑master.
 
 De hiërarchie is:
 
 1. **Dia‑master** – definieert het gedeelde ontwerp en thema.  
-1. **Lay‑outdia** – definieert een specifieke rangschikking van tijdelijke aanwijzingen en lay‑out‑niveau opmaak.  
-1. **Normale dia** – bevat de daadwerkelijke presentatie‑inhoud en gebruikt één lay‑outdia.
+1. **Lay-outdia** – definieert een specifieke rangschikking van tijdelijke aanduidingen en lay-out‑niveau opmaak.  
+1. **Normale dia** – bevat de feitelijke presentatiewaarde en gebruikt één lay-outdia.
 
-![De hiërarchie van dia‑masters, lay‑outdia's en normale dia's](slide-master_2.jpg)
+![De hiërarchie van dia‑masters, lay-outdia's en normale dia's](slide-master_2.jpg)
 
-In Aspose.Slides wordt een dia‑master weergegeven door de klasse [MasterSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/) . Alle dia‑masters in een presentatie zijn beschikbaar via de collectie `Presentation.getMasters()`.
+In Aspose.Slides wordt een dia‑master weergegeven door de [MasterSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/)‑klasse. Alle dia‑masters in een presentatie zijn beschikbaar via de `Presentation.getMasters()`‑collectie.
 
-{{% alert color="info" title="Erfenis" %}}
+{{% alert color="info" title="Inheritance" %}}
 
-Wanneer dezelfde eigenschap op meer dan één niveau is gedefinieerd, wint het specifiekere niveau. Bijvoorbeeld, als een dia‑master en een lay‑outdia beide een achtergrond definiëren, gebruiken dia's die op die lay‑out zijn gebaseerd de achtergrond van de lay‑out. Voor meer informatie over lay‑outdia's, zie [Dia‑indelingen toepassen of wijzigen](/nodejs-java/slide-layout/).
+Wanneer dezelfde eigenschap op meer dan één niveau is gedefinieerd, wint het specifiekere niveau. Bijvoorbeeld, als een dia‑master en een lay-outdia beide een achtergrond definiëren, gebruiken dia's die op die lay-out zijn gebaseerd de lay‑outachtergrond. Voor meer informatie over lay-outdia's, zie [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
 
 {{% /alert %}}
 
 ## **Dia‑masters benaderen**
 
-In PowerPoint kun je de dia‑masterweergave openen via **Beeld** > **Dia‑master**.
+In PowerPoint kun je de weergave Dia‑master openen via **Beeld** > **Dia‑master**.
 
-![De Dia‑master‑opdracht op het tabblad Beeld in PowerPoint](slide-master_3.jpg)
+![De Dia‑master‑opdracht op het PowerPoint‑tabblad Beeld](slide-master_3.jpg)
 
-In Aspose.Slides gebruik je de collectie `getMasters()` om dia‑masters te benaderen:
+In Aspose.Slides gebruik je de `getMasters()`‑collectie om dia‑masters te benaderen:
 
 ```javascript
 var aspose = aspose || {};
@@ -71,7 +71,7 @@ try {
 }
 ```
 
-Je kunt ook de dia‑master die door een normale dia wordt gebruikt verkrijgen via zijn lay‑out:
+Je kunt ook de dia‑master krijgen die door een normale dia wordt gebruikt via zijn lay‑out:
 
 ```javascript
 var aspose = aspose || {};
@@ -92,22 +92,22 @@ try {
 
 ## **Wat een dia‑master bevat**
 
-Een dia‑master is een object dat op een dia lijkt. Hij erft het algemene gedrag van een dia van [BaseSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/), waardoor hij veel van dezelfde dia‑eigenschappen biedt die door normale en lay‑outdia's worden gebruikt. Dia‑specifieke leden staan vermeld op de API‑pagina van [MasterSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/) .
+Een dia‑master is een object dat op een dia lijkt. Hij erft algemeen dia‑gedrag van [BaseSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/), zodat hij veel van dezelfde dia‑eigenschappen beschikbaar stelt die door normale en lay‑outdia's worden gebruikt. Master‑specifieke leden staan opgesomd op de [MasterSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/)‑API‑pagina.
 
-Veelgebruikte leden van een dia‑master zijn onder andere:
+Veelgebruikte leden van een dia‑master zijn:
 
 | Lid | Doel |
 | --- | --- |
-| `getBackground()` | Stelt de achtergrond van de dia‑master in. |
-| `getShapes()` | Bevat vormen die op de master zijn geplaatst, zoals logo's, afbeeldingen en gedeelde tekst. |
-| `getLayoutSlides()` | Bevat de lay‑outdia's die bij de master horen. |
-| `getThemeManager()` | Biedt toegang tot de themabeheer‑API's van de master. |
-| `getHeaderFooterManager()` | Beheert kopteksten, voetteksten, datums en paginanummers voor de master en de onderliggende lay‑outs. |
-| `getDependingSlides()` | Geeft de normale dia's terug die via hun lay‑outs van de master afhankelijk zijn. |
+| `getBackground()` | Stelt de achtergrond op master‑niveau in. |
+| `getShapes()` | Slaat vormen op die op de master zijn geplaatst, zoals logo's, foto‑frames en gedeelde tekst. |
+| `getLayoutSlides()` | Slaat de lay‑outdia's op die tot de master behoren. |
+| `getThemeManager()` | Biedt toegang tot de master‑thema‑API's. |
+| `getHeaderFooterManager()` | Beheert kop‑ en voetteksten, datums en diapagina‑nummers voor de master en zijn onderliggende lay‑outs. |
+| `getDependingSlides()` | Retourneert normale dia's die via hun lay‑out van de master afhangen. |
 
-## **Afbeelding toevoegen aan een dia‑master**
+## **Een afbeelding toevoegen aan een dia‑master**
 
-Wanneer je een afbeelding toevoegt aan een dia‑master, verschijnt deze op dia's die lay‑outs van die master gebruiken. Dit is handig voor logo's, watermerken, decoratieve banden en andere herhalende visuele elementen.
+Wanneer je een afbeelding toevoegt aan een dia‑master, verschijnt deze op dia's die lay‑outs van die master gebruiken. Dit is handig voor logo's, watermerken, decoratieve band‑en andere herhalende visuele elementen.
 
 Het volgende voorbeeld voegt een logo toe aan de eerste dia‑master:
 
@@ -140,17 +140,75 @@ try {
 }
 ```
 
-Voor meer informatie over afbeeldingsframes, zie [Picture Frame](/nodejs-java/picture-frame/).
+Voor meer informatie over foto‑frames, zie [Picture Frame](/nodejs-java/picture-frame/).
 
-## **Werken met tijdelijke aanwijzingen**
+## **De zichtbaarheid van master‑grafieken regelen**
 
-Tijdelijke aanwijzingen (placeholders) worden normaal gesproken gedefinieerd op lay‑outdia's. De dia‑master levert de gedeelde stijl en het thema waar die lay‑outs van erven, terwijl elke lay‑out beslist welke placeholders beschikbaar zijn en waar ze geplaatst worden.
+Gebruik [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/#setShowMasterShapes) om overerfde master‑grafieken, zoals logo's of decoratieve vormen, te verbergen zonder ze van de master te verwijderen. Geef `false` door aan [Slide.setShowMasterShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#setShowMasterShapes) op de dia die die grafieken moet weglaten en behoud `true` op dia's die ze moeten weergeven.
 
-In PowerPoint zijn placeholder‑opdrachten beschikbaar in de dia‑masterweergave.
+Het volgende zelfstandige voorbeeld maakt een blauwe decoratieve band op een master en twee dia's die dezelfde lege lay‑out gebruiken. De band is zichtbaar op de eerste dia en verborgen op de tweede. Er is geen invoerpresentatie of afbeelding nodig.
 
-![De invoegen‑placeholder‑opdracht in de PowerPoint‑dia‑masterweergave](slide-master_5.png)
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Om nieuwe placeholders toe te voegen met Aspose.Slides, werk je met de lay‑outdia die bij de master hoort:
+let presentation = new aspose.slides.Presentation();
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+    layoutSlide.setShowMasterShapes(true);
+
+    let slideHeight = presentation.getSlideSize().getSize().getHeight();
+    let band = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    let bandColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let noFillType = java.newByte(aspose.slides.FillType.NoFill);
+    band.getFillFormat().setFillType(solidFillType);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(noFillType);
+
+    let visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    let hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het voorbeeld gebruikt de **Blank**‑lay‑out die wordt meegeleverd met een nieuwe presentatie en verwijdert de oorspronkelijke tijdelijke aanduidingen van de eerste dia.
+
+### **Het toepassingsgebied van de instelling kiezen**
+
+Een normale dia gebruikt zijn master via [Slide.getLayoutSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#getLayoutSlide) en [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#getMasterSlide). Het instellen van de eigenschap op een individuele dia beïnvloedt alleen die dia. Het doorgeven van `false` aan [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#setShowMasterShapes) verbergt master‑grafieken voor dia's die die gedeelde lay‑out gebruiken, zelfs als hun eigen instelling `true` is. Om grafieken alleen op één dia te verbergen, wijzig je de dia‑eigenschap en laat je de gedeelde lay‑out ongewijzigd.
+
+De instelling wordt niet ondersteund als een zichtbaarheid‑controle op de master‑dia zelf. Op een master geeft [getShowMasterShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/#getShowMasterShapes) altijd `false` terug, en het doorgeven van `true` aan [setShowMasterShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/#setShowMasterShapes) veroorzaakt een uitzondering. Pas het toe op een normale dia of een lay‑out.
+
+### **Grafieken onderscheiden van de achtergrond**
+
+| Bewerking | Effect |
+| --- | --- |
+| Master‑grafieken verbergen | Regelt de zichtbaarheid van overerfde master‑vormen zonder ze te verwijderen of de eigen vormen van de dia te wijzigen. |
+| Dia‑achtergrond vullen wijzigen | Wijzigt de achtergrondkleur, -gradient of -afbeelding. Master‑grafieken zijn aparte vormen en kunnen zichtbaar blijven boven die achtergrond. Zie [Presentation Background](/slides/nl/nodejs-java/presentation-background/). |
+| Een vorm van de master verwijderen | Verwijdert de gedeelde bronvorm, waardoor deze niet langer beschikbaar is voor enige dia die die master gebruikt. |
+
+## **Werken met tijdelijke aanduidingen**
+
+Tijdelijke aanduidingen worden normaal gesproken gedefinieerd op lay‑outdia's. De dia‑master levert de gedeelde stijl en thema die die lay‑outs erven, terwijl elke lay‑out beslist welke tijdelijke aanduidingen beschikbaar zijn en waar ze geplaatst worden.
+
+In PowerPoint zijn de tijdelijke aanduidings‑opdrachten beschikbaar in de weergave Dia‑master.
+
+![De opdracht Tijdelijke aanduiding invoegen in de PowerPoint‑weergave Dia‑master](slide-master_5.png)
+
+Om nieuwe tijdelijke aanduidingen toe te voegen met Aspose.Slides, werk je met de lay‑outdia die bij de master hoort:
 
 ```javascript
 var aspose = aspose || {};
@@ -176,7 +234,7 @@ try {
 }
 ```
 
-Je kunt ook placeholder‑vormen opmaken die al op een dia‑master bestaan. Het volgende voorbeeld zoekt de titel‑placeholder en past een lineaire gradiëntenvulling toe:
+Je kunt ook de vorm van een bestaande tijdelijke aanduiding op een dia‑master opmaken. Het volgende voorbeeld zoekt de titel‑tijdelijke aanduiding en past een lineaire gradient‑vulling toe:
 
 ```javascript
 var aspose = aspose || {};
@@ -221,11 +279,11 @@ try {
 }
 ```
 
-![Opgecode title‑placeholder geërfd door normale dia's](slide-master_8.png)
+![Opgepaste titel‑tijdelijke aanduiding geërfd door normale dia's](slide-master_8.png)
 
-Voor meer opties voor placeholders en tekstopmaak, zie [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) en [Text Formatting](/nodejs-java/text-formatting/).
+Voor meer opties voor tijdelijke aanduidingen en tekstopmaak, zie [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) en [Text Formatting](/nodejs-java/text-formatting/).
 
-## **Achtergrond van een dia‑master wijzigen**
+## **Een dia‑master‑achtergrond wijzigen**
 
 Een master‑achtergrond wordt geërfd door lay‑outs en dia's die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste dia‑master:
 
@@ -255,7 +313,7 @@ Voor gerelateerde onderwerpen, zie [Presentation Background](/nodejs-java/presen
 
 ## **Een dia‑master klonen naar een andere presentatie**
 
-Gebruik `MasterSlideCollection.addClone` om een dia‑master te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens door lay‑outs en dia's in de bestemmingspresentatie worden gebruikt.
+Gebruik `MasterSlideCollection.addClone` om een dia‑master te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens worden gebruikt door lay‑outs en dia's in de bestemmingspresentatie.
 
 ```javascript
 var aspose = aspose || {};
@@ -278,11 +336,11 @@ Als je normale dia's samen met hun master moet klonen, zie [Clone Slides](/nodej
 
 ## **Meerdere dia‑masters toevoegen**
 
-Een presentatie kan meerdere dia‑masters bevatten. Dit is handig wanneer verschillende secties een andere branding, paginavormgeving of themainstellingen nodig hebben.
+Een presentatie kan meerdere dia‑masters bevatten. Dit is handig wanneer verschillende secties verschillende branding, paginabereik of themainstellingen vereisen.
 
 ![PowerPoint‑opdrachten voor het invoegen en beheren van dia‑masters](slide-master_9.jpg)
 
-Het volgende voorbeeld kloont de standaard‑master, geeft de kloon een andere achtergrond, maakt een lay‑out onder die gekloonde master aan, en voegt een nieuwe dia toe gebaseerd op die lay‑out:
+Het volgende voorbeeld kloont de standaard master, geeft de kloon een andere achtergrond, maakt een lay‑out onder die gekloonde master en voegt een nieuwe dia toe gebaseerd op die lay‑out:
 
 ```javascript
 var aspose = aspose || {};
@@ -318,7 +376,7 @@ try {
 
 ## **Dia‑masters vergelijken**
 
-Dia‑masters kunnen worden vergeleken met de `equals`‑methode die is geërfd van [BaseSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/). De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Het vergelijkt geen unieke identifiers, zoals dia‑ID's, of dynamische placeholder‑waarden, zoals de huidige datum.
+Dia‑masters kunnen worden vergeleken met de `equals`‑methode die ze erven van [BaseSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/). De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Het vergelijkt geen unieke identifiers, zoals dia‑ID's, of dynamische tijdelijke aanduidingswaarden, zoals de huidige datum.
 
 ```javascript
 var aspose = aspose || {};
@@ -349,11 +407,11 @@ try {
 }
 ```
 
-Voor meer informatie zie [Compare Presentation Slides](/slides/nl/nodejs-java/compare-slides/).
+Voor meer informatie, zie [Compare Presentation Slides](/slides/nl/nodejs-java/compare-slides/).
 
-## **Dia‑masterweergave instellen als standaardweergave**
+## **Dia‑master‑weergave als standaardweergave instellen**
 
-Gebruik de `setLastView`‑methode op [ViewProperties](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint eerst opent. Het volgende voorbeeld opent de presentatie in de dia‑masterweergave:
+Gebruik de `setLastView`‑methode op [ViewProperties](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint eerst opent. Het volgende voorbeeld opent de presentatie in de Dia‑master‑weergave:
 
 ```javascript
 var aspose = aspose || {};
@@ -375,9 +433,9 @@ Voor meer weergave‑instellingen, zie [Save Presentation](/slides/nl/nodejs-jav
 
 ## **Ongebruikte dia‑masters verwijderen**
 
-Presentaties bevatten soms dia‑masters die niet meer door enige normale dia worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het onderhoud van sjablonen vereenvoudigen.
+Presentaties bevatten soms dia‑masters die door geen enkele normale dia meer worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het onderhoud van sjablonen vereenvoudigen.
 
-Gebruik `removeUnused` om ongebruikte masters uit de collectie `getMasters()` te verwijderen:
+Gebruik `removeUnused` om ongebruikte masters uit de `getMasters()`‑collectie te verwijderen:
 
 ```javascript
 var aspose = aspose || {};
@@ -409,18 +467,18 @@ try {
 
 ## **FAQ**
 
-### Wat is het verschil tussen een dia‑master en een lay‑outdia?
+**Wat is het verschil tussen een dia‑master en een lay‑outdia?**
 
-Een dia‑master definieert gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekststijlen. Een lay‑outdia behoort tot een dia‑master en bepaalt een specifieke rangschikking van placeholders. Een normale dia gebruikt een lay‑outdia, waardoor hij zowel van de lay‑out als van de master erft.
+Een dia‑master definieert gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekststijlen. Een lay‑outdia behoort tot een dia‑master en definieert een specifieke rangschikking van tijdelijke aanduidingen. Een normale dia gebruikt een lay‑outdia, waardoor hij van zowel de lay‑out als de master erft.
 
-### Kan één presentatie meerdere dia‑masters bevatten?
+**Kan één presentatie meerdere dia‑masters bevatten?**
 
 Ja. Een presentatie kan meerdere dia‑masters bevatten. Gebruik meerdere masters wanneer verschillende secties verschillende visuele systemen of branding nodig hebben.
 
-### Moet ik placeholders toevoegen aan een dia‑master of een lay‑outdia?
+**Moet ik tijdelijke aanduidingen toevoegen aan een dia‑master of een lay‑outdia?**
 
-In de meeste gevallen voeg je placeholders toe aan lay‑outdia's. Plaats gedeelde visuele elementen en gedeelde opmaak op de dia‑master, en zet de content‑placeholders op de lay‑outs die de normale dia's gebruiken.
+In de meeste gevallen voeg je tijdelijke aanduidingen toe aan lay‑outdia's. Plaats gedeelde visuele elementen en gedeelde opmaak op de dia‑master en zet de inhoudstemporelelijken op de lay‑outs die normale dia's zullen gebruiken.
 
-### Kan ik een dia‑master verwijderen die nog in gebruik is?
+**Kan ik een dia‑master verwijderen die nog wordt gebruikt?**
 
-Nee. Een dia‑master die afhankelijke dia's heeft, kan niet veilig rechtstreeks worden verwijderd. Verplaats eerst die dia's naar lay‑outs onder een andere master, of gebruik een opschoonmethode die alleen ongebruikte masters verwijdert.
+Nee. Een dia‑master met afhankelijke dia's kan niet veilig direct worden verwijderd. Verplaats eerst die dia's naar lay‑outs onder een andere master, of gebruik een opruim‑methode voor ongebruikte masters die alleen masters verwijdert die niet in gebruik zijn.

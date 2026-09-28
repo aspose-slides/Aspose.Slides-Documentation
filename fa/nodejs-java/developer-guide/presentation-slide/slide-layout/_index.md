@@ -1,70 +1,72 @@
 ---
-title: "اعمال یا تغییر طرح اسلاید در جاوااسکریپت"
-linktitle: "طرح اسلاید"
+title: اعمال یا تغییر طرح‌های اسلاید در جاوااسکریپت
+linktitle: طرح اسلاید
 type: docs
 weight: 60
 url: /fa/nodejs-java/slide-layout/
 keywords:
-- "طرح اسلاید"
-- "طرح محتوا"
-- "جای‌گیر"
-- "طراحی ارائه"
-- "طراحی اسلاید"
-- "طرح استفاده‌نشده"
-- "قابلیت نمایش پابرگ"
-- "اسلاید عنوان"
-- "عنوان و محتوا"
-- "سربرگ بخش"
-- "دو محتوا"
-- "مقایسه"
-- "فقط عنوان"
-- "طرح خالی"
-- "محتوا با عنوان فرعی"
-- "تصویر با عنوان فرعی"
-- "عنوان و متن عمودی"
-- "عنوان عمودی و متن"
-- "PowerPoint"
-- "OpenDocument"
-- "ارائه"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "اعمال، ایجاد و اصلاح طرح‌های اسلاید در Aspose.Slides برای Node.js از طریق Java، اضافه‌کردن جای‌گیرها، حذف طرح‌های استفاده‌نشده، و کنترل نمایش پابرگ."
+- طرح اسلاید
+- طرح محتوا
+- نگهدارنده
+- طراحی ارائه
+- طراحی اسلاید
+- طرح استفاده‌نشده
+- قابلیت نمایش پاورقی
+- اسلاید عنوان
+- عنوان و محتوا
+- سرصفحه بخش
+- دو محتوا
+- مقایسه
+- فقط عنوان
+- طرح خالی
+- محتوا با زیرنویس
+- عکس با زیرنویس
+- عنوان و متن عمودی
+- عنوان عمودی و متن
+- PowerPoint
+- OpenDocument
+- ارائه
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "اعمال، ایجاد و اصلاح طرح‌های اسلاید در Aspose.Slides برای Node.js از طریق Java، افزودن نگهدارنده‌ها، حذف طرح‌های استفاده‌نشده و کنترل نمایش پاورقی."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-یک طرح اسلاید موقعیت‌ها و قالب‌بندی جای‌گیرها مانند عنوان‌ها، متن، تصاویر، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختاری سازگار می‌بخشد در حالی که اجازه می‌دهد هر اسلاید محتوای خود را داشته باشد.
+یک طرح اسلاید موقعیت‌ها و قالب‌بندی نگهدارنده‌ها مانند عناوین، متن، تصاویر، نمودارها و جداول را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختاری یکپارچه می‌بخشد در حالی که به هر اسلاید امکان داشتن محتوای خود را می‌دهد.
 
-رایج‌ترین طرح‌ها شامل:
+پراست‌ترین طرح‌ها شامل:
 
-- **Title Slide**: شامل جای‌گیرهای عنوان و زیرعنوان است.
-- **Title and Content**: شامل یک جای‌گیر عنوان و یک جای‌گیر محتوای عمومی است.
-- **Blank**: هیچ جای‌گیر محتوایی ندارد و زمانی مفید است که هر شکل به‌صورت دستی قرار داده شود.
+- **اسلاید عنوان**: شامل نگهدارنده‌های عنوان و زیرعنوان است.
+- **عنوان و محتوا**: شامل یک نگهدارنده عنوان و یک نگهدارنده محتوای عمومی است.
+- **خالی**: هیچ نگهدارنده محتوایی ندارد و زمانی مفید است که تمام اشکال به‌صورت دستی موقعیت‌یابی شوند.
 
-## **درک ارث‌بری طرح**
+## **درک وراثت طرح**
 
-یک ارائه سه سطح مرتبط دارد:
+یک ارائه دارای سه سطح مرتبط است:
 
-1. یک [master slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
-1. یک [layout slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) به یک master تعلق دارد و ترتیب خاصی از جای‌گیرها را تعریف می‌کند.
-1. یک [normal slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/) از یک طرح استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌کند.
+1. A [اسلاید اصلی](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) تعریف‌کنندهٔ تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی است.
+1. A [اسلاید طرح](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) متعلق به اسلاید اصلی است و چینش خاصی از نگهدارنده‌ها را تعیین می‌کند.
+1. A [اسلاید معمولی](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/) از یک طرح استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌نماید.
 
-یک normal slide تم و قالب‌بندی را از طرح خود به ارث می‌برد و طرح نیز از master ارث می‌برد. مقدار تعیین‌شده به‌صورت مستقیم بر یک normal slide مقدار ارث‌بری در همان سطح را بازنویسی می‌کند. هنگام ایجاد یک normal slide، شکل‌های جای‌گیر آن از طرح منتخب تولید می‌شوند، در حالی که محتوای وارد شده در آن جای‌گیرها متعلق به normal slide است.
+یک اسلاید معمولی تم و قالب‌بندی را از طرح خود به ارث می‌برد و طرح نیز از اسلاید اصلی وراثت می‌گیرد. مقداری که مستقیماً روی اسلاید معمولی تنظیم شود، مقدار به‌ارث‌برده را در همان سطح بازنویسی می‌کند. هنگامی که یک اسلاید معمولی ایجاد می‌شود، اشکال نگهدارنده آن از طرح انتخابی تولید می‌شوند، در حالی که محتوای وارد شده به آن نگهدارنده‌ها متعلق به اسلاید معمولی است.
 
-پیش از ایجاد اسلایدها از یک طرح، جای‌گیرهای مورد نیاز را به آن اضافه کنید. افزودن جای‌گیر دیگر به یک طرح بعداً به‌صورت خودکار شکل جای‌گیر متناظر را به اسلایدهای normal موجود اضافه نمی‌کند.
+قبل از ایجاد اسلایدها، نگهدارنده‌های لازم را به طرح اضافه کنید. افزودن نگهدارندهٔ دیگر به یک طرح پس از آن، به‌صورت خودکار شکل نگهدارندهٔ متناظر را به اسلایدهای معمولی موجود اضافه نمی‌کند.
 
 این رابطه دو پیامد مهم دارد:
 
-- تغییر قالب‌بندی ارث‌بری یا هندسه جای‌گیرهای موجود در یک layout می‌تواند تمام اسلایدهای وابسته به آن را به‌روز کند. پیش از ویرایش یک layout که هم‌اکنون استفاده می‌شود، اسلایدهای وابسته به آن را بررسی کنید و ارائه حاصل را مرور نمایید.
-- یک layout که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته آن را به layout دیگری اختصاص دهید یا فقط layoutهای بدون استفاده را حذف کنید.
+- تغییر قالب‌بندی یا هندسهٔ نگهدارنده‌های موجود در یک طرح می‌تواند تمام اسلایدهایی که به آن وابسته هستند را به‌روز کند. پیش از ویرایش طرحی که در حال استفاده است، اسلایدهای وابسته را بررسی و ارائهٔ نهایی را بازبینی کنید.
+- طرحی که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته را به طرح دیگری منتقل کنید یا فقط طرح‌های بدون استفاده را حذف نمایید.
 
-برای اطلاعات بیشتر درباره سطح بالایی این سلسله‌مراتب، به [Slide Master](/slides/fa/nodejs-java/slide-master/) مراجعه کنید.
+برای اطلاعات بیشتر دربارهٔ سطح بالایی این سلسله‌مراتب، به [اسلاید اصلی](/slides/fa/nodejs-java/slide-master/) مراجعه کنید.
+
+برای مخفی کردن لوگوهای به‌ارث‌برده یا اشکال تزئینی اسلاید اصلی در یک اسلاید یا از طریق طرح مشترک، به [کنترل نمایش گرافیک‌های اسلاید اصلی](/slides/fa/nodejs-java/slide-master/) نگاهی بیندازید. این مثال دو اسلاید با استفاده از یک اسلاید اصلی را مقایسه می‌کند.
 
 ## **انتخاب و اعمال یک طرح اسلاید**
 
-هنگامی که ارائه از تعریف‌های استاندارد طرح PowerPoint پیروی می‌کند، از مقدار [SlideLayoutType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidelayouttype/) استفاده کنید. نام‌های طرح قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر اساس نام کمتر قابل اطمینان است مگر این‌که الگوی منبع را کنترل کنید.
+از مقدار [SlideLayoutType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidelayouttype/) زمانی استفاده کنید که ارائه از تعاریف استاندارد طرح PowerPoint پیروی می‌کند. نام‌های طرح قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر پایهٔ نام کمتر قابل اطمینان است مگر این‌که الگوی منبع را کنترل کنید.
 
-مثال زیر به دنبال **Title and Content** در اولین master می‌گردد. اگر آن layout در دسترس نباشد، عمداً به **Blank** باز می‌گردد. بررسی null دوم ضروری است چون یک ارائه می‌تواند فقط شامل layoutهای سفارشی باشد. سپس layout انتخاب‌شده از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/#setLayoutSlide) به اولین normal slide اعمال می‌شود.
+مثال زیر به دنبال **Title and Content** در اولین اسلاید اصلی می‌گردد. اگر آن طرح موجود نباشد، عمداً به **Blank** باز می‌گردد. بررسی null دوم ضروری است زیرا یک ارائه می‌تواند فقط شامل طرح‌های سفارشی باشد. سپس طرح انتخاب‌شده از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/#setLayoutSlide) بر اولین اسلاید معمولی اعمال می‌شود.
 
 ```javascript
 var aspose = aspose || {};
@@ -93,13 +95,13 @@ try {
 }
 ```
 
-تغییر layout یک اسلاید اشکال عادی اضافه‌شده مستقیماً به اسلید را حذف نمی‌کند. با این حال، موقعیت‌های جای‌گیر، قالب‌بندی ارث‌بری و تطابق بین جای‌گیرهای موجود و layout جدید می‌توانند تغییر کنند، بنابراین هنگام جابجایی بین layoutهای به‌طور قابل‌توجه متفاوت، خروجی را بررسی کنید.
+تغییر طرح یک اسلاید، اشکال معمولی اضافه‌شده مستقیماً به اسلاید را حذف نمی‌کند. با این حال، موقعیت‌های نگهدارنده، قالب‌بندی‌های به‌ارث‌برده و تطابق بین نگهدارنده‌های موجود و طرح جدید ممکن است تغییر کند، بنابراین هنگام جابجایی بین طرح‌های به‌اطلاعات متفاوت، خروجی را با دقت بررسی کنید.
 
-## **افزودن یک Layout Slide**
+## **افزودن یک اسلاید طرح**
 
-انتخاب و ایجاد عملیات جداگانه‌ای هستند. مثال قبلی یک layout موجود را انتخاب می‌کند؛ آن را ایجاد نمی‌کند. برای ایجاد یک layout، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) را بر روی مجموعه layoutهای master هدف صدا بزنید.
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح موجود را انتخاب کرد؛ طرحی ایجاد نکرد. برای ایجاد یک طرح، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) را روی مجموعهٔ طرح‌های اسلاید اصلی هدف فراخوانی کنید.
 
-مثال زیر همیشه یک layout جدید **Title and Content** با نام `Report Title and Content` اضافه می‌کند، سپس یک normal slide بر پایه آن می‌افزاید. نام‌های layout باید درون مجموعه یکتا باشند.
+مثال زیر همیشه یک طرح **Title and Content** جدید به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید معمولی بر پایهٔ آن می‌سازد. نام‌های طرح درون مجموعه باید یکتا باشند.
 
 ```javascript
 var aspose = aspose || {};
@@ -119,14 +121,14 @@ try {
 }
 ```
 
-فقط زمانی layout اضافه کنید که الگو واقعا به یک ساختار قابل‌استفاده دیگر نیاز داشته باشد. اگر یک layout مناسب از پیش وجود دارد، آن را انتخاب و دوباره استفاده کنید به‌جای ایجاد یک نسخهٔ مشابه.
+فقط وقتی الگو به‌طور واقعی نیاز به ساختار قابل استفادهٔ دیگری دارد، طرح اضافه کنید. اگر طرح مناسبی پیش‌اپ پیش موجود باشد، به‌جای ایجاد نسخهٔ تکراری، آن را انتخاب و مجدداً استفاده کنید.
 
-## **افزودن جای‌گیرها به یک Layout Slide**
+## **افزودن نگهدارنده‌ها به اسلاید طرح**
 
-متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/) را برای افزودن شکل‌های جای‌گیر به یک layout ارائه می‌دهد.
+متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/) برای افزودن اشکال نگهدارنده به طرح فراهم می‌کند.
 
-| جای‌گیر PowerPoint | `LayoutPlaceholderManager` متد |
-| ----------------------------------- | --------------------------------- |
+| نگهدارنده PowerPoint | `LayoutPlaceholderManager` Method |
+| --------------------- | --------------------------------- |
 | ![محتوا](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![محتوا (عمودی)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
 | ![متن](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
@@ -138,7 +140,7 @@ try {
 | ![رسانه](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
 | ![تصویر آنلاین](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-مثال زیر بررسی می‌کند که layout **Blank** وجود دارد، چهار جای‌گیر به آن اضافه می‌کند و سپس یک normal slide که از layout اصلاح‌شده استفاده می‌کند ایجاد می‌نماید. ترتیب به‌صورت عمدی است: جای‌گیرها قبل از ایجاد normal slide اضافه می‌شوند، بنابراین Aspose.Slides می‌تواند شکل‌های جای‌گیر مربوطه را بر آن اسلاید تولید کند.
+مثال زیر موجود بودن طرح **Blank** را تأیید می‌کند، چهار نگهدارنده به آن اضافه می‌نماید و سپس یک اسلاید معمولی که از طرح اصلاح‌شده استفاده می‌کند، می‌سازد. ترتیب کار عمدی است: ابتدا نگهدارنده‌ها افزوده می‌شوند و سپس اسلاید معمولی ساخته می‌شود تا Aspose.Slides بتواند اشکال نگهدارندهٔ متناظر را روی آن اسلاید تولید کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -169,15 +171,15 @@ try {
 
 نتیجه:
 
-![جای‌گیرها بر اسلاید layout](add_placeholders.png)
+![نگهدارنده‌ها روی اسلاید طرح](add_placeholders.png)
 
-{{% alert color="warning" title="هشدار" %}}
-تغییر قالب‌بندی ارث‌بری یا هندسهٔ جای‌گیرهای موجود در layout می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک جای‌گیر جدید به layout به‌صورت خودکار به اسلایدهای normal موجود اضافه نمی‌شود. تغییرات layout را روی یک نسخهٔ کپی از ارائه تست کنید و هر اسلاید وابسته را بررسی نمایید.
+{{% alert color="warning" title="Warning" %}}
+تغییر قالب‌بندی به‌ارث‌برده یا هندسهٔ نگهدارنده‌های موجود در طرح می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک نگهدارندهٔ طرح تازه اضافه‌شده به‌صورت خودکار به اسلایدهای معمولی موجود بازنگری نمی‌شود. تغییرات طرح را روی یک کپی از ارائه آزمایش کنید و هر اسلاید وابسته را بررسی نمایید.
 {{% /alert %}}
 
-## **حذف اسلایدهای Layout استفاده‌نشده**
+## **حذف اسلایدهای طرح استفاده‌نشده**
 
-از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف layoutهایی که هیچ اسلاید normal ارجاعی به آن ندارند استفاده کنید. این متد layoutهای هنوز در استفاده را دست‌نخورده می‌گذارد.
+از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف طرح‌هایی که هیچ اسلاید معمولی به آن‌ها ارجاع نمی‌دهد، استفاده کنید. این متد طرح‌های هنوز در استفاده را دست‌نخورده می‌گذارد.
 
 ```javascript
 var aspose = aspose || {};
@@ -192,11 +194,11 @@ try {
 }
 ```
 
-برای حذف یک layout خاص، ابتدا از متدهای [hasDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. پیش از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را مجدداً اختصاص دهید. تلاش برای حذف یک layout استفاده‌شده منجر به پرتاب [PptxEditException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxeditexception/) می‌شود.
+برای حذف یک طرح خاص، ابتدا از متدهای [hasDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. پیش از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را مجدداً تخصیص دهید. تلاش برای حذف یک طرح در حال استفاده یک استثنای [PptxEditException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxeditexception/) را برمی‌انگیزد.
 
-## **کنترل نمایش پابرگ در یک Layout Slide**
+## **کنترل نمایش پاورقی در اسلاید طرح**
 
-یک layout دارای پابرگ، شماره اسلاید و جای‌گیرهای تاریخ‑زمان خود است. برای کنترل این جای‌گیرها برای یک layout از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) استفاده کنید. این کار زمانی مفید است که مثلاً layoutهای محتوا باید پابرگ‌ها را نشان دهند ولی layoutهای عنوان نه.
+یک طرح دارای پاورقی، شماره اسلاید و نگهدارنده‌های تاریخ‑زمان مخصوص به خود است. برای کنترل این نگهدارنده‌ها در یک طرح، از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) استفاده کنید. این کار زمانی مفید است که برای مثال طرح‌های محتوا باید پاورقی نشان دهند ولی طرح‌های عنوان نباید.
 
 ```javascript
 var aspose = aspose || {};
@@ -230,9 +232,9 @@ try {
 }
 ```
 
-## **کنترل نمایش پابرگ در یک Master و Layoutهای فرزند آن**
+## **کنترل نمایش پاورقی در اسلاید اصلی و طرح‌های فرزند آن**
 
-برای اعمال تنظیمات پابرگ یکسان در کل سلسله‌مراتب master، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. متدهای انتشار [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslideheaderfootermanager/) بر روی master و layout slideهای وابسته و اسلایدهای normal اعمال می‌شود؛ آن‌ها فقط یک اسلاید normal را هدف قرار نمی‌دهند.
+برای اعمال تنظیمات یکنواخت پاورقی در سراسر سلسله‌مراتب اسلاید اصلی، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. متدهای انتشار [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslideheaderfootermanager/) بر روی اسلاید اصلی و اسلایدهای طرح وابسته و اسلایدهای معمولی آن عمل می‌کنند؛ هدف آن‌ها فقط یک اسلاید معمولی نیست.
 
 ```javascript
 var aspose = aspose || {};
@@ -253,20 +255,20 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**تفاوت بین Master Slide و Layout Slide چیست؟**
+**تفاوت بین اسلاید اصلی و اسلاید طرح چیست؟**
 
-یک master slide تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. یک layout slide به یک master تعلق دارد و یک ترتیب قابل‌استفاده مجدد از جای‌گیرها را تعریف می‌کند. اسلایدهای normal از این layoutها استفاده می‌کنند و محتوای خاص هر اسلاید را ذخیره می‌نمایند.
+اسلاید اصلی تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح متعلق به یک اسلاید اصلی است و یک چینش قابل استفادهٔ مجدد از نگهدارنده‌ها را مشخص می‌کند. اسلایدهای معمولی از این طرح‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک Layout Slide را از یک ارائه به ارائه دیگری کپی کنم؟**
+**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
 
-بله. یک کپی را با متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) به مجموعه مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط layout منبع را نیز بررسی کنید.
+بله. با استفاده از متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) یک کپی به مجموعهٔ مقصد اضافه کنید. هنگام کپی‌کردن بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع مورد استفادهٔ طرح منبع را نیز بررسی کنید.
 
-**چه اتفاقی می‌افتد وقتی یک Layout که در حال استفاده است را تغییر می‌دهم؟**
+**وقتی یک طرح که در حال استفاده است را تغییر می‌دهم چه می‌شود؟**
 
-اسلایدهای وابسته تغییرات layout را به‌ارث می‌برند مگر این‌که قالب‌بندی یا اشیای مؤثر را به‌صورت محلی بازنویسی کنند. هندسهٔ جای‌گیرها و سبک‌های ارث‌بری می‌تواند بر چندین اسلاید به‌طور همزمان تغییر کند. قبل از ویرایش layout از [getDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) برای شناسایی اسلایدهای تحت‌تاثیر استفاده کنید.
+اسلایدهای وابسته تغییرات طرح را به‌ارث می‌برند مگر این‌که قالب‌بندی یا اشیای مرتبط را به‌صورت محلی بازنویسی کرده باشند. بنابراین هندسهٔ نگهدارنده‌ها و شیوه‌های به‌ارث‌برده می‌تواند به‌طور همزمان بر بسیاری از اسلایدها تغییر کند. قبل از ویرایش طرح، با استفاده از [getDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) اسلایدهای تحت تأثیر را شناسایی کنید.
 
-**چه اتفاقی می‌افتد اگر یک Layout که هنوز در استفاده است را حذف کنم؟**
+**اگر یک طرح هنوز در استفاده باشد را حذف کنم چه اتفاقی می‌افتد؟**
 
-Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را مجدداً اختصاص دهید، یا از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف تنها layoutهای بدون ارجاع استفاده کنید.
+Aspose.Slides یک استثنای [PptxEditException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به طرح دیگری منتقل کنید یا از متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف فقط طرح‌های بدون ارجاع استفاده کنید.

@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση master διαφάνειας παρουσίασης σε C++
+title: Διαχείριση master διαφανειών παρουσίασης σε C++
 linktitle: Master Διαφάνειας
 type: docs
 weight: 80
@@ -8,50 +8,60 @@ keywords:
 - master διαφάνειας
 - master διαφάνειας
 - PPT master διαφάνειας
-- πολλαπλές master διαφάνειες
+- πολλαπλοί master διαφάνειες
 - σύγκριση master διαφανειών
 - φόντο
 - σύμβολο κράτησης
 - κλωνοποίηση master διαφάνειας
 - αντιγραφή master διαφάνειας
-- δημιουργία διπλότυπης master διαφάνειας
-- αχρησιμοποίητη master διαφάνεια
+- διπλότυπο master διαφάνειας
+- αχρησιμοποίητο master διαφάνειας
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Διαχειριστείτε τα master διαφάνειων στο Aspose.Slides για C++: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση master διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
+description: "Διαχείριση master διαφανειών στο Aspose.Slides για C++: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση master διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
 ---
 ## **Επισκόπηση**
 
-Ένας **slide master** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, φόντα, στυλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός slide master είναι ο συνηθισμένος τρόπος για να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
+A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
 
-Το Aspose.Slides για C++ υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει μία ή περισσότερες master διαφάνειες, και κάθε master διαφάνεια μπορεί να περιέχει πολλές layout διαφάνειες. Οι κανονικές διαφάνειες συνήθως δεν αναφέρονται άμεσα σε μια master διαφάνεια. Αντίθετα, μια κανονική διαφάνεια χρησιμοποιεί μια layout διαφάνεια, και αυτή η layout διαφάνεια ανήκει σε μια master διαφάνεια.
+Aspose.Slides for C++ supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
 
-Η ιεραρχία είναι:
+The hierarchy is:
 
-1. **Slide master** - ορίζει το κοινό σχέδιο και το θέμα.
-1. **Layout slide** - ορίζει μια συγκεκριμένη διάταξη placeholders και μορφοποίησης επιπέδου layout.
-1. **Normal slide** - περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί μία layout διαφάνεια.
+1. **Slide master** - defines the shared design and theme.
+1. **Layout slide** - defines a specific arrangement of placeholders and layout-level formatting.
+1. **Normal slide** - contains the actual presentation content and uses one layout slide.
 
-![Η ιεραρχία των master διαφανειών, layout διαφανειών και κανονικών διαφανειών](slide-master_2.jpg)
+![Η ιεραρχία των master slides, layout slides και normal slides](slide-master_2.jpg)
 
-Στο Aspose.Slides, ένα slide master αντιπροσωπεύεται από το interface [IMasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/). Όλες οι master διαφάνειες σε μια παρουσίαση είναι διαθέσιμες μέσω της συλλογής [Presentation::get_Masters](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_masters/) , η οποία υλοποιεί το [IMasterSlideCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/).
+In Aspose.Slides, a slide master is represented by the [IMasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/) interface. All master slides in a presentation are available through the [Presentation::get_Masters](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_masters/) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/).
 
-{{% alert color="info" title="Inheritance" %}}
-Όταν η ίδια ιδιότητα ορίζεται σε περισσότερα από ένα επίπεδα, το πιο συγκεκριμένο επίπεδο έχει προτεραιότητα. Για παράδειγμα, εάν μια master διαφάνεια και μια layout διαφάνεια ορίζουν και τα δύο φόντο, οι διαφάνειες που βασίζονται σε αυτή τη διάταξη χρησιμοποιούν το φόντο της διάταξης. Για περισσότερες πληροφορίες σχετικά με τις layout διαφάνειες, δείτε [Εφαρμογή ή Αλλαγή Διατάξεων Διαφάνειας](/slides/el/cpp/slide-layout/).
+{{% alert color="info" title="Κληρονομικότητα" %}}
+
+When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/el/cpp/slide-layout/).
+
 {{% /alert %}}
 
 ## **Πρόσβαση σε Slide Masters**
 
-Στο PowerPoint, μπορείτε να ανοίξετε την προβολή Slide Master από **View** > **Slide Master**.
+In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
 
 ![Η εντολή Slide Master στην καρτέλα View του PowerPoint](slide-master_3.jpg)
 
-Στο Aspose.Slides, χρησιμοποιήστε τη συλλογή `get_Masters()` για πρόσβαση στις master διαφάνειες:
+In Aspose.Slides, use the `get_Masters()` collection to access master slides:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -64,9 +74,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-Μπορείτε επίσης να λάβετε τη master διαφάνεια που χρησιμοποιείται από μια κανονική διαφάνεια μέσω της διάταξής της:
+You can also get the master slide used by a normal slide through its layout:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -79,28 +97,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **Τι Περιέχει Ένα Slide Master**
+## **Τι Περιέχει ένα Slide Master**
 
-Μια master διαφάνεια είναι ένα αντικείμενο παρόμοιο με διαφάνεια. Υλοποιεί το [IBaseSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/), έτσι αποκαλύπτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από τις κανονικές και τις layout διαφάνειες. Τα μέλη ειδικά για τη master εμφανίζονται στη σελίδα API του [IMasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/).
+A master slide is a slide-like object. It implements [IBaseSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/), so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [IMasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/) API page.
 
-Κοινώς χρησιμοποιημένα μέλη master διαφάνειας περιλαμβάνουν:
+Commonly used master slide members include:
 
-| Μέλος | Σκοπός |
+| Member | Purpose |
 | --- | --- |
-| `get_Background()` | Ορίζει το φόντο της διαφάνειας σε επίπεδο master. |
-| `get_Shapes()` | Αποθηκεύει τα σχήματα που τοποθετούνται στη master, όπως λογότυπα, πλαίσια εικόνας και κοινό κείμενο. |
-| `get_LayoutSlides()` | Αποθηκεύει τις layout διαφάνειες που ανήκουν στη master. |
-| `get_ThemeManager()` | Παρέχει πρόσβαση στα API του θέματος της master. |
-| `get_HeaderFooterManager()` | Έλεγχο κεφαλίδων, υποσέλιδων, ημερομηνιών και αριθμών διαφανειών για τη master και τις θυγατρικές της layout. |
-| `GetDependingSlides()` | Επιστρέφει τις κανονικές διαφάνειες που εξαρτώνται από τη master μέσω των layout τους. |
+| `get_Background()` | Sets the master-level slide background. |
+| `get_Shapes()` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
+| `get_LayoutSlides()` | Stores the layout slides that belong to the master. |
+| `get_ThemeManager()` | Provides access to the master theme APIs. |
+| `get_HeaderFooterManager()` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
+| `GetDependingSlides()` | Returns normal slides that depend on the master through their layouts. |
 
 ## **Προσθήκη Εικόνας σε Slide Master**
 
-Όταν προσθέτετε μια εικόνα σε μια master διαφάνεια, αυτή εμφανίζεται στις διαφάνειες που χρησιμοποιούν layout από τη συγκεκριμένη master. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές ζώνες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
+When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
 
-Το παρακάτω παράδειγμα προσθέτει ένα λογότυπο στην πρώτη master διαφάνεια:
+The following example adds a logo to the first master slide:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -119,19 +148,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για περισσότερες πληροφορίες σχετικά με πλαίσια εικόνας, δείτε [Πλαίσιο Εικόνας](/slides/el/cpp/picture-frame/).
+For more information about picture frames, see [Picture Frame](/slides/el/cpp/picture-frame/).
+
+## **Έλεγχος Ορατότητας των Γραφικών του Master**
+
+Use [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/set_showmastershapes/) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Pass `false` to [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/slide/set_showmastershapes/) on the slide that should omit those graphics and `true` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Επιλογή Εύρους της Ρύθμισης**
+
+A normal slide uses its master through [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/get_layoutslide/) and [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_masterslide/). Setting the property on an individual slide affects only that slide. Passing `false` to [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/layoutslide/set_showmastershapes/) hides master graphics for slides that use that shared layout, even if their own setting is `true`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master it always returns `false`, and assigning `true` raises `System::NotSupportedException`. Apply it to a normal slide or a layout instead.
+
+### **Διαχωρισμός Γραφικών από το Φόντο**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/el/cpp/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
 
 ## **Εργασία με Placeholders**
 
-Τα placeholders ορίζονται συνήθως στις layout διαφάνειες. Η master διαφάνεια παρέχει το κοινό στυλ και το θέμα που κληρονομούν αυτές οι layout, ενώ κάθε layout αποφασίζει ποια placeholders είναι διαθέσιμα και πού τοποθετούνται.
+Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
 
-Στο PowerPoint, οι εντολές placeholder είναι διαθέσιμες στην προβολή Slide Master.
+In PowerPoint, placeholder commands are available in Slide Master view.
 
 ![Η εντολή Insert Placeholder στην προβολή Slide Master του PowerPoint](slide-master_5.png)
 
-Για να προσθέσετε νέα placeholders με Aspose.Slides, εργαστείτε με τη layout διαφάνεια που ανήκει στη master:
+To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
 
 ```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -153,9 +263,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Μπορείτε επίσης να μορφοποιήσετε σχήματα placeholder που υπάρχουν ήδη σε μια master διαφάνεια. Το παρακάτω παράδειγμα βρίσκει το placeholder του τίτλου και εφαρμόζει μια γραμμική διαβάθμιση:
+You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -194,15 +321,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Μορφοποιημένο placeholder τίτλου που κληρονομείται από κανονικές διαφάνειες](slide-master_8.png)
+![Διαμορφωμένος τίτλος placeholder που κληρονομείται από normal slides](slide-master_8.png)
 
-Για περισσότερες επιλογές placeholder και μορφοποίησης κειμένου, δείτε [Ορισμός Κειμένου Προτροπής σε Placeholder](/slides/el/cpp/manage-placeholder/) και [Μορφοποίηση Κειμένου](/slides/el/cpp/text-formatting/).
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/el/cpp/manage-placeholder/) and [Text Formatting](/slides/el/cpp/text-formatting/).
 
 ## **Αλλαγή Φόντου Slide Master**
 
-Ένα φόντο master κληρονομείται από τις layout και τις διαφάνειες που δεν το παρακάμπτουν. Το παρακάτω παράδειγμα ορίζει ένα συμπαγές χρώμα φόντου για την πρώτη master διαφάνεια:
+A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -216,13 +356,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για συναφή θέματα, δείτε [Φόντο Παρουσίασης](/slides/el/cpp/presentation-background/) και [Θέμα Παρουσίασης](/slides/el/cpp/presentation-theme/).
+For related topics, see [Presentation Background](/slides/el/cpp/presentation-background/) and [Presentation Theme](/slides/el/cpp/presentation-theme/).
 
-## **Κλωνοποίηση Slide Master σε Άλλη Παράσταση**
+## **Κλωνοποίηση Slide Master σε Άλλη Παρουσίαση**
 
-Χρησιμοποιήστε το [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/) για να αντιγράψετε μια master διαφάνεια σε άλλη παρουσίαση. Η αντιγραμμένη master μπορεί στη συνέχεια να χρησιμοποιηθεί από layout και διαφάνειες στην προοριστική παρουσίαση.
+Use [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -234,17 +380,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-Εάν χρειάζεται να κλωνοποιήσετε κανονικές διαφάνειες μαζί με τη master τους, δείτε [Κλωνοποίηση Διαφανειών](/slides/el/cpp/clone-slides/).
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/el/cpp/clone-slides/).
 
 ## **Προσθήκη Πολλαπλών Slide Masters**
 
-Μια παρουσίαση μπορεί να περιέχει πολλαπλές master διαφάνειες. Αυτό είναι χρήσιμο όταν διαφορετικές ενότητες απαιτούν διαφορετική επωνυμία, δομή σελίδας ή ρυθμίσεις θέματος.
+A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
 
-![Εντολές PowerPoint για εισαγωγή και διαχείριση master διαφανειών](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-Το παρακάτω παράδειγμα κλωνοποιεί τη προεπιλεγμένη master, δίνει στο κλώνο διαφορετικό φόντο, δημιουργεί μια layout κάτω από αυτή τη κλωνοποιημένη master και προσθέτει μια νέα διαφάνεια βασισμένη σε αυτή τη layout:
+The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -271,9 +434,16 @@ presentation->Dispose();
 
 ## **Σύγκριση Slide Masters**
 
-Οι master διαφάνειες μπορούν να συγκριθούν με τη μέθοδο `Equals` που κληρονομείται από το [IBaseSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σχήματα, κείμενο, μορφοποίηση, κινούμενα σχέδια και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως τα IDs διαφανειών, ή δυναμικές τιμές placeholder, όπως η τρέχουσα ημερομηνία.
+Master slides can be compared with the `Equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -306,13 +476,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-Για περισσότερες πληροφορίες, δείτε [Σύγκριση Διαφανειών Παρουσίασης](/slides/el/cpp/compare-slides/).
+For more information, see [Compare Presentation Slides](/slides/el/cpp/compare-slides/).
 
 ## **Ορισμός Προβολής Slide Master ως Προεπιλεγμένη Προβολή**
 
-Χρησιμοποιήστε τη μέθοδο `set_LastView` στο [ViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/) για να ελέγξετε την προβολή που ανοίγει πρώτο το PowerPoint. Το παρακάτω παράδειγμα ανοίγει την παρουσίαση στην προβολή Slide Master:
+Use the `set_LastView` method on [ViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -320,15 +497,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για περισσότερες ρυθμίσεις προβολής, δείτε [Αποθήκευση Παρουσίασης](/slides/el/cpp/save-presentation/).
+For more view settings, see [Save Presentation](/slides/el/cpp/save-presentation/).
 
-## **Αφαίρεση Μη Χρησιμοποιούμενων Master Διαφανειών**
+## **Απομάκρυνση Αχρησιμοποίητων Master Slides**
 
-Οι παρουσιάσεις μερικές φορές περιέχουν master διαφάνειες που δεν χρησιμοποιούνται πλέον από καμία κανονική διαφάνεια. Η αφαίρεση των μη χρησιμοποιούμενων masters μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη συντήρηση των προτύπων.
+Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
 
-Χρησιμοποιήστε το [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/el/cpp/aspose.slides/masterslidecollection/removeunused/) για να αφαιρέσετε μη χρησιμοποιούμενες master διαφάνειες από τη συλλογή `get_Masters()`:
+Use [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/el/cpp/aspose.slides/masterslidecollection/removeunused/) to remove unused masters from the `get_Masters()` collection:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -336,9 +519,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Μπορείτε επίσης να χρησιμοποιήσετε τη low‑code μέθοδο [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/):
+You can also use the low-code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) method:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -346,20 +536,20 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ (FAQ)**
 
-**Τι είναι η διαφορά μεταξύ ενός slide master και μιας layout διαφάνειας;**
+**Ποια είναι η διαφορά μεταξύ ενός slide master και ενός layout slide;**
 
-Ένα slide master ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, φόντο, κοινά σχήματα και στυλ κειμένου. Μια layout διαφάνεια ανήκει σε ένα slide master και ορίζει μια συγκεκριμένη διάταξη placeholders. Μια κανονική διαφάνεια χρησιμοποιεί μια layout διαφάνεια, οπότε κληρονομεί τόσο από τη layout όσο και από το master.
+A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-**Μπορεί μια παρουσίαση να περιέχει πολλές slide masters;**
+**Μπορεί μια παρουσίαση να περιέχει αρκετά slide masters;**
 
-Ναι. Μια παρουσίαση μπορεί να περιέχει πολλές slide masters. Χρησιμοποιήστε πολλαπλές masters όταν διαφορετικές ενότητες χρειάζονται διαφορετικά οπτικά συστήματα ή επωνυμία.
+Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-**Πρέπει να προσθέτω placeholders σε slide master ή σε layout διαφάνειας;**
+**Πρέπει να προσθέσω placeholders σε master slide ή σε layout slide;**
 
-Στις περισσότερες περιπτώσεις, προσθέτετε placeholders σε layout διαφάνειες. Τοποθετήστε κοινά οπτικά στοιχεία και κοινή μορφοποίηση στη slide master, ενώ τα placeholders περιεχομένου τοποθετείτε στις layout που θα χρησιμοποιήσουν οι κανονικές διαφάνειες.
+In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-**Μπορώ να διαγράψω ένα slide master που εξακολουθεί να χρησιμοποιείται;**
+**Μπορώ να διαγράψω ένα master slide που χρησιμοποιείται ακόμα;**
 
-Όχι. Ένα slide master που έχει εξαρτημένες διαφάνειες δεν μπορεί να αφαιρεθεί με ασφάλεια άμεσα. Πρώτα μεταφέρετε αυτές τις διαφάνειες σε layout κάτω από άλλο master, ή χρησιμοποιήστε μια μέθοδο καθαρισμού μη χρησιμοποιούμενων masters που αφαιρεί μόνο τα masters που δεν είναι σε χρήση.
+No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused‑master cleanup method that removes only masters that are not in use.

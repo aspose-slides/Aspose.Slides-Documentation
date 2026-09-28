@@ -1,69 +1,71 @@
 ---
-title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน PHP
-linktitle: เค้าโครงสไลด์
+title: ใช้หรือเปลี่ยนเลย์เอาต์สไลด์ใน PHP
+linktitle: เลย์เอาต์สไลด์
 type: docs
 weight: 60
 url: /th/php-java/slide-layout/
 keywords:
-- เค้าโครงสไลด์
-- เค้าโครงเนื้อหา
-- ตัวแสดงตำแหน่งชั่วคราว
-- การออกแบบงานนำเสนอ
+- เลย์เอาต์สไลด์
+- เลย์เอาต์เนื้อหา
+- ตัวแบบอัตโนมัติ
+- การออกแบบการนำเสนอ
 - การออกแบบสไลด์
-- เค้าโครงที่ไม่ได้ใช้
-- การแสดงส่วนท้าย
+- เลย์เอาต์ที่ไม่ได้ใช้
+- การแสดงผลส่วนท้าย
 - สไลด์หัวเรื่อง
 - หัวเรื่องและเนื้อหา
-- ส่วนหัว
-- สองเนื้อหา
+- หัวข้อส่วน
+- เนื้อหาแบบสองส่วน
 - การเปรียบเทียบ
 - หัวเรื่องเท่านั้น
-- เค้าโครงเปล่า
-- เนื้อหาพร้อมคำอธิบาย
-- รูปภาพพร้อมคำอธิบาย
+- เลย์เอาต์เปล่า
+- เนื้อหาพร้อมคำบรรยาย
+- รูปภาพพร้อมคำบรรยาย
 - หัวเรื่องและข้อความแนวตั้ง
 - หัวเรื่องแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ใช้, สร้าง และปรับแก้เค้าโครงสไลด์ใน Aspose.Slides สำหรับ PHP ผ่าน Java, เพิ่มตัวแสดงตำแหน่งชั่วคราว, ลบเค้าโครงที่ไม่ได้ใช้, และควบคุมการแสดงส่วนท้าย."
+description: "ใช้, สร้าง และแก้ไขเลย์เอาต์สไลด์ใน Aspose.Slides สำหรับ PHP ผ่าน Java, เพิ่มตัวแบบอัตโนมัติ, ลบเลย์เอาต์ที่ไม่ได้ใช้, และควบคุมการแสดงผลส่วนท้าย."
 ---
 ## **ภาพรวม**
 
-เค้าโครงสไลด์กำหนดตำแหน่งและรูปแบบของตัวแสดงตำแหน่งชั่วคราว เช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิและตาราง การใช้เค้าโครงทำให้สไลด์มีโครงสร้างสม่ำเสมอในขณะที่แต่ละสไลด์สามารถมีเนื้อหาของตนเองได้.
+เลย์เอาต์สไลด์กำหนดตำแหน่งและรูปแบบของตัวแบบอัตโนมัติ เช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิและตาราง การใช้เลย์เอาต์ทำให้สไลด์มีโครงสร้างสม่ำเสมอในขณะที่แต่ละสไลด์ยังสามารถมีเนื้อหาเป็นของตัวเองได้
 
-เค้าโครงที่พบมากที่สุดได้แก่:
+เลย์เอาต์ที่ใช้บ่อยที่สุดได้แก่:
 
-- **สไลด์หัวเรื่อง**: มีตัวแสดงตำแหน่งหัวเรื่องและหัวข้อย่อย.
-- **หัวเรื่องและเนื้อหา**: มีตัวแสดงตำแหน่งหัวเรื่องและตัวแสดงตำแหน่งเนื้อหาทั่วไป.
-- **เปล่า**: ไม่มีตัวแสดงตำแหน่งเนื้อหาและเป็นประโยชน์เมื่อรูปร่างทั้งหมดจะถูกจัดตำแหน่งด้วยตนเอง.
+- **Title Slide**: มีตัวแบบอัตโนมัติสำหรับชื่อเรื่องและชื่อเรื่องย่อย
+- **Title and Content**: มีตัวแบบอัตโนมัติสำหรับชื่อเรื่องและพื้นที่เนื้อหาทั่วไป
+- **Blank**: ไม่มีตัวแบบอัตโนมัติใด ๆ เหมาะเมื่อทุกรูปทรงจะถูกวางตำแหน่งด้วยมือ
 
-## **เข้าใจการสืบทอดเค้าโครง**
+## **ทำความเข้าใจการสืบทอดเลย์เอาต์**
 
-งานนำเสนอมีระดับที่เกี่ยวข้องสามระดับ:
+การนำเสนอมีระดับที่เชื่อมโยงกันสามระดับ:
 
-1. A [สไลด์หลัก](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) defines the theme, shared formatting, backgrounds, and common objects.
-2. A [สไลด์เค้าโครง](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/) belongs to a master and defines a particular arrangement of placeholders.
-3. A [สไลด์ปกติ](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/) uses one layout and stores the content entered for that slide.
+1. [master slide](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) กำหนดธีม, การจัดรูปแบบที่ใช้ร่วมกัน, พื้นหลังและวัตถุทั่วไป
+1. [layout slide](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/) เป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดเรียงตัวแบบอัตโนมัติเฉพาะ
+1. [normal slide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/) ใช้เลย์เอาต์หนึ่งเลย์เอาต์และเก็บเนื้อหาที่ผู้ใช้ป้อนสำหรับสไลด์นั้น
 
-A normal slide inherits theme and formatting from its layout, and the layout inherits from its master. A value set directly on a normal slide overrides the inherited value at that level. When a normal slide is created, its placeholder shapes are generated from the selected layout, while the content entered into those placeholders belongs to the normal slide.
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเลย์เอาต์ของมัน และเลย์เอาต์สืบทอดจากมาสเตอร์ ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะทับค่าที่สืบทอดจากระดับบน เมื่อตั้งสไลด์ปกติใหม่ รูปร่างของตัวแบบอัตโนมัติจะถูกสร้างจากเลย์เอาต์ที่เลือกไว้ พร้อมกับเนื้อหาที่ป้อนเข้าไปในตัวแบบอัตโนมัติจะเป็นของสไลด์ปกตินั้น
 
-Add required placeholders to a layout before creating slides from it. Adding another placeholder to a layout later does not automatically add a corresponding placeholder shape to existing normal slides.
+เพิ่มตัวแบบอัตโนมัติที่จำเป็นลงในเลย์เอาต์ก่อนสร้างสไลด์จากเลย์เอาต์นั้น การเพิ่มตัวแบบอัตโนมัติใหม่ในภายหลังจะไม่เพิ่มรูปร่างตัวแบบอัตโนมัติที่สอดคล้องในสไลด์ปกติที่มีอยู่แล้วโดยอัตโนมัติ
 
-This relationship has two important consequences:
+ความสัมพันธ์นี้มีผลสำคัญสองประการ:
 
-- Changing inherited formatting or existing placeholder geometry on a layout can update every slide that depends on it. Before editing a layout that is already in use, inspect its dependent slides and review the resulting presentation.
-- A layout that is still used by a slide cannot be removed. Reassign its dependent slides to another layout first, or remove only unused layouts.
+- การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวแบบอัตโนมัติที่มีอยู่ในเลย์เอาต์อาจอัปเดตสไลด์ทุกสไลด์ที่พึ่งพาเลย์เอาต์นั้น ก่อนแก้ไขเลย์เอาต์ที่ใช้งานอยู่แล้วให้ตรวจสอบสไลด์ที่พึ่งพาและตรวจทานผลลัพธ์ของการนำเสนอ
+- เลย์เอาต์ที่ยังคงถูกสไลด์ใช้ไม่สามารถลบได้ ให้ยกเลิกการเชื่อมโยงสไลด์ที่พึ่งพาไปยังเลย์เอาต์อื่นก่อน หรือทำการลบเฉพาะเลย์เอาต์ที่ไม่ได้ใช้
 
-For more information about the top level of this hierarchy, see [Slide Master](/slides/th/php-java/slide-master/).
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของลำดับชั้นนี้ ดูที่ [Slide Master](/slides/th/php-java/slide-master/)
 
-## **เลือกและใช้เค้าโครงสไลด์**
+หากต้องการซ่อนโลโก้หรือรูปกราฟิกมาสเตอร์ที่สืบทอดบนสไลด์เดียวหรือผ่านเลย์เอาต์ที่ใช้ร่วมกัน ให้ดูที่ [Control the Visibility of Master Graphics](/slides/th/php-java/slide-master/) ตัวอย่างเปรียบเทียบสองสไลด์ที่ใช้มาสเตอร์เดียวกัน
 
-Use a layout type when the presentation follows standard PowerPoint layout definitions. Layout names are user-editable and can be localized, so name-based selection is less reliable unless you control the source template.
+## **เลือกและใช้เลย์เอาต์สไลด์**
 
-The following example looks for **Title and Content** on the first master. If that layout is unavailable, it deliberately falls back to **Blank**. The second null check is necessary because a presentation can contain only custom layouts. The selected layout is then applied to the first normal slide through the [Slide.setLayoutSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#setLayoutSlide) method.
+ใช้ประเภทเลย์เอาต์เมื่อการนำเสนอปฏิบัติตามคำนิยามเลย์เอาต์ของ PowerPoint มาตรฐาน ชื่อเลย์เอาต์สามารถแก้ไขได้โดยผู้ใช้และอาจแปลเป็นภาษาต่าง ๆ ดังนั้นการเลือกโดยอิงชื่อจึงน้อยความน่าเชื่อถือ เว้นแต่คุณควบคุมเทมเพลตต้นฉบับ
+
+ตัวอย่างต่อไปนี้ค้นหา **Title and Content** บนมาสเตอร์แรก หากเลย์เอาต์นั้นไม่มีอยู่ จะกลับไปใช้ **Blank** อย่างเจตนา การตรวจสอบค่า null ครั้งที่สองจำเป็นเพราะการนำเสนออาจมีเพียงเลย์เอาต์ที่กำหนดเองเท่านั้น เลย์เอาต์ที่เลือกแล้วจะถูกนำไปใช้กับสไลด์ปกติแรกผ่านเมธอด [Slide.setLayoutSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#setLayoutSlide)
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-Changing a slide's layout does not remove ordinary shapes added directly to the slide. However, placeholder positions, inherited formatting, and the correspondence between existing placeholders and the new layout can change, so inspect the output when switching between substantially different layouts.
+การเปลี่ยนเลย์เอาต์ของสไลด์จะไม่ลบรูปร่างปกติที่เพิ่มโดยตรงลงในสไลด์ อย่างไรก็ตามตำแหน่งของตัวแบบอัตโนมัติ, การจัดรูปแบบที่สืบทอดและความสอดคล้องระหว่างตัวแบบอัตโนมัติที่มีอยู่กับเลย์เอาต์ใหม่อาจเปลี่ยนแปลงได้ ดังนั้นให้ตรวจสอบผลลัพธ์เมื่อสลับระหว่างเลย์เอาต์ที่แตกต่างกันมาก
 
-## **เพิ่มสไลด์เค้าโครง**
+## **เพิ่มเลย์เอาต์สไลด์**
 
-Selection and creation are separate operations. The previous example selects an existing layout; it does not create one. To create a layout, call the [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterlayoutslidecollection/#add) method on the target master's layout collection.
+การเลือกและการสร้างเป็นขั้นตอนแยกกัน ตัวอย่างก่อนหน้านี้เลือกเลย์เอาต์ที่มีอยู่แล้ว; ไม่ได้สร้างใหม่ หากต้องการสร้างเลย์เอาต์ ให้เรียกเมธอด [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterlayoutslidecollection/#add) บนคอลเลกชันเลย์เอาต์ของมาสเตอร์เป้าหมาย
 
-The following example always adds a new **Title and Content** layout named `Report Title and Content`, then adds a normal slide based on it. Layout names must be unique within the collection.
+ตัวอย่างต่อไปนี้เพิ่มเลย์เอาต์ **Title and Content** ใหม่ชื่อ `Report Title and Content` เสมอ แล้วเพิ่มสไลด์ปกติอ้างอิงจากเลย์เอาต์นั้น ชื่อเลย์เอาต์ต้องไม่ซ้ำกันภายในคอลเลกชัน
 
 ```php
 use aspose\slides\Presentation;
@@ -115,26 +117,26 @@ try {
 }
 ```
 
-Add a layout only when the template genuinely needs another reusable structure. If a suitable layout already exists, select and reuse it instead of creating a duplicate.
+เพิ่มเลย์เอาต์เฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้จริง หากมีเลย์เอาต์ที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างสำเนาใหม่
 
-## **เพิ่มตัวแสดงตำแหน่งชั่วคราวในสไลด์เค้าโครง**
+## **เพิ่มตัวแบบอัตโนมัติลงในเลย์เอาต์สไลด์**
 
-The [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getPlaceholderManager) method provides a [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/) for adding placeholder shapes to a layout.
+เมธอด [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getPlaceholderManager) ให้ [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/) สำหรับเพิ่มรูปร่างตัวแบบอัตโนมัติลงในเลย์เอาต์
 
-| ตัวแสดงตำแหน่ง PowerPoint | `LayoutPlaceholderManager` Method |
-| ----------------------------------- | --------------------------------- |
-| ![เนื้อหา](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![เนื้อหา (แนวตั้ง)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![ข้อความ](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![ข้อความ (แนวตั้ง)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![รูปภาพ](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![แผนภูมิ](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![ตาราง](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| PowerPoint Placeholder | `LayoutPlaceholderManager` Method |
+| ---------------------- | --------------------------------- |
+| ![Content](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
 | ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![สื่อ](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![ภาพออนไลน์](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-The following example verifies that the **Blank** layout exists, adds four placeholders to it, and then creates a normal slide that uses the modified layout. The order is intentional: the placeholders are added before the normal slide is created, so Aspose.Slides can generate the corresponding placeholder shapes on that slide.
+ตัวอย่างต่อไปนี้ตรวจสอบว่าเลย์เอาต์ **Blank** มีอยู่แล้ว, เพิ่มตัวแบบอัตโนมัติสี่ประเภทลงในเลย์เอาต์นั้น, แล้วสร้างสไลด์ปกติที่ใช้เลย์เอาต์ที่แก้ไขแล้ว ลำดับการทำงานตั้งใจไว้: เพิ่มตัวแบบอัตโนมัติก่อนสร้างสไลด์ปกติ เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างตัวแบบอัตโนมัติที่สอดคล้องบนสไลด์นั้น
 
 ```php
 use aspose\slides\Presentation;
@@ -164,15 +166,15 @@ try {
 
 ผลลัพธ์:
 
-![ตัวแสดงตำแหน่งบนสไลด์เค้าโครง](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-การเปลี่ยนรูปแบบที่สืบทอดหรือรูปทรงของตัวแสดงตำแหน่งเค้าโครงที่มีอยู่สามารถส่งผลต่อสไลด์ที่ขึ้นกับมันได้ ตัวแสดงตำแหน่งเค้าโครงที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าสู่สไลด์ปกติที่มีอยู่แล้ว ทดสอบการเปลี่ยนแปลงเค้าโครงบนสำเนาของงานนำเสนอและตรวจสอบสไลด์ที่ขึ้นกับทุกอัน.
+การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวแบบอัตโนมัติในเลย์เอาต์ที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ตัวแบบอัตโนมัติที่เพิ่มใหม่จะไม่ถูกใส่ให้กับสไลด์ปกติที่มีอยู่แล้ว ทดสอบการเปลี่ยนแปลงเลย์เอาต์บนสำเนาของการนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกสไลด์
 {{% /alert %}}
 
-## **ลบสไลด์เค้าโครงที่ไม่ได้ใช้**
+## **ลบเลย์เอาต์สไลด์ที่ไม่ได้ใช้**
 
-Use the [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) method to remove layouts that no normal slide references. The method leaves layouts that are still in use intact.
+ใช้เมธอด [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) เพื่อลบเลย์เอาต์ที่ไม่มีสไลด์ปกติอ้างอิง เมธอดจะคงเลย์เอาต์ที่ยังคงใช้งานอยู่ไว้ไม่ถูกลบ
 
 ```php
 use aspose\slides\Compress;
@@ -188,13 +190,13 @@ try {
 }
 ```
 
-To remove one specific layout, first use its [hasDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#hasDependingSlides) or [getDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getDependingSlides) method. Reassign any dependent slides before calling [LayoutSlide.remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#remove). Attempting to remove a used layout raises a [PptxEditException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxeditexception/).
+หากต้องการลบเลย์เอาต์เฉพาะหนึ่งรายการ ให้เรียกใช้เมธอด [hasDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#hasDependingSlides) หรือ [getDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getDependingSlides) ของเลย์เอาต์นั้นก่อน ย้ายสไลด์ที่พึ่งพาไปยังเลย์เอาต์อื่นก่อนเรียกเมธอด [LayoutSlide.remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#remove) การพยายามลบเลย์เอาต์ที่กำลังใช้จะทำให้เกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxeditexception/)
 
-## **ควบคุมการมองเห็นส่วนท้ายบนสไลด์เค้าโครง**
+## **ควบคุมการแสดงผลส่วนท้ายบนเลย์เอาต์สไลด์**
 
-A layout has its own footer, slide-number, and date-time placeholders. Use the [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) method to control those placeholders for one layout. This is useful when, for example, content layouts should show footers but title layouts should not.
+เลย์เอาต์มีส่วนท้าย, ตัวเลขสไลด์และตัวแบบอัตโนมัติวันที่/เวลาเป็นของตนเอง ใช้เมธอด [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) เพื่อจัดการตัวแบบอัตโนมัติเหล่านี้สำหรับเลย์เอาต์หนึ่ง นี่เป็นประโยชน์เมื่อเช่น เลย์เอาต์เนื้อหาต้องแสดงส่วนท้ายแต่เลย์เอาต์ชื่อเรื่องไม่ต้องการ
 
-The following example selects a layout safely and makes its footer elements visible:
+ตัวอย่างต่อไปนี้เลือกเลย์เอาต์อย่างปลอดภัยและทำให้ส่วนท้ายของมันมองเห็นได้:
 
 ```php
 use aspose\slides\Presentation;
@@ -226,9 +228,9 @@ try {
 }
 ```
 
-## **ควบคุมการมองเห็นส่วนท้ายบนสไลด์มาสเตอร์และเค้าโครงลูกของมัน**
+## **ควบคุมการแสดงผลส่วนท้ายบนมาสเตอร์และเลย์เออต์ย่อยของมัน**
 
-To apply consistent footer settings across a master hierarchy, use the [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/#getHeaderFooterManager) method. The propagation methods of [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslideheaderfootermanager/) operate on the master and its dependent layout slides and normal slides; they do not target just one normal slide.
+เพื่อให้การตั้งค่าส่วนท้ายสอดคล้องกันทั่วทั้งลำดับชั้นมาสเตอร์ ให้ใช้เมธอด [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/#getHeaderFooterManager) วิธีการกระจายของ [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslideheaderfootermanager/) ทำงานบนมาสเตอร์และเลย์เออต์สไลด์และสไลด์ปกติที่พึ่งพา; ไม่ได้มุ่งเป้าเพียงสไลด์ปกติเดียว
 
 ```php
 use aspose\slides\Presentation;
@@ -251,18 +253,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างสไลด์มาสเตอร์และสไลด์เค้าโครงคืออะไร?**
+**ความแตกต่างระหว่าง Master Slide กับ Layout Slide คืออะไร?**
 
-สไลด์มาสเตอร์กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของงานนำเสนอ ส่วนสไลด์เค้าโครงเป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดวางตัวแสดงตำแหน่งชั่วคราวที่สามารถนำไปใช้ซ้ำได้ สไลด์ปกติจะใช้เค้าโครงเหล่านี้และบันทึกเนื้อหาของสไลด์แต่ละอัน
+มาสเตอร์สไลด์กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของการนำเสนอ เลย์เอาต์สไลด์เป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดเรียงตัวแบบอัตโนมัติที่นำกลับมาใช้ได้หนึ่งชุด สไลด์ปกติใช้เลย์เอาต์เหล่านั้นและเก็บเนื้อหาเฉพาะสไลด์
 
-**ฉันสามารถคัดลอกสไลด์เค้าโครงจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งได้หรือไม่?**
+**สามารถคัดลอก Layout Slide จากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่งได้หรือไม่?**
 
-ได้. ใช้เมธอด [addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/globallayoutslidecollection/#addClone) เพื่อเพิ่มสำเนาไปยังคอลเลกชันปลายทาง เมื่อคัดลอกระหว่างงานนำเสนอควรตรวจสอบฟอนต์, ธีม, รูปภาพและทรัพยากรอื่น ๆ ที่เค้าโครงต้นแบบอ้างอิง
+ทำได้ โดยเพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/globallayoutslidecollection/#addClone) เมื่อคัดลอกจากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่ง ให้ตรวจสอบฟอนต์, ธีม, รูปภาพและทรัพยากรอื่น ๆ ที่เลย์เอาต์ต้นฉบับใช้ด้วย
 
-**จะเกิดอะไรขึ้นเมื่อฉันแก้ไขเค้าโครงที่กำลังใช้งานอยู่?**
+**ถ้าฉันแก้ไขเลย์เอาต์ที่กำลังใช้อยู่จะเกิดอะไรขึ้น?**
 
-สไลด์ที่ขึ้นกับเค้าโครงจะสืบทอดการเปลี่ยนแปลงเว้นแต่จะมีการกำหนดรูปแบบหรือวัตถุทับระดับสไลด์เอง รูปร่างของตัวแสดงตำแหน่งและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงในหลายสไลด์พร้อมกัน ใช้ [getDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getDependingSlides) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเค้าโครง
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงของเลย์เอาต์ เว้นแต่พวกมันจะทับค่าการจัดรูปแบบหรือวัตถุที่ได้รับผลกระทบไว้ในระดับท้องถิ่น รูปร่างของตัวแบบอัตโนมัติและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงบนหลายสไลด์พร้อมกัน ใช้เมธอด [getDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getDependingSlides) เพื่อระบิสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเลย์เอาต์
 
-**จะเกิดอะไรขึ้นหากฉันลบเค้าโครงที่ยังค้างใช้งาน?**
+**ถ้าฉันพยายามลบเลย์เอาต์ที่ยังคงถูกใช้งานจะเกิดอะไรขึ้น?**
 
-Aspose.Slides จะโยน [PptxEditException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxeditexception/). ควรโอนย้ายสไลด์ที่ขึ้นกับเค้าโครงนั้นไปยังเค้าโครงอื่นก่อน หรือใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) เพื่อลบเฉพาะเค้าโครงที่ไม่มีสไลด์อ้างอิง.
+Aspose.Slides จะขว้างข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxeditexception/) ให้ย้ายสไลด์ที่พึ่งพาไปยังเลย์เอาต์อื่นก่อน หรือใช้เมธอด [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) เพื่อลบเฉพาะเลย์เอาต์ที่ไม่มีการอ้างอิงOnly.

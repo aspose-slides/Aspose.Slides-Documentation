@@ -1,5 +1,5 @@
 ---
-title: จัดการสไลด์มาสเตอร์การนำเสนอใน Python via Java
+title: จัดการสไลด์มาสเตอร์ของการนำเสนอใน Python ผ่าน Java
 linktitle: สไลด์มาสเตอร์
 type: docs
 weight: 70
@@ -8,13 +8,13 @@ keywords:
 - สไลด์มาสเตอร์
 - สไลด์มาสเตอร์
 - สไลด์มาสเตอร์ PPT
-- สไลด์มาสเตอร์หลายอัน
+- หลายสไลด์มาสเตอร์
 - เปรียบเทียบสไลด์มาสเตอร์
 - พื้นหลัง
-- ตัวเก็บตำแหน่ง
+- ตัวแสดงตำแหน่ง
 - คัดลอกสไลด์มาสเตอร์
-- สำเนาสไลด์มาสเตอร์
-- ทำซ้ำสไลด์มาสเตอร์
+- คัดลอกสไลด์มาสเตอร์
+- ทำสำเนาสไลด์มาสเตอร์
 - สไลด์มาสเตอร์ที่ไม่ได้ใช้
 - PowerPoint
 - OpenDocument
@@ -22,37 +22,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ Python via Java: เข้าถึง แก้ไข คัดลอก เปรียบเทียบ และลบสไลด์มาสเตอร์ในงานนำเสนอ PowerPoint และ OpenDocument"
+description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ Python ผ่าน Java: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบและลบสไลด์มาสเตอร์ในการนำเสนอ PowerPoint และ OpenDocument."
 ---
 ## **ภาพรวม**
 
-**สไลด์มาสเตอร์** กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถมีรูปทรงทั่วไป โลโก้ พื้นหลัง รูปแบบข้อความ การตั้งค่าธีม และการตั้งค่าฝักท้าย ใน PowerPoint การแก้ไขสไลด์มาสเตอร์เป็นวิธีปกติที่ทำให้การนำเสนอสอดคล้องโดยไม่ต้องทำรูปแบบเดียวกันซ้ำในแต่ละสไลด์  
+**Slide master** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถมีรูปทรงโลโก้พื้นหลังสไตล์ข้อความ การตั้งค่าธีม และการตั้งค่าฝั่งล่างได้ ใน PowerPoint การแก้ไข slide master เป็นวิธีปกติเพื่อให้การนำเสนอมีความสอดคล้องโดยไม่ต้องทำรูปแบบซ้ำบนแต่ละสไลด์
 
-Aspose.Slides for Python via Java รองรับโมเดลเดียวกัน การนำเสนอสามารถมีสไลด์มาสเตอร์หนึ่งหรือหลายสไลด์ และแต่ละสไลด์มาสเตอร์สามารถมีสไลด์เลย์เอาต์หลายสไลด์ สไลด์ปกติส่วนใหญ่จะไม่อ้างอิงสไลด์มาสเตอร์โดยตรง แต่สไลด์ปกติจะใช้สไลด์เลย์เอาต์ และสไลด์เลย์เอาต์นั้นเป็นส่วนหนึ่งของสไลด์มาสเตอร์  
+Aspose.Slides for Python via Java รองรับโมเดลเดียวกัน การนำเสนอสามารถมี slide master หนึ่งชุดหรือหลายชุด และแต่ละ slide master สามารถมี layout slide หลายชุด สไลด์ปกติจะไม่อ้างอิง slide master โดยตรง แต่จะใช้ layout slide ซึ่ง layout slide นั้นเป็นของ slide master
 
 ลำดับชั้นคือ  
 
-1. **สไลด์มาสเตอร์** – กำหนดการออกแบบและธีมที่ใช้ร่วมกัน  
-2. **สไลด์เลย์เอาต์** – กำหนดการจัดวางตัวเก็บตำแหน่งและการจัดรูปแบบระดับเลย์เอาต์  
-3. **สไลด์ปกติ** – มีเนื้อหาเสนอจริงและใช้สไลด์เลย์เอาต์หนึ่งสไลด์  
+1. **Slide master** – กำหนดการออกแบบและธีมที่ใช้ร่วมกัน  
+1. **Layout slide** – กำหนดการจัดเรียง placeholder และรูปแบบระดับ layout  
+1. **Normal slide** – มีเนื้อหาจริงของการนำเสนอและใช้ layout slide หนึ่งชุด  
 
-![ลำดับชั้นของสไลด์มาสเตอร์ สไลด์เลย์เอาต์ และสไลด์ปกติ](slide-master_2.jpg)
+![ลำดับชั้นของ master slide, layout slide, และ normal slide](slide-master_2.jpg)
 
-ใน Aspose.Slides สไลด์มาสเตอร์ถูกแทนด้วยคลาส [MasterSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/) ทั้งหมดของสไลด์มาสเตอร์ในงานนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters) ซึ่งถูกแทนด้วย [MasterSlideCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslidecollection/)  
+ใน Aspose.Slides slide master แทนด้วยคลาส [MasterSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/) ทั้งหมดที่อยู่ในการนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters) ซึ่งเป็นประเภท [MasterSlideCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslidecollection/).
 
-{{% alert color="info" title="Inheritance" %}}
-
-เมื่อคุณสมบัติเช่นเดียวกันถูกกำหนดไว้ในหลายระดับ ระดับที่เจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หากสไลด์มาสเตอร์และสไลด์เลย์เอาต์ทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงจากเลย์เอื่อนั้นจะใช้พื้นหลังของเลย์เอาต์ สำหรับข้อมูลเพิ่มเติมเกี่ยวกับสไลด์เลย์เอาต์ ดูที่ [Apply or Change Slide Layouts](/slides/th/python-java/slide-layout/)  
-
+{{% alert color="info" title="การสืบทอด" %}}
+เมื่อคุณสมบัติเช่นเดียวกันถูกกำหนดที่หลายระดับ ระดับที่เจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หาก master slide และ layout slide ทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงจาก layout นั้นจะใช้พื้นหลังของ layout สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ layout slide ดู [Apply or Change Slide Layouts](/slides/th/python-java/slide-layout/).
 {{% /alert %}}
 
-## **การเข้าถึงสไลด์มาสเตอร์**
+## **เข้าถึง Slide Masters**
 
-ใน PowerPoint คุณสามารถเปิดมุมมองสไลด์มาสเตอร์ได้จาก **View** > **Slide Master**  
+ใน PowerPoint คุณสามารถเปิดมุมมอง Slide Master ได้จาก **View** > **Slide Master**.
 
-![คำสั่ง Slide Master บนแท็บ View ของ PowerPoint](slide-master_3.jpg)
+![คำสั่ง Slide Master ในแท็บ View ของ PowerPoint](slide-master_3.jpg)
 
-ใน Aspose.Slides ใช้คอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters) เพื่อเข้าถึงสไลด์มาสเตอร์:
+ใน Aspose.Slides ใช้คอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters) เพื่อเข้าถึง master slide:
 
 ```python
 import jpype
@@ -75,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-คุณยังสามารถดึงสไลด์มาสเตอร์ที่สไลด์ปกติเชื่อมต่ออยู่ผ่านเลย์เอาต์ของมันได้:
+คุณยังสามารถรับ master slide ที่ใช้โดยสไลด์ปกติผ่าน layout ของสไลด์นั้นได้เช่นกัน:
 
 ```python
 import jpype
@@ -98,26 +96,26 @@ finally:
     presentation.dispose()
 ```
 
-## **สไลด์มาสเตอร์ประกอบด้วยอะไร**
+## **สิ่งที่ Slide Master มีอยู่**
 
-สไลด์มาสเตอร์เป็นออบเจกต์แบบสไลด์ มันสืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/) จึงเปิดเผยคุณสมบัติสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและเลย์เอาต์ สมาชิกเฉพาะสไลด์มาสเตอร์จะถูกแสดงบนหน้า API ของ [MasterSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/)  
+master slide เป็นอ็อบเจกต์คล้ายสไลด์ มันสืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติของสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและ layout slide สมาชิกเฉพาะของ master ถูกระบุในหน้า API ของ [MasterSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/)
 
-สมาชิกสไลด์มาสเตอร์ที่ใช้บ่อยรวมถึง:
+สมาชิก master slide ที่ใช้บ่อย ได้แก่  
 
-| Member | Purpose |
+| สมาชิก | จุดประสงค์ |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#getBackground) | ตั้งค่าพื้นหลังระดับมาสเตอร์ของสไลด์ |
-| [getShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#getShapes) | เก็บรูปทรงที่วางบนมาสเตอร์ เช่น โลโก้ กรอบรูปภาพ และข้อความที่ใช้ร่วมกัน |
-| [getLayoutSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getLayoutSlides) | เก็บสไลด์เลย์เอาต์ที่เป็นส่วนหนึ่งของมาสเตอร์ |
-| [getThemeManager](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getThemeManager) | ให้การเข้าถึง API ธีมของมาสเตอร์ |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | ควบคุมส่วนหัว ส่วนท้าย วันที่ และหมายเลขสไลด์สำหรับมาสเตอร์และเลย์เอาต์ลูกของมัน |
-| [getDependingSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getDependingSlides) | คืนค่าสไลด์ปกติที่พึ่งพามาสเตอร์ผ่านเลย์เอาต์ของพวกเขา |
+| [getBackground](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#getBackground) | ตั้งค่าพื้นหลังระดับ master |
+| [getShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#getShapes) | เก็บรูปทรงที่วางบน master เช่น โลโก้ กรอบภาพ และข้อความที่ใช้ร่วมกัน |
+| [getLayoutSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getLayoutSlides) | เก็บ layout slide ที่เป็นของ master |
+| [getThemeManager](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getThemeManager) | ให้เข้าถึง API ธีมของ master |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | ควบคุมส่วนหัว ส่วนล่าง วันที่ และหมายเลขสไลด์สำหรับ master และ layout ลูก |
+| [getDependingSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getDependingSlides) | คืนค่าสไลด์ปกติที่พึ่งพา master ผ่าน layout ของมัน |
 
-## **เพิ่มรูปภาพลงในสไลด์มาสเตอร์**
+## **เพิ่มรูปภาพลงใน Slide Master**
 
-เมื่อคุณเพิ่มรูปภาพลงในสไลด์มาสเตอร์ รูปภาพนั้นจะปรากฏบนสไลด์ที่ใช้เลย์เอ็ตจากมาสเตอร์นั้น มีประโยชน์สำหรับโลโก้ วอเตอร์มาร์ก แถบตกแต่ง และองค์ประกอบภาพซ้ำอื่น ๆ  
+เมื่อคุณเพิ่มรูปภาพลงใน master slide จะปรากฏบนสไลด์ที่ใช้ layout จาก master นั้น สิ่งนี้มีประโยชน์สำหรับโลโก้, ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องทำซ้ำ
 
-ตัวอย่างต่อไปนี้เพิ่มโลโก้ลงในสไลด์มาสเตอร์แรก:
+ตัวอย่างต่อไปนี้เพิ่มโลโก้ลงใน master slide แรก:
 
 ```python
 import jpype
@@ -143,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับกรอบรูปภาพ ดูที่ [Picture Frame](/slides/th/python-java/picture-frame/)  
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับกรอบภาพ ดู [Picture Frame](/slides/th/python-java/picture-frame/).
 
-## **ทำงานกับตัวเก็บตำแหน่ง (Placeholder)**
+## **ควบคุมการแสดงผลกราฟิกของ Master**
 
-ตัวเก็บตำแหน่งโดยทั่วไปจะถูกกำหนดบนสไลด์เลย์เอาต์ สไลด์มาสเตอร์ให้สไตล์และธีมร่วมที่เลย์เออต์เหล่านั้นสืบทอด ในขณะที่แต่ละเลย์เออต์กำหนดว่าตัวเก็บตำแหน่งใดพร้อมใช้งานและตำแหน่งใด  
+ใช้ [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#setShowMasterShapes) เพื่อซ่อนกราฟิกที่สืบทอดจาก master เช่น โลโก้หรือรูปทรงตกแต่งโดยไม่ต้องลบออกจาก master ส่งค่า `False` ไปยัง [Slide.setShowMasterShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#setShowMasterShapes) บนสไลด์ที่ต้องการซ่อนกราฟิกนั้น และให้ค่า `True` บนสไลด์ที่ต้องการแสดง
 
-ใน PowerPoint คำสั่งตัวเก็บตำแหน่งสามารถใช้ได้ในมุมมองสไลด์มาสเตอร์  
+ตัวอย่างต่อไปนี้สร้างแถบตกแต่งสีน้ำเงินบน master และสไลด์สองสไลด์ที่ใช้ layout เปล่าเดียวกัน แถบจะมองเห็นบนสไลด์แรกและซ่อนบนสไลด์ที่สอง ไม่ต้องใช้การนำเข้าการนำเสนอหรือรูปภาพใด ๆ
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+ตัวอย่างใช้ layout **Blank** ที่มาพร้อมกับการสร้างการนำเสนอใหม่และลบ placeholder ของสไลด์แรกออก
+
+### **เลือกขอบเขตของการตั้งค่า**
+
+สไลด์ปกติใช้ master ผ่าน [Slide.getLayoutSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#getLayoutSlide) และ [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/layoutslide/#getMasterSlide) การตั้งค่าคุณสมบัติบนสไลด์เดี่ยวส่งผลต่อสไลด์นั้นเท่านั้น การส่งค่า `False` ไปยัง [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/layoutslide/#setShowMasterShapes) จะซ่อนกราฟิกของ master สำหรับสไลด์ที่ใช้ layout นั้น แม้การตั้งค่าของสไลด์เองจะเป็น `True` ก็ตาม หากต้องการซ่อนกราฟิกบนสไลด์เดียว ให้เปลี่ยนคุณสมบัติของสไลด์นั้นและคง layout ร่วมไว้ตามเดิม
+
+การตั้งค่านี้ไม่รองรับเป็นการควบคุมการมองเห็นบน master slide เอง บน master, [getShowMasterShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#getShowMasterShapes) จะคืนค่า `False` เสมอและการส่งค่า `True` ไปยัง [setShowMasterShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslide/#setShowMasterShapes) จะทำให้เกิดข้อยกเว้น โปรดลองใช้กับสไลด์ปกติหรือ layout แทน
+
+### **แยกกราฟิกจากพื้นหลัง**
+
+| การดำเนินการ | ผลลัพธ์ |
+| --- | --- |
+| ซ่อนกราฟิกของ master | ควบคุมการมองเห็นรูปทรงที่สืบทอดจาก master โดยไม่ลบหรือเปลี่ยนแปลงรูปทรงของสไลด์เอง |
+| เปลี่ยนการเติมสีพื้นหลังของสไลด์ | เปลี่ยนสี, ไล่ระดับสี หรือรูปภาพพื้นหลัง รูปร่างของ master ยังคงอยู่เหนือพื้นหลังนั้น ดู [Presentation Background](/slides/th/python-java/presentation-background/) |
+| ลบรูปทรงจาก master | ลบรูปทรงต้นฉบับที่ใช้ร่วมกัน ทำให้สไลด์ใด ๆ ที่อ้างอิง master นั้นไม่สามารถใช้รูปทรงนั้นได้อีก |
+
+## **ทำงานกับ Placeholder**
+
+Placeholder มักถูกกำหนดบน layout slide master ให้สไตล์และธีมร่วมที่ layout สืบทอดมา ส่วนแต่ละ layout จะตัดสินใจว่า placeholder ใดพร้อมใช้งานและวางไว้ที่ไหน
+
+ใน PowerPoint คำสั่ง placeholder จะอยู่ในมุมมอง Slide Master
 
 ![คำสั่ง Insert Placeholder ในมุมมอง Slide Master ของ PowerPoint](slide-master_5.png)
 
-เพื่อเพิ่มตัวเก็บตำแหน่งใหม่ด้วย Aspose.Slides ให้ทำงานกับสไลด์เลย์เอาต์ที่เป็นส่วนหนึ่งของมาสเตอร์:
+เพื่อเพิ่ม placeholder ใหม่ด้วย Aspose.Slides ทำงานกับ layout slide ที่เป็นของ master:
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-คุณยังสามารถจัดรูปแบบรูปทรงตัวเก็บตำแหน่งที่มีอยู่แล้วบนสไลด์มาสเตอร์ ตัวอย่างต่อไปนี้ค้นหาตัวเก็บตำแหน่งหัวเรื่องและใช้การไล่สีเชิงเส้น:
+คุณยังสามารถจัดรูปแบบรูปทรง placeholder ที่มีอยู่บน master slide ได้ ตัวอย่างต่อไปค้นหา placeholder ของหัวเรื่องและใส่การเติมสีไลเนียร์ไล่ระดับ:
 
 ```python
 import jpype
@@ -218,13 +276,13 @@ finally:
     presentation.dispose()
 ```
 
-![หัวเรื่องตัวเก็บตำแหน่งที่จัดรูปแบบแล้วสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
+![Placeholder หัวเรื่องที่ถูกจัดรูปแบบและสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
 
-สำหรับตัวเลือกการจัดรูปแบบตัวเก็บตำแหน่งและข้อความ ดูที่ [Set Prompt Text in Placeholder](/slides/th/python-java/manage-placeholder/) และ [Text Formatting](/slides/th/python-java/text-formatting/)  
+สำหรับตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติม ดู [Set Prompt Text in Placeholder](/slides/th/python-java/manage-placeholder/) และ [Text Formatting](/slides/th/python-java/text-formatting/).
 
-## **เปลี่ยนพื้นหลังของสไลด์มาสเตอร์**
+## **เปลี่ยนพื้นหลังของ Slide Master**
 
-พื้นหลังมาสเตอร์จะถูกสืบทอดโดยเลย์เอตและสไลด์ที่ไม่ได้แก้ไขพื้นหลังของตนเอง ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบสีทึบสำหรับสไลด์มาสเตอร์แรก:
+พื้นหลังของ master จะสืบทอดไปยัง layout และสไลด์ที่ไม่ได้ทำการทับซ้อน ตัวอย่างต่อไปตั้งค่าสีพื้นหลังแบบทึบสำหรับ master slide แรก:
 
 ```python
 import jpype
@@ -251,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-หัวข้อที่เกี่ยวข้อง ดูที่ [Presentation Background](/slides/th/python-java/presentation-background/) และ [Presentation Theme](/slides/th/python-java/presentation-theme/)  
+หัวข้อที่เกี่ยวข้อง ดู [Presentation Background](/slides/th/python-java/presentation-background/) และ [Presentation Theme](/slides/th/python-java/presentation-theme/).
 
-## **คัดลอกสไลด์มาสเตอร์ไปยังงานนำเสนออื่น**
+## **คัดลอก Slide Master ไปยังการนำเสนออื่น**
 
-ใช้ [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslidecollection/#addClone) เพื่อคัดลอกสไลด์มาสเตอร์ไปยังงานนำเสนออื่น มาสเตอร์ที่คัดลอกแล้วสามารถใช้โดยเลย์เอตและสไลด์ในงานนำหมายที่ปลายทางได้
+ใช้ [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslidecollection/#addClone) เพื่อคัดลอก master slide ไปยังการนำเสนออื่น master ที่คัดลอกแล้วสามารถใช้โดย layout และสไลด์ในเป้าหมายได้
 
 ```python
 import jpype
@@ -278,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-หากต้องการคัดลอกสไลด์ปกติพร้อมมาสเตอร์ของมัน ดูที่ [Clone Slides](/slides/th/python-java/clone-slides/)  
+หากต้องการคัดลอกสไลด์ปกติพร้อมกับ master ของมัน ดู [Clone Slides](/slides/th/python-java/clone-slides/).
 
-## **เพิ่มสไลด์มาสเตอร์หลายอัน**
+## **เพิ่ม Slide Masters หลายตัว**
 
-งานนำเสนอสามารถมีสไลด์มาสเตอร์หลายอัน ซึ่งมีประโยชน์เมื่อต้องการแบรนด์หรือโครงสร้างหน้าที่แตกต่างกันในแต่ละส่วน  
+การนำเสนอสามารถมี master slide หลายตัวได้ ซึ่งเป็นประโยชน์เมื่อส่วนต่าง ๆ ต้องการแบรนด์, โครงสร้างหน้า หรือการตั้งค่าธีมที่แตกต่างกัน
 
-![คำสั่ง PowerPoint สำหรับแทรกและจัดการสไลด์มาสเตอร์](slide-master_9.jpg)
+![คำสั่งของ PowerPoint สำหรับแทรกและจัดการ master slide](slide-master_9.jpg)
 
-ตัวอย่างต่อไปนี้คัดลอกมาสเตอร์เริ่มต้น ให้คัดลอกนั้นมีพื้นหลังที่ต่างออกไป สร้างเลย์เอตภายใต้มาสเตอร์ที่คัดลอก และเพิ่มสไลด์ใหม่จากเลย์เอตนั้น:
+ตัวอย่างต่อไปคัดลอก master เริ่มต้น ให้คัดลอกมีพื้นหลังต่างกัน สร้าง layout ภายใต้ master ที่คัดลอกแล้ว และเพิ่มสไลด์ใหม่ที่อิงจาก layout นั้น:
 
 ```python
 import jpype
@@ -321,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **เปรียบเทียบสไลด์มาสเตอร์**
+## **เปรียบเทียบ Slide Masters**
 
-สไลด์มาสเตอร์สามารถเปรียบเทียบด้วยเมธอด [equals](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#equals) ที่สืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/) การเปรียบเทียบจะตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปทรง ข้อความ การจัดรูปแบบ แอนิเมชัน และการตั้งค่าอื่น ๆ ของสไลด์ จะไม่เปรียบเทียบตัวระบุเฉพาะ เช่น ID ของสไลด์ หรือค่าตัวเก็บตำแหน่งที่เปลี่ยนแปลงตามเวลา เช่น วันที่ปัจจุบัน
+master slide สามารถเปรียบเทียบด้วยเมธอด [equals](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#equals) ที่สืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/) การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาแบบคงที่ เช่น รูปร่าง, ข้อความ, การจัดรูปแบบ, การเคลื่อนไหวและการตั้งค่าอื่น ๆ ของสไลด์ ไม่ได้ตรวจสอบตัวระบุเฉพาะเช่น slide ID หรือค่าตัวแปร placeholder ที่เปลี่ยนแปลงเช่น วันที่ปัจจุบัน
 
 ```python
 import jpype
@@ -353,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-สำหรับข้อมูลเพิ่มเติม ดูที่ [Compare Presentation Slides](/slides/th/python-java/compare-slides/)  
+ข้อมูลเพิ่มเติม ดู [Compare Presentation Slides](/slides/th/python-java/compare-slides/).
 
-## **ตั้งค่ามุมมองสไลด์มาสเตอร์เป็นมุมมองเริ่มต้น**
+## **ตั้งค่า Slide Master View ให้เป็นมุมมองเริ่มต้น**
 
-ใช้เมธอด [setLastView](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#setLastView) บน [ViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นแรก ตัวอย่างต่อไปนี้เปิดงานนำเสนอในมุมมองสไลด์มาสเตอร์:
+ใช้เมธอด [setLastView](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#setLastView) บน [ViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นอันดับแรก ตัวอย่างต่อไปเปิดการนำเสนอในมุมมอง Slide Master
 
 ```python
 import jpype
@@ -376,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับการตั้งค่ามุมมองเพิ่มเติม ดูที่ [Save Presentation](/slides/th/python-java/save-presentation/)  
+สำหรับการตั้งค่ามุมมองอื่น ๆ ดู [Save Presentation](/slides/th/python-java/save-presentation/).
 
-## **ลบสไลด์มาสเตอร์ที่ไม่ได้ใช้**
+## **ลบ Master Slides ที่ไม่ได้ใช้**
 
-งานนำเสนอบางครั้งอาจมีสไลด์มาสเตอร์ที่ไม่มีสไลด์ปกติใดใช้ การลบมาสเตอร์ที่ไม่ได้ใช้สามารถลดขนาดไฟล์และทำให้การดูแลเทมเพลตง่ายขึ้น  
+บางครั้งการนำเสนออาจมี master slide ที่ไม่มีสไลด์ปกติใดอ้างอิง การลบ master ที่ไม่ได้ใช้ช่วยลดขนาดไฟล์และทำให้การดูแลเทมเพลตง่ายขึ้น
 
-ใช้เมธอด [removeUnused](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslidecollection/#removeUnused) เพื่อลบมาสเตอร์ที่ไม่ได้ใช้จากคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters):
+ใช้เมธอด [removeUnused](https://reference.aspose.com/slides/th/python-java/aspose.slides/masterslidecollection/#removeUnused) เพื่อลบ master ที่ไม่ได้ใช้จากคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters):
 
 ```python
 import jpype
@@ -401,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-คุณยังสามารถใช้เมธอด low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/compress/#removeUnusedMasterSlides) :
+คุณยังสามารถใช้เมธอด low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/compress/#removeUnusedMasterSlides) ได้เช่นกัน
 
 ```python
 import jpype
@@ -420,20 +478,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**สไลด์มาสเตอร์กับสไลด์เลย์เอตต่างกันอย่างไร?**  
+**ความแตกต่างระหว่าง slide master กับ layout slide คืออะไร?**  
+Slide master กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปทรงทั่วไปและสไตล์ข้อความ Layout slide เป็นส่วนของ master และกำหนดการจัดเรียง placeholder เฉพาะ สไลด์ปกติใช้ layout slide จึงสืบทอดทั้งจาก layout และ master
 
-สไลด์มาสเตอร์กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกัน เช่น ธีม พื้นหลัง รูปทรงทั่วไป และรูปแบบข้อความ สไลด์เลย์เอตเป็นส่วนหนึ่งของสไลด์มาสเตอร์และกำหนดการจัดวางตัวเก็บตำแหน่งเฉพาะ สไลด์ปกติใช้สไลด์เลย์เอต ดังนั้นจึงสืบทอดจากทั้งเลย์เอตและมาสเตอร์  
+**การนำเสนอหนึ่งอาจมีหลาย slide master ได้หรือไม่?**  
+ได้ การนำเสนอสามารถมีหลาย slide master ได้ ใช้หลาย master เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่แตกต่างกัน
 
-**งานนำเสนอหนึ่งสามารถมีสไลด์มาสเตอร์หลายอันได้หรือไม่?**  
+**ควรเพิ่ม placeholder ไปที่ master slide หรือ layout slide?**  
+ในส่วนใหญ่ให้เพิ่ม placeholder ไปที่ layout slide ใส่องค์ประกอบภาพและการจัดรูปแบบร่วมบน master slide แล้วใส่ placeholder ของเนื้อหาบน layout ที่สไลด์ปกติจะใช้
 
-ได้ งานนำเสนอสามารถมีสไลด์มาสเตอร์หลายอัน ใช้หลายมาสเตอร์เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่แตกต่างกัน  
-
-**ควรเพิ่มตัวเก็บตำแหน่งในสไลด์มาสเตอร์หรือสไลด์เลย์เอต?**  
-
-ส่วนใหญ่ควรเพิ่มตัวเก็บตำแหน่งในสไลด์เลย์เอต วางองค์ประกอบภาพและการจัดรูปแบบที่ใช้ร่วมกันบนสไลด์มาสเตอร์ แล้วใส่ตัวเก็บตำแหน่งเนื้อหาบนเลย์เอตที่สไลด์ปกติจะใช้  
-
-**สามารถลบสไลด์มาสเตอร์ที่ยังถูกใช้ได้หรือไม่?**  
-
-ไม่ สามารถลบสไลด์มาสเตอร์ที่มีสไลด์ขึ้นอยู่ได้โดยตรงไม่ได้ ควรย้ายสไลด์เหล่านั้นไปยังเลย์เอตของมาสเตอร์อื่นก่อน หรือใช้วิธีทำความสะอาดมาสเตอร์ที่ไม่ได้ใช้ซึ่งจะลบเฉพาะมาสเตอร์ที่ไม่มีสไลด์พึ่งพา  
+**สามารถลบ master slide ที่ยังถูกใช้งานอยู่ได้หรือไม่?**  
+ไม่ได้ หาก master slide มีสไลด์ที่พึ่งพาอยู่ ไม่สามารถลบได้โดยตรง ควรย้ายสไลด์เหล่านั้นไปยัง layout ของ master อื่น หรือใช้วิธีทำความสะอาด master ที่ไม่ได้ใช้เท่านั้น.

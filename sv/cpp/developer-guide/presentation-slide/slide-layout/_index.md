@@ -1,6 +1,6 @@
 ---
-title: Tillämpa eller ändra bildlayouter i C++
-linktitle: Bildlayout
+title: "Använda eller ändra bildlayouter i C++"
+linktitle: "Bildlayout"
 type: docs
 weight: 60
 url: /sv/cpp/slide-layout/
@@ -8,13 +8,13 @@ keywords:
 - bildlayout
 - innehållslayout
 - platshållare
-- presentationsdesign
+- presentationdesign
 - bilddesign
 - oanvänd layout
 - fotnotssynlighet
 - titelsida
 - titel och innehåll
-- avsnittsrubrik
+- sektionstitel
 - två innehåll
 - jämförelse
 - endast titel
@@ -28,42 +28,44 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Tillämpa, skapa och modifiera bildlayouter i Aspose.Slides för C++, lägg till platshållare, ta bort oanvända layouter och kontrollera fotnotssynlighet."
+description: "Använd, skapa och modifiera bildlayouter i Aspose.Slides för C++, lägg till platshållare, ta bort oanvända layouter och kontrollera fotnotssynlighet."
 ---
 ## **Översikt**
 
-En bildlayout definierar positionerna och formateringen av platshållare såsom titlar, text, bilder, diagram och tabeller. Att tillämpa en layout ger bilder en konsekvent struktur samtidigt som varje bild kan innehålla sitt eget innehåll.
+En bildlayout definierar positionerna och formateringen av platshållare som titlar, text, bilder, diagram och tabeller. Att tillämpa en layout ger bilder en konsekvent struktur samtidigt som varje bild kan innehålla eget innehåll.
 
 De vanligaste layouterna inkluderar:
 
 - **Titelbild**: Innehåller platshållare för titel och undertitel.
-- **Titel och innehåll**: Innehåller en titelplatshållare och en generisk innehållsplatshållare.
+- **Titel och innehåll**: Innehåller en titelplatshållare och en allmän innehållsplatshållare.
 - **Tom**: Innehåller inga innehållsplatshållare och är användbar när varje form placeras manuellt.
 
 ## **Förstå layoutarv**
 
 En presentation har tre relaterade nivåer:
 
-1. En [master slide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/) definierar temat, delad formatering, bakgrunder och gemensamma objekt.
-1. En [layout slide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/) tillhör en master och definierar en särskild placering av platshållare.
-1. En [normal slide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/) använder en layout och lagrar innehållet som matats in för den bilden.
+1. En [masterbild](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/) definierar temat, gemensam formatering, bakgrunder och gemensamma objekt.
+1. En [layoutbild](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/) tillhör en master och definierar en särskild arrangemang av platshållare.
+1. En [vanlig bild](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/) använder en layout och lagrar innehållet som matas in för den bilden.
 
-En normal slide ärver tema och formatering från sin layout, och layouten ärver från sin master. Ett värde som sätts direkt på en normal slide överskrider det ärvda värdet på den nivån. När en normal slide skapas genereras dess platshållarformer från den valda layouten, medan innehållet som matas in i dessa platshållare tillhör den normala sliden.
+En vanlig bild ärver tema och formatering från sin layout, och layouten ärver från sin master. Ett värde som sätts direkt på en vanlig bild åsidosätter det ärvda värdet på den nivån. När en vanlig bild skapas genereras dess platshållarformer från den valda layouten, medan innehållet som matas in i dessa platshållare tillhör den vanliga bilden.
 
-Lägg till nödvändiga platshållare i en layout innan du skapar bilder från den. Att lägga till en ytterligare platshållare i en layout senare lägger inte automatiskt till en motsvarande platshållarform i befintliga normala bilder.
+Lägg till nödvändiga platshållare i en layout innan du skapar bilder från den. Att senare lägga till en ytterligare platshållare i en layout lägger inte automatiskt till en motsvarande platshållarform i befintliga vanliga bilder.
 
 Denna relation har två viktiga konsekvenser:
 
-- Att ändra ärvd formatering eller befintlig platshållargeometri i en layout kan uppdatera varje bild som beror på den. Innan du redigerar en layout som redan används, inspektera dess beroende bilder och granska den resulterande presentationen.
-- En layout som fortfarande används av en bild kan inte tas bort. Tilldela först dess beroende bilder till en annan layout, eller ta endast bort oanvända layouter.
+- Att ändra ärvd formatering eller befintlig platshållargeometri i en layout kan uppdatera varje bild som är beroende av den. Innan du redigerar en layout som redan används, inspektera dess beroende bilder och granska den resulterande presentationen.
+- En layout som fortfarande används av en bild kan inte tas bort. Tilldela först dess beroende bilder till en annan layout, eller ta bara bort oanvända layouter.
 
 För mer information om den översta nivån i denna hierarki, se [Slide Master](/slides/sv/cpp/slide-master/).
 
+För att dölja ärvda logotyper eller dekorativa masterformer på en bild eller via en gemensam layout, se [Control the Visibility of Master Graphics](/slides/sv/cpp/slide-master/). Exemplet jämför två bilder som använder samma master.
+
 ## **Välj och tillämpa en bildlayout**
 
-Använd en layouttyp när presentationen följer standard PowerPoint‑layoutdefinitioner. Layoutnamn kan redigeras av användaren och kan lokalanpassas, så urval baserat på namn är mindre pålitligt om du inte styr källmallarna.
+Använd en layouttyp när presentationen följer standarddefinitionerna för PowerPoint‑layouter. Layoutnamn kan redigeras av användaren och kan lokaliseras, så namn‑baserad urval är mindre pålitligt om du inte kontrollerar källmallen.
 
-Det följande exemplet söker efter **Titel och innehåll** på den första masteren. Om den layouten inte är tillgänglig faller den avsiktligt tillbaka till **Tom**. Den andra null‑kontrollen är nödvändig eftersom en presentation kan innehålla endast anpassade layouter. Den valda layouten tillämpas sedan på den första normala sliden via metoden [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/set_layoutslide/).
+Följande exempel letar efter **Titel och innehåll** på den första mastern. Om den layouten inte är tillgänglig faller den avsiktligt tillbaka till **Tom**. Den andra null‑kontrollen är nödvändig eftersom en presentation kan innehålla endast anpassade layouter. Den valda layouten tillämpas sedan på den första vanliga bilden via metoden [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Att ändra en slides layout tar inte bort vanliga former som lagts till direkt på sliden. Däremot kan platshållarpositioner, ärvd formatering och motsvarigheten mellan befintliga platshållare och den nya layouten förändras, så inspektera resultatet när du byter mellan väsentligt olika layouter.
+Att ändra en bilds layout tar inte bort vanliga former som lagts till direkt på bilden. Däremot kan platshållarpositioner, ärvd formatering och korrespondensen mellan befintliga platshållare och den nya layouten förändras, så inspektera resultatet när du växlar mellan väsentligt olika layouter.
 
 ## **Lägg till en layoutbild**
 
-Urval och skapande är separata operationer. Det föregående exemplet väljer en befintlig layout; det skapar ingen. För att skapa en layout, anropa metoden [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterlayoutslidecollection/add/) på den valda masterens layoutsamling.
+Urval och skapande är separata operationer. Det föregående exemplet väljer en befintlig layout; det skapar ingen. För att skapa en layout, anropa metoden [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterlayoutslidecollection/add/) på målmastarens layoutsamling.
 
-Det följande exemplet lägger alltid till en ny **Titel och innehåll**‑layout med namnet `Report Title and Content`, och lägger sedan till en normal slide baserad på den. Layoutnamn måste vara unika inom samlingen.
+Följande exempel lägger alltid till en ny **Titel och innehåll**‑layout med namnet `Report Title and Content`, och lägger sedan till en vanlig bild baserad på den. Layoutnamn måste vara unika inom samlingen.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Lägg till en layout endast när mallen verkligen behöver en ytterligare återanvändbar struktur. Om en lämplig layout redan finns, välj och återanvänd den istället för att skapa en duplikat.
+Lägg till en layout endast när mallen verkligen behöver en ytterligare återanvändbar struktur. Om en lämplig layout redan finns, välj och återanvänd den i stället för att skapa en duplikat.
 
 ## **Lägg till platshållare i en layoutbild**
 
-Metoden [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) ger en [ILayoutPlaceholderManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/) för att lägga till platshållarformer i en layout.
+Metoden [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) tillhandahåller en [ILayoutPlaceholderManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/) för att lägga till platshållarformer i en layout.
 
-| PowerPoint‑platshållare            | `ILayoutPlaceholderManager`‑metod |
-| ----------------------------------- | ---------------------------------- |
-| ![Innehåll](content.png)            | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| PowerPoint‑platshållare | Metod för `ILayoutPlaceholderManager` |
+| ----------------------- | -------------------------------------- |
+| ![Innehåll](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
 | ![Innehåll (Vertikal)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![Text](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![Text (Vertikal)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![Bild](picture.png)                | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![Diagram](chart.png)               | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![Tabell](table.png)                | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![Media](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Online‑bild](onlineImage.png)     | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| ![Text](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertikal)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Bild](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Diagram](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabell](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online‑bild](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Det följande exemplet verifierar att **Tom**‑layouten finns, lägger till fyra platshållare i den och skapar sedan en normal slide som använder den modifierade layouten. Ordningen är avsiktlig: platshållarna läggs till innan den normala sliden skapas, så att Aspose.Slides kan generera motsvarande platshållarformer på den sliden.
+Följande exempel verifierar att **Tom**‑layouten finns, lägger till fyra platshållare i den och skapar sedan en vanlig bild som använder den modifierade layouten. Ordningen är avsiktlig: platshållarna läggs till innan den vanliga bilden skapas, så att Aspose.Slides kan generera motsvarande platshållarformer på den bilden.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -193,12 +195,12 @@ Resultatet:
 ![Platshållarna på layoutbilden](add_placeholders.png)
 
 {{% alert color="warning" title="Varning" %}}
-Att ändra ärvd formatering eller geometri för befintliga layoutplatshållare kan påverka beroende bilder. En ny tillagd layoutplatshållare fylls inte retroaktivt in i befintliga normala bilder. Testa layoutändringar på en kopia av presentationen och inspektera varje beroende bild.
+Att ändra ärvd formatering eller geometrin för befintliga layout‑platshållare kan påverka beroende bilder. En nylagd layout‑platshållare fylls inte i retroaktivt i befintliga vanliga bilder. Testa layout‑ändringar på en kopia av presentationen och inspektera varje beroende bild.
 {{% /alert %}}
 
 ## **Ta bort oanvända layoutbilder**
 
-Använd metoden [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) för att ta bort layouter som ingen normal slide refererar till. Metoden lämnar intakta de layouter som fortfarande är i bruk.
+Använd metoden [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) för att ta bort layouter som ingen vanlig bild refererar till. Metoden lämnar intakta de layouter som fortfarande används.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,11 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-För att ta bort en specifik layout, använd först dess [get_HasDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) metod eller [GetDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/getdependingslides/) metod. Tilldela om eventuella beroende bilder innan du anropar [ILayoutSlide::Remove](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/remove/). Att försöka ta bort en layout som används kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxeditexception/).
+För att ta bort en specifik layout, använd först dess [get_HasDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/)‑metod eller [GetDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/getdependingslides/)‑metod. Tilldela om eventuella beroende bilder innan du anropar [ILayoutSlide::Remove](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/remove/). Försök att ta bort en layout som fortfarande används resulterar i ett [PptxEditException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxeditexception/).
 
-## **Styr fotnotssynlighet på en layoutbild**
+## **Styr fotnotens synlighet på en layoutbild**
 
-En layout har sina egna fotnot-, bildnummer- och datum‑tid‑platshållare. Använd metoden [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) för att styra dessa platshållare för en layout. Detta är användbart när exempelvis innehållslayouter ska visa fotnoter men titellayouter inte ska.
+En layout har sina egna fotnoter, bildnummer‑ och datum‑tid‑platshållare. Använd metoden [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) för att styra dessa platshållare för en layout. Detta är användbart när exempelvis innehållslayouter ska visa fotnoter men titel‑layouter inte ska.
+
+Följande exempel väljer säkert en layout och gör dess fotnotselement synliga:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -263,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Styr fotnotssynlighet på en master och dess underlayouter**
+## **Styr fotnotens synlighet på en master och dess underliggande layouter**
 
-För att tillämpa konsekventa fotnotinställningar i hela en master‑hierarki, använd metoden [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Spridningsmetoderna i [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslideheaderfootermanager/) verkar på masteren samt dess beroende layoutbilder och normala bilder; de riktar sig inte bara mot en enskild normal slide.
+För att tillämpa enhetliga fotnotinställningar över en master‑hierarki, använd metoden [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Spridningsmetoderna i [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslideheaderfootermanager/) verkar på mastern samt dess beroende layout‑bilder och vanliga bilder; de riktar sig inte enbart mot en enskild vanlig bild.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -291,20 +295,20 @@ presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vad är skillnaden mellan en master slide och en layout slide?**
+**Vad är skillnaden mellan en masterbild och en layoutbild?**
 
-En master slide definierar presentationens tema och delade formateringar. En layout slide tillhör en master och definierar en återanvändbar placering av platshållare. Normala bilder använder dessa layouter och lagrar bildspecifikt innehåll.
+En masterbild definierar presentationens tema och gemensamma formatering. En layoutbild tillhör en master och definierar en återanvändbar arrangemang av platshållare. Vanliga bilder använder dessa layouter och lagrar bildspecifikt innehåll.
 
-**Kan jag kopiera en layout slide från en presentation till en annan?**
+**Kan jag kopiera en layoutbild från en presentation till en annan?**
 
-Ja. Lägg till en kopia i destinationssamlingen med metoden [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igloballayoutslidecollection/addclone/). När du kopierar mellan presentationer, verifiera även typsnitt, teman, bilder och andra resurser som används av källayouten.
+Ja. Lägg till en kopia i destinationssamlingen med metoden [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igloballayoutslidecollection/addclone/). När du kopierar mellan presentationer, verifiera även teckensnitt, teman, bilder och andra resurser som används av källlayouten.
 
-**Vad händer när jag ändrar en layout som redan används?**
+**Vad händer när jag ändrar en layout som redan är i bruk?**
 
-Beroende bilder ärver layoutändringarna om de inte överskrider den påverkade formateringen eller objekten lokalt. Platshållargeometri och ärvd stil kan därför förändras på många bilder samtidigt. Använd [GetDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/getdependingslides/) för att identifiera de påverkade bilderna innan du redigerar layouten.
+Beroende bilder ärver layout‑ändringarna om de inte åsidosätter den påverkade formateringen eller objekten lokalt. Platshållargeometri och ärvd stil kan därför förändras på många bilder samtidigt. Använd [GetDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/getdependingslides/) för att identifiera de påverkade bilderna innan du redigerar layouten.
 
 **Vad händer om jag tar bort en layout som fortfarande används?**
 
-Aspose.Slides kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxeditexception/). Tilldela först de beroende bilderna på nytt, eller använd [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) för att endast ta bort orefererade layouter.
+Aspose.Slides kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxeditexception/). Tilldela först de beroende bilderna på nytt, eller använd [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) för att bara ta bort orefererade layouter.

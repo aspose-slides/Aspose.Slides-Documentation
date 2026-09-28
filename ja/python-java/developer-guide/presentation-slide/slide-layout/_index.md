@@ -1,5 +1,5 @@
 ---
-title: Python via Java でスライドレイアウトを適用または変更
+title: Python（Java 経由）でスライドレイアウトを適用または変更する
 linktitle: スライドレイアウト
 type: docs
 weight: 60
@@ -8,17 +8,17 @@ keywords:
 - スライドレイアウト
 - コンテンツレイアウト
 - プレースホルダー
-- プレゼンテーションデザイン
-- スライドデザイン
+- プレゼンテーション デザイン
+- スライド デザイン
 - 未使用レイアウト
-- フッター表示
-- タイトルスライド
+- フッターの表示
+- タイトル スライド
 - タイトルとコンテンツ
-- セクションヘッダー
-- 2 つのコンテンツ
+- セクション ヘッダー
+- 2 コンテンツ
 - 比較
 - タイトルのみ
-- ブランクレイアウト
+- 空白レイアウト
 - キャプション付きコンテンツ
 - キャプション付き画像
 - タイトルと縦テキスト
@@ -29,42 +29,44 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java でスライドレイアウトを適用、作成、変更し、プレースホルダーを追加、未使用レイアウトを削除、フッター表示を制御します。"
+description: "Aspose.Slides for Python via Java でスライドレイアウトを適用、作成、変更し、プレースホルダーを追加、未使用レイアウトを削除、フッターの表示を制御します。"
 ---
 ## **概要**
 
-スライドレイアウトは、タイトル、テキスト、画像、チャート、テーブルなどのプレースホルダーの位置と書式を定義します。レイアウトを適用すると、スライド全体に一貫した構造が与えられ、各スライドはそれぞれ固有のコンテンツを持つことができます。
+スライドレイアウトは、タイトル、テキスト、画像、チャート、テーブルなどのプレースホルダーの位置と書式を定義します。レイアウトを適用することで、スライドは一貫した構造となりつつ、各スライドが独自のコンテンツを保持できます。
 
-代表的なレイアウトは次のとおりです。
+最も一般的なレイアウトは次のとおりです：
 
-- **タイトルスライド**: タイトルとサブタイトルのプレースホルダーを含みます。
-- **タイトルとコンテンツ**: タイトルのプレースホルダーと汎用コンテンツプレースホルダーを含みます。
-- **ブランク**: コンテンツプレースホルダーがなく、すべての形状を手動で配置する場合に便利です。
+- **Title Slide**: タイトルとサブタイトルのプレースホルダーが含まれます。
+- **Title and Content**: タイトルのプレースホルダーと汎用コンテンツプレースホルダーが含まれます。
+- **Blank**: コンテンツプレースホルダーがなく、すべてのシェイプを手動で配置する場合に便利です。
 
 ## **レイアウト継承の理解**
 
-プレゼンテーションには以下の 3 つの関連レベルがあります。
+プレゼンテーションには、次の 3 つの関連レベルがあります：
 
-1. [マスタースライド](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/)はテーマ、共有書式、背景、共通オブジェクトを定義します。
-1. [レイアウトスライド](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/)はマスターに属し、プレースホルダーの特定の配置を定義します。
-1. [ノーマルスライド](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/)は 1 つのレイアウトを使用し、そのスライド用に入力されたコンテンツを保持します。
+1. [マスタースライド](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/) は、テーマ、共有書式、背景、共通オブジェクトを定義します。
+2. [レイアウトスライド](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/) はマスタに属し、プレースホルダーの特定の配置を定義します。
+3. [標準スライド](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/) は 1 つのレイアウトを使用し、そのスライドに入力されたコンテンツを保存します。
 
-ノーマルスライドはレイアウトからテーマと書式を継承し、レイアウトはマスターから継承します。ノーマルスライド上で直接設定した値は、そのレベルで継承された値を上書きします。ノーマルスライドが作成されると、選択されたレイアウトからプレースホルダー形状が生成され、プレースホルダーに入力されたコンテンツはノーマルスライドに属します。
+標準スライドはレイアウトからテーマと書式を継承し、レイアウトはマスタから継承します。標準スライドに直接設定された値は、そのレベルで継承された値を上書きします。標準スライドが作成されると、そのプレースホルダーシェイプは選択されたレイアウトから生成され、プレースホルダーに入力されたコンテンツは標準スライドに属します。
 
-スライドを作成する前にレイアウトに必要なプレースホルダーを追加してください。後からレイアウトに別のプレースホルダーを追加しても、既存のノーマルスライドに自動的に対応するプレースホルダー形状は追加されません。
+レイアウトからスライドを作成する前に必要なプレースホルダーをレイアウトに追加してください。後からレイアウトに別のプレースホルダーを追加しても、既存の標準スライドに自動的に対応するプレースホルダーシェイプは追加されません。
 
-この関係には重要な結果が 2 つあります。
+この関係には 2 つの重要な結果があります：
 
-- レイアウト上の継承された書式や既存プレースホルダーのジオメトリを変更すると、レイアウトに依存するすべてのスライドが更新されます。使用中のレイアウトを編集する前に、依存スライドを確認し、結果のプレゼンテーションをレビューしてください。
-- まだスライドで使用されているレイアウトは削除できません。先に依存スライドを別のレイアウトに再割り当てするか、未使用のレイアウトだけを削除してください。
+- レイアウト上で継承された書式や既存プレースホルダーのジオメトリを変更すると、それに依存するすべてのスライドが更新されます。既に使用されているレイアウトを編集する前に、依存スライドを確認し、結果のプレゼンテーションをレビューしてください。
+- まだスライドで使用されているレイアウトは削除できません。まず依存スライドを別のレイアウトに割り当てるか、未使用のレイアウトのみを削除してください。
 
-この階層の最上位についての詳細は、[スライドマスター](/slides/ja/python-java/slide-master/) を参照してください。
+この階層の最上位についての詳細は、[スライド マスター](/slides/ja/python-java/slide-master/) を参照してください。
 
-## **スライドレイアウトの選択と適用**
+スライドや共有レイアウトで継承されたロゴや装飾的なマスタ形状を非表示にする方法は、[マスタ グラフィックの表示制御](/slides/ja/python-java/slide-master/) を参照してください。この例は同じマスタを使用する 2 つのスライドを比較しています。
 
-プレゼンテーションが標準の PowerPoint レイアウト定義に従う場合は、レイアウトタイプを使用します。レイアウト名はユーザーが編集可能でローカライズできるため、ソーステンプレートを管理していない限り、名前ベースの選択は信頼性が低くなります。
+## **スライド レイアウトの選択と適用**
 
-次の例は、最初のマスターで **タイトルとコンテンツ** を検索します。そのレイアウトが利用できない場合は、意図的に **ブランク** にフォールバックします。`None` の 2 回目のチェックは、プレゼンテーションにカスタムレイアウトしか含まれていない可能性があるために必要です。選択されたレイアウトは、最初のノーマルスライドに対して [Slide.setLayoutSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#setLayoutSlide) メソッドで適用されます。
+プレゼンテーションが標準の PowerPoint レイアウト定義に従う場合は、レイアウトタイプを使用します。レイアウト名はユーザーが編集でき、ローカライズ可能なため、ソーステンプレートを管理していない限り、名前ベースの選択は信頼性が低くなります。
+
+次の例は最初のマスタで **Title and Content** を探します。そのレイアウトが利用できない場合は、意図的に **Blank** にフォールバックします。`None` の 2 回目のチェックは、プレゼンテーションにカスタムレイアウトのみが含まれる可能性があるために必要です。選択したレイアウトは、[Slide.setLayoutSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#setLayoutSlide) メソッドを介して最初の標準スライドに適用されます。
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-スライドのレイアウトを変更しても、スライドに直接追加された通常の形状は削除されません。ただし、プレースホルダーの位置、継承された書式、既存プレースホルダーと新レイアウト間の対応が変わる可能性があるため、レイアウトが大きく異なる場合は出力を確認してください。
+スライドのレイアウトを変更しても、スライドに直接追加された通常のシェイプは削除されません。ただし、プレースホルダーの位置、継承された書式、および既存プレースホルダーと新しいレイアウト間の対応が変わる可能性があるため、実質的に異なるレイアウト間を切り替える際は出力を確認してください。
 
-## **レイアウトスライドの追加**
+## **レイアウト スライドの追加**
 
-選択と作成は別々の操作です。前の例は既存レイアウトを選択しただけで、作成はしていません。レイアウトを作成するには、対象マスターのレイアウトコレクションで [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterlayoutslidecollection/#add) メソッドを呼び出します。
+選択と作成は別々の操作です。前の例は既存のレイアウトを選択していますが、作成はしていません。レイアウトを作成するには、対象マスタのレイアウトコレクションで [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterlayoutslidecollection/#add) メソッドを呼び出します。
 
-次の例は常に **タイトルとコンテンツ** レイアウトを `Report Title and Content` という名前で新規作成し、そこからノーマルスライドを追加します。レイアウト名はコレクション内で一意である必要があります。
+次の例は常に **Title and Content** レイアウトを `Report Title and Content` という名前で新規追加し、そのレイアウトに基づく標準スライドを追加します。レイアウト名はコレクション内で一意である必要があります。
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-テンプレートが本当に別の再利用可能構造を必要とする場合にのみレイアウトを追加してください。適切なレイアウトが既に存在する場合は、重複作成せずに選択して再利用しましょう。
+テンプレートが本当に別の再利用可能構造を必要とする場合にのみレイアウトを追加してください。適切なレイアウトが既に存在する場合は、重複作成せずにそれを選択して再利用してください。
 
-## **レイアウトスライドへのプレースホルダー追加**
+## **レイアウト スライドへのプレースホルダーの追加**
 
-[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getPlaceholderManager) メソッドは、レイアウトにプレースホルダー形状を追加するための [LayoutPlaceholderManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/) を提供します。
+[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getPlaceholderManager) メソッドは、レイアウトにプレースホルダーシェイプを追加するための [LayoutPlaceholderManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/) を提供します。
 
-| PowerPoint プレースホルダー | LayoutPlaceholderManager メソッド |
-| --------------------------- | --------------------------------- |
-| ![Content](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| PowerPoint プレースホルダー              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/) メソッド |
+| ----------------------------------- | ---------------------------------- |
+| ![コンテンツ](content.png)             | [addContentPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![コンテンツ（縦）](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![テキスト](text.png)                   | [addTextPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![テキスト（縦）](textV.png)       | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![画像](picture.png)             | [addPicturePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![チャート](chart.png)                 | [addChartPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![テーブル](table.png)                 | [addTablePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [addSmartArtPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![メディア](media.png)                 | [addMediaPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![オンライン画像](onlineImage.png)    | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-次の例は **ブランク** レイアウトが存在することを確認し、4 つのプレースホルダーを追加した後、そのレイアウトを使用するノーマルスライドを作成します。順序は意図的で、プレースホルダーはノーマルスライド作成前に追加されるため、Aspose.Slides がそのスライド上に対応するプレースホルダー形状を生成できます。
+次の例は **Blank** レイアウトが存在することを確認し、4 つのプレースホルダーを追加してから、そのレイアウトを使用する標準スライドを作成します。順序は意図的で、プレースホルダーは標準スライドが作成される前に追加されるため、Aspose.Slides がそのスライド上に対応するプレースホルダーシェイプを生成できます。
 
 ```python
 import jpype
@@ -169,17 +171,17 @@ finally:
     presentation.dispose()
 ```
 
-結果:
+結果：
 
-![レイアウトスライド上のプレースホルダー](add_placeholders.png)
+![レイアウト スライド上のプレースホルダー](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-継承された書式や既存レイアウトプレースホルダーのジオメトリを変更すると、依存スライドに影響を及ぼす可能性があります。新たに追加されたレイアウトプレースホルダーは既存のノーマルスライドには自動的に反映されません。レイアウトの変更はプレゼンテーションのコピーでテストし、すべての依存スライドを確認してください。
+継承された書式や既存レイアウトプレースホルダーのジオメトリを変更すると、依存スライドに影響を与える可能性があります。新しく追加されたレイアウトプレースホルダーは既存の標準スライドには自動的に反映されません。レイアウトの変更はプレゼンテーションのコピーでテストし、すべての依存スライドを確認してください。
 {{% /alert %}}
 
-## **未使用レイアウトスライドの削除**
+## **未使用レイアウト スライドの削除**
 
-[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) メソッドを使用すると、ノーマルスライドが参照していないレイアウトを削除できます。このメソッドは、依然として使用中のレイアウトはそのまま残します。
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) メソッドを使用して、標準スライドが参照していないレイアウトを削除します。このメソッドは、まだ使用中のレイアウトはそのまま残します。
 
 ```python
 import jpype
@@ -198,13 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-特定のレイアウトを 1 つだけ削除するには、まずその [hasDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#hasDependingSlides) または [getDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getDependingSlides) メソッドで依存スライドを取得し、[LayoutSlide.remove](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#remove) を呼び出す前に再割り当てしてください。使用中のレイアウトを削除しようとすると、[PptxEditException](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pptxeditexception/) がスローされます。
+特定のレイアウトを 1 つ削除するには、まずその [hasDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#hasDependingSlides) または [getDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getDependingSlides) メソッドを使用します。削除前に依存スライドを別のレイアウトに再割り当てしてください。使用中のレイアウトを削除しようとすると、[PptxEditException](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pptxeditexception/) がスローされます。
 
-## **レイアウトスライドでフッター表示を制御する**
+## **レイアウト スライドでフッターの表示制御**
 
-レイアウトは独自のフッター、スライド番号、日時プレースホルダーを持ちます。これらのプレースホルダーをレイアウト単位で制御するには、[LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) メソッドを使用します。たとえば、コンテンツレイアウトではフッターを表示し、タイトルレイアウトでは表示しないといったシナリオに便利です。
+レイアウトには独自のフッター、スライド番号、日付時刻プレースホルダーがあります。これらのプレースホルダーをレイアウト単位で制御するには、[LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) メソッドを使用します。たとえば、コンテンツレイアウトではフッターを表示し、タイトルレイアウトでは非表示にしたい場合に便利です。
 
-次の例はレイアウトを安全に選択し、フッター要素を表示可能にします。
+次の例はレイアウトを安全に選択し、フッター要素を表示します：
 
 ```python
 import jpype
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **マスターと子レイアウト全体でフッター表示を制御する**
+## **マスタとその子レイアウトでフッターの表示制御**
 
-マスターヒエラルキー全体で一貫したフッター設定を適用するには、[MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getHeaderFooterManager) メソッドを使用します。[MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslideheaderfootermanager/) の伝播メソッドは、マスターとその依存レイアウトスライド、ノーマルスライドに対して動作し、単一のノーマルスライドだけを対象にすることはできません。
+マスタ階層全体で一貫したフッター設定を適用するには、[MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getHeaderFooterManager) メソッドを使用します。[MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslideheaderfootermanager/) の伝搬メソッドはマスタとその依存レイアウトスライドおよび標準スライドに対して動作し、単一の標準スライドだけを対象にすることはできません。
 
 ```python
 import jpype
@@ -266,18 +268,18 @@ finally:
 
 ## **FAQ**
 
-**マスタースライドとレイアウトスライドの違いは何ですか？**
+**マスタ スライドとレイアウト スライドの違いは何ですか？**
 
-マスタースライドはプレゼンテーションのテーマと共有書式を定義します。レイアウトスライドはマスターに属し、プレースホルダーの再利用可能な配置を 1 つ定義します。ノーマルスライドはこれらのレイアウトを使用し、スライド固有のコンテンツを保持します。
+マスタスライドはプレゼンテーションのテーマと共有書式を定義します。レイアウトスライドはマスタに属し、プレースホルダーの再利用可能な配置を定義します。標準スライドはそれらのレイアウトを使用し、スライド固有のコンテンツを保存します。
 
-**レイアウトスライドを別のプレゼンテーションにコピーできますか？**
+**レイアウト スライドを別のプレゼンテーションにコピーできますか？**
 
-はい。目的のコレクションに対して [addClone](https://reference.aspose.com/slides/ja/python-java/aspose.slides/globallayoutslidecollection/#addClone) メソッドでコピーを追加します。コピー元レイアウトで使用されているフォント、テーマ、画像、その他リソースも併せて確認してください。
+はい。目的のコレクションに [addClone](https://reference.aspose.com/slides/ja/python-java/aspose.slides/globallayoutslidecollection/#addClone) メソッドでコピーを追加します。コピー先でもフォント、テーマ、画像、その他のリソースが正しく参照されていることを確認してください。
 
 **使用中のレイアウトを変更するとどうなりますか？**
 
-依存スライドはレイアウトの変更を継承します（ローカルで上書きしていない限り）。プレースホルダーのジオメトリや継承されたスタイリングが多くのスライドで一度に変わる可能性があります。編集前に [getDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getDependingSlides) で影響を受けるスライドを特定しましょう。
+依存スライドはレイアウト変更を継承しますが、ローカルで書式やオブジェクトを上書きしている場合は例外です。プレースホルダーのジオメトリや継承スタイルが多数のスライドで同時に変わる可能性があります。編集前に [getDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getDependingSlides) で影響を受けるスライドを特定してください。
 
 **使用中のレイアウトを削除しようとするとどうなりますか？**
 
-Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pptxeditexception/) をスローします。まず依存スライドを再割り当てするか、[removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) を使用して未参照のレイアウトだけを削除してください。
+Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pptxeditexception/) をスローします。まず依存スライドを別のレイアウトに再割り当てするか、[removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) を使用して未参照のレイアウトのみを削除してください。

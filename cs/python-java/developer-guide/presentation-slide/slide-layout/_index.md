@@ -1,70 +1,72 @@
 ---
-title: Použít nebo změnit rozložení snímků v Pythonu přes Java
-linktitle: Rozložení snímku
+title: "Použití nebo změna rozložení snímků v Pythonu prostřednictvím Javy"
+linktitle: "Rozložení snímku"
 type: docs
 weight: 60
 url: /cs/python-java/slide-layout/
 keywords:
-- rozložení snímku
-- rozložení obsahu
-- zástupný objekt
-- design prezentace
-- design snímku
-- nepoužité rozložení
-- viditelnost patičky
-- titulní snímek
-- název a obsah
-- hlavička sekce
-- dvě části obsahu
-- porovnání
-- pouze název
-- prázdné rozložení
-- obsah s popiskem
-- obrázek s popiskem
-- název a vertikální text
-- vertikální název a text
-- PowerPoint
-- OpenDocument
-- prezentace
-- Python
-- Java
-- Aspose.Slides
-description: "Použít, vytvořit a upravit rozložení snímků v Aspose.Slides pro Python přes Java, přidávat zástupné objekty, odstraňovat nepoužitá rozložení a řídit viditelnost patičky."
+  - "rozložení snímku"
+  - "rozložení obsahu"
+  - "zástupný objekt"
+  - "návrh prezentace"
+  - "návrh snímku"
+  - "nepoužité rozložení"
+  - "viditelnost zápatí"
+  - "snímek s titulkem"
+  - "titulek a obsah"
+  - "hlavička sekce"
+  - "dvě oblasti obsahu"
+  - "porovnání"
+  - "pouze titulek"
+  - "prázdné rozložení"
+  - "obsah s popiskem"
+  - "obrázek s popiskem"
+  - "titulek a vertikální text"
+  - "vertikální titulek a text"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "prezentace"
+  - "Python"
+  - "Java"
+  - "Aspose.Slides"
+description: "Použijte, vytvořte a upravujte rozložení snímků v Aspose.Slides pro Python prostřednictvím Javy, přidejte zástupné objekty, odstraňte nepoužitá rozložení a ovládejte viditelnost zápatí."
 ---
 ## **Přehled**
 
-Rozložení snímku určuje pozice a formátování zástupných objektů, jako jsou názvy, text, obrázky, grafy a tabulky. Použití rozložení poskytuje snímkům jednotnou strukturu a zároveň umožňuje každému snímku obsahovat vlastní obsah.
+Rozložení snímku určuje pozice a formátování zástupných objektů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použití rozložení poskytuje snímkům jednotnou strukturu a zároveň umožňuje, aby každý snímek obsahoval svůj vlastní obsah.
 
 Nejběžnější rozložení zahrnují:
 
-- **Title Slide**: Obsahuje zástupné objekty názvu a podnadpisu.
-- **Title and Content**: Obsahuje zástupný objekt názvu a obecný zástupný objekt obsahu.
-- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečný, když bude každá forma umístěna ručně.
+- **Title Slide**: Obsahuje zástupné objekty nadpisu a podnadpisu.
+- **Title and Content**: Obsahuje zástupný objekt nadpisu a obecný zástupný objekt obsahu.
+- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečné, když bude každá forma umístěna ručně.
 
-## **Pochopení dědičnosti rozložení**
+## **Porozumění dědičnosti rozložení**
 
 Prezentace má tři související úrovně:
 
-1. A [master slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterslide/) definuje motiv, sdílené formátování, pozadí a společné objekty.
-1. A [layout slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/) patří k hlavnímu snímku a určuje konkrétní uspořádání zástupných objektů.
-1. A [normal slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/) používá jedno rozložení a ukládá obsah zadaný pro tento snímek.
+1. [master slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterslide/) určuje motiv, sdílené formátování, pozadí a společné objekty.
+2. [layout slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/) patří k masteru a určuje konkrétní uspořádání zástupných objektů.
+3. [normal slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/) používá jedno rozložení a ukládá obsah zadaný pro tento snímek.
 
-Normální snímek dědí motiv a formátování ze svého rozložení a rozložení dědí ze svého hlavního snímku. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je normální snímek vytvořen, jeho tvary zástupných objektů jsou vygenerovány ze zvoleného rozložení, zatímco obsah zadaný do těchto zástupných objektů patří normálnímu snímku.
+Normální snímek dědí motiv a formátování ze svého rozložení a rozložení dědí od svého masteru. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu v této úrovni. Když je normální snímek vytvořen, tvary zástupných objektů jsou generovány ze zvoleného rozložení, zatímco obsah zadaný do těchto zástupných objektů patří normálnímu snímku.
 
 Přidejte požadované zástupné objekty do rozložení před vytvořením snímků z něj. Přidání dalšího zástupného objektu do rozložení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
 
 Tento vztah má dva důležité důsledky:
 
-- Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
-- Rozložení, které je stále používáno snímkem, nelze odebrat. Nejprve přiřaďte jeho závislé snímky k jinému rozložení nebo odeberte jen nepoužívaná rozložení.
+- Změna zděděného formátování nebo existující geometrie zástupných objektů v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které už je používáno, prohlédněte jeho závislé snímky a zkontrolujte výslednou prezentaci.
+- Rozložení, které je stále používáno snímkem, nemůže být odstraněno. Předtím přesuňte jeho závislé snímky na jiné rozložení, nebo odstraňte pouze nepoužívaná rozložení.
 
 Pro více informací o nejvyšší úrovni této hierarchie viz [Slide Master](/slides/cs/python-java/slide-master/).
 
-## **Vybrat a použít rozložení snímku**
+Chcete-li skrýt zděděná loga nebo dekorativní tvary masteru na jednom snímku nebo prostřednictvím sdíleného rozložení, viz [Control the Visibility of Master Graphics](/slides/cs/python-java/slide-master/). Příklad porovnává dva snímky používající stejný master.
 
-Použijte typ rozložení, když prezentace používá standardní definice rozložení PowerPointu. Názvy rozložení lze upravovat a lokalizovat, takže výběr podle názvu je méně spolehlivý, pokud nekontrolujete zdrojovou šablonu.
+## **Vyberte a použijte rozložení snímku**
 
-Následující příklad hledá **Title and Content** v prvním hlavním snímku. Pokud není toto rozložení k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na `None` je nutná, protože prezentace může obsahovat pouze vlastní rozložení. Vybrané rozložení je pak použito na první normální snímek pomocí metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#setLayoutSlide).
+Používejte typ rozložení, když prezentace používá standardní definice rozložení PowerPointu. Názvy rozložení lze uživatelem upravit a mohou být lokalizovány, takže výběr podle názvu je méně spolehlivý, pokud nekontrolujete zdrojovou šablonu.
+
+Následující příklad hledá **Title and Content** na prvním masteru. Pokud toto rozložení není k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na `None` je nutná, protože prezentace může obsahovat pouze vlastní rozložení. Vybrané rozložení je pak aplikováno na první normální snímek pomocí metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#setLayoutSlide).
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Změna rozložení snímku neodstraňuje běžné tvary přidané přímo do snímku. Nicméně pozice zástupných objektů, zděděné formátování a odpovídající vazba mezi existujícími zástupnými objekty a novým rozložením se mohou změnit, proto zkontrolujte výstup při přepínání mezi podstatně odlišnými rozloženími.
+Změna rozložení snímku neodstraní běžné tvary přidané přímo na snímek. Nicméně pozice zástupných objektů, zděděné formátování a shoda mezi existujícími zástupnými objekty a novým rozložením se může změnit, proto zkontrolujte výstup při přepínání mezi podstatně odlišnými rozloženími.
 
 ## **Přidat rozložení snímku**
 
-Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybírá existující rozložení; nevytváří ho. Pro vytvoření rozložení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozložení cílového hlavního snímku.
+Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybírá existující rozložení; nevytváří ho. Pro vytvoření rozložení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozložení cílového masteru.
 
-Následující příklad vždy přidá nové rozložení **Title and Content** pojmenované `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozložení musí být v kolekci jedinečné.
+Následující příklad vždy přidá nové rozložení **Title and Content** s názvem `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozložení musí být v kolekci jedinečné.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Přidejte rozložení pouze tehdy, když šablona skutečně potřebuje další opakovaně použitelnou strukturu. Pokud již existuje vhodné rozložení, vyberte a použijte jej místo vytváření duplicitního.
+Přidejte rozložení pouze tehdy, když šablona skutečně potřebuje další opakovaně použitelné uspořádání. Pokud již existuje vhodné rozložení, vyberte a znovu jej použijte místo vytváření duplikátu.
 
 ## **Přidat zástupné objekty do rozložení snímku**
 
-Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/) pro přidání tvarů zástupných objektů do rozložení.
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/) pro přidávání tvarů zástupných objektů do rozložení.
 
-| Zástupný objekt PowerPoint | Metoda LayoutPlaceholderManager |
-| -------------------------- | -------------------------------- |
-| ![Content](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| Zástupný objekt PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/) Method |
+| -------------------------- | ---------------------------------- |
+| ![Obsah](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Obsah (vertikální)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
 | ![Text](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![Text (vertikální)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Obrázek](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Graf](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabulka](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
 | ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Média](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online obrázek](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Následující příklad ověří, že rozložení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který použije upravené rozložení. Pořadí je úmyslné: zástupné objekty jsou přidány před vytvořením normálního snímku, aby Aspose.Slides mohl vygenerovat odpovídající tvary zástupných objektů na tomto snímku.
+Následující příklad ověřuje, že rozložení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který používá upravené rozložení. Pořadí je záměrné: zástupné objekty jsou přidány před vytvořením normálního snímku, aby Aspose.Slides mohl vygenerovat odpovídající tvary zástupných objektů na tomto snímku.
 
 ```python
 import jpype
@@ -171,15 +173,15 @@ finally:
 
 Výsledek:
 
-![Zástupné objekty na snímku rozložení](add_placeholders.png)
+![Zástupné objekty na rozložení snímku](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozložení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozložení není doplněn do existujících normálních snímků. Testujte změny rozložení na kopii prezentace a zkontrolujte každý závislý snímek.
+Změna zděděného formátování nebo geometrie existujících zástupných objektů rozložení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozložení není doplněn do existujících normálních snímků. Testujte změny rozložení na kopii prezentace a prověřte každý závislý snímek.
 {{% /alert %}}
 
-## **Odebrat nepoužívaná rozložení snímků**
+## **Odstranit nepoužívaná rozložení snímků**
 
-Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odebrání rozložení, na která neodkazuje žádný normální snímek. Metoda ponechá rozložení, která jsou stále používána, beze změny.
+Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění rozložení, na která neodkazuje žádný normální snímek. Metoda ponechává rozložení, která jsou stále používána, beze změny.
 
 ```python
 import jpype
@@ -198,13 +200,11 @@ finally:
     presentation.dispose()
 ```
 
-Pro odebrání konkrétního rozložení nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getDependingSlides). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#remove) přiřaďte všechny závislé snímky. Pokus o odebrání rozložení, které je používáno, vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxeditexception/).
+Pro odstranění konkrétního rozložení nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getDependingSlides). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#remove) přesuňte všechny závislé snímky. Pokus o odstranění používaného rozložení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxeditexception/).
 
-## **Řídit viditelnost patičky na rozložení snímku**
+## **Ovládání viditelnosti zápatí na rozložení snímku**
 
-Rozložení má své vlastní zástupné objekty patičky, čísla snímku a data/času. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) pro řízení těchto zástupných objektů u konkrétního rozložení. To je užitečné například, když by obsahová rozložení měla zobrazovat patičky, ale titulní rozložení ne.
-
-Následující příklad bezpečně vybere rozložení a zobrazí jeho prvky patičky:
+Rozložení má vlastní zástupné objekty zápatí, čísla snímku a datum‑čas. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) k řízení těchto zástupných objektů pro jedno rozložení. To je užitečné například, když rozložení obsahu mají zobrazovat zápatí, ale rozložení nadpisů ne.
 
 ```python
 import jpype
@@ -237,9 +237,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Řídit viditelnost patičky na hlavním snímku a jeho podřízených rozloženích**
+## **Ovládání viditelnosti zápatí na masteru a jeho podřízených rozloženích**
 
-Pro jednotné nastavení patiček v celé hierarchii hlavního snímku použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření třídy [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterslideheaderfootermanager/) působí na hlavní snímek i na jeho závislé rozložení snímků a normální snímky; neovlivňují pouze jeden normální snímek.
+Pro použití jednotných nastavení zápatí v celé hierarchii masteru použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření třídy [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/masterslideheaderfootermanager/) působí na master a jeho závislé rozložení snímků a normální snímky; necílí pouze na jeden normální snímek.
 
 ```python
 import jpype
@@ -264,20 +264,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jaký je rozdíl mezi hlavním snímkem a rozložením snímku?**
+**Jaký je rozdíl mezi master snímkem a layout snímkem?**
 
-Hlavní snímek definuje motiv a sdílené formátování prezentace. Rozložení snímku patří k hlavnímu snímku a určuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozložení a ukládají obsah specifický pro konkrétní snímek.
+Master snímek určuje motiv prezentace a sdílené formátování. Layout snímek patří k masteru a určuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozložení a ukládají obsah specifický pro snímek.
 
-**Mohu kopírovat rozložení snímku z jedné prezentace do druhé?**
+**Mohu zkopírovat layout snímek z jedné prezentace do druhé?**
 
-Ano. Přidejte kopii do cílové kolekce pomocí metody [addClone](https://reference.aspose.com/slides/cs/python-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte fonty, motivy, obrázky a další zdroje použité ve zdrojovém rozložení.
+Ano. Přidejte kopii do cílové kolekce pomocí metody [addClone](https://reference.aspose.com/slides/cs/python-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte písma, motivy, obrázky a další zdroje použité zdrojovým rozložením.
 
-**Co se stane, když upravím rozložení, které je již používáno?**
+**Co se stane, když upravím rozložení, které už je používáno?**
 
-Závislé snímky zdědí změny rozložení, pokud místně nepřepíšou ovlivněné formátování nebo objekty. Geometrie zástupných objektů a zděděné stylování se tak mohou změnit na mnoha snímcích najednou. Před úpravou rozložení použijte [getDependingSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků.
+Závislé snímky zdědí změny rozložení, pokud lokálně nepřepíšou ovlivněné formátování nebo objekty. Geometrie zástupných objektů a zděděný styl se tak mohou změnit na mnoha snímcích najednou. Použijte [getDependingSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků před úpravou rozložení.
 
-**Co se stane, pokud odeberu rozložení, které je stále používáno?**
+**Co se stane, pokud odstraním rozložení, které je stále používáno?**
 
-Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxeditexception/). Nejprve přiřaďte závislé snímky jinde nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odebrání pouze neodkazovaných rozložení.
+Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxeditexception/). Nejprve přesuňte závislé snímky, nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění pouze neodkazovaných rozložení.

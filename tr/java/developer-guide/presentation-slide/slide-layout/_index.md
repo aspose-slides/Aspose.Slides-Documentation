@@ -17,10 +17,10 @@ keywords:
 - bölüm başlığı
 - iki içerik
 - karşılaştırma
-- yalnızca başlık
+- sadece başlık
 - boş düzen
-- başlıklı içerik
-- başlıklı resim
+- altyazılı içerik
+- altyazılı resim
 - başlık ve dikey metin
 - dikey başlık ve metin
 - PowerPoint
@@ -32,38 +32,40 @@ description: "Aspose.Slides for Java'da slayt düzenlerini uygulayın, oluşturu
 ---
 ## **Genel Bakış**
 
-Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzen uygulamak, slaytlara tutarlı bir yapı kazandırır ve her slaytın kendi içeriğini içermesine olanak tanır.
+Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzen uygulamak, slaytlara tutarlı bir yapı verir ve aynı zamanda her slaydın kendi içeriğini içermesine olanak tanır.
 
 En yaygın düzenler şunlardır:
 
-- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
-- **Başlık ve İçerik**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
-- **Boş**: İçerik yer tutucusu içermez ve her şeklin manuel olarak konumlandırılacağı durumlarda kullanışlıdır.
+- **Title Slide**: Başlık ve alt başlık yer tutucularını içerir.
+- **Title and Content**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
+- **Blank**: İçerik yer tutucusu içermez ve her şeklin manuel olarak konumlandırılacağı durumlarda kullanışlıdır.
 
 ## **Düzen Kalıtımını Anlayın**
 
 Bir sunum üç ilgili seviyeye sahiptir:
 
-1. A [ana slayt](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/) temayı, paylaşılan biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
-2. A [düzen slaytı](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/) bir ana slayta aittir ve belirli bir yer tutucu düzenini tanımlar.
-3. A [normal slayt](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/) bir düzen kullanır ve o slayt için girilen içeriği saklar.
+1. Bir [master slide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/) temayı, ortak biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
+2. Bir [layout slide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/) bir mastera aittir ve yer tutucuların belirli bir düzenini tanımlar.
+3. Bir [normal slide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/) bir düzen kullanır ve o slayta girilen içeriği saklar.
 
-Bir normal slayt, temasını ve biçimlendirmesini düzeninden devralır ve düzen, anasından devralır. Normal bir slayta doğrudan ayarlanan bir değer, bu seviyedeki devralınan değeri geçersiz kılar. Bir normal slayt oluşturulduğunda, yer tutucu şekilleri seçili düzen üzerinden üretilir; bu yer tutuculara girilen içerik ise normal slayta aittir.
+Bir normal slayt, düzeninden temayı ve biçimlendirmeyi miras alır, ve düzen de masterından miras alır. Normal bir slayta doğrudan ayarlanan bir değer, o seviyedeki miras alınan değeri geçersiz kılar. Normal bir slayt oluşturulduğunda, yer tutucu şekilleri seçilen düzen üzerinden üretilir, ancak bu yer tutuculara girilen içerik normal slayta aittir.
 
-Bir slayt oluşturulmadan önce bir düzene gerekli yer tutucular ekleyin. Daha sonra bir düzene başka bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
+Bir slayt oluşturulmadan önce gerekli yer tutucuları düzene ekleyin. Bir düzene daha sonra başka bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
 
 Bu ilişkinin iki önemli sonucu vardır:
 
-- Bir düzen üzerindeki devralınan biçimlendirmeyi veya mevcut yer tutucu geometrisini değiştirmek, ona bağımlı olan her slaytı güncelleyebilir. Kullanımda olan bir düzeni düzenlemeden önce, bağımlı slaytlarını inceleyin ve ortaya çıkan sunumu gözden geçirin.
-- Bir slayt hâlâ kullandığı bir düzen kaldırılamaz. Önce bağımlı slaytlarını başka bir düzene yeniden atayın veya yalnızca kullanılmayan düzenleri kaldırın.
+- Bir düzen üzerindeki kalıtılan biçimlendirme veya mevcut yer tutucu geometrisini değiştirmek, ona bağımlı olan tüm slaytları güncelleyebilir. Zaten kullanılan bir düzeni düzenlemeden önce, bağımlı slaytlarını inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt tarafından hâlâ kullanılan bir düzen kaldırılamaz. Önce bağımlı slaytlarını başka bir düzene atayın veya yalnızca kullanılmayan düzenleri kaldırın.
 
-Bu hiyerarşinin üst seviyesi hakkında daha fazla bilgi için [Slayt Ana Şablonu](/slides/tr/java/slide-master/) bölümüne bakın.
+Bu hiyerarşinin üst seviyesi hakkında daha fazla bilgi için [Slide Master](/slides/tr/java/slide-master/) sayfasına bakın.
+
+Tek bir slaytta veya ortak bir düzen üzerinden kalıtılan logoları ya da süslemeli master şekillerini gizlemek için [Control the Visibility of Master Graphics](/slides/tr/java/slide-master/) sayfasına bakın. Örnek, aynı masterı kullanan iki slaytı karşılaştırır.
 
 ## **Bir Slayt Düzeni Seçin ve Uygulayın**
 
-Sunum standart PowerPoint düzen tanımlarını izliyorsa bir düzen tipi kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu yüzden kaynak şablonu kontrol etmiyorsanız ad‑tabanlı seçim daha az güvenilirdir.
+Sunum standart PowerPoint düzen tanımlarını izlediğinde bir düzen türü kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu nedenle kaynak şablonun kontrolü yoksa ad‑bazlı seçim daha az güvenilir olur.
 
-Aşağıdaki örnek, ilk ana üzerinde **Başlık ve İçerik** arar. Bu düzen bulunamazsa, kasıtlı olarak **Boş** düzenine geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği durum için gereklidir. Seçilen düzen ardından ilk normal slayta [ISlide.setLayoutSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) yöntemiyle uygulanır.
+Aşağıdaki örnek, ilk masterda **Title and Content** arar. Bu düzen mevcut değilse, kasıtlı olarak **Blank** düzene geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği durumlar için gereklidir. Seçilen düzen daha sonra [ISlide.setLayoutSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) yöntemiyle ilk normal slayta uygulanır.
 
 ```java
 import com.aspose.slides.*;
@@ -88,13 +90,13 @@ try {
 }
 ```
 
-Bir slaytın düzenini değiştirmek, slayta doğrudan eklenen sıradan şekilleri kaldırmaz. Ancak, yer tutucu konumları, devralınan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki ilişki değişebilir; bu yüzden büyük ölçüde farklı düzenler arasında geçiş yaptığınızda çıktıyı inceleyin.
+Bir slaytın düzenini değiştirmek, doğrudan slayta eklenmiş normal şekilleri kaldırmaz. Ancak, yer tutucu konumları, miras alınan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki eşleşme değişebilir; bu yüzden önemli ölçüde farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
 ## **Bir Düzen Slaytı Ekleyin**
 
-Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; bir tane oluşturmaz. Bir düzen oluşturmak için hedef ana slaydın düzen koleksiyonunda [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) yöntemini çağırın.
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; oluşturmaz. Bir düzen oluşturmak için hedef masterın düzen koleksiyonunda [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) yöntemini çağırın.
 
-Aşağıdaki örnek her zaman `Report Title and Content` adında yeni bir **Başlık ve İçerik** düzeni ekler, ardından buna dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
+Aşağıdaki örnek her zaman `Report Title and Content` adlı yeni bir **Title and Content** düzeni ekler, ardından bu düzeni temel alan bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
 
 ```java
 import com.aspose.slides.*;
@@ -111,14 +113,14 @@ try {
 }
 ```
 
-Şablon gerçekten başka bir tekrar kullanılabilir yapı gerektirdiğinde bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmaktansa onu seçip yeniden kullanın.
+Şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmaktan ziyade onu seçip yeniden kullanın.
 
 ## **Bir Düzen Slaytına Yer Tutucular Ekleyin**
 
-[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) yöntemi, bir düzene yer tutucu şekilleri eklemek için bir [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/) sağlar.
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) yöntemi, bir düzene yer tutucu şekiller eklemek için bir [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/) sağlar.
 
-| PowerPoint Yer Tutucu | `ILayoutPlaceholderManager` Metodu |
-| --------------------- | ---------------------------------- |
+| PowerPoint Yer Tutucusu | `ILayoutPlaceholderManager` Yöntemi |
+| ----------------------- | ----------------------------------- |
 | ![İçerik](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![İçerik (Dikey)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
 | ![Metin](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
@@ -127,10 +129,10 @@ try {
 | ![Grafik](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
 | ![Tablo](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
 | ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
-| ![Medya](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Ortam](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![Çevrimiçi Görüntü](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Aşağıdaki örnek, **Boş** düzeninin var olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides bu slaytta karşılık gelen yer tutucu şekillerini üretebilir.
+Aşağıdaki örnek, **Blank** düzeninin mevcut olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilen düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slaytta karşılık gelen yer tutucu şekillerini oluşturabilir.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +160,15 @@ try {
 
 Sonuç:
 
-![Düzen slaydındaki yer tutucular](add_placeholders.png)
+![Düzen slaytındaki yer tutucular](add_placeholders.png)
 
-{{% alert color="warning" title="Uyarı" %}}
-Devralınan biçimlendirmeyi veya mevcut düzen yer tutucularının geometrisini değiştirmek, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara geri eklenmez. Düzen değişikliklerini bir sunum kopyası üzerinde test edin ve her bağımlı slaytı inceleyin.
+{{% alert color="warning" title="Warning" %}}
+Miras alınan biçimlendirme veya mevcut düzen yer tutucularının geometrisini değiştirmek, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara geriye doğru eklenmez. Düzen değişikliklerini sunumun bir kopyası üzerinde test edin ve her bağımlı slaytı inceleyin.
 {{% /alert %}}
 
 ## **Kullanılmayan Düzen Slaytlarını Kaldırın**
 
-[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini kullanarak hiçbir normal slayt tarafından başvurulmayan düzenleri kaldırın. Yöntem hâlâ kullanımda olan düzenleri olduğu gibi bırakır.
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini kullanarak hiçbir normal slayt tarafından referans edilmeyen düzenleri kaldırın. Yöntem hâlâ kullanılan düzenleri olduğu gibi bırakır.
 
 ```java
 import com.aspose.slides.*;
@@ -180,11 +182,11 @@ try {
 }
 ```
 
-Belirli bir düzeni kaldırmak için önce onun [hasDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) veya [getDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) yöntemini kullanın. Bağımlı slaytları [ILayoutSlide.remove](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#remove--) çağırmadan önce yeniden atayın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) fırlatır.
+Belirli bir düzeni kaldırmak için önce onun [hasDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) veya [getDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) yöntemini kullanın. [ILayoutSlide.remove](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#remove--) metodunu çağırmadan önce bağımlı slaytları yeniden atayın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) oluşturur.
 
 ## **Bir Düzen Slaytında Altbilgi Görünürlüğünü Kontrol Edin**
 
-Bir düzenin kendi altbilgi, slayt‑numarası ve tarih‑saat yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek üzere [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) yöntemini kullanın. Bu, örneğin içerik düzenlerinin altbilgi göstermesi, başlık düzenlerinin ise göstermemesi gerektiğinde faydalıdır.
+Bir düzenin kendi altbilgi, slayt numarası ve tarih‑saat yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek üzere [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) metodunu kullanın. Bu, örneğin içerik düzenlerinin altbilgi göstermesi, başlık düzenlerinin göstermemesi gerektiğinde faydalıdır.
 
 ```java
 import com.aspose.slides.*;
@@ -214,9 +216,9 @@ try {
 }
 ```
 
-## **Bir Ana Şablonda ve Çocuk Düzenlerinde Altbilgi Görünürlüğünü Kontrol Edin**
+## **Bir Master ve Alt Düzenlerinde Altbilgi Görünürlüğünü Kontrol Edin**
 
-Bir ana şablon hiyerarşisi boyunca tutarlı altbilgi ayarları uygulamak için [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) yöntemini kullanın. [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslideheaderfootermanager/) yayılım yöntemleri ana şablon, ona bağlı düzen slaytları ve normal slaytlar üzerinde çalışır; sadece tek bir normal slaytı hedeflemez.
+Master hiyerarşisi genelinde tutarlı altbilgi ayarları uygulamak için [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) metodunu kullanın. [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslideheaderfootermanager/) nesnesinin yayma yöntemleri master, bağımlı düzen slaytları ve normal slaytlar üzerinde çalışır; yalnızca tek bir normal slaytı hedef almaz.
 
 ```java
 import com.aspose.slides.*;
@@ -238,18 +240,18 @@ try {
 
 ## **SSS**
 
-**Bir Ana Slayt ile Bir Düzen Slaytı Arasındaki Fark Nedir?**
+**Master Slayt ile Düzen Slaytı Arasındaki Fark Nedir?**
 
-Bir ana slayt, sunumun temasını ve paylaşılan biçimlendirmesini tanımlar. Bir düzen slaytı, bir ana slayta aittir ve yer tutucuların yeniden kullanılabilir bir düzenini tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği saklar.
+Master slayt, sunumun temasını ve ortak biçimlendirmesini tanımlar. Düzen slaytı bir mastera aittir ve yeniden kullanılabilir bir yer tutucu düzeni tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği saklar.
 
 **Bir Düzen Slaytını Bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet. Hedef koleksiyona bir kopya eklemek için [addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) yöntemini kullanın. Sunumlar arasında kopyalarken, kaynak düzenin kullandığı yazı tiplerini, temaları, görüntüleri ve diğer kaynakları da doğrulayın.
+Evet. [addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) yöntemiyle hedef koleksiyona bir kopya ekleyin. Sunumlar arasında kopyalarken, kaynak düzenin kullandığı yazı tipleri, temalar, görseller ve diğer kaynakları da doğrulayın.
 
-**Kullanımda Olan Bir Düzeni Değiştirirsem Ne Olur?**
+**Zaten Kullanımda Olan Bir Düzeni Değiştirdiğimde Ne Olur?**
 
-Bağımlı slaytlar, yerel olarak etkilenmiş biçimlendirmeyi veya nesneleri geçersiz kılmadıkları sürece düzen değişikliklerini devralır. Yer tutucu geometrisi ve devralınan stil bu nedenle birçok slaytta bir anda değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [getDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) yöntemini kullanın.
+Bağımlı slaytlar, yerel olarak etkilenilen biçimlendirme veya nesneleri geçersiz kılmadıkları sürece düzen değişikliklerini miras alır. Yer tutucu geometrisi ve miras alınan stil, birçok slaytta aynı anda değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [getDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) yöntemini kullanın.
 
 **Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
 
-Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) fırlatır. Önce bağımlı slaytları yeniden atayın veya yalnızca başvurulmayan düzenleri kaldırmak için [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini kullanın.
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) fırlatır. Önce bağımlı slaytları başka bir düzene atayın veya yalnızca referans edilmeyen düzenleri kaldırmak için [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini kullanın.

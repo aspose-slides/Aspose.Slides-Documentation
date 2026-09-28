@@ -21,35 +21,35 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Hantera bildmaster i Aspose.Slides för Python via .NET: åtkomst, redigering, kloning, jämförelse och borttagning av masterbilder i PowerPower‑ och OpenDocument-presentationer."
+description: "Hantera bildmaster i Aspose.Slides för Python via .NET: åtkomst, redigering, kloning, jämförelse och borttagning av masterbilder i PowerPoint- och OpenDocument-presentationer."
 ---
 ## **Översikt**
 
-En **slide master** definierar gemensamma designinställningar för en grupp bilder. Den kan innehålla vanliga former, logotyper, bakgrunder, textstilar, temainställningar och sidfotinställningar. I PowerPoint är redigering av en slide master det vanliga sättet att hålla en presentation enhetlig utan att upprepa samma formatering på varje bild.
+En **slide master** definierar delade designinställningar för en grupp bilder. Den kan innehålla vanliga former, logotyper, bakgrunder, textstilar, temainställningar och sidfotinställningar. I PowerPoint är redigering av en slide master det vanliga sättet att hålla en presentation konsekvent utan att upprepa samma formatering på varje bild.
 
-Aspose.Slides for Python via .NET stöder samma modell. En presentation kan innehålla en eller flera masterbilder, och varje masterbild kan innehålla flera layoutbilder. Vanliga bilder refererar normalt inte direkt till en masterbild. Istället använder en vanlig bild en layoutbild, och den layoutbilden tillhör en masterbild.
+Aspose.Slides för Python via .NET stöder samma modell. En presentation kan innehålla en eller flera masterbilder, och varje masterbild kan innehålla flera layoutbilder. Vanliga bilder refererar vanligtvis inte direkt till en masterbild. Istället använder en normal bild en layoutbild, och den layoutbilden tillhör en masterbild.
 
 Hierarkin är:
 
-1. **Slide master** – definierar den delade designen och temat.  
-1. **Layout slide** – definierar en specifik placering av platshållare och layoutnivåformatering.  
-1. **Normal slide** – innehåller det faktiska presentationsinnehållet och använder en layoutbild.
+1. **Slide master** - definierar den delade designen och temat.
+1. **Layout slide** - definierar en specifik arrangemang av platshållare och layoutnivåformatering.
+1. **Normal slide** - innehåller det faktiska presentationsinnehållet och använder en layout slide.
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![Hierarkin av masterbilder, layoutbilder och normala bilder](slide-master_2.jpg)
 
-I Aspose.Slides representeras en slide master av klassen [MasterSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslide/) . Alla masterbilder i en presentation är tillgängliga via samlingen `Presentation.masters`.
+I Aspose.Slides representeras en slide master av klassen [MasterSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslide/) . Alla master slides i en presentation är tillgängliga via samlingen `Presentation.masters` .
 
 {{% alert color="info" title="Inheritance" %}}
-När samma egenskap definieras på mer än en nivå vinner den mer specifika nivån. Till exempel, om en masterbild och en layoutbild båda definierar en bakgrund, använder bilder baserade på den layouten layoutens bakgrund. För mer information om layoutbilder, se [Apply or Change Slide Layouts](/slides/sv/python-net/slide-layout/).
+När samma egenskap är definierad på mer än en nivå vinner den mer specifika nivån. Till exempel, om en master slide och en layout slide båda definierar en bakgrund, använder bilder baserade på den layouten layoutens bakgrund. För mer information om layoutbilder, se [Applicera eller ändra bildlayouter](/slides/sv/python-net/slide-layout/).
 {{% /alert %}}
 
 ## **Åtkomst till Slide Masters**
 
 I PowerPoint kan du öppna Slide Master‑vyn från **View** > **Slide Master**.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![Slide Master‑kommandot på PowerPoints Visa‑flik](slide-master_3.jpg)
 
-I Aspose.Slides, använd samlingen `masters` för att komma åt masterbilder:
+I Aspose.Slides använder du samlingen `masters` för att komma åt masterbilder:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Du kan också hämta masterbilden som en normal bild använder via dess layout:
+Du kan också hämta masterbilden som används av en normal bild via dess layout:
 
 ```python
 import aspose.slides as slides
@@ -77,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Vad en Slide Master Innehåller**
+## **Vad en Slide Master innehåller**
 
-En masterbild är ett bildlikt objekt. Den ärver gemensamt bildbeteende från klassen [BaseSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/) . Därför exponeras många av samma bildegenskaper som används av vanliga och layoutbilder. Master‑specifika medlemmar listas på API‑sidan för [MasterSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslide/) .
+En master slide är ett bildlikt objekt. Den ärver gemensamt bildbeteende från klassen [BaseSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/) , så den exponerar många av samma bildegenskaper som används av normala bilder och layoutbilder. Master‑specifika medlemmar listas på API‑sidan [MasterSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslide/) .
 
-Vanligt använda medlemmar för masterbilder inkluderar:
+Vanligt använda master‑slide‑medlemmar inkluderar:
 
-| Member | Syfte |
+| Medlem | Syfte |
 | --- | --- |
-| `background` | Ställer in masternivåns bildbakgrund. |
-| `shapes` | Lagrar former placerade på master, såsom logotyper, bildramar och delad text. |
-| `layout_slides` | Lagrar de layoutbilder som tillhör master. |
-| `theme_manager` | Ger åtkomst till mastertemats API:er. |
-| `header_footer_manager` | Kontrollerar sidhuvuden, sidfötter, datum och bildnummer för master och dess underlayouter. |
-| `get_depending_slides` | Returnerar vanliga bilder som är beroende av master genom deras layouter. |
+| `background` | Ställer in master‑nivåns bildbakgrund. |
+| `shapes` | Lagrar former placerade på masteren, såsom logotyper, bildramar och delad text. |
+| `layout_slides` | Lagrar layoutbilderna som tillhör masteren. |
+| `theme_manager` | Tillhandahåller åtkomst till mastertemats API:er. |
+| `header_footer_manager` | Styr rubriker, sidfötter, datum och bildnummer för masteren och dess underliggande layouter. |
+| `get_depending_slides` | Returnerar normala bilder som beror på masteren via deras layouter. |
 
 ## **Lägg till en bild i en Slide Master**
 
-När du lägger till en bild på en masterbild visas den på bilder som använder layout från den mastern. Detta är användbart för logotyper, vattenstämplar, dekorativa band och andra återkommande visuella element.
+När du lägger till en bild i en master slide visas den på bilder som använder layouter från den masteren. Detta är användbart för logotyper, vattenstämplar, dekorativa band och andra återkommande visuella element.
 
-Följande exempel lägger till en logotyp på den första masterbilden:
+Följande exempel lägger till en logotyp till den första masterbilden:
 
 ```python
 import aspose.slides as slides
@@ -120,17 +120,66 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För mer information om bildramar, se [Picture Frame](/slides/sv/python-net/picture-frame/).
+För mer information om bildramar, se [Bildram](/slides/sv/python-net/picture-frame/).
 
-## **Arbeta med Platshållare**
+## **Styr synligheten för mastergrafik**
+
+Använd [BaseSlide.show_master_shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/show_master_shapes/) för att dölja ärvd mastergrafik, såsom logotyper eller dekorativa former, utan att ta bort dem från masteren. Sätt [Slide.show_master_shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/show_master_shapes/) till `False` på den bild som ska utesluta den grafiken och håll den `True` på bilder som ska visa den.
+
+Följande fristående exempel skapar ett blått dekorativt band på en master och två bilder som använder samma tomma layout. Bandet är synligt på den första bilden och dolt på den andra. Ingen ingångspresentation eller bild krävs.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
+    layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_slide.show_master_shapes = True
+
+    slide_height = presentation.slide_size.size.height
+    band = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 60, slide_height)
+    band.fill_format.fill_type = slides.FillType.SOLID
+    band.fill_format.solid_fill_color.color = draw.Color.steel_blue
+    band.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    visible_slide = presentation.slides[0]
+    visible_slide.layout_slide = layout_slide
+    visible_slide.shapes.clear()
+
+    hidden_slide = presentation.slides.add_empty_slide(layout_slide)
+
+    visible_slide.show_master_shapes = True
+    hidden_slide.show_master_shapes = False
+
+    presentation.save("master-graphics.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Exemplet använder **Blank**‑layouten som levereras med en ny presentation och tar bort den första bildens egna platshållare.
+
+### **Välj omfattning för inställningen**
+
+En normal bild använder sin master via [Slide.layout_slide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/layout_slide/) och [LayoutSlide.master_slide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/layoutslide/master_slide/). Att ställa in egenskapen på en enskild bild påverkar endast den bilden. Att sätta [LayoutSlide.show_master_shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/layoutslide/show_master_shapes/) till `False` döljer mastergrafik för bilder som använder den delade layouten, även om deras egen inställning är `True`. För att dölja grafik på bara en bild, ändra bildens egenskap och lämna den delade layouten oförändrad.
+
+Inställningen stöds inte som en synlighetskontroll på själva masterbilden. På en master returnerar den alltid `False`, och att tilldela `True` kastar ett undantag. Använd den på en normal bild eller en layout istället.
+
+### **Skilj grafik från bakgrunden**
+
+| Åtgärd | Effekt |
+| --- | --- |
+| Dölj mastergrafik | Styr synligheten för ärvda masterformer utan att ta bort dem eller ändra bildens egna former. |
+| Ändra bildens bakgrundsfyllning | Ändrar bakgrundsfärgen, gradienten eller bilden. Mastergrafik är separata former och kan förbli synliga över den bakgrunden. Se [Presentationsbakgrund](/slides/sv/python-net/presentation-background/). |
+| Ta bort en form från master | Tar bort den delade källformen, så den inte längre är tillgänglig för någon bild som använder den master. |
+
+## **Arbeta med platshållare**
 
 Platshållare definieras normalt på layoutbilder. Masterbilden tillhandahåller den delade stilen och temat som dessa layouter ärver, medan varje layout bestämmer vilka platshållare som är tillgängliga och var de placeras.
 
 I PowerPoint är platshållarkommandon tillgängliga i Slide Master‑vyn.
 
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+![Infoga platshållarkommandot i PowerPoint Slide Master‑vyn](slide-master_5.png)
 
-För att lägga till nya platshållare med Aspose.Slides, arbeta med den layoutbild som tillhör mastern:
+För att lägga till nya platshållare med Aspose.Slides, arbeta med layoutbilden som tillhör masteren:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +200,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Du kan också formatera platshållarformer som redan finns på en masterbild. Följande exempel hittar titelplatshållaren och applicerar en linjär gradientfyllning:
+Du kan också formatera platshållarformer som redan finns på en masterbild. Följande exempel hittar titel‑platshållaren och tillämpar en linjär gradientfyllning:
 
 ```python
 import aspose.pydrawing as draw
@@ -183,13 +232,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![Formaterad titel‑platshållare som ärvd av normala bilder](slide-master_8.png)
 
-För fler alternativ för platshållare och textformatering, se [Set Prompt Text in Placeholder](/slides/sv/python-net/manage-placeholder/) och [Text Formatting](/slides/sv/python-net/text-formatting/).
+För mer alternativ för platshållare och textformatering, se [Ange prompttext i platshållare](/slides/sv/python-net/manage-placeholder/) och [Textformatering](/slides/sv/python-net/text-formatting/).
 
-## **Ändra bakgrund för en Slide Master**
+## **Ändra en Slide Master‑bakgrund**
 
-En masterbakgrund ärvs av layouter och bilder som inte åsidosätter den. Följande exempel sätter en solid bakgrundsfärg för den första masterbilden:
+En masterbakgrund ärvs av layouter och bilder som inte åsidosätter den. Följande exempel ställer in en solid bakgrundsfärg för den första masterbilden:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +254,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För relaterade ämnen, se [Presentation Background](/slides/sv/python-net/presentation-background/) och [Presentation Theme](/slides/sv/python-net/presentation-theme/).
+För relaterade ämnen, se [Presentationsbakgrund](/slides/sv/python-net/presentation-background/) och [Presentationstema](/slides/sv/python-net/presentation-theme/).
 
 ## **Klona en Slide Master till en annan presentation**
 
-Använd `add_clone`‑metoden på klassen [MasterSlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/) för att kopiera en masterbild till en annan presentation. Den kopierade masterbilden kan sedan användas av layouter och bilder i mål‑presentationen.
+Använd `add_clone`‑metoden på klassen [MasterSlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/) för att kopiera en master slide till en annan presentation. Den kopierade masteren kan sedan användas av layouter och bilder i målpresentationen.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +271,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Om du behöver klona vanliga bilder tillsammans med deras master, se [Clone Slides](/slides/sv/python-net/clone-slides/).
+Om du behöver klona normala bilder tillsammans med deras master, se [Klona bilder](/slides/sv/python-net/clone-slides/).
 
 ## **Lägg till flera Slide Masters**
 
 En presentation kan innehålla flera masterbilder. Detta är användbart när olika sektioner kräver olika varumärkesprofil, sidstruktur eller temainställningar.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![PowerPoint‑kommandon för att infoga och hantera masterbilder](slide-master_9.jpg)
 
-Följande exempel klonar standard‑masteren, ger klonen en annan bakgrund, får en tom layout under den klonade masteren och lägger till en ny bild baserad på den layouten:
+Följande exempel klonar standard‑masteren, ger klonen en annan bakgrund, hämtar en tom layout under den klonade masteren och lägger till en ny bild baserad på den layouten:
 
 ```python
 import aspose.pydrawing as draw
@@ -258,7 +307,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Jämför Slide Masters**
 
-Masterbilder kan jämföras med `equals`‑metoden som ärvs från [BaseSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/) . Jämförelsen kontrollerar struktur och statiskt innehåll, såsom former, text, formatering, animationer och andra bildinställningar. Den jämför inte unika identifierare, såsom bild‑ID:n, eller dynamiska platshållarvärden, såsom aktuellt datum.
+Masterbilder kan jämföras med `equals`‑metoden ärvd från klassen [BaseSlide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/) . Jämförelsen kontrollerar struktur och statiskt innehåll, såsom former, text, formatering, animationer och andra bildinställningar. Den jämför inte unika identifierare, såsom bild‑ID:n, eller dynamiska platshållarvärden, såsom aktuellt datum.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +330,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-För mer information, se [Compare Presentation Slides](/slides/sv/python-net/compare-slides/).
+För mer information, se [Jämför presentationsbilder](/slides/sv/python-net/compare-slides/).
 
 ## **Ställ in Slide Master‑vyn som standardvy**
 
-Använd egenskapen `last_view` på presentationens [ViewProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/viewproperties/) för att kontrollera den vy som PowerPoint öppnar först. Följande exempel öppnar presentationen i Slide Master‑vyn:
+Använd egenskapen `last_view` på presentationens [ViewProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/viewproperties/) för att kontrollera vilken vy PowerPoint öppnar först. Följande exempel öppnar presentationen i Slide Master‑vyn:
 
 ```python
 import aspose.slides as slides
@@ -295,11 +344,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För fler vyinställningar, se [Save Presentation](/slides/sv/python-net/save-presentation/).
+För fler vyinställningar, se [Spara presentation](/slides/sv/python-net/save-presentation/).
 
 ## **Ta bort oanvända masterbilder**
 
-Presentationer kan ibland innehålla masterbilder som inte längre används av några vanliga bilder. Att ta bort oanvända masterbilder kan minska filstorleken och förenkla underhållet av mallar.
+Presentationer kan ibland innehålla masterbilder som inte längre används av några normala bilder. Att ta bort oanvända masterbilder kan minska filstorleken och förenkla underhållet av mallar.
 
 Använd `remove_unused` för att ta bort oanvända masterbilder från samlingen `masters`:
 
@@ -323,18 +372,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-### Vad är skillnaden mellan en slide master och en layoutbild?
+**Vad är skillnaden mellan en slide master och en layout slide?**
 
-En slide master definierar gemensamma designinställningar såsom tema, bakgrund, gemensamma former och textstilar. En layoutbild tillhör en masterbild och definierar en specifik placering av platshållare. En normal bild använder en layoutbild, så den ärver både från layouten och masteren.
+En slide master definierar delade designinställningar såsom tema, bakgrund, gemensamma former och textstilar. En layout slide tillhör en master slide och definierar en specifik arrangemang av platshållare. En normal slide använder en layout slide, så den ärver både från layouten och masteren.
 
-### Kan en presentation innehålla flera slide masters?
+**Kan en presentation innehålla flera slide masters?**
 
-Ja. En presentation kan innehålla flera slide masters. Använd flera masterbilder när olika sektioner kräver olika visuella system eller varumärkesprofil.
+Ja. En presentation kan innehålla flera slide masters. Använd flera masterbilder när olika sektioner behöver olika visuella system eller varumärkesprofil.
 
-### Bör jag lägga till platshållare på en masterbild eller en layoutbild?
+**Bör jag lägga till platshållare på en master slide eller en layout slide?**
 
-I de flesta fall bör du lägga till platshållare på layoutbilder. Placera delade visuella element och gemensam formatering på masterbilden, och placera sedan innehålls‑platshållare på de layouter som de vanliga bilderna kommer att använda.
+I de flesta fall bör du lägga till platshållare på layoutbilder. Placera delade visuella element och delad formatering på master‑bilden, och placera sedan innehålls‑platshållare på layouterna som normala bilder kommer att använda.
 
-### Kan jag ta bort en masterbild som fortfarande används?
+**Kan jag ta bort en master slide som fortfarande används?**
 
-Nej. En masterbild som har beroende bilder kan inte tas bort säkert direkt. Flytta först dessa bilder till layouter under en annan master, eller använd en städrutin för oanvända masterbilder som bara tar bort masterbilder som inte används.
+Nej. En master slide som har beroende bilder kan inte säkert tas bort direkt. Flytta först de bilderna till layouter under en annan master, eller använd en rengöringsmetod för oanvända masterbilder som bara tar bort masterbilder som inte används.

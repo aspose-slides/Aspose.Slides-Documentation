@@ -1,5 +1,5 @@
 ---
-title: Quản lý các Slide Master của bản trình chiếu trong Python qua Java
+title: Quản lý Slide Master của Bài thuyết trình trong Python qua Java
 linktitle: Slide Master
 type: docs
 weight: 70
@@ -11,46 +11,46 @@ keywords:
 - nhiều slide master
 - so sánh slide master
 - nền
-- placeholder
+- trình giữ chỗ
 - sao chép slide master
 - chép slide master
-- nhân bản slide master
-- slide master không dùng
+- trùng lặp slide master
+- slide master không sử dụng
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - Python
 - Java
 - Aspose.Slides
-description: "Quản lý slide master trong Aspose.Slides cho Python qua Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bản trình chiếu PowerPoint và OpenDocument."
+description: "Quản lý slide master trong Aspose.Slides cho Python qua Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bài thuyết trình PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-Một **slide master** định nghĩa các cài đặt thiết kế chia sẻ cho một nhóm các slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu chữ, cài đặt chủ đề và cài đặt chân trang. Trong PowerPoint, chỉnh sửa slide master là cách thông thường để giữ cho bản trình chiếu nhất quán mà không phải lặp lại cùng một định dạng trên mỗi slide.
+Một **slide master** xác định các cài đặt thiết kế chung cho một nhóm slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu chữ, cài đặt chủ đề và cài đặt chân trang. Trong PowerPoint, việc chỉnh sửa slide master là cách thường dùng để giữ cho bài thuyết trình nhất quán mà không phải lặp lại cùng một định dạng trên mỗi slide.
 
-Aspose.Slides for Python via Java hỗ trợ cùng mô hình. Một bản trình chiếu có thể chứa một hoặc nhiều slide master, và mỗi slide master có thể chứa một số slide layout. Các slide bình thường thường không tham chiếu trực tiếp tới slide master. Thay vào đó, một slide bình thường sử dụng một slide layout, và slide layout đó thuộc về một slide master.
+Aspose.Slides for Python via Java hỗ trợ cùng mô hình này. Một bài thuyết trình có thể chứa một hoặc nhiều slide master, và mỗi slide master có thể chứa một số slide layout. Các slide thường không tham chiếu trực tiếp tới slide master. Thay vào đó, một slide thường sử dụng một slide layout, và slide layout đó thuộc về một slide master.
 
-Cấu trúc phân cấp là:
+Cấu trúc phân cấp như sau:
 
-1. **Slide master** – định nghĩa thiết kế và chủ đề chung.
-1. **Layout slide** – định nghĩa bố cục cụ thể của các placeholder và định dạng cấp layout.
-1. **Normal slide** – chứa nội dung thực tế của bản trình chiếu và sử dụng một layout slide.
+1. **Slide master** – xác định thiết kế và chủ đề chung.
+1. **Layout slide** – xác định bố cục cụ thể của các placeholder và định dạng cấp layout.
+1. **Normal slide** – chứa nội dung thực tế của bài thuyết trình và sử dụng một layout slide.
 
 ![Cấu trúc phân cấp của slide master, layout slide và normal slide](slide-master_2.jpg)
 
-Trong Aspose.Slides, một slide master được biểu diễn bởi lớp [MasterSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/). Tất cả các slide master trong một bản trình chiếu có thể truy cập thông qua bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters), được biểu diễn bởi [MasterSlideCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslidecollection/).
+Trong Aspose.Slides, một slide master được đại diện bằng lớp [MasterSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/). Tất cả các slide master trong một bài thuyết trình có thể truy cập thông qua tập hợp [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters), được biểu diễn bằng [MasterSlideCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-Khi cùng một thuộc tính được định nghĩa ở nhiều cấp độ, cấp độ cụ thể hơn sẽ thắng. Ví dụ, nếu một slide master và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm thông tin về layout slide, xem [Áp dụng hoặc Thay đổi bố cục Slide](/slides/vi/python-java/slide-layout/).
+Khi cùng một thuộc tính được định nghĩa ở nhiều mức độ, mức độ cụ thể hơn sẽ thắng. Ví dụ, nếu một slide master và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm thông tin về layout slide, xem mục [Apply or Change Slide Layouts](/slides/vi/python-java/slide-layout/).
 {{% /alert %}}
 
 ## **Truy cập Slide Masters**
 
 Trong PowerPoint, bạn có thể mở chế độ xem Slide Master từ **View** > **Slide Master**.
 
-![Lệnh Slide Master trên tab View của PowerPoint](slide-master_3.jpg)
+![Lệnh Slide Master trên thẻ View của PowerPoint](slide-master_3.jpg)
 
-Trong Aspose.Slides, sử dụng bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters) để truy cập các slide master:
+Trong Aspose.Slides, sử dụng tập hợp [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters) để truy cập các slide master:
 
 ```python
 import jpype
@@ -73,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-Bạn cũng có thể lấy slide master được một slide bình thường sử dụng thông qua layout của nó:
+Bạn cũng có thể lấy slide master được sử dụng bởi một slide thường thông qua layout của nó:
 
 ```python
 import jpype
@@ -96,24 +96,24 @@ finally:
     presentation.dispose()
 ```
 
-## **Nội dung của Slide Master**
+## **Slide Master chứa những gì**
 
-Một slide master là một đối tượng giống slide. Nó kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/), vì vậy nó cung cấp nhiều thuộc tính slide giống như slide bình thường và layout slide. Các thành viên đặc thù của master được liệt kê trên trang API [MasterSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/).
+Một slide master là một đối tượng giống slide. Nó kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/), vì vậy nó khai thác nhiều thuộc tính slide giống như các slide thường và layout. Các thành viên riêng của master được liệt kê trên trang API [MasterSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/).
 
 Các thành viên master thường dùng bao gồm:
 
-| Member | Mục đích |
+| Thành viên | Mục đích |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#getBackground) | Đặt nền slide cấp master. |
-| [getShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#getShapes) | Lưu trữ các hình dạng đặt trên master, chẳng hạn logo, khung hình ảnh và văn bản chia sẻ. |
+| [getBackground](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#getBackground) | Đặt nền slide ở mức master. |
+| [getShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#getShapes) | Lưu trữ các hình dạng được đặt trên master, chẳng hạn logo, khung ảnh và văn bản chia sẻ. |
 | [getLayoutSlides](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getLayoutSlides) | Lưu trữ các layout slide thuộc về master. |
-| [getThemeManager](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getThemeManager) | Cung cấp quyền truy cập vào các API chủ đề master. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Điều khiển tiêu đề, chân trang, ngày tháng và số slide cho master và các layout con. |
-| [getDependingSlides](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getDependingSlides) | Trả về các slide bình thường phụ thuộc vào master thông qua layout của chúng. |
+| [getThemeManager](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getThemeManager) | Cung cấp truy cập vào các API chủ đề master. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Kiểm soát header, footer, ngày tháng và số slide cho master và các layout con của nó. |
+| [getDependingSlides](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getDependingSlides) | Trả về các slide thường phụ thuộc vào master thông qua layout của chúng. |
 
 ## **Thêm hình ảnh vào Slide Master**
 
-Khi bạn thêm hình ảnh vào một slide master, hình ảnh sẽ xuất hiện trên các slide sử dụng layout từ master đó. Điều này hữu ích cho logo, watermark, dải trang trí và các yếu tố hình ảnh lặp lại khác.
+Khi bạn thêm một hình ảnh vào slide master, hình ảnh sẽ xuất hiện trên các slide sử dụng layout từ master đó. Điều này hữu ích cho logo, watermark, dải trang trí và các yếu tố hình ảnh lặp lại khác.
 
 Ví dụ sau thêm một logo vào slide master đầu tiên:
 
@@ -141,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-Để biết thêm thông tin về khung hình ảnh, xem [Khung Hình](/slides/vi/python-java/picture-frame/).
+Để biết thêm thông tin về khung ảnh, xem mục [Picture Frame](/slides/vi/python-java/picture-frame/).
 
-## **Làm việc với Placeholders**
+## **Kiểm soát hiển thị đồ họa master**
 
-Placeholders thường được định nghĩa trên layout slide. Slide master cung cấp kiểu dáng và chủ đề chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholders nào khả dụng và chúng được đặt ở đâu.
+Sử dụng [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#setShowMasterShapes) để ẩn các đồ họa master được kế thừa, chẳng hạn logo hoặc hình dạng trang trí, mà không xóa chúng khỏi master. Truyền `False` cho [Slide.setShowMasterShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#setShowMasterShapes) trên slide cần ẩn các đồ họa và giữ `True` trên các slide cần hiển thị chúng.
+
+Ví dụ tự chứa sau tạo một dải trang trí màu xanh trên master và hai slide sử dụng cùng một layout trống. Dải này hiển thị trên slide đầu tiên và ẩn trên slide thứ hai. Không cần file bài thuyết trình hoặc hình ảnh đầu vào.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Ví dụ sử dụng layout **Blank** được cung cấp trong một bài thuyết trình mới và loại bỏ các placeholder mặc định của slide đầu tiên.
+
+### **Chọn phạm vi cài đặt**
+
+Một slide thường sử dụng master của nó thông qua [Slide.getLayoutSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getLayoutSlide) và [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/layoutslide/#getMasterSlide). Đặt thuộc tính trên một slide riêng chỉ ảnh hưởng đến slide đó. Truyền `False` cho [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/layoutslide/#setShowMasterShapes) sẽ ẩn đồ họa master cho tất cả các slide dùng layout chung, ngay cả khi cài đặt riêng của chúng là `True`. Để ẩn đồ họa chỉ trên một slide, thay đổi thuộc tính slide và để layout chung không thay đổi.
+
+Cài đặt này không được hỗ trợ làm công cụ kiểm soát hiển thị trên chính slide master. Trên master, [getShowMasterShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#getShowMasterShapes) luôn trả về `False`, và truyền `True` cho [setShowMasterShapes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslide/#setShowMasterShapes) sẽ sinh ra ngoại lệ. Áp dụng nó cho slide thường hoặc layout thay vì master.
+
+### **Phân biệt đồ họa và nền**
+
+| Thao tác | Hiệu ứng |
+| --- | --- |
+| Ẩn đồ họa master | Kiểm soát hiển thị các hình dạng master kế thừa mà không xóa chúng hoặc thay đổi các hình dạng của slide. |
+| Thay đổi màu nền slide | Thay đổi màu, gradient hoặc hình ảnh nền. Đồ họa master là các hình dạng riêng và có thể vẫn hiển thị trên nền đó. Xem mục [Presentation Background](/slides/vi/python-java/presentation-background/). |
+| Xóa một hình dạng khỏi master | Loại bỏ nguồn hình dạng chung, vì vậy nó không còn khả dụng cho bất kỳ slide nào sử dụng master đó. |
+
+## **Làm việc với Placeholder**
+
+Placeholder thường được định nghĩa trên layout slide. Slide master cung cấp kiểu và chủ đề chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholder nào khả dụng và chúng được đặt ở đâu.
 
 Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ xem Slide Master.
 
 ![Lệnh Insert Placeholder trong chế độ xem Slide Master của PowerPoint](slide-master_5.png)
 
-Để thêm placeholder mới bằng Aspose.Slides, làm việc với layout slide thuộc về master:
+Để thêm placeholder mới với Aspose.Slides, làm việc với layout slide thuộc về master:
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Bạn cũng có thể định dạng các hình dạng placeholder đã tồn tại trên slide master. Ví dụ sau tìm placeholder tiêu đề và áp dụng màu nền gradient tuyến tính:
+Bạn cũng có thể định dạng các shape placeholder đã tồn tại trên slide master. Ví dụ sau tìm placeholder tiêu đề và áp dụng màu gradient tuyến tính:
 
 ```python
 import jpype
@@ -216,13 +276,13 @@ finally:
     presentation.dispose()
 ```
 
-![Placeholder tiêu đề đã định dạng được kế thừa bởi các slide bình thường](slide-master_8.png)
+![Placeholder tiêu đề được định dạng và kế thừa bởi các slide thường](slide-master_8.png)
 
-Để biết thêm các tùy chọn định dạng placeholder và văn bản, xem [Đặt Văn bản Nhắc trong Placeholder](/slides/vi/python-java/manage-placeholder/) và [Định dạng Văn bản](/slides/vi/python-java/text-formatting/).
+Để biết thêm các tùy chọn định dạng placeholder và văn bản, xem [Set Prompt Text in Placeholder](/slides/vi/python-java/manage-placeholder/) và [Text Formatting](/slides/vi/python-java/text-formatting/).
 
 ## **Thay đổi nền Slide Master**
 
-Nền master được các layout và slide không ghi đè kế thừa. Ví dụ sau thiết lập màu nền đặc cho slide master đầu tiên:
+Nền master được kế thừa bởi các layout và slide không ghi đè nó. Ví dụ sau đặt màu nền rắn cho slide master đầu tiên:
 
 ```python
 import jpype
@@ -249,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-Đối với các chủ đề liên quan, xem [Nền Presentation](/slides/vi/python-java/presentation-background/) và [Chủ đề Presentation](/slides/vi/python-java/presentation-theme/).
+Đối với các chủ đề liên quan, xem [Presentation Background](/slides/vi/python-java/presentation-background/) và [Presentation Theme](/slides/vi/python-java/presentation-theme/).
 
-## **Sao chép Slide Master sang Bản trình chiếu khác**
+## **Sao chép Slide Master sang bài thuyết trình khác**
 
-Sử dụng [MasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslidecollection/#addClone) để sao chép một slide master vào bản trình chiếu khác. Master đã sao chép sau đó có thể được sử dụng bởi các layout và slide trong bản đích.
+Sử dụng [MasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslidecollection/#addClone) để sao chép một slide master vào một bài thuyết trình khác. Master đã sao chép sau đó có thể được sử dụng bởi các layout và slide trong bài thuyết trình đích.
 
 ```python
 import jpype
@@ -276,11 +336,11 @@ finally:
     destination_presentation.dispose()
 ```
 
-Nếu bạn cần sao chép các slide bình thường cùng với master của chúng, xem [Sao chép Slides](/slides/vi/python-java/clone-slides/).
+Nếu bạn cần sao chép các slide thường cùng với master của chúng, xem mục [Clone Slides](/slides/vi/python-java/clone-slides/).
 
-## **Thêm nhiều Slide Masters**
+## **Thêm nhiều Slide Master**
 
-Một bản trình chiếu có thể chứa nhiều slide master. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc cài đặt chủ đề khác nhau.
+Một bài thuyết trình có thể chứa nhiều slide master. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc cài đặt chủ đề khác nhau.
 
 ![Các lệnh PowerPoint để chèn và quản lý slide master](slide-master_9.jpg)
 
@@ -321,7 +381,7 @@ finally:
 
 ## **So sánh Slide Masters**
 
-Slide master có thể được so sánh bằng phương thức [equals](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#equals) kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/). So sánh kiểm tra cấu trúc và nội dung tĩnh, chẳng hạn hình dạng, văn bản, định dạng, hoạt ảnh và các cài đặt slide khác. Nó không so sánh các định danh duy nhất như ID slide, hoặc các giá trị placeholder động như ngày hiện tại.
+Slide master có thể được so sánh bằng phương thức [equals](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#equals) kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/). So sánh kiểm tra cấu trúc và nội dung tĩnh, chẳng hạn shape, văn bản, định dạng, hoạt ảnh và các cài đặt slide khác. Nó không so sánh các định danh duy nhất như slide ID, hay các giá trị placeholder động như ngày hiện tại.
 
 ```python
 import jpype
@@ -351,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-Để biết thêm thông tin, xem [So sánh Slides trong Presentation](/slides/vi/python-java/compare-slides/).
+Để biết thêm chi tiết, xem mục [Compare Presentation Slides](/slides/vi/python-java/compare-slides/).
 
-## **Đặt chế độ xem Slide Master làm chế độ xem mặc định**
+## **Đặt Slide Master View làm chế độ xem mặc định**
 
-Sử dụng phương thức [setLastView](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#setLastView) trên [ViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/) để điều khiển chế độ mà PowerPoint mở đầu tiên. Ví dụ sau mở bản trình chiếu ở chế độ Slide Master:
+Sử dụng phương thức [setLastView](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#setLastView) trên [ViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/) để điều khiển chế độ xem PowerPoint mở đầu tiên. Ví dụ sau mở bài thuyết trình ở chế độ Slide Master:
 
 ```python
 import jpype
@@ -374,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-Để biết thêm cài đặt chế độ xem, xem [Lưu Presentation](/slides/vi/python-java/save-presentation/).
+Đối với các cài đặt chế độ xem khác, xem mục [Save Presentation](/slides/vi/python-java/save-presentation/).
 
-## **Xóa các Slide Master không dùng**
+## **Xóa các Slide Master không sử dụng**
 
-Đôi khi bản trình chiếu chứa các slide master không còn được bất kỳ slide bình thường nào sử dụng. Xóa các master không dùng có thể giảm kích thước tệp và đơn giản hoá việc bảo trì mẫu.
+Đôi khi bài thuyết trình chứa các slide master không còn được bất kỳ slide thường nào sử dụng. Xóa các master không dùng có thể giảm kích thước file và đơn giản hoá việc bảo trì mẫu.
 
-Sử dụng [removeUnused](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslidecollection/#removeUnused) để xóa các master không dùng khỏi bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters):
+Sử dụng [removeUnused](https://reference.aspose.com/slides/vi/python-java/aspose.slides/masterslidecollection/#removeUnused) để xóa các master không dùng khỏi tập hợp [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters):
 
 ```python
 import jpype
@@ -420,18 +480,18 @@ finally:
 
 ## **Câu hỏi thường gặp**
 
-**Sự khác biệt giữa slide master và layout slide là gì?**
+**Sự khác nhau giữa slide master và layout slide là gì?**
 
-Slide master định nghĩa các cài đặt thiết kế chung như chủ đề, nền, hình dạng chung và kiểu chữ. Layout slide thuộc một slide master và định nghĩa bố cục cụ thể của các placeholder. Slide bình thường sử dụng một layout slide, vì vậy nó kế thừa từ cả layout và master.
+Slide master định nghĩa các cài đặt thiết kế chung như chủ đề, nền, hình dạng chung và kiểu chữ. Layout slide thuộc về một slide master và định nghĩa bố cục cụ thể của các placeholder. Một slide thường sử dụng một layout slide, vì vậy nó kế thừa cả từ layout và master.
 
-**Một bản trình chiếu có thể chứa nhiều slide master không?**
+**Một bài thuyết trình có thể chứa nhiều slide master không?**
 
-Có. Một bản trình chiếu có thể chứa nhiều slide master. Sử dụng nhiều master khi các phần khác nhau cần các hệ thống hình ảnh hoặc thương hiệu khác nhau.
+Có. Một bài thuyết trình có thể chứa nhiều slide master. Sử dụng nhiều master khi các phần khác nhau cần hệ thống hình ảnh hoặc thương hiệu riêng.
 
 **Nên thêm placeholder vào slide master hay layout slide?**
 
-Trong hầu hết các trường hợp, thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh chung và định dạng chung trên slide master, sau đó đặt các placeholder nội dung trên các layout mà slide bình thường sẽ sử dụng.
+Trong hầu hết các trường hợp, thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh và định dạng chung trên slide master, sau đó đặt các placeholder nội dung trên các layout mà các slide thường sẽ dùng.
 
-**Tôi có thể xóa một slide master vẫn đang được sử dụng không?**
+**Có thể xóa một slide master mà vẫn còn được sử dụng không?**
 
-Không. Slide master có các slide phụ thuộc không thể bị xóa trực tiếp một cách an toàn. Đầu tiên hãy chuyển những slide đó sang layout dưới một master khác, hoặc sử dụng phương pháp dọn dẹp master không dùng để chỉ xóa các master không có slide phụ thuộc.
+Không. Slide master có các slide phụ thuộc không thể bị xóa trực tiếp một cách an toàn. Đầu tiên chuyển những slide đó sang layout thuộc master khác, hoặc dùng phương pháp dọn dẹp master không dùng để chỉ xóa các master không còn được sử dụng.

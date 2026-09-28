@@ -1,69 +1,71 @@
 ---
-title: Zastosuj lub zmień układy slajdów w Pythonie
-linktitle: Układ slajdu
+title: "Zastosuj lub zmień układy slajdów w Pythonie"
+linktitle: "Układ slajdu"
 type: docs
 weight: 60
 url: /pl/python-net/slide-layout/
 keywords:
-- układ slajdu
-- układ treści
-- element zastępczy
-- projektowanie prezentacji
-- projektowanie slajdów
-- nieużywany układ
-- widoczność stopki
-- slajd tytułowy
-- tytuł i treść
-- nagłówek sekcji
-- dwie treści
-- porównanie
-- tylko tytuł
-- pusty układ
-- treść z podpisem
-- obraz z podpisem
-- tytuł i pionowy tekst
-- pionowy tytuł i tekst
-- PowerPoint
-- OpenDocument
-- prezentacja
-- Python
-- Aspose.Slides
-description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides dla Pythona za pomocą .NET, dodawaj elementy zastępcze, usuwaj nieużywane układy i kontroluj widoczność stopki."
+- "układ slajdu"
+- "układ treści"
+- "pole zastępcze"
+- "projekt prezentacji"
+- "projekt slajdu"
+- "nieużywany układ"
+- "widoczność stopki"
+- "slajd tytułowy"
+- "tytuł i treść"
+- "nagłówek sekcji"
+- "dwie treści"
+- "porównanie"
+- "tylko tytuł"
+- "pusty układ"
+- "treść z podpisem"
+- "obraz z podpisem"
+- "tytuł i pionowy tekst"
+- "pionowy tytuł i tekst"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentacja"
+- "Python"
+- "Aspose.Slides"
+description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides dla Pythona poprzez .NET, dodawaj pola zastępcze, usuwaj nieużywane układy i kontroluj widoczność stopki."
 ---
 ## **Przegląd**
 
-Układ slajdu określa pozycje i formatowanie elementów zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu zapewnia slajdom spójną strukturę, jednocześnie pozwalając każdemu slajdowi zawierać własną treść.
+Układ slajdu określa pozycje i formatowanie pól zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu zapewnia slajdom spójną strukturę, jednocześnie umożliwiając każdemu slajdowi zawartość indywidualną.
 
-Najbardziej typowe układy to:
+Najczęstsze układy to:
 
-- **Title Slide**: Zawiera elementy zastępcze tytułu i podtytułu.
-- **Title and Content**: Zawiera element zastępczy tytułu oraz ogólnego przeznaczenia element zastępczy treści.
-- **Blank**: Nie zawiera elementów zastępczych treści i jest przydatny, gdy każdy kształt zostanie rozmieszczony ręcznie.
+- **Title Slide**: Zawiera pola zastępcze tytułu i podtytułu.
+- **Title and Content**: Zawiera pole zastępcze tytułu oraz uniwersalne pole zastępcze zawartości.
+- **Blank**: Nie zawiera pól zastępczych treści i jest przydatny, gdy każdy kształt będzie rozmieszczany ręcznie.
 
-## **Zrozum dziedziczenie układów**
+## **Zrozumienie dziedziczenia układów**
 
 Prezentacja ma trzy powiązane poziomy:
 
-1. A [slajd główny](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/) definiuje motyw, współdzielone formatowanie, tła i wspólne obiekty.
-2. A [układ slajdu](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/) należy do slajdu głównego i określa konkretny układ elementów zastępczych.
-3. A [zwykły slajd](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/) używa jednego układu i przechowuje wprowadzoną treść dla tego slajdu.
+1. A [master slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/) definiuje motyw, wspólne formatowanie, tła i wspólne obiekty.
+2. A [layout slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/) należy do mastera i określa konkretny układ pól zastępczych.
+3. A [normal slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/) używa jednego układu i przechowuje wprowadzoną treść tego slajdu.
 
-Zwykły slajd dziedziczy motyw i formatowanie z jego układu, a układ dziedziczy z slajdu głównego. Wartość ustawiona bezpośrednio na zwykłym slajdzie zastępuje dziedziczoną wartość na tym poziomie. Podczas tworzenia zwykłego slajdu, jego kształty elementów zastępczych są generowane na podstawie wybranego układu, podczas gdy wprowadzona treść w tych elementach należy do zwykłego slajdu.
+Normalny slajd dziedziczy motyw i formatowanie z swojego układu, a układ dziedziczy z mastera. Wartość ustawiona bezpośrednio na normalnym slajdzie zastępuje wartość odziedziczoną na tym poziomie. Gdy tworzony jest normalny slajd, jego kształty pól zastępczych są generowane na podstawie wybranego układu, podczas gdy treść wprowadzona w tych polach należy do normalnego slajdu.
 
-Dodaj wymagane elementy zastępcze do układu przed tworzeniem z niego slajdów. Dodanie kolejnego elementu zastępczego do układu później nie spowoduje automatycznego dodania odpowiadającego kształtu elementu do istniejących zwykłych slajdów.
+Dodaj wymagane pola zastępcze do układu przed tworzeniem z niego slajdów. Dodanie kolejnego pola zastępczego do układu później nie dodaje automatycznie odpowiadającego kształtu pola do istniejących normalnych slajdów.
 
 Ta zależność ma dwa ważne konsekwencje:
 
-- Zmiana dziedziczonego formatowania lub geometrii istniejących elementów zastępczych w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu, który jest już używany, sprawdź jego zależne slajdy i przejrzyj powstałą prezentację.
-- Układ, który jest nadal używany przez slajd, nie może zostać usunięty. Przypisz najpierw zależne slajdy do innego układu lub usuń tylko nieużywane układy.
+- Zmiana dziedziczonego formatowania lub istniejącej geometrii pól zastępczych w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu już używanego, sprawdź jego zależne slajdy i przejrzyj powstałą prezentację.
+- Układ, który jest nadal używany przez którykolwiek slajd, nie może zostać usunięty. Najpierw przypisz zależne slajdy do innego układu lub usuń tylko nieużywane układy.
 
-Po więcej informacji o najwyższym poziomie tej hierarchii zobacz [Slajd główny](/slides/pl/python-net/slide-master/).
+Aby uzyskać więcej informacji o najwyższym poziomie tej hierarchii, zobacz [Slide Master](/slides/pl/python-net/slide-master/).
 
-## **Wybierz i zastosuj układ slajdu**
+Aby ukryć dziedziczone loga lub dekoracyjne kształty mastera na jednym slajdzie lub poprzez współdzielony układ, zobacz [Control the Visibility of Master Graphics](/slides/pl/python-net/slide-master/). Przykład porównuje dwa slajdy używające tego samego mastera.
 
-Używaj typu układu, gdy prezentacja podąża za standardowymi definicjami układów PowerPoint. Nazwy układów można edytować i są lokalizowalne, więc wybór oparty na nazwie jest mniej niezawodny, chyba że kontrolujesz szablon źródłowy.
+## **Wybór i zastosowanie układu slajdu**
 
-Poniższy przykład wyszukuje **Title and Content** w pierwszym slajdzie głównym. Jeśli ten układ jest niedostępny, celowo przechodzi do **Blank**. Drugi test na null jest potrzebny, ponieważ prezentacja może zawierać wyłącznie niestandardowe układy. Wybrany układ jest następnie zastosowany do pierwszego zwykłego slajdu za pośrednictwem właściwości [Slide.layout_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/layout_slide/).
+Używaj typu układu, gdy prezentacja podąża za standardowymi definicjami układów PowerPointa. Nazwy układów można edytować i mogą być lokalizowane, dlatego wybór na podstawie nazwy jest mniej niezawodny, chyba że kontrolujesz szablon źródłowy.
+
+Poniższy przykład szuka **Title and Content** w pierwszym masterze. Jeśli ten układ jest niedostępny, celowo przechodzi do **Blank**. Drugi warunek null jest konieczny, ponieważ prezentacja może zawierać tylko układy niestandardowe. Wybrany układ jest następnie stosowany do pierwszego normalnego slajdu za pośrednictwem właściwości [Slide.layout_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/layout_slide/).
 
 ```python
 import aspose.slides as slides
@@ -82,13 +84,13 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje elementów zastępczych, dziedziczone formatowanie oraz powiązania między istniejącymi elementami a nowym układem mogą ulec zmianie, dlatego należy sprawdzić wynik przy przełączaniu między znacznie różnymi układami.
+Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje pól zastępczych, dziedziczone formatowanie i zgodność istniejących pól z nowym układem mogą się zmienić, dlatego należy sprawdzić wynik przy przełączaniu między znacznie różnymi układami.
 
-## **Dodaj układ slajdu**
+## **Dodawanie układu slajdu**
 
-Wybór i tworzenie to oddzielne operacje. Poprzedni przykład wybiera istniejący układ; nie tworzy nowego. Aby utworzyć układ, wywołaj metodę [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterlayoutslidecollection/add/) na kolekcji układów docelowego slajdu głównego.
+Wybór i tworzenie to oddzielne operacje. Poprzedni przykład wybiera istniejący układ; nie tworzy go. Aby utworzyć układ, wywołaj metodę [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterlayoutslidecollection/add/) na kolekcji układów docelowego mastera.
 
-Poniższy przykład zawsze dodaje nowy układ **Title and Content** o nazwie `Report Title and Content`, a następnie dodaje zwykły slajd oparty na tym układzie. Nazwy układów muszą być unikalne w kolekcji.
+Poniższy przykład zawsze dodaje nowy układ **Title and Content** o nazwie `Report Title and Content`, a następnie dodaje normalny slajd oparty na tym układzie. Nazwy układów muszą być unikalne w kolekcji.
 
 ```python
 import aspose.slides as slides
@@ -101,26 +103,26 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dodawaj układ tylko wtedy, gdy szablon rzeczywiście potrzebuje kolejnej wielokrotnego użytku struktury. Jeśli odpowiedni układ już istnieje, wybierz i użyj go ponownie zamiast tworzyć duplikat.
+Dodawaj układ tylko wtedy, gdy szablon naprawdę potrzebuje kolejnej struktury wielokrotnego użytku. Jeśli odpowiedni układ już istnieje, wybierz i użyj go ponownie zamiast tworzyć duplikat.
 
-## **Dodaj elementy zastępcze do układu slajdu**
+## **Dodawanie pól zastępczych do układu slajdu**
 
-Właściwość [LayoutSlide.placeholder_manager] zapewnia [LayoutPlaceholderManager] do dodawania kształtów elementów zastępczych do układu.
+Właściwość [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/placeholder_manager/) udostępnia [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/) do dodawania kształtów pól zastępczych do układu.
 
-| Element zastępczy PowerPoint       | Metoda LayoutPlaceholderManager |
-| ---------------------------------- | -------------------------------- |
-| ![Treść](content.png)              | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
-| ![Treść (pionowa)](contentV.png)   | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
-| ![Tekst](text.png)                 | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
-| ![Tekst (pionowa)](textV.png)      | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
-| ![Obraz](picture.png)              | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
-| ![Wykres](chart.png)               | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
-| ![Tabela](table.png)               | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
-| ![SmartArt](smartart.png)          | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
-| ![Media](media.png)                | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
-| ![Obraz online](onlineImage.png)   | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
+| Placeholder programu PowerPoint | Metoda `LayoutPlaceholderManager` |
+| ----------------------------------- | --------------------------------- |
+| ![Zawartość](content.png)             | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![Zawartość (pionowa)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Tekst](text.png)                   | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Tekst (pionowy)](textV.png)       | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Obraz](picture.png)             | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Wykres](chart.png)                 | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Tabela](table.png)                 | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Multimedia](media.png)                 | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Obraz online](onlineImage.png)    | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Poniższy przykład weryfikuje, czy układ **Blank** istnieje, dodaje do niego cztery elementy zastępcze, a następnie tworzy zwykły slajd używający zmodyfikowanego układu. Kolejność jest zamierzona: elementy są dodawane przed utworzeniem zwykłego slajdu, dzięki czemu Aspose.Slides może wygenerować odpowiadające kształty elementów na tym slajdzie.
+Poniższy przykład weryfikuje, czy układ **Blank** istnieje, dodaje do niego cztery pola zastępcze, a następnie tworzy normalny slajd wykorzystujący zmodyfikowany układ. Kolejność jest zamierzona: pola są dodawane przed utworzeniem slajdu, co pozwala Aspose.Slides wygenerować odpowiadające im kształty na tym slajdzie.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +145,15 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Elementy zastępcze na slajdzie układu](add_placeholders.png)
+![Pola zastępcze na slajdzie układu](add_placeholders.png)
 
-{{% alert color="warning" title="Ostrzeżenie" %}}
-Zmiana dziedziczonego formatowania lub geometrii istniejących elementów zastępczych układu może wpływać na zależne slajdy. Nowo dodany element nie jest automatycznie wstawiany do istniejących zwykłych slajdów. Testuj zmiany układu na kopii prezentacji i sprawdzaj każdy zależny slajd.
+{{% alert color="warning" title="Warning" %}}
+Zmiana dziedziczonego formatowania lub geometrii istniejących pól zastępczych w układzie może wpłynąć na slajdy zależne. Nowo dodane pole zastępcze nie jest automatycznie wstawiane do istniejących normalnych slajdów. Testuj zmiany układów na kopii prezentacji i sprawdź każdy slajd zależny.
 {{% /alert %}}
 
-## **Usuń nieużywane układy slajdów**
+## **Usuwanie nieużywanych układów slajdów**
 
-Użyj metody [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) aby usunąć układy, do których nie odwołuje żaden zwykły slajd. Metoda pozostawia nienaruszone układy wciąż używane.
+Użyj metody [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) aby usunąć układy, do których nie odwołuje żaden normalny slajd. Metoda pozostawia nienaruszone układy nadal używane.
 
 ```python
 import aspose.slides as slides
@@ -161,11 +163,11 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aby usunąć konkretny układ, najpierw skorzystaj z jego właściwości [has_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/has_depending_slides/) lub metody [get_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/get_depending_slides/). Przypisz zależne slajdy przed wywołaniem [LayoutSlide.remove](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/remove/). Próba usunięcia używanego układu wywołuje [PptxEditException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxeditexception/).
+Aby usunąć konkretny układ, najpierw użyj jego właściwości [has_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/has_depending_slides/) lub metody [get_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/get_depending_slides/). Przypisz zależne slajdy przed wywołaniem [LayoutSlide.remove](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/remove/). Próba usunięcia używanego układu generuje [PptxEditException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxeditexception/).
 
-## **Sterowanie widocznością stopki w układzie slajdu**
+## **Kontrola widoczności stopki na układzie slajdu**
 
-Układ ma własne elementy zastępcze stopki, numeru slajdu i daty/godziny. Użyj właściwości [LayoutSlide.header_footer_manager] aby kontrolować te elementy dla jednego układu. Jest to przydatne, gdy na przykład układy treści powinny wyświetlać stopki, a układy tytułów nie powinny.
+Układ ma własne pola zastępcze stopki, numeru slajdu i daty/godziny. Użyj właściwości [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/header_footer_manager/) aby kontrolować te pola dla jednego układu. Jest to przydatne, gdy na przykład układy zawartości mają wyświetlać stopki, a układy tytułowe nie powinny.
 
 ```python
 import aspose.slides as slides
@@ -189,9 +191,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sterowanie widocznością stopki w slajdzie głównym i jego układach potomnych**
+## **Kontrola widoczności stopki w masterze i jego układach podrzędnych**
 
-Aby zastosować spójne ustawienia stopki w całej hierarchii slajdu głównego, użyj właściwości [MasterSlide.header_footer_manager]. Metody propagacji [MasterSlideHeaderFooterManager] działają na slajdzie głównym oraz jego zależnych układach i zwykłych slajdach; nie dotyczą pojedynczego zwykłego slajdu.
+Aby zastosować spójne ustawienia stopki w całej hierarchii mastera, użyj właściwości [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/header_footer_manager/). Metody propagacji [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslideheaderfootermanager/) działają na masterze oraz jego zależnych układach i normalnych slajdach; nie dotyczą jednego pojedynczego normalnego slajdu.
 
 ```python
 import aspose.slides as slides
@@ -209,18 +211,18 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **FAQ**
 
-**Jaka jest różnica między slajdem głównym a układem slajdu?**
+**Jaka jest różnica między master slajdem a układem slajdu?**
 
-Slajd główny definiuje motyw prezentacji i współdzielone formatowanie. Układ slajdu należy do slajdu głównego i określa jedną wielokrotnego użytku kombinację elementów zastępczych. Zwykłe slajdy używają tych układów i przechowują treść specyficzną dla slajdu.
+Master slajd definiuje motyw prezentacji i wspólne formatowanie. Układ slajdu należy do mastera i definiuje jedną wielokrotnego użytku konfigurację pól zastępczych. Normalne slajdy używają tych układów i przechowują treść specyficzną dla slajdu.
 
 **Czy mogę skopiować układ slajdu z jednej prezentacji do drugiej?**
 
-Tak. Dodaj kopię do docelowej kolekcji za pomocą metody [add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Przy kopiowaniu między prezentacjami zweryfikuj także czcionki, motywy, obrazy i inne zasoby używane przez źródłowy układ.
+Tak. Dodaj kopię do docelowej kolekcji metodą [add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Przy kopiowaniu między prezentacjami sprawdź także czcionki, motywy, obrazy i inne zasoby używane przez źródłowy układ.
 
 **Co się stanie, gdy zmodyfikuję układ, który jest już używany?**
 
-Zależne slajdy dziedziczą zmiany układu, chyba że nadpisują dotknięte formatowanie lub obiekty lokalnie. Geometria elementów zastępczych i dziedziczony styl mogą więc zmienić się jednocześnie na wielu slajdach. Użyj [get_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/get_depending_slides/) aby zidentyfikować dotknięte slajdy przed edycją układu.
+Slajdy zależne dziedziczą zmiany układu, chyba że nadpisują zmienione formatowanie lub obiekty lokalnie. Geometria pól zastępczych i dziedziczone style mogą więc zmienić się jednocześnie na wielu slajdach. Użyj [get_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/get_depending_slides/) aby zidentyfikować dotknięte slajdy przed edycją układu.
 
 **Co się stanie, jeśli usunę układ, który jest nadal używany?**
 
-Aspose.Slides podnosi [PptxEditException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy do innego układu lub użyj [remove_unused_layout_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) aby usunąć tylko nieodwołane układy.
+Aspose.Slides generuje [PptxEditException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy do innego układu lub użyj [remove_unused_layout_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) aby usunąć wyłącznie nieodwoływane układy.

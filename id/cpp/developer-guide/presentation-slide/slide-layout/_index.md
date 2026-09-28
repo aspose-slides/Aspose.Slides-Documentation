@@ -1,16 +1,16 @@
 ---
-title: Terapkan atau Ubah Layout Slide di C++
-linktitle: Layout Slide
+title: Terapkan atau Ubah Tata Letak Slide dalam C++
+linktitle: Tata Letak Slide
 type: docs
 weight: 60
 url: /id/cpp/slide-layout/
 keywords:
-- layout slide
-- layout konten
+- tata letak slide
+- tata letak konten
 - placeholder
 - desain presentasi
 - desain slide
-- layout tidak terpakai
+- tata letak tidak terpakai
 - visibilitas footer
 - slide judul
 - judul dan konten
@@ -18,7 +18,7 @@ keywords:
 - dua konten
 - perbandingan
 - hanya judul
-- layout kosong
+- tata letak kosong
 - konten dengan keterangan
 - gambar dengan keterangan
 - judul dan teks vertikal
@@ -28,42 +28,44 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Terapkan, buat, dan modifikasi layout slide dalam Aspose.Slides untuk C++, tambahkan placeholder, hapus layout yang tidak terpakai, dan kontrol visibilitas footer."
+description: "Terapkan, buat, dan modifikasi tata letak slide dalam Aspose.Slides untuk C++, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
 ---
 ## **Gambaran Umum**
 
-Layout slide mendefinisikan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan layout memberikan slide struktur yang konsisten sekaligus memungkinkan setiap slide berisi kontennya sendiri.
+Tata letak slide mendefinisikan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberikan slide struktur yang konsisten sambil memungkinkan setiap slide berisi kontennya masing‑masing.
 
-Layout yang paling umum meliputi:
+Tata letak yang paling umum meliputi:
 
-- **Slide Judul**: Berisi placeholder judul dan subjudul.
-- **Judul dan Konten**: Berisi placeholder judul dan placeholder konten serbaguna.
-- **Kosong**: Tidak berisi placeholder konten dan berguna ketika setiap bentuk akan diposisikan secara manual.
+- **Title Slide**: Berisi placeholder judul dan subjudul.
+- **Title and Content**: Berisi placeholder judul dan placeholder konten umum.
+- **Blank**: Tidak berisi placeholder konten dan berguna ketika setiap bentuk akan diposisikan secara manual.
 
-## **Memahami Pewarisan Layout**
+## **Memahami Pewarisan Tata Letak**
 
 Sebuah presentasi memiliki tiga tingkat terkait:
 
-1. A [slide master](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
-1. A [layout slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/) termasuk dalam sebuah master dan mendefinisikan susunan placeholder tertentu.
-1. A [normal slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/) menggunakan satu layout dan menyimpan konten yang dimasukkan untuk slide tersebut.
+1. Sebuah [master slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
+1. Sebuah [layout slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/) merupakan bagian dari master dan mendefinisikan susunan placeholder tertentu.
+1. Sebuah [normal slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-Sebuah normal slide mewarisi tema dan pemformatan dari layoutnya, dan layout mewarisi dari masternya. Nilai yang ditetapkan langsung pada slide normal akan menggantikan nilai yang diwariskan pada tingkat tersebut. Ketika sebuah normal slide dibuat, bentuk placeholder‑nya dihasilkan dari layout yang dipilih, sedangkan konten yang dimasukkan ke dalam placeholder tersebut menjadi milik slide normal.
+Sebuah normal slide mewarisi tema dan pemformatan dari tata letaknya, dan tata letak mewarisi dari master‑nya. Nilai yang ditetapkan langsung pada normal slide akan menggantikan nilai yang diwarisi pada tingkat tersebut. Ketika normal slide dibuat, bentuk placeholder‑nya dihasilkan dari tata letak yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik normal slide.
 
-Tambahkan placeholder yang diperlukan ke layout sebelum membuat slide darinya. Menambahkan placeholder lain ke layout kemudian tidak secara otomatis menambahkan bentuk placeholder yang bersesuaian ke slide normal yang sudah ada.
+Tambahkan placeholder yang diperlukan ke tata letak sebelum membuat slide darinya. Menambahkan placeholder lain ke tata letak nanti tidak secara otomatis menambahkan bentuk placeholder yang sesuai ke slide normal yang sudah ada.
 
 Hubungan ini memiliki dua konsekuensi penting:
 
-- Mengubah pemformatan yang diwariskan atau geometri placeholder yang ada pada layout dapat memperbarui setiap slide yang bergantung padanya. Sebelum menyunting layout yang sudah digunakan, periksa slide‑slide yang bergantung dan tinjau presentasi yang dihasilkan.
-- Layout yang masih digunakan oleh sebuah slide tidak dapat dihapus. Pindahkan slide‑slide yang bergantung ke layout lain terlebih dahulu, atau hapus hanya layout yang tidak digunakan.
+- Mengubah pemformatan yang diwarisi atau geometri placeholder yang ada pada tata letak dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit tata letak yang sudah digunakan, periksa slide‑slide yang bergantung padanya dan tinjau presentasi yang dihasilkan.
+- Tata letak yang masih digunakan oleh slide tidak dapat dihapus. Alihkan slide‑slide yang bergantung padanya ke tata letak lain terlebih dahulu, atau hapus hanya tata letak yang tidak digunakan.
 
-Untuk info lebih lanjut tentang tingkat atas hierarki ini, lihat [Slide Master](/slides/id/cpp/slide-master/).
+Untuk informasi lebih lanjut tentang tingkat atas hierarki ini, lihat [Slide Master](/slides/id/cpp/slide-master/).
 
-## **Pilih dan Terapkan Layout Slide**
+Untuk menyembunyikan logo yang diwarisi atau bentuk master dekoratif pada satu slide atau melalui tata letak bersama, lihat [Control the Visibility of Master Graphics](/slides/id/cpp/slide-master/). Contoh membandingkan dua slide yang menggunakan master yang sama.
 
-Gunakan tipe layout ketika presentasi mengikuti definisi layout PowerPoint standar. Nama layout dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berdasarkan nama kurang dapat diandalkan kecuali Anda mengontrol templat sumber.
+## **Pilih dan Terapkan Tata Letak Slide**
 
-Contoh berikut mencari **Judul dan Konten** pada master pertama. Jika layout tersebut tidak tersedia, secara sengaja beralih ke **Kosong**. Pemeriksaan null kedua diperlukan karena presentasi dapat berisi hanya layout khusus. Layout yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/set_layoutslide/).
+Gunakan tipe tata letak ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama tata letak dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berbasis nama kurang dapat diandalkan kecuali Anda mengontrol templat sumber.
+
+Contoh berikut mencari **Title and Content** pada master pertama. Jika tata letak tersebut tidak tersedia, secara sengaja beralih ke **Blank**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya tata letak khusus. Tata letak yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Mengubah layout sebuah slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwariskan, dan korespondensi antara placeholder yang ada dengan layout baru dapat berubah, jadi periksa output ketika beralih antara layout yang sangat berbeda.
+Mengubah tata letak slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwarisi, dan kesesuaian antara placeholder yang ada dengan tata letak baru dapat berubah, sehingga periksa output saat beralih antara tata letak yang sangat berbeda.
 
-## **Tambahkan Layout Slide**
+## **Tambah Tata Letak Slide**
 
-Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih layout yang ada; ia tidak membuat yang baru. Untuk membuat layout, panggil metode [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterlayoutslidecollection/add/) pada koleksi layout master target.
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih tata letak yang ada; tidak membuat yang baru. Untuk membuat tata letak, panggil metode [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterlayoutslidecollection/add/) pada koleksi tata letak master target.
 
-Contoh berikut selalu menambahkan layout **Judul dan Konten** baru bernama `Report Title and Content`, lalu menambahkan slide normal berdasarkan layout tersebut. Nama layout harus unik dalam koleksi.
+Contoh berikut selalu menambahkan tata letak **Title and Content** baru dengan nama `Report Title and Content`, kemudian menambahkan slide normal berdasarkan tata letak tersebut. Nama tata letak harus unik dalam koleksi.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Tambahkan layout hanya ketika templat memang membutuhkan struktur dapat dipakai ulang lainnya. Jika layout yang cocok sudah ada, pilih dan gunakan kembali alih‑alih membuat duplikat.
+Tambahkan tata letak hanya ketika templat memang membutuhkan struktur yang dapat digunakan kembali. Jika tata letak yang cocok sudah ada, pilih dan gunakan kembali alih‑alih membuat duplikat.
 
-## **Tambahkan Placeholder ke Layout Slide**
+## **Tambah Placeholder ke Tata Letak Slide**
 
-Metode [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) menyediakan sebuah [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/) untuk menambahkan bentuk placeholder ke layout.
+Metode [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) menyediakan sebuah [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/) untuk menambahkan bentuk placeholder ke tata letak.
 
 | Placeholder PowerPoint               | `ILayoutPlaceholderManager` Method |
-| ------------------------------------ | ---------------------------------- |
-| ![Konten](content.png)               | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![Konten (Vertikal)](contentV.png)   | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![Teks](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![Teks (Vertikal)](textV.png)        | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![Gambar](picture.png)               | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![Diagram](chart.png)                | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![Tabel](table.png)                  | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)            | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![Media](media.png)                  | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Gambar Online](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| ----------------------------------- | ---------------------------------- |
+| ![Konten](content.png)             | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Konten (Vertikal)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Teks](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Teks (Vertikal)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Gambar](picture.png)             | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Diagram](chart.png)               | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabel](table.png)                 | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Gambar Daring](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Contoh berikut memverifikasi bahwa layout **Kosong** ada, menambahkan empat placeholder ke dalamnya, lalu membuat slide normal yang menggunakan layout yang dimodifikasi. Urutan dibuat sengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang bersesuaian pada slide tersebut.
+Contoh berikut memverifikasi bahwa tata letak **Blank** ada, menambahkan empat placeholder ke dalamnya, dan kemudian membuat slide normal yang menggunakan tata letak yang dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang sesuai pada slide tersebut.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -190,15 +192,15 @@ presentation->Dispose();
 
 Hasil:
 
-![Placeholder pada layout slide](add_placeholders.png)
+![Placeholder pada tata letak slide](add_placeholders.png)
 
-{{% alert color="warning" title="Peringatan" %}}
-Mengubah pemformatan yang diwariskan atau geometri placeholder layout yang ada dapat memengaruhi slide‑slide yang bergantung. Placeholder layout yang baru ditambahkan tidak secara otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan layout pada salinan presentasi dan periksa setiap slide yang bergantung.
+{{% alert color="warning" title="Warning" %}}
+Mengubah pemformatan yang diwarisi atau geometri placeholder tata letak yang ada dapat memengaruhi slide yang bergantung. Placeholder tata letak yang baru ditambahkan tidak secara otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan tata letak pada salinan presentasi dan periksa setiap slide yang bergantung.
 {{% /alert %}}
 
-## **Hapus Layout Slide yang Tidak Digunakan**
+## **Hapus Tata Letak Slide yang Tidak Digunakan**
 
-Gunakan metode [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) untuk menghapus layout yang tidak direferensikan oleh slide normal mana pun. Metode ini membiarkan layout yang masih dipakai tetap utuh.
+Gunakan metode [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) untuk menghapus tata letak yang tidak direferensikan oleh slide normal mana pun. Metode ini membiarkan tata letak yang masih digunakan tetap utuh.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,11 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Untuk menghapus satu layout tertentu, pertama gunakan metode [get_HasDependingSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) atau [GetDependingSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/getdependingslides/). Pindahkan slide‑slide yang bergantung sebelum memanggil [ILayoutSlide::Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/remove/). Mencoba menghapus layout yang masih digunakan akan menghasilkan [PptxEditException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxeditexception/).
+Untuk menghapus satu tata letak tertentu, pertama gunakan metode [get_HasDependingSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) atau [GetDependingSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/getdependingslides/). Alihkan slide yang bergantung sebelum memanggil [ILayoutSlide::Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/remove/). Mencoba menghapus tata letak yang masih digunakan akan menimbulkan [PptxEditException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxeditexception/).
 
-## **Kontrol Visibilitas Footer pada Layout Slide**
+## **Kontrol Visibilitas Footer pada Tata Letak Slide**
 
-Sebuah layout memiliki footer, nomor slide, dan placeholder tanggal‑waktu miliknya sendiri. Gunakan metode [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) untuk mengontrol placeholder‑placeholder tersebut pada satu layout. Ini berguna ketika, misalnya, layout konten harus menampilkan footer tetapi layout judul tidak.
+Sebuah tata letak memiliki footer, nomor slide, dan placeholder tanggal‑waktu sendiri. Gunakan metode [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) untuk mengontrol placeholder tersebut pada satu tata letak. Ini berguna ketika, misalnya, tata letak konten harus menampilkan footer tetapi tata letak judul tidak.
+
+Contoh berikut memilih tata letak dengan aman dan membuat elemen footernya terlihat:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -263,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Kontrol Visibilitas Footer pada Master dan Layout Anak-nya**
+## **Kontrol Visibilitas Footer pada Master dan Tata Letak Anak‑nya**
 
-Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Metode propagasi dari [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslideheaderfootermanager/) beroperasi pada master serta layout slide dan slide normal yang bergantung; mereka tidak menargetkan hanya satu slide normal.
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Metode propagasi dari [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslideheaderfootermanager/) beroperasi pada master serta tata letak slide dan slide normal yang bergantung; mereka tidak menargetkan hanya satu slide normal.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -293,18 +297,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Apa Perbedaan antara Slide Master dan Layout Slide?**
+**Apa Perbedaan antara Master Slide dan Layout Slide?**
 
-Slide master mendefinisikan tema dan pemformatan bersama untuk seluruh presentasi. Layout slide termasuk dalam master dan mendefinisikan satu susunan placeholder yang dapat dipakai ulang. Slide normal menggunakan layout tersebut dan menyimpan konten khusus slide.
+Sebuah master slide mendefinisikan tema presentasi dan pemformatan bersama. Sebuah layout slide merupakan bagian dari master dan mendefinisikan satu susunan placeholder yang dapat digunakan kembali. Slide normal menggunakan tata letak tersebut dan menyimpan konten spesifik slide.
 
-**Bisakah Saya Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
+**Apakah Saya Dapat Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
 
-Ya. Tambahkan salinan ke koleksi tujuan dengan metode [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Saat menyalin antar presentasi, pastikan juga memeriksa font, tema, gambar, dan sumber daya lain yang digunakan oleh layout sumber.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Saat menyalin antar presentasi, juga verifikasi font, tema, gambar, dan sumber daya lain yang digunakan oleh layout sumber.
 
-**Apa yang Terjadi Ketika Saya Memodifikasi Layout yang Sudah Digunakan?**
+**Apa yang Terjadi Jika Saya Memodifikasi Layout yang Sudah Digunakan?**
 
-Slide‑slide yang bergantung mewarisi perubahan layout kecuali mereka menimpa pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan gaya yang diwariskan dapat berubah pada banyak slide sekaligus. Gunakan [GetDependingSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/getdependingslides/) untuk mengidentifikasi slide yang terpengaruh sebelum menyunting layout.
+Slide yang bergantung mewarisi perubahan layout kecuali mereka menimpa pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan styling yang diwarisi dapat berubah pada banyak slide sekaligus. Gunakan [GetDependingSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/getdependingslides/) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit layout.
 
 **Apa yang Terjadi Jika Saya Menghapus Layout yang Masih Digunakan?**
 
-Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxeditexception/). Pindahkan slide‑slide yang bergantung terlebih dahulu, atau gunakan [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) untuk menghapus hanya layout yang tidak direferensikan.
+Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) untuk menghapus hanya layout yang tidak direferensikan.

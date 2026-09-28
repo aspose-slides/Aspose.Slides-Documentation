@@ -1,58 +1,56 @@
 ---
-title: "Zarządzanie masterami slajdów prezentacji w Pythonie via Java"
-linktitle: "Master slajdu"
+title: Zarządzanie mistrzami slajdów w prezentacji w Pythonie poprzez Java
+linktitle: Mistrz slajdu
 type: docs
 weight: 70
 url: /pl/python-java/slide-master/
 keywords:
-- master slajdu
-- master slajd
-- master slajd PPT
-- wiele master slajdów
-- porównaj master slajdy
+- mistrz slajdu
+- slajd mistrza
+- slajd mistrza PPT
+- wiele slajdów mistrza
+- porównanie slajdów mistrza
 - tło
-- placeholder
-- klonuj master slajd
-- kopiuj master slajd
-- zduplikuj master slajd
-- nieużywany master slajd
+- znacznik zastępczy
+- klonowanie slajdu mistrza
+- kopiowanie slajdu mistrza
+- duplikowanie slajdu mistrza
+- nieużywany slajd mistrza
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Zarządzaj master slajdami w Aspose.Slides dla Pythona via Java: dostęp, edycja, klonowanie, porównywanie i usuwanie master slajdów w prezentacjach PowerPoint i OpenDocument."
+description: "Zarządzaj mistrzami slajdów w Aspose.Slides dla Pythona poprzez Java: uzyskuj dostęp, edytuj, klonuj, porównuj i usuwaj slajdy mistrza w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-A **slide master** definiuje wspólne ustawienia projektowe dla grupy slajdów. Może zawierać wspólne kształty, logotypy, tła, style tekstu, ustawienia motywu i stopki. W programie PowerPoint edycja slide mastera jest typowym sposobem utrzymania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
+**Mistrz slajdów** definiuje wspólne ustawienia projektu dla grupy slajdów. Może zawierać wspólne kształty, loga, tła, style tekstu, ustawienia motywu i stopki. W programie PowerPoint edytowanie **Mistrza slajdów** jest typowym sposobem utrzymania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
 
-Aspose.Slides for Python via Java obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej master slajdów, a każdy master slajd może zawierać kilka layout slajdów. Zwykłe slajdy zazwyczaj nie odwołują się bezpośrednio do master slajdu. Zamiast tego zwykły slajd używa layout slajdu, a ten layout slajd należy do master slajdu.
+Aspose.Slides for Python via Java obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej mistrzów slajdów, a każdy mistrz slajdu może zawierać kilka slajdów układu. Normalne slajdy zazwyczaj nie odwołują się bezpośrednio do mistrza slajdu. Zamiast tego normalny slajd używa slajdu układu, który należy do mistrza slajdu.
 
 Hierarchia jest:
 
-1. **Slide master** – definiuje współdzielony projekt i motyw.  
-1. **Layout slide** – definiuje określone rozmieszczenie placeholderów i formatowanie na poziomie układu.  
-1. **Normal slide** – zawiera rzeczywistą treść prezentacji i używa jednego layout slajdu.
+1. **Mistrz slajdów** – określa wspólny projekt i motyw.
+1. **Slajd układu** – definiuje określone rozmieszczenie kontrolek zastępczych i formatowanie na poziomie układu.
+1. **Normalny slajd** – zawiera rzeczywistą treść prezentacji i używa jednego slajdu układu.
 
-![Hierarchia master slajdów, layout slajdów i zwykłych slajdów](slide-master_2.jpg)
+![Hierarchia mistrzów slajdów, slajdów układu i normalnych slajdów](slide-master_2.jpg)
 
-W Aspose.Slides master slajd jest reprezentowany przez klasę [MasterSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/). Wszystkie master slajdy w prezentacji są dostępne poprzez kolekcję [Presentation.getMasters](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getMasters), która jest reprezentowana przez [MasterSlideCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslidecollection/).
+W Aspose.Slides, mistrz slajdu jest reprezentowany przez klasę [MasterSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/). Wszystkie mistrze slajdów w prezentacji są dostępne poprzez kolekcję [Presentation.getMasters](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getMasters), którą reprezentuje [MasterSlideCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-
-When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/pl/python-java/slide-layout/).
-
+Gdy to samo właściwość jest zdefiniowane na więcej niż jednym poziomie, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli mistrz slajdu i slajd układu oba definiują tło, slajdy oparte na tym układzie używają tła układu. Aby uzyskać więcej informacji o slajdach układu, zobacz [Apply or Change Slide Layouts](/slides/pl/python-java/slide-layout/).
 {{% /alert %}}
 
-## **Dostęp do master slajdów**
+## **Dostęp do mistrzów slajdów**
 
-W programie PowerPoint można otworzyć widok **Slide Master** z **View** > **Slide Master**.
+W programie PowerPoint można otworzyć widok **Mistrz** > **Mistrz slajdów** w zakładce **Widok**.
 
-![Polecenie Slide Master na karcie View w PowerPoint](slide-master_3.jpg)
+![Polecenie Mistrz slajdów na karcie Widok w PowerPoint](slide-master_3.jpg)
 
-W Aspose.Slides użyj kolekcji [Presentation.getMasters](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getMasters), aby uzyskać dostęp do master slajdów:
+W Aspose.Slides użyj kolekcji [Presentation.getMasters](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getMasters), aby uzyskać dostęp do mistrzów slajdów:
 
 ```python
 import jpype
@@ -75,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-Możesz również pobrać master slajd używany przez zwykły slajd poprzez jego layout:
+Możesz także uzyskać mistrza slajdu używanego przez normalny slajd poprzez jego układ:
 
 ```python
 import jpype
@@ -98,26 +96,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Co zawiera master slajd**
+## **Co zawiera mistrz slajdu**
 
-Master slajd jest obiektem podobnym do slajdu. Dziedziczy z [BaseSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez zwykłe i layout slajdy. Specyficzne dla mastera członki są wymienione na stronie API [MasterSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/).
+Mistrz slajdu jest obiektem podobnym do slajdu. Dziedziczy po [BaseSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez normalne i układowe slajdy. Członki specyficzne dla mistrza są wymienione na stronie API [MasterSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/).
 
-Często używane członki master slajdu obejmują:
+Powszechnie używane członki mistrza slajdu obejmują:
 
 | Członek | Cel |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getBackground) | Ustawia tło slajdu na poziomie mastera. |
-| [getShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getShapes) | Przechowuje kształty umieszczone na masterze, takie jak logotypy, ramki obrazów i wspólny tekst. |
-| [getLayoutSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getLayoutSlides) | Przechowuje layout slajdy, które należą do mastera. |
-| [getThemeManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getThemeManager) | Udostępnia dostęp do API motywu mastera. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Kontroluje nagłówki, stopki, daty i numery slajdów dla mastera i jego układów podrzędnych. |
-| [getDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getDependingSlides) | Zwraca zwykłe slajdy zależne od mastera poprzez ich layouty. |
+| [getBackground](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getBackground) | Ustawia tło slajdu na poziomie mistrza. |
+| [getShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getShapes) | Przechowuje kształty umieszczone na mistrzu, takie jak loga, ramki obrazów i współdzielony tekst. |
+| [getLayoutSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getLayoutSlides) | Przechowuje slajdy układu należące do mistrza. |
+| [getThemeManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getThemeManager) | Umożliwia dostęp do interfejsów API motywu mistrza. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Kontroluje nagłówki, stopki, daty i numery slajdów dla mistrza i jego podrzędnych układów. |
+| [getDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getDependingSlides) | Zwraca normalne slajdy zależne od mistrza poprzez ich układy. |
 
-## **Dodaj obraz do master slajdu**
+## **Dodaj obraz do mistrza slajdu**
 
-Gdy dodasz obraz do master slajdu, pojawi się on na slajdach korzystających z layoutów z tego mastera. Jest to przydatne w przypadku logotypów, znaków wodnych, dekoracyjnych pasów i innych powtarzalnych elementów wizualnych.
+Gdy dodasz obraz do mistrza slajdu, pojawia się on na slajdach, które używają układów z tego mistrza. Jest to przydatne dla logotypów, znaków wodnych, dekoracyjnych pasów i innych powtarzających się elementów wizualnych.
 
-Poniższy przykład dodaje logo do pierwszego master slajdu:
+Poniższy przykład dodaje logo do pierwszego mistrza slajdu:
 
 ```python
 import jpype
@@ -143,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-Po więcej informacji o ramkach obrazów zobacz [Picture Frame](/slides/pl/python-java/picture-frame/).
+Aby uzyskać więcej informacji o ramach obrazów, zobacz [Picture Frame](/slides/pl/python-java/picture-frame/).
 
-## **Praca z placeholderami**
+## **Kontroluj widoczność grafiki mistrza**
 
-Placeholdery są zazwyczaj definiowane na layout slajdach. Master slajd zapewnia wspólny styl i motyw, które te layouty dziedziczą, podczas gdy każdy layout decyduje, które placeholdery są dostępne i gdzie są umieszczone.
+Użyj [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#setShowMasterShapes), aby ukryć dziedziczone grafiki mistrza, takie jak loga lub dekoracyjne kształty, bez ich usuwania z mistrza. Przekaż `False` do [Slide.setShowMasterShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#setShowMasterShapes) na slajdzie, który ma pominąć te grafiki, i pozostaw `True` na slajdach, które mają je wyświetlać.
 
-W PowerPoint polecenia placeholderów są dostępne w widoku Slide Master.
+Poniższy samodzielny przykład tworzy niebieski dekoracyjny pas na mistrzu oraz dwa slajdy używające tego samego pustego układu. Pas jest widoczny na pierwszym slajdzie i ukryty na drugim. Nie wymaga żadnej wejściowej prezentacji ani obrazu.
 
-![Polecenie Insert Placeholder w widoku Slide Master w PowerPoint](slide-master_5.png)
+```python
+import jpype
+import asposeslides
 
-Aby dodać nowe placeholdery w Aspose.Slides, pracuj z layout slajdem, który należy do mastera:
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Przykład używa układu **Blank** dostarczonego z nową prezentacją i usuwa własne placeholdery początkowego slajdu.
+
+### **Wybierz zakres ustawienia**
+
+Normalny slajd używa swojego mistrza poprzez [Slide.getLayoutSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#getLayoutSlide) i [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getMasterSlide). Ustawienie właściwości na pojedynczym slajdzie wpływa tylko na ten slajd. Przekazanie `False` do [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#setShowMasterShapes) ukrywa grafikę mistrza dla slajdów korzystających z tego współdzielonego układu, nawet jeśli ich własne ustawienie jest `True`. Aby ukryć grafikę tylko na jednym slajdzie, zmień właściwość slajdu i pozostaw niezmieniony współdzielony układ.
+
+Ustawienie nie jest obsługiwane jako kontrola widoczności na samym mistrzu slajdu. Na mistrzu, [getShowMasterShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getShowMasterShapes) zawsze zwraca `False`, a przekazanie `True` do [setShowMasterShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#setShowMasterShapes) powoduje wyjątek. Zastosuj je do normalnego slajdu lub układu.
+
+### **Rozróżnij grafikę od tła**
+
+| Operacja | Efekt |
+| --- | --- |
+| Ukryj grafikę mistrza | Kontroluje widoczność dziedziczonych kształtów mistrza bez ich usuwania ani zmiany własnych kształtów slajdu. |
+| Zmiana wypełnienia tła slajdu | Zmienia kolor, gradient lub obraz tła. Grafika mistrza jest oddzielnym kształtem i może pozostać widoczna nad tym tłem. Zobacz [Presentation Background](/slides/pl/python-java/presentation-background/). |
+| Usuń kształt z mistrza | Usuwa współdzielony źródłowy kształt, więc nie jest już dostępny dla żadnego slajdu używającego tego mistrza. |
+
+## **Pracuj z placeholderami**
+
+Placeholdery są zazwyczaj definiowane na slajdach układu. Mistrz slajdu zapewnia wspólny styl i motyw, które te układy dziedziczą, podczas gdy każdy układ decyduje, które placeholdery są dostępne i gdzie są umieszczone.
+
+W PowerPoint polecenia placeholderów są dostępne w widoku **Mistrza slajdów**.
+
+![Polecenie Wstaw placeholder w widoku Mistrza slajdów w PowerPoint](slide-master_5.png)
+
+Aby dodać nowe placeholdery w Aspose.Slides, pracuj z slajdem układu należącym do mistrza:
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Możesz także sformatować istniejące na masterze kształty placeholderów. Poniższy przykład znajduje placeholder tytułu i stosuje wypełnienie gradientem liniowym:
+Możesz także formatować kształty placeholderów, które już istnieją na mistrzu slajdu. Poniższy przykład znajduje placeholder tytułu i stosuje liniowe wypełnienie gradientem:
 
 ```python
 import jpype
@@ -218,13 +276,13 @@ finally:
     presentation.dispose()
 ```
 
-![Sformatowany placeholder tytułu dziedziczony przez zwykłe slajdy](slide-master_8.png)
+![Sformatowany placeholder tytułu dziedziczony przez normalne slajdy](slide-master_8.png)
 
-Po więcej opcji formatowania placeholderów i tekstu zobacz [Set Prompt Text in Placeholder](/slides/pl/python-java/manage-placeholder/) oraz [Text Formatting](/slides/pl/python-java/text-formatting/).
+Aby uzyskać więcej opcji formatowania placeholderów i tekstu, zobacz [Set Prompt Text in Placeholder](/slides/pl/python-java/manage-placeholder/) i [Text Formatting](/slides/pl/python-java/text-formatting/).
 
-## **Zmień tło master slajdu**
+## **Zmień tło mistrza slajdu**
 
-Tło mastera jest dziedziczone przez layouty i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego master slajdu:
+Tło mistrza jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego mistrza slajdu:
 
 ```python
 import jpype
@@ -251,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-Powiązane tematy: [Presentation Background](/slides/pl/python-java/presentation-background/) oraz [Presentation Theme](/slides/pl/python-java/presentation-theme/).
+Powiązane tematy znajdują się w sekcjach [Presentation Background](/slides/pl/python-java/presentation-background/) i [Presentation Theme](/slides/pl/python-java/presentation-theme/).
 
-## **Sklonuj master slajd do innej prezentacji**
+## **Sklonuj mistrza slajdu do innej prezentacji**
 
-Użyj [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslidecollection/#addClone), aby skopiować master slajd do innej prezentacji. Skopiowany master może następnie być używany przez layouty i slajdy w docelowej prezentacji.
+Użyj [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslidecollection/#addClone), aby skopiować mistrza slajdu do innej prezentacji. Skopiowany mistrz może być następnie używany przez układy i slajdy w docelowej prezentacji.
 
 ```python
 import jpype
@@ -278,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-Jeśli potrzebujesz sklonować zwykłe slajdy razem z ich masterem, zobacz [Clone Slides](/slides/pl/python-java/clone-slides/).
+Jeśli potrzebujesz sklonować normalne slajdy razem z ich mistrzem, zobacz [Clone Slides](/slides/pl/python-java/clone-slides/).
 
-## **Dodaj wiele master slajdów**
+## **Dodaj wiele mistrzów slajdów**
 
-Prezentacja może zawierać wiele master slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych brandingów, struktury stron lub ustawień motywu.
+Prezentacja może zawierać wiele mistrzów slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych elementów brandingowych, struktury stron lub ustawień motywu.
 
-![Polecenia PowerPoint do wstawiania i zarządzania master slajdami](slide-master_9.jpg)
+![Polecenia PowerPoint do wstawiania i zarządzania mistrzami slajdów](slide-master_9.jpg)
 
-Poniższy przykład klonuje domyślny master, nadaje klonowi inne tło, tworzy layout pod tym sklonowanym masterem i dodaje nowy slajd oparty na tym layoucie:
+Poniższy przykład klonuje domyślnego mistrza, nadaje klonowi inne tło, tworzy układ pod tym sklonowanym mistrzem i dodaje nowy slajd oparty na tym układzie:
 
 ```python
 import jpype
@@ -321,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Porównaj master slajdy**
+## **Porównaj mistrzów slajdów**
 
-Master slajdy można porównać metodą [equals](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#equals) odziedziczoną po [BaseSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości placeholderów, takich jak bieżąca data.
+Mistrze slajdów można porównać metodą [equals](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#equals) dziedziczoną z [BaseSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdów, ani dynamicznych wartości placeholderów, takich jak bieżąca data.
 
 ```python
 import jpype
@@ -353,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-Po więcej informacji zobacz [Compare Presentation Slides](/slides/pl/python-java/compare-slides/).
+Aby uzyskać więcej informacji, zobacz [Compare Presentation Slides](/slides/pl/python-java/compare-slides/).
 
-## **Ustaw widok master slajdu jako domyślny widok**
+## **Ustaw widok mistrza slajdu jako domyślny widok**
 
-Użyj metody [setLastView](https://reference.aspose.com/slides/pl/python-java/aspose.slides/viewproperties/#setLastView) na [ViewProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/viewproperties/), aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Slide Master:
+Użyj metody [setLastView](https://reference.aspose.com/slides/pl/python-java/aspose.slides/viewproperties/#setLastView) na [ViewProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/viewproperties/), aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Mistrza slajdów:
 
 ```python
 import jpype
@@ -376,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-Po więcej ustawień widoku zobacz [Save Presentation](/slides/pl/python-java/save-presentation/).
+Aby uzyskać więcej ustawień widoku, zobacz [Save Presentation](/slides/pl/python-java/save-presentation/).
 
-## **Usuń nieużywane master slajdy**
+## **Usuń nieużywane mistrze slajdów**
 
-Prezentacje czasami zawierają master slajdy, które nie są już używane przez żadne zwykłe slajdy. Usunięcie nieużywanych masterów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
+Prezentacje czasami zawierają mistrze slajdów, które nie są już używane przez żadne normalne slajdy. Usunięcie nieużywanych mistrzów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
 
-Użyj [removeUnused](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslidecollection/#removeUnused), aby usunąć nieużywane master slajdy z kolekcji [Presentation.getMasters](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getMasters):
+Użyj [removeUnused](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslidecollection/#removeUnused), aby usunąć nieużywane mistrze z kolekcji [Presentation.getMasters](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getMasters):
 
 ```python
 import jpype
@@ -401,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-Możesz także użyć niskokodowej metody [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/compress/#removeUnusedMasterSlides):
+Możesz także użyć metody niskokodowej [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/compress/#removeUnusedMasterSlides):
 
 ```python
 import jpype
@@ -422,18 +480,18 @@ finally:
 
 ## **FAQ**
 
-**Jaka jest różnica między master slajdem a layout slajdem?**
+**Jaka jest różnica między mistrzem slajdu a slajdem układu?**
 
-Master slajd definiuje współdzielone ustawienia projektowe, takie jak motyw, tło, wspólne kształty i style tekstu. Layout slajd należy do master slajdu i definiuje konkretne rozmieszczenie placeholderów. Zwykły slajd używa layout slajdu, więc dziedziczy zarówno z layoutu, jak i z mastera.
+Mistrz slajdu definiuje wspólne ustawienia projektu, takie jak motyw, tło, wspólne kształty i style tekstu. Slajd układu należy do mistrza slajdu i określa konkretny układ placeholderów. Normalny slajd używa slajdu układu, więc dziedziczy zarówno po układzie, jak i po mistrzu.
 
-**Czy jedna prezentacja może zawierać kilka master slajdów?**
+**Czy jedna prezentacja może zawierać kilka mistrzów slajdów?**
 
-Tak. Prezentacja może zawierać kilka master slajdów. Używaj wielu masterów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub brandingu.
+Tak. Prezentacja może zawierać kilka mistrzów slajdów. Używaj wielu mistrzów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub brandingu.
 
-**Czy powinienem dodawać placeholdery do master slajdu czy do layout slajdu?**
+**Czy powinienem dodawać placeholdery do mistrza slajdu czy do slajdu układu?**
 
-W większości przypadków dodawaj placeholdery do layout slajdów. Umieść wspólne elementy wizualne i wspólne formatowanie na master slajdzie, a placeholdery treści na layoutach, które będą używane przez zwykłe slajdy.
+W większości przypadków dodawaj placeholdery do slajdów układu. Umieść współdzielone elementy wizualne i formatowanie na mistrzu slajdu, a placeholdery treści na układach, które będą używane przez normalne slajdy.
 
-**Czy mogę usunąć master slajd, który jest nadal używany?**
+**Czy mogę usunąć mistrza slajdu, który jest nadal używany?**
 
-Nie. Master slajd, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do layoutów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko mastery nie będące w użyciu.
+Nie. Mistrz slajdu, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do układów pod innym mistrzem lub użyj metody czyszczenia nieużywanych mistrzów, która usuwa tylko mistrze niebędące w użyciu.

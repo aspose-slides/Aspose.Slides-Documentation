@@ -1,15 +1,15 @@
 ---
-title: Správa slide masterů prezentace v PHP
-linktitle: Slide master
+title: Správa hlavních snímků prezentace v PHP
+linktitle: Hlavní snímek
 type: docs
 weight: 70
 url: /cs/php-java/slide-master/
 keywords:
 - hlavní snímek
-- master snímek
+- hlavní snímek
 - PPT hlavní snímek
 - více hlavních snímků
-- porovnat hlavní snímky
+- porovnání hlavních snímků
 - pozadí
 - zástupný objekt
 - klonovat hlavní snímek
@@ -21,37 +21,37 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Spravovat slide mastery v Aspose.Slides for PHP via Java: přístup, úpravy, klonování, porovnání a odstranění hlavních snímků v prezentacích PowerPoint a OpenDocument."
+description: "Spravujte hlavní snímky v Aspose.Slides pro PHP přes Java: přístup, úpravy, klonování, porovnávání a odstraňování hlavních snímků v prezentacích PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-**Slide master** definuje sdílená nastavení designu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styl textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž byste opakovali stejné formátování na každém snímku.
+**slide master** definuje sdílené nastavení návrhu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava **slide master** obvyklý způsob, jak udržet prezentaci konzistentní, aniž byste opakovali stejné formátování na každém snímku.
 
-Aspose.Slides for PHP via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více master snímků a každý master snímek může obsahovat několik layout snímků. Normální snímky se obvykle nepřipojují přímo k master snímku. Místo toho normální snímek používá layout snímek, který náleží k master snímku.
+Aspose.Slides for PHP via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více hlavních snímků a každý hlavní snímek může obsahovat několik rozvržení snímku. Normální snímky se obvykle nepřipojují přímo k hlavnímu snímku. Místo toho normální snímek používá rozvržení snímku, které patří k hlavnímu snímku.
 
 Hierarchie je:
 
-1. **Slide master** – definuje sdílený design a motiv.
-1. **Layout snímek** – definuje konkrétní uspořádání zástupných objektů a formátování na úrovni layoutu.
-1. **Normální snímek** – obsahuje skutečný obsah prezentace a používá jeden layout snímek.
+1. **Slide master** – definuje sdílený návrh a motiv.
+1. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování úrovně rozvržení.
+1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jedno rozvržení snímku.
 
-![Hierarchie master snímků, layout snímků a normálních snímků](slide-master_2.jpg)
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-V Aspose.Slides je slide master reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/). Všechny master snímky v prezentaci jsou dostupné přes metodu [Presentation.getMasters](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getMasters), která vrací objekt [MasterSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/).
+V Aspose.Slides je hlavní snímek reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/). Všechny hlavní snímky v prezentaci jsou dostupné prostřednictvím metody [Presentation.getMasters](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getMasters), která vrací objekt [MasterSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/).
 
 {{% alert color="info" title="Dědičnost" %}}
 
-Když je stejná vlastnost definována na více úrovních, platí specifikovanější úroveň. Například pokud master snímek i layout snímek definují pozadí, snímky založené na tomto layoutu použijí pozadí layoutu. Další informace o layout snímcích najdete v [Apply or Change Slide Layouts](/slides/cs/php-java/slide-layout/).
+Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud hlavní snímek i rozvržení snímku definují pozadí, snímky založené na tomto rozvržení použijí pozadí rozvržení. Další informace o rozvrženích snímků najdete v [Apply or Change Slide Layouts](/slides/cs/php-java/slide-layout/).
 
 {{% /alert %}}
 
 ## **Přístup k Slide Masterům**
 
-V PowerPointu můžete otevřít zobrazení Slide Master z **Zobrazení** > **Slide Master**.
+V PowerPointu můžete otevřít zobrazení **Slide Master** přes **View** > **Slide Master**.
 
-![Příkaz Slide Master na kartě Zobrazení v PowerPointu](slide-master_3.jpg)
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-V Aspose.Slides použijte metodu `getMasters` pro přístup k master snímkům:
+V Aspose.Slides použijte metodu `getMasters` pro přístup k hlavním snímkům:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -67,7 +67,7 @@ try {
 }
 ```
 
-Můžete také získat master snímek použitý normálním snímkem prostřednictvím jeho layoutu:
+Můžete také získat hlavní snímek použité normálním snímkem prostřednictvím jeho rozvržení:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -83,26 +83,26 @@ try {
 }
 ```
 
-## **Co Slide Master Obsahuje**
+## **Co obsahuje Slide Master**
 
-Master snímek je objekt podobný snímku. Dědí z [BaseSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/), takže vystavuje mnoho stejných vlastností snímku, které používají normální a layout snímky. Členy specifické pro master jsou popsané na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/).
+Hlavní snímek je objekt podobný snímku. Rozšiřuje [BaseSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/), takže vystavuje mnoho stejných vlastností snímku používaných normálními a rozvrženými snímky. Členové specifické pro hlavní snímek jsou uvedeni na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/).
 
-Často používané členy master snímku zahrnují:
+Mezi běžně používané členy hlavního snímku patří:
 
 | Člen | Účel |
 | --- | --- |
-| `getBackground` | Nastavuje pozadí na úrovni master snímku. |
-| `getShapes` | Uchovává tvary umístěné na masteru, jako jsou loga, rámečky obrázků a sdílený text. |
-| `getLayoutSlides` | Uchovává layout snímky, které patří k masteru. |
-| `getThemeManager` | Poskytuje přístup k API motivu masteru. |
-| `getHeaderFooterManager` | Řídí záhlaví, zápatí, datum a číslo snímku pro master a jeho podřízené layouty. |
-| `getDependingSlides` | Vrací normální snímky, které jsou závislé na masteru skrze své layouty. |
+| `getBackground` | Nastavuje pozadí na úrovni hlavního snímku. |
+| `getShapes` | Uchovává tvary umístěné na hlavním snímku, např. loga, rámy obrázků a sdílený text. |
+| `getLayoutSlides` | Uchovává rozvržení snímků, která patří k hlavnímu snímku. |
+| `getThemeManager` | Poskytuje přístup k API motivu hlavního snímku. |
+| `getHeaderFooterManager` | Řídí záhlaví, zápatí, datum a čísla snímků pro hlavní snímek a jeho podřízená rozvržení. |
+| `getDependingSlides` | Vrací normální snímky, které závisí na hlavním snímku skrze svá rozvržení. |
 
-## **Přidání Obrázku do Slide Masteru**
+## **Přidání obrázku do Slide Masteru**
 
-Když přidáte obrázek do master snímku, objeví se na snímcích, které používají layouty z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pruhy a další opakující se vizuální prvky.
+Když přidáte obrázek do hlavního snímku, objeví se na snímcích, které používají rozvržení z tohoto hlavního snímku. To je užitečné pro loga, vodoznaky, dekorativní pásy a jiné opakující se vizuální prvky.
 
-Následující příklad přidá logo na první master snímek:
+Následující příklad přidá logo na první hlavní snímek:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -132,15 +132,72 @@ try {
 
 Další informace o rámečcích obrázků najdete v [Picture Frame](/slides/cs/php-java/picture-frame/).
 
-## **Práce se Zástupnými Objekty**
+## **Řízení viditelnosti grafiky hlavního snímku**
 
-Zástupné objekty jsou normálně definovány na layout snímcích. Master snímek poskytuje sdílený styl a motiv, které layouty dědí, zatímco každý layout rozhoduje, které zástupné objekty jsou dostupné a kde jsou umístěny.
+Použijte [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/#setShowMasterShapes) k skrytí zděděné grafiky hlavního snímku, jako jsou loga nebo dekorativní tvary, aniž byste je mazali z hlavního snímku. Na snímku, který má tyto grafiky vynechat, předejte `false` metodě [Slide::setShowMasterShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#setShowMasterShapes) a na snímcích, které je mají zobrazovat, ponechte `true`.
+
+Následující samostatný příklad vytvoří modrý dekorativní pás na hlavním snímku a dva snímky používající stejné prázdné rozvržení. Pás je viditelný na prvním snímku a skrytý na druhém. Není potřeba žádná vstupní prezentace ani obrázek.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Příklad používá rozvržení **Blank** dodané s novou prezentací a odstraňuje počáteční zástupné objekty snímku.
+
+### **Zvolte rozsah nastavení**
+
+Normální snímek používá svého hlavního snímku přes [Slide::getLayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#getLayoutSlide) a [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getMasterSlide). Nastavení vlastnosti na jednotlivém snímku ovlivní jen tento snímek. Předáním `false` metodě [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#setShowMasterShapes) skryjete grafiku hlavního snímku pro všechny snímky používající toto sdílené rozvržení, i když jejich vlastní nastavení je `true`. Pro skrytí grafiky jen na jednom snímku změňte vlastnost snímku a ponechte rozvržení nezměněné.
+
+Nastavení není podporováno jako řízení viditelnosti přímo na hlavním snímku. Na hlavním snímku [getShowMasterShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/#getShowMasterShapes) vždy vrací `false` a předání `true` metodě [setShowMasterShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/#setShowMasterShapes) vyvolá výjimku. Použijte ho na normálním snímku nebo na rozvržení.
+
+### **Odlište grafiku od pozadí**
+
+| Operace | Efekt |
+| --- | --- |
+| Skrýt grafiku hlavního snímku | Řídí viditelnost zděděných tvarů hlavního snímku bez jejich mazání nebo změny tvarů snímku. |
+| Změnit výplň pozadí snímku | Mění barvu, gradient nebo obrázek pozadí. Grafika hlavního snímku je samostatný tvar a může zůstat viditelná nad tímto pozadím. Viz [Presentation Background](/slides/cs/php-java/presentation-background/). |
+| Smazat tvar z hlavního snímku | Odstraní sdílený zdrojový tvar, takže už není dostupný žádnému snímku používajícímu tohoto hlavního snímku. |
+
+## **Práce se zástupnými objekty**
+
+Zástupné objekty jsou obvykle definovány na rozvrženích snímků. Hlavní snímek poskytuje sdílený styl a motiv, který rozvržení dědí, zatímco každé rozvržení rozhoduje, které zástupné objekty jsou k dispozici a kde jsou umístěny.
 
 V PowerPointu jsou příkazy pro zástupné objekty dostupné v zobrazení Slide Master.
 
-![Příkaz Insert Placeholder v zobrazení Slide Master v PowerPointu](slide-master_5.png)
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-Pro přidání nových zástupných objektů s Aspose.Slides pracujte s layout snímkem, který patří k masteru:
+Pro přidání nových zástupných objektů s Aspose.Slides pracujte s rozvržením snímku, které patří k hlavnímu snímku:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -166,7 +223,7 @@ try {
 }
 ```
 
-Můžete také formátovat tvary zástupných objektů, které už na master snímku existují. Následující příklad najde zástupný objekt titulku a aplikuje lineární gradientní výplň:
+Můžete také formátovat tvary zástupných objektů, které již existují na hlavním snímku. Následující příklad najde zástupný objekt titulu a použije lineární gradientní výplň:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -208,13 +265,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Naformátovaný titulní zástupný objekt zděděný normálními snímky](slide-master_8.png)
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
 Další možnosti formátování zástupných objektů a textu najdete v [Set Prompt Text in Placeholder](/slides/cs/php-java/manage-placeholder/) a [Text Formatting](/slides/cs/php-java/text-formatting/).
 
-## **Změna Pozadí Slide Masteru**
+## **Změna pozadí Slide Masteru**
 
-Pozadí masteru je zděděno layouty a snímky, které jej nepřepíšou. Následující příklad nastaví jednotnou barvu pozadí pro první master snímek:
+Pozadí hlavního snímku je zděděno rozvrženími a snímky, které ho nepřepisují. Následující příklad nastaví jednotnou barvu pozadí pro první hlavní snímek:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -234,11 +291,11 @@ try {
 }
 ```
 
-Související témata najdete v [Presentation Background](/slides/cs/php-java/presentation-background/) a [Presentation Theme](/slides/cs/php-java/presentation-theme/).
+Pro související témata viz [Presentation Background](/slides/cs/php-java/presentation-background/) a [Presentation Theme](/slides/cs/php-java/presentation-theme/).
 
-## **Klonování Slide Masteru do Jiné Prezentace**
+## **Klonování Slide Masteru do jiné prezentace**
 
-Použijte `addClone` z [MasterSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/) k zkopírování master snímku do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
+Použijte `addClone` z [MasterSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/) k zkopírování hlavního snímku do jiné prezentace. Zkopírovaný hlavní snímek pak může být použit rozvrženími a snímky v cílové prezentaci.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -254,15 +311,15 @@ try {
 }
 ```
 
-Pokud potřebujete klonovat normální snímky spolu s jejich masterem, podívejte se na [Clone Slides](/slides/cs/php-java/clone-slides/).
+Pokud potřebujete klonovat normální snímky spolu s jejich hlavním snímkem, viz [Clone Slides](/slides/cs/php-java/clone-slides/).
 
-## **Přidání Více Slide Masterů**
+## **Přidání více Slide Masterů**
 
-Prezentace může obsahovat více master snímků. To je užitečné, když různé sekce vyžadují odlišné brandování, strukturu stránek nebo nastavení motivu.
+Prezentace může obsahovat více hlavních snímků. To je užitečné, když různé sekce vyžadují odlišné značení, strukturu stránek nebo nastavení motivu.
 
-![Příkazy PowerPointu pro vkládání a správu master snímků](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-Následující příklad klonuje výchozí master, dá klonu jiné pozadí, vytvoří layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
+Následující příklad zklonuje výchozí hlavní snímek, dá klonu jiné pozadí, vytvoří rozvržení pod tímto klonovaným hlavním snímkem a přidá nový snímek založený na tomto rozvržení:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -289,7 +346,7 @@ try {
 
 ## **Porovnání Slide Masterů**
 
-Master snímky lze porovnat pomocí metody `equals`, kterou dědí z [BaseSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Neshoduje se však s unikátními identifikátory, jako jsou ID snímků, nebo dynamickými hodnotami zástupných objektů, například aktuálním datem.
+Hlavní snímky lze porovnat metodou `equals`, která je zděděna od [BaseSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Není porovnáváno jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, například aktuální datum.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -316,11 +373,11 @@ try {
 }
 ```
 
-Pro více informací viz [Compare Presentation Slides](/slides/cs/php-java/compare-slides/).
+Další informace naleznete v [Compare Presentation Slides](/slides/cs/php-java/compare-slides/).
 
-## **Nastavení Slide Master View jako Výchozího Zobrazení**
+## **Nastavení Slide Master View jako výchozího zobrazení**
 
-Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/) k řízení zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
+Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/) k ovládání pohledu, který PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -332,13 +389,13 @@ try {
 }
 ```
 
-Další nastavení zobrazení naleznete v [Save Presentation](/slides/cs/php-java/save-presentation/).
+Další nastavení zobrazení najdete v [Save Presentation](/slides/cs/php-java/save-presentation/).
 
-## **Odstranění Nepoužívaných Master Snímků**
+## **Odstranění nepoužívaných Slide Masterů**
 
-Prezentace někdy obsahují master snímky, které již nejsou používány žádnými normálními snímky. Odstraněním nepoužívaných masterů lze snížit velikost souboru a zjednodušit údržbu šablon.
+Někdy prezentace obsahují hlavní snímky, které již žádný normální snímek nepoužívá. Odstranění nepoužívaných hlavních snímků může zmenšit velikost souboru a zjednodušit údržbu šablony.
 
-Použijte `removeUnused` z [MasterSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/) k odstranění nepoužívaných masterů ze sbírky `getMasters`:
+Použijte `removeUnused` z [MasterSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/) k odstranění nepoužívaných hlavních snímků ze sbírky `getMasters`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -364,18 +421,18 @@ try {
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi slide masterem a layout snímkem?**
+**Jaký je rozdíl mezi slide master a layout slide?**
 
-Slide master definuje sdílená nastavení designu jako motiv, pozadí, společné tvary a styly textu. Layout snímek patří k masteru a určuje konkrétní uspořádání zástupných objektů. Normální snímek používá layout snímek, takže dědí jak z layoutu, tak z masteru.
+Slide master definuje sdílené nastavení návrhu, jako je motiv, pozadí, společné tvary a styly textu. Layout slide patří k slide masteru a určuje konkrétní uspořádání zástupných objektů. Normální snímek používá layout slide, takže dědí jak z layoutu, tak ze slide masteru.
 
 **Může jedna prezentace obsahovat několik slide masterů?**
 
-Ano. Prezentace může obsahovat několik master snímků. Použijte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo brandování.
+Ano. Prezentace může obsahovat několik slide masterů. Použijte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo značky.
 
-**Mám do master snímku nebo do layout snímku přidávat zástupné objekty?**
+**Mám přidávat zástupné objekty na slide master nebo na layout slide?**
 
-Ve většině případů přidávejte zástupné objekty do layout snímků. Na master snímek umístěte sdílené vizuální prvky a formátování, poté na layouty přidejte obsahové zástupné objekty, které použijí normální snímky.
+Ve většině případů přidávejte zástupné objekty na layout slide. Na slide masteru umístěte sdílené vizuální prvky a společné formátování, poté na rozvržení umístěte obsahové zástupné objekty, které budou používat normální snímky.
 
-**Mohu odstranit master snímek, který je stále používán?**
+**Mohu smazat slide master, který je stále používán?**
 
-Ne. Master snímek, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky na layouty pod jiný master, nebo použijte metodu pro úklid nepoužívaných masterů, která odstraní pouze master snímky, které nejsou v použití.
+Ne. Slide master, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky na rozvržení pod jiný slide master nebo použijte metodu pro úklid nepoužívaných masterů, která odstraňuje jen ty mastery, které nejsou v použití.

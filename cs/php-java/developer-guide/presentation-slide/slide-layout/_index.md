@@ -1,5 +1,5 @@
 ---
-title: Použití nebo změna rozložení snímků v PHP
+title: Použít nebo změnit rozložení snímků v PHP
 linktitle: Rozložení snímku
 type: docs
 weight: 60
@@ -7,63 +7,65 @@ url: /cs/php-java/slide-layout/
 keywords:
 - rozložení snímku
 - rozložení obsahu
-- zástupný symbol
+- zástupce
 - návrh prezentace
 - návrh snímku
 - nepoužité rozložení
 - viditelnost zápatí
 - titulní snímek
-- nadpis a obsah
+- titul a obsah
 - hlavička sekce
-- dvě oblasti
+- dvě oblasti obsahu
 - porovnání
-- pouze nadpis
+- pouze titul
 - prázdné rozložení
 - obsah s popiskem
 - obrázek s popiskem
-- nadpis a vertikální text
-- vertikální nadpis a text
+- titul a svislý text
+- svislý titul a text
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Používejte, vytvářejte a upravujte rozložení snímků v Aspose.Slides pro PHP pomocí Javy, přidávejte zástupné symboly, odstraňujte nepoužitá rozložení a říďte viditelnost zápatí."
+description: "Použijte, vytvářejte a upravujte rozložení snímků v Aspose.Slides pro PHP pomocí Javy, přidávejte zástupce, odstraňujte nepoužitá rozložení a řiďte viditelnost zápatí."
 ---
 ## **Přehled**
 
-Rozložení snímku definuje polohy a formátování zástupných symbolů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použitím rozložení získají snímky konzistentní strukturu a zároveň může každý snímek obsahovat vlastní obsah.
+Rozložení snímku určuje polohu a formátování zástupných objektů, jako jsou titulky, text, obrázky, grafy a tabulky. Použití rozložení poskytuje snímkům konzistentní strukturu a zároveň umožňuje, aby každý snímek obsahoval vlastní obsah.
 
-Nejčastější rozložení zahrnují:
+Nejčastější rozložení jsou:
 
-- **Title Slide**: Obsahuje zástupné symboly nadpisu a podnadpisu.
-- **Title and Content**: Obsahuje zástupný symbol nadpisu a obecný zástupný symbol obsahu.
-- **Blank**: Neobsahuje žádné zástupné symboly a je užitečné, když bude každý tvar umístěn ručně.
+- **Title Slide**: Obsahuje zástupce pro název a podnázev.
+- **Title and Content**: Obsahuje zástupce pro název a obecný zástupce obsahu.
+- **Blank**: Neobsahuje žádné zástupné objekty a je užitečný, když bude každý tvar umístěn ručně.
 
-## **Pochopení dědičnosti rozvržení**
+## **Pochopení dědičnosti rozložení**
 
 Prezentace má tři související úrovně:
 
-1. A [master snímek](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/) určuje motiv, sdílené formátování, pozadí a společné objekty.
-1. A [snímek rozložení](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/) patří k masteru a definuje konkrétní uspořádání zástupných symbolů.
-1. A [normální snímek](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/) používá jedno rozložení a ukládá obsah zadaný pro tento snímek.
+1. A [master slide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/) definuje motiv, sdílené formátování, pozadí a společné objekty.
+1. A [layout slide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/) patří k masteru a určuje konkrétní uspořádání zástupných objektů.
+1. A [normal slide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/) používá jedno rozložení a ukládá obsah zadán pro tento snímek.
 
-Normální snímek dědí motiv a formátování ze svého rozložení a rozložení dědí z masteru. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je vytvořen normální snímek, jeho tvary zástupných symbolů jsou generovány ze zvoleného rozložení, zatímco obsah zadaný do těchto symbolů patří k normálnímu snímku.
+Normální snímek dědí motiv a formátování ze svého rozložení a rozložení dědí od svého masteru. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je normální snímek vytvořen, jeho tvary zástupců jsou generovány z vybraného rozložení, zatímco obsah zadaný do těchto zástupců patří normálnímu snímku.
 
-Přidejte požadované zástupné symboly do rozložení před vytvořením snímků z něj. Přidání dalšího zástupného symbolu do rozložení později automaticky nepřidá odpovídající tvar zástupného symbolu do existujících normálních snímků.
+Přidejte požadované zástupné objekty do rozložení před vytvořením snímků z něj. Přidání dalšího zástupce do rozložení později automaticky nepřidá odpovídající tvar zástupce do existujících normálních snímků.
 
 Tento vztah má dva důležité důsledky:
 
-- Změna zděděného formátování nebo existující geometrie zástupných symbolů v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
-- Rozložení, které je stále používáno nějakým snímkem, nelze odstranit. Nejprve přesuňte jeho závislé snímky na jiné rozložení nebo odstraňte jen nepoužívaná rozložení.
+- Změna zděděného formátování nebo geometrie existujících zástupců v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
+- Rozložení, které je stále používáno snímkem, nelze odstranit. Nejprve přiřaďte jeho závislé snímky k jinému rozložení nebo odstraňte jen nepoužívaná rozložení.
 
-Další informace o nejvyšší úrovni této hierarchie najdete v [Slide Master](/slides/cs/php-java/slide-master/).
+Pro více informací o nejvyšší úrovni této hierarchie viz [Slide Master](/slides/cs/php-java/slide-master/).
+
+Pro skrytí zděděných log nebo dekorativních tvarů masteru na jednom snímku nebo prostřednictvím sdíleného rozložení viz [Control the Visibility of Master Graphics](/slides/cs/php-java/slide-master/). Příklad porovnává dva snímky používající stejný master.
 
 ## **Vyberte a použijte rozložení snímku**
 
-Používejte typ rozložení, když prezentace používá standardní definice rozložení PowerPointu. Názvy rozložení jsou upravitelné uživatelem a mohou být lokalizovány, takže výběr podle názvu je méně spolehlivý, pokud nekontrolujete zdrojovou šablonu.
+Používejte typ rozložení, když prezentace následuje standardní definice rozložení PowerPointu. Názvy rozložení lze upravovat a lokalizovat, takže výběr podle názvu je méně spolehlivý, pokud neovládáte zdrojovou šablonu.
 
-Následující příklad hledá **Title and Content** v prvním masteru. Pokud není toto rozložení k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozložení. Vybrané rozložení je pak použito na první normální snímek pomocí metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#setLayoutSlide).
+Následující příklad hledá **Title and Content** na prvním masteru. Pokud není toto rozložení k dispozici, vědomě přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozložení. Vybrané rozložení je pak použito na první normální snímek prostřednictvím metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-Změna rozložení snímku neodstraňuje běžné tvary přidané přímo do snímku. Nicméně pozice zástupných symbolů, zděděné formátování a shoda mezi existujícími zástupnými symboly a novým rozložením se mohou změnit, proto při přepínání mezi podstatně odlišnými rozloženími zkontrolujte výstup.
+Změna rozložení snímku neodstraní běžné tvary přidané přímo na snímek. Nicméně pozice zástupců, zděděné formátování a shoda mezi existujícími zástupci a novým rozložením se mohou změnit, proto výstup při přepínání mezi značně odlišnými rozloženími pečlivě zkontrolujte.
 
-## **Přidání snímku rozložení**
+## **Přidat rozložení snímku**
 
-Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybere existující rozložení; nevytváří ho. Pro vytvoření rozložení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozložení cílového masteru.
+Výběr a vytvoření jsou oddělené operace. Předchozí příklad vybírá existující rozložení; nevytváří ho. Pro vytvoření rozložení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozložení cílového masteru.
 
-Následující příklad vždy přidá nové rozložení **Title and Content** s názvem `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozložení musí být v kolekci jedinečné.
+Následující příklad vždy přidá nové rozložení **Title and Content** pojmenované `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozložení musí být v kolekci jedinečné.
 
 ```php
 use aspose\slides\Presentation;
@@ -115,26 +117,26 @@ try {
 }
 ```
 
-Přidejte rozložení jen tehdy, když šablona skutečně potřebuje další znovupoužitelnou strukturu. Pokud již existuje vhodné rozložení, vyberte a použijte jej místo vytváření duplikátu.
+Přidejte rozložení pouze tehdy, když šablona skutečně potřebuje další opakovaně použitelní strukturu. Pokud již existuje vhodné rozložení, vyberte ho a použijte znovu místo vytváření duplicitního.
 
-## **Přidání zástupných symbolů do snímku rozložení**
+## **Přidat zástupné objekty do rozložení snímku**
 
-Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje objekt [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/) pro přidání tvarů zástupných symbolů do rozložení.
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/) pro přidávání tvarů zástupců do rozložení.
 
-| PowerPoint zástupný symbol          | `LayoutPlaceholderManager` metoda |
-| ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| PowerPoint zástupce               | `LayoutPlaceholderManager` Method |
+| --------------------------------- | --------------------------------- |
+| ![Content](content.png)           | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Text](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)     | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)           | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)               | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)         | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)               | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)  | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Následující příklad ověřuje, že rozložení **Blank** existuje, přidá k němu čtyři zástupné symboly a poté vytvoří normální snímek, který používá upravené rozložení. Pořadí je záměrné: zástupné symboly jsou přidány před vytvořením normálního snímku, aby Aspose.Slides mohl vygenerovat odpovídající tvary zástupných symbolů na tomto snímku.
+Následující příklad ověřuje, že rozložení **Blank** existuje, přidá k němu čtyři zástupce a pak vytvoří normální snímek, který použije upravené rozložení. Pořadí je úmyslné: zástupci jsou přidáni před vytvořením normálního snímku, takže Aspose.Slides může na tomto snímku vygenerovat odpovídající tvary zástupců.
 
 ```php
 use aspose\slides\Presentation;
@@ -164,15 +166,15 @@ try {
 
 Výsledek:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Zástupné objekty na rozložení snímku](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Změna zděděného formátování nebo geometrie existujících zástupných symbolů rozložení může ovlivnit závislé snímky. Nově přidaný zástupný symbol rozložení se nevyplní do existujících normálních snímků. Testujte změny rozložení na kopii prezentace a zkontrolujte každý závislý snímek.
+Změna zděděného formátování nebo geometrie existujících zástupců v rozložení může ovlivnit závislé snímky. Nově přidaný zástupce rozložení se nevyplní do existujících normálních snímků. Testujte změny rozložení na kopii prezentace a zkontrolujte každý závislý snímek.
 {{% /alert %}}
 
-## **Odstranění nepoužívaných snímků rozložení**
+## **Odstranit nepoužívaná rozložení snímků**
 
-Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) pro odstranění rozložení, na která neodkazuje žádný normální snímek. Metoda ponechá rozložení, která jsou stále používána, nedotčena.
+Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění rozložení, na která neodkazuje žádný normální snímek. Metoda ponechá rozložení, která jsou stále používána, nedotčena.
 
 ```php
 use aspose\slides\Compress;
@@ -188,13 +190,11 @@ try {
 }
 ```
 
-Chcete‑li odstranit konkrétní rozložení, nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getDependingSlides). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#remove) přesuňte všechny závislé snímky. Pokus o odstranění používaného rozložení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/).
+Pro odstranění konkrétního rozložení nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getDependingSlides). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#remove) přiřaďte všechny závislé snímky. Pokus o odstranění používaného rozložení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/).
 
-## **Řízení viditelnosti zápatí na snímku rozložení**
+## **Ovládání viditelnosti zápatí na rozložení snímku**
 
-Rozložení má své vlastní zástupné symboly zápatí, čísla snímku a data‑času. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) pro řízení těchto symbolů u jednoho rozložení. To je užitečné například tehdy, když by obsahová rozložení měla zobrazovat zápatí, ale nadpisová ne.
-
-Následující příklad bezpečně vybere rozložení a učiní jeho prvky zápatí viditelnými:
+Rozložení má vlastní zástupce zápatí, čísla snímků a data/čas. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) k řízení těchto zástupců pro jedno rozložení. To je užitečné například, když by rozložení obsahu mělo zobrazovat zápatí, ale rozložení titulku ne.
 
 ```php
 use aspose\slides\Presentation;
@@ -226,9 +226,9 @@ try {
 }
 ```
 
-## **Řízení viditelnosti zápatí v Masteru a jeho podřízených rozloženích**
+## **Ovládání viditelnosti zápatí na hlavním snímku a jeho podřízených rozloženích**
 
-Pro jednotné nastavení zápatí v celé hierarchii masteru použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření třídy [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslideheaderfootermanager/) působí na master a jeho závislé snímky rozložení i normální snímky; neomezuje se jen na jeden normální snímek.
+Pro aplikaci konzistentních nastavení zápatí napříč hierarchií masteru použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření třídy [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslideheaderfootermanager/) působí na master a jeho závislé rozložení snímků a normální snímky; necílují pouze jeden normální snímek.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,20 +249,20 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jaký je rozdíl mezi master snímkem a snímkem rozložení?**
+**Jaký je rozdíl mezi Master Slide a Layout Slide?**
 
-Master snímek určuje motiv prezentace a sdílené formátování. Snímek rozložení patří k masteru a definuje jedno znovupoužitelné uspořádání zástupných symbolů. Normální snímky používají tato rozložení a ukládají obsah specifický pro konkrétní snímek.
+Master Slide definuje motiv prezentace a sdílené formátování. Layout Slide patří k masteru a určuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozložení a ukládají obsah specifický pro konkrétní snímek.
 
-**Mohu kopírovat snímek rozložení z jedné prezentace do druhé?**
+**Mohu zkopírovat Layout Slide z jedné prezentace do druhé?**
 
-Ano. Přidejte kopii do cílové kolekce metodou [addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte písma, motivy, obrázky a další zdroje použité ve zdrojovém rozložení.
+Ano. Přidejte kopii do cílové kolekce pomocí metody [addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte fonty, motivy, obrázky a další zdroje použité ve zdrojovém rozložení.
 
 **Co se stane, když upravím rozložení, které je již používáno?**
 
-Závislé snímky zdědí změny rozložení, pokud lokálně nepřepisují ovlivněné formátování nebo objekty. Geometrie zástupných symbolů a zděděné stylování se tak mohou najednou změnit na mnoha snímcích. Použijte [getDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků před úpravou rozložení.
+Závislé snímky zdědí změny rozložení, pokud lokálně nepřepíšou ovlivněné formátování nebo objekty. Geometrie zástupců a zděděné styly se tak mohou najednou změnit na mnoha snímcích. Použijte [getDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků před úpravou rozložení.
 
-**Co se stane, pokud odstraním rozložení, které je stále používáno?**
+**Co se stane, když odstraním rozložení, které je stále používáno?**
 
-Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/). Nejprve přesuňte závislé snímky, nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění pouze neodkazovaných rozložení.
+Aspose.Slides vyhodí výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/). Nejprve přiřaďte závislé snímky jinému rozložení, nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění jen neodkazovaných rozložení.

@@ -1,69 +1,71 @@
 ---
-title: "تطبيق أو تغيير تخطيطات الشرائح في C++"
+title: "تطبيق أو تعديل تخطيطات الشرائح في C++"
 linktitle: "تخطيط الشريحة"
 type: docs
 weight: 60
 url: /ar/cpp/slide-layout/
 keywords:
-- "تخطيط الشريحة"
-- "تخطيط المحتوى"
-- "عنصر نائب"
-- "تصميم العرض التقديمي"
-- "تصميم الشريحة"
-- "تخطيط غير مستخدم"
-- "إظهار التذييل"
-- "شريحة العنوان"
-- "العنوان والمحتوى"
-- "عنوان القسم"
-- "محتوى مزدوج"
-- "مقارنة"
-- "العنوان فقط"
-- "تخطيط فارغ"
-- "محتوى مع تعليق"
-- "صورة مع تعليق"
-- "العنوان والنص العمودي"
-- "عنوان عمودي ونص"
-- "PowerPoint"
-- "OpenDocument"
-- "عرض تقديمي"
-- "C++"
-- "Aspose.Slides"
-description: "تطبيق وإنشاء وتعديل تخطيطات الشرائح في Aspose.Slides لـ C++، إضافة عناصر نائبة، إزالة التخطيطات غير المستخدمة، والتحكم في إظهار التذييل."
+- تخطيط الشريحة
+- تخطيط المحتوى
+- عنصر نائب
+- تصميم العرض التقديمي
+- تصميم الشريحة
+- تخطيط غير مستخدم
+- رؤية التذييل
+- شريحة عنوان
+- عنوان ومحتوى
+- عنوان القسم
+- محتوى مزدوج
+- مقارنة
+- عنوان فقط
+- تخطيط فارغ
+- محتوى مع توضيح
+- صورة مع توضيح
+- عنوان ونص عمودي
+- عنوان عمودي ونص
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- C++
+- Aspose.Slides
+description: "تطبيق وإ إنشاء وتعديل تخطيطات الشرائح في Aspose.Slides للغة C++، إضافة عناصر نائبة، إزالة التخطيطات غير المستخدمة، والتحكم في رؤية التذييل."
 ---
 ## **نظرة عامة**
 
-يعرف تخطيط الشريحة مواضع وتنسيق العناصر النائبة مثل العناوين والنصوص والصور والرسوم البيانية والجداول. يمنح تطبيق التخطيط الشرائح بنية متسقة مع السماح لكل شريحة بأن تحتوي على محتواها الخاص.
+يحدد تخطيط الشريحة مواضع وتنسيق العناصر النائبة مثل العناوين والنصوص والصور والرسوم البيانية والجداول. يمنح تطبيق التخطيط الشرائح بنيةً متسقةً مع السماح لكل شريحة بوجود محتواها الخاص.
 
 أكثر التخطيطات شيوعًا تشمل:
 
 - **شريحة العنوان**: تحتوي على عناصر نائبة للعنوان والعنوان الفرعي.
-- **العنوان والمحتوى**: يحتوي على عنصر نائب للعنوان وعنصر نائب للمحتوى متعدد الاستخدامات.
-- **فارغ**: لا يحتوي على أي عناصر نائبة للمحتوى ويكون مفيدًا عندما يتم وضع كل شكل يدويًا.
+- **العنوان والمحتوى**: تحتوي على عنصر نائب للعنوان وعنصر نائب عام للمحتوى.
+- **فارغ**: لا يحتوي على أي عناصر نائبة، وهو مفيد عندما يتم وضع كل شكل يدويًا.
 
-## **فهم وراثة التخطيط**
+## **فهم توريث التخطيط**
 
-العرض التقديمي يحتوي على ثلاث مستويات مترابطة:
+للعرض التقديمي ثلاث مستويات مرتبطة:
 
-1. A [شريحة رئيسية](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/) تُعرّف السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
-2. A [شريحة تخطيط](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/) تنتمى إلى شريحة رئيسية وتُعرّف ترتيبًا معينًا للعناصر النائبة.
-3. A [شريحة عادية](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/) تستخدم تخطيطًا واحدًا وتخزن المحتوى المُدخل لتلك الشريحة.
+1. [شريحة رئيسية](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/) تُعرّف السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
+1. [شريحة تخطيط](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/) تنتمي إلى شريحة رئيسية وتحدد ترتيبًا معينًا للعناصر النائبة.
+1. [شريحة عادية](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/) تستخدم تخطيطًا واحدًا وتخزن المحتوى المدخل لهذه الشريحة.
 
-تُورث الشريحة العادية السمة والتنسيق من التخطيط الخاص بها، ويُورّث التخطيط من شريحة الماستر. أي قيمة تم ضبطها مباشرة على الشريحة العادية تتجاوز القيمة الموروثة في ذلك المستوى. عند إنشاء شريحة عادية، تُنشأ أشكال العناصر النائبة منها بناءً على التخطيط المختار، بينما المحتوى المُدخل في تلك العناصر النائبة يُنتمي إلى الشريحة العادية.
+ترث الشريحة العادية السمة والتنسيق من تخطيطها، ويورّث التخطيط من شريحته الرئيسية. أي قيمة تم تعيينها مباشرةً على شريحة عادية تتجاوز القيمة الموروثة في ذلك المستوى. عند إنشاء شريحة عادية، تُنشأ أشكال العناصر النائبة من التخطيط المحدد، بينما المحتوى المدخل في تلك العناصر النائبة يخص الشريحة العادية.
 
-أضف العناصر النائبة المطلوبة إلى التخطيط قبل إنشاء الشرائح منه. إضافة عنصر نيّب آخر إلى التخطيط لاحقًا لا يضيف تلقائيًا شكل عنصر نيّب مماثل إلى الشرائح العادية الموجودة.
+أضف العناصر النائبة المطلوبة إلى التخطيط قبل إنشاء الشرائح منه. إضافة عنصر نائب آخر إلى التخطيط لاحقًا لا يضيف تلقائيًا شكل عنصر نائب مقابل إلى الشرائح العادية الموجودة.
 
-هذه العلاقة لها نتيجتين مهمتين:
+هذه العلاقة لها نتيجتان مهمتان:
 
-- تغيير التنسيق الموروث أو هندسة العناصر النائبة الموجودة على التخطيط يمكن أن يحدّث كل الشريحة التي تعتمد عليه. قبل تحرير تخطيط قيد الاستخدام، افحص الشرائح التابعة له وراجع العرض الناتج.
-- لا يمكن إزالة تخطيط لا يزال مستخدمًا من قبل شريحة. أعد تعيين الشرائح التابعة له إلى تخطيط آخر أولاً، أو أزل فقط التخطيطات غير المستخدمة.
+- تغيير التنسيق الموروث أو هندسة العناصر النائبة الموجودة في التخطيط يمكن أن يحدّث كل شريحة تعتمد عليه. قبل تعديل تخطيط مستخدم بالفعل، راجع الشرائح المعتمدة وتحقق من العرض الناتج.
+- لا يمكن حذف تخطيط لا يزال مستخدمًا من قبل شريحة. أعد تعيين الشرائح المعتمدة إلى تخطيط آخر أولاً، أو احذف فقط التخطيطات غير المستخدمة.
 
-لمزيد من المعلومات حول المستوى الأعلى لهذا التسلسل الهرمي، راجع [ماستر الشرائح](/slides/ar/cpp/slide-master/).
+لمزيد من المعلومات حول المستوى الأعلى من هذه السلسلة الهرمية، راجع [Slide Master](/slides/ar/cpp/slide-master/).
 
-## **اختيار وتطبيق تخطيط شريحة**
+لإخفاء الشعارات الموروثة أو الأشكال الزخرفية في الشريحة الرئيسية على شريحة واحدة أو عبر تخطيط مشترك، راجع [Control the Visibility of Master Graphics](/slides/ar/cpp/slide-master/). المقارنة في المثال تُظهر شريحتين تستخدمان نفس الشريحة الرئيسية.
 
-استخدم نوع تخطيط عندما يتبع العرض التقديمي تعريفات تخطيطات PowerPoint القياسية. أسماء التخطيطات قابلة للتحرير من قبل المستخدم ويمكن تعريبها، لذا يكون الاختيار القائم على الاسم أقل موثوقية ما لم تتحكم في القالب المصدري.
+## **اختيار وتطبيق تخطيط الشريحة**
 
-المثال التالي يبحث عن **العنوان والمحتوى** في أول ماستر. إذا كان ذلك التخطيط غير متوفر، يتراجع عمدًا إلى **فارغ**. الفحص الثاني للـ null ضروري لأن العرض التقديمي قد يحتوي على تخطيطات مخصصة فقط. ثم يتم تطبيق التخطيط المختار على أول شريحة عادية عبر طريقة [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/set_layoutslide/).
+استخدم نوع التخطيط عندما يتبع العرض التقديمي تعريفات تخطيط PowerPoint القياسية. أسماء التخطيطات قابلة للتحرير من قبل المستخدم ويمكن تعريبها، لذا فإن الاختيار القائم على الاسم أقل موثوقية ما لم تتحكم في القالب المصدر.
+
+المثال التالي يبحث عن **العنوان والمحتوى** في الشريحة الرئيسية الأولى. إذا كان ذلك التخطيط غير متاح، يتم العودة عمدًا إلى **فارغ**. الفحص الثاني للـ null ضروري لأن العرض التقديمي قد يحتوي فقط على تخطيطات مخصصة. يتم بعد ذلك تطبيق التخطيط المحدد على أول شريحة عادية عبر طريقة [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-تغيير تخطيط الشريحة لا يزيل الأشكال العادية التي أُضيفت مباشرةً إلى الشريحة. ومع ذلك، قد تتغير مواضع العناصر النائبة، التنسيق الموروث، والارتباط بين العناصر النائبة الموجودة والتخطيط الجديد، لذا افحص النتيجة عند التبديل بين تخطيطات مختلفة بشكل كبير.
+تغيير تخطيط الشريحة لا يزيل الأشكال العادية المضافة مباشرةً إلى الشريحة. ومع ذلك، قد تتغير مواضع العناصر النائبة، التنسيق الموروث، والارتباط بين العناصر النائبة الموجودة والتخطيط الجديد، لذا تحقق من النتيجة عند التبديل بين تخطيطات مختلفة اختلافًا كبيرًا.
 
 ## **إضافة شريحة تخطيط**
 
-الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدعِ طريقة [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterlayoutslidecollection/add/) على مجموعة تخطيطات الماستر المستهدف.
+الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدعِ طريقة [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterlayoutslidecollection/add/) على مجموعة تخطيطات الشريحة الرئيسية المستهدفة.
 
-المثال التالي يضيف دائمًا تخطيطًا جديدًا **العنوان والمحتوى** باسم `Report Title and Content`، ثم يضيف شريحة عادية بناءً عليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
+المثال التالي يضيف دائمًا تخطيطًا جديدًا **العنوان والمحتوى** يُسمى `Report Title and Content`، ثم يضيف شريحة عادية تستند إليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-أضف تخطيطًا فقط عندما يحتاج القالب حقًا إلى بنية قابلة لإعادة الاستخدام. إذا كان هناك تخطيط مناسب موجود بالفعل، اختره وأعد استخدامه بدلاً من إنشاء نسخة مكررة.
+أضف تخطيطًا فقط عندما يحتاج القالب حقًا إلى هيكل قابل لإعادة الاستخدام آخر. إذا كان تخطيط مناسب موجودًا بالفعل، فاختره وأعد استخدامه بدلاً من إنشاء نسخة مكررة.
 
 ## **إضافة عناصر نائبة إلى شريحة تخطيط**
 
-توفر طريقة [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) كائنًا من النوع [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/) لإضافة أشكال نائبة إلى التخطيط.
+توفر طريقة [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) كائنًا من نوع [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/) لإضافة أشكال عناصر نائبة إلى التخطيط.
 
-| عنصر نائب في PowerPoint          | `ILayoutPlaceholderManager` Method |
-| -------------------------------- | ---------------------------------- |
-| محتوى                            | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| محتوى (عمودي)                    | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| نص                               | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| نص (عمودي)                       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| صورة                             | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| مخطط                            | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| جدول                             | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| SmartArt                         | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| وسائط                            | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| صورة عبر الإنترنت                | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| عنصر نائب في PowerPoint | طريقة `ILayoutPlaceholderManager` |
+| ------------------------ | --------------------------------- |
+| ![المحتوى](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![المحتوى (عمودي)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![نص](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![نص (عمودي)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![صورة](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![مخطط](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![جدول](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![وسائط](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![صورة عبر الإنترنت](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-المثال التالي يتحقق من وجود تخطيط **فارغ**، يضيف إليه أربعة عناصر نائبة، ثم ينشئ شريحة عادية تستخدم التخطيط المعدل. الترتيب مقصود: تُضاف العناصر النائبة قبل إنشاء الشريحة العادية، بحيث يمكن Aspose.Slides توليد أشكال العناصر النائبة المقابلة على تلك الشريحة.
+المثال التالي يتحقق من وجود تخطيط **فارغ**، يضيف أربعة عناصر نائبة إليه، ثم ينشئ شريحة عادية تستخدم التخطيط المعدَّل. الترتيب مقصود: يُضاف العناصر النائبة قبل إنشاء الشريحة العادية، بحيث يمكن Aspose.Slides إنشاء أشكال العناصر النائبة المقابلة على تلك الشريحة.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -192,13 +194,13 @@ presentation->Dispose();
 
 ![العناصر النائبة على شريحة التخطيط](add_placeholders.png)
 
-{{% alert color="warning" title="تحذير" %}}
-تغيير التنسيق الموروث أو هندسة العناصر النائبة الموجودة على التخطيط يمكن أن يؤثر على الشرائح التابعة. العنصر النائب المضاف حديثًا إلى التخطيط لا يُملأ تلقائيًا في الشرائح العادية الموجودة. اختبر تغييرات التخطيط على نسخة من العرض التقديمي وافحص كل شريحة تابعة.
+{{% alert color="warning" title="Warning" %}}
+تغيير التنسيق الموروث أو هندسة العناصر النائبة الموجودة في التخطيط يمكن أن يؤثر على الشرائح المعتمدة. العنصر النائب الذي يُضاف حديثًا لا يُملأ تلقائيًا في الشرائح العادية القائمة. اختبر تغييرات التخطيط على نسخة من العرض التقديمي وتفقد كل شريحة معتمدة.
 {{% /alert %}}
 
 ## **إزالة تخطيطات الشرائح غير المستخدمة**
 
-استخدم طريقة [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) لإزالة التخطيطات التي لا تربطها أي شريحة عادية. تُبقي الطريقة التخطيطات التي لا تزال قيد الاستخدام دون تعديل.
+استخدم طريقة [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تُترك التخطيطات ما زالت قيد الاستخدام كما هي.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,11 +220,11 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-لإزالة تخطيط محدد، استخدم أولاً طريقة [get_HasDependingSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) أو طريقة [GetDependingSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/getdependingslides/). أعد تعيين أي شرائح تابعة قبل استدعاء طريقة [ILayoutSlide::Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/remove/). محاولة إزالة تخطيط مُستخدم تُحدث استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/ar/cpp/aspose.slides/pptxeditexception/).
+لإزالة تخطيط محدد واحد، استخدم أولاً طريقة [get_HasDependingSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) أو طريقة [GetDependingSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/getdependingslides/). أعد تعيين أي شرائح معتمدة قبل استدعاء طريقة [ILayoutSlide::Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/remove/). محاولة إزالة تخطيط مستخدم تُثير استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/cpp/aspose.slides/pptxeditexception/).
 
-## **التحكم في ظهور تذييل الصفحة على شريحة تخطيط**
+## **التحكم في ظهور التذييل على شريحة تخطيط**
 
-للتخطيط خاصيته في تذييل الصفحة، رقم الشريحة، وعناصر نائبة للوقت/التاريخ. استخدم طريقة [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) للتحكم في تلك العناصر النائبة لتخطيط واحد. يكون هذا مفيدًا عندما، على سبيل المثال، يجب أن تُظهر تخطيطات المحتوى التذييل بينما لا يجب أن تُظهر تخطيطات العنوان ذلك.
+للتخطيط مجال تذييل، رقم شريحة، ووقت التاريخ الخاص به. استخدم طريقة [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) للتحكم في تلك العناصر النائبة لتخطيط واحد. هذا مفيد عندما، على سبيل المثال، يجب أن تُظهر تخطيطات المحتوى التذييلات لكن تخطيطات العنوان لا يجب أن تُظهرها.
 
 المثال التالي يختار تخطيطًا بأمان ويجعل عناصر التذييل الخاصة به مرئية:
 
@@ -265,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **التحكم في ظهور تذييل الصفحة على الماستر وتخطيطاته الفرعية**
+## **التحكم في ظهور التذييل على شريحة رئيسية وتخطيطاتها الفرعية**
 
-لتطبيق إعدادات تذييل موحدة عبر تسلسل هرمي للماستر، استخدم طريقة [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/get_headerfootermanager/). تعمل طرق النشر في [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslideheaderfootermanager/) على الماستر وتخطيطاته التابعة والشرائح العادية؛ لا تستهدف شريحة عادية واحدة فقط.
+لتطبيق إعدادات تذييل موحدة عبر تسلسل هرمي لشريحة رئيسية، استخدم طريقة [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/get_headerfootermanager/). تُنفّذ طرق النشر في [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslideheaderfootermanager/) على الشريحة الرئيسية وتخطيطاتها الفرعية والشرائح العادية؛ لا تستهدف شريحة عادية واحدة فقط.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -295,18 +297,18 @@ presentation->Dispose();
 
 ## **الأسئلة المتكررة**
 
-**ما هو الفرق بين شريحة الماستر وشريحة التخطيط؟**
+**ما الفرق بين شريحة رئيسية وشريحة تخطيط؟**
 
-تعرّف شريحة الماستر سمة العرض التقديمي وتنسيقاته المشتركة. شريحة التخطيط تنتمي إلى الماستر وتُعرّف ترتيبًا واحدًا قابلاً لإعادة الاستخدام من العناصر النائبة. تستخدم الشرائح العادية تلك التخطيطات وتخزن المحتوى الخاص بكل شريحة.
+تُعرّف الشريحة الرئيسية سمة العرض التقديمي والتنسيق المشترك. شريحة التخطيط تنتمي إلى شريحة رئيسية وتحدد ترتيبًا قابلاً لإعادة الاستخدام للعناصر النائبة. تستخدم الشرائح العادية تلك التخطيطات وتخزن محتوىً خاصًا بالشريحة.
 
 **هل يمكنني نسخ شريحة تخطيط من عرض تقديمي إلى آخر؟**
 
-نعم. أضف نسخة إلى مجموعة الوجهة باستخدام طريقة [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igloballayoutslidecollection/addclone/). عند النسخ بين عروض تقديمية، تحقق أيضًا من الخطوط، السمات، الصور، والموارد الأخرى المستخدمة من قبل التخطيط المصدر.
+نعم. أضف نسخة إلى مجموعة الوجهة باستخدام طريقة [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igloballayoutslidecollection/addclone/). عند النسخ بين العروض، تحقق أيضًا من الخطوط، السمات، الصور، والموارد الأخرى المستخدمة في التخطيط المصدر.
 
-**ماذا يحدث عندما أقوم بتعديل تخطيط تم استخدامه بالفعل؟**
+**ماذا يحدث إذا عدّلت تخطيطًا مُستخدمًا بالفعل؟**
 
-تُورّث الشرائح التابعة تغييرات التخطيط ما لم تُقّلِب التنسيق أو الكائنات المتأثرة محليًا. يمكن أن تتغيّر هندسة العناصر النائبة والأسلوب الموروث على العديد من الشرائح دفعة واحدة. استخدم طريقة [GetDependingSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/getdependingslides/) لتحديد الشرائح المتأثرة قبل تحرير التخطيط.
+تورّث الشرائح المعتمدة تغيرات التخطيط ما لم تتجاوز التنسيقات أو الكائنات المتأثرة محليًا. يمكن أن تتغير هندسة العناصر النائبة والأسلوب الموروث على العديد من الشرائح دفعة واحدة. استخدم طريقة [GetDependingSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/getdependingslides/) لتحديد الشرائح المتأثرة قبل تعديل التخطيط.
 
-**ماذا يحدث إذا قمت بإزالة تخطيط لا يزال قيد الاستخدام؟**
+**ماذا يحدث إذا أزلت تخطيطًا لا يزال قيد الاستخدام؟**
 
-ترمي Aspose.Slides استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/ar/cpp/aspose.slides/pptxeditexception/). أعد تعيين الشرائح التابعة أولاً، أو استخدم طريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) لإزالة التخطيطات غير المشار إليها فقط.
+ترمي Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/cpp/aspose.slides/pptxeditexception/). أعد تعيين الشرائح المعتمدة أولاً، أو استخدم طريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) لإزالة التخطيطات غير المشار إليها فقط.

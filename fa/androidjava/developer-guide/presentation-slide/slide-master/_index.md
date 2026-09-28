@@ -1,21 +1,21 @@
 ---
-title: مدیریت مسترهای اسلاید ارائه در اندروید
+title: مدیریت اسلاید مسترهای ارائه در اندروید
 linktitle: اسلاید مستر
 type: docs
 weight: 70
 url: /fa/androidjava/slide-master/
 keywords:
 - اسلاید مستر
-- مستر اسلاید
-- مستر اسلاید PPT
-- چندین اسلاید مستر
+- اسلاید مستر
+- اسلاید مستر PPT
+- اسلایدهای مستر متعدد
 - مقایسه اسلایدهای مستر
 - پس‌زمینه
-- فاصله‌نگهدار
+- نگهدارنده
 - کلون اسلاید مستر
 - کپی اسلاید مستر
 - تکثیر اسلاید مستر
-- اسلاید مستر بلااستفاده
+- اسلاید مستر استفاده‌نشده
 - PowerPoint
 - OpenDocument
 - ارائه
@@ -26,35 +26,35 @@ description: "مدیریت اسلاید مسترها در Aspose.Slides برای
 ---
 ## **نمای کلی**
 
-یک **اسلاید مستر** تنظیمات طراحی مشترک را برای یک گروه از اسلایدها تعریف می‌کند. می‌تواند شامل شکل‌های مشترک، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات فوتر باشد. در PowerPoint، ویرایش اسلاید مستر روش معمول برای حفظ یکنواختی ارائه بدون تکرار قالب‌بندی در هر اسلاید است.
+یک **اسلاید مستر** تنظیمات طراحی مشترک برای یک گروه از اسلایدها را تعریف می‌کند. می‌تواند شامل اشکال عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات پاورقی باشد. در PowerPoint، ویرایش اسلاید مستر راه معمول برای حفظ ثبات یک ارائه بدون تکرار قالب‌بندی در هر اسلاید است.
 
-Aspose.Slides برای Android از طریق Java از همان مدل پشتیبانی می‌کند. یک ارائه می‌تواند حاوی یک یا چند اسلاید مستر باشد و هر اسلاید مستر می‌تواند چندین اسلاید چیدمان داشته باشد. اسلایدهای عادی معمولاً مستقیماً به اسلاید مستر ارجاع نمی‌دهند؛ بلکه یک اسلاید عادی از یک اسلاید چیدمان استفاده می‌کند و آن چیدمان متعلق به یک اسلاید مستر است.
+Aspose.Slides برای Android از طریق Java از همان مدل پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند اسلاید مستر داشته باشد و هر اسلاید مستر می‌تواند چندین اسلاید طرح‌بندی داشته باشد. اسلایدهای عادی معمولاً به‌صورت مستقیم به اسلاید مستر ارجاع نمی‌دهند. در عوض، یک اسلاید عادی از یک اسلاید طرح‌بندی استفاده می‌کند و آن اسلاید طرح‌بندی متعلق به یک اسلاید مستر است.
 
-سلسله مراتب به صورت زیر است:
+سلسله مراتب به‌صورت زیر است:
 
-1. **اسلاید مستر** – طراحی و تم مشترک را تعیین می‌کند.  
-1. **اسلاید چیدمان** – چینش خاصی از فضا نگهدارها و قالب‌بندی در سطح چیدمان را تعریف می‌کند.  
-1. **اسلاید عادی** – محتوای واقعی ارائه را شامل می‌شود و از یک اسلاید چیدمان استفاده می‌کند.
+1. **اسلاید مستر** – تنظیمات طراحی و تم مشترک را تعریف می‌کند.  
+1. **اسلاید طرح‌بندی** – ترتیب خاصی از نگهدارنده‌ها و قالب‌بندی‌های سطح طرح‌بندی را تعریف می‌کند.  
+1. **اسلاید عادی** – محتوای واقعی ارائه را در بر دارد و از یک اسلاید طرح‌بندی استفاده می‌کند.
 
-![سلسله مراتب اسلایدهای مستر، چیدمان و عادی](slide-master_2.jpg)
+![سلسله مراتب اسلایدهای مستر، اسلایدهای طرح‌بندی و اسلایدهای عادی](slide-master_2.jpg)
 
-در Aspose.Slides، اسلاید مستر توسط اینترفیس [IMasterSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslide/) نمایش داده می‌شود. تمام اسلایدهای مستر در یک ارائه از طریق مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getMasters--) در دسترس هستند که اینترفیس [IMasterSlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/) را پیاده‌سازی می‌کند. برای مشاهده کل سطح API Android از طریق Java، به مرجع API [com.aspose.slides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/) مراجعه کنید.
+در Aspose.Slides، یک اسلاید مستر توسط رابط [IMasterSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslide/) نمایش داده می‌شود. تمام اسلایدهای مستر در یک ارائه از طریق مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getMasters--) در دسترس هستند که رابط [IMasterSlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/) را پیاده‌سازی می‌کند. برای مشاهدهٔ تمام سطح API ‎Android از طریق Java، به مرجع API [com.aspose.slides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/) مراجعه کنید.
 
-{{% alert color="info" title="ارث‌بری" %}}
-
-هنگامی که یک ویژگی در بیش از یک سطح تعریف شود، سطح دقیق‌تر برتری دارد. به عنوان مثال، اگر یک اسلاید مستر و یک اسلاید چیدمان هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن چیدمان از پس‌زمینه چیدمان استفاده می‌کنند. برای اطلاعات بیشتر درباره اسلایدهای چیدمان، به [Apply or Change Slide Layouts](/slides/fa/androidjava/slide-layout/) مراجعه کنید.
-
+{{% alert color="info" title="Inheritance" %}}
+زمانی که همان ویژگی در بیش از یک سطح تعریف شده باشد، سطح خاص‌تر برتری دارد. به عنوان مثال، اگر یک اسلاید مستر و یک اسلاید طرح‌بندی هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن طرح‌بندی از پس‌زمینهٔ طرح‌بندی استفاده می‌کنند. برای اطلاعات بیشتر دربارهٔ اسلایدهای طرح‌بندی، به [Apply or Change Slide Layouts](/slides/fa/androidjava/slide-layout/) مراجعه کنید.
 {{% /alert %}}
 
 ## **دسترسی به اسلایدهای مستر**
 
-در PowerPoint می‌توانید نمای اسلاید مستر را از **View > Slide Master** باز کنید.
+در PowerPoint، می‌توانید نمای اسلاید مستر را از **View** > **Slide Master** باز کنید.
 
-![دکمه Slide Master در تب View برنامه PowerPoint](slide-master_3.jpg)
+![دستور اسلاید مستر در زبانهٔ View برنامه PowerPoint](slide-master_3.jpg)
 
-در Aspose.Slides، از مجموعه `getMasters()` برای دسترسی به اسلایدهای مستر استفاده کنید:
+در Aspose.Slides، برای دسترسی به اسلایدهای مستر از مجموعه `getMasters()` استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +68,11 @@ try {
 }
 ```
 
-همچنین می‌توانید اسلاید مستری که یک اسلاید عادی از آن استفاده می‌کند، از طریق چیدمان آن دریافت کنید:
+همچنین می‌توانید اسلاید مستری که یک اسلاید عادی از آن استفاده می‌کند را از طریق طرح‌بندی‌اش به دست آورید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,28 +86,30 @@ try {
 }
 ```
 
-## **آنچه یک اسلاید مستر شامل می‌شود**
+## **محتویات یک اسلاید مستر**
 
-اسلاید مستر شیئی شبیه اسلاید است. این شیء اینترفیس [IBaseSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/) را پیاده‌سازی می‌کند، بنابراین بسیاری از ویژگی‌های اسلایدی که توسط اسلایدهای عادی و چیدمان استفاده می‌شود، در دسترس است.
+یک اسلاید مستر یک شیء شبیه اسلاید است. این شیء رابط [IBaseSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/) را پیاده‌سازی می‌کند، بنابراین بسیاری از ویژگی‌های اسلایدی که توسط اسلایدهای عادی و طرح‌بندی استفاده می‌شود، در دسترس است.
 
-اعضای متداول اسلاید مستر عبارتند از:
+اعضای معمولاً استفاده‑شدهٔ اسلاید مستر شامل موارد زیر هستند:
 
 | Member | Purpose |
 | --- | --- |
-| `getBackground()` | تنظیم پس‌زمینه سطح مستر اسلاید. |
-| `getShapes()` | ذخیره شکل‌هایی که روی مستر قرار گرفته‌اند، مانند لوگوها، فریم‌های تصویر و متن‌های مشترک. |
-| `getLayoutSlides()` | ذخیره اسلایدهای چیدمان متعلق به مستر. |
-| `getThemeManager()` | دسترسی به APIهای تم مستر. |
-| `getHeaderFooterManager()` | کنترل سرصفحه‌ها، پاصفحه‌ها، تاریخ‌ها و شماره‌ اسلایدها برای مستر و چیدمان‌های فرزند. |
-| `getDependingSlides()` | بازگرداندن اسلایدهای عادی که از طریق چیدمان‌های خود به مستر وابسته هستند. |
+| `getBackground()` | پس‌زمینهٔ اسلاید در سطح مستر را تنظیم می‌کند. |
+| `getShapes()` | اشکالی که بر روی مستر قرار گرفته‌اند، مانند لوگوها، قاب‌های تصویر و متن‌های مشترک، را ذخیره می‌کند. |
+| `getLayoutSlides()` | اسلایدهای طرح‌بندی وابسته به این مستر را نگه می‌دارد. |
+| `getThemeManager()` | دسترسی به APIهای تم مستر را فراهم می‌کند. |
+| `getHeaderFooterManager()` | سرصفحه‌ها، پاورقی‌ها، تاریخ‌ها و شمارهٔ اسلایدها را برای مستر و طرح‌بندی‌های فرزندش کنترل می‌کند. |
+| `getDependingSlides()` | اسلایدهای عادی که از طریق طرح‌بندی‌ها به این مستر وابسته‌اند را برمی‌گرداند. |
 
 ## **افزودن تصویر به اسلاید مستر**
 
-هنگامی که تصویری به اسلاید مستر اضافه می‌کنید، بر روی اسلایدهایی که از چیدمان‌های آن مستر استفاده می‌کنند نشان داده می‌شود. این برای لوگوها، واترمارک‌ها، باندهای تزئینی و سایر عناصر بصری تکراری مفید است.
+هنگامی که تصویری را به یک اسلاید مستر اضافه می‌کنید، آن تصویر در اسلایدهایی که از طرح‌بندی‌های آن مستر استفاده می‌کنند، ظاهر می‌شود. این کار برای لوگوها، واترمارک‌ها، نوارهای تزئینی و سایر عناصر بصری تکراری مفید است.
 
-مثال زیر یک لوگو را به اولین اسلاید مستر اضافه می‌کند:
+مثال زیر لوگویی را به اولین اسلاید مستر اضافه می‌کند:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +135,75 @@ try {
 }
 ```
 
-برای اطلاعات بیشتر درباره فریم‌های تصویر، به [Picture Frame](/slides/fa/androidjava/picture-frame/) مراجعه کنید.
+برای اطلاعات بیشتر دربارهٔ قاب‌های تصویر، به [Picture Frame](/slides/fa/androidjava/picture-frame/) مراجعه کنید.
 
-## **کار با فضا نگهدارها**
+## **کنترل نمایش گرافیک‌های مستر**
 
-فضا نگهدارها عموماً در اسلایدهای چیدمان تعریف می‌شوند. اسلاید مستر سبک و تم مشترکی را فراهم می‌کند که چیدمان‌ها از آن ارث می‌ببرند، در حالی که هر چیدمان تصمیم می‌گیرد کدام فضا نگهدارها در دسترس هستند و در کجا قرار می‌گیرند.
+از [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) برای مخفی کردن گرافیک‌های ارث‌بردهٔ مستر، مانند لوگوها یا اشکال تزئینی، بدون حذف آن‌ها از مستر استفاده کنید. مقدار `false` را به [Slide.setShowMasterShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) در اسلایدی که می‌خواهید این گرافیک‌ها را حذف کند، بدهید و در اسلایدهایی که می‌خواهید نمایش داده شوند مقدار `true` را نگه دارید.
 
-در PowerPoint، دستورات فضا نگهدار در نمای اسلاید مستر موجود است.
-
-![دستور Insert Placeholder در نمای Slide Master برنامه PowerPoint](slide-master_5.png)
-
-برای افزودن فضا نگهدارهای جدید با Aspose.Slides، بر روی اسلاید چیدمانی که به مستر تعلق دارد کار کنید:
+مثال زیر یک نوار تزئینی آبی را بر روی یک مستر و دو اسلایدی که از همان طرح‌بندی خالی استفاده می‌کنند، ایجاد می‌کند. این نوار در اسلاید اول قابل مشاهده و در اسلاید دوم مخفی است. نیازی به ارائهٔ ورودی یا تصویر نیست.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+این مثال از طرح‌بندی **Blank** که همراه یک ارائهٔ جدید ارائه می‌شود استفاده می‌کند و نگهدارنده‌های اولیهٔ اسلاید را حذف می‌کند.
+
+### **انتخاب دامنهٔ تنظیم**
+
+یک اسلاید عادی از مستر خود از طریق [ISlide.getLayoutSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getLayoutSlide--) و [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--) استفاده می‌کند. تنظیم این ویژگی در یک اسلاید منفرد فقط بر همان اسلاید اثر می‌گذارد. مقدار `false` را به [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) پاس دهید تا گرافیک‌های مستر برای اسلایدهایی که از آن طرح‌بندی مشترک استفاده می‌کنند مخفی شوند، حتی اگر تنظیم شخصی آن‌ها `true` باشد. برای مخفی کردن گرافیک‌ها فقط در یک اسلاید، ویژگی اسلاید را تغییر دهید و طرح‌بندی مشترک را دست‌نخورده بگذارید.
+
+این تنظیم به‌عنوان کنترل وضوح در خود اسلاید مستر پشتیبانی نمی‌شود. در یک مستر، [getShowMasterShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) همیشه `false` برمی‌گرداند و پاس دادن `true` به [setShowMasterShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) باعث بروز استثنا می‌شود. این روش را بر روی اسلاید عادی یا یک طرح‌بندی اعمال کنید.
+
+### **تمایز گرافیک‌ها از پس‌زمینه**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | نمایش گرافیک‌های ارث‌بردهٔ مستر را بدون حذف آن‌ها یا تغییر اشکال خود اسلاید کنترل می‌کند. |
+| Change the slide background fill | رنگ، گرادیان یا تصویر پس‌زمینه را تغییر می‌دهد. گرافیک‌های مستر اشکال جداگانه‌ای هستند و می‌توانند بر روی آن پس‌زمینه همچنان قابل مشاهده باشند. برای اطلاعات بیشتر به [Presentation Background](/slides/fa/androidjava/presentation-background/) مراجعه کنید. |
+| Delete a shape from the master | شکل منبع مشترک را حذف می‌کند، به‌طوری‌که دیگر در هیچ اسلایدی که از آن مستر استفاده می‌کند در دسترس نیست. |
+
+## **کار با نگهدارنده‌ها**
+
+نگهدارنده‌ها معمولاً در اسلایدهای طرح‌بندی تعریف می‌شوند. اسلاید مستر سبک و تم مشترکی را که این طرح‌بندی‌ها از آن ارث می‌برند، فراهم می‌کند، در حالی که هر طرح‌بندی تصمیم می‌گیرد کدام نگهدارنده‌ها در دسترس هستند و در کجا قرار گیرند.
+
+در PowerPoint، دستورات نگهدارنده‌ها در نمای اسلاید مستر قابل دسترسی هستند.
+
+![دستور Insert Placeholder در نمای اسلاید مستر PowerPoint](slide-master_5.png)
+
+برای افزودن نگهدارنده‌های جدید با Aspose.Slides، با اسلاید طرح‌بندی که به مستر تعلق دارد کار کنید:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -162,9 +222,12 @@ try {
 }
 ```
 
-همچنین می‌توانید شکل‌های فضا نگهدار موجود در یک اسلاید مستر را قالب‌بندی کنید. مثال زیر فضا نگهدار عنوان را پیدا کرده و یک پر کردن گرادیان خطی اعمال می‌کند:
+همچنین می‌توانید اشکال نگهدارنده‌ای که از پیش بر روی یک اسلاید مستر وجود دارند را قالب‌بندی کنید. مثال زیر نگهدارندهٔ عنوان را پیدا می‌کند و پر شدن گرادیان خطی را به آن اعمال می‌نماید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -183,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -198,19 +261,22 @@ try {
 }
 ```
 
-![فضا نگهدار عنوان قالب‌بندی‌شده که توسط اسلایدهای عادی به ارث برده می‌شود](slide-master_8.png)
+![نگهدارندهٔ عنوان قالب‌بندی‌شده که توسط اسلایدهای عادی ارث‌برده می‌شود](slide-master_8.png)
 
-برای گزینه‌های بیشتر فضا نگهدار و قالب‌بندی متن، به [Set Prompt Text in Placeholder](/slides/fa/androidjava/manage-placeholder/) و [Text Formatting](/slides/fa/androidjava/text-formatting/) مراجعه کنید.
+برای گزینه‌های بیشتر مربوط به نگهدارنده‌ها و قالب‌بندی متن، به [Set Prompt Text in Placeholder](/slides/fa/androidjava/manage-placeholder/) و [Text Formatting](/slides/fa/androidjava/text-formatting/) مراجعه کنید.
 
-## **تغییر پس‌زمینه اسلاید مستر**
+## **تغییر پس‌زمینهٔ اسلاید مستر**
 
-یک پس‌زمینه مستر توسط چیدمان‌ها و اسلایدهایی که آن را بازنویسی نمی‌کنند، ارث بری می‌شود. مثال زیر یک رنگ پس‌زمینه یکدست برای اولین اسلاید مستر تنظیم می‌کند:
+پس‌زمینهٔ مستر توسط طرح‌بندی‌ها و اسلایدهایی که آن را بازنویسی نمی‌کنند، ارث‌برده می‌شود. مثال زیر یک رنگ پس‌زمینهٔ ثابت را برای اولین اسلاید مستر تنظیم می‌کند:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -222,13 +288,15 @@ try {
 }
 ```
 
-برای موضوعات مرتبط، به [Presentation Background](/slides/fa/androidjava/presentation-background/) و [Presentation Theme](/slides/fa/androidjava/presentation-theme/) مراجعه کنید.
+برای موضوعات مرتبط، به [Presentation Background](/slides/fa/androidjava/presentation-background/) و [Presentation Theme](/slides/fa/androidjava/presentation-theme/) نگاه کنید.
 
-## **کلون کردن اسلاید مستر به ارائه دیگر**
+## **کپی اسلاید مستر به ارائه‌ای دیگر**
 
-از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) برای کپی یک اسلاید مستر به ارائه دیگری استفاده کنید. مستر کپی‌شده سپس می‌تواند توسط چیدمان‌ها و اسلایدهای مقصد استفاده شود.
+از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) برای کپی یک اسلاید مستر به ارائهٔ دیگری استفاده کنید. مستر کپی‌شده سپس می‌تواند توسط طرح‌بندی‌ها و اسلایدهای مقصد استفاده شود.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -242,22 +310,25 @@ try {
 }
 ```
 
-اگر نیاز به کلون کردن اسلایدهای عادی به همراه مستر آن‌ها دارید، به [Clone Slides](/slides/fa/androidjava/clone-slides/) نگاه کنید.
+اگر نیاز دارید اسلایدهای عادی را همراه با مسترشان کپی کنید، به [Clone Slides](/slides/fa/androidjava/clone-slides/) مراجعه کنید.
 
 ## **افزودن چندین اسلاید مستر**
 
-یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. این برای بخش‌های مختلفی که به برندینگ، ساختار صفحه یا تنظیمات تم متفاوت نیاز دارند مفید است.
+یک ارائه می‌تواند شامل چندین اسلاید مستر باشد. این ویژگی زمانی مفید است که بخش‌های مختلف نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوتی داشته باشند.
 
 ![دستورات PowerPoint برای درج و مدیریت اسلایدهای مستر](slide-master_9.jpg)
 
-مثال زیر مستر پیش‌فرض را کلون می‌کند، به کلون پس‌زمینه‌ای متفاوت می‌دهد، یک چیدمان زیر آن مستر کلون‌شده ایجاد می‌کند و اسلاید جدیدی بر پایه آن چیدمان اضافه می‌کند:
+مثال زیر مستر پیش‌فرض را کپی می‌کند، پس‌زمینهٔ کپی را متفاوت می‌سازد، یک طرح‌بندی زیر آن مستر کپی‌شده ایجاد می‌کند و یک اسلاید جدید بر پایهٔ آن طرح‌بندی می‌افزاید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -279,9 +350,11 @@ try {
 
 ## **مقایسه اسلایدهای مستر**
 
-اسلایدهای مستر می‌توانند با متد `equals` که از [IBaseSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/) به ارث برده شده مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به فرد مانند شناسه اسلاید یا مقادیر پویا مثل تاریخ فعلی در مقایسه در نظر گرفته نمی‌شوند.
+اسلایدهای مستر می‌توانند با متد `equals` که از [IBaseSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/) ارث‌بری می‌شود، مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به‌فرد مانند شناسهٔ اسلاید یا مقادیر دینامیک نگهدارنده‌ها مانند تاریخ جاری را در نظر نمی‌گیرد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -308,13 +381,15 @@ try {
 }
 ```
 
-برای اطلاعات بیشتر، به [Compare Presentation Slides](/slides/fa/androidjava/compare-slides/) مراجعه کنید.
+برای اطلاعات بیشتر به [Compare Presentation Slides](/slides/fa/androidjava/compare-slides/) مراجعه کنید.
 
-## **تنظیم نمای اسلاید مستر به عنوان نمای پیش‌فرض**
+## **تنظیم نمای اسلاید مستر به‌عنوان نمای پیش‌فرض**
 
-از متد `setLastView` بر روی [ViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند، استفاده کنید. مثال زیر ارائه را در نمای Slide Master باز می‌کند:
+از متد `setLastView` در [ViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند، استفاده کنید. مثال زیر ارائه را در نمای اسلاید مستر باز می‌کند:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,15 +399,17 @@ try {
 }
 ```
 
-برای تنظیمات نمای بیشتر، به [Save Presentation](/slides/fa/androidjava/save-presentation/) نگاهی بیندازید.
+برای تنظیمات بیشتر نمای، به [Save Presentation](/slides/fa/androidjava/save-presentation/) نگاه کنید.
 
-## **حذف اسلایدهای مستر بلااستفاده**
+## **حذف اسلایدهای مستر غیر استفاده‌شده**
 
-گاهی ارائه‌ها شامل اسلایدهای مستری می‌شوند که دیگر توسط هیچ اسلاید عادی استفاده نمی‌شوند. حذف مسترهای بلااستفاده می‌تواند حجم فایل را کاهش داده و نگهداری قالب را ساده‌تر کند.
+گاهی ارائه‌ها شامل اسلایدهای مستری می‌شوند که دیگر توسط هیچ اسلاید عادی استفاده نمی‌شوند. حذف مسترهای غیر استفاده‌شده می‌تواند اندازهٔ فایل را کاهش داده و نگهداری قالب‌ها را ساده‌تر کند.
 
-از `removeUnused` برای حذف مسترهای بلااستفاده از مجموعه `getMasters()` استفاده کنید:
+از `removeUnused` برای حذف مسترهای غیر استفاده‌شده از مجموعه `getMasters()` استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -345,6 +422,8 @@ try {
 همچنین می‌توانید از متد کم‌کد [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,20 +433,20 @@ try {
 }
 ```
 
-## **سؤال‌های متداول**
+## **سوالات متداول**
 
-**تفاوت اسلاید مستر و اسلاید چیدمان چیست؟**
+**تفاوت اسلاید مستر و اسلاید طرح‌بندی چیست؟**
 
-اسلاید مستر تنظیمات طراحی مشترک مانند تم، پس‌زمینه، شکل‌های عمومی و سبک‌های متن را تعیین می‌کند. اسلاید چیدمان به یک اسلاید مستر تعلق دارد و چینش خاصی از فضا نگهدارها را تعریف می‌کند. یک اسلاید عادی از یک اسلاید چیدمان استفاده می‌کند، بنابراین از هر دو چیدمان و مستر ارث می‌برد.
+اسلاید مستر تنظیمات طراحی مشترکی مانند تم، پس‌زمینه، اشکال عمومی و سبک‌های متن را تعریف می‌کند. اسلاید طرح‌بندی متعلق به یک اسلاید مستر است و ترتیب خاصی از نگهدارنده‌ها را تعریف می‌کند. یک اسلاید عادی از یک اسلاید طرح‌بندی استفاده می‌کند، بنابراین از هر دو طرح‌بندی و مستر ارث می‌برد.
 
 **آیا یک ارائه می‌تواند چندین اسلاید مستر داشته باشد؟**
 
-بله. یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. هنگامی که بخش‌های مختلف نیاز به سیستم‌های بصری یا برندینگ متفاوتی دارند، از چند مستر استفاده کنید.
+بله. یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. زمانی که بخش‌های مختلف به سیستم‌های بصری یا برندینگ متفاوتی نیاز دارند، از مسترهای متعدد استفاده کنید.
 
-**آیا فضا نگهدارها را باید به اسلاید مستر یا اسلاید چیدمان اضافه کنم؟**
+**آیا باید نگهدارنده‌ها را به اسلاید مستر یا اسلاید طرح‌بندی اضافه کنم؟**
 
-در اکثر موارد فضا نگهدارها را به اسلایدهای چیدمان اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های مشترک را در مستر بگذارید، سپس فضا نگهدارهای محتوایی را در چیدمان‌هایی که اسلایدهای عادی استفاده می‌کنند، قرار دهید.
+در اکثر موارد، نگهدارنده‌ها را به اسلایدهای طرح‌بندی اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های مشترک را بر روی اسلاید مستر بگذارید و سپس نگهدارنده‌های محتوا را بر روی طرح‌بندی‌هایی که اسلایدهای عادی استفاده می‌کنند، قرار دهید.
 
 **آیا می‌توانم اسلاید مستری را که هنوز استفاده می‌شود حذف کنم؟**
 
-خیر. اسلاید مستری که اسلایدهای وابسته دارد، به‌صورت مستقیم قابل حذف نیست. ابتدا آن اسلایدها را به چیدمان‌های زیر مستر دیگری منتقل کنید یا از روش پاک‌سازی مسترهای بلااستفاده استفاده کنید که فقط مسترهای بدون استفاده را حذف می‌کند.
+نه. اسلاید مستری که اسلایدهای وابسته دارد، نمی‌تواند به‌طور مستقیم حذف شود. ابتدا آن اسلایدها را به طرح‌بندی‌های تحت مستر دیگری منتقل کنید یا از روش پاک‌سازی مسترهای استفاده‌نشده که فقط مسترهای بدون استفاده را حذف می‌کند، استفاده کنید.

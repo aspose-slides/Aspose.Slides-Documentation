@@ -1,58 +1,60 @@
 ---
-title: "Διαχείριση master διαφανειών παρουσίασης σε Android"
-linktitle: "Master Διαφάνειας"
+title: Διαχείριση master διαφανειών παρουσίασης σε Android
+linktitle: Master Διαφάνειας
 type: docs
 weight: 70
 url: /el/androidjava/slide-master/
 keywords:
 - master διαφάνειας
 - master διαφάνειας
-- master διαφάνειας PPT
-- πολλαπλές master διαφάνειες
-- σύγκριση master διαφανειών
+- PPT master διαφάνειας
+- πολλαπλά master διαφάνειας
+- σύγκριση master διαφάνειας
 - φόντο
 - σύμβολο κράτησης
 - κλωνοποίηση master διαφάνειας
-- αντιγραφή master διαφάνης
-- διπλασιασμός master διαφάνειας
-- αχρησιμοποίητη master διαφάνεια
+- αντιγραφή master διαφάνειας
+- αντίγραφο master διαφάνειας
+- αχρησιμοποίητο master διαφάνειας
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε τα master διαφάνειων στο Aspose.Slides για Android μέσω Java: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση master διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
+description: "Διαχειριστείτε τα master διαφάνειας στο Aspose.Slides για Android μέσω Java: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και κατάργηση των master διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
 ---
 ## **Επισκόπηση**
 
-Ένα **slide master** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, φόντα, στιλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός slide master είναι ο συνηθισμένος τρόπος να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
+Ένας **slide master** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, φόντο, στυλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός slide master είναι ο συνηθισμένος τρόπος να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
 
-Το Aspose.Slides for Android via Java υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει μία ή περισσότερες master διαφάνειες, και κάθε master διαφάνεια μπορεί να περιέχει πολλές layout διαφάνειες. Οι κανονικές διαφάνειες συνήθως δεν αναφέρονται άμεσα σε μια master διαφάνεια. Αντίθετα, μια κανονική διαφάνεια χρησιμοποιεί μια layout διαφάνεια, η οποία ανήκει σε μια master διαφάνεια.
+Aspose.Slides for Android via Java υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει ένα ή περισσότερα master slides και κάθε master slide μπορεί να περιέχει πολλά layout slides. Οι κανονικές διαφάνειες συνήθως δεν αναφέρονται απευθείας σε ένα master slide. Αντίθετα, μια κανονική διαφάνεια χρησιμοποιεί ένα layout slide, το οποίο ανήκει σε ένα master slide.
 
 Η ιεραρχία είναι:
 
-1. **Slide master** – ορίζει το κοινό σχέδιο και το θέμα.  
-1. **Layout slide** – ορίζει μια συγκεκριμένη διάταξη των placeholders και τη μορφοποίηση επιπέδου layout.  
-1. **Normal slide** – περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί μία layout διαφάνεια.
+1. **Slide master** - ορίζει το κοινό σχέδιο και το θέμα.
+1. **Layout slide** - ορίζει μια συγκεκριμένη διάταξη placeholders και μορφοποίησης επιπέδου διάταξης.
+1. **Normal slide** - περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί ένα layout slide.
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![Η ιεραρχία των master slides, layout slides και normal slides](slide-master_2.jpg)
 
-Στο Aspose.Slides, ένα slide master αντιπροσωπεύεται από τη διεπαφή [IMasterSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslide/) . Όλες οι master διαφάνειες σε μια παρουσίαση είναι διαθέσιμες μέσω της συλλογής [Presentation.getMasters](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getMasters--) , η οποία υλοποιεί τη [IMasterSlideCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslidecollection/). Για πλήρη επισκόπηση του API Android via Java, δείτε την αναφορά [com.aspose.slides API](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/).
+Στο Aspose.Slides, ένα slide master αντιπροσωπεύεται από το interface [IMasterSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslide/) . Όλες οι master slides σε μια παρουσίαση είναι διαθέσιμες μέσω της συλλογής [Presentation.getMasters](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getMasters--) , η οποία υλοποιεί το [IMasterSlideCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslidecollection/). Για το πλήρες σύνολο API Android μέσω Java, δείτε το [com.aspose.slides API reference](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/).
 
 {{% alert color="info" title="Inheritance" %}}
-Όταν η ίδια ιδιότητα ορίζεται σε περισσότερα από ένα επίπεδα, το πιο συγκεκριμένο επίπεδο κερδίζει. Για παράδειγμα, εάν μια master διαφάνεια και μια layout διαφάνεια ορίζουν και τις δύο ένα φόντο, οι διαφάνειες που βασίζονται σε αυτή τη layout χρησιμοποιούν το φόντο της layout. Για περισσότερες πληροφορίες σχετικά με τις layout διαφάνειες, δείτε [Apply or Change Slide Layouts](/slides/el/androidjava/slide-layout/).
+Όταν η ίδια ιδιότητα ορίζεται σε περισσότερα από ένα επίπεδα, το πιο συγκεκριμένο επίπεδο προτεραιότητα. Για παράδειγμα, εάν ένα master slide και ένα layout slide ορίζουν και τα δύο ένα φόντο, οι διαφάνειες που βασίζονται σε εκείνη τη διάταξη χρησιμοποιούν το φόντο της διάταξης. Για περισσότερες πληροφορίες σχετικά με τα layout slides, δείτε το [Apply or Change Slide Layouts](/slides/el/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **Πρόσβαση στις Slide Masters**
+## **Πρόσβαση σε Slide Masters**
 
 Στο PowerPoint, μπορείτε να ανοίξετε την προβολή Slide Master από **View** > **Slide Master**.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![Η εντολή Slide Master στην καρτέλα View του PowerPoint](slide-master_3.jpg)
 
-Στο Aspose.Slides, χρησιμοποιήστε τη συλλογή `getMasters()` για πρόσβαση στις master διαφάνειες:
+Στο Aspose.Slides, χρησιμοποιήστε τη συλλογή `getMasters()` για να αποκτήσετε πρόσβαση στα master slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-Μπορείτε επίσης να λάβετε τη master διαφάνεια που χρησιμοποιείται από μια κανονική διαφάνεια μέσω του layout της:
+Μπορείτε επίσης να λάβετε το master slide που χρησιμοποιείται από μια κανονική διαφάνεια μέσω της διάταξής της:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,28 +86,30 @@ try {
 }
 ```
 
-## **Τι Περιέχει μια Slide Master**
+## **Τι Περιέχει ένα Slide Master**
 
-Μια master διαφάνεια είναι ένα αντικείμενο παρόμοιο με τη διαφάνεια. Υλοποιεί το [IBaseSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseslide/), οπότε εκθέτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από τις κανονικές και τις layout διαφάνειες.
+Ένα master slide είναι ένα αντικείμενο τύπου διαφάνειας. Υλοποιεί το [IBaseSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseslide/), επομένως εκθέτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από κανονικές και layout διαφάνειες.
 
-Συχνά χρησιμοποιούμενα μέλη της master διαφάνειας περιλαμβάνουν:
+Τα πιο συχνά χρησιμοποιούμενα μέλη του master slide περιλαμβάνουν:
 
-| Member | Purpose |
+| Μέλος | Σκοπός |
 | --- | --- |
-| `getBackground()` | Ορίζει το φόντο σε επίπεδο master. |
-| `getShapes()` | Αποθηκεύει σχήματα τοποθετημένα στη master, όπως λογότυπα, πλαίσια εικόνων και κοινό κείμενο. |
-| `getLayoutSlides()` | Αποθηκεύει τις layout διαφάνειες που ανήκουν στη master. |
-| `getThemeManager()` | Παρέχει πρόσβαση στα API θέματος της master. |
-| `getHeaderFooterManager()` | Ελέγχει κεφαλίδες, υποσέλιδα, ημερομηνίες και αριθμούς διαφανειών για τη master και τα παιδικά της layout. |
-| `getDependingSlides()` | Επιστρέφει τις κανονικές διαφάνειες που εξαρτώνται από τη master μέσω των layout τους. |
+| `getBackground()` | Ορίζει το φόντο της διαφάνειας σε επίπεδο master. |
+| `getShapes()` | Αποθηκεύει τα σχήματα που τοποθετούνται στο master, όπως λογότυπα, πλαίσια εικόνας και κοινό κείμενο. |
+| `getLayoutSlides()` | Αποθηκεύει τα layout slides που ανήκουν στο master. |
+| `getThemeManager()` | Παρέχει πρόσβαση στα API του θέματος του master. |
+| `getHeaderFooterManager()` | Ελέγχει κεφαλίδες, υποσέλιδα, ημερομηνίες και αριθμούς διαφανειών για το master και τις παιδικές του διατάξεις. |
+| `getDependingSlides()` | Επιστρέφει τις κανονικές διαφάνειες που εξαρτώνται από το master μέσω των διατάξεων τους. |
 
 ## **Προσθήκη Εικόνας σε Slide Master**
 
-Όταν προσθέτετε μια εικόνα σε μια master διαφάνεια, εμφανίζεται στις διαφάνειες που χρησιμοποιούν layout από εκείνη τη master. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές λωρίδες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
+Όταν προσθέτετε μια εικόνα σε ένα master slide, εμφανίζεται στις διαφάνειες που χρησιμοποιούν διατάξεις από αυτό το master. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές λωρίδες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
 
-Το παρακάτω παράδειγμα προσθέτει ένα λογότυπο στην πρώτη master διαφάνεια:
+Το παρακάτω παράδειγμα προσθέτει ένα λογότυπο στο πρώτο master slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-Για περισσότερες πληροφορίες σχετικά με τα πλαίσια εικόνας, δείτε [Picture Frame](/slides/el/androidjava/picture-frame/).
+Για περισσότερες πληροφορίες σχετικά με τα πλαίσια εικόνας, δείτε το [Picture Frame](/slides/el/androidjava/picture-frame/).
+
+## **Έλεγχος Ορατότητας των Γραφικών του Master**
+
+Χρησιμοποιήστε το [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) για να κρύψετε τα κληρονομημένα γραφικά του master, όπως λογότυπα ή διακοσμητικά σχήματα, χωρίς να τα διαγράψετε από το master. Περάστε `false` στη [Slide.setShowMasterShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) της διαφάνειας που πρέπει να παραλείψει αυτά τα γραφικά και κρατήστε το `true` στις διαφάνειες που πρέπει να τα εμφανίζει.
+
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί μια μπλε διακοσμητική λωρίδα σε ένα master και δύο διαφάνειες που χρησιμοποιούν την ίδια κενή διάταξη. Η λωρίδα είναι ορατή στην πρώτη διαφάνεια και κρυμμένη στη δεύτερη. Δεν απαιτείται είσοδος παρουσίασης ή εικόνα.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το παράδειγμα χρησιμοποιεί τη διάταξη **Blank** που παρέχεται με μια νέα παρουσίαση και αφαιρεί τα δικά του placeholders από την αρχική διαφάνεια.
+
+### **Επιλογή Εύρους της ρύθμισης**
+
+Μια κανονική διαφάνεια χρησιμοποιεί το master της μέσω των [ISlide.getLayoutSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getLayoutSlide--) και [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). Ορίζοντας την ιδιότητα σε μια μεμονωμένη διαφάνεια επηρεάζει μόνο αυτή τη διαφάνεια. Περάτοντας `false` στη [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) κρύβετε τα γραφικά του master για τις διαφάνειες που χρησιμοποιούν αυτή την κοινή διάταξη, ακόμη και αν η δική τους ρύθμιση είναι `true`. Για να κρύψετε τα γραφικά μόνο σε μία διαφάνεια, αλλάξτε την ιδιότητα της διαφάνειας και αφήστε την κοινή διάταξη αμετάβλητη.
+
+Η ρύθμιση δεν υποστηρίζεται ως έλεγχος ορατότητας στο ίδιο το master slide. Σε ένα master, η [getShowMasterShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) επιστρέφει πάντα `false`, και περνώντας `true` στη [setShowMasterShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) προκαλεί εξαίρεση. Εφαρμόστε την σε μια κανονική διαφάνεια ή σε μια διάταξη.
+
+### **Διαχωρισμός Γραφικών από το Φόντο**
+
+| Λειτουργία | Αποτέλεσμα |
+| --- | --- |
+| Κρύψιμο των γραφικών του master | Ελέγχει την ορατότητα των κληρονομημένων σ_shapeμάτων master χωρίς να τα διαγράψει ή να αλλάξει τα δικά σχήματα της διαφάνειας. |
+| Αλλαγή γεμίσματος φόντου διαφάνειας | Αλλάζει το χρώμα, το διαβάθμιση ή την εικόνα του φόντου. Τα γραφικά του master είναι ξεχωριστά σχήματα και μπορούν να παραμείνουν ορατά πάνω σε αυτό το φόντο. Δείτε το [Presentation Background](/slides/el/androidjava/presentation-background/). |
+| Διαγραφή σχήματος από το master | Αφαιρεί το κοινό σχήμα προέλευσης, ώστε να μην είναι πλέον διαθέσιμο σε καμία διαφάνεια που χρησιμοποιεί αυτό το master. |
 
 ## **Εργασία με Placeholders**
 
-Τα placeholders ορίζονται συνήθως στις layout διαφάνειες. Η master διαφάνεια παρέχει το κοινό στυλ και το θέμα που κληρονομούν αυτές οι layout, ενώ κάθε layout αποφασίζει ποια placeholders είναι διαθέσιμα και πού τοποθετούνται.
+Τα placeholders ορίζονται συνήθως σε layout slides. Το master slide παρέχει το κοινό στυλ και θέμα που κληρονομούν αυτές οι διατάξεις, ενώ κάθε διάταξη αποφασίζει ποια placeholders είναι διαθέσιμα και πού τοποθετούνται.
 
-Στο PowerPoint, οι εντολές placeholder διατίθενται στην προβολή Slide Master.
+Στο PowerPoint, οι εντολές placeholder είναι διαθέσιμες στην προβολή Slide Master.
 
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+![Η εντολή Insert Placeholder στην προβολή Slide Master του PowerPoint](slide-master_5.png)
 
-Για να προσθέσετε νέα placeholders με το Aspose.Slides, εργαστείτε με τη layout διαφάνεια που ανήκει στη master:
+Για να προσθέσετε νέα placeholders με το Aspose.Slides, εργαστείτε με το layout slide που ανήκει στο master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-Μπορείτε επίσης να μορφοποιήσετε σχήματα placeholder που ήδη υπάρχουν σε μια master διαφάνεια. Το παρακάτω παράδειγμα εντοπίζει το placeholder τίτλου και εφαρμόζει μια γραμμική γεμίσμα κλίσης:
+Μπορείτε επίσης να μορφοποιήσετε σχήματα placeholder που υπάρχουν ήδη σε ένα master slide. Το παρακάτω παράδειγμα βρίσκει το placeholder τίτλου και εφαρμόζει ένα γραμμικό γεμισμα διαβάθμισης:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![Μορφοποιημένο placeholder τίτλου που κληρονομείται από τις κανονικές διαφάνειες](slide-master_8.png)
 
-Για περισσότερες επιλογές μορφοποίησης placeholder και κειμένου, δείτε [Set Prompt Text in Placeholder](/slides/el/androidjava/manage-placeholder/) και [Text Formatting](/slides/el/androidjava/text-formatting/).
+Για περισσότερες επιλογές placeholder και μορφοποίησης κειμένου, δείτε το [Set Prompt Text in Placeholder](/slides/el/androidjava/manage-placeholder/) και το [Text Formatting](/slides/el/androidjava/text-formatting/).
 
 ## **Αλλαγή Φόντου Slide Master**
 
-Ένα φόντο master κληρονομείται από τα layout και τις διαφάνειες που δεν το παρακάμπτουν. Το παρακάτω παράδειγμα ορίζει ένα ενιαίο χρώμα φόντου για την πρώτη master διαφάνεια:
+Ένα φόντο master κληρονομείται από τις διατάξεις και τις διαφάνειες που δεν το υπερισχύουν. Το παρακάτω παράδειγμα ορίζει ένα συμπαγές χρώμα φόντου για το πρώτο master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-Για σχετικά θέματα, δείτε [Presentation Background](/slides/el/androidjava/presentation-background/) και [Presentation Theme](/slides/el/androidjava/presentation-theme/).
+Για συναφή θέματα, δείτε το [Presentation Background](/slides/el/androidjava/presentation-background/) και το [Presentation Theme](/slides/el/androidjava/presentation-theme/).
 
 ## **Κλωνοποίηση Slide Master σε Άλλη Παρουσίαση**
 
-Χρησιμοποιήστε το [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) για να αντιγράψετε μια master διαφάνεια σε άλλη παρουσίαση. Η αντιγραμμένη master μπορεί στη συνέχεια να χρησιμοποιηθεί από layout και διαφάνειες στην προορισμένη παρουσίαση.
+Χρησιμοποιήστε το [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) για να αντιγράψετε ένα master slide σε άλλη παρουσίαση. Το αντίγραφο master μπορεί στη συνέχεια να χρησιμοποιηθεί από τις διατάξεις και τις διαφάνειες στην προορισμένη παρουσίαση.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-Αν χρειάζεται να κλωνοποιήσετε κανονικές διαφάνειες μαζί με τη master τους, δείτε [Clone Slides](/slides/el/androidjava/clone-slides/).
+Αν χρειάζεστε να κλωνοποιήσετε κανονικές διαφάνειες μαζί με το master τους, δείτε το [Clone Slides](/slides/el/androidjava/clone-slides/).
 
-## **Προσθήκη Πολλών Slide Masters**
+## **Προσθήκη Πολλαπλών Slide Masters**
 
-Μια παρουσίαση μπορεί να περιέχει πολλαπλές master διαφάνειες. Αυτό είναι χρήσιμο όταν διαφορετικές ενότητες απαιτούν διαφορετική σήμανση, δομή σελίδας ή ρυθμίσεις θέματος.
+Μια παρουσίαση μπορεί να περιέχει πολλαπλά master slides. Αυτό είναι χρήσιμο όταν διαφορετικά τμήματα απαιτούν διαφορετική επωνυμία, δομή σελίδας ή ρυθμίσεις θέματος.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![Εντολές PowerPoint για την εισαγωγή και διαχείριση master slides](slide-master_9.jpg)
 
-Το παρακάτω παράδειγμα κλωνοποιεί την προεπιλεγμένη master, δίνει στο κλώνο διαφορετικό φόντο, δημιουργεί ένα layout κάτω από αυτή τη κλωνοποιημένη master και προσθέτει μια νέα διαφάνεια βασισμένη σε αυτό το layout:
+Το παρακάτω παράδειγμα κλωνοποιεί το προεπιλεγμένο master, του δίνει διαφορετικό φόντο, δημιουργεί μια διάταξη κάτω από αυτό το κλωνοποιημένο master και προσθέτει μια νέα διαφάνεια βασισμένη σε αυτή τη διάταξη:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -277,9 +350,11 @@ try {
 
 ## **Σύγκριση Slide Masters**
 
-Οι master διαφάνειες μπορούν να συγκριθούν με τη μέθοδο `equals` που κληρονομείται από το [IBaseSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σχήματα, κείμενο, μορφοποίηση, κινήσεις και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως τα IDs διαφανειών, ή δυναμικές τιμές placeholder, όπως η τρέχουσα ημερομηνία.
+Τα master slides μπορούν να συγκριθούν με τη μέθοδο `equals` που κληρονομείται από το [IBaseSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σχήματα, κείμενο, μορφοποίηση, κινήσεις και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως slide IDs, ή δυναμικές τιμές placeholders, όπως η τρέχουσα ημερομηνία.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-Για περισσότερες πληροφορίες, δείτε [Compare Presentation Slides](/slides/el/androidjava/compare-slides/).
+Για περισσότερες πληροφορίες, δείτε το [Compare Presentation Slides](/slides/el/androidjava/compare-slides/).
 
-## **Ορισμός Slide Master View ως Προεπιλεγμένη Προβολή**
+## **Ορισμός Προβολής Slide Master ως Προεπιλεγμένη Προβολή**
 
 Χρησιμοποιήστε τη μέθοδο `setLastView` στο [ViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/viewproperties/) για να ελέγξετε την προβολή που ανοίγει πρώτο το PowerPoint. Το παρακάτω παράδειγμα ανοίγει την παρουσίαση σε προβολή Slide Master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -322,15 +399,17 @@ try {
 }
 ```
 
-Για περισσότερες ρυθμίσεις προβολής, δείτε [Save Presentation](/slides/el/androidjava/save-presentation/).
+Για περισσότερες ρυθμίσεις προβολής, δείτε το [Save Presentation](/slides/el/androidjava/save-presentation/).
 
-## **Κατάργηση Μη Χρησιμοποιούμενων Master Slides**
+## **Αφαίρεση Μη Χρησιμοποιούμενων Master Slides**
 
-Μερικές φορές οι παρουσιάσεις περιέχουν master διαφάνειες που δεν χρησιμοποιούνται πλέον από καμία κανονική διαφάνεια. Η αφαίρεση των μη χρησιμοποιούμενων masters μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη συντήρηση του προτύπου.
+Μερικές φορές οι παρουσιάσεις περιέχουν master slides που δεν χρησιμοποιούνται πλέον από καμία κανονική διαφάνεια. Η αφαίρεση των μη χρησιμοποιούμενων masters μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη συντήρηση του προτύπου.
 
-Χρησιμοποιήστε το `removeUnused` για να αφαιρέσετε μη χρησιμοποιούμενες masters από τη συλλογή `getMasters()`:
+Χρησιμοποιήστε το `removeUnused` για να αφαιρέσετε τους μη χρησιμοποιούμενους masters από τη συλλογή `getMasters()`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-Μπορείτε επίσης να χρησιμοποιήσετε τη μέθοδο low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+Μπορείτε επίσης να χρησιμοποιήσετε τη μέθοδο low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,18 +435,18 @@ try {
 
 ## **FAQ**
 
-**Ποια είναι η διαφορά μεταξύ slide master και layout slide;**
+**Ποια είναι η διαφορά μεταξύ ενός slide master και ενός layout slide;**
 
-Μια slide master ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, φόντο, κοινά σχήματα και στιλ κειμένου. Μια layout slide ανήκει σε μια master slide και ορίζει μια συγκεκριμένη διάταξη placeholders. Μια κανονική διαφάνεια χρησιμοποιεί μια layout slide, έτσι κληρονομεί τόσο από τη layout όσο και από τη master.
+Ένα slide master ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, φόντο, κοινά σχήματα και στυλ κειμένου. Ένα layout slide ανήκει σε ένα slide master και ορίζει μια συγκεκριμένη διάταξη placeholders. Μια κανονική διαφάνεια χρησιμοποιεί ένα layout slide, έτσι κληρονομεί τόσο από τη διάταξη όσο και από το master.
 
-**Μπορεί μια παρουσίαση να περιέχει πολλαπλές slide masters;**
+**Μπορεί μια παρουσίαση να περιέχει πολλαπλά slide masters;**
 
-Ναι. Μια παρουσίαση μπορεί να περιέχει πολλαπλές slide masters. Χρησιμοποιήστε πολλές masters όταν διαφορετικά τμήματα χρειάζονται διαφορετικά οπτικά συστήματα ή σήμανση.
+Ναι. Μια παρουσίαση μπορεί να περιέχει πολλαπλά slide masters. Χρησιμοποιήστε πολλαπλά masters όταν διαφορετικά τμήματα χρειάζονται διαφορετικά οπτικά συστήματα ή επωνυμία.
 
-**Πρέπει να προσθέσω placeholders σε μια master slide ή σε μια layout slide;**
+**Θα πρέπει να προσθέτω placeholders σε ένα master slide ή σε ένα layout slide;**
 
-Στις περισσότερες περιπτώσεις, προσθέτετε placeholders στις layout διαφάνειες. Τοποθετήστε τα κοινά οπτικά στοιχεία και τη κοινή μορφοποίηση στη master slide, και μετά τα placeholders περιεχομένου στις layout που θα χρησιμοποιήσουν οι κανονικές διαφάνειες.
+Στις περισσότερες περιπτώσεις, προσθέτετε placeholders σε layout slides. Τοποθετήστε κοινά οπτικά στοιχεία και κοινή μορφοποίηση στο master slide, και έπειτα τοποθετήστε placeholders περιεχομένου στις διατάξεις που θα χρησιμοποιούν οι κανονικές διαφάνειες.
 
-**Μπορώ να διαγράψω μια master slide που χρησιμοποιείται ακόμα;**
+**Μπορώ να διαγράψω ένα master slide που εξακολουθεί να χρησιμοποιείται;**
 
-Όχι. Μια master slide που έχει εξαρτημένες διαφάνειες δεν μπορεί να αφαιρεθεί με ασφάλεια απευθείας. Πρώτα μετακινήστε αυτές τις διαφάνειες σε layout κάτω από άλλη master, ή χρησιμοποιήστε μια μέθοδο καθαρισμού μη χρησιμοποιούμενων masters που αφαιρεί μόνο τις masters που δεν είναι σε χρήση.
+Όχι. Ένα master slide που έχει εξαρτημένες διαφάνειες δεν μπορεί να αφαιρεθεί άμεσα με ασφάλεια. Πρώτα μετακινήστε αυτές τις διαφάνειες σε διατάξεις κάτω από άλλο master, ή χρησιμοποιήστε μια μέθοδο καθαρισμού μη χρησιμοποιημένων masters που αφαιρεί μόνο τα masters που δεν είναι σε χρήση.

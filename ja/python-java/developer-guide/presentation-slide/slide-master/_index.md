@@ -1,5 +1,5 @@
 ---
-title: Python via Java でプレゼンテーションのスライドマスターを管理
+title: Python via Java でプレゼンテーションのスライドマスターを管理する
 linktitle: スライドマスター
 type: docs
 weight: 70
@@ -22,35 +22,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Python via Java 用 Aspose.Slides でスライドマスターを管理します：PowerPoint および OpenDocument のプレゼンテーションにおいて、マスタースライドの取得、編集、クローン、比較、削除を行うことができます。"
+description: "Aspose.Slides for Python via Java でスライドマスターを管理します。PowerPoint と OpenDocument のプレゼンテーションでマスタースライドを取得、編集、クローン、比較、削除できます。"
 ---
 ## **概要**
 
-**スライドマスター**は、スライドのグループに対して共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキストスタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することで、各スライドに同じ書式設定を繰り返すことなくプレゼンテーションの一貫性を保つのが一般的な方法です。
+**スライドマスター** は、複数のスライドに共通するデザイン設定を定義します。共通の図形、ロゴ、背景、テキストスタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することで、各スライドで同じ書式設定を繰り返すことなくプレゼンテーションの一貫性を保つのが一般的な方法です。
 
-Aspose.Slides for Python via Java でも同じモデルがサポートされています。プレゼンテーションは 1 つ以上のマスタースライドを含むことができ、各マスタースライドは複数のレイアウトスライドを持ちます。通常のスライドは直接マスタースライドを参照しません。代わりに、通常のスライドはレイアウトスライドを使用し、そのレイアウトスライドがマスタースライドに属しています。
+Aspose.Slides for Python via Java は同じモデルをサポートしています。プレゼンテーションは 1 つまたは複数のマスタースライドを含むことができ、各マスタースライドは複数のレイアウトスライドを含みます。通常のスライドはマスタースライドを直接参照することはなく、代わりにレイアウトスライドを使用し、そのレイアウトスライドはマスタースライドに属しています。
 
-階層は次のとおりです。
+階層は:
 
-1. **スライドマスター** – 共有デザインとテーマを定義します。  
-1. **レイアウトスライド** – プレースホルダーやレイアウトレベルの書式設定の具体的な配置を定義します。  
-1. **通常スライド** – 実際のプレゼンテーションコンテンツを保持し、1 つのレイアウトスライドを使用します。
+1. **スライドマスター** - 共有デザインとテーマを定義します。  
+2. **レイアウトスライド** - プレースホルダーとレイアウトレベルの書式設定の特定の配置を定義します。  
+3. **通常スライド** - 実際のプレゼンテーションコンテンツを含み、1 つのレイアウトスライドを使用します。
 
 ![マスタースライド、レイアウトスライド、通常スライドの階層構造](slide-master_2.jpg)
 
-Aspose.Slides では、スライドマスターは [MasterSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/) クラスで表されます。プレゼンテーション内のすべてのマスタースライドは、[Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) コレクションを介して取得でき、これは [MasterSlideCollection](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslidecollection/) として表されます。
+Aspose.Slides では、スライドマスターは [MasterSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/) クラスで表されます。プレゼンテーション内のすべてのマスタースライドは [Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) コレクションを通じて取得でき、これは [MasterSlideCollection](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslidecollection/) で表されます。
 
 {{% alert color="info" title="Inheritance" %}}
-同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[Apply or Change Slide Layouts](/slides/ja/python-java/slide-layout/) を参照してください。
+同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスタースライドとレイアウトスライドの両方で背景が設定されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[Apply or Change Slide Layouts](/slides/ja/python-java/slide-layout/) を参照してください。
 {{% /alert %}}
 
 ## **スライドマスターへのアクセス**
 
-PowerPoint では、**表示** > **スライドマスター** からスライドマスタービューを開くことができます。
+PowerPoint では、**表示** > **スライドマスター** からスライドマスター表示を開くことができます。
 
-![PowerPoint の「表示」タブにあるスライドマスター コマンド](slide-master_3.jpg)
+![PowerPoint の表示タブにあるスライドマスター コマンド](slide-master_3.jpg)
 
-Aspose.Slides では、[Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) コレクションを使用してマスタースライドにアクセスします:
+Aspose.Slides では、[Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) コレクションを使用してマスタースライドにアクセスします：
 
 ```python
 import jpype
@@ -73,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-通常スライドからそのレイアウトを介して使用されているマスタースライドを取得することもできます:
+通常のスライドが使用しているマスタースライドは、そのレイアウトを介して取得することもできます：
 
 ```python
 import jpype
@@ -98,24 +98,24 @@ finally:
 
 ## **スライドマスターに含まれるもの**
 
-マスタースライドはスライドに似たオブジェクトです。[BaseSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/) から継承しているため、通常スライドやレイアウトスライドで使用される多くの同じスライドプロパティが利用できます。マスタ固有のメンバーは [MasterSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/) API ページに一覧化されています。
+マスタースライドはスライドに似たオブジェクトです。それは [BaseSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/) を継承しているため、通常スライドやレイアウトスライドと同じスライドプロパティの多くを利用できます。マスター固有のメンバーは [MasterSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/) API ページに一覧されています。
 
-主なマスタースライドメンバーは次のとおりです:
+一般的に使用されるマスタースライドのメンバーは以下です：
 
-| メンバー | 用途 |
+| メンバー | 目的 |
 | --- | --- |
 | [getBackground](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#getBackground) | マスターレベルのスライド背景を設定します。 |
-| [getShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#getShapes) | ロゴ、画像フレーム、共有テキストなど、マスター上に配置された図形を格納します。 |
+| [getShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#getShapes) | マスター上に配置された図形（ロゴ、画像フレーム、共有テキストなど）を格納します。 |
 | [getLayoutSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getLayoutSlides) | マスターに属するレイアウトスライドを格納します。 |
 | [getThemeManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getThemeManager) | マスターのテーマ API へのアクセスを提供します。 |
 | [getHeaderFooterManager](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | マスターとその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
-| [getDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getDependingSlides) | レイアウトを通じてマスターに依存している通常スライドを返します。 |
+| [getDependingSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getDependingSlides) | レイアウトを介してマスターに依存している通常スライドを返します。 |
 
 ## **スライドマスターに画像を追加する**
 
-マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するスライドすべてに表示されます。ロゴ、透かし、装飾バンド、その他繰り返し使用するビジュアル要素に便利です。
+マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するスライドに画像が表示されます。ロゴ、透かし、装飾バンド、その他繰り返し使用されるビジュアル要素に便利です。
 
-次の例は、最初のマスタースライドにロゴを追加します:
+以下の例は、最初のマスタースライドにロゴを追加します：
 
 ```python
 import jpype
@@ -143,15 +143,75 @@ finally:
 
 画像フレームの詳細については、[Picture Frame](/slides/ja/python-java/picture-frame/) を参照してください。
 
+## **マスターグラフィックの表示制御**
+
+継承されたマスターグラフィック（ロゴや装飾形状など）をマスターから削除せずに非表示にするには、[BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#setShowMasterShapes) を使用します。非表示にしたいスライドでは [Slide.setShowMasterShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#setShowMasterShapes) に `False` を渡し、表示させたいスライドでは `True` のままにします。
+
+以下の自己完結型サンプルは、マスターに青い装飾バンドを作成し、同じ空白レイアウトを使用する 2 枚のスライドを作成します。バンドは最初のスライドで表示され、2 番目のスライドで非表示になります。入力プレゼンテーションや画像は必要ありません。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+この例は新しいプレゼンテーションに付属する **Blank** レイアウトを使用し、最初のスライドのプレースホルダーを削除します。
+
+### **設定のスコープを選択する**
+
+通常スライドは [Slide.getLayoutSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getLayoutSlide) と [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#getMasterSlide) を通じてマスターを使用します。個々のスライドにプロパティを設定すると、そのスライドにのみ影響します。[LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/layoutslide/#setShowMasterShapes) に `False` を渡すと、その共有レイアウトを使用するすべてのスライドでマスターグラフィックが非表示になります（各スライドの設定が `True` であっても）。1 つのスライドだけでグラフィックを非表示にしたい場合は、スライドのプロパティを変更し、共有レイアウトはそのままにします。
+
+この設定はマスタースライド自体の可視性制御としてはサポートされていません。マスター上で [getShowMasterShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#getShowMasterShapes) は常に `False` を返し、[setShowMasterShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslide/#setShowMasterShapes) に `True` を渡すと例外がスローされます。代わりに通常スライドまたはレイアウトに適用してください。
+
+### **グラフィックと背景を区別する**
+
+| 操作 | 効果 |
+| --- | --- |
+| マスターグラフィックを非表示にする | 継承されたマスターシェイプを削除したりスライド自身のシェイプを変更したりせずに表示/非表示を制御します。 |
+| スライドの背景塗りつぶしを変更する | 背景の色、グラデーション、画像を変更します。マスターグラフィックは別個のシェイプであり、その背景上に表示されたままにできます。[Presentation Background](/slides/ja/python-java/presentation-background/) を参照してください。 |
+| マスターからシェイプを削除する | 共有ソースシェイプを削除し、そのマスターを使用するすべてのスライドから利用できなくなります。 |
+
 ## **プレースホルダーの操作**
 
-プレースホルダーは通常レイアウトスライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーと配置位置を決定します。
+プレースホルダーは通常、レイアウトスライド上で定義されます。マスタースライドは、レイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは使用可能なプレースホルダーとその配置を決定します。
 
-PowerPoint では、プレースホルダーコマンドはスライドマスタービューで利用できます。
+PowerPoint では、スライドマスター表示でプレースホルダーコマンドが利用できます。
 
-![PowerPoint スライドマスタービューの「プレースホルダーの挿入」コマンド](slide-master_5.png)
+![PowerPoint スライドマスター表示でのプレースホルダー挿入コマンド](slide-master_5.png)
 
-Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウトスライドを操作します:
+Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウトスライドを操作します：
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-既存のプレースホルダー形状の書式設定も可能です。次の例はタイトルプレースホルダーを検索し、線形グラデーション塗りつぶしを適用します:
+マスタースライドに既に存在するプレースホルダーシェイプの書式設定も可能です。以下の例では、タイトルプレースホルダーを検索し、線形グラデーション塗りつぶしを適用します：
 
 ```python
 import jpype
@@ -216,13 +276,13 @@ finally:
     presentation.dispose()
 ```
 
-![通常スライドが継承した書式設定済みタイトルプレースホルダー](slide-master_8.png)
+![通常スライドが継承するフォーマット済みタイトルプレースホルダー](slide-master_8.png)
 
-プレースホルダーとテキストの書式設定オプションの詳細は、[Set Prompt Text in Placeholder](/slides/ja/python-java/manage-placeholder/) と [Text Formatting](/slides/ja/python-java/text-formatting/) を参照してください。
+プレースホルダーやテキスト書式設定の詳細オプションについては、[Set Prompt Text in Placeholder](/slides/ja/python-java/manage-placeholder/) と [Text Formatting](/slides/ja/python-java/text-formatting/) を参照してください。
 
 ## **スライドマスターの背景を変更する**
 
-マスターレベルの背景は、レイアウトやスライドが上書きしない限り継承されます。次の例は、最初のマスタースライドに単色背景色を設定します:
+マスターの背景は、上書きしないレイアウトやスライドに継承されます。以下の例は、最初のマスタースライドに単色背景色を設定します：
 
 ```python
 import jpype
@@ -253,7 +313,7 @@ finally:
 
 ## **スライドマスターを別のプレゼンテーションにクローンする**
 
-[MasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslidecollection/#addClone) を使用して、マスタースライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
+[MasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslidecollection/#addClone) を使用して、マスタースライドを別のプレゼンテーションにコピーします。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
 
 ```python
 import jpype
@@ -276,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-通常スライドとそのマスターをまとめてクローンする必要がある場合は、[Clone Slides](/slides/ja/python-java/clone-slides/) を参照してください。
+通常スライドとそのマスターを一緒にクローンする必要がある場合は、[Clone Slides](/slides/ja/python-java/clone-slides/) を参照してください。
 
 ## **複数のスライドマスターを追加する**
 
-プレゼンテーションは複数のマスタースライドを含めることができます。セクションごとに異なるブランド、ページ構成、テーマ設定が必要な場合に便利です。
+プレゼンテーションは複数のマスタースライドを含めることができます。異なるセクションで異なるブランディング、ページ構成、テーマ設定が必要な場合に便利です。
 
-![マスタースライドの挿入と管理に関する PowerPoint コマンド](slide-master_9.jpg)
+![マスタースライドの挿入と管理のための PowerPoint コマンド](slide-master_9.jpg)
 
-次の例は、デフォルトマスターをクローンし、クローンに別の背景を設定し、そのクローン下にレイアウトを作成し、最後にそのレイアウトに基づく新しいスライドを追加します:
+以下の例は、デフォルトのマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下にレイアウトを作成し、そのレイアウトに基づく新しいスライドを追加します：
 
 ```python
 import jpype
@@ -321,14 +381,14 @@ finally:
 
 ## **スライドマスターの比較**
 
-マスタースライドは、[BaseSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/) から継承された [equals](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#equals) メソッドで比較できます。比較は構造と静的コンテンツ（図形、テキスト、書式設定、アニメーション、その他のスライド設定）を対象とし、スライド ID のような一意の識別子や現在の日付といった動的プレースホルダー値は比較しません。
+マスタースライドは、[BaseSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/) から継承された [equals](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#equals) メソッドで比較できます。比較では、図形、テキスト、書式設定、アニメーション、その他のスライド設定など、構造と静的コンテンツがチェックされます。スライド ID などの固有識別子や、現在の日付などの動的プレースホルダー値は比較対象になりません。
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpame.startJVM()
 
 from asposeslides.api import Presentation
 
@@ -351,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-詳細は、[Compare Presentation Slides](/slides/ja/python-java/compare-slides/) をご覧ください。
+詳細については、[Compare Presentation Slides](/slides/ja/python-java/compare-slides/) を参照してください。
 
-## **スライドマスタービューをデフォルトビューに設定する**
+## **スライドマスター表示をデフォルトビューに設定する**
 
-[ViewProperties](https://reference.aspose.com/slides/ja/python-java/aspose.slides/viewproperties/) の [setLastView](https://reference.aspose.com/slides/ja/python-java/aspose.slides/viewproperties/#setLastView) メソッドを使用して、PowerPoint が最初に開くビューを制御できます。次の例は、プレゼンテーションをスライドマスタービューで開きます:
+[ViewProperties](https://reference.aspose.com/slides/ja/python-java/aspose.slides/viewproperties/) の [setLastView](https://reference.aspose.com/slides/ja/python-java/aspose.slides/viewproperties/#setLastView) メソッドを使用して、PowerPoint が最初に開くビューを制御します。以下の例は、プレゼンテーションをスライドマスター表示で開きます：
 
 ```python
 import jpype
@@ -374,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-その他のビュー設定については、[Save Presentation](/slides/ja/python-java/save-presentation/) を参照してください。
+ビュー設定の詳細は、[Save Presentation](/slides/ja/python-java/save-presentation/) を参照してください。
 
 ## **未使用のマスタースライドを削除する**
 
-プレゼンテーションには、もはや通常スライドで使用されていないマスタースライドが含まれていることがあります。未使用のマスターを削除すると、ファイルサイズの削減とテンプレート管理の簡素化が期待できます。
+プレゼンテーションには、もはや通常スライドで使用されていないマスタースライドが含まれていることがあります。未使用のマスターを削除すると、ファイルサイズが削減され、テンプレートの保守が簡素化されます。
 
-[Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) コレクションから未使用マスターを削除するには、[removeUnused](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslidecollection/#removeUnused) を使用します:
+[removeUnused](https://reference.aspose.com/slides/ja/python-java/aspose.slides/masterslidecollection/#removeUnused) を使用して、[Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) コレクションから未使用のマスターを削除します：
 
 ```python
 import jpype
@@ -399,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-低コードの [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/compress/#removeUnusedMasterSlides) メソッドでも同様に削除できます:
+低コードの [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/compress/#removeUnusedMasterSlides) メソッドを使用することもできます：
 
 ```python
 import jpype
@@ -422,16 +482,16 @@ finally:
 
 **スライドマスターとレイアウトスライドの違いは何ですか？**
 
-スライドマスターはテーマ、背景、共通図形、テキストスタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。通常スライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から継承します。
+スライドマスターは、テーマ、背景、共通の図形、テキストスタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの特定の配置を定義します。通常のスライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から継承されます。
 
-**1 つのプレゼンテーションに複数のスライドマスターを含めることはできますか？**
+**1 つのプレゼンテーションに複数のスライドマスターを含めることができますか？**
 
-はい。プレゼンテーションは複数のスライドマスターを含めることができます。セクションごとに異なるビジュアルシステムやブランディングが必要な場合に、複数のマスターを使用してください。
+はい。プレゼンテーションは複数のスライドマスターを含めることができます。異なるセクションで異なるビジュアル体系やブランディングが必要な場合に、複数のマスターを使用してください。
 
 **プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？**
 
-ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共有のビジュアル要素や共通書式はマスタースライドに配置し、コンテンツ用のプレースホルダーは通常スライドが使用するレイアウトに配置してください。
+ほとんどの場合、プレースホルダーはレイアウトスライドに追加します。共有のビジュアル要素や書式設定はマスタースライドに配置し、コンテンツ用のプレースホルダーは通常スライドが使用するレイアウトに置きます。
 
 **使用中のマスタースライドを削除できますか？**
 
-できません。依存スライドがあるマスタースライドは直接削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、未使用マスターのみを削除するクリーンアップ手法を使用してください。
+いいえ。依存しているスライドがあるマスタースライドは直接安全に削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、使用されていないマスターのみを削除するクリーンアップ手法を使用してください。

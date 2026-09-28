@@ -1,46 +1,46 @@
 ---
 title: จัดการ Slide Master ของการนำเสนอใน PHP
-linktitle: มาสเตอร์สไลด์
+linktitle: สไลด์มาสเตอร์
 type: docs
 weight: 70
 url: /th/php-java/slide-master/
 keywords:
-- มาสเตอร์สไลด์
 - สไลด์มาสเตอร์
-- สไลด์มาสเตอร์ PPT
-- หลายสไลด์มาสเตอร์
-- เปรียบเทียบสไลด์มาสเตอร์
+- มาสเตอร์สไลด์
+- มาสเตอร์สไลด์ PPT
+- มาสเตอร์สไลด์หลายหน้า
+- เปรียบเทียบมาสเตอร์สไลด์
 - พื้นหลัง
-- ตัวเติมตำแหน่ง
-- คัดลอกสไลด์มาสเตอร์
-- สำเนาสไลด์มาสเตอร์
-- ทำซ้ำสไลด์มาสเตอร์
-- สไลด์มาสเตอร์ที่ไม่ได้ใช้
+- ตัวกำหนดตำแหน่ง
+- สร้างสำเนามาสเตอร์สไลด์
+- คัดลอกมาสเตอร์สไลด์
+- ทำสำเนามาสเตอร์สไลด์
+- มาสเตอร์สไลด์ที่ไม่ได้ใช้งาน
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "จัดการมาสเตอร์สไลด์ใน Aspose.Slides สำหรับ PHP ผ่าน Java: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบ, และลบสไลด์มาสเตอร์ในงานนำเสนอ PowerPoint และ OpenDocument"
+description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ PHP ผ่าน Java: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบและลบมาสเตอร์สไลด์ในงานนำเสนอ PowerPoint และ OpenDocument"
 ---
 ## **ภาพรวม**
 
-A **slide master** กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ มันสามารถมีรูปร่างทั่วไป, โลโก้, พื้นหลัง, สไตล์ข้อความ, การตั้งค่าธีม, และการตั้งค่าฟุตเตอร์ได้ ใน PowerPoint การแก้ไข slide master เป็นวิธีปกติเพื่อทำให้การนำเสนอสอดคล้องกันโดยไม่ต้องทำซ้ำการจัดรูปแบบเดียวกันบนทุกสไลด์
+A **slide master** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถมีรูปทรงทั่วไป โลโก้ พื้นหลัง รูปแบบข้อความ การตั้งค่าธีม และการตั้งค่าฝั่งล่าง ใน PowerPoint การแก้ไข slide master เป็นวิธีปกติในการรักษาความสอดคล้องของการนำเสนอโดยไม่ต้องทำรูปแบบเดียวกันซ้ำในทุกสไลด์
 
-Aspose.Slides for PHP via Java รองรับโมเดลเดียวกัน การนำเสนอสามารถมี slide master อย่างน้อยหนึ่งหรือหลายอัน และแต่ละ slide master สามารถมี layout slide หลายอัน สไลด์ปกติโดยทั่วไปไม่ได้อ้างอิง slide master โดยตรง แต่ใช้ layout slide ซึ่ง layout slide นั้นเป็นของ slide master
+Aspose.Slides for PHP via Java รองรับโมเดลเดียวกัน การนำเสนอสามารถมี master slide หนึ่งหรือหลายหน้าสไลด์ และแต่ละ master slide สามารถมี layout slide หลายหน้า สไลด์ปกติส่วนใหญ่จะไม่อ้างอิง master slide โดยตรง แต่สไลด์ปกติจะใช้ layout slide ซึ่ง layout slide นั้นเป็นส่วนหนึ่งของ master slide
 
 ลำดับชั้นคือ:
 
-1. **Slide master** - กำหนดการออกแบบและธีมที่ใช้ร่วมกัน
-2. **Layout slide** - กำหนดการจัดเรียงเฉพาะของ placeholders และการจัดรูปแบบในระดับ layout
-3. **Normal slide** - ประกอบด้วยเนื้อหาการนำเสนอจริงและใช้ layout slide หนึ่งอัน
+1. **Slide master** - กำหนดการออกแบบและธีมที่ใช้ร่วมกัน  
+1. **Layout slide** - กำหนดการจัดวางเฉพาะของ placeholders และการจัดรูปแบบระดับ layout  
+1. **Normal slide** - มีเนื้อหาจริงของการนำเสนอและใช้ layout slide หนึ่งหน้า
 
-![ลำดับชั้นของ slide master, layout slide, และ normal slide](slide-master_2.jpg)
+![ลำดับชั้นของ master slide, layout slide, และ normal slide](slide-master_2.jpg)
 
-In Aspose.Slides, a slide master is represented by the [MasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) class. All master slides in a presentation are available through the [Presentation.getMasters](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getMasters) method, which returns a [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) object.
+ใน Aspose.Slides slide master ถูกแทนด้วยคลาส [MasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) ทั้งหมดของ master slide ในการนำเสนอสามารถเข้าถึงได้ผ่านเมธอด [Presentation.getMasters](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getMasters) ซึ่งจะคืนค่าออบเจกต์ [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/)
 
 {{% alert color="info" title="Inheritance" %}}
-เมื่อคุณสมบัติเดียวกันถูกกำหนดในระดับมากกว่าหนึ่งระดับ ระดับที่เจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หาก slide master และ layout slide ทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงตาม layout นั้นจะใช้พื้นหลังของ layout สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ layout slide ดูที่ [ใช้หรือเปลี่ยน Layout ของสไลด์](/slides/th/php-java/slide-layout/) .
+เมื่อคุณสมบัติเดียวกันถูกกำหนดในระดับมากกว่าหนึ่งระดับ ระดับที่เฉพาะเจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หาก master slide และ layout slide ทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงจาก layout นั้นจะใช้พื้นหลังของ layout สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ layout slide ดูที่ [Apply or Change Slide Layouts](/slides/th/php-java/slide-layout/)
 {{% /alert %}}
 
 ## **เข้าถึง Slide Masters**
@@ -49,7 +49,7 @@ In Aspose.Slides, a slide master is represented by the [MasterSlide](https://ref
 
 ![คำสั่ง Slide Master บนแท็บ View ของ PowerPoint](slide-master_3.jpg)
 
-In Aspose.Slides, use the `getMasters` method to access master slides:
+ใน Aspose.Slides ใช้เมธอด `getMasters` เพื่อเข้าถึง master slide:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-You can also get the master slide used by a normal slide through its layout:
+คุณยังสามารถรับ master slide ที่ใช้โดยสไลด์ปกติผ่าน layout ของมันได้:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -81,26 +81,26 @@ try {
 }
 ```
 
-## **สิ่งที่ Slide Master มี**
+## **สิ่งที่ Slide Master มีอยู่**
 
-Master slide เป็นอ็อบเจกต์คล้ายสไลด์ มันสืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและ layout slide สมาชิกเฉพาะ master ถูกระบุในหน้า API ของ [MasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/)
+master slide เป็นอ็อบเจกต์ที่คล้ายสไลด์ มันสืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและ layout สมาชิกเฉพาะของ master สามารถดูได้บนหน้า API ของ [MasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/)
 
-สมาชิกที่ใช้บ่อยของ master slide รวมถึง:
+สมาชิกของ master slide ที่มักใช้บ่อย ได้แก่:
 
-| สมาชิก | จุดประสงค์ |
+| สมาชิก | วัตถุประสงค์ |
 | --- | --- |
-| `getBackground` | กำหนดพื้นหลังของสไลด์ระดับ master |
-| `getShapes` | เก็บรูปร่างที่วางบน master เช่น โลโก้, กรอบรูปภาพ, และข้อความที่ใช้ร่วมกัน |
-| `getLayoutSlides` | เก็บ layout slides ที่เป็นของ master |
-| `getThemeManager` | ให้การเข้าถึง API ธีมของ master |
-| `getHeaderFooterManager` | ควบคุมหัวกระดาษ, เท้ากระดาษ, วันที่, และหมายเลขสไลด์สำหรับ master และ layout ลูก |
-| `getDependingSlides` | ส่งคืนสไลด์ปกติที่ขึ้นอยู่กับ master ผ่าน layout ของมัน |
+| `getBackground` | กำหนดพื้นหลังของสไลด์ระดับมาสเตอร์ |
+| `getShapes` | เก็บรูปทรงที่วางบนมาสเตอร์ เช่น โลโก้, เฟรมรูปภาพ, และข้อความที่ใช้ร่วมกัน |
+| `getLayoutSlides` | เก็บ layout slide ที่เป็นส่วนหนึ่งของมาสเตอร์ |
+| `getThemeManager` | ให้การเข้าถึง API ธีมของมาสเตอร์ |
+| `getHeaderFooterManager` | ควบคุมส่วนหัว, ส่วนท้าย, วันที่, และหมายเลขสไลด์สำหรับมาสเตอร์และเลเอาต์ลูกของมัน |
+| `getDependingSlides` | คืนค่าสไลด์ปกติที่ขึ้นอยู่กับมาสเตอร์ผ่านเลเอาต์ของพวกมัน |
 
 ## **เพิ่มรูปภาพลงใน Slide Master**
 
-เมื่อคุณเพิ่มรูปภาพลงใน master slide มันจะปรากฏบนสไลด์ที่ใช้ layout จาก master นั้น เป็นประโยชน์สำหรับโลโก้, ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องทำซ้ำหลายครั้ง
+เมื่อคุณเพิ่มรูปภาพลงใน master slide มันจะปรากฏบนสไลด์ที่ใช้เลเอาต์จากมาสเตอร์นั้น ซึ่งเป็นประโยชน์สำหรับโลโก้, ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องทำซ้ำ
 
-ตัวอย่างต่อไปนี้เพิ่มโลโก้ไปยัง master slide แรก:
+ตัวอย่างต่อไปนี้เพิ่มโลโก้ลงใน master slide ตัวแรก:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -128,17 +128,74 @@ try {
 }
 ```
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับกรอบรูปภาพ ดูที่ [Picture Frame](/slides/th/php-java/picture-frame/) .
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ picture frame ดูที่ [Picture Frame](/slides/th/php-java/picture-frame/).
+
+## **ควบคุมการมองเห็นของกราฟิกมาสเตอร์**
+
+ใช้ [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/#setShowMasterShapes) เพื่อซ่อนกราฟิกมาสเตอร์ที่สืบทอดมา เช่น โลโก้หรือรูปร่างตกแต่ง โดยไม่ต้องลบออกจากมาสเตอร์ ส่งค่า `false` ไปยัง [Slide::setShowMasterShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#setShowMasterShapes) บนสไลด์ที่ต้องการไม่แสดงกราฟิกเหล่านั้นและตั้งค่าเป็น `true` บนสไลด์ที่ต้องการแสดง
+
+ตัวอย่างต่อไปนี้สร้างแถบตกแต่งสีฟ้าบนมาสเตอร์และสไลด์สองหน้าใช้เลเอาต์ว่างเดียวกัน แถบจะมองเห็นบนสไลด์แรกแต่ซ่อนบนสไลด์ที่สอง ไม่ต้องมีการนำเสนอหรือรูปภาพเข้าใส่
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+ตัวอย่างใช้เลเอาต์ **Blank** ที่มาพร้อมกับการนำเสนอใหม่และลบ placeholders ของสไลด์เริ่มต้นออก
+
+### **เลือกขอบเขตของการตั้งค่า**
+
+สไลด์ปกติใช้มาสเตอร์ผ่าน [Slide::getLayoutSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getLayoutSlide) และ [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#getMasterSlide) การตั้งค่าคุณสมบัติบนบนสไลด์เดี่ยวจะมีผลเฉพาะสไลด์นั้น การส่งค่า `false` ไปยัง [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/#setShowMasterShapes) จะซ่อนกราฟิกมาสเตอร์สำหรับสไลด์ทั้งหมดที่ใช้เลเอาต์ร่วมกัน แม้ว่าการตั้งค่าบนสไลด์ของตนเองจะเป็น `true` เพื่อซ่อนกราฟิกเพียงสไลด์เดียวให้เปลี่ยนคุณสมบัติบนบนสไลด์และไม่เปลี่ยนเลเอต์ที่แชร์
+
+การตั้งค่านี้ไม่รองรับเป็นการควบคุมการมองเห็นบน master slide เอง บนมาสเตอร์ [getShowMasterShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/#getShowMasterShapes) จะคืนค่า `false` เสมอและการส่งค่า `true` ไปยัง [setShowMasterShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/#setShowMasterShapes) จะทำให้เกิดข้อยกเว้น ให้ใช้บนสไลด์ปกติหรือ layout แทน
+
+### **แยกกราฟิกจากพื้นหลัง**
+
+| การดำเนินการ | ผล |
+| --- | --- |
+| ซ่อนกราฟิกมาสเตอร์ | ควบคุมการมองเห็นของรูปทรงมาสเตอร์ที่สืบทอดมาโดยไม่ลบหรือเปลี่ยนรูปทรงของสไลด์เอง |
+| เปลี่ยนการเติมพื้นหลังของสไลด์ | เปลี่ยนสี, การไล่สี, หรือรูปภาพพื้นหลัง รูปทรงมาสเตอร์เป็นรูปทรงแยกต่างหากและสามารถมองเห็นเหนือพื้นหลังนั้น ดูที่ [Presentation Background](/slides/th/php-java/presentation-background/) |
+| ลบรูปทรงจากมาสเตอร์ | ลบรูปทรงต้นฉบับที่ใช้ร่วมกัน ทำให้ไม่สามารถใช้ได้กับสไลด์ใดที่อิงมาสเตอร์นั้น |
 
 ## **ทำงานกับ Placeholders**
 
-Placeholders มักจะถูกกำหนดบน layout slides. master slide ให้สไตล์และธีมที่ใช้ร่วมกันซึ่ง layout สืบทอด, ส่วน layout จะตัดสินใจว่า placeholders ไหนพร้อมใช้งานและวางอยู่ที่ไหน
+Placeholders ส่วนใหญ่จะถูกกำหนดบน layout slide มาสเตอร์ให้สไตล์และธีมที่แชร์ให้กับเลเอต์เหล่านั้น และแต่ละ layout จะตัดสินใจว่า placeholders ใดพร้อมใช้งานและวางไว้ที่ไหน
 
-ใน PowerPoint คำสั่ง placeholder มีให้ในมุมมอง Slide Master
+ใน PowerPoint คำสั่ง placeholder มีให้ใช้ในมุมมอง Slide Master
 
 ![คำสั่ง Insert Placeholder ในมุมมอง Slide Master ของ PowerPoint](slide-master_5.png)
 
-เพื่อเพิ่ม placeholders ใหม่ด้วย Aspose.Slides, ทำงานกับ layout slide ที่เป็นของ master:
+เพื่อเพิ่ม placeholders ใหม่ด้วย Aspose.Slides ทำงานกับ layout slide ที่เป็นส่วนหนึ่งของมาสเตอร์:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -164,7 +221,7 @@ try {
 }
 ```
 
-คุณยังสามารถจัดรูปแบบรูปร่าง placeholder ที่มีอยู่บน master slide ได้ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใช้การเติมสีไล่แนวเส้น:
+คุณยังสามารถจัดรูปแบบรูปทรง placeholder ที่มีอยู่บน master slide ได้ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใส่การเติมไล่สีเชิงเส้น:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -206,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Placeholder ของหัวเรื่องที่จัดรูปแบบและสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
+![หัวเรื่อง placeholder ที่จัดรูปแบบแล้วซึ่งสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
 
-สำหรับตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติม ดูที่ [ตั้งข้อความ Prompt ใน Placeholder](/slides/th/php-java/manage-placeholder/) และ [การจัดรูปแบบข้อความ](/slides/th/php-java/text-formatting/) .
+สำหรับตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติม ดูที่ [Set Prompt Text in Placeholder](/slides/th/php-java/manage-placeholder/) และ [Text Formatting](/slides/th/php-java/text-formatting/).
 
 ## **เปลี่ยนพื้นหลังของ Slide Master**
 
-พื้นหลังของ master จะถูกสืบทอดโดย layout และสไลด์ที่ไม่ได้เขียนทับมัน ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบของแข็งสำหรับ master slide แรก:
+พื้นหลังมาสเตอร์จะสืบทอดไปยัง layout และสไลด์ที่ไม่ได้กำหนดทับ ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบทึบสำหรับ master slide ตัวแรก:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -232,11 +289,11 @@ try {
 }
 ```
 
-สำหรับหัวข้อที่เกี่ยวข้อง ดูที่ [พื้นหลังของการนำเสนอ](/slides/th/php-java/presentation-background/) และ [ธีมของการนำเสนอ](/slides/th/php-java/presentation-theme/) .
+สำหรับหัวข้อที่เกี่ยวข้อง ดูที่ [Presentation Background](/slides/th/php-java/presentation-background/) และ [Presentation Theme](/slides/th/php-java/presentation-theme/).
 
 ## **คัดลอก Slide Master ไปยังการนำเสนออื่น**
 
-ใช้ `addClone` จาก [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) เพื่อคัดลอก slide master ไปยังการนำเสนออื่น master ที่คัดลอกแล้วสามารถใช้โดย layout และสไลด์ในการนำเสนอปลายทางได้
+ใช้ `addClone` จาก [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) เพื่อคัดลอก master slide ไปยังการนำเสนออื่น master ที่คัดลอกแล้วสามารถใช้โดย layout และสไลด์ในการนำเสนอปลายทาง
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -252,15 +309,15 @@ try {
 }
 ```
 
-หากต้องการคัดลอกสไลด์ปกติตามด้วย master ของมัน ให้ดูที่ [คัดลอกสไลด์](/slides/th/php-java/clone-slides/) .
+หากต้องการคัดลอกสไลด์ปกติกับมาสเตอร์ของมันด้วย ดูที่ [Clone Slides](/slides/th/php-java/clone-slides/).
 
 ## **เพิ่มหลาย Slide Masters**
 
-การนำเสนอสามารถมีหลาย slide master ได้ นี่เป็นประโยชน์เมื่อตัวแบ่งส่วนต่าง ๆ ต้องการแบรนด์ดิ้ง, โครงสร้างหน้า, หรือการตั้งค่าธีมที่แตกต่างกัน
+การนำเสนอสามารถมี master slide หลายหน้าได้ ซึ่งมีประโยชน์เมื่อส่วนต่าง ๆ ต้องการแบรนด์, โครงสร้างหน้า, หรือการตั้งค่าธีมที่ต่างกัน
 
-![คำสั่ง PowerPoint สำหรับแทรกและจัดการ slide master](slide-master_9.jpg)
+![คำสั่ง PowerPoint สำหรับแทรกและจัดการ master slide](slide-master_9.jpg)
 
-ตัวอย่างต่อไปนี้คัดลอก master เริ่มต้น, ให้คัดลอกนั้นพื้นหลังที่แตกต่าง, สร้าง layout ภายใต้ master ที่คัดลอก และเพิ่มสไลด์ใหม่ตาม layout นั้น:
+ตัวอย่างต่อไปนี้คัดลอก master เริ่มต้น ให้คัดลอกมีพื้นหลังต่างกัน สร้าง layout ใต้ master ที่คัดลอกแล้วและเพิ่มสไลด์ใหม่ที่อิงจาก layout นั้น:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -287,7 +344,7 @@ try {
 
 ## **เปรียบเทียบ Slide Masters**
 
-Slide master สามารถเปรียบเทียบด้วยเมธอด `equals` ที่สืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/) การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปร่าง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน, และการตั้งค่าอื่น ๆ ของสไลด์ ไม่ได้เปรียบเทียบตัวระบุที่ไม่ซ้ำกัน เช่น slide ID, หรือค่าของ placeholder ที่เปลี่ยนแปลงเช่น วันที่ปัจจุบัน
+สามารถเปรียบเทียบ master slide ด้วยเมธอด `equals` ที่สืบทอดจาก [BaseSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/) การเปรียบเทียบจะตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปร่าง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน, และการตั้งค่าอื่น ๆ ของสไลด์ ไม่ได้เปรียบเทียบตัวระบุเฉพาะ เช่น slide ID หรือค่าที่เป็น placeholder แบบไดนามิก เช่น วันที่ปัจจุบัน
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -314,11 +371,11 @@ try {
 }
 ```
 
-สำหรับข้อมูลเพิ่มเติม ดูที่ [เปรียบเทียบสไลด์ของการนำเสนอ](/slides/th/php-java/compare-slides/) .
+สำหรับข้อมูลเพิ่มเติม ดูที่ [Compare Presentation Slides](/slides/th/php-java/compare-slides/).
 
-## **ตั้งมุมมอง Slide Master ให้เป็นมุมมองเริ่มต้น**
+## **ตั้งค่า Slide Master View เป็นมุมมองเริ่มต้น**
 
-ใช้เมธอด `setLastView` บน [ViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นอันดับแรก ตัวอย่างต่อไปนี้เปิดการนำเสนอในมุมมอง Slide Master:
+ใช้เมธอด `setLastView` บน [ViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/) เพื่อกำหนดมุมมองที่ PowerPoint เปิดเมื่อแรก ตัวอย่างต่อไปนี้เปิดการนำเสนอในมุมมอง Slide Master:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -330,13 +387,13 @@ try {
 }
 ```
 
-สำหรับการตั้งค่ามุมมองเพิ่มเติม ดูที่ [บันทึกการนำเสนอ](/slides/th/php-java/save-presentation/) .
+สำหรับการตั้งค่ามุมมองเพิ่มเติม ดูที่ [Save Presentation](/slides/th/php-java/save-presentation/).
 
 ## **ลบ Master Slides ที่ไม่ได้ใช้**
 
-บางครั้งการนำเสนออาจมี master slides ที่ไม่มีสไลด์ปกติใดใช้แล้ว การลบ master ที่ไม่ได้ใช้สามารถลดขนาดไฟล์และทำให้การบำรุงรักษาเทมเพลตง่ายขึ้น
+บางครั้งการนำเสนออาจมี master slide ที่ไม่มีสไลด์ปกติใช้งาน การลบมาสเตอร์ที่ไม่ได้ใช้สามารถลดขนาดไฟล์และทำให้การบำรุงรักษาแม่แบบง่ายขึ้น
 
-ใช้ `removeUnused` จาก [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) เพื่อลบ master ที่ไม่ได้ใช้จากคอลเลกชัน `getMasters`:
+ใช้ `removeUnused` จาก [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) เพื่อลบมาสเตอร์ที่ไม่ได้ใช้จากคอลเลกชัน `getMasters`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -362,18 +419,18 @@ try {
 
 ## **FAQ**
 
-**ความแตกต่างระหว่าง slide master และ layout slide คืออะไร?**
+**ความแตกต่างระหว่าง slide master กับ layout slide คืออะไร?**
 
-Slide master กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปร่างทั่วไป, และสไตล์ข้อความ. Layout slide เป็นส่วนหนึ่งของ slide master และกำหนดการจัดเรียงเฉพาะของ placeholders. สไลด์ปกติใช้ layout slide จึงสืบทอดจากทั้ง layout และ master.
+slide master กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปทรงทั่วไป, และรูปแบบข้อความ layout slide เป็นส่วนหนึ่งของ master slide และกำหนดการจัดวางเฉพาะของ placeholders สไลด์ปกติใช้ layout slide ดังนั้นจึงสืบทอดจากทั้ง layout และ master
 
-**การนำเสนอหนึ่งสามารถมีหลาย slide master ได้หรือไม่?**
+**การนำเสนอหนึ่งสามารถมี slide master ได้หลายหน้าใช่หรือไม่?**
 
-ได้ การนำเสนอสามารถมีหลาย slide master. ใช้หลาย master เมื่อส่วนต่าง ๆ ของเอกสารต้องการระบบภาพหรือแบรนด์ดิ้งที่แตกต่างกัน.
+ใช่ การนำเสนอสามารถมี slide master หลายหน้าได้ ใช้หลายมาสเตอร์เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่ต่างกัน
 
-**ควรเพิ่ม placeholders ลงใน slide master หรือ layout slide?**
+**ควรเพิ่ม placeholders ลงใน master slide หรือ layout slide?**
 
-ส่วนใหญ่ควรเพิ่ม placeholders ลงใน layout slide. วางองค์ประกอบภาพและการจัดรูปแบบที่ใช้ร่วมกันบน slide master แล้วใส่ placeholders ของเนื้อหาไว้บน layout ที่สไลด์ปกติจะใช้.
+ในกรณีส่วนใหญ่ควรเพิ่ม placeholders ลงใน layout slide ใส่องค์ประกอบภาพและการจัดรูปแบบที่ใช้ร่วมกันบน master slide แล้วใส่ placeholders ของเนื้อหาไว้บน layout ที่สไลด์ปกติจะใช้
 
-**สามารถลบ slide master ที่ยังถูกใช้งานได้หรือไม่?**
+**ฉันสามารถลบ master slide ที่ยังถูกใช้งานอยู่ได้หรือไม่?**
 
-ไม่ได้. slide master ที่มีสไลด์ขึ้นอยู่ไม่สามารถลบได้โดยตรง. ต้องย้ายสไลด์เหล่านั้นไปยัง layout ของ master อื่นก่อน, หรือใช้วิธีทำความสะอาด master ที่ไม่ได้ใช้เท่านั้น.
+ไม่ได้ master slide ที่มีสไลด์ขึ้นอยู่ไม่สามารถลบได้โดยตรง ให้ย้ายสไลด์เหล่านั้นไปยัง layout ภายใต้มาสเตอร์อื่นหรือใช้วิธีทำความสะอาดมาสเตอร์ที่ไม่ได้ใช้เท่านั้น.

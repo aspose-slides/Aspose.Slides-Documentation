@@ -1,14 +1,14 @@
 ---
-title: C++'de Sunum Slide Master'larını Yönetme
-linktitle: Slayt Master'ı
+title: "C++'ta Sunum Slide Master'larını Yönet"
+linktitle: Slayt Master
 type: docs
 weight: 80
 url: /tr/cpp/slide-master/
 keywords:
 - slayt master
 - master slayt
-- PPT master slaytı
-- birden fazla master slayt
+- PPT master slayt
+- çoklu master slaytlar
 - master slaytları karşılaştır
 - arka plan
 - yer tutucu
@@ -21,37 +21,45 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'de slayt master'larını yönetin: PowerPoint ve OpenDocument sunumlarında master slaytlarına erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
+description: "Aspose.Slides for C++'ta slayt master'larını yönetin: PowerPoint ve OpenDocument sunumlarında master slaytlara erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-A **slide master** ortak tasarım ayarlarını bir grup slayt için tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve altbilgi ayarları içerebilir. PowerPoint'te bir slide master'ı düzenlemek, her slaytta aynı biçimlendirmeyi tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
+Bir **slide master**, bir grup slayt için paylaşılan tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve alt bilgi ayarları içerebilir. PowerPoint’te bir slide master’ı düzenlemek, aynı biçimlendirmeyi her slaytta tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
 
-Aspose.Slides for C++ aynı modeli destekler. Bir sunum bir veya daha fazla master slayt içerebilir ve her master slayt birkaç layout slayt içerebilir. Normal slaytlar genellikle doğrudan bir master slayta başvurmaz. Bunun yerine, bir normal slayt bir layout slayt kullanır ve bu layout slayt bir master slayta aittir.
+Aspose.Slides for C++ aynı modeli destekler. Bir sunum bir veya daha fazla master slayt içerebilir ve her master slayt birden çok yerleşim slaytı barındırabilir. Normal slaytlar doğrudan bir master slayta başvurmaz. Bunun yerine, bir normal slayt bir yerleşim slaytı kullanır ve bu yerleşim slaytı bir master slayta aittir.
 
-Hiyerarşi şudur:
+Hiyerarşi şu şekildedir:
 
-1. **Slide master** - ortak tasarımı ve temayı tanımlar.  
-2. **Layout slide** - yer tutucuların ve layout seviyesindeki biçimlendirmenin belirli bir düzenini tanımlar.  
-3. **Normal slide** - gerçek sunum içeriğini içerir ve bir layout slayt kullanır.  
+1. **Slide master** – paylaşılan tasarımı ve temayı tanımlar.  
+1. **Layout slide** – yer tutucuların ve yerleşim‑seviyesi biçimlendirmelerin belirli bir düzenini tanımlar.  
+1. **Normal slide** – gerçek sunum içeriğini barındırır ve bir layout slide kullanır.
 
-![Master slaytların, layout slaytların ve normal slaytların hiyerarşisi](slide-master_2.jpg)
+![Ana slaytların, yerleşim slaytlarının ve normal slaytların hiyerarşisi](slide-master_2.jpg)
 
-Aspose.Slides'te bir slide master, [IMasterSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslide/) arabirimiyle temsil edilir. Bir sunumdaki tüm master slaytlar, [Presentation::get_Masters](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_masters/) koleksiyonu aracılığıyla elde edilebilir; bu koleksiyon [IMasterSlideCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/) arabirimini uygular.
+Aspose.Slides’te bir slide master, [IMasterSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslide/) arayüzüyle temsil edilir. Sunumdaki tüm master slaytlar, [Presentation::get_Masters](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_masters/) koleksiyonu üzerinden erişilebilir ve bu koleksiyon [IMasterSlideCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/) arayüzünü uygular.
 
 {{% alert color="info" title="Inheritance" %}}
-Aynı özellik birden fazla seviyede tanımlandığında, daha spesifik seviye kazanır. Örneğin, bir master slayt ve bir layout slayt ikisi de bir arka plan tanımlarsa, o layout'a dayalı slaytlar layout arka planını kullanır. Layout slaytları hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/slides/tr/cpp/slide-layout/) bölümüne bakın.
+Birden fazla seviyede aynı özellik tanımlandığında, daha spesifik seviye geçerli olur. Örneğin, bir master slayt ve bir layout slayt aynı arka planı tanımlıyorsa, o layout’a dayanarak oluşturulan slaytlar layout arka planını kullanır. Layout slaytları hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/slides/tr/cpp/slide-layout/) bölümüne bakın.
 {{% /alert %}}
 
-## **Slide Master'lara Erişim**
+## **Slide Master’lara Erişim**
 
-PowerPoint'te **View** > **Slide Master** yoluyla Slide Master görünümünü açabilirsiniz.
+PowerPoint’te **View** > **Slide Master** menüsünden Slide Master görünümünü açabilirsiniz.
 
 ![PowerPoint Görünüm sekmesindeki Slide Master komutu](slide-master_3.jpg)
 
-Aspose.Slides'te master slaytlara erişmek için `get_Masters()` koleksiyonunu kullanın:
+Aspose.Slides’te master slaytlara erişmek için `get_Masters()` koleksiyonunu kullanın:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -64,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-Ayrıca bir normal slaytın kullandığı master slaytı, onun layout'u üzerinden alabilirsiniz:
+Ayrıca bir normal slaytın kullandığı master slaytı, onun layout’u aracılığıyla da alabilirsiniz:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -79,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **Bir Slide Master'ın İçeriği**
+## **Bir Slide Master’ın İçeriği**
 
-Master slayt, slayt benzeri bir nesnedir. [IBaseSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/) arabirimini uygular, bu yüzden normal ve layout slaytlarda kullanılan birçok aynı slayt özelliğini sunar. Master'a özgü üyeler [IMasterSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslide/) API sayfasında listelenmiştir.
+Bir master slayt, slayt benzeri bir nesnedir. [IBaseSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/) arayüzünü uygular, dolayısıyla normal ve layout slaytlarda kullanılan birçok slayt özelliğine sahiptir. Master‑özel üyeler [IMasterSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslide/) API sayfasında listelenmiştir.
 
-Sıkça kullanılan master slayt üyeleri şunlardır:
+Sık kullanılan master slayt üyeleri şunlardır:
 
-| Üye | Açıklama |
+| Üye | Amaç |
 | --- | --- |
-| `get_Background()` | Master düzeyindeki slayt arka planını ayarlar. |
-| `get_Shapes()` | Logolar, resim çerçeveleri ve ortak metin gibi master üzerine yerleştirilen şekilleri depolar. |
-| `get_LayoutSlides()` | Master'a ait layout slaytları saklar. |
-| `get_ThemeManager()` | Master tema API'lerine erişim sağlar. |
-| `get_HeaderFooterManager()` | Master ve onun alt layout'ları için başlık, altbilgi, tarih ve slayt numaralarını kontrol eder. |
-| `GetDependingSlides()` | Layout'ları aracılığıyla master'a bağımlı olan normal slaytları döndürür. |
+| `get_Background()` | Master‑seviyesindeki slayt arka planını ayarlar. |
+| `get_Shapes()` | Logolar, resim çerçeveleri ve paylaşılan metin gibi master üzerine yerleştirilen şekilleri saklar. |
+| `get_LayoutSlides()` | Master’a ait layout slaytlarını saklar. |
+| `get_ThemeManager()` | Master tema API’lerine erişim sağlar. |
+| `get_HeaderFooterManager()` | Master ve onun alt layoutları için başlık, alt bilgi, tarih ve slayt numarası ayarlarını kontrol eder. |
+| `GetDependingSlides()` | Layoutları aracılığıyla master’a bağımlı olan normal slaytları döndürür. |
 
-## **Slide Master'a Görüntü Ekleme**
+## **Slide Master’a Resim Ekleme**
 
-Bir master slayta görüntü eklediğinizde, o master'ın layout'larını kullanan slaytlarda görünür. Bu, logolar, filigranlar, dekoratif bantlar ve diğer yinelenen görsel öğeler için faydalıdır.
+Bir master slayta resim eklediğinizde, o master’dan layout kullanan slaytlarda görünür. Bu, logolar, filigranlar, dekoratif bantlar ve diğer tekrarlanan görsel öğeler için faydalıdır.
 
 Aşağıdaki örnek, ilk master slayta bir logo ekler:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -121,17 +148,98 @@ presentation->Dispose();
 
 Resim çerçeveleri hakkında daha fazla bilgi için [Picture Frame](/slides/tr/cpp/picture-frame/) bölümüne bakın.
 
+## **Master Grafiklerinin Görünürlüğünü Kontrol Etme**
+
+[Müşterek] master grafiklerini (ör. logolar, dekoratif şekiller) silmeden gizlemek için [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/set_showmastershapes/) kullanın. Bu özelliği, grafikleri gizlemek istenen slaytta [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/slide/set_showmastershapes/) metoduna `false` olarak, görüntülenmesini istediğiniz slaytlara ise `true` olarak aktarın.
+
+Aşağıdaki örnek, bir master’da mavi bir dekoratif bant oluşturur ve aynı boş layout’u kullanan iki slaytta görüntülenme durumunu farklılaştırır. İlk slaytta bant görünür, ikinci slaytta gizlenir. Giriş sunumu veya resim gerektirmez.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Örnek, yeni bir sunumla birlikte gelen **Blank** layout’u kullanır ve başlangıç slaytının kendi yer tutucularını kaldırır.
+
+### **Ayarlamanın Kapsamını Seçme**
+
+Normal bir slayt, masterına [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/get_layoutslide/) ve [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/get_masterslide/) aracılığıyla ulaşır. Özelliği bireysel bir slaytta ayarlamak yalnız o slaytı etkiler. `false` değerini [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/layoutslide/set_showmastershapes/) metoduna geçirirseniz, aynı paylaşılan layout’u kullanan diğer slaytların ayarı `true` olsa bile master grafikleri gizlenir. Sadece bir slaytta grafikleri gizlemek istiyorsanız, slayt özelliğini değiştirip paylaşılan layout’u aynı bırakın.
+
+Bu ayar, master slayt üzerinde görünürlük kontrolü olarak desteklenmez. Master üzerinde her zaman `false` döner ve `true` atamaya çalıştığınızda `System::NotSupportedException` oluşur. Bunun yerine bir normal slayt ya da layout üzerinde uygulayın.
+
+### **Grafikleri Arka Plandan Ayırma**
+
+| İşlem | Etki |
+| --- | --- |
+| Master grafikleri gizle | Master’dan kalıtılan şekilleri silmeden görünürlüğünü kontrol eder. |
+| Slayt arka plan doldurmasını değiştir | Arka plan rengi, geçişi veya resmini değiştirir. Master grafikleri ayrı şekiller olduğundan arka planın üzerine görünmeye devam eder. [Presentation Background](/slides/tr/cpp/presentation-background/) bölümüne bakın. |
+| Master’dan bir şekli sil | Paylaşılan kaynak şekli kaldırır; bu şekil artık o master’ı kullanan hiçbir slaytta bulunmaz. |
+
 ## **Yer Tutucularla Çalışma**
 
-Yer tutucular genellikle layout slaytlarda tanımlanır. Master slayt, bu layout'ların devraldığı ortak stil ve temayı sağlar, her layout ise hangi yer tutucuların mevcut olacağına ve nerede konumlandırılacağına karar verir.
+Yer tutucular genellikle layout slaytlarda tanımlanır. Master slayt, bu layoutların kalıtacağı ortak stil ve temayı sağlar; her layout ise hangi yer tutucuların mevcut olacağını ve nerede konumlanacağını belirler.
 
-PowerPoint'te yer tutucu komutları Slide Master görünümünde bulunur.
+PowerPoint’te yer tutucu komutları Slide Master görünümündedir.
 
 ![PowerPoint Slide Master görünümündeki Insert Placeholder komutu](slide-master_5.png)
 
-Aspose.Slides ile yeni yer tutucular eklemek için, master'a ait layout slaytı ile çalışın:
+Aspose.Slides’da yeni yer tutucular eklemek için, master’a ait layout slaytı ile çalışın:
 
 ```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -153,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ayrıca master slaytta zaten mevcut olan yer tutucu şekillerini biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve lineer bir degrade dolgu uygular:
+Ayrıca bir master slaytta zaten bulunan yer tutucu şekillerini biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve doğrusal bir geçiş doldurması uygular:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -194,15 +319,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Normal slaytlar tarafından devralınan biçimlendirilmiş başlık yer tutucusu](slide-master_8.png)
+![Normal slaytlara kalıtılan biçimlendirilmiş başlık yer tutucusu](slide-master_8.png)
 
-Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Set Prompt Text in Placeholder](/slides/tr/cpp/manage-placeholder/) ve [Text Formatting](/slides/tr/cpp/text-formatting/) bölümlerine bakın.
+Ek yer tutucu ve metin biçimlendirme seçenekleri için [Set Prompt Text in Placeholder](/slides/tr/cpp/manage-placeholder/) ve [Text Formatting](/slides/tr/cpp/text-formatting/) bölümlerine bakın.
 
 ## **Slide Master Arka Planını Değiştirme**
 
-Bir master arka planı, üzerine yazmayan layout'lar ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk master slayt için katı bir arka plan rengi ayarlar:
+Bir master arka planı, onu geçersiz kılmayan layout ve slaytlar tarafından kalıtılır. Aşağıdaki örnek, ilk master slayt için katı bir arka plan rengi ayarlar:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -216,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-İlgili konular için [Presentation Background](/slides/tr/cpp/presentation-background/) ve [Presentation Theme](/slides/tr/cpp/presentation-theme/) bölümlerine bakın.
+İlgili konular için [Presentation Background](/slides/tr/cpp/presentation-background/) ve [Presentation Theme](/slides/tr/cpp/presentation-theme/) bölümlerine göz atın.
 
-## **Slide Master'ı Başka Bir Sunuma Kopyalama**
+## **Bir Slide Master’ı Başka Bir Sunuma Kopyalama**
 
-[IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/addclone/) metodunu kullanarak bir master slaytı başka bir sunuma kopyalayabilirsiniz. Kopyalanan master, hedef sunumdaki layout'lar ve slaytlar tarafından kullanılabilir.
+[IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/addclone/) kullanarak bir master slaytı başka bir sunuma kopyalayabilirsiniz. Kopyalanan master, hedef sunumdaki layout ve slaytlar tarafından kullanılabilir.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -234,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-Master'larıyla birlikte normal slaytları da kopyalamanız gerekiyorsa, [Clone Slides](/slides/tr/cpp/clone-slides/) bölümüne bakın.
+Normal slaytları ve onların masterlarını birlikte kopyalamanız gerekiyorsa, [Clone Slides](/slides/tr/cpp/clone-slides/) bölümüne bakın.
 
-## **Birden Fazla Slide Master Ekleme**
+## **Birden Çok Slide Master Ekleme**
 
-Bir sunum birden fazla master slayt içerebilir. Bu, farklı bölümlerin farklı marka kimliği, sayfa yapısı veya tema ayarları gerektirdiği durumlarda faydalıdır.
+Bir sunum birden çok master slayt içerebilir. Bu, farklı bölümlerin farklı marka, sayfa yapısı veya tema ayarları gerektirdiği durumlarda faydalıdır.
 
-![Master slayt ekleme ve yönetme için PowerPoint komutları](slide-master_9.jpg)
+![PowerPoint’te master slayt ekleme ve yönetme komutları](slide-master_9.jpg)
 
-Aşağıdaki örnek, varsayılan master'ı kopyalar, klona farklı bir arka plan verir, o kopyalanmış master altında bir layout oluşturur ve o layout'a dayalı yeni bir slayt ekler:
+Aşağıdaki örnek, varsayılan master’ı klonlar, klona farklı bir arka plan verir, o klon master altında bir layout oluşturur ve bu layout’a dayalı yeni bir slayt ekler:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -269,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **Slide Master'ları Karşılaştırma**
+## **Slide Master’ları Karşılaştırma**
 
-Master slaytlar, [IBaseSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/) tarafından devralınan `Equals` yöntemiyle karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği kontrol eder. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya mevcut tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
+Master slaytlar, [IBaseSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/) üzerinden miras alınan `Equals` yöntemiyle karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği kontrol eder. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya geçerli tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -310,9 +478,16 @@ Daha fazla bilgi için [Compare Presentation Slides](/slides/tr/cpp/compare-slid
 
 ## **Slide Master Görünümünü Varsayılan Görünüm Olarak Ayarlama**
 
-[ViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/) üzerindeki `set_LastView` metodunu kullanarak PowerPoint'in ilk açtığı görünümü kontrol edebilirsiniz. Aşağıdaki örnek, sunumu Slide Master görünümünde açar:
+[ViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/) üzerindeki `set_LastView` yöntemiyle PowerPoint’in ilk açtığı görünüm kontrol edilebilir. Aşağıdaki örnek, sunumu Slide Master görünümünde açar:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -320,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Daha fazla görünüm ayarı için [Save Presentation](/slides/tr/cpp/save-presentation/) bölümüne bakın.
+Diğer görünüm ayarları için [Save Presentation](/slides/tr/cpp/save-presentation/) bölümüne bakın.
 
 ## **Kullanılmayan Master Slaytları Kaldırma**
 
-Sunumlar bazen normal slaytlar tarafından artık kullanılmayan master slaytlar içerir. Kullanılmayan masterları kaldırmak dosya boyutunu azaltabilir ve şablon bakımını basitleştirebilir.
+Bazen sunumlarda artık hiçbir normal slayt tarafından kullanılmayan master slaytlar bulunur. Kullanılmayan masterları kaldırmak dosya boyutunu azaltır ve şablon bakımını basitleştirir.
 
-Kullanılmayan masterları `get_Masters()` koleksiyonundan kaldırmak için [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/tr/cpp/aspose.slides/masterslidecollection/removeunused/) metodunu kullanın:
+`get_Masters()` koleksiyonunda kullanılmayan masterları kaldırmak için [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/tr/cpp/aspose.slides/masterslidecollection/removeunused/) metodunu kullanın:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -336,9 +517,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ayrıca düşük kodlu [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) metodunu da kullanabilirsiniz:
+Ayrıca düşük‑kodlu [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) metodunu da tercih edebilirsiniz:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -346,20 +534,20 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **SSS**
 
 **Slide master ile layout slayt arasındaki fark nedir?**
 
-Slide master, tema, arka plan, ortak şekiller ve metin stilleri gibi ortak tasarım ayarlarını tanımlar. Layout slayt, bir master slayta ait olup yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt layout slaytı kullanır, bu yüzden hem layout hem de master'dan devralır.
+Slide master, tema, arka plan, ortak şekiller ve metin stilleri gibi paylaşılan tasarım ayarlarını tanımlar. Layout slayt, bir master’a aittir ve yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir layout slayt kullanır, böylece hem layout hem de master’dan kalıtım alır.
 
 **Bir sunum birden fazla slide master içerebilir mi?**
 
-Evet. Bir sunum birden fazla slide master içerebilir. Farklı bölümlerin farklı görsel sistemler veya marka kimliği gerektirdiği durumlarda birden çok master kullanın.
+Evet. Bir sunum birden fazla slide master barındırabilir. Farklı bölümlerin farklı görsel sistemler veya marka kimliği gerektirdiği durumlarda birden çok master kullanın.
 
-**Yer tutucuları bir master slayta mı yoksa bir layout slayta mı eklemeliyim?**
+**Yer tutucuları master slayta mı yoksa layout slayta mı eklemeliyim?**
 
-Çoğu durumda, yer tutucular layout slaytlara eklenmelidir. Ortak görsel öğeler ve ortak biçimlendirmeyi master slayta koyun, ardından içerik yer tutucularını normal slaytların kullanacağı layout'lara yerleştirin.
+Çoğu durumda yer tutucuları layout slaytlara ekleyin. Ortak görsel öğeleri ve ortak biçimlendirmeleri master slayta koyun, içerik yer tutucularını ise normal slaytların kullanacağı layout slaytlara yerleştirin.
 
-**Hâlâ kullanılan bir master slaytı silebilir miyim?**
+**Kullanılan bir master slaytı silebilir miyim?**
 
-Hayır. Bağımlı slaytlara sahip bir master slayt doğrudan güvenli bir şekilde silinemez. Önce bu slaytları başka bir master altındaki layout'lara taşıyın veya yalnızca kullanılmayan masterları kaldıran bir temizlik yöntemini kullanın.
+Hayır. Bağımlı slaytları olan bir master slaytı doğrudan güvenli bir şekilde kaldırılamaz. Önce bu slaytları başka bir master’ın layout’larına taşıyın veya sadece kullanılmayan masterları temizleyen bir yöntem uygulayın.

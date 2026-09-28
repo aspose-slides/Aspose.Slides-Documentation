@@ -1,25 +1,25 @@
 ---
-title: Zastosuj lub zmień układy slajdów w Pythonie za pośrednictwem Java
+title: Zastosuj lub zmień układy slajdów w Pythonie przy użyciu Javy
 linktitle: Układ slajdu
 type: docs
 weight: 60
 url: /pl/python-java/slide-layout/
 keywords:
 - układ slajdu
-- układ zawartości
-- znacznik
-- projekt prezentacji
-- projekt slajdu
+- układ treści
+- symbol zastępczy
+- projektowanie prezentacji
+- projektowanie slajdu
 - nieużywany układ
 - widoczność stopki
 - slajd tytułowy
-- tytuł i zawartość
+- tytuł i treść
 - nagłówek sekcji
-- dwa elementy zawartości
+- dwie treści
 - porównanie
 - tylko tytuł
 - pusty układ
-- zawartość z podpisem
+- treść z podpisem
 - obraz z podpisem
 - tytuł i pionowy tekst
 - pionowy tytuł i tekst
@@ -29,42 +29,44 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides dla Pythona za pośrednictwem Java, dodawaj znaczniki, usuwaj nieużywane układy oraz kontroluj widoczność stopki."
+description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides for Python via Java, dodawaj symbole zastępcze, usuwaj nieużywane układy i kontroluj widoczność stopki."
 ---
 ## **Przegląd**
 
-Układ slajdu określa pozycje i formatowanie znaczników, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu zapewnia slajdom spójną strukturę, umożliwiając jednocześnie, aby każdy slajd zawierał własną treść.
+Układ slajdu określa pozycje i formatowanie symboli zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu nadaje slajdom spójną strukturę, jednocześnie pozwalając każdemu slajdowi zawierać własną treść.
 
-Najczęściej używane układy to:
+Najbardziej powszechne układy to:
 
-- **Title Slide**: Zawiera znaczniki tytułu i podtytułu.
-- **Title and Content**: Zawiera znacznik tytułu oraz ogólny znacznik zawartości.
-- **Blank**: Nie zawiera znaczników treści i jest przydatny, gdy każdy kształt będzie rozmieszczany ręcznie.
+- **Slajd tytułowy**: Zawiera symbole zastępcze tytułu i podtytułu.
+- **Tytuł i treść**: Zawiera symbol zastępczy tytułu oraz ogólny symbol zastępczy treści.
+- **Pusty**: Nie zawiera symboli zastępczych i jest przydatny, gdy każdy kształt będzie pozycjonowany ręcznie.
 
 ## **Zrozumienie dziedziczenia układu**
 
 Prezentacja ma trzy powiązane poziomy:
 
-1. A [slajd master](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/) definiuje motyw, współdzielone formatowanie, tła i wspólne obiekty.
-1. A [slajd układu](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/) należy do slajdu master i definiuje określone rozmieszczenie znaczników.
-1. A [slajd normalny](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/) używa jednego układu i przechowuje wprowadzoną dla niego treść.
+1. [slajd wzorcowy](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/) definiuje motyw, wspólne formatowanie, tła i wspólne obiekty.
+1. [slajd układu](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/) należy do wzorca i określa konkretny układ symbolów zastępczych.
+1. [zwykły slajd](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/) używa jednego układu i przechowuje wprowadzoną treść dla tego slajdu.
 
-Slajd normalny dziedziczy motyw i formatowanie z swojego układu, a układ dziedziczy z mastera. Wartość ustawiona bezpośrednio na slajdzie normalnym nadpisuje odziedziczoną wartość na tym poziomie. Gdy tworzony jest slajd normalny, jego kształty znaczników są generowane na podstawie wybranego układu, a treść wprowadzona do tych znaczników należy do slajdu normalnego.
+Zwykły slajd dziedziczy motyw i formatowanie z układu, a układ dziedziczy z wzorca. Wartość ustawiona bezpośrednio na zwykłym slajdzie zastępuje wartość odziedziczoną na tym poziomie. Gdy tworzy się zwykły slajd, kształty symboli zastępczych są generowane z wybranego układu, a treść wprowadzona w tych symbolach należy do zwykłego slajdu.
 
-Dodaj wymagane znaczniki do układu przed tworzeniem z niego slajdów. Dodanie kolejnego znacznika do układu później nie powoduje automatycznego dodania odpowiadającego kształtu znacznika do istniejących slajdów normalnych.
+Dodaj wymagane symbole zastępcze do układu przed tworzeniem z niego slajdów. Dodanie kolejnego symbolu zastępczego do układu później nie dodaje automatycznie odpowiadającego kształtu symbolu do istniejących zwykłych slajdów.
 
 Ta zależność ma dwa ważne konsekwencje:
 
-- Zmiana odziedziczonego formatowania lub istniejącej geometrii znacznika w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu, który jest już używany, sprawdź jego zależne slajdy i przejrzyj powstałą prezentację.
-- Układ, który jest nadal używany przez slajd, nie może być usunięty. Przypisz najpierw jego zależne slajdy do innego układu lub usuń tylko nieużywane układy.
+- Zmiana odziedziczonego formatowania lub istniejącej geometrii symboli zastępczych w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu już używanego, sprawdź jego zależne slajdy i przejrzyj wynikową prezentację.
+- Układ, który jest nadal używany przez slajd, nie może zostać usunięty. Przypisz najpierw jego zależne slajdy do innego układu lub usuń tylko nieużywane układy.
 
-Aby uzyskać więcej informacji o najwyższym poziomie tej hierarchii, zobacz [Slajd master](/slides/pl/python-java/slide-master/).
+Po więcej informacji o najwyższym poziomie tej hierarchii zobacz [Slide Master](/slides/pl/python-java/slide-master/).
+
+Aby ukryć odziedziczone logo lub dekoracyjne kształty wzorca na jednym slajdzie lub poprzez współdzielony układ, zobacz [Control the Visibility of Master Graphics](/slides/pl/python-java/slide-master/). Przykład porównuje dwa slajdy używające tego samego wzorca.
 
 ## **Wybierz i zastosuj układ slajdu**
 
-Używaj typu układu, gdy prezentacja korzysta ze standardowych definicji układów PowerPoint. Nazwy układów są edytowalne przez użytkownika i mogą być lokalizowane, więc wybór oparty na nazwie jest mniej wiarygodny, chyba że kontrolujesz szablon źródłowy.
+Używaj typu układu, gdy prezentacja podąża za standardowymi definicjami układów PowerPoint. Nazwy układów można edytować i lokalizować, więc wybór oparty na nazwie jest mniej niezawodny, chyba że kontrolujesz szablon źródłowy.
 
-Poniższy przykład wyszukuje **Title and Content** w pierwszym masterze. Jeśli ten układ nie jest dostępny, celowo przełącza się na **Blank**. Drugi warunek sprawdzający `None` jest potrzebny, ponieważ prezentacja może zawierać wyłącznie własne układy. Wybrany układ jest następnie zastosowany do pierwszego slajdu normalnego przy pomocy metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#setLayoutSlide).
+Poniższy przykład szuka **Tytuł i treść** w pierwszym wzorcu. Jeśli ten układ jest niedostępny, celowo przechodzi do **Pusty**. Drugi warunek sprawdzający `None` jest konieczny, ponieważ prezentacja może zawierać wyłącznie układy niestandardowe. Wybrany układ jest następnie stosowany do pierwszego zwykłego slajdu za pomocą metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#setLayoutSlide).
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje znaczników, odziedziczone formatowanie oraz powiązania między istniejącymi znacznikami a nowym układem mogą się zmienić, dlatego warto sprawdzić wynik przy przełączaniu między wyraźnie odmiennymi układami.
+Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje symboli zastępczych, odziedziczone formatowanie i zależność między istniejącymi symbolami a nowym układem mogą się zmienić, więc sprawdź wynik przy przełączaniu między znacznie różnymi układami.
 
 ## **Dodaj układ slajdu**
 
-Wybór i tworzenie to odrębne operacje. Wcześniejszy przykład wybiera istniejący układ; nie tworzy go. Aby utworzyć układ, wywołaj metodę [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterlayoutslidecollection/#add) na kolekcji układów docelowego mastera.
+Wybór i tworzenie to odrębne operacje. Poprzedni przykład wybiera istniejący układ; nie tworzy go. Aby utworzyć układ, wywołaj metodę [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterlayoutslidecollection/#add) na kolekcji układów docelowego wzorca.
 
-Poniższy przykład zawsze dodaje nowy układ **Title and Content** o nazwie `Report Title and Content`, a następnie dodaje slajd normalny oparty na nim. Nazwy układów muszą być unikalne w obrębie kolekcji.
+Poniższy przykład zawsze dodaje nowy układ **Tytuł i treść** o nazwie `Report Title and Content`, a następnie dodaje zwykły slajd oparty na nim. Nazwy układów muszą być unikatowe w kolekcji.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Dodawaj układ tylko wtedy, gdy szablon naprawdę potrzebuje kolejnej wielokrotnego użytku struktury. Jeśli odpowiedni układ już istnieje, wybierz go i użyj ponownie zamiast tworzyć duplikat.
+Dodawaj układ tylko wtedy, gdy szablon naprawdę potrzebuje kolejnej struktury wielokrotnego użytku. Jeśli odpowiedni układ już istnieje, wybierz go i użyj ponownie zamiast tworzyć duplikat.
 
-## **Dodaj znaczniki do układu slajdu**
+## **Dodaj symbole zastępcze do układu slajdu**
 
-Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getPlaceholderManager) udostępnia [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/) do dodawania kształtów znaczników do układu.
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getPlaceholderManager) udostępnia [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/) do dodawania kształtów symboli zastępczych do układu.
 
-| Znacznik PowerPoint                | Metoda LayoutPlaceholderManager |
-| ----------------------------------- | -------------------------------- |
-| ![Content](content.png)             | [addContentPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [addTextPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [addPicturePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [addChartPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [addTablePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [addSmartArtPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [addMediaPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| Symbol zastępczy PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/) Metoda |
+| --------------------------- | ---------------------------------- |
+| ![Zawartość](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Zawartość (pionowa)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Tekst](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Tekst (pionowy)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Obraz](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Wykres](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabela](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Multimedia](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Obraz online](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Poniższy przykład weryfikuje istnienie układu **Blank**, dodaje do niego cztery znaczniki, a następnie tworzy slajd normalny korzystający z zmodyfikowanego układu. Kolejność jest zamierzona: znaczniki są dodawane przed utworzeniem slajdu normalnego, więc Aspose.Slides może wygenerować odpowiadające kształty znaczników na tym slajdzie.
+Poniższy przykład sprawdza, czy układ **Pusty** istnieje, dodaje do niego cztery symbole zastępcze, a następnie tworzy zwykły slajd korzystający z zmodyfikowanego układu. Kolejność jest zamierzona: symbole zastępcze są dodawane przed utworzeniem zwykłego slajdu, dzięki czemu Aspose.Slides może wygenerować odpowiadające im kształty symboli na tym slajdzie.
 
 ```python
 import jpype
@@ -171,17 +173,15 @@ finally:
 
 Wynik:
 
-![Znaczniki na slajdzie układu](add_placeholders.png)
+![Symbole zastępcze na slajdzie układu](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-
-Changing inherited formatting or the geometry of existing layout placeholders can affect dependent slides. A newly added layout placeholder is not backfilled into existing normal slides. Test layout changes on a copy of the presentation and inspect every dependent slide.
-
+Zmiana odziedziczonego formatowania lub geometrii istniejących symboli zastępczych w układzie może wpływać na zależne slajdy. Nowo dodany symbol zastępczy układu nie jest automatycznie wstawiany do istniejących zwykłych slajdów. Testuj zmiany układu na kopii prezentacji i sprawdzaj każdy zależny slajd.
 {{% /alert %}}
 
 ## **Usuń nieużywane układy slajdów**
 
-Użyj metody [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć układy, które nie są referencjonowane przez żaden slajd normalny. Metoda pozostawia nienaruszone układy, które są nadal używane.
+Użyj metody [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć układy, do których nie odnosi się żaden zwykły slajd. Metoda pozostawia nienaruszone układy nadal używane.
 
 ```python
 import jpype
@@ -200,11 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-Aby usunąć konkretny układ, najpierw użyj jego metody [hasDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#hasDependingSlides) lub [getDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getDependingSlides). Przypisz najpierw wszystkie zależne slajdy, a dopiero potem wywołaj [LayoutSlide.remove](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#remove). Próba usunięcia używanego układu powoduje zgłoszenie [PptxEditException](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pptxeditexception/).
+Aby usunąć konkretny układ, najpierw użyj jego metody [hasDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#hasDependingSlides) lub [getDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getDependingSlides). Przypisz wszystkie zależne slajdy przed wywołaniem [LayoutSlide.remove](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#remove). Próba usunięcia używanego układu powoduje wyrzucenie [PptxEditException](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pptxeditexception/).
 
-## **Kontrola widoczności stopki w układzie slajdu**
+## **Kontrola widoczności stopki na układzie slajdu**
 
-Układ posiada własne znaczniki stopki, numeru slajdu i daty/czasu. Użyj metody [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getHeaderFooterManager), aby sterować tymi znacznikami dla jednego układu. Jest to przydatne, gdy na przykład układy zawartości powinny wyświetlać stopki, a układy tytułów nie powinny.
+Układ ma własne symbole zastępcze stopki, numeru slajdu i daty/czasu. Użyj metody [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getHeaderFooterManager), aby kontrolować te symbole w jednym układzie. Jest to przydatne, gdy np. układy treści mają wyświetlać stopki, a układy tytułowe nie.
+
+Poniższy przykład bezpiecznie wybiera układ i ustawia jego elementy stopki jako widoczne:
 
 ```python
 import jpype
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Kontrola widoczności stopki w slajdzie master i jego układach potomnych**
+## **Kontrola widoczności stopki w masterze i jego układach potomnych**
 
-Aby zastosować spójne ustawienia stopki w całej hierarchii mastera, użyj metody [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody propagacji z [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslideheaderfootermanager/) działają na masterze oraz jego zależnych układach i slajdach normalnych; nie są skierowane wyłącznie do jednego slajdu normalnego.
+Aby zastosować spójne ustawienia stopki w całej hierarchii mastera, użyj metody [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody propagacji [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masterslideheaderfootermanager/) działają na masterze oraz jego zależnych układach i zwykłych slajdach; nie celują w pojedynczy zwykły slajd.
 
 ```python
 import jpype
@@ -268,16 +270,16 @@ finally:
 
 **Jaka jest różnica między slajdem master a slajdem układu?**
 
-Slajd master definiuje motyw prezentacji i współdzielone formatowanie. Slajd układu należy do mastera i określa jedną wielokrotnego użytku konfigurację znaczników. Slajdy normalne korzystają z tych układów i przechowują treść specyficzną dla slajdu.
+Slajd master definiuje motyw prezentacji i wspólne formatowanie. Slajd układu należy do mastera i definiuje jedną wielokrotnego użytku konfigurację symbolów zastępczych. Zwykłe slajdy używają tych układów i przechowują treść specyficzną dla slajdu.
 
 **Czy mogę skopiować slajd układu z jednej prezentacji do drugiej?**
 
-Tak. Dodaj kopię do docelowej kolekcji przy pomocy metody [addClone](https://reference.aspose.com/slides/pl/python-java/aspose.slides/globallayoutslidecollection/#addClone). Kopiując między prezentacjami, sprawdź także czcionki, motywy, obrazy i inne zasoby użyte przez źródłowy układ.
+Tak. Dodaj kopię do docelowej kolekcji metodą [addClone](https://reference.aspose.com/slides/pl/python-java/aspose.slides/globallayoutslidecollection/#addClone). Przy kopiowaniu między prezentacjami sprawdź także czcionki, motywy, obrazy i inne zasoby użyte przez źródłowy układ.
 
-**Co się dzieje, gdy modyfikuję układ, który jest już używany?**
+**Co się stanie, gdy zmodyfikuję układ już używany?**
 
-Zależne slajdy dziedziczą zmiany w układzie, chyba że nadpisują dotknięte formatowanie lub obiekty lokalnie. Geometria znaczników i odziedziczony styl mogą więc zmienić się na wielu slajdach jednocześnie. Użyj [getDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getDependingSlides), aby zidentyfikować dotknięte slajdy przed edycją układu.
+Zależne slajdy dziedziczą zmiany układu, chyba że nadpiszą dotknięte formatowanie lub obiekty lokalnie. Geometria symboli zastępczych i odziedziczony styl mogą więc zmienić się jednocześnie na wielu slajdach. Użyj [getDependingSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/layoutslide/#getDependingSlides), aby zidentyfikować dotknięte slajdy przed edycją układu.
 
 **Co się stanie, jeśli usunę układ, który jest nadal używany?**
 
-Aspose.Slides zgłasza [PptxEditException](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy do innego układu lub użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć tylko nieodwołane układy.
+Aspose.Slides wyrzuca [PptxEditException](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy lub użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć tylko nieodwoływane układy.

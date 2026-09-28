@@ -1,58 +1,56 @@
 ---
-title: Zarządzaj masterami slajdów w JavaScript
-linktitle: Master slajdu
+title: Zarządzaj mistrzami slajdów prezentacji w JavaScript
+linktitle: Mistrz slajdu
 type: docs
 weight: 70
 url: /pl/nodejs-java/slide-master/
 keywords:
-- master slajdu
-- master slajd
-- master slajd PPT
-- wiele master slajdów
-- porównaj master slajdy
+- mistrz slajdu
+- slajd mistrza
+- slajd mistrza PPT
+- wiele slajdów mistrza
+- porównaj slajdy mistrza
 - tło
-- symbol zastępczy
-- klonuj master slajd
-- kopiuj master slajd
-- duplikuj master slajd
-- nieużywany master slajd
+- pole zastępcze
+- klonuj slajd mistrza
+- kopiuj slajd mistrza
+- zduplikuj slajd mistrza
+- nieużywany slajd mistrza
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zarządzaj masterami slajdów w Aspose.Slides dla Node.js via Java: uzyskuj dostęp, edytuj, klonuj, porównuj i usuwaj master‑slajdy w prezentacjach PowerPoint i OpenDocument."
+description: "Zarządzaj mistrzami slajdów w Aspose.Slides dla Node.js via Java: uzyskaj dostęp, edytuj, klonuj, porównuj i usuwaj slajdy mistrza w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-**Slide master** definiuje wspólne ustawienia projektu dla grupy slajdów. Może zawierać wspólne kształty, logotypy, tła, style tekstu, ustawienia motywu oraz stopki. W programie PowerPoint edycja slide mastera jest typowym sposobem zachowania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
+A **mistrz slajdu** definiuje wspólne ustawienia projektowe dla grupy slajdów. Może zawierać wspólne kształty, logotypy, tła, style tekstu, ustawienia motywu i ustawienia stopki. W programie PowerPoint edycja mistrza slajdu jest typowym sposobem zachowania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
 
-Aspose.Slides for Node.js via Java obsługuje ten sam model. Prezentacja może zawierać jedną lub więcej master‑slajdów, a każdy master‑slajd może zawierać kilka layout‑slajdów. Zwykłe slajdy zazwyczaj nie odwołują się bezpośrednio do master‑slajdu. Zamiast tego używają layout‑slajdu, który należy do master‑slajdu.
+Aspose.Slides for Node.js via Java obsługuje ten sam model. Prezentacja może zawierać jedną lub więcej slajdów mistrza, a każdy slajd mistrza może zawierać kilka slajdów układu. Zwykłe slajdy zazwyczaj nie odwołują się bezpośrednio do slajdu mistrza. Zamiast tego zwykły slajd używa slajdu układu, który należy do slajdu mistrza.
 
 Hierarchia wygląda następująco:
 
-1. **Slide master** – definiuje wspólny projekt i motyw.  
-1. **Layout slide** – definiuje konkretne rozmieszczenie placeholderów i formatowanie na poziomie układu.  
-1. **Normal slide** – zawiera rzeczywistą treść prezentacji i używa jednego layout‑slajdu.
+1. **Mistrz slajdu** - definiuje wspólny projekt i motyw.  
+1. **Slajd układu** - definiuje konkretne rozmieszczenie pól zastępczych i formatowanie na poziomie układu.  
+1. **Zwykły slajd** - zawiera rzeczywistą treść prezentacji i używa jednego slajdu układu.  
 
-![Hierarchia master‑slajdów, layout‑slajdów i zwykłych slajdów](slide-master_2.jpg)
+![Hierarchia slajdów mistrza, slajdów układu i zwykłych slajdów](slide-master_2.jpg)
 
-W Aspose.Slides master‑slajd jest reprezentowany przez klasę [MasterSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/). Wszystkie master‑slajdy w prezentacji są dostępne przez kolekcję `Presentation.getMasters()`.
+W Aspose.Slides slajd mistrza jest reprezentowany przez klasę [MasterSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/). Wszystkie slajdy mistrza w prezentacji są dostępne poprzez kolekcję `Presentation.getMasters()`.
 
-{{% alert color="info" title="Dziedziczenie" %}}
-
-Gdy ta sama własność jest zdefiniowana na więcej niż jednym poziomie, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli master‑slajd i layout‑slajd definiują tło, slajdy oparte na tym układzie używają tła z layout‑slajdu. Więcej informacji o layout‑slajdach znajdziesz w artykule [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Kiedy ta sama właściwość jest określona na więcej niż jednym poziomie, wygrywa bardziej szczegółowy poziom. Na przykład, jeśli slajd mistrza i slajd układu oba definiują tło, slajdy oparte na tym układzie używają tła układu. Aby uzyskać więcej informacji o slajdach układu, zobacz [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
-## **Dostęp do master‑slajdów**
+## **Uzyskiwanie dostępu do mistrzów slajdów**
 
-W PowerPoint możesz otworzyć widok Slide Master wybierając **View** > **Slide Master**.
+W programie PowerPoint można otworzyć widok Mistrza slajdu z **Widok** > **Mistrz slajdu**.
 
-![Polecenie Slide Master na karcie Widok w PowerPoint](slide-master_3.jpg)
+![Polecenie Mistrz slajdu na karcie Widok w programie PowerPoint](slide-master_3.jpg)
 
-W Aspose.Slides użyj kolekcji `getMasters()`, aby uzyskać dostęp do master‑slajdów:
+W Aspose.Slides użyj kolekcji `getMasters()`, aby uzyskać dostęp do slajdów mistrza:
 
 ```javascript
 var aspose = aspose || {};
@@ -71,7 +69,7 @@ try {
 }
 ```
 
-Możesz także pobrać master‑slajd używany przez zwykły slajd poprzez jego layout:
+Można również uzyskać slajd mistrza używany przez zwykły slajd poprzez jego układ:
 
 ```javascript
 var aspose = aspose || {};
@@ -90,26 +88,26 @@ try {
 }
 ```
 
-## **Co zawiera master‑slajd**
+## **Co zawiera slajd mistrza**
 
-Master‑slajd jest obiektem podobnym do slajdu. Dziedziczy wspólne zachowanie slajdu z [BaseSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/), więc udostępnia wiele takich samych właściwości wykorzystywanych przez zwykłe i layout‑slajdy. Członkowie specyficzni dla master‑slajdu są wymienieni na stronie API [MasterSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/).
+Slajd mistrza jest obiektem podobnym do slajdu. Dziedziczy wspólne zachowanie slajdu z [BaseSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez zwykłe i slajdy układu. Członkowie specyficzni dla mistrza są wymienieni na stronie API [MasterSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/).
 
-Typowo używane członki master‑slajdu obejmują:
+Często używane członkowie slajdu mistrza obejmują:
 
 | Członek | Cel |
 | --- | --- |
-| `getBackground()` | Ustawia tło na poziomie master‑slajdu. |
-| `getShapes()` | Przechowuje kształty umieszczone na masterze, takie jak logotypy, ramki obrazów i współdzielony tekst. |
-| `getLayoutSlides()` | Przechowuje layout‑slajdy należące do mastera. |
-| `getThemeManager()` | Udostępnia dostęp do API motywu mastera. |
-| `getHeaderFooterManager()` | Kontroluje nagłówki, stopki, daty i numery slajdów dla mastera i jego layout‑slajdów. |
-| `getDependingSlides()` | Zwraca zwykłe slajdy, które zależą od mastera poprzez ich layouty. |
+| `getBackground()` | Ustawia tło slajdu poziomu mistrza. |
+| `getShapes()` | Przechowuje kształty umieszczone na mistrzu, takie jak logotypy, ramki obrazów i współdzielony tekst. |
+| `getLayoutSlides()` | Przechowuje slajdy układu, które należą do mistrza. |
+| `getThemeManager()` | Udostępnia dostęp do interfejsów API motywu mistrza. |
+| `getHeaderFooterManager()` | Kontroluje nagłówki, stopki, daty i numery slajdów dla mistrza i jego podległych układów. |
+| `getDependingSlides()` | Zwraca zwykłe slajdy zależne od mistrza poprzez ich układy. |
 
-## **Dodanie obrazu do master‑slajdu**
+## **Dodaj obraz do slajdu mistrza**
 
-Gdy dodasz obraz do master‑slajdu, pojawi się on na slajdach korzystających z layoutów tego mastera. Jest to przydatne przy logotypach, znakach wodnych, dekoracyjnych pasach i innych powtarzalnych elementach wizualnych.
+Gdy dodasz obraz do slajdu mistrza, pojawia się on na slajdach używających układów z tego mistrza. Jest to przydatne dla logotypów, znaków wodnych, dekoracyjnych pasów i innych powtarzających się elementów wizualnych.
 
-Poniższy przykład dodaje logo do pierwszego master‑slajdu:
+Poniższy przykład dodaje logotyp do pierwszego slajdu mistrza:
 
 ```javascript
 var aspose = aspose || {};
@@ -140,17 +138,75 @@ try {
 }
 ```
 
-Więcej informacji o ramkach obrazów znajdziesz w artykule [Picture Frame](/nodejs-java/picture-frame/).
+Aby uzyskać więcej informacji o ramkach obrazu, zobacz [Picture Frame](/nodejs-java/picture-frame/).
 
-## **Praca z placeholderami**
+## **Kontrola widoczności grafiki mistrza**
 
-Placeholdery są zazwyczaj definiowane na layout‑slajdach. Master‑slajd zapewnia wspólny styl i motyw, które te layouty dziedziczą, a każdy layout decyduje, które placeholdery są dostępne i gdzie są umieszczone.
+Użyj [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/#setShowMasterShapes), aby ukryć odziedziczoną grafikę mistrza, taką jak logotypy lub kształty dekoracyjne, bez usuwania ich z mistrza. Przekaż `false` do [Slide.setShowMasterShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#setShowMasterShapes) na slajdzie, który ma pomijać te grafiki, i pozostaw `true` na slajdach, które mają je wyświetlać.
 
-W PowerPoint polecenia placeholderów są dostępne w widoku Slide Master.
+Poniższy samodzielny przykład tworzy niebieski dekoracyjny pas na mistrzu oraz dwa slajdy używające tego samego pustego układu. Pas jest widoczny na pierwszym slajdzie i ukryty na drugim. Nie jest wymagane żadne wejściowe przedstawienie ani obraz.
 
-![Polecenie Insert Placeholder w widoku Slide Master w PowerPoint](slide-master_5.png)
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Aby dodać nowe placeholdery przy użyciu Aspose.Slides, pracuj z layout‑slajdem należącym do mastera:
+let presentation = new aspose.slides.Presentation();
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+    layoutSlide.setShowMasterShapes(true);
+
+    let slideHeight = presentation.getSlideSize().getSize().getHeight();
+    let band = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    let bandColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let noFillType = java.newByte(aspose.slides.FillType.NoFill);
+    band.getFillFormat().setFillType(solidFillType);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(noFillType);
+
+    let visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    let hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Przykład używa układu **Blank** dostarczonego z nową prezentacją i usuwa własne pola zastępcze początkowego slajdu.
+
+### **Wybierz zakres ustawienia**
+
+Zwykły slajd używa swojego mistrza poprzez [Slide.getLayoutSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getLayoutSlide) i [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#getMasterSlide). Ustawienie właściwości na pojedynczym slajdzie wpływa tylko na ten slajd. Przekazanie `false` do [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#setShowMasterShapes) ukrywa grafikę mistrza dla slajdów używających tego współdzielonego układu, nawet jeśli ich własne ustawienie jest `true`. Aby ukryć grafikę tylko na jednym slajdzie, zmień właściwość slajdu i pozostaw niezmieniony współdzielony układ.
+
+Ustawienie nie jest obsługiwane jako kontrola widoczności na samym slajdzie mistrza. Na mistrzu [getShowMasterShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/#getShowMasterShapes) zawsze zwraca `false`, a przekazanie `true` do [setShowMasterShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/#setShowMasterShapes) powoduje wyjątek. Zastosuj je do zwykłego slajdu lub układu.
+
+### **Rozróżnij grafikę od tła**
+
+| Operacja | Efekt |
+| --- | --- |
+| Ukryj grafikę mistrza | Kontroluje widoczność dziedziczonych kształtów mistrza bez ich usuwania ani zmiany własnych kształtów slajdu. |
+| Zmień wypełnienie tła slajdu | Zmienia kolor, gradient lub obraz tła. Grafika mistrza jest oddzielnym kształtem i może pozostać widoczna na tym tle. Zobacz [Presentation Background](/slides/pl/nodejs-java/presentation-background/). |
+| Usuń kształt z mistrza | Usuwa współdzielony kształt źródłowy, więc nie jest już dostępny dla żadnego slajdu używającego tego mistrza. |
+
+## **Praca z polami zastępczymi**
+
+Pola zastępcze są zazwyczaj definiowane na slajdach układu. Slajd mistrza zapewnia współdzielony styl i motyw, które te układy dziedziczą, podczas gdy każdy układ decyduje, które pola zastępcze są dostępne i gdzie są umieszczone.
+
+W programie PowerPoint polecenia pola zastępczego są dostępne w widoku Mistrza slajdu.
+
+![Polecenie Wstawianie pola zastępczego w widoku Mistrza slajdu programu PowerPoint](slide-master_5.png)
+
+Aby dodać nowe pola zastępcze z Aspose.Slides, pracuj z slajdem układu, który należy do mistrza:
 
 ```javascript
 var aspose = aspose || {};
@@ -176,7 +232,7 @@ try {
 }
 ```
 
-Możesz także sformatować istniejące już na master‑slajdzie kształty placeholderów. Poniższy przykład znajduje placeholder tytułu i stosuje liniowy gradient wypełnienia:
+Można również sformatować kształty pól zastępczych, które już istnieją na slajdzie mistrza. Poniższy przykład znajduje pole zastępcze tytułu i stosuje liniowe wypełnienie gradientem:
 
 ```javascript
 var aspose = aspose || {};
@@ -221,13 +277,13 @@ try {
 }
 ```
 
-![Sformatowany placeholder tytułu dziedziczony przez zwykłe slajdy](slide-master_8.png)
+![Sformatowane pole zastępcze tytułu dziedziczone przez zwykłe slajdy](slide-master_8.png)
 
-Więcej opcji formatowania placeholderów i tekstu znajdziesz w artykułach [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) oraz [Text Formatting](/nodejs-java/text-formatting/).
+Aby uzyskać więcej opcji formatowania pól zastępczych i tekstu, zobacz [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) oraz [Text Formatting](/nodejs-java/text-formatting/).
 
-## **Zmiana tła master‑slajdu**
+## **Zmienianie tła slajdu mistrza**
 
-Tło mastera jest dziedziczone przez layouty i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolite tło kolorystyczne dla pierwszego master‑slajdu:
+Tło mistrza jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego slajdu mistrza:
 
 ```javascript
 var aspose = aspose || {};
@@ -251,11 +307,11 @@ try {
 }
 ```
 
-Związane tematy: [Presentation Background](/nodejs-java/presentation-background/) oraz [Presentation Theme](/nodejs-java/presentation-theme/).
+Powiązane tematy znajdziesz w [Presentation Background](/nodejs-java/presentation-background/) oraz [Presentation Theme](/nodejs-java/presentation-theme/).
 
-## **Klonowanie master‑slajdu do innej prezentacji**
+## **Klony slajdu mistrza do innej prezentacji**
 
-Użyj `MasterSlideCollection.addClone`, aby skopiować master‑slajd do innej prezentacji. Skopiowany master może być następnie używany przez layouty i slajdy w prezentacji docelowej.
+Użyj `MasterSlideCollection.addClone`, aby skopiować slajd mistrza do innej prezentacji. Skopiowany mistrz może wtedy być używany przez układy i slajdy w docelowej prezentacji.
 
 ```javascript
 var aspose = aspose || {};
@@ -274,15 +330,15 @@ try {
 }
 ```
 
-Jeśli potrzebujesz sklonować zwykłe slajdy wraz z ich masterem, zobacz [Clone Slides](/nodejs-java/clone-slides/).
+Jeśli potrzebujesz sklonować zwykłe slajdy wraz z ich mistrzem, zobacz [Clone Slides](/nodejs-java/clone-slides/).
 
-## **Dodawanie wielu master‑slajdów**
+## **Dodaj wiele slajdów mistrza**
 
-Prezentacja może zawierać wiele master‑slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych elementów graficznych, struktury stron lub ustawień motywu.
+Prezentacja może zawierać wiele slajdów mistrza. Jest to przydatne, gdy różne sekcje wymagają innej identyfikacji wizualnej, struktury strony lub ustawień motywu.
 
-![Polecenia PowerPoint do wstawiania i zarządzania master‑slajdami](slide-master_9.jpg)
+![Polecenia PowerPoint do wstawiania i zarządzania slajdami mistrza](slide-master_9.jpg)
 
-Poniższy przykład klonuje domyślny master, nadaje klonowi inne tło, tworzy layout pod tym sklonowanym masterem i dodaje nowy slajd oparty na tym layoutcie:
+Poniższy przykład klonuje domyślnego mistrza, nadaje klonowi inne tło, tworzy układ pod tym sklonowanym mistrzem i dodaje nowy slajd oparty na tym układzie:
 
 ```javascript
 var aspose = aspose || {};
@@ -316,9 +372,9 @@ try {
 }
 ```
 
-## **Porównywanie master‑slajdów**
+## **Porównaj slajdy mistrza**
 
-Master‑slajdy można porównać metodą `equals` odziedziczoną po [BaseSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości placeholderów, np. bieżącej daty.
+Slajdy mistrza można porównać metodą `equals` odziedziczoną po [BaseSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości pól zastępczych, takich jak bieżąca data.
 
 ```javascript
 var aspose = aspose || {};
@@ -349,11 +405,11 @@ try {
 }
 ```
 
-Więcej informacji znajdziesz w artykule [Compare Presentation Slides](/slides/pl/nodejs-java/compare-slides/).
+Aby uzyskać więcej informacji, zobacz [Compare Presentation Slides](/slides/pl/nodejs-java/compare-slides/).
 
-## **Ustawienie widoku Slide Master jako domyślnego widoku**
+## **Ustaw widok Mistrza slajdu jako widok domyślny**
 
-Użyj metody `setLastView` na [ViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/), aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Slide Master:
+Użyj metody `setLastView` na [ViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/), aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Mistrza slajdu:
 
 ```javascript
 var aspose = aspose || {};
@@ -371,13 +427,13 @@ try {
 }
 ```
 
-Więcej ustawień widoku znajdziesz w artykule [Save Presentation](/slides/pl/nodejs-java/save-presentation/).
+Więcej ustawień widoku znajdziesz w [Save Presentation](/slides/pl/nodejs-java/save-presentation/).
 
-## **Usuwanie nieużywanych master‑slajdów**
+## **Usuń nieużywane slajdy mistrza**
 
-Czasami prezentacje zawierają master‑slajdy, które nie są już używane przez żadne zwykłe slajdy. Usunięcie nieużywanych masterów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
+Prezentacje czasami zawierają slajdy mistrza, które nie są już używane przez żadne zwykłe slajdy. Usunięcie nieużywanych mistrzów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
 
-Użyj `removeUnused`, aby usunąć nieużywane mastery z kolekcji `getMasters()`:
+Użyj `removeUnused`, aby usunąć nieużywane mistrze z kolekcji `getMasters()`:
 
 ```javascript
 var aspose = aspose || {};
@@ -392,7 +448,7 @@ try {
 }
 ```
 
-Możesz także skorzystać z metody low‑code `Compress.removeUnusedMasterSlides`:
+Można również użyć metody niskokodowej `Compress.removeUnusedMasterSlides`:
 
 ```javascript
 var aspose = aspose || {};
@@ -409,18 +465,18 @@ try {
 
 ## **FAQ**
 
-### Jaka jest różnica między slide masterem a layout‑slajdem?
+**Jaka jest różnica między slajdem mistrza a slajdem układu?**
 
-Slide master definiuje wspólne ustawienia projektu, takie jak motyw, tło, wspólne kształty i style tekstu. Layout‑slajd należy do master‑slajdu i definiuje konkretne rozmieszczenie placeholderów. Zwykły slajd używa layout‑slajdu, więc dziedziczy zarówno z layoutu, jak i z mastera.
+Slajd mistrza definiuje wspólne ustawienia projektowe, takie jak motyw, tło, wspólne kształty i style tekstu. Slajd układu należy do slajdu mistrza i definiuje konkretne rozmieszczenie pól zastępczych. Zwykły slajd używa slajdu układu, więc dziedziczy zarówno z układu, jak i z mistrza.
 
-### Czy jedna prezentacja może zawierać kilka slide masterów?
+**Czy jedna prezentacja może zawierać kilka slajdów mistrza?**
 
-Tak. Prezentacja może mieć kilka master‑slajdów. Używaj wielu masterów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub brandingu.
+Tak. Prezentacja może zawierać kilka slajdów mistrza. Używaj wielu mistrzów, gdy różne sekcje wymagają różnych systemów wizualnych lub identyfikacji marki.
 
-### Czy powinienem dodawać placeholdery do master‑slajdu czy do layout‑slajdu?
+**Czy powinienem dodawać pola zastępcze do slajdu mistrza czy do slajdu układu?**
 
-W większości przypadków dodawaj placeholdery do layout‑slajdów. Umieść wspólne elementy wizualne i wspólne formatowanie na master‑slajdzie, a placeholdery treści na layoutach, które będą używane przez zwykłe slajdy.
+W większości przypadków dodawaj pola zastępcze do slajdów układu. Umieść wspólne elementy wizualne i współdzielone formatowanie na slajdzie mistrza, a pola zastępcze treści umieść na układach, które będą używane przez zwykłe slajdy.
 
-### Czy mogę usunąć master‑slajd, który jest nadal używany?
+**Czy mogę usunąć slajd mistrza, który jest nadal używany?**
 
-Nie. Master‑slajd posiadający zależne slajdy nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do layoutów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko te, które nie są w użyciu.
+Nie. Slajd mistrza, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do układów pod innym mistrzem lub użyj metody czyszczenia nieużywanych mistrzów, która usuwa tylko mistrze, które nie są używane.

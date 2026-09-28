@@ -1,56 +1,58 @@
 ---
-title: Quản lý Bố cục Slide trong JavaScript
-linktitle: Bố cục Slide
+title: Quản lý Slide Master của Bản thuyết trình trong JavaScript
+linktitle: Slide Master
 type: docs
 weight: 70
 url: /vi/nodejs-java/slide-master/
 keywords:
-- bố cục slide
+- slide mẫu
 - slide mẫu
 - slide mẫu PPT
 - nhiều slide mẫu
 - so sánh slide mẫu
 - nền
 - trình giữ chỗ
-- sao chép slide mẫu
-- chép slide mẫu
 - nhân bản slide mẫu
-- slide mẫu không dùng
+- sao chép slide mẫu
+- tạo bản sao slide mẫu
+- slide mẫu không sử dụng
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản thuyết trình
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Quản lý các bố cục slide trong Aspose.Slides cho Node.js qua Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa các slide mẫu trong bản trình chiếu PowerPoint và OpenDocument."
+description: "Quản lý slide mẫu trong Aspose.Slides cho Node.js via Java: truy cập, chỉnh sửa, nhân bản, so sánh và xóa các slide mẫu trong bản thuyết trình PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-Một **bố cục slide** xác định các thiết lập thiết kế chung cho một nhóm các slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu chữ, thiết lập chủ đề và thiết lập chân trang. Trong PowerPoint, việc chỉnh sửa một bố cục slide là cách thường dùng để duy trì tính nhất quán của bản trình chiếu mà không phải lặp lại cùng một định dạng trên mỗi slide.
+Một **slide master** xác định các thiết lập thiết kế chung cho một nhóm các slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu chữ, thiết lập chủ đề và thiết lập chú thích chân trang. Trong PowerPoint, chỉnh sửa một slide master là cách thường dùng để giữ cho bản thuyết trình đồng nhất mà không phải lặp lại cùng một định dạng trên mỗi slide.
 
-Aspose.Slides for Node.js via Java hỗ trợ cùng mô hình này. Một bản trình chiếu có thể chứa một hoặc nhiều bố cục slide, và mỗi bố cục slide có thể chứa một số slide bố cục. Các slide bình thường thường không tham chiếu trực tiếp tới một bố cục slide. Thay vào đó, một slide bình thường sử dụng một slide bố cục, và slide bố cục đó thuộc về một bố cục slide.
+Aspose.Slides cho Node.js qua Java hỗ trợ cùng mô hình này. Một bản thuyết trình có thể chứa một hoặc nhiều slide master, và mỗi slide master có thể chứa một số slide bố cục (layout). Các slide bình thường thường không tham chiếu trực tiếp tới slide master. Thay vào đó, một slide bình thường sử dụng một layout, và layout đó thuộc về một slide master.
 
-Cấu trúc phân cấp là:
+Cấu trúc:
 
-1. **Bố cục slide** – xác định thiết kế và chủ đề chung.
-1. **Slide bố cục** – xác định cách sắp xếp cụ thể của các placeholder và định dạng mức bố cục.
-1. **Slide bình thường** – chứa nội dung thực tế của bản trình chiếu và sử dụng một slide bố cục.
+1. **Slide master** – xác định thiết kế và chủ đề chung.  
+1. **Layout slide** – xác định cách sắp xếp cụ thể của các placeholder và định dạng ở mức layout.  
+1. **Normal slide** – chứa nội dung thực tế của bản thuyết trình và sử dụng một layout slide.
 
-![Cấu trúc phân cấp của bố cục slide, slide bố cục và slide bình thường](slide-master_2.jpg)
+![Cấu trúc của slide master, layout slide và normal slide](slide-master_2.jpg)
 
-Trong Aspose.Slides, một bố cục slide được biểu diễn bởi lớp [MasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/). Tất cả các bố cục slide trong một bản trình chiếu có thể truy cập qua bộ sưu tập `Presentation.getMasters()`.
+Trong Aspose.Slides, một slide master được biểu diễn bằng lớp [MasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/). Tất cả các slide master trong một bản thuyết trình có thể truy cập qua tập hợp `Presentation.getMasters()`.
 
-{{% alert color="info" title="Inheritance" %}}
-Khi cùng một thuộc tính được định nghĩa ở nhiều mức, mức cụ thể hơn sẽ thắng. Ví dụ, nếu một bố cục slide và một slide bố cục đều định nghĩa nền, các slide dựa trên bố cục đó sẽ sử dụng nền của slide bố cục. Để biết thêm thông tin về slide bố cục, xem [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
+{{% alert color="info" title="Kế thừa" %}}
+
+Khi cùng một thuộc tính được định nghĩa ở nhiều mức, mức cụ thể hơn sẽ thắng. Ví dụ, nếu một slide master và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm thông tin về layout slide, xem [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
+
 {{% /alert %}}
 
-## **Truy cập Bố cục Slide**
+## **Truy cập Slide Masters**
 
-Trong PowerPoint, bạn có thể mở chế độ xem Bố cục Slide từ **View** > **Slide Master**.
+Trong PowerPoint, bạn có thể mở chế độ xem Slide Master từ **View** > **Slide Master**.
 
-![Lệnh Slide Master trên thẻ View của PowerPoint](slide-master_3.jpg)
+![Lệnh Slide Master trên tab View của PowerPoint](slide-master_3.jpg)
 
-Trong Aspose.Slides, sử dụng bộ sưu tập `getMasters()` để truy cập các bố cục slide:
+Trong Aspose.Slides, sử dụng tập hợp `getMasters()` để truy cập các slide master:
 
 ```javascript
 var aspose = aspose || {};
@@ -69,7 +71,7 @@ try {
 }
 ```
 
-Bạn cũng có thể lấy bố cục slide được sử dụng bởi một slide bình thường thông qua bố cục của nó:
+Bạn cũng có thể lấy slide master được sử dụng bởi một slide bình thường thông qua layout của nó:
 
 ```javascript
 var aspose = aspose || {};
@@ -88,26 +90,26 @@ try {
 }
 ```
 
-## **Nội dung của một Bố cục Slide**
+## **Nội dung của một Slide Master**
 
-Một bố cục slide là một đối tượng giống slide. Nó kế thừa hành vi chung của slide từ [BaseSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/), do đó nó cung cấp nhiều thuộc tính slide giống như các slide bình thường và slide bố cục. Các thành viên đặc thù của bố cục slide được liệt kê trên trang API [MasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/).
+Một slide master là một đối tượng giống slide. Nó kế thừa hành vi chung của slide từ [BaseSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/), do đó nó cung cấp nhiều thuộc tính slide giống như slide bình thường và layout. Các thành viên đặc thù của master được liệt kê trên trang API [MasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/).
 
-Các thành viên bố cục slide thường dùng bao gồm:
+Các thành viên master thường dùng bao gồm:
 
-| Thành viên | Mô tả |
+| Thành viên | Mục đích |
 | --- | --- |
-| `getBackground()` | Đặt nền slide ở mức bố cục slide. |
-| `getShapes()` | Lưu trữ các hình dạng được đặt trên bố cục, chẳng hạn logo, khung ảnh và văn bản chung. |
-| `getLayoutSlides()` | Lưu trữ các slide bố cục thuộc về bố cục này. |
-| `getThemeManager()` | Cung cấp quyền truy cập vào các API chủ đề của bố cục. |
-| `getHeaderFooterManager()` | Điều khiển tiêu đề, chân trang, ngày tháng và số slide cho bố cục và các bố cục con của nó. |
-| `getDependingSlides()` | Trả về các slide bình thường phụ thuộc vào bố cục thông qua các bố cục của chúng. |
+| `getBackground()` | Đặt nền slide ở mức master. |
+| `getShapes()` | Lưu trữ các hình dạng đặt trên master, chẳng hạn logo, khung ảnh và văn bản chung. |
+| `getLayoutSlides()` | Lưu trữ các layout slide thuộc về master. |
+| `getThemeManager()` | Cung cấp quyền truy cập vào các API chủ đề của master. |
+| `getHeaderFooterManager()` | Điều khiển tiêu đề, chân trang, ngày tháng và số slide cho master và các layout con. |
+| `getDependingSlides()` | Trả về các slide bình thường phụ thuộc vào master qua layout của chúng. |
 
-## **Thêm Hình Ảnh vào Bố Cục Slide**
+## **Thêm hình ảnh vào Slide Master**
 
-Khi bạn thêm một hình ảnh vào bố cục slide, nó sẽ xuất hiện trên các slide sử dụng bố cục từ bố cục đó. Điều này hữu ích cho logo, watermark, dải trang trí và các yếu tố hình ảnh lặp lại khác.
+Khi bạn thêm hình ảnh vào một slide master, hình ảnh sẽ xuất hiện trên các slide sử dụng layout từ master đó. Điều này hữu ích cho logo, dấu nước, dải trang trí và các yếu tố hình ảnh lặp lại khác.
 
-Ví dụ sau thêm một logo vào bố cục slide đầu tiên:
+Ví dụ sau thêm một logo vào slide master đầu tiên:
 
 ```javascript
 var aspose = aspose || {};
@@ -140,15 +142,73 @@ try {
 
 Để biết thêm thông tin về khung ảnh, xem [Picture Frame](/nodejs-java/picture-frame/).
 
+## **Kiểm soát hiển thị đồ họa của Master**
+
+Sử dụng [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#setShowMasterShapes) để ẩn các đồ họa kế thừa từ master, chẳng hạn logo hoặc hình dạng trang trí, mà không xóa chúng khỏi master. Gửi `false` tới [Slide.setShowMasterShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#setShowMasterShapes) trên slide cần bỏ các đồ họa này và giữ `true` trên các slide cần hiển thị chúng.
+
+Ví dụ tự chứa sau tạo một dải màu xanh trên master và hai slide dùng cùng layout trống. Dải này hiển thị trên slide đầu và ẩn trên slide thứ hai. Không cần bản thuyết trình hoặc ảnh đầu vào.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+    layoutSlide.setShowMasterShapes(true);
+
+    let slideHeight = presentation.getSlideSize().getSize().getHeight();
+    let band = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    let bandColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let noFillType = java.newByte(aspose.slides.FillType.NoFill);
+    band.getFillFormat().setFillType(solidFillType);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(noFillType);
+
+    let visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    let hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ví dụ sử dụng layout **Blank** được cung cấp khi tạo bản thuyết trình mới và loại bỏ các placeholder mặc định của slide đầu tiên.
+
+### **Chọn phạm vi cài đặt**
+
+Một slide bình thường sử dụng master qua [Slide.getLayoutSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#getLayoutSlide) và [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getMasterSlide). Đặt thuộc tính trên một slide riêng chỉ ảnh hưởng đến slide đó. Gửi `false` tới [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#setShowMasterShapes) sẽ ẩn đồ họa master cho tất cả các slide dùng layout chung đó, ngay cả khi cài đặt riêng của chúng là `true`. Để ẩn đồ họa chỉ trên một slide, thay đổi thuộc tính của slide và để layout chia sẻ không thay đổi.
+
+Cài đặt này không được hỗ trợ như một điều khiển hiển thị trên chính slide master. Trên master, [getShowMasterShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/#getShowMasterShapes) luôn trả về `false`, và gửi `true` tới [setShowMasterShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/#setShowMasterShapes) sẽ gây ra ngoại lệ. Hãy áp dụng nó cho một slide bình thường hoặc một layout thay vì master.
+
+### **Phân biệt đồ họa và nền**
+
+| Thao tác | Hiệu quả |
+| --- | --- |
+| Ẩn đồ họa master | Kiểm soát việc hiển thị các shape kế thừa từ master mà không xóa chúng hoặc thay đổi shape của slide. |
+| Thay đổi màu nền slide | Thay đổi màu, gradient hoặc ảnh nền. Đồ họa master là các shape riêng biệt và có thể vẫn hiển thị trên nền này. Xem [Presentation Background](/slides/vi/nodejs-java/presentation-background/). |
+| Xóa một shape khỏi master | Loại bỏ shape nguồn chia sẻ, vì vậy không còn có sẵn cho bất kỳ slide nào sử dụng master đó. |
+
 ## **Làm việc với Placeholder**
 
-Placeholder thường được định nghĩa trên các slide bố cục. Bố cục slide cung cấp kiểu dáng và chủ đề chung mà các bố cục này kế thừa, trong khi mỗi bố cục quyết định placeholder nào khả dụng và chúng được đặt ở đâu.
+Placeholder thường được định nghĩa trên layout slide. Slide master cung cấp style và chủ đề chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholder nào khả dụng và vị trí chúng.
 
-Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ xem Bố cục Slide.
+Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ xem Slide Master.
 
-![Lệnh Insert Placeholder trong chế độ xem Bố cục Slide của PowerPoint](slide-master_5.png)
+![Lệnh Insert Placeholder trong chế độ xem Slide Master của PowerPoint](slide-master_5.png)
 
-Để thêm placeholder mới với Aspose.Slides, làm việc với slide bố cục thuộc về bố cục:
+Để thêm placeholder mới với Aspose.Slides, làm việc với layout slide thuộc về master:
 
 ```javascript
 var aspose = aspose || {};
@@ -174,7 +234,7 @@ try {
 }
 ```
 
-Bạn cũng có thể định dạng các hình dạng placeholder đã tồn tại trên bố cục slide. Ví dụ sau tìm placeholder tiêu đề và áp dụng gradient màu tuyến tính:
+Bạn cũng có thể định dạng các shape placeholder đã tồn tại trên slide master. Ví dụ sau tìm placeholder tiêu đề và áp dụng màu gradient tuyến tính:
 
 ```javascript
 var aspose = aspose || {};
@@ -219,13 +279,13 @@ try {
 }
 ```
 
-![Placeholder tiêu đề đã định dạng kế thừa bởi các slide bình thường](slide-master_8.png)
+![Placeholder tiêu đề được định dạng kế thừa bởi các slide bình thường](slide-master_8.png)
 
 Để biết thêm các tùy chọn định dạng placeholder và văn bản, xem [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) và [Text Formatting](/nodejs-java/text-formatting/).
 
-## **Thay Đổi Nền Bố Cục Slide**
+## **Thay đổi nền Slide Master**
 
-Nền của bố cục được kế thừa bởi các bố cục và slide không ghi đè nó. Ví dụ sau thiết lập màu nền đồng nhất cho bố cục slide đầu tiên:
+Nền master được kế thừa bởi các layout và slide nếu chúng không ghi đè. Ví dụ sau đặt màu nền đặc cho slide master đầu tiên:
 
 ```javascript
 var aspose = aspose || {};
@@ -249,11 +309,11 @@ try {
 }
 ```
 
-Để biết các chủ đề liên quan, xem [Presentation Background](/nodejs-java/presentation-background/) và [Presentation Theme](/nodejs-java/presentation-theme/).
+Đối với các chủ đề liên quan, xem [Presentation Background](/nodejs-java/presentation-background/) và [Presentation Theme](/nodejs-java/presentation-theme/).
 
-## **Sao Chép Bố Cục Slide sang Bản Trình Chiếu Khác**
+## **Sao chép Slide Master sang bản thuyết trình khác**
 
-Sử dụng `MasterSlideCollection.addClone` để sao chép một bố cục slide vào bản trình chiếu khác. Bố cục đã sao chép sau đó có thể được các bố cục và slide trong bản đích sử dụng.
+Sử dụng `MasterSlideCollection.addClone` để sao chép một slide master vào bản thuyết trình khác. Master đã sao chép sau đó có thể được sử dụng bởi các layout và slide trong bản đích.
 
 ```javascript
 var aspose = aspose || {};
@@ -272,15 +332,15 @@ try {
 }
 ```
 
-Nếu bạn cần sao chép các slide bình thường cùng với bố cục của chúng, xem [Clone Slides](/nodejs-java/clone-slides/).
+Nếu bạn cần sao chép cả các slide bình thường cùng với master của chúng, xem [Clone Slides](/nodejs-java/clone-slides/).
 
-## **Thêm Nhiều Bố Cục Slide**
+## **Thêm nhiều Slide Master**
 
-Một bản trình chiếu có thể chứa nhiều bố cục slide. Điều này hữu ích khi các phần khác nhau cần thương hiệu, cấu trúc trang hoặc thiết lập chủ đề riêng.
+Một bản thuyết trình có thể chứa nhiều slide master. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc cài đặt chủ đề khác nhau.
 
-![Các lệnh PowerPoint để chèn và quản lý bố cục slide](slide-master_9.jpg)
+![Các lệnh PowerPoint để chèn và quản lý slide master](slide-master_9.jpg)
 
-Ví dụ sau sao chép bố cục mặc định, đặt nền khác cho bản sao, tạo một bố cục dưới bố cục đã sao chép và thêm một slide mới dựa trên bố cục đó:
+Ví dụ sau sao chép master mặc định, đặt nền khác cho bản sao, tạo một layout dưới master đã sao chép và thêm một slide mới dựa trên layout đó:
 
 ```javascript
 var aspose = aspose || {};
@@ -314,9 +374,9 @@ try {
 }
 ```
 
-## **So Sánh Bố Cục Slide**
+## **So sánh Slide Master**
 
-Bố cục slide có thể được so sánh bằng phương thức `equals` được kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/). Việc so sánh kiểm tra cấu trúc và nội dung tĩnh, chẳng hạn hình dạng, văn bản, định dạng, hoạt ảnh và các thiết lập slide khác. Nó không so sánh các định danh duy nhất như ID slide hay giá trị placeholder động như ngày hiện tại.
+Slide master có thể được so sánh bằng phương thức `equals` kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/). Phép so sánh kiểm tra cấu trúc và nội dung tĩnh như shape, văn bản, định dạng, hoạt ảnh và các thiết lập slide khác. Nó không so sánh các định danh duy nhất như ID slide, hoặc các giá trị placeholder động như ngày hiện tại.
 
 ```javascript
 var aspose = aspose || {};
@@ -349,9 +409,9 @@ try {
 
 Để biết thêm thông tin, xem [Compare Presentation Slides](/slides/vi/nodejs-java/compare-slides/).
 
-## **Đặt Chế Độ Xem Bố Cục Slide Là Chế Độ Mặc Định**
+## **Đặt Slide Master View làm chế độ xem mặc định**
 
-Sử dụng phương thức `setLastView` trên [ViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/) để điều khiển chế độ mà PowerPoint mở đầu tiên. Ví dụ sau mở bản trình chiếu ở chế độ xem Bố cục Slide:
+Sử dụng phương thức `setLastView` trên [ViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/) để điều khiển chế độ xem mà PowerPoint mở đầu tiên. Ví dụ sau mở bản thuyết trình ở chế độ Slide Master view:
 
 ```javascript
 var aspose = aspose || {};
@@ -369,13 +429,13 @@ try {
 }
 ```
 
-Để biết thêm các thiết lập chế độ xem, xem [Save Presentation](/slides/vi/nodejs-java/save-presentation/).
+Để biết thêm về các cài đặt chế độ xem, xem [Save Presentation](/slides/vi/nodejs-java/save-presentation/).
 
-## **Xóa Các Bố Cục Slide Không Sử Dụng**
+## **Xóa các Slide Master không sử dụng**
 
-Một số bản trình chiếu đôi khi chứa các bố cục slide không còn được bất kỳ slide bình thường nào sử dụng. Xóa các bố cục không dùng có thể giảm kích thước tệp và đơn giản hóa việc bảo trì mẫu.
+Đôi khi bản thuyết trình chứa các slide master mà không còn slide bình thường nào sử dụng. Xóa các master không dùng có thể giảm kích thước tệp và đơn giản hoá việc bảo trì mẫu.
 
-Sử dụng `removeUnused` để loại bỏ các bố cục không dùng khỏi bộ sưu tập `getMasters()`:
+Sử dụng `removeUnused` để xóa các master không dùng khỏi tập hợp `getMasters()`:
 
 ```javascript
 var aspose = aspose || {};
@@ -405,20 +465,20 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-### Sự khác biệt giữa slide master và layout slide là gì?
+**Sự khác nhau giữa slide master và layout slide là gì?**
 
-Slide master xác định các thiết lập thiết kế chung như chủ đề, nền, hình dạng chung và kiểu chữ. Layout slide thuộc về một slide master và xác định cách sắp xếp cụ thể của các placeholder. Slide bình thường sử dụng một layout slide, vì vậy nó kế thừa cả từ layout và từ master.
+Slide master định nghĩa các thiết lập thiết kế chung như chủ đề, nền, các shape chung và kiểu chữ. Layout slide thuộc về một slide master và xác định cách sắp xếp cụ thể của các placeholder. Slide bình thường sử dụng một layout slide, do đó nó kế thừa cả từ layout và master.
 
-### Một bản trình chiếu có thể chứa nhiều slide master không?
+**Một bản thuyết trình có thể chứa nhiều slide master không?**
 
-Có. Một bản trình chiếu có thể chứa nhiều slide master. Sử dụng nhiều master khi các phần khác nhau cần hệ thống hình ảnh hoặc thương hiệu riêng.
+Có. Một bản thuyết trình có thể chứa nhiều slide master. Hãy sử dụng nhiều master khi các phần khác nhau cần hệ thống trực quan hoặc thương hiệu riêng.
 
-### Nên thêm placeholder vào slide master hay layout slide?
+**Nên thêm placeholder vào slide master hay layout slide?**
 
-Trong hầu hết các trường hợp, thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh và định dạng chung trên slide master, sau đó đặt các placeholder nội dung trên layout mà các slide bình thường sẽ sử dụng.
+Trong hầu hết các trường hợp, thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh chung và định dạng chung trên slide master, sau đó đặt placeholder nội dung trên các layout mà slide bình thường sẽ sử dụng.
 
-### Tôi có thể xóa một slide master mà vẫn còn được sử dụng không?
+**Tôi có thể xóa một slide master vẫn đang được sử dụng không?**
 
-Không. Một slide master có các slide phụ thuộc không thể xóa một cách an toàn. Đầu tiên chuyển các slide đó sang layout thuộc master khác, hoặc sử dụng phương pháp dọn dẹp các master không dùng chỉ loại bỏ những master không được bất kỳ slide nào sử dụng.
+Không. Slide master có slide phụ thuộc không thể bị xóa an toàn. Trước tiên di chuyển các slide đó sang layout thuộc master khác, hoặc sử dụng phương pháp dọn dẹp master không dùng để chỉ xóa các master không còn sử dụng.

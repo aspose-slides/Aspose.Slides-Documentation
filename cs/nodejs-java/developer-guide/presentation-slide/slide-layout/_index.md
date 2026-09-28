@@ -1,70 +1,72 @@
 ---
-title: Použít nebo změnit rozložení snímků v JavaScriptu
-linktitle: Rozložení snímku
+title: Použít nebo změnit rozvržení snímků v JavaScriptu
+linktitle: Rozvržení snímku
 type: docs
 weight: 60
 url: /cs/nodejs-java/slide-layout/
 keywords:
-- rozložení snímku
-- rozložení obsahu
-- zástupný znak
-- design prezentace
-- design snímku
-- nepoužité rozložení
+- rozvržení snímku
+- rozvržení obsahu
+- zástupný objekt
+- návrh prezentace
+- návrh snímku
+- nepoužité rozvržení
 - viditelnost zápatí
-- úvodní snímek
-- nadpis a obsah
-- nadpis sekce
-- dvě části obsahu
+- titulní snímek
+- název a obsah
+- hlavička sekce
+- dva obsahy
 - srovnání
-- jen nadpis
-- prázdné rozložení
+- pouze název
+- prázdné rozvržení
 - obsah s popiskem
 - obrázek s popiskem
-- nadpis a svislý text
-- svislý nadpis a text
+- název a vertikální text
+- vertikální název a text
 - PowerPoint
 - OpenDocument
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Použijte, vytvořte a upravujte rozložení snímků v Aspose.Slides pro Node.js prostřednictvím Javy, přidejte zástupné znaky, odstraňte nepoužitá rozložení a ovládejte viditelnost zápatí."
+description: "Používejte, vytvářejte a upravujte rozvržení snímků v Aspose.Slides pro Node.js pomocí Javy, přidávejte zástupné objekty, odstraňujte nepoužitá rozvržení a ovládejte viditelnost zápatí."
 ---
 ## **Přehled**
 
-Rozložení snímku určuje polohy a formátování zástupných znaků, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použitím rozložení získají snímky jednotnou strukturu, přičemž každý snímek může obsahovat vlastní obsah.
+Rozvržení snímku určuje pozice a formátování zástupných objektů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použití rozvržení poskytuje snímkům konzistentní strukturu a zároveň umožňuje každému snímku obsahovat vlastní obsah.
 
-Nejčastější rozložení jsou:
+Mezi nejčastější rozvržení patří:
 
-- **Title Slide**: Obsahuje zástupné znaky pro nadpis a podnadpis.
-- **Title and Content**: Obsahuje zástupný znak pro nadpis a obecný zástupný znak pro obsah.
-- **Blank**: Neobsahuje žádné zástupné znaky a je užitečné, když budou všechny tvary umístěny ručně.
+- **Title Slide**: Obsahuje zástupné objekty nadpisu a podnadpisu.
+- **Title and Content**: Obsahuje zástupný objekt nadpisu a obecný zástupný objekt obsahu.
+- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečné, když bude každý tvar umístěn ručně.
 
-## **Pochopení dědičnosti rozložení**
+## **Porozumění dědičnosti rozvržení**
 
 Prezentace má tři související úrovně:
 
-1. [master slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) definuje motiv, sdílené formátování, pozadí a společné objekty.
-1. [layout slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/) patří k masteru a určuje konkrétní uspořádání zástupných znaků.
-1. [normal slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/) používá jedno rozložení a ukládá obsah zadáný pro tento snímek.
+1. Mistrovský snímek [master slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) definuje téma, sdílené formátování, pozadí a společné objekty.
+2. Rozvržovací snímek [layout slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/) patří k hlavnímu snímku a definuje konkrétní uspořádání zástupných objektů.
+3. Normální snímek [normal slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/) používá jedno rozvržení a ukládá obsah zadaný pro tento snímek.
 
-Normální snímek dědí motiv a formátování ze svého rozložení a rozložení dědí z masteru. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Při vytvoření normálního snímku se tvary zástupných znaků vygenerují podle vybraného rozložení, přičemž obsah zadaný do těchto zástupných znaků patří k normálnímu snímku.
+Normální snímek dědí téma a formátování ze svého rozvržení a rozvržení dědí z hlavního snímku. Hodnota nastavená přímo na normálním snímku přepíše děděnou hodnotu na té úrovni. Když je normální snímek vytvořen, jeho tvary zástupných objektů jsou generovány z vybraného rozvržení, zatímco obsah zadaný do těchto zástupných objektů patří k normálnímu snímku.
 
-Přidejte požadované zástupné znaky do rozložení před vytvořením snímků z něj. Přidání dalšího zástupného znaku do rozložení později automaticky nepřidá odpovídající tvar zástupného znaku do existujících normálních snímků.
+Přidejte požadované zástupné objekty do rozvržení před vytvořením snímků z něj. Přidání dalšího zástupného objektu do rozvržení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
 
 Tento vztah má dva důležité důsledky:
 
-- Změna zděděného formátování nebo geometrie existujícího zástupného znaku v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které se již používá, zkontrolujte jeho závislé snímky a prohlédněte výslednou prezentaci.
-- Rozložení, které je stále používáno nějakým snímkem, nelze odstranit. Nejprve přesuňte jeho závislé snímky na jiné rozložení nebo odstraňte pouze nepoužívaná rozložení.
+- Změna děděného formátování nebo geometrie existujících zástupných objektů v rozvržení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozvržení, které již používá, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
+- Rozvržení, které je stále používáno nějakým snímkem, nelze odstranit. Nejprve přiřaďte jeho závislé snímky k jinému rozvržení nebo odstraňte jen nepoužívaná rozvržení.
 
-Další informace o nejvyšší úrovni této hierarchie najdete v [Slide Master](/slides/cs/nodejs-java/slide-master/).
+Pro více informací o nejvyšší úrovni této hierarchie viz [Slide Master](/slides/cs/nodejs-java/slide-master/).
 
-## **Výběr a použití rozložení snímku**
+Pro skrytí zděděných log a dekorativních hlavních tvarů na jednom snímku nebo přes sdílené rozvržení viz [Control the Visibility of Master Graphics](/slides/cs/nodejs-java/slide-master/). Příklad porovnává dva snímky používající stejný hlavní snímek.
 
-Použijte hodnotu [SlideLayoutType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidelayouttype/), pokud prezentace následuje standardní definice rozložení PowerPointu. Názvy rozložení jsou editovatelné uživatelem a mohou být lokalizovány, takže výběr založený na názvu je méně spolehlivý, pokud neovládáte zdrojovou šablonu.
+## **Vybrat a použít rozvržení snímku**
 
-Následující příklad hledá **Title and Content** v prvním masteru. Pokud není toto rozložení k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozložení. Vybrané rozložení se pak použije na první normální snímek pomocí metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+Použijte hodnotu [SlideLayoutType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidelayouttype/) pokud prezentace následuje standardní definice rozvržení PowerPointu. Názvy rozvržení jsou editovatelné uživatelem a mohou být lokalizovány, takže výběr založený na názvu je méně spolehlivý, pokud neovládáte zdrojovou šablonu.
+
+Následující příklad hledá **Title and Content** na první hlavě. Pokud není toto rozvržení k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozvržení. Vybrané rozvržení je pak aplikováno na první normální snímek pomocí metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#setLayoutSlide).
 
 ```javascript
 var aspose = aspose || {};
@@ -93,13 +95,13 @@ try {
 }
 ```
 
-Změna rozložení snímku neodstraňuje běžné tvary přidané přímo do snímku. Nicméně pozice zástupných znaků, zděděné formátování a korespondence mezi existujícími zástupnými znaky a novým rozložením se mohou změnit, proto při přepínání mezi podstatně odlišnými rozloženími zkontrolujte výstup.
+Změna rozvržení snímku neodstraňuje běžné tvary přidané přímo do snímku. Avšak pozice zástupných objektů, děděné formátování a shoda mezi existujícími zástupnými objekty a novým rozvržením se mohou změnit, proto výstup při přepínání mezi podstatně odlišnými rozvrženími pečlivě zkontrolujte.
 
-## **Přidání rozložení snímku**
+## **Přidat rozvržení snímku**
 
-Výběr a vytvoření jsou oddělené operace. Předchozí příklad vybírá existující rozložení; nevytváří ho. Pro vytvoření rozložení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozložení cílového masteru.
+Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybere existující rozvržení; nevytváří ho. Pro vytvoření rozvržení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozvržení cílového hlavního snímku.
 
-Následující příklad vždy přidá nové rozložení **Title and Content** s názvem `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozložení musí být v kolekci jedinečné.
+Následující příklad vždy přidá nové rozvržení **Title and Content** pojmenované `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozvržení musí být v kolekci jedinečné.
 
 ```javascript
 var aspose = aspose || {};
@@ -119,26 +121,26 @@ try {
 }
 ```
 
-Přidejte rozložení jen tehdy, když šablona opravdu potřebuje další znovupoužitelnou strukturu. Pokud již vhodné rozložení existuje, vyberte a znovu jej použijte místo vytváření duplikátu.
+Přidejte rozvržení jen tehdy, když šablona skutečně potřebuje další znovupoužitelnou strukturu. Pokud již vhodné rozvržení existuje, vyberte ho a znovu použijte místo vytváření duplikátu.
 
-## **Přidání zástupných znaků do rozložení snímku**
+## **Přidat zástupné objekty do rozvržení snímku**
 
-Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/) pro přidání tvarů zástupných znaků do rozložení.
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/) pro přidávání tvarů zástupných objektů do rozvržení.
 
-| Zástupný znak PowerPoint            | `LayoutPlaceholderManager` Metoda |
-| ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| PowerPoint zástupný objekt | `LayoutPlaceholderManager` metoda |
+| --------------------------- | --------------------------------- |
+| ![Obsah](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Obsah (vertikální)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (vertikální)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Obrázek](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Graf](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabulka](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Média](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online obrázek](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Následující příklad ověří, že rozložení **Blank** existuje, přidá k němu čtyři zástupné znaky a poté vytvoří normální snímek, který používá upravené rozložení. Pořadí je záměrné: zástupné znaky jsou přidány před vytvořením normálního snímku, takže Aspose.Slides může vygenerovat odpovídající tvary zástupných znaků na tomto snímku.
+Následující příklad ověří, že rozvržení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který používá upravené rozvržení. Pořadí je úmyslné: zástupné objekty jsou přidány před vytvořením normálního snímku, takže Aspose.Slides může na tomto snímku vygenerovat odpovídající tvary.
 
 ```javascript
 var aspose = aspose || {};
@@ -169,15 +171,15 @@ try {
 
 Výsledek:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Zástupné objekty na rozvržení snímku](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Změna zděděného formátování nebo geometrie existujících zástupných znaků v rozložení může ovlivnit závislé snímky. Nově přidaný zástupný znak rozložení se automaticky nevyplní do existujících normálních snímků. Testujte změny rozložení na kopii prezentace a zkontrolujte každý závislý snímek.
+Změna děděného formátování nebo geometrie existujících zástupných objektů v rozvržení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozvržení se nevyplní do existujících normálních snímků. Testujte změny rozvržení na kopii prezentace a zkontrolujte každý závislý snímek.
 {{% /alert %}}
 
-## **Odstranění nepoužívaných rozložení snímků**
+## **Odstranit nepoužívaná rozvržení snímků**
 
-Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění rozložení, na která neodkazuje žádný normální snímek. Metoda ponechá rozložení, která jsou stále používána, nedotčena.
+Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění rozvržení, na která neodkazuje žádný normální snímek. Metoda ponechá rozvržení, která jsou stále používána, nedotčena.
 
 ```javascript
 var aspose = aspose || {};
@@ -192,13 +194,11 @@ try {
 }
 ```
 
-Pro odstranění konkrétního rozložení nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Přesuňte všechny závislé snímky před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#remove). Pokus o odstranění použitého rozložení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxeditexception/).
+Chcete‑li odstranit konkrétní rozvržení, nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#remove) přiřaďte všechny závislé snímky. Pokus o odstranění používaného rozvržení vyvolá [PptxEditException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxeditexception/).
 
-## **Řízení viditelnosti zápatí v rozložení snímku**
+## **Ovládání viditelnosti zápatí na rozvržení snímku**
 
-Rozložení má vlastní zástupné znaky pro zápatí, číslo snímku a datum/čas. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) k řízení těchto zástupných znaků pro jedno rozložení. To je užitečné, když například obsahová rozložení mají zobrazovat zápatí, ale rozložení nadpisů ne.
-
-Následující příklad bezpečně vybere rozložení a učiní jeho prvky zápatí viditelnými:
+Rozvržení má vlastní zástupné objekty zápatí, čísla snímku a data/času. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) k řízení těchto zástupných objektů pro jedno rozvržení. To je užitečné například tehdy, když rozvržení obsahu má zobrazovat zápatí, ale rozvržení nadpisu ne.
 
 ```javascript
 var aspose = aspose || {};
@@ -232,9 +232,9 @@ try {
 }
 ```
 
-## **Řízení viditelnosti zápatí v masteru a jeho podřízených rozloženích**
+## **Ovládání viditelnosti zápatí na hlavním snímku a jeho podřízených rozvrženích**
 
-Pro použití konzistentních nastavení zápatí napříč hierarchií masteru použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslideheaderfootermanager/) působí na master a jeho závislé rozložení snímků a normální snímky; netargetují jen jeden normální snímek.
+Pro aplikaci konzistentních nastavení zápatí napříč hierarchií hlavního snímku použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslideheaderfootermanager/) působí na hlavní snímek i jeho závislé rozvržení snímků a normální snímky; necílí pouze na jeden normální snímek.
 
 ```javascript
 var aspose = aspose || {};
@@ -255,20 +255,20 @@ try {
 }
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
-**Jaký je rozdíl mezi master snímkem a rozložením snímku?**
+**Jaký je rozdíl mezi hlavním snímkem a rozvržením snímku?**
 
-Master snímek definuje motiv prezentace a sdílené formátování. Rozložení snímku patří k masteru a určuje jedno znovupoužitelné uspořádání zástupných znaků. Normální snímky používají tato rozložení a ukládají obsah specifický pro konkrétní snímek.
+Hlavní snímek definuje téma prezentace a sdílené formátování. Rozvržení snímku patří k hlavnímu snímku a určuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozvržení a ukládají obsah specifický pro konkrétní snímek.
 
-**Mohu zkopírovat rozložení snímku z jedné prezentace do druhé?**
+**Mohu zkopírovat rozvržení snímku z jedné prezentace do druhé?**
 
-Ano. Přidejte kopii do cílové kolekce pomocí metody [addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte písma, motivy, obrázky a další prostředky použité ve zdrojovém rozložení.
+Ano. Přidejte kopii do cílové kolekce pomocí metody [addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte písma, témata, obrázky a další zdroje použité v původním rozvržení.
 
-**Co se stane, když upravím rozložení, které je již používáno?**
+**Co se stane, když upravím rozvržení, které je již používáno?**
 
-Závislé snímky zdědí změny rozložení, pokud místně nepřepíší dotčené formátování nebo objekty. Geometrie zástupných znaků a zděděné styly se tak mohou změnit na mnoha snímcích najednou. Použijte [getDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků před úpravou rozložení.
+Závislé snímky převezmou změny rozvržení, pokud ne přepíšou postižené formátování nebo objekty lokálně. Geometrie zástupných objektů a děděný styl se tak mohou změnit na mnoha snímcích najednou. Použijte [getDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků před úpravou rozvržení.
 
-**Co se stane, když odstraním rozložení, které je stále používáno?**
+**Co se stane, pokud odstraním rozvržení, které je stále používáno?**
 
-Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxeditexception/). Nejprve přesuňte závislé snímky, nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění pouze neodkazovaných rozložení.
+Aspose.Slides vyhodí [PptxEditException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxeditexception/). Nejprve přiřaďte závislé snímky jinde, nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění jen neodkazovaných rozvržení.

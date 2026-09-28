@@ -1,59 +1,65 @@
 ---
-title: "จัดการสไลด์มาสเตอร์ของการนำเสนอใน C++"
-linktitle: "สไลด์มาสเตอร์"
+title: จัดการ Slide Masters ของงานนำเสนอใน C++
+linktitle: สไลด์มาสเตอร์
 type: docs
 weight: 80
 url: /th/cpp/slide-master/
 keywords:
-- "สไลด์มาสเตอร์"
-- "สไลด์มาสเตอร์"
-- "สไลด์มาสเตอร์ PPT"
-- "สไลด์มาสเตอร์หลายอัน"
-- "เปรียบเทียบสไลด์มาสเตอร์"
-- "พื้นหลัง"
-- "ตัวยึดตำแหน่ง"
-- "คัดลอกสไลด์มาสเตอร์"
-- "สำเนาสไลด์มาสเตอร์"
-- "ทำซ้ำสไลด์มาสเตอร์"
-- "สไลด์มาสเตอร์ที่ไม่ได้ใช้"
-- "PowerPoint"
-- "OpenDocument"
-- "การนำเสนอ"
-- "C++"
-- "Aspose.Slides"
-description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ C++: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบ และลบสไลด์มาสเตอร์ในงานนำเสนอ PowerPoint และ OpenDocument"
+- สไลด์มาสเตอร์
+- สไลด์มาสเตอร์
+- สไลด์มาสเตอร์ PPT
+- สไลด์มาสเตอร์หลายหน้า
+- เปรียบเทียบสไลด์มาสเตอร์
+- พื้นหลัง
+- ตัวรับตำแหน่ง
+- คัดลอกสไลด์มาสเตอร์
+- ทำสำเนาสไลด์มาสเตอร์
+- ทำซ้ำสไลด์มาสเตอร์
+- สไลด์มาสเตอร์ที่ไม่ได้ใช้
+- PowerPoint
+- OpenDocument
+- งานนำเสนอ
+- C++
+- Aspose.Slides
+description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ C++: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบ และลบสไลด์มาสเตอร์ในงานนำเสนอ PowerPoint และ OpenDocument."
 ---
 ## **ภาพรวม**
 
-**สไลด์มาสเตอร์** กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถมีรูปทรงทั่วไป โลโก้ พื้นหลัง รูปแบบข้อความ การตั้งค่าธีม และการตั้งค่าฝั่งล่าง ใน PowerPoint การแก้ไขสไลด์มาสเตอร์เป็นวิธีปกติเพื่อให้การนำเสนอมีความสอดคล้องโดยไม่ต้องทำรูปแบบเดียวกันซ้ำในทุกสไลด์
+**slide master** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถบรรจุรูปร่างทั่วไป โลโก้ พื้นหลัง รูปแบบข้อความ การตั้งค่าธีม และการตั้งค่าลูกหนังสือ ใน PowerPoint การแก้ไข slide master เป็นวิธีปกติในการทำให้การนำเสนอสอดคล้องกันโดยไม่ต้องทำรูปแบบเดียวกันซ้ำบนทุกสไลด์
 
-Aspose.Slides for C++ รองรับโมเดลเดียวกัน การนำเสนอสามารถมีสไลด์มาสเตอร์หนึ่งหรือหลายอัน และแต่ละสไลด์มาสเตอร์สามารถมีสไลด์เลเอาท์หลายสไลด์ สไลด์ปกติส่วนใหญ่ไม่ได้อ้างอิงสไลด์มาสเตอร์โดยตรง แต่ใช้สไลด์เลเอาท์ ซึ่งสไลด์เลเอาท์นั้นเป็นส่วนหนึ่งของสไลด์มาสเตอร์
+Aspose.Slides for C++ รองรับโมเดลเดียวกัน การนำเสนอสามารถมี slide master หนึ่งหรือหลายหน้า และแต่ละ slide master สามารถมี layout slide หลายหน้า สไลด์ปกติโดยทั่วไปจะไม่ได้อ้างอิง slide master โดยตรง แต่จะใช้ layout slide ซึ่ง layout slide นั้นเป็นส่วนหนึ่งของ slide master
 
 ลำดับชั้นคือ:
 
-1. **สไลด์มาสเตอร์** – กำหนดการออกแบบและธีมที่ใช้ร่วมกัน
-1. **สไลด์เลเอาท์** – กำหนดการจัดวางตัวเต็มของ placeholder และการจัดรูปแบบระดับเลเอาท์
-1. **สไลด์ปกติ** – มีเนื้อหาในการนำเสนอจริงและใช้สไลด์เลเอาท์หนึ่งสไลด์
+1. **Slide master** – กำหนดการออกแบบและธีมที่ใช้ร่วมกัน
+1. **Layout slide** – กำหนดการวางตำแหน่งของ placeholder และการจัดรูปแบบระดับ layout
+1. **Normal slide** – มีเนื้อหาการนำเสนอจริงและใช้ layout slide หนึ่งหน้า
 
-![ลำดับชั้นของสไลด์มาสเตอร์, สไลด์เลเอาท์, และสไลด์ปกติ](slide-master_2.jpg)
+![ลำดับชั้นของ slide master, layout slide, และ normal slide](slide-master_2.jpg)
 
-ใน Aspose.Slides สไลด์มาสเตอร์ถูกแทนด้วยอินเทอร์เฟซ [IMasterSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/) สไลด์มาสเตอร์ทั้งหมดในงานนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation::get_Masters](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_masters/) ซึ่งทำงานตาม [IMasterSlideCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslidecollection/)
+ใน Aspose.Slides slide master แทนด้วยอินเทอร์เฟซ [IMasterSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/) slide master ทั้งหมดในงานนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation::get_Masters](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_masters/) ซึ่งเป็นการนำไปใช้ของ [IMasterSlideCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslidecollection/)
 
-{{% alert color="info" title="การสืบทอด" %}}
-
-เมื่อสมบัติเช่นเดียวกันถูกกำหนดที่หลายระดับ ระดับที่เจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หากสไลด์มาสเตอร์และสไลด์เลเอาท์ทั้งสองกำหนดพื้นหลัง สไลด์ที่สร้างจากเลเอาท์นั้นจะใช้พื้นหลังของเลเอาท์ สำหรับข้อมูลเพิ่มเติมเกี่ยวกับสไลด์เลเอาท์ โปรดดูที่ [Apply or Change Slide Layouts](/slides/th/cpp/slide-layout/)
-
+{{% alert color="info" title="Inheritance" %}}
+เมื่อคุณสมบัติเดียวกันถูกกำหนดที่ระดับหลายระดับ ระดับที่เจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หาก slide master และ layout slide ทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงจาก layout นั้นจะใช้พื้นหลังของ layout ดูข้อมูลเพิ่มเติมเกี่ยวกับ layout slide ได้ที่ [Apply or Change Slide Layouts](/slides/th/cpp/slide-layout/)
 {{% /alert %}}
 
-## **การเข้าถึงสไลด์มาสเตอร์**
+## **การเข้าถึง Slide Masters**
 
-ใน PowerPoint คุณสามารถเปิดมุมมองสไลด์มาสเตอร์ได้จาก **View** > **Slide Master**.
+ใน PowerPoint คุณสามารถเปิดมุมมอง Slide Master ได้จาก **View** > **Slide Master**
 
-![คำสั่ง Slide Master ในแท็บ View ของ PowerPoint](slide-master_3.jpg)
+![คำสั่ง Slide Master บนแท็บ View ของ PowerPoint](slide-master_3.jpg)
 
-ใน Aspose.Slides ใช้คอลเลกชัน `get_Masters()` เพื่อเข้าถึงสไลด์มาสเตอร์:
+ใน Aspose.Slides ใช้คอลเลกชัน `get_Masters()` เพื่อเข้าถึง slide master:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -66,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-คุณยังสามารถดึงสไลด์มาสเตอร์ที่ใช้โดยสไลด์ปกติผ่านเลเอาท์ของมันได้:
+คุณยังสามารถรับ slide master ที่ใช้โดยสไลด์ปกติผ่าน layout ของมันได้:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -81,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **สไลด์มาสเตอร์ประกอบด้วยอะไร**
+## **สิ่งที่ Slide Master มีอยู่**
 
-สไลด์มาสเตอร์เป็นวัตถุแบบสไลด์ มันทำงานตาม [IBaseSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseslide/) ดังนั้นจึงมีสมบัติสไลด์หลายอย่างที่ใช้ร่วมกับสไลด์ปกติและสไลด์เลเอาท์ สมาชิกเฉพาะของมาสเตอร์สามารถดูได้บนหน้า API ของ [IMasterSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/)
+slide master คือวัตถุลักษณะคล้ายสไลด์ มันทำหน้าเป็น [IBaseSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติของสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและ layout สมาชิกเฉพาะของ master สามารถดูได้ในหน้า API ของ [IMasterSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/)
 
-สมาชิกสไลด์มาสเตอร์ที่ใช้บ่อยรวมถึง:
+สมาชิกของ slide master ที่ใช้บ่อยได้แก่:
 
-| สมาชิก | จุดประสงค์ |
+| Member | Purpose |
 | --- | --- |
-| `get_Background()` | ตั้งค่าพื้นหลังระดับมาสเตอร์ของสไลด์ |
-| `get_Shapes()` | เก็บรูปทรงที่วางบนมาสเตอร์ เช่น โลโก้, กรอบรูป, และข้อความที่ใช้ร่วมกัน |
-| `get_LayoutSlides()` | เก็บสไลด์เลเอาท์ที่เป็นส่วนของมาสเตอร์ |
-| `get_ThemeManager()` | ให้เข้าถึง API ธีมของมาสเตอร์ |
-| `get_HeaderFooterManager()` | ควบคุมส่วนหัว, ส่วนล่าง, วันที่ และหมายเลขสไลด์สำหรับมาสเตอร์และเลเอาท์ลูกของมัน |
-| `GetDependingSlides()` | คืนค่าสไลด์ปกติที่พึ่งพามาสเตอร์ผ่านเลเอาท์ของพวกมัน |
+| `get_Background()` | ตั้งค่าพื้นหลังระดับ master |
+| `get_Shapes()` | เก็บรูปร่างที่วางบน master เช่น โลโก้ เฟรมภาพ และข้อความที่ใช้ร่วมกัน |
+| `get_LayoutSlides()` | เก็บ layout slide ที่เป็นของ master |
+| `get_ThemeManager()` | ให้เข้าถึง API ธีมของ master |
+| `get_HeaderFooterManager()` | ควบคุมหัวกระดาษ, ท้ายกระดาษ, วันที่ และหมายเลขสไลด์สำหรับ master และ layout ลูก |
+| `GetDependingSlides()` | คืนค่าสไลด์ปกติที่พึ่งพา master ผ่าน layout ของมัน |
 
-## **เพิ่มภาพลงในสไลด์มาสเตอร์**
+## **เพิ่มรูปภาพไปยัง Slide Master**
 
-เมื่อคุณเพิ่มภาพลงในสไลด์มาสเตอร์ ภาพนั้นจะปรากฏบนสไลด์ที่ใช้เลเอาท์จากมาสเตอร์นั้น ซึ่งเหมาะสำหรับโลโก้, ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องทำซ้ำ
+เมื่อคุณเพิ่มรูปภาพไปยัง slide master รูปภาพนั้นจะปรากฏบนสไลด์ที่ใช้ layout จาก master นั้น มีประโยชน์สำหรับโลโก้, โดมน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องทำซ้ำ
 
-ตัวอย่างต่อไปนี้เพิ่มโลโก้ลงในสไลด์มาสเตอร์แรก:
+ตัวอย่างต่อไปนี้เพิ่มโลโก้ไปยัง slide master แรก:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -121,19 +146,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับกรอบรูป ดูที่ [Picture Frame](/slides/th/cpp/picture-frame/)
+ดูข้อมูลเพิ่มเติมเกี่ยวกับ picture frame ได้ที่ [Picture Frame](/slides/th/cpp/picture-frame/)
+
+## **ควบคุมการมองเห็นของกราฟิกจาก Master**
+
+ใช้ [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseslide/set_showmastershapes/) เพื่อซ่อนกราฟิกที่สืบทอดจาก master เช่น โลโก้หรือรูปแบบตกแต่งโดยไม่ต้องลบออกจาก master ส่งค่า `false` ไปยัง [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/th/cpp/aspose.slides/slide/set_showmastershapes/) บนสไลด์ที่ต้องการซ่อนกราฟิกเหล่านั้น และ `true` บนสไลด์ที่ต้องการแสดง
+
+ตัวอย่างต่อไปนี้สร้างแถบตกแต่งสีฟ้าบน master และสไลด์สองหน้าที่ใช้ layout เปล่าเดียวกัน แถบจะมองเห็นได้บนสไลด์แรกแต่ซ่อนบนสไลด์ที่สอง ไม่ต้องใช้ไฟล์นำเข้าหรือรูปภาพใด ๆ
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+ตัวอย่างใช้ layout **Blank** ที่มาพร้อมกับการสร้างงานนำเสนอใหม่ และลบ placeholder ของสไลด์แรกออก
+
+### **เลือกขอบเขตของการตั้งค่า**
+
+สไลด์ปกติใช้ master ผ่าน [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/islide/get_layoutslide/) และ [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/get_masterslide/). การตั้งค่าคุณสมบัติบนสไลด์แต่ละอันจะส่งผลต่อสไลด์นั้นเท่านั้น การส่งค่า `false` ไปยัง [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/th/cpp/aspose.slides/layoutslide/set_showmastershapes/) จะซ่อนกราฟิก master สำหรับสไลด์ที่ใช้ layout นั้น แม้ว่าการตั้งค่าของสไลด์เองเป็น `true` ก็ตาม หากต้องการซ่อนกราฟิกบนสไลด์เดียว ให้เปลี่ยนคุณสมบัติสไลด์และไม่แตะต้อง layout ที่ใช้ร่วมกัน
+
+การตั้งค่านี้ไม่ได้รับการสนับสนุนเป็นการควบคุมการมองเห็นบน slide master ด้วยตัวเอง บน master จะคืนค่า `false` เสมอ และการกำหนดค่า `true` จะทำให้เกิด `System::NotSupportedException` ให้ใช้บนสไลด์ปกติหรือ layout แทน
+
+### **แยกกราฟิกจากพื้นหลัง**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | ควบคุมการมองเห็นของรูปแบบที่สืบทอดจาก master โดยไม่ลบหรือเปลี่ยนรูปร่างของสไลด์ |
+| Change the slide background fill | เปลี่ยนสี, ไมโครกราเดียนหรือรูปภาพพื้นหลัง กราฟิก master เป็นรูปร่างแยกต่างหากและสามารถมองเห็นเหนือพื้นหลังนั้นได้ ดู [Presentation Background](/slides/th/cpp/presentation-background/) |
+| Delete a shape from the master | ลบรูปร่างต้นแบบที่ใช้ร่วมกัน ทำให้ไม่สามารถใช้ได้กับสไลด์ใด ๆ ที่อิง master นี้แล้ว |
 
 ## **ทำงานกับ Placeholder**
 
-Placeholder ปกติจะกำหนดบนสไลด์เลเอาท์ มาสเตอร์มอบสไตล์และธีมที่เลเอาท์เหล่านั้นสืบทอด ส่วนแต่ละเลเอาท์จะตัดสินใจว่า placeholder ใดพร้อมใช้งานและวางไว้ที่ไหน
+Placeholder ปกติกำหนดบน layout slide slide master ให้สไตล์และธีมที่ใช้ร่วมกัน ซึ่ง layout จะสืบทอดและกำหนดว่า placeholder ใดบ้างที่ใช้งานและวางไว้ที่ไหน
 
-ใน PowerPoint คำสั่ง placeholder มีให้ในมุมมอง Slide Master
+ใน PowerPoint คำสั่ง placeholder สามารถใช้ได้ในมุมมอง Slide Master
 
 ![คำสั่ง Insert Placeholder ในมุมมอง Slide Master ของ PowerPoint](slide-master_5.png)
 
-เพื่อเพิ่ม placeholder ใหม่ด้วย Aspose.Slides ให้ทำงานกับสไลด์เลเอาท์ที่เป็นส่วนของมาสเตอร์:
+เพื่อเพิ่ม placeholder ใหม่ด้วย Aspose.Slides ให้ทำงานกับ layout slide ที่เป็นของ master:
 
 ```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -155,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-คุณยังสามารถจัดรูปแบบรูปทรง placeholder ที่มีอยู่บนสไลด์มาสเตอร์ได้ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใส่การเติมสีไล่เชิงเส้น:
+คุณยังสามารถจัดรูปแบบรูปร่าง placeholder ที่มีอยู่บน slide master ได้ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใช้การไล่สีเชิงเส้น:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -196,15 +319,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Placeholder หัวเรื่องที่ฟอร์แมตแล้วสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
+![Placeholder ของหัวเรื่องที่จัดรูปแบบแล้วสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
 
-สำหรับตัวเลือกรูปแบบ placeholder และข้อความเพิ่มเติม โปรดดูที่ [Set Prompt Text in Placeholder](/slides/th/cpp/manage-placeholder/) และ [Text Formatting](/slides/th/cpp/text-formatting/)
+ดูตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติมได้ที่ [Set Prompt Text in Placeholder](/slides/th/cpp/manage-placeholder/) และ [Text Formatting](/slides/th/cpp/text-formatting/)
 
-## **เปลี่ยนพื้นหลังของสไลด์มาสเตอร์**
+## **เปลี่ยนพื้นหลังของ Slide Master**
 
-พื้นหลังของมาสเตอร์จะสืบทอดไปยังเลเอาท์และสไลด์ที่ไม่ได้กำหนดทับเอง ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังทึบสำหรับสไลด์มาสเตอร์แรก:
+พื้นหลังของ master จะสืบทอดไปยัง layout และสไลด์ที่ไม่ได้กำหนดทับ ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังชนิดทึบสำหรับ slide master แรก:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -218,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-สำหรับหัวข้อที่เกี่ยวข้อง โปรดดูที่ [Presentation Background](/slides/th/cpp/presentation-background/) และ [Presentation Theme](/slides/th/cpp/presentation-theme/)
+ดูหัวข้อที่เกี่ยวข้องได้ที่ [Presentation Background](/slides/th/cpp/presentation-background/) และ [Presentation Theme](/slides/th/cpp/presentation-theme/)
 
-## **คัดลอกสไลด์มาสเตอร์ไปยังงานนำเสนออื่น**
+## **คัดลอก Slide Master ไปยังงานนำเสนออื่น**
 
-ใช้เมธอด [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslidecollection/addclone/) เพื่อคัดลอกสไลด์มาสเตอร์ไปยังงานนำเสนออื่น มาสเตอร์ที่คัดลอกแล้วสามารถใช้โดยเลเอาท์และสไลด์ในงานนำหมายปลายได้
+ใช้ [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslidecollection/addclone/) เพื่อคัดลอก slide master ไปยังงานนำเสนออื่น master ที่คัดลอกแล้วสามารถนำไปใช้โดย layout และสไลด์ในงานนำหมายที่ปลายทางได้
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -236,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-หากต้องการคัดลอกสไลด์ปกติติดกับมาสเตอร์ของมัน โปรดดูที่ [Clone Slides](/slides/th/cpp/clone-slides/)
+หากต้องการคัดลอกสไลด์ปกติกับ master ของมันด้วย ดูที่ [Clone Slides](/slides/th/cpp/clone-slides/)
 
-## **เพิ่มสไลด์มาสเตอร์หลายอัน**
+## **เพิ่มหลาย Slide Masters**
 
-งานนำเสนอสามารถมีสไลด์มาสเตอร์หลายอัน ซึ่งมีประโยชน์เมื่อแต่ละส่วนต้องการแบรนด์, โครงสร้างหน้า, หรือการตั้งค่าธีมที่แตกต่างกัน
+งานนำเสนอสามารถมีหลาย slide master การใช้ master หลายชุดมีประโยชน์เมื่อส่วนต่าง ๆ ต้องการแบรนด์, โครงสร้างหน้า หรือการตั้งค่าธีมที่ต่างกัน
 
-![คำสั่ง PowerPoint สำหรับแทรกและจัดการสไลด์มาสเตอร์](slide-master_9.jpg)
+![คำสั่งของ PowerPoint สำหรับแทรกและจัดการ slide master](slide-master_9.jpg)
 
-ตัวอย่างต่อไปนี้คัดลอกมาสเตอร์เริ่มต้น, ให้คัดลอกนั้นมีพื้นหลังที่ต่างออกไป, สร้างเลเอาท์ภายใต้มาสเตอร์ที่คัดลอก, และเพิ่มสไลด์ใหม่ที่อิงจากเลเอาท์นั้น:
+ตัวอย่างต่อไปนี้คัดลอก master เริ่มต้น, ตั้งค่าพื้นหลังที่แตกต่าง, สร้าง layout ใต้ master ที่คัดลอก แล้วเพิ่มสไลด์ใหม่ที่อิงจาก layout นั้น:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -271,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **เปรียบเทียบสไลด์มาสเตอร์**
+## **เปรียบเทียบ Slide Masters**
 
-สไลด์มาสเตอร์สามารถเปรียบเทียบด้วยเมธอด `Equals` ที่สืบทอดจาก [IBaseSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseslide/) การเปรียบเทียบจะตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปร่าง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน, และการตั้งค่าสไลด์อื่น ๆ ไม่ได้เปรียบเทียบตัวระบุเฉพาะ เช่น slide ID หรือค่าพลาซ์ฮอลเดอร์แบบไดนามิก เช่น วันที่ปัจจุบัน
+สามารถเปรียบเทียบ slide master ด้วยเมธอด `Equals` ที่สืบทอดจาก [IBaseSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibaseslide/) การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาแบบคงที่ เช่น รูปร่าง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน และการตั้งค่าอื่น ๆ ของสไลด์ ไม่ได้เปรียบเทียบตัวระบุเฉพาะ เช่น slide ID หรือค่าของ placeholder ที่เป็นแบบไดนามิก เช่น วันที่ปัจจุบัน
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -308,13 +474,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-สำหรับข้อมูลเพิ่มเติม โปรดดูที่ [Compare Presentation Slides](/slides/th/cpp/compare-slides/)
+ดูข้อมูลเพิ่มเติมได้ที่ [Compare Presentation Slides](/slides/th/cpp/compare-slides/)
 
 ## **ตั้งค่า Slide Master View เป็นมุมมองเริ่มต้น**
 
-ใช้เมธอด `set_LastView` บน [ViewProperties](https://reference.aspose.com/slides/th/cpp/aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นอันดับแรก ตัวอย่างต่อไปนี้เปิดงานนำเสนอในมุมมอง Slide Master:
+ใช้เมธอด `set_LastView` บน [ViewProperties](https://reference.aspose.com/slides/th/cpp/aspose.slides/viewproperties/) เพื่อกำหนดมุมมองที่ PowerPoint เปิดเป็นแรก ตัวอย่างต่อไปนี้เปิดงานนำเสนอในมุมมอง Slide Master:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -322,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-สำหรับการตั้งค่ามุมมองเพิ่มเติม โปรดดูที่ [Save Presentation](/slides/th/cpp/save-presentation/)
+ดูการตั้งค่ามุมมองเพิ่มเติมได้ที่ [Save Presentation](/slides/th/cpp/save-presentation/)
 
-## **ลบสไลด์มาสเตอร์ที่ไม่ได้ใช้**
+## **ลบ Slide Masters ที่ไม่ได้ใช้**
 
-บางครั้งงานนำเสนออาจมีสไลด์มาสเตอร์ที่ไม่ได้ใช้โดยสไลด์ปกติใด ๆ การลบมาสเตอร์ที่ไม่ได้ใช้จะช่วยลดขนาดไฟล์และทำให้การดูแลเทมเพลตง่ายขึ้น
+บางครั้งงานนำเสนอมี slide master ที่ไม่ได้ถูกสไลด์ปกติใดใช้ การลบ master ที่ไม่ใช้จะช่วยลดขนาดไฟล์และทำให้การดูแลเทมเพลตง่ายขึ้น
 
-ใช้เมธอด [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/th/cpp/aspose.slides/masterslidecollection/removeunused/) เพื่อลบมาสเตอร์ที่ไม่ได้ใช้จากคอลเลกชัน `get_Masters()`:
+ใช้ [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/th/cpp/aspose.slides/masterslidecollection/removeunused/) เพื่อลบ master ที่ไม่ได้ใช้จากคอลเลกชัน `get_Masters()`:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -338,9 +517,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-คุณยังสามารถใช้เมธอด low‑code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) ได้เช่นกัน:
+คุณยังสามารถใช้เมธอด low‑code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) ได้:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -350,18 +536,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**สไลด์มาสเตอร์กับสไลด์เลเอาท์ต่างกันอย่างไร?**
+**Slide master กับ layout slide แตกต่างกันอย่างไร?**
 
-สไลด์มาสเตอร์กำหนดการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปทรงทั่วไป, และรูปแบบข้อความ สไลด์เลเอาท์เป็นส่วนของสไลด์มาสเตอร์และกำหนดการจัดวาง placeholder เฉพาะ สไลด์ปกติใช้สไลด์เลเอาท์ ดังนั้นจึงสืบทอดจากทั้งเลเอาท์และมาสเตอร์
+slide master กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปร่างทั่วไป, และรูปแบบข้อความ layout slide เป็นส่วนหนึ่งของ slide master และกำหนดการจัดเรียง placeholder เฉพาะ สไลด์ปกติใช้ layout slide จึงสืบทอดทั้งจาก layout และ master
 
-**งานนำเสนอหนึ่งสามารถมีสไลด์มาสเตอร์หลายอันได้หรือไม่?**
+**งานนำเสนอหนึ่งสามารถมี slide master หลายตัวได้หรือไม่?**
 
-ได้ งานนำเสนอสามารถมีสไลด์มาสเตอร์หลายอัน ใช้หลายมาสเตอร์เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่แตกต่างกัน
+ได้ งานนำเสนอสามารถมี slide master หลายตัว ใช้หลาย master เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่ต่างกัน
 
-**ควรเพิ่ม placeholder ไปที่สไลด์มาสเตอร์หรือสไลด์เลเอาท์?**
+**ควรเพิ่ม placeholder ไปที่ slide master หรือ layout slide?**
 
-ในกรณีส่วนใหญ่ให้เพิ่ม placeholder ไปที่สไลด์เลเอาท์ ใส่องค์ประกอบภาพและการจัดรูปแบบที่ใช้ร่วมกันบนสไลด์มาสเตอร์ แล้วใส่ placeholder สำหรับเนื้อหาในเลเอาท์ที่สไลด์ปกติจะใช้
+ส่วนใหญ่ให้เพิ่ม placeholder ไปที่ layout slide ใส่องค์ประกอบภาพและการกำหนดรูปแบบร่วมบน slide master แล้วใส่ placeholder ของเนื้อหาไว้บน layout ที่สไลด์ปกติจะใช้
 
-**ฉันสามารถลบสไลด์มาสเตอร์ที่ยังถูกใช้ได้หรือไม่?**
+**สามารถลบ slide master ที่ยังถูกใช้ได้หรือไม่?**
 
-ไม่ได้ สไลด์มาสเตอร์ที่มีสไลด์พึ่งพาอยู่ไม่สามารถลบได้โดยตรง ต้องย้ายสไลด์เหล่านั้นไปยังเลเอาท์ของมาสเตอร์อื่นก่อน หรือใช้วิธีทำความสะอาดมาสเตอร์ที่ไม่ได้ใช้ซึ่งลบเฉพาะมาสเตอร์ที่ไม่มีการอ้างอิงเท่านั้น
+ไม่ สามารถลบ slide master ที่มีสไลด์ขึ้นอยู่ได้อย่างปลอดภัย ต้องย้ายสไลด์เหล่านั้นไปยัง layout ของ master อื่นก่อนหรือใช้วิธีทำความสะอาด master ไม่ใช้ที่ลบเฉพาะ master ที่ไม่มีการอ้างอิงเท่านั้น

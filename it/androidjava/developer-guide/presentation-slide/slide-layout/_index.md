@@ -1,70 +1,72 @@
 ---
-title: "Applicare o Modificare i Layout delle Diapositive su Android"
-linktitle: "Layout Diapositiva"
+title: Applica o cambia i layout delle diapositive su Android
+linktitle: Layout diapositiva
 type: docs
 weight: 60
 url: /it/androidjava/slide-layout/
 keywords:
-- "layout diapositiva"
-- "layout contenuto"
-- "segnaposto"
-- "design presentazione"
-- "design diapositiva"
-- "layout inutilizzato"
-- "visibilità piè di pagina"
-- "diapositiva titolo"
-- "titolo e contenuto"
-- "intestazione sezione"
-- "due contenuti"
-- "confronto"
-- "solo titolo"
-- "layout vuoto"
-- "contenuto con didascalia"
-- "immagine con didascalia"
-- "titolo e testo verticale"
-- "titolo verticale e testo"
-- "PowerPoint"
-- "OpenDocument"
-- "presentazione"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "Applica, crea e modifica i layout delle diapositive in Aspose.Slides per Android tramite Java, aggiungi segnaposti, rimuovi i layout non utilizzati e controlla la visibilità del piè di pagina."
+- layout diapositiva
+- layout contenuto
+- segnaposto
+- progettazione presentazione
+- progettazione diapositiva
+- layout inutilizzato
+- visibilità piè di pagina
+- diapositiva titolo
+- titolo e contenuto
+- intestazione sezione
+- due contenuti
+- confronto
+- solo titolo
+- layout vuoto
+- contenuto con didascalia
+- immagine con didascalia
+- titolo e testo verticale
+- titolo verticale e testo
+- PowerPoint
+- OpenDocument
+- presentazione
+- Android
+- Java
+- Aspose.Slides
+description: "Applica, crea e modifica i layout delle diapositive in Aspose.Slides per Android via Java, aggiungi segnaposti, rimuovi layout inutilizzati e controlla la visibilità del piè di pagina."
 ---
 ## **Panoramica**
 
-Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposto come titoli, testo, immagini, grafici e tabelle. Applicare un layout fornisce alle diapositive una struttura coerente permettendo al contempo a ciascuna diapositiva di contenere il proprio contenuto.
+Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposti come titoli, testo, immagini, grafici e tabelle. Applicare un layout conferisce alle diapositive una struttura coerente mentre consente a ciascuna diapositiva di contenere il proprio contenuto.
 
 I layout più comuni includono:
 
-- **Slide Titolo**: Contiene segnaposto per titolo e sottotitolo.
-- **Titolo e Contenuto**: Contiene un segnaposto per il titolo e un segnaposto di contenuto generico.
-- **Vuoto**: Non contiene segnaposti di contenuto ed è utile quando ogni forma verrà posizionata manualmente.
+- **Titolo diapositiva**: Contiene segnaposti per titolo e sottotitolo.
+- **Titolo e contenuto**: Contiene un segnaposto per il titolo e un segnaposto di contenuto a uso generico.
+- **Vuota**: Non contiene segnaposti di contenuto ed è utile quando ogni forma sarà posizionata manualmente.
 
-## **Comprendere l'Ereditarietà dei Layout**
+## **Comprendere l'eredità dei layout**
 
 Una presentazione ha tre livelli correlati:
 
-1. Una [master slide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
-1. Una [layout slide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/) appartiene a una master e definisce una disposizione particolare di segnaposto.
-1. Una [normal slide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
+1. Un [master slide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
+2. Un [layout slide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/) appartiene a un master e definisce una particolare disposizione dei segnaposti.
+3. Una [normal slide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
 
-Una diapositiva normale eredita il tema e la formattazione dal suo layout, e il layout eredita dalla sua master. Un valore impostato direttamente su una diapositiva normale sovrascrive il valore ereditato a quel livello. Quando una diapositiva normale viene creata, le sue forme segnaposto sono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposto appartiene alla diapositiva normale.
+Una diapositiva normale eredita tema e formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una diapositiva normale sovrascrive il valore ereditato a quel livello. Quando una diapositiva normale viene creata, le forme dei segnaposti vengono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposti appartiene alla diapositiva normale.
 
-Aggiungi i segnaposto necessari a un layout prima di creare le diapositive da esso. Aggiungere un altro segnaposto a un layout in seguito non aggiunge automaticamente una forma segnaposto corrispondente alle diapositive normali esistenti.
+Aggiungi segnaposti richiesti a un layout prima di creare diapositive da esso. Aggiungere in seguito un altro segnaposto a un layout non aggiunge automaticamente la forma segnaposto corrispondente alle diapositive normali esistenti.
 
 Questa relazione ha due importanti conseguenze:
 
-- Modificare la formattazione ereditata o la geometria dei segnaposto esistenti su un layout può aggiornare tutte le diapositive che dipendono da esso. Prima di modificare un layout già in uso, esamina le diapositive dipendenti e verifica la presentazione risultante.
-- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le sue diapositive dipendenti a un altro layout, oppure rimuovi solo i layout non utilizzati.
+- Modificare la formattazione ereditata o la geometria dei segnaposti esistenti su un layout può aggiornare tutte le diapositive che dipendono da esso. Prima di modificare un layout già in uso, esamina le diapositive dipendenti e rivedi la presentazione risultante.
+- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le sue diapositive dipendenti a un altro layout, oppure rimuovi solo i layout non usati.
 
 Per ulteriori informazioni sul livello superiore di questa gerarchia, vedere [Slide Master](/slides/it/androidjava/slide-master/).
 
-## **Selezionare e Applicare un Layout di Diapositiva**
+Per nascondere loghi ereditati o forme decorative del master su una diapositiva o tramite un layout condiviso, vedere [Control the Visibility of Master Graphics](/slides/it/androidjava/slide-master/). L'esempio confronta due diapositive che utilizzano lo stesso master.
 
-Utilizza un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che tu non controlli il modello di origine.
+## **Selezionare e applicare un layout di diapositiva**
 
-L'esempio seguente cerca **Titolo e Contenuto** sulla prima master. Se quel layout non è disponibile, ricade deliberatamente su **Vuoto**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima diapositiva normale tramite il metodo [ISlide.setLayoutSlide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
+Utilizza un tipo di layout quando la presentazione segue le definizioni di layout standard di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello di origine.
+
+L'esempio seguente cerca **Title and Content** nel primo master. Se quel layout non è disponibile, ricade deliberatamente su **Blank**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima diapositiva normale tramite il metodo [ISlide.setLayoutSlide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
 
 ```java
 import com.aspose.slides.*;
@@ -89,13 +91,13 @@ try {
 }
 ```
 
-Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposto, la formattazione ereditata e la corrispondenza tra i segnaposto esistenti e il nuovo layout possono cambiare, quindi verifica il risultato quando si passa tra layout sostanzialmente diversi.
+Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposti, la formattazione ereditata e la corrispondenza tra i segnaposti esistenti e il nuovo layout possono cambiare, quindi ispeziona l'output quando passi tra layout sostanzialmente diversi.
 
-## **Aggiungere una Slide di Layout**
+## **Aggiungere una diapositiva layout**
 
-Selezione e creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) sulla collezione di layout della master di destinazione.
+Selezione e creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) sulla collezione di layout del master di destinazione.
 
-L'esempio seguente aggiunge sempre un nuovo layout **Titolo e Contenuto** chiamato `Report Title and Content`, quindi aggiunge una diapositiva normale basata su di esso. I nomi dei layout devono essere unici all'interno della collezione.
+L'esempio seguente aggiunge sempre un nuovo layout **Title and Content** denominato `Report Title and Content`, quindi aggiunge una diapositiva normale basata su di esso. I nomi dei layout devono essere unici all'interno della collezione.
 
 ```java
 import com.aspose.slides.*;
@@ -112,26 +114,26 @@ try {
 }
 ```
 
-Aggiungi un layout solo quando il modello ha realmente bisogno di un'altra struttura riutilizzabile. Se esiste già un layout adeguato, selezionalo e riutilizzalo invece di creare un duplicato.
+Aggiungi un layout solo quando il modello ha realmente bisogno di un'altra struttura riutilizzabile. Se esiste già un layout adeguato, selezionalo e riutilizzalo invece di crearne un duplicato.
 
-## **Aggiungere Segnaposto a una Slide di Layout**
+## **Aggiungere segnaposti a una diapositiva layout**
 
 Il metodo [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) fornisce un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) per aggiungere forme segnaposto a un layout.
 
-| Segnaposto PowerPoint               | `ILayoutPlaceholderManager` Method |
+| Segnaposto PowerPoint              | `ILayoutPlaceholderManager` Metodo |
 | ----------------------------------- | ---------------------------------- |
 | ![Contenuto](content.png)           | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![Contenuto (Verticale)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
-| ![Testo](text.png)                  | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Testo](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
 | ![Testo (Verticale)](textV.png)     | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
-| ![Immagine](picture.png)            | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Immagine](picture.png)           | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
 | ![Grafico](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
 | ![Tabella](table.png)               | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
 | ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
 | ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
-| ![Immagine Online](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
+| ![Immagine online](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-L'esempio seguente verifica che il layout **Vuoto** esista, aggiunge quattro segnaposto ad esso, e quindi crea una diapositiva normale che utilizza il layout modificato. L'ordine è intenzionale: i segnaposto sono aggiunti prima della creazione della diapositiva normale, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
+L'esempio seguente verifica che il layout **Blank** esista, aggiunge quattro segnaposti a esso e quindi crea una diapositiva normale che utilizza il layout modificato. L'ordine è intenzionale: i segnaposti sono aggiunti prima che la diapositiva normale sia creata, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +161,15 @@ try {
 
 Il risultato:
 
-![I segnaposto sulla slide di layout](add_placeholders.png)
+![I segnaposti sulla diapositiva layout](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Modificare la formattazione ereditata o la geometria dei segnaposto di layout esistenti può influire sulle diapositive dipendenti. Un segnaposto di layout appena aggiunto non viene retrofittato nelle diapositive normali esistenti. Prova le modifiche al layout su una copia della presentazione e ispeziona ogni diapositiva dipendente.
+Modificare la formattazione ereditata o la geometria dei segnaposti esistenti su un layout può influire sulle diapositive dipendenti. Un segnaposto layout aggiunto di recente non viene retroattivamente inserito nelle diapositive normali esistenti. Prova le modifiche al layout su una copia della presentazione e ispeziona ogni diapositiva dipendente.
 {{% /alert %}}
 
-## **Rimuovere le Slide di Layout Non Utilizzate**
+## **Rimuovere le diapositive layout inutilizzate**
 
-Utilizza il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) per rimuovere i layout a cui nessuna diapositiva normale fa riferimento. Il metodo lascia intatti i layout ancora in uso.
+Usa il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) per rimuovere i layout a cui nessuna diapositiva normale fa riferimento. Il metodo lascia intatti i layout ancora in uso.
 
 ```java
 import com.aspose.slides.*;
@@ -181,11 +183,11 @@ try {
 }
 ```
 
-Per rimuovere un layout specifico, usa prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) o [getDependingSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Riassegna le eventuali diapositive dipendenti prima di chiamare [ILayoutSlide.remove](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#remove--). Tentare di rimuovere un layout utilizzato genera una [PptxEditException](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/pptxeditexception/).
+Per rimuovere un layout specifico, utilizza prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) o [getDependingSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Riassegna le eventuali diapositive dipendenti prima di chiamare [ILayoutSlide.remove](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#remove--). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/pptxeditexception/).
 
-## **Controllare la Visibilità del Piè di Pagina su una Slide di Layout**
+## **Controllare la visibilità del piè di pagina su una diapositiva layout**
 
-Un layout ha i propri segnaposto per piè di pagina, numero diapositiva e data/ora. Usa il metodo [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) per controllare quei segnaposto per un singolo layout. Questo è utile, ad esempio, quando i layout di contenuto dovrebbero mostrare i piè di pagina ma i layout di titolo no.
+Un layout ha i propri segnaposti per piè di pagina, numero diapositiva e data/ora. Usa il metodo [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) per controllare quei segnaposti su un singolo layout. È utile quando, ad esempio, i layout di contenuto devono mostrare i piè di pagina ma i layout di titolo no.
 
 L'esempio seguente seleziona un layout in modo sicuro e rende visibili gli elementi del piè di pagina:
 
@@ -217,9 +219,9 @@ try {
 }
 ```
 
-## **Controllare la Visibilità del Piè di Pagina su una Master e i suoi Layout Figlio**
+## **Controllare la visibilità del piè di pagina su un master e sui suoi layout figli**
 
-Per applicare impostazioni del piè di pagina coerenti su tutta la gerarchia di una master, usa il metodo [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). I metodi di propagazione di [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) operano sulla master e sui suoi layout slide dipendenti e su diapositive normali; non si rivolgono a una sola diapositiva normale.
+Per applicare impostazioni di piè di pagina coerenti su un'intera gerarchia di master, usa il metodo [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). I metodi di propagazione di [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) operano sul master e sui suoi layout e diapositive normali dipendenti; non si applicano a una singola diapositiva normale.
 
 ```java
 import com.aspose.slides.*;
@@ -241,18 +243,18 @@ try {
 
 ## **FAQ**
 
-**Qual è la Differenza tra una Master Slide e una Layout Slide?**
+**Qual è la differenza tra un master slide e un layout slide?**
 
-Una master slide definisce il tema della presentazione e la formattazione condivisa. Una layout slide appartiene a una master e definisce una disposizione riutilizzabile di segnaposto. Le diapositive normali utilizzano quei layout e memorizzano il contenuto specifico della diapositiva.
+Un master slide definisce il tema della presentazione e la formattazione condivisa. Un layout slide appartiene a un master e definisce una disposizione riutilizzabile di segnaposti. Le diapositive normali usano quei layout e memorizzano il contenuto specifico della diapositiva.
 
-**Posso Copiare una Layout Slide da una Presentazione all'Altra?**
+**Posso copiare un layout slide da una presentazione a un'altra?**
 
-Sì. Aggiungi una copia alla collezione di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
+Sì. Aggiungi una copia alla collezione di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Quando copi tra presentazioni, verifica anche i font, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
 
-**Cosa Succede Quando Modifico un Layout Già in Uso?**
+**Cosa succede quando modifico un layout già in uso?**
 
-Le diapositive dipendenti ereditano le modifiche al layout a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposto e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [getDependingSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) per identificare le diapositive interessate prima di modificare il layout.
+Le diapositive dipendenti ereditano le modifiche al layout, a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposti e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [getDependingSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) per identificare le diapositive interessate prima di modificare il layout.
 
-**Cosa Succede Se Rimuovo un Layout Ancora in Uso?**
+**Cosa succede se rimuovo un layout ancora in uso?**
 
-Aspose.Slides genera una [PptxEditException](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/pptxeditexception/). Riassegna prima le diapositive dipendenti, oppure usa [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) per rimuovere solo i layout non referenziati.
+Aspose.Slides solleva una [PptxEditException](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/pptxeditexception/). Riassegna prima le diapositive dipendenti, oppure usa [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) per rimuovere solo i layout non referenziati.

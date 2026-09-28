@@ -1,57 +1,65 @@
 ---
-title: Управление шаблонами слайдов презентаций в C++
-linktitle: Шаблон слайда
+title: УManaging презентаций мастеров слайдов в C++
+linktitle: Мастер слайда
 type: docs
 weight: 80
 url: /ru/cpp/slide-master/
 keywords:
-- шаблон слайда
-- главный слайд
-- шаблон слайда PPT
-- несколько шаблонов слайдов
-- сравнение шаблонов слайдов
+- мастер слайда
+- мастер‑слайд
+- мастер‑слайд PPT
+- несколько мастеров слайдов
+- сравнение мастеров слайдов
 - фон
 - заполнитель
-- клонирование шаблона слайда
-- копирование шаблона слайда
-- дублирование шаблона слайда
-- неиспользуемый шаблон слайда
+- клонирование мастера слайда
+- копирование мастера слайда
+- дублирование мастера слайда
+- неиспользуемый мастер слайда
 - PowerPoint
 - OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Управление шаблонами слайдов в Aspose.Slides для C++: доступ, редактирование, клонирование, сравнение и удаление шаблонов слайдов в презентациях PowerPoint и OpenDocument."
+description: "Управляйте мастерами слайдов в Aspose.Slides для C++: получайте доступ, редактируйте, клонируйте, сравнивайте и удаляйте мастер‑слайды в презентациях PowerPoint и OpenDocument."
 ---
 ## **Обзор**
 
-**Шаблон слайда** определяет общие настройки дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фоны, стили текста, настройки темы и настройки подвала. В PowerPoint редактирование шаблона слайда — обычный способ сохранить согласованность презентации без повторения одного и того же форматирования на каждом слайде.
+**Слайд‑мастер** определяет общие параметры дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фоны, стили текста, параметры темы и настройки нижних колонтитулов. В PowerPoint редактирование слайд‑мастера — обычный способ поддерживать согласованность презентации без повторения одинакового форматирования на каждом слайде.
 
-Aspose.Slides for C++ поддерживает ту же модель. Презентация может содержать один или несколько master slide, и каждый master slide может содержать несколько layout slide. Обычные слайды обычно не ссылаются напрямую на master slide. Вместо этого обычный слайд использует layout slide, который принадлежит master slide.
+Aspose.Slides для C++ поддерживает ту же модель. Презентация может содержать один или несколько мастеров слайдов, каждый из которых может включать несколько макетов слайдов. Обычные слайды обычно не ссылаются напрямую на мастер‑слайд. Вместо этого обычный слайд использует макетный слайд, а этот макетный слайд принадлежит мастеру.
 
 Иерархия выглядит так:
 
-1. **Шаблон слайда** — определяет общий дизайн и тему.  
-2. **Макетный слайд** — определяет конкретное расположение заполнителей и форматирование уровня макета.  
-3. **Обычный слайд** — содержит фактическое содержание презентации и использует один макетный слайд.
+1. **Слайд‑мастер** – определяет общий дизайн и тему.  
+1. **Макетный слайд** – определяет конкретное расположение заполнителей и форматирование уровня макета.  
+1. **Обычный слайд** – содержит фактическое содержимое презентации и использует один макетный слайд.
 
-![Иерархия шаблонов слайдов, макетных слайдов и обычных слайдов](slide-master_2.jpg)
+![Иерархия мастеров слайдов, макетных слайдов и обычных слайдов](slide-master_2.jpg)
 
-В Aspose.Slides шаблон слайда представлен интерфейсом [IMasterSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/) . Все master slide в презентации доступны через коллекцию [Presentation::get_Masters](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_masters/) , реализующую [IMasterSlideCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslidecollection/) .
+В Aspose.Slides слайд‑мастер представлен интерфейсом [IMasterSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/). Все мастера слайдов в презентации доступны через коллекцию [Presentation::get_Masters](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_masters/), реализующую [IMasterSlideCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-Если одно и то же свойство определено на более чем одном уровне, приоритет имеет более специфичный уровень. Например, если master slide и layout slide оба определяют фон, слайды, основанные на этом макете, используют фон макета. Для получения дополнительной информации о layout slide см. [Применение или изменение макетов слайдов](/slides/ru/cpp/slide-layout/).
+Когда одно и то же свойство определено на более чем одном уровне, приоритет имеет более конкретный уровень. Например, если мастер‑слайд и макетный слайд оба определяют фон, слайды, основанные на этом макете, используют фон макета. Более подробную информацию о макетных слайдах см. в разделе [Применить или изменить макеты слайдов](/slides/ru/cpp/slide-layout/).
 {{% /alert %}}
 
-## **Доступ к шаблонам слайдов**
+## **Доступ к мастерам слайдов**
 
-В PowerPoint можно открыть представление шаблона слайда через **View** > **Slide Master**.
+В PowerPoint вы можете открыть режим просмотра Слайд‑мастер через **Вид** > **Слайд‑мастер**.
 
-![Команда Slide Master на вкладке View в PowerPoint](slide-master_3.jpg)
+![Команда Слайд‑мастер на вкладке Вид в PowerPoint](slide-master_3.jpg)
 
-В Aspose.Slides используйте коллекцию `get_Masters()` для доступа к master slide:
+В Aspose.Slides используйте коллекцию `get_Masters()` для доступа к мастерам слайдов:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -64,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-Также можно получить master slide, используемый обычным слайдом, через его макет:
+Вы также можете получить мастер‑слайд, используемый обычным слайдом, через его макет:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -79,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **Что содержит шаблон слайда**
+## **Что содержит мастер‑слайд**
 
-Master slide — это объект, похожий на слайд. Он реализует [IBaseSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/), поэтому предоставляет многие свойства слайда, используемые обычными и layout slide. Специфические для master slide члены перечислены на странице API [IMasterSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/) .
+Мастер‑слайд — это объект, похожий на слайд. Он реализует [IBaseSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/), поэтому предоставляет многие из тех же свойств слайда, которые используются обычными и макетными слайдами. Специфические для мастера члены перечислены на странице API [IMasterSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/).
 
-Часто используемые члены master slide включают:
+Часто используемые члены мастер‑слайда включают:
 
 | Член | Назначение |
 | --- | --- |
-| `get_Background()` | Устанавливает фон слайда уровня master. |
-| `get_Shapes()` | Хранит фигуры, размещённые на master, такие как логотипы, рамки изображений и общий текст. |
-| `get_LayoutSlides()` | Хранит layout slide, принадлежащие master. |
-| `get_ThemeManager()` | Обеспечивает доступ к API темы master. |
-| `get_HeaderFooterManager()` | Управляет колонтитулами, датами и номерами слайдов для master и его дочерних layout. |
-| `GetDependingSlides()` | Возвращает обычные слайды, зависящие от master через их layout. |
+| `get_Background()` | Устанавливает фон слайда уровня мастера. |
+| `get_Shapes()` | Содержит фигуры, размещённые на мастере, такие как логотипы, рамки изображений и общий текст. |
+| `get_LayoutSlides()` | Содержит макетные слайды, принадлежащие этому мастеру. |
+| `get_ThemeManager()` | Предоставляет доступ к API темы мастера. |
+| `get_HeaderFooterManager()` | Управляет верхними и нижними колонтитулами, датами и номерами слайдов для мастера и его дочерних макетов. |
+| `GetDependingSlides()` | Возвращает обычные слайды, зависящие от мастера через их макеты. |
 
-## **Добавление изображения в шаблон слайда**
+## **Добавление изображения в мастер‑слайд**
 
-Когда вы добавляете изображение в master slide, оно появляется на слайдах, использующих макеты из этого master. Это полезно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
+Когда вы добавляете изображение в мастер‑слайд, оно появляется на слайдах, использующих макеты этого мастера. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
 
-Следующий пример добавляет логотип к первому master slide:
+Следующий пример добавляет логотип на первый мастер‑слайд:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -119,19 +146,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Для получения дополнительной информации о рамках изображений см. [Рамка изображения](/slides/ru/cpp/picture-frame/) .
+Более подробную информацию о рамках изображений см. в разделе [Рамка изображения](/slides/ru/cpp/picture-frame/).
+
+## **Управление видимостью графики мастера**
+
+Используйте [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/set_showmastershapes/), чтобы скрыть унаследованную графику мастера, такую как логотипы или декоративные фигуры, не удаляя их из мастера. Передайте `false` в [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slide/set_showmastershapes/) на слайде, где графика должна быть скрыта, и `true` на слайдах, где её нужно отобразить.
+
+Следующий независимый пример создаёт синюю декоративную полосу на мастере и два слайда, использующие один и тот же пустой макет. Полоса видна на первом слайде и скрыта на втором. Входная презентация или изображение не требуются.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Пример использует макет **Blank**, поставляемый с новой презентацией, и удаляет собственные заполнители начального слайда.
+
+### **Выбор области действия настройки**
+
+Обычный слайд использует свой мастер через [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/get_layoutslide/) и [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_masterslide/). Установка свойства на отдельном слайде влияет только на этот слайд. Передача `false` в [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/layoutslide/set_showmastershapes/) скрывает графику мастера для всех слайдов, использующих общий макет, даже если их собственная настройка `true`. Чтобы скрыть графику только на одном слайде, измените свойство слайда и оставьте общий макет без изменений.
+
+Настройка не поддерживается как средство управления видимостью непосредственно на мастере. На мастере она всегда возвращает `false`, а присвоение `true` генерирует `System::NotSupportedException`. Применяйте её к обычному слайду или к макету.
+
+### **Отличие графики от фона**
+
+| Операция | Эффект |
+| --- | --- |
+| Скрыть графику мастера | Управляет видимостью унаследованных фигур мастера без их удаления или изменения собственных фигур слайда. |
+| Изменить заливку фона слайда | Меняет цвет, градиент или изображение фона. Графика мастера — отдельные фигуры и может оставаться видимой поверх этого фона. См. [Фон презентации](/slides/ru/cpp/presentation-background/). |
+| Удалить фигуру из мастера | Удаляет общую исходную фигуру, поэтому она более недоступна ни для одного слайда, использующего этот мастер. |
 
 ## **Работа с заполнителями**
 
-Заполнители обычно определяются на layout slide. Шаблон слайда предоставляет общий стиль и тему, которые наследуются этими макетами, а каждый макет определяет, какие заполнители доступны и где они размещаются.
+Заполнители обычно определяются на макетных слайдах. Мастер‑слайд предоставляет общий стиль и тему, которые наследуют эти макеты, а каждый макет решает, какие заполнители доступны и где они размещаются.
 
-В PowerPoint команды заполнителей доступны в представлении Slide Master.
+В PowerPoint команды заполнителей доступны в режиме просмотра Слайд‑мастер.
 
-![Команда Insert Placeholder в представлении Slide Master PowerPoint](slide-master_5.png)
+![Команда Вставить заполнитель в режиме просмотра Слайд‑мастер PowerPoint](slide-master_5.png)
 
-Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с layout slide, который принадлежит master:
+Чтобы добавить новые заполнители с Aspose.Slides, работайте с макетным слайдом, принадлежащим мастеру:
 
 ```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -153,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Вы также можете форматировать формы заполнителей, уже существующие в master slide. Следующий пример находит заполнитель заголовка и применяет линейную градиентную заливку:
+Вы также можете форматировать уже существующие фигуры заполнителей на мастере. В следующем примере находится заполнитель заголовка и применяется линейная градиентная заливка:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -196,13 +321,26 @@ presentation->Dispose();
 
 ![Отформатированный заполнитель заголовка, унаследованный обычными слайдами](slide-master_8.png)
 
-Для получения дополнительных вариантов форматирования заполнителей и текста см. [Установка текста подсказки в заполнителе](/slides/ru/cpp/manage-placeholder/) и [Форматирование текста](/slides/ru/cpp/text-formatting/) .
+Для дополнительных вариантов форматирования заполнителей и текста см. [Установить подсказочный текст в заполнитель](/slides/ru/cpp/manage-placeholder/) и [Форматирование текста](/slides/ru/cpp/text-formatting/).
 
-## **Изменение фона шаблона слайда**
+## **Изменение фона мастера слайда**
 
-Фон master наследуется макетами и слайдами, которые его не переопределяют. Следующий пример задаёт сплошной цвет фона для первого master slide:
+Фон мастера наследуется макетами и слайдами, которые его не переопределяют. В следующем примере задаётся сплошной цвет фона для первого мастера слайда:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -216,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Для связанных тем см. [Фон презентации](/slides/ru/cpp/presentation-background/) и [Тема презентации](/slides/ru/cpp/presentation-theme/) .
+См. связанные темы: [Фон презентации](/slides/ru/cpp/presentation-background/) и [Тема презентации](/slides/ru/cpp/presentation-theme/).
 
-## **Клонирование шаблона слайда в другую презентацию**
+## **Клонирование мастера слайда в другую презентацию**
 
-Используйте [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslidecollection/addclone/) , чтобы скопировать master slide в другую презентацию. Скопированный master затем может использоваться макетами и слайдами в целевой презентации.
+Используйте [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslidecollection/addclone/) для копирования мастера слайда в другую презентацию. Скопированный мастер затем может использоваться макетами и слайдами в целевой презентации.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -234,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-Если нужно клонировать обычные слайды вместе с их master, см. [Clone Slides](/slides/ru/cpp/clone-slides/) .
+Если необходимо клонировать обычные слайды вместе с их мастером, см. [Клонировать слайды](/slides/ru/cpp/clone-slides/).
 
-## **Добавление нескольких шаблонов слайдов**
+## **Добавление нескольких мастеров слайдов**
 
-Презентация может содержать несколько master slide. Это полезно, когда разные разделы требуют различного брендинга, структуры страниц или настроек темы.
+Презентация может содержать несколько мастеров слайдов. Это полезно, когда разные разделы требуют различного брендинга, структуры страниц или параметров темы.
 
-![Команды PowerPoint для вставки и управления шаблонами слайдов](slide-master_9.jpg)
+![Команды PowerPoint для вставки и управления мастерами слайдов](slide-master_9.jpg)
 
-Следующий пример клонирует шаблон по умолчанию, задаёт клону другой фон, создаёт layout под этим клонированным master и добавляет новый слайд на основе этого layout:
+В следующем примере клонируется мастер по умолчанию, клону задаётся иной фон, создаётся макет под этим клонированным мастером и добавляется новый слайд, основанный на этом макете:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -269,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **Сравнение шаблонов слайдов**
+## **Сравнение мастеров слайдов**
 
-Master slide можно сравнить с помощью метода `Equals`, унаследованного от [IBaseSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/) . Сравнение проверяет структуру и статическое содержимое, такое как фигуры, текст, форматирование, анимацию и другие настройки слайда. Оно не сравнивает уникальные идентификаторы, такие как ID слайдов, или динамические значения заполнителей, например текущую дату.
+Мастера слайдов можно сравнивать методом `Equals`, унаследованным от [IBaseSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/). Сравнение проверяет структуру и статическое содержимое, такое как фигуры, текст, форматирование, анимацию и другие параметры слайда. Оно не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -306,13 +474,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-Для получения дополнительной информации см. [Сравнение слайдов презентации](/slides/ru/cpp/compare-slides/) .
+Для более подробной информации см. [Сравнить слайды презентации](/slides/ru/cpp/compare-slides/).
 
-## **Установка представления шаблона слайда как представления по умолчанию**
+## **Установка просмотра Слайд‑мастер как представления по умолчанию**
 
-Используйте метод `set_LastView` на [ViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/) , чтобы задать представление, которое PowerPoint открывает первым. Следующий пример открывает презентацию в представлении Slide Master:
+Используйте метод `set_LastView` у [ViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/) для управления тем, какое представление PowerPoint открывает первым. В следующем примере презентация открывается в режиме просмотра Слайд‑мастер:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -320,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Для дополнительных настроек представления см. [Сохранить презентацию](/slides/ru/cpp/save-presentation/) .
+Для дополнительных настроек представления см. [Сохранить презентацию](/slides/ru/cpp/save-presentation/).
 
-## **Удаление неиспользуемых шаблонов слайдов**
+## **Удаление неиспользуемых мастеров слайдов**
 
-Иногда презентации содержат master slide, которые больше не используются ни одним обычным слайдом. Удаление неиспользуемых master может уменьшить размер файла и упростить поддержку шаблона.
+Иногда в презентациях остаются мастеры слайдов, которые больше не используются никакими обычными слайдами. Удаление таких мастеров может уменьшить размер файла и упростить обслуживание шаблонов.
 
-Используйте [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/ru/cpp/aspose.slides/masterslidecollection/removeunused/) , чтобы удалить неиспользуемые master из коллекции `get_Masters()` :
+Используйте [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/ru/cpp/aspose.slides/masterslidecollection/removeunused/) для удаления неиспользуемых мастеров из коллекции `get_Masters()`:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -336,9 +517,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Вы также можете воспользоваться методом low‑code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
+Можно также применить метод низкоуровневого кода [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/):
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -346,20 +534,20 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**В чём разница между шаблоном слайда и макетным слайдом?**
+**В чём разница между мастером слайда и макетным слайдом?**
 
-Шаблон слайда определяет общие настройки дизайна, такие как тема, фон, общие фигуры и стили текста. Макетный слайд принадлежит шаблону слайда и определяет конкретное расположение заполнителей. Обычный слайд использует макетный слайд, поэтому наследует свойства как от макета, так и от шаблона.
+Мастер‑слайд определяет общие параметры дизайна, такие как тема, фон, общие фигуры и стили текста. Макетный слайд принадлежит мастеру и определяет конкретное расположение заполнителей. Обычный слайд использует макетный слайд, поэтому наследует как от макета, так и от мастера.
 
-**Может ли одна презентация содержать несколько шаблонов слайдов?**
+**Может ли одна презентация содержать несколько мастеров слайдов?**
 
-Да. Презентация может содержать несколько master slide. Используйте несколько master, когда разные разделы требуют разных визуальных систем или брендинга.
+Да. Презентация может содержать несколько мастеров слайдов. Используйте несколько мастеров, когда разные разделы требуют разных визуальных систем или брендинга.
 
-**Стоит ли добавлять заполнители в шаблон слайда или в макетный слайд?**
+**Следует ли добавлять заполнители в мастер‑слайд или в макетный слайд?**
 
-В большинстве случаев заполняйте заполнители в макетных слайдах. Общие визуальные элементы и общие форматы размещайте в шаблоне слайда, а заполнители содержимого — в макетах, которые будут использовать обычные слайды.
+В большинстве случаев заполнители добавляются в макетные слайды. Общие визуальные элементы и общие параметры форматирования помещаются в мастер‑слайд, а заполнители содержимого – в макеты, которые будут использовать обычные слайды.
 
-**Можно ли удалить шаблон слайда, который всё ещё используется?**
+**Можно ли удалить мастер‑слайд, который всё ещё используется?**
 
-Нет. Шаблон слайда, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды в макеты под другим шаблоном или используйте метод очистки неиспользуемых master, который удаляет только те master, которые не используются.
+Нет. Мастер‑слайд, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды в макеты под другим мастером или используйте метод очистки неиспользуемых мастеров, который удалит только те мастеры, которые не задействованы.

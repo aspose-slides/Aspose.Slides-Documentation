@@ -1,57 +1,65 @@
 ---
-title: "مدیریت اسلاید مسترهای ارائه در C++"
-linktitle: "اسلاید مستر"
+title: مدیریت اسلاید مسترهای ارائه در C++
+linktitle: اسلاید مستر
 type: docs
 weight: 80
 url: /fa/cpp/slide-master/
 keywords:
-- "اسلاید مستر"
-- "مستر اسلاید"
-- "اسلاید مستر PPT"
-- "چندین اسلاید مستر"
-- "مقایسه اسلایدهای مستر"
-- "پس‌زمینه"
-- "محل‌دار"
-- "کلون اسلاید مستر"
-- "کپی اسلاید مستر"
-- "تکثیر اسلاید مستر"
-- "اسلاید مستر استفاده‌نشده"
-- "PowerPoint"
-- "OpenDocument"
-- "ارائه"
-- "C++"
-- "Aspose.Slides"
+- اسلاید مستر
+- اسلاید مستر
+- اسلاید مستر PPT
+- چندین اسلاید مستر
+- مقایسه اسلایدهای مستر
+- پس‌زمینه
+- نگهدارنده
+- کلون اسلاید مستر
+- کپی اسلاید مستر
+- تکثیر اسلاید مستر
+- اسلاید مستر استفاده‌نشده
+- PowerPoint
+- OpenDocument
+- ارائه
+- C++
+- Aspose.Slides
 description: "مدیریت اسلاید مسترها در Aspose.Slides برای C++: دسترسی، ویرایش، کلون، مقایسه و حذف اسلایدهای مستر در ارائه‌های PowerPoint و OpenDocument."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-یک **slide master** تنظیمات طراحی مشترک برای گروهی از اسلایدها را تعریف می‌کند. می‌تواند شامل اشکال مشترک، لوگوها، پس‌زمینه‌ها، سبک‌های متنی، تنظیمات طرح و تنظیمات پاورقی باشد. در PowerPoint، ویرایش یک slide master راه معمول برای حفظ یکپارچگی ارائه بدون تکرار همان قالب‌بندی در هر اسلاید است.
+یک **اسلاید مستر** تنظیمات طراحی مشترک برای گروهی از اسلایدها را تعریف می‌کند. می‌تواند شامل شکل‌های مشترک، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات پاورقی باشد. در پاورپوینت، ویرایش اسلاید مستر روش معمول برای حفظ یکپارچگی ارائه بدون تکرار قالب‌بندی یکسان در هر اسلاید است.
 
-Aspose.Slides for C++ از همان مدل پشتیبانی می‌کند. یک ارائه می‌تواند حاوی یک یا چند master slide باشد و هر master slide می‌تواند چند layout slide داشته باشد. اسلایدهای معمولاً به‌طور مستقیم به یک master slide ارجاع نمی‌دهند. در عوض، یک اسلاید معمولی از یک layout slide استفاده می‌کند و آن layout slide متعلق به یک master slide است.
+Aspose.Slides for C++ مدل مشابهی را پشتیبانی می‌کند. یک ارائه می‌تواند شامل یک یا چند اسلاید مستر باشد و هر اسلاید مستر می‌تواند شامل چندین اسلاید لایه‌بندی باشد. اسلایدهای معمولاً به‌طور مستقیم به اسلاید مستر ارجاع نمی‌دهند. در عوض، یک اسلاید معمولی از یک اسلاید لایه‌بندی استفاده می‌کند و آن لایه‌بندی به یک اسلاید مستر تعلق دارد.
 
-سلسله مراتب به صورت زیر است:
+سطح‌بندی به شکل زیر است:
 
-1. **Slide master** – تنظیمات طراحی و طرح مشترک را تعریف می‌کند.
-1. **Layout slide** – آرایش خاصی از placeholders و قالب‌بندی سطح layout را تعریف می‌کند.
-1. **Normal slide** – محتوای واقعی ارائه را شامل می‌شود و از یک layout slide استفاده می‌کند.
+1. **اسلاید مستر** – تنظیمات طراحی و تم مشترک را تعریف می‌کند.  
+1. **اسلاید لایه‌بندی** – ترتیب خاصی از نگهدارنده‌ها و قالب‌بندی سطح لایه‌بندی را تعریف می‌کند.  
+1. **اسلاید معمولی** – محتوای واقعی ارائه را در خود دارد و از یک اسلاید لایه‌بندی استفاده می‌کند.
 
-![سلسله مراتب master slideها، layout slideها و normal slideها](slide-master_2.jpg)
+![سلسله مراتب اسلایدهای مستر، اسلایدهای لایه‌بندی و اسلایدهای معمولی](slide-master_2.jpg)
 
-در Aspose.Slides، یک slide master توسط اینترفیس [IMasterSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) نمایان می‌شود. تمام master slideهای یک ارائه از طریق مجموعه [Presentation::get_Masters](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_masters/) قابل دسترسی هستند که پیاده‌سازی [IMasterSlideCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslidecollection/) را دارد.
+در Aspose.Slides، یک اسلاید مستر توسط رابط [IMasterSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) نمایش داده می‌شود. تمام اسلایدهای مستر موجود در یک ارائه از طریق مجموعه [Presentation::get_Masters](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_masters/) در دسترس هستند که پیاده‌سازی [IMasterSlideCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslidecollection/) را ارائه می‌دهد.
 
 {{% alert color="info" title="Inheritance" %}}
-هنگامی که یک ویژگی در بیش از یک سطح تعریف شود، سطح خاص‌تر برتری دارد. به عنوان مثال، اگر یک master slide و یک layout slide هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن layout از پس‌زمینه layout استفاده می‌کنند. برای اطلاعات بیشتر درباره layout slideها، به [Apply or Change Slide Layouts](/slides/fa/cpp/slide-layout/) مراجعه کنید.
+هنگامی که یک ویژگی در بیش از یک سطح تعریف شده باشد، سطح خاص‌تر برنده می‌شود. برای مثال، اگر یک اسلاید مستر و یک اسلاید لایه‌بندی هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن لایه‌بندی از پس‌زمینه لایه‌بندی استفاده می‌کنند. برای اطلاعات بیشتر درباره اسلایدهای لایه‌بندی، به [Apply or Change Slide Layouts](/slides/fa/cpp/slide-layout/) مراجعه کنید.
 {{% /alert %}}
 
-## **دسترسی به Slide Masterها**
+## **دسترسی به اسلایدهای مستر**
 
-در PowerPoint می‌توانید نمای Slide Master را از **View** > **Slide Master** باز کنید.
+در پاورپوینت، می‌توانید نمای اسلاید مستر را از **View** > **Slide Master** باز کنید.
 
-![دکمه Slide Master در برگه View در PowerPoint](slide-master_3.jpg)
+![دستور اسلاید مستر در زبانه View نرم‌افزار PowerPoint](slide-master_3.jpg)
 
-در Aspose.Slides، از مجموعه `get_Masters()` برای دسترسی به master slideها استفاده کنید:
+در Aspose.Slides، از مجموعه `get_Masters()` برای دسترسی به اسلایدهای مستر استفاده کنید:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -64,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-همچنین می‌توانید master slide استفاده شده توسط یک اسلاید معمولی را از طریق layout آن به‌دست آورید:
+همچنین می‌توانید اسلاید مستر استفاده شده توسط یک اسلاید معمولی را از طریق لایه‌بندی آن به دست آورید:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -79,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **محتویات یک Slide Master**
+## **محتویات یک اسلاید مستر**
 
-یک master slide شیء‌ای شبیه اسلاید است. این شیء [IBaseSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/) را پیاده‌سازی می‌کند، بنابراین بسیاری از ویژگی‌های اسلاید که توسط اسلایدهای معمولی و layout استفاده می‌شود، در دسترس است. اعضای مخصوص master در صفحه API [IMasterSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) فهرست شده‌اند.
+اسلاید مستر یک شیء شبیه اسلاید است. این شیء رابط [IBaseSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/) را پیاده‌سازی می‌کند، بنابراین بسیاری از ویژگی‌های اسلاید مشترک با اسلایدهای معمولی و لایه‌بندی در دسترس است. اعضای مخصوص مستر در صفحه API [IMasterSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) فهرست شده‌اند.
 
-عضوهای معمولاً استفاده‌شده master slide عبارتند از:
+برخی از اعضای پرکاربرد اسلاید مستر عبارتند از:
 
-| Member | Purpose |
+| عضو | هدف |
 | --- | --- |
-| `get_Background()` | پس‌زمینهٔ سطح master را تنظیم می‌کند. |
-| `get_Shapes()` | اشکالی که روی master قرار گرفته‌اند (مانند لوگوها، فریم‌های تصویر و متن‌های مشترک) را نگه می‌دارد. |
-| `get_LayoutSlides()` | layout slideهایی که به این master تعلق دارند را ذخیره می‌کند. |
-| `get_ThemeManager()` | دسترسی به APIهای تم master را فراهم می‌کند. |
-| `get_HeaderFooterManager()` | سرصفحه‌ها، پاورقی‌ها، تاریخ‌ها و شماره اسلایدها را برای master و layoutهای فرزندش کنترل می‌کند. |
-| `GetDependingSlides()` | اسلایدهای معمولی که از طریق layoutهای خود به این master وابسته هستند را برمی‌گرداند. |
+| `get_Background()` | پس‌زمینه سطح مستر را تنظیم می‌کند. |
+| `get_Shapes()` | شکل‌های قرار گرفته بر روی مستر، مانند لوگوها، قاب‌های تصویر و متن مشترک را ذخیره می‌کند. |
+| `get_LayoutSlides()` | اسلایدهای لایه‌بندی متعلق به مستر را ذخیره می‌کند. |
+| `get_ThemeManager()` | دسترسی به APIهای تم مستر را فراهم می‌کند. |
+| `get_HeaderFooterManager()` | سرصفحه‌ها، پاورقی‌ها، تاریخ‌ها و شماره اسلایدها را برای مستر و لایه‌های فرزند آن کنترل می‌کند. |
+| `GetDependingSlides()` | اسلایدهای معمولی که از طریق لایه‌هایشان به مستر وابسته‌اند را برمی‌گرداند. |
 
-## **افزودن تصویر به یک Slide Master**
+## **اضافه کردن تصویر به اسلاید مستر**
 
-زمانی که تصویری را به یک master slide اضافه می‌کنید، در اسلایدهای استفاده‌کننده از layoutهای آن master ظاهر می‌شود. این ویژگی برای لوگوها، واترمارک‌ها، نوارهای تزئینی و سایر عناصر بصری تکراری مفید است.
+هنگامی که تصویری را به یک اسلاید مستر اضافه می‌کنید، بر روی اسلایدهایی که از لایه‌های آن مستر استفاده می‌کنند نمایش داده می‌شود. این برای لوگوها، واترمارک‌ها، نواری‌های تزئینی و سایر عناصر بصری تکراری مفید است.
 
-مثال زیر یک لوگو را به اولین master slide اضافه می‌کند:
+مثال زیر یک لوگو را به اولین اسلاید مستر اضافه می‌کند:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -119,19 +146,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-برای اطلاعات بیشتر درباره فریم‌های تصویر، به [Picture Frame](/slides/fa/cpp/picture-frame/) مراجعه کنید.
+برای اطلاعات بیشتر درباره قاب‌های تصویر، به [Picture Frame](/slides/fa/cpp/picture-frame/) مراجعه کنید.
 
-## **کار با Placeholders**
+## **کنترل نمایش گرافیک‌های مستر**
 
-Placeholders معمولاً در layout slideها تعریف می‌شوند. master slide سبک و تم مشترکی را ارائه می‌دهد که این layoutها ارث می‌برند، در حالی که هر layout تصمیم می‌گیرد کدام placeholders در دسترس هستند و در کجا قرار می‌گیرند.
+از [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/set_showmastershapes/) برای مخفی کردن گرافیک‌های ارث‌برده شده از مستر (مانند لوگوها یا اشکال تزئینی) بدون حذف آن‌ها از مستر استفاده کنید. مقدار `false` را به [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/slide/set_showmastershapes/) در اسلایدی که می‌خواهید این گرافیک‌ها حذف شوند، پاس دهید و مقدار `true` را در اسلایدهایی که باید نمایش داده شوند، استفاده کنید.
 
-در PowerPoint، دستورات placeholder در نمای Slide Master موجود است.
-
-![دستور Insert Placeholder در نمای Slide Master PowerPoint](slide-master_5.png)
-
-برای افزودن placeholders جدید با Aspose.Slides، با layout slideی که به master تعلق دارد کار کنید:
+مثال خودکفا زیر یک نوار تزئینی آبی را بر روی یک مستر و دو اسلایدی که از همان لایه خالی استفاده می‌کنند، ایجاد می‌کند. نوار در اسلاید اول قابل مشاهده و در اسلاید دوم مخفی است. نیازی به ارائه ورودی یا تصویر ندارید.
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+این مثال از لایه **Blank** ارائه‌شده با یک ارائه جدید استفاده می‌کند و نگهدارنده‌های اولیه اسلاید را حذف می‌نماید.
+
+### **انتخاب دامنهٔ تنظیم**
+
+یک اسلاید معمولی از مستر خود از طریق [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/get_layoutslide/) و [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_masterslide/) استفاده می‌کند. تنظیم این ویژگی بر روی یک اسلاید منفرد فقط بر همان اسلاید تاثیر می‌گذارد. مقدار `false` به [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/layoutslide/set_showmastershapes/) گرافیک‌های مستر را برای اسلایدهایی که از آن لایه مشترک استفاده می‌کنند مخفی می‌کند، حتی اگر تنظیم شخصی اسلاید آن‌ها `true` باشد. برای مخفی کردن گرافیک فقط در یک اسلاید، ویژگی اسلاید را تغییر دهید و لایهٔ مشترک را دست نخورده بمانید.
+
+این تنظیم به‌عنوان کنترل نمایش بر روی خود اسلاید مستر پشتیبانی نمی‌شود. بر روی مستر همیشه مقدار `false` برگردانده می‌شود و اختصاص مقدار `true` منجر به `System::NotSupportedException` می‌شود. این ویژگی را بر روی یک اسلاید معمولی یا یک لایه اعمال کنید.
+
+### **تمیز کردن گرافیک‌ها از پس‌زمینه**
+
+| عملیات | اثر |
+| --- | --- |
+| مخفی کردن گرافیک‌های مستر | نمایش گرافیک‌های ارث‌برده شده از مستر را بدون حذف آن‌ها یا تغییر شکل‌های اسلاید کنترل می‌کند. |
+| تغییر پرشدن پس‌زمینه اسلاید | رنگ، گرادیان یا تصویر پس‌زمینه را تغییر می‌دهد. گرافیک‌های مستر شکل‌های جداگانه‌ای هستند و می‌توانند بر روی آن پس‌زمینه دیده شوند. برای جزئیات بیشتر به [Presentation Background](/slides/fa/cpp/presentation-background/) مراجعه کنید. |
+| حذف یک شکل از مستر | شکل منبع مشترک را حذف می‌کند، به‌طوری که دیگر برای هیچ اسلایدی که از آن مستر استفاده می‌کند در دسترس نیست. |
+
+## **کار با نگهدارنده‌ها**
+
+نگهدارنده‌ها معمولا بر روی اسلایدهای لایه‌بندی تعریف می‌شوند. اسلاید مستر سبک و تم مشترکی را که آن لایه‌ها به ارث می‌برند فراهم می‌کند، در حالی که هر لایه تصمیم می‌گیرد کدام نگهدارنده‌ها در دسترس هستند و در کجا قرار می‌گیرند.
+
+در پاورپوینت، دستورات نگهدارنده در نمای اسلاید مستر موجود است.
+
+![دستور Insert Placeholder در نمای اسلاید مستر نرم‌افزار PowerPoint](slide-master_5.png)
+
+برای اضافه کردن نگهدارنده‌های جدید با Aspose.Slides، بر روی اسلاید لایه‌بندی که به مستر تعلق دارد کار کنید:
+
+```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -153,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-همچنین می‌توانید اشکال placeholderهایی که قبلاً در یک master slide وجود دارند را قالب‌بندی کنید. مثال زیر placeholder عنوان را یافته و پر رنگی گرادیان خطی اعمال می‌کند:
+همچنین می‌توانید شکل‌های نگهدارنده‌ای که پیشاپیش بر روی اسلاید مستر وجود دارند را قالب‌بندی کنید. مثال زیر نگهدارندهٔ عنوان را پیدا کرده و یک پرشدن گرادیان خطی به آن اعمال می‌کند:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -194,15 +319,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Placeholder عنوان قالب‌بندی‌شده که توسط اسلایدهای معمولی ارث‌بری می‌شود](slide-master_8.png)
+![نگهدارندهٔ عنوان قالب‌بندی‌شده که توسط اسلایدهای معمولی به ارث می‌رسد](slide-master_8.png)
 
-برای گزینه‌های بیشتر قالب‌بندی placeholder و متن، به [Set Prompt Text in Placeholder](/slides/fa/cpp/manage-placeholder/) و [Text Formatting](/slides/fa/cpp/text-formatting/) مراجعه کنید.
+برای گزینه‌های بیشتر قالب‌بندی نگهدارنده و متن، به [Set Prompt Text in Placeholder](/slides/fa/cpp/manage-placeholder/) و [Text Formatting](/slides/fa/cpp/text-formatting/) مراجعه کنید.
 
-## **تغییر پس‌زمینهٔ Slide Master**
+## **تغییر پس‌زمینهٔ اسلاید مستر**
 
-یک پس‌زمینهٔ master توسط layoutها و اسلایدهایی که آن را بازنویسی نمی‌کنند، ارث‌بری می‌شود. مثال زیر رنگ پس‌زمینهٔ ثابت را برای اولین master slide تنظیم می‌کند:
+پس‌زمینهٔ مستر توسط لایه‌ها و اسلایدهایی که آن را بازنویسی نمی‌کنند، به ارث برده می‌شود. مثال زیر رنگ پس‌زمینهٔ ثابت را برای اولین اسلاید مستر تنظیم می‌کند:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -216,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-برای موضوعات مرتبط، به [Presentation Background](/slides/fa/cpp/presentation-background/) و [Presentation Theme](/slides/fa/cpp/presentation-theme/) نگاه کنید.
+برای موضوعات مرتبط، به [Presentation Background](/slides/fa/cpp/presentation-background/) و [Presentation Theme](/slides/fa/cpp/presentation-theme/) مراجعه کنید.
 
-## **کپی کردن یک Slide Master به ارائهٔ دیگر**
+## **کلون کردن اسلاید مستر به ارائهٔ دیگر**
 
-از [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslidecollection/addclone/) برای کپی یک master slide به ارائهٔ دیگری استفاده کنید. master کپی‌شده می‌تواند توسط layoutها و اسلایدهای مقصد استفاده شود.
+از [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslidecollection/addclone/) برای کپی کردن یک اسلاید مستر به ارائهٔ دیگری استفاده کنید. مستر کپی‌شده سپس می‌تواند توسط لایه‌ها و اسلایدهای موجود در ارائه مقصد استفاده شود.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -234,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-اگر نیاز دارید اسلایدهای معمولی را به همراه master آنها کلون کنید، به [Clone Slides](/slides/fa/cpp/clone-slides/) مراجعه کنید.
+اگر نیاز به کلون کردن اسلایدهای معمولی همراه با مستر آن‌ها دارید، به [Clone Slides](/slides/fa/cpp/clone-slides/) مراجعه کنید.
 
-## **افزودن چندین Slide Master**
+## **اضافه کردن چندین اسلاید مستر**
 
-یک ارائه می‌تواند حاوی چندین master slide باشد. این ویژگی زمانی مفید است که بخش‌های مختلف نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوتی داشته باشند.
+یک ارائه می‌تواند شامل چندین اسلاید مستر باشد. این برای بخش‌های مختلف که نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوتی دارند مفید است.
 
-![دستورات PowerPoint برای درج و مدیریت master slideها](slide-master_9.jpg)
+![دستورات PowerPoint برای وارد کردن و مدیریت اسلایدهای مستر](slide-master_9.jpg)
 
-مثال زیر master پیش‌فرض را کلون می‌کند، پس‌زمینهٔ متفاوتی به کلون می‌دهد، یک layout تحت آن master کلون شده ایجاد می‌کند و اسلاید جدیدی بر پایهٔ آن layout اضافه می‌کند:
+مثال زیر مستر پیش‌فرض را کلون می‌کند، برای کلون پس‌زمینه‌ای متفاوت تعیین می‌کند، یک لایه زیر آن مستر کلون‌شده ایجاد می‌کند و اسلاید جدیدی بر پایه آن لایه می‌افزاید:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -269,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **مقایسه Slide Masterها**
+## **مقایسهٔ اسلایدهای مستر**
 
-Slide Masterها می‌توانند با متد `Equals` که از [IBaseSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/) ارث‌بری شده است، مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به فرد مانند slide IDها یا مقادیر پویا در placeholders (مانند تاریخ فعلی) در مقایسه در نظر گرفته نمی‌شوند.
+اسلایدهای مستر می‌توانند با متد `Equals` که از [IBaseSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/) به ارث برده می‌شود، مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به فرد مانند شناسهٔ اسلاید یا مقادیر پویا مانند تاریخ جاری را در نظر نمی‌گیرد.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -308,11 +476,18 @@ firstPresentation->Dispose();
 
 برای اطلاعات بیشتر، به [Compare Presentation Slides](/slides/fa/cpp/compare-slides/) مراجعه کنید.
 
-## **تنظیم نمای Slide Master به‌عنوان نمای پیش‌فرض**
+## **تنظیم نماى اسلاید مستر به عنوان نماى پیش‌فرض**
 
-از متد `set_LastView` در [ViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند، استفاده کنید. مثال زیر ارائه را در نمای Slide Master باز می‌کند:
+از متد `set_LastView` در [ViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند استفاده کنید. مثال زیر ارائه را در نمای اسلاید مستر باز می‌کند:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -320,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-برای تنظیمات بیشتر نمای، به [Save Presentation](/slides/fa/cpp/save-presentation/) نگاهی بیندازید.
+برای تنظیمات بیشتر نما، به [Save Presentation](/slides/fa/cpp/save-presentation/) مراجعه کنید.
 
-## **حذف Master Slideهای استفاده‌نشده**
+## **حذف اسلایدهای مستر استفاده‌نشده**
 
-گاهی ارائه‌ها شامل master slideهایی می‌شوند که دیگر توسط هیچ اسلایدی استفاده نمی‌شوند. حذف masterهای استفاده‌نشده می‌تواند اندازهٔ فایل را کاهش داده و نگهداری قالب را ساده‌تر کند.
+گاهی اوقات ارائه‌ها شامل اسلایدهای مستری می‌شوند که دیگر توسط هیچ اسلاید معمولی استفاده نمی‌شوند. حذف مسترهای استفاده‌نشده می‌تواند اندازه فایل را کاهش دهد و نگهداری قالب را ساده‌تر کند.
 
-از [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/fa/cpp/aspose.slides/masterslidecollection/removeunused/) برای حذف masterهای استفاده‌نشده از مجموعه `get_Masters()` استفاده کنید:
+از [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/fa/cpp/aspose.slides/masterslidecollection/removeunused/) برای حذف مسترهای استفاده‌نشده از مجموعه `get_Masters()` استفاده کنید:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -339,6 +520,13 @@ presentation->Dispose();
 همچنین می‌توانید از متد کم‌کد [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) استفاده کنید:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -348,18 +536,14 @@ presentation->Dispose();
 
 ## **سوالات متداول**
 
-**تفاوت بین یک slide master و یک layout slide چیست؟**
+**تفاوت اسلاید مستر و اسلاید لایه‌بندی چیست؟**  
+اسلاید مستر تنظیمات طراحی مشترکی مانند تم، پس‌زمینه، اشکال مشترک و سبک‌های متن را تعریف می‌کند. اسلاید لایه‌بندی به یک اسلاید مستر تعلق دارد و ترتیب خاصی از نگهدارنده‌ها را تعیین می‌کند. یک اسلاید معمولی از یک اسلاید لایه‌بندی استفاده می‌کند، بنابراین هم از لایه‌بندی و هم از مستر ارث می‌برد.
 
-یک slide master تنظیمات طراحی مشترک مانند تم، پس‌زمینه، اشکال عمومی و سبک‌های متن را تعریف می‌کند. یک layout slide متعلق به یک master slide است و آرایش خاصی از placeholders را تعریف می‌کند. یک اسلاید معمولی از یک layout slide استفاده می‌کند، بنابراین هم از layout و هم از master ارث می‌برد.
+**آیا یک ارائه می‌تواند چندین اسلاید مستر داشته باشد؟**  
+بله. یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. هنگامیکه بخش‌های مختلف نیاز به سیستم‌های بصری یا برندینگ متفاوت دارند، از مسترهای متعدد استفاده کنید.
 
-**آیا یک ارائه می‌تواند چندین slide master داشته باشد؟**
+**آیا باید نگهدارنده‌ها را به اسلاید مستر اضافه کنم یا به اسلاید لایه‌بندی؟**  
+در اکثر موارد، نگهدارنده‌ها را به اسلایدهای لایه‌بندی اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های عمومی را روی اسلاید مستر بگذارید و سپس نگهدارنده‌های محتوا را روی لایه‌هایی که اسلایدهای معمولی استفاده می‌کنند، قرار دهید.
 
-بله. یک ارائه می‌تواند چندین slide master داشته باشد. زمانی که بخش‌های مختلف نیاز به سیستم‌های بصری یا برندینگ متفاوتی دارند، از چندین master استفاده کنید.
-
-**آیا باید placeholders را به یک master slide یا یک layout slide اضافه کنم؟**
-
-در بیشتر موارد، placeholders را به layout slideها اضافه کنید. عناصر بصری مشترک و قالب‌بندی مشترک را روی master slide قرار دهید و placeholders محتوا را روی layoutهایی که اسلایدهای معمولی استفاده می‌کنند، بگذارید.
-
-**آیا می‌توانم یک master slide که هنوز استفاده می‌شود را حذف کنم؟**
-
-نه. یک master slide که اسلایدهای وابسته دارد را نمی‌توان به‌صورت مستقیم حذف کرد. ابتدا آن اسلایدها را به layoutهای تحت master دیگری منتقل کنید یا از روش پاک‌سازی masterهای استفاده‌نشده استفاده کنید که فقط masterهای بدون استفاده را حذف می‌کند.
+**آیا می‌توانم یک اسلاید مستر که هنوز استفاده می‌شود را حذف کنم؟**  
+نه. اسلاید مستری که اسلایدهای وابسته دارد نمی‌تواند به‌صورت مستقیم حذف شود. ابتدا آن اسلایدها را به لایه‌های تحت مستر دیگری منتقل کنید یا از روش پاکسازی مسترهای استفاده‌نشده که تنها مسترهای بدون استفاده را حذف می‌کند، استفاده نمایید.

@@ -13,14 +13,14 @@ keywords:
 - تخطيط غير مستخدم
 - رؤية التذييل
 - شريحة عنوان
-- العنوان والمحتوى
+- عنوان ومحتوى
 - عنوان القسم
-- محتويان
+- محتوى مزدوج
 - مقارنة
 - عنوان فقط
 - تخطيط فارغ
-- محتوى مع شرح
-- صورة مع شرح
+- محتوى مع تسمية توضيحية
+- صورة مع تسمية توضيحية
 - عنوان ونص عمودي
 - عنوان عمودي ونص
 - PowerPoint
@@ -29,42 +29,44 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: تطبيق وإنشاء وتعديل تخطيطات الشرائح في Aspose.Slides لنظام Android عبر Java، إضافة عناصر نائبة، إزالة التخطيطات غير المستخدمة، والتحكم في رؤية التذييل.
+description: "تطبيق، إنشاء وتعديل تخطيطات الشرائح في Aspose.Slides للأندرويد عبر جافا، إضافة عناصر نائبة، إزالة التخطيطات غير المستخدمة، والتحكم في رؤية التذييل."
 ---
 ## **نظرة عامة**
 
-تحدد تخطيط الشريحة مواضع وتنسيق العناصر النائبة مثل العناوين والنصوص والصور والمخططات والجداول. يؤدي تطبيق تخطيط إلى إعطاء الشرائح بنية متسقة مع السماح لكل شريحة بأن تحتوي على محتواها الخاص.
+يحدد تخطيط الشريحة مواضع وتنسيق العناصر النائبة مثل العناوين والنصوص والصور والرسوم البيانية والجداول. يوفّر تطبيق التخطيط بنية متسقة للشرائح مع السماح لكل شريحة باحتواء محتواها الخاص.
 
-أكثر التخطيطات شيوعًا هي:
+تشمل أكثر التخطيطات شيوعًا:
 
 - **شريحة عنوان**: تحتوي على عناصر نائبة للعنوان والعنوان الفرعي.
-- **العنوان والمحتوى**: تحتوي على عنصر نائب للعنوان وعنصر نائب عام للمحتوى.
-- **فارغ**: لا يحتوي على عناصر نائبة، وهو مفيد عندما يتم وضع كل شكل يدويًا.
+- **عنوان ومحتوى**: تحتوي على عنصر نائب للعنوان وعنصر نائب عام للمحتوى.
+- **فارغ**: لا يحتوي على أي عناصر نائبة ويُستخدم عندما يتم وضع كل شكل يدويًا.
 
 ## **فهم وراثة التخطيط**
 
-للعرض التقديمي ثلاثة مستويات مترابطة:
+العرض التقديمي له ثلاث مستويات مرتبطة:
 
-1. شريحة [رئيسية](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) تُعرّف السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
-1. شريحة [تخطيط](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/) تنتمي إلى رئيسية وتحدد ترتيبًا معينًا للعناصر النائبة.
-1. شريحة [عادية](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/) تستخدم تخطيطًا واحدًا وتخزن المحتوى المُدخل لتلك الشريحة.
+1. [شريحة رئيسية](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) تُعرّف السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
+1. [شريحة تخطيط](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/) تنتمي إلى رئيسية وتحدد ترتيبًا معينًا للعناصر النائبة.
+1. [شريحة عادية](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/) تستخدم تخطيطًا واحدًا وتخزن المحتوى المدخل لتلك الشريحة.
 
-ترث الشريحة العادية السمة والتنسيق من تخطيطها، ويُرث التخطيط من الرئيسي. القيمة المحددة مباشرة على الشريحة العادية تتجاوز القيمة الموروثة على ذلك المستوى. عند إنشاء شريحة عادية، تُنشأ أشكال العناصر النائبة من التخطيط المحدد، بينما المحتوى المدخل في تلك العناصر النائبة يخص الشريحة العادية.
+ترث الشريحة العادية السمة والتنسيق من تخطيطها، ويرث التخطيط من رئيسيته. أي قيمة تُحدَّد مباشرةً على الشريحة العادية تتجاوز القيمة الموروثة في ذلك المستوى. عند إنشاء شريحة عادية، تُولَّد أشكال العناصر النائبة من التخطيط المحدد، بينما يُعَدُّ المحتوى المدخل إلى تلك العناصر جزءًا من الشريحة العادية.
 
-أضف العناصر النائبة المطلوبة إلى التخطيط قبل إنشاء الشرائح منه. إضافة عنصر نائب آخر إلى التخطيط لاحقًا لا يُضيف تلقائيًا شكل عنصر نائب مماثل إلى الشرائح العادية القائمة.
+أضف العناصر النائبة المطلوبة إلى التخطيط قبل إنشاء شرائح منه. إضافة عنصر نائب آخر إلى التخطيط لاحقًا لا يضيف تلقائيًا شكل عنصر نائب مماثل إلى الشرائح العادية الموجودة.
 
-هذه العلاقة لها نتيجتين مهمتين:
+لهذا العلاقة نتيجتان مهمتان:
 
-- تغيير التنسيق الموروث أو الشكل الهندسي للعناصر النائبة الحالية على تخطيط قد يُحدّث كل شريحة تعتمد عليه. قبل تعديل تخطيط مُستخدم بالفعل، افحص الشرائح التابعة له وراجع العرض الناتج.
-- لا يمكن حذف تخطيط ما زال مستخدمًا من قبل شريحة. يجب إعادة تعيين الشرائح التابعة إلى تخطيط آخر أولًا، أو حذف التخطيطات غير المستخدمة فقط.
+- تعديل التنسيق الموروث أو الشكل الهندسي لعناصر نائبة موجودة في التخطيط يمكن أن يُحدِّث كل الشريحة التي تعتمد عليه. قبل تعديل تخطيط مُستخدم، افحص الشرائح التابعة له وراجع النتيجة النهائية.
+- لا يمكن إزالة تخطيط لا يزال مُستَخدَمًا من قبل شريحة. أعد تعيين الشرائح التابعة إلى تخطيط آخر أولاً، أو احذف التخطيطات غير المستخدمة فقط.
 
 لمزيد من المعلومات حول المستوى الأعلى من هذه الهرمية، راجع [شريحة رئيسية](/slides/ar/androidjava/slide-master/).
 
+لإخفاء الشعارات أو الأشكال الزخرفية الموروثة من الرئيسي على شريحة واحدة أو عبر تخطيط مشترك، راجع [التحكم في رؤية الرسومات الرئيسية](/slides/ar/androidjava/slide-master/). يُقارن المثال شريحتين تستخدمان نفس الرئيسي.
+
 ## **اختيار وتطبيق تخطيط شريحة**
 
-استخدم نوع تخطيط عندما يتبع العرض التقديمي تعريفات تخطيط PowerPoint القياسية. أسماء التخطيطات قابلة للتحرير من قبل المستخدم ويمكن تعريبها، لذا فإن الاختيار بناءً على الاسم أقل موثوقية ما لم تتحكم في القالب المصدر.
+استخدم نوع التخطيط عندما يتبع العرض التقديمي تعريفات تخطيط PowerPoint القياسية. أسماء التخطيطات قابلة للتحرير من قِبل المستخدم ويمكن توطينها، لذا يكون الاختيار القائم على الاسم أقل موثوقية ما لم تكن تتحكم في القالب المصدر.
 
-المثال التالي يبحث عن **العنوان والمحتوى** في الأولى من الشريحة الرئيسية. إذا كان ذلك التخطيط غير متاح، فإنه ينتقل عمدًا إلى **فارغ**. الفحص الثاني للـ null ضروري لأن العرض التقديمي قد يحتوي فقط على تخطيطات مخصصة. ثم يُطبق التخطيط المحدد على الشريحة العادية الأولى عبر طريقة [ISlide.setLayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
+المثال التالي يبحث عن **عنوان ومحتوى** في الأولية الأولى. إذا كان هذا التخطيط غير متوفر، يتراجع عمدًا إلى **فارغ**. الفحص الثاني للـ null ضروري لأن العرض التقديمي قد يحتوي فقط على تخطيطات مخصصة. يتم بعد ذلك تطبيق التخطيط المختار على الشريحة العادية الأولى عبر طريقة [ISlide.setLayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
 
 ```java
 import com.aspose.slides.*;
@@ -89,13 +91,13 @@ try {
 }
 ```
 
-تغيّر تخطيط شريحة لا يزيل الأشكال العادية المضافة مباشرة إلى الشريحة. ومع ذلك، قد تتغيّر مواضع العناصر النائبة، التنسيق الموروث، والارتباط بين العناصر النائبة الحالية والتخطيط الجديد، لذا افحص الناتج عند التحويل بين تخطيطات مختلفة جذريًا.
+تغيير تخطيط الشريحة لا يزيل الأشكال العادية المضافة مباشرةً إلى الشريحة. ومع ذلك، يمكن أن تتغيّر مواضع العناصر النائبة، التنسيق الموروث، والارتباط بين العناصر النائبة الحالية والتخطيط الجديد، لذا افحص الناتج عند التبديل بين تخطيطات مختلفة اختلافًا كبيرًا.
 
 ## **إضافة شريحة تخطيط**
 
-الاختيار وإنشاء التخطيط عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدعِ طريقة [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) على مجموعة تخطيطات الرئيسي المستهدف.
+الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدع طريقة [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) على مجموعة تخطيطات الرئيسي المستهدف.
 
-المثال التالي يضيف دائمًا تخطيط **العنوان والمحتوى** جديدًا باسم `Report Title and Content`، ثم يضيف شريحة عادية تعتمد عليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
+المثال التالي يضيف دائمًا تخطيطًا جديدًا **عنوان ومحتوى** يُسمّى `Report Title and Content`، ثم يضيف شريحة عادية تستند إليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
 
 ```java
 import com.aspose.slides.*;
@@ -112,14 +114,14 @@ try {
 }
 ```
 
-أضف تخطيطًا فقط عندما يحتاج القالب فعليًا إلى بنية قابلة لإعادة الاستخدام أخرى. إذا كان هناك تخطيط مناسب موجود بالفعل، فاختره وأعد استخدامه بدلًا من إنشاء نسخة مكررة.
+أضف تخطيطًا فقط عندما يحتاج القالب حقًا إلى بنية قابلة لإعادة الاستخدام. إذا كان تخطيط ملائم موجودًا مسبقًا، اختره واستخدمه بدلاً من إنشاء نسخة مكررة.
 
 ## **إضافة عناصر نائبة إلى شريحة تخطيط**
 
-توفر طريقة [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) كائنًا من نوع [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) لإضافة أشكال العناصر النائبة إلى تخطيط.
+توفر طريقة [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) كائنًا من النوع [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) لإضافة أشكال عناصر نائبة إلى تخطيط.
 
-| عنصر نائب في PowerPoint | طريقة `ILayoutPlaceholderManager` |
-| ----------------------- | --------------------------------- |
+| العنصر النائب في PowerPoint | طريقة `ILayoutPlaceholderManager` |
+| --------------------------- | --------------------------------- |
 | ![Content](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
 | ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
@@ -131,7 +133,7 @@ try {
 | ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-المثال التالي يتحقق من وجود تخطيط **فارغ**، يضيف إليه أربعة عناصر نائبة، ثم ينشئ شريحة عادية تستخدم التخطيط المعدل. الترتيب متعمد: تُضاف العناصر النائبة قبل إنشاء الشريحة العادية، بحيث يتمكن Aspose.Slides من توليد أشكال العناصر النائبة المقابلة على تلك الشريحة.
+المثال التالي يتحقق من وجود التخطيط **فارغ**، يضيف أربعة عناصر نائبة إليه، ثم ينشئ شريحة عادية تستخدم التخطيط المعدل. الترتيب متعمد: تُضاف العناصر النائبة قبل إنشاء الشريحة العادية، حتى يستطيع Aspose.Slides توليد أشكال العناصر النائبة المقابلة على تلك الشريحة.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +161,15 @@ try {
 
 النتيجة:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![العناصر النائبة على شريحة التخطيط](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-تغيير التنسيق الموروث أو الشكل الهندسي للعناصر النائبة في التخطيط قد يؤثر على الشرائح التابعة. العنصر النائب المضاف حديثًا لا يُملأ تلقائيًا في الشرائح العادية القائمة. اختبر تغييرات التخطيط على نسخة من العرض التقديمي وافحص كل شريحة تابعة.
+تغيير التنسيق الموروث أو الشكل الهندسي لعناصر نائبة موجودة في التخطيط يمكن أن يؤثر على الشرائح التابعة. العنصر النائب المضاف حديثًا لا يُملأ تلقائيًا في الشرائح العادية الموجودة. اختبر تغييرات التخطيط على نسخة من العرض التقديمي وافحص كل شريحة تابعة.
 {{% /alert %}}
 
-## **إزالة شرائح التخطيط غير المستخدمة**
+## **إزالة شرائح تخطيط غير مستخدمة**
 
-استخدم طريقة [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تُبقي الطريقة التخطيطات التي لا يزال يُستعمل فيها سليمة.
+استخدم طريقة [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تترك الطريقة التخطيطات التي لا تزال قيد الاستخدام كما هي.
 
 ```java
 import com.aspose.slides.*;
@@ -181,13 +183,13 @@ try {
 }
 ```
 
-لإزالة تخطيط معين، استخدم أولًا طريقة [hasDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) أو [getDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) الخاصة به. أعد تعيين أي شرائح تابعة قبل استدعاء طريقة [ILayoutSlide.remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#remove--). محاولة إزالة تخطيط مُستَعمَل تُثير استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxeditexception/).
+لإزالة تخطيط معين، استخدم أولاً طريقة [hasDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) أو [getDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) الخاصة به. أعد تعيين أي شرائح تابعة قبل استدعاء [ILayoutSlide.remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#remove--). محاولة إزالة تخطيط مستخدم تُسبب استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxeditexception/).
 
-## **التحكم في إظهار التذييل على شريحة تخطيط**
+## **التحكم في رؤية تذييل الصفحة على شريحة تخطيط**
 
-لل تخطيط تذييله الخاص، ورقم شريحة، وعناصر التاريخ/الوقت. استخدم طريقة [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) للتحكم في تلك العناصر النائبة لتخطيط واحد. هذا مفيد عندما، على سبيل المثال، يجب أن تُظهر تخطيطات المحتوى التذييل بينما تُخفى تخطيطات العنوان.
+يحتوي التخطيط على تذييل صفحة، رقم شريحة، وعناصر نائبة للوقت/التاريخ خاصة به. استخدم طريقة [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) للتحكم في تلك العناصر النائبة لتخطيط واحد. هذا مفيد عندما، على سبيل المثال، يجب أن تُظهر تخطيطات المحتوى التذييل ولكن لا يجب أن تُظهر تخطيطات العنوان ذلك.
 
-المثال التالي يحدد تخطيطًا بأمان ويجعل عناصر التذييل مرئية:
+المثال التالي يختار تخطيطًا بأمان ويجعل عناصر تذييل الصفحة الخاصة به مرئية:
 
 ```java
 import com.aspose.slides.*;
@@ -217,9 +219,9 @@ try {
 }
 ```
 
-## **التحكم في إظهار التذييل على شريحة رئيسية وتخطيطاتها الفرعية**
+## **التحكم في رؤية تذييل الصفحة على رئيسية وتخطيطاتها الفرعية**
 
-لتطبيق إعدادات تذييل متسقة عبر شجرة رئيسية، استخدم طريقة [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . تعمل طرائق النشر في [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) على الرئيسي وتخطيطات الشرائح التابعة له والشريحة العادية؛ لا تستهدف شريحة عادية واحدة فقط.
+لتطبيق إعدادات تذييل موحدة عبر تسلسل هرمي للرئيسية، استخدم طريقة [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . تُطبق طرق الانتشار الخاصة بـ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) على الرئيسي وتخطيطاته التابعة والشرائح العادية؛ لا تستهدف شريحة عادية واحدة فقط.
 
 ```java
 import com.aspose.slides.*;
@@ -243,16 +245,16 @@ try {
 
 **ما الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
 
-الشريحة الرئيسية تُعرّف سمة العرض التقديمي والتنسيق المشترك. شريحة التخطيط تنتمي إلى رئيسية وتُعرّف ترتيبًا قابلاً لإعادة الاستخدام للعناصر النائبة. تستخدم الشرائح العادية تلك التخطيطات وتخزن محتوى الشريحة الخاص.
+تُعرّف الشريحة الرئيسية سمة العرض التقديمي والتنسيق المشترك. شريحة التخطيط تنتمي إلى رئيسية وتحدد ترتيبًا قابلًا لإعادة الاستخدام للعناصر النائبة. تستخدم الشرائح العادية تلك التخطيطات وتخزن محتوىً خاصًا بكل شريحة.
 
 **هل يمكنني نسخ شريحة تخطيط من عرض تقديمي إلى آخر؟**
 
-نعم. أضف نسخة إلى مجموعة الوجهة باستخدام طريقة [addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) . عند النسخ بين عروض تقديمية، تحقق أيضًا من الخطوط، السمات، الصور، والموارد الأخرى المستخدمة في التخطيط الأصلي.
+نعم. أضف نسخة إلى مجموعة الوجهة باستخدام طريقة [addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). عند النسخ بين العروض، تحقق أيضًا من الخطوط، السمات، الصور، والموارد الأخرى المستخدمة في التخطيط الأصلي.
 
-**ماذا يحدث عندما أعدّل تخطيطًا مُستخدمًا بالفعل؟**
+**ماذا يحدث إذا عدّلت تخطيطًا قيد الاستخدام بالفعل؟**
 
-ترث الشرائح التابعة تغييرات التخطيط ما لم تقم بتجاوز التنسيق أو الكائنات المتأثرة محليًا. قد يتغيّر الشكل الهندسي للعناصر النائبة والتنسيق الموروث على عدة شرائح دفعة واحدة. استخدم طريقة [getDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) لتحديد الشرائح المتأثرة قبل تعديل التخطيط.
+ترث الشرائح التابعة تغييرات التخطيط ما لم تقم بتجاوز التنسيق أو الكائنات المتأثرة محليًا. يمكن أن يتغيّر الشكل الهندسي للعناصر النائبة والأسلوب الموروث على العديد من الشرائح في آن واحد. استخدم [getDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) لتحديد الشرائح المتأثرة قبل تعديل التخطيط.
 
-**ماذا يحدث إذا أزلت تخطيطًا ما زال قيد الاستخدام؟**
+**ماذا يحدث إذا أزلت تخطيطًا لا يزال قيد الاستخدام؟**
 
-ترمي Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxeditexception/). أعد تعيين الشرائح التابعة أولًا، أو استخدم طريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) لإزالة التخطيطات غير المرجعية فقط.
+ترمي Aspose.Slides استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxeditexception/). أعد تعيين الشرائح التابعة أولاً، أو استخدم [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) لإزالة التخطيطات غير المرجعية فقط.

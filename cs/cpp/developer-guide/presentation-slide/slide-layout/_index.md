@@ -1,24 +1,24 @@
 ---
-title: Použít nebo změnit rozvržení snímků v C++
-linktitle: Rozvržení snímku
+title: Použít nebo změnit rozložení snímků v C++
+linktitle: Rozložení snímku
 type: docs
 weight: 60
 url: /cs/cpp/slide-layout/
 keywords:
-- rozvržení snímku
-- rozvržení obsahu
+- rozložení snímku
+- rozložení obsahu
 - zástupný objekt
 - návrh prezentace
 - návrh snímku
-- nepoužité rozvržení
-- viditelnost zápatí
-- snímek s nadpisem
-- nadpis a obsah
+- nepoužité rozložení
+- viditelnost patičky
+- titulní snímek
+- titul a obsah
 - hlavička sekce
-- dva obsahy
-- porovnání
+- dvě oblasti obsahu
+- srovnání
 - pouze nadpis
-- prázdné rozvržení
+- prázdné rozložení
 - obsah s popiskem
 - obrázek s popiskem
 - nadpis a svislý text
@@ -28,42 +28,44 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Použijte, vytvořte a upravte rozvržení snímků v Aspose.Slides pro C++, přidejte zástupné objekty, odstraňte nepoužitá rozvržení a ovládejte viditelnost zápatí."
+description: "Použijte, vytvářejte a upravujte rozložení snímků v Aspose.Slides pro C++, přidávejte zástupné objekty, odstraňujte nepoužitá rozložení a ovládejte viditelnost patičky."
 ---
 ## **Přehled**
 
-Rozvržení snímku definuje pozice a formátování zástupných objektů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použití rozvržení poskytuje snímkům konzistentní strukturu a zároveň umožňuje, aby každý snímek obsahoval vlastní obsah.
+Rozložení snímku určuje polohu a formátování zástupných objektů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použití rozložení poskytuje snímkům konzistentní strukturu a zároveň umožňuje, aby každý snímek obsahoval svůj vlastní obsah.
 
-Nejčastější rozvržení zahrnují:
+Mezi nejčastější rozložení patří:
 
 - **Title Slide**: Obsahuje zástupné objekty nadpisu a podnadpisu.
-- **Title and Content**: Obsahuje zástupný objekt nadpisu a obecný zástupný objekt pro obsah.
-- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečné, když bude každá forma umístěna ručně.
+- **Title and Content**: Obsahuje zástupný objekt nadpisu a obecný zástupný objekt obsahu.
+- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečné, když bude každý tvar umístěn ručně.
 
-## **Pochopení dědičnosti rozvržení**
+## **Pochopit dědičnost rozložení**
 
 Prezentace má tři související úrovně:
 
-1. [Hlavní snímek](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslide/) definuje téma, sdílené formátování, pozadí a společné objekty.
-2. [Rozvržení snímku](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/) patří hlavnímu snímku a definuje konkrétní uspořádání zástupných objektů.
-3. [Normální snímek](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/) využívá jedno rozvržení a ukládá obsah zadaný pro tento snímek.
+1. A [master slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslide/) určuje téma, sdílené formátování, pozadí a společné objekty.
+1. A [layout slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/) patří k masteru a určuje konkrétní uspořádání zástupných objektů.
+1. A [normal slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/) používá jedno rozložení a ukládá obsah zadaný pro tento snímek.
 
-Normální snímek dědí téma a formátování ze svého rozvržení a rozvržení dědí z hlavního snímku. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je normální snímek vytvořen, jeho tvary zástupných objektů jsou generovány z vybraného rozvržení, zatímco obsah zadaný do těchto zástupných objektů patří normálnímu snímku.
+Normální snímek dědí téma a formátování ze svého rozložení a rozložení dědí od svého masteru. Hodnota nastavená přímo na normálním snímku přebije zděděnou hodnotu na této úrovni. Když je normální snímek vytvořen, jeho tvary zástupných objektů jsou generovány ze zvoleného rozložení, zatímco obsah zadaný do těchto zástupných objektů patří normálnímu snímku.
 
-Přidejte požadované zástupné objekty do rozvržení před vytvořením snímků z něj. Přidání dalšího zástupného objektu do rozvržení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
+Přidejte požadované zástupné objekty do rozložení před vytvořením snímků z něj. Přidání dalšího zástupného objektu do rozložení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
 
-Tento vztah má dva důležité důsledky:
+Tento vztah má dvě důležité důsledky:
 
-- Změna zděděného formátování nebo existující geometrie zástupného objektu v rozvržení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozvržení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
-- Rozvržení, které je stále používáno snímkem, nelze odstranit. Předtím přesuňte jeho závislé snímky na jiné rozvržení, nebo odstraňte jen nepoužívaná rozvržení.
+- Změna zděděného formátování nebo existující geometrie zástupných objektů v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které již je používáno, zkontrolujte jeho závislé snímky a přezkoumejte vzniklou prezentaci.
+- Rozložení, které je stále používáno snímkem, nelze odstranit. Nejprve přiřaďte jeho závislé snímky k jinému rozložení nebo odstraňte pouze nepoužívaná rozložení.
 
-Pro více informací o nejvyšší úrovni této hierarchie viz [Hlavní snímek](/slides/cs/cpp/slide-master/).
+Pro více informací o nejvyšší úrovni této hierarchie navštivte [Slide Master](/slides/cs/cpp/slide-master/).
 
-## **Vyberte a použijte rozvržení snímku**
+Chcete-li skrýt zděděná loga nebo dekorativní tvary masteru na jednom snímku nebo prostřednictvím sdíleného rozložení, podívejte se na [Control the Visibility of Master Graphics](/slides/cs/cpp/slide-master/). Příklad porovnává dva snímky používající stejný master.
 
-Používejte typ rozvržení, když prezentace používá standardní definice rozvržení PowerPointu. Názvy rozvržení lze upravovat a lokalizovat, takže výběr založený na názvu je méně spolehlivý, pokud neovládáte zdrojovou šablonu.
+## **Vybrat a použít rozložení snímku**
 
-Následující příklad hledá **Title and Content** v prvním hlavním snímku. Pokud toto rozvržení není k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozvržení. Vybrané rozvržení je následně použito na první normální snímek pomocí metody [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/set_layoutslide/).
+Používejte typ rozložení, když prezentace následuje standardní definice rozložení PowerPointu. Názvy rozložení lze upravovat a mohou být lokalizovány, takže výběr podle názvu je méně spolehlivý, pokud neovládáte zdrojovou šablonu.
+
+Následující příklad hledá **Title and Content** na prvním masteru. Pokud toto rozložení není k dispozici, úmyslně přepne na **Blank**. Druhá kontrola null je nutná, protože prezentace může obsahovat pouze vlastní rozložení. Vybrané rozložení je pak použito na první normální snímek pomocí metody [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Změna rozvržení snímku neodstraní běžné tvary přidané přímo na snímek. Nicméně pozice zástupných objektů, zděděné formátování a shoda mezi existujícími zástupnými objekty a novým rozvržením se mohou změnit, proto při přepínání mezi podstatně odlišnými rozvrženími zkontrolujte výstup.
+Změna rozložení snímku neodstraňuje běžné tvary přidané přímo na snímek. Nicméně se mohou změnit pozice zástupných objektů, zděděné formátování a shoda mezi existujícími zástupnými objekty a novým rozložením, takže výstup při přepínání mezi výrazně odlišnými rozloženími zkontrolujte.
 
-## **Přidejte rozvržení snímku**
+## **Přidat rozložení snímku**
 
-Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybere existující rozvržení; nevytvoří ho. Pro vytvoření rozvržení zavolejte metodu [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterlayoutslidecollection/add/) na kolekci rozvržení cílového hlavního snímku.
+Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybírá existující rozložení; nevytváří nové. Pro vytvoření rozložení zavolejte metodu [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterlayoutslidecollection/add/) na kolekci rozložení cílového masteru.
 
-Následující příklad vždy přidá nové rozvržení **Title and Content** pojmenované `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozvržení musí být v kolekci jedinečné.
+Následující příklad vždy přidá nové rozložení **Title and Content** s názvem `Report Title and Content` a poté přidá normální snímek založený na tomto rozložení. Názvy rozložení musejí být v kolekci jedinečné.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,14 +134,14 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Přidejte rozvržení pouze tehdy, když šablona skutečně potřebuje další opakovaně použitelnou strukturu. Pokud již existuje vhodné rozvržení, vyberte a znovu jej použijte místo vytváření duplikátu.
+Přidejte rozložení jen tehdy, když šablona skutečně potřebuje další opakovaně použitelné uspořádání. Pokud již existuje vhodné rozložení, vyberte a znovu jej použijte místo vytváření duplikátu.
 
-## **Přidejte zástupné objekty do rozvržení snímku**
+## **Přidat zástupné objekty do rozložení snímku**
 
-Metoda [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) poskytuje [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/) pro přidávání tvarů zástupných objektů do rozvržení.
+Metoda [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) poskytuje [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/) pro přidávání tvarů zástupných objektů do rozložení.
 
-| Zástupný objekt PowerPoint | `ILayoutPlaceholderManager` Metoda |
-| -------------------------- | ---------------------------------- |
+| Zástupný objekt PowerPointu | `ILayoutPlaceholderManager` Method |
+| --------------------------- | ---------------------------------- |
 | ![Obsah](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
 | ![Obsah (vertikální)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
 | ![Text](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
@@ -151,7 +153,7 @@ Metoda [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slide
 | ![Média](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
 | ![Online obrázek](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Následující příklad ověří, že rozvržení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který používá upravené rozvržení. Pořadí je úmyslné: zástupné objekty jsou přidány před vytvořením normálního snímku, takže Aspose.Slides může na tomto snímku vygenerovat odpovídající tvary zástupných objektů.
+Následující příklad ověřuje, že rozložení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který používá upravené rozložení. Pořadí je úmyslné: zástupné objekty jsou přidány před vytvořením normálního snímku, aby Aspose.Slides mohl vygenerovat odpovídající tvary zástupných objektů na tomto snímku.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -193,12 +195,12 @@ Výsledek:
 ![The placeholders on the layout slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozvržení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozvržení není doplněn do existujících normálních snímků. Otestujte změny rozvržení na kopii prezentace a zkontrolujte každý závislý snímek.
+Změna zděděného formátování nebo geometrie existujících zástupných objektů rozložení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozložení není doplněn do existujících normálních snímků. Otestujte změny rozložení na kopii prezentace a zkontrolujte každý závislý snímek.
 {{% /alert %}}
 
-## **Odstraňte nepoužívaná rozvržení snímků**
+## **Odstranit nepoužívaná rozložení snímků**
 
-Použijte metodu [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) k odebrání rozvržení, na která neodkazuje žádný normální snímek. Metoda ponechá nedotčená rozvržení, která jsou stále používána.
+Použijte metodu [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) k odstranění rozložení, na která neodkazuje žádný normální snímek. Metoda ponechá rozložení, která jsou stále používána, nedotčena.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,11 +220,11 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Chcete‑li odstranit konkrétní rozvržení, nejprve použijte jeho metodu [get_HasDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) nebo [GetDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/getdependingslides/). Před voláním [ILayoutSlide::Remove](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/remove/) přesuňte všechny závislé snímky. Pokus o odstranění používaného rozvržení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/).
+Pro odstranění konkrétního rozložení nejprve použijte jeho metodu [get_HasDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) nebo [GetDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/getdependingslides/). Přiřaďte všechny závislé snímky před voláním [ILayoutSlide::Remove](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/remove/). Pokud se pokusíte odstranit používané rozložení, dojde k vyvolání výjimky [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/).
 
-## **Řízení viditelnosti zápatí na rozvržení snímku**
+## **Ovládání viditelnosti patičky na rozložení snímku**
 
-Rozvržení má vlastní zástupné objekty zápatí, čísla snímků a datum‑čas. Použijte metodu [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) k řízení těchto zástupných objektů pro jedno rozvržení. To je užitečné například, když by rozvržení obsahu měla zobrazovat zápatí, ale rozvržení nadpisu ne.
+Rozložení má své vlastní zástupné objekty patičky, čísla snímku a data/času. Použijte metodu [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) pro ovládání těchto zástupných objektů u jednoho rozložení. To je užitečné například když rozložení obsahu má zobrazovat patičky, ale rozložení titulků ne.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -263,9 +265,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Řízení viditelnosti zápatí v hlavním snímku a jeho podřízených rozvrženích**
+## **Ovládání viditelnosti patičky na masteru a jeho podřízených rozloženíc**
 
-Aby byla použita jednotná nastavení zápatí v celé hierarchii hlavního snímku, použijte metodu [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Metody šíření třídy [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslideheaderfootermanager/) působí na hlavní snímek a jeho závislé rozvržení snímků i normální snímky; nemají cíl jen jeden normální snímek.
+Pro aplikaci jednotných nastavení patičky napříč hierarchií masteru použijte metodu [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Metody šíření [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslideheaderfootermanager/) fungují na masteru i na jeho závislých rozložení snímků a normálních snímcích; neaplikují se jen na jeden normální snímek.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -293,18 +295,18 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi hlavním snímkem a rozvržením snímku?**
+**Jaký je rozdíl mezi master snímkem a layout snímkem?**
 
-Hlavní snímek definuje téma prezentace a sdílené formátování. Rozvržení snímku patří hlavnímu snímku a definuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozvržení a ukládají obsah specifický pro snímek.
+Master snímek určuje téma prezentace a sdílené formátování. Layout snímek patří k masteru a určuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozložení a ukládají obsah specifický pro snímek.
 
-**Mohu zkopírovat rozvržení snímku z jedné prezentace do druhé?**
+**Mohu zkopírovat layout snímek z jedné prezentace do druhé?**
 
-Ano. Přidejte kopii do cílové kolekce pomocí metody [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/cs/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Při kopírování mezi prezentacemi také ověřte písma, témata, obrázky a další zdroje používané zdrojovým rozvržením.
+Ano. Přidejte kopii do cílové kolekce pomocí metody [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/cs/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Při kopírování mezi prezentacemi také ověřte písma, motivy, obrázky a další zdroje použité zdrojovým rozložením.
 
-**Co se stane, když upravím rozvržení, které je již používáno?**
+**Co se stane, když upravím rozložení, které je již používáno?**
 
-Závislé snímky zdědí změny rozvržení, pokud lokálně nepřepíší ovlivněné formátování nebo objekty. Geometrie zástupných objektů a zděděné stylování se tak mohou najednou změnit na mnoha snímcích. Před úpravou rozvržení použijte [GetDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/getdependingslides/) k určení ovlivněných snímků.
+Závislé snímky zdědí změny rozložení, pokud místně nepřepíšou postižené formátování nebo objekty. Geometrie zástupných objektů a zděděné stylování se tak mohou najednou změnit na mnoha snímcích. Použijte [GetDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/getdependingslides/) k identifikaci ovlivněných snímků před úpravou rozložení.
 
-**Co se stane, pokud odstraním rozvržení, které je stále používáno?**
+**Co se stane, pokud odstraním rozložení, které je stále používáno?**
 
-Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/). Nejprve přesuňte závislé snímky, nebo použijte [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) k odstranění jen neodkazovaných rozvržení.
+Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/). Nejprve přiřaďte závislé snímky, nebo použijte [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) k odstranění pouze neodkazovaných rozložení.

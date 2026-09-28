@@ -1,58 +1,62 @@
 ---
-title: "Διαχείριση master διαφανειών σε .NET"
-linktitle: "Master Διαφάνειας"
+title: Διαχείριση Master Διαφανειών Παρουσίασης σε .NET
+linktitle: Master Διαφάνειας
 type: docs
 weight: 80
 url: /el/net/slide-master/
 keywords:
-- "master διαφάνειας"
-- "master διαφάνειας"
-- "master διαφάνειας PPT"
-- "πολλαπλά master slides"
-- "σύγκριση master slides"
-- φόντο
-- "σύμβολο κράτησης"
-- "κλώνος master slide"
-- "αντιγραφή master slide"
-- "αντίγραφο master slide"
-- "αχρησιμοποίητο master slide"
+- master διαφάνειας
+- master διαφάνειας
+- master διαφάνειας PPT
+- πολλαπλοί master διαφάνειες
+- σύγκριση master διαφανειών
+- παρασκήνιο
+- placeholder
+- κλωνοποίηση master διαφάνειας
+- αντιγραφή master διαφάνειας
+- αντίγραφο master διαφάνειας
+- αχρησιμοποίητη master διαφάνεια
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Διαχείριση master διαφανειών στο Aspose.Slides για .NET: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση master διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
+description: "Διαχειριστείτε τα master διαφάνειας στο Aspose.Slides για .NET: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση master διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
 ---
 ## **Επισκόπηση**
 
-Ένας **slide master** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, φόντα, στυλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός slide master είναι ο συνηθισμένος τρόπος να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
+Ένας **master διαφάνειας** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, παρασκήνια, στυλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός master διαφάνειας είναι ο συνηθισμένος τρόπος να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
 
-Το Aspose.Slides για .NET υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει μία ή περισσότερες master slides, και κάθε master slide μπορεί να περιέχει αρκετές layout slides. Οι κανονικές διαφάνειες συνήθως δεν αναφέρονται απευθείας σε μια master slide. Αντίθετα, μια κανονική διαφάνεια χρησιμοποιεί μια layout slide, η οποία ανήκει σε μια master slide.
+Το Aspose.Slides for .NET υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει μία ή περισσότερες master διαφάνειες, και κάθε master διαφάνεια μπορεί να περιέχει αρκετές διαφάνειες διάταξης. Οι κανονικές διαφάνειες συνήθως δεν αναφέρονται απευθείας σε μια master διαφάνεια. Αντ' αυτού, μια κανονική διαφάνεια χρησιμοποιεί μια διαφάνεια διάταξης, η οποία ανήκει σε μια master διαφάνεια.
 
 Η ιεραρχία είναι:
 
-1. **Slide master** - ορίζει το κοινό σχέδιο και το θέμα.
-1. **Layout slide** - ορίζει μια συγκεκριμένη διάταξη στοιχείων κράτησης θέσης και μορφοποίησης επιπέδου διάταξης.
-1. **Normal slide** - περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί μια layout slide.
+1. **Master διαφάνειας** – ορίζει το κοινό σχέδιο και το θέμα.  
+1. **Διαφάνεια διάταξης** – ορίζει μια συγκεκριμένη διάταξη στοιχείων κράτησης θέσης και μορφοποίησης επιπέδου διάταξης.  
+1. **Κανονική διαφάνεια** – περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί μία διαφάνεια διάταξης.
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![Η ιεραρχία των master διαφανειών, διαφανειών διάταξης και κανονικών διαφανειών](slide-master_2.jpg)
 
-Στο Aspose.Slides, ένα slide master αντιπροσωπεύεται από τη διεπαφή [IMasterSlide](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslide/). Όλες οι master slides σε μια παρουσίαση είναι διαθέσιμες μέσω της συλλογής [Presentation.Masters](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/masters/), η οποία υλοποιεί το [IMasterSlideCollection](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslidecollection/).
+Στο Aspose.Slides, ένας master διαφάνειας αντιπροσωπεύεται από τη διεπαφή [IMasterSlide](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslide/). Όλοι οι master διαφάνειες σε μια παρουσίαση είναι διαθέσιμοι μέσω της συλλογής [Presentation.Masters](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/masters/), η οποία υλοποιεί το [IMasterSlideCollection](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslidecollection/).
 
-{{% alert color="info" title="Κληρονομικότητα" %}}
-Όταν η ίδια ιδιότητα ορίζεται σε περισσότερα από ένα επίπεδα, το πιο συγκεκριμένο επίπεδο κερδίζει. Για παράδειγμα, αν μια master slide και μια layout slide ορίζουν και οι δύο ένα φόντο, οι διαφάνειες που βασίζονται σε αυτή τη διάταξη θα χρησιμοποιούν το φόντο της διάταξης. Για περισσότερες πληροφορίες σχετικά με τις layout slides, δείτε [Εφαρμογή ή Αλλαγή Διατάξεων Διαφανειών](/slides/el/net/slide-layout/).
+{{% alert color="info" title="Inheritance" %}}
+
+Όταν η ίδια ιδιότητα ορίζεται σε περισσότερα από ένα επίπεδα, το πιο συγκεκριμένο επίπεδο υπερισχύει. Για παράδειγμα, εάν ένας master διαφάνειας και μια διαφάνεια διάταξης ορίζουν και οι δύο ένα παρασκήνιο, οι διαφάνειες που βασίζονται σε αυτή τη διάταξη χρησιμοποιούν το παρασκήνιο της διάταξης. Για περισσότερες πληροφορίες σχετικά με τις διαφάνειες διάταξης, δείτε [Apply or Change Slide Layouts](/slides/el/net/slide-layout/).
+
 {{% /alert %}}
 
-## **Πρόσβαση σε Slide Masters**
+## **Πρόσβαση σε Master Διαφάνειες**
 
-Στο PowerPoint, μπορείτε να ανοίξετε την προβολή Slide Master από **View** > **Slide Master**.
+Στο PowerPoint, μπορείτε να ανοίξετε την προβολή Master διαφάνειας από **View** > **Slide Master**.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![Η εντολή Master διαφάνειας στην καρτέλα View του PowerPoint](slide-master_3.jpg)
 
-Στο Aspose.Slides, χρησιμοποιήστε τη συλλογή `Masters` για να έχετε πρόσβαση στις master slides:
+Στο Aspose.Slides, χρησιμοποιήστε τη συλλογή `Masters` για να αποκτήσετε πρόσβαση στους master διαφάνειες:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var firstMasterSlide = presentation.Masters[0];
@@ -63,9 +67,11 @@ Console.WriteLine("Master slides: " + masterSlideCount);
 Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
-Μπορείτε επίσης να λάβετε το master slide που χρησιμοποιεί μια κανονική διαφάνεια μέσω της διάταξής της:
+Μπορείτε επίσης να λάβετε τη master διαφάνειας που χρησιμοποιείται από μια κανονική διαφάνεια μέσω της διάταξής της:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var slide = presentation.Slides[0];
@@ -76,28 +82,31 @@ var masterSlideName = masterSlide.Name;
 Console.WriteLine(masterSlideName);
 ```
 
-## **Τι Περιέχει ένα Slide Master**
+## **Τι Περιέχει ένας Master Διαφάνειας**
 
-Ένα master slide είναι ένα αντικείμενο παρόμοιο με διαφάνεια. Υλοποιεί το [IBaseSlide](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/), έτσι εκθέτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από κανονικές και layout διαφάνειες. Τα μέλη που αφορούν συγκεκριμένα το master παρατίθενται στη σελίδα API του [IMasterSlide](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslide/).
+Ένας master διαφάνειας είναι ένα αντικείμενο τύπου διαφάνειας. Εφαρμόζει το [IBaseSlide](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/), έτσι ώστε να εκθέτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από κανονικές και διαφάνειες διάταξης. Τα μέλη που αφορούν μόνο τον master αναφέρονται στη σελίδα API του [IMasterSlide](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslide/).
 
-Κοινά χρησιμοποιούμενα μέλη master slide περιλαμβάνουν:
+Κοινά χρησιμοποιούμενα μέλη master διαφάνειας περιλαμβάνουν:
 
 | Μέλος | Σκοπός |
 | --- | --- |
-| `Background` | Ορίζει το φόντο σε επίπεδο master slide. |
-| `Shapes` | Αποθηκεύει σχήματα που τοποθετούνται στο master, όπως λογότυπα, πλαίσια εικόνας και κοινό κείμενο. |
-| `LayoutSlides` | Αποθηκεύει τις layout slides που ανήκουν στο master. |
+| `Background` | Ορίζει το παρασκήνιο σε επίπεδο master. |
+| `Shapes` | Αποθηκεύει σχήματα που τοποθετούνται στον master, όπως λογότυπα, πλαίσια εικόνας και κοινό κείμενο. |
+| `LayoutSlides` | Αποθηκεύει τις διαφάνειες διάταξης που ανήκουν στον master. |
 | `ThemeManager` | Παρέχει πρόσβαση στα API του θέματος master. |
-| `HeaderFooterManager` | Ελέγχει κεφαλίδες, υποσέλιδα, ημερομηνίες και αριθμούς διαφανειών για το master και τις παιδικές του διατάξεις. |
-| `GetDependingSlides` | Επιστρέφει κανονικές διαφάνειες που εξαρτώνται από το master μέσω των διατάξεων τους. |
+| `HeaderFooterManager` | Διαχειρίζεται κεφαλίδες, υποσέλιδα, ημερομηνίες και αριθμούς διαφανειών για τον master και τις θυγατρικές του διατάξεις. |
+| `GetDependingSlides` | Επιστρέφει τις κανονικές διαφάνειες που εξαρτώνται από τον master μέσω των διατάξεών τους. |
 
-## **Προσθήκη Εικόνας σε Slide Master**
+## **Προσθήκη Εικόνας σε Master Διαφάνειας**
 
-Όταν προσθέτετε μια εικόνα σε ένα master slide, εμφανίζεται στις διαφάνειες που χρησιμοποιούν διατάξεις από αυτό το master. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές λωρίδες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
+Όταν προσθέτετε μια εικόνα σε έναν master διαφάνειας, εμφανίζεται στις διαφάνειες που χρησιμοποιούν διατάξεις από αυτόν τον master. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές λωρίδες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
 
-Το παρακάτω παράδειγμα προσθέτει ένα λογότυπο στην πρώτη master slide:
+Το παρακάτω παράδειγμα προσθέτει ένα λογότυπο στην πρώτη master διαφάνειας:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -115,19 +124,72 @@ masterSlide.Shapes.AddPictureFrame(
 presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
 ```
 
-Για περισσότερες πληροφορίες σχετικά με τα πλαίσια εικόνας, δείτε [Πλαίσιο Εικόνας](/slides/el/net/picture-frame/).
+Για περισσότερες πληροφορίες σχετικά με τα πλαίσια εικόνας, δείτε [Picture Frame](/slides/el/net/picture-frame/).
 
-## **Εργασία με Placeholders**
+## **Έλεγχος Ορατότητας Γραφικών Master**
 
-Τα placeholders ορίζονται κανονικά σε layout slides. Το master slide παρέχει το κοινό στυλ και το θέμα που κληρονομούν αυτές οι διατάξεις, ενώ κάθε διάταξη αποφασίζει ποια placeholders είναι διαθέσιμα και πού τοποθετούνται.
+Χρησιμοποιήστε το [IBaseSlide.ShowMasterShapes](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/showmastershapes/) για να κρύψετε κληθέντα γραφικά master, όπως λογότυπα ή διακοσμητικά σχήματα, χωρίς να τα διαγράψετε από τον master. Ορίστε το [Slide.ShowMasterShapes](https://reference.aspose.com/slides/el/net/aspose.slides/slide/showmastershapes/) σε `false` στη διαφάνεια που πρέπει να παραλείπει αυτά τα γραφικά και διατηρήστε το `true` στις διαφάνειες που πρέπει να τα εμφανίζουν.
 
-Στο PowerPoint, οι εντολές placeholder είναι διαθέσιμες στην προβολή Slide Master.
-
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
-
-Για να προσθέσετε νέα placeholders με το Aspose.Slides, εργαστείτε με τη layout slide που ανήκει στο master:
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί μια μπλε διακοσμητική λωρίδα σε έναν master και δύο διαφάνειες που χρησιμοποιούν την ίδια κενή διάταξη. Η λωρίδα είναι ορατή στην πρώτη διαφάνεια και κρυφή στη δεύτερη. Δεν απαιτείται παρουσίαση εισόδου ή εικόνα.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var masterSlide = presentation.Masters[0];
+var layoutSlide = masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank);
+layoutSlide.ShowMasterShapes = true;
+
+var slideHeight = presentation.SlideSize.Size.Height;
+var band = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var visibleSlide = presentation.Slides[0];
+visibleSlide.LayoutSlide = layoutSlide;
+visibleSlide.Shapes.Clear();
+
+var hiddenSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+
+visibleSlide.ShowMasterShapes = true;
+hiddenSlide.ShowMasterShapes = false;
+
+presentation.Save("master-graphics.pptx", SaveFormat.Pptx);
+```
+
+Το παράδειγμα χρησιμοποιεί τη διάταξη **Blank** που παρέχεται με μια νέα παρουσίαση και αφαιρεί τα αρχικά στοιχεία κράτησης θέσης της πρώτης διαφάνειας.
+
+### **Επιλογή του Πεδίου Εφαρμογής της Ρύθμισης**
+
+Μια κανονική διαφάνεια χρησιμοποιεί τον master της μέσω του [ISlide.LayoutSlide](https://reference.aspose.com/slides/el/net/aspose.slides/islide/layoutslide/) και του [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/el/net/aspose.slides/ilayoutslide/masterslide/). Η ρύθμιση της ιδιότητας σε μεμονωμένη διαφάνεια επηρεάζει μόνο εκείνη τη διαφάνεια. Ορίζοντας το [LayoutSlide.ShowMasterShapes](https://reference.aspose.com/slides/el/net/aspose.slides/layoutslide/showmastershapes/) σε `false` κρύβει τα γραφικά master για όλες τις διαφάνειες που χρησιμοποιούν αυτή τη κοινή διάταξη, ακόμη και αν η δική τους ρύθμιση είναι `true`. Για να κρύψετε γραφικά μόνο σε μία διαφάνεια, αλλάξτε την ιδιότητα της διαφάνειας και αφήστε την κοινή διάταξη αμετάβλητη.
+
+Η ρύθμιση δεν υποστηρίζεται ως έλεγχος ορατότητας στη ίδια τη master διαφάνειας. Σε έναν master επιστρέφει πάντα `false`, και η ανάθεση `true` προκαλεί `NotSupportedException`. Εφαρμόστε την σε κανονική διαφάνεια ή σε διάταξη.
+
+### **Διαχωρισμός Γραφικών από το Παρασκήνιο**
+
+| Ενέργεια | Αποτέλεσμα |
+| --- | --- |
+| Απόκρυψη γραφικών master | Ελέγχει την ορατότητα των κληθέντων σ shapes master χωρίς διαγραφή ή αλλαγή των δικών σας σχημάτων στη διαφάνεια. |
+| Αλλαγή γεμίσματος παρασκηνίου διαφάνειας | Αλλάζει το χρώμα, το διαβάθμιση ή την εικόνα του παρασκηνίου. Τα γραφικά master είναι ξεχωριστά σ shapes και μπορούν να παραμείνουν ορατά πάνω από το παρασκήνιο. Δείτε [Presentation Background](/slides/el/net/presentation-background/). |
+| Διαγραφή σ shape από τον master | Αφαιρεί το κοινό σ shape‑πηγή, ώστε να μην είναι πλέον διαθέσιμο σε καμία διαφάνεια που χρησιμοποιεί αυτόν τον master. |
+
+## **Δουλειά με Placeholders**
+
+Τα placeholders ορίζονται κανονικά στις διαφάνειες διάταξης. Ο master διαφάνειας παρέχει το κοινό στυλ και θέμα που κληρονομούν αυτές οι διατάξεις, ενώ κάθε διάταξη αποφασίζει ποια placeholders είναι διαθέσιμα και πού τοποθετούνται.
+
+Στο PowerPoint, οι εντολές placeholder διατίθενται στην προβολή Master διαφάνειας.
+
+![Η εντολή Insert Placeholder στην προβολή Master διαφάνειας του PowerPoint](slide-master_5.png)
+
+Για να προσθέσετε νέα placeholders με το Aspose.Slides, εργαστείτε με τη διαφάνεια διάταξης που ανήκει στον master:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -145,9 +207,13 @@ presentation.Slides.AddEmptySlide(blankLayoutSlide);
 presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
 ```
 
-Μπορείτε επίσης να μορφοποιήσετε σχήματα placeholder που ήδη υπάρχουν σε ένα master slide. Το παρακάτω παράδειγμα βρίσκει το placeholder τίτλου και εφαρμόζει γραμμική βαθμωτή γέμιση:
+Μπορείτε επίσης να μορφοποιήσετε σ shapes placeholders που υπάρχουν ήδη σε έναν master διαφάνειας. Το παρακάτω παράδειγμα βρίσκει το placeholder τίτλου και εφαρμόζει ένα γραμμικό γέμισμα διαβάθμισης:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -181,15 +247,19 @@ static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType pla
 }
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![Μορφοποιημένο placeholder τίτλου κληρονομούμενο από τις κανονικές διαφάνειες](slide-master_8.png)
 
-Για περισσότερες επιλογές μορφοποίησης placeholders και κειμένου, δείτε [Ορισμός Κειμένου Prompt σε Placeholder](/slides/el/net/manage-placeholder/) και [Μορφοποίηση Κειμένου](/slides/el/net/text-formatting/).
+Για περισσότερες επιλογές μορφοποίησης placeholders και κειμένου, δείτε [Set Prompt Text in Placeholder](/slides/el/net/manage-placeholder/) και [Text Formatting](/slides/el/net/text-formatting/).
 
-## **Αλλαγή Φόντου Slide Master**
+## **Αλλαγή Παρασκηνίου Master Διαφάνειας**
 
-Ένα φόντο master κληρονομείται από τις διατάξεις και τις διαφάνειες που δεν το παρακάμπτουν. Το παρακάτω παράδειγμα ορίζει ένα συμπαγές χρώμα φόντου για την πρώτη master slide:
+Ένα master παρασκήνιο κληρονομείται από τις διατάξεις και τις διαφάνειες που δεν το παρακάμπτουν. Το παρακάτω παράδειγμα ορίζει ένα σταθερό χρώμα παρασκηνίου για την πρώτη master διαφάνειας:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -201,13 +271,16 @@ masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
 ```
 
-Για συναφή θέματα, δείτε [Φόντο Παρουσίασης](/slides/el/net/presentation-background/) και [Θέμα Παρουσίασης](/slides/el/net/presentation-theme/).
+Για συναφή θέματα, δείτε [Presentation Background](/slides/el/net/presentation-background/) και [Presentation Theme](/slides/el/net/presentation-theme/).
 
-## **Αντιγραφή Slide Master σε Άλλη Παρουσίαση**
+## **Κλωνοποίηση Master Διαφάνειας σε Άλλη Παρουσίαση**
 
-Χρησιμοποιήστε το [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslidecollection/addclone/) για να αντιγράψετε ένα master slide σε άλλη παρουσίαση. Το αντίγραφο master μπορεί στη συνέχεια να χρησιμοποιηθεί από διατάξεις και διαφάνειες στην προοριστική παρουσίαση.
+Χρησιμοποιήστε το [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/el/net/aspose.slides/imasterslidecollection/addclone/) για να αντιγράψετε έναν master διαφάνειας σε άλλη παρουσίαση. Ο αντιγραμμένος master μπορεί στη συνέχεια να χρησιμοποιηθεί από διατάξεις και διαφάνειες στην προορισμένη παρουσίαση.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var sourcePresentation = new Presentation("source.pptx");
 using var destinationPresentation = new Presentation("destination.pptx");
 
@@ -217,17 +290,21 @@ var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSli
 destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
 ```
 
-Αν χρειάζεστε κλώνο κανονικών διαφανειών μαζί με το master τους, δείτε [Κλώνος Διαφανειών](/slides/el/net/clone-slides/).
+Αν χρειαστεί να κλωνοποιήσετε κανονικές διαφάνειες μαζί με τον master τους, δείτε [Clone Slides](/slides/el/net/clone-slides/).
 
-## **Προσθήκη Πολλαπλών Slide Masters**
+## **Προσθήκη Πολλαπλών Master Διαφανειών**
 
-Μια παρουσίαση μπορεί να περιέχει πολλαπλά master slides. Αυτό είναι χρήσιμο όταν διαφορετικές ενότητες απαιτούν διαφορετική εταιρική ταυτότητα, δομή σελίδας ή ρυθμίσεις θέματος.
+Μια παρουσίαση μπορεί να περιέχει πολλαπλούς master διαφάνειες. Αυτό είναι χρήσιμο όταν διαφορετικές ενότητες απαιτούν διαφορετικό branding, δομή σελίδας ή ρυθμίσεις θέματος.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![Εντολές PowerPoint για εισαγωγή και διαχείριση master διαφανειών](slide-master_9.jpg)
 
-Το παρακάτω παράδειγμα κλωνοποιεί το προεπιλεγμένο master, δίνει στο κλώνο διαφορετικό φόντο, δημιουργεί μια διαρρύθμιση κάτω από αυτό το κλωνοποιημένο master και προσθέτει μια νέα διαφάνεια βασισμένη σε αυτή τη διάταξη:
+Το παρακάτω παράδειγμα κλωνοποιεί τον προεπιλεγμένο master, δίνει στον κλώνο διαφορετικό παρασκήνιο, δημιουργεί μια διάταξη κάτω από αυτόν τον κλώνο και προσθέτει μια νέα διαφάνεια βασισμένη σε αυτήν τη διάταση:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var defaultMasterSlide = presentation.Masters[0];
@@ -246,11 +323,13 @@ presentation.Slides.AddEmptySlide(sectionBlankLayout);
 presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
 ```
 
-## **Σύγκριση Slide Masters**
+## **Σύγκριση Master Διαφανειών**
 
-Τα master slides μπορούν να συγκριθούν με τη μέθοδο `Equals` που κληρονομείται από το [IBaseSlide](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σχήματα, κείμενο, μορφοποίηση, κινήσεις και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως τα IDs διαφανειών, ή δυναμικές τιμές placeholders, όπως η τρέχουσα ημερομηνία.
+Οι master διαφάνειες μπορούν να συγκριθούν με τη μέθοδο `Equals` που κληρονομείται από το [IBaseSlide](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σ shapes, κείμενο, μορφοποίηση, animations και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως slide IDs, ή δυναμικές τιμές placeholders, όπως η τρέχουσα ημερομηνία.
 
 ```csharp
+using Aspose.Slides;
+
 using var firstPresentation = new Presentation("first.pptx");
 using var secondPresentation = new Presentation("second.pptx");
 
@@ -276,37 +355,46 @@ for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; 
 }
 ```
 
-Για περισσότερες πληροφορίες, δείτε [Σύγκριση Διαφανειών Παρουσίασης](/slides/el/net/compare-slides/).
+Για περισσότερες πληροφορίες, δείτε [Compare Presentation Slides](/slides/el/net/compare-slides/).
 
-## **Ορισμός Προβολής Slide Master ως Προεπιλεγμένη Προβολή**
+## **Ορισμός Προβολής Master Διαφάνειας ως Προεπιλεγμένη Προβολή**
 
-Χρησιμοποιήστε την ιδιότητα `LastView` στην [ViewProperties](https://reference.aspose.com/slides/el/net/aspose.slides/viewproperties/) για να ελέγξετε την προβολή που ανοίγει πρώτο το PowerPoint. Το παρακάτω παράδειγμα ανοίγει την παρουσίαση στην προβολή Slide Master:
+Χρησιμοποιήστε την ιδιότητα `LastView` στο [ViewProperties](https://reference.aspose.com/slides/el/net/aspose.slides/viewproperties/) για να ελέγξετε την προβολή που ανοίγει πρώτο το PowerPoint. Το παρακάτω παράδειγμα ανοίγει την παρουσίαση σε προβολή Master διαφάνειας:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.ViewProperties.LastView = ViewType.SlideMasterView;
 presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
-Για περισσότερες ρυθμίσεις προβολής, δείτε [Αποθήκευση Παρουσίασης](/slides/el/net/save-presentation/).
+Για περισσότερες ρυθμίσεις προβολής, δείτε [Save Presentation](/slides/el/net/save-presentation/).
 
-## **Αφαίρεση Μη Χρησιμοποιούμενων Master Slides**
+## **Αφαίρεση Αχρησιμοποίητων Master Διαφανειών**
 
-Οι παρουσιάσεις μερικές φορές περιέχουν master slides που δεν χρησιμοποιούνται πλέον από καμία κανονική διαφάνεια. Η αφαίρεση των μη χρησιμοποιούμενων masters μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη συντήρηση του προτύπου.
+Μερικές φορές οι παρουσιάσεις περιέχουν master διαφάνειες που δεν χρησιμοποιούνται πλέον από καμία κανονική διαφάνεια. Η αφαίρεση αχρησιμοποίητων master μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη συντήρηση του προτύπου.
 
-Χρησιμοποιήστε το [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/el/net/aspose.slides/masterslidecollection/removeunused/) για να αφαιρέσετε τους μη χρησιμοποιούμενους masters από τη συλλογή `Masters`:
+Χρησιμοποιήστε τη μέθοδο [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/el/net/aspose.slides/masterslidecollection/removeunused/) για να αφαιρέσετε αχρησιμοποίητους master από τη συλλογή `Masters`:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.Masters.RemoveUnused(ignorePreserveField: true);
 presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
 
-Μπορείτε επίσης να χρησιμοποιήσετε τη μέθοδο low-code [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/el/net/aspose.slides.lowcode/compress/removeunusedmasterslides/):
+Μπορείτε επίσης να χρησιμοποιήσετε τη μέθοδο low‑code [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/el/net/aspose.slides.lowcode/compress/removeunusedmasterslides/):
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
@@ -315,18 +403,18 @@ presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποια είναι η διαφορά μεταξύ ενός slide master και μιας layout slide;**
+**Ποια είναι η διαφορά μεταξύ master διαφάνειας και διαφάνειας διάταξης;**
 
-Ένας slide master ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, φόντο, κοινά σχήματα και στυλ κειμένου. Μια layout slide ανήκει σε ένα master slide και ορίζει μια συγκεκριμένη διάταξη placeholders. Μια κανονική διαφάνεια χρησιμοποιεί μια layout slide, έτσι κληρονομεί τόσο από τη διάταξη όσο και από το master.
+Ένας master διαφάνειας ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, παρασκήνιο, κοινά σ shapes και στυλ κειμένου. Μια διαφάνεια διάταξης ανήκει σε έναν master διαφάνειας και ορίζει μια συγκεκριμένη διάταξη placeholders. Μια κανονική διαφάνεια χρησιμοποιεί μια διαφάνεια διάταξης, έτσι κληρονομεί τόσο από τη διάταξη όσο και από τον master.
 
-**Μπορεί μια παρουσίαση να περιέχει πολλαπλά slide masters;**
+**Μπορεί μια παρουσίαση να περιέχει πολλούς master διαφάνειες;**
 
-Ναι. Μια παρουσίαση μπορεί να περιέχει πολλαπλά slide masters. Χρησιμοποιήστε πολλαπλούς masters όταν διαφορετικές ενότητες χρειάζονται διαφορετικά οπτικά συστήματα ή εταιρική ταυτότητα.
+Ναι. Μια παρουσίαση μπορεί να περιέχει πολλούς master διαφάνειες. Χρησιμοποιήστε πολλαπλούς master όταν διαφορετικές ενότητες χρειάζονται διαφορετικά οπτικά συστήματα ή branding.
 
-**Πρέπει να προσθέτω placeholders σε ένα master slide ή σε μια layout slide;**
+**Πρέπει να προσθέσω placeholders σε master διαφάνειας ή σε διαφάνεια διάταξης;**
 
-Στις περισσότερες περιπτώσεις, προσθέτετε placeholders σε layout slides. Τοποθετήστε κοινά οπτικά στοιχεία και κοινή μορφοποίηση στο master slide, και τοποθετήστε τα placeholders περιεχομένου στις διατάξεις που θα χρησιμοποιήσουν οι κανονικές διαφάνειες.
+Στις περισσότερες περιπτώσεις, προσθέστε placeholders σε διαφάνειες διάταξης. Τοποθετήστε κοινά οπτικά στοιχεία και κοινή μορφοποίηση στον master διαφάνειας και τα περιεχόμενα placeholders στις διατάξεις που θα χρησιμοποιήσουν οι κανονικές διαφάνειες.
 
-**Μπορώ να διαγράψω ένα master slide που εξακολουθεί να χρησιμοποιείται;**
+**Μπορώ να διαγράψω έναν master διαφάνειας που χρησιμοποιείται ακόμα;**
 
-Όχι. Ένα master slide που έχει εξαρτημένες διαφάνειες δεν μπορεί να αφαιρεθεί με ασφάλεια. Πρώτα μετακινήστε αυτές τις διαφάνειες σε διατάξεις υπό άλλο master, ή χρησιμοποιήστε μια μέθοδο εκκαθάρισης μη χρησιμοποιούμενων masters που αφαιρεί μόνο τους masters που δεν είναι σε χρήση.
+Όχι. Ένας master διαφάνειας που έχει εξαρτώμενες διαφάνειες δεν μπορεί να αφαιρεθεί με ασφάλεια. Μετακινήστε πρώτα αυτές τις διαφάνειες σε διατάξεις κάτω από άλλο master ή χρησιμοποιήστε μια μέθοδο καθαρισμού αχρησιμοποίητων master που αφαιρεί μόνο τους master που δεν είναι σε χρήση.

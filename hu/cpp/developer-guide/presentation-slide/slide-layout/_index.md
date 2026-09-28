@@ -1,5 +1,5 @@
 ---
-title: Diakiosztások alkalmazása vagy módosítása C++-ban
+title: Diaelrendezések alkalmazása vagy módosítása C++-ban
 linktitle: Diaelrendezés
 type: docs
 weight: 60
@@ -7,14 +7,14 @@ url: /hu/cpp/slide-layout/
 keywords:
 - diaelrendezés
 - tartalomelrendezés
-- helykitöltő
-- bemutató tervezés
+- helyőrző
+- prezentáció tervezés
 - dia tervezés
-- használaton kívüli elrendezés
+- nem használt elrendezés
 - lábléc láthatóság
-- cím dia
+- címdiára
 - cím és tartalom
-- szakaszfejléc
+- szakaszcím
 - két tartalom
 - összehasonlítás
 - csak cím
@@ -25,45 +25,47 @@ keywords:
 - függőleges cím és szöveg
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - C++
 - Aspose.Slides
-description: "Alkalmazza, hozza létre és módosítsa a diaképeket az Aspose.Slides for C++-ban, adjon hozzá helykitöltőket, távolítson el használaton kívüli elrendezéseket, és szabályozza a lábléc láthatóságát."
+description: "Diaelrendezések alkalmazása, létrehozása és módosítása az Aspose.Slides for C++-ban, helyőrzők hozzáadása, nem használt elrendezések eltávolítása és a lábléc láthatóságának vezérlése."
 ---
 ## **Áttekintés**
 
-A diavetítő elrendezés meghatározza a tartalékhelyek (pl. címek, szöveg, képek, diagramok és táblázatok) pozícióit és formázását. Egy elrendezés alkalmazásával a diák egységes struktúrát kapnak, miközben minden diára a saját tartalom kerül.
+Egy diaelrendezés meghatározza a helyőrzők, például a címek, szöveg, képek, diagramok és táblázatok pozícióit és formázását. Egy elrendezés alkalmazása konzisztens felépítést biztosít a diák számára, miközben lehetővé teszi, hogy minden dia a saját tartalmát tartalmazza.
 
 A leggyakoribb elrendezések a következők:
 
-- **Címdiavet**: A cím és az alcím helykitöltőket tartalmaz.
-- **Cím és Tartalom**: Egy cím helykitöltőt és egy általános célú tartalom helykitöltőt tartalmaz.
-- **Üres**: Nem tartalmaz tartalom helykitöltőket, és akkor hasznos, ha minden alakzatot kézzel helyezünk el.
+- **Címdiára**: Cím- és alpárcímhelyőrzőket tartalmaz.
+- **Cím és Tartalom**: Címhelyőrzőt és egy általános célú tartalomhelyőrzőt tartalmaz.
+- **Üres**: Nem tartalmaz tartalomhelyőrzőket, és akkor hasznos, ha minden alakzatot manuálisan helyezünk el.
 
-## **Az elrendezés öröklődésének megértése**
+## **Ismerje meg az elrendezés öröklődését**
 
-Egy bemutatónak három kapcsolódó szintje van:
+Egy prezentációnak három kapcsolódó szintje van:
 
-1. A [master slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/) meghatározza a témát, a megosztott formázást, a háttereket és a közös objektumokat.
-2. A [layout slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/) egy mesterhez tartozik, és egy adott tartalékhely elrendezést definiál.
-3. Egy [normal slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) egy elrendezést használ, és tárolja az adott diára bevitt tartalmat.
+1. A [master slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/) meghatározza a témát, a megosztott formázást, háttérképeket és közös objektumokat.
+2. Egy [layout slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/) egy masterhez tartozik és egy adott helyőrzőelrendezést definiál.
+3. Egy [normal slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) egy elrendezést használ, és tárolja a diára beírt tartalmat.
 
-Egy normál dia örökli a témát és a formázást az elrendezéséből, az elrendezés pedig a mesterből. Egy normál dián közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normál dia létrejön, a helykitöltő alakzatok a kiválasztott elrendezésből generálódnak, míg a helykitöltőkbe bevitt tartalom a normál diához tartozik.
+Egy normál dia örökli a témát és a formázást az elrendezéséből, az elrendezés pedig a masterből. A normál dián közvetlenül beállított érték felülírja az örökölt értéket az adott szinten. Amikor egy normál diát létrehoznak, a helyőrző alakzatok a kiválasztott elrendezésből generálódnak, míg a helyőrzőkbe beírt tartalom a normál dia része.
 
-Adjon hozzá szükséges helykitöltőket egy elrendezéshez, mielőtt diák készülnek belőle. Később egy másik helykitöltő hozzáadása egy elrendezéshez nem ad automatikusan megfelelő helykitöltő alakzatot a meglévő normál diákhoz.
+Adjunk hozzá kötelező helyőrzőket egy elrendezéshez, mielőtt diákat hoznánk létre belőle. Egy későbbi helyőrző hozzáadása az elrendezéshez nem ad automatikusan hozzá megfelelő helyőrző alakzatot a már létező normál diákhoz.
 
-Ennek a kapcsolatnak két fontos következménye van:
+Ez a kapcsolat két fontos következménnyel jár:
 
-- Az örökölt formázás vagy a meglévő helykitöltő geometria módosítása egy elrendezésen minden, attól függő diát frissíthet. Egy már használatban lévő elrendezés szerkesztése előtt ellenőrizze a függő diákat, és vizsgálja meg a keletkezett bemutatót.
-- Egy elrendezés, amelyet még egy dia használ, nem távolítható el. Előbb rendelje át a függő diákat egy másik elrendezésre, vagy csak a nem használt elrendezéseket távolítsa el.
+- Az örökölt formázás vagy a meglévő helyőrzők geometriai módosítása frissítheti az összes rá függő diát. Mielőtt egy már használt elrendezést szerkesztenénk, ellenőrizzük a függő diákat, és tekintsük át a kapott prezentációt.
+- Egy olyan elrendezést, amelyet még egy dia is használ, nem lehet eltávolítani. Először rendeljük át a függő diákat egy másik elrendezésre, vagy csak a nem használt elrendezéseket távolítsuk el.
 
-További információért a hierarchia legfelső szintjéről lásd a [Slide Master](/slides/hu/cpp/slide-master/) oldalt.
+További információkért a hierarchia felső szintjéről lásd a [Slide Master](/slides/hu/cpp/slide-master/) oldalt.
 
-## **Elrendezés kiválasztása és alkalmazása**
+A örökölt logók vagy dekoratív master alakzatok egy dián vagy egy megosztott elrendezésen keresztül történő elrejtéséhez lásd a [Control the Visibility of Master Graphics](/slides/hu/cpp/slide-master/) oldalt. A példa két diát hasonlít össze, amelyek ugyanazt a mastert használják.
 
-Használjon elrendezés típust, ha a bemutató a szabványos PowerPoint elrendezésdefiníciókat követi. Az elrendezésneveket a felhasználó szerkesztheti, és lokalizálhatja, ezért a névre alapozott kiválasztás kevésbé megbízható, hacsak nem irányítja a forrás sablont.
+## **Válassz és alkalmazz diaképet**
 
-A következő példa a **Title and Content** elrendezést keresi az első masteren. Ha ez az elrendezés nem érhető el, szándékosan az **Blank** elrendezésre tér vissza. A második null ellenőrzés szükséges, mert egy bemutató csak egyedi elrendezéseket tartalmazhat. A kiválasztott elrendezés ezután a [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/set_layoutslide/) metódussal kerül alkalmazásra az első normál diára.
+Használj elrendezéstípusokat, ha a prezentáció a PowerPoint szabványos elrendezésdefinícióit követi. Az elrendezésneveket a felhasználó szerkesztheti és lokalizálhatja, ezért a néven alapuló kiválasztás kevésbé megbízható, hacsak nem irányítod a forrás sablont.
+
+Az alábbi példa az **Cím és Tartalom** elrendezést keresi az első masterben. Ha ez az elrendezés nem érhető el, szándékosan az **Üres** elrendezésre lép vissza. A második null ellenőrzés szükséges, mert egy prezentáció csak egyéni elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/set_layoutslide/) metódussal alkalmazzák az első normál diára.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Egy dia elrendezésének módosítása nem távolítja el a diára közvetlenül hozzáadott szokásos alakzatokat. Azonban a helykitöltő pozíciók, az örökölt formázás és a meglévő helykitöltők és az új elrendezés közti megfelelés megváltozhat, ezért ellenőrizze a kimenetet, amikor lényegesen különböző elrendezések között vált.
+Egy dia elrendezésének módosítása nem távolítja el a közvetlenül a diára hozzáadott egyszerű alakzatokat. Azonban a helyőrző pozíciók, az örökölt formázás és a meglévő helyőrzők és az új elrendezés közötti megfelelés megváltozhat, ezért ellenőrizd a kimenetet, ha lényegesen eltérő elrendezések között váltasz.
 
-## **Elrendezés dia hozzáadása**
+## **Adj hozzá egy elrendezésdiát**
 
-A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; azt nem hozza létre. Egy elrendezés létrehozásához hívja meg a [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterlayoutslidecollection/add/) metódust a cél mester elrendezésgyűjteményén.
+A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Az elrendezés létrehozásához hívd meg a [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterlayoutslidecollection/add/) metódust a cél master elrendezésgyűjteményén.
 
-A következő példa mindig hozzáad egy új **Title and Content** elrendezést `Report Title and Content` néven, majd egy rá épülő normál diát ad hozzá. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
+Az alábbi példa mindig egy új **Cím és Tartalom** elrendezést ad hozzá `Report Title and Content` néven, majd egy normál diát hoz létre belőle. Az elrendezés neveinek egyedieknek kell lenniük a gyűjteményen belül.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Csak akkor adjon hozzá elrendezést, ha a sablon valóban szükséges egy újrahasználható szerkezetet. Ha már létezik megfelelő elrendezés, válassza ki és használja újra azt, a duplikátum létrehozása helyett.
+Csak akkor adj hozzá elrendezést, ha a sablon valóban egy további újrahasználható struktúrát igényel. Ha már létezik megfelelő elrendezés, válaszd ki és használd újra ahelyett, hogy duplikáltat hoznál létre.
 
-## **Helykitöltők hozzáadása egy elrendezés diához**
+## **Helyőrzők hozzáadása egy elrendezésdiához**
 
-Az [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) metódus egy [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/) objektumot biztosít az elrendezéshez helykitöltő alakzatok hozzáadásához.
+Az [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) metódus egy [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/) objektumot biztosít helyőrzőalakzatok elrendezéshez való hozzáadásához.
 
-| PowerPoint helykitöltő            | `ILayoutPlaceholderManager` metódus |
-| ----------------------------------- | ----------------------------------- |
-| ![Tartalom](content.png)            | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![Tartalom (Függőlegesen)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![Szöveg](text.png)                 | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![Szöveg (Függőleges)](textV.png)   | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![Kép](picture.png)                 | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![Diagram](chart.png)               | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![Táblázat](table.png)              | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![Media](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Online kép](onlineImage.png)      | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| PowerPoint helyőrző               | `ILayoutPlaceholderManager` Metódus |
+| --------------------------------- | ----------------------------------- |
+| ![Tartalom](content.png)          | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Tartalom (Függőleges)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Szöveg](text.png)               | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Szöveg (Függőleges)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Kép](picture.png)               | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Diagram](chart.png)             | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Táblázat](table.png)            | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)         | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Média](media.png)               | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online kép](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-A következő példa ellenőrzi, hogy a **Blank** elrendezés létezik, négy helykitöltőt ad hozzá, majd létrehoz egy normál diát, amely a módosított elrendezést használja. A sorrend szándékos: a helykitöltők a normál dia létrehozása előtt kerülnek hozzáadásra, így az Aspose.Slides képes a megfelelő helykitöltő alakzatokat generálni azon a dián.
+Az alábbi példa ellenőrzi, hogy létezik-e a **Üres** elrendezés, négy helyőrzőt ad hozzá, majd létrehozza a módosított elrendezést használó normál diát. A sorrend szándékos: a helyőrzőket a normál dia létrehozása előtt adjuk hozzá, így az Aspose.Slides a megfelelő helyőrzőalakzatokat generálhatja a diához.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -190,15 +192,15 @@ presentation->Dispose();
 
 Az eredmény:
 
-![A helykitöltők az elrendezés dián](add_placeholders.png)
+![A helyőrzők az elrendezésdián](add_placeholders.png)
 
-{{% alert color="warning" title="Warning" %}}
-Az örökölt formázás vagy a meglévő elrendezési helykitöltők geometriájának módosítása befolyásolhatja a függő diákat. Egy újonnan hozzáadott elrendezési helykitöltő nem kerül visszatöltésre a meglévő normál diákba. Tesztelje az elrendezés változtatásait a bemutató egy másolatán, és ellenőrizze minden függő diát.
+{{% alert color="warning" title="Figyelmeztetés" %}}
+Az örökölt formázás vagy a meglévő elrendezéshelyőrzők geometriájának módosítása befolyásolhatja a függő diákat. Az újonnan hozzáadott elrendezéshelyőrző nem töltődik be a már létező normál diákba. Tesztelj elrendezésváltozásokat egy másolaton, és ellenőrizd minden függő diát.
 {{% /alert %}}
 
-## **Használaton kívüli elrendezés diák eltávolítása**
+## **Nem használt elrendezésdiák eltávolítása**
 
-Használja a [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) metódust a olyan elrendezések eltávolítására, amelyeket egyetlen normál dia sem hivatkozik. A metódus érintetlenül hagyja az még használatban lévő elrendezéseket.
+Használd a [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) metódust a nem hivatkozott elrendezések eltávolításához. A metódus érintetlenül hagyja az még használatban lévő elrendezéseket.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,11 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az egy konkrét elrendezés eltávolításához először használja annak a [get_HasDependingSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) vagy [GetDependingSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/getdependingslides/) metódusát. Mielőtt meghívná az [ILayoutSlide::Remove](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/remove/) metódust, rendelje át a függő diákat. Egy használt elrendezés eltávolításának kísérlete [PptxEditException] kivételt eredményez.
+Egy konkrét elrendezés eltávolításához először használd a [get_HasDependingSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) vagy a [GetDependingSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/getdependingslides/) metódust. Mielőtt meghívnád az [ILayoutSlide::Remove](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/remove/) metódust, rendeld át a függő diákat. Egy használt elrendezés eltávolítása [PptxEditException](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pptxeditexception/) kivételt dob.
 
-## **Lábléc láthatóságának vezérlése egy elrendezés dián**
+## **Lábléc láthatóságának vezérlése egy elrendezésdián**
 
-Egy elrendezésnek saját lábléca, dia-számláló és dátum-idő helykitöltői vannak. Használja az [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) metódust ezen helykitöltők egy elrendezésre való szabályozásához. Ez hasznos például, ha a tartalom elrendezéseknek láblécet kell megjeleníteniük, de a cím elrendezéseknek nem.
+Egy elrendezésnek saját lábléca, diaszáma és dátum-idő helyőrzői vannak. Használd az [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) metódust ezeknek a helyőrzőknek a kezelésére egy elrendezésen belül. Ez akkor hasznos, ha például a tartalomelrendezések láblécet jelenítenek meg, de a címelrendezések nem.
+
+Az alábbi példa biztonságosan kiválaszt egy elrendezést, és láthatóvá teszi a láblécelemeket:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -263,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Lábléc láthatóságának vezérlése egy mesteren és annak gyermek elrendezésein**
+## **Lábléc láthatóságának vezérlése egy masteren és annak alárendelt elrendezésein**
 
-A következetes lábléc beállítások mesterhierarchiában történő alkalmazásához használja az [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/get_headerfootermanager/) metódust. Az [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslideheaderfootermanager/) terjesztési metódusai a mesteren, annak függő elrendezés diákon és normál diákon működnek; nem egyetlen normál diára céloznak.
+A konzisztens láblécbeállítások alkalmazásához egy masterhierarchiában használd az [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/get_headerfootermanager/) metódust. Az [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslideheaderfootermanager/) terjesztési metódusai a masteren, annak függő elrendezésdiáin és normál diáin működnek; nem csak egyetlen normál diát céloznak.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -293,18 +297,18 @@ presentation->Dispose();
 
 ## **GYIK**
 
-**Mi a különbség egy Master Slide és egy Layout Slide között?**
+**Mi a különbség a master dia és az elrendezésdia között?**
 
-Egy master slide meghatározza a bemutató témáját és a megosztott formázást. Egy layout slide egy mesterhez tartozik, és egy újrahasználható helykitöltő elrendezést definiál. A normál diák ezeket az elrendezéseket használják, és a diára specifikus tartalmat tárolják.
+A master dia meghatározza a prezentáció témáját és a megosztott formázást. Az elrendezésdia egy masterhez tartozik, és egy újrahasználható helyőrzőelrendezést definiál. A normál diák ezeket az elrendezéseket használják és a dia-specifikus tartalmat tárolják.
 
-**Másolhatok egy Layout Slide-ot egyik bemutatóból a másikba?**
+**Másolhatok elrendezésdiát egy prezentációból egy másikba?**
 
-Igen. A [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igloballayoutslidecollection/addclone/) metódussal adjon hozzá egy másolatot a célgyűjteményhez. Bemutatók közötti másoláskor ellenőrizze a betűtípusokat, témákat, képeket és egyéb forrásokat, amelyeket a forrás elrendezés használ.
+Igen. Adj egy másolatot a célgyűjteményhez a [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igloballayoutslidecollection/addclone/) metódussal. Prezentációk közötti másolás esetén ellenőrizd a betűtípusokat, témákat, képeket és egyéb forrásokat, amelyeket a forrás elrendezés használ.
 
 **Mi történik, ha módosítok egy már használatban lévő elrendezést?**
 
-A függő diák öröklik az elrendezés változásait, hacsak nem felülírják a helyi formázást vagy objektumokat. Így a helykitöltő geometria és az örökölt stílus sok dián egyszerre megváltozhat. Használja a [GetDependingSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/getdependingslides/) metódust a érintett diák azonosításához az elrendezés szerkesztése előtt.
+A függő diák öröklik az elrendezés változásait, kivéve ha felülírják az érintett formázást vagy objektumokat helyileg. A helyőrző geometriája és az örökölt stílusok ezért egyszerre sok dián változhatnak. Használd a [GetDependingSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/getdependingslides/) metódust az érintett diák azonosításához, mielőtt az elrendezést szerkesztenéd.
 
-**Mi történik, ha eltávolítok egy még használatban lévő elrendezést?**
+**Mi történik, ha eltávolítok egy még használt elrendezést?**
 
-Aspose.Slides [PptxEditException] kivételt dob. Előbb rendelje át a függő diákat, vagy használja a [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) metódust a nem hivatkozott elrendezések eltávolításához.
+Az Aspose.Slides [PptxEditException](https://reference.aspose.com/slides/hu/cpp/aspose.slides/pptxeditexception/) hibát dob. Előbb rendeld át a függő diákat, vagy használd a [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) metódust, hogy csak a nem hivatkozott elrendezéseket távolítsd el.

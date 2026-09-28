@@ -7,14 +7,14 @@ url: /vi/nodejs-java/slide-layout/
 keywords:
 - bố cục slide
 - bố cục nội dung
-- placeholder
-- thiết kế bản trình chiếu
+- trình giữ chỗ
+- thiết kế bài thuyết trình
 - thiết kế slide
-- bố cục không sử dụng
-- hiển thị footer
+- bố cục không dùng
+- hiển thị chân trang
 - slide tiêu đề
 - tiêu đề và nội dung
-- tiêu đề mục
+- đầu mục phần
 - hai nội dung
 - so sánh
 - chỉ tiêu đề
@@ -25,46 +25,48 @@ keywords:
 - tiêu đề dọc và văn bản
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Áp dụng, tạo và chỉnh sửa bố cục slide trong Aspose.Slides cho Node.js qua Java, thêm placeholder, xóa các bố cục không sử dụng và kiểm soát hiển thị footer."
+description: "Áp dụng, tạo và sửa đổi bố cục slide trong Aspose.Slides cho Node.js thông qua Java, thêm trình giữ chỗ, xóa các bố cục không dùng và kiểm soát hiển thị chân trang."
 ---
 ## **Tổng quan**
 
-Bố cục slide xác định vị trí và định dạng của các placeholder như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán đồng thời cho phép mỗi slide chứa nội dung riêng của nó.
+Bố cục slide xác định vị trí và định dạng của các trình giữ chỗ như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán trong khi cho phép mỗi slide chứa nội dung riêng của nó.
 
 Các bố cục phổ biến nhất bao gồm:
 
-- **Title Slide**: Chứa các placeholder tiêu đề và phụ đề.
-- **Title and Content**: Chứa một placeholder tiêu đề và một placeholder nội dung đa mục đích.
-- **Blank**: Không chứa placeholder nội dung và hữu ích khi mỗi hình dạng sẽ được đặt thủ công.
+- **Tiêu đề Slide**: Chứa các trình giữ chỗ tiêu đề và phụ đề.
+- **Tiêu đề và Nội dung**: Chứa một trình giữ chỗ tiêu đề và một trình giữ chỗ nội dung đa mục đích.
+- **Trống**: Không chứa trình giữ chỗ nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
 
 ## **Hiểu về kế thừa bố cục**
 
-Một bản trình chiếu có ba cấp độ liên quan:
+Một bản trình chiếu có ba mức liên quan:
 
-1. Một [master slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) xác định chủ đề, định dạng chung, nền và các đối tượng chung.
-1. Một [layout slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/) thuộc về một master và xác định một cách sắp xếp cụ thể các placeholder.
-1. Một [normal slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/) sử dụng một bố cục và lưu trữ nội dung được nhập cho slide đó.
+1. A [master slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) defines the theme, shared formatting, backgrounds, and common objects.
+1. A [layout slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/) belongs to a master and defines a particular arrangement of placeholders.
+1. A [normal slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/) uses one layout and stores the content entered for that slide.
 
-Một normal slide kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục kế thừa từ master của nó. Giá trị được đặt trực tiếp trên một normal slide sẽ ghi đè giá trị kế thừa ở mức đó. Khi một normal slide được tạo, các hình dạng placeholder của nó được tạo ra từ bố cục đã chọn, trong khi nội dung được nhập vào các placeholder đó thuộc về normal slide.
+Một slide bình thường kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục kế thừa từ master. Giá trị được đặt trực tiếp trên slide bình thường sẽ ghi đè giá trị kế thừa ở mức đó. Khi một slide bình thường được tạo, các hình dạng trình giữ chỗ của nó được tạo ra từ bố cục đã chọn, trong khi nội dung được nhập vào các trình giữ chỗ đó thuộc về slide bình thường.
 
-Thêm các placeholder cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một placeholder khác vào bố cục sau này sẽ không tự động thêm hình dạng placeholder tương ứng vào các normal slide hiện có.
+Thêm các trình giữ chỗ cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một trình giữ chỗ khác vào bố cục sau này không tự động thêm một hình dạng trình giữ chỗ tương ứng vào các slide bình thường đã tồn tại.
 
-Mối quan hệ này có hai hệ quả quan trọng:
+Mối quan hệ này có hai hậu quả quan trọng:
 
-- Thay đổi định dạng kế thừa hoặc hình học placeholder hiện có trên một layout có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một layout đã được sử dụng, kiểm tra các slide phụ thuộc và xem lại bản trình chiếu kết quả.
-- Một layout vẫn đang được một slide sử dụng không thể bị xóa. Trước tiên, gán lại các slide phụ thuộc của nó sang layout khác, hoặc chỉ xóa các layout không được sử dụng.
+- Thay đổi định dạng kế thừa hoặc hình học của các trình giữ chỗ hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, kiểm tra các slide phụ thuộc và xem lại bản trình chiếu kết quả.
+- Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Gán lại các slide phụ thuộc của nó sang một bố cục khác trước, hoặc chỉ xóa các bố cục không được sử dụng.
 
-Để biết thêm thông tin về cấp cao nhất của hệ thống này, xem [Slide Master](/slides/vi/nodejs-java/slide-master/).
+Để biết thêm thông tin về cấp cao nhất của cây cấu trúc này, xem [Master Slide](/slides/vi/nodejs-java/slide-master/).
+
+Để ẩn logo kế thừa hoặc các hình dạng trang trí master trên một slide hoặc qua một bố cục chia sẻ, xem [Kiểm soát Hiển thị Đồ họa Master](/slides/vi/nodejs-java/slide-master/). Ví dụ so sánh hai slide sử dụng cùng một master.
 
 ## **Chọn và Áp dụng Bố cục Slide**
 
-Sử dụng giá trị [SlideLayoutType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidelayouttype/) khi bản trình chiếu tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được địa phương hoá, do đó việc lựa chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+Sử dụng một giá trị [SlideLayoutType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidelayouttype/) khi bản trình chiếu tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được địa phương hóa, vì vậy việc chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
 
-Ví dụ dưới đây tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không có, nó cố ý chuyển sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình chiếu có thể chỉ chứa các layout tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide normal đầu tiên thông qua phương thức [Slide.setLayoutSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không có, nó cố ý chuyển sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình chiếu có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua phương thức [Slide.setLayoutSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#setLayoutSlide).
 
 ```javascript
 var aspose = aspose || {};
@@ -93,13 +95,13 @@ try {
 }
 ```
 
-Thay đổi bố cục của một slide không làm mất các hình dạng thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí placeholder, định dạng kế thừa và sự tương ứng giữa các placeholder hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển giữa các bố cục có sự khác biệt đáng kể.
+Thay đổi bố cục của một slide không xóa các hình dạng thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí trình giữ chỗ, định dạng kế thừa và sự tương ứng giữa các trình giữ chỗ hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra đầu ra khi chuyển đổi giữa các bố cục có sự khác biệt đáng kể.
 
-## **Thêm Layout Slide**
+## **Thêm Bố cục Slide**
 
-Việc lựa chọn và tạo mới là các hoạt động riêng biệt. Ví dụ trước lựa chọn một layout hiện có; nó không tạo ra một layout mới. Để tạo một layout, gọi phương thức [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) trên bộ sưu tập layout của master mục tiêu.
+Lựa chọn và tạo mới là các thao tác riêng biệt. Ví dụ trước chỉ chọn một bố cục hiện có; nó không tạo một bố cục mới. Để tạo một bố cục, gọi phương thức [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) trên bộ sưu tập bố cục của master mục tiêu.
 
-Ví dụ dưới đây luôn thêm một layout **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một slide normal dựa trên nó. Tên layout phải là duy nhất trong bộ sưu tập.
+Ví dụ sau luôn thêm một bố cục **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một slide bình thường dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
 
 ```javascript
 var aspose = aspose || {};
@@ -119,26 +121,26 @@ try {
 }
 ```
 
-Chỉ thêm layout khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã có một layout phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
+Chỉ thêm bố cục khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã có một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
 
-## **Thêm Placeholder vào Layout Slide**
+## **Thêm Trình giữ chỗ vào Bố cục Slide**
 
-Phương thức [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) cung cấp một [LayoutPlaceholderManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/) để thêm các hình dạng placeholder vào một layout.
+Phương thức [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) cung cấp một [LayoutPlaceholderManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/) để thêm các hình dạng trình giữ chỗ vào một bố cục.
 
-| Placeholder PowerPoint | Phương thức `LayoutPlaceholderManager` |
-| ---------------------- | --------------------------------------- |
-| ![Content](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| Trình giữ chỗ PowerPoint | Phương thức `LayoutPlaceholderManager` |
+| ------------------------ | -------------------------------------- |
+| ![Nội dung](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Nội dung (Dọc)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Văn bản](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Văn bản (Dọc)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Hình ảnh](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Biểu đồ](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Bảng](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
 | ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Phương tiện](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Hình ảnh trực tuyến](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Ví dụ dưới đây kiểm tra xem bố cục **Blank** có tồn tại, thêm bốn placeholder vào nó, và sau đó tạo một slide normal sử dụng layout đã chỉnh sửa. Thứ tự này có ý định: các placeholder được thêm trước khi slide normal được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng placeholder tương ứng trên slide đó.
+Ví dụ sau xác nhận bố cục **Blank** tồn tại, thêm bốn trình giữ chỗ vào nó, và sau đó tạo một slide bình thường sử dụng bố cục đã chỉnh sửa. Thứ tự này có chủ đích: các trình giữ chỗ được thêm trước khi slide bình thường được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng trình giữ chỗ tương ứng trên slide đó.
 
 ```javascript
 var aspose = aspose || {};
@@ -169,15 +171,15 @@ try {
 
 Kết quả:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Các trình giữ chỗ trên bố cục slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Thay đổi định dạng kế thừa hoặc hình học của các placeholder layout hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một placeholder layout mới được thêm sẽ không được tự động áp dụng vào các slide normal hiện có. Kiểm tra các thay đổi layout trên bản sao của bản trình chiếu và kiểm tra mọi slide phụ thuộc.
+Thay đổi định dạng kế thừa hoặc hình học của các trình giữ chỗ bố cục hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một trình giữ chỗ bố cục mới được thêm vào sẽ không được tự động bổ sung vào các slide bình thường đã tồn tại. Hãy kiểm tra các thay đổi bố cục trên một bản sao của bản trình chiếu và kiểm tra từng slide phụ thuộc.
 {{% /alert %}}
 
-## **Xóa Layout Slides Không được sử dụng**
+## **Xóa Bố cục Slide Không được Sử dụng**
 
-Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) để xóa các layout mà không có slide normal nào tham chiếu. Phương thức này giữ lại các layout vẫn đang được sử dụng.
+Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) để xóa các bố cục mà không có slide bình thường nào tham chiếu. Phương thức này giữ nguyên các bố cục vẫn đang được sử dụng.
 
 ```javascript
 var aspose = aspose || {};
@@ -192,13 +194,13 @@ try {
 }
 ```
 
-Để xóa một layout cụ thể, đầu tiên sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) của nó. Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [LayoutSlide.remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#remove). Cố gắng xóa một layout đang được sử dụng sẽ gây ra lỗi [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/).
+Để xóa một bố cục cụ thể, trước tiên sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [LayoutSlide.remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#remove). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra lỗi [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/).
 
-## **Kiểm soát Hiện thị Footer trên Layout Slide**
+## **Kiểm soát hiển thị Chân trang trên Bố cục Slide**
 
-Một layout có các placeholder footer, slide-number và date-time riêng. Sử dụng phương thức [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) để kiểm soát các placeholder này cho một layout. Điều này hữu ích khi, ví dụ, các layout nội dung cần hiển thị footer nhưng các layout tiêu đề không cần.
+Một bố cục có các trình giữ chỗ chân trang, số slide và ngày giờ riêng. Sử dụng phương thức [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) để kiểm soát các trình giữ chỗ này cho một bố cục. Điều này hữu ích khi, ví dụ, các bố cục nội dung cần hiển thị chân trang nhưng các bố cục tiêu đề thì không.
 
-Ví dụ dưới đây chọn một layout một cách an toàn và làm cho các thành phần footer của nó hiển thị:
+Ví dụ sau chọn một bố cục một cách an toàn và làm cho các phần tử chân trang của nó hiển thị:
 
 ```javascript
 var aspose = aspose || {};
@@ -232,9 +234,9 @@ try {
 }
 ```
 
-## **Kiểm soát Hiện thị Footer trên Master và Các Layout Con của Nó**
+## **Kiểm soát hiển thị Chân trang trên Master và các Bố cục Con của nó**
 
-Để áp dụng cài đặt footer nhất quán trên toàn bộ cây master, sử dụng phương thức [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Các phương thức lan truyền của [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslideheaderfootermanager/) hoạt động trên master và các layout slide phụ thuộc cùng các slide normal; chúng không chỉ nhắm vào một slide normal duy nhất.
+Để áp dụng cài đặt chân trang nhất quán trên toàn bộ cây master, sử dụng phương thức [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Các phương thức lan truyền của [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslideheaderfootermanager/) hoạt động trên master và các bố cục slide phụ thuộc cũng như các slide bình thường; chúng không chỉ nhắm vào một slide bình thường duy nhất.
 
 ```javascript
 var aspose = aspose || {};
@@ -255,20 +257,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
 **Sự khác nhau giữa Master Slide và Layout Slide là gì?**
 
-Một master slide xác định chủ đề và định dạng chung của bản trình chiếu. Một layout slide thuộc về một master và xác định một cách sắp xếp placeholder có thể tái sử dụng. Các slide normal sử dụng các layout này và lưu trữ nội dung riêng cho từng slide.
+Master Slide định nghĩa chủ đề và định dạng chung của bản trình chiếu. Layout Slide thuộc về một master và xác định một cách sắp xếp trình giữ chỗ có thể tái sử dụng. Các slide bình thường sử dụng các bố cục này và lưu trữ nội dung riêng cho mỗi slide.
 
-**Tôi có thể sao chép Layout Slide từ một bản trình chiếu sang bản trình chiếu khác không?**
+**Tôi có thể sao chép Layout Slide từ một bản trình chiếu sang bản khác không?**
 
-Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Khi sao chép giữa các bản trình chiếu, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác được layout nguồn sử dụng.
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Khi sao chép giữa các bản trình chiếu, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác được bố cục nguồn sử dụng.
 
-**Điều gì xảy ra khi tôi chỉnh sửa một Layout đang được sử dụng?**
+**Điều gì xảy ra khi tôi chỉnh sửa một Layout đã được sử dụng?**
 
-Các slide phụ thuộc sẽ kế thừa các thay đổi của layout trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng tại chỗ. Do đó, hình học placeholder và kiểu kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa layout.
+Các slide phụ thuộc sẽ kế thừa các thay đổi bố cục trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng ở mức cục bộ. Hình học của trình giữ chỗ và kiểu kế thừa do đó có thể thay đổi trên nhiều slide đồng thời. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa bố cục.
 
 **Điều gì sẽ xảy ra nếu tôi xóa một Layout vẫn đang được sử dụng?**
 
-Aspose.Slides sẽ ném ra một lỗi [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc sử dụng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) để chỉ xóa các layout không được tham chiếu.
+Aspose.Slides sẽ ném ra một [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc sử dụng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) để chỉ xóa các bố cục không được tham chiếu.

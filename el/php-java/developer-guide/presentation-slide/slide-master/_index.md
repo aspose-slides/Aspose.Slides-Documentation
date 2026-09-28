@@ -1,55 +1,57 @@
 ---
-title: Διαχείριση slide masters παρουσίασης σε PHP
-linktitle: Κύρια διαφάνεια
+title: "Διαχείριση Μαστέρι Διαφάνειας Παρουσίασης σε PHP"
+linktitle: "Μαστέρι Διαφάνειας"
 type: docs
 weight: 70
 url: /el/php-java/slide-master/
 keywords:
-- κύριο slide
-- κύρια διαφάνεια
-- PPT κύρια διαφάνεια
-- πολλαπλές κύριες διαφάνειες
-- σύγκριση κυρίων διαφάνειων
-- φόντο
-- σύμβολο κράτησης
-- κλωνοποίηση κύριας διαφάνειας
-- αντιγραφή κύριας διαφάνειας
-- διπλασιασμός κύριας διαφάνειας
-- αχρησιμοποίητη κύρια διαφάνεια
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- PHP
-- Aspose.Slides
-description: "Διαχείριση των slide masters στο Aspose.Slides για PHP μέσω Java: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση κυρίων διαφάνειων σε παρουσιάσεις PowerPoint και OpenDocument."
+- "μαστέρι διαφάνειας"
+- "διαφάνεια μαστέρι"
+- "διαφάνεια μαστέρι PPT"
+- "πολλαπλά μαστέρι διαφανειών"
+- "σύγκριση μαστέρι διαφανειών"
+- "φόντο"
+- "θέση κράτησης"
+- "κλωνοποίηση διαφάνειας μαστέρι"
+- "αντιγραφή διαφάνειας μαστέρι"
+- "διπλασιασμός διαφάνειας μαστέρι"
+- "αχρησιμοποίητη διαφάνεια μαστέρι"
+- "PowerPoint"
+- "OpenDocument"
+- "παρουσίαση"
+- "PHP"
+- "Aspose.Slides"
+description: "Διαχείριση μαστέρι διαφανειών στο Aspose.Slides για PHP μέσω Java: πρόσβαση, επεξεργασία, κλωνοποίηση, σύγκριση και αφαίρεση μαστέρι διαφανειών σε παρουσιάσεις PowerPoint και OpenDocument."
 ---
 ## **Επισκόπηση**
 
-Ένα **slide master** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, φόντα, στυλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός slide master είναι ο συνηθισμένος τρόπος να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
+Ένας **μαστέρι διαφάνειας** ορίζει κοινές ρυθμίσεις σχεδίασης για μια ομάδα διαφανειών. Μπορεί να περιέχει κοινά σχήματα, λογότυπα, φόντα, στυλ κειμένου, ρυθμίσεις θέματος και ρυθμίσεις υποσέλιδου. Στο PowerPoint, η επεξεργασία ενός μαστέρι διαφάνειας είναι ο συνηθισμένος τρόπος να διατηρείται μια παρουσίαση συνεπής χωρίς να επαναλαμβάνεται η ίδια μορφοποίηση σε κάθε διαφάνεια.
 
-Το Aspose.Slides for PHP via Java υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει μία ή περισσότερες master slides, και κάθε master slide μπορεί να περιέχει αρκετές layout slides. Οι normal slides συνήθως δεν αναφέρονται άμεσα σε ένα master slide. Αντ' αυτού, μια normal slide χρησιμοποιεί μια layout slide, η οποία ανήκει σε ένα master slide.
+Το Aspose.Slides for PHP via Java υποστηρίζει το ίδιο μοντέλο. Μια παρουσίαση μπορεί να περιέχει ένα ή περισσότερα μαστέρια διαφανειών, και κάθε μαστέρι μπορεί να περιέχει πολλαπλές διαφάνειες διάταξης. Οι κανονικές διαφάνειες συνήθως δεν αναφέρονται άμεσα σε μαστέρι. Αντίθετα, μια κανονική διαφάνεια χρησιμοποιεί μια διαφάνεια διάταξης, η οποία ανήκει σε ένα μαστέρι.
 
 Η ιεραρχία είναι:
 
-1. **Slide master** - ορίζει το κοινό σχέδιο και το θέμα.
-1. **Layout slide** - ορίζει μια συγκεκριμένη διάταξη placeholders και μορφοποίησης επιπέδου layout.
-1. **Normal slide** - περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί μία layout slide.
+1. **Μαστέρι διαφάνειας** – ορίζει το κοινό σχέδιο και το θέμα.
+1. **Διαφάνεια διάταξης** – ορίζει μια συγκεκριμένη διάταξη θέσεων κράτησης και μορφοποίησης επιπέδου διάταξης.
+1. **Κανονική διαφάνεια** – περιέχει το πραγματικό περιεχόμενο της παρουσίασης και χρησιμοποιεί μία διαφάνεια διάταξης.
 
-![Η ιεραρχία των master slides, layout slides και normal slides](slide-master_2.jpg)
+![Η ιεραρχία των μαστέρι διαφανειών, διαφανειών διάταξης και κανονικών διαφανειών](slide-master_2.jpg)
 
-Στο Aspose.Slides, ένα slide master αντιπροσωπεύεται από την κλάση [MasterSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/). Όλες οι master slides σε μια παρουσίαση είναι διαθέσιμες μέσω της μεθόδου [Presentation.getMasters](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getMasters), η οποία επιστρέφει ένα αντικείμενο [MasterSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslidecollection/).
+Στο Aspose.Slides, ένα μαστέρι διαφάνειας αντιπροσωπεύεται από την κλάση [MasterSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/). Όλα τα μαστέρια σε μια παρουσίαση είναι διαθέσιμα μέσω της μεθόδου [Presentation.getMasters](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getMasters), η οποία επιστρέφει ένα αντικείμενο [MasterSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslidecollection/).
 
-{{% alert color="info" title="Inheritance" %}}
-Όταν η ίδια ιδιότητα ορίζεται σε περισσότερο από ένα επίπεδο, το πιο συγκεκριμένο επίπεδο κερδίζει. Για παράδειγμα, εάν ένα master slide και ένα layout slide και τα δύο ορίσουν φόντο, οι διαφάνειες που βασίζονται σε αυτό το layout χρησιμοποιούν το φόντο του layout. Για περισσότερες πληροφορίες σχετικά με τα layout slides, δείτε [Apply or Change Slide Layouts](/slides/el/php-java/slide-layout/).
+{{% alert color="info" title="Κληρονόμηση" %}}
+
+Όταν η ίδια ιδιότητα ορίζεται σε περισσότερα από ένα επίπεδα, το πιο συγκεκριμένο επίπεδο υπερισχύει. Για παράδειγμα, εάν ένα μαστέρι και μια διαφάνεια διάταξης ορίζουν και τα δύο ένα φόντο, οι διαφάνειες που βασίζονται σε αυτήν τη διάταξη χρησιμοποιούν το φόντο της διάταξης. Για περισσότερες πληροφορίες σχετικά με τις διαφάνειες διάταξης, δείτε [Εφαρμογή ή Αλλαγή Διαφανειών Διάταξης](/slides/el/php-java/slide-layout/).
+
 {{% /alert %}}
 
-## **Πρόσβαση σε Slide Masters**
+## **Πρόσβαση σε Μαστέρια Διαφανειών**
 
-Στο PowerPoint, μπορείτε να ανοίξετε την προβολή **Προβολή** > **Slide Master**.
+Στο PowerPoint, μπορείτε να ανοίξετε την προβολή Μαστέρι Διαφάνειας από **View** > **Slide Master**.
 
 ![Η εντολή Slide Master στην καρτέλα View του PowerPoint](slide-master_3.jpg)
 
-Στο Aspose.Slides, χρησιμοποιήστε τη μέθοδο `getMasters` για πρόσβαση σε master slides:
+Στο Aspose.Slides, χρησιμοποιήστε τη μέθοδο `getMasters` για πρόσβαση σε μαστέρια:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -65,7 +67,7 @@ try {
 }
 ```
 
-Μπορείτε επίσης να λάβετε το master slide που χρησιμοποιείται από μια normal slide μέσω του layout της:
+Μπορείτε επίσης να λάβετε τη μαστέρι διαφάνειας που χρησιμοποιείται από μια κανονική διαφάνεια μέσω της διάταξής της:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -81,26 +83,26 @@ try {
 }
 ```
 
-## **Τι Περιέχει ένα Slide Master**
+## **Τι Περιέχει ένα Μαστέρι Διαφάνειας**
 
-Ένα master slide είναι ένα αντικείμενο τύπου διαφάνειας. Επεκτείνει την κλάση [BaseSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseslide/), επομένως εκθέτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από normal και layout slides. Τα μέλη που αφορούν ειδικά το master slide αναφέρονται στη σελίδα API [MasterSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/).
+Ένα μαστέρι διαφάνειας είναι ένα αντικείμενο παρόμοιο με διαφάνεια. Επεκτείνει το [BaseSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseslide/), έτσι εκθέτει πολλές από τις ίδιες ιδιότητες διαφάνειας που χρησιμοποιούνται από κανονικές και διαφάνειες διάταξης. Τα μέλη που είναι ειδικά για μαστέρι αναφέρονται στη σελίδα API του [MasterSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/).
 
-Κοινώς χρησιμοποιούμενα μέλη του master slide περιλαμβάνουν:
+Τα πιο κοινά μέλη μαστέρι διαφάνειας περιλαμβάνουν:
 
 | Μέλος | Σκοπός |
 | --- | --- |
-| `getBackground` | Ορίζει το φόντο σε επίπεδο master. |
-| `getShapes` | Αποθηκεύει σχήματα τοποθετημένα στο master, όπως λογότυπα, πλαίσια εικόνων και κοινό κείμενο. |
-| `getLayoutSlides` | Αποθηκεύει τις layout slides που ανήκουν στο master. |
-| `getThemeManager` | Παρέχει πρόσβαση στα API θέματος του master. |
-| `getHeaderFooterManager` | Ελέγχει κεφαλίδες, υποσέλιδα, ημερομηνίες και αριθμούς διαφανειών για το master και τις θυγατρικές του layout. |
-| `getDependingSlides` | Επιστρέφει τις normal slides που εξαρτώνται από το master μέσω των layout τους. |
+| `getBackground` | Ορίζει το φόντο της διαφάνειας σε επίπεδο μαστέρι. |
+| `getShapes` | Αποθηκεύει τα σχήματα που τοποθετούνται στο μαστέρι, όπως λογότυπα, πλαίσια εικόνας και κοινό κείμενο. |
+| `getLayoutSlides` | Αποθηκεύει τις διαφάνειες διάταξης που ανήκουν στο μαστέρι. |
+| `getThemeManager` | Παρέχει πρόσβαση στα API θέματος του μαστέρι. |
+| `getHeaderFooterManager` | Ελέγχει κεφαλίδες, υποσέλιδα, ημερομηνίες και αριθμούς διαφανειών για το μαστέρι και τις παιδικές του διαφάνειες διάταξης. |
+| `getDependingSlides` | Επιστρέφει κανονικές διαφάνειες που εξαρτώνται από το μαστέρι μέσω των διαφανειών διάταξης τους. |
 
-## **Προσθήκη Εικόνας σε Slide Master**
+## **Προσθήκη Εικόνας σε Μαστέρι Διαφάνειας**
 
-Όταν προσθέτετε μια εικόνα σε ένα master slide, εμφανίζεται στις διαφάνειες που χρησιμοποιούν layout από το συγκεκριμένο master. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές λωρίδες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
+Όταν προσθέτετε μια εικόνα σε μαστέρι διαφάνειας, εμφανίζεται σε διαφάνειες που χρησιμοποιούν διαφάνειες διάταξης από αυτό το μαστέρι. Αυτό είναι χρήσιμο για λογότυπα, υδατογραφήματα, διακοσμητικές λωρίδες και άλλα επαναλαμβανόμενα οπτικά στοιχεία.
 
-Το παρακάτω παράδειγμα προσθέτει λογότυπο στο πρώτο master slide:
+Το ακόλουθο παράδειγμα προσθέτει ένα λογότυπο στην πρώτη μαστέρι διαφάνειας:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -130,15 +132,72 @@ try {
 
 Για περισσότερες πληροφορίες σχετικά με τα πλαίσια εικόνας, δείτε [Picture Frame](/slides/el/php-java/picture-frame/).
 
-## **Δουλειά με Placeholders**
+## **Έλεγχος Ορατότητας Γραφικών Μαστέρι**
 
-Τα placeholders ορίζονται κανονικά στις layout slides. Το master slide παρέχει το κοινό στυλ και θέμα που κληρονομούν αυτές οι layout, ενώ κάθε layout αποφασίζει ποια placeholders είναι διαθέσιμα και πού τοποθετούνται.
+Χρησιμοποιήστε το [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseslide/#setShowMasterShapes) για να κρύψετε κληρονομικές γραφικές του μαστέρι, όπως λογότυπα ή διακοσμητικά σχήματα, χωρίς να τα διαγράψετε από το μαστέρι. Περνάτε `false` στη μέθοδο [Slide::setShowMasterShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/slide/#setShowMasterShapes) στη διαφάνεια που πρέπει να παραλείψει αυτά τα γραφικά και το αφήνετε `true` στις διαφάνειες που πρέπει να τα εμφανίσει.
 
-Στο PowerPoint, οι εντολές placeholder είναι διαθέσιμες στην προβολή Slide Master.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί μια μπλε διακοσμητική λωρίδα σε μαστέρι και σε δύο διαφάνειες που χρησιμοποιούν την ίδια κενή διάταξη. Η λωρίδα είναι ορατή στην πρώτη διαφάνεια και κρυμμένη στη δεύτερη. Δεν απαιτείται εισαγωγική παρουσίαση ή εικόνα.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Το παράδειγμα χρησιμοποιεί τη διάταξη **Blank** που παρέχεται με μια νέα παρουσίαση και αφαιρεί τις αρχικές θέσεις κράτησης της πρώτης διαφάνειας.
+
+### **Επιλογή Πεδίου Εφαρμογής της Ρύθμισης**
+
+Μια κανονική διαφάνεια χρησιμοποιεί το μαστέρι της μέσω των [Slide::getLayoutSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/slide/#getLayoutSlide) και [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#getMasterSlide). Η ρύθμιση της ιδιότητας σε μια μεμονωμένη διαφάνεια επηρεάζει μόνο εκείνη τη διαφάνεια. Η μεταφορά `false` στη μέθοδο [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#setShowMasterShapes) κρύβει τα γραφικά μαστέρι για τις διαφάνειες που χρησιμοποιούν αυτήν τη κοινή διάταξη, ακόμη και αν η δική τους ρύθμιση είναι `true`. Για να κρύψετε γραφικά σε μία μόνο διαφάνεια, αλλάξτε την ιδιότητα της διαφάνειας και αφήστε την κοινή διάταξη αμετάβλητη.
+
+Η ρύθμιση δεν υποστηρίζεται ως έλεγχος ορατότητας στο ίδιο το μαστέρι διαφάνειας. Σε μαστέρι, το [getShowMasterShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/#getShowMasterShapes) πάντα επιστρέφει `false`, και η μεταφορά `true` στο [setShowMasterShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/#setShowMasterShapes) προκαλεί εξαίρεση. Εφαρμόστε τη σε κανονική διαφάνεια ή σε διάταξη.
+
+### **Διαχωρισμός Γραφικών από το Φόντο**
+
+| Επιχείρηση | Αποτέλεσμα |
+| --- | --- |
+| Απόκρυψη γραφικών μαστέρι | Ελέγχει την ορατότητα των κληρονομικών σχημάτων μαστέρι χωρίς να τα διαγράψει ή να αλλάξει τα δικά σχήματα της διαφάνειας. |
+| Αλλαγή γεμίσματος φόντου διαφάνειας | Αλλάζει το χρώμα, τη διαβάθμιση ή την εικόνα φόντου. Τα γραφικά μαστέρι είναι ξεχωριστά σχήματα και μπορούν να παραμένουν ορατά πάνω από το φόντο. Δείτε [Presentation Background](/slides/el/php-java/presentation-background/). |
+| Διαγραφή σχήματος από το μαστέρι | Αφαιρεί το κοινό σχήμα πηγής, ώστε να μην είναι πια διαθέσιμο σε καμία διαφάνεια που χρησιμοποιεί αυτό το μαστέρι. |
+
+## **Εργασία με Θέσεις Κράτησης**
+
+Οι θέσεις κράτησης ορίζονται συνήθως σε διαφάνειες διάταξης. Το μαστέρι παρέχει το κοινό στυλ και το θέμα που κληρονομούν αυτές οι διαφάνειες, ενώ κάθε διάταξη αποφασίζει ποιες θέσεις κράτησης είναι διαθέσιμες και πού τοποθετούνται.
+
+Στο PowerPoint, οι εντολές θέσεων κράτησης είναι διαθέσιμες στην προβολή Μαστέρι Διαφάνειας.
 
 ![Η εντολή Insert Placeholder στην προβολή Slide Master του PowerPoint](slide-master_5.png)
 
-Για να προσθέσετε νέα placeholders με το Aspose.Slides, εργαστείτε με τη layout slide που ανήκει στο master:
+Για να προσθέσετε νέες θέσεις κράτησης με το Aspose.Slides, εργαστείτε με τη διαφάνεια διάταξης που ανήκει στο μαστέρι:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -164,7 +223,7 @@ try {
 }
 ```
 
-Μπορείτε επίσης να μορφοποιήσετε σχήματα placeholder που ήδη υπάρχουν σε ένα master slide. Το παρακάτω παράδειγμα βρίσκει το placeholder τίτλου και εφαρμόζει γραμμική διαβάθμιση:
+Μπορείτε επίσης να μορφοποιήσετε σχήματα θέσεων κράτησης που ήδη υπάρχουν σε μαστέρι διαφάνειας. Το παρακάτω παράδειγμα εντοπίζει τη θέση κράτησης του τίτλου και εφαρμόζει γραμμική διαβάθμιση:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -206,13 +265,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Τίτλος placeholder μορφοποιημένος που κληρονομείται από normal slides](slide-master_8.png)
+![Τίτλος διαμορφωμένος ως θέση κράτησης που κληρονομείται από κανονικές διαφάνειες](slide-master_8.png)
 
-Για περισσότερες επιλογές μορφοποίησης placeholder και κειμένου, δείτε [Set Prompt Text in Placeholder](/slides/el/php-java/manage-placeholder/) και [Text Formatting](/slides/el/php-java/text-formatting/).
+Για περισσότερες επιλογές μορφοποίησης θέσεων κράτησης και κειμένου, δείτε [Set Prompt Text in Placeholder](/slides/el/php-java/manage-placeholder/) και [Text Formatting](/slides/el/php-java/text-formatting/).
 
-## **Αλλαγή Φόντου Slide Master**
+## **Αλλαγή Φόντου Μαστέρι Διαφάνειας**
 
-Ένα φόντο master κληρονομείται από τις layout και τις διαφάνειες που δεν το παρακάμπτουν. Το παρακάτω παράδειγμα ορίζει ένα στερεό χρώμα φόντου για το πρώτο master slide:
+Ένα φόντο μαστέρι κληρονομείται από τις διαφάνειες διάταξης και τις διαφάνειες που δεν το παρακάμπτουν. Το παρακάτω παράδειγμα ορίζει ένα συμπαγές χρώμα φόντου για την πρώτη μαστέρι διαφάνειας:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -232,11 +291,11 @@ try {
 }
 ```
 
-Για συναφή θέματα, δείτε [Presentation Background](/slides/el/php-java/presentation-background/) και [Presentation Theme](/slides/el/php-java/presentation-theme/).
+Για σχετικούς θεματικούς κόμβους, δείτε [Presentation Background](/slides/el/php-java/presentation-background/) και [Presentation Theme](/slides/el/php-java/presentation-theme/).
 
-## **Κλωνοποίηση Slide Master σε Άλλη Παρουσίαση**
+## **Κλωνοποίηση Μαστέρι Διαφάνειας σε Άλλη Παρουσίαση**
 
-Χρησιμοποιήστε το `addClone` από το [MasterSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslidecollection/) για να αντιγράψετε ένα master slide σε άλλη παρουσίαση. Το αντίγραφο master μπορεί στη συνέχεια να χρησιμοποιηθεί από layout και διαφάνειες στην προοριστική παρουσίαση.
+Χρησιμοποιήστε τη μέθοδο `addClone` από το [MasterSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslidecollection/) για να αντιγράψετε ένα μαστέρι διαφάνειας σε άλλη παρουσίαση. Το αντιγραμμένο μαστέρι μπορεί στη συνέχεια να χρησιμοποιηθεί από διαφάνειες διάταξης και κανονικές διαφάνειες στην προορισμένη παρουσίαση.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -252,15 +311,15 @@ try {
 }
 ```
 
-Εάν χρειάζεστε κλωνοποίηση normal slides μαζί με το master τους, δείτε [Clone Slides](/slides/el/php-java/clone-slides/).
+Αν χρειάζεται να κλωνοποιήσετε κανονικές διαφάνειες μαζί με το μαστέρι τους, δείτε [Clone Slides](/slides/el/php-java/clone-slides/).
 
-## **Προσθήκη Πολλαπλών Slide Masters**
+## **Προσθήκη Πολλαπλών Μαστέρι Διαφανειών**
 
-Μια παρουσίαση μπορεί να περιέχει πολλαπλά master slides. Αυτό είναι χρήσιμο όταν διαφορετικά τμήματα απαιτούν διαφορετική επωνυμία, δομή σελίδας ή ρυθμίσεις θέματος.
+Μια παρουσίαση μπορεί να περιέχει πολλαπλά μαστέρια διαφανειών. Αυτό είναι χρήσιμο όταν διαφορετικές ενότητες απαιτούν διαφορετική επωνυμία, δομή σελίδας ή ρυθμίσεις θέματος.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![Εντολές PowerPoint για εισαγωγή και διαχείριση μαστέρι διαφανειών](slide-master_9.jpg)
 
-Το παρακάτω παράδειγμα κλωνοποιεί το προεπιλεγμένο master, δίνει στο αντίγραφο διαφορετικό φόντο, δημιουργεί μια layout κάτω από το κλωνοποιημένο master και προσθέτει μια νέα διαφάνεια βασισμένη σε αυτή τη layout:
+Το παρακάτω παράδειγμα κλωνοποιεί το προεπιλεγμένο μαστέρι, δίνει στο κλώνο διαφορετικό φόντο, δημιουργεί μια διάταξη υπό αυτό το κλώνο και προσθέτει μία νέα διαφάνεια βασισμένη σε αυτήν τη διάταξη:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -285,9 +344,9 @@ try {
 }
 ```
 
-## **Σύγκριση Slide Masters**
+## **Σύγκριση Μαστέρι Διαφανειών**
 
-Τα master slides μπορούν να συγκριθούν με τη μέθοδο `equals` που κληρονομείται από το [BaseSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σχήματα, κείμενο, μορφοποίηση, animations και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως IDs διαφανειών, ή δυναμικές τιμές placeholder, όπως η τρέχουσα ημερομηνία.
+Τα μαστέρια διαφανειών μπορούν να συγκριθούν με τη μέθοδο `equals` που κληρονομείται από το [BaseSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseslide/). Η σύγκριση ελέγχει τη δομή και το στατικό περιεχόμενο, όπως σχήματα, κείμενο, μορφοποίηση, κινούμενα σχέδια και άλλες ρυθμίσεις διαφάνειας. Δεν συγκρίνει μοναδικά αναγνωριστικά, όπως το ID διαφάνειας, ή δυναμικές τιμές θέσεων κράτησης, όπως η τρέχουσα ημερομηνία.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -316,9 +375,9 @@ try {
 
 Για περισσότερες πληροφορίες, δείτε [Compare Presentation Slides](/slides/el/php-java/compare-slides/).
 
-## **Ορισμός Προβολής Slide Master ως Προεπιλεγμένη Προβολή**
+## **Ορισμός Προβολής Μαστέρι Διαφάνειας ως Προεπιλεγμένης Προβολής**
 
-Χρησιμοποιήστε τη μέθοδο `setLastView` στην κλάση [ViewProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/viewproperties/) για να ελέγξετε την προβολή που ανοίγει πρώτο το PowerPoint. Το παρακάτω παράδειγμα ανοίγει την παρουσίαση στην προβολή Slide Master:
+Χρησιμοποιήστε τη μέθοδο `setLastView` στην κλάση [ViewProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/viewproperties/) για να ελέγξετε την προβολή που ανοίγει το PowerPoint πρώτο. Το παρακάτω παράδειγμα ανοίγει την παρουσίαση στην προβολή Μαστέρι Διαφάνειας:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -332,11 +391,11 @@ try {
 
 Για περισσότερες ρυθμίσεις προβολής, δείτε [Save Presentation](/slides/el/php-java/save-presentation/).
 
-## **Αφαίρεση Μη Χρησιμοποιούμενων Master Slides**
+## **Αφαίρεση Αχρησιμοποιημένων Μαστέρι Διαφανειών**
 
-Οι παρουσιάσεις μερικές φορές περιέχουν master slides που δεν χρησιμοποιούνται πλέον από καμία normal slide. Η αφαίρεση μη χρησιμοποιούμενων masters μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη διαχείριση προτύπων.
+Οι παρουσιάσεις μερικές φορές περιέχουν μαστέρια διαφανειών που δεν χρησιμοποιούνται πλέον από καμία κανονική διαφάνεια. Η αφαίρεση αχρησιμοποιημένων μαστέρι μπορεί να μειώσει το μέγεθος του αρχείου και να απλοποιήσει τη συντήρηση του προτύπου.
 
-Χρησιμοποιήστε το `removeUnused` από το [MasterSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslidecollection/) για να αφαιρέσετε μη χρησιμοποιούμενα masters από τη συλλογή `getMasters`:
+Χρησιμοποιήστε τη μέθοδο `removeUnused` από το [MasterSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslidecollection/) για να αφαιρέσετε αχρησιμοποίητα μαστέρια από τη συλλογή `getMasters`:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -348,7 +407,7 @@ try {
 }
 ```
 
-Μπορείτε επίσης να χρησιμοποιήσετε τη μέθοδο χαμηλού κώδικα `removeUnusedMasterSlides` από την κλάση [Compress](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/):
+Μπορείτε επίσης να χρησιμοποιήσετε τη μέθοδο low-code `removeUnusedMasterSlides` από την κλάση [Compress](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/):
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -362,18 +421,18 @@ try {
 
 ## **FAQ**
 
-**Ποια είναι η διαφορά μεταξύ ενός slide master και μιας layout slide;**
+**Ποια είναι η διαφορά μεταξύ μαστέρι διαφάνειας και διαφάνειας διάταξης;**
 
-Ένα slide master ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, φόντο, κοινά σχήματα και στυλ κειμένου. Μια layout slide ανήκει σε ένα slide master και ορίζει μια συγκεκριμένη διάταξη placeholders. Μια normal slide χρησιμοποιεί μια layout slide, έτσι κληρονομεί τόσο από τη layout όσο και από το master.
+Ένα μαστέρι διαφάνειας ορίζει κοινές ρυθμίσεις σχεδίασης όπως θέμα, φόντο, κοινά σχήματα και στυλ κειμένου. Μια διαφάνεια διάταξης ανήκει σε μαστέρι διαφάνειας και ορίζει μια συγκεκριμένη διάταξη θέσεων κράτησης. Μια κανονική διαφάνεια χρησιμοποιεί μια διαφάνεια διάταξης, έτσι κληρονομεί τόσο από τη διάταξη όσο και από το μαστέρι.
 
-**Μπορεί μια παρουσίαση να περιέχει πολλά slide masters;**
+**Μπορεί μια παρουσίαση να περιέχει πολλά μαστέρια διαφανειών;**
 
-Ναι. Μια παρουσίαση μπορεί να περιέχει πολλούς slide masters. Χρησιμοποιήστε πολλαπλά masters όταν διαφορετικά τμήματα χρειάζονται διαφορετικά οπτικά συστήματα ή επωνυμία.
+Ναι. Μια παρουσίαση μπορεί να περιέχει πολλά μαστέρια. Χρησιμοποιήστε πολλαπλά μαστέρια όταν διαφορετικές ενότητες χρειάζονται διαφορετικά οπτικά συστήματα ή επωνυμία.
 
-**Πρέπει να προσθέσω placeholders σε master slide ή σε layout slide;**
+**Πρέπει να προσθέσω θέσεις κράτησης σε μαστέρι διαφάνειας ή σε διαφάνεια διάταξης;**
 
-Στις περισσότερες περιπτώσεις, προσθέστε placeholders σε layout slides. Τοποθετήστε τα κοινά οπτικά στοιχεία και τη κοινή μορφοποίηση στο master slide, και τα placeholders περιεχομένου στις layout που θα χρησιμοποιήσουν οι normal slides.
+Στις περισσότερες περιπτώσεις, προσθέτετε θέσεις κράτησης σε διαφάνειες διάταξης. Βάλτε κοινά οπτικά στοιχεία και κοινή μορφοποίηση στο μαστέρι, και τις θέσεις κράτησης περιεχομένου στις διαφάνειες διάταξης που θα χρησιμοποιούν οι κανονικές διαφάνειες.
 
-**Μπορώ να διαγράψω ένα master slide που χρησιμοποιείται ακόμη;**
+**Μπορώ να διαγράψω ένα μαστέρι διαφάνειας που χρησιμοποιείται ακόμα;**
 
-Όχι. Ένα master slide που έχει εξαρτημένες διαφάνειες δεν μπορεί να διαγραφεί με ασφάλεια. Πρώτα μετακινήστε αυτές τις διαφάνειες σε layout κάτω από άλλο master, ή χρησιμοποιήστε μια μέθοδο καθαρισμού μη χρησιμοποιούμενων masters που αφαιρεί μόνο masters που δεν είναι σε χρήση.
+Όχι. Ένα μαστέρι διαφάνειας που έχει εξαρτημένες διαφάνειες δεν μπορεί να αφαιρεθεί με ασφάλεια. Μετακινήστε πρώτα αυτές τις διαφάνειες σε διαφάνειες διάταξης κάτω από άλλο μαστέρι ή χρησιμοποιήστε μια μέθοδο καθαρισμού αχρησιμοποίητων μαστέρι που αφαιρεί μόνο τα μαστέρια που δεν χρησιμοποιούνται.

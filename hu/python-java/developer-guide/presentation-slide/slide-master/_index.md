@@ -1,58 +1,56 @@
 ---
-title: Dia mesterek kezelése a prezentációkban Pythonon keresztül Java-val
-linktitle: Dia mester
+title: Dia masterek kezelése Pythonon keresztül Java-val
+linktitle: Dia master
 type: docs
 weight: 70
 url: /hu/python-java/slide-master/
 keywords:
-- dia mester
-- mester dia
-- PPT mester dia
-- több mester dia
-- mester diák összehasonlítása
+- dia master
+- master dia
+- PPT master dia
+- több master dia
+- master diák összehasonlítása
 - háttér
 - helyőrző
-- mester dia klónozása
-- mester dia másolása
-- mester dia duplikálása
-- használaton kívüli mester dia
+- master dia klónozása
+- master dia másolása
+- master dia megkettőzése
+- használaton kívüli master dia
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Dia mesterek kezelése az Aspose.Slides for Python via Java segítségével: mester diák elérése, szerkesztése, klónozása, összehasonlítása és eltávolítása PowerPoint és OpenDocument prezentációkban."
+description: "Dia masterek kezelése az Aspose.Slides Python verziójában Java használatával: hozzáférés, szerkesztés, klónozás, összehasonlítás és master diák eltávolítása PowerPoint és OpenDocument prezentációkban."
 ---
 ## **Áttekintés**
 
-A **dia mester** közös tervezési beállításokat határoz meg egy diákkészlet számára. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, téma beállításokat és lábléc beállításokat. PowerPointban a dia mester szerkesztése a szokásos módja annak, hogy a bemutató következetes legyen anélkül, hogy minden dián megismételné a formázást.
+A **slide master** meghatározza a közös tervezési beállításokat egy diacsoport számára. Tartalmazhat közös alakzatokat, logókat, háttereket, szövegstílusokat, téma beállításokat és lábléc beállításokat. A PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a prezentáció konzisztens maradjon anélkül, hogy minden dián ismételni kellene ugyanazt a formázást.
 
-Aspose.Slides for Python via Java támogatja ugyanazt a modellt. Egy bemutató egy vagy több mesterdiát tartalmazhat, és minden mesterdia több elrendezés diát is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy mesterdiára. Ehelyett egy normál dia egy elrendezés diát használ, amely egy mesterdiához tartozik.
+Aspose.Slides for Python via Java támogatja ugyanazt a modellt. Egy prezentáció tartalmazhat egy vagy több master diát, és minden master dia több layout diát is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master diára. Ehelyett egy normál dia egy layout diát használ, amely egy master dia része.
 
-A hierarchia:
+A hierarchia a következő:
 
-1. **Dia mester** – meghatározza a közös tervezést és témát.
-1. **Elrendezés dia** – meghatároz egy adott helyőrző- és elrendezési szintű formázást.
-1. **Normál dia** – a tényleges bemutatótartalmat tartalmazza, és egy elrendezés diát használ.
+1. **Slide master** – meghatározza a közös tervezést és a témát.
+1. **Layout slide** – meghatároz egy konkrét elrendezést a helyőrzőkkel és a layout szintű formázással.
+1. **Normal slide** – tartalmazza a tényleges prezentációs tartalmat, és egy layout slide-ot használ.
 
-![A mesterdiák, elrendezésdiák és normál diák hierarchiája](slide-master_2.jpg)
+![A master diák, layout diák és normál diák hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slides-ban egy dia mestert a [MasterSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/) osztály képviseli. A bemutató összes mesterdiája a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményen keresztül érhető el, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/) valósít meg.
+Az Aspose.Slides-ban a slide master a [MasterSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/) osztállyal van reprezentálva. A prezentáció összes master diája a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményen keresztül érhető el, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/) reprezentál.
 
 {{% alert color="info" title="Inheritance" %}}
-
-Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyeri el a hatalmat. Például ha egy mesterdia és egy elrendezés dia is meghatároz egy háttérképet, akkor a diagramok, amelyek ezen elrendezésen alapulnak, az elrendezés háttérjét használják. Az elrendezés diákról további információkért lásd a [Alkalmazza vagy módosítsa a diaelrendezéseket](/slides/hu/python-java/slide-layout/) oldalt.
-
+Ha ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy master dia és egy layout dia is meghatároz egy háttérszínt, a layoutra épülő diák a layout háttérét használják. További információért a layout diákról lásd a [Apply or Change Slide Layouts](/slides/hu/python-java/slide-layout/) oldalt.
 {{% /alert %}}
 
-## **Dia mesterek elérése**
+## **A slide master-ek elérése**
 
-PowerPointban a **Nézet** > **Dia mester** menüponttal nyithatja meg a Dia mester nézetet.
+A PowerPointban a Slide Master nézetet a **View** > **Slide Master** menüből nyithatja meg.
 
-![A Dia mester parancs a PowerPoint Nézet lapon](slide-master_3.jpg)
+![A Slide Master parancs a PowerPoint Nézet lapon](slide-master_3.jpg)
 
-Az Aspose.Slides-ban a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményt kell használni a mesterdiák eléréséhez:
+Az Aspose.Slides-ban használja a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményt a master diák eléréséhez:
 
 ```python
 import jpype
@@ -75,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-A normál dia által használt mesterdiát a saját elrendezésén keresztül is lekérheti:
+Le is kérheti egy normál dia által használt master diát a layoutján keresztül:
 
 ```python
 import jpype
@@ -98,26 +96,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Mi van egy dia mesterben**
+## **Mit tartalmaz egy slide master**
 
-A mesterdia egy dia-szerű objektum. A [BaseSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/) osztályból származik, így sok olyan dia‑tulajdonságot is elér, amelyet a normál és elrendezés diák is használnak. A mesterspecifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/) API‑oldalon vannak felsorolva.
+A master dia egy diára hasonlító objektum. Örökli a [BaseSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/) osztályt, így sok olyan dia tulajdonságot tesz elérhetővé, amelyet a normál és a layout diák használnak. A master specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/) API oldalán vannak felsorolva.
 
-A gyakran használt mesterdiához tartozó tagok:
+Az általánosan használt master dia tagok a következők:
 
-| Tag | Leírás |
+| Tag | Cél |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getBackground) | Beállítja a mester‑szintű dia háttérképet. |
-| [getShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getShapes) | Tárolja a mesterre helyezett alakzatokat, például logókat, képkockákat és megosztott szöveget. |
-| [getLayoutSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getLayoutSlides) | Tárolja a mesterhez tartozó elrendezés diákot. |
-| [getThemeManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getThemeManager) | Hozzáférést biztosít a mester téma API‑khoz. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Kezeli a fejléc, lábléc, dátum és dia számot a mester és gyermek elrendezései számára. |
-| [getDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getDependingSlides) | Visszaadja a normál diákot, amelyek a mesteren keresztül függnek az elrendezéseiktől. |
+| [getBackground](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getBackground) | Beállítja a master szintű dia háttérét. |
+| [getShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getShapes) | A master-re helyezett alakzatokat tárolja, például logókat, képkockákat és megosztott szöveget. |
+| [getLayoutSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getLayoutSlides) | A masterhez tartozó layout diákat tárolja. |
+| [getThemeManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getThemeManager) | Hozzáférést biztosít a master téma API-khoz. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | A master és annak alatti layoutok fejlécét, láblécét, dátumát és dia számait kezeli. |
+| [getDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getDependingSlides) | Visszaadja a normál diákat, amelyek a master-re a layoutjaikon keresztül támaszkodnak. |
 
-## **Kép hozzáadása egy dia mesterhez**
+## **Kép hozzáadása egy slide master-hez**
 
-Amikor képet ad hozzá egy mesterdiához, az a mesterhez tartozó elrendezéseket használó diákon jelenik meg. Ez hasznos logók, vízjelek, díszszalagok és egyéb ismétlődő vizuális elemek esetén.
+Ha képet ad hozzá egy master diához, az megjelenik azokon a diákon, amelyek az adott master layoutjait használják. Ez hasznos logók, vízjelek, díszcsíkok és egyéb ismétlődő vizuális elemek esetén.
 
-Az alábbi példa egy logót ad az első mesterdiához:
+A következő példa egy logót ad az első master diához:
 
 ```python
 import jpype
@@ -143,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-A képkockákról további információkért lásd a [Képkocka](/slides/hu/python-java/picture-frame/) oldalt.
+További információért a képkockákról lásd a [Picture Frame](/slides/hu/python-java/picture-frame/) oldalt.
 
-## **Munkavégzés helyőrzőkkel**
+## **A master grafikák láthatóságának vezérlése**
 
-A helyőrzőket általában az elrendezés diákon definiálják. A mesterdia biztosítja a megosztott stílust és témát, amelyet az elrendezések örökölnek, míg minden elrendezés dönt arról, hogy mely helyőrzők állnak rendelkezésre és hol helyezkednek el.
+A [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#setShowMasterShapes) használatával elrejtheti az örökölt master grafikákat, például logókat vagy díszalakzatokat, anélkül, hogy a masterről törölné őket. Adjon `False` értéket a [Slide.setShowMasterShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#setShowMasterShapes) metódusnak azon dián, amelyik el akarja hagyni ezeket a grafikákat, és `True` értéket azoknál a diáknál, amelyek meg akarják jeleníteni őket.
 
-PowerPointban a helyőrző parancsok a Dia mester nézetben érhetők el.
+A következő önálló példa egy kék díszcsíkot hoz létre egy masteren, valamint két diát, amelyek ugyanazt az üres layoutot használják. A csík az első dián látható, a másodikon rejtett. Nem szükséges bemeneti prezentáció vagy kép.
 
-![A Helyőrző beszúrása parancs a PowerPoint Dia mester nézetben](slide-master_5.png)
+```python
+import jpype
+import asposeslides
 
-Új helyőrzők hozzáadásához az Aspose.Slides‑ban dolgozzon az adott mesterhez tartozó elrendezés diával:
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+A példa a **Blank** layoutot használja, amely egy új prezentációval érkezik, és eltávolítja az első dia saját helyőrzőit.
+
+### **Válassza ki a beállítás hatókörét**
+
+Egy normál dia a masterét a [Slide.getLayoutSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getLayoutSlide) és a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getMasterSlide) segítségével használja. A tulajdonság beállítása egy egyedi dián csak arra a diára hat. `False` átadása a [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#setShowMasterShapes) metódusnak elrejti a master grafikákat azokon a diákon, amelyek ezt a közös layoutot használják, még akkor is, ha a saját beállításuk `True`. Egyetlen dián történő grafika elrejtéséhez módosítsa a dia tulajdonságát, és hagyja változatlanul a közös layoutot.
+
+A beállítás nem támogatott láthatóságvezérlőként a master dián magán. Egy masteren a [getShowMasterShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getShowMasterShapes) mindig `False` értéket ad vissza, és a [setShowMasterShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#setShowMasterShapes) `True` értékének átadása kivételt generál. Inkább egy normál diára vagy egy layoutra alkalmazza.
+
+### **Különböztesse meg a grafikát a háttértől**
+
+| Művelet | Hatás |
+| --- | --- |
+| Az örökölt master alakzatok láthatóságának vezérlése, anélkül hogy törölné őket vagy módosítaná a dia saját alakzatait. |
+| Megváltoztatja a dia háttérkitöltését | Megváltoztatja a háttér színét, gradiensét vagy képét. A master grafikák különálló alakzatok, és láthatóak maradhatnak a háttér felett. Lásd a [Presentation Background](/slides/hu/python-java/presentation-background/) oldalt. |
+| Törölje egy alakzatot a masterről | Eltávolítja a megosztott forrás alakzatot, így már nem érhető el egyetlen diának sem, amely azt a mastert használja. |
+
+## **Helyőrzőkkel való munka**
+
+A helyőrzőket általában a layout diákon definiálják. A master dia biztosítja a közös stílust és temát, amelyet a layoutok örökölnek, míg minden layout eldönti, hogy melyik helyőrző elérhető és hol helyezkedik el.
+
+A PowerPointban a helyőrző parancsok a Slide Master nézetben érhetők el.
+
+![A Helyőrző beszúrása parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
+
+Új helyőrzők hozzáadásához az Aspose.Slides használatával dolgozzon a masterhez tartozó layout diával:
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Meglévő helyőrző alakzatok formázása is lehetséges egy mesterdián. Az alábbi példa megtalálja a cím helyőrzőt, és lineáris színátmenetes kitöltést alkalmaz rá:
+Megformázhatja a már a master dián létező helyőrző alakzatokat is. A következő példa megtalálja a cím helyőrzőt és lineáris gradiens kitöltést alkalmaz rá:
 
 ```python
 import jpype
@@ -220,11 +278,11 @@ finally:
 
 ![Formázott cím helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
 
-További helyőrző és szövegformázási lehetőségekért lásd a [Állítsa be a helyőrző szövegét](/slides/hu/python-java/manage-placeholder/) és a [Szövegformázás](/slides/hu/python-java/text-formatting/) oldalakat.
+További helyőrző és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/python-java/manage-placeholder/) és a [Text Formatting](/slides/hu/python-java/text-formatting/) oldalakat.
 
-## **Dia mester háttér módosítása**
+## **Slide master háttér módosítása**
 
-A mester háttér öröklődik az elrendezések és azok a diák számára, amelyek nem felülírják azt. Az alábbi példa szilárd háttérszínt állít be az első mesterdiára:
+A master háttér öröklődik a layoutok és a diák számára, amelyek nem írják felül. A következő példa egy egyszínű háttérszínt állít be az első master dián:
 
 ```python
 import jpype
@@ -251,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-Kapcsolódó témák: [Prezentáció háttér](/slides/hu/python-java/presentation-background/) és [Prezentáció téma](/slides/hu/python-java/presentation-theme/).
+Kapcsolódó témákért lásd a [Presentation Background](/slides/hu/python-java/presentation-background/) és a [Presentation Theme](/slides/hu/python-java/presentation-theme/) oldalakat.
 
-## **Dia mester klónozása egy másik bemutatóba**
+## **Slide master klónozása egy másik prezentációba**
 
-Használja a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/#addClone) metódust, hogy egy mesterdiát másik bemutatóba másoljon. A másolt mester ezután felhasználható az elrendezések és diák számára a célbemutatóban.
+A [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/#addClone) használatával másolhat egy master diát egy másik prezentációba. A másolt master ezután a célprezentáció layoutjai és diái által használható.
 
 ```python
 import jpype
@@ -278,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-Ha normál diákot is klónozni szeretne a mesterével együtt, lásd a [Diák klónozása](/slides/hu/python-java/clone-slides/) oldalt.
+Ha normál diákat is a masterrel együtt szeretne klónozni, lásd a [Clone Slides](/slides/hu/python-java/clone-slides/) oldalt.
 
-## **Több dia mester hozzáadása**
+## **Több slide master hozzáadása**
 
-Egy bemutató több mesterdiát is tartalmazhat. Ez akkor hasznos, ha a bemutató különböző részei különböző márkázást, oldalstruktúrát vagy téma beállításokat igényelnek.
+Egy prezentáció több master diát is tartalmazhat. Ez akkor hasznos, amikor a különböző szakaszok különböző márkázást, oldal struktúrát vagy téma beállításokat igényelnek.
 
-![PowerPoint parancsok a mesterdiák beszúrásához és kezeléséhez](slide-master_9.jpg)
+![PowerPoint parancsok master diák beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-Az alábbi példa a alapértelmezett mestert klónozza, a klónnak más háttérszínt ad, egy elrendezést hoz létre a klónozott mester alatt, és egy új diát ad hozzá ehhez az elrendezéshez:
+A következő példa klónozza az alapértelmezett mastert, a klónnak más háttérszínt ad, egy layoutot hoz létre a klónozott master alatt, és egy új diát ad hozzá a layout alapján:
 
 ```python
 import jpype
@@ -321,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Dia mesterek összehasonlítása**
+## **Slide master-ek összehasonlítása**
 
-A mesterdiák összehasonlíthatók a [equals](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#equals) metódussal, amelyet a [BaseSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/) osztály örököl. Az összehasonlítás a struktúrát és a statikus tartalmat vizsgálja, például alakzatokat, szöveget, formázást, animációkat és egyéb dia‑beállításokat. Nem hasonlítja össze az egyedi azonosítókat, mint a dia‑ID‑k, vagy a dinamikus helyőrzőértékeket, mint az aktuális dátum.
+A master diák összehasonlíthatók a [equals](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#equals) metódussal, amelyet a [BaseSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/) örököl. Az összehasonlítás ellenőrzi a struktúrát és a statikus tartalmat, például alakzatokat, szöveget, formázást, animációkat és egyéb dia beállításokat. Nem hasonlítja össze az egyedi azonosítókat, például a dia ID-ket, vagy a dinamikus helyőrző értékeket, például az aktuális dátumot.
 
 ```python
 import jpype
@@ -353,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-További információkért lásd a [Prezentáció diák összehasonlítása](/slides/hu/python-java/compare-slides/) oldalt.
+További információért lásd a [Compare Presentation Slides](/slides/hu/python-java/compare-slides/) oldalt.
 
-## **Dia mester nézet beállítása alapértelmezett nézetként**
+## **A slide master nézet beállítása alapértelmezett nézetnek**
 
-Használja a [setLastView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setLastView) metódust a [ViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) osztályon, hogy szabályozza, melyik nézetet nyissa meg a PowerPoint először. Az alábbi példa a bemutatót a Dia mester nézetben nyitja meg:
+A [setLastView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setLastView) metódus használatával a [ViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/)‑on szabályozhatja, hogy a PowerPoint melyik nézetet nyissa meg először. A következő példa a prezentációt Slide Master nézetben nyitja meg:
 
 ```python
 import jpype
@@ -376,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-További nézetbeállításokért lásd a [Prezentáció mentése](/slides/hu/python-java/save-presentation/) oldalt.
+További nézetbeállításokért lásd a [Save Presentation](/slides/hu/python-java/save-presentation/) oldalt.
 
-## **Használaton kívüli mesterdiák eltávolítása**
+## **Felhasználatlan master diákok eltávolítása**
 
-A bemutatók néha tartalmaznak olyan mesterdiákat, amelyeket már egyetlen normál dia sem használ. A használaton kívüli mesterek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablon karbantartását.
+A prezentációk néha olyan master diákat tartalmaznak, amelyeket már egyetlen normál dia sem használ. A felhasználatlan masterek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablon karbantartását.
 
-Használja a [removeUnused](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/#removeUnused) metódust a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményből való használaton kívüli mesterek eltávolításához:
+A [removeUnused](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/#removeUnused) használatával eltávolíthatja a felhasználatlan mastereket a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményből:
 
 ```python
 import jpype
@@ -401,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-Alacsony kódú [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compress/#removeUnusedMasterSlides) metódus is használható:
+Alacsony-kódú [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compress/#removeUnusedMasterSlides) metódust is használhat:
 
 ```python
 import jpype
@@ -422,18 +480,18 @@ finally:
 
 ## **GYIK**
 
-**Mi a különbség egy dia mester és egy elrendezés dia között?**
+**Mi a különbség a slide master és a layout slide között?**
 
-Egy dia mester közös tervezési beállításokat definiál, például téma, háttér, közös alakzatok és szövegstílusok. Egy elrendezés dia egy mesterdiához tartozik, és egy adott helyőrző‑elrendezést határoz meg. Egy normál dia egy elrendezés diát használ, ezért örökli az elrendezés és a mester beállításait.
+A slide master meghatározza a közös tervezési beállításokat, például a témát, háttér, közös alakzatok és szövegstílusok. Egy layout slide a master diához tartozik és egy konkrét helyőrző elrendezést definiál. Egy normál dia egy layout slide-ot használ, így mind a layout, mind a master öröklődik.
 
-**Tartalmazhat-e egy bemutató több dia mestert?**
+**Tartalmazhat egy prezentáció több slide master-t?**
 
-Igen. Egy bemutató több dia mestert is tartalmazhat. Használjon több mestert, ha a különböző részeknek különböző vizuális rendszerekre vagy márkázásra van szüksége.
+Igen. Egy prezentáció több slide master-t is tartalmazhat. Használjon több mastert, ha a különböző szakaszok különböző vizuális rendszereket vagy márkázást igényelnek.
 
-**Hol kell helyőrzőket elhelyezni, a mesterdián vagy az elrendezés dián?**
+**Helyőrzőket a master diára vagy a layout diára kellene-e feltenni?**
 
-A legtöbb esetben az elrendezés diákra kell helyőrzőket tenni. A megosztott vizuális elemeket és a közös formázást tegye a mesterdiára, majd a tartalomhelyőrzőket a normál diák által használt elrendezésekre helyezze.
+Általában a helyőrzőket a layout diákra kell feltenni. A közös vizuális elemeket és közös formázást a master diára helyezze, majd a tartalmi helyőrzőket a layoutokra, amelyeket a normál diák használni fognak.
 
-**Törölhetek-e egy még használt mesterdiát?**
+**Törölhetek olyan master diát, amely még használatban van?**
 
-Nem. Egy olyan mesterdia, amelynek függő diái vannak, nem távolítható el biztonságosan közvetlenül. Először helyezze át ezeket a diákat egy másik mester alatti elrendezésekbe, vagy használjon olyan „nem használt‑mester” takarítási módszert, amely csak a nem használt mestereket távolítja el.
+Nem. Olyan master diát, amelynek vannak függő diái, nem lehet biztonságosan közvetlenül eltávolítani. Először mozdítsa át ezeket a diákat másik master alatti layoutokra, vagy használja a nem használt master-ek tisztítási módszert, amely csak a nem használt mastereket távolítja el.

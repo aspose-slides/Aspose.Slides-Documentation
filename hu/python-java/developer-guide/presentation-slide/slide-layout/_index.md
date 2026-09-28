@@ -1,20 +1,20 @@
 ---
-title: "Dia elrendezések alkalmazása vagy módosítása Pythonban Java-n keresztül"
-linktitle: "Dia elrendezés"
+title: Diaelrendezések alkalmazása vagy módosítása Pythonban Java-val
+linktitle: Diaelrendezés
 type: docs
 weight: 60
 url: /hu/python-java/slide-layout/
 keywords:
 - diaelrendezés
 - tartalomelrendezés
-- helyőrző
-- bemutató tervezés
+- helyfoglaló
+- prezentáció tervezés
 - dia tervezés
-- használaton kívüli elrendezés
+- nem használt elrendezés
 - lábléc láthatóság
-- cím dia
+- címdia
 - cím és tartalom
-- szakasz fejléc
+- szakaszcím
 - két tartalom
 - összehasonlítás
 - csak cím
@@ -25,46 +25,48 @@ keywords:
 - függőleges cím és szöveg
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Diaelrendezéseket alkalmazni, létrehozni és módosítani az Aspose.Slides-ben Pythonhoz Java-n keresztül, helyőrzőket hozzáadni, használaton kívüli elrendezéseket eltávolítani és a lábléc láthatóságát szabályozni."
+description: "Alkalmazza, hozza létre és módosítsa a diák elrendezéseit az Aspose.Slides for Python via Java-ban, adjon hozzá helyfoglalókat, távolítson el nem használt elrendezéseket, és vezérelje a lábléc láthatóságát."
 ---
 ## **Áttekintés**
 
-A dia elrendezése meghatározza a helyőrzők, például a címek, szöveg, képek, diagramok és táblázatok pozícióit és formázását. Egy elrendezés alkalmazása következetes szerkezetet biztosít a diák számára, miközben minden dia saját tartalmát tartalmazhatja.
+Egy diaelrendezés meghatározza a helyfoglalók, például címek, szöveg, képek, diagramok és táblázatok pozícióját és formázását. Az elrendezés alkalmazásával a diák egységes szerkezetet kapnak, miközben minden dia saját tartalmát tartalmazhatja.
 
 A leggyakoribb elrendezések a következők:
 
-- **Title Slide**: Cím és alcím helyőrzőket tartalmaz.
-- **Title and Content**: Cím helyőrzőt és egy általános célú tartalomhelyőrzőt tartalmaz.
-- **Blank**: Nem tartalmaz tartalomhelyőrzőket, és akkor hasznos, ha minden alakzatot kézzel helyezünk el.
+- **Címdia**: Cím és alcím helyfoglalókat tartalmaz.
+- **Cím és tartalom**: Cím helyfoglalót és egy általános célú tartalomhelyet tartalmaz.
+- **Üres**: Nem tartalmaz tartalomhelyeket, és akkor hasznos, ha minden alakzatot manuálisan helyezünk el.
 
-## **Az elrendezés öröklődésének megértése**
+## **Ismerje meg az elrendezés öröklődését**
 
-Egy bemutatónak három összefüggő szintje van:
+Egy prezentációnak három egymással összefüggő szintje van:
 
-1. A [master slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/) meghatározza a témát, a közös formázást, a háttérképeket és a közös objektumokat.
-1. A [layout slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/) egy masterhez tartozik, és egy adott helyőrző elrendezést határoz meg.
-1. A [normal slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/) egy elrendezést használ, és a diára beírt tartalmat tárolja.
+1. Egy [master dia](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/) határozza meg a témát, a közös formázást, a hátteret és a közös objektumokat.
+2. Egy [elrendezésdia](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/) egy mesterhez tartozik, és egy meghatározott helyfoglaló‑elrendezést definiál.
+3. Egy [normál dia](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/) egy elrendezést használ, és a dia számára megadott tartalmat tárolja.
 
-Egy normal slide a témát és a formázást a saját elrendezésétől örökli, az elrendezés pedig a masterétől. A normal slide-on közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normal slide létrejön, a helyőrző alakzatok a kiválasztott elrendezésből generálódnak, míg a helyőrzőkbe beírt tartalom a normal slide-hoz tartozik.
+A normál dia az elrendezéstől örökli a témát és a formázást, az elrendezés pedig a mastertől. Egy normál dián közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normál diát létrehoznak, a helyfoglaló alakzatok a kiválasztott elrendezésből jönnek létre, míg a helyfoglalókba beírt tartalom a normál dia része.
 
-Adjon hozzá a szükséges helyőrzőket az elrendezéshez, mielőtt diák létrehozására használná. Az elrendezéshez később hozzáadott további helyőrző nem ad hozzá automatikusan megfelelő helyőrző alakzatot a már létező normal slide-okra.
+Adjunk hozzá szükséges helyfoglalókat egy elrendezéshez, mielőtt diákat hoznánk létre belőle. Egy helyfoglaló későbbi hozzáadása egy elrendezéshez nem illeszti automatikusan be a megfelelő helyfoglaló alakzatot a már létező normál diákba.
 
 Ennek a kapcsolatnak két fontos következménye van:
 
-- A layouton végzett örökölt formázás vagy meglévő helyőrző geometria módosítása frissítheti az összes attól függő diát. Mielőtt szerkesztenénk egy már használatban lévő elrendezést, ellenőrizzük a függő diákot, és tekintsük át az eredményes bemutatót.
-- Olyan elrendezést, amelyet még használ egy dia, nem lehet eltávolítani. Először rendelje át a függő diákat egy másik elrendezéshez, vagy csak a nem használt elrendezéseket távolítsa el.
+- Az örökölt formázás vagy a meglévő helyfoglaló geometria módosítása az elrendezésen minden attól függő diát frissíthet. Mielőtt egy már használatban lévő elrendezést szerkesztenénk, ellenőrizzük a függő diák listáját, és vizsgáljuk meg a kapott prezentációt.
+- Egy még diát használó elrendezést nem lehet eltávolítani. Először rendeljük át a függő diákat egy másik elrendezéshez, vagy csak a nem használt elrendezéseket távolítsuk el.
 
-További információkért a hierarchia felső szintjéről lásd a [Slide Master](/slides/hu/python-java/slide-master/) oldalt.
+A hierarchia felső szintjéről további információkért lásd a [Dia mester](/slides/hu/python-java/slide-master/) oldalt.
 
-## **Diaelrendezés kiválasztása és alkalmazása**
+Az örökölt logók vagy dekoratív mesteralakzatok egy dián vagy egy megosztott elrendezésen keresztül történő elrejtéséhez lásd a [Mestergrafikák láthatóságának vezérlése](/slides/hu/python-java/slide-master/) oldalt. A példa két, ugyanazt a mestert használó diát hasonlít össze.
 
-Használjon elrendezéstípust, ha a bemutató a szabványos PowerPoint elrendezésdefiníciókat követi. Az elrendezés nevei felhasználó által szerkeszthetők és lokalizálhatók, így a név alapján történő kiválasztás kevésbé megbízható, hacsak nem szabályozza a forrás sablont.
+## **Elrendezés kiválasztása és alkalmazása**
 
-A következő példa az első masteren a **Title and Content** elrendezést keresi. Ha az elrendezés nem elérhető, szándékosan a **Blank** elrendezésre tér vissza. A második `None` ellenőrzés szükséges, mert egy bemutató csak egyéni elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [Slide.setLayoutSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#setLayoutSlide) metódussal alkalmazzák az első normal slide-ra.
+Használjunk elrendezéstípust, ha a prezentáció a PowerPoint szabványos elrendezésdefinícióit követi. Az elrendezésneveket a felhasználó szerkesztheti és lokalizálhatja, ezért a néven alapuló kiválasztás kevésbé megbízható, ha nem saját forrássablont használunk.
+
+Az alábbi példa az első masteron a **Cím és tartalom** elrendezést keresi. Ha ez az elrendezés nem érhető el, tudatosan visszatér a **Üres** elrendezésre. A `None` ellenőrzése azért szükséges, mert egy prezentáció csak egyéni elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [Slide.setLayoutSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#setLayoutSlide) metódussal alkalmazzuk az első normál diára.
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Egy dia elrendezésének módosítása nem távolítja el a közvetlenül a diára hozzáadott szokásos alakzatokat. Azonban a helyőrzők pozíciói, az örökölt formázás és a meglévő helyőrzők és az új elrendezés közötti megfelelés megváltozhat, ezért ellenőrizze a kimenetet, amikor jelentősen eltérő elrendezések között vált.
+Egy dia elrendezésének módosítása nem távolítja el az közvetlenül a diára hozzáadott szokásos alakzatokat. Azonban a helyfoglalók pozíciója, az örökölt formázás és a meglévő helyfoglalók és az új elrendezés közötti megfelelés változhat, ezért ellenőrizzük a kimenetet, ha jelentősen eltérő elrendezések között váltunk.
 
 ## **Elrendezésdia hozzáadása**
 
-A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Egy elrendezés létrehozásához hívja meg a [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterlayoutslidecollection/#add) metódust a cél master elrendezésgyűjteményén.
+A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Egy elrendezés létrehozásához hívjuk a [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterlayoutslidecollection/#add) metódust a célmaster elrendezésgyűjteményén.
 
-A következő példa mindig egy új **Title and Content** elrendezést ad hozzá `Report Title and Content` néven, majd egy normal slide-ot hoz létre ezen alapulva. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
+Az alábbi példa mindig hozzáad egy új **Cím és tartalom** elrendezést `Report Title and Content` néven, majd egy rá épülő normál diát hoz létre. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Csak akkor adjon hozzá elrendezést, ha a sablon ténylegesen egy másik újrahasználható struktúrát igényel. Ha már létezik megfelelő elrendezés, válassza ki és használja újra a duplikálás helyett.
+Csak akkor adjunk elrendezést, ha a sablon valóban igényel egy új újrahasználható struktúrát. Ha már létezik megfelelő elrendezés, válasszuk ki és használjuk azt a duplikálás helyett.
 
-## **Helyőrzők hozzáadása egy elrendezésdiához**
+## **Helyfoglalók hozzáadása egy elrendezésdiához**
 
-A [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getPlaceholderManager) metódus egy [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/) objektumot biztosít a helyőrző alakzatok elrendezéshez való hozzáadásához.
+A [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getPlaceholderManager) metódus egy [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/) objektumot ad vissza a helyfoglaló alakzatok elrendezéshez történő hozzáadásához.
 
-| PowerPoint helyőrző                | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/) metódus |
-| ----------------------------------- | ---------------------------------- |
-| ![Tartalom](content.png)            | [addContentPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| PowerPoint helyfoglaló               | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/) metódus |
+| ------------------------------------ | ---------------------------------------- |
+| ![Tartalom](content.png)             | [addContentPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Tartalom (függőleges)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Szöveg](text.png)                 | [addTextPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Szöveg (függőleges)](textV.png)   | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Kép](picture.png)                 | [addPicturePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Diagram](chart.png)               | [addChartPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Táblázat](table.png)              | [addTablePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [addSmartArtPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Média](media.png)                 | [addMediaPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online kép](onlineImage.png)      | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Szöveg](text.png)                  | [addTextPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Szöveg (függőleges)](textV.png)    | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Kép](picture.png)                  | [addPicturePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagram](chart.png)                | [addChartPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Táblázat](table.png)               | [addTablePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)            | [addSmartArtPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Média](media.png)                  | [addMediaPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online kép](onlineImage.png)       | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-A következő példa ellenőrzi, hogy a **Blank** elrendezés létezik, négy helyőrzőt ad hozzá, majd egy módosított elrendezést használó normal slide-ot hoz létre. A sorrend szándékos: a helyőrzőket a normal slide létrehozása előtt adják hozzá, így az Aspose.Slides a megfelelő helyőrző alakzatokat generálja azon a dián.
+Az alábbi példa ellenőrzi, hogy a **Üres** elrendezés létezik-e, négy helyfoglalót ad hozzá, majd egy módosított elrendezést használó normál diát hoz létre. A sorrend szándékos: a helyfoglalókat a normál dia létrehozása előtt adjuk hozzá, így az Aspose.Slides a megfelelő helyfoglaló alakzatokat generálja a dián.
 
 ```python
 import jpype
@@ -171,15 +173,17 @@ finally:
 
 Az eredmény:
 
-![A helyőrzők az elrendezésdián](add_placeholders.png)
+![A helyfoglalók az elrendezésdián](add_placeholders.png)
 
-{{% alert color="warning" title="Figyelmeztetés" %}}
-Az örökölt formázás vagy a meglévő elrendezéshelyőrzők geometriai módosítása befolyásolhatja a függő diákat. Az újból hozzáadott elrendezéshelyőrző nem lesz visszatöltve a már létező normal slide-okra. Tesztelje az elrendezés módosításait a bemutató egy másolatán, és ellenőrizze minden függő diát.
+{{% alert color="warning" title="Warning" %}}
+
+Az örökölt formázás vagy a meglévő elrendezéshelyfoglalók geometriai módosítása befolyásolhatja a függő diákot. Egy újonnan hozzáadott elrendezéshelyfoglaló nem töltődik be a már létező normál diákba. Teszteljük az elrendezésváltoztatásokat egy másolaton, és ellenőrizzük az összes függő diát.
+
 {{% /alert %}}
 
-## **Használaton kívüli elrendezésdiák eltávolítása**
+## **Nem használt elrendezésdiákok eltávolítása**
 
-Használja a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust a olyan elrendezések eltávolításához, amelyeket egyetlen normal slide sem hivatkozik. A metódus érintetlenül hagyja a még használatban lévő elrendezéseket.
+Használjuk a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust a olyan elrendezések eltávolításához, amelyeket egyetlen normál dia sem hivatkozik. A metódus érintetlenül hagyja a még használatban lévő elrendezéseket.
 
 ```python
 import jpype
@@ -198,11 +202,13 @@ finally:
     presentation.dispose()
 ```
 
-Egy adott elrendezés eltávolításához először használja a [hasDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#hasDependingSlides) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getDependingSlides) metódust. A [LayoutSlide.remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#remove) hívása előtt rendelje át a függő diákat. Egy használatban lévő elrendezés eltávolításának kísérlete [PptxEditException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxeditexception/) kivételt dob.
+Egy konkrét elrendezés eltávolításához először használjuk a [hasDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#hasDependingSlides) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getDependingSlides) metódust. Az esetleges függő diák átrendezése után hívjuk a [LayoutSlide.remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#remove) metódust. Egy használt elrendezés eltávolítása [PptxEditException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxeditexception/) kivételt eredményez.
 
-## **Lábléc láthatóságának szabályozása egy elrendezésdián**
+## **Lábléc láthatóságának vezérlése egy elrendezésdián**
 
-Egy elrendezésnek saját lábléc, dia-szám és dátum-idő helyőrzői vannak. Használja a [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) metódust ezeknek a helyőrzőknek a szabályozásához egy adott elrendezésen. Ez hasznos például, ha a tartalomelrendezéseknek láblécet kell megjeleníteni, a címelrendezéseknek pedig nem.
+Egy elrendezésnek saját lábléc‑, dia‑szám‑ és dátum‑idő‑helyfoglalója van. Használjuk a [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) metódust ezeknek a helyfoglalóknak a vezérléséhez egy elrendezésen belül. Ez akkor hasznos, ha például a tartalom‑elrendezéseknek láblécet kell mutatniuk, a címelrendezéseknek pedig nem.
+
+Az alábbi példa biztonságosan kiválaszt egy elrendezést, és láthatóvá teszi a lábléc elemeit:
 
 ```python
 import jpype
@@ -235,9 +241,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Lábléc láthatóságának szabályozása a masteren és annak gyermekelrendezésein**
+## **Lábléc láthatóságának vezérlése egy masteren és annak gyermekelrendezésein**
 
-Az egységes lábléc beállítások mesterhierarchiában történő alkalmazásához használja a [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getHeaderFooterManager) metódust. A [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslideheaderfootermanager/) terjesztési metódusai a masteren, annak függő elrendezésdiáin és normal slide-okon működnek; nem egyetlen normal slide-ra irányulnak.
+A konzisztens lábléc‑beállítások alkalmazásához a teljes mester‑hierarchián, használjuk a [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#getHeaderFooterManager) metódust. A [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslideheaderfootermanager/) terjesztési módszerei a masteren, a hozzá tartozó elrendezés‑diákon és a normál diákon is működnek; nem csak egyetlen normál diát céloznak meg.
 
 ```python
 import jpype
@@ -262,20 +268,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Mi a különbség a master slide és a layout slide között?**
+**Mi a különbség a master diának és az elrendezésdiának?**
 
-Egy master slide meghatározza a bemutató témáját és a közös formázást. Egy layout slide a masterhez tartozik, és egy újrahasználható helyőrzőelrendezést definiál. A normal slide-ok ezeket az elrendezéseket használják, és a diához specifikus tartalmat tárolják.
+A master dia határozza meg a prezentáció témáját és a közös formázást. Az elrendezésdia egy masterhez tartozik, és egy újrahasználható helyfoglaló‑elrendezést definiál. A normál diákok ezeket az elrendezéseket használják, és a dia‑specifikus tartalmat tárolják.
 
-**Másolhatok-e egy layout slide-ot egy bemutatóból egy másikba?**
+**Másolhatok elrendezésdiát egy prezentációból a másikba?**
 
-Igen. A [addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/globallayoutslidecollection/#addClone) metódussal adjon hozzá egy másolatot a célgyűjteményhez. Bemutatók közti másolásnál ellenőrizze a betűtípusokat, témákat, képeket és egyéb forrásokat, amelyeket a forrás elrendezés használ.
+Igen. A [addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/globallayoutslidecollection/#addClone) metódussal egy másolatot adhatunk a célgyűjteményhez. Másoláskor ellenőrizzük a betűtípusokat, témákat, képeket és egyéb forrásokat, amelyeket a forrás‑elrendezés használ.
 
-**Mi történik, ha módosítok egy már használt elrendezést?**
+**Mi történik, ha módosítok egy már használatban lévő elrendezést?**
 
-A függő diák öröklik az elrendezés módosításait, hacsak helyileg felül nem írják az érintett formázást vagy objektumokat. A helyőrző geometria és az örökölt stílus ezért egyszerre sok dián változhat. Használja a [getDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getDependingSlides) metódust a érintett diák azonosításához az elrendezés szerkesztése előtt.
+A függő diák öröklik az elrendezésváltozásokat, kivéve ha a formázást vagy az objektumokat lokálisan felülbírálják. A helyfoglaló geometria és az örökölt stílus így sok diába egyszerre változhat. A szerkesztés előtt használjuk a [getDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getDependingSlides) metódust a érintett diák azonosításához.
 
-**Mi történik, ha egy még használatban lévő elrendezést eltávolítok?**
+**Mi lesz, ha eltávolítok egy még használatban lévő elrendezést?**
 
-Az Aspose.Slides egy [PptxEditException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxeditexception/) kivételt dob. Először rendelje át a függő diákat, vagy használja a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust, hogy csak a nem hivatkozott elrendezéseket távolítsa el.
+Az Aspose.Slides [PptxEditException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxeditexception/) kivételt dob. Először rendeljük át a függő diákot, vagy használjuk a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust, hogy csak a nem hivatkozott elrendezéseket távolítsuk el.

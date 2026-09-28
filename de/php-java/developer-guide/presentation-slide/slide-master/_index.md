@@ -21,37 +21,35 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Verwalten von Folienmastern in Aspose.Slides für PHP über Java: Zugriff, Bearbeitung, Klonen, Vergleich und Entfernen von Masterfolien in PowerPoint- und OpenDocument‑Präsentationen."
+description: "Verwalten Sie Folienmaster in Aspose.Slides für PHP über Java: Zugriff, Bearbeitung, Klonen, Vergleich und Entfernen von Masterfolien in PowerPoint- und OpenDocument-Präsentationen."
 ---
 ## **Übersicht**
 
-Ein **Folienmaster** definiert gemeinsam genutzte Designeinstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Designthemen und Fußzeileneinstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters die übliche Methode, um eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
+Ein **Folienmaster** definiert gemeinsam genutzte Designeinstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Designthemen und Fußzeileneinstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters der übliche Weg, um eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
 
-Aspose.Slides für PHP via Java unterstützt dasselbe Modell. Eine Präsentation kann einen oder mehrere Masterfolien enthalten, und jede Masterfolie kann mehrere Layoutfolien enthalten. Normale Folien verweisen normalerweise nicht direkt auf eine Masterfolie. Stattdessen verwendet eine normale Folie eine Layoutfolie, und diese Layoutfolie gehört zu einer Masterfolie.
+Aspose.Slides für PHP via Java unterstützt dasselbe Modell. Eine Präsentation kann einen oder mehrere Folienmaster enthalten, und jeder Folienmaster kann mehrere Layout‑Folien enthalten. Normale Folien verweisen normalerweise nicht direkt auf einen Folienmaster. Stattdessen verwendet eine normale Folie eine Layout‑Folie, und diese Layout‑Folie gehört zu einem Folienmaster.
 
 Die Hierarchie lautet:
 
-1. **Folienmaster** – definiert das gemeinsame Design und Thema.  
-1. **Layoutfolie** – definiert eine spezifische Anordnung von Platzhaltern und Layout‑Formatierungen.  
-1. **Normale Folie** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layoutfolie.
+1. **Folienmaster** – definiert das gemeinsam genutzte Design und Thema.  
+1. **Layout‑Folie** – definiert eine spezifische Anordnung von Platzhaltern und Layout‑Formatierungen.  
+1. **Normale Folie** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layout‑Folie.
 
-![Die Hierarchie von Masterfolien, Layoutfolien und normalen Folien](slide-master_2.jpg)
+![Die Hierarchie von Folienmastern, Layout‑Folien und normalen Folien](slide-master_2.jpg)
 
-In Aspose.Slides wird ein Folienmaster durch die [MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/)‑Klasse repräsentiert. Alle Masterfolien einer Präsentation sind über die Methode [Presentation.getMasters](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#getMasters) verfügbar, die ein [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/)‑Objekt zurückgibt.
+In Aspose.Slides wird ein Folienmaster durch die Klasse [MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) repräsentiert. Alle Folienmaster in einer Präsentation sind über die Methode [Presentation.getMasters](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#getMasters) verfügbar, die ein [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/)‑Objekt zurückgibt.
 
-{{% alert color="info" title="Vererbung" %}}
-
-Wenn dieselbe Eigenschaft auf mehr als einer Ebene definiert ist, gewinnt die spezifischere Ebene. Beispiel: Wenn sowohl eine Masterfolie als auch eine Layoutfolie einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Hintergrund des Layouts. Weitere Informationen zu Layoutfolien finden Sie unter [Folienlayout anwenden oder ändern](/slides/de/php-java/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Wenn dieselbe Eigenschaft auf mehreren Ebenen definiert ist, gewinnt die spezifischere Ebene. Beispiel: Wenn ein Folienmaster und eine Layout‑Folie beide einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Layout‑Hintergrund. Weitere Informationen zu Layout‑Folien finden Sie unter [Apply or Change Slide Layouts](/slides/de/php-java/slide-layout/).
 {{% /alert %}}
 
 ## **Zugriff auf Folienmaster**
 
 In PowerPoint können Sie die Folienmaster‑Ansicht über **Ansicht** > **Folienmaster** öffnen.
 
-![Der Befehl Folienmaster auf der Registerkarte Ansicht in PowerPoint](slide-master_3.jpg)
+![Der Befehl Folienmaster im PowerPoint‑Register „Ansicht“](slide-master_3.jpg)
 
-In Aspose.Slides verwenden Sie die Methode `getMasters`, um auf Masterfolien zuzugreifen:
+In Aspose.Slides verwenden Sie die Methode `getMasters`, um Folienmaster zu erhalten:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -67,7 +65,7 @@ try {
 }
 ```
 
-Sie können die Masterfolie, die von einer normalen Folie verwendet wird, über deren Layout erhalten:
+Sie können den von einer normalen Folie genutzten Folienmaster auch über deren Layout erhalten:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -83,26 +81,26 @@ try {
 }
 ```
 
-## **Inhalt einer Folienmaster‑Folie**
+## **Inhalt eines Folienmasters**
 
-Eine Masterfolie ist ein folienähnliches Objekt. Sie erweitert [BaseSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/) und stellt somit viele der gleichen Folien‑Eigenschaften bereit, die auch von normalen und Layoutfolien verwendet werden. Master‑spezifische Mitglieder sind auf der API‑Seite [MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) aufgelistet.
+Ein Folienmaster ist ein folienähnliches Objekt. Er erweitert [BaseSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/), sodass er viele der gleichen Folieneigenschaften wie normale und Layout‑Folien bereitstellt. Folienmasterspezifische Mitglieder sind auf der API‑Seite [MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) aufgeführt.
 
-Häufig verwendete Member der Masterfolie sind:
+Häufig genutzte Folienmaster‑Mitglieder sind:
 
-| Member | Zweck |
+| Mitglied | Zweck |
 | --- | --- |
-| `getBackground` | Setzt den master‑level Folienhintergrund. |
+| `getBackground` | Legt den Hintergrund auf Master‑Ebene fest. |
 | `getShapes` | Enthält Formen, die auf dem Master platziert sind, z. B. Logos, Bildrahmen und gemeinsam genutzten Text. |
-| `getLayoutSlides` | Enthält die Layoutfolien, die zum Master gehören. |
+| `getLayoutSlides` | Enthält die Layout‑Folien, die zum Master gehören. |
 | `getThemeManager` | Bietet Zugriff auf die Master‑Theme‑APIs. |
-| `getHeaderFooterManager` | Steuert Kopf‑, Fußzeilen, Datumsangaben und Folienzahlen für den Master und seine untergeordneten Layouts. |
+| `getHeaderFooterManager` | Steuert Kopf‑ und Fußzeilen, Datum und Foliennummern für den Master und seine untergeordneten Layouts. |
 | `getDependingSlides` | Gibt normale Folien zurück, die über ihre Layouts vom Master abhängen. |
 
-## **Ein Bild zur Folienmaster‑Folien hinzufügen**
+## **Ein Bild zu einem Folienmaster hinzufügen**
 
-Wenn Sie ein Bild zu einer Masterfolie hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederkehrende Bildelemente.
+Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederkehrende Bildelemente.
 
-Das folgende Beispiel fügt dem ersten Masterbild ein Logo hinzu:
+Das folgende Beispiel fügt dem ersten Folienmaster ein Logo hinzu:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -132,15 +130,72 @@ try {
 
 Weitere Informationen zu Bildrahmen finden Sie unter [Picture Frame](/slides/de/php-java/picture-frame/).
 
-## **Mit Platzhaltern arbeiten**
+## **Sichtbarkeit von Master‑Grafiken steuern**
 
-Platzhalter werden normalerweise auf Layoutfolien definiert. Der Folienmaster liefert den gemeinsamen Stil und das Thema, das diese Layouts erben, während jedes Layout entscheidet, welche Platzhalter verfügbar sind und wo sie platziert werden.
+Verwenden Sie [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/#setShowMasterShapes), um geerbte Master‑Grafiken, wie Logos oder dekorative Formen, auszublenden, ohne sie vom Master zu löschen. Übergeben Sie `false` an [Slide::setShowMasterShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/#setShowMasterShapes) auf der Folie, die diese Grafiken weglassen soll, und lassen Sie es auf Folien, die sie anzeigen sollen, auf `true` gesetzt.
 
-In PowerPoint sind Platzhalter‑Befehle in der Folienmaster‑Ansicht verfügbar.
+Das folgende eigenständige Beispiel erstellt ein blaues dekoratives Band auf einem Master und zwei Folien, die dasselbe leere Layout verwenden. Das Band ist auf der ersten Folie sichtbar und auf der zweiten verborgen. Keine Eingabe‑Präsentation oder Bilddatei ist erforderlich.
 
-![Der Befehl Platzhalter einfügen in der Folienmaster‑Ansicht von PowerPoint](slide-master_5.png)
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
 
-Um mit Aspose.Slides neue Platzhalter hinzuzufügen, arbeiten Sie mit der Layoutfolie, die zum Master gehört:
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Das Beispiel verwendet das Layout **Blank**, das mit einer neuen Präsentation geliefert wird, und entfernt die eigenen Platzhalter der Ausgangsfolie.
+
+### **Geltungsbereich der Einstellung wählen**
+
+Eine normale Folie greift über [Slide::getLayoutSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/#getLayoutSlide) und [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslide/#getMasterSlide) auf ihren Master zu. Das Setzen der Eigenschaft auf einer einzelnen Folie wirkt nur auf diese Folie. Das Übergeben von `false` an [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslide/#setShowMasterShapes) blendet Master‑Grafiken für alle Folien aus, die dieses geteilte Layout verwenden, selbst wenn deren eigene Einstellung `true` ist. Um Grafiken nur auf einer Folie zu verbergen, ändern Sie die Folienspezifische Eigenschaft und lassen das geteilte Layout unverändert.
+
+Die Einstellung wird nicht als Sichtbarkeitssteuerung auf dem Folienmaster selbst unterstützt. Auf einem Master gibt [getShowMasterShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/#getShowMasterShapes) immer `false` zurück, und das Übergeben von `true` an [setShowMasterShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/#setShowMasterShapes) löst eine Ausnahme aus. Wenden Sie sie stattdessen auf eine normale Folie oder ein Layout an.
+
+### **Grafiken vom Hintergrund unterscheiden**
+
+| Vorgang | Wirkung |
+| --- | --- |
+| Master‑Grafiken ausblenden | Steuert die Sichtbarkeit geerbter Master‑Formen, ohne sie zu löschen oder die eigenen Formen der Folie zu ändern. |
+| Folienhintergrund füllen | Ändert die Hintergrundfarbe, den Farbverlauf oder das Bild. Master‑Grafiken sind separate Formen und können über diesem Hintergrund sichtbar bleiben. Siehe [Presentation Background](/slides/de/php-java/presentation-background/). |
+| Form vom Master löschen | Entfernt die gemeinsam genutzte Quellform, sodass sie nicht mehr für irgendeine Folie, die diesen Master verwendet, verfügbar ist. |
+
+## **Arbeiten mit Platzhaltern**
+
+Platzhalter werden normalerweise auf Layout‑Folien definiert. Der Folienmaster stellt den gemeinsamen Stil und das Theme bereit, das diese Layouts erben, während jedes Layout entscheidet, welche Platzhalter verfügbar sind und wo sie platziert werden.
+
+In PowerPoint sind Platzhalterbefehle in der Folienmaster‑Ansicht verfügbar.
+
+![Der Befehl „Platzhalter einfügen“ in der PowerPoint‑Folienmaster‑Ansicht](slide-master_5.png)
+
+Um neue Platzhalter mit Aspose.Slides hinzuzufügen, arbeiten Sie mit der Layout‑Folie, die zum Master gehört:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -166,7 +221,7 @@ try {
 }
 ```
 
-Sie können auch Platzhalterformen formatieren, die bereits auf einer Masterfolie existieren. Das folgende Beispiel findet den Titel‑Platzhalter und wendet einen linearen Farbverlauf an:
+Sie können auch bereits vorhandene Platzhalterformen auf einem Folienmaster formatieren. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -208,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Formatierter Titel‑Platzhalter, der von normalen Folien geerbt wird](slide-master_8.png)
+![Formatierter Titel‑Platzhalter, geerbt von normalen Folien](slide-master_8.png)
 
-Weitere Optionen für Platzhalter‑ und Textformatierung finden Sie unter [Prompt‑Text im Platzhalter festlegen](/slides/de/php-java/manage-placeholder/) und [Textformatierung](/slides/de/php-java/text-formatting/).
+Weitere Optionen zur Platzhalter‑ und Textformatierung finden Sie unter [Set Prompt Text in Placeholder](/slides/de/php-java/manage-placeholder/) und [Text Formatting](/slides/de/php-java/text-formatting/).
 
-## **Hintergrund einer Folienmaster‑Folien ändern**
+## **Hintergrund eines Folienmasters ändern**
 
-Ein Master‑Hintergrund wird von Layouts und Folien übernommen, die ihn nicht überschreiben. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für die erste Masterfolie:
+Ein Master‑Hintergrund wird von Layouts und Folien geerbt, die ihn nicht überschreiben. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für den ersten Folienmaster:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -234,11 +289,11 @@ try {
 }
 ```
 
-Weitere verwandte Themen finden Sie unter [Präsentationshintergrund](/slides/de/php-java/presentation-background/) und [Präsentationsthema](/slides/de/php-java/presentation-theme/).
+Verwandte Themen finden Sie unter [Presentation Background](/slides/de/php-java/presentation-background/) und [Presentation Theme](/slides/de/php-java/presentation-theme/).
 
-## **Eine Folienmaster‑Folien in eine andere Präsentation klonen**
+## **Einen Folienmaster in eine andere Präsentation klonen**
 
-Verwenden Sie `addClone` aus [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/), um eine Masterfolie in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
+Verwenden Sie `addClone` aus der [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/), um einen Folienmaster in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -254,15 +309,15 @@ try {
 }
 ```
 
-Wenn Sie normale Folien gemeinsam mit ihrem Master klonen müssen, siehe [Folien klonen](/slides/de/php-java/clone-slides/).
+Wenn Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Clone Slides](/slides/de/php-java/clone-slides/).
 
-## **Mehrere Folienmaster‑Folien hinzufügen**
+## **Mehrere Folienmaster hinzufügen**
 
-Eine Präsentation kann mehrere Masterfolien enthalten. Das ist nützlich, wenn verschiedene Abschnitte unterschiedliche Markenkennzeichnungen, Seitenstrukturen oder Theme‑Einstellungen benötigen.
+Eine Präsentation kann mehrere Folienmaster enthalten. Das ist nützlich, wenn verschiedene Abschnitte unterschiedliche Markenauftritte, Seitenstrukturen oder Theme‑Einstellungen benötigen.
 
-![PowerPoint‑Befehle zum Einfügen und Verwalten von Masterfolien](slide-master_9.jpg)
+![PowerPoint‑Befehle zum Einfügen und Verwalten von Folienmastern](slide-master_9.jpg)
 
-Das folgende Beispiel klont den Standard‑Master, gibt dem Klon einen anderen Hintergrund, erstellt ein Layout unter diesem geklonten Master und fügt eine neue Folie basierend auf diesem Layout hinzu:
+Das folgende Beispiel klont den Standard‑Master, verleiht dem Klon einen anderen Hintergrund, erstellt ein Layout unter diesem geklonten Master und fügt eine neue Folie basierend auf diesem Layout hinzu:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -287,9 +342,9 @@ try {
 }
 ```
 
-## **Folienmaster‑Folien vergleichen**
+## **Folienmaster vergleichen**
 
-Masterfolien können mit der von [BaseSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/) geerbten `equals`‑Methode verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt, wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht nicht eindeutige Kennungen wie Folien‑IDs oder dynamische Platzhalterwerte wie das aktuelle Datum.
+Folienmaster können mit der von [BaseSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/) geerbten Methode `equals` verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht nicht eindeutige Bezeichner wie Folien‑IDs oder dynamische Platzhalterwerte wie das aktuelle Datum.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -316,7 +371,7 @@ try {
 }
 ```
 
-Weitere Informationen finden Sie unter [Präsentationsfolien vergleichen](/slides/de/php-java/compare-slides/).
+Weitere Informationen finden Sie unter [Compare Presentation Slides](/slides/de/php-java/compare-slides/).
 
 ## **Folienmaster‑Ansicht als Standardansicht festlegen**
 
@@ -332,13 +387,13 @@ try {
 }
 ```
 
-Weitere Ansicht‑Einstellungen finden Sie unter [Präsentation speichern](/slides/de/php-java/save-presentation/).
+Weitere Ansichtseinstellungen finden Sie unter [Save Presentation](/slides/de/php-java/save-presentation/).
 
-## **Unbenutzte Masterfolien entfernen**
+## **Unbenutzte Folienmaster entfernen**
 
-Präsentationen enthalten manchmal Masterfolien, die von keiner normalen Folie mehr verwendet werden. Das Entfernen unbenutzter Master kann die Dateigröße verringern und die Wartung von Vorlagen vereinfachen.
+Präsentationen enthalten manchmal Folienmaster, die von keiner normalen Folie mehr verwendet werden. Das Entfernen unbenutzter Master kann die Dateigröße reduzieren und die Vorlagenwartung vereinfachen.
 
-Verwenden Sie `removeUnused` aus [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/), um unbenutzte Master aus der `getMasters`‑Sammlung zu entfernen:
+Verwenden Sie `removeUnused` aus der [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/), um unbenutzte Master aus der `getMasters`‑Sammlung zu entfernen:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -350,7 +405,7 @@ try {
 }
 ```
 
-Sie können auch die Low‑Code‑Methode `removeUnusedMasterSlides` aus der Klasse [Compress](https://reference.aspose.com/slides/de/php-java/aspose.slides/compress/) nutzen:
+Sie können auch die Low‑Code‑Methode `removeUnusedMasterSlides` aus der Klasse [Compress](https://reference.aspose.com/slides/de/php-java/aspose.slides/compress/) verwenden:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -364,18 +419,18 @@ try {
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einer Folienmaster‑Folien und einer Layoutfolie?**
+**Was ist der Unterschied zwischen einem Folienmaster und einer Layout‑Folie?**
 
-Eine Folienmaster‑Folien definiert gemeinsam genutzte Designeinstellungen wie Thema, Hintergrund, gemeinsame Formen und Textstile. Eine Layoutfolie gehört zu einer Masterfolie und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layoutfolie und erbt somit sowohl vom Layout als auch vom Master.
+Ein Folienmaster definiert gemeinsame Designeinstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layout‑Folie gehört zu einem Folienmaster und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layout‑Folie und erbt somit sowohl vom Layout als auch vom Master.
 
-**Kann eine Präsentation mehrere Folienmaster‑Folien enthalten?**
+**Kann eine Präsentation mehrere Folienmaster enthalten?**
 
-Ja. Eine Präsentation kann mehrere Folienmaster‑Folien enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Markenkennzeichnungen benötigen.
+Ja. Eine Präsentation kann mehrere Folienmaster enthalten. Verwenden Sie mehrere Master, wenn unterschiedliche Abschnitte verschiedene visuelle Systeme oder Markenauftritte benötigen.
 
-**Sollte ich Platzhalter zu einer Masterfolie oder zu einer Layoutfolie hinzufügen?**
+**Soll ich Platzhalter zu einem Folienmaster oder zu einer Layout‑Folie hinzufügen?**
 
-In den meisten Fällen fügen Sie Platzhalter zu Layoutfolien hinzu. Legen Sie gemeinsame visuelle Elemente und Formatierungen auf die Masterfolie, und setzen Sie Inhalts‑Platzhalter auf die Layouts, die die normalen Folien verwenden.
+In den meisten Fällen platzieren Sie Platzhalter auf Layout‑Folien. Gemeinsame Bildelemente und Formatierungen kommen auf den Folienmaster, während Inhaltsplatzhalter auf den Layout‑Folien liegen, die von normalen Folien verwendet werden.
 
-**Kann ich eine Masterfolie löschen, die noch verwendet wird?**
+**Kann ich einen Folienmaster löschen, der noch verwendet wird?**
 
-Nein. Eine Masterfolie, die abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zuerst diese Folien zu Layouts unter einem anderen Master oder verwenden Sie eine Bereinigungs‑Methode, die nur ungenutzte Master entfernt.
+Nein. Ein Folienmaster, der abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zuerst diese Folien zu Layouts unter einem anderen Master oder verwenden Sie eine Bereinigungs‑Methode, die nur unbenutzte Master entfernt.
