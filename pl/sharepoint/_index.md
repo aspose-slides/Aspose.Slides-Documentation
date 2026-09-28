@@ -57,12 +57,12 @@ Konwertuje pliki PPT i PPTX na PDF, TIFF, XPS, HTML, SWF i ODP oraz na formaty P
 <hr>
 <p>REFERENCJE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/pl/sharepoint/release-notes/">Informacje o wydaniu</a></li>
-<li><a href="https://releases.aspose.com/slides/pl/sharepoint/">Pobierz</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Informacje o wydaniu</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Pobierz</a></li>
 </ul>
 <p>WSPARCIE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pl/11">Bezpłatne forum wsparcia</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Bezpłatne forum wsparcia</a></li>
 <li><a href="https://helpdesk.aspose.com/">Płatny helpdesk wsparcia</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Konwertuje pliki PPT i PPTX na PDF, TIFF, XPS, HTML, SWF i ODP oraz na formaty P
 
 Aspose.Slides for SharePoint jest instalowany raz w farmie, a następnie używany z dowolnej biblioteki dokumentów, w której został aktywowany:
 
-1. Pobierz archiwum ZIP ze [strony pobierania](https://releases.aspose.com/slides/pl/sharepoint/) i rozpakuj je na serwerze w swojej farmie SharePoint.
+1. Pobierz archiwum ZIP ze [strony pobierania](https://releases.aspose.com/slides/sharepoint/) i rozpakuj je na serwerze w swojej farmie SharePoint.
 2. Uruchom program instalacyjny odpowiadający wersji SharePoint: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* lub *Setup2019.exe*. Użyj konta, które może instalować i wdrażać rozwiązania SharePoint. Zaakceptuj umowę licencyjną, wybierz kolekcje witryn, w których chcesz aktywować funkcję, i pozwól instalatorowi wdrożyć rozwiązanie. Każdy ekran opisany jest w [Instalacji](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint/).
 3. Otwórz bibliotekę dokumentów w jednej z tych kolekcji witryn, otwórz menu pliku PPT lub PPTX i wybierz **Konwertuj za pomocą Aspose.Slides**. W SharePoint 2007 element menu nazwany jest **Konwertuj przy użyciu Aspose.Slides**.
 4. Pod **Konwertuj do** wybierz **PDF - Adobe Portable Document**. Zmień nazwę pliku docelowego i folder, jeśli potrzebujesz, i kliknij **Konwertuj**.

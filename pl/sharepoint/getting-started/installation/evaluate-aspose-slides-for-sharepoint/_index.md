@@ -11,7 +11,7 @@ Skorzystaj z bezpłatnej wersji próbnej Aspose.Slides for SharePoint: nie ma on
 
 {{% /alert %}}
 
-Wersja próbna i płatna Aspose.Slides for SharePoint są dostępne w tym samym pliku do pobrania. [Pobierz Aspose.Slides for SharePoint](https://releases.aspose.com/slides/pl/sharepoint/), [zainstaluj go](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint/), i domyślnie działa w trybie próbnym.
+Wersja próbna i płatna Aspose.Slides for SharePoint są dostępne w tym samym pliku do pobrania. [Pobierz Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [zainstaluj go](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint/), i domyślnie działa w trybie próbnym.
 
 W trybie próbnym przekonwertowany dokument zawiera znak wodny oceny. Po zakupie licencji zainstaluj rozwiązanie licencyjne na zainstalowanej kopii próbnej, jak opisano w [Instalowanie licencji Aspose.Slides for SharePoint](/slides/pl/sharepoint/installing-aspose-slides-for-sharepoint-license/), a Aspose.Slides for SharePoint działa w trybie licencjonowanym.
 

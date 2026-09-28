@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint konwertuje następujące formaty wejściowe:
 
 {{% alert color="info" title="Note" %}}
 
-Aby konwertować dokumenty, Aspose.Slides for SharePoint korzysta z wbudowanej wersji [Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/).
+Aby konwertować dokumenty, Aspose.Slides for SharePoint korzysta z wbudowanej wersji [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 
