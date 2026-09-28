@@ -7,7 +7,7 @@ description: "ติดตั้ง Aspose.Slides for SharePoint บนฟาร
 ---
 ## **เนื้อหาแพ็กเกจ**
 
-Aspose.Slides for SharePoint ดาวน์โหลดจาก [download page](https://releases.aspose.com/slides/th/sharepoint/) เป็นไฟล์ ZIP. ไฟล์ ZIP นี้ประกอบด้วยแพ็กเกจโซลูชัน SharePoint (WSP) หนึ่งไฟล์และโปรแกรมติดตั้งหนึ่งไฟล์สำหรับแต่ละเวอร์ชันของ SharePoint ที่รองรับ:
+Aspose.Slides for SharePoint ดาวน์โหลดจาก [download page](https://releases.aspose.com/slides/sharepoint/) เป็นไฟล์ ZIP. ไฟล์ ZIP นี้ประกอบด้วยแพ็กเกจโซลูชัน SharePoint (WSP) หนึ่งไฟล์และโปรแกรมติดตั้งหนึ่งไฟล์สำหรับแต่ละเวอร์ชันของ SharePoint ที่รองรับ:
 
 | เวอร์ชัน SharePoint | โปรแกรมติดตั้ง | แพ็กเกจโซลูชัน |
 | :- | :- | :- |

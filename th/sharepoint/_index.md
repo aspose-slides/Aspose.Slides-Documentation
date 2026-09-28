@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint เป็นโซลูชันแบบ farm ส
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/th/sharepoint/release-notes/">บันทึกการปล่อย</a></li>
-<li><a href="https://releases.aspose.com/slides/th/sharepoint/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">บันทึกการปล่อย</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบเสียค่าใช้จ่าย</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint เป็นโซลูชันแบบ farm ส
 
 Aspose.Slides for SharePoint ถูกติดตั้งครั้งเดียวบนฟาร์มและจากนั้นใช้จากไลบรารีเอกสารใดก็ได้ที่เปิดใช้งาน:
 
-1. ดาวน์โหลดไฟล์ ZIP จาก[หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/sharepoint/)และแตกไฟล์บนเซิร์ฟเวอร์ในฟาร์ม SharePoint ของคุณ
+1. ดาวน์โหลดไฟล์ ZIP จาก[หน้าดาวน์โหลด](https://releases.aspose.com/slides/sharepoint/)และแตกไฟล์บนเซิร์ฟเวอร์ในฟาร์ม SharePoint ของคุณ
 2. เรียกใช้โปรแกรมติดตั้งที่ตรงกับเวอร์ชัน SharePoint ของคุณ: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* หรือ *Setup2019.exe*. ใช้บัญชีที่สามารถติดตั้งและปรับใช้โซลูชัน SharePoint ได้ ยอมรับข้อตกลงใบอนุญาต, เลือกรวบรวมไซต์เพื่อเปิดใช้งานคุณลักษณะและให้โปรแกรมติดตั้งปรับใช้โซลูชัน แต่ละหน้าจออธิบายใน[การติดตั้ง](/slides/th/sharepoint/installing-aspose-slides-for-sharepoint/)
 3. เปิดไลบรารีเอกสารในหนึ่งในรวบรวมไซต์เหล่านั้น, เปิดเมนูของไฟล์ PPT หรือ PPTX, และเลือก **Convert via Aspose.Slides**. ใน SharePoint 2007 เมนูรายการจะมีชื่อว่า **Convert with Aspose.Slides**
 4. ภายใต้ **Convert to** ให้เลือก **PDF - Adobe Portable Document**. เปลี่ยนชื่อไฟล์และโฟลเดอร์ปลายทางหากต้องการ แล้วคลิก **Convert**

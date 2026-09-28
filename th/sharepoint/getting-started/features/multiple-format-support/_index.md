@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint แปลงรูปแบบไฟล์เข้
 
 {{% alert color="info" title="หมายเหตุ" %}}
 
-เพื่อแปลงเอกสาร Aspose.Slides for SharePoint พึ่งพาเวอร์ชันในตัวของ [Aspose.Slides for .NET](https://products.aspose.com/slides/th/net/)
+เพื่อแปลงเอกสาร Aspose.Slides for SharePoint พึ่งพาเวอร์ชันในตัวของ [Aspose.Slides for .NET](https://products.aspose.com/slides/net/)
 
 {{% /alert %}}
 
