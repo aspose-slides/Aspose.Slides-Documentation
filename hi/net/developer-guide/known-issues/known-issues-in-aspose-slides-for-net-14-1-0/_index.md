@@ -14,7 +14,7 @@ description: "ऐतिहासिक: Aspose.Slides for .NET 14.1.0 के स
 ---
 {{% alert color="info" title="ध्यान दें" %}}
 
-यह एक ऐतिहासिक पृष्ठ है। यह Aspose.Slides for .NET 14.1.0, 2014 में जारी, के साथ प्रकाशित ज्ञात समस्याओं की सूची देता है और वर्तमान संस्करण का विवरण नहीं देता। प्रत्येक संस्करण में हुए बदलावों के लिए, देखें [release notes](https://releases.aspose.com/slides/hi/net/release-notes/)।
+यह एक ऐतिहासिक पृष्ठ है। यह Aspose.Slides for .NET 14.1.0, 2014 में जारी, के साथ प्रकाशित ज्ञात समस्याओं की सूची देता है और वर्तमान संस्करण का विवरण नहीं देता। प्रत्येक संस्करण में हुए बदलावों के लिए, देखें [release notes](https://releases.aspose.com/slides/net/release-notes/)।
 
 {{% /alert %}}
 

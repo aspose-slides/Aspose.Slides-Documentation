@@ -62,7 +62,7 @@ Aspose.Slides for .NET NuGet के माध्यम से दो पैक�
 
 ## **Get Help**
 
-[उत्पाद समर्थन](/slides/hi/net/product-support/) बताता है कि [निःशुल्क समर्थन फ़ोरम](https://forum.aspose.com/c/slides/hi/11) पर प्रश्न कैसे पूछें और समस्या रिपोर्ट करते समय क्या शामिल करना चाहिए।
+[उत्पाद समर्थन](/slides/hi/net/product-support/) बताता है कि [निःशुल्क समर्थन फ़ोरम](https://forum.aspose.com/c/slides/11) पर प्रश्न कैसे पूछें और समस्या रिपोर्ट करते समय क्या शामिल करना चाहिए।
 
 ## **FAQ**
 

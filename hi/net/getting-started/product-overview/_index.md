@@ -125,7 +125,7 @@ Aspose.Slides for .NET की विशेषताएँ निम्न सम
 ## **तकनीकी समर्थन**
 Aspose अपने सभी उत्पादों के लिए अनलिमिटेड मुफ्त तकनीकी समर्थन प्रदान करता है। समर्थन सभी उपयोगकर्ताओं (मूल्यांकन पैकेज वाले उपयोगकर्ताओं सहित) के लिए उपलब्ध है। यदि आपको Aspose.Slides for .NET में मदद चाहिए, तो निम्नलिखित पर विचार करें:
 
-- मुख्य समर्थन माध्यम [Aspose फ़ोरम](https://forum.aspose.com/) है। अपना प्रश्न [Aspose.Slides फ़ोरम](https://forum.aspose.com/c/slides/hi/11) में पोस्ट करें—और इसे कुछ घंटों में उत्तर मिल जाएगा। Aspose.Slides समर्थन टीम सीधे फ़ोरम पर पोस्ट किए गए प्रश्नों के उत्तर देती है।  
+- मुख्य समर्थन माध्यम [Aspose फ़ोरम](https://forum.aspose.com/) है। अपना प्रश्न [Aspose.Slides फ़ोरम](https://forum.aspose.com/c/slides/11) में पोस्ट करें—और इसे कुछ घंटों में उत्तर मिल जाएगा। Aspose.Slides समर्थन टीम सीधे फ़ोरम पर पोस्ट किए गए प्रश्नों के उत्तर देती है।  
 - कृपया ध्यान दें कि Aspose फोन पर तकनीकी समर्थन नहीं देता। फोन समर्थन केवल बिक्री और खरीद प्रश्नों के लिए उपलब्ध है।  
 - फ़ोरम में उत्तर की अपेक्षा करते समय, कृपया धैर्य रखें और टाइमज़ोन अंतर को ध्यान में रखें।  
 
@@ -145,10 +145,10 @@ Aspose अपने सभी उत्पादों के लिए अन�
 
 |**संसाधन**|**विवरण**|
 | :- | :- |
-|[Aspose.Slides for .NET होम पेज](https://products.aspose.com/slides/hi/net/)|उत्पाद होम पेज।|
-|[Aspose.Slides ब्लॉग](https://blog.aspose.com/category/slides/hi/)|नए रिलीज़ तथा उपयोगी टिप्स के लिए इस पेज को नियमित रूप से देखें।|
+|[Aspose.Slides for .NET होम पेज](https://products.aspose.com/slides/net/)|उत्पाद होम पेज।|
+|[Aspose.Slides ब्लॉग](https://blog.aspose.com/category/slides/)|नए रिलीज़ तथा उपयोगी टिप्स के लिए इस पेज को नियमित रूप से देखें।|
 |[Aspose.Slides for .NET डाउनलोड](https://www.nuget.org/packages/Aspose.Slides.NET/)|यहाँ से नवीनतम Aspose.Slides संस्करण डाउनलोड करें। हम अक्सर नए संस्करण जारी करते हैं।|
-|[Aspose.Slides समर्थन फ़ोरम](https://forum.aspose.com/c/slides/hi/11)|अपने प्रश्न और मुद्दे यहाँ पोस्ट करें ताकि जल्दी समाधान मिल सके।|
+|[Aspose.Slides समर्थन फ़ोरम](https://forum.aspose.com/c/slides/11)|अपने प्रश्न और मुद्दे यहाँ पोस्ट करें ताकि जल्दी समाधान मिल सके।|
 |[Aspose.Slides for .NET उत्पाद दस्तावेज़ीकरण](/slides/hi/net/)|पूर्ण ऑनलाइन दस्तावेज़ीकरण जिसमें यह दस्तावेज़ तथा Aspose.Slides API रेफ़रेंस शामिल हैं।|
 
 ## **विश्वास स्तर आवश्यकताएँ**
@@ -159,7 +159,7 @@ Aspose अपने सभी उत्पादों के लिए अन�
 
 ### क्या यह आर्काइविंग और एक्सेसिबिलिटी (PDF/A और PDF/UA) के लिए PDF संगतता स्तरों का समर्थन करता है?
 
-हां। आप PDF को PDF/A-2a/2b/2u, PDF/A-3a/3b तथा PDF/UA के साथ सहेज सकते हैं, इसके लिए [PDF निर्यात विकल्प] (https://reference.aspose.com/slides/hi/net/aspose.slides.export/pdfoptions/) को कॉन्फ़िगर करें।
+हां। आप PDF को PDF/A-2a/2b/2u, PDF/A-3a/3b तथा PDF/UA के साथ सहेज सकते हैं, इसके लिए [PDF निर्यात विकल्प] (https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) को कॉन्फ़िगर करें।
 
 ### क्या फ़ॉन्ट प्रतिस्थापन तंत्र और कस्टम फ़ॉन्ट समर्थन है ताकि सही रेंडरिंग सुनिश्चित हो सके?
 
@@ -179,7 +179,7 @@ Aspose अपने सभी उत्पादों के लिए अन�
 
 ### क्या मैक्रो सुरक्षित रहते हैं और क्या मैं PPTM/PPSM फ़ाइलों में VBA को प्रबंधित कर सकता हूँ?
 
-हां। मैक्रो युक्त प्रस्तुतियों को [समर्थन](/slides/hi/net/presentation-via-vba/) मिलता है, और आप उन फ़ाइलों में [VBA प्रोजेक्ट्स को जांच और प्रबंधित] (https://reference.aspose.com/slides/hi/net/aspose.slides.vba/) कर सकते हैं।
+हां। मैक्रो युक्त प्रस्तुतियों को [समर्थन](/slides/hi/net/presentation-via-vba/) मिलता है, और आप उन फ़ाइलों में [VBA प्रोजेक्ट्स को जांच और प्रबंधित] (https://reference.aspose.com/slides/net/aspose.slides.vba/) कर सकते हैं।
 
 ### क्या मैं PDF या HTML को फिर से PowerPoint स्लाइड्स में बदल सकता हूँ?
 
@@ -187,7 +187,7 @@ Aspose अपने सभी उत्पादों के लिए अन�
 
 ### क्या XPS निर्यात समर्थित है, और क्या मैं XPS आउटपुट की गुणवत्ता और सामग्री को नियंत्रित कर सकता हूँ?
 
-हां। [XPS में निर्यात](/slides/hi/net/convert-powerpoint-to-xps/) उपलब्ध है, और [सहेज विकल्प] (https://reference.aspose.com/slides/hi/net/aspose.slides.export/xpsoptions/) आपको आउटपुट गुणवत्ता व शामिल सामग्री को ट्यून करने की अनुमति देते हैं।
+हां। [XPS में निर्यात](/slides/hi/net/convert-powerpoint-to-xps/) उपलब्ध है, और [सहेज विकल्प] (https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) आपको आउटपुट गुणवत्ता व शामिल सामग्री को ट्यून करने की अनुमति देते हैं।
 
 ### क्या मैं स्लाइड्स को छवियों में बदल सकता हूँ और आउटपुट गुणवत्ता को नियंत्रित कर सकता हूँ?
 

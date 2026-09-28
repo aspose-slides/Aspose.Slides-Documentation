@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform Alpine Linux पर नहीं चलता�
 </Project>
 ```
 
-*Program.cs* एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) बनाता है, पहली स्लाइड में टेक्स्ट के साथ एक आयत जोड़ता है, और [Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड से प्रेज़ेंटेशन को दो बार सहेजता है: PPTX और PDF के रूप में। दोनों फ़ाइलें कार्य निर्देशिका के अंतर्गत *output* फ़ोल्डर में जाती हैं। इसके बाद एप्लिकेशन PDF रेंडर करते समय बदलाए गए फ़ॉन्ट्स को सूचीबद्ध करता है, `IFontsManager.GetSubstitutions` का उपयोग कर, ताकि आप देख सकें कि कंटेनर में प्रेज़ेंटेशन द्वारा उपयोग किए गए फ़ॉन्ट्स मौजूद हैं या नहीं।
+*Program.cs* एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) बनाता है, पहली स्लाइड में टेक्स्ट के साथ एक आयत जोड़ता है, और [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) मेथड से प्रेज़ेंटेशन को दो बार सहेजता है: PPTX और PDF के रूप में। दोनों फ़ाइलें कार्य निर्देशिका के अंतर्गत *output* फ़ोल्डर में जाती हैं। इसके बाद एप्लिकेशन PDF रेंडर करते समय बदलाए गए फ़ॉन्ट्स को सूचीबद्ध करता है, `IFontsManager.GetSubstitutions` का उपयोग कर, ताकि आप देख सकें कि कंटेनर में प्रेज़ेंटेशन द्वारा उपयोग किए गए फ़ॉन्ट्स मौजूद हैं या नहीं।
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine stage तीन पैकेज स्थापित करता है
 - `font-dejavu` फ़ॉन्ट प्रदान करता है। बिना किसी फ़ॉन्ट के, परिवर्तन `System.ArgumentException: Font '?' cannot be found` के साथ रुक जाता है।
 - `icu-libs` और `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` संस्कृति डेटा प्रदान करते हैं। Alpine .NET इमेजें डिफ़ॉल्ट रूप से globalization‑invariant मोड में चलती हैं, और इस मोड में Aspose.Slides `CultureNotFoundException` के साथ रुक जाता है `en-US` के लिए।
 
-उपर्युक्त समान कमांडों से बिल्ड, रन और आउटपुट कॉपी करें। इस इमेज पर एप्लिकेशन केवल `Saved` पंक्ति प्रिंट करता है: Linux पर Aspose.Slides.NET के साथ, fontconfig गायब फ़ॉन्ट के लिए प्रतिस्थापन चुनता है, और [GetSubstitutions](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/getsubstitutions/) इसे सूचीबद्ध नहीं करता। [Deploy Fonts](/slides/hi/net/deploy-fonts/) दिखाता है कि कौन सा फ़ॉन्ट इस्तेमाल हो रहा है।
+उपर्युक्त समान कमांडों से बिल्ड, रन और आउटपुट कॉपी करें। इस इमेज पर एप्लिकेशन केवल `Saved` पंक्ति प्रिंट करता है: Linux पर Aspose.Slides.NET के साथ, fontconfig गायब फ़ॉन्ट के लिए प्रतिस्थापन चुनता है, और [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) इसे सूचीबद्ध नहीं करता। [Deploy Fonts](/slides/hi/net/deploy-fonts/) दिखाता है कि कौन सा फ़ॉन्ट इस्तेमाल हो रहा है।
 
 ## **FAQ**
 

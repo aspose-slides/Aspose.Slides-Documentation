@@ -67,7 +67,7 @@ Aspose.Slides for .NET एक स्वतंत्र लाइब्रेर�
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-इसके बिना, [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) बनाना `TypeInitializationException` के साथ विफल हो जाता है, जिसकी भीतरी `DllNotFoundException` रिपोर्ट करती है कि `libfontconfig.so.1` को नहीं खोला जा सकता।
+इसके बिना, [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) बनाना `TypeInitializationException` के साथ विफल हो जाता है, जिसकी भीतरी `DllNotFoundException` रिपोर्ट करती है कि `libfontconfig.so.1` को नहीं खोला जा सकता।
 
 न्यूनतम बेस इमेज में शायद `fontconfig` शामिल न हो। उदाहरण के तौर पर, .NET 8 के लिए AWS Lambda बेस इमेज में न तो `fontconfig` है और न ही कोई फ़ॉन्ट। ऐसी इमेज पर आधारित कंटेनर इमेज में, `dnf install -y fontconfig` चलाएँ, जो Noto Sans फ़ॉन्ट भी स्थापित करता है।
 
@@ -123,7 +123,7 @@ RUN apk add --no-cache \
 
 ### **वैश्विकी समर्थन**
 
-दोनों पैकेजों को .NET ग्लोबलाईज़ेशन समर्थन चाहिए, जिसे Linux पर .NET ICU लाइब्रेरी के माध्यम से प्रदान करता है। [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) में, एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) बनाना `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` के साथ विफल हो जाता है।
+दोनों पैकेजों को .NET ग्लोबलाईज़ेशन समर्थन चाहिए, जिसे Linux पर .NET ICU लाइब्रेरी के माध्यम से प्रदान करता है। [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) में, एक [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) बनाना `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` के साथ विफल हो जाता है।
 
 कुछ कंटेनर इमेज इस मोड को चालू करती हैं। Alpine Linux के लिए .NET रनटाइम इमेज (`runtime-deps`, `runtime`, और `aspnet`), उदाहरण के तौर पर, `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` सेट करती हैं और ICU शामिल नहीं करतीं। इन पर आधारित इमेज में, ICU स्थापित करें और मोड को बंद करें:
 ```dockerfile
@@ -152,7 +152,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-यह प्रोग्राम पहले स्लाइड में टेक्स्ट वाला एक आयत जोड़ता है और प्रस्तुति को *hello.pptx* के रूप में [Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड से सहेजता है। फिर यह स्लाइड को [GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/slide/getimage/) के साथ रेंडर करता है और परिणाम को *hello.png* के रूप में [IImage.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/save/) द्वारा [ImageFormat.Png](https://reference.aspose.com/slides/hi/net/aspose.slides/imageformat/) फ़ॉर्मेट में सहेजता है। स्केल फैक्टर 1 एक प्वाइंट पर एक पिक्सेल रेंडर करता है, इसलिए डिफ़ॉल्ट 720 × 540 प्वाइंट स्लाइड 720 × 540 पिक्सेल छवि बन जाती है, जिसमें आयत के भीतर टेक्स्ट दिखाई देता है। बिना लाइसेंस के, दोनों फ़ाइलों में मूल्यांकन वॉटरमार्क भी होता है; देखें [Licensing](/slides/hi/net/licensing/). यदि कोई आवश्यकता अनुपलब्ध है, तो प्रोग्राम [Linux](#linux) में वर्णित अपवादों में से एक के साथ रुक जाता है।
+यह प्रोग्राम पहले स्लाइड में टेक्स्ट वाला एक आयत जोड़ता है और प्रस्तुति को *hello.pptx* के रूप में [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) मेथड से सहेजता है। फिर यह स्लाइड को [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) के साथ रेंडर करता है और परिणाम को *hello.png* के रूप में [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) द्वारा [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) फ़ॉर्मेट में सहेजता है। स्केल फैक्टर 1 एक प्वाइंट पर एक पिक्सेल रेंडर करता है, इसलिए डिफ़ॉल्ट 720 × 540 प्वाइंट स्लाइड 720 × 540 पिक्सेल छवि बन जाती है, जिसमें आयत के भीतर टेक्स्ट दिखाई देता है। बिना लाइसेंस के, दोनों फ़ाइलों में मूल्यांकन वॉटरमार्क भी होता है; देखें [Licensing](/slides/hi/net/licensing/). यदि कोई आवश्यकता अनुपलब्ध है, तो प्रोग्राम [Linux](#linux) में वर्णित अपवादों में से एक के साथ रुक जाता है।
 
 ## **विकास उपकरण**
 

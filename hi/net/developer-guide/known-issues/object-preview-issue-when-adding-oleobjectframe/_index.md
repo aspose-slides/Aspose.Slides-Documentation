@@ -22,7 +22,7 @@ description: "जब Aspose.Slides for .NET के साथ जोड़ा ग
 ---
 ## **परिचय**
 
-.NET के लिए Aspose.Slides का उपयोग करते हुए, जब आप [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe/) को स्लाइड में जोड़ते हैं, तो आउटपुट स्लाइड पर "EMBEDDED OLE OBJECT" संदेश दिखाया जाता है। यह संदेश जानबूझकर दिखाया जाता है और यह बग नहीं है।
+.NET के लिए Aspose.Slides का उपयोग करते हुए, जब आप [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) को स्लाइड में जोड़ते हैं, तो आउटपुट स्लाइड पर "EMBEDDED OLE OBJECT" संदेश दिखाया जाता है। यह संदेश जानबूझकर दिखाया जाता है और यह बग नहीं है।
 
 OLE ऑब्जेक्ट्स के साथ काम करने के बारे में अधिक जानकारी के लिए, देखें [OLE प्रबंधन](/slides/hi/net/manage-ole/)।
 
@@ -30,7 +30,7 @@ OLE ऑब्जेक्ट्स के साथ काम करने क�
 
 Aspose.Slides "EMBEDDED OLE OBJECT" संदेश प्रदर्शित करता है ताकि आपको सूचित किया जा सके कि OLE ऑब्जेक्ट बदल दिया गया है और प्रीव्यू इमेज को अपडेट करना आवश्यक है।
 
-उदाहरण के लिए, यदि आप एक Microsoft Excel चार्ट को [OleObjectFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/oleobjectframe/) के रूप में स्लाइड में जोड़ते हैं (अधिक विवरण के लिए "Manage OLE" लेख देखें) और फिर प्रस्तुतीकरण को Microsoft PowerPoint में खोलते हैं, तो आप इस चित्र को स्लाइड पर देखेंगे:
+उदाहरण के लिए, यदि आप एक Microsoft Excel चार्ट को [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) के रूप में स्लाइड में जोड़ते हैं (अधिक विवरण के लिए "Manage OLE" लेख देखें) और फिर प्रस्तुतीकरण को Microsoft PowerPoint में खोलते हैं, तो आप इस चित्र को स्लाइड पर देखेंगे:
 
 ![OLE ऑब्जेक्ट संदेश](OLE_object_message.png)
 

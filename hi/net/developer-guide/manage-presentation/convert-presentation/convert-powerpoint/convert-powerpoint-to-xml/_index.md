@@ -24,7 +24,7 @@ description: "Aspose.Slides for .NET का उपयोग करके C# म�
 
 Aspose.Slides for .NET PowerPoint प्रस्तुतियों को PowerPoint XML Presentation फॉर्मेट में बदल सकता है। XML आउटपुट उपयोगी होता है जब आपको प्रस्तुति संरचना का निरीक्षण करने, उत्पन्न दस्तावेज़ों کی समस्या निवारण करने, स्वचालित परीक्षणों में आउटपुट की तुलना करने, या ऐसा कार्यप्रवाह एकीकृत करने के लिए टेक्स्ट‑आधारित प्रतिनिधित्व चाहिए जो प्रस्तुति पैकेज के बजाय XML का उपभोग करता है।
 
-आप [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड को [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) enumeration से `Xml` मान के साथ उपयोग कर सकते हैं। आप परिणाम को सीधे फ़ाइल या स्ट्रीम में लिख सकते हैं।
+आप [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) मेथड को [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) enumeration से `Xml` मान के साथ उपयोग कर सकते हैं। आप परिणाम को सीधे फ़ाइल या स्ट्रीम में लिख सकते हैं।
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` एक PowerPoint XML Presentation बनाता है। यह PPTX पैकेज के भीतर संग्रहीत व्यक्तिगत Office Open XML भागों को निकालता नहीं है। यदि आपको सटीक PPTX पैकेज भागों की आवश्यकता है, जैसे `ppt/presentation.xml` या व्यक्तिगत स्लाइड XML फ़ाइलें, तो PPTX पैकेज को स्वयं जांचें।
@@ -32,7 +32,7 @@ Aspose.Slides for .NET PowerPoint प्रस्तुतियों को Po
 
 ## **प्रेजेंटेशन को XML फ़ाइल में बदलें**
 
-एक स्रोत प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास से लोड करें, और फिर आउटपुट पथ और `SaveFormat.Xml` को [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) में पास करें। स्रोत कोई भी प्रेजेंटेशन फॉर्मेट हो सकता है जो लोडिंग के लिए समर्थित है, जैसे PPT, PPTX, या ODP।
+एक स्रोत प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) क्लास से लोड करें, और फिर आउटपुट पथ और `SaveFormat.Xml` को [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) में पास करें। स्रोत कोई भी प्रेजेंटेशन फॉर्मेट हो सकता है जो लोडिंग के लिए समर्थित है, जैसे PPT, PPTX, या ODP।
 
 निम्न उदाहरण PPTX प्रेजेंटेशन को XML फ़ाइल में बदलता है:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **XML आउटपुट को स्ट्रीम में लिखें**
 
-जब XML को मेमोरी में रखना हो या किसी अन्य घटक, जैसे वेब सेवा, स्टोरेज प्रोवाइडर, या XML प्रोसेसिंग पाइपलाइन, को पास करना हो, तब [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) की स्ट्रीम ओवरलोड का उपयोग करें। निम्न उदाहरण परिणाम को एक [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) में लिखता है और आगे पढ़ने के लिए उसे रीवाइंड करता है:
+जब XML को मेमोरी में रखना हो या किसी अन्य घटक, जैसे वेब सेवा, स्टोरेज प्रोवाइडर, या XML प्रोसेसिंग पाइपलाइन, को पास करना हो, तब [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) की स्ट्रीम ओवरलोड का उपयोग करें। निम्न उदाहरण परिणाम को एक [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) में लिखता है और आगे पढ़ने के लिए उसे रीवाइंड करता है:
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ PPT और PPTX के विपरीत, XML आउटपुट मुख्�
 
 **क्या मैं XML आउटपुट को डिस्क पर फ़ाइल बनाए बिना सहेज सकता हूँ?**
 
-हां। एक लिखने योग्य स्ट्रीम को [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) में पास करें। उदाहरण के लिए, इन‑मेमोरी प्रोसेसिंग के लिए एक [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) का उपयोग करें।
+हां। एक लिखने योग्य स्ट्रीम को [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) में पास करें। उदाहरण के लिए, इन‑मेमोरी प्रोसेसिंग के लिए एक [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) का उपयोग करें।
 
 **क्या Aspose.Slides निर्यातित XML फ़ाइल को फिर से लोड कर सकता है?**
 
-हां। XML फ़ाइल या स्ट्रीम को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/presentation/) कंस्ट्रक्टर में पास करें। इसके बाद [Presentation.SourceFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/sourceformat/) `SourceFormat.Xml` लौटाता है। [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/hi/net/aspose.slides/presentationfactory/getpresentationinfo/) इस फॉर्मेट के लिए `LoadFormat.Unknown` रिपोर्ट करता है, इसलिए इसका उपयोग यह तय करने के लिए न करें कि कोई XML फ़ाइल खोली जा सकती है या नहीं।
+हां। XML फ़ाइल या स्ट्रीम को [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) कंस्ट्रक्टर में पास करें। इसके बाद [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) `SourceFormat.Xml` लौटाता है। [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) इस फॉर्मेट के लिए `LoadFormat.Unknown` रिपोर्ट करता है, इसलिए इसका उपयोग यह तय करने के लिए न करें कि कोई XML फ़ाइल खोली जा सकती है या नहीं।
 
 **क्या XML रूपांतरण प्रत्येक स्लाइड को पृष्ठ या छवि के रूप में रेंडर करता है?**
 

@@ -25,7 +25,7 @@ description: "Aspose.Slides for .NET को किस कोड एक्से�
 
 ## **.NET Framework**
 
-Aspose.Slides को .NET Framework पर पूर्ण भरोसा (फुल ट्रस्ट) चाहिए। यह आंशिक भरोसे (पार्शियल ट्रस्ट) के तहत नहीं चलता, जैसे कि मध्यम भरोसा (Medium Trust) के लिए कॉन्फ़िगर किया गया ASP.NET एप्लिकेशन (`<trust level="Medium" />`): एक [प्रेज़ेंटेशन](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) ऑब्जेक्ट बनाना `SecurityException` के साथ विफल हो जाता है।
+Aspose.Slides को .NET Framework पर पूर्ण भरोसा (फुल ट्रस्ट) चाहिए। यह आंशिक भरोसे (पार्शियल ट्रस्ट) के तहत नहीं चलता, जैसे कि मध्यम भरोसा (Medium Trust) के लिए कॉन्फ़िगर किया गया ASP.NET एप्लिकेशन (`<trust level="Medium" />`): एक [प्रेज़ेंटेशन](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ऑब्जेक्ट बनाना `SecurityException` के साथ विफल हो जाता है।
 
 Microsoft अब ASP.NET आंशिक भरोसे को अनुप्रयोगों को एक‑दूसरे से अलग करने का तरीका नहीं मानता, और इसके बजाय अलग‑अलग एप्लिकेशन पूल में एप्लिकेशन चलाने की सलाह देता है। देखें [ASP.NET आंशिक भरोसा अनुप्रयोग पृथक्करण की गारंटी नहीं देता](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation)।
 
