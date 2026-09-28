@@ -64,12 +64,12 @@ Il exporte un rapport rempli au format PPT et PPTX, une diapositive par page de 
 <hr>
 <p>RÉFÉRENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/fr/jasperreport/release-notes/">Notes de version</a></li>
-<li><a href="https://releases.aspose.com/slides/fr/jasperreport/">Téléchargement</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Notes de version</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Téléchargement</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum d'assistance gratuit</a></li>
 <li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Il exporte un rapport rempli au format PPT et PPTX, une diapositive par page de 
 
 Ces étapes compilent un rapport d'une ligne, le remplissent et l'exportent au format PPTX avec JasperReports 6.16.0 depuis Maven Central. Vous avez besoin du JDK 11 ou d'une version ultérieure ainsi que d'Apache Maven.
 
-1. Téléchargez le ZIP depuis la [page de téléchargement](https://releases.aspose.com/slides/fr/jasperreport/) et décompressez-le. Son dossier *lib* contient un sous‑dossier par plage de versions de JasperReports, chacun contenant le jar correspondant. Pour JasperReports 6.16.0, copiez *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* dans un dossier de projet vide.
+1. Téléchargez le ZIP depuis la [page de téléchargement](https://releases.aspose.com/slides/jasperreport/) et décompressez-le. Son dossier *lib* contient un sous‑dossier par plage de versions de JasperReports, chacun contenant le jar correspondant. Pour JasperReports 6.16.0, copiez *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* dans un dossier de projet vide.
 
 2. Le jar se trouve dans le ZIP plutôt que dans un repository Maven, donc installez‑le dans votre repository Maven local. Exécutez cette commande dans le dossier du projet :
 
