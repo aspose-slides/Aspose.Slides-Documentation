@@ -16,7 +16,7 @@ description: "Vyberte, jak nainstalovat Aspose.Slides for Reporting Services na 
 
 Aspose.Slides for Reporting Services je nainstalováno přímo na serveru zpráv. Než začnete, zkontrolujte [požadavky na systém](/slides/cs/reportingservices/system-requirements/).
 
-[Stránka ke stažení](https://releases.aspose.com/slides/cs/reportingservices/) nabízí dva balíčky pro každé vydání:
+[Stránka ke stažení](https://releases.aspose.com/slides/reportingservices/) nabízí dva balíčky pro každé vydání:
 
 - **Aspose.Slides for Reporting Services XX.XX** — instalátor MSI. Detekuje instance serveru zpráv na stroji, zkopíruje rozšíření do vybraných a aktualizuje jejich konfigurační soubory. Viz [Instalace pomocí instalátoru MSI](/slides/cs/reportingservices/install-with-msi-installer/).
 - **Aspose.Slides for Reporting Services XX.XX (pouze DLLs)** — balíček ZIP pro ruční instalaci: zkopírujete jeden sestavení a upravíte dva konfigurační soubory. Viz [Manuální instalace](/slides/cs/reportingservices/install-manually/).

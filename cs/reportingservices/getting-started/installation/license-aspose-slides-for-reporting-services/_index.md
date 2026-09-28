@@ -13,11 +13,11 @@ description: "Aplikujte licenci pro Aspose.Slides for Reporting Services zkopír
 ---
 ## **Podpora licencí**
 
-Verze pro vyzkoušení Aspose.Slides for Reporting Services je stejný balíček jako zakoupený, ze [jeho stránky ke stažení](https://releases.aspose.com/slides/cs/reportingservices/), a poskytuje stejnou funkčnost. Bez licence funguje v režimu vyzkoušení a do exportovaných prezentací vkládá vodoznak vyzkoušení.
+Verze pro vyzkoušení Aspose.Slides for Reporting Services je stejný balíček jako zakoupený, ze [jeho stránky ke stažení](https://releases.aspose.com/slides/reportingservices/), a poskytuje stejnou funkčnost. Bez licence funguje v režimu vyzkoušení a do exportovaných prezentací vkládá vodoznak vyzkoušení.
 
 Verze pro vyzkoušení se stane licencovanou, když zkopírujete licenční soubor na server zpráv. Kód není zapotřebí.
 
-Jakmile budete s vyzkoušením spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/cs/reporting-services/). Doporučujeme projít různé typy předplatného. Pokud máte otázky, kontaktujte prodejní tým Aspose.
+Jakmile budete s vyzkoušením spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/pricing/slides/reporting-services/). Doporučujeme projít různé typy předplatného. Pokud máte otázky, kontaktujte prodejní tým Aspose.
 
 ## **Licencování v Aspose.Slides for Reporting Services**
 

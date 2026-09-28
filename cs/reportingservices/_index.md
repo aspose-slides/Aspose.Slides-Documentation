@@ -63,12 +63,12 @@ Exportuje sestavy do prezentací PPT, PPTX, PPS a PPSX, do ODP a do XPS.
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/cs/reportingservices/release-notes/">Poznámky k vydání</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/reportingservices/">Stáhnout</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Poznámky k vydání</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Stáhnout</a></li>
 </ul>
 <p>PODPOŘA</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/cs/11">Bezplatné fórum podpory</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
 <li><a href="https://helpdesk.aspose.com/">Placená podpora – helpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Exportuje sestavy do prezentací PPT, PPTX, PPS a PPSX, do ODP a do XPS.
 Není třeba psát žádný kód: nainstalujete rozšíření na server sestav a jeho formáty se objeví v seznamu exportu u každé stránkované sestavy na tomto serveru.
 
 1. Zkontrolujte, že server sestav splňuje [požadavky na systém](/slides/cs/reportingservices/system-requirements/), včetně .NET Framework 3.5.
-1. Na [stahovací stránce](https://releases.aspose.com/slides/cs/reportingservices/) si stáhněte MSI instalátor, *Aspose.Slides for Reporting Services*. Pokud chcete instalovat ručně, stáhněte ZIP balíček, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Na [stahovací stránce](https://releases.aspose.com/slides/reportingservices/) si stáhněte MSI instalátor, *Aspose.Slides for Reporting Services*. Pokud chcete instalovat ručně, stáhněte ZIP balíček, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. Nainstalujte rozšíření na server sestav: spusťte MSI jako správce, jak je popsáno v [Instalace pomocí MSI instalátoru](/slides/cs/reportingservices/install-with-msi-installer/), nebo postupujte podle [Manuální instalace](/slides/cs/reportingservices/install-manually/) pro ZIP balíček.
 1. V prohlížeči otevřete webový portál serveru sestav (Report Manager na SQL Server 2014 a starších). Ve výchozím nastavení je jeho adresa `https://<ComputerName>/reports`.
 1. Otevřete stránkovanou sestavu. Na panelu nástrojů sestavy otevřete seznam **Export** a vyberte **PPTX – PowerPoint 2007 Presentation via Aspose.Slides**. Pokud má panel nástrojů samostatné tlačítko **Export**, jako má Report Manager, klikněte na něj.

@@ -13,7 +13,7 @@ description: "Zjistěte, jak se chová vyhodnocovací verze Aspose.Slides for Re
 ---
 ## **Verze pro vyhodnocení**
 
-Aspose.Slides for Reporting Services můžete ke zkušebnímu vyzkoušení stáhnout z [její stránky ke stažení](https://releases.aspose.com/slides/cs/reportingservices/). Stáhnutí ke zkušebnímu použití je stejné jako zakoupené stažení. Stane se licencovaným, když zkopírujete licenční soubor na server zpráv — není potřeba žádný kód; viz [Licencování](/slides/cs/reportingservices/license-aspose-slides-for-reporting-services/).
+Aspose.Slides for Reporting Services můžete ke zkušebnímu vyzkoušení stáhnout z [její stránky ke stažení](https://releases.aspose.com/slides/reportingservices/). Stáhnutí ke zkušebnímu použití je stejné jako zakoupené stažení. Stane se licencovaným, když zkopírujete licenční soubor na server zpráv — není potřeba žádný kód; viz [Licencování](/slides/cs/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Vyhodnocovací verze (bez licence) poskytuje plnou funkčnost produktu, ale do exportovaných prezentací vkládá vodoznak pro vyhodnocení.
 

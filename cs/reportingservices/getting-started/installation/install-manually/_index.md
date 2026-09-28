@@ -14,7 +14,7 @@ description: "Instalujte Aspose.Slides for Reporting Services ručně z balíčk
 ---
 ## **Přehled**
 
-Postupujte podle těchto kroků pro instalaci Aspose.Slides for Reporting Services bez instalátoru MSI, z balíčku ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* na [download page](https://releases.aspose.com/slides/cs/reportingservices/). Registrují stejná rozšíření jako [MSI installer](/slides/cs/reportingservices/install-with-msi-installer/). Opakujte je pro každou instanci serveru reportů.
+Postupujte podle těchto kroků pro instalaci Aspose.Slides for Reporting Services bez instalátoru MSI, z balíčku ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* na [download page](https://releases.aspose.com/slides/reportingservices/). Registrují stejná rozšíření jako [MSI installer](/slides/cs/reportingservices/install-with-msi-installer/). Opakujte je pro každou instanci serveru reportů.
 
 Před zahájením zkontrolujte [systémové požadavky](/slides/cs/reportingservices/system-requirements/). Na serveru reportů potřebujete lokální oprávnění správce.
 

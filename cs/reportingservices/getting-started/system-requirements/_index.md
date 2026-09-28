@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services běží uvnitř serveru reportů jako rozš
 
 Podporovány jsou jak 32‑bitové, tak 64‑bitové servery reportů. SQL Server 2005 používá vlastní sestavení rozšíření; všechny novější verze a Power BI Report Server používají stejné sestavení. [Install Manually](/slides/cs/reportingservices/install-manually/) ukazuje, který soubor je potřeba zkopírovat.
 
-Pokud vaše verze serveru reportů není v tomto seznamu, zeptejte se na [free support forum](https://forum.aspose.com/c/slides/cs/11) před nasazením.
+Pokud vaše verze serveru reportů není v tomto seznamu, zeptejte se na [free support forum](https://forum.aspose.com/c/slides/11) před nasazením.
 
 ## **Edice serveru reportů**
 
