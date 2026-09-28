@@ -3,6 +3,7 @@ title: Supported File Formats
 type: docs
 weight: 20
 url: /reportingservices/supported-file-formats/
+description: "See which formats Aspose.Slides for Reporting Services reads (RDL, RPL) and which presentation and document formats it exports reports to."
 ---
 
 ## **Supported Microsoft PowerPoint Versions**
@@ -27,6 +28,7 @@ The following table indicates the file formats that Aspose.Slides for Reporting 
 |[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint slideShow 97 - 2003| |{{< emoticons/tick >}}| |
 |[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint presentation 2007 - 2019| |{{< emoticons/tick >}}| |
 |[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint slideShow 2007 - 2019| |{{< emoticons/tick >}}| |
+|[ODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument presentation| |{{< emoticons/tick >}}| |
 |[XPS](https://docs.fileformat.com/page-description-language/xps/)|XPS Documents| |{{< emoticons/tick >}}| |
 |RPL|Report Page Layout|{{< emoticons/tick >}}| | |
 |RDL|Report Definition Language|{{< emoticons/tick >}}| | |
