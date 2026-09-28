@@ -68,7 +68,7 @@ Thư viện Linux của gói yêu cầu thư viện `fontconfig`:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Nếu không, việc tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sẽ thất bại với `TypeInitializationException` mà ngoại lệ bên trong `DllNotFoundException` báo rằng `libfontconfig.so.1` không thể mở.
+Nếu không, việc tạo một [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sẽ thất bại với `TypeInitializationException` mà ngoại lệ bên trong `DllNotFoundException` báo rằng `libfontconfig.so.1` không thể mở.
 
 Các image cơ sở tối thiểu có thể cũng không bao gồm `fontconfig`. Ví dụ, image base của AWS Lambda cho .NET 8 không chứa `fontconfig` cũng như bất kỳ phông nào. Trong một container image được xây dựng trên nó, chạy `dnf install -y fontconfig`, lệnh này cũng sẽ cài đặt phông Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Hỗ trợ Quốc tế hoá**
 
-Cả hai gói đều cần hỗ trợ quốc tế hoá .NET, mà .NET trên Linux cung cấp thông qua các thư viện ICU. Trong [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), việc tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sẽ thất bại với `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Cả hai gói đều cần hỗ trợ quốc tế hoá .NET, mà .NET trên Linux cung cấp thông qua các thư viện ICU. Trong [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), việc tạo một [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sẽ thất bại với `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Một số image container bật chế độ này. Các image runtime của .NET cho Alpine Linux (`runtime-deps`, `runtime`, và `aspnet`), chẳng hạn, đặt `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` và không bao gồm ICU. Trong một image được xây dựng trên chúng, cài đặt ICU và tắt chế độ này:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Chương trình thêm một hình chữ nhật có chữ vào slide đầu tiên và lưu bài thuyết trình thành *hello.pptx* bằng phương thức [Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/). Sau đó render slide bằng [GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/slide/getimage/) và lưu kết quả thành *hello.png* bằng [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/save/) ở định dạng [ImageFormat.Png](https://reference.aspose.com/slides/vi/net/aspose.slides/imageformat/). Hệ số phóng đại 1 render một pixel cho mỗi point, vì vậy slide mặc định 720 × 540 point trở thành ảnh 720 × 540 pixel, với chữ hiển thị bên trong hình chữ nhật. Khi không có giấy phép, cả hai tệp cũng sẽ có dấu watermark đánh giá; xem [Licensing](/slides/vi/net/licensing/). Nếu thiếu một yêu cầu nào đó, chương trình sẽ dừng với một trong các ngoại lệ được mô tả trong [Linux](#linux).
+Chương trình thêm một hình chữ nhật có chữ vào slide đầu tiên và lưu bài thuyết trình thành *hello.pptx* bằng phương thức [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Sau đó render slide bằng [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) và lưu kết quả thành *hello.png* bằng [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) ở định dạng [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Hệ số phóng đại 1 render một pixel cho mỗi point, vì vậy slide mặc định 720 × 540 point trở thành ảnh 720 × 540 pixel, với chữ hiển thị bên trong hình chữ nhật. Khi không có giấy phép, cả hai tệp cũng sẽ có dấu watermark đánh giá; xem [Licensing](/slides/vi/net/licensing/). Nếu thiếu một yêu cầu nào đó, chương trình sẽ dừng với một trong các ngoại lệ được mô tả trong [Linux](#linux).
 
 ## **Công cụ Phát triển**
 

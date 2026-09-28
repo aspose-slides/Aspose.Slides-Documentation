@@ -123,7 +123,7 @@ Các tính năng của Aspose.Slides cho .NET có thể được chia thành cá
 ## **Hỗ trợ kỹ thuật**
 Aspose cung cấp hỗ trợ kỹ thuật miễn phí không giới hạn cho tất cả các sản phẩm của mình. Hỗ trợ có sẵn cho mọi người dùng (bao gồm cả người dùng có gói dùng thử). Nếu bạn cần trợ giúp với Aspose.Slides cho .NET, hãy xem các gợi ý sau:
 
-- Kênh hỗ trợ chính là [Diễn đàn Aspose](https://forum.aspose.com/). Đăng câu hỏi của bạn tại [Diễn đàn Aspose.Slides](https://forum.aspose.com/c/slides/vi/11)—và nó sẽ được trả lời trong vòng vài giờ. Đội ngũ hỗ trợ Aspose.Slides trả lời trực tiếp các câu hỏi được đăng trên diễn đàn.
+- Kênh hỗ trợ chính là [Diễn đàn Aspose](https://forum.aspose.com/). Đăng câu hỏi của bạn tại [Diễn đàn Aspose.Slides](https://forum.aspose.com/c/slides/11)—và nó sẽ được trả lời trong vòng vài giờ. Đội ngũ hỗ trợ Aspose.Slides trả lời trực tiếp các câu hỏi được đăng trên diễn đàn.
 - Lưu ý rằng Aspose không cung cấp hỗ trợ kỹ thuật qua điện thoại. Hỗ trợ qua điện thoại chỉ dành cho các câu hỏi về bán hàng và mua hàng.
 - Khi chờ phản hồi trên diễn đàn, hãy kiên nhẫn và cân nhắc sự khác biệt về múi giờ.
 
@@ -148,7 +148,7 @@ Bảng dưới đây liệt kê các tài nguyên kỹ thuật quan trọng củ
 |[Trang chủ Aspose.Slides cho .NET](/slides/vi/net/)|Trang chủ sản phẩm.|
 |[Blog Aspose.Slides](/slides/vi/net/)|Kiểm tra trang này thường xuyên để nhận thông tin về các bản phát hành mới và mẹo hữu ích về Aspose.Slides.|
 |[Tải xuống Aspose.Slides cho .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Tải xuống phiên bản mới nhất của Aspose.Slides tại đây. Chúng tôi thường phát hành các phiên bản mới.|
-|[Diễn đàn hỗ trợ Aspose.Slides](https://forum.aspose.com/c/slides/vi/11)|Đăng câu hỏi và vấn đề của bạn ở đây để được giải quyết nhanh chóng.|
+|[Diễn đàn hỗ trợ Aspose.Slides](https://forum.aspose.com/c/slides/11)|Đăng câu hỏi và vấn đề của bạn ở đây để được giải quyết nhanh chóng.|
 |[Tài liệu sản phẩm Aspose.Slides cho .NET](/slides/vi/net/)|Tài liệu trực tuyến đầy đủ chứa tài liệu này và Tham chiếu API Aspose.Slides.|
 
 ## **Yêu cầu mức độ tin cậy**
@@ -159,7 +159,7 @@ Trên .NET Framework, Aspose.Slides yêu cầu mức tin cậy toàn phần và 
 
 ### Có hỗ trợ các mức tuân thủ PDF cho lưu trữ và khả năng truy cập (PDF/A và PDF/UA) không?
 
-Có. Bạn có thể lưu dưới dạng PDF với PDF/A-2a/2b/2u, PDF/A-3a/3b, cũng như PDF/UA bằng cách cấu hình [tùy chọn xuất PDF](https://reference.aspose.com/slides/vi/net/aspose.slides.export/pdfoptions/).
+Có. Bạn có thể lưu dưới dạng PDF với PDF/A-2a/2b/2u, PDF/A-3a/3b, cũng như PDF/UA bằng cách cấu hình [tùy chọn xuất PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### Có cơ chế thay thế phông chữ và hỗ trợ phông chữ tùy chỉnh để đảm bảo hiển thị đúng không?
 
@@ -179,7 +179,7 @@ Có, bạn có thể xử lý các tài liệu khác nhau song song trong các l
 
 ### Các macro có được bảo lưu và tôi có thể quản lý VBA trong tệp PPTM/PPSM không?
 
-Có. Các bản trình chiếu có macro [được hỗ trợ](/slides/vi/net/presentation-via-vba/), và bạn có thể [kiểm tra và quản lý dự án VBA](https://reference.aspose.com/slides/vi/net/aspose.slides.vba/) trong các tệp đó.
+Có. Các bản trình chiếu có macro [được hỗ trợ](/slides/vi/net/presentation-via-vba/), và bạn có thể [kiểm tra và quản lý dự án VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/) trong các tệp đó.
 
 ### Tôi có thể chuyển đổi PDF hoặc HTML lại thành slide PowerPoint không?
 
@@ -187,7 +187,7 @@ Có. Bạn có thể [nhập các trang PDF hoặc nội dung HTML](/slides/vi/n
 
 ### Xuất XPS có được hỗ trợ không, và tôi có thể kiểm soát chất lượng và nội dung của đầu ra XPS không?
 
-Có. [Xuất ra XPS](/slides/vi/net/convert-powerpoint-to-xps/) có sẵn, và [các tùy chọn lưu](https://reference.aspose.com/slides/vi/net/aspose.slides.export/xpsoptions/) cho phép bạn điều chỉnh chất lượng đầu ra và nội dung được bao gồm.
+Có. [Xuất ra XPS](/slides/vi/net/convert-powerpoint-to-xps/) có sẵn, và [các tùy chọn lưu](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) cho phép bạn điều chỉnh chất lượng đầu ra và nội dung được bao gồm.
 
 ### Tôi có thể chuyển đổi slide sang hình ảnh và kiểm soát chất lượng đầu ra không?
 

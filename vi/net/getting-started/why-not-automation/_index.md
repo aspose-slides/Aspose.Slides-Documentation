@@ -110,5 +110,5 @@ Phần tốt nhất khi mua một thành phần Aspose là được tiếp cận
 {{% alert color="info" title="Note" %}}
 Trong khi bài viết này đã đề cập một số điểm chính tại sao các thành phần Aspose là lựa chọn tốt hơn so với Office Automation, bạn cần hiểu rằng còn rất nhiều lợi ích khác. Chúng tôi chỉ nêu một số ưu điểm chính.
 
-Hơn nữa, tất cả sản phẩm và thành phần Aspose đều cung cấp một [Phiên bản Đánh giá](https://releases.aspose.com/slides/vi/net/) không rủi ro, không ràng buộc. Chúng tôi khuyến khích bạn tận dụng bản đánh giá để thấy Aspose có thể làm gì cho ứng dụng hoặc doanh nghiệp của bạn.
+Hơn nữa, tất cả sản phẩm và thành phần Aspose đều cung cấp một [Phiên bản Đánh giá](https://releases.aspose.com/slides/net/) không rủi ro, không ràng buộc. Chúng tôi khuyến khích bạn tận dụng bản đánh giá để thấy Aspose có thể làm gì cho ứng dụng hoặc doanh nghiệp của bạn.
 {{% /alert %}}

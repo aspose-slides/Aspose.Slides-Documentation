@@ -62,7 +62,7 @@ Nếu không có giấy phép, Aspose.Slides chạy ở chế độ đánh giá:
 
 ## **Nhận trợ giúp**
 
-[Product Support](/slides/vi/net/product-support/) giải thích cách đặt câu hỏi trên [free support forum](https://forum.aspose.com/c/slides/vi/11) và những gì cần bao gồm khi báo cáo vấn đề.
+[Product Support](/slides/vi/net/product-support/) giải thích cách đặt câu hỏi trên [free support forum](https://forum.aspose.com/c/slides/11) và những gì cần bao gồm khi báo cáo vấn đề.
 
 ## **FAQ**
 

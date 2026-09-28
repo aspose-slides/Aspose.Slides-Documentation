@@ -28,7 +28,7 @@ Bạn có thể xác định phông chữ sẽ sử dụng khi một phông ch�
 
 ## **Lấy các phép thay thế phông chữ**
 
-Sử dụng phương thức [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/) để xác định những phông chữ nào sẽ được thay thế khi bản trình chiếu được render. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsubstitutioninfo/) xác định tên phông chữ gốc và phông chữ đã được thay thế.
+Sử dụng phương thức [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) để xác định những phông chữ nào sẽ được thay thế khi bản trình chiếu được render. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) xác định tên phông chữ gốc và phông chữ đã được thay thế.
 
 Ví dụ C# sau liệt kê tất cả các phép thay thế phông chữ cho một bản trình chiếu:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Lấy các phép thay thế phông chữ cho các slide đã chọn**
 
-Sử dụng phương thức [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/) có tham số `int[] slides` để chỉ kiểm tra các phép thay thế cần thiết cho các slide cụ thể. Điều này hữu ích khi bạn render hoặc xuất phần của bản trình chiếu, kiểm tra một bản trình chiếu lớn theo từng phần, xác định các slide phụ thuộc vào phông chữ không khả dụng, chuẩn bị một gói phông chữ tối thiểu cho máy chủ hoặc container, hoặc chẩn đoán sự khác biệt về render mà không xử lý các slide không liên quan.
+Sử dụng phương thức [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) có tham số `int[] slides` để chỉ kiểm tra các phép thay thế cần thiết cho các slide cụ thể. Điều này hữu ích khi bạn render hoặc xuất phần của bản trình chiếu, kiểm tra một bản trình chiếu lớn theo từng phần, xác định các slide phụ thuộc vào phông chữ không khả dụng, chuẩn bị một gói phông chữ tối thiểu cho máy chủ hoặc container, hoặc chẩn đoán sự khác biệt về render mà không xử lý các slide không liên quan.
 
-Mảng `slides` chứa các chỉ số slide dựa trên 1: `1` xác định slide đầu tiên. Ngược lại, chỉ số của bộ sưu tập [Presentation.Slides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/slides/vi/) là dựa trên 0, vì vậy slide tương tự được truy cập bằng `presentation.Slides[0]`. Hãy ghi nhớ sự khác biệt này khi xây dựng mảng để tránh lỗi lệch chỉ mục.
+Mảng `slides` chứa các chỉ số slide dựa trên 1: `1` xác định slide đầu tiên. Ngược lại, chỉ số của bộ sưu tập [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) là dựa trên 0, vì vậy slide tương tự được truy cập bằng `presentation.Slides[0]`. Hãy ghi nhớ sự khác biệt này khi xây dựng mảng để tránh lỗi lệch chỉ mục.
 
-Gọi phương thức overload thông qua thuộc tính [Presentation.FontsManager](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/fontsmanager/). Nó trả về chỉ các phép thay thế được xác định trong quá trình render các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ đã được thay thế. Kết quả phản ánh môi trường phông chữ hiện tại và [phông chữ tải ngoại vi](/slides/vi/net/custom-font/). Các quy tắc thay thế được lưu trong một [IFontSubstRuleCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsubstrulecollection/) thay đổi đầu ra render nhưng không được phản ánh trong kết quả.
+Gọi phương thức overload thông qua thuộc tính [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Nó trả về chỉ các phép thay thế được xác định trong quá trình render các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ đã được thay thế. Kết quả phản ánh môi trường phông chữ hiện tại và [phông chữ tải ngoại vi](/slides/vi/net/custom-font/). Các quy tắc thay thế được lưu trong một [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) thay đổi đầu ra render nhưng không được phản ánh trong kết quả.
 
 Một phép thay thế có thể được yêu cầu bởi hơn một slide đã chọn. Hãy loại bỏ trùng lặp kết quả khi bạn tạo bảng kiểm kê phông chữ hoặc báo cáo preflight. Ví dụ sau báo cáo mọi phép thay thế được trả về và sau đó tạo danh sách đã sắp xếp các ánh xạ phông chữ duy nhất:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Giao diện [IFontsManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/) cung cấp cả hai overload. Chọn một trong số chúng tùy theo phạm vi hoạt động render:
+Giao diện [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) cung cấp cả hai overload. Chọn một trong số chúng tùy theo phạm vi hoạt động render:
 
 | Overload | Khi nào nên sử dụng |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/) không có đối số | Bạn cần các phép thay thế cho toàn bộ bản trình chiếu. |
-| [GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/) với `int[] slides` | Bạn cần các phép thay thế cho một phạm vi đã chọn, kiểm tra theo từng phần, hoặc xuất một phần. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) không có đối số | Bạn cần các phép thay thế cho toàn bộ bản trình chiếu. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) với `int[] slides` | Bạn cần các phép thay thế cho một phạm vi đã chọn, kiểm tra theo từng phần, hoặc xuất một phần. |
 
 ## **Đặt quy tắc thay thế phông chữ**
 
@@ -94,9 +94,9 @@ Giao diện [IFontsManager](https://reference.aspose.com/slides/vi/net/aspose.sl
 
 1. Tải bản trình chiếu.
 2. Tạo định nghĩa phông chữ cho phông chữ nguồn và phông chữ thay thế.
-3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsubstcondition/).
-4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsubstrulecollection/).
-5. Gán bộ sưu tập vào thuộc tính [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).
+4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Gán bộ sưu tập vào thuộc tính [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Render hoặc chuyển đổi bản trình chiếu.
 
 Ví dụ C# sau thay thế `Arial` cho `SomeRareFont` khi `SomeRareFont` không khả dụng, sau đó render slide đầu tiên để xác nhận kết quả. Phông chữ thay thế phải có sẵn cho Aspose.Slides.
@@ -160,4 +160,4 @@ Có. Các phông chữ được cài đặt và vị trí tìm kiếm phông ch�
 
 **Làm sao để giữ cho việc lựa chọn phông chữ nhất quán trong các chuyển đổi hàng loạt?**
 
-Sử dụng cùng các tệp phông chữ và phiên bản trên mọi máy hoặc container, [tải các phông chữ ngoại vi cần thiết](/slides/vi/net/custom-font/), và [nhúng phông chữ](/slides/vi/net/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/) trước khi xuất để xác định các phép thay thế không mong muốn.
+Sử dụng cùng các tệp phông chữ và phiên bản trên mọi máy hoặc container, [tải các phông chữ ngoại vi cần thiết](/slides/vi/net/custom-font/), và [nhúng phông chữ](/slides/vi/net/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) trước khi xuất để xác định các phép thay thế không mong muốn.

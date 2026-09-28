@@ -56,7 +56,7 @@ Bài viết này chỉ ra cách kiểm tra các phông chữ mà Aspose.Slides t
 </Project>
 ```
 
-*Program.cs* thêm một hộp văn bản cho mỗi tên phông vào một slide và gán phông qua thuộc tính [LatinFont](https://reference.aspose.com/slides/vi/net/aspose.slides/baseportionformat/latinfont/). Các tên phông lấy từ dòng lệnh; nếu không có đối số, ứng dụng sẽ kiểm tra Calibri, Arial và Times New Roman. Nó in ra các thư mục mà Aspose.Slides tìm kiếm phông ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsloader/getfontfolders/)), render slide thành *output/fonts.pdf*, và in ra các thay thế được báo cáo bởi [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/). Hai bước tùy chọn ở đầu, tải thư mục *fonts* và đọc biến môi trường `DEFAULT_FONT`, được giải thích ở phần sau của bài viết.
+*Program.cs* thêm một hộp văn bản cho mỗi tên phông vào một slide và gán phông qua thuộc tính [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Các tên phông lấy từ dòng lệnh; nếu không có đối số, ứng dụng sẽ kiểm tra Calibri, Arial và Times New Roman. Nó in ra các thư mục mà Aspose.Slides tìm kiếm phông ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), render slide thành *output/fonts.pdf*, và in ra các thay thế được báo cáo bởi [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Hai bước tùy chọn ở đầu, tải thư mục *fonts* và đọc biến môi trường `DEFAULT_FONT`, được giải thích ở phần sau của bài viết.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Tải phông từ thư mục ứng dụng**
 
-Thay vì cài phông trong hình ảnh, bạn có thể đóng gói chúng cùng với ứng dụng và tải chúng bằng [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsloader/loadexternalfonts/). Khi đó các phông chỉ có sẵn cho Aspose.Slides và được triển khai cùng với ứng dụng. *FontCheck* làm như vậy: *FontCheck.csproj* sao chép thư mục *fonts* vào đầu ra của ứng dụng, và *Program.cs* truyền thư mục đó cho `LoadExternalFonts` trước khi tạo bản thuyết trình. [Custom Font](/slides/vi/net/custom-font/) mô tả các cách khác để cung cấp phông, chẳng hạn như tải chúng từ bộ nhớ.
+Thay vì cài phông trong hình ảnh, bạn có thể đóng gói chúng cùng với ứng dụng và tải chúng bằng [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Khi đó các phông chỉ có sẵn cho Aspose.Slides và được triển khai cùng với ứng dụng. *FontCheck* làm như vậy: *FontCheck.csproj* sao chép thư mục *fonts* vào đầu ra của ứng dụng, và *Program.cs* truyền thư mục đó cho `LoadExternalFonts` trước khi tạo bản thuyết trình. [Custom Font](/slides/vi/net/custom-font/) mô tả các cách khác để cung cấp phông, chẳng hạn như tải chúng từ bộ nhớ.
 
 Xây dựng lại hình ảnh, sau đó kiểm tra Calibri và Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Đặt phông mặc định cho các phông chữ thiếu**
 
-Khi một phông chữ thiếu, Aspose.Slides sẽ sử dụng một phông thay thế do nó tự chọn. Để tự chọn, đặt thuộc tính [DefaultRegularFont](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/defaultregularfont/) của [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/) và truyền các tùy chọn này vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). *FontCheck* đọc tên phông từ biến môi trường `DEFAULT_FONT`. Với Carlito đã được tải, sử dụng nó cho các phông thiếu:
+Khi một phông chữ thiếu, Aspose.Slides sẽ sử dụng một phông thay thế do nó tự chọn. Để tự chọn, đặt thuộc tính [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) của [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) và truyền các tùy chọn này vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* đọc tên phông từ biến môi trường `DEFAULT_FONT`. Với Carlito đã được tải, sử dụng nó cho các phông thiếu:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Phông mặc định thay thế mọi phông thiếu. Để ánh xạ các phông riêng lẻ, chẳng hạn Arial sang Liberation Sans và Calibri sang Carlito, sử dụng [quy tắc thay thế phông](/slides/vi/net/font-substitution/). Các quy tắc thay đổi đầu ra được render, nhưng `GetSubstitutions` không phản ánh chúng, vì vậy hãy kiểm tra các phông trong tệp đầu ra thay vì. Đối với văn bản Châu Á, cũng đặt [DefaultAsianFont](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/defaultasianfont/); xem [Default Font](/slides/vi/net/default-font/).
+Phông mặc định thay thế mọi phông thiếu. Để ánh xạ các phông riêng lẻ, chẳng hạn Arial sang Liberation Sans và Calibri sang Carlito, sử dụng [quy tắc thay thế phông](/slides/vi/net/font-substitution/). Các quy tắc thay đổi đầu ra được render, nhưng `GetSubstitutions` không phản ánh chúng, vì vậy hãy kiểm tra các phông trong tệp đầu ra thay vì. Đối với văn bản Châu Á, cũng đặt [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); xem [Default Font](/slides/vi/net/default-font/).
 
 ## **Cài đặt phông trên Alpine Linux**
 

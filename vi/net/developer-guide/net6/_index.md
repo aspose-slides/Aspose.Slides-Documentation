@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-Trên Debian và Ubuntu, `libfontconfig1` cũng đồng thời cài đặt các phông chữ DejaVu, vì vậy văn bản sẽ được hiển thị mà không cần thêm gói phông chữ nào khác. Nếu không có `fontconfig`, việc tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sẽ thất bại với `TypeInitializationException` mà ngoại lệ bên trong `DllNotFoundException` báo rằng không thể mở `libfontconfig.so.1`. [System Requirements](/slides/vi/net/system-requirements/) bao gồm một chương trình ngắn kiểm tra cấu hình.
+Trên Debian và Ubuntu, `libfontconfig1` cũng đồng thời cài đặt các phông chữ DejaVu, vì vậy văn bản sẽ được hiển thị mà không cần thêm gói phông chữ nào khác. Nếu không có `fontconfig`, việc tạo một [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sẽ thất bại với `TypeInitializationException` mà ngoại lệ bên trong `DllNotFoundException` báo rằng không thể mở `libfontconfig.so.1`. [System Requirements](/slides/vi/net/system-requirements/) bao gồm một chương trình ngắn kiểm tra cấu hình.
 
 ## **Đám mây và Máy chủ Container**
 
@@ -68,7 +68,7 @@ Vì không cần `libgdiplus`, Aspose.Slides.NET6.CrossPlatform là gói nên d�
 
 Một dự án sử dụng Aspose.Slides.NET6.CrossPlatform vẫn có thể tham chiếu System.Drawing.Common, trực tiếp hoặc thông qua một gói khác. Phiên bản hiện tại của Aspose.Slides không công bố bất kỳ kiểu công khai nào trong các namespace `System`, vì vậy hai thư viện không xung đột, và bạn có thể nhập cả namespace `Aspose.Slides` và `System.Drawing` trong cùng một tệp.
 
-Nếu trình biên dịch báo lỗi CS0433 vì một kiểu như `Image` hoặc `Graphics` tồn tại trong cả Aspose.Slides và System.Drawing.Common, dự án của bạn đang dùng phiên bản Aspose.Slides cũ. Hãy cập nhật gói lên phiên bản mới nhất. Aspose.Slides trả về các hình ảnh được render dưới dạng đối tượng [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/), được mô tả trong [Modern API](/slides/vi/net/modern-api/).
+Nếu trình biên dịch báo lỗi CS0433 vì một kiểu như `Image` hoặc `Graphics` tồn tại trong cả Aspose.Slides và System.Drawing.Common, dự án của bạn đang dùng phiên bản Aspose.Slides cũ. Hãy cập nhật gói lên phiên bản mới nhất. Aspose.Slides trả về các hình ảnh được render dưới dạng đối tượng [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/), được mô tả trong [Modern API](/slides/vi/net/modern-api/).
 
 ## **Câu hỏi thường gặp**
 

@@ -59,7 +59,7 @@ Tạo một thư mục có tên *HelloSlidesDocker* và thêm ba tệp sau vào 
 </Project>
 ```
 
-*Program.cs* tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/), thêm một hình chữ nhật chứa văn bản vào slide đầu tiên, và lưu bản trình chiếu hai lần bằng phương thức [Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/): dưới dạng PPTX và PDF. Cả hai tệp đều được lưu vào thư mục *output* trong thư mục làm việc. Ứng dụng sau đó liệt kê các phông chữ đã được thay thế trong quá trình render PDF, sử dụng [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/), để bạn có thể xem container có các phông chữ mà bản trình chiếu sử dụng hay không.
+*Program.cs* tạo một [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), thêm một hình chữ nhật chứa văn bản vào slide đầu tiên, và lưu bản trình chiếu hai lần bằng phương thức [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): dưới dạng PPTX và PDF. Cả hai tệp đều được lưu vào thư mục *output* trong thư mục làm việc. Ứng dụng sau đó liệt kê các phông chữ đã được thay thế trong quá trình render PDF, sử dụng [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), để bạn có thể xem container có các phông chữ mà bản trình chiếu sử dụng hay không.
 
 ```c#
 using System;
@@ -202,7 +202,7 @@ Giai đoạn Alpine cài đặt ba gói và thay đổi một thiết lập:
 - `font-dejavu` cung cấp các phông chữ. Nếu không có phông nào, quá trình chuyển đổi dừng lại với `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` và `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` cung cấp dữ liệu văn hoá. Các image .NET trên Alpine chạy ở chế độ không toàn cục mặc định, và trong chế độ này Aspose.Slides dừng lại với `CultureNotFoundException` cho `en-US`.
 
-Xây dựng, chạy và sao chép đầu ra bằng các lệnh như trên. Trên image này, ứng dụng chỉ in ra dòng `Saved`: với Aspose.Slides.NET trên Linux, fontconfig chọn phông thay thế cho phông bị thiếu, và [GetSubstitutions](https://reference.aspose.com/slides/vi/net/aspose.slides/ifontsmanager/getsubstitutions/) không liệt kê nó. [Deploy Fonts](/slides/vi/net/deploy-fonts/) cho biết cách kiểm tra phông nào đã được sử dụng.
+Xây dựng, chạy và sao chép đầu ra bằng các lệnh như trên. Trên image này, ứng dụng chỉ in ra dòng `Saved`: với Aspose.Slides.NET trên Linux, fontconfig chọn phông thay thế cho phông bị thiếu, và [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) không liệt kê nó. [Deploy Fonts](/slides/vi/net/deploy-fonts/) cho biết cách kiểm tra phông nào đã được sử dụng.
 
 ## **Câu Hỏi Thường Gặp**
 

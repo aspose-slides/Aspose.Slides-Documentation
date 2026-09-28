@@ -77,7 +77,7 @@ Không. PowerPoint không bắt buộc; Aspose.Slides là một engine độc l�
 
 **Đa luồng hoạt động như thế nào? Có thể xử lý song song không?**
 
-An toàn khi xử lý các tài liệu khác nhau trên các luồng riêng biệt; cùng một đối tượng [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) không được sử dụng bởi [multiple threads](/slides/vi/net/multithreading/) đồng thời.
+An toàn khi xử lý các tài liệu khác nhau trên các luồng riêng biệt; cùng một đối tượng [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) không được sử dụng bởi [multiple threads](/slides/vi/net/multithreading/) đồng thời.
 
 **Có hỗ trợ mật khẩu tệp và mã hóa không?**
 

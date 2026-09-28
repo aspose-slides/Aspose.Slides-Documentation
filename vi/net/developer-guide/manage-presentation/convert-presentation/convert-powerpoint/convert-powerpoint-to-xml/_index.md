@@ -24,7 +24,7 @@ description: "Chuyển đổi các bản trình chiếu PowerPoint và OpenDocum
 
 Aspose.Slides for .NET có thể chuyển đổi các bản trình chiếu PowerPoint sang định dạng PowerPoint XML Presentation. Đầu ra XML hữu ích khi bạn cần biểu diễn dựa trên văn bản để kiểm tra cấu trúc trình chiếu, khắc phục sự cố tài liệu được tạo, so sánh đầu ra trong các bài kiểm tra tự động, hoặc tích hợp với quy trình làm việc tiêu thụ XML thay vì một gói trình chiếu.
 
-Sử dụng phương thức [Presentation.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/) với giá trị `Xml` từ enum [SaveFormat](https://reference.aspose.com/slides/vi/net/aspose.slides.export/saveformat/). Bạn có thể ghi kết quả trực tiếp vào tệp hoặc vào luồng.
+Sử dụng phương thức [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) với giá trị `Xml` từ enum [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Bạn có thể ghi kết quả trực tiếp vào tệp hoặc vào luồng.
 
 {{% alert color="info" title="Lưu ý" %}}
 
@@ -34,7 +34,7 @@ Sử dụng phương thức [Presentation.Save](https://reference.aspose.com/sli
 
 ## **Chuyển đổi Bản trình chiếu sang Tệp XML**
 
-Tải một bản trình chiếu nguồn bằng lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/), sau đó truyền đường dẫn đầu ra và `SaveFormat.Xml` vào [Presentation.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/). Nguồn có thể là bất kỳ định dạng trình chiếu nào được hỗ trợ để tải, chẳng hạn PPT, PPTX hoặc ODP.
+Tải một bản trình chiếu nguồn bằng lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), sau đó truyền đường dẫn đầu ra và `SaveFormat.Xml` vào [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Nguồn có thể là bất kỳ định dạng trình chiếu nào được hỗ trợ để tải, chẳng hạn PPT, PPTX hoặc ODP.
 
 Ví dụ sau chuyển đổi một bản trình chiếu PPTX sang tệp XML:
 
@@ -48,7 +48,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Ghi Đầu ra XML vào Luồng**
 
-Sử dụng overload luồng của [Presentation.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/) khi XML phải ở trong bộ nhớ hoặc được truyền cho thành phần khác, chẳng hạn dịch vụ web, nhà cung cấp lưu trữ hoặc pipeline xử lý XML. Ví dụ sau ghi kết quả vào một [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) và quay lại đầu để đọc tiếp:
+Sử dụng overload luồng của [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) khi XML phải ở trong bộ nhớ hoặc được truyền cho thành phần khác, chẳng hạn dịch vụ web, nhà cung cấp lưu trữ hoặc pipeline xử lý XML. Ví dụ sau ghi kết quả vào một [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) và quay lại đầu để đọc tiếp:
 
 ```csharp
 using System.IO;
@@ -87,11 +87,11 @@ Không. PPTX là một gói chứa nhiều phần Office Open XML, trong khi `Sa
 
 **Tôi có thể lưu đầu ra XML mà không tạo tệp trên đĩa không?**
 
-Có. Truyền một luồng có thể ghi được vào [Presentation.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/). Ví dụ, dùng một [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) cho xử lý trong bộ nhớ.
+Có. Truyền một luồng có thể ghi được vào [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Ví dụ, dùng một [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) cho xử lý trong bộ nhớ.
 
 **Aspose.Slides có thể tải lại tệp XML đã xuất không?**
 
-Có. Truyền tệp XML hoặc một luồng vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/sourceformat/) sau đó trả về `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/presentationfactory/getpresentationinfo/) báo cáo `LoadFormat.Unknown` cho định dạng này, vì vậy không sử dụng nó để quyết định xem một tệp XML có thể mở được hay không.
+Có. Truyền tệp XML hoặc một luồng vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) sau đó trả về `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) báo cáo `LoadFormat.Unknown` cho định dạng này, vì vậy không sử dụng nó để quyết định xem một tệp XML có thể mở được hay không.
 
 **Việc chuyển đổi XML có render mỗi slide thành trang hoặc hình ảnh không?**
 

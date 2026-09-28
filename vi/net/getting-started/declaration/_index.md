@@ -25,7 +25,7 @@ Mức độ tin cậy của Code Access Security (CAS) chỉ tồn tại trong .
 
 ## **.NET Framework**
 
-Aspose.Slides yêu cầu quyền tin cậy đầy đủ trên .NET Framework. Nó không chạy dưới quyền tin cậy một phần, chẳng hạn như một ứng dụng ASP.NET được cấu hình cho Medium Trust (`<trust level="Medium" />`): việc tạo đối tượng [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sẽ thất bại với một `SecurityException`.
+Aspose.Slides yêu cầu quyền tin cậy đầy đủ trên .NET Framework. Nó không chạy dưới quyền tin cậy một phần, chẳng hạn như một ứng dụng ASP.NET được cấu hình cho Medium Trust (`<trust level="Medium" />`): việc tạo đối tượng [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sẽ thất bại với một `SecurityException`.
 
 Microsoft không còn coi Partial Trust của ASP.NET là cách để cô lập các ứng dụng với nhau, và khuyến nghị chạy các ứng dụng trong các pool ứng dụng riêng biệt. Xem [ASP.NET Partial Trust không đảm bảo cô lập ứng dụng](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

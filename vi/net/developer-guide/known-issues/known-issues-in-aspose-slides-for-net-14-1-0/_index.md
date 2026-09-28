@@ -14,7 +14,7 @@ description: "Lịch sử: các vấn đề đã biết được công bố vớ
 ---
 {{% alert color="info" title="Lưu ý" %}}
 
-Đây là một trang lịch sử. Nó liệt kê các vấn đề đã biết được công bố với Aspose.Slides for .NET 14.1.0, phát hành vào năm 2014, và không mô tả phiên bản hiện tại. Đối với các thay đổi ở mỗi phiên bản, xem [release notes](https://releases.aspose.com/slides/vi/net/release-notes/).
+Đây là một trang lịch sử. Nó liệt kê các vấn đề đã biết được công bố với Aspose.Slides for .NET 14.1.0, phát hành vào năm 2014, và không mô tả phiên bản hiện tại. Đối với các thay đổi ở mỗi phiên bản, xem [release notes](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 
