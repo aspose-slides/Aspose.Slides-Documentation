@@ -3,6 +3,8 @@ title: Einrichtung der Demos
 type: docs
 weight: 70
 url: /de/jasperreports/demos-setup/
+aliases:
+  - /de/jasperreports/demos-einrichtung/
 description: "Richten Sie die Demo-Projekte aus dem Aspose.Slides for JasperReports-Download ein, ändern Sie die von ihnen verwendete Exporter-Klasse und bauen Sie sie mit Ant."
 ---
 ## **Was die Demos sind**

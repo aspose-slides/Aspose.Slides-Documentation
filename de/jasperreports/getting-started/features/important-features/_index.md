@@ -3,6 +3,8 @@ title: Wichtige Funktionen
 type: docs
 weight: 10
 url: /de/jasperreports/important-features/
+aliases:
+  - /de/jasperreports/wichtige-funktionen/
 description: "Sehen Sie die Hauptfunktionen von Aspose.Slides für JasperReports: PPT, PPTX, PDF- und HTML-Export, Treue zum Berichtdesign, Bereitstellung, Lizenzierung und Support."
 ---
 This section provides detailed description of Aspose.Slides for JasperReports's features. Click the links in the table to learn more about the features.
