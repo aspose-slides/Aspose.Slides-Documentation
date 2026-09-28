@@ -7,7 +7,7 @@ description: "JasperReports のバージョンに合った Aspose.Slides for Jas
 ---
 ## **使用している JasperReports バージョンに合わせた JAR を選択してください**
 
-Aspose.Slides for JasperReports は [download page](https://releases.aspose.com/slides/ja/jasperreport/) から ZIP ファイルとして配布されています。その *lib* フォルダーには JasperReports のバージョンごとにサブフォルダーが用意されています。使用している JasperReports バージョンに対応するサブフォルダーから JAR を取得してください。
+Aspose.Slides for JasperReports は [download page](https://releases.aspose.com/slides/jasperreport/) から ZIP ファイルとして配布されています。その *lib* フォルダーには JasperReports のバージョンごとにサブフォルダーが用意されています。使用している JasperReports バージョンに対応するサブフォルダーから JAR を取得してください。
 
 | JasperReports バージョン | *lib* のサブフォルダー |
 | :- | :- |

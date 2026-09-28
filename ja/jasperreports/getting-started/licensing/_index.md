@@ -7,9 +7,9 @@ description: "Aspose.Slides for JasperReports の評価版がエクスポート�
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports は、[download page](https://releases.aspose.com/slides/ja/jasperreport/) から無料で期間無制限の評価版として入手できます。評価版とライセンス版は同一のダウンロードです。
+Aspose.Slides for JasperReports は、[download page](https://releases.aspose.com/slides/jasperreport/) から無料で期間無制限の評価版として入手できます。評価版とライセンス版は同一のダウンロードです。
 
-評価版に満足したら、[buy a license](https://purchase.aspose.com/pricing/slides/ja/jasperreports/) を実行してください。利用規約を理解し、同意したことを確認してください。
+評価版に満足したら、[buy a license](https://purchase.aspose.com/pricing/slides/jasperreports/) を実行してください。利用規約を理解し、同意したことを確認してください。
 
 ライセンスは、注文が支払われた後の注文ページからダウンロードできます。ライセンスはプレーンテキストのデジタル署名された XML ファイルで、クライアント名、購入した製品、ライセンスの種類などの情報が含まれます。ライセンスファイルの内容をいかなる方法でも変更しないでください。変更するとライセンスが無効になります。
 
