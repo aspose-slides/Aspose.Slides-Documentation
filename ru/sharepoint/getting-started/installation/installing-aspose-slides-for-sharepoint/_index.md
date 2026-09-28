@@ -7,7 +7,7 @@ description: "Установите Aspose.Slides for SharePoint в ферму Sh
 ---
 ## **Содержание пакета**
 
-Aspose.Slides for SharePoint загружается со [download page](https://releases.aspose.com/slides/ru/sharepoint/) в виде ZIP‑архива. В архиве находятся один пакет решения SharePoint (WSP) и одна программа установки для каждой поддерживаемой версии SharePoint:
+Aspose.Slides for SharePoint загружается со [download page](https://releases.aspose.com/slides/sharepoint/) в виде ZIP‑архива. В архиве находятся один пакет решения SharePoint (WSP) и одна программа установки для каждой поддерживаемой версии SharePoint:
 
 | Версия SharePoint | Программа установки | Пакет решения |
 | :- | :- | :- |

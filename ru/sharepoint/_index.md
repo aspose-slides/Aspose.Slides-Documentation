@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint — это фермерское решение дл
 <hr>
 <p>СПРАВОЧНИК</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ru/sharepoint/release-notes/">Примечания к выпуску</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/sharepoint/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Форум бесплатной поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Форум бесплатной поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платный сервис поддержки</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint — это фермерское решение дл
 
 Aspose.Slides for SharePoint устанавливается один раз на ферме и затем используется из любой библиотеки документов, где он активирован:
 
-1. Скачайте ZIP‑архив со [страницы загрузки](https://releases.aspose.com/slides/ru/sharepoint/) и распакуйте его на сервере в вашей ферме SharePoint.  
+1. Скачайте ZIP‑архив со [страницы загрузки](https://releases.aspose.com/slides/sharepoint/) и распакуйте его на сервере в вашей ферме SharePoint.  
 2. Запустите программу установки, соответствующую версии вашего SharePoint: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* или *Setup2019.exe*. Используйте учетную запись, имеющую права установки и развертывания решений SharePoint. Примите лицензионное соглашение, выберите коллекции сайтов для активации функции и позвольте установщику развернуть решение. Каждый экран описан в [Installation](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint/).  
 3. Откройте библиотеку документов в одной из этих коллекций сайтов, откройте меню файла PPT или PPTX и выберите **Convert via Aspose.Slides**. В SharePoint 2007 пункт меню называется **Convert with Aspose.Slides**.  
 4. В разделе **Convert to** выберите **PDF - Adobe Portable Document**. При необходимости измените имя и папку назначения, затем нажмите **Convert**.  

@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint конвертирует следующие фор�
 
 {{% alert color="info" title="Note" %}}
 
-Для конвертации документов Aspose.Slides for SharePoint использует встроенную версию [Aspose.Slides for .NET](https://products.aspose.com/slides/ru/net/).
+Для конвертации документов Aspose.Slides for SharePoint использует встроенную версию [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 

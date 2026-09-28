@@ -11,7 +11,7 @@ description: "Оцените Aspose.Slides for SharePoint с помощью об
 
 {{% /alert %}}
 
-Оценочная и платная версии Aspose.Slides for SharePoint доступны по одной и той же загрузке. [Скачать Aspose.Slides for SharePoint](https://releases.aspose.com/slides/ru/sharepoint/), [установите его](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint/), и по умолчанию работает в оценочном режиме.
+Оценочная и платная версии Aspose.Slides for SharePoint доступны по одной и той же загрузке. [Скачать Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [установите его](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint/), и по умолчанию работает в оценочном режиме.
 
 В оценочном режиме преобразованный документ содержит водяной знак оценки. После покупки лицензии установите лицензионное решение поверх установленной оценочной копии, как описано в [Установка лицензии Aspose.Slides for SharePoint](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint-license/), и Aspose.Slides for SharePoint будет работать в лицензированном режиме.
 
