@@ -3,228 +3,72 @@ title: Aspose.Slides Produktfamilie
 type: docs
 weight: 10
 url: /de/
-keywords: "Aspose.Slides für .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Aspose Dokumentation."
-description: Aspose.Slides sind Microsoft PowerPoint®-Verwaltungs-APIs, die Softwareanwendungen ermöglichen, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden.
+keywords:
+- Dokumentation
+- Präsentationsverarbeitung
+- Präsentationskonvertierung
+- PowerPoint
+- OpenDocument
+- Aspose.Slides
+description: "Starten Sie hier: Wählen Sie Ihre Plattform, um deren Aspose.Slides-Dokumentation, Installationsanleitung, API-Referenz und Versionshinweise zu öffnen."
 ---
-
-## Aspose.Slides für .NET
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für .NET Produktlogo](home_1.png)
-
-Aspose.Slides für .NET ist eine Microsoft PowerPoint®-Verwaltungs-API, die .NET-Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für .NET ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für .NET bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG-, PDF-Format und mehr.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-- [Aspose.Slides für .NET Online-Dokumentation](/slides/de/net/)
-- [Aspose.Slides für .NET Funktionen](/slides/de/net/features-overview/)
-- [Aspose.Slides für .NET Einschränkungen](/slides/de/net/known-issues/)
-- [Aspose.Slides für .NET Versionshinweise](https://releases.aspose.com/slides/net/release-notes/)
-- [Aspose.Slides für .NET Produktseite](https://products.aspose.com/slides/net/)
-- [Aspose.Slides für .NET Neue Releases herunterladen](https://releases.aspose.com/slides/net/)
-- [Aspose.Slides für .NET NuGet-Paket herunterladen](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Aspose.Slides für .NET installieren](/slides/de/net/installation/)
-- [Aspose.Slides für .NET API-Referenzhandbuch](https://reference.aspose.com/slides/net)
-- [Beispiele im GitHub-Repository herunterladen](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Aspose.Slides für .NET Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für .NET Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für Java Produktlogo](home_2.png)
-
-Aspose.Slides für Java ist eine Microsoft PowerPoint®-Verwaltungs-API, die Java-Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für Java ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für Java bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG, PDF und andere Formate.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-
-- [Aspose.Slides für Java Online-Dokumentation](/slides/de/java/)
-- [Aspose.Slides für Java Funktionen](/slides/de/java/features-overview/)
-- [Aspose.Slides für Java Einschränkungen](/slides/de/java/known-issues/)
-- [Aspose.Slides für Java Versionshinweise](https://releases.aspose.com/slides/java/release-notes/)
-- [Aspose.Slides für Java Produktseite](https://products.aspose.com/slides/java/)
-- [Aspose.Slides für Java herunterladen](https://releases.aspose.com/slides/java/)
-- [Aspose.Slides für Java Maven-Repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Aspose.Slides für Java aus Maven-Repository installieren](/slides/de/java/installation/)
-- [Aspose.Slides für Java API-Referenzhandbuch](https://reference.aspose.com/slides/java)
-- [Beispiele im GitHub-Repository herunterladen](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Aspose.Slides für Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für Java Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für C++
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für C++ Produktlogo](home_3.png)
-
-Aspose.Slides für C++ ist eine Microsoft PowerPoint®-Verwaltungs-API, die C++-Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für C++ ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für C++ bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG, PDF-Format und mehr.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-
-- [Aspose.Slides für C++ Online-Dokumentation](/slides/de/cpp/)
-- [Aspose.Slides für C++ Funktionen](/slides/de/cpp/features-overview/)
-- [Aspose.Slides für C++ Versionshinweise](https://releases.aspose.com/slides/cpp/release-notes/)
-- [Aspose.Slides für C++ Produktseite](https://products.aspose.com/slides/cpp/)
-- [Aspose.Slides für C++ Neue Releases herunterladen](https://releases.aspose.com/slides/cpp/)
-- [Aspose.Slides für C++ NuGet-Paket herunterladen](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Aspose.Slides für C++ installieren](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Aspose.Slides für C++ API-Referenzhandbuch](https://products.aspose.com/slides/cpp/)
-- [Beispiele im GitHub-Repository herunterladen](https://github.com/aspose-slides/Aspose.Slides-for-C)
-- [Aspose.Slides für C++ Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für C++ Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für Android über Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für Android über Java Produktlogo](home_4.png)
-
-Aspose.Slides für Android über Java ist eine Microsoft PowerPoint®-Verwaltungs-API, die Android-Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für Android über Java ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten auf Android-Plattformen bereitstellt. Aspose.Slides für Android bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-
-- [Aspose.Slides für Java Online-Dokumentation](/slides/de/java/)
-- [Aspose.Slides für Android über Java Funktionen](/slides/de/androidjava/aspose-slides-for-android-via-java-features/)
-- [Aspose.Slides für Android über Java Versionshinweise](https://releases.aspose.com/slides/androidjava/release-notes/)
-- [Aspose.Slides für Android über Java Produktseite](https://products.aspose.com/slides/android-java/)
-- [Aspose.Slides für Android über Java herunterladen](https://releases.aspose.com/slides/androidjava/)
-- [Aspose.Slides für Android über Java Maven-Repository](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Aspose.Slides für Android über Java installieren](/slides/de/androidjava/install-aspose-slides-for-android-via-java/)
-- [Aspose.Slides für Android über Java API-Referenzhandbuch](https://reference.aspose.com/slides/java)
-- [Aspose.Slides für Android über Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für Android über Java Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für Python über .NET
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für Python über .NET Produktlogo](aspose_slides-for-python.png)
-
-Aspose.Slides für Python über .NET ist eine Klassenbibliothek, die es Ihren Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für Python über .NET ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für Python über .NET bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG, PDF-Format und mehr.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-- [Aspose.Slides für Python über .NET Online-Dokumentation](/slides/de/python-net/)
-- [Aspose.Slides für Python über .NET Funktionen](/slides/de/python-net/features-overview/)
-- [Aspose.Slides für Python über .NET Einschränkungen](/slides/de/python-net/known-issues/)
-- [Aspose.Slides für Python über .NET Versionshinweise](https://releases.aspose.com/slides/python-net/release-notes/)
-- [Aspose.Slides für Python über .NET Produktseite](https://products.aspose.com/slides/python-net/)
-- [Aspose.Slides für Python über .NET herunterladen](https://releases.aspose.com/slides/python-net/)
-- [Aspose.Slides für Python über .NET installieren](/slides/de/python-net/installation/)
-- [Aspose.Slides für Python über .NET API-Referenzhandbuch](/slides/de/python-net/api-reference/)
-- [Aspose.Slides für Python über .NET Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für Python über .NET Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für Node.js über Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für Python über .NET Produktlogo](home_9.png)
-
-Aspose.Slides für Node.js über Java ist eine Klassenbibliothek, die es Ihren Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für Node.js über Java ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für Node.js über Java bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG, PDF-Format und mehr.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-- [Aspose.Slides für Node.js über Java Online-Dokumentation](/slides/de/java/developer-guide/)
-- [Aspose.Slides für Node.js über Java Funktionen](/slides/de/nodejs-java/features-overview/)
-- [Aspose.Slides für Node.js über Java Einschränkungen und API-Unterschiede](/slides/de/nodejs-java/limitations-and-api-differences/)
-- [Aspose.Slides für Node.js über Java Versionshinweise](https://releases.aspose.com/slides/nodejs-java/release-notes/)
-- [Aspose.Slides für Node.js über Java Produktseite](https://products.aspose.com/slides/nodejs-java/)
-- [Aspose.Slides für Node.js über Java Paket herunterladen](https://releases.aspose.com/slides/nodejs-java/)
-- [Aspose.Slides für Node.js über Java installieren](/slides/de/nodejs-java/installation/)
-- [Aspose.Slides für Node.js über Java API-Referenz](https://reference.aspose.com/slides/nodejs-java/)
-- [Aspose.Slides für Node.js über Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für Node.js über Java Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für PHP über Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für PHP über Java Produktlogo](aspose_slides-for-php-via-java.png)
-
-Aspose.Slides für PHP über Java ist eine Klassenbibliothek, die es Ihren Anwendungen ermöglicht, PowerPoint®-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint® zu verwenden. Aspose.Slides für PHP über Java ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt. Aspose.Slides für PHP über Java bietet viele Schlüsselfunktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG, PDF-Format und mehr.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-- [Aspose.Slides für PHP über Java Online-Dokumentation](/slides/de/java/)
-- [Aspose.Slides für PHP über Java Funktionen](/slides/de/php-java/features-overview/)
-- [Aspose.Slides für PHP über Java Einschränkungen und API-Unterschiede](/slides/de/php-java/limitations-and-api-differences/)
-- [Aspose.Slides für PHP über Java Versionshinweise](https://releases.aspose.com/slides/php-java/release-notes/)
-- [Aspose.Slides für PHP über Java Produktseite](https://products.aspose.com/slides/php-java/)
-- [Aspose.Slides für PHP über Java Paket herunterladen](https://releases.aspose.com/slides/php-java/)
-- [Aspose.Slides für PHP über Java installieren](/slides/de/php-java/installation/)
-- [Aspose.Slides für PHP über Java API-Referenz](https://docs.aspose.com/slides/php-java/api-reference/)
-- [Aspose.Slides für PHP über Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für PHP über Java Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für Reporting Services
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für Reporting Services Produktlogo](home_5.png)
-
-Aspose.Slides für Reporting Services ist die einzige Lösung auf dem Markt, die es ermöglicht, echte PPT- und PPS-Berichte in Microsoft SQL Server 2005, 2008, 2012, 2016 und 2017 Reporting Services (32-Bit und 64-Bit) zu generieren. Alle RDL-Berichtsfunktionen, einschließlich Tabellen, Matrizen, Diagrammen und Bildern, werden mit höchster Präzision in Microsoft PowerPoint-Präsentationen konvertiert.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-
-- [Aspose.Slides für Reporting Services Online-Dokumentation](/slides/de/reportingservices/)
-- [Aspose.Slides für Reporting Services Funktionen](/slides/de/reportingservices/features)
-- [Aspose.Slides für Reporting Services Versionshinweise](https://releases.aspose.com/slides/reportingservices/release-notes/)
-- [Aspose.Slides für Reporting Services Produktseite](https://products.aspose.com/slides/reporting-services/)
-- [Aspose.Slides für Reporting Services herunterladen](https://releases.aspose.com/slides/reportingservices/)
-- [Aspose.Slides für Reporting Services Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für Reporting Services Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für SharePoint
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für SharePoint Produktlogo](home_6.png)
-
-Aspose.Slides für SharePoint ist eine flexible Lösung, die es ermöglicht, PowerPoint®-Dokumente innerhalb von Microsoft SharePoint-Sites zu konvertieren.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-
-- [Aspose.Slides für SharePoint Online-Dokumentation](/slides/de/sharepoint/)
-- [Aspose.Slides für SharePoint Funktionen](/slides/de/sharepoint/features/)
-- [Aspose.Slides für SharePoint Versionshinweise](https://releases.aspose.com/slides/sharepoint/release-notes/)
-- [Aspose.Slides für SharePoint Produktseite](https://products.aspose.com/slides/sharepoint/)
-- [Aspose.Slides für SharePoint herunterladen](https://releases.aspose.com/slides/sharepoint/)
-- [Aspose.Slides für SharePoint Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für SharePoint Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
-
-## Aspose.Slides für JasperReports
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides für JasperReports Produktlogo](home_7.png)
-
-Aspose.Slides für JasperReports ist eine Bibliothek, die speziell für Entwickler entwickelt wurde, die Berichte von JasperReports einfach in Microsoft PowerPoint-Präsentationen (PPT) und Microsoft PowerPoint-Shows (PPS) in ihren Java-Anwendungen exportieren müssen. Alle Berichtsfunktionen werden mit höchster Präzision in Microsoft PowerPoint-Präsentationen konvertiert. Aspose.Slides für JasperReports umfasst die Unterstützung für JasperReports 5+.
-
-{{% /alert %}}
-
-Das sind Links zu nützlichen Ressourcen:
-
-- [Aspose.Slides für JasperReports Online-Dokumentation](/slides/de/jasperreports/)
-- [Aspose.Slides für JasperReports Funktionen](/slides/de/jasperreports/features/)
-- [Aspose.Slides für JasperReports Versionshinweise](https://releases.aspose.com/slides/jasperreport/release-notes/)
-- [Aspose.Slides für JasperReports Produktseite](https://products.aspose.com/slides/jasperreports/)
-- [Aspose.Slides für JasperReports herunterladen](https://releases.aspose.com/slides/jasperreport/)
-- [Aspose.Slides für JasperReports Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides für JasperReports Kostenpflichtiger Support-Helpdesk](https://helpdesk.aspose.com/)
+<img src="home_1.png" alt="Aspose.Slides" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+
+Aspose.Slides ist ein Satz von Bibliotheken zum Erstellen, Lesen, Bearbeiten und Konvertieren von PowerPoint‑ und OpenDocument‑Präsentationen ohne Microsoft PowerPoint.
+
+Es ist verfügbar für .NET, Java, Android, C++, Python, Node.js und PHP sowie als Plugins, die Berichte aus JasperReports und Reporting Services nach PowerPoint exportieren und Präsentationen in SharePoint konvertieren.
+
+<div style="clear:both"></div>
+
+------
+
+<div class="row">
+<div class="col-md-4">
+<p><b>Bibliotheken für .NET, Java und C++</b></p>
+<hr>
+<p>.NET</p>
+<ul>
+<li><a href="/slides/de/net/"><b>Aspose.Slides for .NET</b></a><br>Für .NET‑Anwendungen.<br><small><a href="/slides/de/net/installation/">Installation</a> · <a href="/slides/de/net/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/net/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/net/release-notes/">Versionshinweise</a></small></li>
+</ul>
+<p>JAVA</p>
+<ul>
+<li><a href="/slides/de/java/"><b>Aspose.Slides for Java</b></a><br>Für Java‑Anwendungen.<br><small><a href="/slides/de/java/installation/">Installation</a> · <a href="/slides/de/java/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/java/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/java/release-notes/">Versionshinweise</a></small></li>
+<li><a href="/slides/de/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Für Android‑Anwendungen.<br><small><a href="/slides/de/androidjava/install-aspose-slides-for-android-via-java/">Installation</a> · <a href="/slides/de/androidjava/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/androidjava/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/androidjava/release-notes/">Versionshinweise</a></small></li>
+</ul>
+<p>C++</p>
+<ul>
+<li><a href="/slides/de/cpp/"><b>Aspose.Slides for C++</b></a><br>Für C++‑Anwendungen.<br><small><a href="/slides/de/cpp/installation/">Installation</a> · <a href="/slides/de/cpp/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/cpp/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/cpp/release-notes/">Versionshinweise</a></small></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Bibliotheken für Python, Node.js und PHP</b></p>
+<hr>
+<p>PYTHON</p>
+<ul>
+<li><a href="/slides/de/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>Enthält die .NET‑Laufzeit, die es verwendet.<br><small><a href="/slides/de/python-net/installation/">Installation</a> · <a href="/slides/de/python-net/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/python-net/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/python-net/release-notes/">Versionshinweise</a></small></li>
+<li><a href="/slides/de/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Führt die Java‑Bibliothek über JPype aus.<br><small><a href="/slides/de/python-java/installation/">Installation</a> · <a href="/slides/de/python-java/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/python-java/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/python-java/release-notes/">Versionshinweise</a></small></li>
+</ul>
+<p>NODE.JS</p>
+<ul>
+<li><a href="/slides/de/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Führt die Java‑Bibliothek in einer Java‑virtuellen Maschine aus.<br><small><a href="/slides/de/nodejs-java/installation/">Installation</a> · <a href="/slides/de/nodejs-java/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/nodejs-java/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/nodejs-java/release-notes/">Versionshinweise</a></small></li>
+<li><a href="/slides/de/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>Führt die .NET‑Bibliothek über edge‑js aus.<br><small><a href="/slides/de/nodejs-net/installation/">Installation</a> · <a href="/slides/de/nodejs-net/developer-guide/">Entwicklerhandbuch</a> · <a href="/slides/de/nodejs-net/api-reference/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/nodejs-net/release-notes/">Versionshinweise</a></small></li>
+</ul>
+<p>PHP</p>
+<ul>
+<li><a href="/slides/de/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Ruft die Java‑Bibliothek über PHP/Java Bridge auf.<br><small><a href="/slides/de/php-java/installation/">Installation</a> · <a href="/slides/de/php-java/getting-started/">Erste Schritte</a> · <a href="https://reference.aspose.com/slides/de/php-java/">API‑Referenz</a> · <a href="https://releases.aspose.com/slides/de/php-java/release-notes/">Versionshinweise</a></small></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Plugins für Berichte und SharePoint</b></p>
+<hr>
+<p>REPORTING</p>
+<ul>
+<li><a href="/slides/de/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>Exportiert JasperReports‑Berichte nach PowerPoint.<br><small><a href="/slides/de/jasperreports/installing-aspose-slides-for-jasperreports/">Installation</a> · <a href="https://releases.aspose.com/slides/de/jasperreport/release-notes/">Versionshinweise</a></small></li>
+<li><a href="/slides/de/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>Exportiert SQL Server Reporting Services‑Berichte nach PowerPoint.<br><small><a href="/slides/de/reportingservices/installing-aspose-slides-for-reporting-services/">Installation</a> · <a href="https://releases.aspose.com/slides/de/reportingservices/release-notes/">Versionshinweise</a></small></li>
+</ul>
+<p>SHAREPOINT</p>
+<ul>
+<li><a href="/slides/de/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>Konvertiert Präsentationen in SharePoint‑Websites.<br><small><a href="/slides/de/sharepoint/installing-aspose-slides-for-sharepoint/">Installation</a> · <a href="https://releases.aspose.com/slides/de/sharepoint/release-notes/">Versionshinweise</a></small></li>
+</ul>
+</div>
+</div>
