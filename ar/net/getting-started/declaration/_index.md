@@ -25,7 +25,7 @@ description: "مستوى الثقة المطلوب لأمان الوصول إل�
 
 ## **إطار .NET**
 
-يتطلب Aspose.Slides ثقة كاملة على .NET Framework. لا يعمل تحت الثقة الجزئية، مثل تطبيق ASP.NET المُكوَّن للثقة المتوسطة (`<trust level="Medium" />`): فشل إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) مع استثناء `SecurityException`.
+يتطلب Aspose.Slides ثقة كاملة على .NET Framework. لا يعمل تحت الثقة الجزئية، مثل تطبيق ASP.NET المُكوَّن للثقة المتوسطة (`<trust level="Medium" />`): فشل إنشاء كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) مع استثناء `SecurityException`.
 
 لم تعد مايكروسوفت تعتبر الثقة الجزئية في ASP.NET كطريقة لعزل التطبيقات عن بعضها، وتوصي بتشغيل التطبيقات في مجموعات تطبيقات منفصلة بدلاً من ذلك. راجع [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

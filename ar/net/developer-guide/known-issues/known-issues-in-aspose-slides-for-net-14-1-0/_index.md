@@ -14,7 +14,7 @@ description: "تاريخية: القضايا المعروفة التي نُشر�
 ---
 {{% alert color="info" title="Note" %}}
 
-هذه صفحة تاريخية. تُدرج القضايا المعروفة التي نُشرت مع Aspose.Slides for .NET 14.1.0، التي أُصدرت في 2014، ولا تصف الإصدار الحالي. للتغييرات في كل نسخة، راجع [ملاحظات الإصدار](https://releases.aspose.com/slides/ar/net/release-notes/).
+هذه صفحة تاريخية. تُدرج القضايا المعروفة التي نُشرت مع Aspose.Slides for .NET 14.1.0، التي أُصدرت في 2014، ولا تصف الإصدار الحالي. للتغييرات في كل نسخة، راجع [ملاحظات الإصدار](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

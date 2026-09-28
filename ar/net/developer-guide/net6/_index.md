@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-على Debian و Ubuntu، `libfontconfig1` يثبّت أيضاً خطوط DejaVu، لذا يُظهر النص دون الحاجة إلى حزم خطوط إضافية. بدون `fontconfig`، فشل إنشاء [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) مع `TypeInitializationException` الذي يحتوي على `DllNotFoundException` يُشير إلى أن `libfontconfig.so.1` لا يمكن فتحه. تتضمن [System Requirements](/slides/ar/net/system-requirements/) برنامجًا قصيرًا يتحقق من الإعداد.
+على Debian و Ubuntu، `libfontconfig1` يثبّت أيضاً خطوط DejaVu، لذا يُظهر النص دون الحاجة إلى حزم خطوط إضافية. بدون `fontconfig`، فشل إنشاء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) مع `TypeInitializationException` الذي يحتوي على `DllNotFoundException` يُشير إلى أن `libfontconfig.so.1` لا يمكن فتحه. تتضمن [System Requirements](/slides/ar/net/system-requirements/) برنامجًا قصيرًا يتحقق من الإعداد.
 
 ## **السحابة ومضيفات الحاويات**
 
@@ -68,7 +68,7 @@ dotnet add package Aspose.Slides.NET6.CrossPlatform
 
 يمكن لمشروع يستخدم Aspose.Slides.NET6.CrossPlatform أيضًا الإشارة إلى System.Drawing.Common، إما مباشرة أو عبر حزمة أخرى. الإصدار الحالي من Aspose.Slides لا يُظهر أي أنواع عامة في مساحات أسماء `System`، لذا لا تتصادم المكتبتان، ويمكنك استيراد مساحات الأسماء `Aspose.Slides` و `System.Drawing` في نفس الملف.
 
-إذا أظهر المترجم الخطأ CS0433 لأن نوعًا مثل `Image` أو `Graphics` موجود في كل من Aspose.Slides و System.Drawing.Common، فمشروعك يستخدم إصدارًا أقدم من Aspose.Slides. حدّث الحزمة إلى أحدث نسخة. تُعيد Aspose.Slides الصور المرسومة ككائنات [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/)، والتي توصف في [Modern API](/slides/ar/net/modern-api/).
+إذا أظهر المترجم الخطأ CS0433 لأن نوعًا مثل `Image` أو `Graphics` موجود في كل من Aspose.Slides و System.Drawing.Common، فمشروعك يستخدم إصدارًا أقدم من Aspose.Slides. حدّث الحزمة إلى أحدث نسخة. تُعيد Aspose.Slides الصور المرسومة ككائنات [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/)، والتي توصف في [Modern API](/slides/ar/net/modern-api/).
 
 ## **الأسئلة الشائعة**
 

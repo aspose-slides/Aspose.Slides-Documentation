@@ -22,7 +22,7 @@ description: "لماذا يظهر كائن OLE المضاف باستخدام Asp
 ---
 ## **المقدمة**
 
-باستخدام Aspose.Slides for .NET، عند إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe/) إلى شريحة، يتم عرض رسالة "EMBEDDED OLE OBJECT" على الشريحة الناتجة. هذه الرسالة مقصودة وليست خطأ.
+باستخدام Aspose.Slides for .NET، عند إضافة [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) إلى شريحة، يتم عرض رسالة "EMBEDDED OLE OBJECT" على الشريحة الناتجة. هذه الرسالة مقصودة وليست خطأ.
 
 للمزيد من المعلومات حول العمل مع كائنات OLE، راجع [Manage OLE](/slides/ar/net/manage-ole/).
 
@@ -30,7 +30,7 @@ description: "لماذا يظهر كائن OLE المضاف باستخدام Asp
 
 يعرض Aspose.Slides رسالة "EMBEDDED OLE OBJECT" لإعلامك بأنه تم تعديل كائن OLE وأنه يجب تحديث صورة المعاينة.
 
-على سبيل المثال، إذا قمت بإضافة مخطط Microsoft Excel كـ [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe/) إلى شريحة (للمزيد من التفاصيل، راجع مقالة "Manage OLE") ثم فتحت العرض التقديمي في Microsoft PowerPoint، سترى هذه الصورة على الشريحة:
+على سبيل المثال، إذا قمت بإضافة مخطط Microsoft Excel كـ [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) إلى شريحة (للمزيد من التفاصيل، راجع مقالة "Manage OLE") ثم فتحت العرض التقديمي في Microsoft PowerPoint، سترى هذه الصورة على الشريحة:
 
 ![رسالة كائن OLE](OLE_object_message.png)
 

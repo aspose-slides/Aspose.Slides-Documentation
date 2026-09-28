@@ -62,7 +62,7 @@ Aspose.Slides for .NET يتم توزيعه عبر NuGet كحزمتين توفر�
 
 ## **الحصول على المساعدة**
 
-[دعم المنتج](/slides/ar/net/product-support/) يشرح كيفية طرح سؤال على [منتدى الدعم المجاني](https://forum.aspose.com/c/slides/ar/11) وما يجب تضمينه عند الإبلاغ عن مشكلة.
+[دعم المنتج](/slides/ar/net/product-support/) يشرح كيفية طرح سؤال على [منتدى الدعم المجاني](https://forum.aspose.com/c/slides/11) وما يجب تضمينه عند الإبلاغ عن مشكلة.
 
 ## **الأسئلة الشائعة**
 

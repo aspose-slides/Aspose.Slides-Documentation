@@ -123,7 +123,7 @@ Aspose.Slides هي واجهة برمجة تطبيقات لإدارة Microsoft P
 ## **الدعم الفني**
 تقدم Aspose دعمًا فنيًا غير محدود ومجانيًا لجميع منتجاتها. يتوفر الدعم لجميع المستخدمين (بما في ذلك المستخدمين الذين لديهم حزم تجريبية). إذا كنت تحتاج إلى مساعدة بخصوص Aspose.Slides for .NET، يرجى النظر في ما يلي:
 
-- القناة الرئيسية للدعم هي [منتديات Aspose](https://forum.aspose.com/). انشر سؤالك في [منتدى Aspose.Slides](https://forum.aspose.com/c/slides/ar/11)—وسيتم الرد عليه خلال بضع ساعات. يجيب فريق دعم Aspose.Slides مباشرةً على الأسئلة المنشورة في المنتدى.
+- القناة الرئيسية للدعم هي [منتديات Aspose](https://forum.aspose.com/). انشر سؤالك في [منتدى Aspose.Slides](https://forum.aspose.com/c/slides/11)—وسيتم الرد عليه خلال بضع ساعات. يجيب فريق دعم Aspose.Slides مباشرةً على الأسئلة المنشورة في المنتدى.
 - الرجاء ملاحظة أن Aspose لا تقدم دعمًا فنيًا عبر الهاتف. الدعم الهاتفي متوفر فقط لأسئلة المبيعات والشراء.
 - عند انتظار الرد في المنتديات، يرجى التحلي بالصبر وإجراء تقييمات لاختلاف المناطق الزمنية.
 
@@ -144,10 +144,10 @@ Aspose.Slides هي واجهة برمجة تطبيقات لإدارة Microsoft P
 
 |**المورد**|**الوصف**|
 | :- | :- |
-|[الصفحة الرئيسية لـ Aspose.Slides for .NET](https://products.aspose.com/slides/ar/net/)|صفحة المنتج الرئيسية.|
-|[مدونة Aspose.Slide](https://blog.aspose.com/category/slides/ar/)|تحقق من هذه الصفحة بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
+|[الصفحة الرئيسية لـ Aspose.Slides for .NET](https://products.aspose.com/slides/net/)|صفحة المنتج الرئيسية.|
+|[مدونة Aspose.Slide](https://blog.aspose.com/category/slides/)|تحقق من هذه الصفحة بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تنزيل Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|حمّل أحدث نسخة من Aspose.Slides هنا. نحن نطلق إصدارات جديدة بانتظام.|
-|[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/ar/11)|انشر أسئلتك ومشاكلك هنا للحصول على حل سريع.|
+|[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|انشر أسئلتك ومشاكلك هنا للحصول على حل سريع.|
 |[توثيق منتج Aspose.Slides for .NET](/slides/ar/net/)|توثيق كامل على الإنترنت يحتوي على هذه الوثيقة ومرجع API الخاص بـ Aspose.Slides.|
 
 ## **متطلبات مستوى الثقة**
@@ -158,7 +158,7 @@ Aspose.Slides هي واجهة برمجة تطبيقات لإدارة Microsoft P
 
 ### هل يدعم مستويات التوافق لـ PDF للأرشفة والوصول (PDF/A و PDF/UA)؟
 
-نعم. يمكنك الحفظ إلى PDF مع PDF/A-2a/2b/2u، PDF/A-3a/3b، وكذلك PDF/UA عبر تكوين [خيارات تصدير PDF](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/).
+نعم. يمكنك الحفظ إلى PDF مع PDF/A-2a/2b/2u، PDF/A-3a/3b، وكذلك PDF/UA عبر تكوين [خيارات تصدير PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### هل يوجد آلية استبدال الخطوط ودعم الخطوط المخصصة لضمان العرض الصحيح؟
 
@@ -178,7 +178,7 @@ Aspose.Slides هي واجهة برمجة تطبيقات لإدارة Microsoft P
 
 ### هل يتم الحفاظ على الماكروات ويمكنني إدارة VBA في ملفات PPTM/PPSM؟
 
-نعم. العروض التي تحتوي على ماكروات [مدعومة](/slides/ar/net/presentation-via-vba/)، ويمكنك [فحص وإدارة مشاريع VBA](https://reference.aspose.com/slides/ar/net/aspose.slides.vba/) في تلك الملفات.
+نعم. العروض التي تحتوي على ماكروات [مدعومة](/slides/ar/net/presentation-via-vba/)، ويمكنك [فحص وإدارة مشاريع VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/) في تلك الملفات.
 
 ### هل يمكنني تحويل PDF أو HTML مرة أخرى إلى شرائح PowerPoint؟
 
@@ -186,7 +186,7 @@ Aspose.Slides هي واجهة برمجة تطبيقات لإدارة Microsoft P
 
 ### هل يدعم تصدير XPS، وهل يمكنني التحكم في جودة ومحتوى خروج XPS؟
 
-نعم. [التصدير إلى XPS](/slides/ar/net/convert-powerpoint-to-xps/) متاح، وتتيح لك [خيارات الحفظ](https://reference.aspose.com/slides/ar/net/aspose.slides.export/xpsoptions/) ضبط جودة الخرج والمحتوى المضمن.
+نعم. [التصدير إلى XPS](/slides/ar/net/convert-powerpoint-to-xps/) متاح، وتتيح لك [خيارات الحفظ](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) ضبط جودة الخرج والمحتوى المضمن.
 
 ### هل يمكنني تحويل الشرائح إلى صور والتحكم في جودة الخرج؟
 

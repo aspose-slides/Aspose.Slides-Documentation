@@ -28,7 +28,7 @@ description: "تكوين قواعد استبدال الخطوط وتفقد ال�
 
 ## **الحصول على استبدالات الخطوط**
 
-استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) لتحديد الخطوط التي ستُستبدل عندما يُعرض العرض التقديمي. تُرجع الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والبديل.
+استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) لتحديد الخطوط التي ستُستبدل عندما يُعرض العرض التقديمي. تُرجع الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والبديل.
 
 المثال التالي بلغة C# يسرد جميع استبدالات الخطوط لعرض تقديمي:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **الحصول على استبدالات الخطوط للشرائح المحددة**
 
-استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) ذات الوسيط `int[] slides` لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. يكون هذا مفيدًا عند عرض أو تصدير جزء من العرض، أو فحص عرض تقديمي كبير بصورة تدريجية، أو تحديد الشرائح التي تعتمد على خطوط غير متاحة، أو إعداد حزمة خطوط صغيرة للخادم أو الحاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
+استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) ذات الوسيط `int[] slides` لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. يكون هذا مفيدًا عند عرض أو تصدير جزء من العرض، أو فحص عرض تقديمي كبير بصورة تدريجية، أو تحديد الشرائح التي تعتمد على خطوط غير متاحة، أو إعداد حزمة خطوط صغيرة للخادم أو الحاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
 
-المصفوفة `slides` تحتوي على فهارس شرائح تبدأ من الواحد: `1` يُشير إلى الشريحة الأولى. بالمقابل، فهرس مجموعة [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) يبدأ من الصفر، لذا تُصبح نفس الشريحة `presentation.Slides[0]`. احرص على مراعاة هذا الفرق عند بناء المصفوفة لتجنب أخطاء الإزاحة.
+المصفوفة `slides` تحتوي على فهارس شرائح تبدأ من الواحد: `1` يُشير إلى الشريحة الأولى. بالمقابل، فهرس مجموعة [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) يبدأ من الصفر، لذا تُصبح نفس الشريحة `presentation.Slides[0]`. احرص على مراعاة هذا الفرق عند بناء المصفوفة لتجنب أخطاء الإزاحة.
 
-استدعِ النسخة المتعددة الوسائط عبر الخاصية [Presentation.FontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/fontsmanager/). تُرجع الاستبدالات المحددة أثناء عرض الشرائح المختارة فقط. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والبديل. تُعكس النتيجة بيئة الخط الحالية و[الخطوط المحملة خارجيًا](/slides/ar/net/custom-font/). قواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsubstrulecollection/) تُغيّر المخرجات المعروضة لكنها لا تظهر في النتيجة.
+استدعِ النسخة المتعددة الوسائط عبر الخاصية [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). تُرجع الاستبدالات المحددة أثناء عرض الشرائح المختارة فقط. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والبديل. تُعكس النتيجة بيئة الخط الحالية و[الخطوط المحملة خارجيًا](/slides/ar/net/custom-font/). قواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) تُغيّر المخرجات المعروضة لكنها لا تظهر في النتيجة.
 
 قد يتطلب نفس الاستبدال أكثر من شريحة مختارة. قم بإزالة التكرار عند إنشاء جرد الخطوط أو تقرير الفحص المسبق. المثال التالي يُبلّغ عن كل استبدال مُرجع ثم يُنشئ قائمة مرتبة بخرائط الخطوط الفريدة:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-توفر الواجهة [IFontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/) كلا النسختين. اختر واحدة حسب نطاق عملية العرض:
+توفر الواجهة [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) كلا النسختين. اختر واحدة حسب نطاق عملية العرض:
 
 | Overload | Use it when |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) مع عدم وجود وسائط | تحتاج إلى استبدالات للعرض التقديمي بالكامل. |
-| [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) مع `int[] slides` | تحتاج إلى استبدالات لنطاق مختار، فحص تدريجي، أو تصدير جزئي. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) مع عدم وجود وسائط | تحتاج إلى استبدالات للعرض التقديمي بالكامل. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) مع `int[] slides` | تحتاج إلى استبدالات لنطاق مختار، فحص تدريجي، أو تصدير جزئي. |
 
 ## **تحديد قواعد استبدال الخطوط**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. تحميل العرض التقديمي.  
 2. إنشاء تعريفات للخط المصدر والبديل.  
-3. إنشاء [FontSubstRule](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstrule/) مع الشرط [WhenInaccessible](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstcondition/).  
-4. إضافة القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstrulecollection/).  
-5. تعيين المجموعة إلى خاصية [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
+3. إنشاء [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) مع الشرط [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).  
+4. إضافة القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).  
+5. تعيين المجموعة إلى خاصية [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
 6. عرض أو تحويل العرض التقديمي.
 
 المثال التالي بلغة C# يستبدل `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متاح، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متوفرًا لـ Aspose.Slides.
@@ -160,4 +160,4 @@ image.Save("slide.jpg", ImageFormat.Jpeg);
 
 **كيف يمكن جعل اختيار الخط متسقًا في عمليات التحويل الدفعية؟**
 
-استخدم نفس ملفات الخطوط والإصدارات على كل جهاز أو حاوية، [حمّل الخطوط الخارجية المطلوبة](/slides/ar/net/custom-font/)، و[ضمن الخطوط](/slides/ar/net/embedded-font/) عندما تسمح الرخص. يمكنك أيضًا استدعاء [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.
+استخدم نفس ملفات الخطوط والإصدارات على كل جهاز أو حاوية، [حمّل الخطوط الخارجية المطلوبة](/slides/ar/net/custom-font/)، و[ضمن الخطوط](/slides/ar/net/embedded-font/) عندما تسمح الرخص. يمكنك أيضًا استدعاء [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.

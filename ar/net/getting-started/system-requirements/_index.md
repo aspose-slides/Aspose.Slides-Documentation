@@ -68,7 +68,7 @@ Aspose.Slides.NET6.CrossPlatform لا يعمل على Alpine Linux أو توزي
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-بدونها، إنشاء [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) سيفشل باستثناء `TypeInitializationException` الذي يحتوي على `DllNotFoundException` يُشير إلى أن `libfontconfig.so.1` لا يمكن فتحه.
+بدونها، إنشاء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) سيفشل باستثناء `TypeInitializationException` الذي يحتوي على `DllNotFoundException` يُشير إلى أن `libfontconfig.so.1` لا يمكن فتحه.
 
 قد لا تتضمن صور الحاوية الأساسية `fontconfig`. صورة AWS Lambda الأساسية لـ .NET 8، على سبيل المثال، لا تحتوي على `fontconfig` ولا على أي خطوط. في صورة حاوية مبنية عليها، نفّذ `dnf install -y fontconfig`، والذي يثبّت أيضًا خطوط Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **دعم العولمة**
 
-كلا الحزمتين يحتاجان إلى دعم عولمة .NET، والذي توفره .NET على Linux عبر مكتبات ICU. في [وضع عدم التنوّع العالمي]https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)، إنشاء [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) سيفشل باستثناء `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+كلا الحزمتين يحتاجان إلى دعم عولمة .NET، والذي توفره .NET على Linux عبر مكتبات ICU. في [وضع عدم التنوّع العالمي]https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)، إنشاء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) سيفشل باستثناء `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 بعض صور الحاوية تُفعّل هذا الوضع. على سبيل المثال، صور وقت تشغيل .NET لـ Alpine Linux (`runtime-deps`، `runtime`، و`aspnet`) تُعيّن `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` ولا تشمل ICU. في صورة مبنية عليها، ثبّت ICU وأوقف الوضع:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-البرنامج يضيف مستطيلًا بنص إلى الشريحة الأولى ويحفظ العرض باسم *hello.pptx* باستخدام طريقة [Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/). ثم يرسم الشريحة باستخدام [GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/getimage/) ويحفظ النتيجة باسم *hello.png* باستخدام [IImage.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/save/) بتنسيق [ImageFormat.Png](https://reference.aspose.com/slides/ar/net/aspose.slides/imageformat/). عوامل المقياس 1 تُولد بكسل واحد لكل نقطة، لذا تصبح الشريحة الافتراضية ذات 720 × 540 نقطة صورة 720 × 540 بكسل، مع النص مرئياً داخل المستطيل. بدون ترخيص، يحمل كلا الملفين علامة مائية تجريبية؛ راجع [الترخيص](/slides/ar/net/licensing/). إذا كان هناك متطلب مفقود، سيتوقف البرنامج بأحد الاستثناءات الموضحة في [Linux](#linux).
+البرنامج يضيف مستطيلًا بنص إلى الشريحة الأولى ويحفظ العرض باسم *hello.pptx* باستخدام طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). ثم يرسم الشريحة باستخدام [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) ويحفظ النتيجة باسم *hello.png* باستخدام [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) بتنسيق [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). عوامل المقياس 1 تُولد بكسل واحد لكل نقطة، لذا تصبح الشريحة الافتراضية ذات 720 × 540 نقطة صورة 720 × 540 بكسل، مع النص مرئياً داخل المستطيل. بدون ترخيص، يحمل كلا الملفين علامة مائية تجريبية؛ راجع [الترخيص](/slides/ar/net/licensing/). إذا كان هناك متطلب مفقود، سيتوقف البرنامج بأحد الاستثناءات الموضحة في [Linux](#linux).
 
 ## **أدوات التطوير**
 

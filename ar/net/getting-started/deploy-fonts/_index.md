@@ -56,7 +56,7 @@ Aspose.Slides يرسم النص بالخطوط المتاحة له عند تقد
 </Project>
 ```
 
-*Program.cs* يضيف مربع نص واحد لكل اسم خط إلى شريحة ويعين الخط عبر خاصية [LatinFont](https://reference.aspose.com/slides/ar/net/aspose.slides/baseportionformat/latinfont/). تأتي أسماء الخطوط من سطر الأوامر؛ بدون وسائط، يتحقق التطبيق من Calibri وArial وTimes New Roman. يطبع المجلدات التي يبحث فيها Aspose.Slides عن الخطوط ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/getfontfolders/))، يرسم الشريحة إلى *output/fonts.pdf*، ويطبع الاستبدالات التي يُبلغ عنها [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/). الخطوتان الاختياريتان في البداية، تحميل مجلد *fonts* وقراءة متغير `DEFAULT_FONT`، يتم شرحهما لاحقًا في هذه المقالة.
+*Program.cs* يضيف مربع نص واحد لكل اسم خط إلى شريحة ويعين الخط عبر خاصية [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). تأتي أسماء الخطوط من سطر الأوامر؛ بدون وسائط، يتحقق التطبيق من Calibri وArial وTimes New Roman. يطبع المجلدات التي يبحث فيها Aspose.Slides عن الخطوط ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/))، يرسم الشريحة إلى *output/fonts.pdf*، ويطبع الاستبدالات التي يُبلغ عنها [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). الخطوتان الاختياريتان في البداية، تحميل مجلد *fonts* وقراءة متغير `DEFAULT_FONT`، يتم شرحهما لاحقًا في هذه المقالة.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **تحميل الخطوط من مجلد التطبيق**
 
-بدلاً من تثبيت الخطوط في الصورة، يمكنك شحنها مع التطبيق وتحميلها باستخدام [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfonts/). تصبح الخطوط متاحةً فقط لـ Aspose.Slides، وتُنشر مع التطبيق. *FontCheck* يفعل ذلك: *FontCheck.csproj* ينسخ مجلد *fonts* إلى مخرجات التطبيق، و*Program.cs* يمرّر ذلك المجلد إلى `LoadExternalFonts` قبل إنشاء العرض التقديمي. يصف [خط مخصص](/slides/ar/net/custom-font/) الطرق الأخرى لتوفير الخطوط، مثل تحميلها من الذاكرة.
+بدلاً من تثبيت الخطوط في الصورة، يمكنك شحنها مع التطبيق وتحميلها باستخدام [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). تصبح الخطوط متاحةً فقط لـ Aspose.Slides، وتُنشر مع التطبيق. *FontCheck* يفعل ذلك: *FontCheck.csproj* ينسخ مجلد *fonts* إلى مخرجات التطبيق، و*Program.cs* يمرّر ذلك المجلد إلى `LoadExternalFonts` قبل إنشاء العرض التقديمي. يصف [خط مخصص](/slides/ar/net/custom-font/) الطرق الأخرى لتوفير الخطوط، مثل تحميلها من الذاكرة.
 
 أعد بناء الصورة، ثم تحقق من Calibri وCarlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **تعيين خط افتراضي للخطوط المفقودة**
 
-عند فقدان خط، يستخدم Aspose.Slides بديلًا يختاره بنفسه. لاختيار بديلك، عيِّن خاصية [DefaultRegularFont](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/defaultregularfont/) لـ [LoadOptions](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/) ومرّر الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/). *FontCheck* يقرأ اسم الخط من متغيّر البيئة `DEFAULT_FONT`. مع تحميل Carlito، استخدمه للخطوط المفقودة:
+عند فقدان خط، يستخدم Aspose.Slides بديلًا يختاره بنفسه. لاختيار بديلك، عيِّن خاصية [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) لـ [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ومرّر الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* يقرأ اسم الخط من متغيّر البيئة `DEFAULT_FONT`. مع تحميل Carlito، استخدمه للخطوط المفقودة:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-الخط الافتراضي يُستبدل كل خط مفقود. لتعيين خطوط فردية، مثل استبدال Arial بـ Liberation Sans وCalibri بـ Carlito، استخدم [قواعد استبدال الخطوط](/slides/ar/net/font-substitution/). القواعد تُغيّر النتيجة المرسومة، لكن `GetSubstitutions` لا يعكسها، لذا تحقق من الخطوط في ملف الإخراج بدلًا من ذلك. للنص الآسيوي، عيّن أيضًا [DefaultAsianFont](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/defaultasianfont/); راجع [الخط الافتراضي](/slides/ar/net/default-font/).
+الخط الافتراضي يُستبدل كل خط مفقود. لتعيين خطوط فردية، مثل استبدال Arial بـ Liberation Sans وCalibri بـ Carlito، استخدم [قواعد استبدال الخطوط](/slides/ar/net/font-substitution/). القواعد تُغيّر النتيجة المرسومة، لكن `GetSubstitutions` لا يعكسها، لذا تحقق من الخطوط في ملف الإخراج بدلًا من ذلك. للنص الآسيوي، عيّن أيضًا [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); راجع [الخط الافتراضي](/slides/ar/net/default-font/).
 
 ## **تثبيت الخطوط على Alpine Linux**
 

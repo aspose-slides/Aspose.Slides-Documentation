@@ -59,7 +59,7 @@ description: "إنشاء وتشغيل تطبيق كونسول Aspose.Slides لـ
 </Project>
 ```
 
-*Program.cs* ينشئ [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/)، يضيف مستطيلًا يحتوي على نص إلى الشريحة الأولى، ويحفظ العرض مرتين باستخدام طريقة [Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/): كـ PPTX وكم ملف PDF. يذهب كلا الملفين إلى مجلد *output* داخل دليل العمل. ثم يقوم التطبيق بسرد الخطوط التي تم استبدالها أثناء إنشاء PDF، باستخدام [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/)، لتتمكن من معرفة ما إذا كانت الحاوية تحتوي على الخطوط التي يستخدمها العرض.
+*Program.cs* ينشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، يضيف مستطيلًا يحتوي على نص إلى الشريحة الأولى، ويحفظ العرض مرتين باستخدام طريقة [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): كـ PPTX وكم ملف PDF. يذهب كلا الملفين إلى مجلد *output* داخل دليل العمل. ثم يقوم التطبيق بسرد الخطوط التي تم استبدالها أثناء إنشاء PDF، باستخدام [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)، لتتمكن من معرفة ما إذا كانت الحاوية تحتوي على الخطوط التي يستخدمها العرض.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-
 - `font-dejavu` تزود الخطوط. بدون أي خط، يتوقف التحويل بـ `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` و`DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` يقدمان بيانات الثقافة. تعمل صور .NET على Alpine في وضع عدم الثبات الثقافي (globalization-invariant) بشكل افتراضي، وفي ذلك الوضع يتوقف Aspose.Slides بـ `CultureNotFoundException` للغة `en-US`.
 
-قم ببناء التطبيق وتشغيله ونسخ المخرجات باستخدام نفس الأوامر كما هو موضح أعلاه. في هذه الصورة، يطبع التطبيق السطر `Saved` فقط: مع Aspose.Slides.NET على Linux، يختار fontconfig البديل للخط المفقود، ولا تُدرج [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) ذلك في القائمة. يوضح [نشر الخطوط](/slides/ar/net/deploy-fonts/) كيفية التحقق من الخط المستخدم.
+قم ببناء التطبيق وتشغيله ونسخ المخرجات باستخدام نفس الأوامر كما هو موضح أعلاه. في هذه الصورة، يطبع التطبيق السطر `Saved` فقط: مع Aspose.Slides.NET على Linux، يختار fontconfig البديل للخط المفقود، ولا تُدرج [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) ذلك في القائمة. يوضح [نشر الخطوط](/slides/ar/net/deploy-fonts/) كيفية التحقق من الخط المستخدم.
 
 ## **الأسئلة المتكررة**
 

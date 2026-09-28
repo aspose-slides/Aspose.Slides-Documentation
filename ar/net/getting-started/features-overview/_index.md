@@ -77,7 +77,7 @@ Aspose.Slides يتيح لك إنشاء وقراءة وتعديل تقريبًا 
 
 **كيف يعمل تعدد الخيوط؟ هل يمكن تنفيذ المعالجة بالتوازي؟**
 
-من الآمن معالجة مستندات مختلفة في خيوط مختلفة؛ لا ينبغي استخدام نفس كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) بواسطة [multiple threads](/slides/ar/net/multithreading/) في نفس الوقت.
+من الآمن معالجة مستندات مختلفة في خيوط مختلفة؛ لا ينبغي استخدام نفس كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بواسطة [multiple threads](/slides/ar/net/multithreading/) في نفس الوقت.
 
 **هل تدعم كلمات مرور الملفات والتشفير؟**
 
