@@ -7,7 +7,7 @@ description: "Επιλέξτε τα αρχεία JAR του Aspose.Slides για
 ---
 ## **Επιλέξτε τα αρχεία JAR για την έκδοση του JasperReports σας**
 
-Το Aspose.Slides for JasperReports διανέμεται ως αρχείο ZIP στη [download page](https://releases.aspose.com/slides/el/jasperreport/). Ο φάκελος *lib* του περιέχει έναν υποφάκελο για κάθε εύρος εκδόσεων του JasperReports. Παίρνετε τα JAR από τον υποφάκελο που καλύπτει την έκδοση του JasperReports που χρησιμοποιείτε:
+Το Aspose.Slides for JasperReports διανέμεται ως αρχείο ZIP στη [download page](https://releases.aspose.com/slides/jasperreport/). Ο φάκελος *lib* του περιέχει έναν υποφάκελο για κάθε εύρος εκδόσεων του JasperReports. Παίρνετε τα JAR από τον υποφάκελο που καλύπτει την έκδοση του JasperReports που χρησιμοποιείτε:
 
 | Έκδοση JasperReports | Υποφάκελος του *lib* |
 | :- | :- |
