@@ -56,7 +56,7 @@ Aşağıdaki konsol uygulaması, mevcut ortamda Aspose.Slides’in yedeklediği 
 </Project>
 ```
 
-*Program.cs* bir slayta her yazı tipi adı için bir metin kutusu ekler ve yazı tipini [LatinFont](https://reference.aspose.com/slides/tr/net/aspose.slides/baseportionformat/latinfont/) özelliğiyle atar. Yazı tipi adları komut satırından alınır; argüman verilmezse uygulama Calibri, Arial ve Times New Roman’ı kontrol eder. Aspose.Slides’in yazı tiplerini aradığı klasörleri ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/getfontfolders/)) yazdırır, slaytı *output/fonts.pdf* dosyasına render eder ve [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/getsubstitutions/) tarafından raporlanan yedeklemeleri basar. Başlangıçtaki iki isteğe bağlı adım, *fonts* klasörünü yükleme ve bir `DEFAULT_FONT` değişkeni okuma, bu makalenin ilerleyen bölümlerinde açıklanmıştır.
+*Program.cs* bir slayta her yazı tipi adı için bir metin kutusu ekler ve yazı tipini [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/) özelliğiyle atar. Yazı tipi adları komut satırından alınır; argüman verilmezse uygulama Calibri, Arial ve Times New Roman’ı kontrol eder. Aspose.Slides’in yazı tiplerini aradığı klasörleri ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)) yazdırır, slaytı *output/fonts.pdf* dosyasına render eder ve [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) tarafından raporlanan yedeklemeleri basar. Başlangıçtaki iki isteğe bağlı adım, *fonts* klasörünü yükleme ve bir `DEFAULT_FONT` değişkeni okuma, bu makalenin ilerleyen bölümlerinde açıklanmıştır.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Yazı Tiplerini Uygulama Klasöründen Yükleyin**
 
-Yazı tiplerini imaja kurmak yerine, uygulama ile birlikte dağıtabilir ve [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsloader/loadexternalfonts/) ile yükleyebilirsiniz. Böylece yazı tipleri yalnızca Aspose.Slides tarafından kullanılır ve uygulama ile birlikte dağıtılır. *FontCheck* bunu yapar: *FontCheck.csproj* *fonts* klasörünü uygulama çıktısına kopyalar, *Program.cs* ise sunumu oluştururken `LoadExternalFonts` metoduna bu klasörü geçirir. [Custom Font](/slides/tr/net/custom-font/) diğer sağlama yöntemlerini açıklar; örneğin bellekten yükleme.
+Yazı tiplerini imaja kurmak yerine, uygulama ile birlikte dağıtabilir ve [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) ile yükleyebilirsiniz. Böylece yazı tipleri yalnızca Aspose.Slides tarafından kullanılır ve uygulama ile birlikte dağıtılır. *FontCheck* bunu yapar: *FontCheck.csproj* *fonts* klasörünü uygulama çıktısına kopyalar, *Program.cs* ise sunumu oluştururken `LoadExternalFonts` metoduna bu klasörü geçirir. [Custom Font](/slides/tr/net/custom-font/) diğer sağlama yöntemlerini açıklar; örneğin bellekten yükleme.
 
 İmajı yeniden oluşturun, ardından Calibri ve Carlito’yu kontrol edin:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Eksik Yazı Tipleri İçin Varsayılan Yazı Tipi Ayarlama**
 
-Bir yazı tipi eksik olduğunda, Aspose.Slides kendi seçtiği bir yedek kullanır. Bunu kendiniz belirlemek için, [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) nesnesinin [DefaultRegularFont](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/defaultregularfont/) özelliğini ayarlayın ve bu seçenekleri [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) kurucusuna iletin. *FontCheck* `DEFAULT_FONT` ortam değişkeninden yazı tipi adını okur. Carlito yüklüyse, eksik yazı tipleri için bunu kullanın:
+Bir yazı tipi eksik olduğunda, Aspose.Slides kendi seçtiği bir yedek kullanır. Bunu kendiniz belirlemek için, [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) nesnesinin [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) özelliğini ayarlayın ve bu seçenekleri [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) kurucusuna iletin. *FontCheck* `DEFAULT_FONT` ortam değişkeninden yazı tipi adını okur. Carlito yüklüyse, eksik yazı tipleri için bunu kullanın:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Varsayılan yazı tipi her eksik yazı tipini değiştirir. Tek tek yazı tiplerini eşlemek için, örneğin Arial → Liberation Sans ve Calibri → Carlito, [yazı tipi yedekleme kurallarını](/slides/tr/net/font-substitution/) kullanın. Kurallar render edilen çıktıyı değiştirir, ancak `GetSubstitutions` bunları yansıtmaz; bu yüzden çıktıyı kontrol edin. Asya metinleri için ayrıca [DefaultAsianFont](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/defaultasianfont/) ayarlayın; bkz. [Default Font](/slides/tr/net/default-font/).
+Varsayılan yazı tipi her eksik yazı tipini değiştirir. Tek tek yazı tiplerini eşlemek için, örneğin Arial → Liberation Sans ve Calibri → Carlito, [yazı tipi yedekleme kurallarını](/slides/tr/net/font-substitution/) kullanın. Kurallar render edilen çıktıyı değiştirir, ancak `GetSubstitutions` bunları yansıtmaz; bu yüzden çıktıyı kontrol edin. Asya metinleri için ayrıca [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/) ayarlayın; bkz. [Default Font](/slides/tr/net/default-font/).
 
 ## **Alpine Linux’da Yazı Tipi Kurulumu**
 

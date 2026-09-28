@@ -77,7 +77,7 @@ Hayır. PowerPoint gerekli değildir; Aspose.Slides, sunumları oluşturmak, dü
 
 **Çok iş parçacığı (multithreading) nasıl çalışır? İşlem paralelleştirilebilir mi?**
 
-Farklı belgeleri farklı iş parçacıklarında işlemek güvenlidir; aynı [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesi aynı anda [çoklu iş parçacıkları](/slides/tr/net/multithreading/) tarafından kullanılmamalıdır.
+Farklı belgeleri farklı iş parçacıklarında işlemek güvenlidir; aynı [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) nesnesi aynı anda [çoklu iş parçacıkları](/slides/tr/net/multithreading/) tarafından kullanılmamalıdır.
 
 **Dosya şifreleri ve şifreleme destekleniyor mu?**
 

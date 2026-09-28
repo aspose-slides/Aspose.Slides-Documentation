@@ -27,12 +27,12 @@ Aspose.Slides ile sunumlar oluşturulduğunda veya dışa aktarıldığında, be
 
 Aspose.Slides for .NET ile sunumlar oluşturduğunuzda veya dışa aktardığınızda, dosyaya bazı teknik üst veriler yazılır. Sıklıkla soru gündeme gelen iki alan:
 
-**Application** bir **PPTX** sunumunu oluşturan veya en son kaydeden programı tanımlar. Aspose.Slides for .NET içinde bu değer sabittir ve uygulama adınız yerine kütüphane adını gösterir; hatta [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) ayarlasanız bile.
+**Application** bir **PPTX** sunumunu oluşturan veya en son kaydeden programı tanımlar. Aspose.Slides for .NET içinde bu değer sabittir ve uygulama adınız yerine kütüphane adını gösterir; hatta [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) ayarlasanız bile.
 
 **Producer** dışa aktarım sırasında final dosyasını üreten işleme motorunu tanımlar. **PDF** dışa aktarmalarında üst veriler **Creator** ve **Producer** alanlarını kullanır. Aspose.Slides for .NET ile bu ikisi de sabittir ve kütüphane ile sürümünü yansıtır.
 
 **Kısıtlamalar**
 
-Bu alanları API üzerinden yukarıdaki biçimlerde geçersiz kılmanız mümkün değildir. **PPTX** için Application özelliği “Aspose.Slides for .NET” olarak yazılır. **PDF** için Creator ve Producer özellikleri “Aspose.Slides for .NET” ve ardından kütüphane sürümü biçiminde yazılır. **ODP** için generator alanı “Aspose.Slides for .NET” ve ardından kütüphane sürümü biçiminde yazılır. Bu davranış tasarım gereği olup, dosyanın nasıl yüklendiği veya kaydedildiği ve [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) deki değerler göz ardı edilir.
+Bu alanları API üzerinden yukarıdaki biçimlerde geçersiz kılmanız mümkün değildir. **PPTX** için Application özelliği “Aspose.Slides for .NET” olarak yazılır. **PDF** için Creator ve Producer özellikleri “Aspose.Slides for .NET” ve ardından kütüphane sürümü biçiminde yazılır. **ODP** için generator alanı “Aspose.Slides for .NET” ve ardından kütüphane sürümü biçiminde yazılır. Bu davranış tasarım gereği olup, dosyanın nasıl yüklendiği veya kaydedildiği ve [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) deki değerler göz ardı edilir.
 
-Bu kısıtlama **PPT** dosyaları için geçerli değildir: bir PPT dosyasında, [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) içinde ayarladığınız uygulama adı kaydedilir.
+Bu kısıtlama **PPT** dosyaları için geçerli değildir: bir PPT dosyasında, [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) içinde ayarladığınız uygulama adı kaydedilir.

@@ -22,7 +22,7 @@ description: "Aspose.Slides for .NET ile eklenen bir OLE nesnesinin önizlemesi 
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET'i kullanarak bir slayta [OleObjectFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/oleobjectframe/) eklediğinizde, çıktı slaytında "EMBEDDED OLE OBJECT" mesajı gösterilir. Bu mesaj kasıtlıdır ve HATA DEĞİLDİR.
+Aspose.Slides for .NET'i kullanarak bir slayta [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) eklediğinizde, çıktı slaytında "EMBEDDED OLE OBJECT" mesajı gösterilir. Bu mesaj kasıtlıdır ve HATA DEĞİLDİR.
 
 Daha fazla bilgi için OLE nesneleriyle çalışmak hakkında [Manage OLE](/slides/tr/net/manage-ole/) sayfasına bakın.
 
@@ -30,7 +30,7 @@ Daha fazla bilgi için OLE nesneleriyle çalışmak hakkında [Manage OLE](/slid
 
 Aspose.Slides, OLE nesnesinin değiştirildiğini ve ön izleme görüntüsünün güncellenmesi gerektiğini bildirmek için "EMBEDDED OLE OBJECT" mesajını gösterir.
 
-Örneğin, bir Microsoft Excel grafiğini bir [OleObjectFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/oleobjectframe/) olarak bir slayta eklerseniz (daha fazla ayrıntı için "Manage OLE" makalesine bakın) ve ardından sunuyu Microsoft PowerPoint'te açarsanız, slaytta aşağıdaki görüntüyü görürsünüz:
+Örneğin, bir Microsoft Excel grafiğini bir [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) olarak bir slayta eklerseniz (daha fazla ayrıntı için "Manage OLE" makalesine bakın) ve ardından sunuyu Microsoft PowerPoint'te açarsanız, slaytta aşağıdaki görüntüyü görürsünüz:
 
 ![OLE object message](OLE_object_message.png)
 

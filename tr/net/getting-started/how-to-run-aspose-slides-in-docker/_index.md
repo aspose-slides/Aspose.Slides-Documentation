@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform Alpine Linux’ta çalışmaz. Alpine tabanlı 
 </Project>
 ```
 
-*Program.cs* bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturur, ilk slaytına metin içeren bir dikdörtgen ekler ve sunumu iki kez [Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemiyle kaydeder: PPTX ve PDF olarak. Her iki dosya da çalışma dizini altındaki *output* klasörüne gider. Uygulama ardından PDF oluşturulurken değiştirilen yazı tiplerini [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/getsubstitutions/) ile listeler; böylece konteynerin sunumun kullandığı yazı tiplerine sahip olup olmadığını görebilirsiniz.
+*Program.cs* bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturur, ilk slaytına metin içeren bir dikdörtgen ekler ve sunumu iki kez [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemiyle kaydeder: PPTX ve PDF olarak. Her iki dosya da çalışma dizini altındaki *output* klasörüne gider. Uygulama ardından PDF oluşturulurken değiştirilen yazı tiplerini [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) ile listeler; böylece konteynerin sunumun kullandığı yazı tiplerine sahip olup olmadığını görebilirsiniz.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine aşaması üç paket kurar ve bir ayarı değiştirir:
 - `font-dejavu`: yazı tiplerini sağlar. Hiç yazı tipi yoksa dönüşüm `System.ArgumentException: Font '?' cannot be found` hatasıyla durur.
 - `icu-libs` ve `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false`: kültür verilerini sağlar. Alpine .NET görüntüleri varsayılan olarak küresel olmayan (invariant) moda çalışır; bu modda Aspose.Slides `CultureNotFoundException` ile `en-US` kültürünü bulamaz.
 
-Yukarıdaki aynı komutlarla oluşturun, çalıştırın ve çıktıyı kopyalayın. Bu imajda uygulama yalnızca `Saved` satırını yazdırır: Linux’ta Aspose.Slides.NET ile fontconfig eksik bir yazı tipi için yedek seçer ve [GetSubstitutions](https://reference.aspose.com/slides/tr/net/aspose.slides/ifontsmanager/getsubstitutions/) bunu listelemez. [Yazı Tiplerini Dağıt](/slides/tr/net/deploy-fonts/) hangi yazı tipinin kullanıldığını nasıl kontrol edeceğinizi gösterir.
+Yukarıdaki aynı komutlarla oluşturun, çalıştırın ve çıktıyı kopyalayın. Bu imajda uygulama yalnızca `Saved` satırını yazdırır: Linux’ta Aspose.Slides.NET ile fontconfig eksik bir yazı tipi için yedek seçer ve [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) bunu listelemez. [Yazı Tiplerini Dağıt](/slides/tr/net/deploy-fonts/) hangi yazı tipinin kullanıldığını nasıl kontrol edeceğinizi gösterir.
 
 ## **SSS**
 

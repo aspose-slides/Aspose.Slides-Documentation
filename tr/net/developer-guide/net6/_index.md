@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-Debian ve Ubuntu'da `libfontconfig1` aynı zamanda DejaVu yazı tiplerini de kurar, böylece metin ek bir yazı tipi paketine ihtiyaç duymadan render edilir. `fontconfig` olmadan bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturmak, `libfontconfig.so.1` açılamadığı bildirilen bir `DllNotFoundException` içeren `TypeInitializationException` hatasına yol açar. [System Requirements](/slides/tr/net/system-requirements/) içinde kurulumu kontrol eden kısa bir program bulunur.
+Debian ve Ubuntu'da `libfontconfig1` aynı zamanda DejaVu yazı tiplerini de kurar, böylece metin ek bir yazı tipi paketine ihtiyaç duymadan render edilir. `fontconfig` olmadan bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturmak, `libfontconfig.so.1` açılamadığı bildirilen bir `DllNotFoundException` içeren `TypeInitializationException` hatasına yol açar. [System Requirements](/slides/tr/net/system-requirements/) içinde kurulumu kontrol eden kısa bir program bulunur.
 
 ## **Bulut ve Konteyner Hostları**
 
@@ -68,7 +68,7 @@ Belirli bulut platformları için kılavuzlara [Aspose.Slides on Cloud Platforms
 
 Aspose.Slides.NET6.CrossPlatform kullanan bir proje, doğrudan veya başka bir paket aracılığıyla System.Drawing.Common'ı da referans alabilir. Aspose.Slides'in mevcut sürümü `System` ad alanlarında hiç kamu tipi yayınlamaz, bu yüzden iki kütüphane çakışmaz ve aynı dosyada `Aspose.Slides` ve `System.Drawing` ad alanlarını içe aktarabilirsiniz.
 
-Eğer derleyici, `Image` ya da `Graphics` gibi bir tipin hem Aspose.Slides hem de System.Drawing.Common içinde bulunduğu için CS0433 hatası veriyorsa, projeniz Aspose.Slides'in eski bir sürümünü kullanıyor demektir. Paketi en yeni sürüme güncelleyin. Aspose.Slides, render edilen görüntüleri [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesneleri olarak döndürür; bu nesneler [Modern API](/slides/tr/net/modern-api/) içinde açıklanmıştır.
+Eğer derleyici, `Image` ya da `Graphics` gibi bir tipin hem Aspose.Slides hem de System.Drawing.Common içinde bulunduğu için CS0433 hatası veriyorsa, projeniz Aspose.Slides'in eski bir sürümünü kullanıyor demektir. Paketi en yeni sürüme güncelleyin. Aspose.Slides, render edilen görüntüleri [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) nesneleri olarak döndürür; bu nesneler [Modern API](/slides/tr/net/modern-api/) içinde açıklanmıştır.
 
 ## **FAQ**
 

@@ -25,7 +25,7 @@ Kod erişimi güvenliği (CAS) güven seviyeleri yalnızca .NET Framework'te bul
 
 ## **.NET Framework**
 
-Aspose.Slides, .NET Framework'te tam güven gerekir. Orta Güven (`<trust level="Medium" />`) gibi kısmi güvenle yapılandırılmış bir ASP.NET uygulaması gibi kısmi güven altında çalışmaz: bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesi oluşturma, bir `SecurityException` hatasıyla başarısız olur.
+Aspose.Slides, .NET Framework'te tam güven gerekir. Orta Güven (`<trust level="Medium" />`) gibi kısmi güvenle yapılandırılmış bir ASP.NET uygulaması gibi kısmi güven altında çalışmaz: bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) nesnesi oluşturma, bir `SecurityException` hatasıyla başarısız olur.
 
 Microsoft, ASP.NET kısmi güvenini artık uygulamaları birbirinden izole etmenin bir yolu olarak görmemekte ve bunun yerine uygulamaları ayrı uygulama havuzlarında çalıştırmayı önermektedir. Bkz [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

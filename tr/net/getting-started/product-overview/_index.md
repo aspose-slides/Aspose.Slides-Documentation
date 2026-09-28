@@ -123,7 +123,7 @@ Aspose.Slides for .NET özellikleri şu gruplara ayrılabilir:
 ## **Teknik Destek**
 Aspose, tüm ürünleri için sınırsız ücretsiz teknik destek sağlar. Destek, tüm kullanıcılar (değerlendirme paketleri dahil) için mevcuttur. Aspose.Slides for .NET ile ilgili yardıma ihtiyacınız varsa aşağıdakileri göz önünde bulundurun:
 
-- Destek için temel kanal [Aspose Forumları](https://forum.aspose.com/)'dur. Sorunuzu [Aspose.Slides forumunda](https://forum.aspose.com/c/slides/tr/11) yayınlayın—ve birkaç saat içinde yanıt alacaksınız. Aspose.Slides destek ekibi, forumda yayınlanan soruları doğrudan yanıtlar.
+- Destek için temel kanal [Aspose Forumları](https://forum.aspose.com/)'dur. Sorunuzu [Aspose.Slides forumunda](https://forum.aspose.com/c/slides/11) yayınlayın—ve birkaç saat içinde yanıt alacaksınız. Aspose.Slides destek ekibi, forumda yayınlanan soruları doğrudan yanıtlar.
 - Aspose’un telefonla teknik destek vermediğini unutmayın. Telefon desteği yalnızca satış ve satın alma soruları için mevcuttur.
 - Forumlarda yanıt beklerken sabırlı olun ve saat dilimi farklarını göz önünde bulundurun.
 
@@ -145,10 +145,10 @@ Bu tablo, önemli Aspose.Slides for .NET teknik kaynaklarını listeler.
 
 |**Kaynak**|**Açıklama**|
 | :- | :- |
-|[Aspose.Slides for .NET ana sayfası](https://products.aspose.com/slides/tr/net/)|Ürün ana sayfası.|
-|[Aspose.Slides blogu](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides ile ilgili ipuçları için bu sayfayı düzenli olarak kontrol edin.|
+|[Aspose.Slides for .NET ana sayfası](https://products.aspose.com/slides/net/)|Ürün ana sayfası.|
+|[Aspose.Slides blogu](https://blog.aspose.com/category/slides/)|Yeni sürümler ve Aspose.Slides ile ilgili ipuçları için bu sayfayı düzenli olarak kontrol edin.|
 |[Aspose.Slides for .NET indirme](https://www.nuget.org/packages/Aspose.Slides.NET/)|Aspose.Slides’in en yeni sürümünü buradan indirin. Yeni sürümler sık sık yayınlanır.|
-|[Aspose.Slides destek forumu](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı burada paylaşarak hızlı çözüm alın.|
+|[Aspose.Slides destek forumu](https://forum.aspose.com/c/slides/11)|Sorularınızı ve sorunlarınızı burada paylaşarak hızlı çözüm alın.|
 |[Aspose.Slides for .NET ürün belgeleri](/slides/tr/net/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi dokümantasyon.|
 
 ## **Güven Seviyesi Gereksinimleri**
@@ -159,7 +159,7 @@ Bu tablo, önemli Aspose.Slides for .NET teknik kaynaklarını listeler.
 
 ### PDF/A ve PDF/UA gibi arşivleme ve erişilebilirlik için PDF uyumluluk seviyelerini destekliyor mu?
 
-Evet. [PDF dışa aktarma seçeneklerini](https://reference.aspose.com/slides/tr/net/aspose.slides.export/pdfoptions/) yapılandırarak PDF/A-2a/2b/2u, PDF/A-3a/3b ve PDF/UA formatlarında kaydedebilirsiniz.
+Evet. [PDF dışa aktarma seçeneklerini](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) yapılandırarak PDF/A-2a/2b/2u, PDF/A-3a/3b ve PDF/UA formatlarında kaydedebilirsiniz.
 
 ### Doğru render alma için özel yazı tipleri ve yazı tipi ikame mekanizması var mı?
 
@@ -179,7 +179,7 @@ Evet, farklı belgeleri ayrı iş parçacıklarında paralel olarak işleyebilir
 
 ### VBA makroları korunuyor mu ve PPTM/PPSM dosyalarında VBA’yı yönetebilir miyim?
 
-Evet. Makro içeren sunumlar [desteklenir](/slides/tr/net/presentation-via-vba/), ve bu dosyalardaki VBA projelerini [inceleyebilir ve yönetebilirsiniz](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/).
+Evet. Makro içeren sunumlar [desteklenir](/slides/tr/net/presentation-via-vba/), ve bu dosyalardaki VBA projelerini [inceleyebilir ve yönetebilirsiniz](https://reference.aspose.com/slides/net/aspose.slides.vba/).
 
 ### PDF veya HTML’yi tekrar PowerPoint slaytlarına dönüştürebilir miyim?
 
@@ -187,7 +187,7 @@ Evet. [PDF sayfalarını veya HTML içeriğini içe aktararak](/slides/tr/net/im
 
 ### XPS dışa aktarımı destekleniyor mu ve XPS çıktısının kalitesini ve içeriğini kontrol edebilir miyim?
 
-Evet. [XPS’ye dışa aktarma](/slides/tr/net/convert-powerpoint-to-xps/) mevcut ve [kaydetme seçenekleri](https://reference.aspose.com/slides/tr/net/aspose.slides.export/xpsoptions/) çıkış kalitesini ve içerdiği öğeleri ayarlamanızı sağlar.
+Evet. [XPS’ye dışa aktarma](/slides/tr/net/convert-powerpoint-to-xps/) mevcut ve [kaydetme seçenekleri](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) çıkış kalitesini ve içerdiği öğeleri ayarlamanızı sağlar.
 
 ### Slaytları resim olarak dönüştürebilir ve çıktı kalitesini kontrol edebilir miyim?
 

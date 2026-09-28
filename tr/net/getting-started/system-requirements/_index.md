@@ -68,7 +68,7 @@ Paketin Linux kitaplığı `fontconfig` kitaplığına ihtiyaç duyar:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Olmadan, bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturulması `TypeInitializationException` hatası verir; içindeki `DllNotFoundException` `libfontconfig.so.1` dosyasının açılamadığını bildirir.
+Olmadan, bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturulması `TypeInitializationException` hatası verir; içindeki `DllNotFoundException` `libfontconfig.so.1` dosyasının açılamadığını bildirir.
 
 Minimal temel görüntüler `fontconfig` içermeyebilir. Örneğin .NET 8 için AWS Lambda temel görüntüsü ne `fontconfig` ne de herhangi bir font içerir. Üzerinde oluşturulan bir konteyner görüntüsünde `dnf install -y fontconfig` komutunu çalıştırın; bu aynı zamanda Noto Sans fontlarını da kurar.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Küreselleştirme Desteği**
 
-Her iki paket de .NET küreselleştirme desteğine ihtiyaç duyar; Linux üzerindeki .NET bu desteği ICU kitaplıkları aracılığıyla sağlar. [globalization-invariant modu](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) etkinken bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturmak `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` hatası verir.
+Her iki paket de .NET küreselleştirme desteğine ihtiyaç duyar; Linux üzerindeki .NET bu desteği ICU kitaplıkları aracılığıyla sağlar. [globalization-invariant modu](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) etkinken bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturmak `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` hatası verir.
 
 Bazı konteyner görüntüleri bu modu açar. Örneğin Alpine Linux için .NET çalışma zamanı görüntüleri (`runtime-deps`, `runtime` ve `aspnet`) `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` ayarlar ve ICU içermez. Bu görüntüler üzerine oluşturulan bir imajda ICU kurun ve modu kapatın:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Program, ilk slayta bir dikdörtgen ve metin ekler, sunumu *hello.pptx* olarak [Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemiyle kaydeder. Ardından slaytı [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/getimage/) ile görüntüye dönüştürür ve sonucu *hello.png* olarak [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/save/) ve [ImageFormat.Png](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) formatıyla kaydeder. 1 ölçek faktörü, bir nokta başına bir piksel oluşturur; böylece varsayılan 720 × 540 nokta slayt 720 × 540 piksel görüntüye dönüşür ve metin dikdörtgen içinde görünür. Lisans olmadan her iki dosya da değerlendirme filigranı taşır; bkz. [Lisanslama](/slides/tr/net/licensing/). Bir gereksinim eksikse, program [Linux](#linux) bölümünde açıklanan istisnalardan biriyle durur.
+Program, ilk slayta bir dikdörtgen ve metin ekler, sunumu *hello.pptx* olarak [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemiyle kaydeder. Ardından slaytı [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) ile görüntüye dönüştürür ve sonucu *hello.png* olarak [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) ve [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) formatıyla kaydeder. 1 ölçek faktörü, bir nokta başına bir piksel oluşturur; böylece varsayılan 720 × 540 nokta slayt 720 × 540 piksel görüntüye dönüşür ve metin dikdörtgen içinde görünür. Lisans olmadan her iki dosya da değerlendirme filigranı taşır; bkz. [Lisanslama](/slides/tr/net/licensing/). Bir gereksinim eksikse, program [Linux](#linux) bölümünde açıklanan istisnalardan biriyle durur.
 
 ## **Geliştirme Araçları**
 

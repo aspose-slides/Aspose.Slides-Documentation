@@ -14,7 +14,7 @@ description: "Tarihsel: 2014'te Aspose.Slides for .NET 14.1.0 ile yayınlanan bi
 ---
 {{% alert color="info" title="Note" %}}
 
-Bu bir tarihsel sayfadır. 2014'te yayımlanan Aspose.Slides for .NET 14.1.0 ile ilgili bilinen sorunları listeler ve mevcut sürümü açıklamaz. Her sürümdeki değişiklikler için [sürüm notları](https://releases.aspose.com/slides/tr/net/release-notes/).
+Bu bir tarihsel sayfadır. 2014'te yayımlanan Aspose.Slides for .NET 14.1.0 ile ilgili bilinen sorunları listeler ve mevcut sürümü açıklamaz. Her sürümdeki değişiklikler için [sürüm notları](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

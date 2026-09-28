@@ -110,5 +110,5 @@ Ekiplerimiz yardım sunarken her zaman açık fikirli ve esnek olur—ve bu, Asp
 {{% alert color="info" title="Note" %}}
 Bu makale, Aspose bileşenlerinin Office Automation'a göre neden daha iyi bir seçim olduğuna dair bazı ana noktaları ele almış olsa da, çok daha fazla faydanın olduğunu anlamalısınız. Sadece bazı büyük avantajları özetledik.
 
-Ayrıca, tüm Aspose ürün ve bileşenleri risk içermeyen, zorunluluk taşımayan bir [Değerlendirme Sürümü](https://releases.aspose.com/slides/tr/net/) sunar. Değerlendirmeden yararlanarak Aspose'un uygulamalarınıza veya işinize neler katabileceğini görmenizi öneririz.
+Ayrıca, tüm Aspose ürün ve bileşenleri risk içermeyen, zorunluluk taşımayan bir [Değerlendirme Sürümü](https://releases.aspose.com/slides/net/) sunar. Değerlendirmeden yararlanarak Aspose'un uygulamalarınıza veya işinize neler katabileceğini görmenizi öneririz.
 {{% /alert %}}

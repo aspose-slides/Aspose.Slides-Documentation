@@ -62,7 +62,7 @@ Lisans olmadan, Aspose.Slides değerlendirme modunda çalışır: kaydettiği he
 
 ## **Yardım Alın**
 
-[Ürün Desteği](/slides/tr/net/product-support/) ücretsiz destek forumunda ([https://forum.aspose.com/c/slides/tr/11](https://forum.aspose.com/c/slides/tr/11)) nasıl soru sorulacağını ve bir sorunu bildirirken nelere yer vermeniz gerektiğini açıklar.
+[Ürün Desteği](/slides/tr/net/product-support/) ücretsiz destek forumunda ([https://forum.aspose.com/c/slides/11](https://forum.aspose.com/c/slides/11)) nasıl soru sorulacağını ve bir sorunu bildirirken nelere yer vermeniz gerektiğini açıklar.
 
 ## **SSS**
 

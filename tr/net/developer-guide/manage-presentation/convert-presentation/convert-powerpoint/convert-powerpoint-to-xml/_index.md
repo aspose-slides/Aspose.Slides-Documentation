@@ -24,7 +24,7 @@ description: "PowerPoint ve OpenDocument sunumlarını C# ile Aspose.Slides for 
 
 Aspose.Slides for .NET, PowerPoint sunumlarını PowerPoint XML Sunum formatına dönüştürebilir. XML çıktısı, sunum yapısını incelemek, oluşturulan belgelerde sorun gidermek, otomatik testlerde çıktıyı karşılaştırmak veya bir sunum paketinin yerine XML tüketen bir iş akışıyla entegre olmak gibi metin tabanlı bir temsil gerektiğinde yararlıdır.
 
-[Presentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemini, [SaveFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveformat/) sayımındaki `Xml` değeriyle kullanın. Sonucu doğrudan bir dosyaya ya da bir akışa (stream) yazabilirsiniz.
+[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemini, [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) sayımındaki `Xml` değeriyle kullanın. Sonucu doğrudan bir dosyaya ya da bir akışa (stream) yazabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` bir PowerPoint XML Sunumu oluşturur. PPTX paketinin içinde depolanan bireysel Office Open XML parçalarını çıkartmaz. `ppt/presentation.xml` gibi belirli PPTX paket parçalarına veya ayrı ayrı slayt XML dosyalarına ihtiyacınız varsa, PPTX paketini doğrudan inceleyin.
@@ -32,7 +32,7 @@ Aspose.Slides for .NET, PowerPoint sunumlarını PowerPoint XML Sunum formatına
 
 ## **Bir Sunumu XML Dosyasına Dönüştürme**
 
-Kaynak bir sunumu [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfıyla yükleyin ve ardından çıktı yolunu ve `SaveFormat.Xml` değerini [Presentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) metoduna aktarın. Kaynak, PPT, PPTX veya ODP gibi yükleme için desteklenen herhangi bir sunum formatı olabilir.
+Kaynak bir sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfıyla yükleyin ve ardından çıktı yolunu ve `SaveFormat.Xml` değerini [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metoduna aktarın. Kaynak, PPT, PPTX veya ODP gibi yükleme için desteklenen herhangi bir sunum formatı olabilir.
 
 Aşağıdaki örnek, bir PPTX sunumunu XML dosyasına dönüştürür:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **XML Çıktısını Bir Akışa Yazma**
 
-[Presentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) metodunun akış (stream) aşırı yüklemesini, XML'in bellekte kalması veya bir web hizmeti, depolama sağlayıcısı veya XML işleme hattı gibi başka bir bileşene aktarılması gerektiğinde kullanın. Aşağıdaki örnek, sonucu bir [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) içine yazar ve sonraki okumalar için konumunu başa alır:
+[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metodunun akış (stream) aşırı yüklemesini, XML'in bellekte kalması veya bir web hizmeti, depolama sağlayıcısı veya XML işleme hattı gibi başka bir bileşene aktarılması gerektiğinde kullanın. Aşağıdaki örnek, sonucu bir [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) içine yazar ve sonraki okumalar için konumunu başa alır:
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ Hayır. PPTX, birden fazla Office Open XML parçasını içeren bir paket iken, 
 
 **XML çıktısını disk üzerinde bir dosya oluşturmadan kaydedebilir miyim?**
 
-Evet. Yazılabilir bir akışı [Presentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) metoduna aktarın. Örneğin, bellek içi işleme için bir [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) kullanabilirsiniz.
+Evet. Yazılabilir bir akışı [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) metoduna aktarın. Örneğin, bellek içi işleme için bir [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) kullanabilirsiniz.
 
 **Aspose.Slides dışa aktarılan XML dosyasını tekrar yükleyebilir mi?**
 
-Evet. XML dosyasını veya bir akışı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/presentation/) yapıcısına (constructor) aktarın. [Presentation.SourceFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/sourceformat/) ardından `SourceFormat.Xml` döndürür. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationfactory/getpresentationinfo/) bu format için `LoadFormat.Unknown` bildirir, bu yüzden bir XML dosyasının açılıp açılamayacağını karar vermek için bunu kullanmayın.
+Evet. XML dosyasını veya bir akışı [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) yapıcısına (constructor) aktarın. [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) ardından `SourceFormat.Xml` döndürür. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) bu format için `LoadFormat.Unknown` bildirir, bu yüzden bir XML dosyasının açılıp açılamayacağını karar vermek için bunu kullanmayın.
 
 **XML dönüşümü her slaytı bir sayfa ya da görüntü olarak render eder mi?**
 
