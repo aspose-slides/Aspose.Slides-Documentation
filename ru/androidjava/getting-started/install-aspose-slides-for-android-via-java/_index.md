@@ -57,7 +57,7 @@ dependencies {
 
 ### **Выбор версии**
 
-Aspose.Slides for Android via Java не собирается для каждой версии в репозитории. Его сборки публикуются только для некоторых версий Aspose.Slides for Java, и версия без Android‑сборки не может быть найдена. Выберите версию, указанную на странице [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/ru/androidjava/).
+Aspose.Slides for Android via Java не собирается для каждой версии в репозитории. Его сборки публикуются только для некоторых версий Aspose.Slides for Java, и версия без Android‑сборки не может быть найдена. Выберите версию, указанную на странице [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/).
 
 ### **Скрипты сборки Groovy**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### Как проверить, что Aspose.Slides интегрирован правильно?
 
-Соберите проект, создайте пустой объект [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создан без исключений, библиотека успешно интегрирована.
+Соберите проект, создайте пустой объект [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и сохраните его под новым именем. Если файл создан без исключений, библиотека успешно интегрирована.
 
 ### Как ограничить потребление памяти при обработке больших презентаций?
 
-Вызовите метод [dispose](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#dispose--) каждого экземпляра [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) в блоке `finally`, чтобы быстро освободить его ресурсы, и обрабатывайте по одной большой презентации за раз. Это помогает предотвратить ошибки нехватки памяти и поддерживает предсказуемое общее использование памяти во время пакетных операций.
+Вызовите метод [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) каждого экземпляра [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) в блоке `finally`, чтобы быстро освободить его ресурсы, и обрабатывайте по одной большой презентации за раз. Это помогает предотвратить ошибки нехватки памяти и поддерживает предсказуемое общее использование памяти во время пакетных операций.
 
 ### Можно ли исключить ненужные форматы экспорта, чтобы уменьшить размер конечного JAR?
 

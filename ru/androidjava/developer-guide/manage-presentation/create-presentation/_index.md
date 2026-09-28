@@ -31,10 +31,10 @@ description: "Создавайте презентации на Java с помо�
 
 Чтобы создать презентацию и разместить текстовое поле на её первом слайде, выполните следующие шаги:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
-2. Получите этот слайд из [slide collection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidecollection/) по его индексу 0.
-3. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) коллекции [shape collection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/) и задайте текст его [text frame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframe/) через метод [setText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
-4. Сохраните презентацию как файл PPTX с помощью метода [save](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) в формате [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/saveformat/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Новая презентация уже содержит один пустой слайд.
+2. Получите этот слайд из [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) по его индексу 0.
+3. Добавьте прямоугольник с помощью метода [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) коллекции [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) и задайте текст его [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) через метод [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
+4. Сохраните презентацию как файл PPTX с помощью метода [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) в формате [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Код выполняется внутри `Activity`, например в её методе `onCreate`. Файл сохраняется в каталог, возвращаемый методом [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()), т.е. во внутреннее частное хранилище приложения, без необходимости запрашивать какие‑либо разрешения.
 
@@ -83,7 +83,7 @@ try {
 
 ### Можно ли создавать/сохранять презентации параллельно?
 
-Нельзя работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) из [нескольких потоков](/slides/ru/androidjava/multithreading/). Запускайте отдельные изолированные экземпляры для каждого потока или процесса.
+Нельзя работать с одним экземпляром [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) из [нескольких потоков](/slides/ru/androidjava/multithreading/). Запускайте отдельные изолированные экземпляры для каждого потока или процесса.
 
 ### Как удалить пробный водяной знак и ограничения?
 

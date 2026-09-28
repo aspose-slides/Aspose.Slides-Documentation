@@ -72,14 +72,14 @@ Aspose.Slides for Android via Java — это библиотека классо�
 <hr>
 <p>СПРАВОЧНИК</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ru/androidjava/">Справочник API</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/androidjava/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">Справочник API</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Примечания к выпуску</a></li>
 <li><a href="/slides/ru/androidjava/known-issues/">Известные проблемы</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/androidjava/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">Скачать</a></li>
 </ul>
 <p>ПОДДЕРЖКА</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платный сервис поддержки</a></li>
 </ul>
 </div>

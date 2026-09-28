@@ -23,14 +23,14 @@ description: "Применяйте, управляйте и устраняйте
 
 Aspose.Slides можно использовать в режиме оценки или с действующей лицензией. Оценочная версия предоставляет тот же функционал, что и лицензированная, но добавляет водяной знак оценки к каждому слайду каждой презентации, которую она сохраняет, и усекает текст, который ваш код читает из презентаций.
 
-В этой статье объясняется, как работает лицензирование в Aspose.Slides и как применить лицензию перед использованием библиотеки. Лицензию можно загрузить из файла, потока или встроенного ресурса, используя класс [License](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/license/). Статья также показывает, как проверить, была ли лицензия применена правильно.
+В этой статье объясняется, как работает лицензирование в Aspose.Slides и как применить лицензию перед использованием библиотеки. Лицензию можно загрузить из файла, потока или встроенного ресурса, используя класс [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/). Статья также показывает, как проверить, была ли лицензия применена правильно.
 
 ## **Оценка Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-Вы можете скачать оценочную версию **Aspose.Slides for Android via Java** со своей [страницы загрузки](https://releases.aspose.com/slides/ru/androidjava/). Оценочная версия предоставляет те же функции, что и лицензированная версия продукта. Оценочный пакет идентичен приобретенному пакету. Оценочная версия просто становится лицензированной после того, как вы добавите несколько строк кода (для применения лицензии).
+Вы можете скачать оценочную версию **Aspose.Slides for Android via Java** со своей [страницы загрузки](https://releases.aspose.com/slides/androidjava/). Оценочная версия предоставляет те же функции, что и лицензированная версия продукта. Оценочный пакет идентичен приобретенному пакету. Оценочная версия просто становится лицензированной после того, как вы добавите несколько строк кода (для применения лицензии).
 
-Когда вы будете довольны своей оценкой **Aspose.Slides**, вы можете [приобрести лицензию](https://purchase.aspose.com/pricing/slides/ru/android-java/). Мы рекомендуем ознакомиться с различными типами подписки. Если у вас есть вопросы, свяжитесь с отделом продаж Aspose.
+Когда вы будете довольны своей оценкой **Aspose.Slides**, вы можете [приобрести лицензию](https://purchase.aspose.com/pricing/slides/android-java/). Мы рекомендуем ознакомиться с различными типами подписки. Если у вас есть вопросы, свяжитесь с отделом продаж Aspose.
 
 Каждая лицензия Aspose включает годовую подписку на бесплатные обновления до новых версий или исправлений, выпущенных в течение периода подписки. Пользователи лицензированных продуктов (или даже оценочных версий) получают бесплатную и неограниченную техническую поддержку.
 {{% /alert %}} 
@@ -59,7 +59,7 @@ Aspose.Slides можно использовать в режиме оценки �
 Лицензию можно загрузить из **файла** или **потока**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides предоставляет класс [License](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/license/) для операций с лицензиями.
+Aspose.Slides предоставляет класс [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) для операций с лицензиями.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,9 +85,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Если вы разместите файл лицензии в другой директории, при вызове метода [setLicense](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) имя файла лицензии в конце указанного пути должно совпадать с именем вашего файла лицензии.
+Если вы разместите файл лицензии в другой директории, при вызове метода [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) имя файла лицензии в конце указанного пути должно совпадать с именем вашего файла лицензии.
 
-Например, вы можете изменить имя файла лицензии на *Aspose.Slides.Android.via.Java.lic.xml*. Затем в коде необходимо передать путь к файлу (заканчивающийся на *Aspose.Slides.Android.via.Java.lic.xml*) в метод [setLicense](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Например, вы можете изменить имя файла лицензии на *Aspose.Slides.Android.via.Java.lic.xml*. Затем в коде необходимо передать путь к файлу (заканчивающийся на *Aspose.Slides.Android.via.Java.lic.xml*) в метод [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **Поток**
@@ -104,7 +104,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Поток из ресурсов приложения**
 
-В Android‑приложении разместите файл лицензии в папке *assets* модуля приложения, *app/src/main/assets*, чтобы он был упакован в APK. Откройте файл с помощью метода [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) и передайте поток в метод [setLicense](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Код выполняется внутри `Activity`, например в её методе `onCreate`, до того как приложение использует Aspose.Slides:
+В Android‑приложении разместите файл лицензии в папке *assets* модуля приложения, *app/src/main/assets*, чтобы он был упакован в APK. Откройте файл с помощью метода [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) и передайте поток в метод [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). Код выполняется внутри `Activity`, например в её методе `onCreate`, до того как приложение использует Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -141,7 +141,7 @@ if (license.isLicensed())
 ## **Потокобезопасность**
 
 {{% alert color="warning" title="Warning" %}}
-Метод [setLicense](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) не является потокобезопасным. Если его необходимо вызывать одновременно из нескольких потоков, рекомендуется использовать примитивы синхронизации (например, блокировку), чтобы избежать проблем.
+Метод [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) не является потокобезопасным. Если его необходимо вызывать одновременно из нескольких потоков, рекомендуется использовать примитивы синхронизации (например, блокировку), чтобы избежать проблем.
 {{% /alert %}}
 
 ## **FAQ**
