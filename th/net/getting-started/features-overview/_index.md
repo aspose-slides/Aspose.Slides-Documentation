@@ -77,7 +77,7 @@ Aspose.Slides ให้คุณสร้าง อ่าน และแก้�
 
 **การทำงานหลายเธรดทำอย่างไร? สามารถประมวลผลแบบขนานได้หรือไม่?**
 
-ปลอดภัยที่จะประมวลผลเอกสารต่าง ๆ ในเธรดที่แตกต่างกัน; ห้ามใช้วัตถุ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เดียวกันโดย [multiple threads](/slides/th/net/multithreading/) พร้อมกัน.
+ปลอดภัยที่จะประมวลผลเอกสารต่าง ๆ ในเธรดที่แตกต่างกัน; ห้ามใช้วัตถุ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) เดียวกันโดย [multiple threads](/slides/th/net/multithreading/) พร้อมกัน.
 
 **รองรับการตั้งรหัสผ่านไฟล์และการเข้ารหัสหรือไม่?**
 

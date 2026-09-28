@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-บน Debian และ Ubuntu, `libfontconfig1` จะติดตั้งฟอนต์ DejaVu ด้วย, ดังนั้นข้อความจะแสดงผลโดยไม่ต้องติดตั้งฟอนต์อื่น. หากไม่มี `fontconfig`, การสร้าง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จะล้มเหลวด้วย `TypeInitializationException` ที่มี `DllNotFoundException` ระบุว่าไม่สามารถเปิด `libfontconfig.so.1`. [System Requirements](/slides/th/net/system-requirements/) มีโปรแกรมสั้น ๆ เพื่อตรวจสอบการตั้งค่า.
+บน Debian และ Ubuntu, `libfontconfig1` จะติดตั้งฟอนต์ DejaVu ด้วย, ดังนั้นข้อความจะแสดงผลโดยไม่ต้องติดตั้งฟอนต์อื่น. หากไม่มี `fontconfig`, การสร้าง [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) จะล้มเหลวด้วย `TypeInitializationException` ที่มี `DllNotFoundException` ระบุว่าไม่สามารถเปิด `libfontconfig.so.1`. [System Requirements](/slides/th/net/system-requirements/) มีโปรแกรมสั้น ๆ เพื่อตรวจสอบการตั้งค่า.
 
 ## **โฮสต์คลาวด์และคอนเทนเนอร์**
 
@@ -68,7 +68,7 @@ dotnet add package Aspose.Slides.NET6.CrossPlatform
 
 โครงการที่ใช้ Aspose.Slides.NET6.CrossPlatform สามารถอ้างอิง System.Drawing.Common ได้เช่นกัน, ไม่ว่าจะโดยตรงหรือผ่านแพ็คเกจอื่น. เวอร์ชันปัจจุบันของ Aspose.Slides ไม่ได้เปิดเผยประเภทสาธารณะใด ๆ ในเนมสเปซ `System`, ดังนั้นไลบรารีทั้งสองจึงไม่ขัดแย้ง, และคุณสามารถนำเข้าเนมสเปซ `Aspose.Slides` และ `System.Drawing` ในไฟล์เดียวกันได้.
 
-หากคอมไพเลอร์รายงานข้อผิดพลาด CS0433 เนื่องจากประเภทเช่น `Image` หรือ `Graphics` มีอยู่ใน Aspose.Slides และ System.Drawing.Common ทั้งสอง, โครงการของคุณอาจใช้ Aspose.Slides รุ่นเก่า. ให้อัปเดตแพ็คเกจเป็นรุ่นล่าสุด. Aspose.Slides ส่งคืนภาพที่เรนเดอร์เป็นอ็อบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) ซึ่งอธิบายใน [Modern API](/slides/th/net/modern-api/).
+หากคอมไพเลอร์รายงานข้อผิดพลาด CS0433 เนื่องจากประเภทเช่น `Image` หรือ `Graphics` มีอยู่ใน Aspose.Slides และ System.Drawing.Common ทั้งสอง, โครงการของคุณอาจใช้ Aspose.Slides รุ่นเก่า. ให้อัปเดตแพ็คเกจเป็นรุ่นล่าสุด. Aspose.Slides ส่งคืนภาพที่เรนเดอร์เป็นอ็อบเจ็กต์ [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) ซึ่งอธิบายใน [Modern API](/slides/th/net/modern-api/).
 
 ## **คำถามที่พบบ่อย**
 

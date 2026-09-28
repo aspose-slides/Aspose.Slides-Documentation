@@ -25,7 +25,7 @@ description: "ระดับความเชื่อถือของ Code 
 
 ## **.NET Framework**
 
-Aspose.Slides ต้องการความเชื่อมั่นเต็มรูปแบบบน .NET Framework ไม่สามารถทำงานภายใต้ความเชื่อมั่นบางส่วน เช่น แอพพลิเคชัน ASP.NET ที่กำหนดค่าเป็น Medium Trust (`<trust level="Medium" />`): การสร้างวัตถุ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จะล้มเหลวด้วย `SecurityException`.
+Aspose.Slides ต้องการความเชื่อมั่นเต็มรูปแบบบน .NET Framework ไม่สามารถทำงานภายใต้ความเชื่อมั่นบางส่วน เช่น แอพพลิเคชัน ASP.NET ที่กำหนดค่าเป็น Medium Trust (`<trust level="Medium" />`): การสร้างวัตถุ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) จะล้มเหลวด้วย `SecurityException`.
 
 Microsoft ไม่ได้มองว่า ASP.NET partial trust เป็นวิธีการแยกแอปพลิเคชันจากกันอีกต่อไปและแนะนำให้รันแอปพลิเคชันใน application pool แยกกันแทน ดูที่ [ASP.NET Partial Trust ไม่ได้รับประกันการแยกแอปพลิเคชัน](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

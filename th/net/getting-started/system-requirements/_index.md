@@ -68,7 +68,7 @@ Aspose.Slides.NET6.CrossPlatform ไม่ทำงานบน Alpine Linux ห
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-หากไม่มี, การสร้าง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จะล้มเหลวด้วย `TypeInitializationException` ที่มี `DllNotFoundException` ระบุว่าไม่สามารถเปิด `libfontconfig.so.1`.
+หากไม่มี, การสร้าง [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) จะล้มเหลวด้วย `TypeInitializationException` ที่มี `DllNotFoundException` ระบุว่าไม่สามารถเปิด `libfontconfig.so.1`.
 
 อิมเมจฐานที่มีขนาดเล็กอาจไม่มี `fontconfig` ด้วย. ตัวอย่างเช่นอิมเมจฐาน AWS Lambda สำหรับ .NET 8 ไม่มี `fontconfig` หรือฟอนต์ใดๆ. ในอิมเมจคอนเทนเนอร์ที่สร้างจากอิมเมจนี้, รัน `dnf install -y fontconfig`, ซึ่งยังติดตั้งฟอนต์ Noto Sans ด้วย.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **รองรับการทำงานระดับสากล (Globalization)**
 
-ทั้งสองแพ็คเกจต้องการการสนับสนุนการทำงานระดับสากลของ .NET, ซึ่ง .NET บน Linux ให้บริการผ่านไลบรารี ICU. ใน [โหมด globalization‑invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), การสร้าง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จะล้มเหลวด้วย `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+ทั้งสองแพ็คเกจต้องการการสนับสนุนการทำงานระดับสากลของ .NET, ซึ่ง .NET บน Linux ให้บริการผ่านไลบรารี ICU. ใน [โหมด globalization‑invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), การสร้าง [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) จะล้มเหลวด้วย `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 บางอิมเมจคอนเทนเนอร์เปิดโหมดนี้โดยอัตโนมัติ. ตัวอย่างเช่นอิมเมจ runtime ของ .NET สำหรับ Alpine Linux (`runtime-deps`, `runtime`, และ `aspnet`) จะตั้งค่า `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` และไม่ได้รวม ICU. หากสร้างอิมเมจจากอิมเมจเหล่านี้, ให้ติดตั้ง ICU และปิดโหมดดังกล่าว:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-โปรแกรมจะเพิ่มสี่เหลี่ยมพร้อมข้อความไปยังสไลด์แรกและบันทึกงานนำเสนอเป็นไฟล์ *hello.pptx* ด้วยเมธอด [Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/). จากนั้นจะเรนเดอร์สไลด์ด้วย [GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/slide/getimage/) และบันทึกผลเป็น *hello.png* ด้วย [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/save/) ในรูปแบบ [ImageFormat.Png](https://reference.aspose.com/slides/th/net/aspose.slides/imageformat/). ค่า scale 1 จะเรนเดอร์หนึ่งพิกเซลต่อจุด, ดังนั้นสไลด์ขนาด 720 × 540 จุดจะเป็นภาพ 720 × 540 พิกเซล, โดยข้อความปรากฏภายในสี่เหลี่ยม. หากไม่มีใบอนุญาต, ทั้งสองไฟล์จะมีลายน้ำการประเมิน; ดู [การให้ลิขสิทธิ์](/slides/th/net/licensing/). หากขาดข้อกำหนดใด, โปรแกรมจะหยุดด้วยข้อยกเว้นหนึ่งในที่อธิบายในส่วน [Linux](#linux).
+โปรแกรมจะเพิ่มสี่เหลี่ยมพร้อมข้อความไปยังสไลด์แรกและบันทึกงานนำเสนอเป็นไฟล์ *hello.pptx* ด้วยเมธอด [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). จากนั้นจะเรนเดอร์สไลด์ด้วย [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) และบันทึกผลเป็น *hello.png* ด้วย [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) ในรูปแบบ [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). ค่า scale 1 จะเรนเดอร์หนึ่งพิกเซลต่อจุด, ดังนั้นสไลด์ขนาด 720 × 540 จุดจะเป็นภาพ 720 × 540 พิกเซล, โดยข้อความปรากฏภายในสี่เหลี่ยม. หากไม่มีใบอนุญาต, ทั้งสองไฟล์จะมีลายน้ำการประเมิน; ดู [การให้ลิขสิทธิ์](/slides/th/net/licensing/). หากขาดข้อกำหนดใด, โปรแกรมจะหยุดด้วยข้อยกเว้นหนึ่งในที่อธิบายในส่วน [Linux](#linux).
 
 ## **เครื่องมือสำหรับการพัฒนา**
 

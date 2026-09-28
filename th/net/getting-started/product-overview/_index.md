@@ -123,7 +123,7 @@ Aspose.Slides เป็น API การจัดการ Microsoft PowerPoint�
 ## **การสนับสนุนทางเทคนิค**
 Aspose ให้การสนับสนุนทางเทคนิคฟรีไม่จำกัดสำหรับผลิตภัณฑ์ทั้งหมดของตน การสนับสนุนพร้อมให้บริการแก่ผู้ใช้ทุกคน (รวมถึงผู้ใช้ที่ใช้แพคเกจประเมิน) หากคุณต้องการความช่วยเหลือเกี่ยวกับ Aspose.Slides สำหรับ .NET โปรดพิจารณาตัวเลือกต่อไปนี้:
 
-- ช่องทางหลักสำหรับการสนับสนุนคือ[ฟอรั่ม Aspose](https://forum.aspose.com/). โพสต์คำถามของคุณใน[ฟอรั่ม Aspose.Slides](https://forum.aspose.com/c/slides/th/11)‑และคุณจะได้รับคำตอบภายในไม่กี่ชั่วโมง ทีมสนับสนุน Aspose.Slides ตอบคำถามที่โพสต์บนฟอรั่มโดยตรง
+- ช่องทางหลักสำหรับการสนับสนุนคือ[ฟอรั่ม Aspose](https://forum.aspose.com/). โพสต์คำถามของคุณใน[ฟอรั่ม Aspose.Slides](https://forum.aspose.com/c/slides/11)‑และคุณจะได้รับคำตอบภายในไม่กี่ชั่วโมง ทีมสนับสนุน Aspose.Slides ตอบคำถามที่โพสต์บนฟอรั่มโดยตรง
 - โปรดทราบว่า Aspose ไม่ให้การสนับสนุนทางเทคนิคทางโทรศัพท์ การสนับสนุนทางโทรศัพท์มีให้เฉพาะสำหรับคำถามเกี่ยวกับการขายและการสั่งซื้อเท่านั้น
 - เมื่อคาดว่าจะได้รับการตอบในฟอรั่ม โปรดอดทนและพิจารณาความแตกต่างของโซนเวลา
 
@@ -144,10 +144,10 @@ Aspose ให้การสนับสนุนทางเทคนิคฟ�
 
 |**แหล่งข้อมูล**|**คำอธิบาย**|
 | :- | :- |
-|[หน้าแรกของ Aspose.Slides สำหรับ .NET](https://products.aspose.com/slides/th/net/)|หน้าหลักของผลิตภัณฑ์|
-|[บล็อก Aspose.Slide](https://blog.aspose.com/category/slides/th/)|ตรวจสอบหน้านี้เป็นประจำเพื่อรับข้อมูลเกี่ยวกับการเปิดตัวเวอร์ชันใหม่และเคล็ดลับที่เป็นประโยชน์เกี่ยวกับ Aspose.Slides|
+|[หน้าแรกของ Aspose.Slides สำหรับ .NET](https://products.aspose.com/slides/net/)|หน้าหลักของผลิตภัณฑ์|
+|[บล็อก Aspose.Slide](https://blog.aspose.com/category/slides/)|ตรวจสอบหน้านี้เป็นประจำเพื่อรับข้อมูลเกี่ยวกับการเปิดตัวเวอร์ชันใหม่และเคล็ดลับที่เป็นประโยชน์เกี่ยวกับ Aspose.Slides|
 |[ดาวน์โหลด Aspose.Slides สำหรับ .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|ดาวน์โหลดเวอร์ชันล่าสุดของ Aspose.Slides ที่นี่ เรามักปล่อยเวอร์ชันใหม่อย่างต่อเนื่อง|
-|[ฟอรั่มสนับสนุน Aspose.Slides](https://forum.aspose.com/c/slides/th/11)|โพสต์คำถามและปัญหาที่นี่เพื่อรับการแก้ไขอย่างรวดเร็ว|
+|[ฟอรั่มสนับสนุน Aspose.Slides](https://forum.aspose.com/c/slides/11)|โพสต์คำถามและปัญหาที่นี่เพื่อรับการแก้ไขอย่างรวดเร็ว|
 |[เอกสารผลิตภัณฑ์ Aspose.Slides สำหรับ .NET](/slides/th/net/)|เอกสารออนไลน์เต็มรูปแบบที่มีเอกสารนี้และ API Reference ของ Aspose.Slides|
 
 ## **ข้อกำหนดระดับความเชื่อถือ**
@@ -158,7 +158,7 @@ Aspose ให้การสนับสนุนทางเทคนิคฟ�
 
 ### รองรับระดับการปฏิบัติตาม PDF สำหรับการจัดเก็บและการเข้าถึง (PDF/A และ PDF/UA) หรือไม่?
 
-ใช่ คุณสามารถบันทึกเป็น PDF ด้วย PDF/A-2a/2b/2u, PDF/A-3a/3b รวมถึง PDF/UA ได้โดยกำหนด[ตัวเลือกการส่งออก PDF](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)
+ใช่ คุณสามารถบันทึกเป็น PDF ด้วย PDF/A-2a/2b/2u, PDF/A-3a/3b รวมถึง PDF/UA ได้โดยกำหนด[ตัวเลือกการส่งออก PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)
 
 ### มีกลไกการทดแทนฟอนต์และการสนับสนุนฟอนต์แบบกำหนดเองเพื่อให้การเรนเดอร์ถูกต้องหรือไม่?
 
@@ -178,7 +178,7 @@ Aspose ให้การสนับสนุนทางเทคนิคฟ�
 
 ### แมโครจะถูกเก็บรักษาไว้และสามารถจัดการ VBA ในไฟล์ PPTM/PPSM ได้หรือไม่?
 
-ใช่ งานนำเสนอที่มีแมโคร[ได้รับการสนับสนุน](/slides/th/net/presentation-via-vba/)และคุณสามารถ[ตรวจสอบและจัดการโครงการ VBA](https://reference.aspose.com/slides/th/net/aspose.slides.vba/)ในไฟล์เหล่านั้น
+ใช่ งานนำเสนอที่มีแมโคร[ได้รับการสนับสนุน](/slides/th/net/presentation-via-vba/)และคุณสามารถ[ตรวจสอบและจัดการโครงการ VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/)ในไฟล์เหล่านั้น
 
 ### สามารถแปลง PDF หรือ HTML กลับเป็นสไลด์ PowerPoint ได้หรือไม่?
 
@@ -186,7 +186,7 @@ Aspose ให้การสนับสนุนทางเทคนิคฟ�
 
 ### รองรับการส่งออก XPS หรือไม่ และสามารถควบคุมคุณภาพและเนื้อหาออกของ XPS ได้หรือไม่?
 
-ใช่。[ส่งออกเป็น XPS](/slides/th/net/convert-powerpoint-to-xps/)พร้อมให้เลือก[ตัวเลือกการบันทึก](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/)เพื่อปรับคุณภาพและเนื้อหาที่รวม
+ใช่。[ส่งออกเป็น XPS](/slides/th/net/convert-powerpoint-to-xps/)พร้อมให้เลือก[ตัวเลือกการบันทึก](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/)เพื่อปรับคุณภาพและเนื้อหาที่รวม
 
 ### สามารถแปลงสไลด์เป็นภาพและควบคุมคุณภาพของผลลัพธ์ได้หรือไม่?
 

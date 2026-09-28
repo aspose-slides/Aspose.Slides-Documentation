@@ -56,7 +56,7 @@ Aspose.Slides วาดข้อความด้วยแบบอักษร
 </Project>
 ```
 
-*Program.cs* เพิ่มกล่องข้อความหนึ่งกล่องต่อชื่อแบบอักษรลงในสไลด์และกำหนดแบบอักษรผ่านคุณสมบัติ [LatinFont](https://reference.aspose.com/slides/th/net/aspose.slides/baseportionformat/latinfont/). ชื่อแบบอักษรมาจากบรรทัดคำสั่ง; หากไม่มีอาร์กิวเมนต์, แอปพลิเคชันจะตรวจสอบ Calibri, Arial, และ Times New Roman. มันพิมพ์โฟลเดอร์ที่ Aspose.Slides มองหาแบบอักษร ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/getfontfolders/)), แสดงสไลด์เป็น *output/fonts.pdf*, และพิมพ์การแทนที่ที่รายงานโดย [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getsubstitutions/). ขั้นตอนสองขั้นตอนที่เป็นตัวเลือกในตอนต้น, การโหลดโฟลเดอร์ *fonts* และการอ่านตัวแปร `DEFAULT_FONT`, จะอธิบายต่อในบทความนี้.
+*Program.cs* เพิ่มกล่องข้อความหนึ่งกล่องต่อชื่อแบบอักษรลงในสไลด์และกำหนดแบบอักษรผ่านคุณสมบัติ [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). ชื่อแบบอักษรมาจากบรรทัดคำสั่ง; หากไม่มีอาร์กิวเมนต์, แอปพลิเคชันจะตรวจสอบ Calibri, Arial, และ Times New Roman. มันพิมพ์โฟลเดอร์ที่ Aspose.Slides มองหาแบบอักษร ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), แสดงสไลด์เป็น *output/fonts.pdf*, และพิมพ์การแทนที่ที่รายงานโดย [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). ขั้นตอนสองขั้นตอนที่เป็นตัวเลือกในตอนต้น, การโหลดโฟลเดอร์ *fonts* และการอ่านตัวแปร `DEFAULT_FONT`, จะอธิบายต่อในบทความนี้.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **โหลดแบบอักษรจากโฟลเดอร์แอปพลิเคชัน**
 
-แทนที่จะติดตั้งแบบอักษรในภาพ, คุณสามารถจัดส่งพวกมันพร้อมกับแอปพลิเคชันและโหลดด้วย [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsloader/loadexternalfonts/). แบบอักษรจะมีให้กับ Aspose.Slides เท่านั้น, และจะถูกปรับใช้พร้อมกับแอปพลิเคชัน. *FontCheck* ทำเช่นนี้: *FontCheck.csproj* คัดลอกโฟลเดอร์ *fonts* ไปยังเอาต์พุตของแอปพลิเคชัน, และ *Program.cs* ส่งโฟลเดอร์นั้นไปยัง `LoadExternalFonts` ก่อนสร้างงานนำเสนอ. [Custom Font](/slides/th/net/custom-font/) อธิบายวิธีอื่น ๆ ในการจัดหาแบบอักษร, เช่นการโหลดจากหน่วยความจำ.
+แทนที่จะติดตั้งแบบอักษรในภาพ, คุณสามารถจัดส่งพวกมันพร้อมกับแอปพลิเคชันและโหลดด้วย [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). แบบอักษรจะมีให้กับ Aspose.Slides เท่านั้น, และจะถูกปรับใช้พร้อมกับแอปพลิเคชัน. *FontCheck* ทำเช่นนี้: *FontCheck.csproj* คัดลอกโฟลเดอร์ *fonts* ไปยังเอาต์พุตของแอปพลิเคชัน, และ *Program.cs* ส่งโฟลเดอร์นั้นไปยัง `LoadExternalFonts` ก่อนสร้างงานนำเสนอ. [Custom Font](/slides/th/net/custom-font/) อธิบายวิธีอื่น ๆ ในการจัดหาแบบอักษร, เช่นการโหลดจากหน่วยความจำ.
 
 สร้างภาพใหม่, จากนั้นตรวจสอบ Calibri และ Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **ตั้งค่าแบบอักษรเริ่มต้นสำหรับแบบอักษรที่หายไป**
 
-เมื่อไม่มีแบบอักษร, Aspose.Slides จะใช้แบบอักษรทดแทนที่มันเลือกเอง. เพื่อเลือกเอง, ตั้งค่าคุณสมบัติ [DefaultRegularFont](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/defaultregularfont/) ของ [LoadOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/) และส่งตัวเลือกเหล่านั้นไปยังคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/). *FontCheck* อ่านชื่อแบบอักษรจากตัวแปรสภาพแวดล้อม `DEFAULT_FONT`. เมื่อโหลด Carlito, ใช้มันสำหรับแบบอักษรที่หายไป:
+เมื่อไม่มีแบบอักษร, Aspose.Slides จะใช้แบบอักษรทดแทนที่มันเลือกเอง. เพื่อเลือกเอง, ตั้งค่าคุณสมบัติ [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) ของ [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) และส่งตัวเลือกเหล่านั้นไปยังคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* อ่านชื่อแบบอักษรจากตัวแปรสภาพแวดล้อม `DEFAULT_FONT`. เมื่อโหลด Carlito, ใช้มันสำหรับแบบอักษรที่หายไป:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-แบบอักษรเริ่มต้นจะแทนที่ทุกแบบอักษรที่หายไป. เพื่อแมปแบบอักษรแต่ละตัว, ตัวอย่างเช่น Arial ไปที่ Liberation Sans และ Calibri ไปที่ Carlito, ใช้ [font substitution rules](/slides/th/net/font-substitution/). กฎจะเปลี่ยนผลลัพธ์ที่แสดง, แต่ `GetSubstitutions` จะไม่สะท้อนพวกมัน, ดังนั้นให้ตรวจสอบแบบอักษรในไฟล์เอาต์พุตแทน. สำหรับข้อความภาษาเอเชีย, ควรตั้งค่า [DefaultAsianFont](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/defaultasianfont/); ดูที่ [Default Font](/slides/th/net/default-font/).
+แบบอักษรเริ่มต้นจะแทนที่ทุกแบบอักษรที่หายไป. เพื่อแมปแบบอักษรแต่ละตัว, ตัวอย่างเช่น Arial ไปที่ Liberation Sans และ Calibri ไปที่ Carlito, ใช้ [font substitution rules](/slides/th/net/font-substitution/). กฎจะเปลี่ยนผลลัพธ์ที่แสดง, แต่ `GetSubstitutions` จะไม่สะท้อนพวกมัน, ดังนั้นให้ตรวจสอบแบบอักษรในไฟล์เอาต์พุตแทน. สำหรับข้อความภาษาเอเชีย, ควรตั้งค่า [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); ดูที่ [Default Font](/slides/th/net/default-font/).
 
 ## **ติดตั้งแบบอักษรบน Alpine Linux**
 

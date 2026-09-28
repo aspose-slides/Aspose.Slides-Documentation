@@ -14,7 +14,7 @@ description: "ประวัติศาสตร์: ปัญหาที่�
 ---
 {{% alert color="info" title="Note" %}}
 
-นี่เป็นหน้าประวัติศาสตร์ โดยแสดงรายการปัญหาที่ทราบที่เผยแพร่พร้อมกับ Aspose.Slides for .NET 14.1.0 ซึ่งออกในปี 2014 และไม่ได้อธิบายเวอร์ชันปัจจุบัน สำหรับการเปลี่ยนแปลงในแต่ละเวอร์ชัน โปรดดูที่ [release notes](https://releases.aspose.com/slides/th/net/release-notes/).
+นี่เป็นหน้าประวัติศาสตร์ โดยแสดงรายการปัญหาที่ทราบที่เผยแพร่พร้อมกับ Aspose.Slides for .NET 14.1.0 ซึ่งออกในปี 2014 และไม่ได้อธิบายเวอร์ชันปัจจุบัน สำหรับการเปลี่ยนแปลงในแต่ละเวอร์ชัน โปรดดูที่ [release notes](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

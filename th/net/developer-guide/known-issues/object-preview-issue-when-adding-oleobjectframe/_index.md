@@ -22,7 +22,7 @@ description: "ทำไมวัตถุ OLE ที่เพิ่มด้ว�
 ---
 ## **บทนำ**
 
-โดยใช้ Aspose.Slides สำหรับ .NET เมื่อคุณเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/oleobjectframe/) ลงในสไลด์ จะมีข้อความ "EMBEDDED OLE OBJECT" แสดงบนสไลด์ผลลัพธ์ ข้อความนี้เป็นการทำงานตามปกติและไม่ได้เป็นบั๊ก
+โดยใช้ Aspose.Slides สำหรับ .NET เมื่อคุณเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) ลงในสไลด์ จะมีข้อความ "EMBEDDED OLE OBJECT" แสดงบนสไลด์ผลลัพธ์ ข้อความนี้เป็นการทำงานตามปกติและไม่ได้เป็นบั๊ก
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการทำงานกับวัตถุ OLE ดูที่ [Manage OLE](/slides/th/net/manage-ole/).
 
@@ -30,7 +30,7 @@ description: "ทำไมวัตถุ OLE ที่เพิ่มด้ว�
 
 Aspose.Slides แสดงข้อความ "EMBEDDED OLE OBJECT" เพื่อแจ้งให้คุณทราบว่ามีการเปลี่ยนแปลงวัตถุ OLE และต้องอัปเดตรูปภาพตัวอย่าง
 
-ตัวอย่างเช่น หากคุณเพิ่มแผนภูมิ Microsoft Excel เป็น [OleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/oleobjectframe/) ลงในสไลด์ (สำหรับรายละเอียดเพิ่มเติม ดูบทความ "Manage OLE") แล้วเปิดงานนำเสนอใน Microsoft PowerPoint คุณจะเห็นรูปภาพนี้บนสไลด์:
+ตัวอย่างเช่น หากคุณเพิ่มแผนภูมิ Microsoft Excel เป็น [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) ลงในสไลด์ (สำหรับรายละเอียดเพิ่มเติม ดูบทความ "Manage OLE") แล้วเปิดงานนำเสนอใน Microsoft PowerPoint คุณจะเห็นรูปภาพนี้บนสไลด์:
 
 ![ข้อความวัตถุ OLE](OLE_object_message.png)
 
