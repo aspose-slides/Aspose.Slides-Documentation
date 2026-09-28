@@ -23,14 +23,14 @@ description: "在 Aspose.Slides for Android via Java 中应用、管理和排除
 
 Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。评估版本提供与授权版本相同的功能，但它会在每个演示文稿的每张幻灯片上添加评估水印，并截断代码从演示文稿读取的文本。
 
-本文阐述了 Aspose.Slides 中的授权机制以及在使用库之前如何应用许可证。可以使用 [许可证](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/license/) 类从文件、流或嵌入资源加载许可证。本文还展示了如何验证许可证是否已正确应用。
+本文阐述了 Aspose.Slides 中的授权机制以及在使用库之前如何应用许可证。可以使用 [许可证](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) 类从文件、流或嵌入资源加载许可证。本文还展示了如何验证许可证是否已正确应用。
 
 ## **评估 Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-您可以从其 [下载页面](https://releases.aspose.com/slides/zh/androidjava/) 下载 **Aspose.Slides for Android via Java** 的评估版。评估版提供与产品授权版相同的功能。评估包与已购买的包相同。只需在代码中添加几行以应用许可证，评估版即可转为授权版。
+您可以从其 [下载页面](https://releases.aspose.com/slides/androidjava/) 下载 **Aspose.Slides for Android via Java** 的评估版。评估版提供与产品授权版相同的功能。评估包与已购买的包相同。只需在代码中添加几行以应用许可证，评估版即可转为授权版。
 
-当您对 **Aspose.Slides** 的评估满意后，可以 [购买许可证](https://purchase.aspose.com/pricing/slides/zh/android-java/)。我们建议您了解不同的订阅类型。如有疑问，请联系 Aspose 销售团队。
+当您对 **Aspose.Slides** 的评估满意后，可以 [购买许可证](https://purchase.aspose.com/pricing/slides/android-java/)。我们建议您了解不同的订阅类型。如有疑问，请联系 Aspose 销售团队。
 
 每个 Aspose 许可证都附带一年订阅，可免费升级至订阅期内发布的新版本或修复程序。拥有授权产品（甚至评估版）的用户可获得免费且无限制的技术支持。
 {{% /alert %}} 
@@ -59,7 +59,7 @@ Aspose.Slides 可以在评估模式或使用有效许可证的情况下使用。
 可以从 **文件** 或 **流** 加载许可证。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides 提供了用于授权操作的 [许可证](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/license/) 类。
+Aspose.Slides 提供了用于授权操作的 [许可证](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) 类。
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,9 +85,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-如果将许可证文件放在其他目录，在调用 [setLicense](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 方法时，指定路径末尾的许可证文件名必须与实际许可证文件名一致。
+如果将许可证文件放在其他目录，在调用 [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 方法时，指定路径末尾的许可证文件名必须与实际许可证文件名一致。
 
-例如，您可以将许可证文件名改为 *Aspose.Slides.Android.via.Java.lic.xml*。随后在代码中，需要将指向该文件的路径（以 *Aspose.Slides.Android.via.Java.lic.xml* 结尾）传递给 [setLicense](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 方法。
+例如，您可以将许可证文件名改为 *Aspose.Slides.Android.via.Java.lic.xml*。随后在代码中，需要将指向该文件的路径（以 *Aspose.Slides.Android.via.Java.lic.xml* 结尾）传递给 [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 方法。
 {{% /alert %}}
 
 ### **流**
@@ -104,7 +104,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **从应用资产加载流**
 
-在 Android 应用中，将许可证文件放置于应用模块的 *assets* 文件夹，即 *app/src/main/assets*，以便随 APK 打包。使用 [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) 方法打开文件并将流传递给 [setLicense](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 方法。该代码在 `Activity` 中运行，例如在其 `onCreate` 方法中，在应用使用 Aspose.Slides 之前：
+在 Android 应用中，将许可证文件放置于应用模块的 *assets* 文件夹，即 *app/src/main/assets*，以便随 APK 打包。使用 [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) 方法打开文件并将流传递给 [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 方法。该代码在 `Activity` 中运行，例如在其 `onCreate` 方法中，在应用使用 Aspose.Slides 之前：
 
 ```java
 import android.util.Log;
@@ -141,7 +141,7 @@ if (license.isLicensed())
 ## **线程安全**
 
 {{% alert color="warning" title="Warning" %}}
-[setLicense](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 方法不是线程安全的。如果该方法需要被多个线程同时调用，建议使用同步原语（例如锁）以避免问题。
+[setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 方法不是线程安全的。如果该方法需要被多个线程同时调用，建议使用同步原语（例如锁）以避免问题。
 {{% /alert %}}
 
 ## **常见问题**

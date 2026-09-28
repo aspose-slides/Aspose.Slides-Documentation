@@ -57,7 +57,7 @@ dependencies {
 
 ### **选择版本**
 
-Aspose.Slides for Android via Java 并非为仓库中的每个版本构建。它仅针对部分 Aspose.Slides for Java 版本发布构建，缺少 Android 构建的版本将解析失败。请选择列在 [Aspose.Slides for Android via Java 下载页面](https://releases.aspose.com/slides/zh/androidjava/) 的版本。
+Aspose.Slides for Android via Java 并非为仓库中的每个版本构建。它仅针对部分 Aspose.Slides for Java 版本发布构建，缺少 Android 构建的版本将解析失败。请选择列在 [Aspose.Slides for Android via Java 下载页面](https://releases.aspose.com/slides/androidjava/) 的版本。
 
 ### **Groovy 构建脚本**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### 如何验证 Aspose.Slides 已正确集成？
 
-构建项目，实例化一个空的 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 并以新名称保存。如果文件创建成功且未抛出异常，则说明库已成功集成。
+构建项目，实例化一个空的 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 并以新名称保存。如果文件创建成功且未抛出异常，则说明库已成功集成。
 
 ### 在处理大型演示文稿时，如何限制内存消耗？
 
-在 `finally` 块中调用每个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 实例的 [dispose](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#dispose--) 方法，及时释放其资源，并一次只处理一个大型演示文稿。这有助于防止内存不足错误，并在批处理操作期间保持整体内存使用可预测。
+在 `finally` 块中调用每个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 实例的 [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) 方法，及时释放其资源，并一次只处理一个大型演示文稿。这有助于防止内存不足错误，并在批处理操作期间保持整体内存使用可预测。
 
 ### 我能排除不需要的导出格式以减小最终 JAR 大小吗？
 

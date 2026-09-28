@@ -31,10 +31,10 @@ description: "使用 Aspose.Slides for Android 在 Java 中创建演示文稿—
 
 要创建演示文稿并在其第一张幻灯片上放置文本框，请按下列步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空白幻灯片。
-2. 通过索引 0 从[幻灯片集合](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islidecollection/)中获取该幻灯片。
-3. 使用[形状集合](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/)的[addAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 方法添加矩形，并使用其[text frame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)的[setText](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 方法设置文本。
-4. 使用[save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法将演示文稿以 PPTX 文件保存，格式为[SaveFormat.Pptx](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/saveformat/)。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。新演示文稿默认包含一张空白幻灯片。
+2. 通过索引 0 从[幻灯片集合](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/)中获取该幻灯片。
+3. 使用[形状集合](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/)的[addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 方法添加矩形，并使用其[text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)的[setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 方法设置文本。
+4. 使用[save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 方法将演示文稿以 PPTX 文件保存，格式为[SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/)。
 
 代码在 `Activity` 中运行，例如在其 `onCreate` 方法里。它会将文件保存到由[getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) 方法返回的目录：即应用的私有存储，写入此目录无需任何权限。
 
@@ -83,7 +83,7 @@ try {
 
 ### 我能并行创建/保存演示文稿吗？
 
-不能从[multiple threads](/slides/zh/androidjava/multithreading/)操作同一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 实例。请为每个线程或进程使用独立的实例。
+不能从[multiple threads](/slides/zh/androidjava/multithreading/)操作同一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 实例。请为每个线程或进程使用独立的实例。
 
 ### 如何去除试用水印和功能限制？
 
