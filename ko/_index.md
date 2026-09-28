@@ -3,227 +3,72 @@ title: Aspose.Slides 제품군
 type: docs
 weight: 10
 url: /ko/
-keywords: "Aspose.Slides for .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Aspose Documentation."
-description: Aspose.Slides는 Microsoft PowerPoint® 없이 소프트웨어 애플리케이션이 PowerPoint® 문서를 읽고 쓸 수 있게 하는 Microsoft PowerPoint® 관리 API입니다.
+keywords:
+- 문서
+- 프레젠테이션 처리
+- 프레젠테이션 변환
+- PowerPoint
+- OpenDocument
+- Aspose.Slides
+description: "시작하기: 플랫폼을 선택하여 해당 Aspose.Slides 문서, 설치 가이드, API 참조 및 릴리스 정보를 확인하세요."
 ---
-## Aspose.Slides for .NET
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for .NET Product Logo](home_1.png)
-
-Aspose.Slides for .NET은 Microsoft PowerPoint® 관리 API로, .NET 애플리케이션이 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있게 해줍니다. Aspose.Slides for .NET은 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for .NET은 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가, 슬라이드 미리 보기, 슬라이드를 SVG·PDF 형식 등으로 내보내기와 같은 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-- [Aspose.Slides for .NET 온라인 문서](/slides/ko/net/)
-- [Aspose.Slides for .NET 기능](/slides/ko/net/features-overview/)
-- [Aspose.Slides for .NET 제한 사항](/slides/ko/net/known-issues/)
-- [Aspose.Slides for .NET 릴리스 노트](https://releases.aspose.com/slides/ko/net/release-notes/)
-- [Aspose.Slides for .NET 제품 페이지](https://products.aspose.com/slides/ko/net/)
-- [Aspose.Slides for .NET 최신 릴리스 다운로드](https://releases.aspose.com/slides/ko/net/)
-- [Aspose.Slides for .NET NuGet 패키지 다운로드](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Aspose.Slides for .NET 설치](/slides/ko/net/installation/)
-- [Aspose.Slides for .NET API 참조 가이드](https://reference.aspose.com/slides/ko/net)
-- [GitHub 저장소에서 예제 다운로드](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
-- [Aspose.Slides for .NET 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for .NET 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for Java Product Logo](home_2.png)
-
-Aspose.Slides for Java는 Microsoft PowerPoint® 관리 API로, Java 애플리케이션이 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있게 해줍니다. Aspose.Slides for Java는 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for Java는 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가, 슬라이드 미리 보기, 슬라이드를 SVG·PDF 등 다양한 형식으로 내보내는 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-
-- [Aspose.Slides for Java 온라인 문서](/slides/ko/java/)
-- [Aspose.Slides for Java 기능](/slides/ko/java/features-overview/)
-- [Aspose.Slides for Java 제한 사항](/slides/ko/java/known-issues/)
-- [Aspose.Slides for Java 릴리스 노트](https://releases.aspose.com/slides/ko/java/release-notes/)
-- [Aspose.Slides for Java 제품 페이지](https://products.aspose.com/slides/ko/java/)
-- [Aspose.Slides for Java 다운로드](https://releases.aspose.com/slides/ko/java/)
-- [Aspose.Slides for Java Maven 저장소](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Maven 저장소에서 Aspose.Slides for Java 설치](/slides/ko/java/installation/)
-- [Aspose.Slides for Java API 참조 가이드](https://reference.aspose.com/slides/ko/java)
-- [GitHub 저장소에서 예제 다운로드](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [Aspose.Slides for Java 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for Java 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for C++
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for C++ Product Logo](home_3.png)
-
-Aspose.Slides for C++는 Microsoft PowerPoint® 관리 API로, C++ 애플리케이션이 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있게 해줍니다. Aspose.Slides for C++는 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for C++는 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가, 슬라이드 미리 보기, 슬라이드를 SVG·PDF 형식 등으로 내보내는 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-
-- [Aspose.Slides for C++ 온라인 문서](/slides/ko/cpp/)
-- [Aspose.Slides for C++ 기능](/slides/ko/cpp/features-overview/)
-- [Aspose.Slides for C++ 릴리스 노트](https://releases.aspose.com/slides/ko/cpp/release-notes/)
-- [Aspose.Slides for C++ 제품 페이지](https://products.aspose.com/slides/ko/cpp/)
-- [Aspose.Slides for C++ 최신 릴리스 다운로드](https://releases.aspose.com/slides/ko/cpp/)
-- [Aspose.Slides for C++ NuGet 패키지 다운로드](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Aspose.Slides for C++ 설치](https://www.nuget.org/packages/Aspose.Slides.CPP/)
-- [Aspose.Slides for C++ API 참조 가이드](https://products.aspose.com/slides/ko/cpp/)
-- [GitHub 저장소에서 예제 다운로드](https://github.com/aspose-slides/Aspose.Slides-for-C)
-- [Aspose.Slides for C++ 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for C++ 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for Android via Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for Android via Java Product Logo](home_4.png)
-
-Aspose.Slides for Android via Java는 Microsoft PowerPoint® 관리 API로, Android 애플리케이션이 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있게 해줍니다. Aspose.Slides for Android via Java는 Android 플랫폼에서 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for Android는 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가와 같은 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-
-- [Aspose.Slides for Java 온라인 문서](/slides/ko/java/)
-- [Aspose.Slides for Android via Java 기능](/slides/ko/androidjava/aspose-slides-for-android-via-java-features/)
-- [Aspose.Slides for Android via Java 릴리스 노트](https://releases.aspose.com/slides/ko/androidjava/release-notes/)
-- [Aspose.Slides for Android via Java 제품 페이지](https://products.aspose.com/slides/ko/android-java/)
-- [Aspose.Slides for Android via Java 다운로드](https://releases.aspose.com/slides/ko/androidjava/)
-- [Aspose.Slides for Android via Java Maven 저장소](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Aspose.Slides for Android via Java 설치](/slides/ko/androidjava/install-aspose-slides-for-android-via-java/)
-- [Aspose.Slides for Android via Java API 참조 가이드](https://reference.aspose.com/slides/ko/java)
-- [Aspose.Slides for Android via Java 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for Android via Java 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for Python via .NET
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.png)
-
-Aspose.Slides for Python via .NET은 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있는 클래스 라이브러리입니다. Aspose.Slides for Python via .NET은 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for Python via .NET은 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가, 슬라이드 미리 보기, 슬라이드를 SVG·PDF 형식 등으로 내보내는 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-- [Aspose.Slides for Python via .NET 온라인 문서](/slides/ko/python-net/)
-- [Aspose.Slides for Python via .NET 기능](/slides/ko/python-net/features-overview/)
-- [Aspose.Slides for Python via .NET 제한 사항](/slides/ko/python-net/known-issues/)
-- [Aspose.Slides for Python via .NET 릴리스 노트](https://releases.aspose.com/slides/ko/python-net/release-notes/)
-- [Aspose.Slides for Python via .NET 제품 페이지](https://products.aspose.com/slides/ko/python-net/)
-- [Aspose.Slides for Python via .NET 다운로드](https://releases.aspose.com/slides/ko/python-net/)
-- [Aspose.Slides for Python via .NET 설치](/slides/ko/python-net/installation/)
-- [Aspose.Slides for Python via .NET API 참조 가이드](/slides/ko/python-net/api-reference/)
-- [Aspose.Slides for Python via .NET 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for Python via .NET 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for Node.js via Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for Python via .NET Product Logo](home_9.png)
-
-Aspose.Slides for Node.js via Java는 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있는 클래스 라이브러리입니다. Aspose.Slides for Node.js via Java는 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for Node.js via Java는 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가, 슬라이드 미리 보기, 슬라이드를 SVG·PDF 형식 등으로 내보내는 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-- [Aspose.Slides for Node.js via Java 온라인 문서](/slides/ko/java/developer-guide/)
-- [Aspose.Slides for Node.js via Java 기능](/slides/ko/nodejs-java/features-overview/)
-- [Aspose.Slides for Node.js via Java 제한 사항 및 API 차이점](/slides/ko/nodejs-java/limitations-and-api-differences/)
-- [Aspose.Slides for Node.js via Java 릴리스 노트](https://releases.aspose.com/slides/ko/nodejs-java/release-notes/)
-- [Aspose.Slides for Node.js via Java 제품 페이지](https://products.aspose.com/slides/ko/nodejs-java/)
-- [Aspose.Slides for Node.js via Java 패키지 다운로드](https://releases.aspose.com/slides/ko/nodejs-java/)
-- [Aspose.Slides for Node.js via Java 설치](/slides/ko/nodejs-java/installation/)
-- [Aspose.Slides for Node.js via Java API 참조](https://reference.aspose.com/slides/ko/nodejs-java/)
-- [Aspose.Slides for Node.js via Java 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for Node.js via Java 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for PHP via Java
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for PHP via Java Product Logo](aspose_slides-for-php-via-java.png)
-
-Aspose.Slides for PHP via Java는 Microsoft PowerPoint® 없이 PowerPoint® 문서를 읽고 쓸 수 있는 클래스 라이브러리입니다. Aspose.Slides for PHP via Java는 PowerPoint® 문서를 관리할 수 있는 기능을 제공하는 최초이자 유일한 구성 요소입니다. Aspose.Slides for PHP via Java는 텍스트, 도형, 표 및 애니메이션 관리, 슬라이드에 오디오·비디오 추가, 슬라이드 미리 보기, 슬라이드를 SVG·PDF 형식 등으로 내보내는 많은 핵심 기능을 제공합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-- [Aspose.Slides for PHP via Java 온라인 문서](/slides/ko/java/)
-- [Aspose.Slides for PHP via Java 기능](/slides/ko/php-java/features-overview/)
-- [Aspose.Slides for PHP via Java 제한 사항 및 API 차이점](/slides/ko/php-java/limitations-and-api-differences/)
-- [Aspose.Slides for PHP via Java 릴리스 노트](https://releases.aspose.com/slides/ko/php-java/release-notes/)
-- [Aspose.Slides for PHP via Java 제품 페이지](https://products.aspose.com/slides/ko/php-java/)
-- [Aspose.Slides for PHP via Java 패키지 다운로드](https://releases.aspose.com/slides/ko/php-java/)
-- [Aspose.Slides for PHP via Java 설치](/slides/ko/php-java/installation/)
-- [Aspose.Slides for PHP via Java API 참조](https://docs.aspose.com/slides/ko/php-java/api-reference/)
-- [Aspose.Slides for PHP via Java 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for PHP via Java 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for Reporting Services
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for Reporting Services Product Logo](home_5.png)
-
-Aspose.Slides for Reporting Services는 Microsoft SQL Server 2005, 2008, 2012, 2016 및 2017 Reporting Services(32비트 및 64비트)에서 실제 PPT 및 PPS 보고서를 생성할 수 있는 유일한 솔루션입니다. 테이블, 매트릭스, 차트 및 이미지 등 모든 RDL 보고서 기능이 가장 높은 정밀도로 Microsoft PowerPoint 프레젠테이션으로 변환됩니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-
-- [Aspose.Slides for Reporting Services 온라인 문서](/slides/ko/reportingservices/)
-- [Aspose.Slides for Reporting Services 기능](/slides/ko/reportingservices/features)
-- [Aspose.Slides for Reporting Services 릴리스 노트](https://releases.aspose.com/slides/ko/reportingservices/release-notes/)
-- [Aspose.Slides for Reporting Services 제품 페이지](https://products.aspose.com/slides/ko/reporting-services/)
-- [Aspose.Slides for Reporting Services 다운로드](https://releases.aspose.com/slides/ko/reportingservices/)
-- [Aspose.Slides for Reporting Services 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for Reporting Services 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for SharePoint
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for SharePoint Product Logo](home_6.png)
-
-Aspose.Slides for SharePoint는 Microsoft SharePoint 사이트 내에서 PowerPoint® 문서를 변환할 수 있게 해주는 유연한 솔루션입니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-
-- [Aspose.Slides for SharePoint 온라인 문서](/slides/ko/sharepoint/)
-- [Aspose.Slides for SharePoint 기능](/slides/ko/sharepoint/features/)
-- [Aspose.Slides for SharePoint 릴리스 노트](https://releases.aspose.com/slides/ko/sharepoint/release-notes/)
-- [Aspose.Slides for SharePoint 제품 페이지](https://products.aspose.com/slides/ko/sharepoint/)
-- [Aspose.Slides for SharePoint 다운로드](https://releases.aspose.com/slides/ko/sharepoint/)
-- [Aspose.Slides for SharePoint 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for SharePoint 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
-
-## Aspose.Slides for JasperReports
-
-{{% alert color="primary" %}}
-
-![Aspose.Slides for JasperReports Product Logo](home_7.png)
-
-Aspose.Slides for JasperReports는 Java 애플리케이션에서 JasperReports 보고서를 Microsoft PowerPoint 프레젠테이션(PPT) 및 Microsoft PowerPoint 쇼(PPS) 형식으로 쉽게 내보낼 수 있도록 특별히 설계·개발된 라이브러리입니다. 모든 보고서 기능이 가장 높은 정밀도로 Microsoft PowerPoint 프레젠테이션으로 변환됩니다. Aspose.Slides for JasperReports는 JasperReports 5 이상을 지원합니다.
-
-{{% /alert %}}
-
-이러한 유용한 리소스 링크가 있습니다:
-
-- [Aspose.Slides for JasperReports 온라인 문서](/slides/ko/jasperreports/)
-- [Aspose.Slides for JasperReports 기능](/slides/ko/jasperreports/features/)
-- [Aspose.Slides for JasperReports 릴리스 노트](https://releases.aspose.com/slides/ko/jasperreport/release-notes/)
-- [Aspose.Slides for JasperReports 제품 페이지](https://products.aspose.com/slides/ko/jasperreports/)
-- [Aspose.Slides for JasperReports 다운로드](https://releases.aspose.com/slides/ko/jasperreport/)
-- [Aspose.Slides for JasperReports 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for JasperReports 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
+<img src="home_1.png" alt="Aspose.Slides" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+
+Aspose.Slides는 Microsoft PowerPoint 없이도 PowerPoint 및 OpenDocument 프레젠테이션을 만들고, 읽고, 편집하고, 변환할 수 있는 라이브러리 집합입니다.
+
+.NET, Java, Android, C++, Python, Node.js 및 PHP용으로 제공되며, JasperReports 및 Reporting Services의 보고서를 PowerPoint로 내보내고 SharePoint의 프레젠테이션을 변환하는 플러그인도 제공합니다.
+
+<div style="clear:both"></div>
+
+------
+
+<div class="row">
+<div class="col-md-4">
+<p><b>.NET, Java 및 C++용 라이브러리</b></p>
+<hr>
+<p>.NET</p>
+<ul>
+<li><a href="/slides/ko/net/"><b>Aspose.Slides for .NET</b></a><br>.NET 애플리케이션용.<br><small><a href="/slides/ko/net/installation/">설치</a> · <a href="/slides/ko/net/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/net/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/net/release-notes/">릴리스 정보</a></small></li>
+</ul>
+<p>JAVA</p>
+<ul>
+<li><a href="/slides/ko/java/"><b>Aspose.Slides for Java</b></a><br>Java 애플리케이션용.<br><small><a href="/slides/ko/java/installation/">설치</a> · <a href="/slides/ko/java/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/java/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/java/release-notes/">릴리스 정보</a></small></li>
+<li><a href="/slides/ko/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Android 애플리케이션용.<br><small><a href="/slides/ko/androidjava/install-aspose-slides-for-android-via-java/">설치</a> · <a href="/slides/ko/androidjava/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/androidjava/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/androidjava/release-notes/">릴리스 정보</a></small></li>
+</ul>
+<p>C++</p>
+<ul>
+<li><a href="/slides/ko/cpp/"><b>Aspose.Slides for C++</b></a><br>C++ 애플리케이션용.<br><small><a href="/slides/ko/cpp/installation/">설치</a> · <a href="/slides/ko/cpp/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/cpp/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/cpp/release-notes/">릴리스 정보</a></small></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Python, Node.js 및 PHP용 라이브러리</b></p>
+<hr>
+<p>PYTHON</p>
+<ul>
+<li><a href="/slides/ko/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>.NET 런타임을 포함합니다.<br><small><a href="/slides/ko/python-net/installation/">설치</a> · <a href="/slides/ko/python-net/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/python-net/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/python-net/release-notes/">릴리스 정보</a></small></li>
+<li><a href="/slides/ko/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>JPype를 통해 Java 라이브러리를 실행합니다.<br><small><a href="/slides/ko/python-java/installation/">설치</a> · <a href="/slides/ko/python-java/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/python-java/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/python-java/release-notes/">릴리스 정보</a></small></li>
+</ul>
+<p>NODE.JS</p>
+<ul>
+<li><a href="/slides/ko/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Java 가상 머신에서 Java 라이브러리를 실행합니다.<br><small><a href="/slides/ko/nodejs-java/installation/">설치</a> · <a href="/slides/ko/nodejs-java/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/nodejs-java/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/nodejs-java/release-notes/">릴리스 정보</a></small></li>
+<li><a href="/slides/ko/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>edge-js를 통해 .NET 라이브러리를 실행합니다.<br><small><a href="/slides/ko/nodejs-net/installation/">설치</a> · <a href="/slides/ko/nodejs-net/developer-guide/">개발자 가이드</a> · <a href="/slides/ko/nodejs-net/api-reference/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/nodejs-net/release-notes/">릴리스 정보</a></small></li>
+</ul>
+<p>PHP</p>
+<ul>
+<li><a href="/slides/ko/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>PHP/Java Bridge를 통해 Java 라이브러리를 호출합니다.<br><small><a href="/slides/ko/php-java/installation/">설치</a> · <a href="/slides/ko/php-java/getting-started/">시작하기</a> · <a href="https://reference.aspose.com/slides/ko/php-java/">API 참조</a> · <a href="https://releases.aspose.com/slides/ko/php-java/release-notes/">릴리스 정보</a></small></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>보고서 및 SharePoint용 플러그인</b></p>
+<hr>
+<p>REPORTING</p>
+<ul>
+<li><a href="/slides/ko/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>JasperReports 보고서를 PowerPoint로 내보냅니다.<br><small><a href="/slides/ko/jasperreports/installing-aspose-slides-for-jasperreports/">설치</a> · <a href="https://releases.aspose.com/slides/ko/jasperreport/release-notes/">릴리스 정보</a></small></li>
+<li><a href="/slides/ko/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>SQL Server Reporting Services 보고서를 PowerPoint로 내보냅니다.<br><small><a href="/slides/ko/reportingservices/installing-aspose-slides-for-reporting-services/">설치</a> · <a href="https://releases.aspose.com/slides/ko/reportingservices/release-notes/">릴리스 정보</a></small></li>
+</ul>
+<p>SHAREPOINT</p>
+<ul>
+<li><a href="/slides/ko/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>SharePoint 사이트의 프레젠테이션을 변환합니다.<br><small><a href="/slides/ko/sharepoint/installing-aspose-slides-for-sharepoint/">설치</a> · <a href="https://releases.aspose.com/slides/ko/sharepoint/release-notes/">릴리스 정보</a></small></li>
+</ul>
+</div>
+</div>
