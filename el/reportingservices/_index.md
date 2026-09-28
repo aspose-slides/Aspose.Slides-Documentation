@@ -63,12 +63,12 @@ is_root: true
 <hr>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/el/reportingservices/release-notes/">Σημειώσεις έκδοσης</a></li>
-<li><a href="https://releases.aspose.com/slides/el/reportingservices/">Λήψη</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
 <li><a href="https://helpdesk.aspose.com/">Πληρωμένο helpdesk υποστήριξης</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ is_root: true
 Δεν χρειάζεται να γράψετε κώδικα: εγκαθιστάτε την επέκταση στον εξυπηρετητή αναφορών και οι μορφές της εμφανίζονται στη λίστα εξαγωγής κάθε σελιδοποιημένης αναφοράς στον εξυπηρετητή.
 
 1. Βεβαιωθείτε ότι ο εξυπηρετης αναφορών πληροί τις [απαιτήσεις συστήματος](/slides/el/reportingservices/system-requirements/), συμπεριλαμβανομένου του .NET Framework 3.5.
-1. Από τη [σελίδα λήψης](https://releases.aspose.com/slides/el/reportingservices/), κατεβάστε τον εγκαταστάτη MSI, *Aspose.Slides for Reporting Services*. Για χειροκίνητη εγκατάσταση, κατεβάστε το πακέτο ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Από τη [σελίδα λήψης](https://releases.aspose.com/slides/reportingservices/), κατεβάστε τον εγκαταστάτη MSI, *Aspose.Slides for Reporting Services*. Για χειροκίνητη εγκατάσταση, κατεβάστε το πακέτο ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. Εγκαταστήστε την επέκταση στον εξυπηρετητή αναφορών: εκτελέστε το MSI ως διαχειριστής, όπως περιγράφεται στην [Εγκατάσταση με τον εγκαταστάτη MSI](/slides/el/reportingservices/install-with-msi-installer/), ή ακολουθήστε την [Χειροκίνητη εγκατάσταση](/slides/el/reportingservices/install-manually/) για το πακέτο ZIP.
 1. Σε πρόγραμμα περιήγησης, ανοίξτε το web portal του εξυπηρετητή αναφορών (Report Manager σε SQL Server 2014 και παλαιότερα). Από προεπιλογή, η διεύθυνσή του είναι `https://<ComputerName>/reports`.
 1. Ανοίξτε μια σελιδοποιημένη αναφορά. Στη γραμμή εργαλείων της αναφοράς, ανοίξτε τη λίστα **Export** και επιλέξτε **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Εάν η γραμμή εργαλείων διαθέτει ξεχωριστό κουμπί **Export**, όπως κάνει το Report Manager, επιλέξτε το.

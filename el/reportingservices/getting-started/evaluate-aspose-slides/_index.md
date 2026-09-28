@@ -13,7 +13,7 @@ description: "Μάθετε πώς συμπεριφέρεται η έκδοση �
 ---
 ## **Έκδοση Αξιολόγησης**
 
-Μπορείτε να κατεβάσετε το Aspose.Slides for Reporting Services για αξιολόγηση από [τη σελίδα λήψης του](https://releases.aspose.com/slides/el/reportingservices/). Η λήψη αξιολόγησης είναι η ίδια με τη λήψη που αγοράστηκε. Παίρνει άδεια όταν αντιγράψετε ένα αρχείο άδειας στον διακομιστή αναφορών — δεν απαιτείται κώδικας· δείτε [Άδεια](/slides/el/reportingservices/license-aspose-slides-for-reporting-services/).
+Μπορείτε να κατεβάσετε το Aspose.Slides for Reporting Services για αξιολόγηση από [τη σελίδα λήψης του](https://releases.aspose.com/slides/reportingservices/). Η λήψη αξιολόγησης είναι η ίδια με τη λήψη που αγοράστηκε. Παίρνει άδεια όταν αντιγράψετε ένα αρχείο άδειας στον διακομιστή αναφορών — δεν απαιτείται κώδικας· δείτε [Άδεια](/slides/el/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Η έκδοση αξιολόγησης (χωρίς άδεια) παρέχει πλήρη λειτουργικότητα του προϊόντος, αλλά εισάγει ένα υδατόσκοπο αξιολόγησης στις εξαγόμενες παρουσιάσεις.
 

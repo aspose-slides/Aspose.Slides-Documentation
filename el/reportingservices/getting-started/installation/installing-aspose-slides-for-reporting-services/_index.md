@@ -16,7 +16,7 @@ description: "Επιλέξτε πώς να εγκαταστήσετε το Aspos
 
 Το Aspose.Slides for Reporting Services εγκαθίσταται στον ίδιο τον διακομιστή αναφορών. Πριν ξεκινήσετε, ελέγξτε τις [απαιτήσεις συστήματος](/slides/el/reportingservices/system-requirements/).
 
-Η [σελίδα λήψης](https://releases.aspose.com/slides/el/reportingservices/) προσφέρει δύο πακέτα για κάθε έκδοση:
+Η [σελίδα λήψης](https://releases.aspose.com/slides/reportingservices/) προσφέρει δύο πακέτα για κάθε έκδοση:
 
 - **Aspose.Slides for Reporting Services XX.XX** — ένας εγκαταστάτης MSI. Ανιχνεύει τις παρουσίες του διακομιστή αναφορών στον υπολογιστή, αντιγράφει την επέκταση σε αυτές που επιλέγετε και ενημερώνει τα αρχεία διαμόρφωσής τους. Δείτε [Εγκατάσταση με τον εγκαταστάτη MSI](/slides/el/reportingservices/install-with-msi-installer/).
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — ένα πακέτο ZIP για χειροκίνητη εγκατάσταση: αντιγράφετε ένα σύνολο και επεξεργάζεστε δύο αρχεία διαμόρφωσης. Δείτε [Εγκατάσταση χειροκίνητα](/slides/el/reportingservices/install-manually/).

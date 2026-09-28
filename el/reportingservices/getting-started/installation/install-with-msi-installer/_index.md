@@ -15,7 +15,7 @@ description: "Εγκαταστήστε το Aspose.Slides for Reporting Services
 
 Ο εγκαταστάτης MSI είναι ο πιο απλός τρόπος για να εγκαταστήσετε το Aspose.Slides for Reporting Services. Απαιτεί .NET Framework 3.5 και δικαιώματα διαχειριστή στον διακομιστή αναφορών· δείτε [Απαιτήσεις Συστήματος](/slides/el/reportingservices/system-requirements/).
 
-1. Κατεβάστε τον εγκαταστάτη MSI, *Aspose.Slides for Reporting Services XX.XX*, από τη [σελίδα λήψης](https://releases.aspose.com/slides/el/reportingservices/) και αντιγράψτε την στον διακομιστή αναφορών.
+1. Κατεβάστε τον εγκαταστάτη MSI, *Aspose.Slides for Reporting Services XX.XX*, από τη [σελίδα λήψης](https://releases.aspose.com/slides/reportingservices/) και αντιγράψτε την στον διακομιστή αναφορών.
 1. Εκτελέστε το ως διαχειριστής. Εάν λείπει το .NET Framework 3.5, ο εγκαταστάτης διακόπτεται με μήνυμα· εγκαταστήστε τις δυνατότητες του .NET Framework 3.5 και εκτελέστε το ξανά.
 1. Αποδεχτείτε τη συμφωνία άδειας.
 1. Στη σελίδα **Custom Setup**, το δέντρο λειτουργιών εμφανίζει κάθε εγκατάσταση του SQL Server Reporting Services και του Power BI Report Server που εντοπίζει ο εγκαταστάτης στον υπολογιστή. Για να αφήσετε μια εγκατάσταση αμετάβλητη, κάντε κλικ στο εικονίδιο της και επιλέξτε **Entire feature will be unavailable**. Οι εκδόσεις Express δεν υποστηρίζουν επεκτάσεις απόδοσης, επομένως μην επιλέξετε μια εγκατάσταση Express. Ο εγκαταστάτης κρύβει τις εγκαταστάσεις Express του SQL Server 2016 και παλαιότερες.
