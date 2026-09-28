@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-Debian および Ubuntu では、`libfontconfig1` が DejaVu フォントもインストールするため、追加のフォントパッケージなしでテキストが表示されます。`fontconfig` がない状態で [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) を作成しようとすると、`TypeInitializationException` が発生し、内部の `DllNotFoundException` が `libfontconfig.so.1` を開けないことを報告します。[System Requirements](/slides/ja/net/system-requirements/) にはセットアップを確認する簡単なプログラムが含まれています。
+Debian および Ubuntu では、`libfontconfig1` が DejaVu フォントもインストールするため、追加のフォントパッケージなしでテキストが表示されます。`fontconfig` がない状態で [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) を作成しようとすると、`TypeInitializationException` が発生し、内部の `DllNotFoundException` が `libfontconfig.so.1` を開けないことを報告します。[System Requirements](/slides/ja/net/system-requirements/) にはセットアップを確認する簡単なプログラムが含まれています。
 
 ## **クラウドおよびコンテナホスト**
 
@@ -68,7 +68,7 @@ Debian および Ubuntu では、`libfontconfig1` が DejaVu フォントもイ�
 
 Aspose.Slides.NET6.CrossPlatform を使用するプロジェクトは、System.Drawing.Common を直接または他のパッケージ経由で参照できます。現在の Aspose.Slides のバージョンでは `System` 名前空間に公開型がないため、両ライブラリは競合せず、同一ファイルで `Aspose.Slides` と `System.Drawing` 名前空間をインポート可能です。
 
-コンパイラが CS0433 エラーを出し、`Image` や `Graphics` などの型が Aspose.Slides と System.Drawing.Common の両方に存在する場合、プロジェクトは古いバージョンの Aspose.Slides を使用しています。パッケージを最新バージョンに更新してください。Aspose.Slides は描画された画像を [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) オブジェクトとして返します。この詳細は [Modern API](/slides/ja/net/modern-api/) に記載されています。
+コンパイラが CS0433 エラーを出し、`Image` や `Graphics` などの型が Aspose.Slides と System.Drawing.Common の両方に存在する場合、プロジェクトは古いバージョンの Aspose.Slides を使用しています。パッケージを最新バージョンに更新してください。Aspose.Slides は描画された画像を [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) オブジェクトとして返します。この詳細は [Modern API](/slides/ja/net/modern-api/) に記載されています。
 
 ## **FAQ**
 

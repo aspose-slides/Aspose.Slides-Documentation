@@ -56,7 +56,7 @@ Aspose.Slides は、プレゼンテーションをレンダリングする際に
 </Project>
 ```
 
-*Program.cs* はフォント名ごとにスライドにテキスト ボックスを 1 つ追加し、[LatinFont](https://reference.aspose.com/slides/ja/net/aspose.slides/baseportionformat/latinfont/) プロパティでフォントを設定します。フォント名はコマンドラインから取得します。引数がない場合、アプリケーションは Calibri、Arial、Times New Roman をチェックします。Aspose.Slides がフォントを検索するフォルダー（[FontsLoader.GetFontFolders](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsloader/getfontfolders/)）を表示し、スライドを *output/fonts.pdf* にレンダリングし、[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) が報告する置き換えを出力します。冒頭のオプションの 2 つの手順（*fonts* フォルダーのロードと `DEFAULT_FONT` 変数の読み取り）については、この記事の後半で説明します。
+*Program.cs* はフォント名ごとにスライドにテキスト ボックスを 1 つ追加し、[LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/) プロパティでフォントを設定します。フォント名はコマンドラインから取得します。引数がない場合、アプリケーションは Calibri、Arial、Times New Roman をチェックします。Aspose.Slides がフォントを検索するフォルダー（[FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)）を表示し、スライドを *output/fonts.pdf* にレンダリングし、[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) が報告する置き換えを出力します。冒頭のオプションの 2 つの手順（*fonts* フォルダーのロードと `DEFAULT_FONT` 変数の読み取り）については、この記事の後半で説明します。
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **アプリケーション フォルダーからフォントをロード**
 
-イメージにフォントをインストールする代わりに、アプリケーションと一緒にフォントを配布し、[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsloader/loadexternalfonts/) でロードできます。この場合、フォントは Aspose.Slides のみが使用可能で、アプリケーションと共にデプロイされます。*FontCheck* はこの方法を使用しています。*FontCheck.csproj* は *fonts* フォルダーをアプリケーション出力にコピーし、*Program.cs* はプレゼンテーション作成前にそのフォルダーを `LoadExternalFonts` に渡します。[Custom Font](/slides/ja/net/custom-font/) では、メモリからのロードなど、他のフォント提供方法について説明しています。
+イメージにフォントをインストールする代わりに、アプリケーションと一緒にフォントを配布し、[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) でロードできます。この場合、フォントは Aspose.Slides のみが使用可能で、アプリケーションと共にデプロイされます。*FontCheck* はこの方法を使用しています。*FontCheck.csproj* は *fonts* フォルダーをアプリケーション出力にコピーし、*Program.cs* はプレゼンテーション作成前にそのフォルダーを `LoadExternalFonts` に渡します。[Custom Font](/slides/ja/net/custom-font/) では、メモリからのロードなど、他のフォント提供方法について説明しています。
 
 イメージを再ビルドし、Calibri と Carlito を確認します:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **欠如フォント用デフォルト フォントの設定**
 
-フォントが見つからない場合、Aspose.Slides は自動的に代替フォントを使用します。自分で指定したい場合は、[LoadOptions](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/) の [DefaultRegularFont](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/defaultregularfont/) プロパティを設定し、そのオプションを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) コンストラクターに渡します。*FontCheck* は `DEFAULT_FONT` 環境変数からフォント名を取得します。Carlito をロードした状態で、欠如フォントにそれを使用します:
+フォントが見つからない場合、Aspose.Slides は自動的に代替フォントを使用します。自分で指定したい場合は、[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) の [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) プロパティを設定し、そのオプションを [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) コンストラクターに渡します。*FontCheck* は `DEFAULT_FONT` 環境変数からフォント名を取得します。Carlito をロードした状態で、欠如フォントにそれを使用します:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-デフォルト フォントはすべての欠如フォントを置き換えます。個別のフォント（例: Arial を Liberation Sans、Calibri を Carlito にマップ）を設定するには、[font substitution rules](/slides/ja/net/font-substitution/) を使用してください。ルールはレンダリング結果を変えますが、`GetSubstitutions` には反映されないため、代わりに出力ファイル内のフォントを確認してください。アジア文字の場合は、[DefaultAsianFont](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/defaultasianfont/) も設定します。詳しくは [Default Font](/slides/ja/net/default-font/) を参照してください。
+デフォルト フォントはすべての欠如フォントを置き換えます。個別のフォント（例: Arial を Liberation Sans、Calibri を Carlito にマップ）を設定するには、[font substitution rules](/slides/ja/net/font-substitution/) を使用してください。ルールはレンダリング結果を変えますが、`GetSubstitutions` には反映されないため、代わりに出力ファイル内のフォントを確認してください。アジア文字の場合は、[DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/) も設定します。詳しくは [Default Font](/slides/ja/net/default-font/) を参照してください。
 
 ## **Alpine Linux へのフォントインストール**
 

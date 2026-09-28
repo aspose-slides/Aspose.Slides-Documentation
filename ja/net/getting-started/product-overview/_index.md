@@ -124,7 +124,7 @@ Aspose.Slides for .NET の機能は次のカテゴリに分かれます。
 ## **テクニカル サポート**
 Aspose はすべての製品に対して無制限の無料テクニカルサポートを提供しています。サポートはすべてのユーザー（評価版ユーザーを含む）に利用可能です。Aspose.Slides for .NET について支援が必要な場合は、次の点をご検討ください。
 
-- 主なサポート窓口は[Aspose Forums](https://forum.aspose.com/)です。[Aspose.Slides フォーラム](https://forum.aspose.com/c/slides/ja/11)に質問を投稿すると、数時間以内に回答が得られます。Aspose.Slides のサポートチームが直接フォーラム上の質問に回答します。
+- 主なサポート窓口は[Aspose Forums](https://forum.aspose.com/)です。[Aspose.Slides フォーラム](https://forum.aspose.com/c/slides/11)に質問を投稿すると、数時間以内に回答が得られます。Aspose.Slides のサポートチームが直接フォーラム上の質問に回答します。
 - Aspose は電話によるテクニカルサポートは提供していません。電話サポートは販売・購入に関する質問のみ利用可能です。
 - フォーラムでの返信を待つ際は、時差を考慮して辛抱強く待ってください。
 
@@ -146,10 +146,10 @@ Aspose.Slides for .NET に問題がある場合は、以下の手順に従って
 
 |**リソース**|**説明**|
 | :- | :- |
-|[Aspose.Slides for .NET ホームページ](https://products.aspose.com/slides/ja/net/)|製品のホームページ。|
-|[Aspose.Slides ブログ](https://blog.aspose.com/category/slides/ja/)|新リリース情報や役立つヒントを定期的にチェックできます。|
+|[Aspose.Slides for .NET ホームページ](https://products.aspose.com/slides/net/)|製品のホームページ。|
+|[Aspose.Slides ブログ](https://blog.aspose.com/category/slides/)|新リリース情報や役立つヒントを定期的にチェックできます。|
 |[Aspose.Slides for .NET ダウンロード](https://www.nuget.org/packages/Aspose.Slides.NET/)|最新バージョンの Aspose.Slides をここからダウンロードできます。新バージョンが頻繁にリリースされます。|
-|[Aspose.Slides サポート フォーラム](https://forum.aspose.com/c/slides/ja/11)|質問や問題を投稿して迅速に解決できます。|
+|[Aspose.Slides サポート フォーラム](https://forum.aspose.com/c/slides/11)|質問や問題を投稿して迅速に解決できます。|
 |[Aspose.Slides for .NET 製品ドキュメント](/slides/ja/net/)|このドキュメントと Aspose.Slides API リファレンスを含むオンライン完全マニュアル。|
 
 ## **信頼レベルの要件**
@@ -160,7 +160,7 @@ Aspose.Slides for .NET に問題がある場合は、以下の手順に従って
 
 ### アーカイブおよびアクセシビリティ用の PDF 準拠レベル（PDF/A、PDF/UA）をサポートしていますか？
 
-はい。PDF/A-2a/2b/2u、PDF/A-3a/3b、PDF/UA での保存が可能で、[PDF エクスポート オプション](https://reference.aspose.com/slides/ja/net/aspose.slides.export/pdfoptions/)で設定できます。
+はい。PDF/A-2a/2b/2u、PDF/A-3a/3b、PDF/UA での保存が可能で、[PDF エクスポート オプション](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)で設定できます。
 
 ### フォント置換機構やカスタム フォントのサポートはありますか？
 
@@ -180,7 +180,7 @@ Aspose.Slides for .NET に問題がある場合は、以下の手順に従って
 
 ### マクロは保持されますか？PPTM/PPSM ファイルの VBA を管理できますか？
 
-はい。マクロ付きプレゼンテーションは[サポート](/slides/ja/net/presentation-via-vba/)されており、[VBA プロジェクトの検査と管理](https://reference.aspose.com/slides/ja/net/aspose.slides.vba/)が可能です。
+はい。マクロ付きプレゼンテーションは[サポート](/slides/ja/net/presentation-via-vba/)されており、[VBA プロジェクトの検査と管理](https://reference.aspose.com/slides/net/aspose.slides.vba/)が可能です。
 
 ### PDF や HTML を PowerPoint スライドに変換できますか？
 
@@ -188,7 +188,7 @@ Aspose.Slides for .NET に問題がある場合は、以下の手順に従って
 
 ### XPS エクスポートはサポートされており、品質や内容を制御できますか？
 
-はい。[XPS へのエクスポート](/slides/ja/net/convert-powerpoint-to-xps/)が利用でき、[保存オプション](https://reference.aspose.com/slides/ja/net/aspose.slides.export/xpsoptions/)で出力品質や含めるコンテンツを調整できます。
+はい。[XPS へのエクスポート](/slides/ja/net/convert-powerpoint-to-xps/)が利用でき、[保存オプション](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/)で出力品質や含めるコンテンツを調整できます。
 
 ### スライドを画像に変換し、出力品質を制御できますか？
 

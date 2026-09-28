@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform は Alpine Linux では動作しません。Alp
 </Project>
 ```
 
-*Program.cs* は [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) を作成し、最初のスライドにテキスト付きの長方形を追加し、[Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドで PPTX と PDF の 2 つの形式で保存します。両ファイルは作業ディレクトリ配下の *output* フォルダーに出力されます。アプリケーションは PDF の描画中に置換されたフォントを [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) で一覧表示し、コンテナにプレゼンテーションで使用されるフォントがあるかどうかを確認できます。
+*Program.cs* は [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) を作成し、最初のスライドにテキスト付きの長方形を追加し、[Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) メソッドで PPTX と PDF の 2 つの形式で保存します。両ファイルは作業ディレクトリ配下の *output* フォルダーに出力されます。アプリケーションは PDF の描画中に置換されたフォントを [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) で一覧表示し、コンテナにプレゼンテーションで使用されるフォントがあるかどうかを確認できます。
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine ステージでは 3 つのパッケージをインストールし、1 �
 - `font-dejavu` はフォントを提供します。フォントが無いと `System.ArgumentException: Font '?' cannot be found` で変換が失敗します。
 - `icu-libs` と `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` はカルチャ データを提供します。Alpine の .NET イメージはデフォルトでグローバリゼーション非依存モードで動作し、そのモードでは Aspose.Slides が `en-US` の `CultureNotFoundException` をスローします。
 
-ビルド、実行、出力のコピーは上記と同じコマンドで行えてください。このイメージではアプリケーションは `Saved` 行だけを出力します。Linux 版 Aspose.Slides.NET では fontconfig が欠損フォントの置換を自動で選択し、[GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) には表示されません。[フォントのデプロイ](/slides/ja/net/deploy-fonts/) で実際に使用されたフォントを確認する方法が解説されています。
+ビルド、実行、出力のコピーは上記と同じコマンドで行えてください。このイメージではアプリケーションは `Saved` 行だけを出力します。Linux 版 Aspose.Slides.NET では fontconfig が欠損フォントの置換を自動で選択し、[GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) には表示されません。[フォントのデプロイ](/slides/ja/net/deploy-fonts/) で実際に使用されたフォントを確認する方法が解説されています。
 
 ## **FAQ**
 

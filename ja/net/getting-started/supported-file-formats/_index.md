@@ -46,7 +46,7 @@ Aspose.Slides.NET と Aspose.Slides.NET6.CrossPlatform の両方の NuGet パッ
 - Microsoft 365 用 PowerPoint（旧称 Office 365）
 
 {{% alert color="info" title="Note" %}}
-PowerPoint 95 以前のバージョンで保存されたプレゼンテーションは開くことができません。[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/presentationfactory/getpresentationinfo/) は PowerPoint 95 ファイルを認識し、`LoadFormat.Ppt95` を報告しますが、[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/presentation/) コンストラクタはそれに対して [PptUnsupportedFormatException](https://reference.aspose.com/slides/ja/net/aspose.slides/pptunsupportedformatexception/) をスローします。
+PowerPoint 95 以前のバージョンで保存されたプレゼンテーションは開くことができません。[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) は PowerPoint 95 ファイルを認識し、`LoadFormat.Ppt95` を報告しますが、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) コンストラクタはそれに対して [PptUnsupportedFormatException](https://reference.aspose.com/slides/net/aspose.slides/pptunsupportedformatexception/) をスローします。
 {{% /alert %}}
 
 ## **サポートされているファイル形式**

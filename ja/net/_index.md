@@ -82,15 +82,15 @@ Aspose.Slides for .NET は、Microsoft PowerPoint や Office Automation を使�
 </ul>
 <p>リファレンス</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/net/">API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/net/release-notes/">リリースノート</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">リリースノート</a></li>
 <li><a href="/slides/ja/net/known-issues/">既知の問題</a></li>
 <li><a href="/slides/ja/net/api-limitations/">出力メタデータの制限</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/net/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポートフォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポートフォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポートヘルプデスク</a></li>
 </ul>
 </div>

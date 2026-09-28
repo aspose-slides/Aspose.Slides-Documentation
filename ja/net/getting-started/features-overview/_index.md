@@ -77,7 +77,7 @@ Aspose.Slides を使用すると、プレゼンテーションのほぼすべて
 
 **マルチスレッドはどのように機能しますか？処理を並列化できますか？**
 
-異なるスレッドで別々のドキュメントを処理することは安全です。同じ[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/)オブジェクトを[複数のスレッド](/slides/ja/net/multithreading/)で同時に使用してはいけません。
+異なるスレッドで別々のドキュメントを処理することは安全です。同じ[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)オブジェクトを[複数のスレッド](/slides/ja/net/multithreading/)で同時に使用してはいけません。
 
 **ファイル パスワードと暗号化はサポートされていますか？**
 

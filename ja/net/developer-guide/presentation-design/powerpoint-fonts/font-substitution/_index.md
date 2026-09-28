@@ -28,7 +28,7 @@ description: ".NET 用 Aspose.Slides で PowerPoint および OpenDocument プ�
 
 ## **フォント置換の取得**
 
-プレゼンテーションがレンダリングされる際にどのフォントが置換されるかを判断するには、[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) メソッドを使用します。このメソッドは、元のフォント名と置換後のフォント名を示す [FontSubstitutionInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsubstitutioninfo/) オブジェクトを返します。
+プレゼンテーションがレンダリングされる際にどのフォントが置換されるかを判断するには、[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) メソッドを使用します。このメソッドは、元のフォント名と置換後のフォント名を示す [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) オブジェクトを返します。
 
 以下の C# の例は、プレゼンテーションのすべてのフォント置換を一覧表示します。
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **選択したスライドのフォント置換の取得**
 
-特定のスライドのレンダリングに必要な置換のみを確認するには、`int[] slides` 引数を持つ [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) のオーバーロードを使用します。これは、プレゼンテーションの一部をレンダリングまたはエクスポートする場合や、大規模なプレゼンテーションを段階的にチェックする場合、利用できないフォントに依存するスライドを特定する場合、サーバーやコンテナ用に最小限のフォントパッケージを作成する場合、または無関係なスライドを処理せずにレンダリングの違いを診断する場合に便利です。
+特定のスライドのレンダリングに必要な置換のみを確認するには、`int[] slides` 引数を持つ [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) のオーバーロードを使用します。これは、プレゼンテーションの一部をレンダリングまたはエクスポートする場合や、大規模なプレゼンテーションを段階的にチェックする場合、利用できないフォントに依存するスライドを特定する場合、サーバーやコンテナ用に最小限のフォントパッケージを作成する場合、または無関係なスライドを処理せずにレンダリングの違いを診断する場合に便利です。
 
-`slides` 配列は 1 ベースのスライドインデックスを含みます: `1` は最初のスライドを示します。対照的に、[Presentation.Slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) コレクションのインデクサは 0 ベースであるため、同じスライドは `presentation.Slides[0]` としてアクセスします。配列を作成する際はこの違いに注意し、オフバイワンエラーを防いでください。
+`slides` 配列は 1 ベースのスライドインデックスを含みます: `1` は最初のスライドを示します。対照的に、[Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) コレクションのインデクサは 0 ベースであるため、同じスライドは `presentation.Slides[0]` としてアクセスします。配列を作成する際はこの違いに注意し、オフバイワンエラーを防いでください。
 
-[Presentation.FontsManager](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/fontsmanager/) プロパティを介してオーバーロードを呼び出します。これは、選択したスライドのレンダリング中に決定された置換のみを返します。各結果は、元のフォント名と置換後のフォント名を含む [FontSubstitutionInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsubstitutioninfo/) オブジェクトです。結果は現在のフォント環境と [外部フォントのロード](/slides/ja/net/custom-font/) を反映します。[IFontSubstRuleCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsubstrulecollection/) に保存された置換規則はレンダリング出力に影響しますが、結果には反映されません。
+[Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) プロパティを介してオーバーロードを呼び出します。これは、選択したスライドのレンダリング中に決定された置換のみを返します。各結果は、元のフォント名と置換後のフォント名を含む [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) オブジェクトです。結果は現在のフォント環境と [外部フォントのロード](/slides/ja/net/custom-font/) を反映します。[IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) に保存された置換規則はレンダリング出力に影響しますが、結果には反映されません。
 
 同じ置換が複数の選択スライドで必要になることがあります。フォントインベントリや事前確認レポートを作成する際は、結果を重複除去してください。以下の例は、返されたすべての置換を報告し、次に一意のフォントマッピングのソート済みリストを作成します。
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/) インターフェイスは両方のオーバーロードを提供します。レンダリング操作の範囲に応じて選択してください。
+[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) インターフェイスは両方のオーバーロードを提供します。レンダリング操作の範囲に応じて選択してください。
 
 | オーバーロード | 使用する状況 |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | プレゼンテーション全体の置換が必要な場合 |
-| [GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | 選択範囲、インクリメンタルチェック、または部分エクスポートの置換が必要な場合 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | プレゼンテーション全体の置換が必要な場合 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | 選択範囲、インクリメンタルチェック、または部分エクスポートの置換が必要な場合 |
 
 ## **フォント置換規則の設定**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. プレゼンテーションを読み込みます。  
 2. 元フォントと置換フォントのフォント定義を作成します。  
-3. [WhenInaccessible](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsubstcondition/) 条件を使用して [FontSubstRule](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsubstrule/) を作成します。  
-4. その規則を [FontSubstRuleCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsubstrulecollection/) に追加します。  
-5. コレクションを [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsmanager/fontsubstrulelist/) プロパティに割り当てます。  
+3. [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) 条件を使用して [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) を作成します。  
+4. その規則を [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/) に追加します。  
+5. コレクションを [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) プロパティに割り当てます。  
 6. プレゼンテーションをレンダリングまたは変換します。
 
 以下の C# の例は、`SomeRareFont` が利用できない場合に `Arial` に置換し、結果を確認するために最初のスライドをレンダリングします。置換フォントは Aspose.Slides が利用できる必要があります。
@@ -160,4 +160,4 @@ Aspose.Slides は、フォント選択プロセスに従って最も近い利用
 
 **バッチ変換でフォント選択を一貫させるにはどうすればよいですか？**
 
-すべてのマシンまたはコンテナで同じフォントファイルとバージョンを使用し、[必要な外部フォントをロード](/slides/ja/net/custom-font/) し、ライセンスが許可する場合は [フォントを埋め込む](/slides/ja/net/embedded-font/) ことで、バッチ変換時のフォント選択を一貫させることができます。また、エクスポート前に [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ja/net/aspose.slides/ifontsmanager/getsubstitutions/) を呼び出して予期しない置換を確認することもできます。
+すべてのマシンまたはコンテナで同じフォントファイルとバージョンを使用し、[必要な外部フォントをロード](/slides/ja/net/custom-font/) し、ライセンスが許可する場合は [フォントを埋め込む](/slides/ja/net/embedded-font/) ことで、バッチ変換時のフォント選択を一貫させることができます。また、エクスポート前に [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) を呼び出して予期しない置換を確認することもできます。

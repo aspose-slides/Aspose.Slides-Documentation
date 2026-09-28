@@ -68,7 +68,7 @@ Windows 上では、Aspose.Slides.NET6.CrossPlatform のネイティブ ライ�
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-`fontconfig` が無いと、[プレゼンテーション]((https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/)) の作成時に `TypeInitializationException` がスローされ、その内部 `DllNotFoundException` が `libfontconfig.so.1` を開けない旨を報告します。
+`fontconfig` が無いと、[プレゼンテーション]((https://reference.aspose.com/slides/net/aspose.slides/presentation/)) の作成時に `TypeInitializationException` がスローされ、その内部 `DllNotFoundException` が `libfontconfig.so.1` を開けない旨を報告します。
 
 最小ベース イメージには `fontconfig` が含まれないことがあります。たとえば .NET 8 用の AWS Lambda ベースイメージは `fontconfig` もフォントも含んでいません。そのようなコンテナイメージで構築する場合は、`dnf install -y fontconfig` を実行すると同時に Noto Sans フォントもインストールされます。
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **グローバリゼーション サポート**
 
-両パッケージとも .NET のグローバリゼーション サポートが必要です。Linux 上の .NET は ICU ライブラリを通じてこれを提供します。[globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) で実行すると、[プレゼンテーション]((https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/)) の作成時に `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` がスローされます。
+両パッケージとも .NET のグローバリゼーション サポートが必要です。Linux 上の .NET は ICU ライブラリを通じてこれを提供します。[globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) で実行すると、[プレゼンテーション]((https://reference.aspose.com/slides/net/aspose.slides/presentation/)) の作成時に `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` がスローされます。
 
 一部のコンテナ イメージはこのモードを有効にしています。たとえば Alpine Linux 用の .NET ランタイム イメージ（`runtime-deps`、`runtime`、`aspnet`）は `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` を設定し、ICU が含まれていません。これらのイメージ上でビルドする場合は ICU をインストールし、モードをオフにしてください：
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-プログラムは最初のスライドにテキスト付きの矩形を追加し、[Save]((https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/)) メソッドで *hello.pptx* として保存します。その後 [GetImage]((https://reference.aspose.com/slides/ja/net/aspose.slides/slide/getimage/)) でスライドを画像化し、[IImage.Save]((https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/save/)) と [ImageFormat.Png]((https://reference.aspose.com/slides/ja/net/aspose.slides/imageformat/)) を使用して *hello.png* として保存します。スケールファクタ 1 はポイントあたり 1 ピクセルを意味し、デフォルトの 720 × 540 ポイントのスライドは 720 × 540 ピクセルの画像になります。テキストは矩形内に表示されます。ライセンスが無い場合、両ファイルには評価版の透かしが入ります。詳細は [ライセンス](/slides/ja/net/licensing/) を参照してください。要件が欠けていると、[Linux](#linux) で説明した例外のいずれかでプログラムが停止します。
+プログラムは最初のスライドにテキスト付きの矩形を追加し、[Save]((https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)) メソッドで *hello.pptx* として保存します。その後 [GetImage]((https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/)) でスライドを画像化し、[IImage.Save]((https://reference.aspose.com/slides/net/aspose.slides/iimage/save/)) と [ImageFormat.Png]((https://reference.aspose.com/slides/net/aspose.slides/imageformat/)) を使用して *hello.png* として保存します。スケールファクタ 1 はポイントあたり 1 ピクセルを意味し、デフォルトの 720 × 540 ポイントのスライドは 720 × 540 ピクセルの画像になります。テキストは矩形内に表示されます。ライセンスが無い場合、両ファイルには評価版の透かしが入ります。詳細は [ライセンス](/slides/ja/net/licensing/) を参照してください。要件が欠けていると、[Linux](#linux) で説明した例外のいずれかでプログラムが停止します。
 
 ## **開発ツール**
 

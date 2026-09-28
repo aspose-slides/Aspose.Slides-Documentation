@@ -27,12 +27,12 @@ Aspose.Slidesでプレゼンテーションを作成またはエクスポート�
 
 Aspose.Slides for .NETを使用してプレゼンテーションを作成またはエクスポートすると、いくつかの技術メタデータがファイルに書き込まれます。2 つのフィールドはしばしば質問の対象となります：
 
-**Application** は **PPTX** プレゼンテーションを作成または最後に保存したプログラムを識別します。Aspose.Slides for .NETでは、この値は固定されており、アプリ名ではなくライブラリ名が表示されます。たとえ [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/ja/net/aspose.slides/documentproperties/nameofapplication/) を設定していても同様です。
+**Application** は **PPTX** プレゼンテーションを作成または最後に保存したプログラムを識別します。Aspose.Slides for .NETでは、この値は固定されており、アプリ名ではなくライブラリ名が表示されます。たとえ [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) を設定していても同様です。
 
 **Producer** はエクスポート時に最終ファイルを生成したレンダリングエンジンを識別します。**PDF** エクスポートでは、メタデータは **Creator** と **Producer** フィールドを使用します。Aspose.Slides for .NET では、これらは固定されており、ライブラリとそのバージョンを示します。
 
 **制限内容**
 
-上記の形式については、API からこれらのフィールドを上書きすることはできません。**PPTX** の場合、Application プロパティは「Aspose.Slides for .NET」として書き込まれます。**PDF** の場合、Creator および Producer プロパティは「Aspose.Slides for .NET」にライブラリ バージョンが続く形で書き込まれます。**ODP** の場合、generator フィールドも「Aspose.Slides for .NET」にライブラリ バージョンが続く形で書き込まれます。この動作は設計上のものであり、ファイルの読み込みや保存方法、または [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/ja/net/aspose.slides/documentproperties/nameofapplication/) に割り当てた値に関係なく適用されます。
+上記の形式については、API からこれらのフィールドを上書きすることはできません。**PPTX** の場合、Application プロパティは「Aspose.Slides for .NET」として書き込まれます。**PDF** の場合、Creator および Producer プロパティは「Aspose.Slides for .NET」にライブラリ バージョンが続く形で書き込まれます。**ODP** の場合、generator フィールドも「Aspose.Slides for .NET」にライブラリ バージョンが続く形で書き込まれます。この動作は設計上のものであり、ファイルの読み込みや保存方法、または [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) に割り当てた値に関係なく適用されます。
 
-この制限は **PPT** ファイルには適用されません。PPT ファイルでは、[DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/ja/net/aspose.slides/documentproperties/nameofapplication/) に設定したアプリケーション名が保存されます。
+この制限は **PPT** ファイルには適用されません。PPT ファイルでは、[DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/) に設定したアプリケーション名が保存されます。

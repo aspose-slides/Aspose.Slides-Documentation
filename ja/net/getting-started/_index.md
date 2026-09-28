@@ -62,7 +62,7 @@ Aspose.Slides for .NET は NuGet を通じて同等のクラスを提供する 2
 
 ## **サポートを受ける**
 
-[製品サポート](/slides/ja/net/product-support/) では、[無料サポートフォーラム](https://forum.aspose.com/c/slides/ja/11) で質問する方法と、問題を報告する際に含めるべき情報について説明しています。
+[製品サポート](/slides/ja/net/product-support/) では、[無料サポートフォーラム](https://forum.aspose.com/c/slides/11) で質問する方法と、問題を報告する際に含めるべき情報について説明しています。
 
 ## **FAQ**
 

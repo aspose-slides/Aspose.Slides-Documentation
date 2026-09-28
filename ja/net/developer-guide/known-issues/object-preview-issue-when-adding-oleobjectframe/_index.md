@@ -22,7 +22,7 @@ description: "Aspose.Slides for .NET で追加された OLE オブジェクト�
 ---
 ## **はじめに**
 
-Aspose.Slides for .NET を使用してスライドに [OleObjectFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/oleobjectframe/) を追加すると、出力スライドに「EMBEDDED OLE OBJECT」メッセージが表示されます。このメッセージは意図されたものであり、バグではありません。
+Aspose.Slides for .NET を使用してスライドに [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) を追加すると、出力スライドに「EMBEDDED OLE OBJECT」メッセージが表示されます。このメッセージは意図されたものであり、バグではありません。
 
 OLE オブジェクトの操作に関する詳細情報は、[Manage OLE](/slides/ja/net/manage-ole/) を参照してください。
 
@@ -30,7 +30,7 @@ OLE オブジェクトの操作に関する詳細情報は、[Manage OLE](/slide
 
 Aspose.Slides は、OLE オブジェクトが変更され、プレビュー画像を更新する必要があることを通知するために「EMBEDDED OLE OBJECT」メッセージを表示します。
 
-例として、Microsoft Excel のグラフを [OleObjectFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/oleobjectframe/) としてスライドに追加し（詳細は「Manage OLE」記事を参照）、そのプレゼンテーションを Microsoft PowerPoint で開くと、スライドに次の画像が表示されます：
+例として、Microsoft Excel のグラフを [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) としてスライドに追加し（詳細は「Manage OLE」記事を参照）、そのプレゼンテーションを Microsoft PowerPoint で開くと、スライドに次の画像が表示されます：
 
 ![OLE オブジェクト メッセージ](OLE_object_message.png)
 
