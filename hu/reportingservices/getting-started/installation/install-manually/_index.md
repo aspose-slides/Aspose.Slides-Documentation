@@ -14,7 +14,7 @@ description: "Az Aspose.Slides for Reporting Services kézi telepítése a csak 
 ---
 ## **Áttekintés**
 
-Kövesse ezeket a lépéseket az Aspose.Slides for Reporting Services telepítéséhez MSI telepítő nélkül, a *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* ZIP csomagból a [letöltési oldalon](https://releases.aspose.com/slides/hu/reportingservices/). Ezek ugyanazokat a kiegészítőket regisztrálják, mint a [MSI telepítő](/slides/hu/reportingservices/install-with-msi-installer/). Ismételje meg őket minden jelentéskiszolgáló példányhoz.
+Kövesse ezeket a lépéseket az Aspose.Slides for Reporting Services telepítéséhez MSI telepítő nélkül, a *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* ZIP csomagból a [letöltési oldalon](https://releases.aspose.com/slides/reportingservices/). Ezek ugyanazokat a kiegészítőket regisztrálják, mint a [MSI telepítő](/slides/hu/reportingservices/install-with-msi-installer/). Ismételje meg őket minden jelentéskiszolgáló példányhoz.
 
 Mielőtt elkezdené, ellenőrizze a [rendszerkövetelményeket](/slides/hu/reportingservices/system-requirements/). Helyi rendszergazdai jogokra van szüksége a jelentéskiszolgálón.
 

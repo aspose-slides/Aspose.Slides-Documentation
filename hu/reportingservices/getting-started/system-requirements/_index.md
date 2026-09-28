@@ -29,7 +29,7 @@ Az Aspose.Slides for Reporting Services a jelentéskiszolgálóban fut renderel�
 
 Mind a 32‑bit, mind a 64‑bit jelentéskiszolgálók támogatottak. A SQL Server 2005 saját verzióját használja a kiterjesztésnek; az összes későbbi verzió és a Power BI Report Server ugyanazt a verziót használja. [Install Manually](/slides/hu/reportingservices/install-manually/) megmutatja, melyik fájlt kell másolni.
 
-Ha a jelentéskiszolgálód verziója nincs ezen a listán, kérdezz a [free support forum](https://forum.aspose.com/c/slides/hu/11) előtt, mielőtt telepítenéd.
+Ha a jelentéskiszolgálód verziója nincs ezen a listán, kérdezz a [free support forum](https://forum.aspose.com/c/slides/11) előtt, mielőtt telepítenéd.
 
 ## **Jelentéskiszolgáló kiadások**
 

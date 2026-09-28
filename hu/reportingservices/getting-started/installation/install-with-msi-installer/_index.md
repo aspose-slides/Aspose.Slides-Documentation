@@ -15,7 +15,7 @@ description: "Telepítse az Aspose.Slides for Reporting Services terméket az MS
 
 Az MSI telepítő a legegyszerűbb módja az Aspose.Slides for Reporting Services telepítésének. .NET Framework 3.5-re és rendszergazdai jogokra van szüksége a jelentéskiszolgálón; lásd a [Rendszerkövetelmények](/slides/hu/reportingservices/system-requirements/) oldalt.
 
-1. Töltse le az MSI telepítőt, *Aspose.Slides for Reporting Services XX.XX*-t a [letöltési oldal](https://releases.aspose.com/slides/hu/reportingservices/) oldalról, és másolja a jelentéskiszolgálóra.  
+1. Töltse le az MSI telepítőt, *Aspose.Slides for Reporting Services XX.XX*-t a [letöltési oldal](https://releases.aspose.com/slides/reportingservices/) oldalról, és másolja a jelentéskiszolgálóra.  
 2. Futtassa rendszergazdaként. Ha a .NET Framework 3.5 hiányzik, a telepítő egy üzenettel leáll; telepítse a .NET Framework 3.5 funkciókat, és futtassa újra.  
 3. Fogadja el a licencszerződést.  
 4. A **Custom Setup** oldalon a funkciófa felsorolja a telepítő által a gépen észlelt minden SQL Server Reporting Services és Power BI Report Server példányt. Egy példány változatlanul hagyásához kattintson annak ikonjára, és válassza az **A teljes funkció nem lesz elérhető** lehetőséget. Az Express kiadások nem támogatják a renderelési kiegészítőket, ezért ne válasszon Express példányt. A telepítő elrejti a SQL Server 2016 és korábbi Express példányait.  

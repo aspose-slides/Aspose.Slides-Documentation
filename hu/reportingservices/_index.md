@@ -63,12 +63,12 @@ Képes a jelentéseket PPT, PPTX, PPS és PPSX prezentációkba és diavetítés
 <hr>
 <p>Referenciák</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/hu/reportingservices/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/reportingservices/">Letöltés</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Képes a jelentéseket PPT, PPTX, PPS és PPSX prezentációkba és diavetítés
 Nincs kódrészlet, amelyet írni kellene: telepíti a kiterjesztést a jelentésszerveren, és formátumai megjelennek minden lapozott jelentés exportlistájában azon a szerveren.
 
 1. Ellenőrizze, hogy a jelentésszerver megfelel a [rendszerkövetelményeknek](/slides/hu/reportingservices/system-requirements/), beleértve a .NET Framework 3.5-öt.
-1. A [letöltési oldalról](https://releases.aspose.com/slides/hu/reportingservices/) töltse le az MSI telepítőt, *Aspose.Slides for Reporting Services*. Ha kézzel szeretne telepíteni, töltse le a ZIP csomagot, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. A [letöltési oldalról](https://releases.aspose.com/slides/reportingservices/) töltse le az MSI telepítőt, *Aspose.Slides for Reporting Services*. Ha kézzel szeretne telepíteni, töltse le a ZIP csomagot, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. Telepítse a kiterjesztést a jelentésszerveren: futtassa az MSI-t rendszergazdaként, ahogyan az [Telepítés MSI telepítővel](/slides/hu/reportingservices/install-with-msi-installer/) le van írva, vagy kövesse a [Kézi telepítés](/slides/hu/reportingservices/install-manually/) útmutatót a ZIP csomaghoz.
 1. Böngészőben nyissa meg a jelentésszerver webes portálját (Report Manager a SQL Server 2014-es és korábbi verziókon). Alapértelmezés szerint címe `https://<ComputerName>/reports`.
 1. Nyisson meg egy lapozott jelentést. A jelentés eszköztárában nyissa meg az **Export** listát, és válassza a **PPTX – PowerPoint 2007 Presentation via Aspose.Slides** elemet. Ha az eszköztárnak külön **Export** gombja van – ahogyan a Report Manager esetén –, válassza azt.

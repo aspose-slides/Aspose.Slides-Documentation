@@ -13,7 +13,7 @@ description: "Ismerje meg, hogyan működik az Aspose.Slides for Reporting Servi
 ---
 ## **Értékelő verzió**
 
-Letöltheti az Aspose.Slides for Reporting Services értékelő változatát a [letöltési oldaláról](https://releases.aspose.com/slides/hu/reportingservices/). Az értékelő letöltés megegyezik a megvásárolt letöltéssel. Licencszerűvé válik, ha egy licencfájlt másol a jelentéskiszolgálóra – nincs szükség kódra; lásd a [Licencelés](/slides/hu/reportingservices/license-aspose-slides-for-reporting-services/) oldalt.
+Letöltheti az Aspose.Slides for Reporting Services értékelő változatát a [letöltési oldaláról](https://releases.aspose.com/slides/reportingservices/). Az értékelő letöltés megegyezik a megvásárolt letöltéssel. Licencszerűvé válik, ha egy licencfájlt másol a jelentéskiszolgálóra – nincs szükség kódra; lásd a [Licencelés](/slides/hu/reportingservices/license-aspose-slides-for-reporting-services/) oldalt.
 
 Az értékelő verzió (licenc nélkül) teljes termékfunkcionalitást biztosít, de egy értékelő vízjelet helyez el az exportált prezentációkba.
 

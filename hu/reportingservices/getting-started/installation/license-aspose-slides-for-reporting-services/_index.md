@@ -13,11 +13,11 @@ description: "Licencet alkalmaz az Aspose.Slides for Reporting Services-hez a li
 ---
 ## **Licenc támogatás**
 
-Az Aspose.Slides for Reporting Services értékelő verziója ugyanaz a csomag, mint a megvásárolt, a [letöltési oldaláról](https://releases.aspose.com/slides/hu/reportingservices/), és ugyanazt a funkciót biztosítja. Licenc nélkül értékelő módban működik, és egy értékelő vízjelet illeszt be az exportált prezentációkba.
+Az Aspose.Slides for Reporting Services értékelő verziója ugyanaz a csomag, mint a megvásárolt, a [letöltési oldaláról](https://releases.aspose.com/slides/reportingservices/), és ugyanazt a funkciót biztosítja. Licenc nélkül értékelő módban működik, és egy értékelő vízjelet illeszt be az exportált prezentációkba.
 
 Az értékelő verzió licencszerűvé válik, ha a licencfájlt a jelentéskiszolgálóra másolja. Nem kell kód.
 
-Ha elégedett az értékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/hu/reporting-services/). Javasoljuk, hogy tekintse át a különböző előfizetési típusokat. Kérdése esetén lépjen kapcsolatba az Aspose értékesítési csapatával.
+Ha elégedett az értékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/reporting-services/). Javasoljuk, hogy tekintse át a különböző előfizetési típusokat. Kérdése esetén lépjen kapcsolatba az Aspose értékesítési csapatával.
 
 ## **Licencelés az Aspose.Slides for Reporting Services-ben**
 

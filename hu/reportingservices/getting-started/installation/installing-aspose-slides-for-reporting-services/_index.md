@@ -16,7 +16,7 @@ description: "Válassza ki, hogyan telepíti az Aspose.Slides for Reporting Serv
 
 Az Aspose.Slides for Reporting Services a jelentéskiszolgálón települ. Mielőtt elkezdené, ellenőrizze a [rendszerkövetelmények](/slides/hu/reportingservices/system-requirements/).
 
-A [letöltési oldal](https://releases.aspose.com/slides/hu/reportingservices/) két csomagot kínál minden kiadáshoz:
+A [letöltési oldal](https://releases.aspose.com/slides/reportingservices/) két csomagot kínál minden kiadáshoz:
 
 - **Aspose.Slides for Reporting Services XX.XX** — egy MSI telepítő. Felismeri a jelentéskiszolgáló példányokat a gépen, átmásolja a kiegészítőt a kiválasztottakba, és frissíti azok konfigurációs fájljait. Lásd [Telepítés az MSI telepítővel](/slides/hu/reportingservices/install-with-msi-installer/).
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — egy ZIP csomag kézi telepítéshez: átmásolja az egyetlen assembly-t és szerkeszt két konfigurációs fájlt. Lásd [Kézi telepítés](/slides/hu/reportingservices/install-manually/).
