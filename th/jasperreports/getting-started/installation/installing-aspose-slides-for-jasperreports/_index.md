@@ -7,7 +7,7 @@ description: "เลือกไฟล์ JAR ของ Aspose.Slides สำห�
 ---
 ## **เลือกไฟล์ JAR สำหรับเวอร์ชัน JasperReports ของคุณ**
 
-Aspose.Slides สำหรับ JasperReports จัดจำหน่ายเป็นไฟล์ ZIP บน [download page](https://releases.aspose.com/slides/th/jasperreport/). โฟลเดอร์ *lib* มีโฟลเดอร์ย่อยหนึ่งโฟลเดอร์ต่อช่วงเวอร์ชันของ JasperReports ให้เลือกไฟล์ JAR จากโฟลเดอร์ย่อยที่ครอบคลุมเวอร์ชัน JasperReports ที่คุณใช้งาน:
+Aspose.Slides สำหรับ JasperReports จัดจำหน่ายเป็นไฟล์ ZIP บน [download page](https://releases.aspose.com/slides/jasperreport/). โฟลเดอร์ *lib* มีโฟลเดอร์ย่อยหนึ่งโฟลเดอร์ต่อช่วงเวอร์ชันของ JasperReports ให้เลือกไฟล์ JAR จากโฟลเดอร์ย่อยที่ครอบคลุมเวอร์ชัน JasperReports ที่คุณใช้งาน:
 
 | เวอร์ชัน JasperReports | โฟลเดอร์ย่อยของ *lib* |
 | :- | :- |

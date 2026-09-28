@@ -64,12 +64,12 @@ Aspose.Slides for JasperReports เพิ่มตัวส่งออก Power
 <hr>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/th/jasperreport/release-notes/">บันทึกเวอร์ชัน</a></li>
-<li><a href="https://releases.aspose.com/slides/th/jasperreport/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">บันทึกเวอร์ชัน</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบชำระเงิน</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for JasperReports เพิ่มตัวส่งออก Power
 
 These steps compile a one-line report, fill it, and export it to PPTX with JasperReports 6.16.0 from Maven Central. You need JDK 11 or later and Apache Maven.
 
-1. ดาวน์โหลดไฟล์ ZIP จาก [download page](https://releases.aspose.com/slides/th/jasperreport/) แล้วแตกไฟล์ โฟลเดอร์ *lib* มีโฟลเดอร์ย่อยหนึ่งโฟลเดอร์ต่อช่วงเวอร์ชันของ JasperReports และแต่ละโฟลเดอร์เก็บไฟล์ jar สำหรับช่วงนั้น สำหรับ JasperReports 6.16.0 ให้คัดลอก *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ไปยังโฟลเดอร์โครงการที่ว่างเปล่า.
+1. ดาวน์โหลดไฟล์ ZIP จาก [download page](https://releases.aspose.com/slides/jasperreport/) แล้วแตกไฟล์ โฟลเดอร์ *lib* มีโฟลเดอร์ย่อยหนึ่งโฟลเดอร์ต่อช่วงเวอร์ชันของ JasperReports และแต่ละโฟลเดอร์เก็บไฟล์ jar สำหรับช่วงนั้น สำหรับ JasperReports 6.16.0 ให้คัดลอก *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* ไปยังโฟลเดอร์โครงการที่ว่างเปล่า.
 
 2. ไฟล์ jar อยู่ใน ZIP แทนที่จะมาจากที่เก็บ Maven ดังนั้นให้ติดตั้งลงในที่เก็บ Maven ท้องถิ่นของคุณ รันคำสั่งต่อไปนี้ในโฟลเดอร์โครงการ:
 
