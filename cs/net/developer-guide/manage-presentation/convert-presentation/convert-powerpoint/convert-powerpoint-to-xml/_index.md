@@ -24,7 +24,7 @@ description: "Převeďte prezentace PowerPoint a OpenDocument do souborů nebo p
 
 Aspose.Slides pro .NET dokáže převést prezentace PowerPoint do formátu PowerPoint XML Presentation. Výstup XML je užitečný, když potřebujete textovou reprezentaci pro kontrolu struktury prezentace, řešení problémů s generovanými dokumenty, porovnání výstupu v automatizovaných testech nebo integraci s pracovním tokem, který využívá XML místo balíčku prezentace.
 
-Použijte metodu [Presentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/) s hodnotou `Xml` z výčtu [SaveFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveformat/). Výsledek můžete zapsat přímo do souboru nebo do proudu.
+Použijte metodu [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) s hodnotou `Xml` z výčtu [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Výsledek můžete zapsat přímo do souboru nebo do proudu.
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` vytváří PowerPoint XML Presentation. Neextrahuje jednotlivé části Office Open XML uložené uvnitř balíčku PPTX. Pokud potřebujete přesné části balíčku PPTX, jako například `ppt/presentation.xml` nebo jednotlivé soubory XML snímků, prohlédněte si samotný balíček PPTX.
@@ -32,7 +32,7 @@ Použijte metodu [Presentation.Save](https://reference.aspose.com/slides/cs/net/
 
 ## **Převést prezentaci do souboru XML**
 
-Načtěte zdrojovou prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a poté předávejte výstupní cestu a `SaveFormat.Xml` metodě [Presentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/). Zdroj může být libovolný formát prezentace podporovaný pro načítání, například PPT, PPTX nebo ODP.
+Načtěte zdrojovou prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) a poté předávejte výstupní cestu a `SaveFormat.Xml` metodě [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Zdroj může být libovolný formát prezentace podporovaný pro načítání, například PPT, PPTX nebo ODP.
 
 Následující příklad převádí prezentaci PPTX do souboru XML:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Zapsat výstup XML do proudu**
 
-Použijte přetížení metodou proudu [Presentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/), když musí XML zůstat v paměti nebo být předáno dalšímu komponentu, například webové službě, poskytovateli úložiště nebo zpracovateli XML. Následující příklad zapíše výsledek do [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) a přetočí jej pro následné čtení:
+Použijte přetížení metodou proudu [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/), když musí XML zůstat v paměti nebo být předáno dalšímu komponentu, například webové službě, poskytovateli úložiště nebo zpracovateli XML. Následující příklad zapíše výsledek do [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) a přetočí jej pro následné čtení:
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ Ne. PPTX je balíček obsahující více částí Office Open XML, zatímco `Sav
 
 **Mohu uložit výstup XML bez vytváření souboru na disku?**
 
-Ano. Předávejte zapisovatelný proud metodě [Presentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/). Například použijte [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) pro zpracování v paměti.
+Ano. Předávejte zapisovatelný proud metodě [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Například použijte [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) pro zpracování v paměti.
 
 **Může Aspose.Slides načíst exportovaný XML soubor znovu?**
 
-Ano. Předávejte XML soubor nebo proud konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/sourceformat/) pak vrátí `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/presentationfactory/getpresentationinfo/) pro tento formát hlásí `LoadFormat.Unknown`, takže jej nepoužívejte k rozhodování, zda lze XML soubor otevřít.
+Ano. Předávejte XML soubor nebo proud konstruktoru [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) pak vrátí `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) pro tento formát hlásí `LoadFormat.Unknown`, takže jej nepoužívejte k rozhodování, zda lze XML soubor otevřít.
 
 **Vykresluje konverze XML každý snímek jako stránku nebo obrázek?**
 

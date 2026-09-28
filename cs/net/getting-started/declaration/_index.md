@@ -25,7 +25,7 @@ Bezpečnost přístupu k kódu (CAS) existuje jen v .NET Framework. Tento člán
 
 ## **.NET Framework**
 
-Aspose.Slides vyžaduje plnou důvěru na .NET Framework. Není možné spustit ji v částečné důvěře, např. v ASP.NET aplikaci nastavené na Střední důvěru (`<trust level="Medium" />`): vytvoření objektu [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) selže s `SecurityException`.
+Aspose.Slides vyžaduje plnou důvěru na .NET Framework. Není možné spustit ji v částečné důvěře, např. v ASP.NET aplikaci nastavené na Střední důvěru (`<trust level="Medium" />`): vytvoření objektu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) selže s `SecurityException`.
 
 Microsoft již nepovažuje částečnou důvěru ASP.NET za způsob izolace aplikací a doporučuje spouštět aplikace v samostatných aplikačních fondech. Viz [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

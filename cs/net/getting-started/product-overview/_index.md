@@ -124,7 +124,7 @@ Funkce Aspose.Slides for .NET lze rozdělit do těchto skupin:
 ## **Technická podpora**
 Aspose poskytuje neomezenou bezplatnou technickou podporu pro všechny své produkty. Podpora je k dispozici všem uživatelům (včetně uživatelů s evaluačními balíčky). Pokud potřebujete pomoc s Aspose.Slides pro .NET, zvažte následující:
 
-- Hlavním kanálem podpory jsou [Aspose Forum](https://forum.aspose.com/). Zeptejte se ve [fóru Aspose.Slides](https://forum.aspose.com/c/slides/cs/11)—otázka bude zodpovězena během několika hodin. Tým podpory Aspose.Slides odpovídá přímo na otázky zveřejněné ve fóru.
+- Hlavním kanálem podpory jsou [Aspose Forum](https://forum.aspose.com/). Zeptejte se ve [fóru Aspose.Slides](https://forum.aspose.com/c/slides/11)—otázka bude zodpovězena během několika hodin. Tým podpory Aspose.Slides odpovídá přímo na otázky zveřejněné ve fóru.
 - Všimněte si, že Aspose neposkytuje technickou podporu po telefonu. Telefonická podpora je k dispozici pouze pro otázky týkající se prodeje a nákupu.
 - Při očekávání odpovědi ve fóru buďte prosím trpěliví a zohledněte časové rozdíly mezi časovými pásmy.
 
@@ -144,10 +144,10 @@ Tato tabulka uvádí důležité technické zdroje Aspose.Slides pro .NET.
 
 |**Zdroj**|**Popis**|
 | :- | :- |
-|[Domovská stránka Aspose.Slides pro .NET](https://products.aspose.com/slides/cs/net/)|Domovská stránka produktu.|
-|[Blog Aspose.Slides](https://blog.aspose.com/category/slides/cs/)|Pravidelně kontrolujte tuto stránku pro informace o nových vydáních a užitečné tipy k Aspose.Slides.|
+|[Domovská stránka Aspose.Slides pro .NET](https://products.aspose.com/slides/net/)|Domovská stránka produktu.|
+|[Blog Aspose.Slides](https://blog.aspose.com/category/slides/)|Pravidelně kontrolujte tuto stránku pro informace o nových vydáních a užitečné tipy k Aspose.Slides.|
 |[Stažení Aspose.Slides pro .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Stáhněte si zde nejnovější verzi Aspose.Slides. Často vydáváme nové verze.|
-|[Fórum podpory Aspose.Slides](https://forum.aspose.com/c/slides/cs/11)|Zde položte své otázky a problémy pro rychlé řešení.|
+|[Fórum podpory Aspose.Slides](https://forum.aspose.com/c/slides/11)|Zde položte své otázky a problémy pro rychlé řešení.|
 |[Dokumentace produktu Aspose.Slides pro .NET](/slides/cs/net/)|Kompletní online dokumentace, která obsahuje tento dokument a referenční příručku API Aspose.Slides.|
 
 ## **Požadavky na úroveň důvěry**
@@ -158,7 +158,7 @@ Na .NET Framework Aspose.Slides vyžaduje plnou důvěru a nefunguje pod částe
 
 ### Podporuje úrovně souladu PDF pro archivaci a přístupnost (PDF/A a PDF/UA)?
 
-Ano. můžete ukládat do PDF s PDF/A-2a/2b/2u, PDF/A-3a/3b, stejně jako PDF/UA pomocí konfigurace [možností exportu PDF](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/).
+Ano. můžete ukládat do PDF s PDF/A-2a/2b/2u, PDF/A-3a/3b, stejně jako PDF/UA pomocí konfigurace [možností exportu PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### Existuje mechanismus substituce fontů a podpora vlastních fontů pro zajištění správného vykreslování?
 
@@ -178,7 +178,7 @@ Ano, můžete zpracovávat různé dokumenty paralelně v samostatných vláknec
 
 ### Jsou makra zachována a mohu spravovat VBA v souborech PPTM/PPSM?
 
-Ano. Prezentace s makry jsou [podporovány](/slides/cs/net/presentation-via-vba/) a můžete [prozkoumat a spravovat VBA projekty](https://reference.aspose.com/slides/cs/net/aspose.slides.vba/) v těchto souborech.
+Ano. Prezentace s makry jsou [podporovány](/slides/cs/net/presentation-via-vba/) a můžete [prozkoumat a spravovat VBA projekty](https://reference.aspose.com/slides/net/aspose.slides.vba/) v těchto souborech.
 
 ### Můžu převést PDF nebo HTML zpět na snímky PowerPointu?
 
@@ -186,7 +186,7 @@ Ano. Můžete [importovat stránky PDF nebo HTML obsah](/slides/cs/net/import-pr
 
 ### Je podpora exportu do XPS a mohu ovládat kvalitu a obsah výstupu XPS?
 
-Ano. [Export do XPS](/slides/cs/net/convert-powerpoint-to-xps/) je k dispozici a [možnosti uložení](https://reference.aspose.com/slides/cs/net/aspose.slides.export/xpsoptions/) vám umožní ladit kvalitu výstupu a zahrnutý obsah.
+Ano. [Export do XPS](/slides/cs/net/convert-powerpoint-to-xps/) je k dispozici a [možnosti uložení](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) vám umožní ladit kvalitu výstupu a zahrnutý obsah.
 
 ### Můžu převést snímky na obrázky a ovládat kvalitu výstupu?
 

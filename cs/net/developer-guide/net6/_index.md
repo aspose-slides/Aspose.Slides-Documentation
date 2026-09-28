@@ -56,7 +56,7 @@ sudo apt-get update && sudo apt-get install -y libfontconfig1
 dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-Na Debianu a Ubuntu `libfontconfig1` také nainstaluje fonty DejaVu, takže text se vykresluje bez dalších fontových balíčků. Bez `fontconfig` selže vytvoření [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) s výjimkou `TypeInitializationException`, jejíž vnitřní `DllNotFoundException` hlásí, že `libfontconfig.so.1` nelze otevřít. [Požadavky systému](/slides/cs/net/system-requirements/) obsahují krátký program, který kontroluje nastavení.
+Na Debianu a Ubuntu `libfontconfig1` také nainstaluje fonty DejaVu, takže text se vykresluje bez dalších fontových balíčků. Bez `fontconfig` selže vytvoření [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) s výjimkou `TypeInitializationException`, jejíž vnitřní `DllNotFoundException` hlásí, že `libfontconfig.so.1` nelze otevřít. [Požadavky systému](/slides/cs/net/system-requirements/) obsahují krátký program, který kontroluje nastavení.
 
 ## **Cloud a kontejnery**
 
@@ -68,7 +68,7 @@ Pro návody k jednotlivým cloudovým platformám viz [Aspose.Slides on Cloud Pl
 
 Projekt, který používá Aspose.Slides.NET6.CrossPlatform, může také odkazovat na System.Drawing.Common, přímo nebo přes jiný balíček. Aktuální verze Aspose.Slides neexponuje žádné veřejné typy v jmenných prostorech `System`, takže knihovny nekolidují a můžete importovat jmenné prostory `Aspose.Slides` a `System.Drawing` ve stejném souboru.
 
-Pokud kompilátor hlásí chybu CS0433, protože typ jako `Image` nebo `Graphics` existuje jak v Aspose.Slides, tak v System.Drawing.Common, váš projekt používá starší verzi Aspose.Slides. Aktualizujte balíček na nejnovější verzi. Aspose.Slides vrací vykreslené obrázky jako objekty [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/), které jsou popsány v [Moderní API](/slides/cs/net/modern-api/).
+Pokud kompilátor hlásí chybu CS0433, protože typ jako `Image` nebo `Graphics` existuje jak v Aspose.Slides, tak v System.Drawing.Common, váš projekt používá starší verzi Aspose.Slides. Aktualizujte balíček na nejnovější verzi. Aspose.Slides vrací vykreslené obrázky jako objekty [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/), které jsou popsány v [Moderní API](/slides/cs/net/modern-api/).
 
 ## **Často kladené otázky**
 

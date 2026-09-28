@@ -28,7 +28,7 @@ Můžete definovat písmo, které se použije, když je konkrétní písmo nedos
 
 ## **Získání náhrad písem**
 
-Použijte metodu [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste zjistili, která písma budou nahrazena při vykreslení prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstitutioninfo/), které identifikují původní i náhradní názvy písma.
+Použijte metodu [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste zjistili, která písma budou nahrazena při vykreslení prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/), které identifikují původní i náhradní názvy písma.
 
 Následující ukázka v C# vypisuje všechny náhrady písem pro prezentaci:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Získání náhrad písem pro vybrané snímky**
 
-Použijte přetížení [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) s argumentem `int[] slides`, abyste prozkoumali jen náhrady potřebné k vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci postupně, hledáte snímky závislé na nedostupných písmenech, připravujete minimální balíček písem pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
+Použijte přetížení [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) s argumentem `int[] slides`, abyste prozkoumali jen náhrady potřebné k vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci postupně, hledáte snímky závislé na nedostupných písmenech, připravujete minimální balíček písem pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
 
-Pole `slides` obsahuje jednopodlažní indexy snímků: `1` označuje první snímek. Naproti tomu indexér kolekce [Presentation.Slides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/slides/cs/) je nulový, takže stejný snímek se přistupuje jako `presentation.Slides[0]`. Tuto rozdílnost mějte na paměti při sestavování pole, abyste se vyhnuli chybám „o jeden“.
+Pole `slides` obsahuje jednopodlažní indexy snímků: `1` označuje první snímek. Naproti tomu indexér kolekce [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) je nulový, takže stejný snímek se přistupuje jako `presentation.Slides[0]`. Tuto rozdílnost mějte na paměti při sestavování pole, abyste se vyhnuli chybám „o jeden“.
 
-Volání přetížení proveďte přes vlastnost [Presentation.FontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/fontsmanager/). Vrátí pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstitutioninfo/), který obsahuje původní i náhradní název písma. Výsledek odráží aktuální fontové prostředí a [externě načtená písma](/slides/cs/net/custom-font/). Náhradní pravidla uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsubstrulecollection/) mění vykreslený výstup, ale nejsou v výsledku uvedena.
+Volání přetížení proveďte přes vlastnost [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Vrátí pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/), který obsahuje původní i náhradní název písma. Výsledek odráží aktuální fontové prostředí a [externě načtená písma](/slides/cs/net/custom-font/). Náhradní pravidla uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) mění vykreslený výstup, ale nejsou v výsledku uvedena.
 
 Stejná náhrada může být vyžadována více než jedním vybraným snímkem. Výsledek deduplikujte, když vytváříte inventář písem nebo preflight zprávu. Následující příklad vypisuje každou vrácenou náhradu a poté vytvoří seřazený seznam unikátních mapování písem:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Rozhraní [IFontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte si to podle rozsahu vykreslovací operace:
+Rozhraní [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte si to podle rozsahu vykreslovací operace:
 
 | Přetížení | Použijte, když |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) bez argumentů | Potřebujete náhrady pro celou prezentaci. |
-| [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) s `int[] slides` | Potřebujete náhrady pro vybraný rozsah, postupnou kontrolu nebo částečný export. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) bez argumentů | Potřebujete náhrady pro celou prezentaci. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) s `int[] slides` | Potřebujete náhrady pro vybraný rozsah, postupnou kontrolu nebo částečný export. |
 
 ## **Nastavení pravidel náhrady písem**
 
@@ -94,9 +94,9 @@ Chcete-li určit písmo, které má Aspose.Slides použít, když je zdrojové p
 
 1. Načtěte prezentaci.  
 2. Vytvořte definice písem pro zdrojové a náhradní písmo.  
-3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstcondition/).  
-4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstrulecollection/).  
-5. Přiřaďte kolekci k vlastnosti [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).  
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).  
+5. Přiřaďte kolekci k vlastnosti [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
 6. Vykreslete nebo konvertujte prezentaci.
 
 Následující ukázka v C# nahrazuje `Arial` za `SomeRareFont`, pokud je `SomeRareFont` nedostupné, a poté vykreslí první snímek pro ověření výsledku. Náhradní písmo musí být pro Aspose.Slides dostupné.
@@ -153,4 +153,4 @@ Ne. Za poskytování písem a dodržování jejich licencí jste zodpovědní vy
 Ano. Nainstalovaná písma a umístění vyhledávání písem se liší podle operačního systému, takže písmo dostupné na jednom počítači může na jiném vyžadovat náhradu.
 
 **Jak zajistit konzistentní výběr písem při hromadných konverzích?**  
-Používejte stejné soubory písem a jejich verze na každém počítači nebo v každém kontejneru, [načtěte požadovaná externí písma](/slides/cs/net/custom-font/), a [vložte písma](/slides/cs/net/embedded-font/), pokud to licence dovoluje. Můžete také před exportem zavolat [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste identifikovali neočekávané náhrady.
+Používejte stejné soubory písem a jejich verze na každém počítači nebo v každém kontejneru, [načtěte požadovaná externí písma](/slides/cs/net/custom-font/), a [vložte písma](/slides/cs/net/embedded-font/), pokud to licence dovoluje. Můžete také před exportem zavolat [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste identifikovali neočekávané náhrady.

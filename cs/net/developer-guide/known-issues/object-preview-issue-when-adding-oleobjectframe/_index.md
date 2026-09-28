@@ -22,7 +22,7 @@ description: "Proč OLE objekt přidaný pomocí Aspose.Slides pro .NET zobrazuj
 ---
 ## **Úvod**
 
-Při použití Aspose.Slides pro .NET, když přidáte [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe/) na snímek, na výstupním snímku se zobrazí zpráva „EMBEDDED OLE OBJECT“. Tato zpráva je záměrná a NENÍ chyba.
+Při použití Aspose.Slides pro .NET, když přidáte [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) na snímek, na výstupním snímku se zobrazí zpráva „EMBEDDED OLE OBJECT“. Tato zpráva je záměrná a NENÍ chyba.
 
 Pro více informací o práci s OLE objekty viz [Manage OLE](/slides/cs/net/manage-ole/).
 
@@ -30,7 +30,7 @@ Pro více informací o práci s OLE objekty viz [Manage OLE](/slides/cs/net/mana
 
 Aspose.Slides zobrazuje zprávu „EMBEDDED OLE OBJECT“, aby vás upozornil, že OLE objekt byl změněn a náhledový obrázek musí být aktualizován.
 
-Například pokud přidáte graf Microsoft Excel jako [OleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/oleobjectframe/) na snímek (pro podrobnosti viz článek „Manage OLE“) a poté otevřete prezentaci v Microsoft PowerPoint, uvidíte na snímku tento obrázek:
+Například pokud přidáte graf Microsoft Excel jako [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) na snímek (pro podrobnosti viz článek „Manage OLE“) a poté otevřete prezentaci v Microsoft PowerPoint, uvidíte na snímku tento obrázek:
 
 ![OLE object message](OLE_object_message.png)
 

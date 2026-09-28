@@ -59,7 +59,7 @@ Vytvořte složku s názvem *HelloSlidesDocker* a přidejte do ní následujíc�
 </Project>
 ```
 
-*Program.cs* vytváří [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/), přidává obdélník s textem na první snímek a ukládá prezentaci dvakrát metodou [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/): jako PPTX i jako PDF. Oba soubory jsou umístěny ve složce *output* pod pracovní složkou. Aplikace pak vypíše písma, která byla během renderování PDF nahrazena, pomocí [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste mohli zjistit, zda kontejner obsahuje písma použité v prezentaci.
+*Program.cs* vytváří [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), přidává obdélník s textem na první snímek a ukládá prezentaci dvakrát metodou [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): jako PPTX i jako PDF. Oba soubory jsou umístěny ve složce *output* pod pracovní složkou. Aplikace pak vypíše písma, která byla během renderování PDF nahrazena, pomocí [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste mohli zjistit, zda kontejner obsahuje písma použité v prezentaci.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine fáze nainstaluje tři balíčky a změní jedno nastavení:
 - `font-dejavu` poskytuje písma. Bez jakéhokoli písma se konverze zastaví s `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` a `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` poskytují data o kulturách. Alpine .NET obrazy běží ve výchozím režimu globalizace‑invariant, a v tomto režimu Aspose.Slides selže s `CultureNotFoundException` pro `en-US`.
 
-Sestavte, spusťte a zkopírujte výstup stejnými příkazy jako výše. V tomto obrazu aplikace vytiskne pouze řádek `Saved`: s Aspose.Slides.NET na Linuxu fontconfig vybírá náhradu za chybějící písmo a [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) jej neuvádí. [Deploy Fonts](/slides/cs/net/deploy-fonts/) ukazuje, jak zkontrolovat, které písmo je použito.
+Sestavte, spusťte a zkopírujte výstup stejnými příkazy jako výše. V tomto obrazu aplikace vytiskne pouze řádek `Saved`: s Aspose.Slides.NET na Linuxu fontconfig vybírá náhradu za chybějící písmo a [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) jej neuvádí. [Deploy Fonts](/slides/cs/net/deploy-fonts/) ukazuje, jak zkontrolovat, které písmo je použito.
 
 ## **Často kladené otázky**
 

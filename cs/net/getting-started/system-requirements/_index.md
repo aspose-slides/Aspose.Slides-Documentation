@@ -68,7 +68,7 @@ Linuxová knihovna balíčku vyžaduje knihovnu `fontconfig`:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Bez ní selže vytvoření [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) s `TypeInitializationException`, jehož vnitřní `DllNotFoundException` uvádí, že `libfontconfig.so.1` nelze otevřít.
+Bez ní selže vytvoření [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) s `TypeInitializationException`, jehož vnitřní `DllNotFoundException` uvádí, že `libfontconfig.so.1` nelze otevřít.
 
 Minimální základní obrazy také nemusí obsahovat `fontconfig`. Například základní obraz AWS Lambda pro .NET 8 neobsahuje ani `fontconfig`, ani žádná písma. V kontejnerovém obrazu postaveném na něm spusťte `dnf install -y fontconfig`, což také nainstaluje písma Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Podpora globalizace**
 
-Oba balíčky potřebují podporu globalizace .NET, kterou .NET na Linuxu poskytuje přes knihovny ICU. V [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) selže vytvoření [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) s `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Oba balíčky potřebují podporu globalizace .NET, kterou .NET na Linuxu poskytuje přes knihovny ICU. V [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) selže vytvoření [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) s `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Některé kontejnerové obrazy tuto režim zapínají. Například .NET runtime obrazy pro Alpine Linux (`runtime-deps`, `runtime`, a `aspnet`) nastavením `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` neobsahují ICU. V obrazu postaveném na nich nainstalujte ICU a režim vypněte:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Program přidá obdélník s textem na první snímek a uloží prezentaci jako *hello.pptx* pomocí metody [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/). Pak vykreslí snímek pomocí [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/getimage/) a výsledek uloží jako *hello.png* pomocí [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/) ve formátu [ImageFormat.Png](https://reference.aspose.com/slides/cs/net/aspose.slides/imageformat/). Měřítko 1 vykreslí jeden pixel na bod, takže výchozí 720 × 540 bodový snímek se stane 720 × 540 pixelovým obrázkem, přičemž text je viditelný uvnitř obdélníku. Bez licence oba soubory také obsahují zkušební vodoznak; viz [Licensing](/slides/cs/net/licensing/). Pokud některý požadavek chybí, program zastaví s jednou z výjimek popsaných v [Linux](#linux).
+Program přidá obdélník s textem na první snímek a uloží prezentaci jako *hello.pptx* pomocí metody [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Pak vykreslí snímek pomocí [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) a výsledek uloží jako *hello.png* pomocí [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) ve formátu [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Měřítko 1 vykreslí jeden pixel na bod, takže výchozí 720 × 540 bodový snímek se stane 720 × 540 pixelovým obrázkem, přičemž text je viditelný uvnitř obdélníku. Bez licence oba soubory také obsahují zkušební vodoznak; viz [Licensing](/slides/cs/net/licensing/). Pokud některý požadavek chybí, program zastaví s jednou z výjimek popsaných v [Linux](#linux).
 
 ## **Vývojové nástroje**
 

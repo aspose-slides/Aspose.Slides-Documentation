@@ -77,7 +77,7 @@ Ne. PowerPoint není vyžadován; Aspose.Slides je samostatný engine pro vytvá
 
 **Jak funguje vícevláknové zpracování? Lze proces paralelizovat?**
 
-Je bezpečné zpracovávat různé dokumenty v různých vláknech; stejný [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) objekt nesmí být používán [více vlákny](/slides/cs/net/multithreading/) současně.
+Je bezpečné zpracovávat různé dokumenty v různých vláknech; stejný [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objekt nesmí být používán [více vlákny](/slides/cs/net/multithreading/) současně.
 
 **Podporují se hesla souborů a šifrování?**
 

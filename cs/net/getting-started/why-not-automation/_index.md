@@ -123,6 +123,6 @@ Naše týmy jsou vždy otevřené a flexibilní při poskytování pomoci – a 
 
 I když tento článek pokrývá některé klíčové body, proč jsou komponenty Aspose lepší volbou než Office Automation, musíte pochopit, že existuje mnohem více výhod. Prošli jsme jen některé z hlavních výhod.
 
-Navíc všechny produkty a komponenty Aspose nabízejí bezrizikovou, bez závazku [Verzi ke zkušebnímu použití](https://releases.aspose.com/slides/cs/net/). Doporučujeme využít zkušební verzi a zjistit, co Aspose může udělat pro vaše aplikace nebo podnikání.
+Navíc všechny produkty a komponenty Aspose nabízejí bezrizikovou, bez závazku [Verzi ke zkušebnímu použití](https://releases.aspose.com/slides/net/). Doporučujeme využít zkušební verzi a zjistit, co Aspose může udělat pro vaše aplikace nebo podnikání.
 
 {{% /alert %}}

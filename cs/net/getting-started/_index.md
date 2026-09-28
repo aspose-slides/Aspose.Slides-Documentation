@@ -62,7 +62,7 @@ Bez licence běží Aspose.Slides v evaluačním režimu: přidává vodoznak ke
 
 ## **Získat pomoc**
 
-[Product Support](/slides/cs/net/product-support/) vysvětluje, jak položit otázku na [free support forum](https://forum.aspose.com/c/slides/cs/11) a co zahrnout, když hlásíte problém.
+[Product Support](/slides/cs/net/product-support/) vysvětluje, jak položit otázku na [free support forum](https://forum.aspose.com/c/slides/11) a co zahrnout, když hlásíte problém.
 
 ## **FAQ**
 

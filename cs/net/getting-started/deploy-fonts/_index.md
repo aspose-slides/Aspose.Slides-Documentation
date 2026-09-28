@@ -56,7 +56,7 @@ Následující konzolová aplikace hlásí písma, která Aspose.Slides nahrazuj
 </Project>
 ```
 
-*Program.cs* přidá jeden textový rámeček pro každé jméno písma na snímek a přiřadí písmo prostřednictvím vlastnosti [LatinFont](https://reference.aspose.com/slides/cs/net/aspose.slides/baseportionformat/latinfont/). Jména písem pocházejí z příkazové řádky; bez argumentů aplikace kontroluje Calibri, Arial a Times New Roman. Vytiskne složky, ve kterých Aspose.Slides hledá písma ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/getfontfolders/)), vykreslí snímek do *output/fonts.pdf* a vypíše náhrady hlášené metodou [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/). Dva volitelné kroky na začátku, načtení složky *fonts* a přečtení proměnné `DEFAULT_FONT`, jsou vysvětleny dále v tomto článku.
+*Program.cs* přidá jeden textový rámeček pro každé jméno písma na snímek a přiřadí písmo prostřednictvím vlastnosti [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Jména písem pocházejí z příkazové řádky; bez argumentů aplikace kontroluje Calibri, Arial a Times New Roman. Vytiskne složky, ve kterých Aspose.Slides hledá písma ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), vykreslí snímek do *output/fonts.pdf* a vypíše náhrady hlášené metodou [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Dva volitelné kroky na začátku, načtení složky *fonts* a přečtení proměnné `DEFAULT_FONT`, jsou vysvětleny dále v tomto článku.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Načtení písem ze složky aplikace**
 
-Místo instalace písem v obrazu je můžete dodávat s aplikací a načíst pomocí [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/). Písma jsou pak k dispozici jen Aspose.Slides a nasazena jsou spolu s aplikací. *FontCheck* to dělá: *FontCheck.csproj* kopíruje složku *fonts* do výstupu aplikace a *Program.cs* před vytvořením prezentace předá tuto složku metodě `LoadExternalFonts`. [Custom Font](/slides/cs/net/custom-font/) popisuje další způsoby dodání písem, například načtení z paměti.
+Místo instalace písem v obrazu je můžete dodávat s aplikací a načíst pomocí [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Písma jsou pak k dispozici jen Aspose.Slides a nasazena jsou spolu s aplikací. *FontCheck* to dělá: *FontCheck.csproj* kopíruje složku *fonts* do výstupu aplikace a *Program.cs* před vytvořením prezentace předá tuto složku metodě `LoadExternalFonts`. [Custom Font](/slides/cs/net/custom-font/) popisuje další způsoby dodání písem, například načtení z paměti.
 
 Znovu sestavte obraz a poté zkontrolujte Calibri a Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Nastavení výchozího písma pro chybějící písma**
 
-Když chybí písmo, Aspose.Slides použije náhradu, kterou si zvolí sám. Chcete‑li si náhradu zvolit vy, nastavte vlastnost [DefaultRegularFont](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/defaultregularfont/) třídy [LoadOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/) a předávejte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). *FontCheck* načte název písma z proměnné prostředí `DEFAULT_FONT`. S načteným Carlitem jej použijte pro chybějící písma:
+Když chybí písmo, Aspose.Slides použije náhradu, kterou si zvolí sám. Chcete‑li si náhradu zvolit vy, nastavte vlastnost [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) třídy [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) a předávejte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* načte název písma z proměnné prostředí `DEFAULT_FONT`. S načteným Carlitem jej použijte pro chybějící písma:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Výchozí písmo nahrazuje každé chybějící písmo. Pro mapování jednotlivých písem, např. Arial na Liberation Sans a Calibri na Carlito, použijte [pravidla náhrady písem](/slides/cs/net/font-substitution/). Pravidla mění vykreslený výstup, ale `GetSubstitutions` je neodráží, takže písma v souboru výstupu kontrolujte přímo. Pro asijský text nastavte také [DefaultAsianFont](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/defaultasianfont/); viz [Default Font](/slides/cs/net/default-font/).
+Výchozí písmo nahrazuje každé chybějící písmo. Pro mapování jednotlivých písem, např. Arial na Liberation Sans a Calibri na Carlito, použijte [pravidla náhrady písem](/slides/cs/net/font-substitution/). Pravidla mění vykreslený výstup, ale `GetSubstitutions` je neodráží, takže písma v souboru výstupu kontrolujte přímo. Pro asijský text nastavte také [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); viz [Default Font](/slides/cs/net/default-font/).
 
 ## **Instalace písem na Alpine Linux**
 
