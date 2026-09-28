@@ -1,40 +1,40 @@
 ---
-title: แปลงงานนำเสนอ PowerPoint เป็น XML ใน .NET
+title: แปลงการนำเสนอ PowerPoint ไปเป็น XML ใน .NET
 linktitle: PowerPoint เป็น XML
 type: docs
 weight: 145
 url: /th/net/convert-powerpoint-to-xml/
 keywords:
-- แปลง PowerPoint เป็น XML
-- แปลงงานนำเสนอเป็น XML
-- PPT เป็น XML
-- PPTX เป็น XML
-- ODP เป็น XML
-- PowerPoint XML Presentation
+- แปลง PowerPoint ไปเป็น XML
+- แปลงการนำเสนอไปเป็น XML
+- PPT ไปเป็น XML
+- PPTX ไปเป็น XML
+- ODP ไปเป็น XML
+- การนำเสนอ PowerPoint XML
 - SaveFormat.Xml
-- บันทึกงานนำเสนอเป็น XML
-- ส่งออกงานนำเสนอเป็น XML
+- บันทึกการนำเสนอเป็น XML
+- ส่งออกการนำเสนอเป็น XML
 - สตรีม XML
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงงานนำเสนอ PowerPoint และ OpenDocument เป็นไฟล์หรือสตรีม PowerPoint XML ใน C# ด้วย Aspose.Slides for .NET."
+description: "แปลงการนำเสนอ PowerPointและ OpenDocument ให้เป็นไฟล์หรือสตรีม PowerPoint XML ด้วย C# และ Aspose.Slides สำหรับ .NET."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for .NET สามารถแปลงงานนำเสนอ PowerPoint ไปเป็นรูปแบบ PowerPoint XML Presentation ได้ ผลลัพธ์ XML มีประโยชน์เมื่อคุณต้องการการแสดงผลแบบข้อความเพื่อทำการตรวจสอบโครงสร้างของงานนำเสนอ การแก้ไขปัญหาเอกสารที่สร้างขึ้น การเปรียบเทียบผลลัพธ์ในการทดสอบอัตโนมัติ หรือการรวมเข้ากับเวิร์กโฟลว์ที่ใช้ XML แทนการใช้แพ็กเกจงานนำเสนอ
+Aspose.Slides for .NET สามารถแปลงไฟล์นำเสนอ PowerPoint ไปเป็นรูปแบบ PowerPoint XML Presentation ได้ ผลลัพธ์เป็น XML มีประโยชน์เมื่อคุณต้องการตัวแทนแบบข้อความเพื่อทำการตรวจสอบโครงสร้างของการนำเสนอ การแก้ไขปัญหาเอกสารที่สร้างขึ้น การเปรียบเทียบผลลัพธ์ในการทดสอบอัตโนมัติ หรือการรวมเข้ากับกระบวนการทำงานที่ใช้ XML แทนแพ็กเกจนำเสนอ
 
-ใช้เมธอด [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) พร้อมกับค่า `Xml` จาก enumeration [SaveFormat](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveformat/) คุณสามารถเขียนผลลัพธ์โดยตรงลงไฟล์หรือสตรีมได้
+ใช้เมธอด [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) กับค่า `Xml` จาก enumeration [SaveFormat](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveformat/) คุณสามารถเขียนผลลัพธ์โดยตรงไปยังไฟล์หรือสตรีมได้
 
 {{% alert color="info" title="Note" %}}
-`SaveFormat.Xml` สร้าง PowerPoint XML Presentation ไม่ได้ทำการแยกส่วน Office Open XML แต่ละส่วนที่เก็บอยู่ในแพ็กเกจ PPTX หากคุณต้องการส่วนที่เป็นไฟล์ PPTX อย่างแม่นยำ เช่น `ppt/presentation.xml` หรือไฟล์ XML ของสไลด์แต่ละไฟล์ ให้ตรวจสอบแพ็กเกจ PPTX ด้วยตนเอง
+`SaveFormat.Xml` สร้าง PowerPoint XML Presentation. มันไม่ได้แยกส่วน Office Open XML รายบุคคลที่จัดเก็บภายในแพ็กเกจ PPTX หากคุณต้องการส่วนของแพ็กเกจ PPTX ที่แม่นยำ เช่น `ppt/presentation.xml` หรือไฟล์ XML ของสไลด์แต่ละไฟล์ ให้ตรวจสอบแพ็กเกจ PPTX เอง.
 {{% /alert %}}
 
-## **แปลงงานนำเสนอเป็นไฟล์ XML**
+## **แปลงการนำเสนอเป็นไฟล์ XML**
 
-โหลดงานนำเสนอต้นฉบับด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จากนั้นส่งเส้นทางไฟล์ผลลัพธ์และ `SaveFormat.Xml` ไปยัง [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) แหล่งที่มาสามารถเป็นรูปแบบงานนำเสนอใดก็ได้ที่รองรับการโหลด เช่น PPT, PPTX หรือ ODP
+โหลดการนำเสนอต้นฉบับด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จากนั้นส่งพาธผลลัพธ์และ `SaveFormat.Xml` ไปยังเมธอด [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) แหล่งข้อมูลต้นฉบับอาจเป็นรูปแบบการนำเสนอใดก็ได้ที่รองรับการโหลด เช่น PPT, PPTX หรือ ODP
 
-ตัวอย่างต่อไปนี้จะแปลงงานนำเสนอ PPTX เป็นไฟล์ XML:
+ตัวอย่างต่อไปนี้แปลงการนำเสนอ PPTX เป็นไฟล์ XML:
 
 ```csharp
 using Aspose.Slides;
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **เขียนผลลัพธ์ XML ไปยังสตรีม**
 
-ใช้ overload แบบสตรีมของ [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) เมื่อผลลัพธ์ XML จำเป็นต้องอยู่ในหน่วยความจำหรือส่งต่อไปยังส่วนประกอบอื่น เช่น เว็บเซอร์วิส ผู้ให้บริการจัดเก็บข้อมูล หรือพายไลน์การประมวลผล XML ตัวอย่างต่อไปนี้เขียนผลลัพธ์ไปยัง [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) แล้วรีวินด์เพื่อการอ่านต่อไป:
+ใช้ overload ของสตรีมของเมธอด [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) เมื่อ XML ต้องอยู่ในหน่วยความจำหรือส่งต่อไปยังส่วนประกอบอื่น เช่น เว็บเซอร์วิส ผู้ให้บริการจัดเก็บข้อมูล หรือพายไลน์การประมวลผล XML ตัวอย่างต่อไปนี้เขียนผลลัพธ์ไปยัง [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) และเลื่อนตำแหน่งกลับเพื่อการอ่านต่อไป:
 
 ```csharp
 using System.IO;
@@ -59,38 +59,38 @@ using var xmlStream = new MemoryStream();
 presentation.Save(xmlStream, SaveFormat.Xml);
 xmlStream.Position = 0;
 
-// ส่ง xmlStream ไปยังคอมโพเนนต์ต่อไปในเวิร์กโฟลว์.
+// ส่ง xmlStream ไปยังส่วนประกอบถัดไปในลำดับการทำงาน.
 ```
 
-## **เปรียบเทียบ XML กับรูปแบบงานนำเสนอและการส่งออก**
+## **เปรียบเทียบ XML กับรูปแบบการนำเสนอและการส่งออก**
 
-เลือกรูปแบบผลลัพธ์ตามวิธีการใช้งานของผลลัพธ์:
+เลือกรูปแบบผลลัพธ์ตามวิธีการใช้ผลลัพธ์:
 
 | รูปแบบ | ผลลัพธ์ | การใช้งานทั่วไป |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | PowerPoint XML Presentation | การตรวจสอบโครงสร้าง, การแก้ไขปัญหา, การเปรียบเทียบผลลัพธ์ที่สร้างขึ้น, และการผสานรวมแบบ XML |
-| PPT (`.ppt`) | ไฟล์งานนำเสนอแบบไบนารีแบบเก่า | ความเข้ากันได้กับเวิร์กโฟลว์ PowerPoint รุ่นเก่า |
-| PPTX (`.pptx`) | แพ็กเกจ Office Open XML ที่ประกอบด้วยหลายส่วน | การแก้ไข PowerPoint ปกติและการแลกเปลี่ยนงานนำเสนอ |
-| PDF หรือ TIFF | หน้าที่มีการจัดวางตายตัวหรือภาพหลายหน้า | การดู, การพิมพ์, และการเก็บถาวร |
-| PNG, JPEG หรือ SVG | การแสดงผลของสไลด์แต่ละสไลด์ | ภาพย่อ, ตัวอย่าง, และทรัพยากรภาพ |
-| HTML หรือ HTML5 | ผลลัพธ์งานนำเสนอแบบเว็บ | การดูในเบราว์เซอร์และการเผยแพร่บนเว็บ |
+| PowerPoint XML (`.xml`) | PowerPoint XML Presentation | การตรวจสอบโครงสร้าง, การแก้ไขปัญหา, การเปรียบเทียบผลลัพธ์ที่สร้างขึ้น, และการบูรณาการด้วย XML |
+| PPT (`.ppt`) | ไฟล์นำเสนอไบนารีที่เก่า | ความเข้ากันได้กับกระบวนการทำงาน PowerPoint รุ่นเก่า |
+| PPTX (`.pptx`) | แพ็กเกจ Office Open XML ที่ประกอบด้วยหลายส่วน | การแก้ไข PowerPoint ปกติและการแลกเปลี่ยนการนำเสนอ |
+| PDF หรือ TIFF | หน้าแบบจัดตำแหน่งคงที่หรือภาพ TIFF | การดู, การพิมพ์, และการเก็บถาวร |
+| PNG, JPEG หรือ SVG | การแสดงผลของสไลด์เดี่ยว | ภาพย่อลูก, การพรีวิว, และทรัพยากรภาพ |
+| HTML หรือ HTML5 | ผลลัพธ์การนำเสนอแบบเว็บ | การดูในเบราว์เซอร์และการเผยแพร่บนเว็บ |
 
-ต่างจาก PPT และ PPTX, ผลลัพธ์ XML มีจุดประสงค์หลักเพื่อการตรวจสอบและเวิร์กโฟลว์ที่เน้นข้อมูล แตกต่างจาก PDF, TIFF, HTML, และรูปแบบรูปภาพสไลด์, XML แสดงข้อมูลงานนำเสนอแทนการเรนเดอร์สไลด์เป็นหน้า หรือทรัพยากรภาพ ตาราง [supported file formats](/slides/th/net/supported-file-formats/) ระบุว่า PowerPoint XML Presentation เป็นรูปแบบที่สามารถบันทึกได้เท่านั้น ดังนั้นอย่าใช้เมื่อเวิร์กโฟลว์ต้องโหลดไฟล์ที่ส่งออกกลับเข้าสู่ Aspose.Slides เพื่อทำการแก้ไขต่อ
+ต่างจาก PPT และ PPTX, ผลลัพธ์ XML มีจุดมุ่งหมายหลักเพื่อการตรวจสอบและกระบวนการทำงานเชิงข้อมูล ต่างจาก PDF, TIFF, HTML และรูปแบบภาพสไลด์, มันเป็นการแสดงข้อมูลการนำเสนอแทนการเรนเดอร์สไลด์เป็นหน้า หรือทรัพยากรภาพ ตาราง [supported file formats](/slides/th/net/supported-file-formats/) แสดงรายการทุกรูปแบบที่ Aspose.Slides สามารถโหลด, นำเข้า, บันทึก, หรือเรนเดอร์ได้.
 
 ## **คำถามที่พบบ่อย**
 
-**`SaveFormat.Xml` เหมือนกับการบันทึกไฟล์ PPTX หรือไม่?**
+**`SaveFormat.Xml` มีความเหมือนกับการบันทึกไฟล์ PPTX หรือไม่?**
 
-ไม่ PPTX เป็นแพ็กเกจที่ประกอบด้วยหลายส่วนของ Office Open XML ในขณะที่ `SaveFormat.Xml` สร้างไฟล์ PowerPoint XML Presentation
+ไม่. PPTX เป็นแพ็กเกจที่มีหลายส่วนของ Office Open XML, ในขณะที่ `SaveFormat.Xml` สร้างไฟล์ PowerPoint XML Presentation.
 
 **ฉันสามารถบันทึกผลลัพธ์ XML โดยไม่สร้างไฟล์บนดิสก์ได้หรือไม่?**
 
-ได้ ส่งสตรีมที่สามารถเขียนได้ให้กับ [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) ตัวอย่างเช่น ใช้ [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) สำหรับการประมวลผลในหน่วยความจำ
+ใช่. ส่งสตรีมที่เขียนได้ไปยังเมธอด [Presentation.Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/). ตัวอย่างเช่น ใช้ [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) สำหรับการประมวลผลในหน่วยความจำ.
 
 **Aspose.Slides สามารถโหลดไฟล์ XML ที่ส่งออกได้อีกหรือไม่?**
 
-ไม่ได้ PowerPoint XML Presentation ปัจจุบันรองรับการบันทึกเท่านั้นไม่รองรับการโหลด ใช้ PPTX หรือรูปแบบงานนำเสนอที่รองรับอื่นเมื่อจำเป็นต้องทำการแก้ไขรอบ
+ใช่. ส่งไฟล์ XML หรือสตรีมไปยังคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/presentation/) แล้ว [Presentation.SourceFormat](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/sourceformat/) จะคืนค่า `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/th/net/aspose.slides/presentationfactory/getpresentationinfo/) รายงาน `LoadFormat.Unknown` สำหรับรูปแบบนี้, ดังนั้นอย่าใช้เพื่อตัดสินว่าไฟล์ XML สามารถเปิดได้หรือไม่.
 
-**การแปลงเป็น XML ทำการเรนเดอร์แต่ละสไลด์เป็นหน้า หรือภาพหรือไม่?**
+**การแปลงเป็น XML ทำให้แต่ละสไลด์เป็นหน้า หรือภาพหรือไม่?**
 
-ไม่ การแปลงเป็น XML จะเขียนข้อมูลงานนำเสนอเป็นโครงสร้าง ไม่ได้เรนเดอร์สไลด์เป็นหน้า ใช้ PDF หรือ TIFF สำหรับผลลัพธ์แบบหน้า หรือ PNG, JPEG และ SVG สำหรับรูปภาพสไลด์แต่ละอัน
+ไม่. การแปลงเป็น XML จะเขียนข้อมูลการนำเสนอที่เป็นโครงสร้าง ใช้ PDF หรือ TIFF สำหรับผลลัพธ์แบบหน้าที่เน้น, หรือ PNG, JPEG และ SVG สำหรับภาพสไลด์เดี่ยว.

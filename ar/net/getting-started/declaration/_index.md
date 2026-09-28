@@ -1,40 +1,40 @@
 ---
-title: التصريح
+title: متطلبات مستوى الثقة
 type: docs
-weight: 110
+weight: 190
 url: /ar/net/declaration/
 keywords:
-  - تصريح
-  - مكونات
-  - إذن الثقة الكاملة
-  - إعدادات السجل
-  - ملفات النظام
-  - PowerPoint
-  - OpenDocument
-  - عرض تقديمي
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "تعرّف على متطلبات الثقة وأذونات واستضافات Aspose.Slides لـ .NET حتى تتمكن من نشر التطبيقات التي تعالج ملفات PPT و PPTX و ODP بأمان على الخوادم."
+- مستوى الثقة
+- إذن الثقة الكاملة
+- الثقة الجزئية
+- الثقة المتوسطة
+- أمان الوصول إلى الشفرة
+- ASP.NET
+- .NET Framework
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "مستوى الثقة المطلوب لأمان الوصول إلى الشفرة الذي يحتاجه Aspose.Slides for .NET: ثقة كاملة على .NET Framework، ولا إعداد ثقة على .NET 6 وما بعده."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+مستويات الثقة في أمان الوصول إلى الشفرة (CAS) موجودة فقط في إطار .NET. توضح هذه المقالة ما تعنيه بالنسبة إلى Aspose.Slides for .NET: المكتبة تحتاج إلى ثقة كاملة على .NET Framework، وعلى .NET 6 وما بعده لا توجد مستوى ثقة لتكوينه.
 
-تتطلب جميع مكونات Aspose .NET مجموعة أذونات الثقة الكاملة لأنها في بعض الأحيان تحتاج إلى الوصول إلى إعدادات السجل وملفات النظام والملفات المخزنة في مواقع أخرى (بخلاف الدليل الافتراضي) لبعض العمليات (مثل تحليل الخطوط). علاوة على ذلك، تعتمد مكونات Aspose .NET على فئات نظام .NET الأساسية، والتي تتطلب مجموعة أذونات الثقة الكاملة في كثير من الحالات. 
+## **إطار .NET**
 
-{{% /alert %}} 
+يتطلب Aspose.Slides ثقة كاملة على .NET Framework. لا يعمل تحت الثقة الجزئية، مثل تطبيق ASP.NET المُكوَّن للثقة المتوسطة (`<trust level="Medium" />`): فشل إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) مع استثناء `SecurityException`.
 
-غالبًا ما تفرض موفّرو خدمة الإنترنت، الذين يستضيفون تطبيقات متعددة من شركات مختلفة، مستوى الأمان Medium Trust. في حالة .NET 2.0، يطبق هذا المستوى من الأمان القيود التالية: 
+لم تعد مايكروسوفت تعتبر الثقة الجزئية في ASP.NET كطريقة لعزل التطبيقات عن بعضها، وتوصي بتشغيل التطبيقات في مجموعات تطبيقات منفصلة بدلاً من ذلك. راجع [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 
-- OleDbPermission غير متاح. وهذا يعني أنه لا يمكنك استخدام موفر بيانات OLE DB المُدار في ADO.NET للوصول إلى قواعد البيانات.
-- EventLogPermission غير متاح. وهذا يعني أنه لا يمكنك الوصول إلى سجل أحداث Windows.
-- ReflectionPermission غير متاح. وهذا يعني أنه لا يمكنك استخدام الانعكاس.
-- RegistryPermission غير متاح. وهذا يعني أنه لا يمكنك الوصول إلى السجل.
-- WebPermission مقيد. وهذا يعني أن تطبيقك يمكنه فقط التواصل مع عنوان أو نطاق عناوين قمت بتعريفه في عنصر <trust>.
-- FileIOPermission مقيد. وهذا يعني أنه يمكنك فقط الوصول إلى الملفات في هيكل الدليل الافتراضي لتطبيقك.
+## **.NET 6 وما بعده**
 
-{{% alert color="primary" %}} 
+أمان الوصول إلى الشفرة غير متوفر على .NET 6 وما بعده، لذا لا توجد مستوى ثقة لمنحه. يعمل Aspose.Slides بأذونات الحساب الذي يشغّل تطبيقك. لتقييد ما يمكن للتطبيق الوصول إليه، توصي مايكروسوفت بحدود نظام التشغيل، مثل حسابات المستخدمين أو الحاويات أو الأجهزة الافتراضية. راجع [Code access security (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas).
 
-نظرًا للأسباب المذكورة أعلاه، لا يمكن استخدام مكونات Aspose .NET إلا على الخوادم التي تمنح مجموعة أذونات الثقة الكاملة. 
+## **الأسئلة الشائعة**
 
-{{% /alert %}}
+**هل يمكنني استخدام Aspose.Slides مع مزود استضافة يشغّل تطبيقات ASP.NET في الثقة المتوسطة؟**
+
+ليس في الثقة المتوسطة. على .NET Framework، يجب أن يعمل التطبيق الذي يستخدم Aspose.Slides بثقة كاملة.

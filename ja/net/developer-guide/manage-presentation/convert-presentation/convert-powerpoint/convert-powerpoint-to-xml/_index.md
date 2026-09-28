@@ -1,6 +1,6 @@
 ---
-title: PowerPoint プレゼンテーションを .NET で XML に変換する
-linktitle: PowerPoint から XML へ
+title: .NET で PowerPoint プレゼンテーションを XML に変換
+linktitle: PowerPoint を XML に変換
 type: docs
 weight: 145
 url: /ja/net/convert-powerpoint-to-xml/
@@ -18,23 +18,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# と Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument プレゼンテーションを PowerPoint XML ファイルまたはストリームに変換します。"
+description: "Aspose.Slides for .NET を使用して、C# で PowerPoint および OpenDocument プレゼンテーションを PowerPoint XML ファイルまたはストリームに変換します。"
 ---
 ## **概要**
 
-Aspose.Slides for .NET は PowerPoint プレゼンテーションを PowerPoint XML Presentation 形式に変換できます。XML 出力は、プレゼンテーションの構造をテキストベースで確認したり、生成されたドキュメントのトラブルシューティングを行ったり、 자동化テストで出力を比較したり、プレゼンテーション パッケージではなく XML を消費するワークフローと統合したりする必要がある場合に便利です。
+Aspose.Slides for .NET は PowerPoint プレゼンテーションを PowerPoint XML プレゼンテーション形式に変換できます。XML 出力は、プレゼンテーション構造のテキストベース表現が必要なとき、生成されたドキュメントのトラブルシューティング、自動テストでの出力比較、またはプレゼンテーション パッケージではなく XML を消費するワークフローとの統合に便利です。
 
-[Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドを使用し、[SaveFormat](https://reference.aspose.com/slides/ja/net/aspose.slides.export/saveformat/) 列挙体の `Xml` 値を指定します。結果はファイルに直接書き込むことも、ストリームに書き込むこともできます。
+[Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) メソッドに、[SaveFormat](https://reference.aspose.com/slides/ja/net/aspose.slides.export/saveformat/) 列挙体の `Xml` 値を指定して使用します。結果はファイルに直接書き込むことも、ストリームに書き込むこともできます。
 
 {{% alert color="info" title="Note" %}}
-`SaveFormat.Xml` は PowerPoint XML Presentation を作成します。PPTX パッケージ内に格納されている個々の Office Open XML パーツは抽出しません。`ppt/presentation.xml` や個別のスライド XML ファイルなど、正確な PPTX パッケージ パーツが必要な場合は、PPTX パッケージ自体を確認してください。
+`SaveFormat.Xml` は PowerPoint XML プレゼンテーションを作成します。PPTX パッケージ内に格納された個々の Office Open XML パーツを抽出するものではありません。`ppt/presentation.xml` や個々のスライド XML ファイルなど、正確な PPTX パッケージ パーツが必要な場合は、PPTX パッケージ自体を調べてください。
 {{% /alert %}}
 
-## **プレゼンテーションを XML ファイルに変換する**
+## **プレゼンテーションをXMLファイルに変換**
 
 [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスでソース プレゼンテーションを読み込み、出力パスと `SaveFormat.Xml` を [Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) に渡します。ソースは PPT、PPTX、ODP など、読み込みがサポートされている任意のプレゼンテーション形式にできます。
 
-以下の例は PPTX プレゼンテーションを XML ファイルに変換します：
+以下の例は PPTX プレゼンテーションを XML ファイルに変換します。
 
 ```csharp
 using Aspose.Slides;
@@ -44,9 +44,9 @@ using var presentation = new Presentation("presentation.pptx");
 presentation.Save("presentation.xml", SaveFormat.Xml);
 ```
 
-## **XML 出力をストリームに書き込む**
+## **XML出力をストリームに書き込む**
 
-XML をメモリに保持したまま、または Web サービス、ストレージ プロバイダー、XML 処理パイプラインなどの別コンポーネントに渡す必要がある場合は、[Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) のストリーム オーバーロードを使用します。以下の例は結果を [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) に書き込み、後続の読み取りのためにシーク位置を先頭に戻します：
+XML をメモリ内に保持したり、Web サービス、ストレージ プロバイダー、XML 処理パイプラインなどの別コンポーネントに渡す必要がある場合は、[Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) のストリーム オーバーロードを使用します。以下の例は結果を [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) に書き込み、後続の読み取りのためにシーク位置を戻しています。
 
 ```csharp
 using System.IO;
@@ -59,38 +59,38 @@ using var xmlStream = new MemoryStream();
 presentation.Save(xmlStream, SaveFormat.Xml);
 xmlStream.Position = 0;
 
-// xmlStream をワークフローの次のコンポーネントに渡す。
+// xmlStream をワークフローの次のコンポーネントに渡します。
 ```
 
-## **XML とプレゼンテーションおよびエクスポート形式の比較**
+## **XML とプレゼンテーション・エクスポート形式の比較**
 
-結果の使用方法に応じて出力形式を選択します。
+使用目的に応じて出力形式を選択してください。
 
-| 形式 | 出力 | 典型的な使用例 |
+| 形式 | 出力 | 主な使用例 |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | PowerPoint XML Presentation | 構造の検査、トラブルシューティング、生成出力の比較、XML ベースの統合 |
-| PPT (`.ppt`) | 従来のバイナリ プレゼンテーション ファイル | 旧バージョン PowerPoint ワークフローとの互換性 |
-| PPTX (`.pptx`) | 複数パーツを含む Office Open XML パッケージ | 通常の PowerPoint 編集とプレゼンテーションのやり取り |
-| PDF または TIFF | 固定レイアウト ページまたはマルチページ画像 | 表示、印刷、アーカイブ |
-| PNG、JPEG、または SVG | 個々のスライドのレンダリング表現 | サムネイル、プレビュー、画像資産 |
-| HTML または HTML5 | Web 向けプレゼンテーション出力 | ブラウザー表示とウェブ公開 |
+| PowerPoint XML (`.xml`) | PowerPoint XML プレゼンテーション | 構造の検査、トラブルシューティング、生成出力の比較、XML ベースの統合 |
+| PPT (`.ppt`) | 従来のバイナリ プレゼンテーション ファイル | 古い PowerPoint ワークフローとの互換性 |
+| PPTX (`.pptx`) | 複数パーツを含む Office Open XML パッケージ | 通常の PowerPoint 編集およびプレゼンテーションのやり取り |
+| PDF または TIFF | 固定レイアウト ページまたは TIFF 画像 | 表示、印刷、アーカイブ |
+| PNG、JPEG、または SVG | 個々のスライドのレンダリング表現 | サムネイル、プレビュー、画像アセット |
+| HTML または HTML5 | Web 向けプレゼンテーション出力 | ブラウザ表示およびウェブ公開 |
 
-PPT や PPTX とは異なり、XML 出力は主に検査およびデータ指向のワークフロー向けです。PDF、TIFF、HTML、スライド画像形式とは異なり、スライドをページやビジュアル資産としてレンダリングするのではなく、プレゼンテーション データを表現します。[サポートされているファイル形式](/slides/ja/net/supported-file-formats/) テーブルでは PowerPoint XML Presentation が保存専用形式として掲載されているため、エクスポートしたファイルを再度 Aspose.Slides に読み込んで編集するようなワークフローでは使用しないでください。
+PPT や PPTX とは異なり、XML 出力は主に検査やデータ指向のワークフローを対象としています。PDF、TIFF、HTML、スライド画像形式とは異なり、スライドをページやビジュアル アセットとしてレンダリングするのではなく、プレゼンテーション データを表現します。利用可能なすべての形式は、[サポートされているファイル形式](/slides/ja/net/supported-file-formats/) テーブルで確認できます。
 
 ## **FAQ**
 
 **`SaveFormat.Xml` は PPTX ファイルの保存と同じですか？**
 
-いいえ。PPTX は複数の Office Open XML パーツを含むパッケージですが、`SaveFormat.Xml` は PowerPoint XML Presentation ファイルを作成します。
+いいえ。PPTX は複数の Office Open XML パーツを含むパッケージですが、`SaveFormat.Xml` は PowerPoint XML プレゼンテーション ファイルを作成します。
 
 **XML 出力をディスクにファイルを作成せずに保存できますか？**
 
-はい。書き込み可能なストリームを [Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) に渡します。たとえば、インメモリ処理用に [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) を使用できます。
+可能です。書き込み可能なストリームを [Presentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/save/) に渡してください。例として、インメモリ処理用に [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) を使用できます。
 
 **Aspose.Slides はエクスポートした XML ファイルを再度読み込めますか？**
 
-いいえ。PowerPoint XML Presentation は現在、保存のみがサポートされており、読み込みはサポートされていません。往復編集が必要な場合は PPTX などのサポートされているプレゼンテーション形式を使用してください。
+はい。XML ファイルまたはストリームを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/presentation/) コンストラクタに渡します。`Presentation.SourceFormat` は `SourceFormat.Xml` を返します。`PresentationFactory.GetPresentationInfo` はこの形式に対して `LoadFormat.Unknown` を報告するため、XML ファイルが開けるかどうかの判定に使用しないでください。
 
-**XML 変換は各スライドをページや画像としてレンダリングしますか？**
+**XML 変換は各スライドをページまたは画像としてレンダーしますか？**
 
 いいえ。XML 変換は構造化されたプレゼンテーション データを書き出します。ページ指向の出力が必要な場合は PDF や TIFF を、個別スライド画像が必要な場合は PNG、JPEG、SVG を使用してください。

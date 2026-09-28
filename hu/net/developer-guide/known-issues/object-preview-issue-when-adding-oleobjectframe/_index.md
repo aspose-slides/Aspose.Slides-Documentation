@@ -1,12 +1,14 @@
 ---
-title: Objektum előnézeti probléma OleObjectFrame hozzáadásakor
-linktitle: OLE objektum probléma
+title: Objektum Előnézet Helyőrző OleObjectFrame Hozzáadásakor
+linktitle: OLE Előnézet Helyőrző
 type: docs
 weight: 10
 url: /hu/net/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - előnézeti probléma
+- előnézeti helyőrző
+- terv szerint
 - beágyazott objektum
 - beágyazott fájl
 - objektum módosult
@@ -16,43 +18,46 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, miért jelenik meg az EMBEDDED OLE OBJECT, amikor OleObjectFrame-et ad hozzá az Aspose.Slides for .NET-ben, és hogyan javíthatja az előnézeti problémákat PPT, PPTX és ODP prezentációkban."
+description: "Miért jelenik meg egy Aspose.Slides for .NET‑vel hozzáadott OLE objektumnál beágyazott OLE OBJECT helyőrző, amíg az előnézet nincs frissítve, és hogyan állíthatja be saját előnézeti képét."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for .NET használatával, amikor egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe)-t adsz egy diára, a kimeneti dián megjelenik egy „EMBEDDED OLE OBJECT” üzenet. Ez az üzenet szándékos, és NEM hiba.
+Az Aspose.Slides for .NET használatával, amikor egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe/) elemet ad egy diára, egy "EMBEDDED OLE OBJECT" üzenet jelenik meg a kimeneti dián. Ez az üzenet szándékos, és NEM hiba.
 
-További információk az OLE objektumokkal való munkavégzésről: [OLE kezelése](/slides/hu/net/manage-ole/). 
+Az OLE objektumokkal való munkáról további információkért lásd a [Manage OLE](/slides/hu/net/manage-ole/) oldalt.
 
 ## **Magyarázat és megoldás**
 
-Az Aspose.Slides megjeleníti a „EMBEDDED OLE OBJECT” üzenetet, hogy jelezze, az OLE objektum módosult, és a előnézeti képet frissíteni kell. 
+Az Aspose.Slides megjeleníti a "EMBEDDED OLE OBJECT" üzenetet, hogy jelezze, hogy az OLE objektum módosult, és a előnézeti képet frissíteni kell.
 
-Például, ha egy Microsoft Excel diagramot adsz egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe)-ként a diára (további részletek a „OLE kezelése” cikkben), majd megnyitod a prezentációt a Microsoft PowerPointban, a dián ezt a képet látod:
+Például, ha egy Microsoft Excel diagramot ad egy [OleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/oleobjectframe/) elemmel egy diára (további részletekért lásd a "Manage OLE" cikket), majd megnyitja a prezentációt a Microsoft PowerPointban, a dián ezt a képet fogja látni:
 
 ![OLE objektum üzenet](OLE_object_message.png)
 
-Ha ellenőrizni és megerősíteni szeretnéd, hogy az OLE objektum hozzá lett adva a diához, duplán kattints a „EMBEDDED OLE OBJECT” üzenetre, vagy jobb‑kattintással válaszd a **Object > Edit** lehetőséget.
+Ha ellenőrizni és megerősíteni szeretné, hogy az OLE objektum hozzá lett adva a diához, duplán kell kattintania a "EMBEDDED OLE OBJECT" üzenetre, vagy jobb-clickeltetve rá, a **Object > Edit** lehetőségen keresztül.
 
 ![OLE objektum > Szerkesztés](OLE_object_edit.png)
 
 A PowerPoint ezután megnyitja a beágyazott OLE objektumot.
 
-![OLE objektum adat](OLE_object_data.png)
+![OLE objektum adatok](OLE_object_data.png)
 
-A dia megtarthatja a „EMBEDDED OLE OBJECT” üzenetet. Amint rákattintasz az OLE objektumra, a dia előnézete frissül, és a „EMBEDDED OLE OBJECT” üzenet helyére az OLE objektum tényleges képe kerül. 
+A dia megtarthatja a "EMBEDDED OLE OBJECT" üzenetet. Amint ráklikkel az OLE objektumra, a dia előnézete frissül, és a "EMBEDDED OLE OBJECT" üzenet helyére az OLE objektum tényleges képe kerül.
 
 ![OLE objektum előnézet](OLE_object_preview.png)
 
-Most el szeretnéd menteni a prezentációt, hogy az OLE objektum képe helyesen frissüljön. Így a mentés után, amikor újra megnyitod a prezentációt, már nem lesz látható a „EMBEDDED OLE OBJECT” üzenet. 
+Most előfordulhat, hogy menteni szeretné a prezentációt, hogy biztosítsa az OLE objektum képének megfelelő frissítését. Így a prezentáció mentése után, amikor újra megnyitja, már NEM fogja látni a "EMBEDDED OLE OBJECT" üzenetet.
 
 ## **Egyéb megoldások**
 
-### **Megoldás 1: A „Embedded OLE Object” üzenet cseréje képre**
+### **Megoldás 1: A "Embedded OLE Object" üzenet cseréje képre**
 
-Ha nem akarod eltávolítani a „EMBEDDED OLE OBJECT” üzenetet a PowerPointban történő megnyitás és mentés útján, kicserélheted az üzenetet a kívánt előnézeti képre. Az alábbi kódsorok bemutatják a folyamatot:
+Ha nem szeretné eltávolítani a "EMBEDDED OLE OBJECT" üzenetet úgy, hogy megnyitja a prezentációt a PowerPointban, majd elmenti, akkor helyettesítheti az üzenetet a kívánt előnézeti képpel. Az alábbi kódsorok bemutatják a folyamatot:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("embeddedOLE.pptx");
 
 var slide = presentation.Slides[0];
@@ -62,18 +67,17 @@ var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 using var imageStream = File.OpenRead("myImage.png");
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Set a title and the image for the OLE object preview.
-oleFrame.SubstitutePictureTitle = "My title";
+// Set the image for the OLE object preview.
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;
 
 presentation.Save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 ```
 
-A `OleObjectFrame`‑et tartalmazó dia ezután így néz ki:
+A `OleObjectFrame` elemet tartalmazó dia ezután ilyen lesz:
 
 ![Új OLE objektum kép](OLE_object_new_image.png)
 
-### **Megoldás 2: Bővítmény készítése a PowerPointhoz**
+### **Megoldás 2: Kiegészítő létrehozása a PowerPointhoz**
 
-Készíthetsz egy bővítményt a Microsoft PowerPointhoz, amely a prezentációk megnyitásakor frissíti az összes OLE objektumot.
+Létrehozhat egy kiegészítőt is a Microsoft PowerPointhoz, amely frissíti az összes OLE objektumot, amikor megnyitja a prezentációkat a programban.

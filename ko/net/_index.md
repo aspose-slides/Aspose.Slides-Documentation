@@ -1,6 +1,6 @@
 ---
-title: "Aspose.Slides for .NET"
-second_title: "Aspose.Slides for .NET"
+title: Aspose.Slides for .NET
+second_title: Aspose.Slides for .NET
 type: docs
 weight: 10
 url: /ko/net/
@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "여기서 시작하세요: Aspose.Slides for .NET을 설치하고 첫 프레젠테이션을 만든 다음 일반 작업 가이드, API 참조 및 지원 정보를 찾으세요."
+description: "여기에서 시작하십시오: Aspose.Slides for .NET을 설치하고, 첫 번째 프레젠테이션을 만들고, 일반 작업, 배포 및 API 참조에 대한 가이드를 확인하세요."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office 자동화 없이 .NET 애플리케이션에서 PowerPoint 및 OpenDocument 프레젠테이션을 만들고, 읽고, 편집하고, 변환할 수 있는 클래스 라이브러리입니다.
+Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office Automation 없이 .NET 애플리케이션에서 PowerPoint 및 OpenDocument 프레젠테이션을 생성, 읽기, 편집 및 변환하기 위한 클래스 라이브러리입니다.
 
-매크로 지원 및 템플릿 변형을 포함한 PPT, PPTX, PPS, POT, ODP 파일을 로드하고 저장하며, PDF, XPS, HTML, SVG, TIFF, Markdown 및 이미지로 내보낼 수 있습니다.
+매크로 사용 가능 및 템플릿 변형을 포함한 PPT, PPTX, PPS, POT 및 ODP 파일을 로드하고 저장하며, PDF, XPS, HTML, SVG, TIFF, Markdown 및 이미지로 내보냅니다.
 
 <div style="clear:both"></div>
 
@@ -30,16 +30,18 @@ Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office 자동화 없이 .N
 <div class="col-md-4">
 <p><b>시작하기</b></p>
 <hr>
-<p>시작하기</p>
+<p>시작 안내</p>
 <ul>
 <li><a href="/slides/ko/net/installation/">설치</a></li>
 <li><a href="/slides/ko/net/create-presentation/">첫 프레젠테이션 만들기</a></li>
+<li><a href="/slides/ko/net/system-requirements/">시스템 요구 사항</a></li>
 <li><a href="/slides/ko/net/getting-started/">시작 가이드</a></li>
 </ul>
 <p>평가</p>
 <ul>
 <li><a href="/slides/ko/net/supported-file-formats/">지원되는 파일 형식</a></li>
-<li><a href="/slides/ko/net/evaluate-aspose-slides/">평가판 제한 사항</a></li>
+<li><a href="/slides/ko/net/features-overview/">기능 개요</a></li>
+<li><a href="/slides/ko/net/evaluate-aspose-slides/">체험판 제한 사항</a></li>
 <li><a href="/slides/ko/net/licensing/">라이선스</a></li>
 </ul>
 </div>
@@ -54,7 +56,7 @@ Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office 자동화 없이 .N
 <li><a href="/slides/ko/net/convert-slide/">슬라이드를 이미지로 렌더링</a></li>
 <li><a href="/slides/ko/net/manage-text/">텍스트 및 도형 편집</a></li>
 </ul>
-<p>Slides 워크플로</p>
+<p>Slides 워크플로우</p>
 <ul>
 <li><a href="/slides/ko/net/powerpoint-charts/">차트</a></li>
 <li><a href="/slides/ko/net/powerpoint-animation/">애니메이션</a></li>
@@ -69,18 +71,26 @@ Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office 자동화 없이 .N
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>참조 및 지원</b></p>
+<p><b>배포 및 지원</b></p>
 <hr>
+<p>배포</p>
+<ul>
+<li><a href="/slides/ko/net/net6/">크로스 플랫폼 (.NET 6+)</a></li>
+<li><a href="/slides/ko/net/how-to-run-aspose-slides-in-docker/">Docker에서 실행</a></li>
+<li><a href="/slides/ko/net/deploy-fonts/">폰트</a></li>
+<li><a href="/slides/ko/net/security/">보안</a></li>
+</ul>
 <p>참조</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">API 참조</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">릴리스 노트</a></li>
+<li><a href="https://reference.aspose.com/slides/ko/net/">API 참조</a></li>
+<li><a href="https://releases.aspose.com/slides/ko/net/release-notes/">릴리스 노트</a></li>
 <li><a href="/slides/ko/net/known-issues/">알려진 문제</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">다운로드</a></li>
+<li><a href="/slides/ko/net/api-limitations/">출력 메타데이터 제한 사항</a></li>
+<li><a href="https://releases.aspose.com/slides/ko/net/">다운로드</a></li>
 </ul>
 <p>지원</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">무료 지원 포럼</a></li>
+<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
 <li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
 </ul>
 </div>
@@ -88,9 +98,11 @@ Aspose.Slides for .NET은 Microsoft PowerPoint 또는 Office 자동화 없이 .N
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **첫 번째 프레젠테이션**
 
-.NET SDK 6 이상을 사용하여 콘솔 애플리케이션을 생성합니다:
+다음으로 .NET SDK 6 이상을 사용하여 콘솔 애플리케이션을 생성합니다:
 
 ```bash
 dotnet new console -n HelloSlides
@@ -100,7 +112,7 @@ cd HelloSlides
 그런 다음 플랫폼에 맞는 패키지를 하나 추가합니다:
 
 - Windows에서: `dotnet add package Aspose.Slides.NET`
-- Linux 및 macOS에서: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — Linux 전제 조건 및 Aspose.Slides.NET이 필요한 시스템에 대한 자세한 내용은 [설치](/slides/ko/net/installation/)을 참조하십시오.
+- Linux 및 macOS에서: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — Linux 전제 조건 및 Aspose.Slides.NET이 필요한 시스템에 대한 내용은 [Installation](/slides/ko/net/installation/)을 참조하십시오.
 
 *Program.cs*의 내용을 이 코드로 교체하고 `dotnet run`을 실행합니다:
 
@@ -115,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-이 프로그램은 텍스트 상자가 포함된 슬라이드 하나를 가진 *hello.pptx* 파일을 저장합니다. 라이선스가 없으면 저장된 파일에 평가 워터마크가 표시됩니다 — [라이선스](/slides/ko/net/licensing/)를 참조하십시오. 프레젠테이션을 만들고 채우는 다양한 방법은 [프레젠테이션 만들기](/slides/ko/net/create-presentation/)를 확인하세요.
+이 프로그램은 텍스트 상자가 포함된 한 슬라이드가 있는 *hello.pptx* 파일을 저장합니다. 라이선스가 없으면 저장된 파일에 평가용 워터마크가 표시됩니다 — 자세한 내용은 [Licensing](/slides/ko/net/licensing/)을 참조하십시오. 프레젠테이션을 만들고 채우는 추가 방법은 [Create Presentations](/slides/ko/net/create-presentation/)을 확인하세요.

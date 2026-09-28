@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Kezdje itt: telepítse az Aspose.Slides for .NET-et, hozzon létre egy első prezentációt, és találja meg az útmutatókat a gyakori feladatokhoz, az API referenciához és a támogatáshoz."
+description: "Kezdje itt: telepítse az Aspose.Slides for .NET-et, hozza létre az első prezentációt, és találja meg a gyakori feladatok, a telepítés és az API referencia útmutatóit."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Az Aspose.Slides for .NET egy osztálykönyvtár a PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez és konvertálásához .NET alkalmazásokban, a Microsoft PowerPoint vagy Office Automation nélkül.
+Az Aspose.Slides for .NET egy osztálykönyvtár a PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez és konvertálásához .NET alkalmazásokban, a Microsoft PowerPoint vagy Office automatizáció nélkül.
 
-Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makrókkal rendelkező és sablon változatokat is, és exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumba.
+Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makróval ellátott és sablon változatokat is, valamint exportál PDF, XPS, HTML, SVG, TIFF, Markdown és képek formátumokba.
 
 <div style="clear:both"></div>
 
@@ -30,31 +30,33 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makrók
 <div class="col-md-4">
 <p><b>Első lépések</b></p>
 <hr>
-<p>Kezdés</p>
+<p>GETTING STARTED</p>
 <ul>
 <li><a href="/slides/hu/net/installation/">Telepítés</a></li>
-<li><a href="/slides/hu/net/create-presentation/">Első prezentáció létrehozása</a></li>
-<li><a href="/slides/hu/net/getting-started/">Kezdő útmutató</a></li>
+<li><a href="/slides/hu/net/create-presentation/">Az első prezentáció létrehozása</a></li>
+<li><a href="/slides/hu/net/system-requirements/">Rendszerkövetelmények</a></li>
+<li><a href="/slides/hu/net/getting-started/">Gyorsindító útmutató</a></li>
 </ul>
-<p>ÉRTÉKELÉS</p>
+<p>EVALUATE</p>
 <ul>
 <li><a href="/slides/hu/net/supported-file-formats/">Támogatott fájlformátumok</a></li>
+<li><a href="/slides/hu/net/features-overview/">Funkciók áttekintése</a></li>
 <li><a href="/slides/hu/net/evaluate-aspose-slides/">Próba korlátozások</a></li>
 <li><a href="/slides/hu/net/licensing/">Licenc</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Készítés Slides-szel</b></p>
+<p><b>Fejlesztés Slides segítségével</b></p>
 <hr>
-<p>ÁLTALÁNOS FELADATOK</p>
+<p>COMMON TASKS</p>
 <ul>
 <li><a href="/slides/hu/net/open-presentation/">Prezentáció megnyitása</a></li>
 <li><a href="/slides/hu/net/save-presentation/">Prezentáció mentése</a></li>
-<li><a href="/slides/hu/net/convert-powerpoint-to-pdf/">Átalakítás PDF-be</a></li>
-<li><a href="/slides/hu/net/convert-slide/">Diaok képként renderelése</a></li>
+<li><a href="/slides/hu/net/convert-powerpoint-to-pdf/">Konvertálás PDF-be</a></li>
+<li><a href="/slides/hu/net/convert-slide/">Diák renderelése képként</a></li>
 <li><a href="/slides/hu/net/manage-text/">Szöveg és alakzatok szerkesztése</a></li>
 </ul>
-<p>SLIDES FOLYAMATOK</p>
+<p>SLIDES WORKFLOWS</p>
 <ul>
 <li><a href="/slides/hu/net/powerpoint-charts/">Diagramok</a></li>
 <li><a href="/slides/hu/net/powerpoint-animation/">Animációk</a></li>
@@ -62,25 +64,33 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makrók
 <li><a href="/slides/hu/net/presentation-design/">Dia tervezés</a></li>
 <li><a href="/slides/hu/net/merge-presentation/">Prezentációk egyesítése</a></li>
 </ul>
-<p>PELDÁK</p>
+<p>EXAMPLES</p>
 <ul>
-<li><a href="/slides/hu/net/examples/">Példák diaelemekenként</a></li>
+<li><a href="/slides/hu/net/examples/">Példák diaelemenként</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">Példák a GitHub-on</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referencia és támogatás</b></p>
+<p><b>Telepítés és támogatás</b></p>
 <hr>
-<p>REFERENCIA</p>
+<p>DEPLOY</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">API referencia</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="/slides/hu/net/known-issues/">Ismert problémák</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">Letöltés</a></li>
+<li><a href="/slides/hu/net/net6/">Keresztplatformos (.NET 6+)</a></li>
+<li><a href="/slides/hu/net/how-to-run-aspose-slides-in-docker/">Futtatás Dockerben</a></li>
+<li><a href="/slides/hu/net/deploy-fonts/">Betűkészletek</a></li>
+<li><a href="/slides/hu/net/security/">Biztonság</a></li>
 </ul>
-<p>TÁMOGATÁS</p>
+<p>REFERENCE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://reference.aspose.com/slides/hu/net/">API referencia</a></li>
+<li><a href="https://releases.aspose.com/slides/hu/net/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="/slides/hu/net/known-issues/">Ismert problémák</a></li>
+<li><a href="/slides/hu/net/api-limitations/">Kimeneti metaadat korlátozások</a></li>
+<li><a href="https://releases.aspose.com/slides/hu/net/">Letöltés</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>
@@ -88,9 +98,11 @@ Betölti és menti a PPT, PPTX, PPS, POT és ODP fájlokat, beleértve a makrók
 
 ------
 
-## **Az első prezentációd**
+<a name="your-first-presentation"></a>
 
-Hozzon létre egy konzolalkalmazást a .NET SDK 6 vagy újabb verziójával:
+## **Az első prezentációja**
+
+Hozzon létre egy konzolalkalmazást a .NET SDK 6 vagy újabb használatával:
 
 ```bash
 dotnet new console -n HelloSlides
@@ -100,7 +112,7 @@ cd HelloSlides
 Ezután adjon hozzá egy csomagot a platformjához:
 
 - Windows rendszeren: `dotnet add package Aspose.Slides.NET`
-- Linux és macOS rendszeren: `dotnet add package Aspose.Slides.NET6.CrossPlatform` – lásd az [Installation](/slides/hu/net/installation/) oldalt a Linux előfeltételekhez, és azokhoz a rendszerekhez, amelyek helyette az Aspose.Slides.NET-et igénylik.
+- Linuxon és macOS-en: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — lásd a [Installation](/slides/hu/net/installation/) szakaszt a Linux előfeltételhez és azokhoz a rendszerekhez, amelyek helyette az Aspose.Slides.NET-et igénylik.
 
 Cserélje le a *Program.cs* tartalmát erre a kódra, és futtassa a `dotnet run` parancsot:
 
@@ -115,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-A program ment egy *hello.pptx* fájlt, amely egy diát tartalmaz szövegdobozzal. Licenc nélkül a mentett fájl egy értékelési vízjelet tartalmaz – lásd a [Licensing](/slides/hu/net/licensing/) oldalt. További módok a prezentáció létrehozására és feltöltésére megtalálhatók a [Create Presentations](/slides/hu/net/create-presentation/) oldalon.
+A program elmenti a *hello.pptx*-t egy szövegdobozos diával. Licenc nélkül a mentett fájl értékelő vízjelet tartalmaz — lásd a [Licenc](/slides/hu/net/licensing/) szakaszt. További módokért a prezentáció létrehozására és feltöltésére, lásd a [Create Presentations](/slides/hu/net/create-presentation/) szakaszt.

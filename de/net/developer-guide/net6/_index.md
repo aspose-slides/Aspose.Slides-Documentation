@@ -1,79 +1,81 @@
 ---
-title: Unterstützung für .NET 6
+title: "Plattformübergreifendes Paket für .NET 6 und höher"
+linktitle: "Plattformübergreifendes Paket"
 type: docs
 weight: 235
 url: /de/net/net6/
 keywords:
+- Aspose.Slides.NET6.CrossPlatform
+- plattformübergreifend
 - .NET 6 Unterstützung
-- Cloud-Lösung
-- AWS Lambda
-- Azure Functions
-- System.Drawing.Common
-- GDI
+- Linux
+- macOS
+- fontconfig
 - libgdiplus
+- System.Drawing.Common
 - CS0433
+- AWS Lambda
 - .NET
 - C#
 - Aspose.Slides
-description: "Konfigurieren Sie Aspose.Slides für .NET 6, um PowerPoint-Präsentationen im PPT-, PPTX- und ODP-Format in modernen, plattformübergreifenden C#-Anwendungen zu erstellen, zu bearbeiten und zu konvertieren."
+description: "Erfahren Sie, wann Sie das Aspose.Slides.NET6.CrossPlatform‑Paket verwenden sollten: warum es existiert, auf welchen Plattformen es läuft und was es unter Linux anstelle von libgdiplus benötigt."
 ---
-
 ## **Einleitung**
 
-Ab [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0) wurde die Unterstützung für .NET6 implementiert. Die Besonderheit dieser Unterstützung besteht darin, dass .NET6 System.Drawing.Common für Linux nicht mehr unterstützt ([Breaking Change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)) und Slides dieses grafische Subsystem selbst als C++‑Komponente bereitstellt.
+Aspose.Slides für .NET wird als zwei NuGet‑Pakete veröffentlicht. [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) rendert Folien über die Microsoft‑Bibliothek System.Drawing.Common. [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) rendert sie stattdessen mit einer eigenen Grafik‑Engine. Dieser Artikel erklärt, warum das zweite Paket existiert, wo es läuft, was es unter Linux benötigt und wie es zusammen mit System.Drawing.Common in einem Projekt koexistiert.
 
-Aspose.Slides für .NET funktioniert jetzt ohne Abhängigkeiten von GDI/libgdiplus auf:
-* Windows
-* Linux
+## **Warum ein separates Paket**
 
-Die Unterstützung für _MacOS_ befindet sich in Arbeit.
+Ab .NET 6 unterstützt Microsoft System.Drawing.Common **nur unter Windows**(https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). Das hat zur Folge, dass Aspose.Slides.NET unter Linux den Schalter `System.Drawing.EnableUnixSupport` zusätzlich zur Bibliothek `libgdiplus` benötigt und dort fehlschlägt, wenn das Projekt System.Drawing.Common 7 oder höher referenziert. [System Requirements](/slides/de/net/system-requirements/) beschreibt diese Bedingungen.
 
-## **Verwendung von Slides für .NET 6 auf AWS und Azure**
+Aspose.Slides.NET6.CrossPlatform verwendet weder System.Drawing.Common noch `libgdiplus`. Seine Grafik‑Engine ist eine native Bibliothek, die das Paket in einem Build pro unterstützter Plattform enthält. Beide Pakete stellen dieselben Aspose.Slides‑Namespaces und -Klassen bereit, sodass ein Wechsel nur die Paket‑Referenz ändert, nicht Ihren Code.
 
-.NET6 ist die bevorzugte Version für Aspose.Slides, die in der Cloud (AWS, Azure oder anderen Cloud‑Lösungen) eingesetzt wird.
+| | Aspose.Slides.NET | Aspose.Slides.NET6.CrossPlatform |
+|---|---|---|
+| Grafik | System.Drawing.Common | Native Grafik‑Engine, die im Paket enthalten ist |
+| Ziel‑Frameworks | `net462`, `net6.0`, `netstandard2.0` | `net6.0` |
+| Linux‑Voraussetzungen | `libgdiplus` und der Schalter `System.Drawing.EnableUnixSupport` | `fontconfig` |
+| Alpine Linux | Unterstützt | Nicht unterstützt |
 
-Zuvor mussten bei der Verwendung von Aspose.Slides auf einem Linux‑Host zusätzliche Abhängigkeiten (libgdiplus) installiert werden, was häufig unpraktisch war (z. B. bei der Nutzung von [AWS Lambda](https://aws.amazon.com/lambda)). Mit Slides für .NET6 entfallen diese Abhängigkeiten, sodass die Bereitstellung wesentlich einfacher ist.
+## **Unterstützte Plattformen**
 
-Ein weiteres Problem trat auf, wenn Aspose.Slides in einer Cloud‑Lösung mit Windows‑Host verwendet wurde. Zum Beispiel haben [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) Einschränkungen für den Prozess, was bei einer PDF‑Export‑Operation zu Problemen führt (siehe [dies](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)). Die Nutzung von Aspose.Slides für .NET6 löst dieses Problem.
+Aspose.Slides.NET6.CrossPlatform funktioniert mit .NET 6 und neueren Versionen auf folgenden Plattformen:
 
-## **Verwendung des System.Drawing.Common‑Pakets und Slides‑Klassen für .NET 6 (CS0433: Der Typ ist sowohl in Slides als auch in System.Drawing.Common vorhanden)**
+- **Windows**: x86 und x64. Die native Bibliothek nutzt die Microsoft Visual C++‑Runtime; siehe [System Requirements](/slides/de/net/system-requirements/).
+- **Linux**: x64 mit glibc 2.23 oder neuer und ARM64 mit glibc 2.39 oder neuer.
+- **macOS**: x64 (Intel) und ARM64 (Apple‑Silicon).
 
-Manchmal müssen sowohl System.Drawing als auch Slides für .NET6‑Abhängigkeiten in einem Projekt verwendet werden (z. B. wenn das .NET6‑Projekt von anderen Paketen abhängt, die wiederum System.Drawing benötigen). Dies kann zu Kompilierungsfehlern wie den folgenden führen:
+Es läuft nicht unter Windows auf ARM64, nicht unter Alpine Linux oder anderen Distributionen, die auf musl statt glibc basieren, und nicht unter Distributionen mit einer älteren glibc, etwa CentOS 7. Verwenden Sie in diesen Fällen Aspose.Slides.NET.
 
-* CS0433: Der Typ 'Image' ist sowohl in 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' als auch in 'System.Drawing.Common, Version=6.0.0.0' vorhanden
-* CS0433: Der Typ 'Graphics' ist sowohl in 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' als auch in 'System.Drawing.Common, Version=6.0.0.0' vorhanden
+## **Installation unter Linux**
 
-In diesem Fall können Sie für Aspose.Slides (Version kleiner als 24.8) [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) verwenden:
-1) Wählen Sie die Aspose.Slides‑Assembly aus den Projekt‑Abhängigkeiten und klicken Sie dann auf **Properties**.
-  ![Eigenschaften des Aspose Slides‑Pakets](package_properties.png)
-2) Legen Sie einen Alias fest (z. B. „Slides“).
-  ![Aspose Slides Alias](set_alias.png)
+Unter Linux benötigt das Paket die Bibliothek `fontconfig`, jedoch nicht `libgdiplus`. Auf Debian und Ubuntu installieren Sie `fontconfig` und fügen dann das Paket zu Ihrem Projekt hinzu:
 
-Jetzt werden die Typen aus System.Drawing.Common standardmäßig verwendet. Der externe Assembly‑Alias muss dort angegeben werden, wo Aspose.Slides‑Typen benötigt werden.
-```c#
-extern alias Slides;
-using Slides::Asppe.Slides;
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
+dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
+Unter Debian und Ubuntu installiert `libfontconfig1` zudem die DejaVu‑Schriften, sodass Texte ohne weitere Schriftpakete gerendert werden. Ohne `fontconfig` schlägt das Erstellen einer [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) mit einer `TypeInitializationException` fehl, deren innere `DllNotFoundException` meldet, dass `libfontconfig.so.1` nicht geöffnet werden kann. [System Requirements](/slides/de/net/system-requirements/) enthält ein kurzes Programm, das die Einrichtung prüft.
 
-Vollständiges Beispiel:
-```c#
-extern alias Slides;
-using Slides::Aspose.Slides;
+## **Cloud‑ und Container‑Hosts**
 
-static Slides::System.Drawing.Image GetThumbnail(Presentation pres)
-{
-    return pres.Slides[0].GetThumbnail();
-}
-```
+Da `libgdiplus` nicht benötigt wird, ist Aspose.Slides.NET6.CrossPlatform das zu verwendende Paket auf Linux‑Hosts, bei denen Sie `libgdiplus` nicht installieren können. Es benötigt jedoch weiterhin `fontconfig` und Schriftarten, die in minimalen Base‑Images eventuell fehlen. Das AWS Lambda‑Base‑Image für .NET 8 enthält beispielsweise beides nicht. In einem darauf aufbauenden Container‑Image führen Sie `dnf install -y fontconfig` aus, wodurch auch die Noto‑Sans‑Schriften installiert werden.
 
+Für Anleitungen zu konkreten Cloud‑Plattformen siehe [Aspose.Slides on Cloud Platforms](/slides/de/net/slides-on-cloud-platforms/).
 
-Ab Version 24.8 wurde die veraltete öffentliche API mit Abhängigkeiten von System.Drawing entfernt. In Bezug auf das obige Codebeispiel können Sie das Folien‑Bild wie folgt erhalten.
-```cs
-static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
-{
-    return presentation.Slides[0].GetImage();
-}
-```
+## **System.Drawing.Common im selben Projekt verwenden (CS0433)**
 
-Die neue API wird im Detail in [Modern API](/slides/de/net/modern-api/) beschrieben.
+Ein Projekt, das Aspose.Slides.NET6.CrossPlatform verwendet, kann gleichzeitig System.Drawing.Common referenzieren, direkt oder über ein anderes Paket. Die aktuelle Version von Aspose.Slides enthält keine öffentlichen Typen in `System`‑Namespaces, sodass die beiden Bibliotheken nicht in Konflikt geraten und Sie die Namespaces `Aspose.Slides` und `System.Drawing` in derselben Datei importieren können.
+
+Meldet der Compiler den Fehler CS0433, weil ein Typ wie `Image` oder `Graphics` sowohl in Aspose.Slides als auch in System.Drawing.Common existiert, verwendet Ihr Projekt eine ältere Version von Aspose.Slides. Aktualisieren Sie das Paket auf die neueste Version. Aspose.Slides liefert gerenderte Bilder als [IImage](https://reference.aspose.com/slides/de/net/aspose.slides/iimage/)-Objekte zurück, die in [Modern API](/slides/de/net/modern-api/) beschrieben sind.
+
+## **FAQ**
+
+**Muss ich meinen Code ändern, wenn ich von Aspose.Slides.NET zu Aspose.Slides.NET6.CrossPlatform wechsle?**
+
+Nein. Beide Pakete stellen dieselben Aspose.Slides‑Namespaces und -Klassen bereit, sodass Sie nur die Paket‑Referenz austauschen. Aspose.Slides.NET6.CrossPlatform benötigt den Schalter `System.Drawing.EnableUnixSupport` nicht. Fügen Sie nur eines der beiden Pakete zu einem Projekt hinzu.
+
+**Kann ich Aspose.Slides.NET6.CrossPlatform in einem .NET‑Framework‑Projekt verwenden?**
+
+Nein. Das Paket richtet sich ausschließlich an .NET 6 und neuere Versionen. Für .NET Framework 4.6.2 und höher verwenden Sie Aspose.Slides.NET.

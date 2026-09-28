@@ -1,52 +1,38 @@
 ---
 title: Ondersteunde bestandsformaten
 type: docs
-weight: 30
+weight: 96
 url: /nl/net/supported-file-formats/
 keywords:
-- bestandsformaat
-- ondersteund formaat
-- PPT
-- POT
-- PPS
-- PPTX
-- POTX
-- PPSX
-- PPTM
-- PPSM
-- POTM
-- ODP
-- FODP
-- OTP
-- TIFF
-- EMF
-- PDF
-- XPS
-- JPEG
-- PNG
-- GIF
-- BMP
-- SVG
-- SWF
-- HTML
-- XAML
-- MD
-- XML
+- ondersteunde bestandsformaten
+- presentatie laden
+- PDF importeren
+- HTML importeren
+- presentatie opslaan
+- dia's renderen
 - PowerPoint
 - OpenDocument
-- presentatie
+- PPT
+- PPTX
+- ODP
+- PDF
+- HTML
+- XPS
+- SVG
+- XAML
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek alle bestandsformaten die Aspose.Slides voor .NET kan openen, opslaan en converteren — inclusief PPT, PPTX en ODP — met duidelijke import/export‑ondersteuningsnotities."
+description: "Bekijk welke bestandsformaten Aspose.Slides for .NET kan laden, importeren, opslaan en renderen, en welke API elk formaat leest of schrijft."
 ---
 ## **Overzicht**
 
-Aspose.Slides ondersteunt presentatiebestanden van Microsoft PowerPoint 97 tot en met Office 365, inclusief Microsoft PowerPoint voor Mac. Dit artikel geeft een overzicht van de PowerPoint‑versies die door de bibliotheek worden ondersteund en bevat een tabel met bestandsformaten die geladen, opgeslagen of beide kunnen worden.
+Aspose.Slides for .NET opent en slaat PowerPoint‑ en OpenDocument‑presentaties op. Het kan tevens PDF‑ en HTML‑inhoud importeren in dia’s, presentaties opslaan naar document‑, web‑ en afbeeldingsformaten, en individuele dia’s en vormen renderen als afbeeldingen. Dit artikel geeft een overzicht van elk ondersteund formaat en benoemt de API die het leest of schrijft.
 
-Het artikel beantwoordt ook veelgestelde vragen over PDF‑naleving, het insluiten van lettertypen, wachtwoordbeveiligde bestanden, aangepaste lettertypen, fallback‑mechanismen voor lettertypen en XPS‑exportopties.
+Beide NuGet‑pakketten, Aspose.Slides.NET en Aspose.Slides.NET6.CrossPlatform, ondersteunen dezelfde formaten; zie [Installation](/slides/nl/net/installation/) om er één te kiezen. Voor een overzicht van bewerkingsfuncties, zie [Features Overview](/slides/nl/net/features-overview/).
 
 ## **Ondersteunde Microsoft PowerPoint‑versies**
+
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -56,58 +42,91 @@ Het artikel beantwoordt ook veelgestelde vragen over PDF‑naleving, het insluit
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint voor Mac
-- Office 365
+- Microsoft PowerPoint for Mac
+- PowerPoint for Microsoft 365 (voorheen Office 365)
+
+{{% alert color="info" title="Note" %}}
+
+Presentaties die opgeslagen zijn met PowerPoint 95 of eerdere versies kunnen niet geopend worden. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) herkent een PowerPoint 95‑bestand en rapporteert `LoadFormat.Ppt95`, maar de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/)‑constructor gooit een [PptUnsupportedFormatException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptunsupportedformatexception/) hiervoor.
+
+{{% /alert %}}
 
 ## **Ondersteunde bestandsformaten**
-Deze tabel bevat de bestandsformaten die Aspose.Slides voor .NET kan laden en opslaan:
 
-|**Formaat**|**Beschrijving**|**Laden**|**Opslaan**|**Opmerkingen**|
+De tabel gebruikt vier bewerkingen:
+
+- **Laden**: de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/)‑constructor opent het bestand als een bewerkbare presentatie.
+- **Importeren**: een [SlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/slidecollection/)‑methode maakt dia’s van de bestandsinhoud en voegt ze toe aan een bestaande presentatie. De Presentation‑constructor laadt deze bestanden niet als presentaties.
+- **Opslaan**: [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/) schrijft de presentatie naar een bestand of stream. Elk formaat behalve XAML wordt geselecteerd met een [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)‑waarde.
+- **Renderen**: een render‑methode tekent een dia of een vorm als afbeelding. Formaten die uitsluitend gerenderd worden zijn geen SaveFormat‑waarden.
+
+|**Formaat**|**Beschrijving**|**Laden / Importeren**|**Opslaan / Renderen**|**API**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint 97-2003-presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint 97-2003-sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint 97-2003-show|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint-presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint-sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint-show|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint-macro‑ingeschakelde presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint-macro‑ingeschakelde show|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint-macro‑ingeschakelde sjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument-presentatie|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument-presentatiesjabloon|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format||{{< emoticons/tick >}}||
-|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format||{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification||{{< emoticons/tick >}}||
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group||{{< emoticons/tick >}}||
-|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics||{{< emoticons/tick >}}||
-|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format||{{< emoticons/tick >}}||
-|[BMP](https://docs.fileformat.com/image/bmp/)|Device Independent Bitmap||{{< emoticons/tick >}}||
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics||{{< emoticons/tick >}}||
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language||{{< emoticons/tick >}}||
-|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown||{{< emoticons/tick >}}||
-|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML-presentatie||{{< emoticons/tick >}}||
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint‑presentatie 97‑2003|Laden|Opslaan|`LoadFormat.Ppt`, `SaveFormat.Ppt`|
+|[POT](https://docs.fileformat.com/presentation/pot/)|PowerPoint‑sjabloon 97‑2003|Laden|Opslaan|`LoadFormat.Pot`, `SaveFormat.Pot`|
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint‑diavoorstelling 97‑2003|Laden|Opslaan|`LoadFormat.Pps`, `SaveFormat.Pps`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint‑presentatie|Laden|Opslaan|`LoadFormat.Pptx`, `SaveFormat.Pptx`|
+|[POTX](https://docs.fileformat.com/presentation/potx/)|PowerPoint‑sjabloon|Laden|Opslaan|`LoadFormat.Potx`, `SaveFormat.Potx`|
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint‑diavoorstelling|Laden|Opslaan|`LoadFormat.Ppsx`, `SaveFormat.Ppsx`|
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|PowerPoint‑macro‑enabled presentatie|Laden|Opslaan|`LoadFormat.Pptm`, `SaveFormat.Pptm`|
+|[POTM](https://docs.fileformat.com/presentation/potm/)|PowerPoint‑macro‑enabled sjabloon|Laden|Opslaan|`LoadFormat.Potm`, `SaveFormat.Potm`|
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|PowerPoint‑macro‑enabled diavoorstelling|Laden|Opslaan|`LoadFormat.Ppsm`, `SaveFormat.Ppsm`|
+|[ODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument‑presentatie|Laden|Opslaan|`LoadFormat.Odp`, `SaveFormat.Odp`|
+|FODP|Flat XML OpenDocument‑presentatie|Laden|Opslaan|`LoadFormat.Fodp`, `SaveFormat.Fodp`|
+|[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument‑presentatiesjabloon|Laden|Opslaan|`LoadFormat.Otp`, `SaveFormat.Otp`|
+|[XML](https://docs.fileformat.com/web/xml/)|PowerPoint‑XML‑presentatie|Laden|Opslaan|`SaveFormat.Xml`; geladen bestanden rapporteren `SourceFormat.Xml` (er is geen `LoadFormat`‑waarde)|
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|Importeren|Opslaan|`SlideCollection.AddFromPdf`; `SaveFormat.Pdf`|
+|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|Importeren|Opslaan|`SlideCollection.AddFromHtml`, `SlideCollection.InsertFromHtml`; `SaveFormat.Html`, `SaveFormat.Html5`|
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification|—|Opslaan|`SaveFormat.Xps`|
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Tagged Image File Format|—|Opslaan, Renderen|`SaveFormat.Tiff`; `ImageFormat.Tiff` (één dia)|
+|[GIF](https://docs.fileformat.com/image/gif/)|Graphics Interchange Format|—|Opslaan, Renderen|`SaveFormat.Gif` (geanimeerd, alle dia’s); `ImageFormat.Gif` (één dia)|
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format (Flash)|—|Opslaan|`SaveFormat.Swf`|
+|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown|—|Opslaan|`SaveFormat.Md`|
+|[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language|—|Opslaan|`Presentation.Save(IXamlOptions)`, één XAML‑bestand per dia; geen `SaveFormat`‑waarde|
+|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics|—|Renderen|`ImageFormat.Png`|
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|JPEG‑afbeelding|—|Renderen|`ImageFormat.Jpeg`|
+|[BMP](https://docs.fileformat.com/image/bmp/)|Bitmap‑afbeelding|—|Renderen|`ImageFormat.Bmp`|
+|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile|—|Renderen|`Slide.WriteAsEmf`|
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics|—|Renderen|`Slide.WriteAsSvg`, `Shape.WriteAsSvg`|
+
+## **Laden en importeren**
+
+- **Laden:** Geef een pad of een stream door aan de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/presentation/)‑constructor. Het formaat wordt gedetecteerd uit de inhoud; [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/) levert instellingen zoals een wachtwoord. Om een bestand vóór het openen te controleren, roep je [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) aan, die een [LoadFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/loadformat/)‑waarde rapporteert. Voor PowerPoint‑XML rapporteert het `LoadFormat.Unknown`, maar de constructor opent zo’n bestand wel, en [Presentation.SourceFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/sourceformat/) retourneert vervolgens `SourceFormat.Xml`. Zie [Open Presentations](/slides/nl/net/open-presentation/) en [Determine the Original Presentation Format](/slides/nl/net/detect-presentation-source-format/).
+- **Importeren:** [SlideCollection.AddFromPdf](https://reference.aspose.com/slides/nl/net/aspose.slides/slidecollection/addfrompdf/) voegt één dia per PDF‑pagina toe aan het einde van een presentatie. [SlideCollection.AddFromHtml](https://reference.aspose.com/slides/nl/net/aspose.slides/slidecollection/addfromhtml/) voegt dia’s toe die uit HTML zijn gemaakt, en [SlideCollection.InsertFromHtml](https://reference.aspose.com/slides/nl/net/aspose.slides/slidecollection/insertfromhtml/) plaatst ze op een opgegeven positie. De Presentation‑constructor importeert niet: hij gooit een [PptUnsupportedFormatException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptunsupportedformatexception/) voor een PDF‑bestand en converteert HTML‑markering niet naar dia‑inhoud. Zie [Import Presentations from PDF or HTML](/slides/nl/net/import-presentation/).
+
+## **Opslaan en renderen**
+
+- **Opslaan:** [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/) schrijft de presentatie in het formaat van een [SaveFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.export/saveformat/)‑waarde. Overloads die bovendien een options‑object accepteren bepalen de output, bijvoorbeeld [PdfOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/htmloptions/), [Html5Options](https://reference.aspose.com/slides/nl/net/aspose.slides.export/html5options/), [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/), en [GifOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/gifoptions/). Overloads die een array van dia‑posities (beginnend bij 1) ontvangen, schrijven alleen die dia’s; ze accepteren PDF, XPS, TIFF, HTML, HTML5, SWF, GIF en Markdown, maar niet de presentatieformaten of PowerPoint‑XML. XAML heeft een eigen overload die [IXamlOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export.xaml/ixamloptions/) accepteert. Zie [Save Presentations](/slides/nl/net/save-presentation/), [Convert Presentations](/slides/nl/net/convert-presentation/) en [Export Presentations to XAML](/slides/nl/net/export-to-xaml/).
+- **Renderen:** [Slide.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/getimage/) en [Shape.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/shape/getimage/) retourneren een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/), en [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/) schrijft deze als PNG, JPEG, BMP, GIF of TIFF, geselecteerd met een [ImageFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/imageformat/)‑waarde. [Presentation.GetImages](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/getimages/) renderen alle dia’s of geselecteerde dia’s in één keer. [Slide.WriteAsSvg](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/writeassvg/) en [Shape.WriteAsSvg](https://reference.aspose.com/slides/nl/net/aspose.slides/shape/writeassvg/) schrijven SVG, en [Slide.WriteAsEmf](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/writeasemf/) schrijft EMF. Zie [Convert Presentation Slides to Images](/slides/nl/net/convert-slide/) en [Render a Slide as an SVG Image](/slides/nl/net/render-a-slide-as-an-svg-image/).
+
+{{% alert color="warning" title="Warning" %}}
+
+ImageFormat bevat ook de waarden `Emf`, `Wmf`, `Icon`, `Exif` en `MemoryBmp`, maar IImage.Save produceert die formaten niet: het bestand dat geschreven wordt bevat PNG‑data. Gebruik Slide.WriteAsEmf om een EMF‑afbeelding van een dia te krijgen.
+
+{{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik presentaties opslaan als PDF die voldoen aan archiverings‑ en toegankelijkheidsnormen (PDF/A en PDF/UA)?**
+**Kan ik een PPT‑presentatie omzetten naar PPTX of ODP?**
 
-Ja. Aspose.Slides ondersteunt exporteren naar PDF met nalevingsniveaus zoals PDF/A‑2a, PDF/A‑2b, PDF/A‑2u, PDF/A‑3a, PDF/A‑3b, evenals PDF/UA via de instelling [compliance](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/compliance/) in de [PDF export options](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/).
+Ja. Open het PPT‑bestand met de Presentation‑constructor en sla het op met `SaveFormat.Pptx` of `SaveFormat.Odp`. Zie [Convert PPT to PPTX](/slides/nl/net/convert-ppt-to-pptx/).
 
-**Ondersteunt de bibliotheek het insluiten van lettertypen bij het exporteren naar PDF, met fijne controle over wat er wordt ingesloten?**
+**Kan ik een PDF‑ of HTML‑bestand openen als presentatie?**
 
-Ja. U kunt bepalen of lettertypen volledig worden ingesloten of alleen een subset (enkel gebruikte tekens), aangeven hoe veelvoorkomende systeemlettertypen worden behandeld, en het gedrag voor ASCII‑tekst configureren via de [PDF export options](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/).
+Nee. Maak of open een presentatie, importeer de PDF‑pagina’s of HTML‑inhoud met de hierboven beschreven SlideCollection‑methoden, en sla vervolgens op in elk ondersteund formaat.
 
-**Kan ik detecteren of een bestand met een wachtwoord beveiligd is voordat ik het daadwerkelijk laadt?**
+**Kan ik een geëxporteerde PNG‑ of SVG‑afbeelding laden als bewerkbare presentatie?**
 
-Ja. Met de [factory‑based inspection API](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/) kunt u een presentatiebestand raadplegen om te bepalen of het wachtwoord‑beveiligd is zonder het volledig te openen.
+Nee. Een afbeelding legt alleen vast hoe een dia eruitziet, niet de tekst, vormen of grafieken. Bewaar de originele presentatie als je later wilt bewerken.
 
-**Zijn er fallback‑mechanismen voor lettertypen en ondersteuning voor aangepaste lettertypen?**
+**Kan ik PDF/A‑ of PDF/UA‑documenten opslaan?**
 
-Ja. De bibliotheek ondersteunt het [laden](/slides/nl/net/custom-font/) en het [insluiten](/slides/nl/net/embedded-font/) van aangepaste lettertypen en biedt [fallback‑regels](/slides/nl/net/fallback-font/) om ontbrekende tekens tijdens renderen en conversie te voorkomen.
+Ja. Stel [PdfOptions.Compliance](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfoptions/compliance/) in op een [PdfCompliance](https://reference.aspose.com/slides/nl/net/aspose.slides.export/pdfcompliance/)‑waarde: PDF/A‑1a, PDF/A‑1b, PDF/A‑2a, PDF/A‑2b, PDF/A‑2u, PDF/A‑3a, PDF/A‑3b, of PDF/UA.
 
-**Kan ik dia's exporteren naar XPS, en zijn er opties om de XPS‑uitvoer af te stellen?**
+**Kan ik controleren of een bestand met een wachtwoord beschermd is voordat ik het open?**
 
-Ja. [Export to XPS](/slides/nl/net/convert-powerpoint-to-xps/) wordt ondersteund, en u kunt de relevante [save options](https://reference.aspose.com/slides/nl/net/aspose.slides.export/xpsoptions/) aanpassen om de kwaliteit en de inhoud van het XPS‑document te regelen.
+Ja. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) inspecteert een bestand zonder een Presentation‑object te maken, en de eigenschap [IsPasswordProtected](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/ispasswordprotected/) geeft aan of een wachtwoord nodig is. Zie [Password‑Protect Presentations](/slides/nl/net/password-protected-presentation/).
+
+**Ondersteunen de twee NuGet‑pakketten verschillende formaten?**
+
+Nee. Aspose.Slides.NET en Aspose.Slides.NET6.CrossPlatform hebben dezelfde LoadFormat‑ en SaveFormat‑waarden en dezelfde import‑ en rendermethoden. Ze verschillen in de platforms waarop ze draaien en in wat die platforms nodig hebben; zie [Installation](/slides/nl/net/installation/).

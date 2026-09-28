@@ -1,5 +1,5 @@
 ---
-title: Περιορισμοί API
+title: Περιορισμοί Μεταδεδομένων Εξόδου
 type: docs
 weight: 320
 url: /el/net/api-limitations/
@@ -10,26 +10,29 @@ keywords:
 - παραγωγός
 - ιδιότητες εγγράφου
 - μεταδεδομένα
+- δημιουργός
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Γνωρίστε τους περιορισμούς του Aspose.Slides for .NET: οι εξαγωγές ορίζουν σταθερά μεταδεδομένα Application/Producer σε PPT, PPTX, ODP και PDF—σας βοηθάει να σχεδιάσετε ενσωματώσεις χωρίς εκπλήξεις."
+description: "Το Aspose.Slides for .NET γράφει σταθερά μεταδεδομένα εφαρμογής, δημιουργού και παραγωγού σε αποθηκευμένα αρχεία PPTX, PDF και ODP, ό,τι όνομα εφαρμογής και αν ορίσετε."
 ---
 ## **Επισκόπηση**
 
-Όταν δημιουργούνται ή εξάγονται παρουσιάσεις με Aspose.Slides, ορισμένα τεχνικά μεταδεδομένα γράφονται στο αρχείο εξόδου. Αυτό το άρθρο εξηγεί τους περιορισμούς που σχετίζονται με τα πεδία μεταδεδομένων `Application`, `Creator` και `Producer` σε αρχεία PPTX και PDF.
+Όταν παρουσιάσεις δημιουργούνται ή εξάγονται με το Aspose.Slides, ορισμένα τεχνικά μεταδεδομένα γράφονται στο αρχείο εξόδου. Αυτό το άρθρο εξηγεί τους περιορισμούς που αφορούν τα πεδία μεταδεδομένων `Application`, `Creator`, `Producer` και generator στα αρχεία PPTX, PDF και ODP.
 
-## **Application και Producer**
+## **Εφαρμογή και Παραγωγός**
 
-Όταν δημιουργείτε ή εξάγετε παρουσιάσεις με Aspose.Slides for .NET, ορισμένα τεχνικά μεταδεδομένα γράφονται στο αρχείο. Δύο πεδία προκαλούν συχνά ερωτήματα:
+Όταν δημιουργείτε ή εξάγετε παρουσιάσεις με το Aspose.Slides for .NET, ορισμένα τεχνικά μεταδεδομένα γράφονται στο αρχείο. Δύο πεδία συχνά εγείρουν ερωτήσεις:
 
-**Application** προσδιορίζει το πρόγραμμα που δημιούργησε ή αποθήκευσε τελευταία μια παρουσίαση **PPTX**. Στο Aspose.Slides for .NET, αυτή η τιμή είναι σταθερή και εμφανίζει τον προμηθευτή της βιβλιοθήκης αντί για το όνομα της εφαρμογής σας, ακόμη και αν ορίσετε [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/el/net/aspose.slides/documentproperties/nameofapplication/).
+**Application** προσδιορίζει το πρόγραμμα που δημιούργησε ή αποθήκευσε τελευταία μια παρουσίαση **PPTX**. Στο Aspose.Slides for .NET, αυτή η τιμή είναι σταθερή και εμφανίζει το όνομα της βιβλιοθήκης αντί για το όνομα της εφαρμογής σας, ακόμα και αν ορίσετε [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/el/net/aspose.slides/documentproperties/nameofapplication/).
 
-**Producer** προσδιορίζει τη μηχανή απόδοσης που δημιούργησε το τελικό αρχείο κατά την εξαγωγή. Στις εξαγωγές **PDF**, τα μεταδεδομένα χρησιμοποιούν τα πεδία **Creator** και **Producer**. Με το Aspose.Slides for .NET, και τα δύο είναι σταθερά και αντικατοπτρίζουν τη βιβλιοθήκη και την έκδοσή της.
+**Producer** προσδιορίζει τη μηχανή απόδοσης που δημιούργησε το τελικό αρχείο κατά την εξαγωγή. Στις εξαγωγές **PDF**, τα μεταδεδομένα χρησιμοποιούν τα πεδία **Creator** και **Producer**. Με το Aspose.Slides for .NET, και τα δύο είναι σταθερά και αντικατοπτρίζουν τη βιβλιοθήκη και την έκδοση της.
 
-**Τι περιορίζεται**
+## **Τι περιορίζεται**
 
-Δεν μπορείτε να παρακάμψετε αυτά τα πεδία μέσω του API για τις παραπάνω μορφές. Για **PPTX**, η ιδιότητα Application γράφεται ως "Aspose.Slides for .NET". Για **PDF**, οι ιδιότητες Creator και Producer γράφονται ως "Aspose.Slides for .NET x.x.x". Αυτή η συμπεριφορά είναι προκαθορισμένη και ισχύει ανεξάρτητα από το πώς φορτώνετε ή αποθηκεύετε το αρχείο, καθώς και ανεξάρτητα από τις τιμές που έχουν οριστεί στο [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/el/net/aspose.slides/documentproperties/nameofapplication/).
+Δεν μπορείτε να αντικαταστήσετε αυτά τα πεδία μέσω του API για τις παραπάνω μορφές. Για **PPTX**, η ιδιότητα Application γράφεται ως "Aspose.Slides for .NET". Για **PDF**, οι ιδιότητες Creator και Producer γράφονται ως "Aspose.Slides for .NET" ακολουθούμενο από την έκδοση της βιβλιοθήκης. Για **ODP**, το πεδίο generator γράφεται ως "Aspose.Slides for .NET" ακολουθούμενο από την έκδοση της βιβλιοθήκης. Αυτή η συμπεριφορά είναι σκόπιμη και ισχύει ανεξαρτήτως του τρόπου φόρτωσης ή αποθήκευσης του αρχείου, καθώς και ανεξαρτήτως των τιμών που έχουν οριστεί στο [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/el/net/aspose.slides/documentproperties/nameofapplication/).
+
+Αυτή η περιοριστική ενέργεια δεν ισχύει για αρχεία **PPT**: σε ένα αρχείο PPT, το όνομα εφαρμογής που έχετε ορίσει στο [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/el/net/aspose.slides/documentproperties/nameofapplication/) αποθηκεύεται.

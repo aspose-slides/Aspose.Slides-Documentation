@@ -1,44 +1,27 @@
 ---
-title: لماذا لا الأتمتة
+title: لماذا لا نستخدم الأتمتة
 type: docs
-weight: 40
+weight: 170
 url: /ar/net/why-not-automation/
 keywords:
-- أتمتة
+- الأتمتة
 - مايكروسوفت أوفيس
-- مقارنة
-- أمان
-- استقرار
-- قابلية التوسع
-- ميزات
+- المقارنة
+- الأمان
+- الاستقرار
+- القابلية للتوسع
+- الميزات
 - باوربوينت
 - مستند مفتوح
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف لماذا تُعد أتمتة Office مخاطرة للخوادم والخدمات، وتعرّف على كيفية توفير Aspose.Slides لمعالجة عروض تقديمية أكثر أمانًا وسرعة لبرنامج باوربوينت ومستند مفتوح."
+description: "اكتشف لماذا تُعد أتمتة Office خطرة على الخوادم والخدمات، وتعرّف كيف يوفر Aspose.Slides معالجة عروض تقديمية أكثر أمانًا وسرعة لـ PowerPoint وOpenDocument."
 ---
+## **المقدمة**
 
-## **أسئلة مهمة**
-- لماذا تُعد مكوّنات Aspose خيارًا أفضل بكثير من أتمتة Microsoft Office؟
-
-هناك سؤالان نسمعهما كثيرًا في Aspose :
-
-- هل تتطلب منتجاتكم تثبيت Microsoft Office لكي تعمل؟
-
-الإجابة القصيرة والبسيطة—**NO**.
-
-Aspose ومكوّنات Aspose مستقلة تمامًا ولا توجد لها صلة بشركة Microsoft ولا تُعتبر مُصرَّحًا بها أو مدعومة أو معتمدة من قبل Microsoft Corporation.
-
-- لماذا يجب أن نستخدم منتجات Aspose بدلاً من استخدام أتمتة Microsoft Office؟
-
-أولاً، هناك العديد من [الفوائد التي تستمتع بها عند استخدام Aspose.Slides](https://docs.aspose.com/slides/net/product-overview/).
-
-ثانيًا، تُنبه Microsoft نفسها بشدة **ضد** استخدام أتمتة Office من حلول البرمجيات.
-
-## **نظرة عامة**
-كما ذكرنا سابقًا، هناك عدة أسباب تجعل مكوّنات Aspose بديلاً أفضل للأتمة. بعض الأسباب الرئيسية هي:
+هناك عدة أسباب تجعل مكونات Aspose بديلاً أفضل للأتمتة. بعض الأسباب الرئيسية هي:
 
 - الأمان
 - الاستقرار
@@ -46,70 +29,84 @@ Aspose ومكوّنات Aspose مستقلة تمامًا ولا توجد لها 
 - السعر
 - الميزات
 
-نستعرض الأسباب الرئيسية في الفقرات أدناه.
+فيما يلي شرح أكثر تفصيلاً لكل نقطة رئيسية.
+
+## **الأسئلة المهمة**
+
+هناك سؤالان نسمعهما كثيرًا في Aspose:
+
+- هل تتطلب منتجاتكم تثبيت Microsoft Office لتعمل؟
+
+الإجابة القصيرة والبسيطة هي **NO**.
+
+- لماذا يجب أن نستخدم منتجات Aspose بدلاً من أتمتة Microsoft Office؟
+
+أولًا، هناك many [الفوائد التي تستمتع بها عند استخدام Aspose.Slides](/slides/ar/net/product-overview/).
+
+ثانيًا، شركة Microsoft نفسها **تنصح بشدة ضد** استخدام أتمتة Office من حلول برمجية.
 
 ## **الأمان**
-الآتي اقتباس مباشر من مقالة مايكروسوفت:
+> "Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."
+> 
+> "لم تُصمم تطبيقات Office للاستخدام من جانب الخادم أبداً، وبالتالي لا تأخذ في الاعتبار مشكلات الأمان التي تواجه المكونات الموزَّعة. لا يقوم Office بالمصادقة على الطلبات الواردة، ولا يحميك من تشغيل الماكروهات عن غير قصد، أو بدء خادم آخر قد يشغّل ماكروهات، من كود الخادم الخاص بك. لا تفتح ملفات تم رفعها إلى الخادم من ويب مجهول! بناءً على إعدادات الأمان التي تم تعيينها آخر مرة، يمكن للخادم تشغيل الماكروهات تحت سياق مشرف أو نظام مع صلاحيات كاملة وإضرار شبكتك! بالإضافة إلى ذلك، يستخدم Office العديد من المكونات من جانب العميل (مثل Simple MAPI، WinInet، MSDAIPP) التي يمكنها تخزين معلومات مصادقة العميل مؤقتًا لتسريع المعالجة. إذا تم أتمتة Office من جانب الخادم، قد تخدم نسخة واحدة أكثر من عميل واحد، وبما أن معلومات المصادقة تم تخزينها مؤقتًا لتلك الجلسة، فإنه من الممكن أن يستخدم عميل ما بيانات اعتماد عميل آخر مخزنة مؤقتًا، وبالتالي يحصل على صلاحيات وصول غير ممنوحة عن طريق انتحال هوية مستخدمين آخرين."
 
-> "لم تكن تطبيقات Office مُصممة للاستخدام على الخادم أبداً، وبالتالي لا تأخذ في الاعتبار مشكلات الأمان التي تواجه المكوّنات الموزَّعة. لا يقوم Office بالمصادقة على الطلبات الواردة، ولا يحميك من تشغيل الماكروهات غير المقصودة، أو تشغيل خادم آخر قد يشغّل ماكروهات، من شفرة الخادم الخاصة بك. لا تفتح ملفات تم رفعها إلى الخادم من ويب مجهول! بناءً على إعدادات الأمان التي تم ضبطها آخر مرة، قد يُشغّل الخادم ماكروهات تحت سياق Administrator أو System مع صلاحيات كاملة ويُعرض شبكتك للخطر! بالإضافة إلى ذلك، يستخدم Office العديد من المكوّنات الجانبية للعميل (مثل Simple MAPI، WinInet، MSDAIPP) التي يمكنها تخزين معلومات المصادقة للعميل لتسريع المعالجة. إذا تم أتمتة Office على الخادم، قد تخدم نسخة واحدة أكثر من عميل واحد، وبما أن معلومات المصادقة تم تخزينها لتلك الجلسة، فمن الممكن أن يستخدم عميل مخزون بيانات اعتماد عميل آخر، وبالتالي يحصل على أذونات وصول غير مُمنوحة بتقليد مستخدمين آخرين."
+منتجات Aspose **آمنة** للغاية. مكونات Aspose تعمل في نفس سياق المستخدم مثل جميع تطبيقات ASP.NET (تحت مستخدم ASPNET). لذلك، مكونات Aspose **لا** تشكل خطر أمان. كما أنها لا تستهلك موارد نظام حرجة. علاوةً على ذلك، عندما يفتح مكوّن Aspose مستندًا، لا يتم تشغيل الماكروهات تلقائيًا. تم بناء مكونات Aspose للسماح للمطورين بإنشاء ملفات Office ومعالجتها وحفظها.
 
-منتجات Aspose آمنة **جداً**. تعمل مكوّنات Aspose في نفس سياق المستخدم كما في جميع تطبيقات ASP.NET (تحت مستخدم ASPNET). لذلك، لا تشكل مكوّنات Aspose **خطرًا** أمنيًا. كما أنها لا تستهلك موارد نظام حرجة. علاوةً على ذلك، عندما تفتح مكوّنات Aspose مستندًا، لا تُشغَل الماكروهات تلقائيًا. صُمِّمت مكوّنات Aspose لتمكين المطورين من إنشاء وتعديل وحفظ ملفات Office.
-
-{{% alert color="primary" %}} 
-لا تنطبق أي من المخاطر المرتبطة بحزمة Microsoft Office على مكوّنات Aspose.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+لا ينطبق أي من المخاطر المرتبطة حزمة Microsoft Office على مكونات Aspose.
+{{% /alert %}}
 
 ## **الاستقرار**
-هذا النص اقتباس مباشر من مقالة Microsoft المذكورة سابقًا:
+> "Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."
+> 
+> "يستخدم Office 2000 وOffice XP وOffice 2003 تقنية Microsoft Windows Installer (MSI) لتسهيل التثبيت والإصلاح الذاتي للمستخدم النهائي. يقدم MSI مفهوم \"التثبيت عند أول استخدام\"، مما يتيح تثبيت الميزات أو تكوينها ديناميكيًا أثناء التشغيل (للنظام أو غالبًا لمستخدم معين). في بيئة الخادم، يؤدي ذلك إلى إبطاء الأداء وزيادة احتمال ظهور مربع حوار يطلب من المستخدم الموافقة على التثبيت أو توفير قرص تثبيت مناسب. رغم أنه صُمم لزيادة مرونة Office كمنتج للمستخدم النهائي، فإن تطبيق Office لإمكانات MSI يعد غير منتج في بيئة الخادم. علاوةً على ذلك، لا يمكن ضمان استقرار Office بشكل عام عند تشغيله من جانب الخادم لأنه لم يُصمم أو يُختبر لهذا النوع من الاستخدام. قد يؤدي استخدام Office كمكوّن خدمة على خادم شبكة إلى تقليل استقرار تلك الآلة وبالتالي شبكة بأكملها. إذا كنت تخطط لأتمتة Office من جانب الخادم، حاول عزل البرنامج على كمبيوتر مخصص لا يمكن أن يؤثر على الوظائف الحرجة، ويمكن إعادة تشغيله حسب الحاجة."
 
-> "تستخدم Office 2000 و Office XP و Office 2003 تقنية Microsoft Windows Installer (MSI) لتسهيل التثبيت والإصلاح الذاتي للمستخدم النهائي. تُدخل MSI مفهوم \"التثبيت عند أول استخدام\"، مما يسمح بتثبيت الميزات أو تكوينها ديناميكيًا أثناء التشغيل (للنظام، أو غالبًا للمستخدم المحدد). في بيئة الخادم، هذا يُبطئ الأداء ويزيد احتمال ظهور نافذة حوارية تطلب من المستخدم الموافقة على التثبيت أو توفير قرص تثبيت مناسب. رغم أنها صُممت لزيادة مرونة Office كمنتج للمستخدم النهائي، فإن تنفيذ Office لإمكانيات MSI يُعَدّ عكسًا لما هو مفيد في بيئة الخادم. علاوة على ذلك، لا يمكن ضمان استقرار Office بشكل عام عند تشغيله على الخادم لأنه لم يُصمم أو يُختبر لهذا النوع من الاستخدام. قد يؤدي استخدام Office كمكوّن خدمة على خادم شبكة إلى تقليل استقرار تلك الآلة وبالتالي استقرار الشبكة بأكملها. إذا كنت تخطط لأتمتة Office على الخادم، حاول عزل البرنامج على جهاز مخصص لا يمكن أن يؤثر على وظائف حيوية، ويمكن إعادة تشغيله حسب الحاجة."
+نظرًا لأن مكونات Aspose معبأة في DLL واحدة، لا يحتاج مستخدموها أبدًا إلى تثبيت أجزاء أو قطع إضافية لتعمل. تُستخدم مكونات Aspose فقط بواسطة تطبيقات .NET ولا يوجد أي جزء من شفرة المكوّن مُصمم لانتظار استجابة بشرية.
 
-نظرًا لأن مكوّنات Aspose تُوزّع في ملف DLL واحد، لا يحتاج مستخدموها إلى تثبيت أجزاء إضافية لتعمل. تُستَخدم مكوّنات Aspose فقط بواسطة تطبيقات .NET ولا يوجد أي جزء من شفرة المكوّن مصمم للانتظار لاستجابة بشرية.
-
-{{% alert color="primary" %}} 
-تم اختبار مكوّنات Aspose بدقة وتأكيد أنها مستقرة جدًا. تُستخدم مكوّنات Aspose من قبل [شركات](http://www.aspose.com/Corporate/Aspose/Customerlist.html) مثل **IBM** و **Hilton** و **Reader's Digest** و **Bank of America** والعديد من المؤسسات الرائدة في مختلف الصناعات والقطاعات.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+تم اختبار مكونات Aspose بدقة وتأكيد أنها مستقرة جدًا. تُستخدم مكونات Aspose من قبل [الشركات](https://about.aspose.com/customers/) مثل **Bank of America** والعديد من المؤسسات الرائدة في عدة صناعات ومجالات.
+{{% /alert %}}
 
 ## **القابلية للتوسع/السرعة**
-الآتي اقتباس مباشر من مقالة Microsoft:
+> "Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more then one instance of any Office Application at the same time need to consider Pooling or Serializing Access to the Office Application for avoiding potential Deadlocks or Data Corruption”.
+> 
+> "تحتاج المكونات من جانب الخادم إلى أن تكون قابلة لإعادة الدخول بشكل عالي، مكونات COM متعددة الخيوط مع الحد الأدنى من العبء العالي وإنتاجية مرتفعة لعدة عملاء. تطبيقات Office هي عكس ذلك تقريبًا. فهي خوادم أتمتة غير قابلة لإعادة الدخول، تعتمد على STA ومصممة لتوفير وظائف متنوعة ولكنها تتطلب موارد كثيرة لعميل واحد. تقدم قابلية توسع قليلة كحل من جانب الخادم، وتملك حدودًا ثابتة لعناصر هامة مثل الذاكرة لا يمكن تغييرها عبر الإعدادات. الأهم من ذلك، أنها تستخدم موارد عالمية (مثل ملفات الذاكرة المشتركة، الإضافات أو القوالب العامة، والخوادم المشتركة)، مما قد يحد من عدد النسخ التي يمكن تشغيلها متزامنًا ويؤدي إلى ظروف سباق إذا تم تكوينها في بيئة متعددة العملاء. يجب على المطورين الذين يخططون لتشغيل أكثر من نسخة واحدة من أي تطبيق Office في نفس الوقت أن ينظروا في التجميع أو تسلسل الوصول إلى تطبيق Office لتجنب احتمالية حدوث إغلاق دائم أو فساد البيانات."
+ 
+مكونات Aspose قابلة للتوسع بشكل لا يُصدق وسريعة كالبرق. لم تُصمم تطبيقات Office لتُستخدم في نفس الوقت من قبل مئات أو آلاف المستخدمين، لكن مكونات Aspose صُممت لهذا بالذات. مكوناتنا حل .NET حقيقي.
 
-> "تحتاج المكوّنات الجانبية للخادم إلى أن تكون قابلة لإعادة الدخول بدرجة عالية، ومكوّنات COM متعددة الخيوط مع الحد الأدنى من الحمل العالي والإنتاجية المتعددة للعملاء. تطبيقات Office هي العكس تمامًا في جميع النواحي تقريبًا. فهي غير قابلة لإعادة الدخول، ومكوّنات خادم Automation قائمة على STA صُممت لتوفير وظائف متعددة ولكن مستهلكة للموارد لعميل واحد. تقدم قابلية توسع قليلة كحل للخادم، وتوجد حدود ثابتة لعناصر مهمة مثل الذاكرة، ولا يمكن تغييرها عبر الإعدادات. والأهم من ذلك، أنها تستخدم موارد عالمية (مثل ملفات الذاكرة المجرَّدة، الإضافات أو القوالب العامة، وخوادم Automation المشتركة)، مما قد يحد من عدد النسخ التي يمكن تشغيلها متزامنًا ويؤدي إلى ظروف تسابق إذا تم تكوينها في بيئة متعددة العملاء. المطورون الذين يخططون لتشغيل أكثر من نسخة واحدة من أي تطبيق Office في نفس الوقت يجب أن يفكروا في التجميع أو تسلسل الوصول إلى تطبيق Office لتجنب احتمالات deadlocks أو فساد البيانات."
-
-مكوّنات Aspose قابلة للتوسع بشكل لا يُصدَّق وسريعة كالبرق. لم تُصمم تطبيقات Office لتُستخدم simultaneouly من قبل مئات أو آلاف المستخدمين، بينما صُمِّمت مكوّنات Aspose لذلك تحديدًا. مكوّناتنا هي حل .NET حقيقي.
-
-{{% alert color="primary" %}} 
-أداء مكوّنات Aspose لا تشوبه شائبة سواء على خادم واحد (يدعم تطبيقًا واحدًا) أو على نموذج ويب متوازن التحميل (يدعم تطبيقًا على مستوى المؤسسة).
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+أداء مكونات Aspose لا تشوبه شائبة على خادم واحد (يخدم تطبيقًا واحدًا) أو على نموذج ويب موزَّع (يخدم تطبيقًا على مستوى المؤسسة).
+{{% /alert %}}
 
 ## **السعر**
-عند استخدام تطبيق لأتمتة Microsoft Office، يجب شراء نسخة من Microsoft Office لكل جهاز يشغِّل التطبيق. هناك العديد من الحالات التي قد يحتاج فيها التطبيق لإنشاء أو تعديل ملف Office، لكن العملية لا تتطلب Microsoft Office.
+عند استخدام تطبيق لأتمتة Microsoft Office، يجب شراء نسخة من Microsoft Office لكل جهاز يشغل التطبيق. هناك العديد من الحالات التي قد يحتاج فيها التطبيق إلى إنشاء أو تعديل ملف Office، لكن العملية لا تتطلب Microsoft Office.
 
-{{% alert color="primary" %}} 
-توفر Aspose ترخيصًا [فعّالًا من حيث التكلفة](https://purchase.aspose.com/) وخاليًا من حقوق الملكية يتيح النشر لعدد غير محدود من المستخدمين دون القلق بشأن الترخيص.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+توفر Aspose رخصة توزيع [فعّال من حيث التكلفة](https://purchase.aspose.com/) وخالية من العوائد الملكية، تسمح بالنشر لعدد غير محدود من المستخدمين دون همّ تراخيص.
+{{% /alert %}}
 
-عند إنشاء تطبيقات ويب، من المهم تذكر أن مكوّنات أتمتة Microsoft Office لا تُسعَّر ولا تُرخص للحلول الجانبية للخادم. لذلك، لا توجد حل ترخيص جيد لنشر تطبيقات الويب التي تستخدم مكوّنات Microsoft Office. من ناحية أخرى، تقدم Aspose حلًا [فعّالًا من حيث التكلفة](https://purchase.aspose.com/) للتطبيقات القائمة على الخادم أيضًا.
+عند إنشاء تطبيقات ويب، من المهم أن نتذكر أن مكونات أتمتة Microsoft Office لا تُسعر ولا تُرخص للحلول من جانب الخادم. لذلك، لا توجد حل ترخيص جيد لنشر تطبيقات الويب التي تستخدم مكونات Microsoft Office. من ناحية أخرى، تقدم Aspose حلًا [فعّال من حيث التكلفة](https://purchase.aspose.com/) للتطبيقات القائمة على الخادم أيضًا.
 
 ## **الميزات**
-توفر مكوّنات Aspose كل ما يلزم لإدارة ملفات Office والعديد من المميزات الإضافية. صممناها بناءً على فلسفتنا في مساعدة المطورين على تحقيق أفضل النتائج بأقل جهد ممكن.
+توفر مكونات Aspose كل ما يلزم لإدارة ملفات Office والكثير أكثر. صممناها بناءً على فلسفتنا في مساعدة المطورين على تحقيق أعظم النتائج الممكنة بأقل جهد.
 
-{{% alert color="primary" %}} 
-على عكس أتمتة Office، تقدم مكوّنات Aspose العديد من الوظائف القوية وتوفير الوقت.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+على عكس أتمتة Office، تقدم مكونات Aspose العديد من الدوال القوية والموفرة للوقت.
+{{% /alert %}}
 
-على سبيل المثال، يتيح [Aspose.Cells](https://products.aspose.com/cells/net/) للمطورين استيراد البيانات من **DataTable** أو **DataView** مباشرةً إلى ملف Excel. يوفر [Aspose.Words](https://products.aspose.com/words/net/) ميزة مشابهة تسمح للمطورين بملء مستند Word (مثل دمج المراسلات) مباشرةً من أي كائن بيانات .NET. كل [مكوّن](https://products.aspose.com/total/net/) في عائلة Aspose يقدم مجموعة خاصة به من الميزات الفريدة والقوية.
+على سبيل المثال، [Aspose.Cells](https://products.aspose.com/cells/net/) يتيح للمطورين إمكانية استيراد البيانات من **DataTable** أو **DataView** مباشرةً إلى ملف Excel. [Aspose.Words](https://products.aspose.com/words/net/) يوفر ميزة مشابهة تسمح للمطورين بملء مستند Word (أي دمج المراسلات) مباشرةً من أي كائن بيانات .NET. [كل مكوّن](https://products.aspose.com/total/net/) في عائلة Aspose يقدم مجموعة فريدة وقوية من الميزات الخاصة به.
 
-أفضل جزء في شراء مكوّن Aspose هو الحصول على الوصول إلى فرق التطوير لدينا. على سبيل المثال، إذا كنت تستخدم كائنات أتمتة Office وتحتاج إلى ميزات معينة، فرص إضافتها قليلة جدًا. ولكن الأمور تختلف مع مكوّنات Aspose.
+أفضل جزء في شراء مكوّن Aspose هو الحصول على وصول إلى فرق التطوير لدينا. على سبيل المثال، إذا كنت تستخدم كائنات أتمتة Office وتحتاج إلى ميزات معينة، فإن فرص إضافتها تكون منخفضة جدًا. ومع ذلك، الأمر مختلف مع مكونات Aspose.
 
-{{% alert color="primary" %}} 
-يفهم فريق التطوير لدينا أن إذا كانت هناك ميزة تحتاجها شركتك، فهناك احتمال كبير أن تحتاجها شركات أخرى أيضًا. بينما ندرك أننا لا نستطيع تنفيذ كل ميزة مطلوبة، نسعى لإضافة أكبر عدد ممكن من الميزات بناءً على ملاحظات عملائنا.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+فرق التطوير لدينا تدرك أنه إذا كانت هناك ميزة تحتاجها شركتك، فهناك فرصة جيدة أن شركات أخرى تحتاج نفس الميزة. بينما نعلم أننا لا نستطيع تنفيذ كل ميزة مطلوبة، نسعى لإضافة أكبر عدد ممكن من الميزات استنادًا إلى ملاحظات عملائنا.
+{{% /alert %}}
 
-فِرقنا دائمًا منفتحة الذهن ومرنة في تقديم المساعدة—وهذا هو السبب في أن مكوّنات Aspose نمت لتصبح قوية كما هي الآن.
+فريقنا دائمًا منفتح ومرن عند تقديم المساعدة—وهذا هو السبب في أن مكونات Aspose نمت لتصبح قوية كما هي الآن.
 
-## **الخاتمة**
-{{% alert color="primary" %}} 
-بينما يغطي هذا المقال بعض النقاط الرئيسية التي تجعل مكوّنات Aspose خيارًا أفضل من أتمتة Office، عليك أن تدرك أن هناك العديد، العديد من الفوائد الأخرى. لقد استعرضنا بعض المزايا الرئيسية فقط.
+## **الخلاصة**
+{{% alert color="info" title="Note" %}}
+بينما تناولت هذه المقالة بعض النقاط الرئيسية التي تجعل مكونات Aspose خيارًا أفضل من أتمتة Office، عليك أن تدرك أن هناك العديد، العديد من الفوائد الأخرى. لقد استعرضنا فقط بعض المزايا الرئيسية.
 
-علاوةً على ذلك، جميع منتجات ومكوّنات Aspose تقدم نسخة [تقييم مجانية](https://downloads.aspose.com/slides/net) بلا مخاطر ولا التزام. نشجعك على الاستفادة من نسخة التقييم لترى ما يمكن لـ Aspose أن يقدمه لتطبيقاتك أو عملك.
+علاوةً على ذلك، جميع منتجات ومكونات Aspose تقدم نسخة تقييمية خالية من المخاطر ولا تتطلب أي التزام [Evaluation Version](https://releases.aspose.com/slides/ar/net/). نشجعك على الاستفادة من التقييم لرؤية ما يمكن أن تفعله Aspose لتطبيقاتك أو عملك.
 {{% /alert %}}

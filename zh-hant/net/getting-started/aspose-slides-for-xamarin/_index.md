@@ -1,7 +1,8 @@
 ---
-title: "適用於 Xamarin 的 Aspose.Slides"
+title: Aspose.Slides for Xamarin（歷史版）
+linktitle: Xamarin（歷史版）
 type: docs
-weight: 150
+weight: 200
 url: /zh-hant/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,48 +14,51 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 C# 建置 Xamarin 行動應用程式，以檢視、編輯與轉換簡報，搭配 Aspose.Slides，支援 Android 上的 PPT、PPTX 與 ODP 的豐富功能。"
+description: "歷史說明：Aspose.Slides for .NET 20.2 至 22.10 版如何透過獨立函式庫支援 Xamarin.Android。當前版本不再包含此庫。"
 ---
-## **簡介**
+{{% alert color="info" title="注意" %}}
 
-Xamarin 是一個用於 .NET C# 手機開發的框架。Xamarin 提供工具和函式庫，可擴充 .NET 平台的功能。它允許開發人員為 **Android** 作業系統建立應用程式。
-
-{{% alert color="info" %}} 
-
-在 Xamarin 開發中，程式設計師可以使用他們日常的開發環境（C#、Visual Studio 以及第三方函式庫）。
+這是一個歷史頁面。Aspose.Slides.NET 套件的 20.2 到 22.10 版包含了獨立的 Xamarin.Android 函式庫 *Aspose.Slides.Droid.dll*，此頁面的程式碼使用了該函式庫。較新的版本不再包含它：目前的套件只提供 .NET Framework 4.6.2、.NET 6 與 .NET Standard 2.0 的組建。Microsoft 於 2024 年 5 月 1 日停止支援所有 Xamarin SDK；詳情請參閱 [Xamarin support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin)。
 
 {{% /alert %}}
 
-Aspose.Slides API 可在 Xamarin 平台上執行。為達成此目的，Aspose.Slides .NET 套件會為 Xamarin 添加一個獨立的 DLL。Aspose.Slides for Xamarin 支援 .NET 版的大多數功能：
+## **簡介**
+
+Xamarin 是一個用於 .NET C# 行動開發的框架。Xamarin 提供工具與函式庫，擴充 .NET 平台的功能，讓開發者能為 **Android** 作業系統建立應用程式。
+
+{{% alert color="info" title="注意" %}}
+
+在 Xamarin 中開發時，程式設計師可以使用其慣用的開發環境（C#、Visual Studio 以及第三方函式庫）。
+
+{{% /alert %}}
+
+Aspose.Slides API 在 Xamarin 平台上也能運作。為此，Aspose.Slides.NET 套件在 20.2 到 22.10 版加入了針對 Xamarin 的獨立 DLL。Aspose.Slides for Xamarin 支援 .NET 版的大多數功能：
 
 - 轉換與檢視簡報。
 - 編輯簡報內容：文字、圖形、圖表、SmartArt、音訊/視訊、字型等。
 - 處理動畫、2D 效果、WordArt 等。
 - 處理中繼資料與文件屬性。
-- 複製、合併、比對、分割等。
+- 複製、合併、比較、拆分等。
 
 我們在本頁底部的另一節提供了完整功能的比較。
 
-在 Aspose.Slides for Xamarin API 中，類別、命名空間、邏輯與行為盡可能與 .NET 版相同。您可以最小的成本將 Aspose.Slides .NET 應用程式遷移至 Xamarin。
-
+在 Aspose.Slides for Xamarin API 中，類別、命名空間、邏輯與行為盡可能與 .NET 版保持相同。您可以以最小的成本將 Aspose.Slides .NET 應用程式遷移到 Xamarin。
 
 ## **快速範例**
-您可以使用 Aspose.Slides for Xamarin 透過 Slides for Android 建置並使用您的 C# 應用程式。
+您可以使用 Aspose.Slides for Xamarin 透過 Slides for Android 建立並使用 C# 應用程式。
 
-我們提供一個使用 Aspose.Slides 於 Xamarin Android 應用程式中顯示簡報投影片，並在觸碰時於投影片上新增形狀的範例。完整範例原始碼可在 [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) 上取得。
+我們提供了一個使用 Aspose.Slides 顯示簡報投影片，並在觸碰時於投影片上新增圖形的 Xamarin Android 範例。完整範例原始碼可在 [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) 取得。
 
-讓我們從建立一個 Xamarin Android App 開始：
+讓我們從建立 Xamarin Android App 開始：
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creating a Xamarin Android app](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-首先，我們建立一個內容佈局，內含 ImageView、Prev 與 Next 按鈕：
+首先，我們建立一個包含 ImageView、Prev 與 Next 按鈕的版面配置：
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Content layout with an image view and Prev and Next buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-
-
-**XML - content_main.xml - 建立內容佈局**
-``` 
+**XML - content_main.xml - 建立內容版面配置**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -97,9 +101,7 @@ Aspose.Slides API 可在 Xamarin 平台上執行。為達成此目的，Aspose.S
 </LinearLayout>
 ```
 
-
-
-此處，我們參照「Aspose.Slides.Droid.dll」函式庫，將包含範例簡報（「HelloWorld.pptx」）的檔案加入 Xamarin 應用程式的 Assets，並於 MainActivity 中加入初始化程式碼：
+在此，我們參考「Aspose.Slides.Droid.dll」函式庫，將範例簡報（「HelloWorld.pptx」）加入 Xamarin 應用程式的 Assets，並於 MainActivity 進行初始化：
 
 **C# - MainActivity.cs - 初始化**
 
@@ -140,7 +142,7 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-接著，加入在按下 Prev 與 Next 按鈕時切換投影片的功能：
+接著，加入在按鈕點擊時顯示上一張與下一張投影片的功能：
 
 **C# - MainActivity.cs - 在 Prev 與 Next 按鈕點擊時顯示投影片**
 
@@ -269,7 +271,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -277,11 +279,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+最後，實作在投影片點擊時加入橢圓形圖形的功能：
 
-
-最後，實作在投影片點擊時加入橢圓形的功能：
-
-**C# - MainActivity.cs - 點擊投影片新增橢圓形**
+**C# - MainActivity.cs - 透過投影片點擊新增橢圓形**
 
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
@@ -292,7 +292,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -312,9 +312,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-每一次點擊簡報投影片，都會新增一個隨機顏色的橢圓形：
+每次點擊簡報投影片，都會新增一個隨機顏色的橢圓形：
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+![Slide with ellipses added by touch](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 
 ## **支援功能**
@@ -325,21 +325,21 @@ public class MainActivity : AppCompatActivity
 |建立新簡報|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 97 - 2003 格式開啟/儲存|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2007 格式開啟/儲存|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2010 擴充功能支援|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2013 擴充功能支援|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2010 延伸功能支援|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2013 延伸功能支援|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2016 功能支援|restricted|restricted|
 |PowerPoint 2019 功能支援|restricted|restricted|
 |PPT 轉 PPTX 轉換|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX 轉 PPT 轉換|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX 內嵌於 PPT|restricted|restricted|
-|樣式主題處理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|佈景主題處理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |巨集處理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |文件屬性處理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |密碼保護|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |快速文字擷取|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|內嵌字型|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|嵌入字型|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |註解呈現|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|中斷長時間執行任務|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|長時間執行任務的中斷|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**匯出格式**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -356,45 +356,45 @@ public class MainActivity : AppCompatActivity
 |存取所有現有母片投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |建立/移除母片投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |複製母片投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**版面配置投影片功能**| | |
-|存取所有現有版面配置投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|建立/移除版面配置投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|複製版面配置投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**版面投影片功能**| | |
+|存取所有現有版面投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|建立/移除版面投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|複製版面投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**投影片功能**| | |
 |存取所有現有投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |建立/移除投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |複製投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|將投影片匯出為影像|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|匯出投影片為圖像|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |建立/編輯/移除投影片分節|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**備註投影片功能**| | |
 |存取所有現有備註投影片|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**圖形功能**| | |
-|存取投影片上所有圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|存取所有投影片圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |新增圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |複製圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|將單一圖形匯出為影像|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|匯出單獨圖形為圖像|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**支援的圖形類型**| | |
 |所有預定義圖形類型|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|圖片框架|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|圖片框|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |表格|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |圖表|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|舊版圖表|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|舊版圖示|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |OLE、ActiveX 物件|restricted|restricted|
-|影片框架|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|音訊框架|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|視訊框|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|音訊框|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |連接線|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**群組圖形功能**| | |
 |存取群組圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |建立群組圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|解除群組圖形|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|解除群組|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**圖形效果功能**| | |
 |2D 效果|restricted|restricted|
 |3D 效果|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**文字功能**| | |
 |段落格式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|文字片段格式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|文字區段格式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**動畫功能**| | |
 |匯出動畫為 SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |匯出動畫為 HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

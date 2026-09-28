@@ -1,40 +1,40 @@
 ---
-title: Declaración
+title: Requisitos de nivel de confianza
 type: docs
-weight: 110
+weight: 190
 url: /es/net/declaration/
 keywords:
-- declaración
-- componentes
-- permiso Full Trust
-- configuración del registro
-- archivos del sistema
+- nivel de confianza
+- permiso de confianza total
+- confianza parcial
+- confianza media
+- seguridad de acceso al código
+- ASP.NET
+- .NET Framework
 - PowerPoint
 - OpenDocument
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda sobre los requisitos de confianza, permisos y limitaciones de alojamiento de Aspose.Slides para .NET, para que pueda implementar de forma segura aplicaciones que procesen PPT, PPTX y ODP en servidores."
+description: "Qué nivel de confianza de seguridad de acceso al código necesita Aspose.Slides for .NET: plena confianza en .NET Framework, y sin configuración de confianza en .NET 6 y posteriores."
 ---
+## **Visión general**
 
-{{% alert color="primary" %}} 
+Los niveles de confianza de Code Access Security (CAS) existen solo en .NET Framework. Este artículo explica qué significan para Aspose.Slides for .NET: la biblioteca necesita plena confianza en .NET Framework, y en .NET 6 y versiones posteriores no hay ningún nivel de confianza que configurar.
 
-Todos los componentes Aspose .NET requieren el conjunto de permisos Full Trust porque a veces tienen que acceder a la configuración del registro, archivos del sistema y archivos almacenados en otras ubicaciones (además del directorio virtual) para ciertas operaciones (por ejemplo, analizar fuentes). Además, los componentes Aspose .NET se basan en clases del núcleo del sistema .NET, que en muchos casos requieren el conjunto de permisos Full Trust. 
+## **.NET Framework**
 
-{{% /alert %}} 
+Aspose.Slides requiere plena confianza en .NET Framework. No se ejecuta bajo confianza parcial, como una aplicación ASP.NET configurada para Medium Trust (`<trust level="Medium" />`): crear un objeto [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/) falla con una `SecurityException`.
 
-Los proveedores de servicios de Internet, que alojan múltiples aplicaciones de diferentes empresas, suelen aplicar el nivel de seguridad Medium Trust. En un caso .NET 2.0, dicho nivel de seguridad impone estas restricciones: 
+Microsoft ya no trata la confianza parcial de ASP.NET como una forma de aislar aplicaciones entre sí, y recomienda ejecutar las aplicaciones en grupos de aplicaciones separados. Consulte [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 
-- OleDbPermission no está disponible. Esto significa que no puede usar el proveedor de datos OLE DB administrado de ADO.NET para acceder a bases de datos.  
-- EventLogPermission no está disponible. Esto significa que no puede acceder al registro de eventos de Windows.  
-- ReflectionPermission no está disponible. Esto significa que no puede usar reflection.  
-- RegistryPermission no está disponible. Esto significa que no puede acceder al registro.  
-- WebPermission está restringido. Esto significa que su aplicación solo puede comunicarse con una dirección o el rango de direcciones que definió en el elemento <trust>.  
-- FileIOPermission está restringido. Esto significa que solo puede acceder a archivos en la jerarquía del directorio virtual de su aplicación.  
+## **.NET 6 and Later**
 
-{{% alert color="primary" %}} 
+Code Access Security no está disponible en .NET 6 y versiones posteriores, por lo que no hay ningún nivel de confianza que otorgar. Aspose.Slides se ejecuta con los permisos de la cuenta que ejecuta su aplicación. Para restringir lo que una aplicación puede acceder, Microsoft recomienda límites del sistema operativo, como cuentas de usuario, contenedores o máquinas virtuales. Consulte [Code access security (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas).
 
-Debido a los motivos anteriores, los componentes Aspose .NET solo pueden usarse en servidores que concedan el conjunto de permisos Full Trust. 
+## **Preguntas frecuentes**
 
-{{% /alert %}}
+**¿Puedo usar Aspose.Slides con un proveedor de hosting que ejecuta aplicaciones ASP.NET en Medium Trust?**
+
+No en Medium Trust. En .NET Framework, la aplicación que utiliza Aspose.Slides debe ejecutarse con plena confianza.

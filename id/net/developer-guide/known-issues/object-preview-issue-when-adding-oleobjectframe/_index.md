@@ -1,14 +1,16 @@
 ---
-title: Masalah Pratinjau Objek Saat Menambahkan OleObjectFrame
-linktitle: Masalah OLE Object
+title: Placeholder Pratinjau Objek Saat Menambahkan OleObjectFrame
+linktitle: Placeholder Pratinjau OLE
 type: docs
 weight: 10
 url: /id/net/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - masalah pratinjau
-- objek tertanam
-- file tertanam
+- placeholder pratinjau
+- sebagaimana dirancang
+- objek tersemat
+- berkas tersemat
 - objek berubah
 - pratinjau objek
 - presentasi
@@ -16,54 +18,56 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari mengapa EMBEDDED OLE OBJECT muncul saat menambahkan OleObjectFrame di Aspose.Slides untuk .NET dan cara memperbaiki masalah pratinjau pada presentasi PPT, PPTX, dan ODP."
+description: "Mengapa objek OLE yang ditambahkan dengan Aspose.Slides for .NET menampilkan placeholder EMBEDDED OLE OBJECT hingga pratinjau diperbarui, dan bagaimana menetapkan gambar pratinjau Anda sendiri."
 ---
 ## **Pendahuluan**
 
-Dengan menggunakan Aspose.Slides untuk .NET, ketika Anda menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/oleobjectframe) ke sebuah slide, pesan "EMBEDDED OLE OBJECT" ditampilkan pada slide keluaran. Pesan ini bersifat sengaja dan BUKAN bug.
+Menggunakan Aspose.Slides for .NET, ketika Anda menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/oleobjectframe/) ke slide, pesan "EMBEDDED OLE OBJECT" ditampilkan pada slide output. Pesan ini disengaja dan BUKAN bug.
 
-Untuk informasi lebih lanjut tentang cara bekerja dengan objek OLE, lihat [Manage OLE](/slides/id/net/manage-ole/).
+Untuk informasi lebih lanjut tentang bekerja dengan objek OLE, lihat [Manage OLE](/slides/id/net/manage-ole/).
 
 ## **Penjelasan dan Solusi**
 
-Aspose.Slides menampilkan pesan "EMBEDDED OLE OBJECT" untuk memberi tahu Anda bahwa objek OLE telah diubah dan gambar pratinjau harus diperbarui. 
+Aspose.Slides menampilkan pesan "EMBEDDED OLE OBJECT" untuk memberi tahu Anda bahwa objek OLE telah diubah dan gambar pratinjau harus diperbarui.
 
-Sebagai contoh, jika Anda menambahkan grafik Microsoft Excel sebagai sebuah [OleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/oleobjectframe) ke sebuah slide (untuk detail lebih lanjut, lihat artikel "Manage OLE") dan kemudian membuka presentasi di Microsoft PowerPoint, Anda akan melihat gambar ini pada slide:
+Misalnya, jika Anda menambahkan diagram Microsoft Excel sebagai [OleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/oleobjectframe/) ke slide (untuk detail lebih lanjut, lihat artikel "Manage OLE") dan kemudian membuka presentasi di Microsoft PowerPoint, Anda akan melihat gambar ini pada slide:
 
-![OLE object message](OLE_object_message.png)
+![pesan objek OLE](OLE_object_message.png)
 
-Jika Anda ingin memeriksa dan memastikan bahwa objek OLE Anda telah ditambahkan ke slide, Anda harus mengklik ganda pada pesan "EMBEDDED OLE OBJECT", atau Anda dapat mengklik kanan pada pesan tersebut dan melalui opsi **Object > Edit**.
+Jika Anda ingin memeriksa dan memastikan bahwa objek OLE Anda telah ditambahkan ke slide, Anda harus mengeklik dua kali pada pesan "EMBEDDED OLE OBJECT", atau Anda dapat mengeklik kanan pada pesan tersebut dan melalui opsi **Object > Edit**.
 
-![OLE object > Edit](OLE_object_edit.png)
+![Objek OLE > Edit](OLE_object_edit.png)
 
-PowerPoint kemudian membuka objek OLE yang disematkan.
+PowerPoint kemudian membuka objek OLE yang tersemat.
 
-![OLE object data](OLE_object_data.png)
+![data objek OLE](OLE_object_data.png)
 
-Slide mungkin masih menampilkan pesan "EMBEDDED OLE OBJECT". Setelah Anda mengklik objek OLE, pratinjau slide akan diperbarui dan pesan "EMBEDDED OLE OBJECT" akan digantikan oleh gambar sebenarnya untuk objek OLE tersebut. 
+Slide mungkin masih menampilkan pesan "EMBEDDED OLE OBJECT". Setelah Anda mengklik objek OLE, pratinjau slide diperbarui dan pesan "EMBEDDED OLE OBJECT" digantikan oleh gambar sebenarnya untuk objek OLE.
 
-![OLE object preview](OLE_object_preview.png)
+![pratinjau objek OLE](OLE_object_preview.png)
 
-Sekarang, Anda mungkin ingin menyimpan presentasi Anda untuk memastikan gambar untuk OLE Object diperbarui dengan benar. Dengan cara ini, setelah menyimpan presentasi, ketika Anda membuka presentasi kembali, Anda TIDAK akan melihat pesan "EMBEDDED OLE OBJECT". 
+Sekarang, Anda mungkin ingin menyimpan presentasi Anda untuk memastikan gambar untuk OLE Object diperbarui dengan benar. Dengan cara ini, setelah menyimpan presentasi, ketika Anda membuka presentasi lagi, Anda TIDAK akan melihat pesan "EMBEDDED OLE OBJECT".
 
 ## **Solusi Lain**
 
 ### **Solusi 1: Ganti Pesan "Embedded OLE Object" dengan Gambar**
 
-Jika Anda tidak ingin menghapus pesan "EMBEDDED OLE OBJECT" dengan membuka presentasi di PowerPoint dan kemudian menyimpannya, Anda dapat mengganti pesan tersebut dengan gambar pratinjau pilihan Anda. Baris kode berikut menunjukkan prosesnya:
+Jika Anda tidak ingin menghapus pesan "EMBEDDED OLE OBJECT" dengan membuka presentasi di PowerPoint dan kemudian menyimpannya, Anda dapat mengganti pesan tersebut dengan gambar pratinjau pilihan Anda. Baris kode berikut mendemonstrasikan prosesnya:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("embeddedOLE.pptx");
 
 var slide = presentation.Slides[0];
 var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-// Tambah gambar ke sumber daya presentasi.
+// Add an image to presentation resources.
 using var imageStream = File.OpenRead("myImage.png");
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Setel judul dan gambar untuk pratinjau objek OLE.
-oleFrame.SubstitutePictureTitle = "My title";
+// Set the image for the OLE object preview.
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;
 
@@ -72,8 +76,8 @@ presentation.Save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 
 Slide yang berisi `OleObjectFrame` kemudian berubah menjadi ini:
 
-![New OLE object image](OLE_object_new_image.png)
+![gambar objek OLE baru](OLE_object_new_image.png)
 
 ### **Solusi 2: Buat Add-On untuk PowerPoint**
 
-Anda juga dapat membuat add-on untuk Microsoft PowerPoint yang memperbarui semua objek OLE ketika Anda membuka presentasi dalam program tersebut.
+Anda juga dapat membuat add-on untuk Microsoft PowerPoint yang memperbarui semua objek OLE saat Anda membuka presentasi di program tersebut.

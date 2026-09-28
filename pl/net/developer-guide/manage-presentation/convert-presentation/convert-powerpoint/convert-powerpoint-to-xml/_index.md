@@ -1,5 +1,5 @@
 ---
-title: Konwertuj prezentacje PowerPoint do XML w .NET
+title: Konwertowanie prezentacji PowerPoint do XML w .NET
 linktitle: PowerPoint do XML
 type: docs
 weight: 145
@@ -18,23 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konwertuj prezentacje PowerPoint i OpenDocument do plików lub strumieni PowerPoint XML w języku C# przy użyciu Aspose.Slides for .NET."
+description: "Konwertuj prezentacje PowerPoint i OpenDocument do plików PowerPoint XML lub strumieni w C# przy użyciu Aspose.Slides dla .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides for .NET może konwertować prezentacje PowerPoint do formatu PowerPoint XML Presentation. Wyjście XML jest przydatne, gdy potrzebna jest tekstowa reprezentacja do analizowania struktury prezentacji, rozwiązywania problemów z wygenerowanymi dokumentami, porównywania wyników w testach automatycznych lub integracji z procesem, który wykorzystuje XML zamiast pakietu prezentacji.
+Aspose.Slides for .NET może konwertować prezentacje PowerPoint do formatu PowerPoint XML Presentation. Wyjście XML jest przydatne, gdy potrzebujesz tekstowej reprezentacji do przeglądania struktury prezentacji, rozwiązywania problemów z wygenerowanymi dokumentami, porównywania wyników w testach automatycznych lub integrowania z przepływem pracy, który przetwarza XML zamiast pakietu prezentacji.
 
-Użyj metody [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) z wartością `Xml` z wyliczenia [SaveFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/). Wynik możesz zapisać bezpośrednio do pliku lub do strumienia.
+Użyj metody [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) z wartością `Xml` z wyliczenia [SaveFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/). Wynik możesz zapisać bezpośrednio do pliku lub strumienia.
 
-{{% alert color="info" title="Uwaga" %}}
-
-`SaveFormat.Xml` tworzy PowerPoint XML Presentation. Nie wyodrębnia poszczególnych części Office Open XML przechowywanych wewnątrz pakietu PPTX. Jeśli potrzebujesz dokładnych części pakietu PPTX, takich jak `ppt/presentation.xml` lub pojedynczych plików XML slajdów, sprawdź sam pakiet PPTX.
-
+{{% alert color="info" title="Note" %}}
+`SaveFormat.Xml` tworzy prezentację PowerPoint XML. Nie wydobywa pojedynczych części Office Open XML przechowywanych w pakiecie PPTX. Jeśli potrzebujesz dokładnych części pakietu PPTX, takich jak `ppt/presentation.xml` lub poszczególnych plików XML slajdów, sprawdź sam pakiet PPTX.
 {{% /alert %}}
 
-## **Konwertuj prezentację na plik XML**
+## **Konwertowanie prezentacji na plik XML**
 
-Wczytaj prezentację źródłową przy pomocy klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i następnie przekaż ścieżkę wyjściową oraz `SaveFormat.Xml` do [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/). Źródło może być w dowolnym formacie obsługiwanym przy wczytywaniu, takim jak PPT, PPTX lub ODP.
+Wczytaj źródłową prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), a następnie przekaż ścieżkę wyjściową i `SaveFormat.Xml` do [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/). Źródło może być w dowolnym formacie prezentacji obsługiwanym przy wczytywaniu, takim jak PPT, PPTX lub ODP.
 
 Poniższy przykład konwertuje prezentację PPTX na plik XML:
 
@@ -46,9 +44,9 @@ using var presentation = new Presentation("presentation.pptx");
 presentation.Save("presentation.xml", SaveFormat.Xml);
 ```
 
-## **Zapisz wyjście XML do strumienia**
+## **Zapis wyjścia XML do strumienia**
 
-Użyj przeciążenia strumieniowego metody [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) gdy XML musi pozostać w pamięci lub zostać przekazane do innego komponentu, takiego jak usługa sieciowa, dostawca storage lub potok przetwarzania XML. Poniższy przykład zapisuje wynik do [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) i przewija go do początku w celu późniejszego odczytu:
+Użyj przeciążenia strumieniowego metody [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/), gdy XML musi pozostać w pamięci lub być przekazany do innego komponentu, takiego jak usługa sieciowa, dostawca pamięci masowej lub potok przetwarzania XML. Poniższy przykład zapisuje wynik do [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) i przewija go wstecz w celu późniejszego odczytu:
 
 ```csharp
 using System.IO;
@@ -61,38 +59,38 @@ using var xmlStream = new MemoryStream();
 presentation.Save(xmlStream, SaveFormat.Xml);
 xmlStream.Position = 0;
 
-// Przekaż xmlStream do następnego komponentu w procesie.
+// Przekaż xmlStream do kolejnego komponentu w przepływie pracy.
 ```
 
-## **Porównaj XML z formatami prezentacji i eksportu**
+## **Porównanie XML z formatami prezentacji i eksportu**
 
 Wybierz format wyjściowy w zależności od tego, jak wynik będzie używany:
 
 | Format | Wyjście | Typowe zastosowanie |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | Prezentacja PowerPoint XML | Analiza struktury, rozwiązywanie problemów, porównywanie wygenerowanego wyniku oraz integracja oparta na XML |
-| PPT (`.ppt`) | Starszy plik binarny prezentacji | Kompatybilność ze starszymi procesami PowerPoint |
+| PowerPoint XML (`.xml`) | Prezentacja PowerPoint XML | Przeglądanie struktury, rozwiązywanie problemów, porównywanie wygenerowanego wyjścia oraz integracja oparta na XML |
+| PPT (`.ppt`) | Starszy binarny plik prezentacji | Zgodność ze starszymi przepływami pracy PowerPoint |
 | PPTX (`.pptx`) | Pakiet Office Open XML zawierający wiele części | Standardowa edycja PowerPoint i wymiana prezentacji |
-| PDF lub TIFF | Strony o stałym układzie lub obraz wielostronicowy | Przeglądanie, drukowanie i archiwizacja |
-| PNG, JPEG lub SVG | Renderowana reprezentacja pojedynczego slajdu | Miniatury, podglądy i zasoby graficzne |
-| HTML lub HTML5 | Wyjście prezentacji przeznaczone dla sieci | Przeglądanie w przeglądarce i publikowanie w sieci |
+| PDF lub TIFF | Strony o stałym układzie lub obrazy TIFF | Przeglądanie, drukowanie i archiwizacja |
+| PNG, JPEG lub SVG | Renderowane przedstawienie pojedynczego slajdu | Miniatury, podglądy i zasoby graficzne |
+| HTML lub HTML5 | Wyjście prezentacji przeznaczone dla sieci | Wyświetlanie w przeglądarce i publikowanie w sieci |
 
-W odróżnieniu od PPT i PPTX, wyjście XML jest przeznaczone głównie do inspekcji i procesów opartych na danych. W odróżnieniu od PDF, TIFF, HTML oraz formatów obrazów slajdów, reprezentuje dane prezentacji, a nie renderuje slajdów jako strony lub zasoby wizualne. Tabela [supported file formats](/slides/pl/net/supported-file-formats/) wymienia PowerPoint XML Presentation jako format wyłącznie do zapisu, więc nie używaj go, gdy proces wymaga wczytania wyeksportowanego pliku z powrotem do Aspose.Slides w celu dalszej edycji.
+W przeciwieństwie do PPT i PPTX, wyjście XML jest przede wszystkim przeznaczone do inspekcji i przepływów pracy opartych na danych. W przeciwieństwie do PDF, TIFF, HTML oraz formatów obrazów slajdów, reprezentuje dane prezentacji, a nie renderuje slajdów jako stron lub zasobów wizualnych. Tabela [obsługiwane formaty plików](/slides/pl/net/supported-file-formats/) wymienia wszystkie formaty, które Aspose.Slides może wczytywać, importować, zapisywać lub renderować.
 
 ## **FAQ**
 
-**Czy `SaveFormat.Xml` to to samo co zapisywanie pliku PPTX?**
+**Czy `SaveFormat.Xml` jest tym samym co zapisywanie pliku PPTX?**
 
-Nie. PPTX jest pakietem zawierającym wiele części Office Open XML, natomiast `SaveFormat.Xml` tworzy plik PowerPoint XML Presentation.
+Nie. PPTX jest pakietem zawierającym wiele części Office Open XML, podczas gdy `SaveFormat.Xml` tworzy plik prezentacji PowerPoint XML.
 
 **Czy mogę zapisać wyjście XML bez tworzenia pliku na dysku?**
 
-Tak. Przekaż zapisywalny strumień do [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/). Na przykład użyj [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream) do przetwarzania w pamięci.
+Tak. Przekaż zapisywalny strumień do [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/). Na przykład użyj [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) do przetwarzania w pamięci.
 
 **Czy Aspose.Slides może ponownie wczytać wyeksportowany plik XML?**
 
-Nie. PowerPoint XML Presentation jest obecnie obsługiwany tylko podczas zapisywania, a nie wczytywania. Użyj PPTX lub innego obsługiwanego formatu prezentacji, gdy wymagana jest edycja w obu kierunkach.
+Tak. Przekaż plik XML lub strumień do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/presentation/). [Presentation.SourceFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/sourceformat/) zwraca wtedy `SourceFormat.Xml`. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/presentationfactory/getpresentationinfo/) zwraca `LoadFormat.Unknown` dla tego formatu, więc nie używaj go do decydowania, czy plik XML można otworzyć.
 
-**Czy konwersja do XML renderuje każdy slajd jako stronę lub obraz?**
+**Czy konwersja XML renderuje każdy slajd jako stronę lub obraz?**
 
-Nie. Konwersja do XML zapisuje strukturalne dane prezentacji. Użyj PDF lub TIFF dla wyjścia ukierunkowanego na strony, albo PNG, JPEG i SVG dla pojedynczych obrazów slajdów.
+Nie. Konwersja XML zapisuje ustrukturyzowane dane prezentacji. Użyj PDF lub TIFF do wyjścia ukierunkowanego na strony, lub PNG, JPEG i SVG do obrazów pojedynczych slajdów.

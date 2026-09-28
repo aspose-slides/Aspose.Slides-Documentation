@@ -1,39 +1,40 @@
 ---
-title: Prohlášení
+title: Požadavky na úroveň důvěry
 type: docs
-weight: 110
+weight: 190
 url: /cs/net/declaration/
 keywords:
-- prohlášení
-- komponenty
-- Full Trust oprávnění
-- nastavení registru
-- systémové soubory
+- úroveň důvěry
+- oprávnění plné důvěry
+- částečná důvěra
+- střední důvěra
+- bezpečnost přístupu k kódu
+- ASP.NET
+- .NET Framework
 - PowerPoint
 - OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Dozvíte se o požadavcích důvěryhodnosti, oprávněních a omezeních hostování Aspose.Slides pro .NET, abyste mohli bezpečně nasazovat aplikace, které zpracovávají soubory PPT, PPTX a ODP na serverech."
+description: "Jakou úroveň důvěry bezpečnosti přístupu k kódu potřebuje Aspose.Slides pro .NET: plnou důvěru na .NET Framework a žádné nastavení důvěry na .NET 6 a novějších."
 ---
-{{% alert color="primary" %}} 
+## **Přehled**
 
-Všechny komponenty Aspose .NET vyžadují sadu oprávnění Full Trust, protože někdy potřebují přistupovat k nastavením registru, systémovým souborům a souborům uloženým na jiných místech (mimo virtuální adresář) pro určité operace (například parsování fontů). Navíc jsou komponenty Aspose .NET založeny na základních třídách .NET systému, které v mnoha případech vyžadují sadu oprávnění Full Trust. 
+Bezpečnost přístupu k kódu (CAS) existuje jen v .NET Framework. Tento článek vysvětluje, co to znamená pro Aspose.Slides pro .NET: knihovna vyžaduje plnou důvěru na .NET Framework a v .NET 6 a novějších neexistuje úroveň důvěry, kterou lze konfigurovat.
 
-{{% /alert %}} 
+## **.NET Framework**
 
-Poskytovatelé internetových služeb, kteří hostují více aplikací od různých firem, většinou vynucují úroveň zabezpečení Medium Trust. V případě .NET 2.0 tato úroveň zabezpečení uplatňuje následující omezení: 
+Aspose.Slides vyžaduje plnou důvěru na .NET Framework. Není možné spustit ji v částečné důvěře, např. v ASP.NET aplikaci nastavené na Střední důvěru (`<trust level="Medium" />`): vytvoření objektu [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) selže s `SecurityException`.
 
-- OleDbPermission není k dispozici. To znamená, že nemůžete použít řízený poskytovatel dat ADO.NET OLE DB pro přístup k databázím.
-- EventLogPermission není k dispozici. To znamená, že nemáte přístup k protokolu událostí Windows.
-- ReflectionPermission není k dispozici. To znamená, že nemůžete používat reflexi.
-- RegistryPermission není k dispozici. To znamená, že nemáte přístup k registru.
-- WebPermission je omezen. To znamená, že vaše aplikace může komunikovat pouze s adresou nebo rozsahem adres, které jste definovali v elementu <trust>.
-- FileIOPermission je omezen. To znamená, že můžete přistupovat pouze k souborům v hierarchii virtuálního adresáře vaší aplikace.
+Microsoft již nepovažuje částečnou důvěru ASP.NET za způsob izolace aplikací a doporučuje spouštět aplikace v samostatných aplikačních fondech. Viz [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 
-{{% alert color="primary" %}} 
+## **.NET 6 and Later**
 
-Z výše uvedených důvodů lze komponenty Aspose .NET používat pouze na serverech, které poskytují sadu oprávnění Full Trust. 
+Bezpečnost přístupu k kódu není v .NET 6 a novějších k dispozici, takže neexistuje úroveň důvěry, kterou by bylo třeba udělit. Aspose.Slides běží s oprávněními účtu, pod kterým je aplikace spuštěna. Pro omezení přístupu aplikace Microsoft doporučuje hranice operačního systému, např. uživatelské účty, kontejnery nebo virtuální stroje. Viz [Code access security (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas).
 
-{{% /alert %}}
+## **FAQ**
+
+**Mohu používat Aspose.Slides u poskytovatele hostingu, který spouští ASP.NET aplikace ve Střední důvěře?**
+
+Ne ve Střední důvěře. V .NET Framework musí aplikace používající Aspose.Slides běžet s plnou důvěrou.

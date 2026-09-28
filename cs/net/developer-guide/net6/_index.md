@@ -1,78 +1,81 @@
 ---
-title: .NET 6 podpora
+title: Balíček pro více platforem pro .NET 6 a novější
+linktitle: Balíček pro více platforem
 type: docs
 weight: 235
 url: /cs/net/net6/
 keywords:
-- .NET 6 podpora
-- Cloudové řešení
-- AWS Lambda
-- Azure Functions
-- System.Drawing.Common
-- GDI
-- libgdiplus
-- CS0433
-- .NET
-- C#
-- Aspose.Slides
-description: "Konfigurujte Aspose.Slides pro .NET 6 k vytváření, úpravě a konverzi prezentací PowerPoint PPT, PPTX a ODP v moderních multiplatformních C# aplikacích."
+  - Aspose.Slides.NET6.CrossPlatform
+  - víceplatforem
+  - podpora .NET 6
+  - Linux
+  - macOS
+  - fontconfig
+  - libgdiplus
+  - System.Drawing.Common
+  - CS0433
+  - AWS Lambda
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Zjistěte, kdy použít balíček Aspose.Slides.NET6.CrossPlatform: proč existuje, na jakých platformách běží a co potřebuje na Linuxu místo libgdiplus."
 ---
 ## **Úvod**
 
-Od verze [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0) byla implementována podpora pro .NET6. Zvláštností této podpory je, že .NET6 již nepodporuje System.Drawing.Common pro Linux ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)) a Slides implementuje tento grafický subsystém jako komponentu v C++.
+Aspose.Slides for .NET je publikováno jako dva balíčky NuGet. [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) vykresluje snímky pomocí knihovny Microsoft System.Drawing.Common. [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) je vykresluje pomocí vlastního grafického motoru. Tento článek vysvětluje, proč existuje druhý balíček, kde běží, co potřebuje na Linuxu a jak koexistuje se System.Drawing.Common v jednom projektu.
 
-Aspose.Slides pro .NET nyní funguje bez závislostí na GDI/libgdiplus na:
-* Windows
-* Linux
+## **Proč samostatný balíček**
 
-_Podpora MacOS_ probíhá.
+Od .NET 6 Microsoft podporuje System.Drawing.Common [pouze na Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). V důsledku toho Aspose.Slides.NET na Linuxu potřebuje přepínač `System.Drawing.EnableUnixSupport` i knihovnu `libgdiplus` a selže, pokud projekt odkazuje na System.Drawing.Common verze 7 nebo novější. [Požadavky systému](/slides/cs/net/system-requirements/) popisují tyto podmínky.
 
-## **Použití Slides pro .NET 6 na AWS a Azure**
+Aspose.Slides.NET6.CrossPlatform nepoužívá System.Drawing.Common ani `libgdiplus`. Jeho grafický motor je nativní knihovna, která je součástí balíčku v jedné sestavě pro každou podporovanou platformu. Oba balíčky poskytují stejné jmenné prostory a třídy Aspose.Slides, takže přechod mezi nimi mění pouze odkaz na balíček, ne váš kód.
 
-.NET6 je preferovaná verze pro Aspose.Slides používanou v cloudu (AWS, Azure nebo jiná cloudová řešení).
+| | Aspose.Slides.NET | Aspose.Slides.NET6.CrossPlatform |
+|---|---|---|
+| Grafika | System.Drawing.Common | Nativní grafický motor zahrnutý v balíčku |
+| Cílové frameworky | `net462`, `net6.0`, `netstandard2.0` | `net6.0` |
+| Požadavky na Linux | `libgdiplus` a přepínač `System.Drawing.EnableUnixSupport` | `fontconfig` |
+| Alpine Linux | Podporováno | Nepodporováno |
 
-V minulosti, když byl Aspose.Slides používán na Linuxovém hostiteli, bylo nutné nainstalovat další závislosti (libgdiplus), což bylo často nepohodlné nebo nepraktické (například při použití [AWS Lambda](https://aws.amazon.com/lambda)). S Slides pro .NET6 již tyto závislosti nejsou potřeba, takže nasazení je mnohem jednodušší.
+## **Podporované platformy**
 
-Dalším faktorem jsou problémy, které nastaly, když byl Aspose.Slides používán v cloudovém řešení na Windows hostiteli. Například [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) mají omezení pro proces a způsobují problémy při exportu PDF (viz [tento](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)). Použití Aspose.Slides pro .NET6 tento problém řeší.
+Aspose.Slides.NET6.CrossPlatform funguje s .NET 6 a novějšími verzemi na těchto platformách:
 
-## **Použití balíčku System.Drawing.Common a tříd Slides pro .NET 6 (CS0433: Typ existuje v obou Slides a System.Drawing.Common)**
+- **Windows**: x86 a x64. Nativní knihovna používá runtime Microsoft Visual C++; viz [Požadavky systému](/slides/cs/net/system-requirements/).
+- **Linux**: x64 s glibc 2.23 nebo novější a ARM64 s glibc 2.39 nebo novější.
+- **macOS**: x64 (Intel) a ARM64 (Apple silicon).
 
-Někdy je nutné v projektu použít jak závislosti System.Drawing, tak Slides pro .NET6 (například když projekt .NET6 závisí na dalších balíčcích, které zase závisí na System.Drawing). To může způsobit chyby, jako jsou tyto:
+Nebehoří na Windows na ARM64, na Alpine Linux ani na dalších distribucích založených na musl místo glibc, ani na distribucích se starší glibc, např. CentOS 7. V takových systémech použijte Aspose.Slides.NET.
 
-* CS0433: The type 'Image' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
-* CS0433: The type 'Graphics' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
+## **Instalace na Linuxu**
 
-V tomto případě můžete použít [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) pro Aspose.Slides (verze starší než 24.8):
-1) Vyberte sestavu Aspose.Slides ze závislostí projektu a poté klikněte na **Properties**.
-  ![Vlastnosti balíčku Aspose Slides](package_properties.png)
-2) Nastavte alias (například „Slides“).
-  ![Alias Aspose Slides](set_alias.png)
+Na Linuxu balíček vyžaduje knihovnu `fontconfig`, ale ne `libgdiplus`. Na Debianu a Ubuntu nainstalujte `fontconfig` a poté přidejte balíček do svého projektu:
 
-Nyní budou typy ze System.Drawing.Common použity jako výchozí. Externí alias sestavy by měl být uveden tam, kde jsou potřeba typy Aspose.Slides.
-
-```c#
-extern alias Slides;
-using Slides::Aspose.Slides;
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
+dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-Úplný příklad:
+Na Debianu a Ubuntu `libfontconfig1` také nainstaluje fonty DejaVu, takže text se vykresluje bez dalších fontových balíčků. Bez `fontconfig` selže vytvoření [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) s výjimkou `TypeInitializationException`, jejíž vnitřní `DllNotFoundException` hlásí, že `libfontconfig.so.1` nelze otevřít. [Požadavky systému](/slides/cs/net/system-requirements/) obsahují krátký program, který kontroluje nastavení.
 
-```c#
-extern alias Slides;
-using Slides::Aspose.Slides;
+## **Cloud a kontejnery**
 
-static Slides::System.Drawing.Image GetThumbnail(Presentation pres)
-{
-    return pres.Slides[0].GetThumbnail();
-}
-```
+Protože nepotřebuje `libgdiplus`, Aspose.Slides.NET6.CrossPlatform je balíček, který se používá na Linuxových hostitelích, kde nemůžete nainstalovat `libgdiplus`. Stále však vyžaduje `fontconfig` a fonty, které mohou chybět v minimalistických základních obrazech. Například základní obraz AWS Lambda pro .NET 8 neobsahuje ani jedno. V kontejnerovém obrazu na něm postaveném spusťte `dnf install -y fontconfig`, což také nainstaluje fonty Noto Sans.
 
-Od verze 24.8 byl odstraněn zastaralý veřejný API s závislostmi na System.Drawing. Ohledně výše uvedeného kódu můžete získat obrázek snímku následujícím způsobem.
+Pro návody k jednotlivým cloudovým platformám viz [Aspose.Slides on Cloud Platforms](/slides/cs/net/slides-on-cloud-platforms/).
 
-```cs
-static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
-{
-    return presentation.Slides[0].GetImage();
-}
-```
-Nové API je podrobněji popsáno v [Moderní API](/slides/cs/net/modern-api/).
+## **Používání System.Drawing.Common ve stejném projektu (CS0433)**
+
+Projekt, který používá Aspose.Slides.NET6.CrossPlatform, může také odkazovat na System.Drawing.Common, přímo nebo přes jiný balíček. Aktuální verze Aspose.Slides neexponuje žádné veřejné typy v jmenných prostorech `System`, takže knihovny nekolidují a můžete importovat jmenné prostory `Aspose.Slides` a `System.Drawing` ve stejném souboru.
+
+Pokud kompilátor hlásí chybu CS0433, protože typ jako `Image` nebo `Graphics` existuje jak v Aspose.Slides, tak v System.Drawing.Common, váš projekt používá starší verzi Aspose.Slides. Aktualizujte balíček na nejnovější verzi. Aspose.Slides vrací vykreslené obrázky jako objekty [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/), které jsou popsány v [Moderní API](/slides/cs/net/modern-api/).
+
+## **Často kladené otázky**
+
+**Musím měnit kód, když přepnu z Aspose.Slides.NET na Aspose.Slides.NET6.CrossPlatform?**
+
+Ne. Oba balíčky poskytují stejné jmenné prostory a třídy Aspose.Slides, takže stačí nahradit odkaz na balíček. Aspose.Slides.NET6.CrossPlatform nevyžaduje přepínač `System.Drawing.EnableUnixSupport`. Do projektu přidejte jen jeden z těchto dvou balíčků.
+
+**Mohu použít Aspose.Slides.NET6.CrossPlatform v projektu .NET Framework?**
+
+Ne. Balíček cílí pouze na .NET 6 a novější. Pro .NET Framework 4.6.2 a novější použijte Aspose.Slides.NET.

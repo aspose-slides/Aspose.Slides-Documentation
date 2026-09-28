@@ -1,402 +1,220 @@
 ---
-title: Jak spustit Aspose.Slides v Dockeru
-linktitle: Aspose.Slides v Dockeru
+title: Spustit Aspose.Slides pro .NET v Dockeru
+linktitle: Docker
 type: docs
 weight: 140
 url: /cs/net/how-to-run-aspose-slides-in-docker/
 keywords:
-- podporované OS
-- Aspose.Slides v Dockeru
+- Docker
+- Dockerfile
 - Docker kontejner
-- Aspose Docker
-- GDI
-- libgdiplus
-- System.Drawing.Common
+- vícefázová sestava
+- obraz kontejneru
 - Linux
-- úložiště obrázků
-- Windows Server Core
+- Ubuntu
+- Alpine
+- libfontconfig
+- libgdiplus
+- písma
+- převod PDF
 - PowerPoint
-- OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Spusťte Aspose.Slides v Docker kontejnerech: nakonfigurujte obrazy, závislosti, fonty a licencování pro vytvoření škálovatelných služeb, které zpracovávají PowerPoint a OpenDocument."
+description: "Vytvořte a spusťte konzolovou aplikaci Aspose.Slides pro .NET v Dockeru: vícefázový Dockerfile na oficiálních .NET obrazech, knihovny a písma Linuxu, které potřebuje, a jak zkopírovat vygenerované soubory do vašeho počítače."
 ---
-## **Podporované OS**
-Aspose.Slides může běžet uvnitř Docker kontejnerů na platformě .NET Core. Obecně Aspose.Slides podporuje všechny typy kontejnerů (OS), které podporuje platforma .NET Core. Nicméně GDI nebo [libgdiplus ](https://github.com/mono/libgdiplus) musí být v kontejneru dostupné a správně nastavené.
+## **Přehled**
 
-Pro používání Dockeru jej musíte nejprve nainstalovat na svůj systém. Jak nainstalovat Docker na Windows nebo Mac, najdete na těchto odkazech:
+Tento článek ukazuje, jak spustit Aspose.Slides pro .NET v kontejneru Docker. Vytvoříte malou konzolovou aplikaci, která vytvoří prezentaci s textovým polem a převede ji do PDF, zabalíte ji pomocí vícefázového Dockerfile na oficiálních .NET obrazech společnosti Microsoft, spustíte ji a zkopírujete vygenerované soubory do svého počítače. Článek také uvádí knihovny Linuxu a písma, které Aspose.Slides v kontejneru potřebuje, a končí variantou pro Alpine Linux.
 
-- [Install Docker on Windows](https://docs.docker.com/docker-for-windows/install/)
-- [Install Docker on Mac](https://docs.docker.com/docker-for-mac/install/)
+Na svém počítači potřebujete pouze Docker. .NET SDK je součástí obrazu pro sestavení, takže jej nemusíte instalovat. Pro instalaci Dockeru viz [Get Docker](https://docs.docker.com/get-started/get-docker/).
 
-Docker můžete také spustit na Linuxu a Windows Server podle instrukcí na těchto stránkách:  
+## **Vyberte balíček a základní obraz**
 
-- [Install and configure Docker on Linux (apt-get libgdiplus)](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
+Výchozí kontejnery .NET 10 jsou založeny na Ubuntu 24.04. Na těchto obrazech použijte balíček [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/). Vyžaduje knihovnu `fontconfig` a obraz .NET runtime neobsahuje ani tuto knihovnu, ani žádná písma, takže Dockerfile v tomto článku nainstaluje obojí.
 
-- [Install and configure Docker on Linux (make install libgdiplus)](#install-and-configure-docker-on-linux-make-install-libgdiplus)  
+Aspose.Slides.NET6.CrossPlatform nefunguje na Alpine Linux. Pro obrazy založené na Alpine použijte balíček [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) s `libgdiplus`, jak je popsáno v [Run on Alpine Linux](#run-on-alpine-linux). [Installation](/slides/cs/net/installation/) porovnává oba balíčky.
 
-- [Install and configure Docker on Windows Server Core](#install-and-configure-docker-on-windows-server-core)  
+## **Vytvořte projekt**
 
-Instalace a konfigurace Dockeru na Windows Server Nano není podporována. Bohužel Windows Server Nano neobsahuje grafický subsystém. Neobsahuje gdiplus.dll, kterou vyžaduje knihovna System.Drawing.Common, a nelze ji použít s knihovnou Aspose.Slides.
+Vytvořte složku s názvem *HelloSlidesDocker* a přidejte do ní následující tři soubory.
 
-I když je možné spouštět Linux kontejnery ve Windows, doporučujeme je spouštět nativně na Linuxu (i na Linuxu nainstalovaném ručně na virtuálním stroji pomocí VirtualBox).
+*HelloSlidesDocker.csproj* popisuje konzolovou aplikaci pro .NET 10, verzi kontejnerových obrazů použitých níže, a odkazuje na Aspose.Slides.NET6.CrossPlatform. Nastavte verzi balíčku na nejnovější uvedenou na [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/).
 
-## **Install and Configure Docker on Linux (apt-get libgdiplus)**
-- OS: Ubuntu 18.04.
-- Dockerfile: Dockerfile-Ubuntu18_04_apt_get_libgdiplus
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
 
-Tento Docker soubor obsahuje instrukce pro vytvoření obrazu kontejneru s nainstalovaným balíčkem libgdiplus z oficiálních úložišť Ubuntu.
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-Obsah Docker souboru:
+  <ItemGroup>
+    <PackageReference Include="Aspose.Slides.NET6.CrossPlatform" Version="26.9.0" />
+  </ItemGroup>
 
-``` csharp
-
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
-
-\# nainstalovat libgdiplus
-
-RUN apt-get update -y && apt-get install -y apt-utils
-
-RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
-
-\# vytvořit přípojené body
-
-VOLUME /slides-src
-
-\# sestavit a otestovat Aspose.Slides při startu
-
-WORKDIR /slides-src
-
-CMD ./build/netcore.linux.tests.sh
-
+</Project>
 ```
 
-Projděme si, co jednotlivé řádky kódu v Docker souboru znamenají:
+*Program.cs* vytváří [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/), přidává obdélník s textem na první snímek a ukládá prezentaci dvakrát metodou [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/): jako PPTX i jako PDF. Oba soubory jsou umístěny ve složce *output* pod pracovní složkou. Aplikace pak vypíše písma, která byla během renderování PDF nahrazena, pomocí [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste mohli zjistit, zda kontejner obsahuje písma použité v prezentaci.
 
-1. Obrázek kontejneru je založen na obrazu microsoft/dotnet:2.1-sdk-bionic (obraz již vytvořený Microsoftem a publikovaný na Docker [public hub](https://hub.docker.com/r/microsoft/dotnet/)). Tento obraz obsahuje předinstalovaný dotnet 2.1 SDK. Přípona Bionic znamená, že jako OS kontejneru bude použito Ubuntu 18.04 (kódové jméno bionic). Změnou přípony lze změnit základní OS (například: stretch – Debian 9, alpine – Alpine Linux). V takovém případě bude nutná úprava obsahu Docker souboru (například změna „apt-get“ na „yum“).
+```c#
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-``` csharp
+var outputFolder = "output";
+Directory.CreateDirectory(outputFolder);
 
- FROM microsoft/dotnet:2.1-sdk-bionic AS build:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello from a Docker container!";
 
+var pptxPath = Path.Combine(outputFolder, "hello.pptx");
+var pdfPath = Path.Combine(outputFolder, "hello.pdf");
+presentation.Save(pptxPath, SaveFormat.Pptx);
+presentation.Save(pdfPath, SaveFormat.Pdf);
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
+{
+    Console.WriteLine($"Font substitution: {substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+Console.WriteLine($"Saved {pptxPath} and {pdfPath}");
 ```
 
-1. Aktualizuje databázi dostupných balíčků a nainstaluje balíček apt-utils.
+*.dockerignore* udržuje složky *bin* a *obj* místní kompilace a výstup dřívějších spuštění mimo kontext Dockeru, takže obraz je vytvořen pouze ze zdrojových souborů.
 
-``` csharp
-
- RUN apt-get update -y && apt-get install -y apt-utils
-
+```text
+bin/
+obj/
+output/
 ```
 
-1. Instaluje balíčky „libgdiplus“ a „libc6-dev“, které jsou vyžadovány knihovnou System.Drawing.Common.
+## **Napište Dockerfile**
 
-``` csharp
+Přidejte soubor s názvem *Dockerfile* do stejné složky:
 
- RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
+```dockerfile
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+COPY HelloSlidesDocker.csproj .
+RUN dotnet restore
+COPY . .
+RUN dotnet publish --no-restore -c Release -o /app
 
+FROM mcr.microsoft.com/dotnet/runtime:10.0
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libfontconfig1 fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY --from=build /app .
+RUN mkdir output && chown $APP_UID output
+USER $APP_UID
+ENTRYPOINT ["dotnet", "HelloSlidesDocker.dll"]
 ```
 
-1. Deklaruje složku /slides-src jako přípojný bod, který bude použit k poskytnutí přístupu ke zdrojům slide‑net na hostitelském počítači.
+Soubor má dvě fáze:
 
-``` csharp
+- **Fáze sestavení** začíná z obrazu .NET SDK. Nejprve zkopíruje soubor projektu a obnoví balíčky NuGet, takže Docker tuto vrstvu znovu použije, dokud se soubor projektu nezmění. Poté zkopíruje zdrojový kód a publikujete aplikaci do */app*.
+- **Fáze běhu** začíná z menšího obrazu .NET runtime, který neobsahuje SDK, a zkopíruje pouze publikovanou aplikaci. Nainstaluje dva balíčky:
+  - `libfontconfig1`: Aspose.Slides.NET6.CrossPlatform načítá tuto knihovnu při spuštění. Bez ní se aplikace zastaví s `DllNotFoundException`, která uvádí `libfontconfig.so.1`.
+  - `fonts-dejavu-core`: obraz runtime neobsahuje žádná písma a Aspose.Slides potřebuje alespoň jedno nainstalované písmo pro vykreslení textu; bez nich se konverze zastaví s `InvalidOperationException: Cannot find any fonts installed on the system.` Text v písmenech, která nejsou nainstalována, je vykresleno náhradním písmem. Písma DejaVu jsou malá sada, která umožňuje vykreslování textu; pro vykreslování prezentací s originálními písmy viz [Deploy Fonts](/slides/cs/net/deploy-fonts/).
 
- VOLUME /slides-src
+`--no-install-recommends` a odstranění seznamů balíčků udržují obraz malý. Poslední řádky vytvoří složku *output*, přiřadí ji ne‑root uživateli `app`, který je definován v oficiálních .NET obrazech (její ID uživatele je v proměnné `APP_UID`), a spustí aplikaci pod tímto uživatelem.
 
+Pro aplikaci ASP.NET Core spusťte fázi běhu z `mcr.microsoft.com/dotnet/aspnet:10.0`. Je založena na stejném obrazu Ubuntu, takže jsou potřeba stejné balíčky.
+
+## **Sestavte a spusťte kontejner**
+
+Otevřete terminál ve složce *HelloSlidesDocker*. Sestavte obraz a poté z něj spusťte kontejner:
+
+```bash
+docker build -t hello-slides .
+docker run --name hello-slides-run hello-slides
 ```
 
-1. Nastaví /slides-src jako pracovní adresář uvnitř kontejneru.
+První sestavení stáhne základní obrazy a balíčky NuGet, takže trvá déle než pozdější sestavení. Kontejner spustí aplikaci a zastaví se. Vytiskne:
 
-``` csharp
-
- WORKDIR /slides-src
-
+```text
+Font substitution: Calibri -> DejaVu Sans
+Saved output/hello.pptx and output/hello.pdf
 ```
 
-1. Definuje výchozí příkaz, který bude spuštěn při startu kontejneru, pokud není explicitně zadán.
+První řádek ukazuje, že text používá Calibri, výchozí písmo nové prezentace, a že Calibri není v obrazu nainstalováno, takže Aspose.Slides vykreslil text pomocí DejaVu Sans. Text v PDF je skutečný, vybratelný text v tomto písmu. Bez licence Aspose.Slides také přidává evaluační vodoznak ke každému uloženému snímku; viz [Licensing](/slides/cs/net/licensing/).
 
-``` csharp
+## **Zkopírujte výstup do svého počítače**
 
- CMD ./build/netcore.linux.tests.sh
+Soubory jsou ve složce */app/output* zastaveného kontejneru. Zkopírujte je do složky *output* na svém počítači a poté odstraňte kontejner:
 
+```bash
+docker cp hello-slides-run:/app/output/. ./output
+docker rm hello-slides-run
 ```
 
-Podle instrukcí v Docker souboru bude výsledný obraz kontejneru mít nainstalované Ubuntu 18.04, dotnet‑sdk, libgdiplus a libc6‑dev balíčky. Tento obraz bude také obsahovat předdefinovaný přípojný bod a předdefinovaný příkaz při spuštění.
+Tyto dva příkazy fungují stejně v Bash, PowerShell i ve Windows Command Prompt.
 
-Pro sestavení obrazu pomocí tohoto Docker souboru přejděte do složky slides‑netuil docker a spusťte:
+V Linuxu můžete místo toho připojit složku ze svého počítače do kontejneru, takže aplikace přímo zapisuje soubory tam:
 
-``` csharp
-
- $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_apt_get_libgdiplus .
-
+```bash
+mkdir -p output
+docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-slides
 ```
 
-*-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus* – určuje, který Docker soubor použít.  
-*-t ubuntu18_04_apt_get_libgdiplus* – určuje tag (název) pro výsledný obraz.  
-*'.'* – určuje kontext pro Docker. V našem případě je kontext aktuální složka a je prázdná – protože jako přípojný bod poskytujeme zdroje slide‑net (to nám umožňuje znovu nepřestavovat Docker obraz při každé změně ve zdrojích).
+Volba `--user` spouští aplikaci s vašimi UID a GID, takže může zapisovat do vytvořené složky a soubory patří vám. `--rm` odstraní kontejner po jeho zastavení.
 
-Výsledek provedení by měl vypadat takto:
+## **Spuštění na Alpine Linux**
 
-``` csharp
+Pro spuštění aplikace v obrazu založeném na Alpine přepněte na balíček Aspose.Slides.NET a změňte fázi běhu. Fáze sestavení zůstává stejná.
 
- Successfully built 62dd34ddc142
+1. V souboru *HelloSlidesDocker.csproj* nahraďte odkaz na balíček:
 
-Successfully tagged ubuntu18_04_apt_get_libgdiplus:latest
+   ```xml
+   <PackageReference Include="Aspose.Slides.NET" Version="26.9.0" />
+   ```
 
-```
+1. V souboru *Program.cs* přidejte tento příkaz po direktivách `using`, před první volání Aspose.Slides. Povolení podpory System.Drawing pro Linux, kterou používá Aspose.Slides.NET:
 
-Pro ověření, že byl nový obraz přidán do lokálního úložiště obrázků:
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
 
-``` csharp
+1. V souboru *Dockerfile* nahraďte fázi běhu (vše od druhého řádku `FROM`) tímto:
 
- $ docker images
+   ```dockerfile
+   FROM mcr.microsoft.com/dotnet/runtime:10.0-alpine
+   ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+   RUN apk add --no-cache icu-libs libgdiplus font-dejavu
+   WORKDIR /app
+   COPY --from=build /app .
+   RUN mkdir output && chown $APP_UID output
+   USER $APP_UID
+   ENTRYPOINT ["dotnet", "HelloSlidesDocker.dll"]
+   ```
 
-\----
+Alpine fáze nainstaluje tři balíčky a změní jedno nastavení:
 
-REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+- `libgdiplus` je grafická knihovna, kterou Aspose.Slides.NET používá na Linuxu.
+- `font-dejavu` poskytuje písma. Bez jakéhokoli písma se konverze zastaví s `System.ArgumentException: Font '?' cannot be found`.
+- `icu-libs` a `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` poskytují data o kulturách. Alpine .NET obrazy běží ve výchozím režimu globalizace‑invariant, a v tomto režimu Aspose.Slides selže s `CultureNotFoundException` pro `en-US`.
 
-ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minutes ago         1.78GB
+Sestavte, spusťte a zkopírujte výstup stejnými příkazy jako výše. V tomto obrazu aplikace vytiskne pouze řádek `Saved`: s Aspose.Slides.NET na Linuxu fontconfig vybírá náhradu za chybějící písmo a [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) jej neuvádí. [Deploy Fonts](/slides/cs/net/deploy-fonts/) ukazuje, jak zkontrolovat, které písmo je použito.
 
-```
+## **Často kladené otázky**
 
-Jakmile je obraz připraven, můžeme ho spustit tímto příkazem:
+**Aplikace se zastaví s „Unable to load shared library 'libaspose.slides.drawing.capi…'“. Co chybí?**
 
-``` csharp
+Na obrazech Ubuntu a Debian je potřeba balíček `libfontconfig1`; zpráva uvádí `libfontconfig.so.1` jako soubor, který nelze otevřít. Na Alpine Linux zpráva znamená, že je používán Aspose.Slides.NET6.CrossPlatform; přepněte na Aspose.Slides.NET, jak je popsáno v [Run on Alpine Linux](#run-on-alpine-linux).
 
- $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest
+**Proč je text v PDF v jiném písmu než v PowerPointu?**
 
-```
+Písma, která prezentace používá, nejsou v obrazu nainstalována, takže Aspose.Slides vykresluje text náhradním písmem. Výstup aplikace pojmenovává každé nahrazené písmo. [Deploy Fonts](/slides/cs/net/deploy-fonts/) vysvětluje, jak nainstalovat písma do obrazu nebo je načíst ze složky aplikace.
 
-*-it* – spustí příkaz interaktivně, aby bylo vidět výstup a zachytit vstup.  
-*-v `pwd`/../../:/slides-src* – určuje složku pro předdefinovaný přípojný bod – protože aktuální pracovní adresář je slides‑netuildocker, složka /slides‑src v kontejneru bude ukazovat na složku slides‑net na hostiteli. `pwd` slouží k zadání relativní cesty.  
-*--add-host dev.slides.external.tool.server:192.168.1.48* – upraví hosts soubor kontejneru pro rozlišení URL dev.slides.external.tool.server.  
-*ubuntu1804aptgetlibgdiplus:latest* – určuje obraz, který se má spustit.
+**Potřebuji mít .NET SDK na svém počítači?**
 
-Výstup výše uvedeného příkazu bude výstup skriptu netcore.linux.tests.sh (protože byl definován jako výchozí příkaz pro kontejner):
-
-``` csharp
-
- Restoring packages for /slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj...
-
-Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.DOM.NetStandard/Aspose.Slides.DOM.NetStandard.csproj...
-
-Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.CompoundFile.NetStandard/Aspose.Slides.CompoundFile.NetStandard.csproj...
-
-Installing System.Text.Encoding.CodePages 4.4.0.
-
-Installing System.Drawing.Common 4.5.0.
-
-...
-
-Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.FuncTests.NetCore.trx
-
-Total tests: Unknown. Passed: 2110. Failed: 108. Skipped: 210.
-
-...
-
-Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.RegrTests.NetCore.trx
-
-Total tests: 2124. Passed: 1550. Failed: 103. Skipped: 471.
-
-```
-
-Z výsledku je patrné, že log soubory z Func a Regr testů byly umístěny do adresáře /build-out/netstandard20/test-results/main/. Také přibližně 200 testů selhalo – všechny jsou problémy s vykreslováním způsobené chybějícími fonty v kontejneru.
-
-Pro přepsání výchozího příkazu kontejneru při spuštění můžeme použít tento příkaz:
-
-``` csharp
-
- $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest /bin/bash
-
-```
-
-Tedy místo netcore.linux.tests.sh bude spuštěno /bin/bash, které poskytne aktivní terminál kontejneru, odkud lze spustit (./build/netcore.linux.tests.sh). Tento přístup může být užitečný při řešení problémů.
-
-## **Install and Configure Docker on Linux (make install libgdiplus)**
-- OS: Ubuntu 18.04.
-- Dockerfile: Dockerfile-Ubuntu18_04_make_libgdiplus
-
-V současnosti Ubuntu obsahuje pouze verzi 4.2 libgdiplus, zatímco verze 5.6 je již dostupná na [oficiálním webu produktu](https://github.com/mono/libgdiplus/releases). Pro testování nejnovější verze libgdiplus musíme připravit obraz s libgdiplus postaveným ze zdrojů.
-
-Projděme si obsah Docker souboru:
-
-``` csharp
-
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
-
-\# sestavit nejnovější stabilní libgdiplus
-
-RUN apt-get update -y
-
-RUN apt-get install -y libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
-
-RUN git clone -b 5.6 https://github.com/mono/libgdiplus
-
-WORKDIR /libgdiplus
-
-RUN ./autogen.sh
-
-RUN make
-
-RUN make install
-
-RUN ln -s /usr/local/lib/libgdiplus.so /usr/lib/libgdiplus.so
-
-\# vytvořit přípojené body
-
-VOLUME /slides-src
-
-\# sestavit a otestovat Aspose.Slides při startu
-
-WORKDIR /slides-src
-
-CMD ./build/netcore.linux.tests.sh
-
-```
-
-Jediný rozdíl je v sekci *build latest stable libgdiplus*. Tato sekce instaluje všechny potřebné nástroje pro sestavení libgdiplus, klonuje zdroje a poté je sestaví a nainstaluje na správné místo. Všechno ostatní je stejné jako v [Install and configure Docker on Linux (apt-get libgdiplus)](/slides/cs/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/).
-
-**Note**: Nezapomeňte použít odlišné image tagy (názvy) pro výsledný obraz při příkazech docker build a docker run:
-
-``` csharp
-
- $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
-
-$ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
-
-```
-
-## **Install and Configure Docker on Windows Server Core**
-- OS: Ubuntu 18.04.
-- Dockerfile: Dockerfile*WinServerCore*
-
-**Note**: Pro běh Windows kontejnerů je vyžadován Windows 10 Pro nebo Windows Server 2016.
-
-Bohužel Microsoft neposkytuje Windows Server Core obraz s nainstalovaným dotnet SDK, takže jej musíme nainstalovat ručně:
-
-``` csharp
-
- # escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#nastavit výchozí spouštěč powershell
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#nastavit výchozí spouštěč powershell
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# načíst .NET Core SDK
-
-ENV DOTNET_SDK_VERSION 2.1.301
-
-ENV DOTNET_PATH "c:/Program Files/dotnet"
-
-RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$Env:DOTNET_SDK_VERSION/dotnet-sdk-$Env:DOTNET_SDK_VERSION-win-x64.zip; 
-
-    $dotnet_sha512 = 'f2f6cc020f89dc4d4f8064cc914cffabde0ce422715138778a6bcbbb6803ca66d6fd967097a0209c47c89b85dd9e93db48486ac86999bd3a533e45b789fcea89'; 
-
-    if ((Get-FileHash dotnet.zip -Algorithm sha512).Hash -ne $dotnet_sha512) { 
-
-        Write-Host 'CHECKSUM VERIFICATION FAILED!'; 
-
-        exit 1; 
-
-    }; 
-
-    
-
-    Expand-Archive dotnet.zip -DestinationPath $Env:DOTNET_PATH;
-
-#vrátit cmd jako výchozí spouštěč
-
-SHELL ["cmd", "/S", "/C"]
-
-\# aby se nastavil systémový PATH, je nutné použít ContainerAdministrator
-
-USER ContainerAdministrator
-
-RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
-
-USER ContainerUser
-
-\# vytvořit přípojené body
-
-VOLUME c:/slides-src
-
-#sestavit a otestovat Aspose.Slides při startu
-
-WORKDIR c:/slides-src
-
-CMD .\external\buildtools\nant\nant.exe -buildfile:.\build\netcore.tests.build -D:obfuscate_eaz_use_mock=true -D:slidesnet.run.func.tests=true -D:slidesnet.run.regr.tests=true
-
-```
-
-Výsledný obraz bude postaven na základě obrazu microsoft/windowsservercore:1803 poskytnutého Microsoftem na [docker hub](https://hub.docker.com/u/microsoft). Dotnet‑sdk požadované verze bude stažen a rozbalen; proměnná PATH systému bude aktualizována tak, aby obsahovala cestu k spustitelnému souboru dotnet. Poslední řádek definuje příkaz, který spouští func & regr testy v kontejneru pomocí nant.exe jako výchozí akci při spuštění kontejneru.
-
-Příkaz pro sestavení obrazu:
-
-``` csharp
-
- docker build -f Dockerfile_WinServerCore -t winservercore_slides .
-
-```
-
-Příkaz pro spuštění obrazu:
-
-``` csharp
-
- docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
-
-```
-
-**Note**: Příkaz pro Windows kontejner používá 2 extra argumenty:
-
-*-cpu-count 3*  
-*-memory 8589934592*
-
-Nastavují počet jader a množství paměti dostupné pro kontejner. Ve výchozím nastavení je pro Windows kontejner k dispozici pouze 1 jádro a 1 GB RAM (Linux kontejner nemá ve výchozím nastavení žádná omezení).
-
-Také zde chybí 1 argument, který byl u Linux kontejneru:
-
-*-add-host dev.slides.external.tool.server:192.168.1.48*
-
-Protože kontejner běžící na Windows nepotřebuje external.tool.server.
-
-Výsledek výše uvedeného příkazu by měl vypadat takto:
-
-``` csharp
-
- NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
-
-Copyright (C) 2001-2012 Gerry Shaw
-
-http://nant.sourceforge.net
-
-netcore20_runtests:
-
-   [delete] Deleting directory 'c:\slides-src\build-out\netcore20\test-results\'.
-
-   [mkdir] Creating directory 'c:\slides-src\build-out\netcore20\test-results\'.
-
-...
-
-[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.FuncTests.NetCore.trx
-
-[exec] Total tests: 2338. Passed: 2115. Failed: 19. Skipped: 204.
-
-...
-
-[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.RegrTests.NetCore.trx
-
-[exec] Total tests: 2728. Passed: 2147. Failed: 110. Skipped: 471.
-
-```
+Ne. Fáze sestavení kompiluje aplikaci uvnitř SDK obrazu. SDK potřebujete jen v případě, že chcete aplikaci sestavit a spustit i mimo Docker; viz [Installation](/slides/cs/net/installation/).

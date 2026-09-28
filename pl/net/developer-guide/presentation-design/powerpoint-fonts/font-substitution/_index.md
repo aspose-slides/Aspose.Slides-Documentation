@@ -1,16 +1,16 @@
 ---
-title: "Konfiguracja podstawiania czcionek w prezentacjach w .NET"
-linktitle: "Podstawianie czcionek"
+title: Konfiguracja zastępowania czcionek w prezentacjach w .NET
+linktitle: Zastępowanie czcionek
 type: docs
 weight: 70
 url: /pl/net/font-substitution/
 keywords:
 - czcionka
 - czcionka zastępcza
-- podstawianie czcionek
+- zastępowanie czcionek
 - zamiana czcionki
 - zastąpienie czcionki
-- reguła podstawiania
+- reguła zastępowania
 - reguła zamiany
 - PowerPoint
 - OpenDocument
@@ -18,19 +18,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konfiguruj reguły podstawiania czcionek i sprawdzaj podstawione czcionki w Aspose.Slides dla .NET podczas renderowania lub konwertowania prezentacji PowerPoint i OpenDocument."
+description: "Skonfiguruj reguły zastępowania czcionek i sprawdź zastąpione czcionki w Aspose.Slides dla .NET podczas renderowania lub konwertowania prezentacji PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-Podstawianie czcionek umożliwia Aspose.Slides użycie dostępnej czcionki zamiast czcionki, której nie można odczytać podczas renderowania lub konwertowania prezentacji. Zastąpienie wpływa na wyjściowy render, nie zmienia jednak czcionki przypisanej do treści prezentacji.
+Zastępowanie czcionek pozwala Aspose.Slides używać dostępnej czcionki zamiast czcionki, której nie można odczytać podczas renderowania lub konwersji prezentacji. Zastąpienie wpływa na wynik renderowania; nie zmienia on czcionki przypisanej do treści prezentacji.
 
-Możesz określić czcionkę, która ma być użyta, gdy konkretna czcionka jest niedostępna, oraz możesz sprawdzić podstawienia, które Aspose.Slides wykona podczas renderowania. Pomaga to zachować spójność wyniku w różnych środowiskach z odmiennie zainstalowanymi czcionkami.
+Możesz zdefiniować czcionkę, która ma być używana, gdy konkretna czcionka jest niedostępna, oraz sprawdzić zastąpienia, które Aspose.Slides wykona podczas renderowania. Pomaga to utrzymać spójność wyników w środowiskach z różnymi zainstalowanymi czcionkami.
 
-## **Uzyskaj podstawienia czcionek**
+## **Uzyskiwanie zastąpień czcionek**
 
-Użyj metody [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/), aby określić, które czcionki zostaną podstawione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstitutioninfo/), które identyfikują oryginalne i podstawione nazwy czcionek.
+Użyj metody [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/), aby określić, które czcionki zostaną zastąpione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstitutioninfo/), które identyfikują pierwotne i zastąpione nazwy czcionek.
 
-Poniższy przykład w C# wymienia wszystkie podstawienia czcionek dla prezentacji:
+Poniższy przykład w języku C# wymienia wszystkie zastąpienia czcionek dla prezentacji:
 
 ```csharp
 using System;
@@ -44,15 +44,15 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 }
 ```
 
-## **Uzyskaj podstawienia czcionek dla wybranych slajdów**
+## **Uzyskiwanie zastąpień czcionek dla wybranych slajdów**
 
-Użyj przeciążenia [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) z argumentem `int[] slides`, aby sprawdzić tylko podstawienia niezbędne do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację etapami, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla serwera lub kontenera albo diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
+Użyj przeciążenia [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) z argumentem `int[] slides`, aby sprawdzić tylko zastąpienia wymagane do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację krok po kroku, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla serwera lub kontenera lub diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
 
-Tablica `slides` zawiera indeksy slajdów zaczynające się od 1: `1` identyfikuje pierwszy slajd. Natomiast indeksator kolekcji [Presentation.Slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slides/pl/) jest zerowy, więc ten sam slajd dostępny jest jako `presentation.Slides[0]`. Pamiętaj o tej różnicy przy budowaniu tablicy, aby uniknąć błędów „off‑by‑one”.
+Tablica `slides` zawiera indeksy slajdów numerowane od jedynki: `1` określa pierwszy slajd. Natomiast indeksator kolekcji [Presentation.Slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slides/pl/) jest zerowo‑numerowany, więc ten sam slajd jest dostępny jako `presentation.Slides[0]`. Pamiętaj o tej różnicy przy tworzeniu tablicy, aby uniknąć błędów o jeden.
 
-Wywołaj przeciążenie przez właściwość [Presentation.FontsManager](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/fontsmanager/). Zwróci ono tylko podstawienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstitutioninfo/), zawierającym oryginalną i podstawioną nazwę czcionki. Wynik odzwierciedla bieżące środowisko czcionek, skonfigurowane reguły awaryjne, reguły podstawiania przechowywane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsubstrulecollection/), oraz [zewnętrznie wczytane czcionki](/slides/pl/net/custom-font/).
+Wywołaj przeciążenie przez właściwość [Presentation.FontsManager](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/fontsmanager/). Zwraca ono tylko zastąpienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstitutioninfo/) zawierającym pierwotną i zastąpioną nazwę czcionki. Wynik odzwierciedla aktualne środowisko czcionek oraz [zewnętrznie załadowane czcionki](/slides/pl/net/custom-font/). Reguły zastąpienia przechowywane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsubstrulecollection/) zmieniają wynik renderowania, ale nie są odzwierciedlane w wyniku.
 
-Ta sama podstawowa czcionka może być wymagana przez więcej niż jeden wybrany slajd. Usuń duplikaty, gdy tworzysz inwentaryzację czcionek lub raport wstępny. Poniższy przykład wypisuje każde zwrócone podstawienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
+To samo zastąpienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników podczas tworzenia inwentarza czcionek lub raportu wstępnego. Poniższy przykład zgłasza każde zwrócone zastąpienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
 
 ```csharp
 using System;
@@ -81,25 +81,25 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Interfejs [IFontsManager](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz jedno w zależności od zakresu operacji renderowania:
+Interfejs [IFontsManager](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz jedno zgodnie z zakresem operacji renderowania:
 
-| Przeciążenie | Kiedy używać |
+| Przeciążenie | Użyj, gdy |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Potrzebujesz podstawień dla całej prezentacji. |
-| [GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Potrzebujesz podstawień dla wybranego zakresu, sprawdzenia przyrostowego lub częściowego eksportu. |
+| [GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) bez argumentów | Potrzebujesz zastąpień dla całej prezentacji. |
+| [GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) z `int[] slides` | Potrzebujesz zastąpień dla wybranego zakresu, sprawdzenia przyrostowego lub częściowego eksportu. |
 
-## **Ustaw reguły podstawiania czcionek**
+## **Ustaw reguły zastąpienia czcionek**
 
-Aby określić czcionkę, której Aspose.Slides ma używać, gdy źródłowa czcionka jest niedostępna:
+Aby określić czcionkę, którą Aspose.Slides ma używać, gdy czcionka źródłowa jest niedostępna:
 
 1. Załaduj prezentację.
 2. Utwórz definicje czcionek dla czcionki źródłowej i zastępczej.
 3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstrule/) z warunkiem [WhenInaccessible](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstcondition/).
 4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsubstrulecollection/).
 5. Przypisz kolekcję do właściwości [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/fontsubstrulelist/).
-6. Renderuj lub konwertuj prezentację.
+6. Renderuj lub skonwertuj prezentację.
 
-Poniższy przykład w C# podstawia `Arial` zamiast `SomeRareFont`, gdy `SomeRareFont` jest niedostępny, a następnie renderuje pierwszy slajd w celu weryfikacji wyniku. Zastępcza czcionka musi być dostępna dla Aspose.Slides.
+Poniższy przykład w języku C# zastępuje `Arial` czcionką `SomeRareFont`, gdy `SomeRareFont` jest niedostępna, a następnie renderuje pierwszy slajd, aby zweryfikować wynik. Zastępująca czcionka musi być dostępna dla Aspose.Slides.
 
 ```csharp
 using Aspose.Slides;
@@ -124,40 +124,40 @@ Aby bezwarunkowo zmienić czcionki używane w całej prezentacji, zobacz [Font R
 
 ## **Ograniczenia dla czcionek równań matematycznych**
 
-Reguły podstawiania czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają one dla zwykłego tekstu, gdy Aspose.Slides może zastąpić niedostępną czcionkę czcionką określoną w regule.
+Reguły zastąpienia czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają one dla zwykłego tekstu, gdy Aspose.Slides może zastąpić niedostępną czcionkę czcionką dostępną określoną w regule.
 
-Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować tej dokładnej czcionki do obliczenia i wyrenderowania układu równania. Reguła, która podmienia inną czcionkę matematyczną, np. **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać, że **Cambria Math** jest wymagana.
+Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować dokładnie tej czcionki do obliczenia i renderowania układu równania. Reguła, która zastępuje inną czcionkę matematyczną, taką jak **STIX Two Math**, nie może zamienić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać, że wymagana jest **Cambria Math**.
 
-Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Zainstaluj ją w systemie operacyjnym lub wczytaj jako [zewnętrzną czcionkę](/slides/pl/net/custom-font/).
+Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Zainstaluj ją w systemie operacyjnym lub załaduj jako [zewnętrzną czcionkę](/slides/pl/net/custom-font/).
 
-To ograniczenie dotyczy układu równań. Reguły podstawiania opisane powyżej nadal obowiązują dla zwykłego tekstu w prezentacji.
+To ograniczenie dotyczy układu równań. Opisane powyżej reguły zastąpienia nadal mają zastosowanie do zwykłego tekstu w prezentacji.
 
 ## **FAQ**
 
-**Jaka jest różnica między zamianą czcionki a podstawianiem czcionki?**
+**Jaka jest różnica między zamianą czcionki a zastąpieniem czcionki?**
 
-[Font replacement](/slides/pl/net/font-replacement/) celowo zmienia jedną czcionkę na drugą w całej prezentacji. Podstawianie czcionki wybiera czcionkę dla wyjściowego renderu, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
+[Font replacement](/slides/pl/net/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Zastąpienie czcionki wybiera czcionkę do wyniku renderowania, gdy spełniony jest skonfigurowany warunek, na przykład gdy oryginalna czcionka jest niedostępna.
 
-**Kiedy stosowane są reguły podstawiania?**
+**Kiedy stosowane są reguły zastąpienia?**
 
-Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/net/font-selection-sequence/) podczas renderowania i konwersji. Przy warunku `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
+Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/net/font-selection-sequence/) podczas renderowania i konwersji. Przy `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
 
-**Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły podstawiania?**
+**Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły zastąpienia?**
 
 Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionek. Wynik zależy od czcionek dostępnych w środowisku uruchomieniowym.
 
-**Czy mogę wczytać czcionki zewnętrzne, aby uniknąć podstawiania?**
+**Czy mogę załadować zewnętrzne czcionki, aby uniknąć zastąpienia?**
 
-Tak. Możesz [wczytać czcionki zewnętrzne](/slides/pl/net/custom-font/), aby Aspose.Slides mogło ich używać podczas renderowania i konwersji.
+Tak. Możesz [załadować zewnętrzne czcionki](/slides/pl/net/custom-font/), aby Aspose.Slides mogło ich używać podczas renderowania i konwersji.
 
-**Czy Aspose dystrybuuje czcionki wraz z biblioteką?**
+**Czy Aspose dostarcza czcionki wraz z biblioteką?**
 
-Nie. Odpowiedzialność za dostarczenie czcionek i przestrzeganie ich licencji spoczywa na użytkowniku.
+Nie. To Ty jesteś odpowiedzialny za dostarczanie czcionek i przestrzeganie ich licencji.
 
-**Czy wyniki podstawiania mogą różnić się między Windows, Linux i macOS?**
+**Czy wyniki zastąpienia mogą się różnić pomiędzy Windows, Linux i macOS?**
 
-Tak. Zainstalowane czcionki i lokalizacje wyszukiwania czcionek różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednej maszynie może wymagać podstawienia na innej.
+Tak. Zainstalowane czcionki oraz lokalizacje wyszukiwania czcionek różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednym komputerze może wymagać zastąpienia na innym.
 
-**Jak zapewnić spójny wybór czcionek przy konwersjach wsadowych?**
+**Jak zapewnić spójny wybór czcionek w konwersjach wsadowych?**
 
-Używaj tych samych plików czcionek i ich wersji na każdej maszynie lub w kontenerze, [wczytuj wymagane czcionki zewnętrzne](/slides/pl/net/custom-font/), i [osadzaj czcionki](/slides/pl/net/embedded-font/) gdy licencja na to pozwala. Możesz także wywołać [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) przed eksportem, aby zidentyfikować nieoczekiwane podstawienia.
+Używaj tych samych plików i wersji czcionek na każdym komputerze lub w kontenerze, [załaduj wymagane czcionki zewnętrzne](/slides/pl/net/custom-font/) oraz [osadź czcionki](/slides/pl/net/embedded-font/) gdy licencja na to pozwala. Możesz także wywołać [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) przed eksportem, aby zidentyfikować nieoczekiwane zastąpienia.

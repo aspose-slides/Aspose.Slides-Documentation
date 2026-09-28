@@ -1,35 +1,40 @@
 ---
-title: 宣言
+title: 信頼レベル要件
 type: docs
-weight: 110
+weight: 190
 url: /ja/net/declaration/
 keywords:
-- 宣言
-- コンポーネント
-- フル トラスト パーミッション
-- レジストリ設定
-- システムファイル
+- 信頼レベル
+- フルトラスト権限
+- 部分信頼
+- ミディアムトラスト
+- コードアクセスセキュリティ
+- ASP.NET
+- .NET Framework
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET の信頼要件、権限、ホスティング制限について学び、PPT、PPTX、ODP を処理するアプリをサーバーに安全にデプロイできるようにします。"
+description: "Aspose.Slides for .NET が必要とするコードアクセスセキュリティの信頼レベルは、.NET Framework ではフルトラスト、.NET 6 以降では信頼設定が不要です。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
-すべての Aspose .NET コンポーネントは、フル トラスト パーミッション セットが必要です。なぜなら、フォントの解析など特定の操作のために、レジストリ設定、システム ファイル、仮想ディレクトリ以外の場所に保存されたファイルにアクセスする必要があることがあるからです。また、Aspose .NET コンポーネントはコア .NET システム クラスを基盤としており、多くの場合フル トラスト パーミッション セットが必要です。 
-{{% /alert %}} 
-複数の企業のアプリケーションをホストしているインターネットサービスプロバイダーは、主に中間トラスト (Medium Trust) セキュリティ レベルを適用します。.NET 2.0 の場合、このセキュリティ レベルでは次の制約が課されます： 
+コード アクセス セキュリティ (CAS) の信頼レベルは .NET Framework にのみ存在します。本記事では、Aspose.Slides for .NET におけるそれらの意味を説明します。ライブラリは .NET Framework ではフルトラストが必要で、.NET 6 以降では設定する信頼レベルはありません。
 
-- OleDbPermission は利用できません。これは、データベースにアクセスするための ADO.NET 管理 OLE DB データプロバイダーを使用できないことを意味します。  
-- EventLogPermission は利用できません。これは、Windows のイベント ログにアクセスできないことを意味します。  
-- ReflectionPermission は利用できません。これは、リフレクションを使用できないことを意味します。  
-- RegistryPermission は利用できません。これは、レジストリにアクセスできないことを意味します。  
-- WebPermission は制限されています。これは、アプリケーションが <trust> 要素で定義したアドレスまたはアドレス範囲としか通信できないことを意味します。  
-- FileIOPermission は制限されています。これは、アプリケーションの仮想ディレクトリ階層内のファイルのみアクセスできることを意味します。  
+## **.NET Framework**
 
-{{% alert color="primary" %}} 
-上記の理由により、Aspose .NET コンポーネントはフル トラスト パーミッション セットを付与されたサーバーでのみ使用できます。 
-{{% /alert %}}
+Aspose.Slides は .NET Framework 上でフルトラストが必要です。Medium Trust (`<trust level="Medium" />`) のように部分的な信頼で構成された ASP.NET アプリケーションでは動作せず、[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) オブジェクトの作成時に `SecurityException` が発生します。
+
+Microsoft は、ASP.NET の部分信頼をアプリケーション間の分離手段としてはもはや扱わず、代わりに個別のアプリケーション プールで実行することを推奨しています。詳しくは [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation) を参照してください。
+
+## **.NET 6 and Later**
+
+.NET 6 以降ではコード アクセス セキュリティは利用できないため、付与すべき信頼レベルは存在しません。Aspose.Slides はアプリケーションを実行しているアカウントの権限で動作します。アプリケーションがアクセスできる範囲を制限するには、ユーザー アカウント、コンテナ、仮想マシンなど、OS の境界を使用することが Microsoft により推奨されています。詳しくは [Code access security (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas) を参照してください。
+
+## **FAQ**
+
+**ホスティングプロバイダーが ASP.NET アプリケーションを Medium Trust で実行している場合、Aspose.Slides を使用できますか？**
+
+Medium Trust では使用できません。.NET Framework では、Aspose.Slides を使用するアプリケーションはフルトラストで実行する必要があります。

@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides Xamarin számára
+title: Aspose.Slides Xamarinhez (Történelmi)
+linktitle: Xamarin (Történelmi)
 type: docs
-weight: 150
+weight: 200
 url: /hu/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,48 +14,52 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Készítsen Xamarin mobilalkalmazásokat C#-ban, hogy megtekinthesse, szerkeszthesse és konvertálhassa a prezentációkat az Aspose.Slides segítségével, amely gazdag funkciókat támogat a PPT, PPTX és ODP formátumokhoz Androidon."
+description: "Történelmi: hogy az Aspose.Slides for .NET 20.2-től 22.10-ig terjedő verziói hogyan támogatták a Xamarin.Android-ot egy külön könyvtáron keresztül. A jelenlegi verziók nem tartalmazzák."
 ---
-## **Bevezetés**
+{{% alert color="info" title="Megjegyzés" %}}
 
-A Xamarin egy keretrendszer, amelyet a .NET C# mobil fejlesztéshez használnak. A Xamarin eszközöket és könyvtárakat biztosít, amelyek kiterjesztik a .NET platform képességeit. Lehetővé teszi a fejlesztők számára, hogy alkalmazásokat készítsenek a **Android** operációs rendszerhez. 
-
-{{% alert color="info" %}} 
-
-Xamarin fejlesztéshez a programozók a szokásos fejlesztői környezetüket (C#, Visual Studio és harmadik féltől származó könyvtárak) használhatják.
+Ez egy történelmi oldal. A Aspose.Slides.NET csomag 20.2 és 22.10 közötti verziói tartalmazták a külön Xamarin.Android könyvtárat, a *Aspose.Slides.Droid.dll*-t, amelyet az ezen az oldalon található kód használ. Későbbi verziók nem tartalmazzák: a jelenlegi csomag csak .NET Framework 4.6.2, .NET 6 és .NET Standard 2.0 buildeket tartalmaz. A Microsoft 2024. május 1-jén befejezte az összes Xamarin SDK támogatását; lásd a [Xamarin támogatási szabályzatot](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
 {{% /alert %}}
 
-Az Aspose.Slides API a Xamarin platformon működik. Ennek eléréséhez az Aspose.Slides .NET csomag egy külön DLL-t ad a Xamarin számára. Az Aspose.Slides for Xamarin a .NET verzióban elérhető funkciók nagy részét támogatja:
+## **Introduction**
+
+A Xamarin egy keretrendszer, amely a .NET C# mobilfejlesztéshez használható. A Xamarin eszközökkel és könyvtárakkal bővíti a .NET platform képességeit. Lehetővé teszi a fejlesztők számára, hogy alkalmazásokat építsenek az **Android** operációs rendszerhez.
+
+{{% alert color="info" title="Megjegyzés" %}}
+
+Xamarin fejlesztéshez a programozók a szokásos fejlesztőkörnyezetüket (C#, Visual Studio és harmadik fél könyvtárak) használhatják.
+
+{{% /alert %}}
+
+Az Aspose.Slides API működött a Xamarin platformon. Ennek eléréséhez a Aspose.Slides.NET csomag a 20.2‑től 22.10‑ig terjedő verziókban külön DLL‑t adott a Xamarin számára. Az Aspose.Slides for Xamarin a .NET verzióban elérhető funkciók nagy részét támogatta:
 
 - prezentációk konvertálása és megtekintése.
-- prezentációk tartalmának szerkesztése: szöveg, alakzatok, diagramok, SmartArt, audio/video, betűkészletek stb.
-- animációk, 2D hatások, WordArt stb. kezelése.
+- prezentációk tartalmának szerkesztése: szöveg, alakzatok, diagramok, SmartArt, audio/videó, betűkészletek stb.
+- animációk, 2D effektusok, WordArt kezelése stb.
 - metaadatok és dokumentumtulajdonságok kezelése.
 - klónozás, egyesítés, összehasonlítás, felosztás stb.
 
-A teljes funkciók összehasonlítását egy másik szakaszban, az oldal alja felé biztosítottuk.
+A teljes funkciók összehasonlítását a lap alján található másik szakaszban biztosítjuk.
 
-Az Aspose.Slides for Xamarin API-ban az osztályok, névtér, logika és viselkedés a lehető leginkább hasonló a .NET verzióhoz. A Aspose.Slides .NET alkalmazásait minimális költséggel migrálhatja Xamarinra.
+Az Aspose.Slides for Xamarin API‑ban az osztályok, névterek, logika és viselkedés a lehető leginkább hasonlított a .NET verzióra. Aspose.Slides .NET alkalmazásait minimális költséggel lehetett Xamarinra migrálni.
 
 
-## **Gyors példa**
-Az Aspose.Slides for Xamarin segítségével a C# alkalmazását a Slides for Androidon keresztül építheti és használhatja.
+## **Quick Example**
+Az Aspose.Slides for Xamarin segítségével építheted és használhatod a C# alkalmazásodat Android diákon keresztül.
 
-Egy Androidon keresztül Xamarin alkalmazásra vonatkozó példát biztosítunk, amely az Aspose.Slides-et használja a prezentációs diák megjelenítéséhez és érintésre új alakzatot ad a diára. A példák teljes forráskódját a [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) oldalon találja.
+Egy Androidra Xamarin alkalmazás példáját mutatjuk be, amely az Aspose.Slides‑t használja a prezentációs diák megjelenítéséhez és érintéskor új alakzatot ad a diára. A példák teljes forráskódját megtalálod a [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Kezdjük egy Xamarin Android alkalmazás létrehozásával:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creating a Xamarin Android app](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Először létrehozunk egy tartalom elrendezést, amely tartalmaz egy képnézetet, valamint Prev és Next gombokat:
+Először egy tartalomelrendezést hozunk létre, amely egy image view‑t, valamint Prev és Next gombokat tartalmaz:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Content layout with an image view and Prev and Next buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-
-
-**XML - content_main.xml - Tartalom elrendezés létrehozása**
-``` 
+**XML - content_main.xml – Tartalomelrendezés létrehozása**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -97,12 +102,9 @@ Először létrehozunk egy tartalom elrendezést, amely tartalmaz egy képnézet
 </LinearLayout>
 ```
 
+Itt hivatkozunk a "Aspose.Slides.Droid.dll" könyvtárra, amely tartalmaz egy mintaprezentációt ("HelloWorld.pptx") a Xamarin alkalmazás Assets mappájában, és hozzáadjuk a inicializációt a MainActivity‑hez:
 
-
-Ebben a példában hivatkozunk az "Aspose.Slides.Droid.dll" könyvtárra, amely egy mintaprezentációt ("HelloWorld.pptx") tartalmaz a Xamarin alkalmazás Assets mappájába, és hozzáadja annak inicializálását a MainActivity-hez:
-
-**C# - MainActivity.cs - Inicializálás**
-
+**C# - MainActivity.cs – Inicializáció**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -140,10 +142,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Adjunk hozzá egy függvényt, amely a Prev és Next gombok megnyomásakor megjeleníti a dia előző és következő oldalát:
+Adjunk hozzá egy függvényt, amely a Prev és Next gombok érintésére megjeleníti a diát:
 
-**C# - MainActivity.cs - Diák megjelenítése Prev és Next gombnyomásra**
-
+**C# - MainActivity.cs – Diák megjelenítése Prev és Next gomb nyomásra**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -269,7 +270,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -277,12 +278,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+Végül valósítsuk meg a függvényt, amely érintéskor ellipszist ad a diára:
 
-
-Végül valósítsunk meg egy függvényt, amely érintésre ellipszis alakzatot ad a diára:
-
-**C# - MainActivity.cs - Ellipszis hozzáadása dia kattintásra**
-
+**C# - MainActivity.cs – Ellipszis hozzáadása dia kattintásra**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -292,7 +290,7 @@ Végül valósítsunk meg egy függvényt, amely érintésre ellipszis alakzatot
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -312,89 +310,88 @@ Végül valósítsunk meg egy függvényt, amely érintésre ellipszis alakzatot
 }
 ```
 
-Minden egyes kattintás a prezentációs dián egy véletlenszerű színű ellipszist ad hozzá:
+Minden diára történő kattintás egy véletlenszerű színű ellipszist ad hozzá:
+![Slide with ellipses added by touch](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
+## **Supported Features**
 
-## **Támogatott funkciók**
-
-|**FUNKCIÓK** |**Aspose.Slides for .NET**  |**Aspose.Slides for Xamarin**|
+|**FUNKCIÓK**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**Prezentációs funkciók**: | | |
-|Új prezentációk létrehozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97 - 2003 formátumok megnyitása/mentése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2007 formátumok megnyitása/mentése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2010 kiterjesztések támogatása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2013 kiterjesztések támogatása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016 funkciók támogatása |restricted|restricted|
-|PowerPoint 2019 funkciók támogatása |restricted |restricted|
-|PPT → PPTX konverzió |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX → PPT konverzió |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX beágyazás PPT-be |restricted|restricted|
-|Témák feldolgozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Makrók feldolgozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dokumentum tulajdonságok feldolgozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Jelszóvédelem |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Gyors szövegkinyerés |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Betűkészletek beágyazása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Megjegyzések megjelenítése |{{< emoticons/tick >}} |{{< emoticons/tick >}}|
-|Hosszú futású feladatok megszakítása |{{< emoticons/tick >}}|{{< emoticons/tick >}} |
-|**Export formátumok:** | | |
-|PDF |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|XPS |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|HTML |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|TIFF |{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP |restricted |restricted|
-|SWF |restricted|restricted|
-|SVG |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Import formátumok:** | | |
-|HTML |restricted|restricted|
-|ODP |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|THMX |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Mesterdiák funkciói:** | | |
-|Az összes létező mesterdia elérése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Mesterdiák létrehozása/törlése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Mesterdiák klónozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Elrendezésdiák funkciói:** | | |
-|Az összes létező elrendezésdia elérése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Elrendezésdiák létrehozása/törlése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Elrendezésdiák klónozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Dia funkciók:** | | |
-|Az összes létező dia elérése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia létrehozása/törlése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia klónozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia exportálása képekké |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia szekciók létrehozása/szerkesztése/törlése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Jegyzet diák funkciói**: | | |
-|Az összes létező jegyzetdia elérése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Alakzat funkciók:** | | |
-|Az összes diaalakzat elérése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Új alakzatok hozzáadása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Alakzatok klónozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Különálló alakzatok exportálása képekbe |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Támogatott alakzat típusok:** | | |
-|Minden előre definiált alakzattípus |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Képkockák |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Táblázatok |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagramok |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|SmartArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Örökölt diagram |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|WordArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX objektumok |restricted|restricted|
-|Video keretek |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Audio keretek |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Kapcsolók |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Csoport alakzat funkciók:** | | |
-|Csoport alakzatok elérése |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Csoport alakzatok létrehozása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Létező csoport alakzatok felbontása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Alakzat hatás funkciók:** | | |
-|2D hatások |restricted|restricted|
-|3D hatások |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Szöveg funkciók:** | | |
-|Bekezdés formázása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Szövegrészek formázása |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Animációs funkciók:** | | |
-|Animáció exportálása SWF-be |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|Animáció exportálása HTML-be |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**Prezentációs funkciók**| | |
+|Új prezentációk létrehozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97‑2003 formátumok megnyitása/mentése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2007 formátumok megnyitása/mentése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2010 kiterjesztések támogatása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2013 kiterjesztések támogatása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2016 funkciók támogatása|korlátozott|korlátozott|
+|PowerPoint 2019 funkciók támogatása|korlátozott|korlátozott|
+|PPT → PPTX konverzió|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX → PPT konverzió|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX beágyazása PPT‑be|korlátozott|korlátozott|
+|Témák feldolgozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Makrók feldolgozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Dokumentumtulajdonságok feldolgozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Jelszóvédelem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Gyors szövegkinyerés|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Betűk beágyazása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Megjegyzések megjelenítése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Hosszú futású feladatok megszakítása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Export formátumok**| | |
+|PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
+|ODP|korlátozott|korlátozott|
+|SWF|korlátozott|korlátozott|
+|SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Import formátumok**| | |
+|HTML|korlátozott|korlátozott|
+|ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Mesterdia funkciók**| | |
+|Minden meglévő mesterdia elérése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Mesterdiak létrehozása/eltávolítása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Mesterdiak klónozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Elrendezési dia funkciók**| | |
+|Minden meglévő elrendezési dia elérése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Elrendezési diák létrehozása/eltávolítása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Elrendezési diák klónozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Dia funkciók**| | |
+|Minden meglévő dia elérése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diák létrehozása/eltávolítása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diák klónozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diák exportálása képekbe|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Dia szakaszok létrehozása/szerkesztése/eltávolítása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Megjegyzés dia funkciók**| | |
+|Minden meglévő megjegyzés dia elérése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Alakzat funkciók**| | |
+|Minden dia alakzat elérése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Új alakzatok hozzáadása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Alakzatok klónozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Alakzatok különálló exportálása képekbe|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Támogatott alakzattípusok**| | |
+|Minden előre definiált alakzattípus|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Képkocka keretek|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Táblák|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diagramok|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Örökölt diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|OLE, ActiveX objektumok|korlátozott|korlátozott|
+|Videó keretek|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Audio keretek|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Kapcsolók|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Csoport alakzat funkciók**| | |
+|Csoport alakzatok elérése|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Csoport alakzatok létrehozása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Létező csoport alakzatok szétbontása|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Alakzat hatás funkciók**| | |
+|2D hatások|korlátozott|korlátozott|
+|3D hatások|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**Szöveg funkciók**| | |
+|Bekezdésformázás|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Részletformázás|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Animációs funkciók**| | |
+|Animáció exportálása SWF‑be|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|Animáció exportálása HTML‑be|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

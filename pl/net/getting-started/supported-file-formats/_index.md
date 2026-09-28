@@ -1,52 +1,38 @@
 ---
 title: Obsługiwane formaty plików
 type: docs
-weight: 30
+weight: 96
 url: /pl/net/supported-file-formats/
 keywords:
-- format pliku
-- obsługiwany format
-- PPT
-- POT
-- PPS
-- PPTX
-- POTX
-- PPSX
-- PPTM
-- PPSM
-- POTM
-- ODP
-- FODP
-- OTP
-- TIFF
-- EMF
-- PDF
-- XPS
-- JPEG
-- PNG
-- GIF
-- BMP
-- SVG
-- SWF
-- HTML
-- XAML
-- MD
-- XML
+- obsługiwane formaty plików
+- ładowanie prezentacji
+- import PDF
+- import HTML
+- zapisywanie prezentacji
+- renderowanie slajdów
 - PowerPoint
 - OpenDocument
-- prezentacja
+- PPT
+- PPTX
+- ODP
+- PDF
+- HTML
+- XPS
+- SVG
+- XAML
 - .NET
 - C#
 - Aspose.Slides
-description: "Poznaj wszystkie formaty plików, które Aspose.Slides dla .NET może otwierać, zapisywać i konwertować — w tym PPT, PPTX i ODP — wraz z jasnymi informacjami o obsłudze importu/eksportu."
+description: "Zobacz, które formaty plików Aspose.Slides dla .NET może ładować, importować, zapisywać i renderować, oraz które API odczytuje lub zapisuje każdy z nich."
 ---
 ## **Przegląd**
 
-Aspose.Slides obsługuje pliki prezentacji od Microsoft PowerPoint 97 po Office 365, w tym Microsoft PowerPoint dla Mac. Ten artykuł wymienia wersje PowerPoint obsługiwane przez bibliotekę i zawiera tabelę formatów plików, które można wczytać, zapisać lub oba.
+Aspose.Slides for .NET otwiera i zapisuje prezentacje PowerPoint oraz OpenDocument. Importuje również treści PDF i HTML do slajdów, zapisuje prezentacje w formatach dokumentu, sieci i obrazu oraz renderuje pojedyncze slajdy i kształty jako obrazy. Ten artykuł wymienia każdy obsługiwany format i podaje nazwę interfejsu API, który go odczytuje lub zapisuje.
 
-Artykuł odpowiada również na częste pytania dotyczące zgodności PDF, osadzania czcionek, plików chronionych hasłem, własnych czcionek, zastępowania czcionek oraz opcji eksportu XPS.
+Oba pakiety NuGet, Aspose.Slides.NET i Aspose.Slides.NET6.CrossPlatform, obsługują te same formaty; zobacz [Installation](/slides/pl/net/installation/), aby wybrać pomiędzy nimi. Aby uzyskać przegląd funkcji edycji, zobacz [Features Overview](/slides/pl/net/features-overview/).
 
 ## **Obsługiwane wersje Microsoft PowerPoint**
+
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
@@ -56,58 +42,91 @@ Artykuł odpowiada również na częste pytania dotyczące zgodności PDF, osadz
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint dla MAC
-- Office 365
+- Microsoft PowerPoint for Mac
+- PowerPoint dla Microsoft 365 (dawniej Office 365)
+
+{{% alert color="info" title="Note" %}}
+
+Prezentacje zapisane w PowerPoint 95 i wcześniejszych wersjach nie mogą być otwarte. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/presentationfactory/getpresentationinfo/) rozpoznaje plik PowerPoint 95 i zgłasza `LoadFormat.Ppt95`, ale konstruktor [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/presentation/) rzuca [PptUnsupportedFormatException](https://reference.aspose.com/slides/pl/net/aspose.slides/pptunsupportedformatexception/) dla takiego pliku.
+
+{{% /alert %}}
 
 ## **Obsługiwane formaty plików**
-Ta tabela zawiera formaty plików, które Aspose.Slides dla .NET może wczytywać i zapisywać:
 
-|**Format**|**Opis**|**Wczytaj**|**Zapisz**|**Uwagi**|
+Ta tabela używa czterech operacji:
+
+- **Load**: konstruktor [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/presentation/) otwiera plik jako edytowalną prezentację.
+- **Import**: metoda [SlideCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/slidecollection/) tworzy slajdy z zawartości pliku i dodaje je do istniejącej prezentacji. Konstruktor Presentation nie ładuje tych plików jako prezentacji.
+- **Save**: [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) zapisuje prezentację do pliku lub strumienia. Każdy format oprócz XAML jest wybierany za pomocą wartości [SaveFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/).
+- **Render**: metoda renderująca rysuje slajd lub kształt jako obraz. Formaty które są jedynie renderowane nie są wartościami SaveFormat.
+
+|**Format**|**Opis**|**Load / Import**|**Save / Render**|**API**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Prezentacja PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POT](https://docs.fileformat.com/presentation/pot/)|Szablon PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Pokaz PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Prezentacja PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTX](https://docs.fileformat.com/presentation/potx/)|Szablon PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|Pokaz PowerPoint|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Prezentacja PowerPoint z obsługą makr|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Pokaz PowerPoint z obsługą makr|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[POTM](https://docs.fileformat.com/presentation/potm/)|Szablon PowerPoint z obsługą makr|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|Prezentacja OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[OTP](https://docs.fileformat.com/presentation/otp/)|Szablon prezentacji OpenDocument|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format||{{< emoticons/tick >}}||
-|[EMF](https://docs.fileformat.com/image/emf/)|Rozszerzony format metafile||{{< emoticons/tick >}}||
-|[PDF](https://docs.fileformat.com/pdf/)|Format Dokumentu Przenośnego|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Specyfikacja XML Paper||{{< emoticons/tick >}}||
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group||{{< emoticons/tick >}}||
-|[PNG](https://docs.fileformat.com/image/png/)|Grafika sieciowa PNG||{{< emoticons/tick >}}||
-|[GIF](https://docs.fileformat.com/image/gif/)|Format wymiany grafiki (GIF)||{{< emoticons/tick >}}||
-|[BMP](https://docs.fileformat.com/image/bmp/)|Bitmapa niezależna od urządzenia (BMP)||{{< emoticons/tick >}}||
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Skalowalna grafika wektorowa (SVG)||{{< emoticons/tick >}}||
-|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Mały format internetowy (SWF)||{{< emoticons/tick >}}||
-|[HTML](https://docs.fileformat.com/web/html/)|Język znaczników hipertekstowych (HTML)|{{< emoticons/tick >}}|{{< emoticons/tick >}}||
-|[XAML](https://docs.fileformat.com/web/xaml/)|Rozszerzalny język znaczników aplikacji (XAML)||{{< emoticons/tick >}}||
-|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown||{{< emoticons/tick >}}||
-|[XML](https://docs.fileformat.com/web/xml/)|Prezentacja PowerPoint w formacie XML||{{< emoticons/tick >}}||
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|Prezentacja PowerPoint 97-2003|Load|Save|`LoadFormat.Ppt`, `SaveFormat.Ppt`|
+|[POT](https://docs.fileformat.com/presentation/pot/)|Szablon PowerPoint 97-2003|Load|Save|`LoadFormat.Pot`, `SaveFormat.Pot`|
+|[PPS](https://docs.fileformat.com/presentation/pps/)|Pokaz slajdów PowerPoint 97-2003|Load|Save|`LoadFormat.Pps`, `SaveFormat.Pps`|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Prezentacja PowerPoint|Load|Save|`LoadFormat.Pptx`, `SaveFormat.Pptx`|
+|[POTX](https://docs.fileformat.com/presentation/potx/)|Szablon PowerPoint|Load|Save|`LoadFormat.Potx`, `SaveFormat.Potx`|
+|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|Pokaz slajdów PowerPoint|Load|Save|`LoadFormat.Ppsx`, `SaveFormat.Ppsx`|
+|[PPTM](https://docs.fileformat.com/presentation/pptm/)|Prezentacja PowerPoint z obsługą makr|Load|Save|`LoadFormat.Pptm`, `SaveFormat.Pptm`|
+|[POTM](https://docs.fileformat.com/presentation/potm/)|Szablon PowerPoint z obsługą makr|Load|Save|`LoadFormat.Potm`, `SaveFormat.Potm`|
+|[PPSM](https://docs.fileformat.com/presentation/ppsm/)|Pokaz slajdów PowerPoint z obsługą makr|Load|Save|`LoadFormat.Ppsm`, `SaveFormat.Ppsm`|
+|[ODP](https://docs.fileformat.com/presentation/odp/)|Prezentacja OpenDocument|Load|Save|`LoadFormat.Odp`, `SaveFormat.Odp`|
+|FODP|Prezentacja Flat XML OpenDocument|Load|Save|`LoadFormat.Fodp`, `SaveFormat.Fodp`|
+|[OTP](https://docs.fileformat.com/presentation/otp/)|Szablon prezentacji OpenDocument|Load|Save|`LoadFormat.Otp`, `SaveFormat.Otp`|
+|[XML](https://docs.fileformat.com/web/xml/)|Prezentacja PowerPoint XML|Load|Save|`SaveFormat.Xml`; loaded files report `SourceFormat.Xml` (there is no `LoadFormat` value)|
+|[PDF](https://docs.fileformat.com/pdf/)|Format dokumentu przenośnego|Import|Save|`SlideCollection.AddFromPdf`; `SaveFormat.Pdf`|
+|[HTML](https://docs.fileformat.com/web/html/)|Język znaczników hipertekstowych|Import|Save|`SlideCollection.AddFromHtml`, `SlideCollection.InsertFromHtml`; `SaveFormat.Html`, `SaveFormat.Html5`|
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Specyfikacja papieru XML|—|Save|`SaveFormat.Xps`|
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Format pliku obrazu TIFF|—|Save, Render|`SaveFormat.Tiff`; `ImageFormat.Tiff` (one slide)|
+|[GIF](https://docs.fileformat.com/image/gif/)|Format wymiany grafiki|—|Save, Render|`SaveFormat.Gif` (animated, all slides); `ImageFormat.Gif` (one slide)|
+|[SWF](https://docs.fileformat.com/page-description-language/swf/)|Mały format internetowy (Flash)|—|Save|`SaveFormat.Swf`|
+|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown|—|Save|`SaveFormat.Md`|
+|[XAML](https://docs.fileformat.com/web/xaml/)|Rozszerzalny język znaczników aplikacji|—|Save|`Presentation.Save(IXamlOptions)`, one XAML file per slide; not a `SaveFormat` value|
+|[PNG](https://docs.fileformat.com/image/png/)|Przenośna grafika sieciowa|—|Render|`ImageFormat.Png`|
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|Obraz JPEG|—|Render|`ImageFormat.Jpeg`|
+|[BMP](https://docs.fileformat.com/image/bmp/)|Obraz bitmapowy|—|Render|`ImageFormat.Bmp`|
+|[EMF](https://docs.fileformat.com/image/emf/)|Ulepszony metafile|—|Render|`Slide.WriteAsEmf`|
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Skalowalna grafika wektorowa|—|Render|`Slide.WriteAsSvg`, `Shape.WriteAsSvg`|
+
+## **Ładowanie i importowanie**
+
+- **Load:** Przekaż ścieżkę do pliku lub strumień do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/presentation/). Format jest wykrywany z zawartości; [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/) umożliwia podanie ustawień, takich jak hasło. Aby sprawdzić plik przed jego otwarciem, wywołaj [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/presentationfactory/getpresentationinfo/), który zwraca wartość [LoadFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/loadformat/). Zwraca `LoadFormat.Unknown` dla PowerPoint XML, ale konstruktor otwiera taki plik, a [Presentation.SourceFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/sourceformat/) wtedy zwraca `SourceFormat.Xml`. Zobacz [Open Presentations](/slides/pl/net/open-presentation/) i [Determine the Original Presentation Format](/slides/pl/net/detect-presentation-source-format/).
+- **Import:** [SlideCollection.AddFromPdf](https://reference.aspose.com/slides/pl/net/aspose.slides/slidecollection/addfrompdf/) dodaje jedną slajd na stronę PDF na koniec prezentacji. [SlideCollection.AddFromHtml](https://reference.aspose.com/slides/pl/net/aspose.slides/slidecollection/addfromhtml/) dodaje slajdy utworzone z HTML, a [SlideCollection.InsertFromHtml](https://reference.aspose.com/slides/pl/net/aspose.slides/slidecollection/insertfromhtml/) wstawia je w podanej pozycji. Konstruktor Presentation nie importuje: rzuca [PptUnsupportedFormatException](https://reference.aspose.com/slides/pl/net/aspose.slides/pptunsupportedformatexception/) dla pliku PDF i nie konwertuje znaczników HTML na zawartość slajdu. Zobacz [Import Presentations from PDF or HTML](/slides/pl/net/import-presentation/).
+
+## **Zapisywanie i renderowanie**
+
+- **Save:** [Presentation.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) zapisuje prezentację w formacie określonym przez wartość [SaveFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/saveformat/). Przeciążenia przyjmujące obiekt opcji kontrolują wyjście, np. [PdfOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/htmloptions/), [Html5Options](https://reference.aspose.com/slides/pl/net/aspose.slides.export/html5options/), [TiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/), i [GifOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/gifoptions/). Przeciążenia przyjmujące tablicę pozycji slajdów (rozpoczynając od 1) zapisują tylko te slajdy; obsługują PDF, XPS, TIFF, HTML, HTML5, SWF, GIF i Markdown, ale nie formaty prezentacji ani PowerPoint XML. XAML ma własne przeciążenie przyjmujące [IXamlOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export.xaml/ixamloptions/). Zobacz [Save Presentations](/slides/pl/net/save-presentation/), [Convert Presentations](/slides/pl/net/convert-presentation/), i [Export Presentations to XAML](/slides/pl/net/export-to-xaml/).
+- **Render:** [Slide.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/slide/getimage/) i [Shape.GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/getimage/) zwracają [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/), a [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/save/) zapisuje go jako PNG, JPEG, BMP, GIF lub TIFF, wybrany przy pomocy wartości [ImageFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/imageformat/). [Presentation.GetImages](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/getimages/) renderuje wszystkie slajdy lub wybrane slajdy jednocześnie. [Slide.WriteAsSvg](https://reference.aspose.com/slides/pl/net/aspose.slides/slide/writeassvg/) i [Shape.WriteAsSvg](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/writeassvg/) zapisują SVG, a [Slide.WriteAsEmf](https://reference.aspose.com/slides/pl/net/aspose.slides/slide/writeasemf/) zapisuje EMF. Zobacz [Convert Presentation Slides to Images](/slides/pl/net/convert-slide/) i [Render a Slide as an SVG Image](/slides/pl/net/render-a-slide-as-an-svg-image/).
+
+{{% alert color="warning" title="Warning" %}}
+
+ImageFormat posiada także wartości `Emf`, `Wmf`, `Icon`, `Exif` i `MemoryBmp`, ale IImage.Save nie generuje tych formatów: zapisany plik zawiera dane PNG. Aby uzyskać obraz EMF slajdu, użyj Slide.WriteAsEmf.
+
+{{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę zapisać prezentacje do formatu PDF spełniające standardy archiwizacji i dostępności (PDF/A i PDF/UA)?**
+**Czy mogę przekonwertować prezentację PPT na PPTX lub ODP?**
 
-Tak. Aspose.Slides obsługuje eksport do PDF z poziomami zgodności takimi jak PDF/A‑2a, PDF/A‑2b, PDF/A‑2u, PDF/A‑3a, PDF/A‑3b, a także PDF/UA poprzez ustawienie [compliance](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/compliance/) w [PDF export options](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/).
+Tak. Otwórz plik PPT przy użyciu konstruktora Presentation i zapisz go przy użyciu `SaveFormat.Pptx` lub `SaveFormat.Odp`. Zobacz [Convert PPT to PPTX](/slides/pl/net/convert-ppt-to-pptx/).
 
-**Czy biblioteka obsługuje osadzanie czcionek przy eksporcie do PDF, zapewniając szczegółową kontrolę nad tym, co jest osadzane?**
+**Czy mogę otworzyć plik PDF lub HTML jako prezentację?**
 
-Tak. Możesz kontrolować, czy czcionki są w pełni osadzone, czy tylko podzbiorem używanych glifów, określić sposób traktowania popularnych czcionek systemowych oraz skonfigurować zachowanie dla tekstu ASCII przy pomocy [PDF export options](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/).
+Nie. Utwórz lub otwórz prezentację, zaimportuj strony PDF lub treść HTML przy użyciu metod kolekcji slajdów opisanych powyżej, a następnie zapisz ją w dowolnym obsługiwanym formacie.
 
-**Czy mogę wykryć, czy plik jest chroniony hasłem, zanim go wczytam?**
+**Czy mogę wczytać wyeksportowany obraz PNG lub SVG jako edytowalną prezentację?**
 
-Tak. Korzystając z [factory‑based inspection API](https://reference.aspose.com/slides/pl/net/aspose.slides/presentationfactory/), możesz zapytać plik prezentacji, czy jest chroniony hasłem, bez pełnego otwierania go.
+Nie. Eksport obrazu odzwierciedla wygląd slajdu, a nie jego tekst, kształty ani wykresy. Zachowaj oryginalną prezentację, jeśli potrzebujesz później edytować.
 
-**Czy istnieją mechanizmy zastępowania czcionek oraz obsługa czcionek własnych?**
+**Czy mogę zapisać dokumenty PDF/A lub PDF/UA?**
 
-Tak. Biblioteka obsługuje [loading](/slides/pl/net/custom-font/) i [embedding](/slides/pl/net/embedded-font/) własnych czcionek oraz zapewnia [fallback rules](/slides/pl/net/fallback-font/), aby zapobiec brakującym glifom podczas renderowania i konwersji.
+Tak. Ustaw [PdfOptions.Compliance](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfoptions/compliance/) na wartość [PdfCompliance](https://reference.aspose.com/slides/pl/net/aspose.slides.export/pdfcompliance/), np.: PDF/A-1a, PDF/A-1b, PDF/A-2a, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b lub PDF/UA.
 
-**Czy mogę eksportować slajdy do XPS i czy istnieją opcje dostosowywania wyjścia XPS?**
+**Czy mogę sprawdzić, czy plik jest chroniony hasłem przed jego otwarciem?**
 
-Tak. [Export to XPS](/slides/pl/net/convert-powerpoint-to-xps/) jest obsługiwany, a Ty możesz dostosować odpowiednie [save options](https://reference.aspose.com/slides/pl/net/aspose.slides.export/xpsoptions/), aby kontrolować jakość i zawartość dokumentu XPS.
+Tak. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/pl/net/aspose.slides/presentationfactory/getpresentationinfo/) analizuje plik bez tworzenia obiektu Presentation, a jego właściwość [IsPasswordProtected](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentationinfo/ispasswordprotected/) informuje, czy wymagane jest hasło. Zobacz [Password-Protect Presentations](/slides/pl/net/password-protected-presentation/).
+
+**Czy dwa pakiety NuGet obsługują różne formaty?**
+
+Nie. Aspose.Slides.NET i Aspose.Slides.NET6.CrossPlatform mają te same wartości LoadFormat i SaveFormat oraz te same metody importu i renderowania. Różnią się platformą, na której działają i wymaganiami tych platform; zobacz [Installation](/slides/pl/net/installation/).

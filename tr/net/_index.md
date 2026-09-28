@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /tr/net/
 keywords:
-- belgeleme
+- dokümantasyon
 - sunum işleme
 - sunum dönüştürme
 - PowerPoint
@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Buradan başlayın: Aspose.Slides for .NET'i kurun, ilk sunumunuzu oluşturun ve ortak görevler, API referansı ve destek için kılavuzları bulun."
+description: "Buradan başlayın: Aspose.Slides for .NET'i kurun, ilk sunumunuzu oluşturun ve ortak görevler, dağıtım ve API referansı için kılavuzları bulun."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET, Microsoft PowerPoint veya Office Automation olmadan, .NET uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir sınıf kitaplığıdır.
+Aspose.Slides for .NET, Microsoft PowerPoint veya Office Automation olmadan .NET uygulamalarında PowerPoint ve OpenDocument sunumları oluşturmak, okumak, düzenlemek ve dönüştürmek için bir sınıf kitaplığıdır.
 
-Macro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder, ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görüntüler olarak dışa aktarır.
+Makro destekli ve şablon çeşitleri de dahil olmak üzere PPT, PPTX, PPS, POT ve ODP dosyalarını yükler ve kaydeder, ayrıca PDF, XPS, HTML, SVG, TIFF, Markdown ve görsellere dışa aktarır.
 
 <div style="clear:both"></div>
 
@@ -28,17 +28,19 @@ Macro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Başlarken</b></p>
+<p><b>Başlayın</b></p>
 <hr>
 <p>BAŞLANGIÇ</p>
 <ul>
 <li><a href="/slides/tr/net/installation/">Kurulum</a></li>
 <li><a href="/slides/tr/net/create-presentation/">İlk sunumunuzu oluşturun</a></li>
+<li><a href="/slides/tr/net/system-requirements/">Sistem gereksinimleri</a></li>
 <li><a href="/slides/tr/net/getting-started/">Başlangıç kılavuzu</a></li>
 </ul>
-<p>DEĞERLENDİR</p>
+<p>DEĞERLENDİRME</p>
 <ul>
-<li><a href="/slides/tr/net/supported-file-formats/">Desteklenen dosya biçimleri</a></li>
+<li><a href="/slides/tr/net/supported-file-formats/">Desteklenen dosya formatları</a></li>
+<li><a href="/slides/tr/net/features-overview/">Özelliklere genel bakış</a></li>
 <li><a href="/slides/tr/net/evaluate-aspose-slides/">Deneme sınırlamaları</a></li>
 <li><a href="/slides/tr/net/licensing/">Lisanslama</a></li>
 </ul>
@@ -48,13 +50,13 @@ Macro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 <hr>
 <p>ORTAK GÖREVLER</p>
 <ul>
-<li><a href="/slides/tr/net/open-presentation/">Sunum aç</a></li>
-<li><a href="/slides/tr/net/save-presentation/">Sunumu kaydet</a></li>
-<li><a href="/slides/tr/net/convert-powerpoint-to-pdf/">PDF'ye dönüştür</a></li>
-<li><a href="/slides/tr/net/convert-slide/">Slaytları görüntü olarak oluştur</a></li>
-<li><a href="/slides/tr/net/manage-text/">Metin ve şekilleri düzenle</a></li>
+<li><a href="/slides/tr/net/open-presentation/">Sunumu açın</a></li>
+<li><a href="/slides/tr/net/save-presentation/">Sunumu kaydedin</a></li>
+<li><a href="/slides/tr/net/convert-powerpoint-to-pdf/">PDF'ye dönüştürün</a></li>
+<li><a href="/slides/tr/net/convert-slide/">Slaytları görsel olarak render edin</a></li>
+<li><a href="/slides/tr/net/manage-text/">Metin ve şekilleri düzenleyin</a></li>
 </ul>
-<p>SLAYT İŞ AKIŞLARI</p>
+<p>SLIDES İŞ AKIŞLARI</p>
 <ul>
 <li><a href="/slides/tr/net/powerpoint-charts/">Grafikler</a></li>
 <li><a href="/slides/tr/net/powerpoint-animation/">Animasyonlar</a></li>
@@ -65,32 +67,42 @@ Macro etkin ve şablon varyantları da dahil olmak üzere PPT, PPTX, PPS, POT ve
 <p>ÖRNEKLER</p>
 <ul>
 <li><a href="/slides/tr/net/examples/">Slayt öğesine göre örnekler</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">GitHub üzerindeki örnekler</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">GitHub'daki örnekler</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referans ve Destek</b></p>
+<p><b>Dağıtım &amp; Destek</b></p>
 <hr>
-<p>REFERANS</p>
+<p>DAĞITIM</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">API referansı</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">Sürüm notları</a></li>
+<li><a href="/slides/tr/net/net6/">Çapraz platform (.NET 6+)</a></li>
+<li><a href="/slides/tr/net/how-to-run-aspose-slides-in-docker/">Docker'da çalıştırma</a></li>
+<li><a href="/slides/tr/net/deploy-fonts/">Yazı tipleri</a></li>
+<li><a href="/slides/tr/net/security/">Güvenlik</a></li>
+</ul>
+<p>REFERANSLAR</p>
+<ul>
+<li><a href="https://reference.aspose.com/slides/tr/net/">API referansı</a></li>
+<li><a href="https://releases.aspose.com/slides/tr/net/release-notes/">Sürüm notları</a></li>
 <li><a href="/slides/tr/net/known-issues/">Bilinen sorunlar</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">İndirme</a></li>
+<li><a href="/slides/tr/net/api-limitations/">Çıktı meta verisi sınırlamaları</a></li>
+<li><a href="https://releases.aspose.com/slides/tr/net/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
-<li><a href="https://helpdesk.aspose.com/">Ücretli destek hizmeti</a></li>
+<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
+<a name="your-first-presentation"></a>
+
 ## **İlk sunumunuz**
 
-.NET SDK 6 veya üstü ile bir konsol uygulaması oluşturun:
+.NET SDK 6 veya daha yeni bir sürümle bir konsol uygulaması oluşturun:
 
 ```bash
 dotnet new console -n HelloSlides
@@ -99,8 +111,8 @@ cd HelloSlides
 
 Ardından platformunuz için bir paket ekleyin:
 
-- On Windows: `dotnet add package Aspose.Slides.NET`
-- On Linux and macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — Linux ön koşulu ve Aspose.Slides.NET gerektiren sistemler hakkında bilgi için [Kurulum](/slides/tr/net/installation/) bölümüne bakın.
+- Windows'ta: `dotnet add package Aspose.Slides.NET`
+- Linux ve macOS'ta: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — Linux önkoşulu ve Aspose.Slides.NET yerine ihtiyaç duyan sistemler için [Kurulum](/slides/tr/net/installation/) bölümüne bakın.
 
 *Program.cs* içeriğini bu kodla değiştirin ve `dotnet run` komutunu çalıştırın:
 
@@ -115,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-Program, bir metin kutusu içeren bir slayt ile *hello.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — [Lisanslama](/slides/tr/net/licensing/) bölümüne bakın. Sunum oluşturmanın ve doldurmanın daha fazla yolu için [Sunum Oluşturma](/slides/tr/net/create-presentation/) bölümüne bakın.
+Program, bir metin kutusu içeren bir slaytla *hello.pptx* dosyasını kaydeder. Lisans olmadan, kaydedilen dosya bir değerlendirme filigranı içerir — [Lisanslama](/slides/tr/net/licensing/) bölümüne bakın. Daha fazla yol için [Sunum Oluşturma](/slides/tr/net/create-presentation/) sayfasına bakın.

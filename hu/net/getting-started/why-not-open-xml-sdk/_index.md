@@ -1,7 +1,7 @@
 ---
-title: Miért nem Open XML SDK
+title: Miért nem az Open XML SDK
 type: docs
-weight: 50
+weight: 180
 url: /hu/net/why-not-open-xml-sdk/
 aliases:
   - /net/slides-on-cloud-platforms/extracting-text/open-xml-sdk/
@@ -16,64 +16,62 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse meg, miért jobb választás az Aspose.Slides, mint a ingyenes Open XML SDK: funkciók összehasonlítása, automatizálás nélküli konverzió és széles körű támogatás a PPT, PPTX és ODP formátumokhoz."
+description: "Ismerje meg, miért jobb választás az Aspose.Slides, mint az ingyenes Open XML SDK: hasonlítsa össze a funkciókat, az automatizálás nélküli konverziót, és a PPT, PPTX és ODP széles körű támogatását."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, mikor választhatják a fejlesztők az Open XML SDK-t vagy az Aspose.Slides-t a prezentációs dokumentumokkal való munkához. Leírja az Open XML SDK-t, mint egy könyvtárat az OOXML csomagok és azok alapróló XML elemeinek manipulálásához, míg az Aspose.Slides egy prezentációfeldolgozó könyvtárként mutatkozik be, magas szintű objektummodellel és számos PowerPoint-tal kapcsolatos feladathoz nyújt támogatást.
+Ez a cikk azt magyarázza, hogy mikor választhatják a fejlesztők az Open XML SDK-t vagy az Aspose.Slides-t prezentációs dokumentumokkal való munkához. Az Open XML SDK-t OOXML csomagok és azok alapuló XML elemeinek manipulálására szolgáló könyvtárként mutatja be, míg az Aspose.Slides egy prezentációfeldolgozó könyvtár, magas szintű objektummodelllel és számos PowerPoint‑hoz kapcsolódó feladatra nyújtott támogatással.
 
-A cikk összehasonlítja a két lehetőséget a támogatott formátumok, programozási modell, renderelés, platformtámogatás és gyakori felhasználási esetek alapján. Az is tisztázza, hogy az Open XML SDK megfelelő lehet alapvető PPTX műveletekhez vagy az OOXML elemek közvetlen eléréséhez, míg az Aspose.Slides inkább összetett prezentációs feladatokhoz alkalmas, mint például több PowerPoint formátummal való munka, alakzatok másolása vagy klónozása, szöveg cseréje, animációk alkalmazása és a prezentációk PDF, TIFF vagy XPS formátumba konvertálása.
+A cikk összehasonlítja a két lehetőséget a támogatott formátumok, a programozási modell, a renderelés, a platformtámogatás és a gyakori felhasználási esetek szerint. Továbbá tisztázza, hogy az Open XML SDK alkalmas lehet alapvető PPTX műveletekre vagy közvetlen hozzáférésre az OOXML elemekhez, míg az Aspose.Slides komplexebb prezentációs feladatokra, például több PowerPoint formátummal való munka, alakzatok másolása vagy klónozása, szöveg helyettesítése, animációk alkalmazása, valamint a prezentációk PDF, TIFF vagy XPS formátumba konvertálása esetén a megfelelő választás.
 
 ## **Mi az Open XML SDK?**
-Néha felmerül ez a kérdés: *Miért kellene az Aspose termékeket használni a szabad Open XML SDK helyett?*  
+Néha felmerül ez a kérdés: *Miért kellene az Aspose termékeket használni a ingyenes Open XML SDK helyett?*
 
-Könnyen tudjuk megválaszolni ezt a kérdést a funkciók és képességek szempontjából.  
+Könnyűnek találjuk megválaszolni ezt a kérdést a funkciók és képességek alapján.
 
-A [MSDN könyvtár](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk) szerint az Open XML SDK a következőképpen van definiálva:  
+Az [MSDN Library](https://learn.microsoft.com/en-us/office/open-xml/open-xml-sdk) szerint az Open XML SDK a következőképpen van definiálva:
 
 > "The Open XML SDK 2.0 simplifies the task of manipulating Open XML packages and the underlying Open XML schema elements within a package. The Open XML SDK 2.0 encapsulates many common tasks that developers perform on Open XML packages, so that you can perform complex operations with just a few lines of code. OOXML documents are essentially zipped XML files and Open XML SDK is a collection of classes that allows you to work with the content of OOXML documents in a strongly-typed way. That is instead of unzipping a file to extract XML, loading that XML into a DOM tree, and working with XML elements and attributes directly, Open XML SDK provides classes to do that."
 
 ## **Mi az Aspose.Slides?**
-Az Aspose.Slides egy osztálykönyvtár, amely lehetővé teszi az alkalmazások számára, hogy a következő prezentációfeldolgozó feladatokat végezzék el:  
+Az Aspose.Slides egy osztálykönyvtár, amely lehetővé teszi az alkalmazások számára a következő prezentációfeldolgozó feladatok végrehajtását:
 
-- Programozás egy prezentációs objektummodellel.  
-- Magas minőségű konverziók, amelyek magukban foglalják az összes népszerű támogatott PowerPoint prezentációs formátumot, beleértve a PDF, XPS és TIFF formátumba történő konvertálást.  
-- Diakép bélyegképek generálása jól ismert formátumokban, mint a PNG, JPEG és BMP, valamint a diák SVG formátumba exportálása.  
-- Prezentációk felépítése a semmiből vagy több dokumentum elemeinek kombinálásával.  
-- Animációk, OLE keretek, táblázatok hozzáadása, diagramok létrehozása és kezelése.  
-- A szövegformázás részletes vezérlése és kezelése TextFrames, Paragraphs és Portions szinten.  
+- Programozás egy prezentációs objektummodell segítségével.
+- Magas minőségű átalakítások, amelyek magukban foglalják a népszerű támogatott PowerPoint prezentációs formátumokat, beleértve a PDF, XPS és TIFF formátumokba történő konvertálást.
+- Diak bélyegképek generálása jól ismert formátumokban, mint a PNG, JPEG és BMP, valamint diák exportálása SVG-be.
+- Prezentációk építése nulláról vagy elemek egy vagy több dokumentumból való kombinálásával.
+- Animációk, OLE keretek, táblák hozzáadása, diagramok létrehozása és kezelése.
+- A szövegformázás kiterjedt irányítása és kezelése TextFrames, Paragraphs és Portions szinten.
 
-A rendelkezésre álló funkciókról további részletekért tekintse meg az [Aspose.Slides funkciók](/slides/hu/net/product-overview/) oldalt.
+A rendelkezésre álló funkciókról további részletekért kérjük, tekintse meg a [Aspose.Slides funkciók](/slides/hu/net/product-overview/) oldalt.
 
-## **Open XML SDK összehasonlítása az Aspose.Slides-szal**
-Ez a táblázat hasonlítja össze az Open XML SDK képességeit és funkcióit az Aspose.Slides-ével.
+## **Az Open XML SDK és az Aspose.Slides összehasonlítása**
+Ez a táblázat összehasonlítja az Open XML SDK képességeit és funkcióit az Aspose.Slides-szal.
 
-|**Jellemző vagy Jellemzőkategória**|**Open XML SDK**|**Aspose.Slides**|
+|**Funkció vagy Funkciókategória**|**Open XML SDK**|**Aspose.Slides**|
 | :- | :- | :- |
 |Támogatott prezentációs formátumok|PPTX|PPT, POT, PPS, PPTX, POTX, PPSX, ODP|
-|Átalakítás PPT‑ről PPTX‑re|Nem|Igen|
-|<p>Magas szintű programozás a Presentation Document Object Model (DOM) használatával: </p><p>- Szöveg keresése és cseréje.</p><p>- Diák összeállítása a prezentációkban.</p>|Nem|Igen|
-|Részletes programozás egy dokumentum-objektummodellel; egyedi elemekhez és formázáshoz való hozzáférés, például TextHolders, TextFrames, Paragraphs és Portions.|Igen|Igen|
-|Alacsony szintű közvetlen és teljes hozzáférés a háttérben lévő XML elemekhez és attribútumokhoz, például kapcsolati azonosítók, listázási azonosítók egy OOXML dokumentumban.|Igen|Nem|
-|<p>Prezentáció renderelése:</p><p>- Prezentációk renderelése PDF, PDF Notes, XPS, TIFF képekre.</p><p>- Diabélyegképek renderelése PNG, JPEG, BMP, SVG és TIFF formátumba.</p><p>- Képfelbontás, minőség, tömörítés és egyéb beállítások megadása.</p>|Nem|Igen|
+|Átalakítás PPT‑ről PPTX‑re|No|Yes|
+|<p>Magas szintű programozás egy Presentation Document Object Model (DOM) segítségével: </p><p>- Szövegek keresése és cseréje.</p><p>- Diák összeállítása a prezentációkban.</p>|No|Yes|
+|Részletes programozás egy dokumentumobjektummodell segítségével; hozzáférés az egyedi elemekhez és formázásokhoz, mint a TextHolders, TextFrames, Paragraphs és Portions.|Yes|Yes|
+|Alacsony szintű közvetlen és teljes hozzáférés az alapuló XML elemekhez és attribútumokhoz, mint a kapcsolati azonosítók, listázaonosítók egy OOXML dokumentumban.|Yes|No|
+|<p>Prezentáció renderelése:</p><p>- Prezentációk renderelése PDF, PDF Notes, XPS, TIFF képekre.</p><p>- Diabélyegképek renderelése PNG, JPEG, BMP, SVG és TIFF formátumba.</p><p>- Kép felbontásának, minőségének, tömörítésének és egyéb beállítások megadása.</p>|No|Yes|
 |Támogatott platformok|Windows, .NET|Windows, Linux, Java, .NET, Mono|
 
 ## **Következtetés**
-Az Open XML SDK és az Aspose.Slides nem versengenek közvetlenül, mivel jelentősen eltérő igényeket szolgálnak ki, és különböző célközönségeket céloznak.  
+Az Open XML SDK és az Aspose.Slides nem versenyeznek közvetlenül, mert lényegesen különböző igényeket elégítenek ki, és különböző célcsoportokat céloznak.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
+Az Open XML SDK egy osztálykönyvtár, amely erősen típusos módot biztosít az OOXML dokumentumok kezeléséhez, míg az Aspose.Slides egy rendkívül hasznos prezentációfeldolgozó könyvtár, amely széleskörű támogatást nyújt szinte minden Microsoft PowerPoint fájlformátumhoz.
+{{% /alert %}}
 
-Az Open XML SDK egy osztálykönyvtár, amely erősen típusos módot biztosít az OOXML dokumentumokkal való munkához, míg az Aspose.Slides egy hihetetlenül hasznos prezentációfeldolgozó könyvtár, amely kiváló támogatást nyújt szinte minden Microsoft PowerPoint fájlformátumhoz. 
+Ha a munkafolyamatod egy alapvető programozási művelet egy PPTX dokumentumon, akkor az Open XML SDK jó választás lehet. Az Open XML SDK-val kényelmesen végezhetsz egyszerű feladatokat, például egy egyszerű PPTX dokumentum létrehozását vagy megjegyzések, fejléc/lábléc eltávolítását, képek kicsomagolását vagy egyéb műveleteket. Bizonyos feladatok elvégezhetők az Open XML SDK-val, de az Aspose.Slides-szal nem. Például ha közvetlenül kell hozzáférned egy OOXML dokumentum XML elemeihez és attribútumaihoz, akkor az Open XML SDK-t kell használni.
 
-{{% /alert %}} 
+Ha komplex feladatokat kell végrehajtanod a dokumentumokon – például az alábbi lista szerint – akkor az Aspose.Slides a legjobb megoldás.
 
-Ha a munkafolyamat egyszerű programozási művelet egy PPTX dokumentumon, akkor az Open XML SDK jó választás lehet. Az Open XML SDK használatával könnyedén elvégezhet egyszerű feladatokat, például egyszerű PPTX dokumentum létrehozását, megjegyzések, fejléc/lábléc eltávolítását, képek kinyerését vagy egyéb műveleteket. Bizonyos feladatok elvégezhetők az Open XML SDK-val, de nem az Aspose.Slides-szel. Például, ha közvetlenül kell hozzáférnie egy OOXML dokumentum XML elemeihez és attribútumaihoz, akkor az Open XML SDK-t kell használni.  
-
-Ha összetett feladatokat kell végrehajtania dokumentumokon – például az alábbi listán szereplő feladatokat – akkor az Aspose.Slides a legjobb választás.  
-
-- Műveletek régebbi PowerPoint formátumokkal (és PPTX‑sel is).  
-- Alakzatok másolása vagy klónozása diákon belül úgy, hogy kombinálja az objektumokat, stílusokat és egyéb formázási elemeket megfelelő módon.  
-- Formázott vagy formázatlan szöveg cseréje.  
-- Animációk alkalmazása és csatlakozók használata alakzatokkal.  
-- Dokumentum konvertálása PDF, TIFF vagy XPS formátumba, hogy úgy jelenjen meg, mintha a Microsoft PowerPoint végezte volna a konvertálást.  
+- Műveletek régebbi PowerPoint formátumokkal (és PPTX‑szel is).
+- Formák másolása vagy klónozása a diákon úgy, hogy egyesítse az objektumokat, stílusokat és egyéb formázási elemeket megfelelő módon.
+- Formázott vagy nem formázott szöveg cseréje.
+- Animációk alkalmazása és csatlakozók használata formákkal.
+- Dokumentum konvertálása PDF, TIFF vagy XPS formátumba, hogy úgy nézzen ki, mint a Microsoft PowerPoint konvertálta.
 - .NET vagy Java alkalmazás fejlesztése asztali és webes környezetben egyaránt.

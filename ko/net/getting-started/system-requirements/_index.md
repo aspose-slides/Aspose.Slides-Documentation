@@ -5,9 +5,13 @@ weight: 60
 url: /ko/net/system-requirements/
 keywords:
 - 시스템 요구 사항
-- 운영 체제
-- 설치
-- 종속성
+- 지원 플랫폼
+- 대상 프레임워크
+- .NET Framework
+- .NET Standard
+- libgdiplus
+- fontconfig
+- Alpine
 - Windows
 - Linux
 - macOS
@@ -17,126 +21,104 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET 시스템 요구 사항을 확인하세요. Windows, Linux 및 macOS에서 PowerPoint와 OpenDocument 지원이 원활하도록 보장합니다."
+description: "설치하기 전에 Aspose.Slides for .NET에 필요한 사항을 확인하십시오: 각 NuGet 패키지가 대상하는 프레임워크, 지원되는 운영 체제 및 프로세서, 그리고 Linux에 필요한 라이브러리와 글꼴."
 ---
 ## **소개**
 
-Aspose.Slides for .NET는 Microsoft PowerPoint를 설치할 필요가 없습니다. Aspose.Slides는 독립적인 Microsoft PowerPoint 문서 생성, 변환, 페이지 레이아웃 및 렌더링 엔진이기 때문입니다.
+Aspose.Slides for .NET은 독립형 라이브러리이며 Microsoft PowerPoint 또는 Microsoft Office가 필요하지 않습니다. 두 개의 NuGet 패키지, [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)와 [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)로 배포됩니다. 두 패키지는 동일한 Aspose.Slides 네임스페이스와 클래스를 제공하지만, 대상 프레임워크와 슬라이드 렌더링 방식이 달라 실행 환경과 필요 사항이 달라집니다.
 
-## **지원되는 운영 체제**
+이 문서는 각 패키지가 지원하는 .NET 버전 및 플랫폼, Linux에 필요한 시스템 라이브러리와 글꼴을 나열하고, 설정을 확인하는 간단한 프로그램을 포함합니다. 프로젝트에 패키지를 추가하려면 [Installation](/slides/ko/net/installation/)를 참조하십시오.
 
-Aspose.Slides for .NET는 .NET 또는 Mono 프레임워크가 설치된 32비트 또는 64비트 운영 체제라면 모두 지원합니다(하지만 이에 국한되지 않음).
+## **지원되는 .NET 버전**
 
-### **Windows**
+각 패키지는 대상 프레임워크별로 하나의 Aspose.Slides 빌드를 포함하며, NuGet은 프로젝트의 대상 프레임워크와 일치하는 빌드를 선택합니다.
 
-- Microsoft Windows 2000 Server ( x64, x86)
-- Microsoft Windows 2003 Server ( x64, x86)
-- Microsoft Windows 2022 Server
-- Microsoft Windows Vista ( x64, x86)
-- Microsoft Windows XP ( x64, x86)
-- Microsoft Windows 7 ( x64, x86)
-- Microsoft Windows 8, 8.1 ( x64, x86)
-- Microsoft Windows 10 ( x64, x86)
-- Microsoft Windows 11 ( x64, x86)
-- Microsoft Azure
+| 패키지 | 패키지의 대상 프레임워크 | 프로젝트에서 대상 지정 가능 |
+|---|---|---|
+| Aspose.Slides.NET | `net462`, `net6.0`, `netstandard2.0` | .NET Framework 4.6.2 이상; .NET 6 이상, .NET 8, .NET 9, .NET 10 포함 |
+| Aspose.Slides.NET6.CrossPlatform | `net6.0` | .NET 6 이상, .NET 8, .NET 9, .NET 10 포함 |
 
-### **Linux**
+`netstandard2.0` 빌드는 .NET Standard 2.0 클래스 라이브러리가 Aspose.Slides.NET을 참조하도록 허용합니다. 해당 라이브러리를 사용하는 애플리케이션은 자신의 대상 프레임워크에 맞는 빌드를 실행합니다. 예를 들어 .NET 8 애플리케이션은 `net6.0` 빌드를 사용합니다.
 
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine 및 기타)
+## **지원되는 운영 체제 및 프로세서**
 
-### **Mac**
+**Aspose.Slides.NET**은 프로세서에 독립적인 (AnyCPU) 관리 코드를 포함하므로 이를 로드하는 .NET 런타임의 프로세서 아키텍처에서 실행됩니다. 슬라이드는 Microsoft의 System.Drawing.Common 라이브러리를 통해 그려지며, Microsoft는 이를 [Windows 전용](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)으로 지원합니다. Linux에서는 `libgdiplus` 라이브러리와 시작 스위치가 필요하며, 이는 [Linux](#linux) 섹션에 설명되어 있습니다. Debian, Ubuntu, Alpine Linux와 같이 `libgdiplus`를 제공하는 배포판에서 실행됩니다.
 
-- Mac OS X
+**Aspose.Slides.NET6.CrossPlatform**은 자체 그래픽 엔진을 사용합니다. 이 엔진은 플랫폼별 네이티브 라이브러리이며, 패키지는 각 플랫폼당 하나의 빌드를 포함하므로 다음 플랫폼에서만 작동합니다:
 
-## **지원되는 프레임워크**
+| 운영 체제 | 프로세서 | 비고 |
+|---|---|---|
+| Windows | x86, x64 | ARM64 Windows는 지원되지 않습니다. |
+| Linux | x64, ARM64 | x64에서는 glibc 2.23 이상, ARM64에서는 glibc 2.39 이상이 필요합니다. |
+| macOS | x64 (Intel), ARM64 (Apple silicon) |  |
 
-Aspose.Slides for .NET는 .NET 및 Mono 프레임워크를 지원합니다.
+Aspose.Slides.NET6.CrossPlatform은 musl 기반 Alpine Linux와 같은 배포판이나 glibc 버전이 낮은 배포판(예: CentOS 7)에서는 실행되지 않으며, 이러한 시스템에서는 Aspose.Slides.NET을 사용하십시오.
 
-### **.NET 프레임워크**
+Windows에서는 Aspose.Slides.NET6.CrossPlatform의 네이티브 라이브러리가 Microsoft Visual C++ 런타임(*MSVCP140.dll* 및 *VCRUNTIME140.dll*, x64에서는 *VCRUNTIME140_1.dll*)을 사용합니다. 대상 머신에 이 파일들이 없을 경우 [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)을 설치하십시오.
 
-- .NET Framework 2.0
-- .NET Framework 3.5
-- .NET Framework 4.0
-- .NET Framework 4.0_ClientProfile
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.5.2
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.7
-- .NET Framework 4.7.2
-- .NET 5
-- .NET 6
-- .NET 7
-- .NET 8
-- .NET 9
-- .NET Core
-- COM Interop support (COM, C++, VBScript)
+## **Linux**
 
-### **Mono 프레임워크**
+두 패키지 모두 Linux에서 추가 시스템 라이브러리가 필요합니다. 이 라이브러리가 없으면 [Create Presentations](/slides/ko/net/create-presentation/)에 있는 첫 번째 예제가 파일을 저장하는 대신 예외를 발생시킵니다. 아래 명령은 Debian 및 Ubuntu용이며, 해당 배포판에서는 각 라이브러리가 `fonts-dejavu-core` 글꼴도 함께 설치하므로 별도 글꼴 패키지를 추가하지 않아도 텍스트가 올바르게 렌더링됩니다.
 
-- MAC 및 Linux 플랫폼에서의 MONO 지원
+### **Aspose.Slides.NET6.CrossPlatform**
 
-## **개발 환경**
+패키지의 Linux 라이브러리는 `fontconfig` 라이브러리를 필요로 합니다:
 
-Aspose.Slides for .NET는 .NET 플랫폼을 대상으로 하는 모든 개발 환경에서 사용할 수 있지만, 다음 환경은 명시적으로 지원됩니다.
-
-- Microsoft Visual Studio 2005
-- Microsoft Visual Studio 2008
-- Microsoft Visual Studio 2010
-- Microsoft Visual Studio 2012
-- Microsoft Visual Studio 2013
-- Microsoft Visual Studio 2015
-- Microsoft Visual Studio 2017
-- Microsoft Visual Studio 2019
-- Microsoft Visual Studio 2022
-
-## **Aspose.Slides 주요 빌드**
-
-현재 Aspose.Slides에는 두 가지 주요 빌드가 있습니다 — Aspose.Slides.NET 및 Aspose.Slides.NET6.CrossPlatform.
-
-### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-
-제품의 기본 버전입니다. 표준 .NET 그래픽 엔진을 사용합니다.
-- 비 Windows 플랫폼에서는 `libgdiplus` 라이브러리와 그 종속성을 설치해야 할 수도 있습니다.
-- Aspose.Slides 25.3 이전 버전에서는 비 Windows 플랫폼에서 Aspose.Slides ZIP 패키지에 포함된 .NET Standard 2.0 DLL을 사용해야 했습니다.
-- Aspose.Slides 25.3부터는 NuGet 패키지를 비 Windows 시스템에서도 직접 사용할 수 있습니다.
-- 비 Windows 시스템에서 실행할 때는 애플리케이션 시작 시 다음 라인을 포함해야 합니다:
-```cs
-AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
-- **버전 25.3부터는 Linux aarch64 (ARM64)와 같이 .NET을 지원하는 플랫폼에서도 이 패키지를 사용할 수 있습니다.**
 
-#### **Linux Alpine용 추가 패키지**
+이 없이 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/)을 만들면 `TypeInitializationException`이 발생하고, 내부 `DllNotFoundException`에서 `libfontconfig.so.1`을 열 수 없다고 보고합니다.
 
-Alpine Linux 컨테이너에서 Aspose.Slides for .NET를 실행할 때 `libgdiplus`만 설치하면 충분하지 않을 수 있습니다. Alpine 컨테이너는 기본적으로 폰트를 포함하지 않으며, 폰트가 없으면 렌더링 또는 변환 작업이 다음과 같은 오류와 함께 실패할 수 있습니다:
+최소 베이스 이미지에는 `fontconfig`가 포함되지 않을 수 있습니다. 예를 들어 .NET 8용 AWS Lambda 베이스 이미지에는 `fontconfig`와 글꼴이 전혀 포함되지 않습니다. 이를 기반으로 만든 컨테이너 이미지에서는 `dnf install -y fontconfig`를 실행하면 Noto Sans 글꼴도 함께 설치됩니다.
+
+### **Aspose.Slides.NET**
+
+Linux에서 패키지가 필요로 하는 두 가지는 다음과 같습니다:
+
+1. `libgdiplus` 라이브러리:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y libgdiplus
+   ```
+
+2. `System.Drawing.EnableUnixSupport` 스위치. 이 스위치는 Aspose.Slides 호출 이전에 애플리케이션 시작 시 활성화해야 합니다. 최상위 문이 있는 *Program.cs*에서는 `using` 지시문 뒤에 추가합니다:
+
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
+
+`libgdiplus`가 없으면 프레젠테이션 저장 시 `TypeInitializationException`이 발생하고, 내부 `DllNotFoundException`에서 `libgdiplus`를 로드할 수 없다고 보고합니다. 스위치를 설정하지 않으면 내부 예외가 `PlatformNotSupportedException: System.Drawing.Common is not supported on non-Windows platforms`가 됩니다.
+
+{{% alert color="warning" title="Warning" %}}
+이 스위치는 Aspose.Slides.NET이 의존하는 System.Drawing.Common 6 버전에서만 작동합니다. Microsoft는 System.Drawing.Common 7에서 이를 제거했습니다. 프로젝트가 System.Drawing.Common 7 이상을 직접 또는 다른 패키지를 통해 참조하는 경우, `libgdiplus`를 설치하고 스위치를 활성화해도 Linux에서 `PlatformNotSupportedException`이 발생합니다. 이때는 Aspose.Slides.NET6.CrossPlatform을 사용하십시오.
+{{% /alert %}}
+
+### **Alpine Linux**
+
+Alpine Linux에서는 위에서 설명한 스위치를 사용하여 Aspose.Slides.NET을 실행하십시오. Alpine 이미지에는 일반적으로 글꼴이 없으며 `libgdiplus`만 설치해도 글꼴이 함께 설치되지 않으므로, `libgdiplus`와 함께 최소 하나의 글꼴 패키지를 설치해야 합니다. 글꼴이 없으면 프레젠테이션 저장 시 다음 오류가 발생합니다:
 
 ```text
-System.ArgumentException: Font '?' cannot be found
+System.ArgumentException: Font '?' cannot be found.
 ```
-Alpine에서 Aspose.Slides를 사용하려면 `libgdiplus`와 최소 하나의 폰트 패키지를 함께 설치하십시오.
 
-**옵션 1: DejaVu Fonts**
+**옵션 1: DejaVu 폰트**
 
-추천 옵션은 `ttf-dejavu` 패키지를 설치하는 것입니다:
+추천 옵션은 `ttf-dejavu` 패키지입니다:
 
-```
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     ttf-dejavu
 ```
 
-`ttf-dejavu` 패키지는 `fontconfig`, `encodings`, `mkfontscale`, `mkfontdir` 등 필요한 폰트 관련 종속성을 자동으로 설치합니다. 대부분의 사용 사례에서 추가 폰트 패키지는 필요하지 않습니다.
+현재 Alpine 릴리스에서는 `ttf-dejavu`가 `font-dejavu` 패키지를 설치하며, 이 패키지는 `fontconfig`와 필요한 글꼴 도구도 함께 설치합니다.
 
-**옵션 2: Microsoft Core Fonts**
+**옵션 2: Microsoft 코어 폰트**
 
-프레젠테이션에 Arial, Times New Roman, Courier New, Verdana와 같은 Microsoft 전용 폰트가 필요하면 대신 Microsoft Core Fonts를 설치하십시오:
+프레젠테이션에 Arial, Times New Roman, Courier New, Verdana와 같은 Microsoft 글꼴이 사용되는 경우, 대신 Microsoft 코어 글꼴을 설치하십시오. `update-ms-fonts` 단계는 이미지 빌드 시 글꼴을 다운로드하므로 빌드에 인터넷 접근이 필요합니다:
 
-```
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     fontconfig \
@@ -145,46 +127,59 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-이 옵션은 프레젠테이션에 Microsoft 폰트가 반드시 필요한 경우에만 사용하십시오. 대부분의 시나리오에서는 `ttf-dejavu`를 설치하는 것이 더 간단하고 신뢰할 수 있습니다.
+### **글로벌화 지원**
 
-**글로벌화 지원을 위한 추가 요구 사항**
+두 패키지 모두 .NET 글로벌화 지원이 필요합니다. Linux에서 .NET은 ICU 라이브러리를 통해 이를 제공합니다. [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)를 사용할 경우, [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 생성 시 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` 예외가 발생합니다.
 
-Alpine에서 적절한 글로벌화 지원을 활성화하려면 `icu-libs` 패키지를 설치하고 invariant 모드를 비활성화하십시오:
+일부 컨테이너 이미지에서는 이 모드를 기본으로 켜두기도 합니다. 예를 들어 Alpine Linux용 .NET 런타임 이미지(`runtime-deps`, `runtime`, `aspnet`)는 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true`로 설정하고 ICU를 포함하지 않습니다. 이러한 이미지에서 빌드할 때는 ICU를 설치하고 모드를 끄십시오:
 
 ```dockerfile
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 RUN apk --no-cache add icu-libs
 ```
 
-### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+또한 프로젝트 파일에 `InvariantGlobalization` 속성이 `true`로 설정되지 않았는지 확인하십시오.
 
-Aspose.Slides 팀이 자체 개발한 크로스 플랫폼 그래픽 엔진을 사용하는 버전입니다.  
-비 Windows 플랫폼에서는 `fontconfig` 라이브러리가 필요할 수 있습니다.
+## **설정 확인**
 
-**지원 플랫폼**
-- *Windows*: x86, x86_64  
-- *Linux*: x86_64, ARM64 (aarch64)
-- *macOS*: x86_64, ARM64 (aarch64)
+패키지와 그 요구 사항이 모두 갖춰졌는지 확인하려면 프레젠테이션을 저장하고 슬라이드를 이미지로 렌더링하는 프로그램을 실행하십시오. 저장 및 렌더링은 그래픽 라이브러리와 글꼴을 사용하므로, 위에서 설명한 Linux 요구 사항이 충족되어야 정상 동작합니다.
 
-**지원되지 않는 플랫폼**
-- *Windows 11 ARM* (ARM64) — *현재 고려 대상이 아님*
+콘솔 애플리케이션을 만들고 [Installation](/slides/ko/net/installation/)에 따라 패키지를 추가한 뒤, *Program.cs* 내용을 아래 코드로 교체하고 `dotnet run`을 실행하십시오. Linux에서 Aspose.Slides.NET을 사용하는 경우, [Linux](#linux) 섹션에 나와 있는 `System.Drawing.EnableUnixSupport` 스위치 구문을 `using` 지시문 뒤에 추가하십시오. 이 프로그램은 최상위 문과 `using` 선언을 사용하므로 C# 9 이상이 필요합니다. .NET 6 이상을 대상으로 하는 프로젝트는 기본적으로 최신 C# 버전을 사용합니다; .NET Framework를 대상으로 하는 경우 프로젝트 파일의 `PropertyGroup`에 `<LangVersion>latest</LangVersion>`을 추가하십시오.
 
-{{%  alert  title="Notes"  color="primary"  %}}  
-Linux x64의 경우 GLIBC 2.23 이상이 필요하고, Linux ARM64의 경우 GLIBC 2.39 이상이 필요합니다. CentOS 7 (GLIBC 2.14)과 같은 시스템은 지원되지 않습니다. CentOS 7이나 Alpine과 같은 호환되지 않는 시스템에서 Aspose.Slides를 실행해야 하는 경우, 표준 패키지인 [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET)를 사용하십시오.  
-{{% /alert %}} 
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+
+using var image = slide.GetImage(1f, 1f);
+image.Save("hello.png", ImageFormat.Png);
+```
+
+프로그램은 첫 번째 슬라이드에 텍스트가 포함된 사각형을 추가하고, [Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/) 메서드로 *hello.pptx* 파일로 저장합니다. 그런 다음 [GetImage](https://reference.aspose.com/slides/ko/net/aspose.slides/slide/getimage/)으로 슬라이드를 렌더링하고, [IImage.Save](https://reference.aspose.com/slides/ko/net/aspose.slides/iimage/save/)를 사용해 *hello.png* 파일을 [ImageFormat.Png](https://reference.aspose.com/slides/ko/net/aspose.slides/imageformat/) 형식으로 저장합니다. 배율 1은 포인트당 한 픽셀을 렌더링하므로 기본 720 × 540 포인트 슬라이드가 720 × 540 픽셀 이미지가 됩니다. 텍스트가 사각형 안에 표시됩니다. 라이선스가 없으면 두 파일 모두 평가 워터마크가 포함되며, 자세한 내용은 [Licensing](/slides/ko/net/licensing/)를 참고하십시오. 요구 사항이 누락되면 프로그램은 [Linux](#linux) 섹션에 설명된 예외 중 하나를 발생시킵니다.
+
+## **개발 도구**
+
+프로젝트의 대상 프레임워크를 지원하는 모든 도구로 Aspose.Slides를 사용하는 애플리케이션을 빌드할 수 있습니다. Windows, Linux, macOS에서는 .NET SDK와 `dotnet` CLI를, Windows에서는 Visual Studio를 사용할 수 있습니다. [Installation](/slides/ko/net/installation/)에서 두 방법을 모두 안내합니다.
 
 ## **FAQ**
 
-**변환 및 렌더링을 위해 Microsoft PowerPoint를 설치해야 하나요?**
+**Microsoft PowerPoint를 설치해야 변환 및 렌더링이 가능한가요?**
 
-아니요, PowerPoint는 필요하지 않습니다. Aspose.Slides는 [프레젠테이션 만들기](/slides/ko/net/create-presentation/), 수정, [변환](/slides/ko/net/convert-presentation/), 및 [렌더링](/slides/ko/net/convert-powerpoint-to-png/)을 위한 독립 엔진입니다.
+아니요, PowerPoint는 필요하지 않습니다. Aspose.Slides는 [프레젠테이션 생성](/slides/ko/net/create-presentation/), 수정, [변환](/slides/ko/net/convert-presentation/), 그리고 [렌더링](/slides/ko/net/convert-powerpoint-to-png/)을 위한 독립형 엔진입니다.
 
-**올바른 렌더링을 위해 어떤 폰트가 필요합니까?**
+**어떤 패키지를 사용해야 하나요?**
 
-프레젠테이션에 사용된 폰트 또는 적절한 대체 폰트가 운영 체제에 설치되어 있어야 합니다. Linux 및 macOS에서는 일반적인 폰트 패키지를 설치하여 일관된 렌더링을 보장하십시오.
+Windows에서는 Aspose.Slides.NET을, Linux와 macOS에서는 Aspose.Slides.NET6.CrossPlatform을 사용하십시오. Alpine Linux, glibc 버전이 위에 명시된 것보다 낮은 Linux 시스템, 그리고 .NET Framework를 대상으로 하는 프로젝트에서는 Aspose.Slides.NET을 사용하십시오. 프로젝트당 두 패키지 중 하나만 추가하면 됩니다.
 
-Alpine Linux 컨테이너의 경우 `libgdiplus`와 함께 최소 하나의 폰트 패키지를 설치해야 합니다. 권장 최소 설정은 `libgdiplus`와 `ttf-dejavu`입니다. Arial, Times New Roman, Courier New, Verdana와 같은 Microsoft 폰트가 필요하면 `msttcorefonts-installer`와 `fontconfig`를 함께 사용하십시오.
+**올바른 렌더링을 위해 어떤 글꼴이 필요합니까?**
 
-**Linux에서 사용자 정의 폰트가 대체 폰트나 누락된 텍스트로 표시되는 이유는 무엇인가요?**
+프레젠테이션에 사용된 글꼴 또는 적절한 대체 글꼴이 운영 체제에 설치되어 있어야 합니다. Linux와 macOS에서는 프레젠테이션에 필요한 글꼴 패키지를 설치해 일관된 렌더링을 확보하십시오. Alpine Linux에서는 `libgdiplus`와 함께 최소 하나의 글꼴 패키지를 설치해야 합니다(자세히는 [Alpine Linux](#alpine-linux) 참조).
 
-폰트 파일에 이름 테이블 엔트리가 일관되지 않거나 손상된 경우, Linux의 폰트 매칭 스택(FreeType/fontconfig)이 잘못된 레코드를 선택하여 폰트를 해결하지 못할 수 있습니다. 이름 테이블 레코드가 수정된 폰트 버전을 사용하거나 일관된 대체 폰트를 설치하면 문제가 해결됩니다.
+**Linux에서 사용자 지정 글꼴이 대체 글꼴이나 누락된 텍스트로 표시되는 이유는 무엇인가요?**
+
+글꼴 파일의 name-table 엔트리가 일관되지 않거나 손상된 경우, Linux의 글꼴 매칭 스택(FreeType/fontconfig)이 잘못된 레코드를 선택해 글꼴을 해석하지 못할 수 있습니다. name-table 레코드가 수정된 글꼴 버전을 사용하거나 일관된 대체 글꼴을 설치하면 문제가 해결됩니다.

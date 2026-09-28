@@ -5,9 +5,13 @@ weight: 60
 url: /cs/net/system-requirements/
 keywords:
 - systémové požadavky
-- operační systém
-- instalace
-- závislosti
+- podporované platformy
+- cílové rámce
+- .NET Framework
+- .NET Standard
+- libgdiplus
+- fontconfig
+- Alpine
 - Windows
 - Linux
 - macOS
@@ -17,123 +21,104 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Objevte systémové požadavky Aspose.Slides pro .NET. Zajistěte bezproblémovou podporu PowerPointu a OpenDocument na Windows, Linuxu a macOS."
+description: "Zkontrolujte, co Aspose.Slides for .NET potřebuje před instalací: rámce, na které cílí jednotlivé balíčky NuGet, podporované operační systémy a procesory a knihovny a písma, které Linux vyžaduje."
 ---
 ## **Úvod**
 
-Aspose.Slides pro .NET nevyžaduje instalaci Microsoft PowerPoint, protože Aspose.Slides je samostatný engine pro tvorbu, konverzi, rozvržení stránek a vykreslování dokumentů Microsoft PowerPoint.
+Aspose.Slides for .NET je samostatná knihovna: nepotřebuje Microsoft PowerPoint ani Microsoft Office. Je distribuována jako dva balíčky NuGet, [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) a [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/). Oba poskytují stejné jmenné prostory a třídy Aspose.Slides; liší se v cílových rámcích a ve způsobu vykreslování snímků, což určuje, kde běží a co potřebují.
 
-## **Podporované operační systémy**
+Tento článek uvádí verze .NET a platformy, které každý balíček podporuje, a systémové knihovny a písma, které Linux potřebuje, a končí krátkým programem, který kontroluje vaše nastavení. Pro přidání balíčku do projektu viz [Installation](/slides/cs/net/installation/).
 
-Aspose.Slides pro .NET podporuje jakýkoli 32‑bitový nebo 64‑bitový operační systém, na kterém je nainstalován .NET nebo Mono framework, včetně (ale nikoli výhradně):
+## **Podporované verze .NET**
 
-### **Windows**
+Každý balíček obsahuje jedno sestavení Aspose.Slides pro konkrétní cílový rámec a NuGet vybere sestavení, které odpovídá cílovému rámci vašeho projektu.
 
-- Microsoft Windows 2000 Server (x64, x86)
-- Microsoft Windows 2003 Server (x64, x86)
-- Microsoft Windows 2022 Server
-- Microsoft Windows Vista (x64, x86)
-- Microsoft Windows XP (x64, x86)
-- Microsoft Windows 7 (x64, x86)
-- Microsoft Windows 8, 8.1 (x64, x86)
-- Microsoft Windows 10 (x64, x86)
-- Microsoft Windows 11 (x64, x86)
-- Microsoft Azure
+| Balíček | Cílové frameworky v balíčku | Váš projekt může cílit na |
+|---|---|---|
+| Aspose.Slides.NET | `net462`, `net6.0`, `netstandard2.0` | .NET Framework 4.6.2 nebo novější; .NET 6 nebo novější, včetně .NET 8, .NET 9 a .NET 10 |
+| Aspose.Slides.NET6.CrossPlatform | `net6.0` | .NET 6 nebo novější, včetně .NET 8, .NET 9 a .NET 10 |
 
-### **Linux**
+`netstandard2.0` sestavení umožňuje knihovně .NET Standard 2.0 odkazovat na Aspose.Slides.NET. Aplikace, která takovou knihovnu používá, spouští sestavení odpovídající vlastnímu cílovému rámci aplikace: např. aplikace .NET 8 spustí `net6.0` sestavení.
 
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine a další)
+## **Podporované operační systémy a procesory**
 
-### **Mac**
+**Aspose.Slides.NET** obsahuje pouze procesorem nezávislý (AnyCPU) spravovaný kód, takže běží na architektuře procesoru .NET runtime, který jej načte. Vykresluje snímky pomocí knihovny System.Drawing.Common od Microsoftu, kterou Microsoft podporuje [pouze na Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). Na Linuxu tedy Aspose.Slides.NET potřebuje knihovnu `libgdiplus` a spouštěcí přepínač, popsaný v sekci [Linux](#linux). Běží na distribucích Linuxu, které poskytují `libgdiplus`, jako jsou Debian, Ubuntu a Alpine Linux.
 
-- Mac OS X
+**Aspose.Slides.NET6.CrossPlatform** vykresluje snímky pomocí vlastního grafického enginu. Engine je nativní knihovna, kterou balíček obsahuje v jedné verzi pro každou platformu, takže balíček běží pouze na těchto platformách:
 
-## **Podporované frameworky**
+| Operační systém | Procesory | Poznámky |
+|---|---|---|
+| Windows | x86, x64 | Windows na ARM64 není podporován. |
+| Linux | x64, ARM64 | Vyžaduje glibc 2.23 nebo novější na x64 a glibc 2.39 nebo novější na ARM64. |
+| macOS | x64 (Intel), ARM64 (Apple silicon) |  |
 
-Aspose.Slides pro .NET podporuje frameworky .NET a Mono:
+Aspose.Slides.NET6.CrossPlatform neběží na Alpine Linux ani na jiných distribucích postavených na musl místo glibc, ani na distribucích se starší glibc, jako je CentOS 7. Na těchto systémech použijte Aspose.Slides.NET.
 
-### **.NET Frameworks**
+Na Windows nativní knihovna Aspose.Slides.NET6.CrossPlatform používá runtime Microsoft Visual C++ (*MSVCP140.dll* a *VCRUNTIME140.dll*, plus *VCRUNTIME140_1.dll* na x64). Pokud tyto soubory chybí na cílovém počítači, nainstalujte [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170).
 
-- .NET Framework 2.0
-- .NET Framework 3.5
-- .NET Framework 4.0
-- .NET Framework 4.0_ClientProfile
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.5.2
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.7
-- .NET Framework 4.7.2
-- .NET 5
-- .NET 6
-- .NET 7
-- .NET 8
-- .NET 9
-- .NET Core
-- COM Interop support (COM, C++, VBScript)
+## **Linux**
 
-### **Mono Framework**
+Oba balíčky potřebují na Linuxu další systémové knihovny. Bez nich selže první příklad v [Create Presentations](/slides/cs/net/create-presentation/) s výjimkou místo uložení souboru. Níže uvedené příkazy jsou pro Debian a Ubuntu; na těchto distribucích každá knihovna také přináší písma DejaVu (`fonts-dejavu-core`), takže text se vykreslí bez dalších fontových balíčků.
 
-- Podpora MONO na platformách MAC a Linux
+### **Aspose.Slides.NET6.CrossPlatform**
 
-## **Vývojová prostředí**
+Linuxová knihovna balíčku vyžaduje knihovnu `fontconfig`:
 
-Aspose.Slides pro .NET lze použít k vývoji aplikací v libovolném vývojovém prostředí zaměřeném na platformu .NET, ale tato prostředí jsou výslovně podporována:
-
-- Microsoft Visual Studio 2005
-- Microsoft Visual Studio 2008
-- Microsoft Visual Studio 2010
-- Microsoft Visual Studio 2012
-- Microsoft Visual Studio 2013
-- Microsoft Visual Studio 2015
-- Microsoft Visual Studio 2017
-- Microsoft Visual Studio 2019
-- Microsoft Visual Studio 2022
-
-## **Hlavní sestavení Aspose.Slides**
-
-V současné době existují dvě hlavní sestavení Aspose.Slides — Aspose.Slides.NET a Aspose.Slides.NET6.CrossPlatform.
-
-### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-
-Jedná se o hlavní verzi produktu. Používá standardní grafický engine .NET.
-- Na ne‑Windows platformách může být nutné nainstalovat knihovnu `libgdiplus` a její závislosti.
-- Před verzí Aspose.Slides 25.3 bylo na ne‑Windows platformách nutné použít .NET Standard 2.0 DLL ze ZIP balíčku Aspose.Slides.
-- Od verze Aspose.Slides 25.3 lze balíček NuGet použít přímo i na ne‑Windows systémech.
-- Při spuštění na ne‑Windows systémech musí aplikace na začátku zahrnout následující řádek:
-```cs
-AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
-- **Od verze 25.3 můžete tento balíček použít na platformách, které podporují .NET, například Linux aarch64 (ARM64).**
 
-#### **Další balíčky pro Linux Alpine**
+Bez ní selže vytvoření [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) s `TypeInitializationException`, jehož vnitřní `DllNotFoundException` uvádí, že `libfontconfig.so.1` nelze otevřít.
 
-Při spuštění Aspose.Slides pro .NET v Alpine Linux kontejneru nemusí samotná instalace `libgdiplus` stačit. Alpine kontejnery obvykle neobsahují fonty ve výchozím nastavení. Pokud nejsou k dispozici žádné fonty, operace vykreslování nebo konverze mohou selhat s chybou podobnou následující:
+Minimální základní obrazy také nemusí obsahovat `fontconfig`. Například základní obraz AWS Lambda pro .NET 8 neobsahuje ani `fontconfig`, ani žádná písma. V kontejnerovém obrazu postaveném na něm spusťte `dnf install -y fontconfig`, což také nainstaluje písma Noto Sans.
+
+### **Aspose.Slides.NET**
+
+Balíček na Linuxu vyžaduje dvě věci:
+
+1. Knihovnu `libgdiplus`:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y libgdiplus
+```
+
+2. Přepínač `System.Drawing.EnableUnixSupport`, který se povolí na začátku aplikace před jakýmkoli voláním Aspose.Slides. V souboru *Program.cs* s top-level statements jej umístěte za `using` direktivy:
+
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
+
+Bez `libgdiplus` selže uložení prezentace s `TypeInitializationException`, jehož vnitřní `DllNotFoundException` uvádí, že `libgdiplus` nelze načíst. Bez přepínače je vnitřní výjimkou `PlatformNotSupportedException: System.Drawing.Common is not supported on non-Windows platforms`.
+
+{{% alert color="warning" title="Warning" %}}
+Přepínač funguje pouze se System.Drawing.Common 6, verzí, na které Aspose.Slides.NET závise. Microsoft jej odstranil v System.Drawing.Common 7. Pokud váš projekt odkazuje na System.Drawing.Common 7 nebo novější, ať už přímo nebo přes jiný balíček, Aspose.Slides.NET selže na Linuxu s `PlatformNotSupportedException` i když je `libgdiplus` nainstalován a přepínač povolen. V takovém případě použijte Aspose.Slides.NET6.CrossPlatform.
+{{% /alert %}}
+
+### **Alpine Linux**
+
+Na Alpine Linux použijte Aspose.Slides.NET s výše popsaným přepínačem. Alpine obrazy obvykle neobsahují žádná písma a samotný `libgdiplus` neinstaluje žádná, proto nainstalujte `libgdiplus` spolu s alespoň jedním fontovým balíčkem. Bez písem selže uložení prezentace s tímto chybovým hlášením:
+
 ```text
-System.ArgumentException: Font '?' cannot be found
+System.ArgumentException: Font '?' cannot be found.
 ```
-Pro použití Aspose.Slides na Alpine nainstalujte `libgdiplus` spolu s alespoň jedním fontovým balíčkem.
 
-**Možnost 1: DejaVu fonty**
+**Možnost 1: Písma DejaVu**
 
-Doporučená možnost je nainstalovat balíček ttf-dejavu:
-```
+Doporučenou volbou je balíček `ttf-dejavu`:
+
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     ttf-dejavu
 ```
 
-`ttf-dejavu` balíček automaticky nainstaluje potřebné fontové závislosti, jako jsou `fontconfig`, `encodings`, `mkfontscale` a `mkfontdir`. Pro většinu případů není potřeba žádný další fontový balíček.
+Na aktuálních vydáních Alpine `ttf-dejavu` nainstaluje balíček `font-dejavu`, který také nainstaluje `fontconfig` a fontové nástroje, na nichž závisí.
 
-**Možnost 2: Microsoft Core Fonts**
+**Možnost 2: Základní písma Microsoft**
 
-Pokud vaše prezentace používají specifické Microsoft fonty, například Arial, Times New Roman, Courier New nebo Verdana, nainstalujte místo toho Microsoft Core Fonts:
-```
+Pokud vaše prezentace používají písma Microsoftu jako Arial, Times New Roman, Courier New nebo Verdana, místo toho nainstalujte základní písma Microsoftu. Krok `update-ms-fonts` stáhne písma během vytváření obrazu, takže sestavení potřebuje přístup k internetu:
+
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     fontconfig \
@@ -142,45 +127,59 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-Tuto možnost použijte pouze v případě, že zpracovávané prezentace vyžadují Microsoft fonty. Ve většině scénářů je instalace `ttf-dejavu` jednodušší a spolehlivější.
+### **Podpora globalizace**
 
-**Další požadavky pro globalizaci**
+Oba balíčky potřebují podporu globalizace .NET, kterou .NET na Linuxu poskytuje přes knihovny ICU. V [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) selže vytvoření [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) s `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
-Aby byla na Alpine zajištěna správná podpora globalizace, nainstalujte balíček `icu-libs` a vypněte invariantní režim:
+Některé kontejnerové obrazy tuto režim zapínají. Například .NET runtime obrazy pro Alpine Linux (`runtime-deps`, `runtime`, a `aspnet`) nastavením `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` neobsahují ICU. V obrazu postaveném na nich nainstalujte ICU a režim vypněte:
+
 ```dockerfile
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 RUN apk --no-cache add icu-libs
 ```
 
-### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+Také se ujistěte, že ve vašem souboru projektu není nastavená vlastnost `InvariantGlobalization` na `true`.
 
-Jedná se o verzi Aspose.Slides používající vlastní multiplatformní grafický engine vyvinutý týmem Aspose.Slides.  
-Na ne‑Windows platformách může být vyžadována knihovna `fontconfig`.
+## **Zkontrolujte své nastavení**
 
-**Podporované platformy**
-- *Windows*: x86, x86_64  
-- *Linux*: x86_64, ARM64 (aarch64)
-- *macOS*: x86_64, ARM64 (aarch64)
+Pro ověření, že je balíček a jeho požadavky na místě, spusťte program, který uloží prezentaci a vykreslí snímek do obrázku. Ukládání a vykreslování používají grafickou knihovnu a písma, což jsou požadavky na Linux uvedené výše.
 
-**Nepodporované platformy**
-- *Windows 11 ARM* (ARM64) — *Momentálně není zvažováno*
+Vytvořte konzolovou aplikaci a přidejte balíček podle popisu v [Installation](/slides/cs/net/installation/), nahraďte obsah *Program.cs* kódem níže a spusťte `dotnet run`. Pokud používáte Aspose.Slides.NET na Linuxu, přidejte výrok přepínače `System.Drawing.EnableUnixSupport` uvedený v [Linux](#linux) za `using` direktivy. Program používá top-level statements a `using` deklarace, které vyžadují C# 9 nebo novější. Projekty cílící na .NET 6 nebo novější používají novější verzi C# ve výchozím nastavení; v projektu cílícím na .NET Framework přidejte `<LangVersion>latest</LangVersion>` do `PropertyGroup` v souboru projektu.
 
-{{%  alert  title="Notes"  color="primary"  %}}  
-Pro Linux x64 je vyžadováno GLIBC 2.23+, pro Linux ARM64 GLIBC 2.39+. Systémy jako CentOS 7 (GLIBC 2.14) nejsou podporovány. Pokud potřebujete spustit Aspose.Slides na CentOS 7 nebo jiných nekompatibilních systémech (např. Alpine), použijte standardní balíček: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
-{{% /alert %}} 
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+
+using var image = slide.GetImage(1f, 1f);
+image.Save("hello.png", ImageFormat.Png);
+```
+
+Program přidá obdélník s textem na první snímek a uloží prezentaci jako *hello.pptx* pomocí metody [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/). Pak vykreslí snímek pomocí [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/getimage/) a výsledek uloží jako *hello.png* pomocí [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/) ve formátu [ImageFormat.Png](https://reference.aspose.com/slides/cs/net/aspose.slides/imageformat/). Měřítko 1 vykreslí jeden pixel na bod, takže výchozí 720 × 540 bodový snímek se stane 720 × 540 pixelovým obrázkem, přičemž text je viditelný uvnitř obdélníku. Bez licence oba soubory také obsahují zkušební vodoznak; viz [Licensing](/slides/cs/net/licensing/). Pokud některý požadavek chybí, program zastaví s jednou z výjimek popsaných v [Linux](#linux).
+
+## **Vývojové nástroje**
+
+Můžete vytvářet aplikace používající Aspose.Slides s jakýmkoli nástrojem, který podporuje cílový rámec vašeho projektu: .NET SDK a jeho CLI `dotnet` na Windows, Linuxu a macOS, nebo Visual Studio na Windows. [Installation](/slides/cs/net/installation/) popisuje obojí.
 
 ## **Často kladené otázky**
 
 **Potřebuji mít nainstalovaný Microsoft PowerPoint pro konverze a vykreslování?**
 
-Ne, PowerPoint není vyžadován; Aspose.Slides je samostatný engine pro [vytváření](/slides/cs/net/create-presentation/), úpravy, [konverzi](/slides/cs/net/convert-presentation/) a [vykreslování](/slides/cs/net/convert-powerpoint-to-png/) prezentací.
+Ne, PowerPoint není vyžadován. Aspose.Slides je samostatný engine pro [vytváření](/slides/cs/net/create-presentation/), úpravy, [konverzi](/slides/cs/net/convert-presentation/) a [vykreslování](/slides/cs/net/convert-powerpoint-to-png/) prezentací.
 
-**Které fonty jsou potřeba pro správné vykreslení?**
+**Který balíček mám použít?**
 
-Fonty použité v prezentaci nebo vhodné náhrady musí být dostupné v operačním systému. Na Linuxu a macOS nainstalujte běžné fontové balíčky, aby bylo zajištěno konzistentní vykreslování.
+Používejte Aspose.Slides.NET na Windows a Aspose.Slides.NET6.CrossPlatform na Linux a macOS. Na Alpine Linux, na Linuxových systémech s glibc starší než uvedené verze a v projektech cílených na .NET Framework použijte Aspose.Slides.NET. Do projektu přidejte jen jeden z těchto dvou balíčků.
 
-Pro kontejnery Alpine Linux nainstalujte alespoň jeden fontový balíček kromě `libgdiplus`. Doporučené minimální nastavení je `libgdiplus` spolu s `ttf-dejavu`. Pokud jsou vyžadovány Microsoft fonty jako Arial, Times New Roman, Courier New nebo Verdana, použijte `msttcorefonts-installer` spolu s `fontconfig`.
+**Jaká písma jsou potřebná pro správné vykreslování?**
 
-**Proč se vlastní font na Linuxu vykresluje jako náhradní nebo chybějící text?**
+Písma použité v prezentaci, nebo vhodné náhrady, musí být k dispozici v operačním systému. Na Linuxu a macOS nainstalujte fontové balíčky, které vaše prezentace potřebují, aby bylo zajištěno konzistentní vykreslování. Na Alpine Linux nainstalujte alespoň jeden fontový balíček kromě `libgdiplus`, jak je popsáno v [Alpine Linux](#alpine-linux).
 
-Pokud má soubor fontu nekonzistentní nebo poškozené položky v tabulce názvů, může Linuxová vrstva pro výběr fontů (FreeType/fontconfig) vybrat neplatný záznam, což způsobí, že font nebude rozpoznán. Použití verze fontu s opravenými záznamy v name‑table nebo instalace konzistentní náhrady problém vyřeší.
+**Proč se na Linuxu vlastní písmo vykreslí jako náhradní nebo chybějící text?**
+
+Pokud soubor písma má nejednotné nebo poškozené záznamy v tabulce name, může linuxový zásobník pro výběr písma (FreeType/fontconfig) vybrat neplatný záznam, což vede k nevyřešenému písmu. Použití verze písma s opravenými záznamy name-table nebo instalace konzistentní náhrady problém vyřeší.

@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides untuk Xamarin
+title: Aspose.Slides untuk Xamarin (Sejarah)
+linktitle: Xamarin (Sejarah)
 type: docs
-weight: 150
+weight: 200
 url: /id/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,46 +14,51 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bangun aplikasi seluler Xamarin dalam C# untuk melihat, mengedit, dan mengonversi presentasi dengan Aspose.Slides, mendukung fitur kaya untuk PPT, PPTX, dan ODP di Android."
+description: "Sejarah: bagaimana versi Aspose.Slides untuk .NET 20.2 hingga 22.10 mendukung Xamarin.Android melalui perpustakaan terpisah. Versi saat ini tidak menyertakannya."
 ---
-## **Pendahuluan**
+{{% alert color="info" title="Catatan" %}}
 
-Xamarin adalah kerangka kerja yang digunakan untuk pengembangan seluler di .NET C#. Xamarin memiliki alat dan pustaka yang memperluas kemampuan platform .NET. Ini memungkinkan pengembang membangun aplikasi untuk sistem operasi **Android**.
-
-{{% alert color="info" %}} 
-
-Untuk pengembangan di Xamarin, programmer dapat menggunakan lingkungan pengembangan mereka yang biasa (C#, Visual Studio, dan pustaka pihak ketiga).
+Ini adalah halaman sejarah. Versi 20.2 hingga 22.10 dari paket Aspose.Slides.NET menyertakan perpustakaan terpisah Xamarin.Android, *Aspose.Slides.Droid.dll*, yang digunakan oleh kode pada halaman ini. Versi yang lebih baru tidak menyertakannya: paket saat ini hanya berisi build untuk .NET Framework 4.6.2, .NET 6, dan .NET Standard 2.0. Microsoft menghentikan dukungan untuk semua SDK Xamarin pada 1 Mei 2024; lihat [kebijakan dukungan Xamarin](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
 {{% /alert %}}
 
-Aspose.Slides API berfungsi di platform Xamarin. Untuk mencapainya, paket Aspose.Slides .NET menambahkan DLL terpisah untuk Xamarin. Aspose.Slides untuk Xamarin mendukung sebagian besar fitur yang tersedia dalam versi .NET:
+## **Pendahuluan**
 
-- mengonversi dan menampilkan presentasi.  
-- mengedit konten dalam presentasi: teks, bentuk, diagram, SmartArt, audio/video, font, dll.  
-- menangani/berurusan dengan animasi, efek 2D, WordArt, dll.  
-- menangani metadata dan properti dokumen.  
-- mengkloning, menggabungkan, membandingkan, memecah, dll.
+Xamarin adalah kerangka kerja yang digunakan untuk pengembangan seluler dalam .NET C#. Xamarin memiliki alat dan perpustakaan yang memperluas kemampuan platform .NET. Ini memungkinkan pengembang membangun aplikasi untuk sistem operasi **Android**.
 
-Kami menyediakan perbandingan fitur lengkap di bagian lain dekat bagian bawah halaman ini.
+{{% alert color="info" title="Catatan" %}}
 
-Dalam API Aspose.Slides untuk Xamarin, kelas, namespace, logika, dan perilaku sedekat mungkin dengan versi .NET. Anda dapat memigrasikan aplikasi Aspose.Slides .NET Anda ke Xamarin dengan biaya minimal.
+Untuk pengembangan di Xamarin, programmer dapat menggunakan lingkungan pengembangan mereka yang biasa (C#, Visual Studio, dan perpustakaan pihak ketiga).
 
+{{% /alert %}}
+
+API Aspose.Slides bekerja pada platform Xamarin. Untuk mencapainya, paket Aspose.Slides.NET, pada versi 20.2 hingga 22.10, menambahkan DLL terpisah untuk Xamarin. Aspose.Slides untuk Xamarin mendukung sebagian besar fitur yang tersedia di versi .NET:
+
+- mengonversi dan melihat presentasi.
+- mengedit konten dalam presentasi: teks, bentuk, diagram, SmartArt, audio/video, font, dll.
+- menangani/berurusan dengan animasi, efek 2D, WordArt, dll.
+- menangani metadata dan properti dokumen.
+- menggandakan, menggabungkan, membandingkan, memecah, dll.
+
+Kami menyediakan perbandingan seluruh fitur di bagian lain yang terletak di dekat bagian bawah halaman ini.
+
+Dalam API Aspose.Slides untuk Xamarin, kelas, namespace, logika, dan perilaku dibuat serupa mungkin dengan versi .NET. Anda dapat memigrasikan aplikasi Aspose.Slides .NET Anda ke Xamarin dengan biaya minimal.
 
 ## **Contoh Cepat**
-Anda dapat menggunakan Aspose.Slides untuk Xamarin untuk membangun dan memanfaatkan aplikasi C# Anda melalui Slides for Android.
+Anda dapat menggunakan Aspose.Slides untuk Xamarin untuk membuat dan memanfaatkan aplikasi C# Anda melalui Slides untuk Android.
 
-Kami menyediakan contoh aplikasi Android via Xamarin yang menggunakan Aspose.Slides untuk menampilkan slide presentasi dan menambahkan bentuk baru pada slide saat disentuh. Anda dapat menemukan sumber lengkap contoh pada [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Kami menyediakan contoh aplikasi Android via Xamarin yang menggunakan Aspose.Slides untuk menampilkan slide presentasi dan menambahkan bentuk baru pada slide saat disentuh. Anda dapat menemukan seluruh sumber contoh pada [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Mari mulai dengan membuat Aplikasi Xamarin Android:
+Mari kita mulai dengan membuat aplikasi Xamarin Android:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Membuat aplikasi Xamarin Android](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Pertama, kami membuat tata letak konten yang akan berisi tampilan gambar, tombol Prev, dan Next:
+Pertama, kami membuat tata letak konten yang akan berisi tampilan gambar, tombol Prev, dan tombol Next:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Tata letak konten dengan tampilan gambar serta tombol Prev dan Next](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 **XML - content_main.xml - Buat tata letak konten**
-``` 
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -95,7 +101,7 @@ Pertama, kami membuat tata letak konten yang akan berisi tampilan gambar, tombol
 </LinearLayout>
 ```
 
-Di sini, kami merujuk ke pustaka "Aspose.Slides.Droid.dll" yang mencakup contoh presentasi ("HelloWorld.pptx") ke dalam Aset aplikasi Xamarin dan menambahkan inisialisasinya ke MainActivity:
+Di sini, kami merujuk ke perpustakaan "Aspose.Slides.Droid.dll" yang mencakup presentasi contoh ("HelloWorld.pptx") ke dalam Aset aplikasi Xamarin dan menambahkan inisialisasinya ke MainActivity:
 
 **C# - MainActivity.cs - Inisialisasi**
 ``` csharp
@@ -135,7 +141,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Tambahkan fungsi untuk menampilkan slide Prev dan Next saat tombol ditekan:
+Mari tambahkan fungsi untuk menampilkan slide Prev dan Next saat tombol diketuk:
+
 **C# - MainActivity.cs - Tampilkan slide pada klik tombol Prev dan Next**
 ``` csharp
 using System.Diagnostics;
@@ -262,7 +269,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -270,8 +277,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Terakhir, kita implementasikan fungsi untuk menambahkan bentuk elips saat menyentuh slide:
-**C# - MainActivity.cs - Tambah elips dengan klik slide**
+Akhirnya, mari implementasikan fungsi untuk menambahkan bentuk elips saat menyentuh slide:
+
+**C# - MainActivity.cs - Tambahkan elips dengan klik slide**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -281,7 +289,7 @@ Terakhir, kita implementasikan fungsi untuk menambahkan bentuk elips saat menyen
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -302,12 +310,11 @@ Terakhir, kita implementasikan fungsi untuk menambahkan bentuk elips saat menyen
 ```
 
 Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
-
+![Slide dengan elips yang ditambahkan dengan sentuhan](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Fitur yang Didukung**
 
-|**FITUR**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
+|**FITUR**|**Aspose.Slides untuk .NET**|**Aspose.Slides untuk Xamarin**|
 | :- | :- | :- |
 |**Fitur presentasi**:| | |
 |Membuat presentasi baru|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -315,29 +322,29 @@ Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
 |Format PowerPoint 2007 buka/simpan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Dukungan ekstensi PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Dukungan ekstensi PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|fitur dukungan PowerPoint 2016|restricted|restricted|
-|fitur dukungan PowerPoint 2019|restricted|restricted|
+|Dukungan fitur PowerPoint 2016|dibatasi|dibatasi|
+|Dukungan fitur PowerPoint 2019|dibatasi|dibatasi|
 |Konversi PPT ke PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Konversi PPTX ke PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX dalam PPT|restricted|restricted|
+|PPTX dalam PPT|dibatasi|dibatasi|
 |Pemrosesan tema|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Pemrosesan makro|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Pemrosesan properti dokumen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Proteksi kata sandi|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Perlindungan kata sandi|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ekstraksi teks cepat|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Menyematkan font|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Render komentar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Rendering komentar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Menginterupsi tugas yang berjalan lama|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Format ekspor:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restricted|restricted|
-|SWF|restricted|restricted|
+|ODP|dibatasi|dibatasi|
+|SWF|dibatasi|dibatasi|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Format impor:**| | |
-|HTML|restricted|restricted|
+|HTML|dibatasi|dibatasi|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur master slide:**| | |
@@ -361,28 +368,28 @@ Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
 |Menambahkan bentuk baru|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Mengkloning bentuk|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Mengekspor bentuk terpisah ke gambar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Tipe bentuk yang didukung:**| | |
-|Semua tipe bentuk bawaan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Jenis bentuk yang didukung:**| | |
+|Semua jenis bentuk baku|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bingkai gambar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabel|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagram legacy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diagram warisan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, objek ActiveX|restricted|restricted|
+|Objek OLE, ActiveX|dibatasi|dibatasi|
 |Bingkai video|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bingkai audio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Penghubung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur grup bentuk:**| | |
 |Mengakses grup bentuk|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Membuat grup bentuk|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Melepaskan grup bentuk yang ada|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Melepas grup bentuk yang ada|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur efek bentuk:**| | |
-|Efek 2D|restricted|restricted|
+|Efek 2D|dibatasi|dibatasi|
 |Efek 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Fitur teks:**| | |
 |Pemformatan paragraf|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Pemformatan potongan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Pemformatan bagian|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur animasi:**| | |
 |Ekspor animasi ke SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Ekspor animasi ke HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

@@ -1,58 +1,63 @@
 ---
-title: Проблема предварительного просмотра объекта при добавлении OleObjectFrame
-linktitle: Проблема с OLE объектом
+title: Заполнитель превью объекта при добавлении OleObjectFrame
+linktitle: Заполнитель превью OLE
 type: docs
 weight: 10
 url: /ru/net/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
-- проблема предварительного просмотра
+- проблема превью
+- заполнитель превью
+- по замыслу
 - встроенный объект
 - встроенный файл
 - объект изменён
-- предпросмотр объекта
+- превью объекта
 - презентация
 - PowerPoint
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, почему появляется сообщение EMBEDDED OLE OBJECT при добавлении OleObjectFrame в Aspose.Slides для .NET и как исправить проблемы предварительного просмотра в презентациях PPT, PPTX и ODP."
+description: "Почему OLE объект, добавленный с Aspose.Slides для .NET, показывает заполнитель EMBEDDED OLE OBJECT до обновления его превью, и как задать собственное изображение превью."
 ---
-
 ## **Введение**
 
-Используя Aspose.Slides for .NET, когда вы добавляете [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) на слайд, на выходном слайде отображается сообщение «EMBEDDED OLE OBJECT». Это сообщение является намеренным и НЕ является ошибкой.
+Используя Aspose.Slides для .NET, когда вы добавляете [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe/) на слайд, на выходном слайде отображается сообщение "EMBEDDED OLE OBJECT". Это сообщение является намеренным и НЕ является ошибкой.
 
-Для получения дополнительной информации о работе с объектами OLE см. [Manage OLE](/slides/ru/net/manage-ole/).
+Для получения дополнительной информации о работе с OLE-объектами см. [Manage OLE](/slides/ru/net/manage-ole/).
 
 ## **Объяснение и решение**
 
-Aspose.Slides отображает сообщение «EMBEDDED OLE OBJECT», чтобы уведомить вас о том, что объект OLE был изменён и изображение предварительного просмотра должно быть обновлено.
+Aspose.Slides отображает сообщение "EMBEDDED OLE OBJECT", чтобы уведомить вас, что OLE-объект был изменён и изображение превью необходимо обновить.
 
-Например, если вы добавляете диаграмму Microsoft Excel в виде [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) на слайд (подробности см. в статье «Manage OLE») и затем открываете презентацию в Microsoft PowerPoint, вы увидите это изображение на слайде:
+Например, если вы добавляете диаграмму Microsoft Excel в виде [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe/) на слайд (подробнее см. статью "Manage OLE") и затем открываете презентацию в Microsoft PowerPoint, вы увидите на слайде следующее изображение:
 
-![OLE object message](OLE_object_message.png)
+![Сообщение OLE-объекта](OLE_object_message.png)
 
-Если вы хотите проверить и подтвердить, что ваш объект OLE был добавлен на слайд, необходимо дважды щёлкнуть по сообщению «EMBEDDED OLE OBJECT», либо щелкнуть правой кнопкой мыши и выбрать опцию **Object > Edit**.
+Если вы хотите проверить и убедиться, что ваш OLE-объект был добавлен на слайд, вам нужно дважды щёлкнуть по сообщению "EMBEDDED OLE OBJECT", либо щёлкнуть правой кнопкой мыши по нему и выбрать пункт **Object > Edit**.
 
-![OLE object > Edit](OLE_object_edit.png)
+![OLE-объект > Edit](OLE_object_edit.png)
 
-PowerPoint затем открывает встроенный объект OLE.
+PowerPoint затем открывает встроенный OLE-объект.
 
-![OLE object data](OLE_object_data.png)
+![Данные OLE-объекта](OLE_object_data.png)
 
-Слайд может сохранять сообщение «EMBEDDED OLE OBJECT». После того как вы щёлкните по объекту OLE, предварительный просмотр слайда обновится, и сообщение «EMBEDDED OLE OBJECT» будет заменено фактическим изображением объекта OLE.
+Слайд может сохранять сообщение "EMBEDDED OLE OBJECT". После щелчка по OLE-объекту превью слайда обновляется, и сообщение "EMBEDDED OLE OBJECT" заменяется реальным изображением OLE-объекта.
 
-![OLE object preview](OLE_object_preview.png)
+![Превью OLE-объекта](OLE_object_preview.png)
 
-Теперь вы можете сохранить презентацию, чтобы убедиться, что изображение для объекта OLE обновилось корректно. Таким образом, после сохранения презентации, при повторном открытии вы НЕ увидите сообщение «EMBEDDED OLE OBJECT».
+Теперь вы можете сохранить презентацию, чтобы убедиться, что изображение OLE-объекта обновилось корректно. Таким образом, после сохранения презентации при её повторном открытии вы НЕ увидите сообщение "EMBEDDED OLE OBJECT".
 
 ## **Другие решения**
 
-### **Решение 1: заменить сообщение «Embedded OLE Object» изображением**
+### **Решение 1: Заменить сообщение "Embedded OLE Object" изображением**
 
-Если вы не хотите удалять сообщение «EMBEDDED OLE OBJECT», открывая презентацию в PowerPoint и затем сохраняя её, вы можете заменить сообщение своим предпочтительным изображением предварительного просмотра. Ниже приведённые строки кода показывают процесс:
+Если вы не хотите удалять сообщение "EMBEDDED OLE OBJECT" открытием презентации в PowerPoint и последующим сохранением, вы можете заменить сообщение на предпочитаемое изображение превью. Ниже приведены строки кода, демонстрирующие процесс:
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("embeddedOLE.pptx");
 
 var slide = presentation.Slides[0];
@@ -62,19 +67,17 @@ var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 using var imageStream = File.OpenRead("myImage.png");
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Set a title and the image for the OLE object preview.
-oleFrame.SubstitutePictureTitle = "My title";
+// Set the image for the OLE object preview.
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;
 
 presentation.Save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 ```
 
+Слайд, содержащий `OleObjectFrame`, затем меняется на следующий:
 
-Слайд, содержащий `OleObjectFrame`, затем изменяется следующим образом:
+![Новое изображение OLE-объекта](OLE_object_new_image.png)
 
-![New OLE object image](OLE_object_new_image.png)
+### **Решение 2: Создать надстройку для PowerPoint**
 
-### **Решение 2: создать надстройку для PowerPoint**
-
-Вы также можете создать надстройку для Microsoft PowerPoint, которая будет обновлять все объекты OLE при открытии презентаций в программе.
+Вы также можете создать надстройку для Microsoft PowerPoint, которая будет обновлять все OLE-объекты при открытии презентаций в программе.

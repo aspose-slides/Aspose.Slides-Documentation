@@ -1,117 +1,96 @@
 ---
 title: Funktionsübersicht
 type: docs
-weight: 20
+weight: 94
 url: /de/net/features-overview/
 keywords:
 - Funktionen
 - unterstützte Plattformen
-- Dateiformat
+- Dateiformate
 - Konvertierung
 - Rendering
-- Formatierung
+- Präsentationsinhalt
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für .NET: eine leistungsstarke API zum Erstellen, Bearbeiten, Automatisieren und Konvertieren von PowerPoint- und OpenDocument-Präsentationen effizient."
+description: "Überblicken Sie, was Aspose.Slides für .NET abdeckt, bevor Sie es evaluieren: unterstützte Plattformen, Dateiformate, Folien-Rendering und die Inhalte, die Sie erstellen und bearbeiten können."
 ---
-## **Unterstützte Plattformen**
-Aspose.Slides for .NET unterstützt die beliebtesten Entwicklungs‑ und Bereitstellungsplattformen. Gehen Sie die Details durch:
+## **Übersicht**
 
-|**Funktion**|**Beschreibung**|
-| :- | :- |
-|ASP.NET Web Applications|Verwenden Sie Aspose.Slides für .NET, um ASP.NET-Webanwendungen zu erstellen, die die .NET Framework‑Versionen 2.0 bis 4.6.2 ansprechen|
-|Web Services|Verwenden Sie Aspose.Slides für .NET, um Webdienste bereitzustellen|
-|WinForms Applications|Aspose.Slides für .NET kann auch zur Entwicklung von Windows‑Forms‑Anwendungen verwendet werden|
+Aspose.Slides für .NET ist eine Klassenbibliothek zum Erstellen, Lesen, Bearbeiten, Konvertieren und Rendern von PowerPoint- und OpenDocument-Präsentationen. Sie verfügt über keine eigene Benutzeroberfläche und erfordert weder Microsoft PowerPoint noch Office, sodass Sie sie in Konsolenanwendungen, Desktopanwendungen wie Windows Forms, Webanwendungen und Webdiensten verwenden können. Dieser Artikel fasst zusammen, was die Bibliothek abdeckt, und verweist auf die Artikel, die jeden Bereich beschreiben.
+
+## **Unterstützte Plattformen**
+
+Aspose.Slides for .NET wird als zwei NuGet‑Pakete mit derselben API bereitgestellt:
+
+|**Paket**|**Builds im Paket**|**Betriebssysteme**|
+| :- | :- | :- |
+|[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|.NET Framework 4.6.2, .NET Standard 2.0 und .NET 6. Verwenden Sie es mit .NET Framework 4.6.2 oder höher bzw. mit .NET 6 oder höher.|Windows. Linux und macOS mit der Bibliothek `libgdiplus` und dem Schalter `System.Drawing.EnableUnixSupport`.|
+|[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)|.NET 6. Verwenden Sie es mit .NET 6 oder höher.|Windows (x86, x64), Linux (x64 mit glibc 2.23 oder höher, ARM64 mit glibc 2.39 oder höher) und macOS (x64, ARM64).|
+
+[Installation](/slides/de/net/installation/) erklärt, welches Paket zu wählen ist und was jedes von ihnen unter Linux benötigt. [System Requirements](/slides/de/net/system-requirements/) listet die unterstützten Plattformen im Detail auf.
 
 ## **Dateiformate und Konvertierungen**
-Aspose.Slides for .NET unterstützt die meisten PowerPoint‑Dokumentformate. Es ermöglicht außerdem den Export in die gängigen Formate, die Organisationen weit verbreitet nutzen und austauschen. Gehen Sie die Details durch:
+
+Aspose.Slides öffnet und speichert PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP und PowerPoint‑XML‑Präsentationen. Es importiert PDF‑ und HTML‑Inhalte in Folien und speichert Präsentationen als PDF, XPS, HTML, HTML5, TIFF, animiertes GIF, SWF, Markdown und XAML. [Supported File Formats](/slides/de/net/supported-file-formats/) listet jedes Format mit der API auf, die es liest oder schreibt.
 
 |**Funktion**|**Beschreibung**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/de/net/ppt-vs-pptx/)|Aspose.Slides für .NET bietet die schnellste Verarbeitung für dieses Präsentationsdateiformat.|
-|[PPT to PPTX conversion](/slides/de/net/convert-ppt-to-pptx/)|Aspose.Slides für .NET unterstützt die Konvertierung von PPT zu PPTX.|
-|[Portable Document Format (PDF)](/slides/de/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in Adobe Portable Document Format (PDF)‑Dokumente exportieren.|
-|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/de/net/convert-powerpoint-to-xps/)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in XML Parser Specification (XPS)‑Dokumente exportieren.|
-|[Tagged Image File Format (TIFF)](/slides/de/net/convert-powerpoint-to-tiff/)|Sie können alle unterstützten Präsentationsdateiformate in Tagged Image File Format (TIFF) exportieren.|
-|[PPTX To HTML Conversion](/slides/de/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides für .NET unterstützt die Konvertierung von PresentationEx in das HTML‑Format.|
+|[PPT und PPTX](/slides/de/net/ppt-vs-pptx/)|Lesen und schreiben sowohl das binäre PowerPoint‑97‑2003‑Format als auch das Office‑Open‑XML‑Format.|
+|[PPT‑zu‑PPTX‑Konvertierung](/slides/de/net/convert-ppt-to-pptx/)|Konvertieren Sie Legacy‑PPT‑Präsentationen zu PPTX.|
+|[Portable Document Format (PDF)](/slides/de/net/convert-powerpoint-to-pdf/)|Exportieren von Präsentationen nach PDF, einschließlich PDF/A‑ und PDF/UA‑Dokumenten.|
+|[XML Paper Specification (XPS)](/slides/de/net/convert-powerpoint-to-xps/)|Exportieren von Präsentationen zu XPS‑Dokumenten.|
+|[Tagged Image File Format (TIFF)](/slides/de/net/convert-powerpoint-to-tiff/)|Exportieren von Präsentationen zu TIFF‑Bildern.|
+|[HTML](/slides/de/net/convert-powerpoint-to-html/)|Exportieren von Präsentationen nach HTML und HTML5.|
+|[PDF and HTML import](/slides/de/net/import-presentation/)|Erstellen von Folien aus PDF‑Seiten und HTML‑Inhalten.|
 
 ## **Präsentationsrendering**
-Aspose.Slides for .NET unterstützt die hochqualitative Darstellung von Folien in Präsentationsdokumenten in verschiedenen Grafikformaten. Gehen Sie die Details durch:
 
-|**Funktion**|**Beschreibung**|
-| :- | :- |
-|.NET Supported Image Formats|Mit Aspose.Slides für .NET können Sie Präsentationsfolien und Bilder auf Folien in alle von .NET unterstützten Grafikformate wie TIFF, PNG, BMP, JPEG, GIF und Metadateien rendern.|
-|SVG Format|Aspose.Slides für .NET bietet zudem integrierte Methoden, mit denen Sie Präsentationsfolien in Scalable Vector Graphics (SVG)‑Formate exportieren können.|
+Aspose.Slides rendert Folien und einzelne Formen als PNG-, JPEG-, BMP-, GIF-, TIFF- und SVG‑Bilder sowie Folien als EMF‑Metadateien. Siehe [Präsentationsfolien in Bilder konvertieren](/slides/de/net/convert-slide/), [Eine Folie als SVG‑Bild rendern](/slides/de/net/render-a-slide-as-an-svg-image/) und [Form‑Miniaturansichten erstellen](/slides/de/net/create-shape-thumbnails/).
 
 ## **Inhaltsfunktionen**
-Aspose.Slides for .NET ermöglicht den Zugriff, die Bearbeitung oder das Erstellen fast aller Elemente oder Inhalte von Präsentationsdokumenten. Gehen Sie die Details durch:
 
-|**Funktion**|**Beschreibung**|
+Aspose.Slides ermöglicht das Erstellen, Lesen und Ändern fast aller Inhalte einer Präsentation:
+
+|**Bereich**|**Was Sie tun können**|
 | :- | :- |
-|Master Slides|Die Master‑Folien definieren das Layout der normalen Folien. Aspose.Slides für .NET ermöglicht Ihnen den Zugriff auf und die Bearbeitung der Master‑Folien von Präsentationsdokumenten|
-|Normal Slides|Mit Aspose.Slides für .NET können Sie neue Folien verschiedener Typen erstellen; Sie können außerdem vorhandene Folien in den Präsentationen öffnen und bearbeiten|
-|Cloning / Copying Slides|Es gibt integrierte Methoden von Aspose.Slides für .NET, mit denen Sie vorhandene Folien innerhalb einer Präsentation duplizieren oder kopieren können. Sie können kopierte und duplizierte Folien von einer Präsentation zur anderen verwenden. Da eine Folie ihr Layout vom Master‑Slide übernimmt, kopieren die integrierten Klonmethoden den Master beim Klonen automatisch|
-|Managing Slides sections|Methoden zum Organisieren von Folien in verschiedenen Abschnitten innerhalb einer Präsentation|
-|Place Holders and Text Holders|Sie können die Platzhalter und Texthalter in einer Folie öffnen. Außerdem können Sie mit der entsprechenden Methode eine Folie mit Texthaltern von Grund auf neu erstellen|
-|Header and Footers|Aspose.Slides für .NET erleichtert die Handhabung von Kopf‑/Fußzeilen in Folien|
-|Notes in Slides|Mit Aspose.Slides für .NET können Sie Notizen, die mit einer Folie verknüpft sind, öffnen und bearbeiten sowie neue Notizen hinzufügen|
-|Finding a Shape|Sie können auch eine bestimmte Form einer Folie anhand des mit der Form verbundenen Alternativtexts finden|
-|Backgrounds|Aspose.Slides für .NET ermöglicht die Arbeit mit Hintergründen, die einem Master‑ oder normalen Folien in einer Präsentation zugeordnet sind|
-|Text Boxes|Textfelder können von Grund auf neu erstellt werden. Sie können vorhandene Textfelder öffnen. Sie können deren Texte ändern, ohne das ursprüngliche Textformat zu verlieren|
-|Rectangle Shapes|Sie können Rechteckformen mit Aspose.Slides für .NET erstellen oder bearbeiten|
-|Poly Line Shapes|Sie können Poly‑Linienformen mit Aspose.Slides für .NET erstellen oder bearbeiten|
-|Ellipse Shapes|Sie können Ellipsenformen mit Aspose.Slides für .NET erstellen oder bearbeiten|
-|Group Shapes|Aspose.Slides für .NET unterstützt Gruppierungen von Formen|
-|Auto Shapes|Aspose.Slides für .NET unterstützt Autoformen|
-|SmartArt|Aspose.Slides für .NET bietet Unterstützung für SmartArt‑Formen in MS PowerPoint|
-|Charts|Aspose.Slides für .NET bietet Unterstützung für MSO‑Diagramme in PowerPoint|
-|Shapes Serialization|Aspose.Slides für .NET unterstützt eine große Anzahl von Formen. Wenn Aspose.Slides für .NET keine Unterstützung für eine Form bietet, können Sie eine Serialisierungsmethode verwenden, mit der Sie diese Form von einer vorhandenen Folie serialisieren können. Auf diese Weise können Sie die Form weiter nach Ihren Anforderungen nutzen|
-|Picture Frames|Sie können Bilder in Bildrahmen mit Aspose.Slides für .NET verwalten|
-|Audio Frames|Sie können Audiodateien in Audio‑Frames auf Folien verlinken oder einbetten mit Aspose.Slides für .NET|
-|Video Frames|Sie können Videodateien in Video‑Frames verwalten. Aspose.Slides für .NET bietet zudem Unterstützung für verlinkte und eingebettete Videos|
-|OLE Frame|Sie können OLE‑Objekte in OLE‑Frames mit Aspose.Slides für .NET verwalten|
-|Tables|Aspose.Slides für .NET unterstützt Tabellen in Folien|
-|ActiveX Controls|Unterstützung für ActiveX‑Steuerelemente|
-|VBA Macros|Unterstützung für die Verwaltung von VBA‑Makros in Präsentationen|
-|Text Frame|Sie können den Text jeder Form über den mit der Form verknüpften Text‑Frame öffnen|
-|Text Scanning|Sie können Text in einer Präsentation auf Präsentations‑ oder Folienebene mittels integrierter Scan‑Methoden durchsuchen|
-|Animations|Sie können Animationen auf Formen anwenden|
-|Slide Shows|Aspose.Slides für .NET unterstützt Diashows und Folienübergänge|
-
-## **Formatierungsfunktionen**
-Mit Aspose.Slides für .NET können Sie Texte und Formen auf Folien in Präsentationen formatieren. Gehen Sie die Details durch:
-
-|**Funktion**|**Beschreibung**|
-| :- | :- |
-|Text Formatting|<p>In Aspose.Slides für .NET können Sie Texte über die Text‑Frames verwalten, die den Formen zugeordnet sind. Somit können Sie Texte mithilfe der Absätze und Abschnitte, die den Text‑Frames zugeordnet sind, formatieren. Diese Textelemente können über Aspose.Slides für .NET formatiert werden.</p><p>- Schriftart</p><p>- Schriftgröße</p><p>- Schriftfarbe</p><p>- Schattierungen</p><p>- Absatzausrichtung</p><p>- Aufzählungen im Absatz</p><p>- Absatzorientierung</p>|
-|Shape Formatting|<p>In Aspose.Slides für .NET ist das Basiselement einer Folie eine Form. Sie können diese Formelemente mit Aspose.Slides für .NET formatieren:</p><p>- Position</p><p>- Größe</p><p>- Linie</p><p>- Füllung (einschließlich Muster, Verlauf, Einheitlich)</p><p>- Text</p><p>- Bild</p>|
+|[Folien](/slides/de/net/presentation-slide/)|Hinzufügen, Klonen, Neuordnen und Entfernen von Folien; Anwenden von Layouts und Master‑Folien; Organisieren von Folien in Abschnitten; Ändern der Foliengröße.|
+|[Design](/slides/de/net/presentation-design/)|Hintergründe, Designfarben, Kopf‑ und Fußzeilen sowie Schriften festlegen.|
+|[Text](/slides/de/net/manage-text/)|Textfelder, Absätze und Textabschnitte erstellen und bearbeiten; Schriftarten, Farben, Aufzählungen und Ausrichtung festlegen; Text suchen und ersetzen.|
+|[Formen](/slides/de/net/powerpoint-shapes/)|AutoShapes, Linien, Verbinder, Gruppierungen und Bildrahmen erstellen; Position, Größe, Linie sowie einfarbige, Verlauf‑ oder Musterfüllungen festlegen; eine Form anhand ihres Alternativtextes finden.|
+|[Tabellen](/slides/de/net/powerpoint-table/), [Diagramme](/slides/de/net/powerpoint-charts/), und [SmartArt](/slides/de/net/powerpoint-smartart/)|Tabellen, Microsoft‑Office‑Diagramme und SmartArt‑Diagramme erstellen und bearbeiten.|
+|[Medien](/slides/de/net/manage-media-files/), [OLE‑Objekte](/slides/de/net/manage-ole/), und [ActiveX‑Steuerelemente](/slides/de/net/activex/)|Eingebettete oder verknüpfte Audio‑ und Video‑Frames hinzufügen, OLE‑Objekte einbetten sowie ActiveX‑Steuerelemente hinzufügen, ändern oder entfernen.|
+|[Notizen](/slides/de/net/presentation-notes/) und [Kommentare](/slides/de/net/presentation-comments/)|Sprecher‑Notizen und Review‑Kommentare hinzufügen, lesen und bearbeiten.|
+|[Animation](/slides/de/net/powerpoint-animation/) und [Übergänge](/slides/de/net/slide-transition/)|Animations‑Effekte auf Formen anwenden, Folien‑Übergänge festlegen und die Einstellungen der Bildschirmpräsentation konfigurieren.|
+|[Sicherheit](/slides/de/net/presentation-security/)|Präsentationen mit einem Passwort verschlüsseln, Schreibschutz setzen und mit digitalen Signaturen arbeiten.|
+|[VBA‑Makros](/slides/de/net/presentation-via-vba/)|VBA‑Module in makroaktivierten Präsentationen hinzufügen, extrahieren und entfernen.|
+|[Eigenschaften](/slides/de/net/presentation-properties/)|Dokument‑Eigenschaften lesen und bearbeiten.|
 
 ## **FAQ**
 
-### Muss ich Microsoft PowerPoint auf dem Server/PC installieren, damit die Bibliothek funktioniert?
+**Muss ich Microsoft PowerPoint auf dem Server oder PC installieren, damit die Bibliothek funktioniert?**
 
 Nein. PowerPoint ist nicht erforderlich; Aspose.Slides ist eine eigenständige Engine zum Erstellen, Bearbeiten, Konvertieren und Rendern von Präsentationen.
 
-### Wie funktioniert Multithreading? Kann die Verarbeitung parallelisiert werden?
+**Wie funktioniert Multithreading? Kann die Verarbeitung parallelisiert werden?**
 
-Es ist sicher, verschiedene Dokumente in verschiedenen Threads zu verarbeiten; das gleiche [Präsentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Objekt darf nicht von [mehreren Threads](/slides/de/net/multithreading/) gleichzeitig verwendet werden.
+Es ist sicher, verschiedene Dokumente in unterschiedlichen Threads zu verarbeiten; das gleiche [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Objekt darf nicht gleichzeitig von [mehreren Threads](/slides/de/net/multithreading/) verwendet werden.
 
-### Werden Dateipasswörter und Verschlüsselung unterstützt?
+**Werden Dateipasswörter und Verschlüsselung unterstützt?**
 
-Ja. [Sie können](/slides/de/net/password-protected-presentation/) verschlüsselte Präsentationen öffnen, ein Öffnungs‑ und Schreibpasswort setzen oder entfernen und den Schutzstatus prüfen.
+Ja. [Sie können](/slides/de/net/password-protected-presentation/) verschlüsselte Präsentationen öffnen, ein Öffnungs‑ und Schreibpasswort festlegen oder entfernen und den Schutzstatus prüfen.
 
-### Muss ich mich um Schriftpakete in Linux‑Containern kümmern?
+**Muss ich mich um Schriften in Linux‑Containern kümmern?**
 
-Ja. Es wird empfohlen, gängige Schriftpakete zu installieren und/oder explizit [Schriftverzeichnisse angeben](/slides/de/net/custom-font/) in Ihrer Anwendung, um unerwartete Ersetzungen zu vermeiden.
+Ja. Die in Ihren Präsentationen verwendeten Schriften oder geeignete Ersatzschriften müssen auf dem System installiert sein, damit der Text korrekt dargestellt wird. Sie können außerdem [Schriftverzeichnisse angeben](/slides/de/net/custom-font/) in Ihrer Anwendung. [Installation](/slides/de/net/installation/) listet die Linux‑Voraussetzungen jedes Pakets auf.
 
-### Gibt es Einschränkungen in der Evaluierungs‑Version?
+**Gibt es Einschränkungen in der Evaluierungsversion?**
 
-[Evaluierungsmodus](/slides/de/net/licensing/) fügt dem Output ein Wasserzeichen hinzu und es gelten bestimmte Einschränkungen; eine [30‑tägige temporäre Lizenz](https://purchase.aspose.com/temporary-license/) steht für Tests mit vollem Funktionsumfang zur Verfügung.
+Ja. Ohne eine [Lizenz](/slides/de/net/licensing/) fügt Aspose.Slides jedem gespeicherten Folien ein Evaluierungs‑Wasserzeichen hinzu und kürzt den aus Präsentationen gelesenen Text. Eine [30‑tägige temporäre Lizenz](https://purchase.aspose.com/temporary-license/) steht für vollständige Tests zur Verfügung.
 
-### Wird das Importieren externer Formate in eine Präsentation (PDF/HTML → PPTX) unterstützt?
+**Wird das Importieren externer Formate in eine Präsentation (PDF oder HTML nach PPTX) unterstützt?**
 
 Ja. Sie können [PDF‑Seiten und HTML‑Inhalte](/slides/de/net/import-presentation/) zu einer Präsentation hinzufügen und sie in Folien umwandeln.

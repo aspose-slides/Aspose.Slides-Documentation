@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides για Xamarin
+title: Aspose.Slides για Xamarin (Ιστορικό)
+linktitle: Xamarin (Ιστορικό)
 type: docs
-weight: 150
+weight: 200
 url: /el/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,43 +14,51 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Δημιουργήστε κινητές εφαρμογές Xamarin σε C# για προβολή, επεξεργασία και μετατροπή παρουσιάσεων με το Aspose.Slides, υποστηρίζοντας πλούσιες δυνατότητες για PPT, PPTX και ODP στο Android."
+description: "Ιστορικό: πώς οι εκδόσεις Aspose.Slides for .NET 20.2 έως 22.10 υποστήριζαν το Xamarin.Android μέσω ξεχωριστής βιβλιοθήκης. Οι τρέχουσες εκδόσεις δεν την περιλαμβάνουν."
 ---
-## **Εισαγωγή**
+{{% alert color="info" title="Note" %}}
 
-Το Xamarin είναι ένα πλαίσιο που χρησιμοποιείται για ανάπτυξη κινητών στην .NET C#. Το Xamarin διαθέτει εργαλεία και βιβλιοθήκες που επεκτείνουν τις δυνατότητες της πλατφόρμας .NET. Επιτρέπει στους προγραμματιστές να δημιουργούν εφαρμογές για το λειτουργικό σύστημα **Android**.
+Αυτή είναι μια ιστορική σελίδα. Οι εκδόσεις 20.2 έως 22.10 του πακέτου Aspose.Slides.NET περιελάμβαναν ξεχωριστή βιβλιοθήκη Xamarin.Android, *Aspose.Slides.Droid.dll*, η οποία χρησιμοποιείται από τον κώδικα σε αυτή τη σελίδα. Οι μεταγενέστερες εκδόσεις δεν τη περιλαμβάνουν: το τρέχον πακέτο περιέχει εκδόσεις μόνο για .NET Framework 4.6.2, .NET 6 και .NET Standard 2.0. Η Microsoft τερμάτισε την υποστήριξη για όλα τα Xamarin SDK στις 1 Μαΐου 2024· δείτε την [Xamarin support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
-{{% alert color="info" %}} 
-Για ανάπτυξη στο Xamarin, οι προγραμματιστές μπορούν να χρησιμοποιήσουν τα συνηθισμένα περιβάλλοντα ανάπτυξης (C#, Visual Studio και βιβλιοθήκες τρίτου μέρους).
 {{% /alert %}}
 
-Aspose.Slides API λειτουργεί στην πλατφόρμα Xamarin. Για να το επιτευχθεί, το πακέτο Aspose.Slides .NET προσθέτει ένα ξεχωριστό DLL για το Xamarin. Το Aspose.Slides για Xamarin υποστηρίζει τις περισσότερες δυνατότητες που διατίθενται στην έκδοση .NET:
+## **Εισαγωγή**
+
+Το Xamarin είναι ένα πλαίσιο που χρησιμοποιείται για ανάπτυξη κινητών σε .NET C#. Το Xamarin διαθέτει εργαλεία και βιβλιοθήκες που επεκτείνουν τις δυνατότητες της πλατφόρμας .NET. Επιτρέπει στους προγραμματιστές να δημιουργούν εφαρμογές για το λειτουργικό σύστημα **Android**.
+
+{{% alert color="info" title="Note" %}}
+
+Για ανάπτυξη σε Xamarin, οι προγραμματιστές μπορούν να χρησιμοποιούν τα συνηθισμένα περιβάλλοντα ανάπτυξης τους (C#, Visual Studio και βιβλιοθήκες τρίτων).
+
+{{% /alert %}}
+
+Το API του Aspose.Slides λειτουργούσε στην πλατφόρμα Xamarin. Για να το επιτευχθεί, το πακέτο Aspose.Slides.NET, στις εκδόσεις 20.2 έως 22.10, πρόσθεσε ξεχωριστό DLL για Xamarin. Το Aspose.Slides για Xamarin υποστήριζε τις περισσότερες δυνατότητες που διατίθενται στην έκδοση .NET:
 
 - μετατροπή και προβολή παρουσιάσεων.
-- επεξεργασία περιεχομένων παρουσιάσεων: κείμενο, σχήματα, γραφήματα, SmartArt, ήχο/βίντεο, γραμματοσειρές κ.λπ.
-- διαχείριση/αντιμετώπιση κίνησης, 2Δ εφέ, WordArt κ.λπ.
-- διαχείριση/αντιμετώπιση μεταδεδομένων και ιδιοτήτων εγγράφου.
-- κλωνοποίηση, συγχώνευση, σύγκριση, διαχωρισμός κ.λπ.
+- επεξεργασία περιεχομένου σε παρουσιάσεις: κείμενο, σχήματα, διαγράμματα, SmartArt, ήχο/βίντεο, γραμματοσειρές κλπ.
+- διαχείριση/επεξεργασία κινούμενων εικόνων, εφέ 2D, WordArt κλπ.
+- διαχείριση/επεξεργασία μεταδεδομένων και ιδιοτήτων εγγράφου.
+- κλωνοποίηση, συγχώνευση, σύγκριση, διαχωρισμός κλπ.
 
 Παρέχουμε μια σύγκριση των πλήρων δυνατοτήτων σε άλλη ενότητα κοντά στο τέλος αυτής της σελίδας.
 
-Στο API Aspose.Slides για Xamarin, οι κλάσεις, οι χώροι ονομάτων, η λογική και η συμπεριφορά είναι όσο το δυνατόν πιο παρόμοια με την έκδοση .NET. Μπορείτε να μεταφέρετε τις εφαρμογές Aspose.Slides .NET στο Xamarin με ελάχιστο κόστος.
+Στο API του Aspose.Slides για Xamarin, οι κλάσεις, τα ονόματα χώρου, η λογική και η συμπεριφορά ήταν όσο το δυνατόν πιο παρόμοια με την έκδοση .NET. Μπορούσατε να μεταφέρετε τις εφαρμογές Aspose.Slides .NET στο Xamarin με ελάχιστο κόστος.
 
 ## **Γρήγορο Παράδειγμα**
-Μπορείτε να χρησιμοποιήσετε το Aspose.Slides για Xamarin για να δημιουργήσετε και να αξιοποιήσετε την εφαρμογή C# μέσω Slides for Android.
+Μπορείτε να χρησιμοποιήσετε το Aspose.Slides για Xamarin για να δημιουργήσετε και να χρησιμοποιήσετε την εφαρμογή C# σας μέσω Slides for Android.
 
-Παρέχουμε ένα παράδειγμα εφαρμογής Android μέσω Xamarin που χρησιμοποιεί το Aspose.Slides για να εμφανίσει διαφάνειες παρουσίασης και προσθέτει ένα νέο σχήμα στη διαφάνεια με την αφή. Μπορείτε να βρείτε τον πλήρη πηγαίο κώδικα των παραδειγμάτων στο [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Παρέχουμε ένα παράδειγμα εφαρμογής Android μέσω Xamarin που χρησιμοποιεί το Aspose.Slides για να εμφανίσει διαφάνειες παρουσίασης και προσθέτει νέο σχήμα στη διαφάνεια με την αφή. Μπορείτε να βρείτε ολόκληρο τον κώδικα των παραδειγμάτων στο [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Ας ξεκινήσουμε δημιουργώντας μια εφαρμογή Xamarin Android:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Δημιουργία εφαρμογής Xamarin Android](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Πρώτα, δημιουργούμε μια διάταξη περιεχομένου που θα περιέχει μια προβολή εικόνας, και τα κουμπιά Prev και Next:
+Πρώτα, δημιουργούμε μια διάταξη περιεχομένου που θα περιέχει προβολέα εικόνας και κουμπιά Προηγούμενο και Επόμενο:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Διάταξη περιεχομένου με προβολέα εικόνας και κουμπιά Προηγούμενο και Επόμενο](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 **XML - content_main.xml - Δημιουργία διάταξης περιεχομένου**
-``` 
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -92,9 +101,10 @@ Aspose.Slides API λειτουργεί στην πλατφόρμα Xamarin. Γι
 </LinearLayout>
 ```
 
-Εδώ, αναφερόμαστε στη βιβλιοθήκη "Aspose.Slides.Droid.dll" που περιλαμβάνει ένα δείγμα παρουσίασης ("HelloWorld.pptx") στα Assets της εφαρμογής Xamarin και προσθέτουμε την αρχικοποίησή της στο MainActivity:
+Εδώ, κάνουμε αναφορά στη βιβλιοθήκη "Aspose.Slides.Droid.dll" που περιλαμβάνει ένα δείγμα παρουσίασης ("HelloWorld.pptx") στα Assets της εφαρμογής Xamarin και προσθέτουμε την αρχικοποίησή της στο MainActivity:
 
 **C# - MainActivity.cs - Αρχικοποίηση**
+
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -132,8 +142,10 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Ας προσθέσουμε τη λειτουργία για την εμφάνιση των διαφανειών Prev και Next με το πάτημα των κουμπιών:
-**C# - MainActivity.cs - Εμφάνιση διαφανειών κατά το κλικ στα κουμπιά Prev και Next**
+Ας προσθέσουμε τη λειτουργία εμφάνισης των διαφανειών Προηγούμενο και Επόμενο κατά το πάτημα των κουμπιών:
+
+**C# - MainActivity.cs - Εμφάνιση διαφανειών με κλικ στα κουμπιά Προηγούμενο και Επόμενο**
+
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -259,7 +271,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -267,8 +279,10 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Τέλος, ας υλοποιήσουμε μια λειτουργία για την προσθήκη ενός σχήματος έλλειψης κατά το άγγιγμα της διαφάνειας:
+Τέλος, ας υλοποιήσουμε μια λειτουργία που προσθέτει ένα έλλειψη σχήμα στην αφή στη διαφάνεια:
+
 **C# - MainActivity.cs - Προσθήκη έλλειψης με κλικ στη διαφάνεια**
+
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -278,7 +292,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -298,87 +312,89 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Κάθε κλικ στη διαφάνεια παρουσίασης προσθέτει μια έλλειψη τυχαίου χρώματος:
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+Κάθε κλικ στη διαφάνεια της παρουσίασης προσθέτει μια τυχαία χρωματισμένη έλλειψη:
 
-## **Υποστηριζόμενες Λειτουργίες**
+![Διαφάνεια με έλλειψεις προστιθέμενες με την αφή](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
-|**ΛΕΙΤΟΥΡΓΙΕΣ**|**Aspose.Slides για .NET**|**Aspose.Slides για Xamarin**|
+
+## **Υποστηριζόμενα Χαρακτηριστικά**
+
+|**ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**Λειτουργίες Παρουσίασης**:| | |
-|Δημιουργία νέων παρουσιάσεων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Χαρακτηριστικά παρουσίασης:**| | |
+|Δημιουργία νέας παρουσίασης|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Άνοιγμα/αποθήκευση μορφών PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Άνοιγμα/αποθήκευση μορφών PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Υποστήριξη επεκτάσεων PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Υποστήριξη επεκτάσεων PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Υποστήριξη λειτουργιών PowerPoint 2016|περιορισμένη|περιορισμένη|
-|Υποστήριξη λειτουργιών PowerPoint 2019|περιορισμένη|περιορισμένη|
+|Υποστήριξη χαρακτηριστικών PowerPoint 2016|restricted|restricted|
+|Υποστήριξη χαρακτηριστικών PowerPoint 2019|restricted |restricted|
 |Μετατροπή PPT σε PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Μετατροπή PPTX σε PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX σε PPT|περιορισμένη|περιορισμένη|
+|PPTX σε PPT|restricted|restricted|
 |Επεξεργασία θεμάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Επεξεργασία μακροεντολών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Επεξεργασία ιδιοτήτων εγγράφου|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Προστασία κωδικού|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Προστασία με κωδικό|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Γρήγορη εξαγωγή κειμένου|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ενσωμάτωση γραμματοσειρών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Απόδοση σχολίων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Διακοπή μακροχρόνιων εργασιών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Απόδοση σχολίων|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
+|Διακοπή μακροχρόνιων εργασιών|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
 |**Μορφές εξαγωγής:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|περιορισμένη|περιορισμένη|
-|SWF|περιορισμένη|περιορισμένη|
+|ODP|restricted |restricted|
+|SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Μορφές εισαγωγής:**| | |
-|HTML|περιορισμένη|περιορισμένη|
+|HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες κύριας διαφάνειας:**| | |
+|**Χαρακτηριστικά κυρίων διαφανειών:**| | |
 |Πρόσβαση σε όλες τις υπάρχουσες κύριες διαφάνειες|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Δημιουργία/αφαίρεση κύριων διαφανειών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Κλωνοποίηση κύριων διαφανειών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες διαφάνειας διάταξης:**| | |
+|Δημιουργία/αφαίρεση κυρίων διαφανειών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Κλωνοποίηση κυρίων διαφανειών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Χαρακτηριστικά διαφανειών διάταξης:**| | |
 |Πρόσβαση σε όλες τις υπάρχουσες διαφάνειες διάταξης|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Δημιουργία/αφαίρεση διαφανειών διάταξης|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Κλωνοποίηση διαφανειών διάταξης|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες διαφάνειας:**| | |
+|**Χαρακτηριστικά διαφάνειας:**| | |
 |Πρόσβαση σε όλες τις υπάρχουσες διαφάνειες|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Δημιουργία/αφαίρεση διαφανειών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Κλωνοποίηση διαφανειών|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Εξαγωγή διαφανειών σε εικόνες|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Δημιουργία/επεξεργασία/αφαίρεση ενοτήτων διαφάνειας|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες διαφάνειας σημειώσεων:**| | |
+|**Χαρακτηριστικά διαφανειών σημειώσεων**:| | |
 |Πρόσβαση σε όλες τις υπάρχουσες διαφάνειες σημειώσεων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες σχήματος:**| | |
+|**Χαρακτηριστικά σχήματος:**| | |
 |Πρόσβαση σε όλα τα σχήματα της διαφάνειας|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Προσθήκη νέων σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Κλωνοποίηση σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Εξαγωγή ξεχωριστών σχημάτων σε εικόνες|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Υποστηριζόμενοι τύποι σχημάτων:**| | |
-|Όλοι οι προ-ορισμένοι τύποι σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Όλοι οι προορισμένοι τύποι σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Πλαίσια εικόνας|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Πίνακες|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Διαγράμματα|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Διάγραμμα παλαιού τύπου|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Παραδοσιακό διάγραμμα|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, αντικείμενα ActiveX|περιορισμένη|περιορισμένη|
+|Αντικείμενα OLE, ActiveX|restricted|restricted|
 |Πλαίσια βίντεο|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Πλαίσια ήχου|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Συνδέσμους|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες ομαδικού σχήματος:**| | |
-|Πρόσβαση σε ομαδικά σχήματα|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Δημιουργία ομαδικών σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Αποομαδοποίηση υπαρχόντων ομαδικών σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες εφέ σχήματος:**| | |
-|2Δ εφέ|περιορισμένη|περιορισμένη|
-|3Δ εφέ|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Λειτουργίες κειμένου:**| | |
+|Συνδέσμοι|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Χαρακτηριστικά ομάδας σχημάτων:**| | |
+|Πρόσβαση σε ομάδες σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Δημιουργία ομάδων σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Αποομαδοποίηση υφιστάμενων ομάδων σχημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Χαρακτηριστικά εφέ σχήματος:**| | |
+|Εφέ 2D|restricted|restricted|
+|Εφέ 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**Χαρακτηριστικά κειμένου:**| | |
 |Μορφοποίηση παραγράφων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Μορφοποίηση τμημάτων|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Λειτουργίες κίνησης:**| | |
+|**Χαρακτηριστικά κίνησης:**| | |
 |Εξαγωγή κίνησης σε SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Εξαγωγή κίνησης σε HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

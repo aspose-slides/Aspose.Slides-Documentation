@@ -1,56 +1,61 @@
 ---
-title: Xamarin के लिए Aspose.Slides
+title: Aspose.Slides for Xamarin (ऐतिहासिक)
+linktitle: Xamarin (ऐतिहासिक)
 type: docs
-weight: 150
+weight: 200
 url: /hi/net/aspose-slides-for-xamarin/
 keywords:
-- Xamarin
-- मोबाइल विकास
-- Android
-- PowerPoint
-- OpenDocument
-- प्रस्तुति
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides के साथ C# में Xamarin मोबाइल एप्लीकेशन बनाएं ताकि प्रेजेंटेशन को देख, संपादित और रूपांतरित किया जा सके, जो Android पर PPT, PPTX और ODP के लिए समृद्ध सुविधाएँ प्रदान करता है।"
+  - Xamarin
+  - मोबाइल विकास
+  - Android
+  - PowerPoint
+  - OpenDocument
+  - प्रस्तुति
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "ऐतिहासिक: Aspose.Slides for .NET संस्करण 20.2 से 22.10 ने कैसे एक अलग लाइब्रेरी के माध्यम से Xamarin.Android को समर्थन दिया। वर्तमान संस्करण इसमें शामिल नहीं हैं।"
 ---
-## **परिचय**
-
-Xamarin .NET C# में मोबाइल विकास के लिए उपयोग किया जाने वाला एक फ्रेमवर्क है। Xamarin के पास टूल्स और लाइब्रेरीज़ हैं जो .NET प्लेटफ़ॉर्म की क्षमताओं का विस्तार करती हैं। यह डेवलपर्स को **Android** ऑपरेटिंग सिस्टम के लिए एप्लिकेशन बनाने की अनुमति देता है।
-
-{{% alert color="info" %}} 
-Xamarin में विकास के लिए, प्रोग्रामर अपने सामान्य विकास वातावरण (C#, Visual Studio, और थर्ड पार्टी लाइब्रेरीज़) का उपयोग कर सकते हैं।
+{{% alert color="info" title="नोट" %}}
+यह एक ऐतिहासिक पृष्ठ है। Aspose.Slides.NET पैकेज के संस्करण 20.2 से 22.10 ने एक अलग Xamarin.Android लाइब्रेरी, *Aspose.Slides.Droid.dll*, शामिल की थी, जिसका कोड इस पृष्ठ पर उपयोग किया गया है। बाद के संस्करणों में यह नहीं शामिल है: वर्तमान पैकेज में केवल .NET Framework 4.6.2, .NET 6, और .NET Standard 2.0 के लिए बिल्ड्स हैं। माइक्रोसॉफ्ट ने सभी Xamarin SDKs के लिए समर्थन 1 मई 2024 को समाप्त कर दिया; देखें[Xamarin समर्थन नीति](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin)।
 {{% /alert %}}
 
-Aspose.Slides API Xamarin प्लेटफ़ॉर्म पर काम करता है। इसे प्राप्त करने के लिए, Aspose.Slides .NET पैकेज Xamarin के लिए एक अलग DLL जोड़ता है। Aspose.Slides for Xamarin .NET संस्करण में उपलब्ध अधिकांश फीचर्स को सपोर्ट करता है:
+## **परिचय**
 
-- प्रेजेंटेशन को कन्वर्ट करना और देखना।
-- प्रेजेंटेशन की सामग्री को संपादित करना: टेक्स्ट, शॅप्स, चार्ट, SmartArt, ऑडियो/वीडियो, फॉन्ट्स आदि।
-- एनीमेशन, 2D इफ़ेक्ट्स, WordArt आदि को संभालना।
-- मेटाडेटा और दस्तावेज़ प्रॉपर्टीज़ को संभालना।
-- क्लोनिंग, मर्जिंग, तुलना, स्प्लिटिंग आदि।
+Xamarin .NET C# में मोबाइल विकास के लिए उपयोग किया जाने वाला एक फ्रेमवर्क है। Xamarin के पास ऐसे टूल और लाइब्रेरी हैं जो .NET प्लेटफ़ॉर्म की क्षमताओं का विस्तार करते हैं। यह डेवलपर्स को **Android** ऑपरेटिंग सिस्टम के लिए एप्लिकेशन बनाने की अनुमति देता है।
 
-हमने इस पृष्ठ के नीचे के पास एक अन्य सेक्शन में सभी फीचर की तुलना प्रदान की है।
+{{% alert color="info" title="नोट" %}}
+Xamarin में विकास के लिए, प्रोग्रामर अपने नियमित विकास परिवेश (C#, Visual Studio, और तीसरे पक्ष की लाइब्रेरी) का उपयोग कर सकते हैं।
+{{% /alert %}}
 
-Aspose.Slides for Xamarin API में, क्लासेस, नेमस्पेसेस, लॉजिक और बिहेवियर .NET संस्करण के जितना संभव हो उतना समान हैं। आप अपने Aspose.Slides .NET एप्लिकेशन को न्यूनतम लागत के साथ Xamarin में माइग्रेट कर सकते हैं।
+Aspose.Slides API Xamarin प्लेटफ़ॉर्म पर काम करता था। इसे प्राप्त करने के लिए, Aspose.Slides.NET पैकेज ने, संस्करण 20.2 से 22.10 तक, Xamarin के लिए एक अलग DLL जोड़ी। Xamarin के लिए Aspose.Slides ने .NET संस्करण में उपलब्ध अधिकांश विशेषताएं समर्थित कीं:
+
+- प्रेजेंटेशन को बदलना और देखना।
+- प्रेजेंटेशन की सामग्री को संपादित करना: टेक्स्ट, शकलें, चार्ट, SmartArt, ऑडियो/वीडियो, फ़ॉन्ट आदि।
+- एनिमेशन, 2D इफ़ेक्ट्स, WordArt आदि को संभालना/निपटाना।
+- मेटाडेटा और दस्तावेज़ गुणों को संभालना/निपटाना.
+- क्लोनिंग, मर्जिंग, तुलना, विभाजन आदि.
+
+हमने इस पृष्ठ के निचले हिस्से के पास एक अन्य अनुभाग में पूरी विशेषताओं की तुलना प्रदान की है।
+
+Aspose.Slides for Xamarin API में, क्लासेज़, नेमस्पेसेस, लॉजिक और व्यवहार .NET संस्करण के यथासंभव समान थे। आप अपने Aspose.Slides .NET अनुप्रयोगों को न्यूनतम लागत के साथ Xamarin में माइग्रेट कर सकते थे।
 
 ## **त्वरित उदाहरण**
 
-आप Slides for Android के माध्यम से अपने C# एप्लिकेशन को बनाने और उपयोग करने के लिए Aspose.Slides for Xamarin का उपयोग कर सकते हैं।
+आप Aspose.Slides for Xamarin का उपयोग करके Slides for Android के माध्यम से अपना C# एप्लिकेशन बना और उपयोग कर सकते हैं।
 
-हम Android के लिए Xamarin एप्लिकेशन का एक उदाहरण प्रदान कर रहे हैं जो Aspose.Slides का उपयोग करके प्रेजेंटेशन स्लाइड्स दिखाता है और टैच करने पर स्लाइड पर एक नया शॅप जोड़ता है। आप उदाहरणों का पूरा स्रोत [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) पर पा सकते हैं।
+हम Xamarin एप्लिकेशन के माध्यम से Android का एक उदाहरण प्रदान कर रहे हैं जो Aspose.Slides का उपयोग करके प्रेजेंटेशन स्लाइड दिखाता है और टच पर स्लाइड में नया आकार जोड़ता है। आप उदाहरणों के पूर्ण स्रोत कोड को[GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) पर पा सकते हैं।
 
-चलिए एक Xamarin Android ऐप बनाकर शुरू करते हैं:
+आइए एक Xamarin Android ऐप बनाकर शुरू करते हैं:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Xamarin Android ऐप बनाना](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-पहले, हम एक कंटेंट लेआउट बनाते हैं जिसमें एक इमेज व्यू, Prev और Next बटन होंगे:
+पहले, हम एक सामग्री लेआउट बनाते हैं जिसमें छवि दृश्य, Prev, और Next बटन होते हैं:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![छवि दृश्य और Prev एवं Next बटनों के साथ सामग्री लेआउट](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-**XML - content_main.xml - कंटेंट लेआउट बनाएं**
-``` 
+**XML - content_main.xml - सामग्री लेआउट बनाएं**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -93,9 +98,9 @@ Aspose.Slides for Xamarin API में, क्लासेस, नेमस्�
 </LinearLayout>
 ```
 
-यहां, हम "Aspose.Slides.Droid.dll" लाइब्रेरी को संदर्भित करते हैं जिसमें एक सैंपल प्रेजेंटेशन ("HelloWorld.pptx") शामिल है, इसे Xamarin एप्लिकेशन के Assets में जोड़ते हैं और इसका इनिशियलाइज़ेशन MainActivity में जोड़ते हैं:
+यहाँ हम Aspose.Slides.Droid.dll लाइब्रेरी को संदर्भित करते हैं जो एक सैंपल प्रेजेंटेशन ("HelloWorld.pptx") को Xamarin एप्लिकेशन एसेट्स में शामिल करती है और इसकी प्रारम्भिककरण MainActivity में जोड़ती है:
 
-**C# - MainActivity.cs - इनिशियलाइज़ेशन**
+**C# - MainActivity.cs - प्रारम्भिककरण**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -133,8 +138,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-चलिए बटन टैप करने पर Prev और Next स्लाइड्स दिखाने के लिए फ़ंक्शन जोड़ते हैं:
-**C# - MainActivity.cs - Prev और Next बटन क्लिक पर स्लाइड्स दिखाएँ**
+बटनों को टैप करने पर Prev और Next स्लाइड दिखाने के लिए फ़ंक्शन जोड़ें:
+**C# - MainActivity.cs - Prev और Next बटन क्लिक पर स्लाइड दिखाएँ**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -238,7 +243,7 @@ public class MainActivity : AppCompatActivity
     {
         Aspose.Slides.Drawing.Xamarin.Size size = presentation.SlideSize.Size.ToSize();
         Aspose.Slides.Drawing.Xamarin.Bitmap bitmap = presentation.Slides[slideNumber].GetThumbnail(size);
-        imageView.SetImageBitmap(bitmap.ToNativeBitmap());
+        imageView.SetImageBitmap(bitmap ToNativeBitmap());
     }
 
     private void LoadPresentation()
@@ -260,7 +265,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -268,8 +273,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-अंत में, चलिए स्लाइड पर टैच करने पर एक एलिप्स शॅप जोड़ने के लिए फ़ंक्शन लागू करते हैं:
-**C# - MainActivity.cs - स्लाइड क्लिक द्वारा एलिप्स जोड़ें**
+अंत में, स्लाइड पर टच करने पर एक अंडाकार आकार जोड़ने के लिए फ़ंक्शन लागू करें:
+**C# - MainActivity.cs - स्लाइड क्लिक से अंडाकार जोड़ें**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -279,7 +284,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -299,33 +304,33 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-प्रेजेंटेशन स्लाइड पर प्रत्येक क्लिक एक रैंडम रंग का एलिप्स जोड़ता है:
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+प्रेजेंटेशन स्लाइड पर प्रत्येक क्लिक पर एक यादृच्छिक रंग का अंडाकार जोड़ा जाता है:
+![टच द्वारा जोड़े गए अंडाकारों के साथ स्लाइड](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **समर्थित सुविधाएँ**
 
-|**विशेषताएँ**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
+|**फ़ीचर्स**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**प्रेजेंटेशन विशेषताएँ:**| | |
+|**प्रेजेंटेशन सुविधाएँ**:| | |
 |नई प्रेजेंटेशन बनाएं|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97 - 2003 फ़ॉर्मेट्स खोलें/सहेजें|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2007 फ़ॉर्मेट्स खोलें/सहेजें|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97 - 2003 फ़ॉर्मेट खोलें/सहेजें|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2007 फ़ॉर्मेट खोलें/सहेजें|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2010 एक्सटेंशन समर्थन|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2013 एक्सटेंशन समर्थन|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016 सुविधाओं का समर्थन|restricted|restricted|
-|PowerPoint 2019 सुविधाओं का समर्थन|restricted|restricted|
-|PPT से PPTX रूपांतरण|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX से PPT रूपांतरण|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2016 फीचर समर्थन|restricted|restricted|
+|PowerPoint 2019 फीचर समर्थन|restricted|restricted|
+|PPT से PPTX परिवर्तन|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX से PPT परिवर्तन|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPT में PPTX|restricted|restricted|
 |थीम प्रोसेसिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |मैक्रो प्रोसेसिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|दस्तावेज़ प्रॉपर्टी प्रोसेसिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|दस्तावेज़ गुण प्रोसेसिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |पासवर्ड सुरक्षा|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |तेज़ टेक्स्ट निष्कर्षण|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |फ़ॉन्ट एम्बेडिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|टिप्पणियाँ रेंडरिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|दीर्घकालिक कार्यों का इंटरप्शन|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**निर्यात फ़ॉर्मेट:**| | |
+|टिप्पणियों का रेंडरिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|लंबे समय चलने वाले कार्यों का व्यवधान|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**निर्यात स्वरूप:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -333,53 +338,53 @@ public class MainActivity : AppCompatActivity
 |ODP|restricted|restricted|
 |SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**आयात फ़ॉर्मेट:**| | |
+|**आयात स्वरूप:**| | |
 |HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**मास्टर स्लाइड सुविधाएँ:**| | |
-|सभी मौजूदा मास्टर स्लाइड तक पहुँच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|सभी मौजूदा मास्टर स्लाइड तक पहुंच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |मास्टर स्लाइड बनाना/हटाना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|मास्टर स्लाइड क्लोनिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|मास्टर स्लाइड क्लोन करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**लेआउट स्लाइड सुविधाएँ:**| | |
-|सभी मौजूदा लेआउट स्लाइड तक पहुँच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|सभी मौजूदा लेआउट स्लाइड तक पहुंच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |लेआउट स्लाइड बनाना/हटाना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|लेआउट स्लाइड क्लोनिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|लेआउट स्लाइड क्लोन करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**स्लाइड सुविधाएँ:**| | |
-|सभी मौजूदा स्लाइड तक पहुँच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|सभी मौजूदा स्लाइड तक पहुंच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |स्लाइड बनाना/हटाना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|स्लाइड क्लोनिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|स्लाइड को इमेज में निर्यात|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|स्लाइड क्लोन करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|स्लाइड को छवियों में निर्यात करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |स्लाइड सेक्शन बनाना/संपादित करना/हटाना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**नोट्स स्लाइड सुविधाएँ**| | |
-|सभी मौजूदा नोट्स स्लाइड तक पहुँच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**शॅप सुविधाएँ:**| | |
-|सभी स्लाइड शॅप्स तक पहुँच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|नए शॅप जोड़ना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|शॅप क्लोनिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|अलग शॅप को इमेज में निर्यात|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**समर्थित शॅप प्रकार:**| | |
-|सभी पूर्वनिर्धारित शॅप प्रकार|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**नोट्स स्लाइड सुविधाएँ**:| | |
+|सभी मौजूदा नोट्स स्लाइड तक पहुंच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**आकार सुविधाएँ:**| | |
+|सभी स्लाइड आकारों तक पहुंच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|नए आकार जोड़ना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|आकार क्लोन करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|अलग-अलग आकारों को छवियों में निर्यात करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**समर्थित आकार प्रकार:**| | |
+|सभी पूर्वनिर्धारित आकार प्रकार|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |चित्र फ्रेम|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|टेबल|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|टेबल्स|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |चार्ट|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|पुरानी डायग्राम|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|लेगसी डायग्राम|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |OLE, ActiveX ऑब्जेक्ट्स|restricted|restricted|
 |वीडियो फ्रेम|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |ऑडियो फ्रेम|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |कनेक्टर|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ग्रुप शॅप सुविधाएँ:**| | |
-|ग्रुप शॅप्स तक पहुँच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ग्रुप शॅप्स बनाना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|मौजूदा ग्रुप शॅप्स को अनग्रुप करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**शॅप इफ़ेक्ट्स सुविधाएँ:**| | |
-|2D इफ़ेक्ट्स|restricted|restricted|
-|3D इफ़ेक्ट्स|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**ग्रुप आकार सुविधाएँ:**| | |
+|ग्रुप आकार तक पहुंच|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|ग्रुप आकार बनाना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|मौजूदा ग्रुप आकार को अनग्रुप करना|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**आकार प्रभाव सुविधाएँ:**| | |
+|2D प्रभाव|restricted|restricted|
+|3D प्रभाव|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**टेक्स्ट सुविधाएँ:**| | |
-|पैरा फ़ॉर्मेटिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|पॉर्शन फ़ॉर्मेटिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|पैराग्राफ़ फ़ॉर्मेटिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|भाग फ़ॉर्मेटिंग|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**एनिमेशन सुविधाएँ:**| | |
 |एनिमेशन को SWF में निर्यात|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |एनिमेशन को HTML में निर्यात|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

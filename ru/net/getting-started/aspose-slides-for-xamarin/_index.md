@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides для Xamarin
+title: Aspose.Slides для Xamarin (Исторический)
+linktitle: Xamarin (Исторический)
 type: docs
-weight: 150
+weight: 200
 url: /ru/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,43 +14,51 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Создавайте мобильные приложения Xamarin на C#, чтобы просматривать, редактировать и конвертировать презентации с помощью Aspose.Slides, поддерживая расширенные функции для PPT, PPTX и ODP на Android."
+description: "Исторический: как версии Aspose.Slides для .NET 20.2-22.10 поддерживали Xamarin.Android через отдельную библиотеку. Текущие версии её не включают."
 ---
-## **Введение**
+{{% alert color="info" title="Примечание" %}}
 
-Xamarin — это фреймворк, используемый для мобильной разработки на .NET C#. Xamarin имеет инструменты и библиотеки, расширяющие возможности платформы .NET. Он позволяет разработчикам создавать приложения для операционной системы **Android**.
+Это историческая страница. Версии 20.2‑22.10 пакета Aspose.Slides.NET включали отдельную библиотеку Xamarin.Android, *Aspose.Slides.Droid.dll*, которую использует код на этой странице. В более новых версиях её нет: текущий пакет содержит сборки только для .NET Framework 4.6.2, .NET 6 и .NET Standard 2.0. Microsoft прекратила поддержку всех Xamarin SDK 1 мая 2024 года; см. [Xamarin support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
-{{% alert color="info" %}} 
-Для разработки в Xamarin программисты могут использовать свои обычные среды разработки (C#, Visual Studio и сторонние библиотеки).
 {{% /alert %}}
 
-Aspose.Slides API работает на платформе Xamarin. Для этого пакет Aspose.Slides .NET добавляет отдельный DLL для Xamarin. Aspose.Slides для Xamarin поддерживает большинство функций, доступных в версии .NET:
+## **Введение**
 
-- конвертация и просмотр презентаций.
-- редактирование содержимого презентаций: текст, формы, диаграммы, SmartArt, аудио/видео, шрифты и т.д.
-- работа с анимацией, 2D‑эффектами, WordArt и т.п.
-- работа с метаданными и свойствами документа.
-- клонирование, объединение, сравнение, разбивка и т.д.
+Xamarin — это фреймворк, используемый для мобильной разработки в .NET C#. Xamarin предоставляет инструменты и библиотеки, расширяющие возможности платформы .NET. Он позволяет разработчикам создавать приложения для операционной системы **Android**.
 
-Мы предоставили сравнение полного набора функций в отдельном разделе ближе к концу этой страницы.
+{{% alert color="info" title="Примечание" %}}
 
-В API Aspose.Slides для Xamarin классы, пространства имён, логика и поведение максимально похожи на версию .NET. Вы можете перенести свои приложения Aspose.Slides .NET на Xamarin с минимальными затратами.
+Для разработки в Xamarin программисты могут использовать привычные среды разработки (C#, Visual Studio и сторонние библиотеки).
+
+{{% /alert %}}
+
+API Aspose.Slides работал на платформе Xamarin. Для этого в пакет Aspose.Slides.NET в версиях 20.2‑22.10 была добавлена отдельная DLL для Xamarin. Aspose.Slides для Xamarin поддерживал большинство функций, доступных в .NET‑версии:
+
+- конвертирование и просмотр презентаций;
+- редактирование содержимого презентаций: текст, фигуры, диаграммы, SmartArt, аудио/видео, шрифты и т.д.;
+- работа с анимацией, 2D‑эффектами, WordArt и т.п.;
+- работа с метаданными и свойствами документа;
+- клонирование, объединение, сравнение, разбиение и др.
+
+Сравнение полного набора функций представлено в отдельном разделе рядом с нижней частью этой страницы.
+
+В API Aspose.Slides для Xamarin классы, пространства имён, логика и поведение были максимально аналогичны .NET‑версии. Вы могли мигрировать свои .NET‑приложения Aspose.Slides в Xamarin с минимальными затратами.
 
 ## **Быстрый пример**
-Вы можете использовать Aspose.Slides для Xamarin, чтобы построить и задействовать своё C#‑приложение через Slides for Android.
+Вы могли использовать Aspose.Slides для Xamarin, чтобы построить и задействовать своё C#‑приложение через Slides для Android.
 
-Мы предоставляем пример Android‑приложения на Xamarin, которое использует Aspose.Slides для отображения слайдов презентации и добавляет новую фигуру на слайд при касании. Полный исходный код примеров можно найти на[GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Мы предоставляем пример Android‑приложения на Xamarin, которое использует Aspose.Slides для отображения слайдов презентации и добавления новой фигуры по нажатию. Полный исходный код примеров доступен на [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Начнём с создания Xamarin Android App:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Создание Xamarin Android приложения](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Сначала создаём макет содержимого, который будет содержать ImageView, кнопки Prev и Next:
+Сначала создаём разметку содержимого, которая будет включать ImageView, а также кнопки Prev и Next:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Макет содержимого с ImageView и кнопками Prev и Next](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-**XML - content_main.xml - Создать макет содержимого**
-``` 
+**XML - content_main.xml - Создать разметку содержимого**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -92,7 +101,7 @@ Aspose.Slides API работает на платформе Xamarin. Для эт�
 </LinearLayout>
 ```
 
-Здесь мы подключаем библиотеку "Aspose.Slides.Droid.dll", содержащую пример презентации ("HelloWorld.pptx"), в Assets Xamarin‑приложения и добавляем её инициализацию в MainActivity:
+Здесь мы подключаем библиотеку "Aspose.Slides.Droid.dll", содержащую пример презентации ("HelloWorld.pptx") в Assets Xamarin‑приложения и добавляем её инициализацию в MainActivity:
 
 **C# - MainActivity.cs - Инициализация**
 ``` csharp
@@ -132,9 +141,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Добавим функцию отображения слайдов при нажатию кнопок Prev и Next:
+Добавим функцию отображения слайдов Prev и Next по нажатию кнопок:
 
-**C# - MainActivity.cs - Отображение слайдов при нажатию кнопок Prev и Next**
+**C# - MainActivity.cs - Отображение слайдов по нажатию кнопок Prev и Next**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -260,7 +269,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -268,9 +277,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Наконец, реализуем функцию добавления эллипса при касании слайда:
+Наконец, реализуем функцию добавления эллипса по касанию слайда:
 
-**C# - MainActivity.cs - Добавление эллипса при клике по слайду**
+**C# - MainActivity.cs - Добавление эллипса по нажатию на слайд**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -280,7 +289,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -300,24 +309,24 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Каждый клик по слайду презентации добавляет эллипс случайного цвета:
+Каждое нажатие на слайд презентации приводит к добавлению эллипса случайного цвета:
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+![Слайд с эллипсами, добавленными касанием](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Поддерживаемые функции**
 
-|**ФУНКЦИИ**|**Aspose.Slides для .NET**|**Aspose.Slides для Xamarin**|
+|**ФУНКЦИИ**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**Функции презентаций**:| | |
+|**Функции презентации:**| | |
 |Создание новых презентаций|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Открытие/сохранение форматов PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Открытие/сохранение форматов PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Открытие/сохранение форматов PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Поддержка расширений PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Поддержка расширений PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Поддержка функций PowerPoint 2016|ограничено|ограничено|
 |Поддержка функций PowerPoint 2019|ограничено|ограничено|
-|Конверсия PPT в PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Конверсия PPTX в PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Конвертация PPT → PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Конвертация PPTX → PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX в PPT|ограничено|ограничено|
 |Обработка тем|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Обработка макросов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -326,8 +335,8 @@ public class MainActivity : AppCompatActivity
 |Быстрое извлечение текста|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Встраивание шрифтов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Отображение комментариев|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Прерывание долгих задач|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Форматы экспорта**:| | |
+|Прерывание длительных задач|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Форматы экспорта:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -335,32 +344,32 @@ public class MainActivity : AppCompatActivity
 |ODP|ограничено|ограничено|
 |SWF|ограничено|ограничено|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Форматы импорта**:| | |
+|**Форматы импорта:**| | |
 |HTML|ограничено|ограничено|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции шаблонов слайдов**:| | |
-|Доступ ко всем существующим шаблонам слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Создание/удаление шаблонов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Клонирование шаблонов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции макетов слайдов**:| | |
-|Доступ ко всем существующим макетам слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Создание/удаление макетов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Клонирование макетов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции слайдов**:| | |
+|**Функции образцов слайдов:**| | |
+|Доступ ко всем существующим образцам слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Создание/удаление образцов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Клонирование образцов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Функции разметки слайдов:**| | |
+|Доступ ко всем существующим разметкам слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Создание/удаление разметок слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Клонирование разметок слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Функции слайдов:**| | |
 |Доступ ко всем существующим слайдам|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Создание/удаление слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Клонирование слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Экспорт слайдов в изображения|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Создание/редактирование/удаление секций слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции слайдов заметок**:| | |
-|Доступ ко всем существующим слайдам заметок|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции фигур**:| | |
+|Создание/редактирование/удаление разделов слайдов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Функции слайдов с примечаниями:**| | |
+|Доступ ко всем существующим слайдам с примечаниями|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Функции фигур:**| | |
 |Доступ ко всем фигурам слайда|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Добавление новых фигур|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Клонирование фигур|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Экспорт отдельных фигур в изображения|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Поддерживаемые типы фигур**:| | |
+|**Поддерживаемые типы фигур:**| | |
 |Все предопределённые типы фигур|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Рамки изображений|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Таблицы|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -372,16 +381,16 @@ public class MainActivity : AppCompatActivity
 |Видеокадры|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Аудиокадры|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Соединители|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции групповых фигур**:| | |
+|**Групповые фигуры:**| | |
 |Доступ к групповым фигурам|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Создание групповых фигур|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Разгруппировка существующих групповых фигур|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции эффектов фигур**:| | |
+|**Эффекты фигур:**| | |
 |2D‑эффекты|ограничено|ограничено|
 |3D‑эффекты|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Текстовые функции**:| | |
+|**Текстовые функции:**| | |
 |Форматирование абзацев|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Форматирование фрагментов|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Функции анимации**:| | |
+|Форматирование частей текста|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Анимационные функции:**| | |
 |Экспорт анимации в SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Экспорт анимации в HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

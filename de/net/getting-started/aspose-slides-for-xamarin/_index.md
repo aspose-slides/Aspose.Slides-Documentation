@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides für Xamarin
+title: Aspose.Slides für Xamarin (Historisch)
+linktitle: Xamarin (Historisch)
 type: docs
-weight: 150
+weight: 200
 url: /de/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,48 +14,48 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Entwickeln Sie Xamarin‑Mobile‑Apps in C#, um Präsentationen mit Aspose.Slides anzuzeigen, zu bearbeiten und zu konvertieren, wobei umfangreiche Funktionen für PPT, PPTX und ODP auf Android unterstützt werden."
+description: "Historisch: Wie Aspose.Slides für .NET-Versionen 20.2 bis 22.10 Xamarin.Android über eine separate Bibliothek unterstützte. Aktuelle Versionen enthalten sie nicht."
 ---
-## **Einleitung**
-
-Xamarin ist ein Framework, das für die mobile Entwicklung in .NET C# verwendet wird. Xamarin bietet Werkzeuge und Bibliotheken, die die Fähigkeiten der .NET‑Plattform erweitern. Es ermöglicht Entwicklern, Anwendungen für das **Android**‑Betriebssystem zu erstellen. 
-
-{{% alert color="info" %}} 
-
-Für die Entwicklung mit Xamarin können Programmierer ihre üblichen Entwicklungsumgebungen (C#, Visual Studio und Bibliotheken von Drittanbietern) verwenden.
-
+{{% alert color="info" title="Hinweis" %}}
+Dies ist eine historische Seite. Versionen 20.2 bis 22.10 des Aspose.Slides.NET‑Pakets enthielten eine separate Xamarin.Android‑Bibliothek, *Aspose.Slides.Droid.dll*, die der Code auf dieser Seite verwendet. Spätere Versionen enthalten sie nicht: das aktuelle Paket enthält Builds nur für .NET Framework 4.6.2, .NET 6 und .NET Standard 2.0. Microsoft hat die Unterstützung für alle Xamarin‑SDKs am 1. Mai 2024 beendet; siehe die [Xamarin-Unterstützungsrichtlinie](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 {{% /alert %}}
 
-Die Aspose.Slides‑API funktioniert auf der Xamarin‑Plattform. Dafür fügt das Aspose.Slides‑.NET‑Paket eine separate DLL für Xamarin hinzu. Aspose.Slides für Xamarin unterstützt die meisten Funktionen, die in der .NET‑Version verfügbar sind:
+## **Einleitung**
+
+Xamarin ist ein Framework, das für die mobile Entwicklung in .NET C# verwendet wird. Xamarin verfügt über Werkzeuge und Bibliotheken, die die Möglichkeiten der .NET‑Plattform erweitern. Es ermöglicht Entwicklern, Anwendungen für das **Android**‑Betriebssystem zu erstellen.
+
+{{% alert color="info" title="Hinweis" %}}
+Für die Entwicklung mit Xamarin können Programmierer ihre üblichen Entwicklungsumgebungen (C#, Visual Studio und Bibliotheken von Drittanbietern) verwenden.
+{{% /alert %}}
+
+Die Aspose.Slides‑API funktionierte auf der Xamarin‑Plattform. Um dies zu ermöglichen, fügte das Aspose.Slides.NET‑Paket in den Versionen 20.2 bis 22.10 eine separate DLL für Xamarin hinzu. Aspose.Slides für Xamarin unterstützte die meisten der in der .NET‑Version verfügbaren Funktionen:
 
 - Konvertieren und Anzeigen von Präsentationen.
 - Bearbeiten von Inhalten in Präsentationen: Text, Formen, Diagramme, SmartArt, Audio/Video, Schriftarten usw.
-- Verarbeitung von Animationen, 2D‑Effekten, WordArt usw.
-- Verarbeitung von Metadaten und Dokumenteigenschaften.
+- Verarbeiten von Animationen, 2D‑Effekten, WordArt usw.
+- Verarbeiten von Metadaten und Dokumenteigenschaften.
 - Klonen, Zusammenführen, Vergleichen, Aufteilen usw.
 
-Wir haben einen Vergleich der vollständigen Funktionen in einem anderen Abschnitt weiter unten auf dieser Seite bereitgestellt.
+Wir haben einen Vergleich der vollständigen Funktionen in einem anderen Abschnitt nahe dem Ende dieser Seite bereitgestellt.
 
-In der Aspose.Slides‑für‑Xamarin‑API sind Klassen, Namespaces, Logik und Verhalten so weit wie möglich an die .NET‑Version angelehnt. Sie können Ihre Aspose.Slides‑.NET‑Anwendungen mit minimalem Aufwand nach Xamarin migrieren.
-
+In der Aspose.Slides für Xamarin‑API waren Klassen, Namespaces, Logik und Verhalten so weit wie möglich an die .NET‑Version angelehnt. Sie konnten Ihre Aspose.Slides‑.NET‑Anwendungen mit minimalem Aufwand zu Xamarin migrieren.
 
 ## **Schnelles Beispiel**
+
 Sie können Aspose.Slides für Xamarin verwenden, um Ihre C#‑Anwendung über Slides für Android zu erstellen und zu nutzen.
 
-Wir stellen ein Beispiel einer Android‑via‑Xamarin‑Anwendung bereit, die Aspose.Slides verwendet, um Präsentationsfolien anzuzeigen und bei Berührung auf der Folie eine neue Form hinzuzufügen. Den vollständigen Quellcode der Beispiele finden Sie auf [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Wir stellen ein Beispiel einer Android‑via‑Xamarin‑Anwendung bereit, die Aspose.Slides verwendet, um Präsentationsfolien anzuzeigen und bei Berührung der Folie eine neue Form hinzuzufügen. Den vollständigen Quellcode der Beispiele finden Sie auf [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Lassen Sie uns beginnen, indem wir eine Xamarin‑Android‑App erstellen:
+Beginnen wir mit der Erstellung einer Xamarin‑Android‑App:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Erstellen einer Xamarin‑Android‑App](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Zuerst erstellen wir ein Inhaltslayout, das eine ImageView sowie Vor‑ und Zurück‑Schaltflächen enthält:
+Zuerst erstellen wir ein Inhaltslayout, das eine Image‑View sowie Vor‑ und Zurück‑Buttons enthält:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
-
-
+![Inhaltslayout mit einer Image‑View und Vor‑ und Zurück‑Buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 **XML – content_main.xml – Inhaltslayout erstellen**
-``` 
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -97,10 +98,9 @@ Zuerst erstellen wir ein Inhaltslayout, das eine ImageView sowie Vor‑ und Zur�
 </LinearLayout>
 ```
 
-Hier binden wir die Bibliothek "Aspose.Slides.Droid.dll" ein, die eine Beispielpräsentation ("HelloWorld.pptx") enthält, in die Assets der Xamarin‑Anwendung und fügen deren Initialisierung zu MainActivity hinzu:
+Hier verweisen wir auf die Bibliothek "Aspose.Slides.Droid.dll", die eine Beispielpräsentation ("HelloWorld.pptx") in die Assets der Xamarin‑Anwendung einbindet und deren Initialisierung in MainActivity hinzufügt:
 
 **C# – MainActivity.cs – Initialisierung**
-
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -138,10 +138,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Fügen wir nun die Funktion hinzu, um beim Antippen der Schaltflächen die vorherige und nächste Folie anzuzeigen:
-
-**C# – MainActivity.cs – Folien bei Klick auf Vor‑ bzw. Zurück‑Button anzeigen**
-
+Fügen wir die Funktion hinzu, um beim Drücken der Vor‑ und Zurück‑Buttons die jeweiligen Folien anzuzeigen:
+**C# – MainActivity.cs – Folien bei Vor‑ und Zurück‑Button‑Klick anzeigen**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -267,7 +265,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -275,10 +273,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Abschließend implementieren wir eine Funktion, um bei Berührung der Folie eine Ellipsenform hinzuzufügen:
-
-**C# – MainActivity.cs – Ellipse bei Folienklick hinzufügen**
-
+Abschließend implementieren wir eine Funktion, um bei Berührung einer Folie eine Ellipsenform hinzuzufügen:
+**C# – MainActivity.cs – Ellipse per Folienklick hinzufügen**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -288,7 +284,7 @@ Abschließend implementieren wir eine Funktion, um bei Berührung der Folie eine
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -309,9 +305,7 @@ Abschließend implementieren wir eine Funktion, um bei Berührung der Folie eine
 ```
 
 Jeder Klick auf die Präsentationsfolie fügt eine zufällig farbige Ellipse hinzu:
-
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
-
+![Folie mit durch Berührung hinzugefügten Ellipsen](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Unterstützte Funktionen**
 
@@ -321,21 +315,21 @@ Jeder Klick auf die Präsentationsfolie fügt eine zufällig farbige Ellipse hin
 |Neue Präsentationen erstellen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint‑97‑2003‑Formate öffnen/speichern|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint‑2007‑Formate öffnen/speichern|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Unterstützung für PowerPoint‑2010‑Erweiterungen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Unterstützung für PowerPoint‑2013‑Erweiterungen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Unterstützung für PowerPoint‑2016‑Funktionen|eingeschränkt|eingeschränkt|
-|Unterstützung für PowerPoint‑2019‑Funktionen|eingeschränkt|eingeschränkt|
-|PPT‑zu‑PPTX‑Konvertierung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX‑zu‑PPT‑Konvertierung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Unterstützung von PowerPoint‑2010‑Erweiterungen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Unterstützung von PowerPoint‑2013‑Erweiterungen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Unterstützung von PowerPoint‑2016‑Funktionen|eingeschränkt|eingeschränkt|
+|Unterstützung von PowerPoint‑2019‑Funktionen|eingeschränkt|eingeschränkt|
+|PPT → PPTX‑Konvertierung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX → PPT‑Konvertierung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX in PPT|eingeschränkt|eingeschränkt|
 |Verarbeitung von Designs|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Verarbeitung von Makros|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Verarbeitung von Dokumenteigenschaften|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Kennwortschutz|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Schnelle Textextraktion|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Passwortschutz|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Schnelle Texteextraktion|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Einbetten von Schriftarten|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Darstellung von Kommentaren|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
-|Unterbrechen von langlaufenden Aufgaben|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
+|Anzeige von Kommentaren|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Unterbrechen von langlaufenden Aufgaben|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Exportformate:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -349,9 +343,9 @@ Jeder Klick auf die Präsentationsfolie fügt eine zufällig farbige Ellipse hin
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Master‑Folien‑Funktionen:**| | |
-|Zugriff auf alle vorhandenen Master‑Folien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Erstellen/Entfernen von Master‑Folien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klonen von Master‑Folien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Zugriff auf alle vorhandenen Masterfolien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Erstellen/Entfernen von Masterfolien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonen von Masterfolien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Layout‑Folien‑Funktionen:**| | |
 |Zugriff auf alle vorhandenen Layout‑Folien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Erstellen/Entfernen von Layout‑Folien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -362,15 +356,15 @@ Jeder Klick auf die Präsentationsfolie fügt eine zufällig farbige Ellipse hin
 |Klonen von Folien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Exportieren von Folien zu Bildern|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Erstellen/Bearbeiten/Entfernen von Folienabschnitten|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Notizfolien‑Funktionen**:| | |
+|**Notizfolien‑Funktionen:**| | |
 |Zugriff auf alle vorhandenen Notizfolien|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Form‑Funktionen:**| | |
-|Zugriff auf alle Folienformen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Zugriff auf alle Folien‑Formen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Hinzufügen neuer Formen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonen von Formen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Exportieren einzelner Formen zu Bildern|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Unterstützte Formtypen:**| | |
-|Alle vordefinierten Formtypen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Unterstützte Form‑Typen:**| | |
+|Alle vordefinierten Form‑Typen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bildrahmen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabellen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Diagramme|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -381,16 +375,16 @@ Jeder Klick auf die Präsentationsfolie fügt eine zufällig farbige Ellipse hin
 |Video‑Frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Audio‑Frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Verbinder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Gruppenformen‑Funktionen:**| | |
-|Zugriff auf Gruppenformen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Erstellen von Gruppenformen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Aufheben der Gruppierung vorhandener Gruppenformen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Formeffekte‑Funktionen:**| | |
+|**Gruppen‑Form‑Funktionen:**| | |
+|Zugriff auf Gruppenkörper|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Erstellen von Gruppenkörpern|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Auflösen vorhandener Gruppenkörper|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Form‑Effekt‑Funktionen:**| | |
 |2D‑Effekte|eingeschränkt|eingeschränkt|
 |3D‑Effekte|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Text‑Funktionen:**| | |
 |Absatzformatierung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Abschnittsformatierung|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Animations‑Funktionen:**| | |
-|Export von Animationen nach SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|Export von Animationen nach HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|Animation nach SWF exportieren|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|Animation nach HTML exportieren|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

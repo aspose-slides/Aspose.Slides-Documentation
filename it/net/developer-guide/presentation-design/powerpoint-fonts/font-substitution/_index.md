@@ -1,17 +1,17 @@
 ---
-title: Configurare la sostituzione dei caratteri nelle presentazioni in .NET
+title: Configura la sostituzione dei caratteri nelle presentazioni in .NET
 linktitle: Sostituzione dei caratteri
 type: docs
 weight: 70
 url: /it/net/font-substitution/
 keywords:
 - carattere
+- carattere di sostituzione
+- sostituzione del carattere
 - sostituire carattere
-- sostituzione dei caratteri
-- rimpiazzare carattere
 - sostituzione del carattere
 - regola di sostituzione
-- regola di rimpiazzo
+- regola di sostituzione
 - PowerPoint
 - OpenDocument
 - presentazione
@@ -22,15 +22,15 @@ description: "Configura le regole di sostituzione dei caratteri e ispeziona i ca
 ---
 ## **Panoramica**
 
-La sostituzione dei caratteri consente ad Aspose.Slides di utilizzare un carattere disponibile al posto di un carattere a cui non è possibile accedere quando una presentazione viene renderizzata o convertita. La sostituzione influisce sull'output renderizzato; non modifica il carattere assegnato al contenuto della presentazione.
+La sostituzione dei caratteri consente a Aspose.Slides di utilizzare un carattere disponibile al posto di un carattere che non può essere accesso quando una presentazione viene renderizzata o convertita. La sostituzione influisce sull'output renderizzato; non modifica il carattere assegnato al contenuto della presentazione.
 
-È possibile definire il carattere da utilizzare quando un carattere specifico non è disponibile e ispezionare le sostituzioni che Aspose.Slides effettuerà durante il rendering. Questo aiuta a mantenere l'output coerente tra ambienti con caratteri installati diversi.
+È possibile definire il carattere da utilizzare quando un determinato carattere non è disponibile e ispezionare le sostituzioni che Aspose.Slides effettuerà durante il rendering. Ciò aiuta a mantenere l'output coerente tra ambienti con diversi caratteri installati.
 
-## **Ottenere le sostituzioni dei caratteri**
+## **Get Font Substitutions**
 
-Utilizzare il metodo [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) per determinare quali caratteri saranno sostituiti quando la presentazione viene renderizzata. Il metodo restituisce oggetti [FontSubstitutionInfo](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstitutioninfo/) che identificano i nomi del carattere originale e di quello sostituito.
+Usa il metodo [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) per determinare quali caratteri saranno sostituiti quando la presentazione viene renderizzata. Il metodo restituisce oggetti [FontSubstitutionInfo](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstitutioninfo/) che identificano i nomi del carattere originale e di quello sostituito.
 
-Il seguente esempio C# elenca tutte le sostituzioni dei caratteri per una presentazione:
+Il seguente esempio C# elenca tutte le sostituzioni di caratteri per una presentazione:
 
 ```csharp
 using System;
@@ -44,15 +44,15 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 }
 ```
 
-## **Ottenere le sostituzioni dei caratteri per diapositive selezionate**
+## **Get Font Substitutions for Selected Slides**
 
-Utilizzare la sovraccarico di [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) con un argomento `int[] slides` per ispezionare solo le sostituzioni necessarie a renderizzare diapositive specifiche. Questo è utile quando si renderizza o si esporta una parte di una presentazione, si controlla una presentazione di grandi dimensioni in modo incrementale, si individuano diapositive che dipendono da caratteri non disponibili, si prepara un pacchetto di caratteri minimo per un server o un contenitore, o si diagnosticano differenze di rendering senza elaborare diapositive non correlate.
+Usa la sovraccarico del metodo [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) con un argomento `int[] slides` per ispezionare solo le sostituzioni necessarie a renderizzare diapositive specifiche. Questo è utile quando si renderizza o si esporta una parte di una presentazione, si verifica incrementalmene una presentazione di grandi dimensioni, si individuano diapositive che dipendono da caratteri non disponibili, si prepara un pacchetto di caratteri minimo per un server o container, o si diagnosticano differenze di rendering senza elaborare diapositive non correlate.
 
-L'array `slides` contiene indici diapositive basati su 1: `1` identifica la prima diapositiva. Al contrario, l'indicizzatore della collezione [Presentation.Slides](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/slides/it/) è basato su 0, quindi la stessa diapositiva è accessibile come `presentation.Slides[0]`. Tenere presente questa differenza quando si costruisce l'array per evitare errori di “off‑by‑one”.
+L'array `slides` contiene indici delle diapositive basati su 1: `1` identifica la prima diapositiva. Al contrario, l'indicizzatore della collezione [Presentation.Slides](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/slides/it/) è basato su 0, quindi la stessa diapositiva si accede come `presentation.Slides[0]`. Tieni presente questa differenza quando costruisci l'array per evitare errori di offset.
 
-Chiamare la sovraccarico tramite la proprietà [Presentation.FontsManager](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/fontsmanager/). Restituisce solo le sostituzioni determinate durante il rendering delle diapositive selezionate. Ogni risultato è un oggetto [FontSubstitutionInfo](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstitutioninfo/) che contiene i nomi del carattere originale e di quello sostituito. Il risultato riflette l'ambiente dei caratteri corrente, le regole di fallback configurate, le regole di sostituzione memorizzate in una [IFontSubstRuleCollection](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsubstrulecollection/), e i [caratteri caricati esternamente](/slides/it/net/custom-font/).
+Chiama la versione sovraccaricata tramite la proprietà [Presentation.FontsManager](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/fontsmanager/). Restituisce solo le sostituzioni determinate durante il rendering delle diapositive selezionate. Ogni risultato è un oggetto [FontSubstitutionInfo](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstitutioninfo/) che contiene i nomi del carattere originale e di quello sostituito. Il risultato riflette l'ambiente di caratteri corrente e i [caratteri caricati esternamente](/slides/it/net/custom-font/). Le regole di sostituzione memorizzate in una [IFontSubstRuleCollection](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsubstrulecollection/) modificano l'output renderizzato ma non sono riflesse nel risultato.
 
-La stessa sostituzione può essere richiesta da più di una diapositiva selezionata. De‑duplicare i risultati quando si crea un inventario dei caratteri o un rapporto di preflight. Il seguente esempio riporta ogni sostituzione restituita e poi crea un elenco ordinato di mappature di caratteri uniche:
+La stessa sostituzione può essere necessaria per più di una diapositiva selezionata. Rimuovi i duplicati dai risultati quando crei un inventario dei caratteri o un report preflight. Il seguente esempio restituisce ogni sostituzione restituita e quindi crea un elenco ordinato di associazioni di caratteri uniche:
 
 ```csharp
 using System;
@@ -81,25 +81,25 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-L'interfaccia [IFontsManager](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/) fornisce entrambe le sovraccarichi. Scegliere quella più appropriata in base all'ambito dell'operazione di rendering:
+L'interfaccia [IFontsManager](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/) fornisce entrambe le versioni sovraccaricate. Scegli una in base all'ambito dell'operazione di rendering:
 
-| Sovraccarico | Quando usarlo |
+| Sovraccarico | Quando usarla |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) senza argomenti | Hai bisogno delle sostituzioni per l'intera presentazione. |
-| [GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) con `int[] slides` | Hai bisogno delle sostituzioni per un intervallo selezionato, un controllo incrementale o un'esportazione parziale. |
+| [GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) senza argomenti | Hai bisogno di sostituzioni per l'intera presentazione. |
+| [GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) con `int[] slides` | Hai bisogno di sostituzioni per un intervallo selezionato, verifica incrementale o esportazione parziale. |
 
-## **Definire regole di sostituzione dei caratteri**
+## **Set Font Substitution Rules**
 
-Per specificare il carattere che Aspose.Slides deve utilizzare quando un carattere sorgente non è disponibile:
+Per specificare il carattere che Aspose.Slides deve utilizzare quando un carattere di origine non è disponibile:
 
-1. Caricare la presentazione.  
-2. Creare le definizioni dei caratteri per il carattere sorgente e quello sostituto.  
-3. Creare una [FontSubstRule](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstrule/) con la condizione [WhenInaccessible](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstcondition/).  
-4. Aggiungere la regola a una [FontSubstRuleCollection](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstrulecollection/).  
-5. Assegnare la collezione alla proprietà [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
-6. Renderizzare o convertire la presentazione.
+1. Carica la presentazione.
+2. Crea le definizioni dei caratteri per i caratteri di origine e di sostituzione.
+3. Crea una [FontSubstRule](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstrule/) con la condizione [WhenInaccessible](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstcondition/).
+4. Aggiungi la regola a una [FontSubstRuleCollection](https://reference.aspose.com/slides/it/net/aspose.slides/fontsubstrulecollection/).
+5. Assegna la collezione alla proprietà [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/it/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+6. Renderizza o converti la presentazione.
 
-Il seguente esempio C# sostituisce `Arial` con `SomeRareFont` quando `SomeRareFont` non è disponibile, e poi renderizza la prima diapositiva per verificare il risultato. Il carattere sostituto deve essere disponibile per Aspose.Slides.
+Il seguente esempio C# sostituisce `Arial` con `SomeRareFont` quando `SomeRareFont` non è disponibile, quindi renderizza la prima diapositiva per verificare il risultato. Il carattere sostitutivo deve essere disponibile per Aspose.Slides.
 
 ```csharp
 using Aspose.Slides;
@@ -119,45 +119,45 @@ image.Save("slide.jpg", ImageFormat.Jpeg);
 ```
 
 {{% alert color="info" title="Note" %}}
-Per una modifica incondizionata dei caratteri utilizzati in tutta la presentazione, vedere la sezione [Sostituzione dei caratteri](/slides/it/net/font-replacement/).
+Per una modifica incondizionata dei caratteri utilizzati in tutta la presentazione, vedi [Sostituzione dei caratteri](/slides/it/net/font-replacement/).
 {{% /alert %}}
 
 ## **Limitazioni per i caratteri delle equazioni matematiche**
 
-Le regole di sostituzione dei caratteri fanno parte del processo standard di selezione dei caratteri utilizzato durante il rendering e la conversione. Funzionano per il testo normale quando Aspose.Slides può sostituire un carattere inaccessibile con quello disponibile specificato nella regola.
+Le regole di sostituzione dei caratteri fanno parte del processo standard di selezione dei caratteri utilizzato durante il rendering e la conversione. Funzionano per il testo normale quando Aspose.Slides può sostituire un carattere inaccessibile con il carattere disponibile specificato da una regola.
 
-Le equazioni di Office Math hanno un requisito aggiuntivo. Se un’equazione utilizza **Cambria Math**, Aspose.Slides potrebbe aver bisogno di quel carattere esatto per calcolare e renderizzare il layout dell’equazione. Una regola che sostituisce un altro carattere matematico, come **STIX Two Math**, non può sostituire **Cambria Math** a questo scopo e il rendering può comunque segnalare che **Cambria Math** è necessario.
+Le equazioni Office Math hanno un requisito aggiuntivo. Se un'equazione utilizza **Cambria Math**, Aspose.Slides potrebbe aver bisogno di quel carattere esatto per calcolare e renderizzare il layout dell'equazione. Una regola che sostituisce un altro carattere matematico, come **STIX Two Math**, non può sostituire **Cambria Math** a questo scopo, e il rendering potrebbe comunque segnalare che **Cambria Math** è necessario.
 
-Per renderizzare o convertire una presentazione di questo tipo, rendere **Cambria Math** disponibile per Aspose.Slides. Installarlo nel sistema operativo o caricarlo come [carattere esterno](/slides/it/net/custom-font/).
+Per renderizzare o convertire una presentazione di questo tipo, rendi disponibile **Cambria Math** a Aspose.Slides. Installa il carattere nel sistema operativo o caricalo come [font esterno](/slides/it/net/custom-font/).
 
-Questa limitazione si applica al layout delle equazioni. Le regole di sostituzione descritte sopra continuano a valere per il testo normale della presentazione.
+Questa limitazione si applica al layout delle equazioni. Le regole di sostituzione descritte sopra si applicano ancora al testo normale della presentazione.
 
 ## **FAQ**
 
-**Qual è la differenza tra sostituzione dei caratteri e sostituzione (replacement) dei caratteri?**
+**What is the difference between font replacement and font substitution?**
 
-[Font replacement](/slides/it/net/font-replacement/) modifica intenzionalmente un carattere in un altro in tutta la presentazione. La sostituzione dei caratteri seleziona un carattere per l'output renderizzato quando la condizione configurata è soddisfatta, ad esempio quando il carattere originale non è disponibile.
+[Font replacement](/slides/it/net/font-replacement/) cambia intenzionalmente un carattere in un altro in tutta la presentazione. Font substitution seleziona un carattere per l'output renderizzato quando la condizione configurata è soddisfatta, ad esempio quando il carattere originale non è disponibile.
 
-**Quando vengono applicate le regole di sostituzione?**
+**When are substitution rules applied?**
 
-Le regole partecipano alla [sequenza di selezione dei caratteri](/slides/it/net/font-selection-sequence/) durante il rendering e la conversione. Con `WhenInaccessible`, una regola è usata solo quando Aspose.Slides non riesce ad accedere al carattere sorgente.
+Le regole partecipano alla [font selection sequence](/slides/it/net/font-selection-sequence/) durante il rendering e la conversione. Con `WhenInaccessible`, una regola viene usata solo quando Aspose.Slides non può accedere al carattere di origine.
 
-** Cosa succede quando un carattere manca e nessuna regola di sostituzione è configurata?**
+**What happens when a font is missing and no substitution rule is configured?**
 
-Aspose.Slides seleziona il carattere disponibile più vicino secondo il suo processo di selezione dei caratteri. Il risultato dipende dai caratteri presenti nell'ambiente di runtime.
+Aspose.Slides seleziona il carattere disponibile più vicino in base al suo processo di selezione dei caratteri. Il risultato dipende dai caratteri disponibili nell'ambiente di runtime.
 
-**Posso caricare caratteri esterni per evitare la sostituzione?**
+**Can I load external fonts to avoid substitution?**
 
-Sì. È possibile [caricare caratteri esterni](/slides/it/net/custom-font/) affinché Aspose.Slides li utilizzi durante il rendering e la conversione.
+Sì. È possibile [caricare caratteri esterni](/slides/it/net/custom-font/) in modo che Aspose.Slides possa utilizzarli durante il rendering e la conversione.
 
-**Aspose distribuisce i caratteri con la libreria?**
+**Does Aspose distribute fonts with the library?**
 
-No. È responsabilità dell'utente fornire i caratteri e rispettare le relative licenze.
+No. Sei responsabile di fornire i caratteri e di rispettare le relative licenze.
 
-**I risultati della sostituzione possono differire tra Windows, Linux e macOS?**
+**Can substitution results differ between Windows, Linux, and macOS?**
 
-Sì. I caratteri installati e le posizioni di ricerca dei caratteri variano a seconda del sistema operativo, quindi un carattere disponibile su una macchina può richiedere sostituzione su un'altra.
+Sì. I caratteri installati e le posizioni di ricerca dei caratteri differiscono a seconda del sistema operativo, quindi un carattere disponibile su una macchina può richiedere una sostituzione su un altro.
 
-**Come posso rendere coerente la selezione dei caratteri nelle conversioni batch?**
+**How can I make font selection consistent in batch conversions?**
 
-Usare gli stessi file e versioni dei caratteri su ogni macchina o contenitore, [caricare i caratteri esterni richiesti](/slides/it/net/custom-font/) e [incorporare i caratteri](/slides/it/net/embedded-font/) quando le licenze lo consentono. È inoltre possibile chiamare [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) prima dell'esportazione per identificare sostituzioni inattese.
+Usa gli stessi file di caratteri e versioni su ogni macchina o container, [caricare i caratteri esterni richiesti](/slides/it/net/custom-font/), e [incorporare i caratteri](/slides/it/net/embedded-font/) quando le licenze lo consentono. È inoltre possibile chiamare [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/it/net/aspose.slides/ifontsmanager/getsubstitutions/) prima dell'esportazione per identificare sostituzioni inattese.

@@ -6,21 +6,21 @@ weight: 10
 url: /fr/net/
 keywords:
 - documentation
-- traitement de présentation
-- conversion de présentation
+- traitement de présentations
+- conversion de présentations
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: "Commencez ici : installez Aspose.Slides for .NET, créez une première présentation, et trouvez les guides pour les tâches courantes, la référence API et le support."
+description: "Commencez ici : installez Aspose.Slides for .NET, créez votre première présentation, et découvrez les guides pour les tâches courantes, le déploiement et la référence API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET est une bibliothèque de classes pour créer, lire, modifier et convertir des présentations PowerPoint et OpenDocument dans des applications .NET, sans Microsoft PowerPoint ni automatisation Office.
+Aspose.Slides for .NET est une bibliothèque de classes permettant de créer, lire, modifier et convertir des présentations PowerPoint et OpenDocument dans des applications .NET, sans Microsoft PowerPoint ni automatisation Office.
 
-Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les variantes macro‑activées et les modèles, et exporte vers PDF, XPS, HTML, SVG, TIFF, Markdown et images.
+Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les variantes avec macros et les modèles, et exporte vers PDF, XPS, HTML, SVG, TIFF, Markdown et images.
 
 <div style="clear:both"></div>
 
@@ -28,18 +28,20 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 
 <div class="row">
 <div class="col-md-4">
-<p><b>Premiers pas</b></p>
+<p><b>Commencer</b></p>
 <hr>
 <p>DÉMARRAGE</p>
 <ul>
 <li><a href="/slides/fr/net/installation/">Installation</a></li>
 <li><a href="/slides/fr/net/create-presentation/">Créer votre première présentation</a></li>
+<li><a href="/slides/fr/net/system-requirements/">Configuration requise</a></li>
 <li><a href="/slides/fr/net/getting-started/">Guide de démarrage</a></li>
 </ul>
 <p>ÉVALUER</p>
 <ul>
 <li><a href="/slides/fr/net/supported-file-formats/">Formats de fichiers pris en charge</a></li>
-<li><a href="/slides/fr/net/evaluate-aspose-slides/">Limitations de l’essai</a></li>
+<li><a href="/slides/fr/net/features-overview/">Aperçu des fonctionnalités</a></li>
+<li><a href="/slides/fr/net/evaluate-aspose-slides/">Limitations de l'essai</a></li>
 <li><a href="/slides/fr/net/licensing/">Licence</a></li>
 </ul>
 </div>
@@ -65,28 +67,38 @@ Elle charge et enregistre les formats PPT, PPTX, PPS, POT et ODP, y compris les 
 <p>EXEMPLES</p>
 <ul>
 <li><a href="/slides/fr/net/examples/">Exemples par élément de diapositive</a></li>
-<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">Examples on GitHub</a></li>
+<li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">Exemples sur GitHub</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Référence &amp; Support</b></p>
+<p><b>Déployer &amp; Assistance</b></p>
 <hr>
+<p>DÉPLOYER</p>
+<ul>
+<li><a href="/slides/fr/net/net6/">Multi-plateforme (.NET 6+)</a></li>
+<li><a href="/slides/fr/net/how-to-run-aspose-slides-in-docker/">Exécuter dans Docker</a></li>
+<li><a href="/slides/fr/net/deploy-fonts/">Polices</a></li>
+<li><a href="/slides/fr/net/security/">Sécurité</a></li>
+</ul>
 <p>RÉFÉRENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">Référence API</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">Notes de version</a></li>
+<li><a href="https://reference.aspose.com/slides/fr/net/">Référence API</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/net/release-notes/">Notes de version</a></li>
 <li><a href="/slides/fr/net/known-issues/">Problèmes connus</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">Télécharger</a></li>
+<li><a href="/slides/fr/net/api-limitations/">Limitations des métadonnées de sortie</a></li>
+<li><a href="https://releases.aspose.com/slides/fr/net/">Télécharger</a></li>
 </ul>
-<p>SUPPORT</p>
+<p>ASSISTANCE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Forum d’assistance gratuit</a></li>
-<li><a href="https://helpdesk.aspose.com/">Service d’assistance payant</a></li>
+<li><a href="https://forum.aspose.com/c/slides/fr/11">Forum d'assistance gratuit</a></li>
+<li><a href="https://helpdesk.aspose.com/">Service d'assistance payant</a></li>
 </ul>
 </div>
 </div>
 
 ------
+
+<a name="your-first-presentation"></a>
 
 ## **Votre première présentation**
 
@@ -97,7 +109,7 @@ dotnet new console -n HelloSlides
 cd HelloSlides
 ```
 
-Puis ajoutez un package pour votre plateforme :
+Ajoutez ensuite un package pour votre plateforme :
 
 - Sur Windows : `dotnet add package Aspose.Slides.NET`
 - Sur Linux et macOS : `dotnet add package Aspose.Slides.NET6.CrossPlatform` — voir [Installation](/slides/fr/net/installation/) pour le prérequis Linux et pour les systèmes qui nécessitent Aspose.Slides.NET à la place.
@@ -115,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-Le programme enregistre *hello.pptx* avec une diapositive contenant une zone de texte. Sans licence, le fichier enregistré porte un filigrane d’évaluation — voir [Licensing](/slides/fr/net/licensing/). Pour d’autres façons de créer et remplir une présentation, voir [Create Presentations](/slides/fr/net/create-presentation/).
+Le programme enregistre *hello.pptx* avec une diapositive contenant une zone de texte. Sans licence, le fichier enregistré comporte un filigrane d'évaluation — voir [Licensing](/slides/fr/net/licensing/). Pour d'autres méthodes de création et de remplissage d'une présentation, consultez [Create Presentations](/slides/fr/net/create-presentation/).

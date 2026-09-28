@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides pro Xamarin
+title: Aspose.Slides pro Xamarin (Historické)
+linktitle: Xamarin (Historické)
 type: docs
-weight: 150
+weight: 200
 url: /cs/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,43 +14,47 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte mobilní aplikace Xamarin v jazyce C# pro prohlížení, úpravu a konverzi prezentací pomocí Aspose.Slides, podporující bohaté funkce pro PPT, PPTX a ODP na Androidu."
+description: "Historické: jak verze Aspose.Slides pro .NET 20.2 až 22.10 podporovaly Xamarin.Android prostřednictvím samostatné knihovny. Aktuální verze ji neobsahují."
 ---
+{{% alert color="info" title="Poznámka" %}}
+Toto je historická stránka. Verze 20.2 až 22.10 balíčku Aspose.Slides.NET zahrnovaly samostatnou knihovnu Xamarin.Android, *Aspose.Slides.Droid.dll*, kterou kód na této stránce používá. Pozdější verze ji neobsahují: aktuální balíček obsahuje sestavení jen pro .NET Framework 4.6.2, .NET 6 a .NET Standard 2.0. Microsoft ukončil podporu všech Xamarin SDK k 1. květnu 2024; viz [Xamarin support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
+{{% /alert %}}
+
 ## **Úvod**
 
 Xamarin je framework používaný pro mobilní vývoj v .NET C#. Xamarin má nástroje a knihovny, které rozšiřují možnosti platformy .NET. Umožňuje vývojářům vytvářet aplikace pro operační systém **Android**.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Poznámka" %}}
 Pro vývoj v Xamarin mohou programátoři používat své běžné vývojové prostředí (C#, Visual Studio a knihovny třetích stran).
 {{% /alert %}}
 
-API Aspose.Slides funguje na platformě Xamarin. K tomu přidává balíček Aspose.Slides .NET samostatnou DLL pro Xamarin. Aspose.Slides pro Xamarin podporuje většinu funkcí dostupných ve verzi .NET:
+API Aspose.Slides fungovalo na platformě Xamarin. K dosažení tohoto cíle balíček Aspose.Slides.NET ve verzích 20.2 až 22.10 přidal samostatný DLL pro Xamarin. Aspose.Slides pro Xamarin podporovalo většinu funkcí dostupných ve verzi .NET:
 
-- převod a prohlížení prezentací.
-- úprava obsahu v prezentacích: text, tvary, grafy, SmartArt, audio/video, fonty atd.
-- zpracování animací, 2D efektů, WordArt atd.
-- zpracování metadat a vlastností dokumentu.
+- konverze a prohlížení prezentací.
+- úpravu obsahu v prezentacích: text, tvary, grafy, SmartArt, audio/video, písma atd.
+- práci s animacemi, 2D efekty, WordArt atd.
+- práci s metadaty a vlastnostmi dokumentu.
 - klonování, slučování, porovnávání, rozdělování atd.
 
-Poskytli jsme srovnání všech funkcí v jiné sekci blízko konce této stránky.
+Poskytli jsme srovnání kompletních funkcí v jiné sekci blízko konce této stránky.
 
-V API Aspose.Slides pro Xamarin jsou třídy, jmenné prostory, logika a chování co nejvíce podobné verzi .NET. Můžete migrovat své aplikace Aspose.Slides .NET do Xamarin s minimálními náklady.
+V API Aspose.Slides pro Xamarin byly třídy, jmenné prostory, logika a chování co nejvíce podobné verzi .NET. Můžete migrovat své .NET aplikace Aspose.Slides do Xamarin s minimálními náklady.
 
 ## **Rychlý příklad**
-Můžete použít Aspose.Slides pro Xamarin k vytvoření a využití své C# aplikace prostřednictvím Slides for Android.
+Můžete použít Aspose.Slides pro Xamarin k vytvoření a využití vaší C# aplikace prostřednictvím Slides pro Android.
 
-Poskytujeme příklad Android aplikace pomocí Xamarin, která používá Aspose.Slides k zobrazování snímků prezentací a přidává nový tvar na snímek při dotyku. Kompletní zdrojové kódy příkladů najdete na [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Poskytujeme příklad Android aplikace přes Xamarin, která používá Aspose.Slides k zobrazení snímků prezentace a při dotyku přidá nový tvar na snímek. Celý zdrojový kód příkladů najdete na [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Začněme vytvořením aplikace Xamarin Android:
+Začneme vytvořením Xamarin Android aplikace:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creating a Xamarin Android app](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Nejprve vytvoříme rozvržení obsahu, které bude obsahovat zobrazení obrázku, tlačítka Prev a Next:
+Nejprve vytvoříme rozložení obsahu, které bude obsahovat ImageView, tlačítka Prev a Next:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Content layout with an image view and Prev and Next buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-**XML – content_main.xml – Vytvoření rozvržení obsahu**
-``` 
+**XML - content_main.xml - Vytvoření rozložení obsahu**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -92,9 +97,9 @@ Nejprve vytvoříme rozvržení obsahu, které bude obsahovat zobrazení obrázk
 </LinearLayout>
 ```
 
-Zde odkazujeme na knihovnu "Aspose.Slides.Droid.dll", která obsahuje ukázkovou prezentaci ("HelloWorld.pptx") v Assets Xamarin aplikace a přidává její inicializaci do MainActivity:
+Zde odkazujeme na knihovnu "Aspose.Slides.Droid.dll", která obsahuje ukázkovou prezentaci ("HelloWorld.pptx") vloženou do složky Assets Xamarin aplikace a přidává její inicializaci do MainActivity:
 
-**C# – MainActivity.cs – Inicializace**
+**C# - MainActivity.cs - Inicializace**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -132,8 +137,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Přidáme funkci pro zobrazení snímků Prev a Next při stisknutí tlačítek:
-**C# – MainActivity.cs – Zobrazení snímků při kliknutí na tlačítka Prev a Next**
+Přidáme funkci pro zobrazení snímků Prev a Next při kliknutí na tlačítka:
+
+**C# - MainActivity.cs - Zobrazení snímků při kliknutí na tlačítka Prev a Next**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -259,7 +265,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -267,8 +273,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Nakonec implementujeme funkci pro přidání eliptického tvaru při dotyku snímku:
-**C# – MainActivity.cs – Přidání elipsy kliknutím na snímek**
+Nakonec implementujeme funkci pro přidání elipsovitého tvaru při dotyku snímku:
+
+**C# - MainActivity.cs - Přidání elipsy kliknutím na snímek**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -278,7 +285,7 @@ Nakonec implementujeme funkci pro přidání eliptického tvaru při dotyku sní
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -298,33 +305,34 @@ Nakonec implementujeme funkci pro přidání eliptického tvaru při dotyku sní
 }
 ```
 
-Každé kliknutí na snímek prezentace přidá elipsu náhodné barvy:
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+Každé kliknutí na snímek prezentace přidá elipsu s náhodnou barvou:
+
+![Slide with ellipses added by touch](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Podporované funkce**
 
-|**FUNKCE**|**Aspose.Slides pro .NET**|**Aspose.Slides pro Xamarin**|
+|**VLASTNOSTI**|**Aspose.Slides pro .NET**|**Aspose.Slides pro Xamarin**|
 | :- | :- | :- |
 |**Funkce prezentace**:| | |
-|Vytvořit nové prezentace|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Formáty PowerPoint 97 - 2003 otevřít/uložit|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Formáty PowerPoint 2007 otevřít/uložit|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Vytváření nových prezentací|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Otevírání/ukládání formátů PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Otevírání/ukládání formátů PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Podpora rozšíření PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Podpora rozšíření PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Podpora funkcí PowerPoint 2016|restricted|restricted|
 |Podpora funkcí PowerPoint 2019|restricted|restricted|
-|PPT → PPTX konverze|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX → PPT konverze|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Konverze PPT → PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Konverze PPTX → PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX v PPT|restricted|restricted|
 |Zpracování motivů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Zpracování maker|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Zpracování vlastností dokumentu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ochrana heslem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Rychlé extrahování textu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Vkládání fontů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Rychlé získávání textu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Vkládání písem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vykreslování komentářů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Přerušení dlouhotrvajících úloh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Formáty exportu:**| | |
+|**Exportní formáty:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -332,7 +340,7 @@ Každé kliknutí na snímek prezentace přidá elipsu náhodné barvy:
 |ODP|restricted|restricted|
 |SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Formáty importu:**| | |
+|**Importní formáty:**| | |
 |HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -340,20 +348,20 @@ Každé kliknutí na snímek prezentace přidá elipsu náhodné barvy:
 |Přístup ke všem existujícím hlavním snímkům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vytváření/odstraňování hlavních snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonování hlavních snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkce rozložení snímků:**| | |
-|Přístup ke všem existujícím rozložení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Vytváření/odstraňování rozložení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klonování rozložení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkce rozvržení snímků:**| | |
+|Přístup ke všem existujícím rozvržením snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Vytváření/odstraňování rozvržení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonování rozvržení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce snímků:**| | |
 |Přístup ke všem existujícím snímkům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vytváření/odstraňování snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonování snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Export snímků do obrázků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Vytváření/editace/odstraňování sekcí snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkce poznámkových snímků**:| | |
+|Vytváření/upravování/odstraňování sekcí snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkce poznámkových snímků:**| | |
 |Přístup ke všem existujícím poznámkovým snímkům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce tvarů:**| | |
-|Přístup ke všem tvarům snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Přístup ke všem tvarům na snímku|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Přidávání nových tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonování tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Export jednotlivých tvarů do obrázků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -363,12 +371,12 @@ Každé kliknutí na snímek prezentace přidá elipsu náhodné barvy:
 |Tabulky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Grafy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Starší diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Legacy diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |OLE, ActiveX objekty|restricted|restricted|
 |Video rámečky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Audio rámečky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Konektory|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Spojky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce seskupování tvarů:**| | |
 |Přístup ke skupinovým tvarům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vytváření skupinových tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -376,9 +384,9 @@ Každé kliknutí na snímek prezentace přidá elipsu náhodné barvy:
 |**Funkce efektů tvarů:**| | |
 |2D efekty|restricted|restricted|
 |3D efekty|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Funkce textu:**| | |
+|**Textové funkce:**| | |
 |Formátování odstavců|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Formátování částí|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkce animace:**| | |
+|Formátování úseků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkce animací:**| | |
 |Export animace do SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Export animace do HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

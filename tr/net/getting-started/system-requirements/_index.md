@@ -5,9 +5,13 @@ weight: 60
 url: /tr/net/system-requirements/
 keywords:
 - sistem gereksinimleri
-- işletim sistemi
-- kurulum
-- bağımlılıklar
+- desteklenen platformlar
+- hedef çerçeveler
+- .NET Framework
+- .NET Standard
+- libgdiplus
+- fontconfig
+- Alpine
 - Windows
 - Linux
 - macOS
@@ -17,126 +21,104 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET sistem gereksinimlerini keşfedin. Windows, Linux ve macOS üzerinde sorunsuz PowerPoint ve OpenDocument desteği sağlayın."
+description: "Aspose.Slides for .NET'in kurulum öncesinde neye ihtiyaç duyduğunu kontrol edin: her NuGet paketinin hedeflediği çerçeveler, desteklenen işletim sistemleri ve işlemciler, ve Linux'un gerektirdiği kitaplıklar ve fontlar."
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET, Aspose.Slides bağımsız bir Microsoft PowerPoint belge oluşturma, dönüştürme, sayfa düzeni ve render motoru olduğundan Microsoft PowerPoint'in yüklü olmasını gerektirmez.
+Aspose.Slides for .NET bağımsız bir kütüphanedir: Microsoft PowerPoint veya Microsoft Office’e ihtiyaç duymaz. İki NuGet paketi olarak yayınlanmıştır, [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) ve [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/). Her ikisi de aynı Aspose.Slides ad alanlarını ve sınıflarını sağlar; hedefledikleri çerçeveler ve slaytları nasıl çizdikleri bakımından farklıdır; bu da nerede çalışacaklarını ve neye ihtiyaç duyacaklarını belirler.
 
-## **Desteklenen İşletim Sistemleri**
+Bu makale, her paketin desteklediği .NET sürümlerini ve platformları, Linux’un ihtiyaç duyduğu sistem kitaplıklarını ve fontları listeler ve kurulumunuzu kontrol eden kısa bir programla sona erer. Bir paketi bir projeye eklemek için [Kurulum](/slides/tr/net/installation/) bölümüne bakın.
 
-Aspose.Slides for .NET, .NET veya Mono framework’ünün kurulu olduğu herhangi bir 32‑bit veya 64‑bit işletim sistemini (sınırlı olmamak kaydıyla) destekler:
+## **Desteklenen .NET Sürümleri**
 
-### **Windows**
+Her paket, hedef çerçeve başına bir Aspose.Slides derlemesi içerir ve NuGet, projenizin hedef çerçevesiyle eşleşen derlemeyi seçer.
 
-- Microsoft Windows 2000 Server ( x64, x86)
-- Microsoft Windows 2003 Server ( x64, x86)
-- Microsoft Windows 2022 Server
-- Microsoft Windows Vista ( x64, x86)
-- Microsoft Windows XP ( x64, x86)
-- Microsoft Windows 7 ( x64, x86)
-- Microsoft Windows 8, 8.1 ( x64, x86)
-- Microsoft Windows 10 ( x64, x86)
-- Microsoft Windows 11 ( x64, x86)
-- Microsoft Azure
+| Paket | Paketteki hedef çerçeveler | Projenizin hedefleyebileceği çerçeveler |
+|---|---|---|
+| Aspose.Slides.NET | `net462`, `net6.0`, `netstandard2.0` | .NET Framework 4.6.2 veya daha yeni; .NET 6 veya daha yeni, .NET 8, .NET 9 ve .NET 10 dahil |
+| Aspose.Slides.NET6.CrossPlatform | `net6.0` | .NET 6 veya daha yeni, .NET 8, .NET 9 ve .NET 10 dahil |
 
-### **Linux**
+`netstandard2.0` derlemesi, bir .NET Standard 2.0 sınıf kitaplığının Aspose.Slides.NET’e referans vermesini sağlar. Böyle bir kitaplık kullanan bir uygulama, uygulamanın kendi hedef çerçevesine uyan derlemeyi çalıştırır: örneğin bir .NET 8 uygulaması `net6.0` derlemesini çalıştırır.
 
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine ve diğerleri)
+## **Desteklenen İşletim Sistemleri ve İşlemciler**
 
-### **Mac**
+**Aspose.Slides.NET** yalnızca işlemci bağımsız (AnyCPU) yönetilen kod içerir; bu nedenle onu yükleyen .NET çalışma zamanının işlemci mimarisi üzerinde çalışır. Slaytları, Microsoft’un System.Drawing.Common kitaplığı aracılığıyla çizer; bu kitaplık Microsoft tarafından sadece Windows üzerinde desteklenir. Linux’da Aspose.Slides.NET bu nedenle `libgdiplus` kitaplığına ve bir başlangıç anahtarına ihtiyaç duyar; ayrıntılar [Linux](#linux) bölümünde açıklanmıştır. Debian, Ubuntu ve Alpine Linux gibi `libgdiplus` sağlayan Linux dağıtımlarında çalışır.
 
-- Mac OS X
+**Aspose.Slides.NET6.CrossPlatform** slaytları kendi grafik motoru ile çizer. Motor, paket içinde platform başına bir derleme içeren yerel bir kitaplıktır; bu nedenle paket yalnızca şu platformlarda çalışır:
 
-## **Desteklenen Çatılar**
+| İşletim sistemi | İşlemciler | Notlar |
+|---|---|---|
+| Windows | x86, x64 | ARM64 üzerindeki Windows desteklenmez. |
+| Linux | x64, ARM64 | x64 için glibc 2.23 veya daha yeni, ARM64 için glibc 2.39 veya daha yeni gerekir. |
+| macOS | x64 (Intel), ARM64 (Apple silicon) |  |
 
-Aspose.Slides for .NET, .NET ve Mono çatılarının her ikisini de destekler:
+Aspose.Slides.NET6.CrossPlatform, musl tabanlı Alpine Linux gibi glibc yerine musl kullanan dağıtımlarda ya da CentOS 7 gibi eski glibc sürümlerine sahip dağıtımlarda çalışmaz. Bu sistemlerde Aspose.Slides.NET kullanın.
 
-### **.NET Çatılar**
+Windows’da Aspose.Slides.NET6.CrossPlatform’un yerel kitaplığı Microsoft Visual C++ çalışma zamanı (*MSVCP140.dll* ve *VCRUNTIME140.dll*, x64 için ayrıca *VCRUNTIME140_1.dll*) kullanır. Bu dosyalar hedef makinede eksikse, [Microsoft Visual C++ Yeniden Dağıtılabilir Paketi](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) yükleyin.
 
-- .NET Framework 2.0
-- .NET Framework 3.5
-- .NET Framework 4.0
-- .NET Framework 4.0_ClientProfile
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.5.2
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.7
-- .NET Framework 4.7.2
-- .NET 5
-- .NET 6
-- .NET 7
-- .NET 8
-- .NET 9
-- .NET Core
-- COM Interop desteği (COM, C++, VBScript)
+## **Linux**
 
-### **Mono Çatısı**
+Her iki paket de Linux’da ek sistem kitaplıklarına ihtiyaç duyar. Bunlar olmadan, [Sunum Oluşturma](/slides/tr/net/create-presentation/) bölümündeki ilk örnek, dosyayı kaydetmek yerine bir istisna atar. Aşağıdaki komutlar Debian ve Ubuntu içindir; bu dağıtımlarda her kitaplık aynı zamanda DejaVu fontlarını (`fonts-dejavu-core`) da getirir, böylece ek font paketlerine gerek kalmadan metin doğru görüntülenir.
 
-- MAC ve Linux platformlarında MONO Desteği
+### **Aspose.Slides.NET6.CrossPlatform**
 
-## **Geliştirme Ortamları**
+Paketin Linux kitaplığı `fontconfig` kitaplığına ihtiyaç duyar:
 
-Aspose.Slides for .NET, .NET platformunu hedefleyen herhangi bir geliştirme ortamında kullanılabilir; ancak aşağıdaki ortamlar özellikle desteklenir:
-
-- Microsoft Visual Studio 2005
-- Microsoft Visual Studio 2008
-- Microsoft Visual Studio 2010
-- Microsoft Visual Studio 2012
-- Microsoft Visual Studio 2013
-- Microsoft Visual Studio 2015
-- Microsoft Visual Studio 2017
-- Microsoft Visual Studio 2019
-- Microsoft Visual Studio 2022
-
-## **Aspose.Slides Ana Yapıları**
-
-Şu anda Aspose.Slides’in iki ana yapısı vardır — Aspose.Slides.NET ve Aspose.Slides.NET6.CrossPlatform.
-
-### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-
-Bu, ürünün ana sürümüdür. Standart .NET grafik motorunu kullanır.
-- Windows dışı platformlarda `libgdiplus` kütüphanesini ve bağımlılıklarını kurmanız gerekebilir.
-- Aspose.Slides 25.3 sürümünden önce, Windows dışı platformlarda Aspose.Slides ZIP paketindeki .NET Standard 2.0 DLL’i kullanılmalıydı.
-- Aspose.Slides 25.3 sürümünden itibaren NuGet paketi, Windows dışı sistemlerde doğrudan kullanılabilir.
-- Windows dışı sistemlerde çalıştırıldığında uygulamanız başlangıçta aşağıdaki satırı içermelidir:
-```cs
-AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
-- **25.3 sürümünden itibaren bu paketi Linux aarch64 (ARM64) gibi .NET’i destekleyen platformlarda kullanabilirsiniz.**
 
-#### **Linux Alpine için Ek Paketler**
+Olmadan, bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturulması `TypeInitializationException` hatası verir; içindeki `DllNotFoundException` `libfontconfig.so.1` dosyasının açılamadığını bildirir.
 
-Aspose.Slides for .NET bir Alpine Linux konteynerinde çalıştırılırken yalnızca `libgdiplus` kurulması yeterli olmayabilir. Alpine konteynerleri genellikle varsayılan olarak font içermez. Font bulunmadığında render veya dönüşüm işlemleri aşağıdaki gibi bir hata ile başarısız olabilir:
+Minimal temel görüntüler `fontconfig` içermeyebilir. Örneğin .NET 8 için AWS Lambda temel görüntüsü ne `fontconfig` ne de herhangi bir font içerir. Üzerinde oluşturulan bir konteyner görüntüsünde `dnf install -y fontconfig` komutunu çalıştırın; bu aynı zamanda Noto Sans fontlarını da kurar.
+
+### **Aspose.Slides.NET**
+
+Paketin Linux’da iki şeye ihtiyacı vardır:
+
+1. `libgdiplus` kitaplığı:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y libgdiplus
+   ```
+
+2. `System.Drawing.EnableUnixSupport` anahtarı, Aspose.Slides çağrısı yapılmadan önce, uygulamanızın başlangıcında etkinleştirilmelidir. Üst‑seviye ifadeler kullanan bir *Program.cs* dosyasında, `using` yönergelerinden sonra ekleyin:
+
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
+
+`libgdiplus` olmadan bir sunum kaydedilmeye çalışıldığında `TypeInitializationException` ve içindeki `DllNotFoundException` `libgdiplus`’un yüklenemediğini bildirir. Anahtar eklenmezse, iç istisna `PlatformNotSupportedException: System.Drawing.Common is not supported on non-Windows platforms` olur.
+
+{{% alert color="warning" title="Warning" %}}
+Anahtar yalnızca Aspose.Slides.NET’in bağımlı olduğu System.Drawing.Common 6 ile çalışır. Microsoft, System.Drawing.Common 7’de bu özelliği kaldırdı. Projeniz doğrudan ya da başka bir paket aracılığıyla System.Drawing.Common 7 veya daha yenisine başvuruyorsa, Aspose.Slides.NET Linux’da `libgdiplus` yüklü ve anahtar etkin olsa bile `PlatformNotSupportedException` hatası verir. Bu durumda Aspose.Slides.NET6.CrossPlatform kullanın.
+{{% /alert %}}
+
+### **Alpine Linux**
+
+Alpine Linux’ta yukarıda açıklanan anahtar ile Aspose.Slides.NET kullanın. Alpine görüntüleri genellikle font içermez ve yalnızca `libgdiplus` kurulduğunda da font kurulmaz; bu yüzden en az bir font paketiyle birlikte `libgdiplus` kurun. Font olmadan bir sunum kaydedilmeye çalışıldığında şu hata alınır:
 
 ```text
-System.ArgumentException: Font '?' cannot be found
+System.ArgumentException: Font '?' cannot be found.
 ```
-Alpine’da Aspose.Slides kullanmak için `libgdiplus` ile birlikte en az bir font paketi kurmalısınız.
 
-**Seçenek 1: DejaVu Fontları**
+**Seçenek 1: DejaVu fontları**
 
-Önerilen seçenek `ttf-dejavu` paketini kurmaktır:
+Önerilen seçenek `ttf-dejavu` paketidir:
 
-```
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     ttf-dejavu
 ```
 
-`ttf-dejavu` paketi, `fontconfig`, `encodings`, `mkfontscale` ve `mkfontdir` gibi gerekli font bağımlılıklarını otomatik olarak kurar. Çoğu kullanım senaryosu için ek font paketi gerekmez.
+Güncel Alpine sürümlerinde `ttf-dejavu`, `font-dejavu` paketini kurar; bu paket de `fontconfig` ve bağımlı olduğu font araçlarını getirir.
 
-**Seçenek 2: Microsoft Core Fontları**
+**Seçenek 2: Microsoft temel fontları**
 
-Sunumlarınız Arial, Times New Roman, Courier New veya Verdana gibi Microsoft‑özel fontlar kullanıyorsa bunun yerine Microsoft Core Fontları kurun:
+Sunumlarınız Arial, Times New Roman, Courier New veya Verdana gibi Microsoft fontlarını kullanıyorsa, bunun yerine Microsoft temel fontlarını kurun. `update-ms-fonts` adımı, görüntü oluşturulurken internet erişimi gerektiren fontları indirir:
 
-```
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     fontconfig \
@@ -145,46 +127,59 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-Bu seçeneği yalnızca işlenen sunumların Microsoft fontları gerektirdiği durumlarda kullanın. Çoğu senaryoda `ttf-dejavu` kurulumu daha basit ve daha güvenilirdir.
+### **Küreselleştirme Desteği**
 
-**Küreselleştirme için ek gereksinimler**
+Her iki paket de .NET küreselleştirme desteğine ihtiyaç duyar; Linux üzerindeki .NET bu desteği ICU kitaplıkları aracılığıyla sağlar. [globalization-invariant modu](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) etkinken bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) oluşturmak `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` hatası verir.
 
-Alpine’da doğru küreselleştirme desteğini etkinleştirmek için `icu-libs` paketini kurun ve invariant modu devre dışı bırakın:
+Bazı konteyner görüntüleri bu modu açar. Örneğin Alpine Linux için .NET çalışma zamanı görüntüleri (`runtime-deps`, `runtime` ve `aspnet`) `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` ayarlar ve ICU içermez. Bu görüntüler üzerine oluşturulan bir imajda ICU kurun ve modu kapatın:
 
 ```dockerfile
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 RUN apk --no-cache add icu-libs
 ```
 
-### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+Ayrıca proje dosyanızın `InvariantGlobalization` özelliğini `true` olarak ayarlamadığından emin olun.
 
-Bu, Aspose.Slides ekibi tarafından geliştirilen özel bir çapraz‑platform grafik motoru kullanan sürümdür.  
-Windows dışı platformlarda `fontconfig` kütüphanesi gerekebilir.
+## **Kurulumunuzu Kontrol Edin**
 
-**Desteklenen Platformlar**
-- *Windows*: x86, x86_64  
-- *Linux*: x86_64, ARM64 (aarch64)
-- *macOS*: x86_64, ARM64 (aarch64)
+Bir paketin ve gereksinimlerinin yerinde olduğunu kontrol etmek için bir sunumu kaydeden ve bir slaytı görüntüye dönüştüren bir program çalıştırın. Kaydetme ve görüntüleme, grafik kitaplığı ve fontları kullanır; bunlar yukarıdaki Linux gereksinimlerinin sağladığı şeylerdir.
 
-**Desteklenmeyen Platformlar**
-- *Windows 11 ARM* (ARM64) — *Şu anda değerlendirilmiyor*
+Bir konsol uygulaması oluşturun, paketi [Kurulum](/slides/tr/net/installation/) bölümünde açıklandığı gibi ekleyin, *Program.cs* içeriğini aşağıdaki kodla değiştirin ve `dotnet run` komutunu çalıştırın. Linux’da Aspose.Slides.NET kullanıyorsanız, `using` yönergelerinden sonra [Linux](#linux) bölümünde gösterildiği gibi `System.Drawing.EnableUnixSupport` anahtar ifadesini ekleyin. Program, üst‑seviye ifadeler ve `using` bildirileri kullanır; bunlar C# 9 veya daha yenisini gerektirir. .NET 6 veya daha yeni hedefleyen projeler varsayılan olarak yeni bir C# sürümü alır; .NET Framework hedefliyorsanız proje dosyasına bir `PropertyGroup` içinde `<LangVersion>latest</LangVersion>` ekleyin.
 
-{{%  alert  title="Notes"  color="primary"  %}}  
-Linux x64 için GLIBC 2.23+, Linux ARM64 için GLIBC 2.39+ gerekir; CentOS 7 (GLIBC 2.14) gibi sistemler desteklenmez. Aspose.Slides’i CentOS 7 veya başka uyumsuz sistemlerde (ör. Alpine) çalıştırmanız gerekiyorsa standart paketi kullanın: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
-{{% /alert %}} 
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+
+using var image = slide.GetImage(1f, 1f);
+image.Save("hello.png", ImageFormat.Png);
+```
+
+Program, ilk slayta bir dikdörtgen ve metin ekler, sunumu *hello.pptx* olarak [Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemiyle kaydeder. Ardından slaytı [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/getimage/) ile görüntüye dönüştürür ve sonucu *hello.png* olarak [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/save/) ve [ImageFormat.Png](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) formatıyla kaydeder. 1 ölçek faktörü, bir nokta başına bir piksel oluşturur; böylece varsayılan 720 × 540 nokta slayt 720 × 540 piksel görüntüye dönüşür ve metin dikdörtgen içinde görünür. Lisans olmadan her iki dosya da değerlendirme filigranı taşır; bkz. [Lisanslama](/slides/tr/net/licensing/). Bir gereksinim eksikse, program [Linux](#linux) bölümünde açıklanan istisnalardan biriyle durur.
+
+## **Geliştirme Araçları**
+
+Aspose.Slides kullanan uygulamaları, hedef çerçevenizi destekleyen herhangi bir araçla derleyebilirsiniz: Windows, Linux ve macOS üzerinde .NET SDK ve `dotnet` komut satırı arabirimi, ya da Windows üzerindeki Visual Studio. [Kurulum](/slides/tr/net/installation/) her iki yöntemi de açıklar.
 
 ## **SSS**
 
-**Dönüşüm ve render için Microsoft PowerPoint yüklü olmak zorunda mı?**
+**Dönüştürme ve görüntüleme için Microsoft PowerPoint yüklü olması gerekiyor mu?**
 
-Hayır, PowerPoint gerekli değildir; Aspose.Slides, sunumları [oluşturmak](/slides/tr/net/create-presentation/), değiştirmek, [dönüştürmek](/slides/tr/net/convert-presentation/) ve [renderlamak](/slides/tr/net/convert-powerpoint-to-png/) için bağımsız bir motor sağlar.
+Hayır, PowerPoint gerekli değildir. Aspose.Slides, sunumları [oluşturmak](/slides/tr/net/create-presentation/), değiştirmek, [dönüştürmek](/slides/tr/net/convert-presentation/) ve [görselleştirmek](/slides/tr/net/convert-powerpoint-to-png/) için bağımsız bir motor sağlar.
 
-**Doğru render için hangi fontlar gerekir?**
+**Hangi paketi kullanmalıyım?**
 
-Sunumda kullanılan fontlar ya da uygun ikameler işletim sisteminde bulunmalıdır. Linux ve macOS’da tutarlı render sağlamak için yaygın font paketleri kurun.
+Windows’da Aspose.Slides.NET, Linux ve macOS’da Aspose.Slides.NET6.CrossPlatform kullanın. Alpine Linux’da, glibc’si yukarıda listelenen sürümlerin altında olan Linux sistemlerinde ve .NET Framework hedefleyen projelerde Aspose.Slides.NET tercih edin. Projeye yalnızca bu iki paketten birini ekleyin.
 
-Alpine Linux konteynerlerinde `libgdiplus` dışında en az bir font paketi kurmalısınız. Önerilen minimal kurulum `libgdiplus` ile `ttf-dejavu` paketidir. Arial, Times New Roman, Courier New veya Verdana gibi Microsoft fontları gerekiyorsa `msttcorefonts-installer` paketini `fontconfig` ile birlikte kullanın.
+**Doğru görüntüleme için hangi fontlar gerekir?**
 
-**Özel bir font Linux’da yedek font ya da eksik metin olarak neden gösterilir?**
+Sunumda kullanılan fontlar ya da uygun ikameler işletim sistemi içinde bulunmalıdır. Linux ve macOS’da tutarlı görüntüleme için sunumunuzun ihtiyaç duyduğu font paketlerini kurun. Alpine Linux’da, `libgdiplus` ile birlikte en az bir font paketi kurun; ayrıntılar [Alpine Linux](#alpine-linux) bölümündedir.
 
-Font dosyasının ad‑tablosu kayıtları tutarsız ya da bozuksa, Linux font eşleme yığını (FreeType/fontconfig) geçersiz bir kaydı seçebilir ve font çözülemez. Düzeltilmiş ad‑tablosu kayıtlarına sahip bir font sürümü kullanmak ya da tutarlı bir ikame kurmak sorunu çözer.
+**Özel bir font Linux’ta yedek font ya da eksik metin olarak neden görüntüleniyor?**
+
+Font dosyasının ad‑tablosu girdileri tutarsız ya da bozuksa, Linux font eşleştirme yığını (FreeType/fontconfig) geçersiz bir kaydı seçebilir ve font çözülemez. Düzeltildiği teyit edilen bir font sürümü kullanmak ya da tutarlı bir yedek font kurmak sorunu çözer.

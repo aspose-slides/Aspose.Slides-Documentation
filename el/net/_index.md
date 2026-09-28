@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides for .NET, δημιουργήστε την πρώτη παρουσίαση και βρείτε τους οδηγούς για κοινές εργασίες, την τεκμηρίωση API και την υποστήριξη."
+description: "Ξεκινήστε εδώ: εγκαταστήστε το Aspose.Slides for .NET, δημιουργήστε την πρώτη παρουσίαση και βρείτε τους οδηγούς για κοινές εργασίες, ανάπτυξη και την αναφορά API."
 is_root: true
 ---
-<img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
+<img src="home_1.png" alt="Aspose.Slides για .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Το Aspose.Slides for .NET είναι μια βιβλιοθήκη κλάσεων για τη δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument σε εφαρμογές .NET, χωρίς το Microsoft PowerPoint ή την αυτοματοποίηση του Office.
+Aspose.Slides for .NET είναι μια βιβλιοθήκη κλάσεων για τη δημιουργία, ανάγνωση, επεξεργασία και μετατροπή παρουσιάσεων PowerPoint και OpenDocument σε εφαρμογές .NET, χωρίς το Microsoft PowerPoint ή την Αυτοματοποίηση Γραφείου.
 
-Φορτώνει και αποθηκεύει αρχεία PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των εκδόσεων με μακροεντολές και προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
+Φορτώνει και αποθηκεύει PPT, PPTX, PPS, POT και ODP, συμπεριλαμβανομένων των εκδόσεων με μακροεντολές και προτύπων, και εξάγει σε PDF, XPS, HTML, SVG, TIFF, Markdown και εικόνες.
 
 <div style="clear:both"></div>
 
@@ -30,15 +30,17 @@ is_root: true
 <div class="col-md-4">
 <p><b>Ξεκινήστε</b></p>
 <hr>
-<p>ΞΕΚΙΝΗΜΑ</p>
+<p>ΕΝΑΡΞΗ</p>
 <ul>
 <li><a href="/slides/el/net/installation/">Εγκατάσταση</a></li>
-<li><a href="/slides/el/net/create-presentation/">Δημιουργήστε την πρώτη σας παρουσίαση</a></li>
+<li><a href="/slides/el/net/create-presentation/">Δημιουργία της πρώτης σας παρουσίασης</a></li>
+<li><a href="/slides/el/net/system-requirements/">Απαιτήσεις συστήματος</a></li>
 <li><a href="/slides/el/net/getting-started/">Οδηγός έναρξης</a></li>
 </ul>
 <p>ΑΞΙΟΛΟΓΗΣΗ</p>
 <ul>
 <li><a href="/slides/el/net/supported-file-formats/">Υποστηριζόμενες μορφές αρχείων</a></li>
+<li><a href="/slides/el/net/features-overview/">Επισκόπηση λειτουργιών</a></li>
 <li><a href="/slides/el/net/evaluate-aspose-slides/">Περιορισμοί δοκιμής</a></li>
 <li><a href="/slides/el/net/licensing/">Αδειοδότηση</a></li>
 </ul>
@@ -46,17 +48,17 @@ is_root: true
 <div class="col-md-4">
 <p><b>Δημιουργία με Slides</b></p>
 <hr>
-<p>ΚΑΝΟΝΙΚΕΣ ΕΡΓΑΣΙΕΣ</p>
+<p>ΣΥΝΑΡΤΗΣΙΕΣ</p>
 <ul>
 <li><a href="/slides/el/net/open-presentation/">Άνοιγμα παρουσίασης</a></li>
 <li><a href="/slides/el/net/save-presentation/">Αποθήκευση παρουσίασης</a></li>
 <li><a href="/slides/el/net/convert-powerpoint-to-pdf/">Μετατροπή σε PDF</a></li>
-<li><a href="/slides/el/net/convert-slide/">Απόδοση διαφανειών ως εικόνες</a></li>
+<li><a href="/slides/el/net/convert-slide/">Απόδοση διαφανειών ως εικόνων</a></li>
 <li><a href="/slides/el/net/manage-text/">Επεξεργασία κειμένου και σχημάτων</a></li>
 </ul>
-<p>ΔΙΑΔΡΟΜΕΣ SLIDES</p>
+<p>ΔΙΑΔΙΚΑΣΙΕΣ SLIDES</p>
 <ul>
-<li><a href="/slides/el/net/powerpoint-charts/">Διαγράμματα</a></li>
+<li><a href="/slides/el/net/powerpoint-charts/">Γραφήματα</a></li>
 <li><a href="/slides/el/net/powerpoint-animation/">Κινούμενα σχέδια</a></li>
 <li><a href="/slides/el/net/manage-media-files/">Ήχος και βίντεο</a></li>
 <li><a href="/slides/el/net/presentation-design/">Σχεδίαση διαφανειών</a></li>
@@ -69,24 +71,34 @@ is_root: true
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Αναφορά &amp; Υποστήριξη</b></p>
+<p><b>Ανάπτυξη &amp; Υποστήριξη</b></p>
 <hr>
+<p>ΑΝΑΠΤΥΞΗ</p>
+<ul>
+<li><a href="/slides/el/net/net6/">Διασυμβατότητα ( .NET 6+)</a></li>
+<li><a href="/slides/el/net/how-to-run-aspose-slides-in-docker/">Εκτέλεση σε Docker</a></li>
+<li><a href="/slides/el/net/deploy-fonts/">Γραμματοσειρές</a></li>
+<li><a href="/slides/el/net/security/">Ασφάλεια</a></li>
+</ul>
 <p>ΑΝΑΦΟΡΑ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">Τεκμηρίωση API</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">Σημειώσεις έκδοσης</a></li>
-<li><a href="/slides/el/net/known-issues/">Γνωστά ζητήματα</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">Λήψη</a></li>
+<li><a href="https://reference.aspose.com/slides/el/net/">Αναφορά API</a></li>
+<li><a href="https://releases.aspose.com/slides/el/net/release-notes/">Σημειώσεις έκδοσης</a></li>
+<li><a href="/slides/el/net/known-issues/">Γνωστά προβλήματα</a></li>
+<li><a href="/slides/el/net/api-limitations/">Περιορισμοί μεταδεδομένων εξόδου</a></li>
+<li><a href="https://releases.aspose.com/slides/el/net/">Λήψη</a></li>
 </ul>
 <p>ΥΠΟΣΤΗΡΙΞΗ</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Δωρεάν φόρουμ υποστήριξης</a></li>
-<li><a href="https://helpdesk.aspose.com/">Πληρωμένο helpdesk υποστήριξης</a></li>
+<li><a href="https://forum.aspose.com/c/slides/el/11">Δωρεάν φόρουμ υποστήριξης</a></li>
+<li><a href="https://helpdesk.aspose.com/">Πλήρης υποστήριξη με χρέωση</a></li>
 </ul>
 </div>
 </div>
 
 ------
+
+<a name="your-first-presentation"></a>
 
 ## **Η πρώτη σας παρουσίαση**
 
@@ -99,10 +111,10 @@ cd HelloSlides
 
 Στη συνέχεια προσθέστε ένα πακέτο για την πλατφόρμα σας:
 
-- Σε Windows: `dotnet add package Aspose.Slides.NET`
-- Σε Linux και macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — δείτε [Εγκατάσταση](/slides/el/net/installation/) για την προαπαιτούμενη ρύθμιση στο Linux και για τα συστήματα που χρειάζονται Aspose.Slides.NET αντί αυτού.
+- On Windows: `dotnet add package Aspose.Slides.NET`
+- On Linux and macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — see [Εγκατάσταση](/slides/el/net/installation/) for the Linux prerequisite and for the systems that need Aspose.Slides.NET instead.
 
-Αντικαταστήστε τα περιεχόμενα του *Program.cs* με αυτόν τον κώδικα και εκτελέστε `dotnet run`:
+Αντικαταστήστε το περιεχόμενο του *Program.cs* με αυτόν τον κώδικα και εκτελέστε `dotnet run`:
 
 ```csharp
 using Aspose.Slides;
@@ -115,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-Το πρόγραμμα αποθηκεύει το *hello.pptx* με μία διαφάνεια που περιέχει ένα πλαίσιο κειμένου. Χωρίς άδεια, το αποθηκευμένο αρχείο περιέχει υδατογράφημα αξιολόγησης — δείτε [Αδειοδότηση](/slides/el/net/licensing/). Για περισσότερους τρόπους δημιουργίας και πλήρωσης μιας παρουσίασης, δείτε [Δημιουργία Παρουσιάσεων](/slides/el/net/create-presentation/).
+Το πρόγραμμα αποθηκεύει *hello.pptx* με μία διαφάνεια που περιέχει ένα πλαίσιο κειμένου. Χωρίς άδεια, το αποθηκευμένο αρχείο περιέχει υδατογράφημα αξιολόγησης — δείτε [Αδειοδότηση](/slides/el/net/licensing/). Για περισσότερους τρόπους δημιουργίας και συμπλήρωσης μιας παρουσίασης, δείτε [Δημιουργία παρουσιάσεων](/slides/el/net/create-presentation/).

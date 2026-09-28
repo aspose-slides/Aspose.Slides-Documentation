@@ -1,398 +1,220 @@
 ---
-title: Comment exécuter Aspose.Slides dans Docker
-linktitle: Aspose.Slides dans Docker
+title: Exécuter Aspose.Slides pour .NET dans Docker
+linktitle: Docker
 type: docs
 weight: 140
 url: /fr/net/how-to-run-aspose-slides-in-docker/
 keywords:
-- systèmes d'exploitation pris en charge
-- Aspose.Slides dans Docker
-- conteneur Docker
-- Aspose Docker
-- GDI
-- libgdiplus
-- System.Drawing.Common
+- Docker
+- Dockerfile
+- Conteneur Docker
+- construction multi-étapes
+- image de conteneur
 - Linux
-- dépôt d'images
-- Windows Server Core
+- Ubuntu
+- Alpine
+- libfontconfig
+- libgdiplus
+- polices
+- conversion PDF
 - PowerPoint
-- OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Exécuter Aspose.Slides dans des conteneurs Docker : configurer les images, les dépendances, les polices et la licence afin de créer des services évolutifs qui traitent PowerPoint et OpenDocument."
+description: "Construisez et exécutez une application console Aspose.Slides pour .NET dans Docker : un Dockerfile multi-étapes sur les images .NET officielles, les bibliothèques Linux et les polices nécessaires, et comment copier les fichiers générés sur votre machine."
 ---
+## **Vue d'ensemble**
 
-## **Systèmes d'exploitation pris en charge**
-Aspose.Slides peut s'exécuter à l'intérieur de conteneurs Docker en utilisant la plateforme .NET Core. En général, Aspose.Slides prend en charge tous les types de conteneurs (OS) que la plateforme .NET Core prend en charge. Cependant, le GDI ou [libgdiplus](https://github.com/mono/libgdiplus) doit être disponible et correctement configuré sur les conteneurs concernés.
+Cet article montre comment exécuter Aspose.Slides pour .NET dans un conteneur Docker. Vous créez une petite application console qui crée une présentation avec une zone de texte et la convertit en PDF, l'emballe avec un Dockerfile à plusieurs étapes sur les images .NET officielles de Microsoft, l'exécute, puis copie les fichiers générés sur votre machine. L'article répertorie également les bibliothèques Linux et les polices dont Aspose.Slides a besoin dans le conteneur et se termine par une variante pour Alpine Linux.
 
-Pour utiliser Docker, vous devez d'abord l'installer sur votre système. Pour savoir comment installer Docker sur Windows ou Mac, utilisez ces liens :
+Vous n'avez besoin que de Docker sur votre machine. Le SDK .NET fait partie de l'image de construction, vous n'avez donc pas besoin de l'installer. Pour installer Docker, consultez [Obtenir Docker](https://docs.docker.com/get-started/get-docker/).
 
-- [Installer Docker sur Windows](https://docs.docker.com/docker-for-windows/install/)
-- [Installer Docker sur Mac](https://docs.docker.com/docker-for-mac/install/)
+## **Choisir le package et l'image de base**
 
-Vous pouvez également exécuter Docker sur Linux et Windows Server en suivant les instructions sur ces pages :
+Les images de conteneur .NET 10 par défaut sont basées sur Ubuntu 24.04. Sur ces images, utilisez le package [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/). Il nécessite la bibliothèque `fontconfig`, et l'image d'exécution .NET ne contient ni cette bibliothèque ni aucune police, c'est pourquoi le Dockerfile de cet article les installe tous les deux.
 
-- [Installer et configurer Docker sur Linux (apt-get libgdiplus)](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
-- [Installer et configurer Docker sur Linux (make install libgdiplus)](#install-and-configure-docker-on-linux-make-install-libgdiplus)
-- [Installer et configurer Docker sur Windows Server Core](#install-and-configure-docker-on-windows-server-core)
+Aspose.Slides.NET6.CrossPlatform ne fonctionne pas sur Alpine Linux. Pour les images basées sur Alpine, utilisez le package [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) avec `libgdiplus`, comme décrit dans [Exécuter sur Alpine Linux](#run-on-alpine-linux). [Installation](/slides/fr/net/installation/) compare les deux packages.
 
-L'installation et la configuration de Docker sur Windows Server Nano ne sont pas prises en charge. Malheureusement, Windows Server Nano ne contient pas le sous‑système graphique. Il ne contient pas gdiplus.dll, requis par la bibliothèque System.Drawing.Common, et il ne peut pas être utilisé avec la bibliothèque Aspose.Slides.
+## **Créer le projet**
 
-Bien qu'il soit possible d'exécuter des conteneurs Linux sous Windows, nous vous recommandons de les exécuter nativement sous Linux (même sur un Linux installé manuellement dans une VM avec VirtualBox).
+Créez un dossier nommé *HelloSlidesDocker* et ajoutez‑y les trois fichiers suivants.
 
-## **Installer et configurer Docker sur Linux (apt-get libgdiplus)**
-- OS : Ubuntu 18.04.
-- Dockerfile : Dockerfile-Ubuntu18_04_apt_get_libgdiplus
+*HelloSlidesDocker.csproj* décrit une application console pour .NET 10, la version des images de conteneur utilisées ci‑dessous, et référence Aspose.Slides.NET6.CrossPlatform. Définissez la version du package à la plus récente listée sur [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/).
 
-Ce fichier Docker contient des instructions pour créer une image de conteneur avec le paquet libgdiplus installé à partir des dépôts officiels d'Ubuntu.
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
 
-Voici le contenu du fichier Docker :
-``` csharp
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
+  <ItemGroup>
+    <PackageReference Include="Aspose.Slides.NET6.CrossPlatform" Version="26.9.0" />
+  </ItemGroup>
 
-\# installer libgdiplus
-
-RUN apt-get update -y && apt-get install -y apt-utils
-
-RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
-
-\# créer les points de montage
-
-VOLUME /slides-src
-
-\# construire et tester Aspose.Slides au démarrage
-
-WORKDIR /slides-src
-
-CMD ./build/netcore.linux.tests.sh
-
+</Project>
 ```
 
+*Program.cs* crée une [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/), ajoute un rectangle avec du texte à sa première diapositive, et enregistre la présentation deux fois avec la méthode [Save](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/save/) : en PPTX et en PDF. Les deux fichiers sont placés dans le dossier *output* du répertoire de travail. L'application liste ensuite les polices qui ont été remplacées lors du rendu du PDF, en utilisant [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/), afin que vous puissiez voir si le conteneur possède les polices utilisées par la présentation.
 
-Passons en revue ce que signifie chaque ligne de code du fichier Docker :
+```c#
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-1. L'image du conteneur est basée sur l'image microsoft/dotnet:2.1-sdk-bionic (l'image déjà construite par Microsoft et publiée sur le [hub public](https://hub.docker.com/r/microsoft/dotnet/) de Docker). Cette image contient le SDK dotnet 2.1 déjà installé. Le suffixe Bionic signifie que Ubuntu 18.04 (nom de code bionic) sera utilisé comme OS du conteneur. En changeant le suffixe, il est possible de changer l'OS sous‑jacent (par exemple : stretch – Debian 9, alpine – Alpine Linux). Dans ce cas, une modification du contenu du fichier Docker sera nécessaire (par exemple, remplacer « apt-get » par « yum »).  
-``` csharp
+var outputFolder = "output";
+Directory.CreateDirectory(outputFolder);
 
- FROM microsoft/dotnet:2.1-sdk-bionic AS build:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello from a Docker container!";
 
+var pptxPath = Path.Combine(outputFolder, "hello.pptx");
+var pdfPath = Path.Combine(outputFolder, "hello.pdf");
+presentation.Save(pptxPath, SaveFormat.Pptx);
+presentation.Save(pdfPath, SaveFormat.Pdf);
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
+{
+    Console.WriteLine($"Font substitution: {substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+Console.WriteLine($"Saved {pptxPath} and {pdfPath}");
 ```
 
+*.dockerignore* garde les dossiers *bin* et *obj* d'une construction locale, ainsi que les sorties des exécutions précédentes, hors du contexte de construction Docker, de sorte que l'image est construite uniquement à partir des fichiers source.
 
-2. Met à jour la base de données des paquets disponibles et installe le paquet apt-utils.  
-``` csharp
-
- RUN apt-get update -y && apt-get install -y apt-utils
-
+```text
+bin/
+obj/
+output/
 ```
 
+## **Écrire le Dockerfile**
 
-3. Installe les paquets 'libgdiplus' et 'libc6-dev' requis par la bibliothèque System.Drawing.Common.  
-``` csharp
+Ajoutez un fichier nommé *Dockerfile* dans le même dossier :
 
- RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
+```dockerfile
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+COPY HelloSlidesDocker.csproj .
+RUN dotnet restore
+COPY . .
+RUN dotnet publish --no-restore -c Release -o /app
 
+FROM mcr.microsoft.com/dotnet/runtime:10.0
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libfontconfig1 fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY --from=build /app .
+RUN mkdir output && chown $APP_UID output
+USER $APP_UID
+ENTRYPOINT ["dotnet", "HelloSlidesDocker.dll"]
 ```
 
+Le fichier comporte deux étapes :
 
-4. Déclare le dossier /slides-src comme point de montage que nous utiliserons pour fournir l'accès au dossier sources slide-net sur la machine hôte.  
-``` csharp
+- **L'étape de construction** démarre à partir de l'image du SDK .NET. Elle copie d'abord le fichier projet et restaure les packages NuGet, de sorte que Docker réutilise cette couche tant que le fichier projet ne change pas. Elle copie ensuite le code source et publie l'application dans */app*.
+- **L'étape d'exécution** démarre à partir de l'image d'exécution .NET plus petite, qui ne possède pas de SDK, et ne copie que l'application publiée. Elle installe deux paquets :
+  - `libfontconfig1` : Aspose.Slides.NET6.CrossPlatform charge cette bibliothèque au démarrage. Sans elle, l'application s'arrête avec une `DllNotFoundException` indiquant `libfontconfig.so.1`.
+  - `fonts-dejavu-core` : l'image d'exécution ne contient aucune police, et Aspose.Slides a besoin d'au moins une police installée pour dessiner du texte ; sans aucune, la conversion s'arrête avec `InvalidOperationException: Cannot find any fonts installed on the system.` Le texte avec des polices non installées est rendu avec une police de substitution. Les polices DejaVu sont un petit ensemble qui permet de rendre le texte ; pour rendre les présentations avec les polices pour lesquelles elles ont été conçues, consultez [Déployer des polices](/slides/fr/net/deploy-fonts/).
 
- VOLUME /slides-src
+`--no-install-recommends` et la suppression des listes de paquets maintiennent l'image petite. Les dernières lignes créent le dossier *output*, le donnent à l'utilisateur non root `app` que les images .NET officielles définissent (son ID utilisateur se trouve dans la variable `APP_UID`), et exécutent l'application en tant que cet utilisateur.
 
+Pour une application ASP.NET Core, démarrez l'étape d'exécution depuis `mcr.microsoft.com/dotnet/aspnet:10.0` à la place. Elle repose sur la même image Ubuntu, donc les mêmes paquets sont nécessaires.
+
+## **Construire et exécuter le conteneur**
+
+Ouvrez un terminal dans le dossier *HelloSlidesDocker*. Construisez l'image, puis lancez un conteneur à partir de celle‑ci :
+
+```bash
+docker build -t hello-slides .
+docker run --name hello-slides-run hello-slides
 ```
 
+La première construction télécharge les images de base et les packages NuGet, donc elle prend plus de temps que les constructions ultérieures. Le conteneur exécute l'application puis s'arrête. Il affiche :
 
-5. Définit slides-src comme répertoire de travail à l'intérieur du conteneur.  
-``` csharp
-
- WORKDIR /slides-src
-
+```text
+Font substitution: Calibri -> DejaVu Sans
+Saved output/hello.pptx and output/hello.pdf
 ```
 
+La première ligne montre que le texte utilise Calibri, la police par défaut d'une nouvelle présentation, et que Calibri n'est pas installé dans l'image, ainsi Aspose.Slides a rendu le texte avec DejaVu Sans. Le texte du PDF est réel, sélectionnable dans cette police. Sans licence, Aspose.Slides ajoute également un filigrane d'évaluation à chaque diapositive qu'il enregistre ; consultez [Licences](/slides/fr/net/licensing/).
 
-6. Déclare une commande par défaut qui sera exécutée au démarrage du conteneur si aucune commande explicite n'est spécifiée.  
-``` csharp
+## **Copier la sortie sur votre machine**
 
- CMD ./build/netcore.linux.tests.sh
+Les fichiers se trouvent dans le dossier */app/output* du conteneur arrêté. Copiez‑les dans un dossier *output* sur votre machine, puis supprimez le conteneur :
 
+```bash
+docker cp hello-slides-run:/app/output/. ./output
+docker rm hello-slides-run
 ```
 
+Ces deux commandes fonctionnent de la même manière dans Bash, PowerShell et l'invite de commandes Windows.
 
-Selon les instructions du fichier Docker, l'image du conteneur résultant contiendra Ubuntu 18.04, le SDK dotnet, les paquets libgdiplus et libc6-dev déjà installés. De plus, cette image disposera d'un point de montage prédéfini et d'une commande par défaut à l'exécution.
+Sous Linux, vous pouvez à la place monter un dossier de votre machine dans le conteneur, afin que l'application y écrive directement les fichiers :
 
-Pour créer une image à partir de ce fichier Docker, vous devez vous rendre dans le dossier docker de slides-netuil et exécuter :
-``` csharp
-
- $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_apt_get_libgdiplus .
-
+```bash
+mkdir -p output
+docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-slides
 ```
 
+L'option `--user` exécute l'application avec vos ID d'utilisateur et de groupe, ainsi elle peut écrire dans le dossier que vous avez créé et les fichiers vous appartiennent. `--rm` supprime le conteneur lorsqu'il s'arrête.
 
-*-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus* -- option qui indique quel fichier Docker utiliser.  
-*-t ubuntu18_04_apt_get_libgdiplus* -- indique le tag (nom) de l'image résultante.  
-*'.'* -- indique le contexte pour Docker. Dans notre cas, le contexte est le dossier actuel et il est vide — car nous choisissons de fournir les sources slides-net comme point de montage (cela nous évite de reconstruire l'image Docker à chaque modification des sources).
+## **Exécuter sur Alpine Linux**
 
-Le résultat de l'exécution devrait ressembler à ceci :
-``` csharp
+Pour exécuter l'application dans une image basée sur Alpine, passez au package Aspose.Slides.NET et modifiez l'étape d'exécution. L'étape de construction reste identique.
 
- Successfully built 62dd34ddc142
+1. Dans *HelloSlidesDocker.csproj*, remplacez la référence du package :
 
-Successfully tagged ubuntu18_04_apt_get_libgdiplus:latest
+   ```xml
+   <PackageReference Include="Aspose.Slides.NET" Version="26.9.0" />
+   ```
 
-```
+1. Dans *Program.cs*, ajoutez cet énoncé après les directives `using`, avant le premier appel à Aspose.Slides. Il active la prise en charge de System.Drawing pour Linux que Aspose.Slides.NET utilise :
 
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
 
-Pour s'assurer que la nouvelle image a bien été ajoutée au référentiel d'images locales :
-``` csharp
+1. Dans *Dockerfile*, remplacez l'étape d'exécution (tout à partir de la deuxième ligne `FROM`) par :
 
- $ docker images
+   ```dockerfile
+   FROM mcr.microsoft.com/dotnet/runtime:10.0-alpine
+   ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+   RUN apk add --no-cache icu-libs libgdiplus font-dejavu
+   WORKDIR /app
+   COPY --from=build /app .
+   RUN mkdir output && chown $APP_UID output
+   USER $APP_UID
+   ENTRYPOINT ["dotnet", "HelloSlidesDocker.dll"]
+   ```
 
-\----
+L'étape Alpine installe trois paquets et modifie un paramètre :
 
-REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+- `libgdiplus` est la bibliothèque graphique que Aspose.Slides.NET utilise sous Linux.
+- `font-dejavu` fournit des polices. Sans aucune police, la conversion s'arrête avec `System.ArgumentException: Font '?' cannot be found`.
+- `icu-libs` et `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` fournissent les données de culture. Les images .NET Alpine s'exécutent par défaut en mode globalisation invariante, et dans ce mode Aspose.Slides s'arrête avec une `CultureNotFoundException` pour `en-US`.
 
-ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minutes ago         1.78GB
+Construisez, exécutez et copiez la sortie avec les mêmes commandes qu'auparavant. Sur cette image, l'application n'affiche que la ligne `Saved` : avec Aspose.Slides.NET sous Linux, fontconfig choisit le remplacement d'une police manquante, et [GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) ne la répertorie pas. [Déployer des polices](/slides/fr/net/deploy-fonts/) montre comment vérifier quelle police est utilisée.
 
-```
+## **FAQ**
 
+**L'application s'arrête avec « Unable to load shared library 'libaspose.slides.drawing.capi…' ». Qu'est‑ce qui manque ?**
 
-Une fois l'image prête, nous pouvons l'exécuter avec la commande suivante :
-``` csharp
+Sur les images Ubuntu et Debian, le paquet `libfontconfig1` ; le message indique `libfontconfig.so.1` comme le fichier qui n'a pas pu être ouvert. Sous Alpine Linux, le message signifie que Aspose.Slides.NET6.CrossPlatform est utilisé ; passez à Aspose.Slides.NET comme décrit dans [Exécuter sur Alpine Linux](#run-on-alpine-linux).
 
- $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest
+**Pourquoi le texte du PDF apparaît‑il avec une police différente de celle de PowerPoint ?**
 
-```
+Les polices utilisées par la présentation ne sont pas installées dans l'image, ainsi Aspose.Slides rend le texte avec une police de substitution. La sortie de l'application indique chaque police remplacée. [Déployer des polices](/slides/fr/net/deploy-fonts/) explique comment installer des polices dans l'image ou les charger depuis le dossier de l'application.
 
+**Ai‑je besoin du SDK .NET sur ma machine ?**
 
-*-it* -- indique que la commande doit être exécutée en mode interactif, ce qui permet de voir la sortie et de saisir des entrées.  
-*-v `pwd`/../../:/slides-src* -- spécifie le dossier pour le point de montage prédéfini — puisque le répertoire de travail actuel est slides-net/docker, le dossier slides-src dans le conteneur pointera vers le dossier slides-net sur l'hôte. `pwd` est utilisé pour indiquer le chemin relatif.  
-*--add-host dev.slides.external.tool.server:192.168.1.48* -- modifie le fichier hosts du conteneur pour résoudre l'URL dev.slides.external.tool.server.  
-*ubuntu1804aptgetlibgdiplus:latest* -- indique l'image à exécuter.
-
-Le résultat de la commande ci‑dessus sera la sortie de netcore.linux.tests.sh (car elle a été définie comme commande par défaut du conteneur) :
-``` csharp
-
- Restoring packages for /slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj...
-
-Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.DOM.NetStandard/Aspose.Slides.DOM.NetStandard.csproj...
-
-Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.CompoundFile.NetStandard/Aspose.Slides.CompoundFile.NetStandard.csproj...
-
-Installing System.Text.Encoding.CodePages 4.4.0.
-
-Installing System.Drawing.Common 4.5.0.
-
-...
-
-Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.FuncTests.NetCore.trx
-
-Total tests: Unknown. Passed: 2110. Failed: 108. Skipped: 210.
-
-...
-
-Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.RegrTests.NetCore.trx
-
-Total tests: 2124. Passed: 1550. Failed: 103. Skipped: 471.
-
-```
-
-
-À partir du résultat, il apparaît clairement que les fichiers journaux des tests Func et Regr ont été placés dans le répertoire / build-out/netstandard20/test-results/main/. Environ 200 tests ont échoué au total — tous liés à des problèmes de rendu dus à l'absence des polices requises dans le conteneur.
-
-Pour remplacer la commande par défaut du conteneur lors d'une exécution, nous pouvons utiliser la commande suivante :
-``` csharp
-
- $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest /bin/bash
-
-```
-
-
-Ainsi, au lieu de netcore.linux.tests.sh, /bin/bash sera exécuté et offrira une session terminal active du conteneur depuis laquelle il pourra être lancé (./build/netcore.linux.tests.sh). Cette approche peut être utile pour le dépannage.
-
-## **Installer et configurer Docker sur Linux (make install libgdiplus)**
-- OS : Ubuntu 18.04.
-- Dockerfile : Dockerfile-Ubuntu18_04_make_libgdiplus
-
-Actuellement, Ubuntu ne propose que la version 4.2 de libgdiplus alors que la version 5.6 est déjà disponible sur le [site officiel](https://github.com/mono/libgdiplus/releases) du produit. Pour tester la version la plus récente de libgdiplus, nous devons préparer une image avec libgdiplus compilé à partir des sources.
-
-Passons en revue le contenu du fichier Docker :
-``` csharp
-
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
-
-\# compiler la version stable la plus récente de libgdiplus
-
-RUN apt-get update -y
-
-RUN apt-get install -y libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
-
-RUN git clone -b 5.6 https://github.com/mono/libgdiplus
-
-WORKDIR /libgdiplus
-
-RUN ./autogen.sh
-
-RUN make
-
-RUN make install
-
-RUN ln -s /usr/local/lib/libgdiplus.so /usr/lib/libgdiplus.so
-
-\# créer des points de montage
-
-VOLUME /slides-src
-
-\# compiler et tester Aspose.Slides au démarrage
-
-WORKDIR /slides-src
-
-CMD ./build/netcore.linux.tests.sh
-
-```
-
-
-La seule différence réside dans la section *build latest stable libgdiplus*. Cette section installe tous les outils nécessaires à la compilation de libgdiplus, clone les sources, les compile puis les installe à l'emplacement approprié. Tout le reste est identique à [Installer et configurer Docker sur Linux (apt-get libgdiplus)](/slides/fr/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/).
-
-**Note** : n'oubliez pas d'utiliser des tags d'image différents (nom) pour l'image résultante lors des commandes docker build et docker run :
-``` csharp
-
- $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
-
-$ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
-
-```
-
-
-## **Installer et configurer Docker sur Windows Server Core**
-- OS : Ubuntu 18.04.
-- Dockerfile : Dockerfile*WinServerCore*
-
-**Note** : Windows 10 Pro ou Windows Server 2016 est requis pour exécuter des conteneurs Windows.
-
-Malheureusement, Microsoft ne fournit pas d'image Windows Server Core avec le SDK dotnet installé, nous devons donc l'installer manuellement :
-``` csharp
-
- # escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#set définir l'exécuteur par défaut powershell
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#set définir l'exécuteur par défaut powershell
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# Récupérer le SDK .NET Core
-
-ENV DOTNET_SDK_VERSION 2.1.301
-
-ENV DOTNET_PATH "c:/Program Files/dotnet"
-
-RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$Env:DOTNET_SDK_VERSION/dotnet-sdk-$Env:DOTNET_SDK_VERSION-win-x64.zip; 
-
-    $dotnet_sha512 = 'f2f6cc020f89dc4d4f8064cc914cffabde0ce422715138778a6bcbbb6803ca66d6fd967097a0209c47c89b85dd9e93db48486ac86999bd3a533e45b789fcea89'; 
-
-    if ((Get-FileHash dotnet.zip -Algorithm sha512).Hash -ne $dotnet_sha512) { 
-
-        Write-Host 'CHECKSUM VERIFICATION FAILED!'; 
-
-        exit 1; 
-
-    }; 
-    
-
-    Expand-Archive dotnet.zip -DestinationPath $Env:DOTNET_PATH;
-
-#retourner cmd comme exécuteur par défaut
-
-SHELL ["cmd", "/S", "/C"]
-
-\# Pour définir le PATH système, ContainerAdministrator doit être utilisé
-
-USER ContainerAdministrator
-
-RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
-
-USER ContainerUser
-
-\# créer des points de montage
-
-VOLUME c:/slides-src
-
-# construire et tester Aspose.Slides au démarrage
-
-WORKDIR c:/slides-src
-
-CMD .\external\buildtools\nant\nant.exe -buildfile:.\build\netcore.tests.build -D:obfuscate_eaz_use_mock=true -D:slidesnet.run.func.tests=true -D:slidesnet.run.regr.tests=true
-```
-
-
-L'image résultante sera construite à partir de l'image microsoft/windowsservercore:1803 fournie par Microsoft sur le [docker hub](https://hub.docker.com/u/microsoft). Le SDK dotnet de la version spécifiée sera téléchargé et décompressé ; la variable d'environnement PATH du système sera mise à jour pour inclure le chemin vers l'exécutable dotnet. La dernière ligne définit la commande qui exécute les tests func & regr dans le conteneur en utilisant nant.exe comme action par défaut à l'exécution du conteneur.
-
-Commande pour créer l'image :
-``` csharp
-
- docker build -f Dockerfile_WinServerCore -t winservercore_slides .
-
-```
-
-
-Commande pour exécuter l'image :
-``` csharp
-
- docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
-
-```
-
-
-**Note** : la commande pour le conteneur Windows utilise 2 arguments supplémentaires :
-
-*-cpu-count 3*  
-*-memory 8589934592*
-
-Ils définissent le nombre de cœurs et la quantité de mémoire allouée au conteneur. Par défaut, un seul cœur et 1 Go de RAM sont disponibles pour le conteneur Windows (les conteneurs Linux n'ont aucune limitation par défaut).
-
-De plus, un argument manque par rapport à la même commande que nous utilisions pour le conteneur Linux :
-
-*-add-host dev.slides.external.tool.server:192.168.1.48*
-
-Parce que le conteneur fonctionnant sous Windows n'a tout simplement pas besoin de external.tool.server.
-
-Le résultat de la commande ci‑dessus devrait ressembler à ceci :
-``` csharp
-
- NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
-
-Copyright (C) 2001-2012 Gerry Shaw
-
-http://nant.sourceforge.net
-
-netcore20_runtests:
-
-   [delete] Deleting directory 'c:\slides-src\build-out\netcore20\test-results\'.
-
-   [mkdir] Creating directory 'c:\slides-src\build-out\netcore20\test-results\'.
-
-...
-
-[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.FuncTests.NetCore.trx
-
-[exec] Total tests: 2338. Passed: 2115. Failed: 19. Skipped: 204.
-
-...
-
-[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.RegrTests.NetCore.trx
-
-[exec] Total tests: 2728. Passed: 2147. Failed: 110. Skipped: 471.
-
-```
+Non. L'étape de construction compile l'application à l'intérieur de l'image du SDK. Vous n'avez besoin du SDK que si vous souhaitez également construire et exécuter l'application hors de Docker ; consultez [Installation](/slides/fr/net/installation/).
