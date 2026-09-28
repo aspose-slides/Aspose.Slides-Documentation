@@ -31,10 +31,10 @@ Mielőtt elkezdené, adja az Aspose.Slides-et az Android projektjéhez az Aspose
 
 PowerPoint prezentáció létrehozásához és szövegdoboz elhelyezéséhez az első dián, kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
-2. Szerezze meg azt a diát a [slide collection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) gyűjteményből indexével, 0.
-3. Tegyen hozzá egy téglalapot a [addAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) módszerrel a [shape collection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) segítségével, és állítsa be szövegét a [text frame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) segítségével a [setText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) módszerrel.
-4. Mentse a prezentációt PPTX fájlként a [save](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) módszerrel, a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/saveformat/) formátumban.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztályból. Egy új prezentáció már tartalmaz egy üres diát.
+2. Szerezze meg azt a diát a [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) gyűjteményből indexével, 0.
+3. Tegyen hozzá egy téglalapot a [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) módszerrel a [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) segítségével, és állítsa be szövegét a [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) segítségével a [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) módszerrel.
+4. Mentse a prezentációt PPTX fájlként a [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) módszerrel, a [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) formátumban.
 
 A kód egy `Activity`-ben fut, például annak `onCreate` metódusában. A fájlt a [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) metódus által visszaadott könyvtárba menti: az alkalmazás privát tárolójába, amelybe engedélykérés nélkül írhat.
 
@@ -83,7 +83,7 @@ Használjon [BLOB management strategies](/slides/hu/androidjava/manage-blob/) st
 
 ### Létrehozhatok/menthetek prezentációkat párhuzamosan?
 
-Nem lehet ugyanazon a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányon [multiple threads](/slides/hu/androidjava/multithreading/) párhuzamosan dolgozni. Futtasson külön, izolált példányokat szálanként vagy folyamatanként.
+Nem lehet ugyanazon a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) példányon [multiple threads](/slides/hu/androidjava/multithreading/) párhuzamosan dolgozni. Futtasson külön, izolált példányokat szálanként vagy folyamatanként.
 
 ### Hogyan távolíthatom el a próba vízjelet és a korlátozásokat?
 

@@ -57,7 +57,7 @@ Ezután szinkronizálja a projektet a Gradle fájlokkal, hogy a Gradle letöltse
 
 ### **Verzió kiválasztása**
 
-Az Aspose.Slides for Android via Java nem minden verzióra épül a tárolóban. A buildjei csak néhány Aspose.Slides for Java verzióhoz vannak kiadva, és egy Android build nélküli verzió feloldása sikertelen. Válasszon ki egy verziót a [Aspose.Slides for Android via Java letöltési oldalon](https://releases.aspose.com/slides/hu/androidjava/).
+Az Aspose.Slides for Android via Java nem minden verzióra épül a tárolóban. A buildjei csak néhány Aspose.Slides for Java verzióhoz vannak kiadva, és egy Android build nélküli verzió feloldása sikertelen. Válasszon ki egy verziót a [Aspose.Slides for Android via Java letöltési oldalon](https://releases.aspose.com/slides/androidjava/).
 
 ### **Groovy build script-ek**
 
@@ -108,11 +108,11 @@ A projekt szinkronizálása után folytassa a [Create Presentations](/slides/hu/
 
 ### Hogyan ellenőrizhetem, hogy az Aspose.Slides helyesen integrálva van?
 
-Építse fel a projektet, hozzon létre egy üres [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt, és mentse el egy új név alatt. Ha a fájl kivétel dobása nélkül jön létre, a könyvtár sikeresen integrálva lett.
+Építse fel a projektet, hozzon létre egy üres [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) példányt, és mentse el egy új név alatt. Ha a fájl kivétel dobása nélkül jön létre, a könyvtár sikeresen integrálva lett.
 
 ### Hogyan korlátozhatom a memóriafelhasználást nagy prezentációk feldolgozásakor?
 
-Hívja meg minden [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példány `dispose` módszerét egy `finally` blokkban, hogy a erőforrások gyorsan felszabaduljanak, és egyszerre csak egy nagy prezentációt dolgozzon fel. Ez segít megakadályozni a memóriahiány hibákat, és előre láthatóvá teszi a memóriahasználatot kötegelt műveletek során.
+Hívja meg minden [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) példány `dispose` módszerét egy `finally` blokkban, hogy a erőforrások gyorsan felszabaduljanak, és egyszerre csak egy nagy prezentációt dolgozzon fel. Ez segít megakadályozni a memóriahiány hibákat, és előre láthatóvá teszi a memóriahasználatot kötegelt műveletek során.
 
 ### Kizárhatok nem kívánt exportformátumokat a végső JAR méretének csökkentéséhez?
 

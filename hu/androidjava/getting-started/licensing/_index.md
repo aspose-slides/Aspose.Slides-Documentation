@@ -23,14 +23,14 @@ description: "Licencelés alkalmazása, kezelése és hibakeresése az Aspose.Sl
 
 Az Aspose.Slides használható kiértékelési módban vagy érvényes licenccel. A kiértékelési verzió ugyanazt a funkcionalitást biztosítja, mint a licencelt verzió, de minden mentett prezentáció minden diájára egy kiértékelési vízjelet helyez, és lerövidíti a kódból olvasott szöveget a prezentációkból.
 
-Ez a cikk elmagyarázza, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan kell licencet alkalmazni a könyvtár használata előtt. Licencet fájlból, adatfolyamból vagy beágyazott erőforrásból lehet betölteni a [Licenc](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/license/) osztály segítségével. A cikk bemutatja továbbá, hogyan lehet ellenőrizni, hogy a licenc helyesen lett-e alkalmazva.
+Ez a cikk elmagyarázza, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan kell licencet alkalmazni a könyvtár használata előtt. Licencet fájlból, adatfolyamból vagy beágyazott erőforrásból lehet betölteni a [Licenc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) osztály segítségével. A cikk bemutatja továbbá, hogyan lehet ellenőrizni, hogy a licenc helyesen lett-e alkalmazva.
 
 ## **Az Aspose.Slides kiértékelése**
 
 {{% alert color="info" title="Note" %}}
-Letöltheti a **Aspose.Slides for Android via Java** kiértékelési verzióját a [letöltési oldalról](https://releases.aspose.com/slides/hu/androidjava/). A kiértékelési verzió ugyanazokat a funkciókat kínálja, mint a termék licencelt verziója. A kiértékelési csomag megegyezik a megvásárolt csomaggal. A kiértékelési verzió egyszerűen licenccé válik, miután néhány kódsort hozzáad (a licenc alkalmazásához).
+Letöltheti a **Aspose.Slides for Android via Java** kiértékelési verzióját a [letöltési oldalról](https://releases.aspose.com/slides/androidjava/). A kiértékelési verzió ugyanazokat a funkciókat kínálja, mint a termék licencelt verziója. A kiértékelési csomag megegyezik a megvásárolt csomaggal. A kiértékelési verzió egyszerűen licenccé válik, miután néhány kódsort hozzáad (a licenc alkalmazásához).
 
-Miután elégedett a **Aspose.Slides** kiértékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/hu/android-java/). Javasoljuk, hogy tekintse át a különböző előfizetési típusokat. Kérdéseivel forduljon az Aspose értékesítési csapatához.
+Miután elégedett a **Aspose.Slides** kiértékelésével, [licencet vásárolhat](https://purchase.aspose.com/pricing/slides/android-java/). Javasoljuk, hogy tekintse át a különböző előfizetési típusokat. Kérdéseivel forduljon az Aspose értékesítési csapatához.
 
 Minden Aspose licenc egyéves előfizetést tartalmaz, amely ingyenes frissítéseket biztosít az előfizetési időszakon belül kiadott új verziókra vagy javításokra. A licencelt termékeket (vagy akár a kiértékelési verziókat) használó felhasználók ingyenes és korlátlan műszaki támogatást kapnak.
 {{% /alert %}}
@@ -59,7 +59,7 @@ Aspose.Slides korlátozások nélküli teszteléséhez kérhet **30 napos ideigl
 Licenc betölthető **fájlból** vagy **adatfolyamból**.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides a [Licenc](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/license/) osztályt biztosítja a licencelési műveletekhez.
+Az Aspose.Slides a [Licenc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) osztályt biztosítja a licencelési műveletekhez.
 {{% /alert %}}
 
 {{% alert color="warning" title="Warning" %}}
@@ -83,9 +83,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Ha a licencfájlt egy másik könyvtárba helyezi, a [setLicense](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metódus hívásakor az adott útvonal végén szereplő licencfájl neve meg kell, hogy egyezzen a licencfájljának nevével.
+Ha a licencfájlt egy másik könyvtárba helyezi, a [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metódus hívásakor az adott útvonal végén szereplő licencfájl neve meg kell, hogy egyezzen a licencfájljának nevével.
 
-Például megváltoztathatja a licencfájl nevét *Aspose.Slides.Android.via.Java.lic.xml*-re. Ezután a kódban át kell adnia a fájl elérési útját (amely *Aspose.Slides.Android.via.Java.lic.xml*-re végződik) a [setLicense](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metódusnak.
+Például megváltoztathatja a licencfájl nevét *Aspose.Slides.Android.via.Java.lic.xml*-re. Ezután a kódban át kell adnia a fájl elérési útját (amely *Aspose.Slides.Android.via.Java.lic.xml*-re végződik) a [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) metódusnak.
 {{% /alert %}}
 
 ### **Adatfolyam**
@@ -101,7 +101,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Adatfolyam az alkalmazás eszközeiből**
 
-Android alkalmazásban helyezze a licencfájlt az alkalmazás *assets* mappájába, azaz *app/src/main/assets* könyvtárba, hogy az APK-ba legyen csomagolva. Nyissa meg a fájlt a [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) metódussal, és adja át az adatfolyamot a [setLicense](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódusnak. A kód egy `Activity`-ben fut, például az `onCreate` metódusában, mielőtt az alkalmazás az Aspose.Slides-et használja:
+Android alkalmazásban helyezze a licencfájlt az alkalmazás *assets* mappájába, azaz *app/src/main/assets* könyvtárba, hogy az APK-ba legyen csomagolva. Nyissa meg a fájlt a [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) metódussal, és adja át az adatfolyamot a [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódusnak. A kód egy `Activity`-ben fut, például az `onCreate` metódusában, mielőtt az alkalmazás az Aspose.Slides-et használja:
 ```java
 import android.util.Log;
 import com.aspose.slides.License;
@@ -136,7 +136,7 @@ if (license.isLicensed())
 ## **Szálbiztonság**
 
 {{% alert color="warning" title="Warning" %}}
-A [setLicense](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szál hívja, érdemes szinkronizációs primitíveket (például zárolást) használni a problémák elkerülése érdekében.
+A [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szál hívja, érdemes szinkronizációs primitíveket (például zárolást) használni a problémák elkerülése érdekében.
 {{% /alert %}}
 
 ## **GYIK**
