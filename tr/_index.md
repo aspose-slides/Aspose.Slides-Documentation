@@ -28,16 +28,16 @@ Aspose.Slides, Microsoft PowerPoint olmadan PowerPoint ve OpenDocument sunumlar�
 <hr>
 <p>.NET</p>
 <ul>
-<li><a href="/slides/tr/net/"><b>Aspose.Slides for .NET</b></a><br>.NET uygulamaları için.<br><small><a href="/slides/tr/net/installation/">Kurulum</a> · <a href="/slides/tr/net/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/net/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/net/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/net/"><b>Aspose.Slides for .NET</b></a><br>.NET uygulamaları için.<br><small><a href="/slides/tr/net/installation/">Kurulum</a> · <a href="/slides/tr/net/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/net/">API referansı</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">Sürüm notları</a></small></li>
 </ul>
 <p>JAVA</p>
 <ul>
-<li><a href="/slides/tr/java/"><b>Aspose.Slides for Java</b></a><br>Java uygulamaları için.<br><small><a href="/slides/tr/java/installation/">Kurulum</a> · <a href="/slides/tr/java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/java/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/java/release-notes/">Sürüm notları</a></small></li>
-<li><a href="/slides/tr/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Android uygulamaları için.<br><small><a href="/slides/tr/androidjava/install-aspose-slides-for-android-via-java/">Kurulum</a> · <a href="/slides/tr/androidjava/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/androidjava/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/androidjava/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/java/"><b>Aspose.Slides for Java</b></a><br>Java uygulamaları için.<br><small><a href="/slides/tr/java/installation/">Kurulum</a> · <a href="/slides/tr/java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/java/">API referansı</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>Android uygulamaları için.<br><small><a href="/slides/tr/androidjava/install-aspose-slides-for-android-via-java/">Kurulum</a> · <a href="/slides/tr/androidjava/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/androidjava/">API referansı</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">Sürüm notları</a></small></li>
 </ul>
 <p>C++</p>
 <ul>
-<li><a href="/slides/tr/cpp/"><b>Aspose.Slides for C++</b></a><br>C++ uygulamaları için.<br><small><a href="/slides/tr/cpp/installation/">Kurulum</a> · <a href="/slides/tr/cpp/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/cpp/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/cpp/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/cpp/"><b>Aspose.Slides for C++</b></a><br>C++ uygulamaları için.<br><small><a href="/slides/tr/cpp/installation/">Kurulum</a> · <a href="/slides/tr/cpp/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/cpp/">API referansı</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">Sürüm notları</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -45,17 +45,17 @@ Aspose.Slides, Microsoft PowerPoint olmadan PowerPoint ve OpenDocument sunumlar�
 <hr>
 <p>PYTHON</p>
 <ul>
-<li><a href="/slides/tr/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>.NET çalışma zamanını içerir.<br><small><a href="/slides/tr/python-net/installation/">Kurulum</a> · <a href="/slides/tr/python-net/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/python-net/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/python-net/release-notes/">Sürüm notları</a></small></li>
-<li><a href="/slides/tr/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Java kütüphanesini JPype aracılığıyla çalıştırır.<br><small><a href="/slides/tr/python-java/installation/">Kurulum</a> · <a href="/slides/tr/python-java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/python-java/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/python-java/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>.NET çalışma zamanını içerir.<br><small><a href="/slides/tr/python-net/installation/">Kurulum</a> · <a href="/slides/tr/python-net/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/python-net/">API referansı</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>Java kütüphanesini JPype aracılığıyla çalıştırır.<br><small><a href="/slides/tr/python-java/installation/">Kurulum</a> · <a href="/slides/tr/python-java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/python-java/">API referansı</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">Sürüm notları</a></small></li>
 </ul>
 <p>NODE.JS</p>
 <ul>
-<li><a href="/slides/tr/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Java kütüphanesini bir Java sanal makinesinde çalıştırır.<br><small><a href="/slides/tr/nodejs-java/installation/">Kurulum</a> · <a href="/slides/tr/nodejs-java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/nodejs-java/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/nodejs-java/release-notes/">Sürüm notları</a></small></li>
-<li><a href="/slides/tr/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>.NET kütüphanesini edge-js aracılığıyla çalıştırır.<br><small><a href="/slides/tr/nodejs-net/installation/">Kurulum</a> · <a href="/slides/tr/nodejs-net/developer-guide/">Geliştirici kılavuzu</a> · <a href="/slides/tr/nodejs-net/api-reference/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/nodejs-net/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>Java kütüphanesini bir Java sanal makinesinde çalıştırır.<br><small><a href="/slides/tr/nodejs-java/installation/">Kurulum</a> · <a href="/slides/tr/nodejs-java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">API referansı</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>.NET kütüphanesini edge-js aracılığıyla çalıştırır.<br><small><a href="/slides/tr/nodejs-net/installation/">Kurulum</a> · <a href="/slides/tr/nodejs-net/developer-guide/">Geliştirici kılavuzu</a> · <a href="/slides/tr/nodejs-net/api-reference/">API referansı</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">Sürüm notları</a></small></li>
 </ul>
 <p>PHP</p>
 <ul>
-<li><a href="/slides/tr/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Java kütüphanesini PHP/Java Bridge aracılığıyla çağırır.<br><small><a href="/slides/tr/php-java/installation/">Kurulum</a> · <a href="/slides/tr/php-java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/tr/php-java/">API referansı</a> · <a href="https://releases.aspose.com/slides/tr/php-java/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>Java kütüphanesini PHP/Java Bridge aracılığıyla çağırır.<br><small><a href="/slides/tr/php-java/installation/">Kurulum</a> · <a href="/slides/tr/php-java/getting-started/">Başlarken</a> · <a href="https://reference.aspose.com/slides/php-java/">API referansı</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">Sürüm notları</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -63,12 +63,12 @@ Aspose.Slides, Microsoft PowerPoint olmadan PowerPoint ve OpenDocument sunumlar�
 <hr>
 <p>REPORTING</p>
 <ul>
-<li><a href="/slides/tr/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>JasperReports raporlarını PowerPoint'e dışa aktarır.<br><small><a href="/slides/tr/jasperreports/installing-aspose-slides-for-jasperreports/">Kurulum</a> · <a href="https://releases.aspose.com/slides/tr/jasperreport/release-notes/">Sürüm notları</a></small></li>
-<li><a href="/slides/tr/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>SQL Server Reporting Services raporlarını PowerPoint'e dışa aktarır.<br><small><a href="/slides/tr/reportingservices/installing-aspose-slides-for-reporting-services/">Kurulum</a> · <a href="https://releases.aspose.com/slides/tr/reportingservices/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>JasperReports raporlarını PowerPoint'e dışa aktarır.<br><small><a href="/slides/tr/jasperreports/installing-aspose-slides-for-jasperreports/">Kurulum</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>SQL Server Reporting Services raporlarını PowerPoint'e dışa aktarır.<br><small><a href="/slides/tr/reportingservices/installing-aspose-slides-for-reporting-services/">Kurulum</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Sürüm notları</a></small></li>
 </ul>
 <p>SHAREPOINT</p>
 <ul>
-<li><a href="/slides/tr/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>SharePoint sitelerindeki sunumları dönüştürür.<br><small><a href="/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint/">Kurulum</a> · <a href="https://releases.aspose.com/slides/tr/sharepoint/release-notes/">Sürüm notları</a></small></li>
+<li><a href="/slides/tr/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>SharePoint sitelerindeki sunumları dönüştürür.<br><small><a href="/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint/">Kurulum</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Sürüm notları</a></small></li>
 </ul>
 </div>
 </div>
