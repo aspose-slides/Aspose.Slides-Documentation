@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services работает внутри сервер�
 
 Поддерживаются как 32‑битные, так и 64‑битные серверы отчетов. SQL Server 2005 использует собственную сборку расширения; все более поздние версии и Power BI Report Server используют одну и ту же сборку. [Install Manually](/slides/ru/reportingservices/install-manually/) показывает, какой файл нужно скопировать.
 
-Если версия вашего сервера отчетов отсутствует в этом списке, задайте вопрос на [free support forum](https://forum.aspose.com/c/slides/ru/11) перед развертыванием.
+Если версия вашего сервера отчетов отсутствует в этом списке, задайте вопрос на [free support forum](https://forum.aspose.com/c/slides/11) перед развертыванием.
 
 ## **Издания сервера отчетов**
 

@@ -13,7 +13,7 @@ description: "Узнайте, как себя ведёт оценочная ве
 ---
 ## **Оценочная версия**
 
-Вы можете загрузить Aspose.Slides for Reporting Services для оценки со [страницы загрузки](https://releases.aspose.com/slides/ru/reportingservices/). Оценочная загрузка идентична загруженной после покупки. Она становится лицензированной, когда вы копируете файл лицензии на сервер отчетов - без какого-либо кода; см. [Лицензирование](/slides/ru/reportingservices/license-aspose-slides-for-reporting-services/).
+Вы можете загрузить Aspose.Slides for Reporting Services для оценки со [страницы загрузки](https://releases.aspose.com/slides/reportingservices/). Оценочная загрузка идентична загруженной после покупки. Она становится лицензированной, когда вы копируете файл лицензии на сервер отчетов - без какого-либо кода; см. [Лицензирование](/slides/ru/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Оценочная версия (без лицензии) предоставляет весь функционал продукта, но вставляет оценочный водяной знак в экспортированные презентации.
 

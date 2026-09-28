@@ -63,12 +63,12 @@ Aspose.Slides for Reporting Services — это расширение ренде�
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ru/reportingservices/release-notes/">Примечания к выпуску</a></li>
-<li><a href="https://releases.aspose.com/slides/ru/reportingservices/">Скачать</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Скачать</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Бесплатный форум поддержки</a></li>
 <li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for Reporting Services — это расширение ренде�
 Кода писать не требуется: вы устанавливаете расширение на сервер отчетов, и его форматы появляются в списке экспорта каждого пагинированного отчета на этом сервере.
 
 1. Убедитесь, что сервер отчетов соответствует [требованиям к системе](/slides/ru/reportingservices/system-requirements/), включая .NET Framework 3.5.
-2. Со [страница загрузки](https://releases.aspose.com/slides/ru/reportingservices/), скачайте MSI‑установщик, *Aspose.Slides for Reporting Services*. Чтобы установить вручную, скачайте ZIP‑пакет, *Aspose.Slides for Reporting Services (DLLs Only)*.
+2. Со [страница загрузки](https://releases.aspose.com/slides/reportingservices/), скачайте MSI‑установщик, *Aspose.Slides for Reporting Services*. Чтобы установить вручную, скачайте ZIP‑пакет, *Aspose.Slides for Reporting Services (DLLs Only)*.
 3. Установите расширение на сервер отчетов: запустите MSI от имени администратора, как описано в [Установить с помощью MSI‑установщика](/slides/ru/reportingservices/install-with-msi-installer/), или следуйте инструкциям [Установить вручную](/slides/ru/reportingservices/install-manually/) для ZIP‑пакета.
 4. В браузере откройте веб‑портал сервера отчетов (Report Manager в SQL Server 2014 и более ранних версиях). По умолчанию его адрес: `https://<ComputerName>/reports`.
 5. Откройте пагинированный отчет. На панели инструментов отчета откройте список **Экспорт** и выберите **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Если на панели есть отдельная кнопка **Экспорт**, как в Report Manager, нажмите её.
