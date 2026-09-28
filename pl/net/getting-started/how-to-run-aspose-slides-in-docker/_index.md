@@ -59,7 +59,7 @@ Utwórz folder o nazwie *HelloSlidesDocker* i dodaj do niego następujące trzy 
 </Project>
 ```
 
-*Program.cs* tworzy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), dodaje prostokąt z tekstem do pierwszego slajdu i zapisuje prezentację dwa razy przy użyciu metody [Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/): jako PPTX i jako PDF. Oba pliki trafiają do folderu *output* w katalogu roboczym. Aplikacja wypisuje następnie czcionki, które zostały zastąpione podczas renderowania PDF, korzystając z [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/), abyś mógł zobaczyć, czy kontener posiada czcionki używane w prezentacji.
+*Program.cs* tworzy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), dodaje prostokąt z tekstem do pierwszego slajdu i zapisuje prezentację dwa razy przy użyciu metody [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): jako PPTX i jako PDF. Oba pliki trafiają do folderu *output* w katalogu roboczym. Aplikacja wypisuje następnie czcionki, które zostały zastąpione podczas renderowania PDF, korzystając z [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), abyś mógł zobaczyć, czy kontener posiada czcionki używane w prezentacji.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Etap Alpine instaluje trzy pakiety i zmienia jedną opcję:
 - `font-dejavu` dostarcza czcionki. Bez żadnej czcionki konwersja kończy się `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` oraz `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` zapewniają dane kulturowe. Obrazy .NET na Alpine działają domyślnie w trybie globalizacji‑invariant, a w tym trybie Aspose.Slides przerywa działanie z `CultureNotFoundException` dla `en-US`.
 
-Zbuduj, uruchom i skopiuj wyniki takimi samymi poleceniami jak powyżej. Na tym obrazie aplikacja wypisuje tylko linię `Saved`: z Aspose.Slides.NET w Linuksie fontconfig wybiera zamiennik dla brakującej czcionki, a [GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/) go nie wyświetla. [Wdrażanie czcionek](/slides/pl/net/deploy-fonts/) pokazuje, jak sprawdzić, której czcionki użyto.
+Zbuduj, uruchom i skopiuj wyniki takimi samymi poleceniami jak powyżej. Na tym obrazie aplikacja wypisuje tylko linię `Saved`: z Aspose.Slides.NET w Linuksie fontconfig wybiera zamiennik dla brakującej czcionki, a [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) go nie wyświetla. [Wdrażanie czcionek](/slides/pl/net/deploy-fonts/) pokazuje, jak sprawdzić, której czcionki użyto.
 
 ## **FAQ**
 

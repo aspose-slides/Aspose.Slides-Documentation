@@ -77,7 +77,7 @@ Nie. PowerPoint nie jest wymagany; Aspose.Slides to samodzielny silnik do tworze
 
 **Jak działa wielowątkowość? Czy przetwarzanie może być równoległe?**
 
-Można bezpiecznie przetwarzać różne dokumenty w różnych wątkach; ten sam obiekt [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) nie powinien być używany przez [wiele wątków](/slides/pl/net/multithreading/) jednocześnie.
+Można bezpiecznie przetwarzać różne dokumenty w różnych wątkach; ten sam obiekt [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) nie powinien być używany przez [wiele wątków](/slides/pl/net/multithreading/) jednocześnie.
 
 **Czy obsługiwane są hasła i szyfrowanie plików?**
 

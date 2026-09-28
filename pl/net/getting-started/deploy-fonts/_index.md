@@ -56,7 +56,7 @@ Poniższa aplikacja konsolowa raportuje czcionki, które Aspose.Slides zastępuj
 </Project>
 ```
 
-*Program.cs* dodaje jedną ramkę tekstową na nazwę czcionki do slajdu i przypisuje czcionkę za pomocą właściwości [LatinFont](https://reference.aspose.com/slides/pl/net/aspose.slides/baseportionformat/latinfont/). Nazwy czcionek pochodzą z linii poleceń; bez argumentów aplikacja sprawdza czcionki Calibri, Arial i Times New Roman. Wypisuje foldery, w których Aspose.Slides szuka czcionek ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsloader/getfontfolders/)), renderuje slajd do *output/fonts.pdf* i wypisuje zastąpienia zgłoszone przez [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontsmanager/getsubstitutions/). Dwa opcjonalne kroki na początku, ładowanie folderu *fonts* oraz odczyt zmiennej `DEFAULT_FONT`, są wyjaśnione później w tym artykule.
+*Program.cs* dodaje jedną ramkę tekstową na nazwę czcionki do slajdu i przypisuje czcionkę za pomocą właściwości [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Nazwy czcionek pochodzą z linii poleceń; bez argumentów aplikacja sprawdza czcionki Calibri, Arial i Times New Roman. Wypisuje foldery, w których Aspose.Slides szuka czcionek ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), renderuje slajd do *output/fonts.pdf* i wypisuje zastąpienia zgłoszone przez [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Dwa opcjonalne kroki na początku, ładowanie folderu *fonts* oraz odczyt zmiennej `DEFAULT_FONT`, są wyjaśnione później w tym artykule.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Wczytaj czcionki z folderu aplikacji**
 
-Zamiast instalować czcionki w obrazie, możesz dołączyć je do aplikacji i wczytać przy pomocy [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsloader/loadexternalfonts/). Czcionki będą wtedy dostępne wyłącznie dla Aspose.Slides i będą dystrybuowane razem z aplikacją. *FontCheck* robi to w następujący sposób: *FontCheck.csproj* kopiuje folder *fonts* do wyjścia aplikacji, a *Program.cs* przekazuje ten folder do `LoadExternalFonts` przed utworzeniem prezentacji. [Custom Font](/slides/pl/net/custom-font/) opisuje inne sposoby dostarczania czcionek, np. wczytywanie ich z pamięci.
+Zamiast instalować czcionki w obrazie, możesz dołączyć je do aplikacji i wczytać przy pomocy [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Czcionki będą wtedy dostępne wyłącznie dla Aspose.Slides i będą dystrybuowane razem z aplikacją. *FontCheck* robi to w następujący sposób: *FontCheck.csproj* kopiuje folder *fonts* do wyjścia aplikacji, a *Program.cs* przekazuje ten folder do `LoadExternalFonts` przed utworzeniem prezentacji. [Custom Font](/slides/pl/net/custom-font/) opisuje inne sposoby dostarczania czcionek, np. wczytywanie ich z pamięci.
 
 Przebuduj obraz, a następnie sprawdź Calibri i Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Ustaw czcionkę domyślną dla brakujących czcionek**
 
-Gdy czcionka jest nieobecna, Aspose.Slides używa własnej czcionki zastępczej. Aby wybrać ją samodzielnie, ustaw właściwość [DefaultRegularFont](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/defaultregularfont/) klasy [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/) i przekaż opcje do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). *FontCheck* odczytuje nazwę czcionki ze zmiennej środowiskowej `DEFAULT_FONT`. Z wczytanym Carlito użyj go dla brakujących czcionek:
+Gdy czcionka jest nieobecna, Aspose.Slides używa własnej czcionki zastępczej. Aby wybrać ją samodzielnie, ustaw właściwość [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) klasy [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) i przekaż opcje do konstruktora [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* odczytuje nazwę czcionki ze zmiennej środowiskowej `DEFAULT_FONT`. Z wczytanym Carlito użyj go dla brakujących czcionek:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Czcionka domyślna zastępuje każdą brakującą czcionkę. Aby mapować poszczególne czcionki, np. Arial na Liberation Sans i Calibri na Carlito, użyj [reguł zastępowania czcionek](/slides/pl/net/font-substitution/). Reguły zmieniają renderowany wynik, ale `GetSubstitutions` ich nie odzwierciedla, więc sprawdzaj czcionki w pliku wyjściowym. Dla tekstu azjatyckiego ustaw także [DefaultAsianFont](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/defaultasianfont/); zobacz [Default Font](/slides/pl/net/default-font/).
+Czcionka domyślna zastępuje każdą brakującą czcionkę. Aby mapować poszczególne czcionki, np. Arial na Liberation Sans i Calibri na Carlito, użyj [reguł zastępowania czcionek](/slides/pl/net/font-substitution/). Reguły zmieniają renderowany wynik, ale `GetSubstitutions` ich nie odzwierciedla, więc sprawdzaj czcionki w pliku wyjściowym. Dla tekstu azjatyckiego ustaw także [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); zobacz [Default Font](/slides/pl/net/default-font/).
 
 ## **Zainstaluj czcionki w Alpine Linux**
 

@@ -68,7 +68,7 @@ Biblioteka Linux tego pakietu wymaga biblioteki `fontconfig`:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Bez niej tworzenie [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) kończy się `TypeInitializationException`, którego wewnętrzny `DllNotFoundException` informuje, że nie można otworzyć `libfontconfig.so.1`.
+Bez niej tworzenie [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) kończy się `TypeInitializationException`, którego wewnętrzny `DllNotFoundException` informuje, że nie można otworzyć `libfontconfig.so.1`.
 
 Minimalne obrazy bazowe mogą również nie zawierać `fontconfig`. Na przykład obraz bazowy AWS Lambda dla .NET 8 nie zawiera ani `fontconfig`, ani żadnych czcionek. W obrazie kontenera zbudowanym na tym obrazie uruchom `dnf install -y fontconfig`, co dodatkowo zainstaluje czcionki Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Wsparcie internacjonalizacji**
 
-Oba pakiety potrzebują wsparcia internacjonalizacji .NET, które .NET na Linuxie zapewnia poprzez biblioteki ICU. W [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) tworzenie [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) kończy się `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Oba pakiety potrzebują wsparcia internacjonalizacji .NET, które .NET na Linuxie zapewnia poprzez biblioteki ICU. W [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) tworzenie [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) kończy się `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Niektóre obrazy kontenerowe włączają ten tryb. Obrazy środowiska uruchomieniowego .NET dla Alpine Linux (`runtime-deps`, `runtime` i `aspnet`) na przykład ustawiają `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` i nie zawierają ICU. W obrazie zbudowanym na nich zainstaluj ICU i wyłącz tryb:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Program dodaje prostokąt z tekstem do pierwszego slajdu i zapisuje prezentację jako *hello.pptx* przy użyciu metody [Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/). Następnie renderuje slajd za pomocą [GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/slide/getimage/) i zapisuje wynik jako *hello.png* przy użyciu [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/save/) w formacie [ImageFormat.Png](https://reference.aspose.com/slides/pl/net/aspose.slides/imageformat/). Skalowanie równe 1 renderuje jeden piksel na punkt, więc domyślny slajd 720 × 540 punktów staje się obrazem 720 × 540 pikseli, z tekstem widocznym we wnętrzu prostokąta. Bez licencji oba pliki zawierają znak wodny oceny; zobacz [Licensing](/slides/pl/net/licensing/). Jeśli brakuje któregoś wymogu, program zatrzyma się jednym z wyjątków opisanych w sekcji [Linux](#linux).
+Program dodaje prostokąt z tekstem do pierwszego slajdu i zapisuje prezentację jako *hello.pptx* przy użyciu metody [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Następnie renderuje slajd za pomocą [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) i zapisuje wynik jako *hello.png* przy użyciu [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) w formacie [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Skalowanie równe 1 renderuje jeden piksel na punkt, więc domyślny slajd 720 × 540 punktów staje się obrazem 720 × 540 pikseli, z tekstem widocznym we wnętrzu prostokąta. Bez licencji oba pliki zawierają znak wodny oceny; zobacz [Licensing](/slides/pl/net/licensing/). Jeśli brakuje któregoś wymogu, program zatrzyma się jednym z wyjątków opisanych w sekcji [Linux](#linux).
 
 ## **Narzędzia programistyczne**
 

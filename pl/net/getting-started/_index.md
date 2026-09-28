@@ -62,7 +62,7 @@ Bez licencji Aspose.Slides działa w trybie ewaluacyjnym: dodaje znak wodny do k
 
 ## **Uzyskaj pomoc**
 
-[Wsparcie produktu](/slides/pl/net/product-support/) wyjaśnia, jak zadać pytanie na [bezpłatnym forum wsparcia](https://forum.aspose.com/c/slides/pl/11) i co powinno znaleźć się w raporcie o problemie.
+[Wsparcie produktu](/slides/pl/net/product-support/) wyjaśnia, jak zadać pytanie na [bezpłatnym forum wsparcia](https://forum.aspose.com/c/slides/11) i co powinno znaleźć się w raporcie o problemie.
 
 ## **FAQ**
 

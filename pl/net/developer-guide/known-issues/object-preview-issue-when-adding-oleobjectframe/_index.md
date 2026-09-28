@@ -22,7 +22,7 @@ description: "Dlaczego obiekt OLE dodany za pomocą Aspose.Slides dla .NET wyśw
 ---
 ## **Wprowadzenie**
 
-Używając Aspose.Slides for .NET, kiedy dodajesz [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe/) do slajdu, na wyjściowym slajdzie wyświetlany jest komunikat „EMBEDDED OLE OBJECT”. Ten komunikat jest zamierzony i NIE jest błędem.
+Używając Aspose.Slides for .NET, kiedy dodajesz [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) do slajdu, na wyjściowym slajdzie wyświetlany jest komunikat „EMBEDDED OLE OBJECT”. Ten komunikat jest zamierzony i NIE jest błędem.
 
 Aby uzyskać więcej informacji o pracy z obiektami OLE, zobacz [Manage OLE](/slides/pl/net/manage-ole/).
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji o pracy z obiektami OLE, zobacz [Manage OLE](/sl
 
 Aspose.Slides wyświetla komunikat „EMBEDDED OLE OBJECT”, aby powiadomić Cię, że obiekt OLE został zmieniony i podglądowy obraz musi zostać zaktualizowany.
 
-Na przykład, jeśli dodasz wykres Microsoft Excel jako [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe/) do slajdu (szczegóły znajdziesz w artykule „Manage OLE”) i następnie otworzysz prezentację w Microsoft PowerPoint, zobaczysz ten obraz na slajdzie:
+Na przykład, jeśli dodasz wykres Microsoft Excel jako [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) do slajdu (szczegóły znajdziesz w artykule „Manage OLE”) i następnie otworzysz prezentację w Microsoft PowerPoint, zobaczysz ten obraz na slajdzie:
 
 ![OLE object message](OLE_object_message.png)
 
