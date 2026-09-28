@@ -57,12 +57,12 @@ Convierte archivos PPT y PPTX a PDF, TIFF, XPS, HTML, SWF y ODP, y a los formato
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/es/sharepoint/release-notes/">Notas de la versión</a></li>
-<li><a href="https://releases.aspose.com/slides/es/sharepoint/">Descarga</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Notas de la versión</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Descarga</a></li>
 </ul>
 <p>SOPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/es/11">Foro de soporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Foro de soporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Mesa de ayuda de soporte de pago</a></li>
 </ul>
 </div>

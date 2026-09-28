@@ -7,7 +7,7 @@ description: "Instala la licencia de Aspose.Slides para SharePoint en una granja
 ---
 {{% alert color="info" title="Note" %}}
 
-Una vez que estés satisfecho con tu evaluación, puedes [comprar una licencia](https://purchase.aspose.com/pricing/slides/es/sharepoint/). Antes de comprar, asegúrate de comprender y aceptar los términos de suscripción de la licencia. La licencia se envía por correo electrónico cuando el pedido ha sido pagado.
+Una vez que estés satisfecho con tu evaluación, puedes [comprar una licencia](https://purchase.aspose.com/pricing/slides/sharepoint/). Antes de comprar, asegúrate de comprender y aceptar los términos de suscripción de la licencia. La licencia se envía por correo electrónico cuando el pedido ha sido pagado.
 
 La licencia es un archivo ZIP que contiene un paquete de solución regular de SharePoint. El archivo contiene:
 
