@@ -63,12 +63,12 @@ Ele exporta relatórios para apresentações PPT, PPTX, PPS e PPSX, para apresen
 <hr>
 <p>REFERÊNCIA</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/pt/reportingservices/release-notes/">Notas de versão</a></li>
-<li><a href="https://releases.aspose.com/slides/pt/reportingservices/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Notas de versão</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pt/11">Fórum de suporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Fórum de suporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk de suporte pago</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Ele exporta relatórios para apresentações PPT, PPTX, PPS e PPSX, para apresen
 Não há código a ser escrito: você instala a extensão no servidor de relatórios, e seus formatos aparecem na lista de exportação de todos os relatórios paginados nesse servidor.
 
 1. Verifique se o servidor de relatórios atende aos [requisitos do sistema](/slides/pt/reportingservices/system-requirements/), incluindo .NET Framework 3.5.
-1. Na [página de download](https://releases.aspose.com/slides/pt/reportingservices/), baixe o instalador MSI, *Aspose.Slides for Reporting Services*. Para instalar manualmente, baixe o pacote ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. Na [página de download](https://releases.aspose.com/slides/reportingservices/), baixe o instalador MSI, *Aspose.Slides for Reporting Services*. Para instalar manualmente, baixe o pacote ZIP, *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. Instale a extensão no servidor de relatórios: execute o MSI como administrador, conforme descrito em [Instalar com o instalador MSI](/slides/pt/reportingservices/install-with-msi-installer/), ou siga [Instalar manualmente](/slides/pt/reportingservices/install-manually/) para o pacote ZIP.
 1. Em um navegador, abra o portal web do servidor de relatórios (Report Manager no SQL Server 2014 e anteriores). Por padrão, o endereço é `https://<ComputerName>/reports`.
 1. Abra um relatório paginado. Na barra de ferramentas do relatório, abra a lista **Exportar** e selecione **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Se a barra de ferramentas tiver um botão **Exportar** separado, como faz o Report Manager, selecione‑o.

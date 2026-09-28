@@ -15,7 +15,7 @@ description: "Instale Aspose.Slides for Reporting Services com seu instalador MS
 
 O instalador MSI é a maneira mais simples de instalar Aspose.Slides for Reporting Services. Ele requer .NET Framework 3.5 e direitos de administrador no servidor de relatórios; consulte [Requisitos de Sistema](/slides/pt/reportingservices/system-requirements/).
 
-1. Baixe o instalador MSI, *Aspose.Slides for Reporting Services XX.XX*, da [página de download](https://releases.aspose.com/slides/pt/reportingservices/) e copie‑o para o servidor de relatórios.
+1. Baixe o instalador MSI, *Aspose.Slides for Reporting Services XX.XX*, da [página de download](https://releases.aspose.com/slides/reportingservices/) e copie‑o para o servidor de relatórios.
 1. Execute‑o como administrador. Se o .NET Framework 3.5 estiver ausente, o instalador para com uma mensagem; instale os recursos do .NET Framework 3.5 e execute‑o novamente.
 1. Aceite o contrato de licença.
 1. Na página **Custom Setup**, a árvore de recursos lista cada instância do SQL Server Reporting Services e do Power BI Report Server que o instalador detecta na máquina. Para deixar uma instância inalterada, clique em seu ícone e selecione **Entire feature will be unavailable**. As edições Express não suportam extensões de renderização, portanto não selecione uma instância Express. O instalador oculta instâncias Express do SQL Server 2016 e anteriores.
