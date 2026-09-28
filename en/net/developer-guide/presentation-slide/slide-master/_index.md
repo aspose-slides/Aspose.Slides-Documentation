@@ -127,6 +127,56 @@ presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
 
 For more information about picture frames, see [Picture Frame](/slides/net/picture-frame/).
 
+## **Control the Visibility of Master Graphics**
+
+Use [IBaseSlide.ShowMasterShapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/showmastershapes/) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Set [Slide.ShowMasterShapes](https://reference.aspose.com/slides/net/aspose.slides/slide/showmastershapes/) to `false` on the slide that should omit those graphics and keep it `true` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var masterSlide = presentation.Masters[0];
+var layoutSlide = masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank);
+layoutSlide.ShowMasterShapes = true;
+
+var slideHeight = presentation.SlideSize.Size.Height;
+var band = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var visibleSlide = presentation.Slides[0];
+visibleSlide.LayoutSlide = layoutSlide;
+visibleSlide.Shapes.Clear();
+
+var hiddenSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+
+visibleSlide.ShowMasterShapes = true;
+hiddenSlide.ShowMasterShapes = false;
+
+presentation.Save("master-graphics.pptx", SaveFormat.Pptx);
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Choose the Scope of the Setting**
+
+A normal slide uses its master through [ISlide.LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/islide/layoutslide/) and [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/masterslide/). Setting the property on an individual slide affects only that slide. Setting [LayoutSlide.ShowMasterShapes](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/showmastershapes/) to `false` hides master graphics for slides that use that shared layout, even if their own setting is `true`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master it always returns `false`, and assigning `true` raises `NotSupportedException`. Apply it to a normal slide or a layout instead.
+
+### **Distinguish Graphics from the Background**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/net/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
+
 ## **Work with Placeholders**
 
 Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
@@ -354,18 +404,18 @@ presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-### What is the difference between a slide master and a layout slide?
+**What is the difference between a slide master and a layout slide?**
 
 A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-### Can one presentation contain several slide masters?
+**Can one presentation contain several slide masters?**
 
 Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-### Should I add placeholders to a master slide or a layout slide?
+**Should I add placeholders to a master slide or a layout slide?**
 
 In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-### Can I delete a master slide that is still used?
+**Can I delete a master slide that is still used?**
 
 No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.

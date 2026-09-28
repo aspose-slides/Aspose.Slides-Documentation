@@ -151,6 +151,76 @@ presentation->Dispose();
 
 For more information about picture frames, see [Picture Frame](/slides/cpp/picture-frame/).
 
+## **Control the Visibility of Master Graphics**
+
+Use [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/set_showmastershapes/) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Pass `false` to [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/cpp/aspose.slides/slide/set_showmastershapes/) on the slide that should omit those graphics and `true` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Choose the Scope of the Setting**
+
+A normal slide uses its master through [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) and [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_masterslide/). Setting the property on an individual slide affects only that slide. Passing `false` to [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/set_showmastershapes/) hides master graphics for slides that use that shared layout, even if their own setting is `true`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master it always returns `false`, and assigning `true` raises `System::NotSupportedException`. Apply it to a normal slide or a layout instead.
+
+### **Distinguish Graphics from the Background**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/cpp/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
+
 ## **Work with Placeholders**
 
 Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
@@ -469,18 +539,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-### What is the difference between a slide master and a layout slide?
+**What is the difference between a slide master and a layout slide?**
 
 A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-### Can one presentation contain several slide masters?
+**Can one presentation contain several slide masters?**
 
 Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-### Should I add placeholders to a master slide or a layout slide?
+**Should I add placeholders to a master slide or a layout slide?**
 
 In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-### Can I delete a master slide that is still used?
+**Can I delete a master slide that is still used?**
 
 No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.

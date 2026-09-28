@@ -125,6 +125,55 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 For more information about picture frames, see [Picture Frame](/slides/python-net/picture-frame/).
 
+## **Control the Visibility of Master Graphics**
+
+Use [BaseSlide.show_master_shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/show_master_shapes/) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Set [Slide.show_master_shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/show_master_shapes/) to `False` on the slide that should omit those graphics and keep it `True` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
+    layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_slide.show_master_shapes = True
+
+    slide_height = presentation.slide_size.size.height
+    band = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 60, slide_height)
+    band.fill_format.fill_type = slides.FillType.SOLID
+    band.fill_format.solid_fill_color.color = draw.Color.steel_blue
+    band.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    visible_slide = presentation.slides[0]
+    visible_slide.layout_slide = layout_slide
+    visible_slide.shapes.clear()
+
+    hidden_slide = presentation.slides.add_empty_slide(layout_slide)
+
+    visible_slide.show_master_shapes = True
+    hidden_slide.show_master_shapes = False
+
+    presentation.save("master-graphics.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Choose the Scope of the Setting**
+
+A normal slide uses its master through [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) and [LayoutSlide.master_slide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/master_slide/). Setting the property on an individual slide affects only that slide. Setting [LayoutSlide.show_master_shapes](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/show_master_shapes/) to `False` hides master graphics for slides that use that shared layout, even if their own setting is `True`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master it always returns `False`, and assigning `True` raises an exception. Apply it to a normal slide or a layout instead.
+
+### **Distinguish Graphics from the Background**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/python-net/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
+
 ## **Work with Placeholders**
 
 Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
@@ -326,18 +375,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-### What is the difference between a slide master and a layout slide?
+**What is the difference between a slide master and a layout slide?**
 
 A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-### Can one presentation contain several slide masters?
+**Can one presentation contain several slide masters?**
 
 Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-### Should I add placeholders to a master slide or a layout slide?
+**Should I add placeholders to a master slide or a layout slide?**
 
 In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-### Can I delete a master slide that is still used?
+**Can I delete a master slide that is still used?**
 
 No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.
