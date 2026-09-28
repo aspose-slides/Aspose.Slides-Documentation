@@ -13,11 +13,11 @@ description: "라이선스 파일을 보고 서버에 복사하여 Aspose.Slides
 ---
 ## **라이선스 지원**
 
-Aspose.Slides for Reporting Services의 평가 버전은 구매 버전과 동일한 패키지이며, [its download page](https://releases.aspose.com/slides/ko/reportingservices/)에서 제공되고 동일한 기능을 제공합니다. 라이선스가 없으면 평가 모드로 동작하며 내보낸 프레젠테이션에 평가 워터마크를 삽입합니다.
+Aspose.Slides for Reporting Services의 평가 버전은 구매 버전과 동일한 패키지이며, [its download page](https://releases.aspose.com/slides/reportingservices/)에서 제공되고 동일한 기능을 제공합니다. 라이선스가 없으면 평가 모드로 동작하며 내보낸 프레젠테이션에 평가 워터마크를 삽입합니다.
 
 평가 버전은 라이선스 파일을 보고 서버에 복사하면 라이선스가 적용됩니다. 코드가 필요하지 않습니다.
 
-평가가 만족스러우면 [purchase a license](https://purchase.aspose.com/pricing/slides/ko/reporting-services/). 다양한 구독 유형을 확인하시기를 권장합니다. 질문이 있으면 Aspose 영업팀에 문의하세요.
+평가가 만족스러우면 [purchase a license](https://purchase.aspose.com/pricing/slides/reporting-services/). 다양한 구독 유형을 확인하시기를 권장합니다. 질문이 있으면 Aspose 영업팀에 문의하세요.
 
 ## **Aspose.Slides for Reporting Services의 라이선스 관리**
 

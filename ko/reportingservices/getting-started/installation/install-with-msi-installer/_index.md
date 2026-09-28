@@ -15,7 +15,7 @@ description: "MSI 설치 프로그램을 사용하여 Aspose.Slides for Reportin
 
 MSI 설치 프로그램은 Aspose.Slides for Reporting Services를 설치하는 가장 간단한 방법입니다. 보고서 서버에 .NET Framework 3.5와 관리자 권한이 필요합니다; 자세한 내용은 [시스템 요구 사항](/slides/ko/reportingservices/system-requirements/)을 참고하세요.
 
-1. MSI 설치 프로그램인 *Aspose.Slides for Reporting Services XX.XX*을 [다운로드 페이지](https://releases.aspose.com/slides/ko/reportingservices/)에서 다운로드하고 보고서 서버에 복사합니다.
+1. MSI 설치 프로그램인 *Aspose.Slides for Reporting Services XX.XX*을 [다운로드 페이지](https://releases.aspose.com/slides/reportingservices/)에서 다운로드하고 보고서 서버에 복사합니다.
 1. 관리자 권한으로 실행합니다. .NET Framework 3.5가 없으면 설치 프로그램이 메시지를 표시하고 중지됩니다; .NET Framework 3.5 기능을 설치한 후 다시 실행합니다.
 1. 라이선스 계약에 동의합니다.
 1. **Custom Setup** 페이지에서 기능 트리는 설치 프로그램이 머신에서 감지한 각 SQL Server Reporting Services 및 Power BI Report Server 인스턴스를 표시합니다. 인스턴스를 변경하지 않으려면 해당 아이콘을 클릭하고 **Entire feature will be unavailable**를 선택합니다. Express 에디션은 렌더링 확장자를 지원하지 않으므로 Express 인스턴스를 선택하지 마십시오. 설치 프로그램은 SQL Server 2016 이전 버전의 Express 인스턴스를 숨깁니다.

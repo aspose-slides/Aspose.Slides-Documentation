@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services는 렌더링 확장 기능으로 보고서 
 
 32비트와 64비트 보고서 서버 모두 지원됩니다. SQL Server 2005는 자체 빌드를 사용하고, 이후 모든 버전 및 Power BI Report Server는 동일한 빌드를 사용합니다. [수동 설치](/slides/ko/reportingservices/install-manually/)에서 복사할 파일을 확인할 수 있습니다.
 
-목록에 보고서 서버 버전이 없으면, 배포하기 전에 [무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)에서 문의하세요.
+목록에 보고서 서버 버전이 없으면, 배포하기 전에 [무료 지원 포럼](https://forum.aspose.com/c/slides/11)에서 문의하세요.
 
 ## **보고서 서버 에디션**
 

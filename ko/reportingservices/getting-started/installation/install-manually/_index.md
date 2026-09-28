@@ -14,7 +14,7 @@ description: "DLL 전용 ZIP 패키지에서 Aspose.Slides for Reporting Service
 ---
 ## **개요**
 
-MSI 설치 프로그램 없이 ZIP 패키지 *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* 에서 Aspose.Slides for Reporting Services를 설치하려면 다음 단계를 따르세요. 이 패키지는 [download page](https://releases.aspose.com/slides/ko/reportingservices/)에 있습니다. 이 단계는 [MSI installer](/slides/ko/reportingservices/install-with-msi-installer/)와 동일한 확장자를 등록합니다. 각 보고 서버 인스턴스마다 반복하십시오.
+MSI 설치 프로그램 없이 ZIP 패키지 *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* 에서 Aspose.Slides for Reporting Services를 설치하려면 다음 단계를 따르세요. 이 패키지는 [download page](https://releases.aspose.com/slides/reportingservices/)에 있습니다. 이 단계는 [MSI installer](/slides/ko/reportingservices/install-with-msi-installer/)와 동일한 확장자를 등록합니다. 각 보고 서버 인스턴스마다 반복하십시오.
 
 시작하기 전에 [system requirements](/slides/ko/reportingservices/system-requirements/)를 확인하십시오. 보고 서버에 대한 로컬 관리자 권한이 필요합니다.
 
