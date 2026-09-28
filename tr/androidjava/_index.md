@@ -67,7 +67,7 @@ Makro destekli ve şablon varyantları dahil olmak üzere PPT, PPTX, PPS, POT ve
 <li><a href="/slides/tr/androidjava/examples/">Slayt öğesine göre örnekler</a></li>
 </ul>
 </div>
-<div class="col-md-5">
+<div class="col-md-4">
 <p><b>Referans &amp; Destek</b></p>
 <hr>
 <p>REFERANS</p>
