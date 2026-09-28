@@ -23,15 +23,15 @@ description: "Aspose.Slides for Android via Java에서 라이선스를 적용하
 
 Aspose.Slides는 평가 모드 또는 유효한 라이선스로 사용할 수 있습니다. 평가 버전은 라이선스 버전과 동일한 기능을 제공하지만, 저장하는 각 프레젠테이션의 모든 슬라이드에 평가 워터마크를 추가하고 프레젠테이션에서 코딩으로 읽어오는 텍스트를 잘라냅니다.
 
-이 문서는 Aspose.Slides에서 라이선스가 어떻게 작동하는지 및 라이브러리를 사용하기 전에 라이선스를 적용하는 방법을 설명합니다. 라이선스는 [License](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/license/) 클래스를 사용하여 파일, 스트림 또는 포함된 리소스에서 로드할 수 있습니다. 또한 라이선스가 올바르게 적용되었는지 확인하는 방법도 보여줍니다.
+이 문서는 Aspose.Slides에서 라이선스가 어떻게 작동하는지 및 라이브러리를 사용하기 전에 라이선스를 적용하는 방법을 설명합니다. 라이선스는 [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) 클래스를 사용하여 파일, 스트림 또는 포함된 리소스에서 로드할 수 있습니다. 또한 라이선스가 올바르게 적용되었는지 확인하는 방법도 보여줍니다.
 
 ## **Aspose.Slides 평가**
 
 {{% alert color="info" title="Note" %}}
 
-**Aspose.Slides for Android via Java**의 평가 버전을 [download page](https://releases.aspose.com/slides/ko/androidjava/)에서 다운로드할 수 있습니다. 평가 버전은 제품의 라이선스 버전과 동일한 기능을 제공합니다. 평가 패키지는 구매한 패키지와 동일합니다. 평가 버전은 라이선스를 적용하기 위해 몇 줄의 코드를 추가하면 라이선스가 적용된 상태가 됩니다.
+**Aspose.Slides for Android via Java**의 평가 버전을 [download page](https://releases.aspose.com/slides/androidjava/)에서 다운로드할 수 있습니다. 평가 버전은 제품의 라이선스 버전과 동일한 기능을 제공합니다. 평가 패키지는 구매한 패키지와 동일합니다. 평가 버전은 라이선스를 적용하기 위해 몇 줄의 코드를 추가하면 라이선스가 적용된 상태가 됩니다.
 
-**Aspose.Slides** 평가가 만족스러우면 [purchase a license](https://purchase.aspose.com/pricing/slides/ko/android-java/)를 진행하십시오. 다양한 구독 유형을 확인하시기 바랍니다. 질문이 있으면 Aspose 영업팀에 문의하세요.
+**Aspose.Slides** 평가가 만족스러우면 [purchase a license](https://purchase.aspose.com/pricing/slides/android-java/)를 진행하십시오. 다양한 구독 유형을 확인하시기 바랍니다. 질문이 있으면 Aspose 영업팀에 문의하세요.
 
 모든 Aspose 라이선스에는 구독 기간 내에 새로운 버전이나 수정 사항에 대한 무료 업그레이드 1년 구독이 포함됩니다. 라이선스가 있는 제품(또는 평가 버전) 사용자는 무료 무제한 기술 지원을 받을 수 있습니다.
 
@@ -64,7 +64,7 @@ Aspose.Slides는 평가 모드 또는 유효한 라이선스로 사용할 수 �
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides는 라이선스 작업을 위해 [License](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/license/) 클래스를 제공합니다.
+Aspose.Slides는 라이선스 작업을 위해 [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) 클래스를 제공합니다.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-다른 디렉터리에 라이선스 파일을 배치한 경우, [setLicense](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드를 호출할 때 지정된 경로 끝에 있는 파일 이름이 라이선스 파일 이름과 동일해야 합니다.
+다른 디렉터리에 라이선스 파일을 배치한 경우, [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드를 호출할 때 지정된 경로 끝에 있는 파일 이름이 라이선스 파일 이름과 동일해야 합니다.
 
-예를 들어 라이선스 파일 이름을 *Aspose.Slides.Android.via.Java.lic.xml*로 변경할 수 있습니다. 그런 다음 코드에서 [setLicense](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드에 *Aspose.Slides.Android.via.Java.lic.xml*로 끝나는 경로를 전달해야 합니다.
+예를 들어 라이선스 파일 이름을 *Aspose.Slides.Android.via.Java.lic.xml*로 변경할 수 있습니다. 그런 다음 코드에서 [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) 메서드에 *Aspose.Slides.Android.via.Java.lic.xml*로 끝나는 경로를 전달해야 합니다.
 
 {{% /alert %}}
 
@@ -116,7 +116,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **앱 Assets에서 스트림**
 
-Android 앱에서는 라이선스 파일을 앱 모듈의 *assets* 폴더(*app/src/main/assets*)에 넣어 APK에 포함되도록 합니다. [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) 메서드로 파일을 열고 스트림을 [setLicense](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 메서드에 전달합니다. 코드는 `Activity` 내부, 예를 들어 `onCreate` 메서드에서 Aspose.Slides를 사용하기 전에 실행됩니다:
+Android 앱에서는 라이선스 파일을 앱 모듈의 *assets* 폴더(*app/src/main/assets*)에 넣어 APK에 포함되도록 합니다. [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) 메서드로 파일을 열고 스트림을 [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 메서드에 전달합니다. 코드는 `Activity` 내부, 예를 들어 `onCreate` 메서드에서 Aspose.Slides를 사용하기 전에 실행됩니다:
 
 ```java
 import android.util.Log;
@@ -154,7 +154,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-[setLicense](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 메서드는 스레드에 안전하지 않습니다. 여러 스레드에서 동시에 호출해야 하는 경우 동기화 프리미티브(예: lock)를 사용하여 문제를 방지하십시오.
+[setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) 메서드는 스레드에 안전하지 않습니다. 여러 스레드에서 동시에 호출해야 하는 경우 동기화 프리미티브(예: lock)를 사용하여 문제를 방지하십시오.
 
 {{% /alert %}}
 

@@ -57,7 +57,7 @@ dependencies {
 
 ### **버전 선택**
 
-Aspose.Slides for Android via Java는 리포지터리의 모든 버전에 대해 빌드되지 않습니다. 해당 빌드는 일부 Aspose.Slides for Java 버전에만 제공되며, Android 빌드가 없는 버전은 해결되지 못합니다. [Aspose.Slides for Android via Java 다운로드 페이지](https://releases.aspose.com/slides/ko/androidjava/)에 나열된 버전 중에서 선택하세요.
+Aspose.Slides for Android via Java는 리포지터리의 모든 버전에 대해 빌드되지 않습니다. 해당 빌드는 일부 Aspose.Slides for Java 버전에만 제공되며, Android 빌드가 없는 버전은 해결되지 못합니다. [Aspose.Slides for Android via Java 다운로드 페이지](https://releases.aspose.com/slides/androidjava/)에 나열된 버전 중에서 선택하세요.
 
 ### **Groovy 빌드 스크립트**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### Aspose.Slides가 올바르게 통합되었는지 어떻게 확인할 수 있나요?
 
-프로젝트를 빌드하고 빈 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/)을 인스턴스화한 뒤 새 이름으로 저장합니다. 예외가 발생하지 않고 파일이 생성되면 라이브러리가 성공적으로 통합된 것입니다.
+프로젝트를 빌드하고 빈 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)을 인스턴스화한 뒤 새 이름으로 저장합니다. 예외가 발생하지 않고 파일이 생성되면 라이브러리가 성공적으로 통합된 것입니다.
 
 ### 대용량 프레젠테이션을 처리할 때 메모리 사용량을 어떻게 제한할 수 있나요?
 
-각 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 인스턴스에 대해 `finally` 블록에서 [dispose](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/#dispose--) 메서드를 호출하여 즉시 리소스를 해제하고, 한 번에 하나의 대용량 프레젠테이션만 처리하세요. 이는 메모리 부족 오류를 방지하고 배치 작업 중 전체 메모리 사용량을 예측 가능하게 유지하는 데 도움이 됩니다.
+각 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 인스턴스에 대해 `finally` 블록에서 [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) 메서드를 호출하여 즉시 리소스를 해제하고, 한 번에 하나의 대용량 프레젠테이션만 처리하세요. 이는 메모리 부족 오류를 방지하고 배치 작업 중 전체 메모리 사용량을 예측 가능하게 유지하는 데 도움이 됩니다.
 
 ### 최종 JAR 크기를 줄기 위해 원하지 않는 출력 형식을 제외할 수 있나요?
 

@@ -31,10 +31,10 @@ description: "Aspose.Slides for Android을 사용하여 Java로 프레젠테이�
 
 프레젠테이션을 만들고 첫 번째 슬라이드에 텍스트 상자를 넣으려면 다음 단계를 따르세요:
 
-1. 새로운 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스를 인스턴스화합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
-1. [slide collection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islidecollection/)에서 인덱스 0으로 해당 슬라이드를 가져옵니다.
-1. [shape collection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishapecollection/)의 [addAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 메서드를 사용하여 사각형을 추가하고, 해당 [text frame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)의 텍스트를 [setText](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 메서드로 설정합니다.
-1. [save](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 메서드를 사용하여 프레젠테이션을 PPTX 파일로 저장하고, [SaveFormat.Pptx](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/saveformat/) 형식을 사용합니다.
+1. 새로운 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스를 인스턴스화합니다. 새 프레젠테이션에는 이미 빈 슬라이드가 하나 포함되어 있습니다.
+1. [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/)에서 인덱스 0으로 해당 슬라이드를 가져옵니다.
+1. [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/)의 [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 메서드를 사용하여 사각형을 추가하고, 해당 [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/)의 텍스트를 [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 메서드로 설정합니다.
+1. [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 메서드를 사용하여 프레젠테이션을 PPTX 파일로 저장하고, [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) 형식을 사용합니다.
 
 코드는 `Activity` 내부, 예를 들어 `onCreate` 메서드에서 실행됩니다. 파일은 [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) 메서드가 반환하는 디렉터리에 저장됩니다: 앱의 개인 저장소이며, 별도의 권한 요청 없이 쓸 수 있습니다.
 
@@ -83,7 +83,7 @@ try {
 
 ### 프레젠테이션을 병렬로 만들거나 저장할 수 있나요?
 
-동일한 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 인스턴스를 [여러 스레드](/slides/ko/androidjava/multithreading/)에서 동시에 작업할 수 없습니다. 스레드 또는 프로세스당 별개의 독립 인스턴스를 실행하십시오.
+동일한 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 인스턴스를 [여러 스레드](/slides/ko/androidjava/multithreading/)에서 동시에 작업할 수 없습니다. 스레드 또는 프로세스당 별개의 독립 인스턴스를 실행하십시오.
 
 ### 평가용 워터마크와 제한을 제거하려면 어떻게 해야 하나요?
 
