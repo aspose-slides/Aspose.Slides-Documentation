@@ -57,7 +57,7 @@ Poté synchronizujte projekt s Gradle soubory, aby Gradle stáhl knihovnu.
 
 ### **Vyberte verzi**
 
-Aspose.Slides for Android via Java není postavena pro každou verzi v úložišti. Její sestavení jsou publikována jen pro některé verze Aspose.Slides for Java a verze bez Android sestavení se nepodaří vyřešit. Vyberte verzi uvedenou na [stránce ke stažení Aspose.Slides for Android via Java](https://releases.aspose.com/slides/cs/androidjava/).
+Aspose.Slides for Android via Java není postavena pro každou verzi v úložišti. Její sestavení jsou publikována jen pro některé verze Aspose.Slides for Java a verze bez Android sestavení se nepodaří vyřešit. Vyberte verzi uvedenou na [stránce ke stažení Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/).
 
 ### **Skripty sestavení v Groovy**
 
@@ -106,11 +106,11 @@ Od roku 2018 se verzování Aspose.Slides for Android via Java řídí verzován
 
 ### Jak mohu ověřit, že je Aspose.Slides integrováno správně?
 
-Sestavte svůj projekt, vytvořte prázdnou [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a uložte ji pod novým názvem. Pokud je soubor vytvořen bez vyhození výjimek, knihovna byla úspěšně integrována.
+Sestavte svůj projekt, vytvořte prázdnou [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) a uložte ji pod novým názvem. Pokud je soubor vytvořen bez vyhození výjimek, knihovna byla úspěšně integrována.
 
 ### Jak mohu omezit spotřebu paměti při zpracování velkých prezentací?
 
-Zavolejte metodu [dispose](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#dispose--) každé instance [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) v bloku `finally`, aby se její prostředky okamžitě uvolnily, a zpracovávejte po jedné velké prezentaci. To pomáhá předcházet chybám nedostatku paměti a udržuje celkovou spotřebu paměti předvídatelnou během dávkových operací.
+Zavolejte metodu [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) každé instance [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) v bloku `finally`, aby se její prostředky okamžitě uvolnily, a zpracovávejte po jedné velké prezentaci. To pomáhá předcházet chybám nedostatku paměti a udržuje celkovou spotřebu paměti předvídatelnou během dávkových operací.
 
 ### Mohu vyloučit nežádoucí exportní formáty, aby se zmenšila konečná velikost JAR?
 

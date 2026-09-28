@@ -72,14 +72,14 @@ Načítá a ukládá soubory PPT, PPTX, PPS, POT a ODP, včetně variant s makry
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/cs/androidjava/">Reference API</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/androidjava/release-notes/">Poznámky k vydání</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">Reference API</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">Poznámky k vydání</a></li>
 <li><a href="/slides/cs/androidjava/known-issues/">Známé problémy</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/androidjava/">Stažení</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">Stažení</a></li>
 </ul>
 <p>PODPOŘA</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/cs/11">Bezplatné fórum podpory</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
 <li><a href="https://helpdesk.aspose.com/">Placená podpora</a></li>
 </ul>
 </div>

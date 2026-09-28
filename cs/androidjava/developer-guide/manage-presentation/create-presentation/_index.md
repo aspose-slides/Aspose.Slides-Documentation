@@ -31,10 +31,10 @@ Než začnete, přidejte Aspose.Slides do svého Android projektu z Maven repozi
 
 Chcete‑li vytvořit prezentaci a umístit textové pole na její první snímek, postupujte následovně:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
-1. Získejte tento snímek z [slide collection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/) podle jeho indexu, 0.
-1. Přidejte obdélník pomocí metody [addAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ze [shape collection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/) a nastavte text jeho [text frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) metodou [setText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
-1. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ve formátu [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveformat/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Nová prezentace již obsahuje jeden prázdný snímek.
+1. Získejte tento snímek z [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) podle jeho indexu, 0.
+1. Přidejte obdélník pomocí metody [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ze [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) a nastavte text jeho [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) metodou [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
+1. Uložte prezentaci jako soubor PPTX pomocí metody [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ve formátu [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Kód běží uvnitř `Activity`, například v metodě `onCreate`. Ukládá soubor do adresáře vráceného metodou [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()), tedy do soukromého úložiště vaší aplikace, kam lze zapisovat bez požadování oprávnění.
 
@@ -83,7 +83,7 @@ Použijte [BLOB management strategies](/slides/cs/androidjava/manage-blob/), ome
 
 ### Mohu vytvářet/ukládat prezentace paralelně?
 
-Nelze pracovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) z [multiple threads](/slides/cs/androidjava/multithreading/). Používejte oddělené instance pro každé vlákno nebo proces.
+Nelze pracovat se stejnou instancí [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) z [multiple threads](/slides/cs/androidjava/multithreading/). Používejte oddělené instance pro každé vlákno nebo proces.
 
 ### Jak odstranit zkušební vodoznak a omezení?
 
