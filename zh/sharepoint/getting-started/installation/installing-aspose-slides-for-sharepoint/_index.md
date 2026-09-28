@@ -7,7 +7,7 @@ description: "在 SharePoint 场上安装 Aspose.Slides for SharePoint：选择�
 ---
 ## **包内容**
 
-Aspose.Slides for SharePoint 从[download page](https://releases.aspose.com/slides/zh/sharepoint/) 下载为 ZIP 存档。该存档包含一个 SharePoint 解决方案包 (WSP) 和每个受支持的 SharePoint 版本对应的一个安装程序：
+Aspose.Slides for SharePoint 从[download page](https://releases.aspose.com/slides/sharepoint/) 下载为 ZIP 存档。该存档包含一个 SharePoint 解决方案包 (WSP) 和每个受支持的 SharePoint 版本对应的一个安装程序：
 
 | SharePoint 版本 | 安装程序 | 解决方案包 |
 | :- | :- | :- |

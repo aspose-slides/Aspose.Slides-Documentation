@@ -7,7 +7,7 @@ description: "在 SharePoint 场中安装 Aspose.Slides for SharePoint 许可证
 ---
 {{% alert color="info" title="Note" %}}
 
-一旦您对评估版满意，您可以[购买许可证](https://purchase.aspose.com/pricing/slides/zh/sharepoint/)。购买前，请确保您已了解并同意许可证订阅条款。订单付款后，许可证将通过电子邮件发送给您。
+一旦您对评估版满意，您可以[购买许可证](https://purchase.aspose.com/pricing/slides/sharepoint/)。购买前，请确保您已了解并同意许可证订阅条款。订单付款后，许可证将通过电子邮件发送给您。
 
 许可证是一个包含常规 SharePoint 解决方案包的 ZIP 压缩文件。压缩包包含：
 

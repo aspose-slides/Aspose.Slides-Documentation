@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint 是适用于 SharePoint 2007 至 2019 的农场解�
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/zh/sharepoint/release-notes/">发行说明</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/sharepoint/">下载</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">发行说明</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">下载</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免费支持论坛</a></li>
 <li><a href="https://helpdesk.aspose.com/">付费支持帮助台</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint 是适用于 SharePoint 2007 至 2019 的农场解�
 
 Aspose.Slides for SharePoint 只需在农场中安装一次，然后即可在任何已激活的文档库中使用：
 
-1. 从[下载页面](https://releases.aspose.com/slides/zh/sharepoint/)下载 ZIP 压缩包，并在 SharePoint 农场中的服务器上解压。
+1. 从[下载页面](https://releases.aspose.com/slides/sharepoint/)下载 ZIP 压缩包，并在 SharePoint 农场中的服务器上解压。
 2. 运行与您的 SharePoint 版本相匹配的安装程序：*Setup2007.exe*、*Setup2010.exe*、*Setup2013.exe*、*Setup2016.exe* 或 *Setup2019.exe*。使用具有安装和部署 SharePoint 解决方案权限的账户。接受许可协议，选择要在其上激活功能的站点集合，然后让安装程序部署解决方案。每个屏幕的说明请参见[安装](/slides/zh/sharepoint/installing-aspose-slides-for-sharepoint/)。
 3. 在其中一个站点集合的文档库中，打开 PPT 或 PPTX 文件的菜单，选择**通过 Aspose.Slides 转换**。在 SharePoint 2007 中，菜单项名称为**使用 Aspose.Slides 转换**。
 4. 在**转换为**下，选择**PDF - Adobe Portable Document**。如有需要，可更改目标文件名和文件夹，然后单击**转换**。

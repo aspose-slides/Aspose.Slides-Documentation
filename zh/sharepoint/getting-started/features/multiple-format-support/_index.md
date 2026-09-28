@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint 转换以下输入格式：
 
 {{% alert color="info" title="Note" %}}
 
-要转换文档，Aspose.Slides for SharePoint 依赖于内置的 [Aspose.Slides for .NET](https://products.aspose.com/slides/zh/net/)。
+要转换文档，Aspose.Slides for SharePoint 依赖于内置的 [Aspose.Slides for .NET](https://products.aspose.com/slides/net/)。
 
 {{% /alert %}}
 
