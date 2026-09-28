@@ -31,10 +31,10 @@ description: "Aspose.Slides for Android を使用して Java でプレゼンテ�
 
 プレゼンテーションを作成し、最初のスライドにテキスト ボックスを配置するには、次の手順に従ってください：
 
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 枚含まれています。
-1. そのスライドをインデックス 0 で [slide collection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islidecollection/) から取得します。
-1. [shape collection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/) の [addAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) メソッドで長方形を追加し、[text frame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) の [setText](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) メソッドでテキストを設定します。
-1. [save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) メソッドでプレゼンテーションを PPTX ファイルとして保存し、[SaveFormat.Pptx](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/saveformat/) 形式を指定します。
+1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。新しいプレゼンテーションにはすでに空のスライドが 1 枚含まれています。
+1. そのスライドをインデックス 0 で [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) から取得します。
+1. [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) の [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) メソッドで長方形を追加し、[text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) の [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) メソッドでテキストを設定します。
+1. [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) メソッドでプレゼンテーションを PPTX ファイルとして保存し、[SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) 形式を指定します。
 
 コードは `Activity` 内、たとえば `onCreate` メソッドで実行されます。ファイルは [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) メソッドが返すディレクトリ、すなわちアプリ固有のプライベート ストレージに保存され、権限を要求せずに書き込むことができます。
 

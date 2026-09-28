@@ -72,14 +72,14 @@ Aspose.Slides for Android via Java は、Microsoft PowerPoint を使用せずに
 <hr>
 <p>リファレンス</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/ja/androidjava/">API リファレンス</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/androidjava/release-notes/">リリース ノート</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">API リファレンス</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">リリース ノート</a></li>
 <li><a href="/slides/ja/androidjava/known-issues/">既知の問題</a></li>
-<li><a href="https://releases.aspose.com/slides/ja/androidjava/">ダウンロード</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">ダウンロード</a></li>
 </ul>
 <p>サポート</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ja/11">無料サポート フォーラム</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">無料サポート フォーラム</a></li>
 <li><a href="https://helpdesk.aspose.com/">有料サポート デスク</a></li>
 </ul>
 </div>

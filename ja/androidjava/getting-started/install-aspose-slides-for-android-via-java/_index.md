@@ -57,7 +57,7 @@ dependencies {
 
 ### **バージョンの選択**
 
-Aspose.Slides for Android via Java はリポジトリのすべてのバージョン向けにビルドされているわけではありません。ビルドは一部の Aspose.Slides for Java バージョンに対してのみ公開されており、Android ビルドが存在しないバージョンは解決できません。[Aspose.Slides for Android via Java ダウンロードページ](https://releases.aspose.com/slides/ja/androidjava/)に記載されているバージョンを選択してください。
+Aspose.Slides for Android via Java はリポジトリのすべてのバージョン向けにビルドされているわけではありません。ビルドは一部の Aspose.Slides for Java バージョンに対してのみ公開されており、Android ビルドが存在しないバージョンは解決できません。[Aspose.Slides for Android via Java ダウンロードページ](https://releases.aspose.com/slides/androidjava/)に記載されているバージョンを選択してください。
 
 ### **Groovy ビルドスクリプト**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### Aspose.Slides が正しく統合されているかどうかを確認するには？
 
-プロジェクトをビルドし、空の [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) をインスタンス化して新しい名前で保存します。例外が発生せずにファイルが作成できれば、ライブラリは正常に統合されています。
+プロジェクトをビルドし、空の [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) をインスタンス化して新しい名前で保存します。例外が発生せずにファイルが作成できれば、ライブラリは正常に統合されています。
 
 ### 大きなプレゼンテーションを処理する際にメモリ使用量を制限するには？
 
-各 [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) インスタンスの [dispose](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#dispose--) メソッドを `finally` ブロックで呼び出してリソースを速やかに解放し、同時に処理するプレゼンテーションは1つずつにしてください。これにより、メモリ不足エラーを防ぎ、バッチ処理中の全体的なメモリ使用量を予測可能に保ちます。
+各 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) インスタンスの [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) メソッドを `finally` ブロックで呼び出してリソースを速やかに解放し、同時に処理するプレゼンテーションは1つずつにしてください。これにより、メモリ不足エラーを防ぎ、バッチ処理中の全体的なメモリ使用量を予測可能に保ちます。
 
 ### 不要なエクスポート形式を除外して最終的な JAR サイズを縮小できますか？
 
