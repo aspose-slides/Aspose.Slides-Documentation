@@ -31,10 +31,10 @@ Trước khi bắt đầu, thêm Aspose.Slides vào dự án Android của bạn
 
 Để tạo một bản trình bày và đặt một hộp văn bản vào slide đầu tiên, thực hiện các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/). Một bản trình bày mới đã chứa sẵn một slide trống.
-2. Lấy slide đó từ [slide collection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islidecollection/) bằng chỉ mục 0.
-3. Thêm một hình chữ nhật bằng phương thức [addAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) của [shape collection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/) và đặt văn bản cho [text frame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) của nó bằng phương thức [setText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
-4. Lưu bản trình bày dưới dạng tệp PPTX bằng phương thức [save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-), ở định dạng [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/saveformat/).
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Một bản trình bày mới đã chứa sẵn một slide trống.
+2. Lấy slide đó từ [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) bằng chỉ mục 0.
+3. Thêm một hình chữ nhật bằng phương thức [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) của [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) và đặt văn bản cho [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) của nó bằng phương thức [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).
+4. Lưu bản trình bày dưới dạng tệp PPTX bằng phương thức [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-), ở định dạng [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Mã chạy bên trong một `Activity`, ví dụ trong phương thức `onCreate` của nó. Nó lưu tệp vào thư mục được trả về bởi phương thức [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()): bộ nhớ riêng tư của ứng dụng, nơi có thể ghi mà không cần yêu cầu quyền nào.
 
@@ -83,7 +83,7 @@ Sử dụng [BLOB management strategies](/slides/vi/androidjava/manage-blob/), g
 
 ### Tôi có thể tạo/lưu các bản trình bày song song không?
 
-Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/androidjava/multithreading/). Hãy chạy các thể hiện riêng biệt, độc lập cho mỗi luồng hoặc tiến trình.
+Bạn không thể thao tác trên cùng một thể hiện [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/androidjava/multithreading/). Hãy chạy các thể hiện riêng biệt, độc lập cho mỗi luồng hoặc tiến trình.
 
 ### Làm sao loại bỏ dấu nước dùng thử và các giới hạn?
 

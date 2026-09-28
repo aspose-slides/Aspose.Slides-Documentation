@@ -23,15 +23,15 @@ description: "Áp dụng, quản lý và khắc phục sự cố giấy phép tr
 
 Aspose.Slides có thể được sử dụng ở chế độ đánh giá hoặc với giấy phép hợp lệ. Phiên bản đánh giá cung cấp cùng chức năng như phiên bản có giấy phép, nhưng nó thêm một dấu bản quyền đánh giá vào mỗi slide của mỗi bản trình chiếu mà nó lưu và cắt ngắn văn bản mà mã của bạn đọc từ bản trình chiếu.
 
-Bài viết này giải thích cách giấy phép hoạt động trong Aspose.Slides và cách áp dụng giấy phép trước khi sử dụng thư viện. Giấy phép có thể được tải từ tệp, luồng, hoặc tài nguyên nhúng bằng cách sử dụng lớp [License](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/license/) . Bài viết cũng cho thấy cách xác thực xem giấy phép đã được áp dụng đúng chưa.
+Bài viết này giải thích cách giấy phép hoạt động trong Aspose.Slides và cách áp dụng giấy phép trước khi sử dụng thư viện. Giấy phép có thể được tải từ tệp, luồng, hoặc tài nguyên nhúng bằng cách sử dụng lớp [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) . Bài viết cũng cho thấy cách xác thực xem giấy phép đã được áp dụng đúng chưa.
 
 ## **Đánh giá Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
 
-Bạn có thể tải xuống phiên bản đánh giá của **Aspose.Slides for Android via Java** từ [trang tải xuống](https://releases.aspose.com/slides/vi/androidjava/). Phiên bản đánh giá cung cấp cùng các chức năng như phiên bản có giấy phép của sản phẩm. Gói đánh giá giống hệt gói mua. Phiên bản đánh giá sẽ trở thành có giấy phép ngay sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
+Bạn có thể tải xuống phiên bản đánh giá của **Aspose.Slides for Android via Java** từ [trang tải xuống](https://releases.aspose.com/slides/androidjava/). Phiên bản đánh giá cung cấp cùng các chức năng như phiên bản có giấy phép của sản phẩm. Gói đánh giá giống hệt gói mua. Phiên bản đánh giá sẽ trở thành có giấy phép ngay sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
 
-Khi bạn hài lòng với việc đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/vi/android-java/). Chúng tôi khuyến nghị bạn xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội ngũ bán hàng của Aspose.
+Khi bạn hài lòng với việc đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/pricing/slides/android-java/). Chúng tôi khuyến nghị bạn xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội ngũ bán hàng của Aspose.
 
 Mỗi giấy phép Aspose đi kèm một đăng ký một năm để nâng cấp miễn phí lên các phiên bản mới hoặc bản sửa lỗi được phát hành trong thời gian đăng ký. Người dùng có sản phẩm có giấy phép (hoặc ngay cả phiên bản đánh giá) nhận được hỗ trợ kỹ thuật miễn phí và không giới hạn.
 
@@ -64,7 +64,7 @@ Giấy phép có thể được tải từ một **tệp** hoặc **luồng**.
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/license/) cho các thao tác cấp giấy phép.
+Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) cho các thao tác cấp giấy phép.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-Nếu bạn đặt tệp giấy phép ở một thư mục khác, khi gọi phương thức [setLicense](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) , tên tệp giấy phép ở cuối đường dẫn được chỉ định phải giống với tên tệp giấy phép của bạn.
+Nếu bạn đặt tệp giấy phép ở một thư mục khác, khi gọi phương thức [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) , tên tệp giấy phép ở cuối đường dẫn được chỉ định phải giống với tên tệp giấy phép của bạn.
 
-Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.Android.via.Java.lic.xml*. Sau đó, trong mã của bạn, bạn phải truyền đường dẫn tới tệp (kết thúc bằng *Aspose.Slides.Android.via.Java.lic.xml*) cho phương thức [setLicense](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.Android.via.Java.lic.xml*. Sau đó, trong mã của bạn, bạn phải truyền đường dẫn tới tệp (kết thúc bằng *Aspose.Slides.Android.via.Java.lic.xml*) cho phương thức [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
@@ -116,7 +116,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Luồng từ Tài nguyên Ứng dụng**
 
-Trong một ứng dụng Android, đặt tệp giấy phép vào thư mục *assets* của mô-đun ứng dụng, *app/src/main/assets*, để nó được đóng gói vào APK. Mở tệp bằng phương thức [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) và truyền luồng tới phương thức [setLicense](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) . Mã chạy trong một `Activity`, ví dụ trong phương thức `onCreate` của nó, trước khi ứng dụng sử dụng Aspose.Slides:
+Trong một ứng dụng Android, đặt tệp giấy phép vào thư mục *assets* của mô-đun ứng dụng, *app/src/main/assets*, để nó được đóng gói vào APK. Mở tệp bằng phương thức [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) và truyền luồng tới phương thức [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) . Mã chạy trong một `Activity`, ví dụ trong phương thức `onCreate` của nó, trước khi ứng dụng sử dụng Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -154,7 +154,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-Phương thức [setLicense](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) không an toàn với đa luồng. Nếu phương thức này phải được gọi đồng thời từ nhiều luồng, bạn nên sử dụng các cơ chế đồng bộ (như lock) để tránh vấn đề.
+Phương thức [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) không an toàn với đa luồng. Nếu phương thức này phải được gọi đồng thời từ nhiều luồng, bạn nên sử dụng các cơ chế đồng bộ (như lock) để tránh vấn đề.
 
 {{% /alert %}}
 

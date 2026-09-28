@@ -57,7 +57,7 @@ Sau đó đồng bộ dự án với các tệp Gradle, để Gradle tải thư 
 
 ### **Chọn phiên bản**
 
-Aspose.Slides for Android via Java không được xây dựng cho mọi phiên bản trong kho. Các bản dựng của nó chỉ được công bố cho một số phiên bản Aspose.Slides for Java, và một phiên bản không có bản dựng Android sẽ không giải quyết được. Chọn một phiên bản được liệt kê trên [trang tải xuống Aspose.Slides for Android via Java](https://releases.aspose.com/slides/vi/androidjava/).
+Aspose.Slides for Android via Java không được xây dựng cho mọi phiên bản trong kho. Các bản dựng của nó chỉ được công bố cho một số phiên bản Aspose.Slides for Java, và một phiên bản không có bản dựng Android sẽ không giải quyết được. Chọn một phiên bản được liệt kê trên [trang tải xuống Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/).
 
 ### **Kịch bản xây dựng Groovy**
 
@@ -108,11 +108,11 @@ Kể từ năm 2018, việc quản lý phiên bản của Aspose.Slides for Andr
 
 ### Làm thế nào để tôi xác nhận rằng Aspose.Slides đã được tích hợp đúng?
 
-Xây dựng dự án của bạn, tạo một đối tượng [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) trống và lưu nó với một tên mới. Nếu tệp được tạo mà không ném ngoại lệ, thư viện đã được tích hợp thành công.
+Xây dựng dự án của bạn, tạo một đối tượng [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) trống và lưu nó với một tên mới. Nếu tệp được tạo mà không ném ngoại lệ, thư viện đã được tích hợp thành công.
 
 ### Làm thế nào để giới hạn tiêu thụ bộ nhớ khi xử lý các bài thuyết trình lớn?
 
-Gọi phương thức [dispose](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/#dispose--) của mỗi đối tượng [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) trong khối `finally` để giải phóng tài nguyên kịp thời, và xử lý một bài thuyết trình lớn mỗi lần. Điều này giúp ngăn lỗi hết bộ nhớ và giữ cho việc sử dụng bộ nhớ tổng thể dự đoán được trong các thao tác batch.
+Gọi phương thức [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) của mỗi đối tượng [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) trong khối `finally` để giải phóng tài nguyên kịp thời, và xử lý một bài thuyết trình lớn mỗi lần. Điều này giúp ngăn lỗi hết bộ nhớ và giữ cho việc sử dụng bộ nhớ tổng thể dự đoán được trong các thao tác batch.
 
 ### Tôi có thể loại bỏ các định dạng xuất không mong muốn để giảm kích thước JAR cuối cùng không?
 
