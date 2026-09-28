@@ -68,7 +68,7 @@ A biblioteca Linux do pacote requer a biblioteca `fontconfig`:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Sem ela, a criação de uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) falha com um `TypeInitializationException` cujo `DllNotFoundException` interno indica que `libfontconfig.so.1` não pode ser aberto.
+Sem ela, a criação de uma [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) falha com um `TypeInitializationException` cujo `DllNotFoundException` interno indica que `libfontconfig.so.1` não pode ser aberto.
 
 Imagens base mínimas podem não incluir `fontconfig` também. A imagem base AWS Lambda para .NET 8, por exemplo, não contém `fontconfig` nem fontes. Em uma imagem de contêiner construída sobre ela, execute `dnf install -y fontconfig`, que também instala as fontes Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Suporte à Globalização**
 
-Ambos os pacotes precisam do suporte à globalização do .NET, que o .NET no Linux fornece por meio das bibliotecas ICU. No [modo de globalização invariável](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), criar uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) falha com `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Ambos os pacotes precisam do suporte à globalização do .NET, que o .NET no Linux fornece por meio das bibliotecas ICU. No [modo de globalização invariável](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), criar uma [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) falha com `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Algumas imagens de contêiner ativam esse modo. As imagens de runtime .NET para Alpine Linux (`runtime-deps`, `runtime` e `aspnet`), por exemplo, definem `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` e não incluem ICU. Em uma imagem construída sobre elas, instale ICU e desative o modo:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-O programa adiciona um retângulo com texto ao primeiro slide e salva a apresentação como *hello.pptx* usando o método [Save](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/save/). Em seguida, renderiza o slide com [GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/slide/getimage/) e salva o resultado como *hello.png* usando [IImage.Save](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/save/) no formato [ImageFormat.Png](https://reference.aspose.com/slides/pt/net/aspose.slides/imageformat/). Os fatores de escala de 1 renderizam um pixel por ponto, de modo que o slide padrão de 720 × 540 pontos se torna uma imagem de 720 × 540 pixels, com o texto visível dentro do retângulo. Sem licença, ambos os arquivos também contêm uma marca d'água de avaliação; veja [Licensing](/slides/pt/net/licensing/). Se algum requisito estiver ausente, o programa termina com uma das exceções descritas em [Linux](#linux).
+O programa adiciona um retângulo com texto ao primeiro slide e salva a apresentação como *hello.pptx* usando o método [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Em seguida, renderiza o slide com [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) e salva o resultado como *hello.png* usando [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) no formato [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Os fatores de escala de 1 renderizam um pixel por ponto, de modo que o slide padrão de 720 × 540 pontos se torna uma imagem de 720 × 540 pixels, com o texto visível dentro do retângulo. Sem licença, ambos os arquivos também contêm uma marca d'água de avaliação; veja [Licensing](/slides/pt/net/licensing/). Se algum requisito estiver ausente, o programa termina com uma das exceções descritas em [Linux](#linux).
 
 ## **Ferramentas de Desenvolvimento**
 

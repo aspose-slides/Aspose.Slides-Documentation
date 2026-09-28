@@ -77,7 +77,7 @@ Não. O PowerPoint não é necessário; Aspose.Slides é um mecanismo independen
 
 **Como funciona o multithreading? O processamento pode ser paralelizado?**
 
-É seguro processar documentos diferentes em threads distintas; o mesmo objeto [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) não deve ser usado por [múltiplas threads](/slides/pt/net/multithreading/) ao mesmo tempo.
+É seguro processar documentos diferentes em threads distintas; o mesmo objeto [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) não deve ser usado por [múltiplas threads](/slides/pt/net/multithreading/) ao mesmo tempo.
 
 **Senhas de arquivo e criptografia são suportadas?**
 
