@@ -1,60 +1,60 @@
 ---
 title: Android'de Sunum Slide Master'larını Yönet
-linktitle: Slayt Ana Taslağı
+linktitle: Slide Master
 type: docs
 weight: 70
 url: /tr/androidjava/slide-master/
 keywords:
-- slayt ana taslağı
-- ana slayt
-- PPT ana slaytı
-- çoklu ana slaytlar
-- ana slaytları karşılaştır
-- arka plan
+- slide master
+- master slayt
+- PPT master slayt
+- çoklu master slaytlar
+- master slaytları karşılaştır
+- arkaplan
 - yer tutucu
-- ana slaytı klonla
-- ana slaytı kopyala
-- ana slaytı çoğalt
-- kullanılmayan ana slayt
+- master slaytı klonla
+- master slaytı kopyala
+- master slaytı çoğalt
+- kullanılmayan master slayt
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java'da slayt ana taslaklarını yönetin: PowerPoint ve OpenDocument sunumlarında ana taslak slaytlarına erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
+description: "Aspose.Slides for Android via Java'da slide master'ları yönetin: PowerPoint ve OpenDocument sunumlarında master slaytları erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-Bir **slide master**, bir grup slayt için paylaşılan tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve altbilgi ayarları içerebilir. PowerPoint'te, bir slide master'ı düzenlemek, aynı biçimlendirmeyi her slaytta tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
+Bir **slide master**, bir grup slayt için paylaşılan tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve alt bilgi ayarları içerebilir. PowerPoint’te bir slide master’ı düzenlemek, aynı biçimlendirmeyi her slaytta tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
 
-Aspose.Slides for Android via Java aynı modeli destekler. Bir sunum bir veya daha fazla ana taslak (master slide) içerebilir ve her ana taslak birden çok düzen slaytı (layout slide) barındırabilir. Normal slaytlar doğrudan bir ana taslağa referans vermez; bunun yerine bir düzen slaytı kullanır ve bu düzen slaytı bir ana taslağa aittir.
+Aspose.Slides for Android via Java aynı modeli destekler. Bir sunum bir veya daha fazla master slayt içerebilir ve her master slayt birkaç layout slaytı barındırabilir. Normal slaytlar genellikle doğrudan bir master slayta başvurmaz. Bunun yerine, normal bir slayt bir layout slaytını kullanır ve bu layout slayt bir master slayta ait olur.
 
-Hiyerarşi şu şekildedir:
+Hiyerarşi şudur:
 
 1. **Slide master** – paylaşılan tasarımı ve temayı tanımlar.  
-1. **Layout slide** – yer tutucuların belirli bir düzenini ve düzen‑seviyesindeki biçimlendirmeyi tanımlar.  
-1. **Normal slide** – gerçek sunum içeriğini barındırır ve bir düzen slaytı kullanır.
+1. **Layout slide** – yer tutucuların ve layout‑seviyesi biçimlendirmenin belirli bir düzenini tanımlar.  
+1. **Normal slide** – gerçek sunum içeriğini barındırır ve bir layout slaytını kullanır.
 
-![Ana taslakların, düzen slaytlarının ve normal slaytların hiyerarşisi](slide-master_2.jpg)
+![Ana slaytların, düzen slaytlarının ve normal slaytların hiyerarşisi](slide-master_2.jpg)
 
-Aspose.Slides'te bir slide master, [IMasterSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslide/) arabirimiyle temsil edilir. Bir sunumdaki tüm ana taslaklar, [Presentation.getMasters](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getMasters--) koleksiyonu aracılığıyla elde edilir ve bu koleksiyon [IMasterSlideCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslidecollection/) arabirimini uygular. Android via Java için tam API yüzeyi hakkında bilgi için [com.aspose.slides API reference](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/) sayfasına bakın.
+Aspose.Slides’te bir slide master, [IMasterSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslide/) arayüzüyle temsil edilir. Bir sunumdaki tüm master slaytlara, [Presentation.getMasters](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getMasters--) koleksiyonu üzerinden erişilir; bu koleksiyon [IMasterSlideCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslidecollection/) arayüzünü uygular. Tam Android via Java API yüzeyi için [com.aspose.slides API referansına](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/) bakın.
 
 {{% alert color="info" title="Inheritance" %}}
-
-Bir özellik birden fazla seviyede tanımlandığında, daha spesifik seviye geçerli olur. Örneğin, bir ana taslak ve bir düzen slaytı aynı arka planı tanımlarsa, o düzene dayalı slaytlar düzen arka planını kullanır. Düzen slaytları hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/slides/tr/androidjava/slide-layout/) bölümüne bakın.
-
+Aynı özellik birden fazla seviyede tanımlandığında, daha özel seviye kazanır. Örneğin, bir master slayt ve bir layout slayt aynı arka planı tanımlıyorsa, o layout’a dayalı slaytlar layout arka planını kullanır. Layout slaytları hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/slides/tr/androidjava/slide-layout/) sayfasına bakın.
 {{% /alert %}}
 
-## **Slayt Ana Taslaklarına Erişim**
+## **Slide Master’lara Erişim**
 
-PowerPoint'te **View** > **Slide Master** yolunu izleyerek Slide Master görünümünü açabilirsiniz.
+PowerPoint’te **View** > **Slide Master** menüsünden Slide Master görünümünü açabilirsiniz.
 
 ![PowerPoint Görünüm sekmesindeki Slide Master komutu](slide-master_3.jpg)
 
-Aspose.Slides'te ana taslaklara erişmek için `getMasters()` koleksiyonunu kullanın:
+Aspose.Slides’te master slaytlara erişmek için `getMasters()` koleksiyonunu kullanın:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +68,11 @@ try {
 }
 ```
 
-Ayrıca bir normal slaytın kullandığı ana taslağı, onun düzeni üzerinden alabilirsiniz:
+Ayrıca normal bir slaytın kullandığı master slaytı, onun layout’u üzerinden alabilirsiniz:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,28 +86,30 @@ try {
 }
 ```
 
-## **Bir Slide Master Ne İçerir**
+## **Bir Slide Master’ın İçeriği**
 
-Bir ana taslak, slayt benzeri bir nesnedir. [IBaseSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseslide/) arabirimini uygular, bu nedenle normal ve düzen slaytlarıyla aynı birçok slayt özelliğine sahiptir.
+Bir master slayt, slayt benzeri bir nesnedir. [IBaseSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseslide/) arayüzünü uygular, bu yüzden normal ve layout slaytlarda kullanılan birçok slayt özelliğine sahiptir.
 
-Sık kullanılan ana taslak üyeleri şunlardır:
+Sık kullanılan master slayt üyeleri şunlardır:
 
-| Üye | Amaç |
+| Üye | Açıklama |
 | --- | --- |
-| `getBackground()` | Ana taslak seviyesindeki slayt arka planını ayarlar. |
-| `getShapes()` | Logolar, resim çerçeveleri ve paylaşılan metin gibi ana taslağa eklenen şekilleri depolar. |
-| `getLayoutSlides()` | Ana taslağa ait düzen slaytlarını depolar. |
-| `getThemeManager()` | Ana taslak tema API'lerine erişim sağlar. |
-| `getHeaderFooterManager()` | Ana taslak ve onun alt düzenleri için üstbilgi, altbilgi, tarih ve slayt numarası kontrolü yapar. |
-| `getDependingSlides()` | Düzenleri aracılığıyla ana taslağa bağımlı olan normal slaytları döndürür. |
+| `getBackground()` | Master seviyesindeki slayt arka planını ayarlar. |
+| `getShapes()` | Logolar, resim çerçeveleri ve paylaşılan metin gibi master’a yerleştirilen şekilleri depolar. |
+| `getLayoutSlides()` | Master’a ait layout slaytlarını depolar. |
+| `getThemeManager()` | Master tema API’lerine erişim sağlar. |
+| `getHeaderFooterManager()` | Master ve onun alt layoutları için üst bilgi, alt bilgi, tarih ve slayt numaralarını kontrol eder. |
+| `getDependingSlides()` | Layoutları aracılığıyla master’a bağlı normal slaytları döndürür. |
 
-## **Bir Slide Master'a Resim Ekleme**
+## **Slide Master’a Görsel Ekleme**
 
-Bir ana taslağa resim eklediğinizde, o ana taslağın düzenlerini kullanan slaytlarda görünür. Bu, logolar, filigranlar, dekoratif bantlar ve diğer tekrarlanan görsel öğeler için kullanışlıdır.
+Bir master slayta görsel eklediğinizde, o master’dan layout kullanan slaytlarda görünür. Bu, logolar, filigranlar, dekoratif bantlar ve diğer tekrarlanan görsel öğeler için faydalıdır.
 
-Aşağıdaki örnek, ilk ana taslağa bir logo ekler:
+Aşağıdaki örnek, ilk master slayta bir logo ekler:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +135,75 @@ try {
 }
 ```
 
-Resim çerçeveleri hakkında daha fazla bilgi için [Picture Frame](/slides/tr/androidjava/picture-frame/) bölümüne bakın.
+Resim çerçeveleri hakkında daha fazla bilgi için [Picture Frame](/slides/tr/androidjava/picture-frame/) sayfasına bakın.
+
+## **Master Grafiklerinin Görünürlüğünü Kontrol Etme**
+
+[Miras alınan master grafiklerini (ör. logolar veya dekoratif şekiller) silmeden gizlemek] için [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) kullanılabilir. Görselleri gizlemek istediğiniz slaytta `false` değerini `Slide.setShowMasterShapes` (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) metoduna geçin ve görüntülenmesini istediğiniz slaytlarda `true` tutun.
+
+Aşağıdaki bağımsız örnek, bir master’da mavi dekoratif bir bant oluşturur ve aynı boş layout’u kullanan iki slaytta farklı görünürlük ayarları uygular. İlk slaytta bant görünür, ikincisinde gizlidir. Giriş sunumu veya görsel gerekmez.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Örnek, yeni bir sunumla birlikte gelen **Blank** layout’unu kullanır ve başlangıç slaytının kendi yer tutucularını kaldırır.
+
+### **Ayarın Kapsamını Seçme**
+
+Normal bir slayt, master’ına `[ISlide.getLayoutSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/#getLayoutSlide--)` ve `[ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--)` aracılığıyla erişir. Özelliği bireysel bir slaytta ayarlamak yalnız o slaytı etkiler. `false` değerini `[LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-)` metoduna geçirerek, paylaşılan layout’u kullanan tüm slaytlarda master grafiklerini gizleyebilirsiniz; kendi ayarları `true` olsa bile. Tek bir slaytta grafikleri gizlemek istiyorsanız, slayt özelliğini değiştirin ve ortak layout’u değiştirmeyin.
+
+Bu ayar master slaytın kendisi üzerinde bir görünürlük kontrolü olarak desteklenmez. Bir master’da `getShowMasterShapes` her zaman `false` döner ve `setShowMasterShapes`’a `true` geçirildiğinde bir istisna oluşur. Bunu normal bir slayt ya da layout üzerinde uygulayın.
+
+### **Grafikleri Arka Plandan Ayırma**
+
+| İşlem | Etki |
+| --- | --- |
+| Master grafikleri gizle | Miras alınan master şekillerini silmeden veya slaytın kendi şekillerini değiştirmeden görünürlüğünü kontrol eder. |
+| Slayt arka plan doldurmasını değiştir | Arka plan rengini, geçişini veya resmini değiştirir. Master grafikleri ayrı şekiller olduğundan, bu arka plan üzerine hâlâ görünebilir. [Presentation Background](/slides/tr/androidjava/presentation-background/) bakın. |
+| Master’dan bir şekli sil | Paylaşılan kaynak şekli kaldırır, böylece o master’ı kullanan hiçbir slayt artık bu şekle erişemez. |
 
 ## **Yer Tutucularla Çalışma**
 
-Yer tutucular genellikle düzen slaytlarında tanımlanır. Ana taslak, bu düzenlerin devraldığı ortak stil ve temayı sağlar; her düzen ise hangi yer tutucuların mevcut olduğunu ve nerede bulunduğunu belirler.
+Yer tutucular genellikle layout slaytlarda tanımlanır. Master slayt, bu layoutların devraldığı paylaşılan stil ve temayı sağlar; her layout ise hangi yer tutucuların mevcut olduğunu ve nerede konumlandığını belirler.
 
-PowerPoint'te yer tutucu komutları Slide Master görünümünde bulunur.
+PowerPoint’te yer tutucu komutları Slide Master görünümünde mevcuttur.
 
-![PowerPoint Slide Master görünümünde Insert Placeholder komutu](slide-master_5.png)
+![PowerPoint Slide Master görünümündeki Insert Placeholder komutu](slide-master_5.png)
 
-Aspose.Slides ile yeni yer tutucular eklemek için, ana taslağa ait düzen slaytıyla çalışın:
+Aspose.Slides ile yeni yer tutucular eklemek için master’a ait layout slaytıyla çalışın:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -162,9 +222,12 @@ try {
 }
 ```
 
-Ayrıca zaten bir ana taslakta bulunan yer tutucu şekillerini biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve doğrusal bir degrade dolgu uygular:
+Ayrıca bir master slaytta zaten var olan yer tutucu şekillerini biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve lineer degrade doldurma uygular:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -183,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -200,17 +263,20 @@ try {
 
 ![Normal slaytlar tarafından devralınan biçimlendirilmiş başlık yer tutucusu](slide-master_8.png)
 
-Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Set Prompt Text in Placeholder](/slides/tr/androidjava/manage-placeholder/) ve [Text Formatting](/slides/tr/androidjava/text-formatting/) bölümlerine bakın.
+Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Set Prompt Text in Placeholder](/slides/tr/androidjava/manage-placeholder/) ve [Text Formatting](/slides/tr/androidjava/text-formatting/) sayfalarına bakın.
 
-## **Bir Slide Master Arka Planını Değiştirme**
+## **Slide Master Arka Planını Değiştirme**
 
-Ana taslak arka planı, üzerine yazılmadığı sürece düzenler ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk ana taslak için katı bir arka plan rengi ayarlar:
+Bir master arka planı, bunu geçersiz kılmayan layout ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk master slayt için katı bir arka plan rengi ayarlar:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -222,13 +288,15 @@ try {
 }
 ```
 
-İlgili konular için [Presentation Background](/slides/tr/androidjava/presentation-background/) ve [Presentation Theme](/slides/tr/androidjava/presentation-theme/) bölümlerine bakın.
+İlgili konular için [Presentation Background](/slides/tr/androidjava/presentation-background/) ve [Presentation Theme](/slides/tr/androidjava/presentation-theme/) sayfalarına bakın.
 
-## **Bir Slide Master'ı Başka Bir Sunuma Kopyalama**
+## **Bir Slide Master’ı Başka Bir Sunuma Kopyalama**
 
-Bir ana taslağı başka bir sunuma kopyalamak için [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) yöntemini kullanın. Kopyalanan ana taslak, hedef sunumdaki düzenler ve slaytlar tarafından kullanılabilir.
+[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) metodunu kullanarak bir master slaytı başka bir sunuma kopyalayabilirsiniz. Kopyalanan master, hedef sunumdaki layout ve slaytlar tarafından kullanılabilir.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -242,22 +310,25 @@ try {
 }
 ```
 
-Normal slaytları ve ana taslaklarını aynı anda kopyalamanız gerekiyorsa, [Clone Slides](/slides/tr/androidjava/clone-slides/) bölümüne bakın.
+Normal slaytları masterlarıyla birlikte kopyalamanız gerekiyorsa, [Clone Slides](/slides/tr/androidjava/clone-slides/) sayfasına bakın.
 
 ## **Birden Çok Slide Master Ekleme**
 
-Bir sunum birden çok ana taslak içerebilir. Bu, farklı bölümlerin farklı marka, sayfa yapısı veya tema ayarları gerektirdiği durumlarda kullanışlıdır.
+Bir sunum birden çok master slayt içerebilir. Bu, farklı bölümlerin farklı marka kimliği, sayfa yapısı veya tema ayarları gerektirdiği durumlarda faydalıdır.
 
-![Ana taslak ekleme ve yönetme PowerPoint komutları](slide-master_9.jpg)
+![PowerPoint’te master slayt ekleme ve yönetme komutları](slide-master_9.jpg)
 
-Aşağıdaki örnek, varsayılan ana taslağı kopyalar, kopyaya farklı bir arka plan verir, bu kopyalanan ana taslağın altında bir düzen oluşturur ve o düzene dayalı yeni bir slayt ekler:
+Aşağıdaki örnek, varsayılan master’ı klonlar, klona farklı bir arka plan verir, o klonlanmış master altına bir layout oluşturur ve bu layout’a dayalı yeni bir slayt ekler:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -277,11 +348,13 @@ try {
 }
 ```
 
-## **Slide Master'ları Karşılaştırma**
+## **Slide Master’ları Karşılaştırma**
 
-Ana taslaklar, [IBaseSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseslide/) tarafından devralınan `equals` metodu ile karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği kontrol eder. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya geçerli tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
+Master slaytlar, [IBaseSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibaseslide/) tarafından devralınan `equals` yöntemiyle karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği inceler. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya geçerli tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -308,13 +381,15 @@ try {
 }
 ```
 
-Daha fazla bilgi için [Compare Presentation Slides](/slides/tr/androidjava/compare-slides/) bölümüne bakın.
+Daha fazla bilgi için [Compare Presentation Slides](/slides/tr/androidjava/compare-slides/) sayfasına bakın.
 
 ## **Slide Master Görünümünü Varsayılan Görünüm Olarak Ayarlama**
 
-PowerPoint'in ilk açtığı görünümü kontrol etmek için [ViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/viewproperties/) üzerindeki `setLastView` yöntemini kullanın. Aşağıdaki örnek, sunumu Slide Master görünümünde açar:
+PowerPoint’in ilk açtığı görünümü kontrol etmek için [ViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/viewproperties/) üzerindeki `setLastView` metodunu kullanın. Aşağıdaki örnek sunumu Slide Master görünümünde açar:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,15 +399,17 @@ try {
 }
 ```
 
-Daha fazla görünüm ayarı için [Save Presentation](/slides/tr/androidjava/save-presentation/) bölümüne bakın.
+Daha fazla görünüm ayarı için [Save Presentation](/slides/tr/androidjava/save-presentation/) sayfasına bakın.
 
-## **Kullanılmayan Ana Taslakları Kaldırma**
+## **Kullanılmayan Master Slaytları Kaldırma**
 
-Bazen sunumlar, hiçbir normal slayt tarafından kullanılmayan ana taslaklar içerir. Kullanılmayan ana taslakları kaldırmak, dosya boyutunu azaltabilir ve şablon bakımını basitleştirebilir.
+Bazen bir sunum, herhangi bir normal slayt tarafından artık kullanılmayan master slaytlar içerir. Kullanılmayan masterları kaldırmak dosya boyutunu azaltır ve şablon bakımını basitleştirir.
 
-`removeUnused` yöntemini kullanarak `getMasters()` koleksiyonundaki kullanılmayan ana taslakları kaldırın:
+`removeUnused` metodunu kullanarak `getMasters()` koleksiyonundaki kullanılmayan masterları kaldırın:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -342,9 +419,11 @@ try {
 }
 ```
 
-Ayrıca düşük‑kodlu [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) yöntemini de kullanabilirsiniz:
+Ayrıca düşük kodlu [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) metodunu da kullanabilirsiniz:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -358,16 +437,16 @@ try {
 
 **Slide master ile layout slide arasındaki fark nedir?**
 
-Slide master, tema, arka plan, ortak şekiller ve metin stilleri gibi paylaşılan tasarım ayarlarını tanımlar. Layout slide, bir master slide'a aittir ve yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir layout slide kullanır, bu nedenle hem layout hem de master'dan devralır.
+Slide master, tema, arka plan, ortak şekiller ve metin stilleri gibi paylaşılan tasarım ayarlarını tanımlar. Layout slide, bir master slayta ait olup yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir layout slide kullanır, böylece hem layout hem de master’dan devralır.
 
-**Bir sunum birden çok slide master içerebilir mi?**
+**Bir sunum birden fazla slide master içerebilir mi?**
 
-Evet. Bir sunum birden çok slide master içerebilir. Farklı bölümlerin farklı görsel sistemler veya markalaşma gerektirdiği durumlarda birden çok master kullanın.
+Evet. Bir sunum birden fazla slide master barındırabilir. Farklı bölümlerin farklı görsel sistemler veya marka kimliği gerektirdiği durumlarda birden çok master kullanın.
 
-**Yer tutucuları master slide'a mı yoksa layout slide'a mı eklemeliyim?**
+**Yer tutucuları master slayta mı yoksa layout slayta mı eklemeliyim?**
 
-Çoğu durumda yer tutucuları layout slide'lara ekleyin. Paylaşılan görsel öğeleri ve ortak biçimlendirmeyi master slide'a, içerik yer tutucularını ise normal slaytların kullanacağı layout'lara yerleştirin.
+Çoğu durumda yer tutucuları layout slaytlara ekleyin. Ortak görsel öğeleri ve ortak biçimlendirmeyi master slayta, içerik yer tutucularını ise normal slaytların kullanacağı layout’lara koyun.
 
-**Kullanılan bir master slide'ı silebilir miyim?**
+**Kullanılan bir master slaytı silebilir miyim?**
 
-Hayır. Bağımlı slaytları olan bir master slide doğrudan güvenli bir şekilde silinemez. Önce bu slaytları başka bir master'ın altındaki layout'lara taşıyın veya sadece kullanılmayan master'ları kaldıran temizlik yöntemini kullanın.
+Hayır. Bağımlı slaytları olan bir master slaytı doğrudan güvenli bir şekilde kaldırılamaz. Önce o slaytları başka bir master altındaki layout’lara taşıyın veya yalnızca kullanılmayan masterları temizleyen bir yöntem uygulayın.

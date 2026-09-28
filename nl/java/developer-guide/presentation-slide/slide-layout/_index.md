@@ -7,7 +7,7 @@ url: /nl/java/slide-layout/
 keywords:
 - dia-indeling
 - inhoudsindeling
-- placeholder
+- plaatsaanduiding
 - presentatie-ontwerp
 - dia-ontwerp
 - ongebruikte indeling
@@ -28,42 +28,44 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Dia-indelingen toepassen, maken en wijzigen in Aspose.Slides voor Java, placeholders toevoegen, ongebruikte indelingen verwijderen en de voettekst-zichtbaarheid beheren."
+description: "Dia-indelingen toepassen, maken en wijzigen in Aspose.Slides voor Java, plaatsaanduidingen toevoegen, ongebruikte indelingen verwijderen en de voettekst-zichtbaarheid regelen."
 ---
 ## **Overzicht**
 
-Een dia‑indeling bepaalt de posities en opmaak van placeholders zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een indeling geeft dia’s een consistente structuur, terwijl elke dia zijn eigen inhoud kan bevatten.
+Een dia‑indeling definieert de posities en opmaak van plaatsaanduidingen zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een indeling geeft dia’s een consistente structuur, terwijl elke dia zijn eigen inhoud kan bevatten.
 
 De meest voorkomende indelingen omvatten:
 
-- **Titel‑dia**: Bevat titel‑ en subtitel‑placeholders.
-- **Titel en inhoud**: Bevat een titel‑placeholder en een algemene inhouds‑placeholder.
-- **Leeg**: Bevat geen inhouds‑placeholders en is handig wanneer elke vorm handmatig wordt gepositioneerd.
+- **Titel‑dia**: Bevat plaatsaanduidingen voor titel en ondertitel.
+- **Titel en inhoud**: Bevat een titelplaatsaanduiding en een algemene inhoudplaatsaanduiding.
+- **Leeg**: Bevat geen inhoudsplaatsaanduidingen en is nuttig wanneer elke vorm handmatig wordt gepositioneerd.
 
-## **Begrijp indeling‑erfenis**
+## **Begrijp indelingsovererving**
 
 Een presentatie heeft drie gerelateerde niveaus:
 
-1. Een [master-dia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslide/) definieert het thema, gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
-2. Een [layout-dia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/) behoort tot een master en definieert een specifieke indeling van placeholders.
+1. Een [masterdia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslide/) definieert het thema, gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
+2. Een [indelingsdia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/) behoort tot een master en definieert een specifieke rangschikking van plaatsaanduidingen.
 3. Een [normale dia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/) gebruikt één indeling en slaat de ingevoerde inhoud voor die dia op.
 
-Een normale dia erft thema en opmaak van zijn layout, en de layout erft van de master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt gemaakt, worden de placeholder‑vormen gegenereerd uit de geselecteerde layout, terwijl de inhoud die in die placeholders wordt ingevoerd, toebehoort aan de normale dia.
+Een normale dia erft thema en opmaak van zijn indeling, en de indeling erft van de master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt gemaakt, worden de plaatsaanduidingsvormen gegenereerd vanuit de geselecteerde indeling, terwijl de ingevoerde inhoud in die plaatsaanduidingen bij de normale dia hoort.
 
-Voeg vereiste placeholders toe aan een layout voordat je er dia’s van maakt. Een later toegevoegde placeholder aan een layout wordt niet automatisch toegevoegd aan bestaande normale dia’s.
+Voeg vereiste plaatsaanduidingen toe aan een indeling voordat er dia’s van worden gemaakt. Het later toevoegen van een extra plaatsaanduiding aan een indeling voegt niet automatisch een overeenkomstige plaatsaanduidingsvorm toe aan bestaande normale dia’s.
 
-Deze relatie heeft twee belangrijke gevolgen:
+Deze relatie heeft twee belangrijke consequenties:
 
-- Het wijzigen van geërfde opmaak of bestaande placeholder‑geometrie op een layout kan elke dia die ervan afhankelijk is bijwerken. Controleer vóór het bewerken van een layout die al in gebruik is, de afhankelijke dia’s en bekijk de resulterende presentatie.
-- Een layout die nog door een dia wordt gebruikt, kan niet worden verwijderd. Ken eerst de afhankelijke dia’s opnieuw toe aan een andere layout, of verwijder alleen ongebruikte layouts.
+- Het wijzigen van geërfde opmaak of bestaande plaatsaanduidingsgeometrie op een indeling kan elke dia die ervan afhankelijk is bijwerken. Controleer voordat u een indeling die al in gebruik is bewerkt, de afhankelijke dia’s en bekijk de resulterende presentatie.
+- Een indeling die nog door een dia wordt gebruikt, kan niet worden verwijderd. Wijs eerst de afhankelijke dia’s toe aan een andere indeling, of verwijder alleen ongebruikte indelingen.
 
-Voor meer informatie over het top‑niveau van deze hiërarchie, zie [Slide‑master](/slides/nl/java/slide-master/).
+Voor meer informatie over het hoogste niveau van deze hiërarchie, zie [Dia‑master](/slides/nl/java/slide-master/).
+
+Om geërfde logo’s of decoratieve mastervormen op één dia of via een gedeelde indeling te verbergen, zie [De zichtbaarheid van mastergrafische elementen regelen](/slides/nl/java/slide-master/). Het voorbeeld vergelijkt twee dia’s die dezelfde master gebruiken.
 
 ## **Selecteer en pas een dia‑indeling toe**
 
-Gebruik een layouttype wanneer de presentatie de standaard PowerPoint‑layoutdefinities volgt. Layoutnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, dus selectie op basis van naam is minder betrouwbaar tenzij je de bron‑template beheert.
+Gebruik een indelingstype wanneer de presentatie de standaard PowerPoint‑indelingsdefinities volgt. Indelingsnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, dus selectie op basis van naam is minder betrouwbaar tenzij u de bron‑sjabloon beheert.
 
-Het volgende voorbeeld zoekt **Titel en inhoud** op de eerste master. Als die layout niet beschikbaar is, valt het expres terug op **Leeg**. De tweede null‑check is nodig omdat een presentatie alleen aangepaste layouts kan bevatten. De geselecteerde layout wordt vervolgens toegepast op de eerste normale dia via de [ISlide.setLayoutSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)‑methode.
+Het volgende voorbeeld zoekt naar **Titel en inhoud** op de eerste master. Als die indeling niet beschikbaar is, valt het bewust terug op **Leeg**. De tweede null‑check is noodzakelijk omdat een presentatie alleen aangepaste indelingen kan bevatten. De geselecteerde indeling wordt vervolgens toegepast op de eerste normale dia via de [ISlide.setLayoutSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) methode.
 
 ```java
 import com.aspose.slides.*;
@@ -88,13 +90,13 @@ try {
 }
 ```
 
-Het wijzigen van de layout van een dia verwijdert niet de gewone vormen die direct aan de dia zijn toegevoegd. Echter, placeholder‑posities, geërfde opmaak en de correspondentie tussen bestaande placeholders en de nieuwe layout kunnen veranderen, dus inspecteer de uitvoer bij het wisselen tussen wezenlijk verschillende layouts.
+Het wijzigen van de indeling van een dia verwijdert niet de gewone vormen die rechtstreeks aan de dia zijn toegevoegd. De positie van plaatsaanduidingen, geërfde opmaak en de correspondentie tussen bestaande plaatsaanduidingen en de nieuwe indeling kunnen echter wijzigen, dus inspecteer de uitvoer bij het schakelen tussen wezenlijk verschillende indelingen.
 
-## **Voeg een layout‑dia toe**
+## **Voeg een indelingsdia toe**
 
-Selectie en creatie zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande layout; het maakt er geen nieuwe aan. Om een layout te maken, roep je de [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-)‑methode aan op de layout‑collectie van de doel‑master.
+Selectie en creatie zijn aparte handelingen. Het vorige voorbeeld selecteert een bestaande indeling; het maakt er geen. Om een indeling te maken, roep de [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) methode aan op de indelingscollectie van de doel‑master.
 
-Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud**‑layout met de naam `Report Title and Content` toe, en voegt daarna een normale dia toe die daarop is gebaseerd. Layoutnamen moeten uniek zijn binnen de collectie.
+Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud** indeling toe met de naam `Report Title and Content`, en voegt vervolgens een normale dia toe die hierop gebaseerd is. Indelingsnamen moeten uniek zijn binnen de collectie.
 
 ```java
 import com.aspose.slides.*;
@@ -111,26 +113,26 @@ try {
 }
 ```
 
-Voeg een layout alleen toe wanneer de template echt een extra herbruikbare structuur nodig heeft. Als er al een geschikte layout bestaat, selecteer en hergebruik die in plaats van een duplicaat te maken.
+Voeg alleen een indeling toe wanneer het sjabloon echt een extra herbruikbare structuur nodig heeft. Als er al een geschikte indeling bestaat, selecteer en hergebruik deze in plaats van een duplicaat te maken.
 
-## **Voeg placeholders toe aan een layout‑dia**
+## **Voeg plaatsaanduidingen toe aan een indelingsdia**
 
-De [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)‑methode levert een [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/) voor het toevoegen van placeholder‑vormen aan een layout.
+De [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) methode levert een [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/) voor het toevoegen van plaatsaanduidingsvormen aan een indeling.
 
-| PowerPoint‑placeholder              | `ILayoutPlaceholderManager` Method |
-| ----------------------------------- | ---------------------------------- |
-| ![Inhoud](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| PowerPoint‑plaatsaanduiding | `ILayoutPlaceholderManager`‑methode |
+| --------------------------- | ----------------------------------- |
+| ![Inhoud](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![Inhoud (Verticaal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
-| ![Tekst](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
-| ![Tekst (Verticaal)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
-| ![Afbeelding](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
-| ![Grafiek](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
-| ![Tabel](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
-| ![Online‑afbeelding](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
+| ![Tekst](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Tekst (Verticaal)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Afbeelding](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Grafiek](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabel](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online‑afbeelding](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Het volgende voorbeeld controleert of de **Leeg**‑layout bestaat, voegt er vier placeholders aan toe en maakt daarna een normale dia aan die de gewijzigde layout gebruikt. De volgorde is opzettelijk: de placeholders worden toegevoegd voordat de normale dia wordt aangemaakt, zodat Aspose.Slides de corresponderende placeholder‑vormen op die dia kan genereren.
+Het volgende voorbeeld verifieert dat de **Leeg**‑indeling bestaat, voegt er vier plaatsaanduidingen aan toe en maakt vervolgens een normale dia die de gewijzigde indeling gebruikt. De volgorde is opzettelijk: de plaatsaanduidingen worden toegevoegd voordat de normale dia wordt gemaakt, zodat Aspose.Slides de overeenkomstige plaatsaanduidingsvormen op die dia kan genereren.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +160,15 @@ try {
 
 Het resultaat:
 
-![De placeholders op de layout‑dia](add_placeholders.png)
+![De plaatsaanduidingen op de indelingsdia](add_placeholders.png)
 
-{{% alert color="warning" title="Waarschuwing" %}}
-Het wijzigen van geërfde opmaak of de geometrie van bestaande layout‑placeholders kan afhankelijke dia’s beïnvloeden. Een nieuw toegevoegde layout‑placeholder wordt niet automatisch toegevoegd aan bestaande normale dia’s. Test layout‑wijzigingen op een kopie van de presentatie en inspecteer elke afhankelijke dia.
+{{% alert color="warning" title="Warning" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande indelingsplaatsaanduidingen kan afhankelijke dia’s beïnvloeden. Een nieuw toegevoegde indelingsplaatsaanduiding wordt niet automatisch toegevoegd aan bestaande normale dia’s. Test indelingswijzigingen op een kopie van de presentatie en inspecteer elke afhankelijke dia.
 {{% /alert %}}
 
-## **Verwijder ongebruikte layout‑dia’s**
+## **Verwijder ongebruikte indelingsdia's**
 
-Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)‑methode om layouts te verwijderen die door geen enkele normale dia worden gerefereerd. De methode laat layouts die nog in gebruik zijn ongewijzigd.
+Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) methode om indelingen te verwijderen die door geen enkele normale dia worden gerefereerd. De methode laat indelingen die nog in gebruik zijn ongewijzigd.
 
 ```java
 import com.aspose.slides.*;
@@ -180,11 +182,13 @@ try {
 }
 ```
 
-Om een specifieke layout te verwijderen, gebruik eerst de [hasDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--)‑ of [getDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getDependingSlides--)‑methode. Ken eventuele afhankelijke dia’s opnieuw toe voordat je [ILayoutSlide.remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#remove--) aanroept. Het proberen te verwijderen van een gebruikte layout veroorzaakt een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/).
+Om een specifieke indeling te verwijderen, gebruik eerst de [hasDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) of [getDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) methode. Wijs eventuele afhankelijke dia’s opnieuw toe voordat u [ILayoutSlide.remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#remove--) aanroept. Het proberen te verwijderen van een gebruikte indeling veroorzaakt een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/).
 
-## **Beheer voettekst‑zichtbaarheid op een layout‑dia**
+## **Stel voetnoot‑zichtbaarheid in op een indelingsdia**
 
-Een layout heeft zijn eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑placeholders. Gebruik de [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--)‑methode om die placeholders voor één layout te beheren. Dit is handig wanneer bijvoorbeeld inhoud‑layouts wel voetteksten moeten tonen maar titel‑layouts niet.
+Een indeling heeft eigen voetnoot-, dia‑nummer‑ en datum‑tijd‑plaatsaanduidingen. Gebruik de [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) methode om die plaatsaanduidingen voor één indeling te beheren. Dit is handig wanneer bijvoorbeeld inhoudsindelingen wel voetnoten tonen maar titel‑indelingen dat niet doen.
+
+Het volgende voorbeeld selecteert veilig een indeling en maakt de voetnoot‑elementen zichtbaar:
 
 ```java
 import com.aspose.slides.*;
@@ -214,9 +218,9 @@ try {
 }
 ```
 
-## **Beheer voettekst‑zichtbaarheid op een master‑ en diens onderliggende layout‑dia’s**
+## **Stel voetnoot‑zichtbaarheid in op een master en de onderliggende indelingen**
 
-Om consistente voettekst‑instellingen toe te passen over een master‑hiërarchie, gebruik de [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--)‑methode. De propagatiemethoden van [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslideheaderfootermanager/) werken op de master en zijn afhankelijke layout‑dia’s en normale dia’s; ze richten zich niet alleen op één normale dia.
+Om consistente voetnootinstellingen toe te passen over een master‑hiërarchie, gebruik de [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) methode. De propagatiemethoden van [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslideheaderfootermanager/) werken op de master en diens afhankelijke indelings‑ en normale dia’s; ze richten zich niet op slechts één normale dia.
 
 ```java
 import com.aspose.slides.*;
@@ -238,18 +242,18 @@ try {
 
 ## **FAQ**
 
-**Wat is het verschil tussen een master‑dia en een layout‑dia?**
+**Wat is het verschil tussen een master‑dia en een indelings‑dia?**
 
-Een master‑dia definieert het thema en de gedeelde opmaak van de presentatie. Een layout‑dia behoort tot een master en definieert één herbruikbare indeling van placeholders. Normale dia’s gebruiken die layouts en slaan dia‑specifieke inhoud op.
+Een master‑dia definieert het thema en de gedeelde opmaak van de presentatie. Een indelings‑dia behoort tot een master en definieert één herbruikbare rangschikking van plaatsaanduidingen. Normale dia’s gebruiken die indelingen en slaan dia‑specifieke inhoud op.
 
-**Kan ik een layout‑dia van de ene presentatie naar de andere kopiëren?**
+**Kan ik een indelings‑dia van de ene presentatie naar de andere kopiëren?**
 
-Ja. Voeg een kopie toe aan de doel‑collectie met de [addClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-)‑methode. Bij het kopiëren tussen presentaties moet je ook lettertypen, thema’s, afbeeldingen en andere resources die door de bron‑layout worden gebruikt verifiëren.
+Ja. Voeg een kopie toe aan de bestemmingscollectie met de [addClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) methode. Bij het kopiëren tussen presentaties moet u tevens lettertypen, thema’s, afbeeldingen en andere bronnen die door de bron‑indeling worden gebruikt verifiëren.
 
-**Wat gebeurt er als ik een layout wijzig die al in gebruik is?**
+**Wat gebeurt er als ik een indeling wijzig die al in gebruik is?**
 
-Afhankelijke dia’s erven de layout‑wijzigingen tenzij ze de aangetaste opmaak of objecten lokaal overschrijven. Placeholder‑geometrie en geërfde styling kunnen daardoor in één keer op veel dia’s veranderen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) om de getroffen dia’s te identificeren voordat je de layout bewerkt.
+Afhankelijke dia’s erven de wijzigingen in de indeling, tenzij ze de getroffen opmaak of objecten lokaal overschrijven. De geometrie van plaatsaanduidingen en de geërfde stijl kunnen daardoor op veel dia’s tegelijk veranderen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) om de getroffen dia’s te identificeren voordat u de indeling bewerkt.
 
-**Wat gebeurt er als ik een layout verwijder die nog in gebruik is?**
+**Wat gebeurt er als ik een indeling verwijder die nog in gebruik is?**
 
-Aspose.Slides gooit een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/). Ken eerst de afhankelijke dia’s opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) om alleen niet‑gerefereerde layouts te verwijderen.
+Aspose.Slides gooit een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/). Wijs eerst de afhankelijke dia’s opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) om alleen niet‑gerefereerde indelingen te verwijderen.

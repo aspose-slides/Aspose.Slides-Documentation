@@ -1,55 +1,55 @@
 ---
-title: Dia mester kezelése PHP-ben
-linktitle: Dia mester
+title: "Prezentáció diák master-ek kezelése PHP-ben"
+linktitle: "Dia master"
 type: docs
 weight: 70
 url: /hu/php-java/slide-master/
 keywords:
-- dia mester
-- mester dia
-- PPT mester dia
-- több mester dia
-- mester diák összehasonlítása
-- háttér
-- helyőrző
-- mester dia klónozása
-- mester dia másolása
-- mester dia megkettőzése
-- használaton kívüli mester dia
-- PowerPoint
-- OpenDocument
-- prezentáció
-- PHP
-- Aspose.Slides
-description: "Dia mesterek kezelése az Aspose.Slides for PHP via Java segítségével: a mester diák elérése, szerkesztése, klónozása, összehasonlítása és eltávolítása PowerPoint és OpenDocument prezentációkban."
+- "dia master"
+- "master dia"
+- "PPT master dia"
+- "több master dia"
+- "master diák összehasonlítása"
+- "háttér"
+- "helyőrző"
+- "master dia klónozása"
+- "master dia másolása"
+- "master dia duplikálása"
+- "nem használt master dia"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- "PHP"
+- "Aspose.Slides"
+description: "Diák master-ek kezelése az Aspose.Slides for PHP via Java segítségével: a master diák elérése, szerkesztése, klónozása, összehasonlítása és eltávolítása PowerPoint és OpenDocument prezentációkban."
 ---
 ## **Áttekintés**
 
-A **slide master** egy csoportra vonatkozó közös tervezési beállításokat határoz meg. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, téma beállításokat és lábléc beállításokat. PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a bemutató egységes maradjon anélkül, hogy minden dián megismételnénk a formázást.
+A **slide master** közös tervezési beállításokat határoz meg egy diacsoport számára. Tartalmazhat általános alakzatokat, logókat, háttereket, szövegstílusokat, témabeállításokat és láblécbeállításokat. A PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a bemutató egységes maradjon anélkül, hogy minden dián meg kellene ismételni ugyanazt a formázást.
 
-Az Aspose.Slides for PHP via Java támogatja ugyanazt a modellt. Egy prezentáció egy vagy több master slide-ot tartalmazhat, és minden master slide több layout slide-ot tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master slide-ra. Ehelyett egy normál dia egy layout slide-ot használ, és ez az layout slide egy master slide-hez tartozik.
+Aspose.Slides for PHP via Java támogatja ugyanazt a modellt. Egy bemutató egy vagy több master slidet tartalmazhat, és minden master slide több layout slidet tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master slide-re. Ehelyett egy normál dia egy layout slide-et használ, és ez a layout slide egy master slide-hez tartozik.
 
-A hierarchia:
+A hierarchia a következő:
 
-1. **Slide master** – meghatározza a közös tervezést és a témát.
-1. **Layout slide** – meghatároz egy adott elrendezést a helyőrzőkkel és a szintű formázással.
-1. **Normal slide** – tartalmazza a tényleges prezentációs tartalmat, és egy layout slide-ot használ.
+1. **Slide master** – meghatározza a közös tervezést és témát.
+1. **Layout slide** – meghatároz egy adott elrendezést a helyőrzőkkel és az elrendezési szintű formázással.
+1. **Normal slide** – tartalmazza a tényleges bemutató tartalmat, és egy layout slide-et használ.
 
-![A mester diák, elrendezési diák és normál diák hierarchiája](slide-master_2.jpg)
+![A master slide-ek, layout slide-ek és normál slide-ek hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slides-ban egy slide master-t a [MasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) osztály képviseli. A prezentációban lévő összes mester dia elérhető a [Presentation.getMasters](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getMasters) metódussal, amely egy [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/) objektumot ad vissza.
+Az Aspose.Slides-ban a slide master-t a [MasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) osztály képviseli. A bemutató összes master slide-je a [Presentation.getMasters](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getMasters) metóduson keresztül érhető el, amely egy [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/) objektumot ad vissza.
 
 {{% alert color="info" title="Inheritance" %}}
-Ha ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy master slide és egy layout slide is meghatároz egy háttérszínt, akkor az arra az elrendezésre épülő diák az elrendezés háttérszínét használják. További információért az elrendezési diákról lásd a [Apply or Change Slide Layouts](/slides/hu/php-java/slide-layout/) oldalt.
+Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint felülírja a többit. Például, ha egy master slide és egy layout slide is meghatároz egy hátteret, akkor az azon a layouton alapuló diák a layout háttérét használja. További információért a layout slide-okról lásd a [Apply or Change Slide Layouts](/slides/hu/php-java/slide-layout/).
 {{% /alert %}}
 
-## **Slide Masterok elérése**
+## **Slide master-ek elérése**
 
-PowerPointban a Slide Master nézetet a **View** > **Slide Master** menüből nyithatod meg.
+PowerPointban megnyithatja a Slide Master nézetet a **View** > **Slide Master** menüpontból.
 
-![A Slide Master parancs a PowerPoint Nézet fülön](slide-master_3.jpg)
+![A Slide Master parancs a PowerPoint Nézet (View) lapon](slide-master_3.jpg)
 
-Az Aspose.Slides-ban a `getMasters` metódust kell használni a master diák eléréséhez:
+Az Aspose.Slides-ban használja a `getMasters` metódust a master slide-ek eléréséhez:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-A normál dia által használt master diát is lekérheted az elrendezésén keresztül:
+A normál dia által használt master slide-et a saját layout-ján keresztül is lekérheti:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -81,26 +81,26 @@ try {
 }
 ```
 
-## **A Slide Master tartalma**
+## **Mit tartalmaz egy Slide Master**
 
-Az master slide egy diához hasonló objektum. Kiterjeszti a [BaseSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/) osztályt, így sok olyan diatulajdonságot is elérhetővé tesz, amelyeket a normál és layout diák használnak. A master-specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) API oldalon vannak felsorolva.
+A master slide egy diához hasonló objektum. Kiterjed a [BaseSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/) osztályra, így számos olyan dia‑tulajdonságot is elérhetővé tesz, amelyet a normál és layout diák is használnak. A master‑specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) API oldalán találhatók.
 
-A gyakran használt master slide tagok közé tartoznak:
+Gyakran használt master slide tagok:
 
-| Member | Purpose |
+| Tag | Cél |
 | --- | --- |
-| `getBackground` | Beállítja a master szintű dia hátterét. |
-| `getShapes` | Tárolja a master-re helyezett alakzatokat, például logókat, képkockákat és közös szöveget. |
-| `getLayoutSlides` | Tárolja a master-hez tartozó elrendezési diákat. |
+| `getBackground` | Beállítja a master‑szintű dia hátterét. |
+| `getShapes` | Tárolja a masterre helyezett alakzatokat, például logókat, képkockákat és megosztott szöveget. |
+| `getLayoutSlides` | Tárolja a masterhez tartozó layout slide-eket. |
 | `getThemeManager` | Hozzáférést biztosít a master téma API-khoz. |
-| `getHeaderFooterManager` | Kezeli a fejlécet, láblécet, dátumot és diaszámot a master és gyermek elrendezései számára. |
-| `getDependingSlides` | Visszaadja azokat a normál diákokat, amelyek a master-re hivatkoznak elrendezéseiken keresztül. |
+| `getHeaderFooterManager` | Kezeli a fejléceket, lábléceket, dátumokat és dia‑számokat a master és annak alatti layouok számára. |
+| `getDependingSlides` | Visszaadja a normál diák listáját, amelyek a master‑layoutjaikon keresztül függnek tőle. |
 
-## **Kép hozzáadása a Slide Masterhez**
+## **Kép hozzáadása a Slide Master-hez**
 
-A master slide-hez kép hozzáadásával az a diákon megjelenik, amely az adott master elrendezéseit használja. Ez hasznos logók, vízjelek, díszszalagok és más ismétlődő vizuális elemek esetén.
+Amikor egy képet ad hozzá egy master slide-hez, az a masterhez tartozó layoukat használó diákon is megjelenik. Ez hasznos logók, vízjelek, díszszalagok és egyéb ismétlődő vizuális elemek esetén.
 
-A következő példa egy logót ad az első master diához:
+A következő példa egy logót ad az első master slide-hez:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -128,17 +128,74 @@ try {
 }
 ```
 
-További információkért a képkockákról lásd a [Picture Frame](/slides/hu/php-java/picture-frame/) oldalt.
+További információért a képkockákról lásd a [Picture Frame](/slides/hu/php-java/picture-frame/).
 
-## **Helyőrzőkkel való munka**
+## **A master grafika láthatóságának vezérlése**
 
-A helyőrzőket általában az elrendezési diák definiálják. A master slide biztosítja a közös stílust és témát, amelyet az elrendezések örökölnek, míg minden elrendezés eldönti, hogy mely helyőrzők állnak rendelkezésre és hol helyezkednek el.
+Használja a [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/#setShowMasterShapes) metódust a örökölt master grafika (például logók vagy díszalakzatok) elrejtéséhez anélkül, hogy törölné őket a masterből. A [Slide::setShowMasterShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#setShowMasterShapes) metódusnál adja meg `false`‑t azon a dián, amelyiknek el kell rejteni a grafikai elemeket, és `true`‑t azoknál a diákon, amelyeknek láthatónak kell maradniuk.
 
-PowerPointban a helyőrző parancsok a Slide Master nézetben érhetők el.
+A következő önálló példa kék díszszalagot hoz létre egy masteren, és két diát, amely ugyanazt az üres layouthoz használ. A szalag az első dián látható, a másodikon el van rejtve. Bemeneti bemutató vagy kép nem szükséges.
 
-![A Insert Placeholder parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
 
-Új helyőrzők hozzáadásához az Aspose.Slides-ban dolgozz a master-hez tartozó layout slide-dal:
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A példa a **Blank** layout‑et használja, amely egy új bemutatóval érkezik, és eltávolítja az első dia saját helyőrzőit.
+
+### **A beállítás hatókörének kiválasztása**
+
+Egy normál dia a masterét a [Slide::getLayoutSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#getLayoutSlide) és a [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#getMasterSlide) segítségével éri el. A tulajdonság egyedi dián való beállítása csak arra a diára van hatással. A [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/#setShowMasterShapes) `false` értékre állítása elrejti a master grafikai elemeit az adott közös layouthoz tartozó diákon is, még akkor is, ha saját beállításuk `true`. Egyetlen dia grafikai elemeinek elrejtéséhez módosítsa a dia tulajdonságát, és hagyja a közös layount változatlanul.
+
+A beállítás nem támogatott láthatósági vezérlőként a master slide-en magán. A masteren a [getShowMasterShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/#getShowMasterShapes) mindig `false`‑t ad vissza, és a [setShowMasterShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/#setShowMasterShapes) `true`‑ra állítása kivételt dob. Alkalmazza normál dián vagy layouten.
+
+### **Grafika és háttér megkülönböztetése**
+
+| Művelet | Hatás |
+| --- | --- |
+| Master grafika elrejtése | A örökölt master alakzatok láthatóságát vezérli anélkül, hogy törölné őket vagy megváltoztatná a dia saját alakzatait. |
+| Dia háttér kitöltésének módosítása | A háttér színét, színátmenetét vagy képét változtatja. A master grafika különálló alakzat, amely a háttér felett látható maradhat. Lásd a [Presentation Background](/slides/hu/php-java/presentation-background/). |
+| Alakzat törlése a masterből | Eltávolítja a megosztott forrásalakzatot, így már nem lesz elérhető a master‑t használó diák számára. |
+
+## **Helyőrzők kezelése**
+
+A helyőrzőket általában a layout slide-eken definiálják. A master slide biztosítja a közös stílust és témát, amelyet a layouok örökölnek, míg minden layout dönti el, hogy mely helyőrzők állnak rendelkezésre és hol helyezkednek el.
+
+PowerPointban a helyőrzőparancsok a Slide Master nézetben érhetők el.
+
+![A Helyőrző beszúrása parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
+
+Új helyőrzők hozzáadásához az Aspose.Slides-ban dolgozzon a masterhez tartozó layout slide‑del:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -164,7 +221,7 @@ try {
 }
 ```
 
-Formázhatsz már létező helyőrző alakzatokat is egy master slide-on. A következő példa megtalálja a cím helyőrzőt és lineáris gradienst alkalmaz rá:
+Már meglévő helyőrző alakzatok formázása is lehetséges egy master slide-en. A következő példa megtalálja a cím helyőrzőt és lineáris színátmenetet alkalmaz rá:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -206,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Formázott cím helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
+![Formázott címmász helyőrző, ami a normál diákra öröklődik](slide-master_8.png)
 
-További helyőrző és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/php-java/manage-placeholder/) és a [Text Formatting](/slides/hu/php-java/text-formatting/) oldalakat.
+További helyőrző‑ és szöveges formázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/php-java/manage-placeholder/) és a [Text Formatting](/slides/hu/php-java/text-formatting/) oldalakat.
 
 ## **Slide Master háttér módosítása**
 
-A master háttér öröklődik az elrendezések és diák által, amelyek nem írják felül. A következő példa egy szilárd háttérszínt állít be az első master diára:
+A master háttér öröklődik a layoukon és a diákon, amelyek nem írják felül azt. A következő példa egy egységes háttérszínt állít be az első master slide-re:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -232,11 +289,11 @@ try {
 }
 ```
 
-Kapcsolódó témákért lásd a [Presentation Background](/slides/hu/php-java/presentation-background/) és a [Presentation Theme](/slides/hu/php-java/presentation-theme/) oldalakat.
+Kapcsolódó témák: [Presentation Background](/slides/hu/php-java/presentation-background/) és [Presentation Theme](/slides/hu/php-java/presentation-theme/).
 
-## **Slide Master klónozása egy másik prezentációba**
+## **Slide Master klónozása egy másik bemutatóba**
 
-Használd a `addClone` metódust a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/)‑ból, hogy egy master slide-ot másik prezentációba másolj. A másolt master ezután használható az elrendezések és diák számára a célprezentációban.
+Használja a `addClone` metódust a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/)‑ból, hogy egy master slide‑t egy másik bemutatóba másoljon. A másolt master aztán felhasználható a célbemutató layoujaiban és diáin.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -252,15 +309,15 @@ try {
 }
 ```
 
-Ha a normál diákot a masterrel együtt kell klónozni, lásd a [Clone Slides](/slides/hu/php-java/clone-slides/) oldalt.
+Ha normál diákot is klónozni szeretne a masterrel együtt, lásd a [Clone Slides](/slides/hu/php-java/clone-slides/).
 
 ## **Több Slide Master hozzáadása**
 
-Egy prezentáció több master diát is tartalmazhat. Ez hasznos, ha a különböző szakaszok különböző márkázást, oldalstruktúrát vagy téma beállításokat igényelnek.
+Egy bemutató tartalmazhat több master slide-et. Ez hasznos, ha különböző szekciók különböző márkázást, oldalszerkezetet vagy téma‑beállításokat igényelnek.
 
-![PowerPoint parancsok master diák beszúrásához és kezeléséhez](slide-master_9.jpg)
+![PowerPoint parancsok a master slide-ek beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-A következő példa klónozza az alapértelmezett master-t, más háttérrel látja el a klónt, létrehoz egy elrendezést a klónozott master alatt, és egy új diát ad hozzá az elrendezés alapján:
+A következő példa klónozza az alapértelmezett mastert, más háttérrel látja el a klónt, létrehoz egy layoutot a klónozott master alatt, és egy új diát ad hozzá azzal a layouttal:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -285,9 +342,9 @@ try {
 }
 ```
 
-## **Slide Masterok összehasonlítása**
+## **Slide Master-ek összehasonlítása**
 
-A master slide-okat össze lehet hasonlítani a [BaseSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/)‑ből örökölt `equals` metódussal. Az összehasonlítás ellenőrzi a struktúrát és a statikus tartalmat, mint például az alakzatok, szöveg, formázás, animációk és egyéb dia beállítások. Nem hasonlítja össze az egyedi azonosítókat, mint a dia ID-k, vagy a dinamikus helyőrző értékeket, mint a jelenlegi dátum.
+A master slide-ek összehasonlíthatók a [BaseSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/)‑ből örökölt `equals` metódussal. Az összehasonlítás a szerkezetet és a statikus tartalmat vizsgálja, például alakzatokat, szöveget, formázást, animációkat és egyéb dia‑beállításokat. Nem hasonlítja össze az egyedi azonosítókat, például a dia‑ID‑kat, vagy a dinamikus helyőrző‑értékeket, mint a aktuális dátum.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -314,11 +371,11 @@ try {
 }
 ```
 
-További információért lásd a [Compare Presentation Slides](/slides/hu/php-java/compare-slides/) oldalt.
+További információért lásd a [Compare Presentation Slides](/slides/hu/php-java/compare-slides/).
 
 ## **Slide Master nézet beállítása alapértelmezett nézetként**
 
-Használd a `setLastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/)‑on, hogy szabályozd, melyik nézetet nyissa meg a PowerPoint először. A következő példa a prezentációt Slide Master nézetben nyitja meg:
+Használja a `setLastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/)‑n, hogy a PowerPoint által elsőként megnyitott nézetet szabályozza. A következő példa a bemutatót Slide Master nézetben nyitja meg:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -330,13 +387,13 @@ try {
 }
 ```
 
-További nézetbeállításokért lásd a [Save Presentation](/slides/hu/php-java/save-presentation/) oldalt.
+További nézetbeállításokért lásd a [Save Presentation](/slides/hu/php-java/save-presentation/).
 
-## **Használaton kívüli Master diák eltávolítása**
+## **Nem használt Master Slide-ek eltávolítása**
 
-Egyes prezentációk tartalmazhatnak olyan master diákokat, amelyeket már egyetlen normál dia sem használ. A használaton kívüli master diák eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablon karbantartását.
+A bemutatók néha tartalmaznak master slide-eket, amelyeket már egyetlen normál dia sem használ. A nem használt master‑ok eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
 
-Használd a `removeUnused` metódust a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/)‑ból, hogy eltávolítsd a használaton kívüli master‑eket a `getMasters` gyűjteményből:
+Használja a `removeUnused` metódust a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/)‑ból, hogy eltávolítsa a nem használt master‑okat a `getMasters` gyűjteményből:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -348,7 +405,7 @@ try {
 }
 ```
 
-Alacsony kódszintű `removeUnusedMasterSlides` metódust is használhatsz a [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) osztályból:
+Alacsony kódszintű megoldásként használhatja a [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) osztály `removeUnusedMasterSlides` metódusát is:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -362,18 +419,18 @@ try {
 
 ## **FAQ**
 
-**Mi a különbség a slide master és a layout slide között?**
+**Mi a különbség egy slide master és egy layout slide között?**
 
-Az slide master meghatározza a közös tervezési beállításokat, mint például a téma, háttér, közös alakzatok és szövegstílusok. A layout slide egy master slide-hoz tartozik, és egy adott helyőrző elrendezést definiál. A normál dia egy layout slide-ot használ, így mind az elrendezés, mind a master beállításait örökli.
+A slide master közös tervezési beállításokat (téma, háttér, közös alakzatok, szövegstílusok) definiál. A layout slide egy masterhez tartozik, és egy adott helyőrző‑elrendezést határoz meg. Egy normál dia egy layout slide-et használ, így mind a layout, mind a master beállításait örökli.
 
-**Tartalmazhat egy prezentáció több slide master-t?**
+**Tartalmazhat egy bemutató több slide master‑t?**
 
-Igen. Egy prezentáció több slide master-t is tartalmazhat. Használj több master-t, ha a különböző szakaszoknak eltérő vizuális rendszerekre vagy márkázásra van szükségük.
+Igen. Egy bemutató több slide master‑t is tartalmazhat. Használjon több master‑t, ha különböző szekcióknak különböző vizuális rendszerekre vagy márkázásra van szükségük.
 
-**Helyőrzőket a master slide-hoz vagy a layout slide-hoz kellene hozzáadni?**
+**Hová tegyek helyőrzőket, a master slide‑re vagy a layout slide‑re?**
 
-A legtöbb esetben a helyőrzőket a layout slide-okra kell tenni. A közös vizuális elemeket és a közös formázást a master slide-ra helyezzük, majd a tartalomhelyőrzőket azokra a layout slide-okra, amelyeket a normál diák használnak.
+A legtöbb esetben a helyőrzőket a layout slide-eken kell elhelyezni. A megosztott vizuális elemeket és formázásokat a master slide-re helyezze, majd a tartalmi helyőrzőket a normál diák által használt layoutra.
 
-**Törölhetek egy még használatban lévő master slide-ot?**
+**Törölhetek egy még használt master slide-et?**
 
-Nem. Egy olyan master slide, amelynek függő diái vannak, nem távolítható el biztonságosan közvetlenül. Először mozgasd át ezeket a diát egy másik master alatti elrendezésekbe, vagy használd a használaton kívüli master törlésének módszerét, amely csak a nem használt master diákat távolítja el.
+Nem. Egy master slide, amelynek vannak függő diái, nem távolítható el biztonságosan. Előbb mozgassa át ezeket a diákat egy másik master alatti layoutokra, vagy használjon olyan tisztító módszert, amely csak a nem használt master‑okat távolítja el.

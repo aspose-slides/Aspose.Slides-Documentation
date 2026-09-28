@@ -19,8 +19,8 @@ keywords:
 - comparación
 - solo título
 - diseño en blanco
-- contenido con leyenda
-- imagen con leyenda
+- contenido con subtítulo
+- imagen con subtítulo
 - título y texto vertical
 - título vertical y texto
 - PowerPoint
@@ -28,42 +28,44 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Aplicar, crear y modificar diseños de diapositiva en Aspose.Slides para Java, añadir marcadores de posición, eliminar diseños no utilizados y controlar la visibilidad del pie de página."
+description: "Aplicar, crear y modificar diseños de diapositiva en Aspose.Slides para Java, agregar marcadores de posición, eliminar diseños no utilizados y controlar la visibilidad del pie de página."
 ---
 ## **Visión general**
 
-Un diseño de diapositiva define las posiciones y el formato de los marcadores de posición como títulos, texto, imágenes, gráficos y tablas. Aplicar un diseño otorga a las diapositivas una estructura coherente mientras permite que cada diapositiva contenga su propio contenido.
+Un diseño de diapositiva define las posiciones y el formato de los marcadores de posición como títulos, texto, imágenes, gráficos y tablas. Aplicar un diseño proporciona a las diapositivas una estructura consistente mientras permite que cada diapositiva contenga su propio contenido.
 
 Los diseños más comunes incluyen:
 
 - **Diapositiva de título**: Contiene marcadores de posición de título y subtítulo.
-- **Título y contenido**: Contiene un marcador de posición de título y un marcador de posición de contenido de uso general.
+- **Título y contenido**: Contiene un marcador de posición de título y un marcador de posición de contenido de propósito general.
 - **En blanco**: No contiene marcadores de posición de contenido y es útil cuando cada forma se posicionará manualmente.
 
-## **Comprender la herencia de diseños**
+## **Entender la herencia de diseños**
 
 Una presentación tiene tres niveles relacionados:
 
 1. Una [diapositiva maestra](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/) define el tema, el formato compartido, los fondos y los objetos comunes.
-1. Una [diapositiva de diseño](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/) pertenece a una maestra y define una disposición particular de marcadores de posición.
+1. Una [diapositiva de diseño](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/) pertenece a una maestra y define una disposición concreta de marcadores de posición.
 1. Una [diapositiva normal](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/) utiliza un diseño y almacena el contenido introducido para esa diapositiva.
 
-Una diapositiva normal hereda el tema y el formato de su diseño, y el diseño hereda de su maestra. Un valor establecido directamente en una diapositiva normal sobrescribe el valor heredado en ese nivel. Cuando se crea una diapositiva normal, sus formas de marcador de posición se generan a partir del diseño seleccionado, mientras que el contenido introducido en esos marcadores pertenece a la diapositiva normal.
+Una diapositiva normal hereda el tema y el formato de su diseño, y el diseño hereda de su maestra. Un valor establecido directamente en una diapositiva normal anula el valor heredado en ese nivel. Cuando se crea una diapositiva normal, sus formas de marcador de posición se generan a partir del diseño seleccionado, mientras que el contenido introducido en esos marcadores pertenece a la diapositiva normal.
 
-Añada los marcadores de posición requeridos a un diseño antes de crear diapositivas a partir de él. Añadir otro marcador de posición a un diseño más adelante no agrega automáticamente una forma de marcador de posición correspondiente a las diapositivas normales existentes.
+Agregue los marcadores de posición requeridos a un diseño antes de crear diapositivas a partir de él. Añadir otro marcador de posición a un diseño más adelante no agrega automáticamente una forma correspondiente a las diapositivas normales existentes.
 
 Esta relación tiene dos consecuencias importantes:
 
-- Cambiar el formato heredado o la geometría de los marcadores de posición existentes en un diseño puede actualizar cada diapositiva que dependa de él. Antes de editar un diseño que ya está en uso, inspeccione sus diapositivas dependientes y revise la presentación resultante.
-- Un diseño que aún es utilizado por una diapositiva no puede eliminarse. Reasigne sus diapositivas dependientes a otro diseño primero, o elimine solo los diseños no utilizados.
+- Cambiar el formato heredado o la geometría de los marcadores de posición existentes en un diseño puede actualizar todas las diapositivas que dependen de él. Antes de editar un diseño que ya está en uso, inspeccione sus diapositivas dependientes y revise la presentación resultante.
+- Un diseño que todavía es usado por una diapositiva no puede eliminarse. Reasigne primero sus diapositivas dependientes a otro diseño, o elimine solo los diseños no usados.
 
-Para obtener más información sobre el nivel superior de esta jerarquía, consulte [Slide Master](/slides/es/java/slide-master/).
+Para obtener más información sobre el nivel superior de esta jerarquía, consulte [Maestro de diapositivas](/slides/es/java/slide-master/).
+
+Para ocultar logotipos heredados o formas decorativas de la maestra en una diapositiva o mediante un diseño compartido, vea [Controlar la visibilidad de los gráficos maestros](/slides/es/java/slide-master/). El ejemplo compara dos diapositivas que usan la misma maestra.
 
 ## **Seleccionar y aplicar un diseño de diapositiva**
 
-Utilice un tipo de diseño cuando la presentación siga las definiciones estándar de diseños de PowerPoint. Los nombres de los diseños son editables por el usuario y pueden localizarse, por lo que la selección basada en el nombre es menos fiable a menos que controle la plantilla de origen.
+Use un tipo de diseño cuando la presentación sigue las definiciones estándar de diseños de PowerPoint. Los nombres de los diseños son editables por el usuario y pueden localizarse, por lo que la selección basada en nombres es menos fiable a menos que controle la plantilla fuente.
 
-El siguiente ejemplo busca **Título y contenido** en la primera maestra. Si ese diseño no está disponible, recurre deliberadamente a **En blanco**. La segunda comprobación de nulo es necesaria porque una presentación puede contener solo diseños personalizados. El diseño seleccionado se aplica luego a la primera diapositiva normal mediante el método [ISlide.setLayoutSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
+El siguiente ejemplo busca **Title and Content** en la primera maestra. Si ese diseño no está disponible, recurre deliberadamente a **Blank**. La segunda comprobación de nulo es necesaria porque una presentación puede contener solo diseños personalizados. El diseño seleccionado se aplica entonces a la primera diapositiva normal mediante el método [ISlide.setLayoutSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
 
 ```java
 import com.aspose.slides.*;
@@ -88,13 +90,13 @@ try {
 }
 ```
 
-Cambiar el diseño de una diapositiva no elimina las formas ordinarias añadidas directamente a la diapositiva. Sin embargo, las posiciones de los marcadores de posición, el formato heredado y la correspondencia entre los marcadores existentes y el nuevo diseño pueden cambiar, por lo que inspeccione el resultado al cambiar entre diseños sustancialmente diferentes.
+Cambiar el diseño de una diapositiva no elimina las formas ordinarias añadidas directamente a la diapositiva. Sin embargo, las posiciones de los marcadores, el formato heredado y la correspondencia entre los marcadores existentes y el nuevo diseño pueden cambiar, por lo que debe inspeccionar la salida al cambiar entre diseños sustancialmente diferentes.
 
 ## **Agregar una diapositiva de diseño**
 
-La selección y la creación son operaciones separadas. El ejemplo anterior selecciona un diseño existente; no crea uno. Para crear un diseño, llame al método [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) en la colección de diseños de la maestra objetivo.
+La selección y la creación son operaciones separadas. El ejemplo anterior selecciona un diseño existente; no lo crea. Para crear un diseño, llame al método [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) en la colección de diseños de la maestra de destino.
 
-El siguiente ejemplo siempre agrega un nuevo diseño **Título y contenido** llamado `Report Title and Content`, y luego agrega una diapositiva normal basada en él. Los nombres de los diseños deben ser únicos dentro de la colección.
+El siguiente ejemplo siempre agrega un nuevo diseño **Title and Content** llamado `Report Title and Content`, y luego agrega una diapositiva normal basada en él. Los nombres de los diseños deben ser únicos dentro de la colección.
 
 ```java
 import com.aspose.slides.*;
@@ -119,18 +121,18 @@ El método [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/sli
 
 | Marcador de posición de PowerPoint | `ILayoutPlaceholderManager` Method |
 | ----------------------------------- | ---------------------------------- |
-| ![Contenido](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
-| ![Contenido (vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
-| ![Texto](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
-| ![Texto (vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
-| ![Imagen](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
-| ![Gráfico](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
-| ![Tabla](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
-| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
-| ![Multimedia](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Contenido](content.png)           | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Contenido (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Texto](text.png)                  | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Texto (Vertical)](textV.png)      | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Imagen](picture.png)              | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Gráfico](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabla](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Multimedia](media.png)            | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![Imagen en línea](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-El siguiente ejemplo verifica que el diseño **En blanco** exista, agrega cuatro marcadores de posición a él y luego crea una diapositiva normal que utiliza el diseño modificado. El orden es intencional: los marcadores de posición se añaden antes de crear la diapositiva normal, de modo que Aspose.Slides pueda generar las formas de marcador de posición correspondientes en esa diapositiva.
+El siguiente ejemplo verifica que el diseño **Blank** exista, añade cuatro marcadores de posición a él y luego crea una diapositiva normal que utiliza el diseño modificado. El orden es intencional: los marcadores se añaden antes de crear la diapositiva normal, de modo que Aspose.Slides pueda generar las formas de marcador correspondientes en esa diapositiva.
 
 ```java
 import com.aspose.slides.*;
@@ -161,12 +163,12 @@ El resultado:
 ![Los marcadores de posición en la diapositiva de diseño](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Cambiar el formato heredado o la geometría de los marcadores de posición del diseño existentes puede afectar a las diapositivas dependientes. Un marcador de posición de diseño añadido recientemente no se retroalimenta en las diapositivas normales existentes. Pruebe los cambios de diseño en una copia de la presentación e inspeccione cada diapositiva dependiente.
+Cambiar el formato heredado o la geometría de los marcadores de posición existentes en un diseño puede afectar a las diapositivas dependientes. Un marcador de posición añadido recientemente no se retroalimenta en las diapositivas normales existentes. Pruebe los cambios de diseño en una copia de la presentación y examine cada diapositiva dependiente.
 {{% /alert %}}
 
-## **Eliminar diseños de diapositiva no utilizados**
+## **Eliminar diseños de diapositivas no utilizados**
 
-Utilice el método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) para eliminar los diseños que no son referenciados por ninguna diapositiva normal. El método deja intactos los diseños que aún se están usando.
+Utilice el método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) para eliminar los diseños que no son referenciados por ninguna diapositiva normal. El método deja intactos los diseños que todavía están en uso.
 
 ```java
 import com.aspose.slides.*;
@@ -180,11 +182,11 @@ try {
 }
 ```
 
-Para eliminar un diseño específico, primero utilice su método [hasDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) o [getDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getDependingSlides--). Reasigne cualquier diapositiva dependiente antes de llamar a [ILayoutSlide.remove](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#remove--). Intentar eliminar un diseño en uso genera una [PptxEditException](https://reference.aspose.com/slides/es/java/com.aspose.slides/pptxeditexception/).
+Para eliminar un diseño específico, primero use su método [hasDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) o [getDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getDependingSlides--). Reasigne cualquier diapositiva dependiente antes de llamar a [ILayoutSlide.remove](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#remove--). Intentar eliminar un diseño usado genera una [PptxEditException](https://reference.aspose.com/slides/es/java/com.aspose.slides/pptxeditexception/).
 
 ## **Controlar la visibilidad del pie de página en una diapositiva de diseño**
 
-Un diseño tiene sus propios marcadores de posición de pie de página, número de diapositiva y fecha‑hora. Utilice el método [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) para controlar esos marcadores de posición en un diseño. Esto es útil cuando, por ejemplo, los diseños de contenido deben mostrar pies de página pero los diseños de título no.
+Un diseño tiene sus propios marcadores de posición de pie de página, número de diapositiva y fecha/hora. Utilice el método [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) para controlar esos marcadores en un diseño. Esto es útil cuando, por ejemplo, los diseños de contenido deben mostrar pies de página pero los diseños de título no.
 
 El siguiente ejemplo selecciona un diseño de forma segura y hace visibles sus elementos de pie de página:
 
@@ -216,9 +218,9 @@ try {
 }
 ```
 
-## **Controlar la visibilidad del pie de página en una maestra y sus diseños hijos**
+## **Controlar la visibilidad del pie de página en un maestro y sus diseños hijos**
 
-Para aplicar configuraciones de pie de página coherentes en toda una jerarquía de maestras, utilice el método [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Los métodos de propagación de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslideheaderfootermanager/) actúan sobre la maestra y sus diapositivas de diseño dependientes y diapositivas normales; no se enfocan en una sola diapositiva normal.
+Para aplicar configuraciones de pie de página coherentes en toda la jerarquía de un maestro, utilice el método [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Los métodos de propagación de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslideheaderfootermanager/) operan sobre el maestro y sus diapositivas de diseño y diapositivas normales dependientes; no se dirigen solo a una diapositiva normal.
 
 ```java
 import com.aspose.slides.*;
@@ -242,15 +244,15 @@ try {
 
 **¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
 
-Una diapositiva maestra define el tema y el formato compartido de la presentación. Una diapositiva de diseño pertenece a una maestra y define una disposición reutilizable de marcadores de posición. Las diapositivas normales utilizan esos diseños y almacenan contenido específico de cada diapositiva.
+Una diapositiva maestra define el tema y el formato compartido de la presentación. Una diapositiva de diseño pertenece a una maestra y define una disposición reutilizable de marcadores de posición. Las diapositivas normales usan esos diseños y almacenan el contenido específico de la diapositiva.
 
 **¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
 
-Sí. Añada una copia a la colección de destino con el método [addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Al copiar entre presentaciones, también verifique fuentes, temas, imágenes y otros recursos utilizados por el diseño de origen.
+Sí. Añada una copia a la colección de destino con el método [addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Al copiar entre presentaciones, también verifique fuentes, temas, imágenes y otros recursos usados por el diseño de origen.
 
-**¿Qué ocurre cuando modifico un diseño que ya está en uso?**
+**¿Qué ocurre al modificar un diseño que ya está en uso?**
 
-Las diapositivas dependientes heredan los cambios del diseño a menos que anulen localmente el formato o los objetos afectados. Por lo tanto, la geometría de los marcadores de posición y el estilo heredado pueden cambiar en muchas diapositivas a la vez. Utilice [getDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) para identificar las diapositivas afectadas antes de editar el diseño.
+Las diapositivas dependientes heredan los cambios del diseño a menos que sobrescriban localmente el formato o los objetos afectados. La geometría de los marcadores y el estilo heredado pueden cambiar en muchas diapositivas a la vez. Utilice [getDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) para identificar las diapositivas afectadas antes de editar el diseño.
 
 **¿Qué ocurre si elimino un diseño que todavía está en uso?**
 

@@ -1,59 +1,65 @@
 ---
-title: Zarządzanie wzorcami slajdów w C++
-linktitle: Wzorzec slajdu
+title: Zarządzanie masterami slajdów prezentacji w C++
+linktitle: Master slajd
 type: docs
 weight: 80
 url: /pl/cpp/slide-master/
 keywords:
-- wzorzec slajdu
-- slajd wzorca
-- slajd wzorca PPT
-- wiele wzorców slajdów
-- porównaj wzorce slajdów
+- master slajdu
+- master slajd
+- master slajd PPT
+- wiele masterów slajdów
+- porównaj mastery slajdów
 - tło
-- element zastępczy
-- klonuj wzorzec slajdu
-- kopiuj wzorzec slajdu
-- duplikuj wzorzec slajdu
-- nieużywany wzorzec slajdu
+- pole zastępcze
+- klonuj master slajd
+- kopiuj master slajd
+- duplikuj master slajd
+- nieużywany master slajd
 - PowerPoint
 - OpenDocument
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Zarządzaj wzorcami slajdów w Aspose.Slides dla C++: uzyskaj dostęp, edytuj, klonuj, porównuj i usuwaj wzorce slajdów w prezentacjach PowerPoint i OpenDocument."
+description: "Zarządzaj masterami slajdów w Aspose.Slides dla C++: uzyskaj dostęp, edytuj, klonuj, porównuj i usuwaj mastery slajdów w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-**Wzorzec slajdu** definiuje wspólne ustawienia projektowe dla grupy slajdów. Może zawierać wspólne kształty, logotypy, tła, style tekstu, ustawienia motywu oraz stopki. W PowerPoint edycja wzorca slajdu jest typowym sposobem zapewnienia spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
+**Master slajd** definiuje wspólne ustawienia projektu dla grupy slajdów. Może zawierać wspólne kształty, loga, tła, style tekstu, ustawienia motywu i stopki. W programie PowerPoint edycja mastera slajdu jest typowym sposobem utrzymania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
 
-Aspose.Slides dla C++ obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej wzorców slajdów, a każdy wzorzec może zawierać kilka slajdów układu. Zwykłe slajdy zazwyczaj nie odwołują się bezpośrednio do wzorca. Zamiast tego używają slajdu układu, a ten slajd układu należy do wzorca.
+Aspose.Slides for C++ obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej masterów slajdów, a każdy master może zawierać kilka slajdów układu. Zwykłe slajdy zazwyczaj nie odwołują się bezpośrednio do mastera. Zamiast tego używają slajdu układu, który należy do mastera.
 
-Hierarchia wygląda następująco:
+Hierarchia jest następująca:
 
-1. **Wzorzec slajdu** – definiuje współdzielony projekt i motyw.  
-1. **Slajd układu** – definiuje konkretne rozmieszczenie elementów zastępczych i formatowanie na poziomie układu.  
-1. **Zwykły slajd** – zawiera rzeczywistą treść prezentacji i korzysta z jednego slajdu układu.
+1. **Master slajd** – definiuje współdzielony projekt i motyw.  
+1. **Slajd układu** – definiuje określone rozmieszczenie pól zastępczych i formatowanie poziomu układu.  
+1. **Normalny slajd** – zawiera rzeczywistą treść prezentacji i używa jednego slajdu układu.
 
-![Hierarchia wzorców slajdów, slajdów układu i zwykłych slajdów](slide-master_2.jpg)
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-W Aspose.Slides wzorzec slajdu jest reprezentowany przez interfejs [IMasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/). Wszystkie wzorce slajdów w prezentacji są dostępne przez kolekcję [Presentation::get_Masters](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_masters/), która implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/).
+W Aspose.Slides master slajd jest reprezentowany przez interfejs [IMasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/). Wszystkie mastery slajdów w prezentacji są dostępne przez kolekcję [Presentation::get_Masters](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_masters/), która implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/).
 
-{{% alert color="info" title="Dziedziczenie" %}}
-
-Gdy ta sama właściwość jest zdefiniowana na więcej niż jednym poziomie, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli wzorzec i slajd układu definiują tło, slajdy oparte na tym układzie użyją tła układu. Więcej informacji o slajdach układu znajdziesz w artykule [Apply or Change Slide Layouts](/slides/pl/cpp/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Gdy ta sama własność jest zdefiniowana na więcej niż jednym poziomie, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli master i slajd układu definiują tło, slajdy oparte na tym układzie używają tła układu. Więcej informacji o slajdach układu znajdziesz w [Apply or Change Slide Layouts](/slides/pl/cpp/slide-layout/).
 {{% /alert %}}
 
-## **Dostęp do wzorców slajdów**
+## **Uzyskiwanie dostępu do masterów slajdów**
 
-W PowerPoint możesz otworzyć widok Wzorca slajdu z **Widok** > **Wzorzec slajdu**.
+W PowerPoint możesz otworzyć widok Master slajdu z **View** > **Slide Master**.
 
-![Polecenie Wzorzec slajdu na karcie Widok w PowerPoint](slide-master_3.jpg)
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-W Aspose.Slides użyj kolekcji `get_Masters()` aby uzyskać dostęp do wzorców slajdów:
+W Aspose.Slides użyj kolekcji `get_Masters()` aby uzyskać dostęp do masterów slajdów:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -66,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-Możesz także pobrać wzorzec slajdu używany przez zwykły slajd poprzez jego układ:
+Możesz także pobrać master slajd używany przez normalny slajd poprzez jego układ:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -81,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **Co zawiera wzorzec slajdu**
+## **Co zawiera master slajd**
 
-Wzorzec slajdu jest obiektem podobnym do slajdu. Implementuje [IBaseSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez zwykłe i układowe slajdy. Członkowie specyficzni dla wzorca są wymienieni na stronie API [IMasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/).
+Master slajd jest obiektem podobnym do slajdu. Implementuje [IBaseSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseslide/), więc udostępnia wiele tych samych własności slajdu używanych przez slajdy normalne i układy. Członkowie specyficzni dla mastera są wymienieni na stronie API [IMasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/).
 
-Często używane członki wzorca slajdu to:
+Często używane członki mastera slajdu to:
 
 | Członek | Cel |
 | --- | --- |
-| `get_Background()` | Ustawia tło slajdu na poziomie wzorca. |
-| `get_Shapes()` | Przechowuje kształty umieszczone na wzorcu, takie jak logotypy, ramki obrazu i wspólny tekst. |
-| `get_LayoutSlides()` | Przechowuje slajdy układu należące do wzorca. |
-| `get_ThemeManager()` | Zapewnia dostęp do interfejsów API motywu wzorca. |
-| `get_HeaderFooterManager()` | Steruje nagłówkami, stopkami, datami i numerami slajdów dla wzorca oraz jego układów podrzędnych. |
-| `GetDependingSlides()` | Zwraca zwykłe slajdy, które zależą od wzorca poprzez ich układy. |
+| `get_Background()` | Ustawia tło mastera slajdu. |
+| `get_Shapes()` | Przechowuje kształty umieszczone na masterze, takie jak loga, ramki obrazów i współdzielony tekst. |
+| `get_LayoutSlides()` | Przechowuje slajdy układu należące do mastera. |
+| `get_ThemeManager()` | Udostępnia dostęp do API motywu mastera. |
+| `get_HeaderFooterManager()` | Kontroluje nagłówki, stopki, daty i numery slajdów dla mastera i jego układów podrzędnych. |
+| `GetDependingSlides()` | Zwraca slajdy normalne, które zależą od mastera poprzez ich układy. |
 
-## **Dodanie obrazu do wzorca slajdu**
+## **Dodanie obrazu do mastera slajdu**
 
-Gdy dodasz obraz do wzorca slajdu, pojawi się on na slajdach korzystających z układów tego wzorca. Jest to przydatne przy logotypach, znakach wodnych, dekoracyjnych pasach i innych powtarzających się elementach graficznych.
+Gdy dodasz obraz do mastera slajdu, pojawi się on na slajdach korzystających z układów z tego mastera. Jest to przydatne dla logo, znaków wodnych, ozdobnych pasków i innych powtarzających się elementów graficznych.
 
-Poniższy przykład dodaje logo do pierwszego wzorca slajdu:
+Poniższy przykład dodaje logo do pierwszego mastera slajdu:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -121,19 +146,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Więcej informacji o ramkach obrazu znajdziesz w artykule [Picture Frame](/slides/pl/cpp/picture-frame/).
+Więcej informacji o ramkach obrazów znajdziesz w [Picture Frame](/slides/pl/cpp/picture-frame/).
 
-## **Praca z elementami zastępczymi**
+## **Kontrola widoczności grafiki mastera**
 
-Elementy zastępcze są zazwyczaj definiowane na slajdach układu. Wzorzec slajdu zapewnia wspólny styl i motyw, które te układy dziedziczą, a każdy układ decyduje, które elementy zastępcze są dostępne i gdzie są umieszczone.
+Użyj [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseslide/set_showmastershapes/), aby ukryć dziedziczoną grafikę mastera, taką jak loga lub ozdobne kształty, bez usuwania ich z mastera. Przekaż `false` do [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/slide/set_showmastershapes/) na slajdzie, który ma pominąć tę grafikę, oraz `true` na slajdach, które mają ją wyświetlać.
 
-W PowerPoint polecenia elementów zastępczych są dostępne w widoku Wzorca slajdu.
-
-![Polecenie Wstaw element zastępczy w widoku Wzorzec slajdu w PowerPoint](slide-master_5.png)
-
-Aby dodać nowe elementy zastępcze w Aspose.Slides, pracuj ze slajdem układu należącym do wzorca:
+Poniższy samodzielny przykład tworzy niebieski ozdobny pasek na masterze i dwóch slajdach korzystających z tego samego pustego układu. Pasek jest widoczny na pierwszym slajdzie i ukryty na drugim. Nie wymaga żadnej wejściowej prezentacji ani obrazu.
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Przykład używa układu **Blank** dostarczonego z nową prezentacją i usuwa początkowe pola zastępcze ze slajdu.
+
+### **Wybór zakresu ustawienia**
+
+Normalny slajd używa swojego mastera przez [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/get_layoutslide/) oraz [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/get_masterslide/). Ustawienie własności na pojedynczym slajdzie wpływa tylko na ten slajd. Przekazanie `false` do [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/layoutslide/set_showmastershapes/) ukrywa grafikę mastera dla wszystkich slajdów używających tego wspólnego układu, nawet jeśli ich własne ustawienie jest `true`. Aby ukryć grafikę tylko na jednym slajdzie, zmień własność slajdu i pozostaw niezmieniony wspólny układ.
+
+Ustawienie nie jest obsługiwane jako kontrola widoczności bezpośrednio na masterze. Na masterze zawsze zwraca `false`, a przypisanie `true` powoduje `System::NotSupportedException`. Zastosuj je do normalnego slajdu lub układu.
+
+### **Rozróżnienie grafiki od tła**
+
+| Operacja | Efekt |
+| --- | --- |
+| Ukryj grafikę mastera | Kontroluje widoczność dziedziczonych kształtów mastera bez ich usuwania ani zmiany własnych kształtów slajdu. |
+| Zmień wypełnienie tła slajdu | Zmienia kolor, gradient lub obraz tła. Grafika mastera to osobne kształty i może pozostać widoczna nad tym tłem. Zobacz [Presentation Background](/slides/pl/cpp/presentation-background/). |
+| Usuń kształt z mastera | Usuwa współdzielony kształt źródłowy, więc nie jest już dostępny dla żadnego slajdu używającego tego mastera. |
+
+## **Praca z polami zastępczymi**
+
+Pola zastępcze są zwykle definiowane na slajdach układu. Master slajd zapewnia współdzielony styl i motyw, które te układy dziedziczą, podczas gdy każdy układ decyduje, które pola są dostępne i gdzie są umieszczone.
+
+W PowerPoint polecenia pól zastępczych są dostępne w widoku Master slajdu.
+
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+
+Aby dodać nowe pola zastępcze w Aspose.Slides, pracuj ze slajdem układu należącym do mastera:
+
+```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -155,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Możesz także sformatować istniejące już na wzorcu kształty zastępcze. Poniższy przykład znajduje element zastępczy tytułu i stosuje wypełnienie gradientem liniowym:
+Możesz także formatować kształty pól zastępczych, które już istnieją na masterze. Poniższy przykład znajduje pole zastępcze tytułu i stosuje liniowy gradient:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -196,15 +319,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Sformatowany element zastępczy tytułu dziedziczony przez zwykłe slajdy](slide-master_8.png)
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-Więcej opcji formatowania elementów zastępczych i tekstu znajdziesz w artykułach [Set Prompt Text in Placeholder](/slides/pl/cpp/manage-placeholder/) oraz [Text Formatting](/slides/pl/cpp/text-formatting/).
+Więcej opcji formatowania pól zastępczych i tekstu znajdziesz w [Set Prompt Text in Placeholder](/slides/pl/cpp/manage-placeholder/) oraz [Text Formatting](/slides/pl/cpp/text-formatting/).
 
-## **Zmiana tła wzorca slajdu**
+## **Zmiana tła mastera slajdu**
 
-Tło wzorca jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego wzorca slajdu:
+Tło mastera jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego mastera slajdu:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -218,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Powiązane tematy: [Presentation Background](/slides/pl/cpp/presentation-background/) oraz [Presentation Theme](/slides/pl/cpp/presentation-theme/).
+Powiązane tematy: [Presentation Background](/slides/pl/cpp/presentation-background/) i [Presentation Theme](/slides/pl/cpp/presentation-theme/).
 
-## **Klonowanie wzorca slajdu do innej prezentacji**
+## **Klonnowanie mastera slajdu do innej prezentacji**
 
-Użyj [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/addclone/), aby skopiować wzorzec slajdu do innej prezentacji. Skopiowany wzorzec może następnie być używany przez układy i slajdy w prezentacji docelowej.
+Użyj [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/addclone/), aby skopiować master slajd do innej prezentacji. Skopiowany master może być następnie używany przez układy i slajdy w docelowej prezentacji.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -236,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-Jeśli potrzebujesz sklonować zwykłe slajdy wraz z ich wzorcem, zobacz [Clone Slides](/slides/pl/cpp/clone-slides/).
+Jeśli potrzebujesz sklonować slajdy normalne razem z ich masterem, zobacz [Clone Slides](/slides/pl/cpp/clone-slides/).
 
-## **Dodawanie wielu wzorców slajdów**
+## **Dodawanie wielu masterów slajdów**
 
-Prezentacja może zawierać wiele wzorców slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych identyfikacji wizualnych, struktury stron lub ustawień motywu.
+Prezentacja może zawierać wiele masterów slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych identyfikacji wizualnych, struktury stron lub ustawień motywu.
 
-![Polecenia PowerPoint służące do wstawiania i zarządzania wzorcami slajdów](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-Poniższy przykład klonuje domyślny wzorzec, nadaje klonowi inne tło, tworzy układ pod tym sklonowanym wzorcem i dodaje nowy slajd oparty na tym układzie:
+Poniższy przykład klonuje domyślny master, nadaje klonowi inne tło, tworzy układ pod tym sklonowanym masterem i dodaje nowy slajd oparty na tym układzie:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -271,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **Porównywanie wzorców slajdów**
+## **Porównywanie masterów slajdów**
 
-Wzorce slajdów można porównać metodą `Equals` odziedziczoną po [IBaseSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseslide/). Porównanie sprawdza strukturę oraz statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje on unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości elementów zastępczych, np. bieżącej daty.
+Mastery slajdów można porównać metodą `Equals` odziedziczoną po [IBaseSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości pól zastępczych, takich jak bieżąca data.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -308,13 +474,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-Więcej informacji znajdziesz w artykule [Compare Presentation Slides](/slides/pl/cpp/compare-slides/).
+Więcej informacji znajdziesz w [Compare Presentation Slides](/slides/pl/cpp/compare-slides/).
 
-## **Ustawienie widoku Wzorca slajdu jako widoku domyślnego**
+## **Ustawienie widoku Master slajdu jako widoku domyślnego**
 
-Użyj metody `set_LastView` na [ViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/), aby określić widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Wzorca slajdu:
+Użyj metody `set_LastView` na [ViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/), aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Master slajdu:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -322,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Więcej ustawień widoku znajdziesz w artykule [Save Presentation](/slides/pl/cpp/save-presentation/).
+Więcej ustawień widoku znajdziesz w [Save Presentation](/slides/pl/cpp/save-presentation/).
 
-## **Usuwanie nieużywanych wzorców slajdów**
+## **Usuwanie nieużywanych masterów slajdów**
 
-Prezentacje czasami zawierają wzorce slajdów, które nie są już używane przez żadne zwykłe slajdy. Usunięcie nieużywanych wzorców może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
+Prezentacje czasami zawierają mastery slajdów, które nie są używane przez żadne slajdy normalne. Usunięcie nieużywanych masterów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonów.
 
-Użyj [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/pl/cpp/aspose.slides/masterslidecollection/removeunused/), aby usunąć nieużywane wzorce ze zbioru `get_Masters()`:
+Użyj [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/pl/cpp/aspose.slides/masterslidecollection/removeunused/), aby usunąć nieużywane mastery z kolekcji `get_Masters()`:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -338,9 +517,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Możesz także skorzystać z metody niskokodowej [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/):
+Możesz także użyć metody low-code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/):
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -350,18 +536,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Jaka jest różnica między wzorcem slajdu a slajdem układu?**
+**Jaka jest różnica między masterem slajdu a slajdem układu?**
 
-Wzorzec slajdu definiuje wspólne ustawienia projektowe, takie jak motyw, tło, wspólne kształty i style tekstu. Slajd układu należy do wzorca i określa konkretne rozmieszczenie elementów zastępczych. Zwykły slajd używa slajdu układu, więc dziedziczy zarówno z układu, jak i z wzorca.
+Master slajd definiuje współdzielone ustawienia projektu, takie jak motyw, tło, wspólne kształty i style tekstu. Slajd układu należy do mastera i definiuje określone rozmieszczenie pól zastępczych. Normalny slajd używa slajdu układu, więc dziedziczy zarówno z układu, jak i z mastera.
 
-**Czy jedna prezentacja może zawierać kilka wzorców slajdów?**
+**Czy jedna prezentacja może zawierać kilka masterów slajdów?**
 
-Tak. Prezentacja może zawierać wiele wzorców slajdów. Używaj wielu wzorców, gdy różne sekcje wymagają odmiennych systemów wizualnych lub identyfikacji marki.
+Tak. Prezentacja może zawierać kilka masterów slajdów. Używaj wielu masterów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub identyfikacji marki.
 
-**Czy powinienem dodawać elementy zastępcze do wzorca slajdu czy do slajdu układu?**
+**Czy powinienem dodawać pola zastępcze do mastera slajdu czy do slajdu układu?**
 
-W większości przypadków elementy zastępcze dodaje się do slajdów układu. Na wzorcu umieszczaj wspólne elementy graficzne i formatowanie, a na układach – miejsca przeznaczone na treść, które będą używane przez zwykłe slajdy.
+W większości przypadków dodawaj pola zastępcze do slajdów układu. Umieść wspólne elementy wizualne i współdzielone formatowanie na masterze, a pola zawartości na układach, z których będą korzystać slajdy normalne.
 
-**Czy mogę usunąć wzorzec slajdu, który jest nadal używany?**
+**Czy mogę usunąć master slajd, który jest nadal używany?**
 
-Nie. Wzorzec, od którego zależą slajdy, nie może być bezpiecznie usunięty. Najpierw przenieś te slajdy do układów pod innym wzorcem lub skorzystaj z metody czyszczenia nieużywanych wzorców, która usuwa tylko te, które nie są używane.
+Nie. Master slajd, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do układów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko mastery niebędące w użyciu.

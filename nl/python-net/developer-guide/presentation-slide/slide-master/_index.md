@@ -1,5 +1,5 @@
 ---
-title: Beheer slide‑masters in presentaties met Python
+title: Beheer slide‑masters van presentaties in Python
 linktitle: Slide‑master
 type: docs
 weight: 80
@@ -8,8 +8,8 @@ keywords:
 - slide‑master
 - master‑dia
 - PPT‑master‑dia
-- meerdere master‑dia's
-- master‑dia's vergelijken
+- meerdere master‑dia’s
+- master‑dia’s vergelijken
 - achtergrond
 - placeholder
 - master‑dia klonen
@@ -21,35 +21,35 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Beheer slide‑masters in Aspose.Slides voor Python via .NET: toegang, bewerken, klonen, vergelijken en verwijderen van master‑dia's in PowerPoint‑ en OpenDocument‑presentaties."
+description: "Beheer slide‑masters in Aspose.Slides voor Python via .NET: toegang, bewerking, kloon, vergelijking en verwijdering van master‑dia’s in PowerPoint- en OpenDocument‑presentaties."
 ---
 ## **Overzicht**
 
-Een **slide master** definieert gedeelde ontwerpinstellingen voor een groep dia's. Het kan gemeenschappelijke vormen, logo's, achtergronden, tekstopmaken, themainstellingen en voettekstinstellingen bevatten. In PowerPoint is het bewerken van een slide master de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak op elke dia te herhalen.
+Een **slide master** definieert gedeelde ontwerpinstellingen voor een groep dia’s. Het kan gemeenschappelijke vormen, logo’s, achtergronden, tekstopmaak, themainstellingen en voettekstinstellingen bevatten. In PowerPoint is het bewerken van een slide master de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak op elke dia te herhalen.
 
-Aspose.Slides voor Python via .NET ondersteunt hetzelfde model. Een presentatie kan één of meer masterdia's bevatten, en elke masterdia kan meerdere layoutdia's bevatten. Normale dia's verwijzen meestal niet rechtstreeks naar een masterdia. In plaats daarvan gebruikt een normale dia een layoutdia, en die layoutdia behoort tot een masterdia.
+Aspose.Slides for Python via .NET ondersteunt hetzelfde model. Een presentatie kan één of meer masterdia’s bevatten, en elke masterdia kan meerdere lay-outdia’s bevatten. Normale dia’s verwijzen meestal niet direct naar een masterdia. In plaats daarvan gebruikt een normale dia een lay-outdia, en die lay-outdia behoort tot een masterdia.
 
 De hiërarchie is:
 
 1. **Slide master** – definieert het gedeelde ontwerp en thema.  
-1. **Layout slide** – definieert een specifieke rangschikking van tijdelijke aanduidingen en opmaak op lay-outniveau.  
-1. **Normal slide** – bevat de daadwerkelijke presentatiesinhoud en gebruikt één layoutdia.
+1. **Layout slide** – definieert een specifieke rangschikking van placeholders en opmaak op lay‑outniveau.  
+1. **Normal slide** – bevat de feitelijke presentatie‑inhoud en gebruikt één lay‑outdia.
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![De hiërarchie van masterdia's, lay‑outdia's en normale dia's](slide-master_2.jpg)
 
-In Aspose.Slides wordt een slide master weergegeven door de [MasterSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslide/)‑klasse. Alle masterdia's in een presentatie zijn beschikbaar via de `Presentation.masters`‑collectie.
+In Aspose.Slides wordt een slide master weergegeven door de [MasterSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslide/) klasse. Alle masterdia’s in een presentatie zijn beschikbaar via de `Presentation.masters` collectie.
 
 {{% alert color="info" title="Inheritance" %}}
-Wanneer dezelfde eigenschap op meer dan één niveau is gedefinieerd, heeft het specifiekere niveau voorrang. Bijvoorbeeld, als een masterdia en een layoutdia beide een achtergrond definiëren, gebruiken dia's die gebaseerd zijn op die layout de achtergrond van de layout. Voor meer informatie over layoutdia's, zie [Apply or Change Slide Layouts](/slides/nl/python-net/slide-layout/).
+Wanneer dezelfde eigenschap op meer dan één niveau is gedefinieerd, wint het specifiekere niveau. Bijvoorbeeld, als een masterdia en een lay‑outdia beide een achtergrond definiëren, gebruiken dia’s die op die lay‑out zijn gebaseerd de lay‑outachtergrond. Voor meer informatie over lay‑outdia’s, zie [Apply or Change Slide Layouts](/slides/nl/python-net/slide-layout/).
 {{% /alert %}}
 
 ## **Toegang tot slide masters**
 
 In PowerPoint kun je de Slide Master‑weergave openen via **View** > **Slide Master**.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![De Slide Master‑opdracht op het tabblad View in PowerPoint](slide-master_3.jpg)
 
-In Aspose.Slides gebruik je de `masters`‑collectie om masterdia's te benaderen:
+In Aspose.Slides gebruik je de `masters` collectie om masterdia’s te benaderen:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Je kunt ook de masterdia ophalen die door een normale dia wordt gebruikt via zijn layout:
+Je kunt ook de masterdia ophalen die door een normale dia wordt gebruikt via zijn lay‑out:
 
 ```python
 import aspose.slides as slides
@@ -79,22 +79,22 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Wat een slide master bevat**
 
-Een masterdia is een object dat op een dia lijkt. Het erft gemeenschappelijk dia‑gedrag van de [BaseSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/)‑klasse, zodat het veel van dezelfde dia‑eigenschappen blootlegt die door normale en layoutdia's worden gebruikt. Master‑specifieke leden staan vermeld op de [MasterSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslide/)‑API‑pagina.
+Een masterdia is een dia‑achtig object. Het erft algemeen dia‑gedrag van de [BaseSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/) klasse, zodat het veel van dezelfde dia‑eigenschappen beschikbaar maakt die door normale en lay‑outdia’s worden gebruikt. Master‑specifieke leden staan opgesomd op de [MasterSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslide/) API‑pagina.
 
-Veelgebruikte masterdia‑leden omvatten:
+Veelgebruikte leden van een masterdia zijn onder andere:
 
 | Lid | Doel |
 | --- | --- |
-| `background` | Stelt de achtergrond op masterniveau in. |
-| `shapes` | Bewaart vormen die op de master zijn geplaatst, zoals logo's, fotolijsten en gedeelde tekst. |
-| `layout_slides` | Bewaart de layoutdia's die bij de master horen. |
+| `background` | Stelt de slide‑achtergrond op master‑niveau in. |
+| `shapes` | Slaat vormen op die op de master zijn geplaatst, zoals logo’s, afbeeldingskaders en gedeelde tekst. |
+| `layout_slides` | Bevat de lay‑outdia’s die bij de master horen. |
 | `theme_manager` | Biedt toegang tot de master‑thema‑API’s. |
-| `header_footer_manager` | Regelt kop‑ en voetteksten, datums en dia‑nummers voor de master en de onderliggende layouts. |
-| `get_depending_slides` | Retourneert normale dia's die via hun layouts afhankelijk zijn van de master. |
+| `header_footer_manager` | Beheert kop‑ en voetteksten, datums en dia‑nummers voor de master en haar onderliggende lay‑outs. |
+| `get_depending_slides` | Retourneert normale dia’s die via hun lay‑outs afhankelijk zijn van de master. |
 
-## **Een afbeelding aan een slide master toevoegen**
+## **Afbeelding toevoegen aan een slide master**
 
-Wanneer je een afbeelding toevoegt aan een masterdia, verschijnt deze op dia’s die layouts van die master gebruiken. Dit is handig voor logo's, watermerken, decoratieve banden en andere herhalende visuele elementen.
+Wanneer je een afbeelding toevoegt aan een masterdia, verschijnt deze op dia’s die lay‑-outs van die master gebruiken. Dit is handig voor logo’s, watermerken, decoratieve banden en andere herhalende visuele elementen.
 
 Het volgende voorbeeld voegt een logo toe aan de eerste masterdia:
 
@@ -120,17 +120,66 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Voor meer informatie over fotolijsten, zie [Picture Frame](/slides/nl/python-net/picture-frame/).
+Voor meer informatie over afbeeldingskaders, zie [Afbeeldingskader](/slides/nl/python-net/picture-frame/).
+
+## **De zichtbaarheid van master‑graphics regelen**
+
+Gebruik [BaseSlide.show_master_shapes](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/show_master_shapes/) om geërfde master‑graphics, zoals logo’s of decoratieve vormen, te verbergen zonder ze uit de master te verwijderen. Zet [Slide.show_master_shapes](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/show_master_shapes/) op `False` op de dia die die graphics moet weglaten en laat het op `True` staan op dia’s die ze wel moeten weergeven.
+
+Het volgende zelfstandige voorbeeld maakt een blauwe decoratieve band op een master en twee dia’s die dezelfde lege lay‑out gebruiken. De band is zichtbaar op de eerste dia en verborgen op de tweede. Er is geen invoerpresentatie of afbeelding nodig.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
+    layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_slide.show_master_shapes = True
+
+    slide_height = presentation.slide_size.size.height
+    band = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 60, slide_height)
+    band.fill_format.fill_type = slides.FillType.SOLID
+    band.fill_format.solid_fill_color.color = draw.Color.steel_blue
+    band.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    visible_slide = presentation.slides[0]
+    visible_slide.layout_slide = layout_slide
+    visible_slide.shapes.clear()
+
+    hidden_slide = presentation.slides.add_empty_slide(layout_slide)
+
+    visible_slide.show_master_shapes = True
+    hidden_slide.show_master_shapes = False
+
+    presentation.save("master-graphics.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Het voorbeeld gebruikt de **Blank** lay‑out die bij een nieuwe presentatie wordt geleverd en verwijdert de eigen placeholders van de eerste dia.
+
+### **Kies de reikwijdte van de instelling**
+
+Een normale dia gebruikt zijn master via [Slide.layout_slide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/layout_slide/) en [LayoutSlide.master_slide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/layoutslide/master_slide/). Het instellen van de eigenschap op een individuele dia beïnvloedt alleen die dia. Het instellen van [LayoutSlide.show_master_shapes](https://reference.aspose.com/slides/nl/python-net/aspose.slides/layoutslide/show_master_shapes/) op `False` verbergt master‑graphics voor dia’s die die gedeelde lay‑out gebruiken, zelfs als hun eigen instelling `True` is. Om graphics alleen op één dia te verbergen, wijzig je de eigenschap van die dia en laat je de gedeelde lay‑out ongewijzigd.
+
+De instelling wordt niet ondersteund als zichtbaarheid‑controle op de masterdia zelf. Op een master geeft het altijd `False` terug, en het toewijzen van `True` veroorzaakt een uitzondering. Pas het toe op een normale dia of een lay‑out.
+
+### **Grafische elementen onderscheiden van de achtergrond**
+
+| Operatie | Effect |
+| --- | --- |
+| Master‑graphics verbergen | Regelt de zichtbaarheid van geërfde master‑vormen zonder ze te verwijderen of de eigen vormen van de dia te wijzigen. |
+| De dia‑achtergrondvulling wijzigen | Wijzigt de achtergrondkleur, -gradient of -afbeelding. Master‑graphics zijn afzonderlijke vormen en kunnen zichtbaar blijven boven die achtergrond. Zie [Presentation Background](/slides/nl/python-net/presentation-background/). |
+| Een vorm van de master verwijderen | Verwijdert de gedeelde bronvorm, zodat deze niet meer beschikbaar is voor dia’s die die master gebruiken. |
 
 ## **Werken met placeholders**
 
-Placeholders worden normaal gedefinieerd op layoutdia's. De masterdia levert de gedeelde stijl en het thema die die layouts erven, terwijl elke layout bepaalt welke placeholders beschikbaar zijn en waar ze worden geplaatst.
+Placeholders worden normaal gedefinieerd op lay‑outdia’s. De masterdia levert de gedeelde stijl en het thema die die lay‑outs overerven, terwijl elke lay‑out bepaalt welke placeholders beschikbaar zijn en waar ze worden geplaatst.
 
 In PowerPoint zijn placeholder‑opdrachten beschikbaar in de Slide Master‑weergave.
 
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+![De Insert Placeholder‑opdracht in de Slide Master‑weergave van PowerPoint](slide-master_5.png)
 
-Om nieuwe placeholders toe te voegen met Aspose.Slides, werk je met de layoutdia die bij de master hoort:
+Om nieuwe placeholders toe te voegen met Aspose.Slides, werk je met de lay‑outdia die bij de master hoort:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +200,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Je kunt ook de vorm van bestaande placeholders op een masterdia opmaken. Het volgende voorbeeld zoekt de titel‑placeholder en past een lineaire gradient‑vulling toe:
+Je kunt ook placeholder‑vormen die al op een masterdia bestaan opmaken. Het volgende voorbeeld vindt de titel‑placeholder en past een lineaire gradient‑vulling toe:
 
 ```python
 import aspose.pydrawing as draw
@@ -183,13 +232,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![Opgemaakte titel‑placeholder geërfd door normale dia's](slide-master_8.png)
 
-Voor meer opties voor placeholders en tekstopmaak, zie [Set Prompt Text in Placeholder](/slides/nl/python-net/manage-placeholder/) en [Text Formatting](/slides/nl/python-net/text-formatting/).
+Voor meer opties voor placeholder‑ en tekstopmaak, zie [Set Prompt Text in Placeholder](/slides/nl/python-net/manage-placeholder/) en [Text Formatting](/slides/nl/python-net/text-formatting/).
 
-## **Een slide master‑achtergrond wijzigen**
+## **Achtergrond van een slide master wijzigen**
 
-Een master‑achtergrond wordt geërfd door layouts en dia's die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste masterdia:
+Een master‑achtergrond wordt geërfd door lay‑-outs en dia’s die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste masterdia:
 
 ```python
 import aspose.pydrawing as draw
@@ -207,9 +256,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 Voor gerelateerde onderwerpen, zie [Presentation Background](/slides/nl/python-net/presentation-background/) en [Presentation Theme](/slides/nl/python-net/presentation-theme/).
 
-## **Een slide master naar een andere presentatie klonen**
+## **Een slide master klonen naar een andere presentatie**
 
-Gebruik de `add_clone`‑methode op de [MasterSlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/)‑klasse om een masterdia te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens worden gebruikt door layouts en dia's in de doelpresentatie.
+Gebruik de `add_clone`‑methode op de [MasterSlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/) klasse om een masterdia te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens door lay‑-outs en dia's in de bestemmingspresentatie worden gebruikt.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +271,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Als je ook normale dia's samen met hun master wilt klonen, zie [Clone Slides](/slides/nl/python-net/clone-slides/).
+Als je normale dia’s moet klonen samen met hun master, zie [Clone Slides](/slides/nl/python-net/clone-slides/).
 
 ## **Meerdere slide masters toevoegen**
 
-Een presentatie kan meerdere masterdia's bevatten. Dit is handig wanneer verschillende secties verschillende branding, paginastuctuur of themainstellingen vereisen.
+Een presentatie kan meerdere masterdia’s bevatten. Dit is handig wanneer verschillende secties verschillende huisstijl, paginastuctuur of themainstellingen nodig hebben.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![PowerPoint‑opdrachten voor het invoegen en beheren van masterdia's](slide-master_9.jpg)
 
-Het volgende voorbeeld kloont de standaardmaster, geeft de kloon een andere achtergrond, haalt een lege layout onder die gekloonde master op, en voegt een nieuwe dia toe op basis van die layout:
+Het volgende voorbeeld kloont de standaard‑master, geeft de kloon een andere achtergrond, haalt een lege lay‑out onder die gekloonde master op en voegt een nieuwe dia toe gebaseerd op die lay‑out:
 
 ```python
 import aspose.pydrawing as draw
@@ -258,7 +307,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Slide masters vergelijken**
 
-Masterdia's kunnen worden vergeleken met de `equals`‑methode die is geërfd van de [BaseSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/)‑klasse. De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Het vergelijkt geen unieke identifiers, zoals dia‑ID's, of dynamische placeholder‑waarden, zoals de huidige datum.
+Masterdia’s kunnen met de `equals`‑methode, geërfd van de [BaseSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/) klasse, worden vergeleken. De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Het vergelijkt geen unieke identifiers, zoals dia‑ID's, of dynamische placeholder‑waarden, zoals de huidige datum.
 
 ```python
 import aspose.slides as slides
@@ -283,9 +332,9 @@ with slides.Presentation("first.pptx") as first_presentation:
 
 Voor meer informatie, zie [Compare Presentation Slides](/slides/nl/python-net/compare-slides/).
 
-## **Slide master‑weergave als standaardweergave instellen**
+## **Slide Master‑weergave instellen als standaard weergave**
 
-Gebruik de `last_view`‑eigenschap op de presentatie‑[ViewProperties](https://reference.aspose.com/slides/nl/python-net/aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint als eerste opent. Het volgende voorbeeld opent de presentatie in Slide Master‑weergave:
+Gebruik de `last_view`‑eigenschap op de presentatie‑[ViewProperties](https://reference.aspose.com/slides/nl/python-net/aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint eerst opent. Het volgende voorbeeld opent de presentatie in de Slide Master‑weergave:
 
 ```python
 import aspose.slides as slides
@@ -299,9 +348,9 @@ Voor meer weergave‑instellingen, zie [Save Presentation](/slides/nl/python-net
 
 ## **Ongebruikte masterdia's verwijderen**
 
-Presentaties bevatten soms masterdia's die niet meer door enige normale dia worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het onderhoud van sjablonen vereenvoudigen.
+Presentaties kunnen soms masterdia's bevatten die niet langer door normale dia's worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het onderhoud van sjablonen vereenvoudigen.
 
-Gebruik `remove_unused` om ongebruikte masters uit de `masters`‑collectie te verwijderen:
+Gebruik `remove_unused` om ongebruikte masters uit de `masters` collectie te verwijderen:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +360,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Je kunt ook de low‑code‑methode `remove_unused_master_slides` gebruiken van de [Compress](https://reference.aspose.com/slides/nl/python-net/aspose.slides.lowcode/compress/)‑klasse:
+Je kunt ook de low‑code `remove_unused_master_slides`‑methode van de [Compress](https://reference.aspose.com/slides/nl/python-net/aspose.slides.lowcode/compress/) klasse gebruiken:
 
 ```python
 import aspose.slides as slides
@@ -323,18 +372,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-### Wat is het verschil tussen een slide master en een layout slide?
+**Wat is het verschil tussen een slide master en een layout slide?**
 
-Een slide master definieert gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekstopmaken. Een layout slide behoort tot een masterdia en definieert een specifieke rangschikking van placeholders. Een normale dia gebruikt een layout slide, waardoor hij zowel van de layout als van de master erft.
+Een slide master definieert gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekstopmaak. Een layout slide behoort tot een master slide en definieert een specifieke rangschikking van placeholders. Een normale dia gebruikt een layout slide, dus hij erft zowel van de lay‑out als van de master.
 
-### Kan een enkele presentatie meerdere slide masters bevatten?
+**Kan één presentatie meerdere slide masters bevatten?**
 
-Ja. Een presentatie kan meerdere slide masters bevatten. Gebruik meerdere masters wanneer verschillende secties verschillende visuele systemen of branding nodig hebben.
+Ja. Een presentatie kan meerdere slide masters bevatten. Gebruik meerdere masters wanneer verschillende secties verschillende visuele systemen of huisstijlen nodig hebben.
 
-### Moet ik placeholders toevoegen aan een masterdia of aan een layout slide?
+**Moet ik placeholders toevoegen aan een master slide of een layout slide?**
 
-In de meeste gevallen voeg je placeholders toe aan layoutdia's. Plaats gedeelde visuele elementen en gedeelde opmaak op de masterdia en zet content‑placeholders op de layouts die normale dia's zullen gebruiken.
+In de meeste gevallen voeg je placeholders toe aan layout slides. Plaats gedeelde visuele elementen en gedeelde opmaak op de master slide, en plaats content‑placeholders op de lay‑outs die normale dia's zullen gebruiken.
 
-### Kan ik een masterdia verwijderen die nog in gebruik is?
+**Kan ik een master slide verwijderen die nog wordt gebruikt?**
 
-Nee. Een masterdia die afhankelijke dia's heeft, kan niet veilig direct worden verwijderd. Verplaats die dia's eerst naar layouts onder een andere master, of gebruik een opruimmethode voor ongebruikte masters die alleen masters verwijdert die niet in gebruik zijn.
+Nee. Een master slide die afhankelijke dia's heeft, kan niet veilig direct worden verwijderd. Verplaats eerst die dia's naar lay‑-outs onder een andere master, of gebruik een opruimmethode voor ongebruikte masters die alleen masters verwijdert die niet in gebruik zijn.

@@ -1,54 +1,54 @@
 ---
-title: Gestionar maestros de diapositivas de presentación en Python vía Java
-linktitle: Maestro de diapositiva
+title: Administrar las diapositivas maestras de la presentación en Python mediante Java
+linktitle: Diapositiva maestra
 type: docs
 weight: 70
 url: /es/python-java/slide-master/
 keywords:
-- maestro de diapositiva
+- diapositiva maestra
 - diapositiva maestra
 - diapositiva maestra PPT
-- múltiples diapositivas maestras
+- varias diapositivas maestras
 - comparar diapositivas maestras
 - fondo
 - marcador de posición
 - clonar diapositiva maestra
 - copiar diapositiva maestra
 - duplicar diapositiva maestra
-- diapositiva maestra no utilizada
+- diapositiva maestra sin usar
 - PowerPoint
 - OpenDocument
 - presentación
 - Python
 - Java
 - Aspose.Slides
-description: "Gestionar maestros de diapositivas en Aspose.Slides para Python vía Java: acceder, editar, clonar, comparar y eliminar diapositivas maestras en presentaciones PowerPoint y OpenDocument."
+description: "Gestionar las diapositivas maestras en Aspose.Slides para Python mediante Java: acceder, editar, clonar, comparar y eliminar diapositivas maestras en presentaciones PowerPoint y OpenDocument."
 ---
-## **Resumen**
+## **Visión general**
 
-Un **maestro de diapositiva** define la configuración de diseño compartida para un conjunto de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, configuraciones de tema y de pie de página. En PowerPoint, editar un maestro de diapositiva es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
+Un **slide master** define los ajustes de diseño compartidos para un grupo de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, ajustes de tema y ajustes de pie de página. En PowerPoint, editar un slide master es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
 
-Aspose.Slides for Python via Java admite el mismo modelo. Una presentación puede contener una o más diapositivas maestras, y cada diapositiva maestra puede contener varias diapositivas de diseño. Las diapositivas normales no suelen referirse directamente a una diapositiva maestra. En su lugar, una diapositiva normal utiliza una diapositiva de diseño, y esa diapositiva de diseño pertenece a una diapositiva maestra.
+Aspose.Slides para Python mediante Java admite el mismo modelo. Una presentación puede contener una o más diapositivas maestras, y cada diapositiva maestra puede contener varias diapositivas de diseño. Las diapositivas normales normalmente no hacen referencia directa a una diapositiva maestra. En su lugar, una diapositiva normal utiliza una diapositiva de diseño, y esa diapositiva de diseño pertenece a una diapositiva maestra.
 
 La jerarquía es:
 
-1. **Maestro de diapositiva** – define el diseño y tema compartidos.  
+1. **Diapositiva maestra** – define el diseño y tema compartidos.  
 1. **Diapositiva de diseño** – define una disposición específica de marcadores de posición y formato a nivel de diseño.  
-1. **Diapositiva normal** – contiene el contenido real de la presentación y usa una diapositiva de diseño.
+1. **Diapositiva normal** – contiene el contenido real de la presentación y utiliza una diapositiva de diseño.
 
 ![La jerarquía de diapositivas maestras, diapositivas de diseño y diapositivas normales](slide-master_2.jpg)
 
-En Aspose.Slides, un maestro de diapositiva está representado por la clase [MasterSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/). Todas las diapositivas maestras de una presentación están disponibles a través de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getMasters), que se representa mediante [MasterSlideCollection](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslidecollection/).
+En Aspose.Slides, una diapositiva maestra se representa mediante la clase [MasterSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/). Todas las diapositivas maestras de una presentación están disponibles a través de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getMasters), que se representa con [MasterSlideCollection](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslidecollection/).
 
-{{% alert color="info" title="Herencia" %}}
-Cuando la misma propiedad se define en más de un nivel, gana el nivel más específico. Por ejemplo, si una diapositiva maestra y una diapositiva de diseño definen un fondo, las diapositivas basadas en ese diseño usan el fondo del diseño. Para obtener más información sobre las diapositivas de diseño, consulte [Apply or Change Slide Layouts](/slides/es/python-java/slide-layout/).
+{{% alert color="info" title="Inheritance" %}}
+Cuando la misma propiedad se define en más de un nivel, el nivel más específico prevalece. Por ejemplo, si una diapositiva maestra y una diapositiva de diseño ambos definen un fondo, las diapositivas basadas en ese diseño usan el fondo del diseño. Para más información sobre las diapositivas de diseño, consulte [Apply or Change Slide Layouts](/slides/es/python-java/slide-layout/).
 {{% /alert %}}
 
-## **Acceder a los maestros de diapositiva**
+## **Acceder a diapositivas maestras**
 
-En PowerPoint, puede abrir la vista Maestro de diapositiva desde **Ver** > **Maestro de diapositiva**.
+En PowerPoint, puede abrir la vista de Diapositiva maestra desde **Vista** > **Diapositiva maestra**.
 
-![El comando Maestro de diapositiva en la pestaña Ver de PowerPoint](slide-master_3.jpg)
+![El comando Diapositiva maestra en la pestaña Vista de PowerPoint](slide-master_3.jpg)
 
 En Aspose.Slides, use la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getMasters) para acceder a las diapositivas maestras:
 
@@ -73,10 +73,10 @@ finally:
     presentation.dispose()
 ```
 
-También puede obtener la diapositiva maestra que usa una diapositiva normal a través de su diseño:
+También puede obtener la diapositiva maestra utilizada por una diapositiva normal a través de su diseño:
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -96,26 +96,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Qué contiene un maestro de diapositiva**
+## **Qué contiene una diapositiva maestra**
 
-Una diapositiva maestra es un objeto similar a una diapositiva. Hereda de [BaseSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/), por lo que expone muchas de las mismas propiedades de diapositiva que se usan en diapositivas normales y de diseño. Los miembros específicos del maestro aparecen en la página de la API [MasterSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/).
+Una diapositiva maestra es un objeto similar a una diapositiva. Hereda de [BaseSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/), por lo que expone muchas de las mismas propiedades de diapositiva que se usan en diapositivas normales y de diseño. Los miembros específicos de la maestra se enumeran en la página API de [MasterSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/).
 
-Los miembros de maestro de diapositiva más usados incluyen:
+Los miembros de diapositiva maestra más utilizados incluyen:
 
 | Miembro | Propósito |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#getBackground) | Establece el fondo a nivel de maestro. |
-| [getShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#getShapes) | Almacena las formas colocadas en el maestro, como logotipos, marcos de imagen y texto compartido. |
-| [getLayoutSlides](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getLayoutSlides) | Almacena las diapositivas de diseño que pertenecen al maestro. |
-| [getThemeManager](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getThemeManager) | Proporciona acceso a las API del tema del maestro. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Controla encabezados, pies de página, fechas y números de diapositiva para el maestro y sus diseños hijos. |
-| [getDependingSlides](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getDependingSlides) | Devuelve las diapositivas normales que dependen del maestro a través de sus diseños. |
+| [getBackground](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#getBackground) | Establece el fondo de la diapositiva a nivel de maestra. |
+| [getShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#getShapes) | Almacena las formas colocadas en la maestra, como logotipos, marcos de imágenes y texto compartido. |
+| [getLayoutSlides](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getLayoutSlides) | Almacena las diapositivas de diseño que pertenecen a la maestra. |
+| [getThemeManager](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getThemeManager) | Proporciona acceso a las API de tema de la maestra. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Controla encabezados, pies de página, fechas y números de diapositiva para la maestra y sus diseños hijos. |
+| [getDependingSlides](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getDependingSlides) | Devuelve las diapositivas normales que dependen de la maestra a través de sus diseños. |
 
-## **Agregar una imagen a un maestro de diapositiva**
+## **Añadir una imagen a una diapositiva maestra**
 
-Cuando agrega una imagen a una diapositiva maestra, aparece en las diapositivas que usan diseños de ese maestro. Es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales que se repiten.
+Al añadir una imagen a una diapositiva maestra, aparece en las diapositivas que usan diseños de esa maestra. Es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
 
-El siguiente ejemplo agrega un logotipo a la primera diapositiva maestra:
+El siguiente ejemplo añade un logotipo a la primera diapositiva maestra:
 
 ```python
 import jpype
@@ -141,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-Para obtener más información sobre marcos de imagen, consulte [Picture Frame](/slides/es/python-java/picture-frame/).
+Para más información sobre marcos de imágenes, consulte [Picture Frame](/slides/es/python-java/picture-frame/).
+
+## **Controlar la visibilidad de los gráficos de la diapositiva maestra**
+
+Utilice [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#setShowMasterShapes) para ocultar los gráficos heredados de la maestra, como logotipos o formas decorativas, sin eliminarlos de la maestra. Pase `False` a [Slide.setShowMasterShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/slide/#setShowMasterShapes) en la diapositiva que debe omitir esos gráficos y manténgalo `True` en las diapositivas que deben mostrarlos.
+
+El siguiente ejemplo autónomo crea una banda decorativa azul en una maestra y dos diapositivas que usan el mismo diseño en blanco. La banda es visible en la primera diapositiva y está oculta en la segunda. No se requiere una presentación o imagen de entrada.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+El ejemplo usa el diseño **Blank** suministrado con una nueva presentación y elimina los marcadores de posición propios de la diapositiva inicial.
+
+### **Elegir el alcance del ajuste**
+
+Una diapositiva normal utiliza su maestra a través de [Slide.getLayoutSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/slide/#getLayoutSlide) y [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/layoutslide/#getMasterSlide). Establecer la propiedad en una diapositiva individual afecta solo a esa diapositiva. Pasar `False` a [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/layoutslide/#setShowMasterShapes) oculta los gráficos de la maestra para las diapositivas que usan ese diseño compartido, incluso si su propia configuración es `True`. Para ocultar gráficos en una sola diapositiva, cambie la propiedad de la diapositiva y deje el diseño compartido sin modificar.
+
+El ajuste no se admite como control de visibilidad en la propia diapositiva maestra. En una maestra, [getShowMasterShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#getShowMasterShapes) siempre devuelve `False`, y pasar `True` a [setShowMasterShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslide/#setShowMasterShapes) genera una excepción. Aplíquelo a una diapositiva normal o a un diseño.
+
+### **Distinguir los gráficos del fondo**
+
+| Operación | Efecto |
+| --- | --- |
+| Ocultar los gráficos de la maestra | Controla la visibilidad de las formas heredadas de la maestra sin eliminarlas ni cambiar las propias formas de la diapositiva. |
+| Cambiar el relleno de fondo de la diapositiva | Cambia el color, degradado o imagen de fondo. Los gráficos de la maestra son formas separadas y pueden seguir visibles sobre ese fondo. Consulte [Presentation Background](/slides/es/python-java/presentation-background/). |
+| Eliminar una forma de la maestra | Elimina la forma fuente compartida, de modo que ya no está disponible para ninguna diapositiva que use esa maestra. |
 
 ## **Trabajar con marcadores de posición**
 
-Los marcadores de posición se definen normalmente en las diapositivas de diseño. La diapositiva maestra proporciona el estilo y tema compartidos que esos diseños heredan, mientras que cada diseño decide qué marcadores están disponibles y dónde se colocan.
+Los marcadores de posición se definen normalmente en las diapositivas de diseño. La diapositiva maestra proporciona el estilo y tema compartidos que heredan esos diseños, mientras que cada diseño decide qué marcadores de posición están disponibles y dónde se colocan.
 
-En PowerPoint, los comandos de marcador de posición están disponibles en la vista Maestro de diapositiva.
+En PowerPoint, los comandos de marcador de posición están disponibles en la vista Diapositiva maestra.
 
-![El comando Insertar marcador de posición en la vista Maestro de diapositiva de PowerPoint](slide-master_5.png)
+![El comando Insertar marcador de posición en la vista Diapositiva maestra de PowerPoint](slide-master_5.png)
 
-Para agregar nuevos marcadores de posición con Aspose.Slides, trabaje con la diapositiva de diseño que pertenece al maestro:
+Para añadir nuevos marcadores de posición con Aspose.Slides, trabaje con la diapositiva de diseño que pertenece a la maestra:
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-También puede formatear las formas de marcador de posición que ya existen en una diapositiva maestra. El siguiente ejemplo encuentra el marcador de posición de título y le aplica un relleno de degradado lineal:
+También puede dar formato a las formas de marcador de posición que ya existen en una diapositiva maestra. El siguiente ejemplo encuentra el marcador de posición de título y le aplica un relleno de degradado lineal:
 
 ```python
 import jpype
@@ -218,11 +278,11 @@ finally:
 
 ![Marcador de posición de título formateado heredado por diapositivas normales](slide-master_8.png)
 
-Para más opciones de formato de marcadores y texto, consulte [Set Prompt Text in Placeholder](/slides/es/python-java/manage-placeholder/) y [Text Formatting](/slides/es/python-java/text-formatting/).
+Para más opciones de marcadores de posición y formato de texto, consulte [Set Prompt Text in Placeholder](/slides/es/python-java/manage-placeholder/) y [Text Formatting](/slides/es/python-java/text-formatting/).
 
-## **Cambiar el fondo de un maestro de diapositiva**
+## **Cambiar el fondo de una diapositiva maestra**
 
-El fondo del maestro se hereda por los diseños y diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para la primera diapositiva maestra:
+Un fondo de maestra se hereda por los diseños y diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para la primera diapositiva maestra:
 
 ```python
 import jpype
@@ -251,9 +311,9 @@ finally:
 
 Para temas relacionados, vea [Presentation Background](/slides/es/python-java/presentation-background/) y [Presentation Theme](/slides/es/python-java/presentation-theme/).
 
-## **Clonar un maestro de diapositiva a otra presentación**
+## **Clonar una diapositiva maestra a otra presentación**
 
-Use [MasterSlideCollection.addClone](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslidecollection/#addClone) para copiar una diapositiva maestra a otra presentación. El maestro copiado puede entonces ser usado por diseños y diapositivas en la presentación de destino.
+Utilice [MasterSlideCollection.addClone](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslidecollection/#addClone) para copiar una diapositiva maestra a otra presentación. La maestra copiada puede entonces ser utilizada por diseños y diapositivas en la presentación de destino.
 
 ```python
 import jpype
@@ -276,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-Si necesita clonar diapositivas normales junto con su maestro, consulte [Clone Slides](/slides/es/python-java/clone-slides/).
+Si necesita clonar diapositivas normales junto con su maestra, vea [Clone Slides](/slides/es/python-java/clone-slides/).
 
-## **Agregar varios maestros de diapositiva**
+## **Añadir varias diapositivas maestras**
 
-Una presentación puede contener múltiples diapositivas maestras. Es útil cuando diferentes secciones requieren distinta identidad corporativa, estructura de página o configuraciones de tema.
+Una presentación puede contener varias diapositivas maestras. Esto es útil cuando diferentes secciones requieren distinta identidad visual, estructura de página o ajustes de tema.
 
-![Comandos de PowerPoint para insertar y gestionar maestros de diapositiva](slide-master_9.jpg)
+![Comandos de PowerPoint para insertar y gestionar diapositivas maestras](slide-master_9.jpg)
 
-El siguiente ejemplo clona el maestro predeterminado, le asigna un fondo diferente, crea un diseño bajo ese maestro clonado y añade una nueva diapositiva basada en ese diseño:
+El siguiente ejemplo clona la maestra predeterminada, le da a la copia un fondo diferente, crea un diseño bajo esa maestra clonada y añade una nueva diapositiva basada en ese diseño:
 
 ```python
 import jpype
@@ -319,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Comparar maestros de diapositiva**
+## **Comparar diapositivas maestras**
 
-Los maestros de diapositiva pueden compararse con el método [equals](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#equals) heredado de [BaseSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otras configuraciones de diapositiva. No compara identificadores únicos, como IDs de diapositiva, ni valores dinámicos de marcadores, como la fecha actual.
+Las diapositivas maestras pueden compararse con el método [equals](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#equals) heredado de [BaseSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otros ajustes de la diapositiva. No compara identificadores únicos, como los IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
 
 ```python
 import jpype
@@ -351,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-Para obtener más información, vea [Compare Presentation Slides](/slides/es/python-java/compare-slides/).
+Para más información, vea [Compare Presentation Slides](/slides/es/python-java/compare-slides/).
 
-## **Establecer la vista Maestro de diapositiva como vista predeterminada**
+## **Establecer la vista Diapositiva maestra como vista predeterminada**
 
-Use el método [setLastView](https://reference.aspose.com/slides/es/python-java/aspose.slides/viewproperties/#setLastView) en [ViewProperties](https://reference.aspose.com/slides/es/python-java/aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Maestro de diapositiva:
+Utilice el método [setLastView](https://reference.aspose.com/slides/es/python-java/aspose.slides/viewproperties/#setLastView) en [ViewProperties](https://reference.aspose.com/slides/es/python-java/aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Diapositiva maestra:
 
 ```python
 import jpype
@@ -374,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-Para más configuraciones de vista, consulte [Save Presentation](/slides/es/python-java/save-presentation/).
+Para más ajustes de vista, vea [Save Presentation](/slides/es/python-java/save-presentation/).
 
-## **Eliminar maestros de diapositiva no utilizados**
+## **Eliminar diapositivas maestras no usadas**
 
-A veces las presentaciones contienen maestros de diapositiva que ya no son usados por ninguna diapositiva normal. Eliminar los maestros no utilizados puede reducir el tamaño del archivo y simplificar el mantenimiento de la plantilla.
+A veces las presentaciones contienen diapositivas maestras que ya no son utilizadas por ninguna diapositiva normal. Eliminar las maestras no usadas puede reducir el tamaño del archivo y simplificar el mantenimiento de plantillas.
 
-Use [removeUnused](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslidecollection/#removeUnused) para eliminar los maestros no utilizados de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getMasters):
+Use [removeUnused](https://reference.aspose.com/slides/es/python-java/aspose.slides/masterslidecollection/#removeUnused) para eliminar las maestras no usadas de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getMasters):
 
 ```python
 import jpype
@@ -420,18 +480,18 @@ finally:
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es la diferencia entre un maestro de diapositiva y una diapositiva de diseño?**
+**¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
 
-Un maestro de diapositiva define la configuración de diseño compartida como el tema, fondo, formas comunes y estilos de texto. Una diapositiva de diseño pertenece a un maestro y define una disposición específica de marcadores de posición. Una diapositiva normal usa una diapositiva de diseño, por lo que hereda tanto del diseño como del maestro.
+Una diapositiva maestra define ajustes de diseño compartidos como tema, fondo, formas comunes y estilos de texto. Una diapositiva de diseño pertenece a una diapositiva maestra y define una disposición específica de marcadores de posición. Una diapositiva normal utiliza una diapositiva de diseño, por lo que hereda tanto del diseño como de la maestra.
 
-**¿Puede una presentación contener varios maestros de diapositiva?**
+**¿Puede una presentación contener varias diapositivas maestras?**
 
-Sí. Una presentación puede contener varios maestros de diapositiva. Use varios maestros cuando diferentes secciones necesiten distintos sistemas visuales o identidades corporativas.
+Sí. Una presentación puede contener varias diapositivas maestras. Utilice varias maestras cuando diferentes secciones necesiten diferentes sistemas visuales o marcas.
 
-**¿Debo agregar marcadores de posición a un maestro de diapositiva o a una diapositiva de diseño?**
+**¿Debo añadir marcadores de posición a una diapositiva maestra o a una diapositiva de diseño?**
 
-En la mayoría de los casos, agregue los marcadores de posición a las diapositivas de diseño. Coloque los elementos visuales compartidos y el formato compartido en el maestro, y los marcadores de contenido en los diseños que usarán las diapositivas normales.
+En la mayoría de los casos, añada los marcadores de posición a las diapositivas de diseño. Coloque los elementos visuales compartidos y el formato común en la diapositiva maestra, y ponga los marcadores de contenido en los diseños que usarán las diapositivas normales.
 
-**¿Puedo eliminar un maestro de diapositiva que sigue en uso?**
+**¿Puedo eliminar una diapositiva maestra que sigue estando en uso?**
 
-No. Un maestro de diapositiva que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueva esas diapositivas a diseños bajo otro maestro, o utilice un método de limpieza de maestros no usados que elimine solo los maestros que no estén en uso.
+No. Una diapositiva maestra que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueva esas diapositivas a diseños bajo otra maestra, o utilice un método de limpieza de maestras no usadas que elimine solo las maestras que no están en uso.

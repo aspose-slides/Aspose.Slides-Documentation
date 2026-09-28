@@ -1,24 +1,24 @@
 ---
-title: اعمال یا تغییر طرح‌های اسلاید در PHP
-linktitle: طرح اسلاید
+title: اعمال یا تغییر قالب اسلایدها در PHP
+linktitle: قالب اسلاید
 type: docs
 weight: 60
 url: /fa/php-java/slide-layout/
 keywords:
-- طرح اسلاید
-- طرح محتوا
-- مکان‌گیر
+- قالب اسلاید
+- قالب محتوا
+- نگهدارنده
 - طراحی ارائه
 - طراحی اسلاید
-- طرح استفاده‌نشده
-- قابلیت نمایش پاورقی
+- قالب استفاده‌نشده
+- نمایان بودن پاورقی
 - اسلاید عنوان
 - عنوان و محتوا
 - سرصفحه بخش
-- دو محتوا
+- دو محتوایی
 - مقایسه
 - فقط عنوان
-- طرح خالی
+- قالب خالی
 - محتوا با توضیح
 - تصویر با توضیح
 - عنوان و متن عمودی
@@ -28,42 +28,44 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "اعمال، ایجاد و اصلاح طرح‌های اسلاید در Aspose.Slides برای PHP از طریق Java، افزودن مکان‌گیرها، حذف طرح‌های استفاده‌نشده و کنترل نمایش پاورقی."
+description: "اعمال، ایجاد و اصلاح قالب‌های اسلاید در Aspose.Slides برای PHP از طریق Java، افزودن نگهدارنده‌ها، حذف قالب‌های استفاده‌نشده و کنترل نمایان بودن پاورقی."
 ---
 ## **نمای کلی**
 
-یک طرح اسلاید مکان‌ها و قالب‌بندی مکان‌گیرها مانند عنوان‌ها، متن، تصاویر، نمودارها و جداول را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختاری یکسان می‌بخشد در حالی که به هر اسلاید اجازه می‌دهد محتوای خود را داشته باشد.
+یک طرح اسلاید موقعیت‌ها و قالب‌بندی‌های نگهدارنده‌ها مانند عناوین، متن، تصاویر، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختار ثابتی می‌دهد در حالی که به هر اسلاید اجازه می‌دهد محتوای خاص خود را داشته باشد.
 
-متداول‌ترین طرح‌ها شامل:
+رایج‌ترین طرح‌ها شامل:
 
-- **صفحه عنوان**: شامل مکان‌گیرهای عنوان و زیرعنوان است.
-- **عنوان و محتوا**: شامل یک مکان‌گیر عنوان و یک مکان‌گیر محتوا با کاربرد عمومی است.
-- **خالی**: حاوی هیچ مکان‌گیر محتوایی نیست و زمانی مفید است که هر شکل به صورت دستی موقعیت‌یابی شود.
+- **اسلاید عنوان**: شامل نگهدارنده‌های عنوان و زیرعنوان است.
+- **عنوان و محتوا**: شامل یک نگهدارنده عنوان و یک نگهدارنده محتوای عمومی است.
+- **خالی**: هیچ نگهدارنده محتوایی ندارد و زمانی مفید است که هر شکل به‌صورت دستی موقعیت‌یابی شود.
 
-## **درک ارث‌بری طرح**
+## **درک وراثت طرح**
 
 یک ارائه دارای سه سطح مرتبط است:
 
-1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
-1. یک [اسلاید طرح](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/) به یک اسلاید اصلی تعلق دارد و چینش خاصی از مکان‌گیرها را تعریف می‌کند.
-1. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/) از یک طرح استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌سازد.
+1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) تم، قالب‌بندی‌های مشترک، پس‌زمینه‌ها و اشیای مشترک را تعریف می‌کند.
+2. یک [اسلاید طرح](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/) متعلق به یک اصلی است و چیدمان خاصی از نگهدارنده‌ها را تعریف می‌کند.
+3. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/) از یک طرح استفاده می‌کند و محتوای واردشده برای آن اسلاید را ذخیره می‌نماید.
 
-یک اسلاید عادی تم و قالب‌بندی را از طرح خود به‌ارث می‌برد و طرح نیز از اسلاید اصلی ارث می‌برد. مقدار تنظیم‌شده مستقیم بر روی اسلاید عادی، مقدار به‌ارث‌برده در همان سطح را نادیده می‌گیرد. وقتی یک اسلاید عادی ساخته می‌شود، شکل‌های مکان‌گیر آن از طرح انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده به آن مکان‌گیرها متعلق به اسلاید عادی است.
+یک اسلاید عادی تم و قالب‌بندی را از طرح خود به ارث می‌برد و طرح نیز از اصلی خود به ارث می‌رسد. مقدار تنظیم‌شده مستقیماً روی یک اسلاید عادی، مقدار ارث‌برده‌شده در آن سطح را لغو می‌کند. هنگام ایجاد یک اسلاید عادی، شکل‌های نگهدارنده آن از طرح انتخاب‌شده تولید می‌شوند، در حالی که محتوای واردشده در این نگهدارنده‌ها متعلق به اسلاید عادی است.
 
-پیش از ایجاد اسلایدها، مکان‌گیرهای موردنیاز را به یک طرح اضافه کنید. افزودن مکان‌گیر دیگر به یک طرح پس از آن، به‌صورت خودکار شکل مکان‌گیر متناظر را به اسلایدهای عادی موجود اضافه نمی‌کند.
+پیش از ایجاد اسلایدها، نگهدارنده‌های مورد نیاز را به یک طرح اضافه کنید. افزودن نگهدارنده دیگر به یک طرح بعداً، به‌صورت خودکار شکل نگهدارنده متناظر را به اسلایدهای عادی موجود اضافه نمی‌کند.
 
 این رابطه دو پیامد مهم دارد:
 
-- تغییر قالب‌بندی به‌ارث‌برده یا هندسه مکان‌گیرهای موجود در یک طرح می‌تواند هر اسلایدی که به آن وابسته است را به‌روزرسانی کند. پیش از ویرایش طرحی که قبلاً استفاده شده، اسلایدهای وابسته را بررسی و ارائه نهایی را مرور کنید.
-- طرحی که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. پیش از حذف، اسلایدهای وابسته را به طرح دیگری اختصاص دهید یا فقط طرح‌های بدون استفاده را حذف کنید.
+- تغییر قالب‌بندی ارث‌برده یا هندسه نگهدارنده‌های موجود در یک طرح می‌تواند همه اسلایدهای وابسته به آن را به‌روز کند. قبل از ویرایش طرحی که هم‌اکنون استفاده می‌شود، اسلایدهای وابسته به آن را بررسی کرده و ارائه حاصل را مرور کنید.
+- یک طرح که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته به آن را به طرح دیگری اختصاص دهید، یا فقط طرح‌های استفاده‌نشده را حذف کنید.
 
-برای اطلاعات بیشتر درباره سطح بالایی این سلسله‌مراتوب، به [اسلاید مستر](/slides/fa/php-java/slide-master/) مراجعه کنید.
+برای اطلاعات بیشتر در مورد سطح بالایی این سلسله‌مراتب، به صفحه [اسلاید اصلی](/slides/fa/php-java/slide-master/) مراجعه کنید.
+
+برای مخفی‌سازی لوگوهای ارث‌برده یا اشکال تزئینی اصلی در یک اسلاید یا از طریق یک طرح مشترک، به صفحه [کنترل نمایش گرافیک‌های اصلی](/slides/fa/php-java/slide-master/) مراجعه کنید. این مثال دو اسلاید را که از همان اصلی استفاده می‌کنند مقایسه می‌کند.
 
 ## **انتخاب و اعمال یک طرح اسلاید**
 
-هنگامی که ارائه با تعاریف استاندارد طرح‌های PowerPoint سازگار است، از نوع طرح استفاده کنید. نام‌های طرح توسط کاربر قابل ویرایش و قابل بومی‌سازی هستند، بنابراین انتخاب بر اساس نام کمتر قابل اعتماد است مگر اینکه قالب منبع را کنترل کنید.
+زمانی که ارائه از تعاریف استاندارد طرح‌های PowerPoint پیروی می‌کند، از نوع طرح استفاده کنید. نام‌های طرح قابلیت ویرایش توسط کاربر دارند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر مبنای نام کمتر قابل اطمینان است مگر اینکه الگوی منبع را کنترل کنید.
 
-مثال زیر به دنبال **عنوان و محتوا** در اولین اسلاید اصلی می‌گردد. اگر آن طرح در دسترس نباشد، عمداً به **خالی** بازمی‌گردد. بررسی null دوم ضروری است زیرا یک ارائه می‌تواند فقط شامل طرح‌های سفارشی باشد. طرح انتخاب‌شده سپس از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#setLayoutSlide) به اولین اسلاید عادی اعمال می‌شود.
+مثال زیر به دنبال **عنوان و محتوا** در اولین اصلی می‌گردد. اگر آن طرح موجود نباشد، عمداً به **خالی** باز می‌گردد. بررسی دوم نال لازم است چون یک ارائه می‌تواند فقط طرح‌های سفارشی داشته باشد. سپس طرح انتخاب‌شده به اولین اسلاید عادی از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#setLayoutSlide) اعمال می‌شود.
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-تغییر طرح یک اسلاید مکان‌گیرها، قالب‌بندی به‌ارث‌برده و تطبیق بین مکان‌گیرهای موجود و طرح جدید را تغییر نمی‌دهد، اما شکل‌های عادی اضافه‌شده مستقیم به اسلاید حذف نمی‌شوند. بنابراین هنگام جابه‌جایی بین طرح‌های متفاوت به‌طرز چشم‌گیر، خروجی را بررسی کنید.
+تغییر طرح یک اسلاید، اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. اما موقعیت‌های نگهدارنده، قالب‌بندی‌های ارث‌برده و تطابق بین نگهدارنده‌های موجود و طرح جدید می‌توانند تغییر کنند، بنابراین هنگام جابجایی بین طرح‌های به‌طور قابل‌تفاوت متفاوت، خروجی را بررسی کنید.
 
 ## **افزودن یک اسلاید طرح**
 
-انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح موجود را انتخاب می‌کرد؛ آن را نمی‌ساخت. برای ساخت یک طرح، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterlayoutslidecollection/#add) را بر روی مجموعهٔ طرح‌های اسلاید اصلی هدف فراخوانی کنید.
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح موجود را انتخاب می‌کند؛ طرحی ایجاد نمی‌کند. برای ایجاد یک طرح، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterlayoutslidecollection/#add) را بر روی مجموعه طرح‌های اصلی هدف فراخوانی کنید.
 
-مثال زیر همیشه یک طرح جدید **عنوان و محتوا** به نام `Report Title and Content` اضافه می‌کند، سپس بر پایهٔ آن یک اسلاید عادی می‌سازد. نام‌های طرح باید درون مجموعه یکتا باشند.
+مثال زیر همیشه یک طرح جدید **عنوان و محتوا** به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی بر پایه آن می‌سازد. نام‌های طرح باید در میان مجموعه یکتا باشند.
 
 ```php
 use aspose\slides\Presentation;
@@ -115,14 +117,14 @@ try {
 }
 ```
 
-طرح را فقط زمانی اضافه کنید که قالب واقعاً به ساختار قابل استفاده دیگری نیاز داشته باشد. اگر طرح مناسب از قبل وجود دارد، آن را انتخاب و مجدداً استفاده کنید به‌جای ایجاد یک نسخهٔ تکراری.
+فقط زمانی که الگو واقعاً به یک ساختار قابل استفاده مجدد دیگر نیاز داشته باشد، یک طرح اضافه کنید. اگر یک طرح مناسب از قبل وجود داشته باشد، به جای ایجاد یک نسخه‌ی تکراری، آن را انتخاب و دوباره استفاده کنید.
 
-## **افزودن مکان‌گیرها به یک اسلاید طرح**
+## **افزودن نگهدارنده‌ها به یک اسلاید طرح**
 
-متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/) برای افزودن شکل‌های مکان‌گیر به یک طرح فراهم می‌کند.
+متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/) را برای افزودن اشکال نگهدارنده به یک طرح فراهم می‌کند.
 
-| مکان‌گیر PowerPoint | متد `LayoutPlaceholderManager` |
-| ------------------- | ----------------------------- |
+| نگهدارنده PowerPoint | `LayoutPlaceholderManager` متد |
+| --------------------- | --------------------------------- |
 | ![محتوا](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![محتوا (عمودی)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
 | ![متن](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
@@ -134,7 +136,7 @@ try {
 | ![رسانه](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
 | ![تصویر آنلاین](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-مثال زیر وجود طرح **خالی** را بررسی می‌کند، چهار مکان‌گیر به آن اضافه می‌سازد و سپس یک اسلاید عادی که از طرح اصلاح‌شده استفاده می‌کند می‌سازد. ترتیب به عمد است: ابتدا مکان‌گیرها اضافه می‌شوند سپس اسلاید عادی ساخته می‌شود تا Aspose.Slides بتواند شکل‌های مکان‌گیر متناظر را روی آن اسلاید تولید کند.
+مثال زیر بررسی می‌کند که طرح **خالی** موجود است، چهار نگهدارنده را به آن اضافه می‌کند، و سپس یک اسلاید عادی که از طرح اصلاح‌شده استفاده می‌کند، می‌سازد. ترتیب منظور شده است: نگهدارنده‌ها قبل از ایجاد اسلاید عادی اضافه می‌شوند، تا Aspose.Slides بتواند اشکال نگهدارنده متناظر را در آن اسلاید تولید کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -164,15 +166,13 @@ try {
 
 نتیجه:
 
-![مکان‌گیرهای موجود بر روی اسلاید طرح](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-{{% alert color="warning" title="هشدار" %}}
-تغییر قالب‌بندی به‌ارث‌برده یا هندسهٔ مکان‌گیرهای موجود در طرح می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک مکان‌گیر جدید به‌صورت خودکار در اسلایدهای عادی موجود پر نمی‌شود. تغییرات طرح را روی یک نسخهٔ کپی از ارائه آزمایش کنید و هر اسلاید وابسته را بررسی نمایید.
-{{% /alert %}}
+{{% alert color="warning" title="Warning" %}}تغییر قالب‌بندی ارث‌برده یا هندسه نگهدارنده‌های طرح موجود می‌تواند بر اسلایدهای وابسته اثر بگذارد. یک نگهدارنده طرح تازه‌اضافه‌شده به اسلایدهای عادی موجود بازپُر نمی‌شود. تغییرات طرح را بر روی یک کپی از ارائه تست کنید و هر اسلاید وابسته را بررسی کنید.{{% /alert %}}
 
-## **حذف اسلایدهای طرح بدون استفاده**
+## **حذف اسلایدهای طرح استفاده‌نشده**
 
-از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف طرح‌هایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد استفاده کنید. این متد طرح‌های هنوز مورد استفاده را دست‌نخورده می‌گذارد.
+از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف طرح‌هایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد، استفاده کنید. این متد طرح‌های همچنان استفاده‌شده را دست‌نخورده می‌گذارد.
 
 ```php
 use aspose\slides\Compress;
@@ -188,13 +188,11 @@ try {
 }
 ```
 
-برای حذف یک طرح خاص، ابتدا از متدهای [hasDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. پیش از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را به‌جای دیگر اختصاص دهید. تلاش برای حذف طرحی که در حال استفاده است، باعث بروز [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) می‌شود.
+برای حذف یک طرح خاص، ابتدا از متد [hasDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. پیش از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را مجدداً اختصاص دهید. تلاش برای حذف یک طرح استفاده‌شده یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) پرتاب می‌کند.
 
 ## **کنترل نمایش پاورقی در یک اسلاید طرح**
 
-یک طرح پاورقی، شمارهٔ اسلاید و مکان‌گیرهای تاریخ‑زمان خود را دارد. برای کنترل این مکان‌گیرها برای یک طرح، از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) استفاده کنید. این کار وقتی مفید است که به‌عنوان مثال، طرح‌های محتوا باید پاورقی نشان دهند اما طرح‌های عنوان نباید.
-
-مثال زیر یک طرح را به‌صورت ایمن انتخاب می‌کند و عناصر پاورقی آن را نمایانی می‌سازد:
+یک طرح پایگاه‌های پاورقی، شماره اسلاید و تاریخ‑زمان مخصوص به خود را دارد. برای کنترل این نگهدارنده‌ها برای یک طرح، از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) استفاده کنید. این موضوع زمانی مفید است که مثلاً طرح‌های محتوا باید پاورقی نمایش دهند ولی طرح‌های عنوان نه.
 
 ```php
 use aspose\slides\Presentation;
@@ -226,9 +224,9 @@ try {
 }
 ```
 
-## **کنترل نمایش پاورقی در یک اسلاید اصلی و طرح‌های فرزند آن**
+## **کنترل نمایش پاورقی در یک اصلی و طرح‌های فرزند آن**
 
-برای اعمال تنظیمات یکسان پاورقی در سرتاسر سلسله‌مراتوب اسلاید اصلی، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. متدهای انتقالی [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslideheaderfootermanager/) بر روی اسلاید اصلی و اسلایدهای طرح وابسته و اسلایدهای عادی آن عمل می‌کنند؛ نه فقط یک اسلاید عادی مشخص.
+برای اعمال تنظیمات یکسان پاورقی در سرتاسر سلسله‌مراتب اصلی، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. متدهای انتشار [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslideheaderfootermanager/) بر روی اصلی و اسلایدهای طرح وابسته و اسلایدهای عادی آن اعمال می‌شوند؛ آن‌ها تنها یک اسلاید عادی را هدف نمی‌گیرند.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,20 +247,20 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
 **تفاوت اسلاید اصلی و اسلاید طرح چیست؟**
 
-اسلاید اصلی تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح به اسلاید اصلی تعلق دارد و یک چینش قابل استفاده مجدد از مکان‌گیرها را تعیین می‌کند. اسلایدهای عادی از این طرح‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
+یک اسلاید اصلی تم و قالب‌بندی‌های مشترک ارائه را تعریف می‌کند. یک اسلاید طرح متعلق به اصلی است و یک چیدمان قابل استفادهٔ مجدد از نگهدارنده‌ها را تعریف می‌کند. اسلایدهای عادی از این طرح‌ها استفاده می‌کنند و محتوای خاص هر اسلاید را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
+**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائه دیگر کپی کنم؟**
 
-بله. با استفاده از متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/globallayoutslidecollection/#addClone) یک نسخه به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع مورد استفادهٔ طرح منبع را نیز بررسی کنید.
+بله. یک کپی به مجموعه مقصد با متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/globallayoutslidecollection/#addClone) اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط طرح منبع را نیز بررسی کنید.
 
-**چه اتفاقی می‌افتد وقتی یک طرح که در حال استفاده است را اصلاح می‌کنم؟**
+**وقتی یک طرح که هم‌اکنون استفاده می‌شود را اصلاح می‌کنم چه اتفاقی می‌افتد؟**
 
-اسلایدهای وابسته تغییرات طرح را به‌ارث می‌برند مگر این‌که قالب‌بندی یا اشیای موردنظر را به‌صورت محلی نادیده بگیرند. بنابراین هندسهٔ مکان‌گیر و سبک‌های به‌ارث‌برده می‌تواند به‌طور همزمان در بسیاری از اسلایدها تغییر کند. پیش از ویرایش طرح، با استفاده از [getDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getDependingSlides) اسلایدهای تحت تأثیر را شناسایی کنید.
+اسلایدهای وابسته تغییرات طرح را به ارث می‌برند مگر اینکه قالب‌بندی یا اشیای تحت تأثیر را به‌صورت محلی بازنویسی کنند. بنابراین هندسه نگهدارنده‌ها و استایل ارث‌برده می‌تواند در بسیاری از اسلایدها به‌یک‌باره تغییر کند. قبل از ویرایش طرح، با استفاده از [getDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getDependingSlides) اسلایدهای تحت‌تأثیر را شناسایی کنید.
 
-**اگر زهی یک طرح که هنوز استفاده می‌شود را حذف کنم چه می‌شود؟**
+**اگر یک طرح که هنوز استفاده می‌شود را حذف کنم چه می‌شود؟**
 
-Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) می‌اندازد. ابتدا اسلایدهای وابسته را به طرح دیگری اختصاص دهید یا با استفاده از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) فقط طرح‌های بدون ارجاع را حذف کنید.
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را مجدداً اختصاص دهید، یا از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف فقط طرح‌های بدون ارجاع استفاده کنید.

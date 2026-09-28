@@ -1,70 +1,72 @@
 ---
-title: ใช้หรือเปลี่ยนรูปแบบสไลด์ใน .NET
-linktitle: รูปแบบสไลด์
+title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน .NET
+linktitle: เค้าโครงสไลด์
 type: docs
 weight: 60
 url: /th/net/slide-layout/
 keywords:
-- รูปแบบสไลด์
-- รูปแบบเนื้อหา
-- ตารางตำแหน่ง
-- การออกแบบงานนำเสนอ
+- เค้าโครงสไลด์
+- เค้าโครงเนื้อหา
+- ตัวตำแหน่ง
+- การออกแบบการนำเสนอ
 - การออกแบบสไลด์
-- รูปแบบที่ไม่ได้ใช้
-- การมองเห็นส่วนท้าย
-- สไลด์หัวเรื่อง
-- หัวเรื่องและเนื้อหา
-- ส่วนหัวของหัวข้อ
-- สองเนื้อหา
+- เค้าโครงที่ไม่ได้ใช้
+- การมองเห็นส่วนท้
+- สไลด์ชื่อเรื่อง
+- ชื่อเรื่องและเนื้อหา
+- หัวข้อส่วน
+- สองส่วนเนื้อหา
 - การเปรียบเทียบ
-- หัวเรื่องเท่านั้น
-- รูปแบบเปล่า
-- เนื้อหาพร้อมคำอธิบายภาพ
-- รูปภาพพร้อมคำอธิบายภาพ
-- หัวเรื่องและข้อความแนวตั้ง
-- หัวเรื่องแนวตั้งและข้อความ
+- เฉพาะชื่อเรื่อง
+- เค้าโครงเปล่า
+- เนื้อหาพร้อมคำอธิบาย
+- รูปภาพพร้อมคำอธิบาย
+- ชื่อเรื่องและข้อความแนวตั้ง
+- ชื่อเรื่องแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - C#
 - .NET
 - Aspose.Slides
-description: "ใช้, สร้าง และแก้ไขรูปแบบสไลด์ใน Aspose.Slides สำหรับ .NET, เพิ่มตารางตำแหน่ง, ลบรูปแบบที่ไม่ได้ใช้, และควบคุมการมองเห็นส่วนท้าย."
+description: "ใช้, สร้างและแก้ไขเค้าโครงสไลด์ใน Aspose.Slides สำหรับ .NET, เพิ่มตัวตำแหน่ง, ลบเค้าโครงที่ไม่ได้ใช้, และควบคุมการมองเห็นส่วนท้าย."
 ---
 ## **ภาพรวม**
 
-รูปแบบสไลด์กำหนดตำแหน่งและรูปแบบของตารางตำแหน่ง (placeholder) เช่น ชื่อหัวข้อ, ข้อความ, รูปภาพ, แผนภูมิ, และตาราง การใช้รูปแบบทำให้สไลด์มีโครงสร้างที่สม่ำเสมอในขณะที่แต่ละสไลด์ยังคงมีเนื้อหาเฉพาะของตัวเอง
+เค้าโครงสไลด์กำหนดตำแหน่งและการจัดรูปแบบของตัวตำแหน่งเช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิ และตาราง การใช้เค้าโครงทำให้สไลด์มีโครงสร้างสม่ำเสมอขณะยังให้แต่ละสไลด์สามารถมีเนื้อหาเองได้
 
-รูปแบบที่พบมากที่สุดได้แก่:
+เค้าโครงที่พบบ่อยที่สุดได้แก่:
 
-- **Title Slide**: มีตารางตำแหน่งสำหรับชื่อหัวข้อและหัวข้อย่อย
-- **Title and Content**: มีตารางตำแหน่งชื่อหัวข้อและตารางตำแหน่งเนื้อหาทั่วไป
-- **Blank**: ไม่มีตารางตำแหน่งเนื้อหาและเป็นประโยชน์เมื่อทุกรูปร่างจะถูกจัดตำแหน่งด้วยตนเอง
+- **Title Slide**: มีตัวตำแหน่งชื่อเรื่องและชื่อเรื่องย่อย
+- **Title and Content**: มีตัวตำแหน่งชื่อเรื่องและตัวตำแหน่งเนื้อหาทั่วไป
+- **Blank**: ไม่มีตัวตำแหน่งเนื้อหาและมีประโยชน์เมื่อทุกรูปร่างจะถูกจัดตำแหน่งด้วยตนเอง
 
-## **ทำความเข้าใจการสืบทอดรูปแบบ**
+## **ทำความเข้าใจการสืบทอดเค้าโครง**
 
-งานนำเสนอมีระดับที่เกี่ยวข้องกันสามระดับ:
+งานนำเสนอมีระดับที่เกี่ยวข้องสามระดับ:
 
-1. A [master slide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) กำหนดธีม, รูปแบบที่ใช้ร่วมกัน, พื้นหลัง, และวัตถุทั่วไป
-2. A [layout slide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/) เป็นส่วนหนึ่งของ master และกำหนดการจัดเรียงตารางตำแหน่งเฉพาะ
-3. A [normal slide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/) ใช้รูปแบบหนึ่งและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น
+1. A [master slide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) กำหนดธีม, การจัดรูปแบบที่ใช้ร่วม, พื้นหลัง, และอ็อบเจกต์ทั่วไป.
+2. A [layout slide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/) เป็นส่วนของ master และกำหนดการจัดเรียงเฉพาะของตัวตำแหน่ง.
+3. A [normal slide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/) ใช้เค้าโครงหนึ่งและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น.
 
-สไลด์ทั่วไปสืบทอดธีมและรูปแบบจากรูปแบบของมัน, และรูปแบบสืบทอดจาก master ค่าที่กำหนดโดยตรงบนสไลด์ทั่วไปจะทับค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ทั่วไป รูปแบบของตารางตำแหน่งจะถูกสร้างจากรูปแบบที่เลือก, ขณะที่เนื้อหาที่ป้อนในตารางตำแหน่งเหล่านั้นเป็นของสไลด์ทั่วไป
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเค้าโครงของมัน, และเค้าโครงสืบทอดจาก master. ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะทับค่าที่สืบทอดในระดับนั้น. เมื่อสไลด์ปกติถูกสร้าง, รูปร่างตัวตำแหน่งจะถูกสร้างจากเค้าโครงที่เลือก, ในขณะที่เนื้อหาที่ป้อนในตัวตำแหน่งนั้นเป็นของสไลด์ปกติ.
 
-เพิ่มตารางตำแหน่งที่จำเป็นลงในรูปแบบก่อนสร้างสไลด์จากมัน การเพิ่มตารางตำแหน่งใหม่ในรูปแบบในภายหลังจะไม่ทำให้รูปแบบตารางตำแหน่งที่สอดคล้องกันถูกเพิ่มโดยอัตโนมัติให้กับสไลด์ทั่วไปที่มีอยู่
+เพิ่มตัวตำแหน่งที่จำเป็นลงในเค้าโครงก่อนสร้างสไลด์จากมัน. การเพิ่มตัวตำแหน่งอื่นลงในเค้าโครงภายหลังจะไม่เพิ่มรูปทรงตัวตำแหน่งที่สอดคล้องให้กับสไลด์ปกติที่มีอยู่โดยอัตโนมัติ.
 
-ความสัมพันธ์นี้มีผลสําคญสองประการ:
+ความสัมพันธ์นี้มีผลสำคัญสองประการ:
 
-- การเปลี่ยนรูปแบบที่สืบทอดหรือเรขาคณิตของตารางตำแหน่งที่มีอยู่ในรูปแบบอาจอัปเดตทุกสไลด์ที่พึ่งพาอยู่ ก่อนแก้ไขรูปแบบที่กำลังใช้งานอยู่ ให้ตรวจสอบสไลด์ที่พึ่งพาและตรวจทานผลลัพธ์ของงานนำเสนอ
-- รูปแบบที่ยังคงถูกสไลด์ใช้งานอยู่ไม่สามารถลบได้ ให้กำหนดสไลด์ที่พึ่งพาให้ใช้รูปแบบอื่นก่อน หรือทำการลบเฉพาะรูปแบบที่ไม่ได้ใช้เท่านั้น
+- การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวตำแหน่งที่มีอยู่บนเค้าโครงอาจอัปเดตสไลด์ทุกสไลด์ที่พึ่งพาอยู่. ก่อนแก้ไขเค้าโครงที่กำลังใช้อยู่ให้ตรวจสอบสไลด์ที่พึ่งพาและตรวจสอบการนำเสนอที่ได้.
+- เค้าโครงที่ยังถูกสไลด์ใช้อยู่ไม่สามารถลบได้. ต้องกำหนดสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน, หรือเพียงลบเค้าโครงที่ไม่ได้ใช้.
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของโครงสร้างนี้ ดูที่ [Slide Master](/slides/th/net/slide-master/).
 
-## **เลือกและใช้รูปแบบสไลด์**
+เพื่อซ่อนโลโก้ที่สืบทอดหรือรูปแบบ master ที่เป็นการตกแต่งบนสไลด์เดียวหรือผ่านเค้าโครงที่ใช้ร่วม ดูที่ [Control the Visibility of Master Graphics](/slides/th/net/slide-master/). ตัวอย่างเปรียบเทียบสองสไลด์ที่ใช้ master เดียวกัน.
 
-ใช้ประเภทรูปแบบเมื่อการนำเสนอปฏิบัติตามคำนิยามรูปแบบ PowerPoint มาตฐาน ชื่อรูปแบบสามารถแก้ไขได้โดยผู้ใช้และอาจแปลเป็นภาษาท้องถิ่นได้ ดังนั้นการเลือกโดยอ้างอิงชื่อจึงไม่น่าเชื่อถือ เว้นแต่คุณจะควบคุมแม่แบบต้นฉบับ
+## **เลือกและใช้เค้าโครงสไลด์**
 
-ตัวอย่างต่อไปนี้มองหา **Title and Content** บน master แรก หากรูปแบบนั้นไม่มีอยู่ จะย้อนกลับไปใช้ **Blank** อย่างตั้งใจ การตรวจสอบค่า null ครั้งที่สองจำเป็นเนื่องจากงานนำเสนออาจมีเฉพาะรูปแบบที่กำหนดเองเท่านั้น รูปแบบที่เลือกจะถูกนำไปใช้กับสไลด์ทั่วไปแรกผ่านคุณสมบัติ [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/)
+ใช้ประเภทเค้าโครงเมื่อการนำเสนอทำตามคำนิยามเค้าโครง PowerPoint มาตรฐาน. ชื่อเค้าโครงสามารถแก้ไขโดยผู้ใช้และสามารถแปลได้, ดังนั้นการเลือกตามชื่อจึงน่าเชื่อถือน้อยกว่า หากคุณไม่ได้ควบคุมเทมเพลตต้นฉบับ.
+
+ตัวอย่างต่อไปนี้ค้นหา **Title and Content** บน master แรก. หากเค้าโครงนั้นไม่มีอยู่, จะกลับไปใช้ **Blank** อย่างตั้งใจ. การตรวจสอบค่า null ครั้งที่สองจำเป็นเนื่องจากการนำเสนออาจมีเฉพาะเค้าโครงที่กำหนดเองเท่านั้น. เค้าโครงที่เลือกจะถูกนำไปใช้กับสไลด์ปกติแรกผ่านคุณสมบัติ [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/).
 
 ```csharp
 using System;
@@ -85,13 +87,13 @@ presentation.Slides[0].LayoutSlide = targetLayout;
 presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-การเปลี่ยนรูปแบบของสไลด์จะไม่ลบรูปร่างทั่วไปที่เพิ่มโดยตรงให้กับสไลด์ อย่างไรก็ตาม ตำแหน่งของตารางตำแหน่ง, รูปแบบที่สืบทอด, และความสอดคล้องระหว่างตารางตำแหน่งที่มีอยู่กับรูปแบบใหม่อาจเปลี่ยนแปลง ดังนั้นให้ตรวจสอบผลลัพธ์เมื่อสลับระหว่างรูปแบบที่แตกต่างอย่างมาก
+การเปลี่ยนเค้าโครงของสไลด์ไม่ทำให้รูปทรงทั่วไปที่เพิ่มโดยตรงบนสไลด์หายไป. อย่างไรก็ตาม, ตำแหน่งของตัวตำแหน่ง, การจัดรูปแบบที่สืบทอด, และความสอดคล้องระหว่างตัวตำแหน่งที่มีอยู่กับเค้าโครงใหม่อาจเปลี่ยนแปลง, ดังนั้นควรตรวจสอบผลลัพธ์เมื่อสลับระหว่างเค้าโครงที่แตกต่างอย่างมาก.
 
-## **เพิ่มสไลด์รูปแบบ**
+## **เพิ่มเค้าโครงสไลด์**
 
-การเลือกและการสร้างเป็นการดำเนินการแยกกัน ตัวอย่างก่อนหน้าเลือกรูปแบบที่มีอยู่; ไม่ได้สร้างรูปแบบใหม่ เพื่อสร้างรูปแบบ ให้เรียกเมธอด [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/th/net/aspose.slides/masterlayoutslidecollection/add/) บนคอลเลกชันรูปแบบของ master เป้าหมาย
+การเลือกและการสร้างเป็นการดำเนินการแยกกัน. ตัวอย่างก่อนหน้านี้เลือกเค้าโครงที่มีอยู่; ไม่ได้สร้างเค้าโครงใหม่. การสร้างเค้าโครงให้เรียกเมธอด [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/th/net/aspose.slides/masterlayoutslidecollection/add/) บนคอล렉ชันเค้าโครงของ master ที่ต้องการ.
 
-ตัวอย่างต่อไปนี้จะเพิ่มรูปแบบ **Title and Content** ใหม่ชื่อ `Report Title and Content` เสมอ จากนั้นเพิ่มสไลด์ทั่วไปตามรูปแบบนั้น ชื่อรูปแบบต้องไม่ซ้ำกันภายในคอลเลกชัน
+ตัวอย่างต่อไปนี้จะเพิ่มเค้าโครง **Title and Content** ใหม่ที่ชื่อ `Report Title and Content` เสมอ, แล้วจึงเพิ่มสไลด์ปกติที่อิงตามเค้าโครงนั้น. ชื่อเค้าโครงต้องไม่ซ้ำกันภายในคอล렉ชัน.
 
 ```csharp
 using Aspose.Slides;
@@ -106,14 +108,14 @@ presentation.Slides.AddEmptySlide(reportLayout);
 presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-เพิ่มรูปแบบเฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้อีกหนึ่งรูปแบบ หากมีรูปแบบที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างซ้ำ
+เพิ่มเค้าโครงเฉพ็ตเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้จริง ๆ. หากมีเค้าโครงที่เหมาะสมอยู่แล้ว, ให้เลือกและใช้ซ้ำแทนการสร้างสำเนาใหม่.
 
-## **เพิ่มตารางตำแหน่งให้กับสไลด์รูปแบบ**
+## **เพิ่มตัวตำแหน่งลงในเค้าโครงสไลด์**
 
-คุณสมบัติ [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/placeholdermanager/) ให้ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutplaceholdermanager/) สำหรับเพิ่มรูปร่างตารางตำแหน่งลงในรูปแบบ
+คุณสมบัติ [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/placeholdermanager/) ให้ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutplaceholdermanager/) สำหรับการเพิ่มรูปทรงตัวตำแหน่งลงในเค้าโครง.
 
-| ตารางตำแหน่ง PowerPoint | `ILayoutPlaceholderManager` เมธอด |
-| -------------------------- | --------------------------------- |
+| PowerPoint Placeholder | `ILayoutPlaceholderManager` Method |
+| ---------------------- | ---------------------------------- |
 | ![เนื้อหา](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
 | ![เนื้อหา (แนวตั้ง)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
 | ![ข้อความ](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
@@ -123,9 +125,9 @@ presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 | ![ตาราง](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
 | ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
 | ![สื่อ](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
-| ![ภาพออนไลน์](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
+| ![รูปภาพออนไลน์](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรูปแบบ **Blank** อยู่, เพิ่มตารางตำแหน่งสี่รายการลงไป, แล้วสร้างสไลด์ทั่วไปที่ใช้รูปแบบที่ปรับเปลี่ยนแล้ว การจัดลำดับนี้ตั้งใจไว้: ตารางตำแหน่งถูกเพิ่มก่อนสร้างสไลด์ทั่วไป เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างตารางตำแหน่งที่สอดคล้องบนสไลด์นั้น
+ตัวอย่างต่อไปนี้ตรวจสอบว่าเค้าโครง **Blank** มีอยู่, เพิ่มตัวตำแหน่งสี่รายการลงในนั้น, แล้วสร้างสไลด์ปกติที่ใช้เค้าโครงที่แก้ไขแล้ว. ลำดับการทำเป็นตามเจตนา: ตัวตำแหน่งถูกเพิ่มก่อนสร้างสไลด์ปกติ, เพื่อให้ Aspose.Slides สามารถสร้างรูปทรงตัวตำแหน่งที่สอดคล้องบนสไลด์นั้น.
 
 ```csharp
 using System;
@@ -153,15 +155,15 @@ presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![ตารางตำแหน่งบนสไลด์รูปแบบ](add_placeholders.png)
+![ตัวตำแหน่งบนเค้าโครงสไลด์](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-การเปลี่ยนรูปแบบที่สืบทอดหรือเรขาคณิตของตารางตำแหน่งรูปแบบที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ตารางตำแหน่งรูปแบบที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าไปในสไลด์ทั่วไปที่มีอยู่ ทดสอบการเปลี่ยนแปลงรูปแบบบนสำเนาของงานนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกสไลด์
+การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวตำแหน่งเค้าโครงที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพา. ตัวตำแหน่งเค้าโครงที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าสู่สไลด์ปกติที่มีอยู่. ทดสอบการเปลี่ยนแปลงเค้าโครงบนสำเนาของการนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกสไลด์.
 {{% /alert %}}
 
-## **ลบสไลด์รูปแบบที่ไม่ได้ใช้**
+## **ลบเค้าโครงสไลด์ที่ไม่ได้ใช้**
 
-ใช้เมธอด [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบรูปแบบที่ไม่มีสไลด์ทั่วไปอ้างอิง เมธอดจะปล่อยรูปแบบที่ยังใช้งานอยู่ให้คงอยู่
+ใช้เมธอด [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบเค้าโครงที่ไม่มีสไลด์ปกติใดอ้างอิง. เมธอดจะคงเค้าโครงที่ยังถูกใช้อยู่ไว้ไม่มีการเปลี่ยนแปลง.
 
 ```csharp
 using Aspose.Slides;
@@ -174,13 +176,13 @@ Compress.RemoveUnusedLayoutSlides(presentation);
 presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-เพื่อทำการลบรูปแบบใดรูปแบบหนึ่ง ให้ใช้คุณสมบัติ [HasDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/hasdependingslides/) หรือเมธอด [GetDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/getdependingslides/) ของมัน ก่อนเรียก [ILayoutSlide.Remove](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/remove/) ให้กำหนดสไลด์ที่พึ่งพาใหม่ การพยายามลบรูปแบบที่กำลังถูกใช้จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/)
+เพื่อทำการลบเค้าโครงเฉพาะหนึ่ง, ให้ใช้คุณสมบัติ [HasDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/hasdependingslides/) หรือเมธอด [GetDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/getdependingslides/) ก่อน. จากนั้นกำหนดสไลด์ที่พึ่งพาใหม่ก่อนเรียก [ILayoutSlide.Remove](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/remove/). การพยายามลบเค้าโครงที่กำลังใช้งานจะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/).
 
-## **ควบคุมการมองเห็นส่วนท้ายบนสไลด์รูปแบบ**
+## **ควบคุมการมองเห็นส่วนท้ายบนเค้าโครงสไลด์**
 
-รูปแบบมีส่วนท้าย, ตัวเลขสไลด์, และตารางตำแหน่งวันที่และเวลาเป็นของตนเอง ใช้คุณสมบัติ [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/headerfootermanager/) เพื่อควบคุมตารางตำแหน่งเหล่านั้นสำหรับรูปแบบหนึ่ง ซึ่งมีประโยชน์เมื่อตัวอย่างเช่น รูปแบบเนื้อควรแสดงส่วนท้ายแต่รูปแบบหัวข้อไม่ควรแสดง
+เค้าโครงมีตัวตำแหน่งส่วนท้าย, ตัวเลขสไลด์, และวันที่‑เวลา ของตัวเอง. ใช้คุณสมบัติ [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/headerfootermanager/) เพื่อควบคุมตัวตำแหน่งเหล่านี้สำหรับเค้าโครงหนึ่ง, ซึ่งมีประโยชน์ในกรณีเช่น เค้าโครงเนื้อหาควรแสดงส่วนท้ายแต่เค้าโครงหัวข้อไม่ควร.
 
-ตัวอย่างต่อไปนี้เลือกรูปแบบอย่างปลอดภัยและทำให้ส่วนท้ายของมันแสดงผล:
+ตัวอย่างต่อไปนี้เลือกเค้าโครงอย่างปลอดภัยและทำให้ส่วนของส่วนท้ายแสดงผล:
 
 ```csharp
 using System;
@@ -206,9 +208,9 @@ headerFooterManager.SetDateTimeText("Date and time text");
 presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
-## **ควบคุมการมองเห็นส่วนท้ายบน Master และรูปแบบลูกของมัน**
+## **ควบคุมการมองเห็นส่วนท้ายบน Master และเค้าโครงลูกของมัน**
 
-เพื่อใช้การตั้งค่าส่วนท้ายอย่างสอดคล้องกันทั่วทั้งลำดับชั้น master ให้ใช้คุณสมบัติ [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/headerfootermanager/) วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslideheaderfootermanager/) ทำงานบน master และสไลด์รูปแบบและสไลด์ทั่วไปที่พึ่งพา; ไม่ได้มุ่งเป้าไปที่สไลด์ทั่วไปเพียงอันเดียว
+เพื่อกำหนดการตั้งค่าส่วนท้ายที่สอดคล้องทั่วทั้งลำดับชั้น master, ให้ใช้คุณสมบัติ [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/headerfootermanager/). วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslideheaderfootermanager/) ทำงานบน master และเค้าโครงสไลด์ที่พึ่งพา, รวมถึงสไลด์ปกติ; ไม่ได้มุ่งเป้าเพียงสไลด์ปกติเดียว.
 
 ```csharp
 using Aspose.Slides;
@@ -228,18 +230,18 @@ presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่าง Master Slide และ Layout Slide คืออะไร?**
+**ความแตกต่างระหว่าง Master Slide กับ Layout Slide คืออะไร?**
 
-Master slide กำหนดธีมและรูปแบบที่ใช้ร่วมกันของงานนำเสนอ Layout slide เป็นส่วนหนึ่งของ master และกำหนดการจัดเรียงตารางตำแหน่งที่ใช้ซ้ำได้หนึ่งแบบ สไลด์ทั่วไปใช้รูปแบบเหล่านั้นและเก็บเนื้อหาเฉพาะสไลด์
+master slide กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมของการนำเสนอ. layout slide เป็นส่วนของ master และกำหนดการจัดเรียงตัวตำแหน่งที่ใช้ซ้ำได้หนึ่งแบบ. สไลด์ปกติใช้เค้าโครงเหล่านี้และเก็บเนื้อหาเฉพาะสไลด์.
 
-**ฉันสามารถคัดลอก Layout Slide จากงานนำเสนอหนึ่งไปยังงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถคัดลอก Layout Slide จากการนำเสนอหนึ่งไปยังอีกการนำเสนอได้หรือไม่?**
 
-ได้. ให้เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/globallayoutslidecollection/addclone/) เมื่อคัดลอกระหว่างงานนำเสนอ ควรตรวจสอบแบบอักษร, ธีม, รูปภาพ, และทรัพยากรอื่น ๆ ที่ใช้โดย Layout ต้นทางด้วย
+ได้. เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/globallayoutslidecollection/addclone/). เมื่อคัดลอกระหว่างการนำเสนอควรตรวจสอบฟอนต์, ธีม, รูปภาพ, และทรัพยากรอื่น ๆ ที่ใช้โดย layout ต้นฉบับ.
 
-**จะเกิดอะไรขึ้นเมื่อฉันแก้ไข Layout ที่กำลังใช้อยู่?**
+**จะเกิดอะไรขึ้นเมื่อฉันแก้ไข Layout ที่กำลังถูกใช้อยู่?**
 
-สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงรูปแบบ เว้นแต่พวกมันจะทับรูปแบบหรือวัตถุที่ได้รับผลกระทบในระดับท้องถิ่น ดังนั้นเรขาคณิตของตารางตำแหน่งและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงหลายสไลด์พร้อมกัน ใช้ [GetDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/getdependingslides/) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขรูปแบบ
+สไลด์ที่พึ่งพาจะสืบรับการเปลี่ยนแปลงของ layout ยกเว้นว่าพวกมันได้ทับการจัดรูปแบบหรืออ็อบเจกต์ที่ได้รับผลกระทบในระดับท้องถิ่น. ดังนั้นรูปทรงของตัวตำแหน่งและสไตล์ที่สืบทอดอาจเปลี่ยนบนหลายสไลด์พร้อมกัน. ใช้ [GetDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/getdependingslides/) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเค้าโครง.
 
-**จะเกิดอะไรขึ้นหากฉันลบ Layout ที่ยังคงถูกใช้งานอยู่?**
+**จะเกิดอะไรขึ้นหากฉันลบ Layout ที่ยังถูกใช้อยู่?**
 
-Aspose.Slides จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/). ให้กำหนดสไลด์ที่พึ่งพาใหม่ก่อน หรือใช้ [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบเฉพาะรูปแบบที่ไม่ได้อ้างอิง
+Aspose.Slides จะโยน [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/). ให้กำหนดสไลด์ที่พึ่งพาใหม่ก่อน, หรือใช้ [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบเฉพาะเค้าโครงที่ไม่มีการอ้างอิง.

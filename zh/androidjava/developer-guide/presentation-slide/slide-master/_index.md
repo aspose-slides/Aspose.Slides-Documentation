@@ -1,5 +1,5 @@
 ---
-title: 管理 Android 上的演示文稿幻灯片母版
+title: 在 Android 上管理演示文稿幻灯片母版
 linktitle: 幻灯片母版
 type: docs
 weight: 70
@@ -14,7 +14,7 @@ keywords:
 - 占位符
 - 克隆母版幻灯片
 - 复制母版幻灯片
-- 重复母版幻灯片
+- 复制作母版幻灯片
 - 未使用的母版幻灯片
 - PowerPoint
 - OpenDocument
@@ -22,39 +22,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Android via Java 中管理幻灯片母版：在 PowerPoint 和 OpenDocument 演示文稿中访问、编辑、克隆、比较和删除母版幻灯片。"
+description: "在 Aspose.Slides for Android via Java 中管理幻灯片母版：访问、编辑、克隆、比较并移除 PowerPoint 和 OpenDocument 演示文稿中的母版幻灯片。"
 ---
 ## **概述**
 
-**幻灯片母版** 定义了一组幻灯片的共享设计设置。它可以包含公共形状、徽标、背景、文本样式、主题设置和页脚设置。在 PowerPoint 中，编辑幻灯片母版是保持演示文稿一致性的常用方式，而无需在每张幻灯片上重复相同的格式。
+**幻灯片母版** 定义了一组幻灯片的共享设计设置。它可以包含通用形状、徽标、背景、文本样式、主题设置和页脚设置。在 PowerPoint 中，编辑幻灯片母版是保持演示文稿一致性的常用方法，无需在每张幻灯片上重复相同的格式。
 
 Aspose.Slides for Android via Java 支持相同的模型。一个演示文稿可以包含一个或多个母版幻灯片，每个母版幻灯片可以包含若干布局幻灯片。普通幻灯片通常不会直接引用母版幻灯片，而是使用布局幻灯片，而该布局幻灯片属于某个母版幻灯片。
 
-层级结构为：
+层次结构如下：
 
-1. **幻灯片母版** - 定义共享的设计和主题。  
-1. **布局幻灯片** - 定义占位符的具体排列和布局级别的格式。  
-1. **普通幻灯片** - 包含实际的演示内容，并使用一个布局幻灯片。
+1. **母版幻灯片** —— 定义共享的设计和主题。  
+1. **布局幻灯片** —— 定义占位符的具体排列和布局级别的格式。  
+1. **普通幻灯片** —— 包含实际的演示内容并使用一个布局幻灯片。
 
-![母版幻灯片、布局幻灯片和普通幻灯片的层级结构](slide-master_2.jpg)
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-在 Aspose.Slides 中，幻灯片母版由 [IMasterSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslide/) 接口表示。演示文稿中的所有母版幻灯片可通过 [Presentation.getMasters](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#getMasters--) 集合访问，该集合实现了 [IMasterSlideCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslidecollection/)。有关完整的 Android via Java API，请参阅 [com.aspose.slides API 参考](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/)。
+在 Aspose.Slides 中，幻灯片母版由 [IMasterSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslide/) 接口表示。演示文稿中所有母版幻灯片可通过 [Presentation.getMasters](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#getMasters--) 集合获取，该集合实现了 [IMasterSlideCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslidecollection/)。完整的 Android via Java API 请参阅 [com.aspose.slides API reference](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/)。
 
 {{% alert color="info" title="Inheritance" %}}
-
-当同一属性在多个层级上定义时，层级更具体的会覆盖更通用的。例如，如果母版幻灯片和布局幻灯片都定义了背景，则基于该布局的幻灯片使用布局的背景。有关布局幻灯片的更多信息，请参阅 [应用或更改幻灯片布局](/slides/zh/androidjava/slide-layout/)。
-
+当同一属性在多个层级上定义时，层级更具体的会覆盖更上层的。例如，如果母版幻灯片和布局幻灯片都定义了背景，则基于该布局的幻灯片使用布局背景。有关布局幻灯片的更多信息，请参阅 [Apply or Change Slide Layouts](/slides/zh/androidjava/slide-layout/)。
 {{% /alert %}}
 
 ## **访问幻灯片母版**
 
 在 PowerPoint 中，可以通过 **视图** > **幻灯片母版** 打开幻灯片母版视图。
 
-![PowerPoint “视图”选项卡上的幻灯片母版命令](slide-master_3.jpg)
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-在 Aspose.Slides 中，使用 `getMasters()` 集合来访问母版幻灯片：
+在 Aspose.Slides 中，使用 `getMasters()` 集合访问母版幻灯片：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -71,6 +71,8 @@ try {
 您还可以通过普通幻灯片的布局获取其使用的母版幻灯片：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -86,7 +88,7 @@ try {
 
 ## **幻灯片母版包含的内容**
 
-母版幻灯片是类似幻灯片的对象。它实现了 [IBaseSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibaseslide/)，因此它公开了许多普通幻灯片和布局幻灯片使用的相同属性。
+母版幻灯片是一种类似幻灯片的对象。它实现了 [IBaseSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibaseslide/)，因此公开了许多普通幻灯片和布局幻灯片使用的相同属性。
 
 常用的母版幻灯片成员包括：
 
@@ -97,15 +99,17 @@ try {
 | `getLayoutSlides()` | 存储属于该母版的布局幻灯片。 |
 | `getThemeManager()` | 提供对母版主题 API 的访问。 |
 | `getHeaderFooterManager()` | 控制母版及其子布局的页眉、页脚、日期和幻灯片编号。 |
-| `getDependingSlides()` | 返回通过其布局依赖于该母版的普通幻灯片。 |
+| `getDependingSlides()` | 返回通过布局依赖于该母版的普通幻灯片。 |
 
-## **向幻灯片母版添加图像**
+## **向幻灯片母版添加图片**
 
-向母版幻灯片添加图像后，使用该母版布局的幻灯片都会显示该图像。这对于徽标、水印、装饰带以及其他重复的视觉元素非常有用。
+向母版幻灯片添加图片后，使用该母版布局的幻灯片都会显示该图片。这对于徽标、水印、装饰性条带等重复出现的视觉元素非常有用。
 
-下面的示例向第一个母版幻灯片添加徽标：
+下面的示例向第一张母版幻灯片添加徽标：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +135,75 @@ try {
 }
 ```
 
-有关图片框的更多信息，请参阅 [图片框](/slides/zh/androidjava/picture-frame/)。
+有关图片框的更多信息，请参阅 [Picture Frame](/slides/zh/androidjava/picture-frame/)。
+
+## **控制母版图形的可见性**
+
+使用 [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) 可隐藏继承自母版的图形（如徽标或装饰形状），而无需从母版中删除它们。对需要省略这些图形的幻灯片调用 [Slide.setShowMasterShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) 并传入 `false`，而在需要显示它们的幻灯片上保持 `true`。
+
+下面的完整示例在母版上创建蓝色装饰条，并在两个使用相同空白布局的幻灯片上展示：第一个幻灯片显示该条带，第二个隐藏。无需输入演示文稿或图片。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+该示例使用新演示文稿自带的 **Blank** 布局，并移除初始幻灯片自身的占位符。
+
+### **选择设置的作用范围**
+
+普通幻灯片通过 [ISlide.getLayoutSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islide/#getLayoutSlide--) 和 [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--) 使用其母版。对单个幻灯片设置属性仅影响该幻灯片本身。将 `false` 传给 [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) 会隐藏使用该共享布局的所有幻灯片的母版图形，即使它们各自的设置为 `true`。若只想在一张幻灯片上隐藏图形，请修改该幻灯片的属性并保持共享布局不变。
+
+该设置不支持在母版幻灯片本身上作为可见性控制使用。在母版上，[getShowMasterShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) 始终返回 `false`，将 `true` 传给 [setShowMasterShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) 会抛出异常。请在普通幻灯片或布局幻灯片上使用。
+
+### **将图形与背景区分**
+
+| 操作 | 效果 |
+| --- | --- |
+| 隐藏母版图形 | 在不删除或更改幻灯片自身形状的情况下控制继承自母版的形状可见性。 |
+| 更改幻灯片背景填充 | 更改背景颜色、渐变或图片。母版图形是独立的形状，可保持在该背景之上可见。参见 [Presentation Background](/slides/zh/androidjava/presentation-background/)。 |
+| 删除母版上的形状 | 移除共享源形状，之后任何使用该母版的幻灯片都不再拥有该形状。 |
 
 ## **使用占位符**
 
-占位符通常在布局幻灯片上定义。母版幻灯片提供共享的样式和主题，布局幻灯片继承这些设置，同时每个布局决定哪些占位符可用以及它们的位置。
+占位符通常在布局幻灯片上定义。母版幻灯片提供共享的样式和主题，布局幻灯片决定哪些占位符可用以及它们的位置。
 
 在 PowerPoint 中，占位符命令位于幻灯片母版视图中。
 
-![PowerPoint 幻灯片母版视图中的“插入占位符”命令](slide-master_5.png)
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
 要使用 Aspose.Slides 添加新占位符，请操作属于母版的布局幻灯片：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -162,9 +222,12 @@ try {
 }
 ```
 
-您也可以格式化已存在于母版幻灯片上的占位符形状。下面的示例查找标题占位符并应用线性渐变填充：
+您也可以格式化母版幻灯片上已存在的占位符形状。下面的示例查找标题占位符并应用线性渐变填充：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -183,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -198,19 +261,22 @@ try {
 }
 ```
 
-![由普通幻灯片继承的已格式化标题占位符](slide-master_8.png)
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-有关占位符和文本格式化的更多选项，请参阅 [在占位符中设置提示文本](/slides/zh/androidjava/manage-placeholder/) 和 [文本格式化](/slides/zh/androidjava/text-formatting/)。
+更多占位符和文本格式化选项，请参阅 [Set Prompt Text in Placeholder](/slides/zh/androidjava/manage-placeholder/) 和 [Text Formatting](/slides/zh/androidjava/text-formatting/)。
 
 ## **更改幻灯片母版背景**
 
-母版背景会被布局和未覆盖该背景的幻灯片继承。以下示例为第一个母版幻灯片设置纯色背景：
+母版背景会被布局和未覆盖它的幻灯片继承。下面的示例为第一张母版幻灯片设置纯色背景：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -222,13 +288,15 @@ try {
 }
 ```
 
-相关主题请参阅 [演示文稿背景](/slides/zh/androidjava/presentation-background/) 和 [演示文稿主题](/slides/zh/androidjava/presentation-theme/)。
+相关主题请参阅 [Presentation Background](/slides/zh/androidjava/presentation-background/) 和 [Presentation Theme](/slides/zh/androidjava/presentation-theme/)。
 
 ## **将幻灯片母版克隆到另一个演示文稿**
 
-使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) 将母版幻灯片复制到另一个演示文稿中。复制后的母版可以在目标演示文稿中被布局和幻灯片使用。
+使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) 可以将母版幻灯片复制到另一个演示文稿。复制后的母版即可在目标演示文稿的布局和幻灯片中使用。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -242,22 +310,25 @@ try {
 }
 ```
 
-如果需要连同母版一起克隆普通幻灯片，请参阅 [克隆幻灯片](/slides/zh/androidjava/clone-slides/)。
+如果需要连同母版一起克隆普通幻灯片，请参阅 [Clone Slides](/slides/zh/androidjava/clone-slides/)。
 
 ## **添加多个幻灯片母版**
 
 一个演示文稿可以包含多个母版幻灯片。这在不同章节需要不同品牌、页面结构或主题设置时非常有用。
 
-![PowerPoint 用于插入和管理母版幻灯片的命令](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-以下示例克隆默认母版，为克隆的母版设置不同的背景，在该克隆母版下创建布局，并基于该布局添加新幻灯片：
+下面的示例克隆默认母版，为克隆设置不同的背景，在该克隆母版下创建布局，并基于该布局添加新幻灯片：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -279,9 +350,11 @@ try {
 
 ## **比较幻灯片母版**
 
-可以使用从 [IBaseSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibaseslide/) 继承的 `equals` 方法比较母版幻灯片。比较检查结构和静态内容，如形状、文本、格式、动画以及其他幻灯片设置。它不比较唯一标识符（例如幻灯片 ID）或动态占位符值（例如当前日期）。
+母版幻灯片可以使用继承自 [IBaseSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibaseslide/) 的 `equals` 方法进行比较。比较检查结构和静态内容，如形状、文本、格式、动画及其他幻灯片设置。不比较唯一标识符（如幻灯片 ID）或动态占位符值（如当前日期）。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -308,13 +381,15 @@ try {
 }
 ```
 
-更多信息请参阅 [比较演示文稿幻灯片](/slides/zh/androidjava/compare-slides/)。
+更多信息，请参阅 [Compare Presentation Slides](/slides/zh/androidjava/compare-slides/)。
 
 ## **将幻灯片母版视图设为默认视图**
 
-在 [ViewProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/viewproperties/) 上使用 `setLastView` 方法可以控制 PowerPoint 首次打开时的视图。下面的示例在幻灯片母版视图中打开演示文稿：
+在 [ViewProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/viewproperties/) 上使用 `setLastView` 方法可以控制 PowerPoint 首次打开的视图。下面的示例在幻灯片母版视图中打开演示文稿：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,15 +399,17 @@ try {
 }
 ```
 
-有关更多视图设置，请参阅 [保存演示文稿](/slides/zh/androidjava/save-presentation/)。
+更多视图设置，请参阅 [Save Presentation](/slides/zh/androidjava/save-presentation/)。
 
-## **删除未使用的母版幻灯片**
+## **移除未使用的母版幻灯片**
 
-演示文稿有时会包含已不再被任何普通幻灯片使用的母版幻灯片。删除未使用的母版可以减小文件大小并简化模板维护。
+演示文稿有时会包含已不再被任何普通幻灯片使用的母版幻灯片。移除未使用的母版可以减小文件大小并简化模板维护。
 
-使用 `removeUnused` 从 `getMasters()` 集合中删除未使用的母版：
+使用 `removeUnused` 从 `getMasters()` 集合中移除未使用的母版：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -342,9 +419,11 @@ try {
 }
 ```
 
-您也可以使用低代码的 [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) 方法：
+还可以使用低代码的 [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) 方法：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,20 +433,20 @@ try {
 }
 ```
 
-## **常见问题**
+## **常见问答**
 
 **幻灯片母版和布局幻灯片有什么区别？**
 
-幻灯片母版定义了共享的设计设置，如主题、背景、公共形状和文本样式。布局幻灯片属于母版，并定义占位符的具体排列。普通幻灯片使用布局幻灯片，因此会同时继承布局和母版的设置。
+幻灯片母版定义共享的设计设置，如主题、背景、通用形状和文本样式。布局幻灯片属于母版并定义占位符的具体排列。普通幻灯片使用布局幻灯片，因此同时继承布局和母版的设置。
 
 **一个演示文稿可以包含多个幻灯片母版吗？**
 
-可以。演示文稿可以包含多个幻灯片母版。当不同章节需要不同的视觉体系或品牌时，请使用多个母版。
+可以。一个演示文稿可以包含多个幻灯片母版。不同章节需要不同的视觉系统或品牌时，请使用多个母版。
 
 **应该在母版幻灯片还是布局幻灯片上添加占位符？**
 
-大多数情况下，在布局幻灯片上添加占位符。将在母版上放置共享的视觉元素和共享格式，然后在布局上放置内容占位符，供普通幻灯片使用。
+通常在布局幻灯片上添加占位符。将共享的视觉元素和共享格式放在母版幻灯片上，然后在普通幻灯片使用的布局上放置内容占位符。
 
-**可以删除仍在使用中的母版幻灯片吗？**
+**可以删除仍在使用的母版幻灯片吗？**
 
-不可以。拥有依赖幻灯片的母版不能直接安全删除。请先将这些幻灯片移动到另一个母版的布局下，或使用仅删除未使用母版的清理方法。
+不能。仍有依赖幻灯片的母版不能直接安全删除。请先将这些幻灯片移动到另一母版的布局下，或使用仅移除未使用母版的清理方法。

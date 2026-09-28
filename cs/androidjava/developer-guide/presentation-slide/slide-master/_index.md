@@ -1,58 +1,60 @@
 ---
-title: Správa hlavních snímků prezentace na Androidu
-linktitle: Hlavní snímek
+title: Správa slide masterů prezentace na Androidu
+linktitle: Slide Master
 type: docs
 weight: 70
 url: /cs/androidjava/slide-master/
 keywords:
-- hlavní snímek
-- hlavní snímek
-- PPT hlavní snímek
-- více hlavních snímků
-- porovnat hlavní snímky
+- master snímku
+- master snímek
+- PPT master snímek
+- více master snímků
+- porovnat master snímky
 - pozadí
 - zástupný objekt
-- klonovat hlavní snímek
-- kopírovat hlavní snímek
-- duplikovat hlavní snímek
-- nepoužívaný hlavní snímek
+- klonovat master snímek
+- kopírovat master snímek
+- duplikovat master snímek
+- nepoužívaný master snímek
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Spravujte hlavní snímky v Aspose.Slides pro Android přes Java: přístup, úpravy, klonování, porovnání a odstraňování hlavních snímků v prezentacích PowerPoint a OpenDocument."
+description: "Spravujte slide mastery v Aspose.Slides pro Android přes Java: přístup, úprava, klonování, porovnání a odstranění master snímků v prezentacích PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-**slide master** definuje sdílená nastavení designu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž byste opakovali stejné formátování na každém snímku.
+**slide master** určuje sdílená nastavení designu pro skupinu snímků. Může obsahovat běžné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní bez opakování stejného formátování na každém snímku.
 
-Aspose.Slides for Android via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více hlavních snímků a každý hlavní snímek může obsahovat několik rozvrhových snímků. Normální snímky obvykle neodkazují přímo na hlavní snímek. Místo toho normální snímek používá rozvrhový snímek, který patří k hlavnímu snímku.
+Aspose.Slides pro Android přes Java podporuje stejný model. Prezentace může obsahovat jeden nebo více master slidů a každý master slide může obsahovat několik layout slidů. Normální slidy obvykle neodkazují přímo na master slide. Místo toho normální slide používá layout slide a tento layout slide patří k master slide.
 
 Hierarchie je:
 
-1. **Slide master** – definuje sdílený design a motiv.  
-2. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování úrovně rozvržení.  
-3. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden rozvrhový snímek.
+1. **Slide master** – určuje sdílený design a motiv.
+1. **Layout slide** – určuje konkrétní uspořádání zástupných objektů a formátování na úrovni rozvržení.
+1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden layout slide.
 
-![Hierarchie hlavních snímků, rozvrhových snímků a normálních snímků](slide-master_2.jpg)
+![Hierarchie master slidů, layout slidů a normálních slidů](slide-master_2.jpg)
 
-V Aspose.Slides je slide master reprezentován rozhraním [IMasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslide/). Všechny hlavní snímky v prezentaci jsou k dispozici prostřednictvím kolekce [Presentation.getMasters](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getMasters--) , která implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/). Pro kompletní rozhraní Android via Java API viz [com.aspose.slides API reference](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/).
+V Aspose.Slides je slide master reprezentován rozhraním [IMasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslide/). Všechny master slide v prezentaci jsou dostupné prostřednictvím kolekce [Presentation.getMasters](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getMasters--) , která implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/). Pro úplný přehled Android via Java API se podívejte na [com.aspose.slides API reference](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/).
 
 {{% alert color="info" title="Inheritance" %}}
-Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud hlavní snímek i rozvrhový snímek definují pozadí, snímky založené na tomto rozvržení použijí pozadí rozvrhu. Pro více informací o rozvrhových snímcích viz [Apply or Change Slide Layouts](/slides/cs/androidjava/slide-layout/).
+Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud master slide i layout slide oba definují pozadí, snímky založené na tomto rozvržení použijí pozadí rozvržení. Pro více informací o layout slidech viz [Použití nebo změna rozložení snímků](/slides/cs/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **Přístup k hlavním snímkům**
+## **Přístup k Slide Masterům**
 
-V PowerPointu můžete otevřít zobrazení Slide Master přes **View** > **Slide Master**.
+V PowerPointu můžete otevřít zobrazení Slide Master z **View** > **Slide Master**.
 
 ![Příkaz Slide Master na kartě View v PowerPointu](slide-master_3.jpg)
 
-V Aspose.Slides použijte kolekci `getMasters()` k přístupu k hlavním snímkům:
+V Aspose.Slides použijte kolekci `getMasters()` pro přístup k master slideům:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-Můžete také získat hlavní snímek použité normálním snímkem prostřednictvím jeho rozvržení:
+Můžete také získat master slide používaný normálním snímkem prostřednictvím jeho rozvržení:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,26 +88,28 @@ try {
 
 ## **Co obsahuje Slide Master**
 
-Master slide je objekt podobný snímku. Implementuje [IBaseSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseslide/), takže vystavuje mnoho stejných vlastností snímků, které jsou používány normálními a rozvrhovými snímky.
+Master slide je objekt podobný snímku. Implementuje rozhraní [IBaseSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseslide/), takže poskytuje mnoho stejných vlastností snímků, které používají normální a layout slide.
 
-Běžně používané členy master slide zahrnují:
+Často používané členy master slide zahrnují:
 
 | Člen | Účel |
 | --- | --- |
-| `getBackground()` | Nastavuje pozadí na úrovni hlavního snímku. |
-| `getShapes()` | Ukládá tvary umístěné na hlavním snímku, jako jsou loga, rámečky obrázků a sdílený text. |
-| `getLayoutSlides()` | Uchovává rozvrhové snímky, které patří k hlavnímu snímku. |
-| `getThemeManager()` | Poskytuje přístup k API motivu hlavního snímku. |
-| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, data a čísla snímků pro hlavní snímek a jeho podřízené rozvrhy. |
-| `getDependingSlides()` | Vrací normální snímky, které jsou závislé na hlavním snímku prostřednictvím svých rozvrhů. |
+| `getBackground()` | Nastavuje pozadí snímku na úrovni masteru. |
+| `getShapes()` | Uchovává tvary umístěné na masteru, jako jsou loga, rámečky obrázků a sdílený text. |
+| `getLayoutSlides()` | Uchovává layout slide, které patří k masteru. |
+| `getThemeManager()` | Poskytuje přístup k API master tématu. |
+| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, data a čísla snímků pro master a jeho podřízené layouty. |
+| `getDependingSlides()` | Vrací normální snímky, které závisí na masteru skrze jejich layouty. |
 
 ## **Přidání obrázku do Slide Masteru**
 
-Když přidáte obrázek do hlavního snímku, objeví se na snímcích, které používají rozvrhy z tohoto hlavního snímku. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
+Když přidáte obrázek do master slide, objeví se na snímcích, které používají rozvržení z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
 
-Následující příklad přidá logo na první hlavní snímek:
+Následující příklad přidává logo na první master slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-Pro více informací o rámečcích obrázků viz [Picture Frame](/slides/cs/androidjava/picture-frame/).
+Pro více informací o obrázkových rámečcích viz [Obrázkový rám](/slides/cs/androidjava/picture-frame/).
+
+## **Řízení viditelnosti grafiky masteru**
+
+Použijte [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) k skrytí zdědéné grafiky masteru, jako jsou loga nebo dekorativní tvary, aniž byste je mazali z masteru. Předejte `false` metodě [Slide.setShowMasterShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) na snímku, který by měl tyto grafiky vynechat, a ponechte `true` na snímcích, které je mají zobrazovat.
+
+Následující samostatný příklad vytvoří modrý dekorativní pás na masteru a dvou snímcích, které používají stejné prázdné rozvržení. Pás je viditelný na prvním snímku a skrytý na druhém. Není vyžadována žádná vstupní prezentace ani obrázek.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Příklad používá rozvržení **Blank** dodané s novou prezentací a odstraňuje vlastní zástupné objekty počátečního snímku.
+
+### **Zvolte rozsah nastavení**
+
+Normální snímek používá svého mastera přes [ISlide.getLayoutSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getLayoutSlide--) a [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). Nastavení vlastnosti na jednotlivém snímku ovlivní pouze tento snímek. Předání `false` metodě [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) skryje grafiku masteru pro snímky, které používají toto sdílené rozvržení, i když jejich vlastní nastavení je `true`. Pro skrytí grafiky jen na jednom snímku změňte vlastnost snímku a ponechte sdílené rozvržení beze změny.
+
+Nastavení není podporováno jako řízení viditelnosti přímo na master slide. Na masteru [getShowMasterShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) vždy vrací `false` a předání `true` metodě [setShowMasterShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) vyvolá výjimku. Použijte jej na normální snímek nebo na layout.
+
+### **Rozlište grafiku od pozadí**
+
+| Operace | Efekt |
+| --- | --- |
+| Skrýt grafiku masteru | Řídí viditelnost zděděných tvarů masteru bez jejich mazání nebo změny tvarů snímku. |
+| Změnit výplň pozadí snímku | Mění barvu, gradient nebo obrázek pozadí. Grafika masteru jsou samostatné tvary a mohou zůstávat viditelné nad tímto pozadím. Viz [Pozadí prezentace](/slides/cs/androidjava/presentation-background/). |
+| Smazat tvar z masteru | Odstraní sdílený zdrojový tvar, takže již není k dispozici žádnému snímku, který používá tento master. |
 
 ## **Práce se zástupnými objekty**
 
-Zástupné objekty jsou obvykle definovány na rozvrhových snímcích. Hlavní snímek poskytuje sdílený styl a motiv, který tyto rozvrhy dědí, zatímco každý rozvrh rozhoduje, které zástupné objekty jsou k dispozici a kde jsou umístěny.
+Zástupné objekty jsou obvykle definovány na layout slidech. Master slide poskytuje sdílený styl a motiv, který tyto layouty dědí, zatímco každý layout rozhoduje, které zástupné objekty jsou dostupné a kde jsou umístěny.
 
-V PowerPointu jsou příkazy pro zástupné objekty k dispozici v zobrazení Slide Master.
+V PowerPointu jsou příkazy zástupných objektů k dispozici v zobrazení Slide Master.
 
-![Příkaz Insert Placeholder v zobrazení Slide Master v PowerPointu](slide-master_5.png)
+![Příkaz Vložit zástupný objekt v zobrazení Slide Master v PowerPointu](slide-master_5.png)
 
-Pro přidání nových zástupných objektů pomocí Aspose.Slides pracujte s rozvrhovým snímkem, který patří k hlavnímu snímku:
+Pro přidání nových zástupných objektů pomocí Aspose.Slides pracujte s layout slide, který patří k masteru:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-Můžete také formátovat tvary zástupných objektů, které již na hlavním snímku existují. Následující příklad najde zástupný objekt titulku a použije lineární gradientní výplň:
+Můžete také formátovat tvary zástupných objektů, které již na master slide existují. Následující příklad najde zástupný objekt title a použije lineární gradientní výplň:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![Formátovaný zástupný objekt titulu zděděný normálními snímky](slide-master_8.png)
+![Formátovaný zástupný objekt title zděděný normálními snímky](slide-master_8.png)
 
-Pro více možností formátování zástupných objektů a textu viz [Set Prompt Text in Placeholder](/slides/cs/androidjava/manage-placeholder/) a [Text Formatting](/slides/cs/androidjava/text-formatting/).
+Pro více možností formátování zástupných objektů a textu viz [Nastavit výzvu textu v zástupném objektu](/slides/cs/androidjava/manage-placeholder/) a [Formátování textu](/slides/cs/androidjava/text-formatting/).
 
 ## **Změna pozadí Slide Masteru**
 
-Pozadí hlavního snímku je děděno rozvrhy a snímky, které ho nepřepíší. Následující příklad nastaví jednotnou barvu pozadí pro první hlavní snímek:
+Pozadí masteru je děděno layouty a snímky, které jej nepřepisují. Následující příklad nastaví jednotnou barvu pozadí pro první master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-Pro související témata viz [Presentation Background](/slides/cs/androidjava/presentation-background/) a [Presentation Theme](/slides/cs/androidjava/presentation-theme/).
+Pro související témata viz [Pozadí prezentace](/slides/cs/androidjava/presentation-background/) a [Motiv prezentace](/slides/cs/androidjava/presentation-theme/).
 
 ## **Klonování Slide Masteru do jiné prezentace**
 
-Použijte [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) k zkopírování hlavního snímku do jiné prezentace. Zkopírovaný hlavní snímek pak může být použit rozvrhy a snímky v cílové prezentaci.
+Použijte [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) k zkopírování master slide do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-Pokud potřebujete klonovat normální snímky spolu s jejich hlavním snímkem, viz [Clone Slides](/slides/cs/androidjava/clone-slides/).
+Pokud potřebujete klonovat normální snímky spolu s jejich masterem, viz [Klonovat snímky](/slides/cs/androidjava/clone-slides/).
 
 ## **Přidání více Slide Masterů**
 
-Prezentace může obsahovat více hlavních snímků. To je užitečné, když různé sekce vyžadují odlišné značkování, strukturu stránek nebo nastavení motivu.
+Prezentace může obsahovat více master slide. To je užitečné, když různé sekce vyžadují odlišné značení, strukturu stránky nebo nastavení motivu.
 
-![Příkazy PowerPointu pro vkládání a správu hlavních snímků](slide-master_9.jpg)
+![Příkazy PowerPointu pro vložení a správu master slide](slide-master_9.jpg)
 
-Následující příklad klonuje výchozí hlavní snímek, dá klonu jiné pozadí, vytvoří rozvrh pod tímto klonovaným hlavním snímkem a přidá nový snímek založený na tomto rozvrhu:
+Následující příklad klonuje výchozí master, přiřadí klonu jiné pozadí, vytvoří layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -277,9 +350,11 @@ try {
 
 ## **Porovnání Slide Masterů**
 
-Hlavní snímky lze porovnat metodou `equals` zděděnou z [IBaseSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, nebo dynamické hodnoty zástupných objektů, jako je aktuální datum.
+Master slide lze porovnat pomocí metody `equals` zděděné z [IBaseSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, například aktuální datum.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-Pro více informací viz [Compare Presentation Slides](/slides/cs/androidjava/compare-slides/).
+Pro více informací viz [Porovnat snímky v prezentaci](/slides/cs/androidjava/compare-slides/).
 
-## **Nastavení zobrazení Slide Master jako výchozího zobrazení**
+## **Nastavit zobrazení Slide Master jako výchozí zobrazení**
 
-Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/) k řízení zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
+Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/) pro ovládání zobrazení, které PowerPoint otevře jako první. Následující příklad otevírá prezentaci v zobrazení Slide Master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -322,15 +399,17 @@ try {
 }
 ```
 
-Pro více nastavení zobrazení viz [Save Presentation](/slides/cs/androidjava/save-presentation/).
+Pro více nastavení zobrazení viz [Uložit prezentaci](/slides/cs/androidjava/save-presentation/).
 
-## **Odstranění nepoužívaných hlavních snímků**
+## **Odstranění nepoužívaných Master Slide**
 
-Prezentace někdy obsahují hlavní snímky, které již nejsou používány žádnými normálními snímky. Odstranění nepoužívaných hlavních snímků může snížit velikost souboru a zjednodušit údržbu šablon.
+Prezentace někdy obsahují master slide, které již nejsou používány žádnými normálními snímky. Odstranění nepoužívaných master slide může snížit velikost souboru a zjednodušit údržbu šablon.
 
-Použijte `removeUnused` k odstranění nepoužívaných hlavních snímků z kolekce `getMasters()`:
+Použijte `removeUnused` k odstranění nepoužívaných masterů z kolekce `getMasters()`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-Můžete také použít low-code metodu [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+Můžete také použít low-code metodu [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -356,16 +437,16 @@ try {
 
 **Jaký je rozdíl mezi slide master a layout slide?**
 
-Slide master definuje sdílená nastavení designu, jako je motiv, pozadí, společné tvary a styly textu. Layout slide patří k slide masteru a definuje konkrétní uspořádání zástupných objektů. Normální snímek používá layout slide, takže dědí jak z rozvrhu, tak z hlavního snímku.
+Slide master určuje sdílená nastavení designu, jako jsou motiv, pozadí, společné tvary a styly textu. Layout slide patří k slide master a určuje konkrétní uspořádání zástupných objektů. Normální slide používá layout slide, takže dědí jak z layoutu, tak z masteru.
 
 **Může jedna prezentace obsahovat několik slide masterů?**
 
-Ano. Prezentace může obsahovat několik slide masterů. Používejte více hlavních snímků, když různé sekce potřebují odlišné vizuální systémy nebo značkování.
+Ano. Prezentace může obsahovat několik slide masterů. Používejte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo značku.
 
-**Mám přidávat zástupné objekty do hlavního snímku nebo do layout slide?**
+**Mám přidávat zástupné objekty na master slide nebo na layout slide?**
 
-Ve většině případů přidávejte zástupné objekty do layout slidů. Na hlavní snímek umístěte sdílené vizuální prvky a formátování, poté na rozvrhy vložte zástupné objekty pro obsah, které budou používat normální snímky.
+Ve většině případů přidávejte zástupné objekty na layout slide. Umístěte sdílené vizuální prvky a sdílené formátování na master slide, a poté umístěte obsahové zástupné objekty na layouty, které budou používány normálními snímky.
 
-**Mohu smazat hlavní snímek, který je stále používán?**
+**Mohu smazat master slide, který je stále používán?**
 
-Ne. Hlavní snímek, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky do rozvrhů pod jiným hlavním snímkem, nebo použijte metodu pro úklid nepoužívaných hlavních snímků, která odstraňuje jen ty, které nejsou použity.
+Ne. Master slide, který má závislé snímky, nelze bezpečně přímo odstranit. Nejprve přesuňte tyto snímky na layouty pod jiný master, nebo použijte metodu úklidu nepoužívaných masterů, která odstraňuje pouze master slide, které nejsou používány.

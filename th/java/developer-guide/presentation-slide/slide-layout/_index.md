@@ -1,69 +1,71 @@
 ---
-title: นำไปใช้หรือเปลี่ยนแปลงเลเอาต์สไลด์ใน Java
-linktitle: เลเอาต์สไลด์
+title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน Java
+linktitle: เค้าโครงสไลด์
 type: docs
 weight: 60
 url: /th/java/slide-layout/
 keywords:
-- เลเอาต์สไลด์
-- เลเอาต์เนื้อหา
-- ส่วนเติม
+- เค้าโครงสไลด์
+- เค้าโครงเนื้อหา
+- ตัวจัดตำแหน่ง
 - การออกแบบการนำเสนอ
 - การออกแบบสไลด์
-- เลเอาต์ที่ไม่ได้ใช้
-- การมองเห็นส่วนเท้า
-- สไลด์หัวเรื่อง
-- หัวเรื่องและเนื้อหา
-- หัวเรื่องส่วน
+- เค้าโครงที่ไม่ได้ใช้
+- การแสดงผลส่วนท้าย
+- สไลด์หัวข้อ
+- หัวข้อและเนื้อหา
+- หัวข้อส่วน
 - สองส่วนเนื้อหา
 - การเปรียบเทียบ
-- หัวเรื่องเท่านั้น
-- เลเอาต์เปล่า
-- เนื้อหาพร้อมคำบรรยาย
-- รูปภาพพร้อมคำบรรยาย
-- หัวเรื่องและข้อความแนวตั้ง
-- หัวเรื่องแนวตั้งและข้อความ
+- หัวข้อเท่านั้น
+- เค้าโครงเปล่า
+- เนื้อหาพร้อมคำอธิบาย
+- รูปภาพพร้อมคำอธิบาย
+- หัวข้อและข้อความแนวตั้ง
+- หัวข้อแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "นำไปใช้, สร้างและแก้ไขเลเอาต์สไลด์ใน Aspose.Slides สำหรับ Java, เพิ่มส่วนเติม, ลบเลเอาต์ที่ไม่ได้ใช้, และควบคุมการมองเห็นส่วนเท้า."
+description: "ใช้, สร้างและแก้ไขเค้าโครงสไลด์ใน Aspose.Slides สำหรับ Java, เพิ่มตัวจัดตำแหน่ง, ลบเค้าโครงที่ไม่ได้ใช้, และควบคุมการแสดงผลส่วนท้าย."
 ---
 ## **ภาพรวม**
 
-เลเอาต์ของสไลด์กำหนดตำแหน่งและการจัดรูปแบบของส่วนเติม (placeholder) เช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิ, และตาราง การใช้เลเอาต์ทำให้สไลด์มีโครงสร้างสอดคล้องกันขณะยังให้สไลด์แต่ละอันสามารถมีเนื้อหาของตนเองได้
+เค้าโครงสไลด์กำหนดตำแหน่งและการจัดรูปแบบของตัวจัดตำแหน่งเช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิ, และตาราง การใช้เค้าโครงทำให้สไลด์มีโครงสร้างที่สอดคล้องกันในขณะที่แต่ละสไลด์สามารถมีเนื้อหาของตนเอง
 
-เลเอาต์ที่พบบ่อยที่สุดได้แก่:
+เค้าโครงที่พบมากที่สุดได้แก่:
 
-- **สไลด์หัวเรื่อง**: มีส่วนเติมชื่อเรื่องและหัวข้อย่อย
-- **หัวเรื่องและเนื้อหา**: มีส่วนเติมชื่อเรื่องและส่วนเติมเนื้อหาทั่วไป
-- **เปล่า**: ไม่มีส่วนเติมใด ๆ เหมาะเมื่อทุกรูปร่างจะถูกจัดตำแหน่งด้วยตนเอง
+- **Title Slide**: มีตัวจัดตำแหน่งหัวข้อและหัวข้อย่อย
+- **Title and Content**: มีตัวจัดตำแหน่งหัวข้อและตัวจัดตำแหน่งเนื้อหาทั่วไป
+- **Blank**: ไม่มีตัวจัดตำแหน่งเนื้อหาและเหมาะสมเมื่อทุกรูปร่างจะถูกวางตำแหน่งโดยการจัดการด้วยตนเอง
 
-## **ทำความเข้าใจการสืบทอดเลเอาต์**
+## **ทำความเข้าใจการสืบทอดเค้าโครง**
 
 การนำเสนอมีระดับที่เกี่ยวข้องกันสามระดับ:
 
-1. A [master slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslide/) กำหนดธีม, การจัดรูปแบบที่ใช้ร่วมกัน, พื้นหลัง, และวัตถุทั่วไป
-2. A [layout slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/) เป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดเรียงส่วนเติมเฉพาะ
-3. A [normal slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/) ใช้เลเอาต์หนึ่งและเก็บเนื้อหาที่ป้อนเข้าสำหรับสไลด์นั้น
+1. A [master slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslide/) กำหนดธีม การจัดรูปแบบที่ใช้ร่วมกัน พื้นหลัง และวัตถุทั่วไป
+1. A [layout slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/) เป็นของ master และกำหนดการจัดเรียงตำแหน่งตัวจัดตำแหน่งเฉพาะ
+1. A [normal slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/) ใช้เค้าโครงหนึ่งเค้าโครงและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น
 
-สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเลเอาต์ของมัน, และเลเอาต์สืบทอดจากมาสเตอร์ ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะทับค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ปกติ รูปร่างส่วนเติมจะถูกสร้างจากเลเอาต์ที่เลือก, ขณะที่เนื้อหาที่ป้อนในส่วนเติมนั้นเป็นของสไลด์ปกติ
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเค้าโครงของมัน, และเค้าโครงสืบทอดจาก master. ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะเขียนทับค่าที่สืบทอดในระดับนั้น. เมื่อสไลด์ปกติถูกสร้าง, รูปร่างตัวจัดตำแหน่งจะถูกสร้างจากเค้าโครงที่เลือก, ส่วนเนื้อหาที่ป้อนในตัวจัดตำแหน่งนั้นเป็นของสไลด์ปกติ
 
-เพิ่มส่วนเติมที่จำเป็นให้กับเลเอาต์ก่อนสร้างสไลด์จากมัน การเพิ่มส่วนเติมใหม่ในภายหลังจะไม่ทำให้รูปร่างส่วนเติมที่สอดคล้องกันถูกเพิ่มอัตโนมัติให้กับสไลด์ปกติที่มีอยู่แล้ว
+เพิ่มตัวจัดตำแหน่งที่จำเป็นในเค้าโครงก่อนสร้างสไลด์จากมัน. การเพิ่มตัวจัดตำแหน่งอื่นในเค้าโครงภายหลังจะไม่เพิ่มรูปร่างตัวจัดตำแหน่งที่สอดคล้องในสไลด์ปกติที่มีอยู่โดยอัตโนมัติ
 
-ความสัมพันธ์นี้มีผลลัพธ์สำคัญสองประการ:
+ความสัมพันธ์นี้มีผลสำคัญสองประการ:
 
-- การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือเรขาคณิตของส่วนเติมที่มีอยู่บนเลเอาต์สามารถอัปเดตสไลด์ทุกอันที่พึ่งพามัน ก่อนแก้ไขเลเอาต์ที่ใช้งานอยู่แล้ว ให้ตรวจสอบสไลด์ที่พึ่งพาและทบทวนผลลัพธ์ของการนำเสนอ
-- เลเอาต์ที่ยังถูกสไลด์ใดสไลด์หนึ่งใช้ไม่สามารถลบได้ ต้องกำหนดสไลด์ที่พึ่งพาให้ใช้เลเอาต์อื่นก่อน, หรือเพียงลบเลเอาต์ที่ไม่ได้ใช้เท่านั้น
+- การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวจัดตำแหน่งที่มีอยู่บนเค้าโครงสามารถอัปเดตทุกสไลด์ที่พึ่งพาเค้าโครงนั้นได้. ก่อนแก้ไขเค้าโครงที่กำลังใช้, ตรวจสอบสไลด์ที่พึ่งพาและทบทวนผลลัพธ์ของการนำเสนอ
+- เค้าโครงที่ยังถูกสไลด์ใช้งานไม่สามารถลบได้. ให้ย้ายสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน, หรือทำการลบเฉพาะเค้าโครงที่ไม่ได้ใช้เท่านั้น
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของลำดับชั้นนี้, ดูที่ [Slide Master](/slides/th/java/slide-master/)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนของโครงสร้างนี้, ดูที่ [Slide Master](/slides/th/java/slide-master/)
 
-## **เลือกและใช้เลเอาต์สไลด์**
+เพื่อซ่อนโลโก้หรือรูปทรง master ที่ตกแต่งซึ่งสืบทอดบนสไลด์หนึ่งหรือผ่านเค้าโครงที่ใช้ร่วมกัน, ดูที่ [Control the Visibility of Master Graphics](/slides/th/java/slide-master/). ตัวอย่างเปรียบเทียบสองสไลด์ที่ใช้ master เดียวกัน
 
-ใช้ประเภทเลเอาต์เมื่อการนำเสนอปฏิบัติตามคำนิยามเลเอาต์มาตรฐานของ PowerPoint ชื่อเลเอาต์สามารถแก้ไขได้โดยผู้ใช้และสามารถแปลเป็นภาษาต่าง ๆ ได้ ดังนั้นการเลือกตามชื่อจึงน้อยความน่าเชื่อถือ หากคุณไม่ได้ควบคุมเทมเพลตต้นฉบับ
+## **เลือกและใช้เค้าโครงสไลด์**
 
-ตัวอย่างต่อไปนี้ค้นหา **หัวเรื่องและเนื้อหา** บนมาสเตอร์แรก หากเลเอาต์นั้นไม่มีอยู่ จะพยายามใช้ **เปล่า** แทน การตรวจสอบค่า null ครั้งที่สองจำเป็นเพราะการนำเสนออาจมีเพียงเลเอาต์แบบกำหนดเองเท่านั้น เลเอาต์ที่เลือกจากนั้นจะถูกนำไปใช้กับสไลด์ปกติเพื่อแรกผ่านเมธอด [ISlide.setLayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)  
+ใช้ประเภทเค้าโครงเมื่อการนำเสนอปฏิบัติตามคำนิยามเค้าโครง PowerPoint มาตรฐาน. ชื่อเค้าโครงสามารถแก้ไขได้โดยผู้ใช้และอาจแปลเป็นภาษาต่างๆ, ดังนั้นการเลือกโดยอิงชื่ออาจไม่น่าเชื่อถือหากคุณไม่ได้ควบคุมเทมเพลตต้นฉบับ
+
+ตัวอย่างต่อไปนี้ค้นหา **Title and Content** บน master แรก. หากเค้าโครงนั้นไม่มี, ระบบจะย้อนกลับไปใช้ **Blank** อย่างเจตนา. การตรวจสอบ null ครั้งที่สองจำเป็นเพราะการนำเสนออาจมีเฉพาะเค้าโครงที่กำหนดเอง. เค้าโครงที่เลือกจะถูกนำไปใช้กับสไลด์ปกติแรกผ่านเมธอด [ISlide.setLayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) 
 
 ```java
 import com.aspose.slides.*;
@@ -88,13 +90,13 @@ try {
 }
 ```
 
-การเปลี่ยนเลเอาต์ของสไลด์ไม่ได้ลบรูปร่างปกติที่เพิ่มโดยตรงลงบนสไลด์ อย่างไรก็ตามตำแหน่งส่วนเติม, การจัดรูปแบบที่สืบทอด, และความสอดคล้องระหว่างส่วนเติมที่มีอยู่กับเลเอาต์ใหม่อาจเปลี่ยนแปลงได้ ดังนั้นควรตรวจสอบผลลัพธ์เมื่อตัดสลับระหว่างเลเอาต์ที่แตกต่างอย่างมาก
+การเปลี่ยนเค้าโครงของสไลด์ไม่ทำการลบรูปร่างปกติที่เพิ่มโดยตรงไปยังสไลด์. อย่างไรก็ตาม, ตำแหน่งตัวจัดตำแหน่ง, การจัดรูปแบบที่สืบทอด, และความสอดคล้องระหว่างตัวจัดตำแหน่งที่มีอยู่กับเค้าโครงใหม่อาจเปลี่ยนแปลง, ดังนั้นควรตรวจสอบผลลัพธ์เมื่อสลับระหว่างเค้าโครงที่แตกต่างอย่างมาก
 
-## **เพิ่มสไลด์เลเอาต์**
+## **เพิ่มเค้าโครงสไลด์**
 
-การเลือกและการสร้างเป็นการกระทำที่แยกจากกัน ตัวอย่างก่อนหน้าเลือกเลเอาต์ที่มีอยู่; ไม่ได้สร้างเลเอาต์ใหม่ เพื่อสร้างเลเอาต์ให้เรียกเมธอด [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) บนคอลเลกชันเลเอาต์ของมาสเตอร์เป้าหมาย
+การเลือกและการสร้างเป็นการดำเนินการแยกกัน. ตัวอย่างก่อนหน้าเลือกเค้าโครงที่มีอยู่; ไม่ได้สร้างใหม่. เพื่อสร้างเค้าโครง, เรียกเมธอด [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) บนคอลเลกชันเค้าโครงของ master เป้าหมาย
 
-ตัวอย่างต่อไปนี้จะเพิ่มเลเอาต์ **หัวเรื่องและเนื้อหา** ใหม่ชื่อ `Report Title and Content` เสมอ, แล้วเพิ่มสไลด์ปกติตามนั้น ชื่อเลเอาต์ต้องไม่ซ้ำกันภายในคอลเลกชัน  
+ตัวอย่างต่อไปนี้จะเพิ่มเค้าโครง **Title and Content** ใหม่ชื่อ `Report Title and Content` เสมอ, จากนั้นเพิ่มสไลด์ปกติที่อ้างอิงเค้าโครงนั้น. ชื่อเค้าโครงต้องไม่ซ้ำกันภายในคอลเลกชัน
 
 ```java
 import com.aspose.slides.*;
@@ -111,14 +113,14 @@ try {
 }
 ```
 
-เพิ่มเลเอาต์เฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้จริง หากมีเลเอาต์ที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างสำเนา
+เพิ่มเค้าโครงเฉพาะเมTemplateต้องการโครงสร้างที่ใช้ซ้ำได้จริง. หากมีเค้าโครงที่เหมาะสมแล้ว, ให้เลือกและใช้ซ้ำแทนการสร้างเค้าโครงซ้ำซ้อน
 
-## **เพิ่มส่วนเติมให้กับสไลด์เลเอาต์**
+## **เพิ่มตัวจัดตำแหน่งในเค้าโครงสไลด์**
 
-เมธอด [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) ให้บริการ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/) สำหรับเพิ่มรูปร่างส่วนเติมลงบนเลเอาต์
+เมธอด [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) ให้บริการ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/) เพื่อเพิ่มรูปร่างตัวจัดตำแหน่งในเค้าโครง
 
-| PowerPoint Placeholder | `ILayoutPlaceholderManager` เมธอด |
-| ---------------------- | ----------------------------------- |
+| ตัวจัดตำแหน่ง PowerPoint | `ILayoutPlaceholderManager` Method |
+| -------------------------- | ---------------------------------- |
 | ![เนื้อหา](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![เนื้อหา (แนวตั้ง)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
 | ![ข้อความ](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
@@ -130,7 +132,7 @@ try {
 | ![สื่อ](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![รูปภาพออนไลน์](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-ตัวอย่างต่อไปนี้ตรวจสอบว่าเลเอาต์ **เปล่า** มีอยู่, เพิ่มส่วนเติมสี่ส่วนเติมให้กับมัน, แล้วสร้างสไลด์ปกติที่ใช้เลเอาต์ที่ปรับเปลี่ยนแล้ว ลำดับนี้ตั้งใจไว้: ส่วนเติมจะถูกเพิ่มก่อนสร้างสไลด์ปกติ เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างส่วนเติมที่สอดคล้องบนสไลด์นั้นได้  
+ตัวอย่างต่อไปนี้ตรวจสอบว่าเค้าโครง **Blank** มีอยู่, เพิ่มสี่ตัวจัดตำแหน่งเข้าไป, จากนั้นสร้างสไลด์ปกติที่ใช้เค้าโครงที่แก้ไขแล้ว. การจัดลำดับเป็นเจตนา: ตัวจัดตำแหน่งถูกเพิ่มก่อนสร้างสไลด์ปกติ, เพื่อให้ Aspose.Slides สร้างรูปร่างตัวจัดตำแหน่งที่สอดคล้องบนสไลด์นั้น
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +160,15 @@ try {
 
 ผลลัพธ์:
 
-![ส่วนเติมบนสไลด์เลเอาต์](add_placeholders.png)
+![ตัวจัดตำแหน่งบนเค้าโครงสไลด์](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือเรขาคณิตของส่วนเติมเลเอาต์ที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ส่วนเติมเลเอาต์ที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าสู่สไลด์ปกติที่มีอยู่แล้ว ให้ทดสอบการเปลี่ยนแปลงเลเอาต์บนสำเนาของการนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกอัน
+การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวจัดตำแหน่งที่มีอยู่บนเค้าโครงอาจส่งผลต่อสไลด์ที่พึ่งพา. ตัวจัดตำแหน่งที่เพิ่มใหม่จะไม่ถูกเติมย้อนกลับไปยังสไลด์ปกติที่มีอยู่. ควรทดสอบการเปลี่ยนแปลงเค้าโครงบนสำเนาของการนำเสนอและตรวจสอบทุกสไลด์ที่พึ่งพา
 {{% /alert %}}
 
-## **ลบสไลด์เลเอาต์ที่ไม่ได้ใช้**
+## **ลบเค้าโครงสไลด์ที่ไม่ได้ใช้**
 
-ใช้เมธอด [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) เพื่อลบเลเอาต์ที่ไม่มีสไลด์ปกติอ้างอิง เมธอดจะคงเลเอาต์ที่ยังถูกใช้ไว้  
+ใช้เมธอด [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) เพื่อลบเค้าโครงที่ไม่มีสไลด์ปกติอ้างอิง. เมธอดจะคงเค้าโครงที่ยังใช้งานอยู่ไว้
 
 ```java
 import com.aspose.slides.*;
@@ -180,13 +182,11 @@ try {
 }
 ```
 
-เพื่อเอาเลเอาต์เฉพาะออก, ก่อนอื่นให้ใช้เมธอด [hasDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) หรือ [getDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) ของมัน ทำการกำหนดสไลด์ที่พึ่งพาใหม่ก่อนเรียก [ILayoutSlide.remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#remove--). การพยายามลบเลเอาต์ที่กำลังถูกใช้จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/)  
+เพื่อเอาเค้าโครงเฉพาะออก, ก่อนอื่นใช้เมธอด [hasDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) หรือ [getDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) ของมัน. ย้ายสไลด์ที่พึ่งพาก่อนเรียก [ILayoutSlide.remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#remove--). การพยายามลบเค้าโครงที่ยังใช้งานจะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/)
 
-## **ควบคุมการมองเห็นส่วนเท้า (Footer) บนสไลด์เลเอาต์**
+## **ควบคุมการแสดงผลส่วนท้ายบนเค้าโครงสไลด์**
 
-เลเอาต์มีส่วนเท้า, ตัวเลขสไลด์, และส่วนเติมวันที่/เวลาเป็นของมันเอง ใช้เมธอด [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) เพื่อควบคุมส่วนเติมเหล่านั้นสำหรับเลเอาต์เดียว นี่เป็นประโยชน์เมื่อเช่น เลเอาต์เนื้อหาต้องแสดงส่วนเท้าแต่เลเอาต์หัวเรื่องไม่ต้องการ  
-
-ตัวอย่างต่อไปนี้เลือกเลเอาต์อย่างปลอดภัยและทำให้ส่วนเท้าของมันมองเห็นได้:  
+เค้าโครงมีส่วนท้ายของตนเอง, ตัวเลขสไลด์, และตัวจัดตำแหน่งวันที่/เวลา. ใช้เมธอด [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) เพื่อควบคุมตัวจัดตำแหน่งเหล่านั้นสำหรับเค้าโครงหนึ่ง. ตัวอย่างเช่น, เค้าโครงเนื้อหาควรแสดงส่วนท้ายแต่เค้าโครงหัวข้อไม่ควรแสดง
 
 ```java
 import com.aspose.slides.*;
@@ -216,9 +216,9 @@ try {
 }
 ```
 
-## **ควบคุมการมองเห็นส่วนเท้า (Footer) บนมาสเตอร์และเลเอาต์ลูกของมัน**
+## **ควบคุมการแสดงผลส่วนท้ายบน Master และเค้าโครงลูกของมัน**
 
-เพื่อกำหนดค่าเท้าให้สอดคล้องทั่วทั้งลำดับชั้นมาสเตอร์, ใช้เมธอด [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslideheaderfootermanager/) ทำงานบนมาสเตอร์และสไลด์เลเอาต์และสไลด์ปกติที่พึ่งพา; ไม่ได้มุ่งเป้าแค่สไลด์ปกติเดียว  
+เพื่อกำหนดการตั้งค่าส่วนท้ายให้สอดคล้องทั่วทั้งโครงสร้าง master, ใช้เมธอด [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslideheaderfootermanager/) ทำงานบน master, เค้าโครงและสไลด์ปกติที่พึ่งพา; ไม่ได้มุ่งเป้าแค่สไลด์ปกติเดียว
 
 ```java
 import com.aspose.slides.*;
@@ -240,18 +240,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างมาสเตอร์สไลด์และสไลด์เลเอาต์คืออะไร?**
+**What Is the Difference Between a Master Slide and a Layout Slide?**
 
-มาสเตอร์สไลด์กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของการนำเสนอ สไลด์เลเอาต์เป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดเรียงส่วนเติมที่ใช้ซ้ำได้ สไลด์ปกติใช้เลเอาต์เหล่านั้นและเก็บเนื้อหาที่เฉพาะกับสไลด์แต่ละอัน
+Master slide กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของการนำเสนอ. Layout slide เป็นของ master และกำหนดการจัดเรียงตัวจัดตำแหน่งที่ใช้ซ้ำได้หนึ่งแบบ. สไลด์ปกติใช้เค้าโครงเหล่านั้นและเก็บเนื้อหาเฉพาะสไลด์
 
-**ฉันสามารถคัดลอกสไลด์เลเอาต์จากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่งได้หรือไม่?**
+**Can I Copy a Layout Slide from One Presentation to Another?**
 
-ทำได้ เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [addClone](https://reference.aspose.com/slides/th/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). เมื่อตัวคัดลอกระหว่างการนำเสนอ ควรตรวจสอบแบบอักษร, ธีม, รูปภาพ, และทรัพยากรอื่น ๆ ที่เลเอาต์ต้นทางใช้
+ได้. ใช้เมธอด [addClone](https://reference.aspose.com/slides/th/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) เพื่อเพิ่มสำเนาไปยังคอลเลกชันปลายทาง. เมื่อคัดลอกจากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่ง, ควรตรวจสอบฟอนต์, ธีม, รูปภาพและทรัพยากรอื่นที่ layout ใช้
 
-**เกิดอะไรขึ้นเมื่อฉันแก้ไขเลเอาต์ที่กำลังใช้อยู่?**
+**What Happens When I Modify a Layout That Is Already in Use?**
 
-สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงของเลเอาต์ เว้นแต่จะมีการทับการจัดรูปแบบหรือวัตถุที่ส่งผลโดยเฉพาะในระดับสไลด์ การเปลี่ยนแปลงเรขาคณิตและสไตล์ที่สืบทอดของส่วนเติมอาจทำให้หลายสไลด์เปลี่ยนแปลงพร้อมกัน ใช้เมธอด [getDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเลเอาต์
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงของเค้าโครง, ยกเว้นว่าพวกมันได้เขียนทับการจัดรูปแบบหรือวัตถุที่เกี่ยวข้องในระดับท้องถิ่น. รูปร่างตัวจัดตำแหน่งและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงบนสไลด์หลายอันพร้อมกัน. ใช้ [getDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเค้าโครง
 
-**จะเกิดอะไรขึ้นหากฉันลบเลเอาต์ที่ยังถูกใช้?**
+**What Happens If I Remove a Layout That Is Still in Use?**
 
-Aspose.Slides จะโยน [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/). ให้กำหนดสไลด์ที่พึ่งพาใหม่ก่อน, หรือใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) เพื่อลบเฉพาะเลเอาต์ที่ไม่มีการอ้างอิง.
+Aspose.Slides จะโยน [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/). ให้ย้ายสไลด์ที่พึ่งพาก่อน, หรือใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) เพื่อลบเฉพาะเค้าโครงที่ไม่มีการอ้างอิง.

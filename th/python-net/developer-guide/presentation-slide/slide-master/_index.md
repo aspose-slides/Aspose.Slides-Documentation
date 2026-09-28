@@ -1,55 +1,55 @@
 ---
-title: จัดการแม่แบบสไลด์ของการนำเสนอใน Python
-linktitle: แม่แบบสไลด์
+title: จัดการมาสเตอร์สไลด์ใน Python
+linktitle: มาสเตอร์สไลด์
 type: docs
 weight: 80
 url: /th/python-net/slide-master/
 keywords:
-- แม่แบบสไลด์
-- สไลด์แม่แบบ
-- สไลด์แม่แบบ PPT
-- หลายสไลด์แม่แบบ
-- เปรียบเทียบสไลด์แม่แบบ
+- มาสเตอร์สไลด์
+- สไลด์มาสเตอร์
+- สไลด์มาสเตอร์ PPT
+- หลายมาสเตอร์สไลด์
+- เปรียบเทียบมาสเตอร์สไลด์
 - พื้นหลัง
-- ตัวแทนตน
-- คัดลอกสไลด์แม่แบบ
-- ทำสำเนาสไลด์แม่แบบ
-- ทำซ้ำสไลด์แม่แบบ
-- สไลด์แม่แบบที่ไม่ได้ใช้
+- ตัวแทนจำลอง
+- คัดลอกมาสเตอร์สไลด์
+- ทำสำเนามาสเตอร์สไลด์
+- ทำซ้ำมาสเตอร์สไลด์
+- มาสเตอร์สไลด์ที่ไม่ได้ใช้
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "จัดการแม่แบบสไลด์ใน Aspose.Slides for Python via .NET: เข้าถึง แก้ไข คัดลอก เปรียบเทียบ และลบสไลด์แม่แบบในงานนำเสนอ PowerPoint และ OpenDocument."
+description: "จัดการมาสเตอร์สไลด์ใน Aspose.Slides สำหรับ Python ผ่าน .NET: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบ และลบมาสเตอร์สไลด์ในการนำเสนอ PowerPoint และ OpenDocument."
 ---
 ## **ภาพรวม**
 
-**แม่แบบสไลด์** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถประกอบด้วยรูปร่างทั่วไป โลโก้ ภาพพื้นหลัง สไตล์ข้อความ การตั้งค่าธีม และการตั้งค่าฝั่งล่าง (footer) ใน PowerPoint การแก้ไขแม่แบบสไลด์เป็นวิธีปกติเพื่อให้การนำเสนอมีความสอดคล้องโดยไม่ต้องทำการจัดรูปแบบเดียวกันบนแต่ละสไลด์
+A **slide master** กำหนดการตั้งค่าออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ มันสามารถมีรูปร่างทั่วไป โลโก้ พื้นหลัง รูปแบบข้อความ การตั้งค่าธีม และการตั้งค่าขอบเท้า ใน PowerPoint การแก้ไข **slide master** เป็นวิธีปกติในการทำให้การนำเสนอสอดคล้องกันโดยไม่ต้องทำซ้ำการจัดรูปแบบเดียวกันบนทุกสไลด์。
 
-Aspose.Slides for Python via .NET รองรับโมเดลเดียวกัน การนำเสนอสามารถมีแม่แบบสไลด์หนึ่งหรือหลายแม่แบบ และแต่ละแม่แบบสไลด์สามารถมีสไลด์เลเอาต์หลายสไลด์ สไลด์ปกติส่วนใหญ่ไม่ได้อ้างอิงแม่แบบสไลด์โดยตรง แต่จะใช้สไลด์เลเอาต์ ซึ่งสไลด์เลเอาต์นั้นเป็นส่วนหนึ่งของแม่แบบสไลด์
+Aspose.Slides for Python via .NET รองรับโมเดลเดียวกัน การนำเสนอสามารถมี master slide หนึ่งหรือหลาย slide และแต่ละ master slide สามารถมี layout slide หลายสไลด์ สไลด์ปกติโดยทั่วไปไม่อ้างอิง master slide โดยตรง แต่สไลด์ปกติใช้ layout slide ซึ่ง layout slide นั้นเป็นของ master slide。
 
-ลำดับขั้นคือ:
+ลำดับชั้นคือ:
 
-1. **แม่แบบสไลด์** - กำหนดการออกแบบและธีมที่ใช้ร่วมกัน  
-1. **สไลด์เลเอาต์** - กำหนดการจัดวางเฉพาะของตัวแทนตนและการจัดรูปแบบระดับเลเอาต์  
-1. **สไลด์ปกติ** - มีเนื้อหาการนำเสนอจริงและใช้สไลด์เลเอาต์หนึ่งสไลด์
+1. **Slide master** - กำหนดการออกแบบและธีมที่ใช้ร่วมกัน
+1. **Layout slide** - กำหนดการจัดเรียงเฉพาะของตัวแทนจำลองและการจัดรูปแบบระดับเลย์เอาต์
+1. **Normal slide** - มีเนื้อหาในการนำเสนอจริงและใช้เลย์เอาต์สไลด์หนึ่งเลย์เอาต์
 
-![ลำดับชั้นของแม่แบบสไลด์, สไลด์เลเอาต์, และสไลด์ปกติ](slide-master_2.jpg)
+![ลำดับชั้นของ master slides, layout slides, และ normal slides](slide-master_2.jpg)
 
-ใน Aspose.Slides, แม่แบบสไลด์ถูกแทนด้วยคลาส [MasterSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslide/) คอลเลกชัน `Presentation.masters` ให้เข้าถึงแม่แบบสไลด์ทั้งหมดในงานนำเสนอ
+In Aspose.Slides, a slide master is represented by the [MasterSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslide/) class. All master slides in a presentation are available through the `Presentation.masters` collection.
 
 {{% alert color="info" title="Inheritance" %}}
-เมื่อคุณสมบัติเช่นเดียวกันถูกกำหนดที่หลายระดับ ระดับที่เจาะจงมากกว่าจะมีลำดับความสำคัญ ตัวอย่างเช่น หากแม่แบบสไลด์และสไลด์เลเอาต์กำหนดพื้นหลังร่วมกัน สไลด์ที่สร้างจากเลเอาต์นั้นจะใช้พื้นหลังของเลเอาต์ สำหรับข้อมูลเพิ่มเติมเกี่ยวกับสไลด์เลเอาต์ โปรดดูที่ [Apply or Change Slide Layouts](/slides/th/python-net/slide-layout/)
+เมื่อคุณสมบัติเหเดียวกันถูกกำหนดที่ระดับมากกว่าหนึ่งระดับ ระดับที่เฉพาะเจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หาก master slide และ layout slide ทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงตาม layout นั้นจะใช้พื้นหลังของ layout สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ layout slides ดูที่ [Apply or Change Slide Layouts](/slides/th/python-net/slide-layout/) 
 {{% /alert %}}
 
-## **การเข้าถึงแม่แบบสไลด์**
+## **เข้าถึง Slide Masters**
 
-ใน PowerPoint คุณสามารถเปิดมุมมองแม่แบบสไลด์ได้จาก **View** > **Slide Master**  
+ใน PowerPoint คุณสามารถเปิดมุมมอง Slide Master ได้จาก **View** > **Slide Master**.
 
 ![คำสั่ง Slide Master บนแท็บ View ของ PowerPoint](slide-master_3.jpg)
 
-ใน Aspose.Slides ให้ใช้คอลเลกชัน `masters` เพื่อเข้าถึงแม่แบบสไลด์:
+In Aspose.Slides, use the `masters` collection to access master slides:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-คุณยังสามารถดึงแม่แบบสไลด์ที่สไลด์ปกติใช้ผ่านเลเอาต์ของสไลด์นั้นได้:
+You can also get the master slide used by a normal slide through its layout:
 
 ```python
 import aspose.slides as slides
@@ -77,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **สิ่งที่แม่แบบสไลด์ประกอบด้วย**
+## **สิ่งที่ Slide Master มี**
 
-แม่แบบสไลด์เป็นอ็อบเจกต์คล้ายสไลด์ มันสืบทอดพฤติกรรมสไลด์ทั่วไปจากคลาส [BaseSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติของสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและสไลด์เลเอาต์ รายการสมาชิกที่เฉพาะเจาะจงกับแม่แบบสามารถดูได้บนหน้า API ของ [MasterSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslide/)
+A master slide is a slide-like object. It inherits common slide behavior from the [BaseSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/) class, so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [MasterSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslide/) API page.
 
-สมาชิกของแม่แบบสไลด์ที่มักใช้รวมถึง:
+Commonly used master slide members include:
 
 | สมาชิก | วัตถุประสงค์ |
 | --- | --- |
-| `background` | ตั้งค่าพื้นหลังระดับแม่แบบ |
-| `shapes` | เก็บรูปร่างที่วางบนแม่แบบ เช่น โลโก้, กรอบภาพ, และข้อความที่ใช้ร่วมกัน |
-| `layout_slides` | เก็บสไลด์เลเอาต์ที่เป็นส่วนหนึ่งของแม่แบบ |
-| `theme_manager` | ให้เข้าถึง API ธีมของแม่แบบ |
-| `header_footer_manager` | ควบคุมส่วนหัว, ส่วนท้าย, วันที่, และหมายเลขสไลด์สำหรับแม่แบบและเลเอาต์ลูก |
-| `get_depending_slides` | คืนค่าสไลด์ปกติที่พึ่งพาแม่แบบผ่านเลเอาต์ของตน |
+| `background` | กำหนดพื้นหลังของสไลด์ระดับ master |
+| `shapes` | เก็บรูปร่างที่วางบน master เช่น โลโก้ กรอบรูปภาพและข้อความที่ใช้ร่วมกัน |
+| `layout_slides` | เก็บ layout slides ที่เป็นของ master |
+| `theme_manager` | ให้เข้าถึง API ธีมของ master |
+| `header_footer_manager` | ควบคุมหัวกระดาษ, ท้ายกระดาษ, วันที่และหมายเลขสไลด์สำหรับ master และ layout ลูก |
+| `get_depending_slides` | คืนค่าสไลด์ปกติที่พึ่งพา master ผ่าน layout ของพวกมัน |
 
-## **เพิ่มรูปภาพไปยังแม่แบบสไลด์**
+## **เพิ่มภาพลงใน Slide Master**
 
-เมื่อคุณเพิ่มรูปภาพไปยังแม่แบบสไลด์ รูปนั้นจะปรากฏบนสไลด์ที่ใช้เลเอาต์จากแม่แบบนั้น ซึ่งมีประโยชน์สำหรับโลโก้,ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องการทำซ้ำ
+เมื่อคุณเพิ่มภาพลงใน master slide มันจะปรากฏบนสไลด์ที่ใช้ layout จาก master นั้น ซึ่งมีประโยชน์สำหรับโลโก้, วอเตอร์มาร์ค, แถบตกแต่ง, และองค์ประกอบภาพที่ทำซ้ำอื่น ๆ
 
-ตัวอย่างต่อไปนี้เพิ่มโลโก้ไปยังแม่แบบสไลด์แรก:
+The following example adds a logo to the first master slide:
 
 ```python
 import aspose.slides as slides
@@ -120,17 +120,66 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับกรอบภาพ โปรดดูที่ [Picture Frame](/slides/th/python-net/picture-frame/)
+For more information about picture frames, see [Picture Frame](/slides/th/python-net/picture-frame/).
 
-## **ทำงานกับตัวแทนตน (Placeholders)**
+## **ควบคุมการมองเห็นของกราฟิก Master**
 
-ตัวแทนตนส่วนใหญ่จะถูกกำหนดบนสไลด์เลเอาต์ แม่แบบสไลด์จัดให้มีสไตล์และธีมร่วมที่เลเอาต์เหล่านั้นสืบทอด ส่วนแต่ละเลเอาต์จะกำหนดว่าตัวแทนตนใดบ้างที่พร้อมใช้งานและตำแหน่งของมัน
+Use [BaseSlide.show_master_shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/show_master_shapes/) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Set [Slide.show_master_shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/show_master_shapes/) to `False` on the slide that should omit those graphics and keep it `True` on slides that should display them.
 
-ใน PowerPoint คำสั่งตัวแทนตนจะพร้อมใช้งานในมุมมองแม่แบบสไลด์
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
 
-![คำสั่ง Insert Placeholder ในมุมมองแม่แบบสไลด์ของ PowerPoint](slide-master_5.png)
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-เพื่อเพิ่มตัวแทนตนใหม่ด้วย Aspose.Slides ให้ทำงานกับสไลด์เลเอาต์ที่เป็นของแม่แบบ:
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
+    layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_slide.show_master_shapes = True
+
+    slide_height = presentation.slide_size.size.height
+    band = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 60, slide_height)
+    band.fill_format.fill_type = slides.FillType.SOLID
+    band.fill_format.solid_fill_color.color = draw.Color.steel_blue
+    band.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    visible_slide = presentation.slides[0]
+    visible_slide.layout_slide = layout_slide
+    visible_slide.shapes.clear()
+
+    hidden_slide = presentation.slides.add_empty_slide(layout_slide)
+
+    visible_slide.show_master_shapes = True
+    hidden_slide.show_master_shapes = False
+
+    presentation.save("master-graphics.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **เลือกขอบเขตของการตั้งค่า**
+
+A normal slide uses its master through [Slide.layout_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/layout_slide/) and [LayoutSlide.master_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/master_slide/). Setting the property on an individual slide affects only that slide. Setting [LayoutSlide.show_master_shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/show_master_shapes/) to `False` hides master graphics for slides that use that shared layout, even if their own setting is `True`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master it always returns `False`, and assigning `True` raises an exception. Apply it to a normal slide or a layout instead.
+
+### **แยกแยะกราฟิกจากพื้นหลัง**
+
+| การดำเนินการ | ผล |
+| --- | --- |
+| Hide master graphics | ควบคุมการมองเห็นของรูปร่าง master ที่สืบทอดมาโดยไม่ลบหรือเปลี่ยนแปลงรูปร่างของสไลด์เอง |
+| Change the slide background fill | เปลี่ยนการเติมสีพื้นหลังของสไลด์ เช่น สี, การไล่สี หรือรูปภาพ. กราฟิก master เป็นรูปร่างแยกต่างหากและสามารถมองเห็นอยู่เหนือพื้นหลังนั้นได้. ดูที่ [Presentation Background](/slides/th/python-net/presentation-background/) |
+| Delete a shape from the master | ลบรูปร่างจาก master ซึ่งทำให้รูปแบบที่แชร์ไม่สามารถใช้ได้กับสไลด์ใดๆ ที่ใช้ master นั้น |
+
+## **ทำงานกับ Placeholders**
+
+Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
+
+In PowerPoint, placeholder commands are available in Slide Master view.
+
+![คำสั่ง Insert Placeholder ในมุมมอง Slide Master ของ PowerPoint](slide-master_5.png)
+
+To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +200,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-คุณยังสามารถจัดรูปแบบรูปร่างตัวแทนตนที่มีอยู่แล้วบนแม่แบบสไลด์ ตัวอย่างต่อไปนี้ค้นหาตัวแทนตนหัวเรื่องและใช้การเติมสีไลเนียร์กราเดียนต์:
+You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
 
 ```python
 import aspose.pydrawing as draw
@@ -183,13 +232,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![หัวเรื่องที่จัดรูปแบบแล้วซึ่งสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
+![Placeholder ชื่อเรื่องที่จัดรูปแบบแล้วสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
 
-สำหรับตัวเลือกการจัดรูปแบบตัวแทนตนและข้อความเพิ่มเติม ดูที่ [Set Prompt Text in Placeholder](/slides/th/python-net/manage-placeholder/) และ [Text Formatting](/slides/th/python-net/text-formatting/)
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/th/python-net/manage-placeholder/) and [Text Formatting](/slides/th/python-net/text-formatting/).
 
-## **เปลี่ยนพื้นหลังของแม่แบบสไลด์**
+## **เปลี่ยนพื้นหลัง Slide Master**
 
-พื้นหลังของแม่แบบจะถูกสืบทอดโดยเลเอาต์และสไลด์ที่ไม่ได้แทนที่มัน ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบทึบสำหรับแม่แบบสไลด์แรก:
+A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +254,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-สำหรับหัวข้อที่เกี่ยวข้อง โปรดดูที่ [Presentation Background](/slides/th/python-net/presentation-background/) และ [Presentation Theme](/slides/th/python-net/presentation-theme/)
+For related topics, see [Presentation Background](/slides/th/python-net/presentation-background/) and [Presentation Theme](/slides/th/python-net/presentation-theme/).
 
-## **คัดลอกแม่แบบสไลด์ไปยังงานนำเสนออื่น**
+## **คัดลอก Slide Master ไปยังการนำเสนออื่น**
 
-ใช้เมธอด `add_clone` บนคลาส [MasterSlideCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslidecollection/) เพื่อคัดลอกแม่แบบสไลด์ไปยังงานนำเสนออื่น แม่แบบที่คัดลอกแล้วสามารถนำไปใช้โดยเลเอาต์และสไลด์ในงานนำหมายปลายได้
+Use the `add_clone` method on the [MasterSlideCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslidecollection/) class to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +271,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-หากต้องการคัดลอกสไลด์ปกติกับแม่แบบของมันพร้อมกัน โปรดดูที่ [Clone Slides](/slides/th/python-net/clone-slides/)
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/th/python-net/clone-slides/).
 
-## **เพิ่มหลายแม่แบบสไลด์**
+## **เพิ่มหลาย Slide Master**
 
-งานนำเสนอสามารถมีแม่แบบสไลด์หลายชุดได้ ซึ่งเหมาะสำหรับส่วนต่าง ๆ ที่ต้องการการแบรนด์ดิ้ง โครงสร้างหน้า หรือการตั้งค่าธีมที่แตกต่างกัน
+A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
 
-![คำสั่งของ PowerPoint สำหรับแทรกและจัดการแม่แบบสไลด์](slide-master_9.jpg)
+![คำสั่ง PowerPoint สำหรับแทรกและจัดการ master slides](slide-master_9.jpg)
 
-ตัวอย่างต่อไปนี้คัดลอกแม่แบบเริ่มต้น, ตั้งค่าพื้นหลังที่ต่างออกไปสำหรับคัดลอก, ดึงเลเอาต์เปล่าจากแม่แบบที่คัดลอก, และเพิ่มสไลด์ใหม่โดยอิงจากเลเอมาตนั้น:
+The following example clones the default master, gives the clone a different background, gets a blank layout under that cloned master, and adds a new slide based on that layout:
 
 ```python
 import aspose.pydrawing as draw
@@ -256,9 +305,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เปรียบเทียบแม่แบบสไลด์**
+## **เปรียบเทียบ Slide Masters**
 
-แม่แบบสไลด์สามารถเปรียบเทียบได้ด้วยเมธอด `equals` ที่สืบทอดจากคลาส [BaseSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/) การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปร่าง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน, และการตั้งค่าสไลด์อื่น ๆ ไม่ได้เปรียบเทียบตัวระบุที่เป็นเอกลักษณ์ เช่น ID สไลด์ หรือค่าตัวแทนตนแบบไดนามิก เช่น วันที่ปัจจุบัน
+Master slides can be compared with the `equals` method inherited from the [BaseSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/) class. The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +330,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-สำหรับข้อมูลเพิ่มเติม โปรดดูที่ [Compare Presentation Slides](/slides/th/python-net/compare-slides/)
+For more information, see [Compare Presentation Slides](/slides/th/python-net/compare-slides/).
 
-## **ตั้งค่ามุมมองแม่แบบสไลด์เป็นมุมมองเริ่มต้น**
+## **ตั้งค่า Slide Master View เป็นมุมมองเริ่มต้น**
 
-ใช้คุณสมบัติ `last_view` บนคลาส [ViewProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/) ของงานนำเสนอเพื่อควบคุมมุมมองที่ PowerPoint เปิดแรก ตัวอย่างต่อไปนี้เปิดงานนำเสนอในมุมมองแม่แบบสไลด์:
+Use the `last_view` property on the presentation [ViewProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +344,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-สำหรับการตั้งค่ามุมมองเพิ่มเติม โปรดดูที่ [Save Presentation](/slides/th/python-net/save-presentation/)
+For more view settings, see [Save Presentation](/slides/th/python-net/save-presentation/).
 
-## **ลบแม่แบบสไลด์ที่ไม่ได้ใช้**
+## **ลบ Master Slides ที่ไม่ได้ใช้**
 
-บางครั้งงานนำเสนออาจมีแม่แบบสไลด์ที่ไม่มีสไลด์ปกติใด ๆ ใช้งาน การลบแม่แบบที่ไม่ได้ใช้จะช่วยลดขนาดไฟล์และทำให้การบำรุงรักษาเทมเพลตง่ายขึ้น
+Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
 
-ใช้เมธอด `remove_unused` เพื่อลบแม่แบบสไลด์ที่ไม่ได้ใช้จากคอลเลกชัน `masters`:
+Use `remove_unused` to remove unused masters from the `masters` collection:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +360,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-คุณยังสามารถใช้เมธอด low‑code `remove_unused_master_slides` จากคลาส [Compress](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/) ได้เช่นกัน:
+You can also use the low-code `remove_unused_master_slides` method from the [Compress](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/) class:
 
 ```python
 import aspose.slides as slides
@@ -321,20 +370,20 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-### แม่แบบสไลด์กับสไลด์เลเอาต์ต่างกันอย่างไร?
+**ความแตกต่างระหว่าง slide master และ layout slide คืออะไร?**
 
-แม่แบบสไลด์กำหนดการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปร่างทั่วไป, และสไตล์ข้อความ สไลด์เลเอาต์เป็นส่วนหนึ่งของแม่แบบสไลด์และกำหนดการจัดวางเฉพาะของตัวแทนตน สไลด์ปกติใช้สไลด์เลเอาต์ ดังนั้นจึงสืบทอดจากทั้งเลเอาต์และแม่แบบ
+A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-### งานนำเสนอหนึ่งสามารถมีแม่แบบสไลด์หลายอันได้หรือไม่?
+**การนำเสนอหนึ่งสามารถมีหลาย slide master ได้หรือไม่?**
 
-ได้ งานนำเสนอสามารถมีแม่แบบสไลด์หลายอันได้ ใช้หลายแม่แบบเมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ดิ้งที่แตกต่างกัน
+Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-### ควรเพิ่มตัวแทนตนที่แม่แบบสไลด์หรือสไลด์เลเอาต์?
+**ควรเพิ่ม placeholders บน master slide หรือ layout slide?**
 
-ในกรณีส่วนใหญ่ให้เพิ่มตัวแทนตนบนสไลด์เลเอาต์ เก็บองค์ประกอบภาพและการจัดรูปแบบที่ใช้ร่วมกันบนแม่แบบสไลด์ แล้วใส่ตัวแทนตนสำหรับเนื้อหาบนเลเออต์ที่สไลด์ปกติจะใช้
+In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-### สามารถลบแม่แบบสไลด์ที่ยังถูกใช้งานอยู่ได้หรือไม่?
+**ฉันสามารถลบ master slide ที่ยังถูกใช้อยู่ได้หรือไม่?**
 
-ไม่ได้ แม่แบบสไลด์ที่มีสไลด์ขึ้นอยู่ไม่สามารถลบได้โดยตรง ต้องย้ายสไลด์เหล่านั้นไปยังเลเออต์ภายใต้แม่แบบอื่นก่อน หรือใช้วิธีทำความสะอาดแม่แบบที่ไม่ถูกใช้ซึ่งจะลบเฉพาะแม่แบบที่ไม่มีสไลด์อ้างอิงเท่านั้น
+No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused‑master cleanup method that removes only masters that are not in use.

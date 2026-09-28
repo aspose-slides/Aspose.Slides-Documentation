@@ -10,11 +10,11 @@ keywords:
 - placeholder
 - desain presentasi
 - desain slide
-- tata letak tak terpakai
+- tata letak tidak terpakai
 - visibilitas footer
 - slide judul
 - judul dan konten
-- header bagian
+- tajuk bagian
 - dua konten
 - perbandingan
 - hanya judul
@@ -29,42 +29,44 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Terapkan, buat, dan modifikasi tata letak slide di Aspose.Slides untuk Node.js via Java, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
+description: "Terapkan, buat, dan modifikasi tata letak slide dalam Aspose.Slides untuk Node.js melalui Java, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
 ---
-## **Ringkasan**
+## **Gambaran Umum**
 
-Tata letak slide menentukan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberikan slide struktur yang konsisten sekaligus memungkinkan setiap slide memiliki kontennya masing‑ma.
+Sebuah tata letak slide menentukan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberikan slide struktur yang konsisten sambil memungkinkan setiap slide memiliki kontennya masing‑ma​n.
 
-Layout yang paling umum meliputi:
+Tata letak yang paling umum meliputi:
 
-- **Title Slide**: Berisi placeholder judul dan subjudul.
-- **Title and Content**: Berisi placeholder judul dan placeholder konten serbaguna.
-- **Blank**: Tidak berisi placeholder konten dan berguna ketika setiap shape akan ditempatkan secara manual.
+- **Slide Judul**: Menyertakan placeholder judul dan subjudul.
+- **Judul dan Konten**: Menyertakan placeholder judul dan placeholder konten serbaguna.
+- **Kosong**: Tidak menyertakan placeholder konten dan berguna ketika setiap bentuk akan diposisikan secara manual.
 
 ## **Memahami Pewarisan Tata Letak**
 
-Sebuah presentasi memiliki tiga tingkatan terkait:
+Sebuah presentasi memiliki tiga level terkait:
 
-1. Sebuah [master slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
-2. Sebuah [layout slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/) milik master dan mendefinisikan susunan placeholder tertentu.
-3. Sebuah [normal slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
+1. Sebuah [slide master](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
+1. Sebuah [slide tata letak](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/) merupakan bagian dari master dan mendefinisikan susunan placeholder tertentu.
+1. Sebuah [slide normal](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-Sebuah normal slide mewarisi tema dan pemformatan dari layoutnya, dan layout mewarisi dari masternya. Nilai yang ditetapkan langsung pada normal slide menimpa nilai yang diwarisi pada level tersebut. Ketika normal slide dibuat, shape placeholder‑nya dihasilkan dari layout yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik normal slide.
+Sebuah slide normal mewarisi tema dan pemformatan dari tata letaknya, dan tata letak mewarisi dari masternya. Nilai yang ditetapkan langsung pada slide normal akan menimpa nilai yang diwariskan pada level itu. Ketika slide normal dibuat, bentuk placeholder‑nya dihasilkan dari tata letak yang dipilih, sementara konten yang dimasukkan ke dalam placeholder‑placeholder tersebut menjadi milik slide normal.
 
-Tambahkan placeholder yang diperlukan ke layout sebelum membuat slide darinya. Menambahkan placeholder lain ke layout nanti tidak secara otomatis menambah shape placeholder yang sesuai ke slide normal yang sudah ada.
+Tambahkan placeholder yang diperlukan ke sebuah tata letak sebelum membuat slide darinya. Menambahkan placeholder lain ke tata letak kemudian tidak secara otomatis menambah bentuk placeholder yang bersesuaian ke slide normal yang sudah ada.
 
 Hubungan ini memiliki dua konsekuensi penting:
 
-- Mengubah pemformatan yang diwarisi atau geometri placeholder yang ada pada layout dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit layout yang sudah digunakan, periksa slide‑slide yang tergantung dan tinjau hasil presentasi.
-- Layout yang masih digunakan oleh slide tidak dapat dihapus. Alihkan slide‑slide yang bergantung ke layout lain terlebih dahulu, atau hapus hanya layout yang tidak digunakan.
+- Mengubah pemformatan yang diwariskan atau geometri placeholder yang ada pada tata letak dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit tata letak yang sudah digunakan, periksa slide‑slide yang tergantung dan tinjau hasil presentasi.
+- Sebuah tata letak yang masih digunakan oleh sebuah slide tidak dapat dihapus. Alihkan slide‑slide yang bergantung ke tata letak lain terlebih dahulu, atau hapus hanya tata letak yang tidak terpakai.
 
-Untuk informasi lebih lanjut tentang tingkat atas hierarki ini, lihat [Slide Master](/slides/id/nodejs-java/slide-master/).
+Untuk informasi lebih lanjut tentang level atas hierarki ini, lihat [Slide Master](/slides/id/nodejs-java/slide-master/).
+
+Untuk menyembunyikan logo yang diwariskan atau bentuk master dekoratif pada satu slide atau melalui tata letak bersama, lihat [Control the Visibility of Master Graphics](/slides/id/nodejs-java/slide-master/). Contoh ini membandingkan dua slide yang menggunakan master yang sama.
 
 ## **Pilih dan Terapkan Tata Letak Slide**
 
-Gunakan nilai [SlideLayoutType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidelayouttype/) ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama layout dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berdasarkan nama kurang andal kecuali Anda mengendalikan templat sumber.
+Gunakan nilai [SlideLayoutType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidelayouttype/) ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama tata letak dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berbasis nama kurang dapat diandalkan kecuali Anda mengontrol templat sumber.
 
-Contoh berikut mencari **Title and Content** pada master pertama. Jika layout itu tidak tersedia, secara sengaja beralih ke **Blank**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya layout khusus. Layout yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [Slide.setLayoutSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+Contoh berikut mencari **Judul dan Konten** pada master pertama. Jika tata letak itu tidak tersedia, secara sengaja beralih ke **Kosong**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya tata letak khusus. Tata letak yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [Slide.setLayoutSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#setLayoutSlide).
 
 ```javascript
 var aspose = aspose || {};
@@ -93,13 +95,13 @@ try {
 }
 ```
 
-Mengubah tata letak slide tidak menghapus shape biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwarisi, dan korespondensi antara placeholder yang ada dengan layout baru dapat berubah, jadi periksa output saat beralih antara layout yang sangat berbeda.
+Mengubah tata letak slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwariskan, dan korespondensi antara placeholder yang ada dengan tata letak baru dapat berubah, sehingga periksa output saat beralih antara tata letak yang berbeda secara substansial.
 
 ## **Tambahkan Slide Tata Letak**
 
-Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih layout yang ada; tidak membuat yang baru. Untuk membuat layout, panggil metode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) pada koleksi layout master target.
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih tata letak yang ada; itu tidak membuat yang baru. Untuk membuat tata letak, panggil metode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) pada koleksi tata letak master target.
 
-Contoh berikut selalu menambahkan layout **Title and Content** baru bernama `Report Title and Content`, kemudian menambahkan slide normal berdasarkan layout tersebut. Nama layout harus unik dalam koleksi.
+Contoh berikut selalu menambahkan tata letak **Judul dan Konten** baru bernama `Report Title and Content`, lalu menambahkan slide normal yang didasarkan padanya. Nama tata letak harus unik dalam koleksi.
 
 ```javascript
 var aspose = aspose || {};
@@ -119,26 +121,26 @@ try {
 }
 ```
 
-Tambahkan layout hanya ketika templat memang memerlukan struktur dapat pakai kembali lainnya. Jika layout yang cocok sudah ada, pilih dan gunakan kembali alih‑alih membuat duplikat.
+Tambahkan tata letak hanya ketika templat memang membutuhkan struktur yang dapat digunakan kembali. Jika tata letak yang cocok sudah ada, pilih dan gunakan kembali alih‑alih membuat duplikat.
 
 ## **Tambahkan Placeholder ke Slide Tata Letak**
 
-Metode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) menyediakan [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/) untuk menambahkan shape placeholder ke layout.
+Metode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) menyediakan sebuah [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/) untuk menambahkan bentuk placeholder ke sebuah tata letak.
 
-| PowerPoint Placeholder              | `LayoutPlaceholderManager` Method |
-| ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| Placeholder PowerPoint | Metode `LayoutPlaceholderManager` |
+| ----------------------- | --------------------------------- |
+| ![Konten](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Konten (Vertikal)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Teks](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Teks (Vertikal)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Gambar](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagram](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabel](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Gambar Online](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Contoh berikut memverifikasi bahwa layout **Blank** ada, menambahkan empat placeholder ke dalamnya, lalu membuat slide normal yang menggunakan layout yang telah dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan shape placeholder yang sesuai pada slide tersebut.
+Contoh berikut memverifikasi bahwa tata letak **Kosong** ada, menambahkan empat placeholder ke dalamnya, lalu membuat slide normal yang menggunakan tata letak yang telah dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang bersesuaian pada slide tersebut.
 
 ```javascript
 var aspose = aspose || {};
@@ -167,17 +169,17 @@ try {
 }
 ```
 
-Hasil:
+Hasilnya:
 
 ![Placeholder pada slide tata letak](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Mengubah pemformatan yang diwarisi atau geometri placeholder layout yang ada dapat memengaruhi slide‑slide yang bergantung. Placeholder layout yang baru ditambahkan tidak secara otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan layout pada salinan presentasi dan periksa setiap slide yang tergantung.
+Mengubah pemformatan yang diwariskan atau geometri placeholder tata letak yang ada dapat memengaruhi slide‑slide yang bergantung. Placeholder tata letak yang baru ditambahkan tidak secara otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan tata letak pada salinan presentasi dan periksa setiap slide yang bergantung.
 {{% /alert %}}
 
 ## **Hapus Slide Tata Letak yang Tidak Digunakan**
 
-Gunakan metode [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus layout yang tidak dirujuk oleh slide normal mana pun. Metode ini membiarkan layout yang masih dipakai tetap utuh.
+Gunakan metode [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus tata letak yang tidak dirujuk oleh slide normal mana pun. Metode ini membiarkan tata letak yang masih digunakan tetap utuh.
 
 ```javascript
 var aspose = aspose || {};
@@ -192,13 +194,13 @@ try {
 }
 ```
 
-Untuk menghapus satu layout tertentu, pertama gunakan metode [hasDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) atau [getDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Alihkan semua slide yang bergantung sebelum memanggil [LayoutSlide.remove](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#remove). Mencoba menghapus layout yang masih digunakan akan memunculkan [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/).
+Untuk menghapus satu tata letak tertentu, pertama gunakan metode [hasDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) atau [getDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Alihkan semua slide yang bergantung sebelum memanggil [LayoutSlide.remove](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#remove). Mencoba menghapus tata letak yang masih dipakai akan memicu [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/).
 
 ## **Kontrol Visibilitas Footer pada Slide Tata Letak**
 
-Sebuah layout memiliki footer, nomor slide, dan placeholder tanggal‑waktu masing‑masing. Gunakan metode [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) untuk mengontrol placeholder tersebut pada satu layout. Ini berguna ketika, misalnya, layout konten harus menampilkan footer tetapi layout judul tidak.
+Sebuah tata letak memiliki footer, nomor slide, dan placeholder tanggal‑waktu sendiri. Gunakan metode [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) untuk mengontrol placeholder‑placeholder tersebut pada satu tata letak. Ini berguna ketika, misalnya, tata letak konten harus menampilkan footer tetapi tata letak judul tidak.
 
-Contoh berikut memilih layout secara aman dan membuat elemen footernya terlihat:
+Contoh berikut memilih tata letak secara aman dan membuat elemen footernya terlihat:
 
 ```javascript
 var aspose = aspose || {};
@@ -234,7 +236,7 @@ try {
 
 ## **Kontrol Visibilitas Footer pada Master dan Tata Letak Anak‑nya**
 
-Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Metode propagasi dari [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslideheaderfootermanager/) beroperasi pada master serta layout slide dan slide normal yang bergantung; tidak hanya pada satu slide normal.
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Metode propagasi pada [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslideheaderfootermanager/) beroperasi pada master serta slide tata letak dan slide normal yang bergantung; mereka tidak menargetkan hanya satu slide normal.
 
 ```javascript
 var aspose = aspose || {};
@@ -257,18 +259,18 @@ try {
 
 ## **FAQ**
 
-**Apa Perbedaan Antara Master Slide dan Layout Slide?**
+**Apa Perbedaan Antara Slide Master dan Slide Tata Letak?**
 
-Master slide mendefinisikan tema dan pemformatan bersama presentasi. Layout slide termasuk dalam master dan mendefinisikan satu susunan placeholder yang dapat dipakai kembali. Slide normal menggunakan layout‑layout tersebut dan menyimpan konten khusus slide.
+Slide master mendefinisikan tema presentasi dan pemformatan bersama. Slide tata letak merupakan bagian dari master dan mendefinisikan satu susunan placeholder yang dapat digunakan kembali. Slide normal menggunakan tata letak‑tata letak tersebut dan menyimpan konten spesifik slide.
 
-**Bisakah Saya Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
+**Bisakah Saya Menyalin Slide Tata Letak dari Satu Presentasi ke Presentasi Lain?**
 
-Ya. Tambahkan salinan ke koleksi tujuan dengan metode [addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Saat menyalin antara presentasi, pastikan juga memeriksa font, tema, gambar, dan sumber daya lain yang digunakan oleh layout sumber.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Saat menyalin antar presentasi, verifikasi juga font, tema, gambar, dan sumber daya lain yang digunakan oleh tata letak sumber.
 
-**Apa yang Terjadi Ketika Saya Memodifikasi Layout yang Sudah Digunakan?**
+**Apa yang Terjadi Jika Saya Memodifikasi Tata Letak yang Sudah Digunakan?**
 
-Slide yang bergantung mewarisi perubahan layout kecuali mereka menimpa pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan gaya yang diwarisi dapat berubah pada banyak slide sekaligus. Gunakan [getDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit layout.
+Slide‑slide yang bergantung mewarisi perubahan tata letak kecuali mereka menimpa pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan gaya yang diwariskan dapat berubah pada banyak slide sekaligus. Gunakan [getDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) untuk mengidentifikasi slide yang terpengaruh sebelum menyunting tata letak.
 
-**Apa yang Terjadi Jika Saya Menghapus Layout yang Masih Digunakan?**
+**Apa yang Terjadi Jika Saya Menghapus Tata Letak yang Masih Digunakan?**
 
-Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus hanya layout yang tidak direferensikan.)
+Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/). Alihkan slide‑slide yang bergantung terlebih dahulu, atau gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus hanya tata letak yang tidak dirujuk.

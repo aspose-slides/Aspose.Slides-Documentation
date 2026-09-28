@@ -1,6 +1,6 @@
 ---
-title: Android でプレゼンテーション スライド マスターを管理する
-linktitle: スライド マスター
+title: Android でプレゼンテーション スライドマスターを管理する
+linktitle: スライドマスター
 type: docs
 weight: 70
 url: /ja/androidjava/slide-master/
@@ -22,37 +22,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java でスライド マスターを管理し、PowerPoint および OpenDocument プレゼンテーションのマスター スライドにアクセス、編集、クローン、比較、削除を行います。"
+description: "Aspose.Slides for Android via Java でスライドマスターを管理し、PowerPoint および OpenDocument プレゼンテーションのマスタースライドにアクセス、編集、クローン、比較、削除を行います。"
 ---
 ## **概要**
 
-**スライド マスター**は、スライドのグループに共有デザイン設定を定義します。共通の図形、ロゴ、背景、テキスト スタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライド マスターを編集することが、各スライドで同じ書式設定を繰り返すことなくプレゼンテーションの一貫性を保つ通常の方法です。
+**slide master** はスライドのグループに共通のデザイン設定を定義します。共通の図形、ロゴ、背景、テキストスタイル、テーマ設定、フッター設定などを含めることができます。PowerPoint では、スライドマスターを編集することで、すべてのスライドで同じ書式設定を繰り返すことなく、一貫性のあるプレゼンテーションを保つのが一般的です。
 
-Aspose.Slides for Android via Java も同じモデルをサポートしています。プレゼンテーションは 1 つ以上のマスター スライドを含めることができ、各マスター スライドは複数のレイアウト スライドを保持できます。通常のスライドは直接マスター スライドを参照することはなく、レイアウト スライドを使用し、そのレイアウト スライドがマスター スライドに属しています。
+Aspose.Slides for Android via Java でも同じモデルがサポートされています。プレゼンテーションは 1 つ以上のマスタースライドを含むことができ、各マスタースライドは複数のレイアウトスライドを含むことができます。通常のスライドは直接マスタースライドを参照しません。代わりに、通常のスライドはレイアウトスライドを使用し、そのレイアウトスライドはマスタースライドに属しています。
 
-階層は次のとおりです。
+階層構造は以下の通りです。
 
-1. **スライド マスター** - 共有デザインとテーマを定義します。  
-1. **レイアウト スライド** - プレースホルダーの配置とレイアウト レベルの書式設定を定義します。  
-1. **普通のスライド** - 実際のプレゼンテーション コンテンツを含み、1 つのレイアウト スライドを使用します。
+1. **スライドマスター** - 共有デザインとテーマを定義します。  
+1. **レイアウトスライド** - プレースホルダーの配置やレイアウトレベルの書式設定を定義します。  
+1. **通常スライド** - 実際のプレゼンテーションコンテンツを保持し、1 つのレイアウトスライドを使用します。
 
-![マスタースライド、レイアウトスライド、普通のスライドの階層](slide-master_2.jpg)
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-Aspose.Slides では、スライド マスターは [IMasterSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imasterslide/) インターフェイスで表されます。プレゼンテーション内のすべてのマスター スライドは、[Presentation.getMasters](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getMasters--) コレクションを通じて取得でき、これは [IMasterSlideCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imasterslidecollection/) を実装しています。Android via Java の完全な API 概要については、[com.aspose.slides API reference](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/) を参照してください。
+Aspose.Slides では、スライドマスターは [IMasterSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imasterslide/) インターフェイスで表されます。プレゼンテーション内のすべてのマスタースライドは [Presentation.getMasters](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getMasters--) コレクションを通じて取得でき、これは [IMasterSlideCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imasterslidecollection/) を実装しています。Android via Java の完全な API については、[com.aspose.slides API reference](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/) を参照してください。
 
 {{% alert color="info" title="Inheritance" %}}
-同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。たとえば、マスター スライドとレイアウト スライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウト スライドの詳細については、[Apply or Change Slide Layouts](/slides/ja/androidjava/slide-layout/) を参照してください。  
+同じプロパティが複数のレベルで定義されている場合、より具体的なレベルが優先されます。例えば、マスタースライドとレイアウトスライドの両方で背景が定義されている場合、そのレイアウトに基づくスライドはレイアウトの背景を使用します。レイアウトスライドの詳細については、[Apply or Change Slide Layouts](/slides/ja/androidjava/slide-layout/) を参照してください。
 {{% /alert %}}
 
 ## **スライドマスターへのアクセス**
 
-PowerPoint では、**View** > **Slide Master** からスライド マスター ビューを開くことができます。
+PowerPoint では、**表示** > **スライドマスター** からスライドマスタービューを開くことができます。
 
-![PowerPoint の「表示」タブにあるスライド マスター コマンド](slide-master_3.jpg)
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-Aspose.Slides では、`getMasters()` コレクションを使用してマスター スライドにアクセスします。
+Aspose.Slides では、`getMasters()` コレクションを使用してマスタースライドにアクセスします:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-また、普通のスライドが使用しているレイアウトを介して、そのマスター スライドを取得することもできます。
+通常のスライドから、そのレイアウトを介して使用されているマスタースライドを取得することもできます:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,28 +86,30 @@ try {
 }
 ```
 
-## **スライド マスターに含まれるもの**
+## **スライドマスターに含まれるもの**
 
-マスター スライドはスライドに似たオブジェクトです。`IBaseSlide` を実装しているため、普通のスライドやレイアウト スライドと同様の多くのスライド プロパティを公開します。
+マスタースライドはスライドに似たオブジェクトです。[IBaseSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseslide/) を実装しているため、通常のスライドやレイアウトスライドと同様の多数のスライドプロパティを公開します。
 
-一般的に使用されるマスター スライド メンバーは次のとおりです。
+一般的に使用されるマスタースライドのメンバーは次のとおりです。
 
-| メンバー | 用途 |
+| メンバー | 目的 |
 | --- | --- |
 | `getBackground()` | マスターレベルのスライド背景を設定します。 |
-| `getShapes()` | ロゴ、画像フレーム、共有テキストなど、マスター上に配置されたシェイプを格納します。 |
-| `getLayoutSlides()` | マスターに属するレイアウト スライドを格納します。 |
+| `getShapes()` | ロゴ、画像フレーム、共有テキストなど、マスター上に配置された図形を格納します。 |
+| `getLayoutSlides()` | マスターに属するレイアウトスライドを格納します。 |
 | `getThemeManager()` | マスターのテーマ API へのアクセスを提供します。 |
-| `getHeaderFooterManager()` | マスターおよびその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
-| `getDependingSlides()` | レイアウトを介してマスターに依存している普通のスライドを返します。 |
+| `getHeaderFooterManager()` | マスターとその子レイアウトのヘッダー、フッター、日付、スライド番号を制御します。 |
+| `getDependingSlides()` | レイアウトを介してマスターに依存する通常スライドを返します。 |
 
-## **スライド マスターに画像を追加する**
+## **スライドマスターに画像を追加する**
 
-マスター スライドに画像を追加すると、そのマスターのレイアウトを使用するすべてのスライドに表示されます。ロゴ、透かし、装飾バンド、その他繰り返し使用するビジュアル要素に便利です。
+マスタースライドに画像を追加すると、そのマスターのレイアウトを使用するスライドに画像が表示されます。ロゴ、透かし、装飾バンドなど、繰り返し使用する視覚要素に便利です。
 
-次の例は、最初のマスター スライドにロゴを追加します。
+次の例は、最初のマスタースライドにロゴを追加します:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -131,17 +137,73 @@ try {
 
 画像フレームの詳細については、[Picture Frame](/slides/ja/androidjava/picture-frame/) を参照してください。
 
-## **プレースホルダーの操作**
+## **マスターグラフィックの表示/非表示を制御する**
 
-プレースホルダーは通常、レイアウト スライドで定義されます。マスター スライドは、これらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーとその配置を決定します。
+[IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) を使用して、ロゴや装飾形状などの継承されたマスターグラフィックを削除せずに非表示にできます。非表示にしたいスライドで [Slide.setShowMasterShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) に `false` を渡し、表示したいスライドでは `true` を保持します。
 
-PowerPoint では、スライド マスター ビューでプレースホルダー コマンドが利用可能です。
-
-![PowerPoint のスライド マスター ビューにある「プレースホルダーの挿入」コマンド](slide-master_5.png)
-
-Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウト スライドで作業します。
+次の自己完結型サンプルは、マスターに青い装飾バンドを作成し、同じ空白レイアウトを使用する 2 つのスライドを作成します。バンドは最初のスライドで表示され、2 番目のスライドで非表示になります。入力プレゼンテーションや画像は不要です。
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+この例は新規プレゼンテーションに同梱されている **Blank** レイアウトを使用し、最初のスライドの独自プレースホルダーを削除します。
+
+### **設定のスコープを選択する**
+
+通常スライドは [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islide/#getLayoutSlide--) と [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--) を介してマスターにアクセスします。個々のスライドにプロパティを設定すると、そのスライドにのみ影響します。`false` を [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) に渡すと、その共有レイアウトを使用するすべてのスライドでマスターグラフィックが非表示になります (そのスライド固有の設定が `true` でも)。1 枚のスライドだけでグラフィックを非表示にしたい場合は、スライドプロパティを変更し、共有レイアウトは変更しないでください。
+
+この設定はマスタースライド自体の可視性制御としてはサポートされていません。マスター上で [getShowMasterShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) は常に `false` を返し、[setShowMasterShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) に `true` を渡すと例外がスローされます。代わりに通常スライドまたはレイアウトに適用してください。
+
+### **グラフィックと背景を区別する**
+
+| 操作 | 効果 |
+| --- | --- |
+| マスターグラフィックを非表示にする | マスターから継承された形状を削除せずに表示/非表示を制御します。 |
+| スライドの背景塗りつぶしを変更する | 背景の色、グラデーション、画像を変更します。マスターグラフィックは別の形状として残り、背景の上に表示されます。[Presentation Background](/slides/ja/androidjava/presentation-background/) を参照してください。 |
+| マスターから形状を削除する | 共有元の形状を削除し、以降そのマスターを使用するスライドから利用できなくなります。 |
+
+## **プレースホルダーの操作**
+
+プレースホルダーは通常レイアウトスライド上で定義されます。マスタースライドはそれらのレイアウトが継承する共有スタイルとテーマを提供し、各レイアウトは利用可能なプレースホルダーとその配置を決定します。
+
+PowerPoint では、プレースホルダーコマンドはスライドマスタービューで利用できます。
+
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+
+Aspose.Slides で新しいプレースホルダーを追加するには、マスターに属するレイアウトスライドを操作します:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-既存のマスター スライド上のプレースホルダー シェイプをフォーマットすることもできます。次の例は、タイトル プレースホルダーを検索し、線形グラデーション塗りつぶしを適用します。
+既にマスタースライド上に存在するプレースホルダー形状の書式設定も可能です。次の例はタイトルプレースホルダーを検索し、線形グラデーション塗りつぶしを適用します:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![普通のスライドが継承するフォーマット済みタイトル プレースホルダー](slide-master_8.png)
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-プレースホルダーやテキストの書式設定オプションの詳細については、[Set Prompt Text in Placeholder](/slides/ja/androidjava/manage-placeholder/) と [Text Formatting](/slides/ja/androidjava/text-formatting/) を参照してください。
+プレースホルダーとテキスト書式設定の詳細については、[Set Prompt Text in Placeholder](/slides/ja/androidjava/manage-placeholder/) および [Text Formatting](/slides/ja/androidjava/text-formatting/) を参照してください。
 
-## **スライド マスターの背景を変更する**
+## **スライドマスターの背景を変更する**
 
-マスターの背景は、レイアウトおよびそれを上書きしないスライドに継承されます。次の例は、最初のマスター スライドに単色の背景色を設定します。
+マスター背景は、上書きしないレイアウトやスライドに継承されます。次の例は最初のマスタースライドに単色背景色を設定します:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -222,11 +290,13 @@ try {
 
 関連トピックは、[Presentation Background](/slides/ja/androidjava/presentation-background/) と [Presentation Theme](/slides/ja/androidjava/presentation-theme/) を参照してください。
 
-## **スライド マスターを別のプレゼンテーションにクローンする**
+## **スライドマスターを別のプレゼンテーションにクローンする**
 
-`[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-)` を使用して、マスター スライドを別のプレゼンテーションにコピーできます。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
+[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) を使用して、マスタースライドを別のプレゼンテーションにコピーします。コピーされたマスターは、宛先プレゼンテーションのレイアウトやスライドで使用できます。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-マスターとともに普通のスライドもクローンしたい場合は、[Clone Slides](/slides/ja/androidjava/clone-slides/) を参照してください。
+通常スライドとそのマスターを一緒にクローンする必要がある場合は、[Clone Slides](/slides/ja/androidjava/clone-slides/) を参照してください。
 
-## **複数のスライド マスターを追加する**
+## **複数のスライドマスターを追加する**
 
-プレゼンテーションは複数のマスター スライドを含めることができます。異なるセクションで異なるブランディング、ページ構成、テーマ設定が必要な場合に便利です。
+プレゼンテーションは複数のマスタースライドを含めることができます。これは、セクションごとに異なるブランディング、ページ構成、テーマ設定が必要な場合に便利です。
 
-![マスター スライドの挿入と管理に関する PowerPoint コマンド](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-次の例は、デフォルトのマスターをクローンし、クローンに別の背景を設定し、そのクローンされたマスターの下にレイアウトを作成し、そのレイアウトに基づく新しいスライドを追加します。
+次の例はデフォルトマスターをクローンし、クローンに別の背景を設定し、そのクローンマスターの下にレイアウトを作成し、そのレイアウトに基づく新しいスライドを追加します:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -275,11 +348,13 @@ try {
 }
 ```
 
-## **スライド マスターの比較**
+## **スライドマスターを比較する**
 
-マスター スライドは、`IBaseSlide` から継承された `equals` メソッドで比較できます。比較は構造と静的コンテンツ（シェイプ、テキスト、書式設定、アニメーション、その他のスライド設定）をチェックします。スライド ID などの固有識別子や、現在の日付などの動的プレースホルダー値は比較対象になりません。
+マスタースライドは [IBaseSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseslide/) から継承した `equals` メソッドで比較できます。比較は構造と静的コンテンツ（形状、テキスト、書式設定、アニメーション、その他のスライド設定）をチェックします。スライド ID などの固有識別子や、現在の日付などの動的プレースホルダー値は比較しません。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-詳細は、[Compare Presentation Slides](/slides/ja/androidjava/compare-slides/) を参照してください。
+詳細は [Compare Presentation Slides](/slides/ja/androidjava/compare-slides/) を参照してください。
 
-## **スライド マスター ビューをデフォルト ビューに設定する**
+## **スライドマスタービューをデフォルトビューに設定する**
 
-`[ViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/viewproperties/)` の `setLastView` メソッドを使用して、PowerPoint が最初に開くビューを制御できます。次の例は、プレゼンテーションをスライド マスター ビューで開きます。
+[ViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/viewproperties/) の `setLastView` メソッドを使用して、PowerPoint が最初に開くビューを制御します。次の例はプレゼンテーションをスライドマスタービューで開きます:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,13 +401,15 @@ try {
 
 その他のビュー設定については、[Save Presentation](/slides/ja/androidjava/save-presentation/) を参照してください。
 
-## **未使用のマスター スライドを削除する**
+## **未使用のマスタースライドを削除する**
 
-プレゼンテーションには、もはや普通のスライドで使用されていないマスター スライドが含まれることがあります。未使用のマスターを削除すると、ファイルサイズが削減され、テンプレートの保守が簡素化されます。
+プレゼンテーションには、もはや通常スライドで使用されていないマスタースライドが含まれることがあります。未使用のマスターを削除すると、ファイルサイズが削減され、テンプレートの保守が簡素化されます。
 
-`removeUnused` を使用して、`getMasters()` コレクションから未使用のマスターを削除します。
+`removeUnused` を使用して `getMasters()` コレクションから未使用マスターを削除します:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-低コードの `[Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-)` メソッドも利用できます。
+低コードの [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) メソッドも使用できます:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,14 +435,18 @@ try {
 
 ## **FAQ**
 
-**スライド マスターとレイアウト スライドの違いは何ですか？**  
-スライド マスターはテーマ、背景、共通シェイプ、テキスト スタイルなどの共有デザイン設定を定義します。レイアウト スライドはマスターに属し、プレースホルダーの具体的な配置を定義します。普通のスライドはレイアウト スライドを使用するため、レイアウトとマスターの両方から継承します。
+**スライドマスターとレイアウトスライドの違いは何ですか？**
 
-**1 つのプレゼンテーションに複数のスライド マスターを含められますか？**  
-はい。プレゼンテーションは複数のスライド マスターを保持できます。異なるセクションで異なるビジュアル体系やブランディングが必要な場合に、複数のマスターを使用してください。
+スライドマスターはテーマ、背景、共通図形、テキストスタイルなどの共有デザイン設定を定義します。レイアウトスライドはマスタースライドに属し、プレースホルダーの具体的な配置を定義します。通常スライドはレイアウトスライドを使用するため、レイアウトとマスターの両方から継承します。
 
-**プレースホルダーはマスター スライドに追加すべきですか、レイアウト スライドに追加すべきですか？**  
-ほとんどの場合、レイアウト スライドにプレースホルダーを追加します。共有のビジュアル要素や書式設定はマスター スライドに置き、コンテンツ用のプレースホルダーは普通のスライドが使用するレイアウトに配置します。
+**1 つのプレゼンテーションに複数のスライドマスターを含めることができますか？**
 
-**使用中のマスター スライドを削除できますか？**  
-いいえ。依存しているスライドがあるマスター スライドは直接削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、未使用のマスターだけを削除するクリーンアップ手順を使用してください。
+はい。プレゼンテーションは複数のスライドマスターを含めることができます。異なるセクションで異なるビジュアル体系やブランディングが必要な場合に複数のマスターを使用してください。
+
+**プレースホルダーはマスタースライドに追加すべきですか、レイアウトスライドに追加すべきですか？**
+
+ほとんどの場合、レイアウトスライドにプレースホルダーを追加します。共有ビジュアル要素と共有書式設定はマスタースライドに置き、コンテンツ用プレースホルダーは通常スライドが使用するレイアウトに配置します。
+
+**使用中のマスタースライドを削除できますか？**
+
+いいえ。依存するスライドがあるマスタースライドは直接削除できません。まずそれらのスライドを別のマスターのレイアウトに移動するか、未使用のマスターのみを削除するクリーンアップメソッドを使用してください。

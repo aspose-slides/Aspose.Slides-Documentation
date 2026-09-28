@@ -1,20 +1,20 @@
 ---
 title: Zarządzanie masterami slajdów prezentacji na Androidzie
-linktitle: Master slajd
+linktitle: Master slajdu
 type: docs
 weight: 70
 url: /pl/androidjava/slide-master/
 keywords:
 - master slajdu
 - master slajd
-- master slajd PPT
-- wiele masterów slajdów
-- porównanie masterów slajdów
+- PPT master slajd
+- wiele master slajdów
+- porównywanie master slajdów
 - tło
 - element zastępczy
-- klonuj master slajd
-- kopiuj master slajd
-- duplikuj master slajd
+- klonowanie master slajdu
+- kopiowanie master slajdu
+- duplikowanie master slajdu
 - nieużywany master slajd
 - PowerPoint
 - OpenDocument
@@ -22,37 +22,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Zarządzaj masterami slajdów w Aspose.Slides dla Androida przy użyciu Javy: uzyskuj dostęp, edytuj, klonuj, porównuj i usuwaj master slajdy w prezentacjach PowerPoint i OpenDocument."
+description: "Zarządzaj masterami slajdów w Aspose.Slides dla Androida za pomocą Javy: uzyskaj dostęp, edytuj, klonuj, porównuj i usuwaj master slajdy w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-**Master slajdów** definiuje wspólne ustawienia projektu dla grupy slajdów. Może zawierać wspólne kształty, logotypy, tła, style tekstu, ustawienia motywu oraz stopki. W programie PowerPoint edycja mastera slajdów jest typowym sposobem utrzymania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
+A **master slajdu** definiuje wspólne ustawienia projektowe dla grupy slajdów. Może zawierać wspólne kształty, loga, tła, style tekstu, ustawienia motywu i ustawienia stopki. W programie PowerPoint edytowanie mastera slajdów jest typowym sposobem utrzymania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
 
-Aspose.Slides dla Android via Java obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej masterów slajdów, a każdy master może zawierać kilka slajdów układu. Normalne slajdy zwykle nie odwołują się bezpośrednio do mastera. Zamiast tego używają slajdu układu, który należy do mastera slajdów.
+Aspose.Slides for Android via Java obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej masterów slajdów, a każdy master slajdu może zawierać kilka slajdów układu. Normalne slajdy zazwyczaj nie odwołują się bezpośrednio do mastera slajdu. Zamiast tego normalny slajd używa slajdu układu, a ten slajd układu należy do mastera slajdu.
 
-Hierarchia wygląda następująco:
+Hierarchia jest:
 
-1. **Master slajdów** – definiuje wspólny projekt i motyw.  
-1. **Slajd układu** – definiuje konkretny układ elementów zastępczych i formatowanie na poziomie układu.  
-1. **Normalny slajd** – zawiera rzeczywistą treść prezentacji i korzysta z jednego slajdu układu.
+1. **Master slajdu** – definiuje wspólny projekt i motyw.  
+1. **Slajd układu** – definiuje konkretne rozmieszczenie elementów zastępczych i formatowanie na poziomie układu.  
+1. **Normalny slajd** – zawiera rzeczywistą treść prezentacji i używa jednego slajdu układu.
 
 ![Hierarchia masterów slajdów, slajdów układu i normalnych slajdów](slide-master_2.jpg)
 
-W Aspose.Slides master slajdu jest reprezentowany przez interfejs [IMasterSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslide/). Wszystkie mastery slajdów w prezentacji są dostępne poprzez kolekcję [Presentation.getMasters](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getMasters--) implementującą [IMasterSlideCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslidecollection/). Pełną powierzchnię API Android via Java znajdziesz w [odniesieniu API com.aspose.slides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/).
+W Aspose.Slides master slajdu jest reprezentowany przez interfejs [IMasterSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslide/) . Wszystkie master slajdy w prezentacji są dostępne poprzez kolekcję [Presentation.getMasters](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getMasters--) , która implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslidecollection/). Aby zobaczyć pełną powierzchnię API Android via Java, zobacz referencję API [com.aspose.slides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/).
 
 {{% alert color="info" title="Inheritance" %}}
-Gdy to samo własność jest zdefiniowane na kilku poziomach, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli master slajdów i slajd układu definiują tło, slajdy oparte na tym układzie używają tła układu. Więcej informacji o slajdach układu znajdziesz w [Zastosuj lub zmień układy slajdów](/slides/pl/androidjava/slide-layout/).
+Gdy to samo właściwość jest zdefiniowane na więcej niż jednym poziomie, wygrywa bardziej szczegółowy poziom. Na przykład, jeśli master slajdu i slajd układu definiują tło, slajdy oparte na tym układzie używają tła układu. Aby uzyskać więcej informacji o slajdach układu, zobacz [Apply or Change Slide Layouts](/slides/pl/androidjava/slide-layout/).
 {{% /alert %}}
 
 ## **Dostęp do masterów slajdów**
 
-W programie PowerPoint możesz otworzyć widok Master slajdów z **Widok** > **Master slajdów**.
+W PowerPoint możesz otworzyć widok Master slajdów z **Widok** > **Master slajdów**.
 
-![Polecenie Master slajdów na karcie Widok w programie PowerPoint](slide-master_3.jpg)
+![Polecenie Master slajdów na karcie Widok w PowerPoint](slide-master_3.jpg)
 
 W Aspose.Slides użyj kolekcji `getMasters()` aby uzyskać dostęp do masterów slajdów:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -69,6 +71,8 @@ try {
 Możesz także pobrać master slajdu używany przez normalny slajd poprzez jego układ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,26 +88,28 @@ try {
 
 ## **Co zawiera master slajdu**
 
-Master slajd jest obiektem podobnym do slajdu. Implementuje [IBaseSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez slajdy normalne i układu.
+Master slajd jest obiektem podobnym do slajdu. Implementuje [IBaseSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez normalne i układowe slajdy.
 
-Typowo używane członkowie mastera slajdu to:
+Często używane członki mastera slajdu obejmują:
 
-| Członek | Przeznaczenie |
+| Członek | Zastosowanie |
 | --- | --- |
-| `getBackground()` | Ustawia tło na poziomie mastera. |
-| `getShapes()` | Przechowuje kształty umieszczone na masterze, takie jak logotypy, ramki obrazów i współdzielony tekst. |
+| `getBackground()` | Ustawia tło slajdu na poziomie mastera. |
+| `getShapes()` | Przechowuje kształty umieszczone na masterze, takie jak loga, ramki obrazu i współdzielony tekst. |
 | `getLayoutSlides()` | Przechowuje slajdy układu należące do mastera. |
-| `getThemeManager()` | Udostępnia dostęp do interfejsów API motywu mastera. |
-| `getHeaderFooterManager()` | Steruje nagłówkami, stopkami, datami i numerami slajdów dla mastera i jego układów podrzędnych. |
-| `getDependingSlides()` | Zwraca normalne slajdy, które zależą od mastera poprzez ich układy. |
+| `getThemeManager()` | Udostępnia dostęp do API motywu mastera. |
+| `getHeaderFooterManager()` | Kontroluje nagłówki, stopki, daty i numery slajdów dla mastera i jego układów podrzędnych. |
+| `getDependingSlides()` | Zwraca normalne slajdy zależne od mastera poprzez ich układy. |
 
-## **Dodanie obrazu do mastera slajdu**
+## **Dodaj obraz do mastera slajdu**
 
-Kiedy dodasz obraz do mastera slajdu, pojawi się on na slajdach korzystających z układów z tego mastera. Jest to przydatne przy logotypach, znakach wodnych, dekoracyjnych pasach i innych powtarzających się elementach wizualnych.
+Po dodaniu obrazu do mastera slajdu pojawia się on na slajdach używających układów z tego mastera. Jest to przydatne dla logotypów, znaków wodnych, ozdobnych pasków i innych powtarzających się elementów wizualnych.
 
-Poniższy przykład dodaje logotyp do pierwszego mastera slajdu:
+Poniższy przykład dodaje logo do pierwszego mastera slajdu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-Więcej informacji o ramkach obrazu znajdziesz w [Ramka obrazu](/slides/pl/androidjava/picture-frame/).
+Aby uzyskać więcej informacji o ramkach obrazu, zobacz [Picture Frame](/slides/pl/androidjava/picture-frame/).
+
+## **Kontroluj widoczność grafiki mastera**
+
+Użyj [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) aby ukryć dziedziczoną grafikę mastera, taką jak loga lub ozdobne kształty, bez usuwania ich z mastera. Przekaż `false` do [Slide.setShowMasterShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) na slajdzie, który ma pominąć tę grafikę i pozostaw `true` na slajdach, które mają ją wyświetlać.
+
+Poniższy przykład samodzielny tworzy niebieski ozdobny pasek na masterze i dwa slajdy używające tego samego pustego układu. Pasek jest widoczny na pierwszym slajdzie i ukryty na drugim. Nie wymaga żadnej wejściowej prezentacji ani obrazu.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Przykład używa układu **Blank** dostarczonego z nową prezentacją i usuwa początkowe elementy zastępcze slajdu.
+
+### **Wybierz zakres ustawienia**
+
+Normalny slajd używa swojego mastera poprzez [ISlide.getLayoutSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islide/#getLayoutSlide--) i [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). Ustawienie właściwości na pojedynczym slajdzie wpływa tylko na ten slajd. Przekazanie `false` do [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) ukrywa grafikę mastera dla slajdów używających tego współdzielonego układu, nawet jeśli ich własne ustawienie jest `true`. Aby ukryć grafikę tylko na jednym slajdzie, zmień właściwość slajdu i pozostaw niezmieniony wspólny układ.
+
+Ustawienie nie jest obsługiwane jako kontrola widoczności na samym masterze slajdu. Na masterze, [getShowMasterShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) zawsze zwraca `false`, a przekazanie `true` do [setShowMasterShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) powoduje wyjątek. Zastosuj je do normalnego slajdu lub układu.
+
+### **Rozróżnij grafikę od tła**
+
+| Operacja | Efekt |
+| --- | --- |
+| Ukryj grafikę mastera | Kontroluje widoczność dziedziczonych kształtów mastera bez ich usuwania lub zmiany własnych kształtów slajdu. |
+| Zmień wypełnienie tła slajdu | Zmienia kolor, gradient lub obraz tła. Grafika mastera to oddzielne kształty i może pozostać widoczna na tym tle. Zobacz [Presentation Background](/slides/pl/androidjava/presentation-background/). |
+| Usuń kształt z mastera | Usuwa współdzielony kształt źródłowy, więc nie jest już dostępny dla żadnego slajdu używającego tego mastera. |
 
 ## **Praca z elementami zastępczymi**
 
-Elementy zastępcze są zazwyczaj definiowane na slajdach układu. Master slajdu zapewnia wspólny styl i motyw, które te układy dziedziczą, natomiast każdy układ decyduje, które elementy zastępcze są dostępne i gdzie są umieszczone.
+Elementy zastępcze są zwykle definiowane na slajdach układu. Master slajd zapewnia wspólny styl i motyw, które te układy dziedziczą, podczas gdy każdy układ decyduje, które elementy zastępcze są dostępne i gdzie są umieszczone.
 
-W programie PowerPoint polecenia elementów zastępczych są dostępne w widoku Master slajdów.
+W PowerPoint polecenia elementów zastępczych są dostępne w widoku Master slajdów.
 
-![Polecenie Wstaw element zastępczy w widoku Master slajdów w programie PowerPoint](slide-master_5.png)
+![Polecenie Wstaw element zastępczy w widoku Master slajdów PowerPoint](slide-master_5.png)
 
-Aby dodać nowe elementy zastępcze w Aspose.Slides, pracuj ze slajdem układu należącym do mastera:
+Aby dodać nowe elementy zastępcze w Aspose.Slides, pracuj z slajdem układu należącym do mastera:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-Możesz także formatować istniejące kształty elementów zastępczych na masterze. Poniższy przykład znajduje element zastępczy tytułu i stosuje wypełnienie gradientem liniowym:
+Możesz także formatować kształty elementów zastępczych, które już istnieją na masterze. Poniższy przykład znajduje element zastępczy tytułu i stosuje liniowe wypełnienie gradientem:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -198,17 +263,20 @@ try {
 
 ![Sformatowany element zastępczy tytułu dziedziczony przez normalne slajdy](slide-master_8.png)
 
-Więcej opcji formatowania elementów zastępczych i tekstu znajdziesz w [Ustaw tekst podpowiedzi w elemencie zastępczym](/slides/pl/androidjava/manage-placeholder/) oraz [Formatowanie tekstu](/slides/pl/androidjava/text-formatting/).
+Aby uzyskać więcej opcji formatowania elementów zastępczych i tekstu, zobacz [Set Prompt Text in Placeholder](/slides/pl/androidjava/manage-placeholder/) i [Text Formatting](/slides/pl/androidjava/text-formatting/).
 
-## **Zmiana tła mastera slajdu**
+## **Zmień tło mastera slajdu**
 
-Tło mastera jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolite tło koloru dla pierwszego mastera slajdu:
+Tło mastera jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego mastera slajdu:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-Powiązane tematy: [Tło prezentacji](/slides/pl/androidjava/presentation-background/) oraz [Motyw prezentacji](/slides/pl/androidjava/presentation-theme/).
+Dla powiązanych tematów zobacz [Presentation Background](/slides/pl/androidjava/presentation-background/) i [Presentation Theme](/slides/pl/androidjava/presentation-theme/).
 
-## **Klonowanie mastera slajdu do innej prezentacji**
+## **Klonuj master slajdu do innej prezentacji**
 
-Użyj [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) aby skopiować master slajdu do innej prezentacji. Skopiowany master może następnie być używany przez układy i slajdy w docelowej prezentacji.
+Użyj [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) aby skopiować master slajdu do innej prezentacji. Skopiowany master może być następnie używany przez układy i slajdy w prezentacji docelowej.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-Jeśli potrzebujesz sklonować normalne slajdy wraz z ich masterem, zobacz [Klonowanie slajdów](/slides/pl/androidjava/clone-slides/).
+Jeśli potrzebujesz sklonować normalne slajdy wraz z ich masterem, zobacz [Clone Slides](/slides/pl/androidjava/clone-slides/).
 
-## **Dodanie wielu masterów slajdów**
+## **Dodaj wiele masterów slajdów**
 
-Prezentacja może zawierać wiele masterów slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych elementów brandingowych, struktury strony lub ustawień motywu.
+Prezentacja może zawierać wiele masterów slajdów. Jest to przydatne, gdy różne sekcje wymagają innej identyfikacji wizualnej, struktury strony lub ustawień motywu.
 
-![Polecenia programu PowerPoint do wstawiania i zarządzania masterami slajdów](slide-master_9.jpg)
+![Polecenia PowerPoint do wstawiania i zarządzania masterami slajdów](slide-master_9.jpg)
 
 Poniższy przykład klonuje domyślny master, nadaje klonowi inne tło, tworzy układ pod tym sklonowanym masterem i dodaje nowy slajd oparty na tym układzie:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -275,11 +348,13 @@ try {
 }
 ```
 
-## **Porównywanie masterów slajdów**
+## **Porównaj mastery slajdów**
 
-Mastery slajdów można porównać metodą `equals` odziedziczoną po [IBaseSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak identyfikatory slajdów, ani dynamicznych wartości elementów zastępczych, takich jak bieżąca data.
+Master slajdy można porównać metodą `equals` dziedziczoną po [IBaseSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibaseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości elementów zastępczych, takich jak bieżąca data.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-Więcej informacji znajdziesz w [Porównywanie slajdów prezentacji](/slides/pl/androidjava/compare-slides/).
+Dla uzyskania dalszych informacji zobacz [Compare Presentation Slides](/slides/pl/androidjava/compare-slides/).
 
-## **Ustawienie widoku Master slajdów jako widoku domyślnego**
+## **Ustaw widok mastera slajdu jako domyślny widok**
 
 Użyj metody `setLastView` na [ViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/viewproperties/), aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Master slajdów:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -322,15 +399,17 @@ try {
 }
 ```
 
-Więcej ustawień widoku znajdziesz w [Zapisz prezentację](/slides/pl/androidjava/save-presentation/).
+Aby uzyskać więcej ustawień widoku, zobacz [Save Presentation](/slides/pl/androidjava/save-presentation/).
 
-## **Usuwanie nieużywanych masterów slajdów**
+## **Usuń nieużywane mastery slajdów**
 
 Prezentacje czasami zawierają mastery slajdów, które nie są już używane przez żadne normalne slajdy. Usunięcie nieużywanych masterów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
 
 Użyj `removeUnused`, aby usunąć nieużywane mastery z kolekcji `getMasters()`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-Możesz także skorzystać z metody niskokodowej [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-):
+Możesz także użyć niskokodowej metody [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -356,16 +437,16 @@ try {
 
 **Jaka jest różnica między masterem slajdu a slajdem układu?**
 
-Master slajdu definiuje wspólne ustawienia projektu, takie jak motyw, tło, wspólne kształty i style tekstu. Slajd układu należy do mastera i definiuje konkretny układ elementów zastępczych. Normalny slajd używa slajdu układu, więc dziedziczy zarówno z układu, jak i z mastera.
+Master slajdu definiuje wspólne ustawienia projektowe, takie jak motyw, tło, wspólne kształty i style tekstu. Slajd układu należy do mastera slajdu i definiuje konkretną aranżację elementów zastępczych. Normalny slajd używa slajdu układu, więc dziedziczy zarówno z układu, jak i z mastera.
 
 **Czy jedna prezentacja może zawierać kilka masterów slajdów?**
 
-Tak. Prezentacja może zawierać kilka masterów slajdów. Używaj wielu masterów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub brandingu.
+Tak. Prezentacja może zawierać kilka masterów slajdów. Używaj wielu masterów, gdy różne sekcje potrzebują różnych systemów wizualnych lub identyfikacji.
 
-**Gdzie powinienem dodać elementy zastępcze – do mastera slajdu czy do slajdu układu?**
+**Czy powinienem dodawać elementy zastępcze do mastera slajdu czy do slajdu układu?**
 
-W większości przypadków dodawaj elementy zastępcze do slajdów układu. Umieść współdzielone elementy wizualne i formatowanie na masterze, a elementy zastępcze treści na układach, które będą używane przez normalne slajdy.
+W większości przypadków dodawaj elementy zastępcze do slajdów układu. Umieść współdzielone elementy wizualne i formatowanie na masterze, a elementy zawartości na układach, które będą używane przez normalne slajdy.
 
 **Czy mogę usunąć master slajdu, który jest nadal używany?**
 
-Nie. Master slajdu, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do układów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko mastery nie będące w użyciu.
+Nie. Master slajdu, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do układów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko mastery niebędące w użyciu.

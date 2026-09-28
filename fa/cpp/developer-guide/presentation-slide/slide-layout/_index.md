@@ -1,69 +1,71 @@
 ---
-title: "اعمال یا تغییر طرح‌بندی اسلایدها در C++"
-linktitle: "طرح‌بندی اسلاید"
+title: اعمال یا تغییر چیدمان اسلایدها در C++
+linktitle: چیدمان اسلاید
 type: docs
 weight: 60
 url: /fa/cpp/slide-layout/
 keywords:
-- "طرح‌بندی اسلاید"
-- "طرح‌بندی محتوا"
-- "محل‌دار"
-- "طراحی ارائه"
-- "طراحی اسلاید"
-- "طرح‌بندی استفاده‌نشده"
-- "قابلیت مشاهده پاورقی"
-- "اسلاید عنوان"
-- "عنوان و محتوا"
-- "سرآیند بخش"
-- "دو محتوا"
-- "مقایسه"
-- "فقط عنوان"
-- "طرح‌بندی خالی"
-- "محتوا با عنوان فرعی"
-- "تصویر با عنوان فرعی"
-- "عنوان و متن عمودی"
-- "عنوان عمودی و متن"
-- "PowerPoint"
-- "OpenDocument"
-- "ارائه"
-- "C++"
-- "Aspose.Slides"
-description: "اعمال، ایجاد و تغییر طرح‌بندی‌های اسلاید در Aspose.Slides برای C++, افزودن محل‌دارها، حذف طرح‌بندی‌های استفاده‌نشده و کنترل قابلیت مشاهده پاورقی."
+- چیدمان اسلاید
+- چیدمان محتوا
+- نگهدارنده
+- طراحی ارائه
+- طراحی اسلاید
+- چیدمان استفاده نشده
+- قابلیت نمایش پاورقی
+- اسلاید عنوان
+- عنوان و محتوا
+- سربرگ بخش
+- دو محتوا
+- مقایسه
+- فقط عنوان
+- چیدمان خالی
+- محتوا با توضیح
+- تصویر با توضیح
+- عنوان و متن عمودی
+- عنوان عمودی و متن
+- PowerPoint
+- OpenDocument
+- ارائه
+- C++
+- Aspose.Slides
+description: "اعمال، ایجاد و تغییر چیدمان‌های اسلاید در Aspose.Slides برای C++، افزودن نگهدارنده‌ها، حذف چیدمان‌های استفاده نشده و کنترل قابلیت نمایش پاورقی."
 ---
 ## **بررسی کلی**
 
-یک طرح‌بندی اسلاید موقعیت‌ها و قالب‌بندی‌های جای‌دارهای مختلف مانند عنوان‌ها، متن، تصویرها، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح‌بندی به اسلایدها ساختاری یکدست می‌بخشد در حالی که به هر اسلاید اجازه می‌دهد محتوای خود را داشته باشد.
+یک چیدمان اسلاید موقعیت‌ها و قالب‌بندی نگهدارنده‌هایی مانند عنوان، متن، تصویر، نمودار و جدول را تعریف می‌کند. اعمال یک چیدمان به اسلایدها ساختاری یکسان می‌بخشد در حالی که هر اسلاید می‌تواند محتوای خود را داشته باشد.
 
-متداول‌ترین طرح‌بندی‌ها عبارتند از:
+متداول‌ترین چیدمان‌ها عبارتند از:
 
-- **Title Slide**: شامل جای‌دارهای عنوان و زیرعنوان است.
-- **Title and Content**: شامل یک جای‌دار عنوان و یک جای‌دار محتوای عمومی است.
-- **Blank**: هیچ جای‌دار محتوایی ندارد و زمانی مفید است که تمام اشکال به‌صورت دستی موقعیت‌یابی شوند.
+- **اسلاید عنوان**: شامل نگهدارنده‌های عنوان و زیرعنوان است.
+- **عنوان و محتوا**: شامل یک نگهدارنده عنوان و یک نگهدارنده محتوا عمومی می‌باشد.
+- **خالی**: هیچ نگهدارنده محتوایی ندارد و زمانی مفید است که تمام اشکال به صورت دستی موقعیت‌یابی شوند.
 
-## **درک ارث‌بری طرح‌بندی**
+## **درک ارث‌بری چیدمان**
 
 یک ارائه سه سطح مرتبط دارد:
 
-1. یک [master slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
-1. یک [layout slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/) به یک master تعلق دارد و یک چیدمان خاص از جای‌دارها را تعریف می‌کند.
-1. یک [normal slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/) از یک layout استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌نماید.
+1. یک [اسلاید مستر](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) تم، قالب‌بندی مشترک، پس‌زمینه و اشیای عمومی را تعریف می‌کند.
+1. یک [اسلاید چیدمان](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/) متعلق به یک مستر بوده و چینش خاصی از نگهدارنده‌ها را مشخص می‌کند.
+1. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/) از یک چیدمان استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌کند.
 
-یک اسلاید معمولی قالب و تم را از layout خود به ارث می‌برد و layout نیز از master خود. مقدار تنظیم‌شده مستقیم بر روی اسلاید معمولی، مقدار ارث‌گیری شده را در همان سطح بازنویسی می‌کند. وقتی یک اسلاید معمولی ایجاد می‌شود، اشکال جای‌دارهای آن از layout انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده در آن جای‌دارها متعلق به اسلاید معمولی است.
+یک اسلاید عادی تم و قالب‌بندی را از چیدمان خود به ارث می‌برد و چیدمان نیز از مستر خود به ارث می‌برد. مقداری که مستقیماً بر روی اسلاید عادی تنظیم شود، مقدار ارث‌برده در همان سطح را بازنویسی می‌کند. هنگام ایجاد یک اسلاید عادی، اشکال نگهدارنده آن از چیدمان انتخاب شده تولید می‌شوند، در حالی که محتوای وارد شده به این نگهدارنده‌ها متعلق به اسلاید عادی است.
 
-قبل از ایجاد اسلایدها، جای‌دارهای موردنیاز را به layout اضافه کنید. افزودن جای‌دار دیگر به layout بعداً، به‌صورت خودکار یک شکل جای‌دار متناظر را به اسلایدهای معمولی موجود اضافه نمی‌کند.
+قبل از ایجاد اسلایدها، نگهدارنده‌های لازم را به یک چیدمان اضافه کنید. افزودن یک نگهدارنده جدید به چیدمان پس از ایجاد اسلایدهای عادی، به‌صورت خودکار به آن اسلایدهای موجود اضافه نمی‌شود.
 
 این رابطه دو پیامد مهم دارد:
 
-- تغییر قالب‌بندی ارث‌برده یا هندسهٔ جای‌دارهای موجود در یک layout می‌تواند تمام اسلایدهایی را که به آن وابسته‌اند به‌روز کند. پیش از ویرایش یک layout که در حال استفاده است، اسلایدهای وابستهٔ آن را بررسی و ارائهٔ حاصل را مرور کنید.
-- یک layout که هنوز توسط اسلایدی استفاده می‌شود قابل حذف نیست. ابتدا اسلایدهای وابستهٔ آن را به layout دیگری اختصاص دهید یا فقط layoutهای بدون استفاده را حذف کنید.
+- تغییر قالب‌بندی ارث‌برده یا شکل هندسی نگهدارنده‌های موجود در یک چیدمان می‌تواند تمام اسلایدهای وابسته را به‌روز کند. پیش از ویرایش یک چیدمان که در حال استفاده است، اسلایدهای وابسته آن را بررسی کنید و ارائه نهایی را مرور کنید.
+- چیدمانی که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته را به چیدمان دیگری اختصاص دهید یا فقط چیدمان‌های استفاده‌نشده را حذف کنید.
 
-برای اطلاعات بیشتر دربارهٔ سطح بالایی این سلسله‌مراتب، به [Slide Master](/slides/fa/cpp/slide-master/) مراجعه کنید.
+برای اطلاعات بیشتر درباره سطح بالایی این سلسله‌مراتب، به [اسلاید مستر](/slides/fa/cpp/slide-master/) مراجعه کنید.
 
-## **انتخاب و اعمال یک طرح‌بندی اسلاید**
+برای مخفی کردن لوگوهای ارث‌برده یا اشکال تزئینی مستر در یک اسلاید یا از طریق یک چیدمان مشترک، به [کنترل نمایش گرافیک‌های مستر](/slides/fa/cpp/slide-master/) نگاه کنید. مثال دو اسلاید استفاده‌کننده از همان مستر را مقایسه می‌کند.
 
-زمانی که ارائه مطابق با تعاریف استاندارد PowerPoint است، از نوع layout استفاده کنید. نام‌های layout قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر مبنای نام تا زمانی که قالب منبع را کنترل کنید، کمتر قابل اطمینان است.
+## **انتخاب و اعمال یک چیدمان اسلاید**
 
-مثال زیر به دنبال **Title and Content** در اولین master می‌گردد. اگر آن layout در دسترس نباشد، به‌صراحت به **Blank** باز می‌گردد. بررسی null دوم ضروری است چون یک ارائه می‌توانند تنها layoutهای سفارشی داشته باشند. سپس layout انتخاب‌شده از طریق متد [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/set_layoutslide/) بر روی اولین اسلاید معمولی اعمال می‌شود.
+هنگامی که ارائه از تعاریف استاندارد چیدمان‌های PowerPoint پیروی می‌کند، از نوع چیدمان استفاده کنید. نام‌های چیدمان قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر اساس نام کم‌قابلیت اطمینان است مگر این که قالب منبع را کنترل کنید.
+
+مثال زیر به دنبال **عنوان و محتوا** در اولین مستر می‌گردد. اگر آن چیدمان موجود نباشد، به‌صورت عمدی به **خالی** بازمی‌گردد. بررسی دوم `null` ضروری است زیرا یک ارائه می‌تواند فقط شامل چیدمان‌های سفارشی باشد. سپس چیدمان انتخاب‌شده از طریق متد [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/set_layoutslide/) بر روی اولین اسلاید عادی اعمال می‌شود.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-تغییر layout یک اسلاید، اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. با این حال، موقعیت‌های جای‌دار، قالب‌بندی ارث‌برده و تطبیق بین جای‌دارهای موجود و layout جدید می‌توانند تغییر کنند، بنابراین هنگام جابجایی بین layoutهای کاملاً متفاوت، خروجی را بررسی کنید.
+تغییر چیدمان یک اسلاید اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. با این حال، موقعیت نگهدارنده‌ها، قالب‌بندی ارث‌برده و تطابق بین نگهدارنده‌های موجود و چیدمان جدید می‌تواند تغییر کند، بنابراین هنگام جابه‌جایی بین چیدمان‌های متفاوت، خروجی را بررسی کنید.
 
-## **افزودن یک Layout Slide**
+## **اضافه کردن یک اسلاید چیدمان**
 
-انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک layout موجود را انتخاب می‌کرد؛ آن را نمی‌ساخت. برای ایجاد یک layout، متد [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterlayoutslidecollection/add/) را بر روی مجموعهٔ layoutهای master هدف صدا بزنید.
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک چیدمان موجود را انتخاب کرد؛ اما آن را ایجاد نکرد. برای ایجاد یک چیدمان، متد [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterlayoutslidecollection/add/) را روی مجموعهٔ چیدمان‌های مستر هدف فراخوانی کنید.
 
-مثال زیر همیشه یک layout جدید **Title and Content** به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید معمولی بر پایهٔ آن می‌سازد. نام‌های layout باید درون مجموعه یکتا باشند.
+مثال زیر همیشه یک چیدمان جدید **عنوان و محتوا** به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی بر پایهٔ آن ایجاد می‌سازد. نام چیدمان‌ها باید درون مجموعه یکتا باشند.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-فقط وقتی قالب واقعاً نیاز به یک ساختار قابل استفاده مجدد دیگر دارد، یک layout اضافه کنید. اگر یک layout مناسب موجود باشد، آن را انتخاب و مجدداً استفاده کنید نه این‌که یک کپی بسازید.
+چیدمان را فقط زمانی اضافه کنید که قالب واقعاً به ساختار قابل استفاده دیگری نیاز داشته باشد. اگر چیدمان مناسبی از پیش موجود باشد، آن را انتخاب و دوباره استفاده کنید به جای ایجاد یک نمونهٔ تکراری.
 
-## **افزودن جای‌دارها به یک Layout Slide**
+## **اضافه کردن نگهدارنده‌ها به یک اسلاید چیدمان**
 
-متد [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) یک شئ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/) برای افزودن اشکال جای‌دار به یک layout فراهم می‌کند.
+متد [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) یک [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/) برای اضافه کردن اشکال نگهدارنده به چیدمان فراهم می‌کند.
 
-| Placeholder پاورپوینت               | متد `ILayoutPlaceholderManager` |
-| ----------------------------------- | -------------------------------- |
-| ![متن](content.png)                 | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![متن (عمودی)](contentV.png)        | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![متن](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![متن (عمودی)](textV.png)           | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![تصویر](picture.png)               | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![نمودار](chart.png)                | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![جدول](table.png)                  | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![رسانه](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![تصویر آنلاین](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| نگهدارنده PowerPoint | `ILayoutPlaceholderManager` Method |
+| ---------------------- | ---------------------------------- |
+| ![محتوا](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![محتوا (عمودی)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![متن](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![متن (عمودی)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![تصویر](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![نمودار](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![جدول](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![رسانه](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![تصویر آنلاین](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-مثال زیر بررسی می‌کند که layout **Blank** وجود دارد، چهار جای‌دار به آن اضافه می‌کند و سپس یک اسلاید معمولی که از layout اصلاح‌شده استفاده می‌کند، می‌سازد. ترتیب این کار عمدی است: جای‌دارها قبل از ایجاد اسلاید معمولی اضافه می‌شوند تا Aspose.Slides بتواند اشکال جای‌دار مربوطه را روی آن اسلاید تولید کند.
+مثال زیر بررسی می‌کند که چیدمان **خالی** وجود دارد، چهار نگهدارنده به آن اضافه می‌کند و سپس یک اسلاید عادی که از این چیدمان اصلاح‌شده استفاده می‌کند، ایجاد می‌نماید. ترتیب کار عمدی است: نگهدارنده‌ها قبل از ایجاد اسلاید عادی اضافه می‌شوند تا Aspose.Slides بتواند اشکال نگهدارنده متناظر را در آن اسلاید تولید کند.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -190,15 +192,15 @@ presentation->Dispose();
 
 نتیجه:
 
-![جای‌دارهای موجود بر روی layout slide](add_placeholders.png)
+![نگهدارنده‌ها در اسلاید چیدمان](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-تغییر قالب‌بندی ارث‌برده یا هندسهٔ جای‌دارهای موجود در layout می‌تواند بر اسلایدهای وابسته تأثیر بگذارد. یک جای‌دار جدید به‌صورت خودکار در اسلایدهای معمولی موجود پر نمی‌شود. تغییرات layout را روی یک کپی از ارائه امتحان کنید و هر اسلاید وابسته را بررسی نمایید.
+تغییر قالب‌بندی ارث‌برده یا شکل هندسی نگهدارنده‌های موجود در یک چیدمان می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک نگهدارندهٔ چیدمان که به‌تازگی اضافه شده به اسلایدهای عادی موجود بازپر کندن نمی‌شود. تغییرات چیدمان را روی یک کپی از ارائه آزمایش کنید و هر اسلاید وابسته را بررسی نمایید.
 {{% /alert %}}
 
-## **حذف Layout Slideهای بدون استفاده**
+## **حذف اسلایدهای چیدمان استفاده نشده**
 
-از متد [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف layoutهایی که هیچ اسلاید معمولی به آن‌ها ارجاع نمی‌دهد، استفاده کنید. این متد layoutهای هنوز در حال استفاده را دست نخورده می‌گذارد.
+از متد [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف چیدمان‌هایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد، استفاده کنید. این متد چیدمان‌های هنوز در حال استفاده را دست‌نخورده می‌گذارد.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,13 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-برای حذف یک layout خاص، ابتدا با استفاده از متد [get_HasDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) یا [GetDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/getdependingslides/) بررسی کنید. قبل از فراخوانی [ILayoutSlide::Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/remove/) اسلایدهای وابسته را به layout دیگری اختصاص دهید. تلاش برای حذف یک layout استفاده‌شده منجر به پرتاب [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) می‌شود.
+برای حذف یک چیدمان خاص، ابتدا از متد [get_HasDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) یا [GetDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/getdependingslides/) آن استفاده کنید. قبل از فراخوانی [ILayoutSlide::Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/remove/) اسلایدهای وابسته را به چیدمان دیگری اختصاص دهید. تلاش برای حذف یک چیدمان مورد استفاده، یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) را برمی‌انگیزد.
 
-## **کنترل نمایش پاورقی در یک Layout Slide**
+## **کنترل نمایش پاورقی در یک اسلاید چیدمان**
 
-یک layout دارای پاورقی، شماره اسلاید و جای‌دارهای تاریخ‑زمان مخصوص به خود است. از متد [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) برای کنترل این جای‌دارها برای یک layout استفاده کنید. این کار زمانی مفید است که به عنوان مثال layoutهای محتوا باید پاورقی نشان دهند ولی layoutهای عنوان نه.
+هر چیدمان پاورقی، شماره اسلاید و نگهدارندهٔ تاریخ‑زمان خود را دارد. برای کنترل این نگهدارنده‌ها برای یک چیدمان از متد [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) استفاده کنید. این کار برای مواقعی مفید است که به عنوان مثال چیدمان‌های محتوا باید پاورقی نشان دهند اما چیدمان‌های عنوان نه.
 
-مثال زیر یک layout را به‌صورت ایمن انتخاب می‌کند و عناصر پاورقی آن را قابل مشاهده می‌سازد:
+مثال زیر یک چیدمان را به‌صورت ایمن انتخاب کرده و عناصر پاورقی آن را قابل مشاهده می‌سازد:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -265,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **کنترل نمایش پاورقی در یک Master و Layoutهای فرزند آن**
+## **کنترل نمایش پاورقی در یک مستر و چیدمان‌های فرزند آن**
 
-برای اعمال تنظیمات پاورقی یکسان در سراسر سلسله‌مراتب master، از متد [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/get_headerfootermanager/) استفاده کنید. متدهای انتشار [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslideheaderfootermanager/) بر روی master و layoutهای وابسته و اسلایدهای معمولی آن عمل می‌کنند؛ نه فقط یک اسلاید معمولی خاص.
+برای اعمال تنظیمات پاورقی یکسان در سراسر سلسله‌مراتب مستر، از متد [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/get_headerfootermanager/) استفاده کنید. متدهای انتشار [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslideheaderfootermanager/) بر روی مستر و چیدمان‌های وابسته و اسلایدهای عادی آن اعمال می‌شوند؛ نه فقط بر یک اسلاید عادی.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -295,18 +297,18 @@ presentation->Dispose();
 
 ## **سؤالات متداول**
 
-**تفاوت بین Master Slide و Layout Slide چیست؟**
+**تفاوت بین اسلاید مستر و اسلاید چیدمان چیست؟**
 
-یک master slide تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. یک layout slide به یک master تعلق دارد و یک چیدمان قابل استفاده مجدد از جای‌دارها را توصیف می‌کند. اسلایدهای معمولی از این layoutها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
+اسلاید مستر تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید چیدمان متعلق به یک مستر بوده و یک تنظیم قابل استفاده‌ی مجدد از نگهدارنده‌ها را مشخص می‌کند. اسلایدهای عادی از این چیدمان‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک Layout Slide را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
+**آیا می‌توانم یک اسلاید چیدمان را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
 
-بله. با استفاده از متد [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igloballayoutslidecollection/addclone/) یک کپی به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع مورد استفادهٔ layout منبع را نیز بررسی کنید.
+بله. با متد [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igloballayoutslidecollection/addclone/) یک کپی به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط چیدمان منبع را نیز بررسی کنید.
 
-**وقتی یک Layout که در حال استفاده است را تغییر می‌دهم چه اتفاقی می‌افتد؟**
+**اگر یک چیدمان که هم‌اکنون در استفاده است را تغییر دهم، چه می‌شود؟**
 
-اسلایدهای وابسته تغییرات layout را به ارث می‌برند مگر اینکه قالب‌بندی یا اشیای تحت تأثیر را به‌صورت محلی بازنویسی کرده باشند. بنابراین هندسهٔ جای‌دارها و سبک‌های ارث‌برده می‌تواند به‌صورت همزمان در بسیاری از اسلایدها تغییر کند. قبل از ویرایش layout، با استفاده از [GetDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/getdependingslides/) اسلایدهای تحت تأثیر را شناسایی کنید.
+اسلایدهای وابسته تغییرات چیدمان را به‌ارث می‌برند مگر این که قالب‌بندی یا اشیای مورد تأثیر را به‌صورت محلی بازنویسی کرده باشند. شکل هندسی نگهدارنده‌ها و استایل ارث‌برده می‌تواند به‌صورت همزمان بر بسیاری از اسلایدها تغییر کند. قبل از ویرایش چیدمان از [GetDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/getdependingslides/) برای شناسایی اسلایدهای تحت تأثیر استفاده کنید.
 
-**اگر یک Layout که هنوز استفاده می‌شود را حذف کنم چه می‌شود؟**
+**اگر یک چیدمان که هنوز استفاده می‌شود را حذف کنم، چه می‌شود؟**
 
-Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به layout دیگری اختصاص دهید یا از [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف فقط layoutهای بدون ارجاع استفاده کنید.
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به چیدمان دیگری اختصاص دهید یا از [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف فقط چیدمان‌های بدون ارجاع استفاده کنید.

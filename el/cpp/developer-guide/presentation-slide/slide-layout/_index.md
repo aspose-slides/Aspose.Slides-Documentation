@@ -7,7 +7,7 @@ url: /el/cpp/slide-layout/
 keywords:
 - διάταξη διαφάνειας
 - διάταξη περιεχομένου
-- αντικατάσταση
+- δεσμευτική θέση
 - σχεδίαση παρουσίασης
 - σχεδίαση διαφάνειας
 - αχρησιμοποίητη διάταξη
@@ -28,42 +28,44 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διατάξεις διαφάνειας στο Aspose.Slides για C++, προσθέστε αντικαταστάσεις, αφαιρέστε αχρησιμοποίητες διατάξεις και ελέγξτε την ορατότητα του υποσέλιδου."
+description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διατάξεις διαφάνειας στο Aspose.Slides για C++, προσθέστε δεσμευτικές θέσεις, αφαιρέστε αχρησιμοποίητες διατάξεις και ελέγξτε την ορατότητα του υποσέλιδου."
 ---
 ## **Επισκόπηση**
 
-Μια διάταξη διαφάνειας ορίζει τις θέσεις και τη μορφοποίηση των αντικαταστάσεων όπως τίτλοι, κείμενο, εικόνες, διαγράμματα και πίνακες. Η εφαρμογή μιας διάταξης παρέχει στις διαφάνειες μια συνεπή δομή ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
+Μια διάταξη διαφάνειας ορίζει τις θέσεις και τη μορφοποίηση των δεσμευτικών θέσεων όπως τίτλοι, κείμενο, εικόνες, διαγράμματα και πίνακες. Η εφαρμογή μιας διάταξης παρέχει στις διαφάνειες μια συνεπής δομή, ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
 
-Οι πιο συνηθισμένες διατάξεις περιλαμβάνουν:
+Οι πιο συχνές διατάξεις περιλαμβάνουν:
 
-- **Διαφάνεια Τίτλου**: Περιέχει αντικαταστάσεις τίτλου και υποτίτλου.
-- **Τίτλος και Περιεχόμενο**: Περιέχει αντικατάσταση τίτλου και μια γενικού σκοπού αντικατάσταση περιεχομένου.
-- **Κενό**: Δεν περιέχει αντικαταστάσεις περιεχομένου και είναι χρήσιμο όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
+- **Title Slide**: Περιέχει δεσμευτικές θέσεις τίτλου και υποτίτλου.
+- **Title and Content**: Περιέχει μια δεσμευτική θέση τίτλου και μια γενική δεσμευτική θέση περιεχομένου.
+- **Blank**: Δεν περιέχει δεσμευτικές θέσεις περιεχομένου και είναι χρήσιμη όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
 
-## **Κατανόηση Κληρονομικότητας Διάταξης**
+## **Κατανόηση Κληρονομικότητας Διατάξεων**
 
-Μια παρουσίαση έχει τρία συναφή επίπεδα:
+Μια παρουσίαση έχει τρία σχετιζόμενα επίπεδα:
 
-1. Μια [κύρια διαφάνεια](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/) ορίζει το θέμα, τη κοινή μορφοποίηση, τα υπόβαθρα και τα κοινά αντικείμενα.
-1. Μια [διάταξη διαφάνειας](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/) ανήκει σε μια κύρια και ορίζει μια συγκεκριμένη διάταξη των αντικαταστάσεων.
-1. Μια [κανονική διαφάνεια](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/) χρησιμοποιεί μία διάταξη και αποθηκεύει το περιεχόμενο που εισήχθη για αυτή τη διαφάνεια.
+1. Ένα [master slide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/) καθορίζει το θέμα, τη κοινή μορφοποίηση, τα παρασκήνια και τα κοινά αντικείμενα.
+2. Ένα [layout slide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/) ανήκει σε ένα master και καθορίζει μια συγκεκριμένη διάταξη δεσμευτικών θέσεων.
+3. Μια [normal slide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/) χρησιμοποιεί μία διάταξη και αποθηκεύει το περιεχόμενο που εισήχθη για εκείνη τη διαφάνεια.
 
-Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διάταξη της, και η διάταξη κληρονομεί από την κύρια. Μια τιμή που ορίζεται άμεσα σε μια κανονική διαφάνεια παρακάμπτει την κληρονομούμενη τιμή σε αυτό το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα αντικατάστασης της παράγονται από την επιλεγμένη διάταξη, ενώ το περιεχόμενο που εισάγεται σε αυτές τις αντικαταστάσεις ανήκει στη κανονική διαφάνεια.
+Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διάταξή της, ενώ η διάταξη κληρονομεί από το master της. Μια τιμή που ορίζεται απευθείας σε μια κανονική διαφάνεια αντικαθιστά την κληρονομημένη τιμή σε αυτό το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα των δεσμευτικών θέσεων δημιουργούνται από την επιλεγμένη διάταξη, ενώ το περιεχόμενο που εισάγεται σε αυτές τις δεσμευτικές θέσεις ανήκει στη κανονική διαφάνεια.
 
-Προσθέστε τις απαιτούμενες αντικαταστάσεις σε μια διάταξη πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη μιας επιπλέον αντικατάστασης σε μια διάταξη αργότερα δεν προσθέτει αυτόματα το αντίστοιχο σχήμα αντικατάστασης στις υπάρχουσες κανονικές διαφάνειες.
+Προσθέστε τις απαιτούμενες δεσμευτικές θέσεις σε μια διάταξη πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη μιας επιπλέον δεσμευτικής θέσης σε μια διάταξη αργότερα δεν προσθέτει αυτόματα το αντίστοιχο σχήμα δεσμευτικής θέσης στις υπάρχουσες κανονικές διαφάνειες.
 
 Αυτή η σχέση έχει δύο σημαντικές συνέπειες:
 
-- Η αλλαγή της κληρονομημένης μορφοποίησης ή της υπάρχουσας γεωμετρίας των αντικαταστάσεων σε μια διάταξη μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διάταξη που ήδη χρησιμοποιείται, εξετάστε τις εξαρτώμενες διαφάνειες και ελέγξτε την τελική παρουσίαση.
-- Μια διάταξη που χρησιμοποιείται ακόμη από μια διαφάνεια δεν μπορεί να αφαιρεθεί. Αναθέστε πρώτα τις εξαρτώμενες διαφάνειες της σε άλλη διάταξη ή αφαιρέστε μόνο τις αχρησιμοποίητες διατάξεις.
+- Η αλλαγή κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχουσών δεσμευτικών θέσεων σε μια διάταξη μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διάταξη που ήδη χρησιμοποιείται, ελέγξτε τις εξαρτημένες διαφάνειες και επανεξετάστε την παράγόμενη παρουσίαση.
+- Μια διάταξη που εξακολουθεί να χρησιμοποιείται από μία διαφάνεια δεν μπορεί να αφαιρεθεί. Αναθέστε πρώτα τις εξαρτημένες διαφάνειες σε άλλη διάταξη ή αφαιρέστε μόνο τις αχρησιμοποίητες διατάξεις.
 
-Για περισσότερες πληροφορίες σχετικά με το υψηλότερο επίπεδο αυτής της ιεραρχίας, δείτε το [Κύρια Διαφάνεια](/slides/el/cpp/slide-master/).
+Για περισσότερες πληροφορίες σχετικά με το υψηλότερο επίπεδο αυτής της ιεραρχίας, δείτε [Slide Master](/slides/el/cpp/slide-master/).
+
+Για να αποκρύψετε κληρονομημένα λογότυπα ή διακοσμητικά σχήματα master σε μια διαφάνεια ή μέσω κοινής διάταξης, δείτε [Control the Visibility of Master Graphics](/slides/el/cpp/slide-master/). Το παράδειγμα συγκρίνει δύο διαφάνειες που χρησιμοποιούν το ίδιο master.
 
 ## **Επιλογή και Εφαρμογή Διάταξης Διαφάνειας**
 
-Χρησιμοποιήστε έναν τύπο διάταξης όταν η παρουσίαση ακολουθεί τις τυπικές ορισμούς διάταξης του PowerPoint. Τα ονόματα των διατάξεων μπορούν να επεξεργαστούν από τον χρήστη και να εντοπιστούν, έτσι η επιλογή βάσει ονόματος είναι λιγότερο αξιόπιστη εκτός εάν ελέγχετε το πρότυπο προέλευσης.
+Χρησιμοποιήστε έναν τύπο διάταξης όταν η παρουσίαση ακολουθεί τις τυπικές ορισμούς διάταξης του PowerPoint. Τα ονόματα των διατάξεων μπορούν να επεξεργαστούν από τον χρήστη και να μεταφραστούν, επομένως η επιλογή με βάση το όνομα είναι λιγότερο αξιόπιστη εκτός αν ελέγχετε το πρότυπο προέλευσης.
 
-Το παρακάτω παράδειγμα ψάχνει για **Τίτλος και Περιεχόμενο** στην πρώτη κύρια. Εάν αυτή η διάταξη δεν είναι διαθέσιμη, επιστρέφει σκόπιμα στην **Κενό**. Ο δεύτερος έλεγχος null είναι απαραίτητος επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διατάξεις. Η επιλεγμένη διάταξη εφαρμόζεται στην πρώτη κανονική διαφάνεια μέσω της μεθόδου [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/set_layoutslide/).
+Το παρακάτω παράδειγμα ψάχνει για **Title and Content** στο πρώτο master. Αν αυτή η διάταξη δεν είναι διαθέσιμη, επιστρέφει σκόπιμα στην **Blank**. Ο δεύτερος έλεγχος null είναι απαραίτητος επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διατάξεις. Η επιλεγμένη διάταξη εφαρμόζεται στη πρώτη κανονική διαφάνεια μέσω της [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/set_layoutslide/) μεθόδου.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η αλλαγή της διάταξης μιας διαφάνειας δεν αφαιρεί τα συνηθισμένα σχήματα που προστέθηκαν απευθείας στη διαφάνεια. Ωστόσο, οι θέσεις των αντικαταστάσεων, η κληρονομημένη μορφοποίηση και η αντιστοιχία μεταξύ των υπαρχουσών αντικαταστάσεων και της νέας διάταξης μπορούν να αλλάξουν, γι' αυτό ελέγξτε το αποτέλεσμα όταν εναλλάσσετε μεταξύ σημαντικά διαφορετικών διατάξεων.
+Η αλλαγή της διάταξης μιας διαφάνειας δεν αφαιρεί τα απλά σχήματα που προστέθηκαν απευθείας στη διαφάνεια. Ωστόσο, οι θέσεις των δεσμευτικών θέσεων, η κληρονομημένη μορφοποίηση και η αντιστοιχία μεταξύ των υπαρχουσών δεσμευτικών θέσεων και της νέας διάταξης μπορεί να αλλάξουν, επομένως ελέγξτε το αποτέλεσμα όταν εναλλάσσετε μεταξύ σημαντικά διαφορετικών διατάξεων.
 
 ## **Προσθήκη Διάταξης Διαφάνειας**
 
-Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διάταξη· δεν δημιουργεί μία. Για να δημιουργήσετε μια διάταξη, καλέστε τη μέθοδο [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterlayoutslidecollection/add/) στη συλλογή διατάξεων της επιλεγμένης κύριας.
+Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διάταξη· δεν τη δημιουργεί. Για να δημιουργήσετε μια διάταξη, καλέστε τη μέθοδο [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterlayoutslidecollection/add/) στη συλλογή διατάξεων του στοχευόμενου master.
 
-Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διάταξη **Τίτλος και Περιεχόμενο** με όνομα `Report Title and Content`, στη συνέχεια προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα των διατάξεων πρέπει να είναι μοναδικά εντός της συλλογής.
+Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διάταξη **Title and Content** με όνομα `Report Title and Content`, στη συνέχεια προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα των διατάξεων πρέπει να είναι μοναδικά μέσα στη συλλογή.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Προσθέστε μια διάταξη μόνο όταν το πρότυπο πραγματικά χρειάζεται μια ακόμη επαναχρησιμοποιήσιμη δομή. Εάν υπάρχει ήδη μια κατάλληλη διάταξη, επιλέξτε την και επαναχρησιμοποιήστε την αντί να δημιουργήσετε αντίγραφο.
+Προσθέστε μια διάταξη μόνο όταν το πρότυπο πραγματικά χρειάζεται μια επιπλέον επαναχρησιμοποιήσιμη δομή. Αν υπάρχει ήδη κατάλληλη διάταξη, επιλέξτε και χρησιμοποιήστε την ξανά αντί να δημιουργήσετε αντίγραφο.
 
-## **Προσθήκη Αντικαταστάσεων σε Διάταξη Διαφάνειας**
+## **Προσθήκη Δεσμευτικών Θέσεων σε Διάταξη Διαφάνειας**
 
-Η μέθοδος [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) παρέχει ένα [ILayoutPlaceholderManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/) για την προσθήκη σχημάτων αντικατάστασης σε μια διάταξη.
+Η [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) μέθοδος παρέχει έναν [ILayoutPlaceholderManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/) για την προσθήκη σχημάτων δεσμευτικών θέσεων σε μια διάταξη.
 
-| Αντικατάσταση PowerPoint | `ILayoutPlaceholderManager` Μέθοδος |
-| ------------------------- | ----------------------------------- |
+| Δεσμευτική Θέση PowerPoint | `ILayoutPlaceholderManager` Method |
+| --------------------------- | ---------------------------------- |
 | ![Περιεχόμενο](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![Περιεχόμενο (Κατακόρυφα)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
 | ![Κείμενο](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![Κείμενο (Κατακόρυφα)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Κείμενο (Κατακόρυφο)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
 | ![Εικόνα](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
 | ![Διάγραμμα](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
 | ![Πίνακας](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
 | ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
 | ![Μέσα](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Εικόνα Διαδικτύου](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| ![Online Image](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Το παρακάτω παράδειγμα ελέγχει αν η διάταξη **Κενό** υπάρχει, προσθέτει τέσσερις αντικαταστάσεις σε αυτήν και, στη συνέχεια, δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διάταξη. Η σειρά είναι σκόπιμη: οι αντικαταστάσεις προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε το Aspose.Slides να μπορεί να δημιουργήσει τα αντίστοιχα σχήματα αντικατάστασης σε αυτή τη διαφάνεια.
+Το παρακάτω παράδειγμα ελέγχει ότι η **Blank** διάταξη υπάρχει, προσθέτει τέσσερις δεσμευτικές θέσεις σε αυτήν, και στη συνέχεια δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διάταξη. Η σειρά είναι σκόπιμη: οι δεσμευτικές θέσεις προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε το Aspose.Slides να μπορεί να δημιουργήσει τα αντίστοιχα σχήματα δεσμευτικής θέσης σε εκείνη τη διαφάνεια.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -190,15 +192,15 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι αντικαταστάσεις στη διάταξη διαφάνειας](add_placeholders.png)
+![Οι δεσμευτικές θέσεις στη διάταξη διαφάνειας](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχουσών αντικαταστάσεων διάταξης μπορεί να επηρεάσει τις εξαρτώμενες διαφάνειες. Μία νεοπροστέθειμένη αντικατάσταση διάταξης δεν προστίθεται αυτόματα στις υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές διάταξης σε αντίγραφο της παρουσίασης και εξετάστε κάθε εξαρτημένη διαφάνεια.
+Η αλλαγή κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχουσών δεσμευτικών θέσεων σε μια διάταξη μπορεί να επηρεάσει τις εξαρτημένες διαφάνειες. Μια νεοπροστέθηκε δεσμευτική θέση στη διάταξη δεν προστίθεται αυτόματα σε υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές διάταξης σε αντίγραφο της παρουσίασης και ελέγξτε κάθε εξαρτημένη διαφάνεια.
 {{% /alert %}}
 
-## **Αφαίρεση Μη Χρησιμοποιούμενων Διατάξεων Διαφάνειας**
+## **Αφαίρεση Μη Χρησιμοποιημένων Διατάξεων Διαφάνειας**
 
-Χρησιμοποιήστε τη μέθοδο [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) για να αφαιρέσετε διατάξεις που δεν αναφέρονται από καμία κανονική διαφάνεια. Η μέθοδος διατηρεί αμετάβλητες τις διατάξεις που είναι ακόμη σε χρήση.
+Χρησιμοποιήστε τη μέθοδο [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) για να αφαιρέσετε διατάξεις που δεν αναφέρονται από καμία κανονική διαφάνεια. Η μέθοδος αφήνει αμετάβλητες τις διατάξεις που είναι ακόμη σε χρήση.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,13 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για να αφαιρέσετε μια συγκεκριμένη διάταξη, χρησιμοποιήστε πρώτα τη μέθοδο [get_HasDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) ή τη μέθοδο [GetDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/getdependingslides/). Αναθέστε εκ των προτέρων τις εξαρτώμενες διαφάνειες πριν καλέσετε τη [ILayoutSlide::Remove](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/remove/). Η προσπάθεια αφαίρεσης μιας χρησιμοποιούμενης διάταξης προκαλεί μια [PptxEditException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxeditexception/).
+Για να αφαιρέσετε μια συγκεκριμένη διάταξη, πρώτα χρησιμοποιήστε τη μέθοδο [get_HasDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) ή τη μέθοδο [GetDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/getdependingslides/). Αναθέστε τυχόν εξαρτημένες διαφάνειες πριν καλέσετε το [ILayoutSlide::Remove](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/remove/). Η προσπάθεια αφαίρεσης μιας χρήσης διάταξης προκαλεί ένα [PptxEditException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxeditexception/).
 
 ## **Έλεγχος Ορατότητας Υποσέλιδου σε Διάταξη Διαφάνειας**
 
-Μια διάταξη διαθέτει τα δικά της αντικαταστάσεις υποσέλιδου, αριθμού διαφάνειας και ημερομηνίας-ώρας. Χρησιμοποιήστε τη μέθοδο [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) για να ελέγξετε αυτές τις αντικαταστάσεις για μία διάταξη. Αυτό είναι χρήσιμο όταν, για παράδειγμα, οι διατάξεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα ενώ οι διατάξεις τίτλου όχι.
+Μια διάταξη έχει το δικό της υποσέλιδο, αριθμό διαφάνειας και δεσμευτικές θέσεις ημερομηνίας‑ώρας. Χρησιμοποιήστε τη μέθοδο [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) για να ελέγξετε αυτές τις δεσμευτικές θέσεις για μία διάταξη. Αυτό είναι χρήσιμο όταν, για παράδειγμα, οι διατάξεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα ενώ οι διατάξεις τίτλου όχι.
 
-Το παρακάτω παράδειγμα επιλέγει με ασφάλεια μια διάταξη και κάνει ορατά τα στοιχεία του υποσέλιδου της:
+Το παρακάτω παράδειγμα επιλέγει με ασφάλεια μια διάταξη και κάνει τα στοιχεία του υποσέλιδου ορατά:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -265,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Έλεγχος Ορατότητας Υποσέλιδου σε Κύρια και τις Παράγωγές της Διατάξεις**
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Master και στα Παιδικά του Διατάξεις**
 
-Για να εφαρμόσετε συνεπείς ρυθμίσεις υποσέλιδου σε όλη τη ιεραρχία μιας κύριας, χρησιμοποιήστε τη μέθοδο [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Οι μέθοδοι διάδοσης του [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslideheaderfootermanager/) λειτουργούν στην κύρια και στις εξαρτώμενες διατάξεις διαφανειών και στις κανονικές διαφάνειες· δεν στοχεύουν μόνο σε μία κανονική διαφάνεια.
+Για να εφαρμόσετε σταθερές ρυθμίσεις υποσέλιδου σε όλη τη ιεραρχία ενός master, χρησιμοποιήστε τη μέθοδο [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Οι μέθοδοι διάδοσης του [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslideheaderfootermanager/) λειτουργούν στο master και στις εξαρτημένες διατάξεις και τις κανονικές διαφάνειες· δεν στοχεύουν μόνο σε μια κανονική διαφάνεια.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -293,20 +295,20 @@ presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Ποια είναι η διαφορά μεταξύ μιας κύριας διαφάνειας και μιας διάταξης διαφάνειας;**
+**Ποια είναι η Διαφορά μεταξύ Master Slide και Layout Slide;**
 
-Μια κύρια διαφάνεια ορίζει το θέμα της παρουσίασης και τη κοινή μορφοποίηση. Μια διάταξη διαφάνειας ανήκει σε μια κύρια και καθορίζει μία επαναχρησιμοποιήσιμη διάταξη αντικαταστάσεων. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διατάξεις και αποθηκεύουν περιεχόμενο ειδικό για τη διαφάνεια.
+Ένα master slide ορίζει το θέμα και τη κοινή μορφοποίηση της παρουσίασης. Μια layout slide ανήκει σε ένα master και καθορίζει μία επαναχρησιμοποιήσιμη διάταξη δεσμευτικών θέσεων. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διατάξεις και αποθηκεύουν το περιεχόμενο της συγκεκριμένης διαφάνειας.
 
-**Μπορώ να αντιγράψω μια διάταξη διαφάνειας από μια παρουσίαση σε άλλη;**
+**Μπορώ να Αντιγράψω μια Layout Slide από μία Παρουσίαση σε Άλλη;**
 
-Ναι. Προσθέστε ένα αντίγραφο στη συλλογή προορισμού με τη μέθοδο [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Κατά την αντιγραφή μεταξύ παρουσιάσεων, ελέγξτε επίσης τις γραμματοσειρές, τα θέματα, τις εικόνες και άλλους πόρους που χρησιμοποιεί η διάταξη προέλευσης.
+Ναι. Προσθέστε ένα αντίγραφο στη συλλογή προορισμού με τη μέθοδο [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/el/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Κατά την αντιγραφή μεταξύ παρουσιάσεων, ελέγξτε επίσης γραμματοσειρές, θέματα, εικόνες και άλλους πόρους που χρησιμοποιεί η πηγή διάταξης.
 
-**Τι συμβαίνει όταν τροποποιώ μια διάταξη που χρησιμοποιείται ήδη;**
+**Τι Συμβαίνει όταν Τροποποιήσω μια Διάταξη που Είναι Ήδη σε Χρήση;**
 
-Οι εξαρτώμενες διαφάνειες κληρονομούν τις αλλαγές στη διάταξη εκτός εάν παρακάμψουν το επηρεασμένο στυλ ή τα αντικείμενα τοπικά. Η γεωμετρία των αντικαταστάσεων και η κληρονομική μορφοποίηση μπορούν έτσι να αλλάξουν σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε τη [GetDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/getdependingslides/) για να εντοπίσετε τις επηρεαζόμενες διαφάνειες πριν επεξεργαστείτε τη διάταξη.
+Οι εξαρτημένες διαφάνειες κληρονομούν τις αλλαγές στη διάταξη, εκτός αν έχουν παρακάμψει τη μορφοποίηση ή τα αντικείμενα τοπικά. Η γεωμετρία των δεσμευτικών θέσεων και η κληρονομημένη μορφοποίηση μπορούν επομένως να αλλάξουν σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε το [GetDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/getdependingslides/) για να εντοπίσετε τις επηρεαζόμενες διαφάνειες πριν επεξεργαστείτε τη διάταξη.
 
-**Τι συμβαίνει αν αφαιρέσω μια διάταξη που είναι ακόμη σε χρήση;**
+**Τι Συμβαίνει αν Αφαιρέσω μια Διάταξη που Είναι Ακόμη σε Χρήση;**
 
-Το Aspose.Slides προκαλεί μια [PptxEditException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxeditexception/). Αναθέστε πρώτα τις εξαρτώμενες διαφάνειες, ή χρησιμοποιήστε τη [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) για να αφαιρέσετε μόνο τις ακατάστατες διατάξεις.
+Το Aspose.Slides ρίχνει ένα [PptxEditException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxeditexception/). Αναθέστε πρώτα τις εξαρτημένες διαφάνειες ή χρησιμοποιήστε το [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) για να αφαιρέσετε μόνο τις αχρησιμοποίητες διατάξεις.

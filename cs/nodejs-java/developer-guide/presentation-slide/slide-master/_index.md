@@ -1,56 +1,56 @@
 ---
-title: Spravovat master snímky prezentace v JavaScriptu
-linktitle: Master snímku
+title: "Spravovat master slidy prezentace v JavaScriptu"
+linktitle: "Master snímku"
 type: docs
 weight: 70
 url: /cs/nodejs-java/slide-master/
 keywords:
-- master snímku
-- master snímek
-- PPT master snímek
-- více master snímků
-- porovnat master snímky
-- pozadí
-- zástupný objekt
-- klonovat master snímek
-- kopírovat master snímek
-- duplikovat master snímek
-- nepoužívaný master snímek
-- PowerPoint
-- OpenDocument
-- prezentace
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Spravovat master snímky v Aspose.Slides pro Node.js via Java: přístup, úpravy, klonování, porovnání a odstraňování master snímků v prezentacích PowerPoint a OpenDocument."
+- "master snímku"
+- "master snímek"
+- "PPT master snímek"
+- "více master snímků"
+- "porovnání master snímků"
+- "pozadí"
+- "zástupný objekt"
+- "klonovat master snímek"
+- "kopírovat master snímek"
+- "duplikovat master snímek"
+- "nepoužitý master snímek"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentace"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Spravovat master slidy v Aspose.Slides pro Node.js přes Java: přístup, úprava, klonování, porovnávání a odstraňování master slidů v prezentacích PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-**slide master** definuje sdílená nastavení návrhu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž by se opakovalo stejné formátování na každém snímku.
+Slide master definuje sdílená nastavení designu pro skupinu snímků. Může obsahovat běžné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž by bylo třeba opakovat stejný formát na každém snímku.
 
-Aspose.Slides for Node.js via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více master snímků a každý master snímek může obsahovat několik layout snímků. Běžné snímky se obvykle nepřipojují přímo k master snímku. Místo toho běžný snímek používá layout snímek, který patří k master snímku.
+Aspose.Slides pro Node.js via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více master slidů a každý master slide může obsahovat několik layout slidů. Normální snímky obvykle neodkazují přímo na master slide. Místo toho normální snímek používá layout slide a tento layout slide patří do master slide.
 
 Hierarchie je:
 
-1. **Slide master** – definuje sdílený design a motiv.
-1. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování na úrovni layoutu.
-1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden layout snímek.
+1. **Slide master** – definuje sdílený design a motiv.  
+1. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování úrovně rozvržení.  
+1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden layout slide.
 
-![Hierarchie master snímků, layout snímků a běžných snímků](slide-master_2.jpg)
+![Hierarchie master slidů, layout slidů a normálních slidů](slide-master_2.jpg)
 
-V Aspose.Slides je slide master reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/). Všechny master snímky v prezentaci jsou dostupné prostřednictvím kolekce `Presentation.getMasters()`.
+V Aspose.Slides je slide master reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/). Všechny master slidy v prezentaci jsou dostupné prostřednictvím kolekce `Presentation.getMasters()`.
 
-{{% alert color="info" title="Inheritance" %}}
-Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud master snímek i layout snímek oba definují pozadí, snímky založené na tomto layoutu použijí pozadí layoutu. Další informace o layout snímcích najdete v [Použít nebo změnit rozložení snímků](/nodejs-java/slide-layout/).
+{{% alert color="info" title="Dědičnost" %}}
+Když je stejná vlastnost definována na více úrovních, vítězí konkrétnější úroveň. Například pokud master slide i layout slide oba definují pozadí, snímky založené na tomto rozvržení použijí pozadí layoutu. Další informace o layout slidech najdete v [Použít nebo změnit rozvržení snímku](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
-## **Přístup k master snímkům**
+## **Přístup k slide masterům**
 
 V PowerPointu můžete otevřít zobrazení Slide Master z **View** > **Slide Master**.
 
 ![Příkaz Slide Master na kartě View v PowerPointu](slide-master_3.jpg)
 
-V Aspose.Slides použijte kolekci `getMasters()` pro přístup k master snímkům:
+V Aspose.Slides použijte kolekci `getMasters()` pro přístup k master slidům:
 
 ```javascript
 var aspose = aspose || {};
@@ -69,7 +69,7 @@ try {
 }
 ```
 
-Můžete také získat master snímek použité běžným snímkem prostřednictvím jeho layoutu:
+Můžete také získat master slide použitý normálním snímkem přes jeho layout:
 
 ```javascript
 var aspose = aspose || {};
@@ -90,24 +90,24 @@ try {
 
 ## **Co obsahuje slide master**
 
-Master snímek je objekt podobný snímku. Dědí běžné chování snímku z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/), takže vystavuje mnoho stejných vlastností snímku používaných běžnými a layout snímky. Členy specifické pro master jsou uvedeny na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/).
+Master slide je objekt podobný snímku. Dědí běžné chování snímku z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/), takže poskytuje mnoho stejných vlastností snímku používaných normálními a layout snímky. Členy specifické pro master jsou uvedeny na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/).
 
-Běžně používané členy master snímku zahrnují:
+Často používané členy master slide zahrnují:
 
 | Člen | Účel |
 | --- | --- |
 | `getBackground()` | Nastavuje pozadí snímku na úrovni masteru. |
-| `getShapes()` | Ukládá tvary umístěné na master, jako jsou loga, rámy obrázků a sdílený text. |
-| `getLayoutSlides()` | Ukládá layout snímky, které patří k masteru. |
-| `getThemeManager()` | Poskytuje přístup k API motivu masteru. |
-| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, data a čísla snímků pro master a jeho podřízené layouty. |
-| `getDependingSlides()` | Vrací běžné snímky, které závisí na masteru přes jejich layouty. |
+| `getShapes()` | Ukládá tvary umístěné na masteru, jako jsou loga, rámy obrázků a sdílený text. |
+| `getLayoutSlides()` | Ukládá layout slidy, které patří k masteru. |
+| `getThemeManager()` | Poskytuje přístup k API master motivu. |
+| `getHeaderFooterManager()` | Ovládá záhlaví, zápatí, data a čísla snímků pro master a jeho podřízené layouty. |
+| `getDependingSlides()` | Vrací normální snímky, které závisí na masteru prostřednictvím jejich layoutů. |
 
 ## **Přidání obrázku do slide masteru**
 
-Když přidáte obrázek do master snímku, objeví se na snímcích, které používají layouty z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
+Když přidáte obrázek do master slide, zobrazí se na snímcích, které používají layouty z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální elementy.
 
-Následující příklad přidává logo do prvního master snímku:
+V následujícím příkladu se přidává logo do prvního master slide:
 
 ```javascript
 var aspose = aspose || {};
@@ -138,17 +138,75 @@ try {
 }
 ```
 
-Další informace o rámech obrázků najdete v [Rámec obrázku](/nodejs-java/picture-frame/).
+Další informace o rámech obrázků najdete v [Rám obrazu](/nodejs-java/picture-frame/).
+
+## **Ovládání viditelnosti grafiky masteru**
+
+Použijte [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/#setShowMasterShapes) k skrytí zděděné grafiky masteru, jako jsou loga nebo dekorativní tvary, aniž byste je mazali z masteru. Předávejte `false` do [Slide.setShowMasterShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#setShowMasterShapes) na snímku, který má tyto grafiky vynechat, a ponechte `true` na snímcích, které je mají zobrazovat.
+
+Následující samostatný příklad vytvoří modrý dekorativní pás na masteru a dvou snímcích, které používají stejný prázdný layout. Pás je viditelný na prvním snímku a skrytý na druhém. Není vyžadována žádná vstupní prezentace ani obrázek.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+    layoutSlide.setShowMasterShapes(true);
+
+    let slideHeight = presentation.getSlideSize().getSize().getHeight();
+    let band = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    let bandColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let noFillType = java.newByte(aspose.slides.FillType.NoFill);
+    band.getFillFormat().setFillType(solidFillType);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(noFillType);
+
+    let visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    let hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Příklad používá layout **Blank** dodaný s novou prezentací a odstraňuje vlastní zástupné objekty počátečního snímku.
+
+### **Vyberte rozsah nastavení**
+
+Normální snímek používá svého mastera prostřednictvím [Slide.getLayoutSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getLayoutSlide) a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#getMasterSlide). Nastavení vlastnosti na individuálním snímku ovlivní pouze tento snímek. Předáním `false` do [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/#setShowMasterShapes) se skryje grafika masteru pro snímky, které používají tento sdílený layout, i když jejich vlastní nastavení je `true`. Pro skrytí grafiky jen na jednom snímku změňte vlastnost snímku a ponechte sdílený layout beze změny.
+
+Nastavení není podporováno jako řízení viditelnosti přímo na master slide. Na masteru [getShowMasterShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/#getShowMasterShapes) vždy vrací `false` a předání `true` do [setShowMasterShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/#setShowMasterShapes) vyvolá výjimku. Použijte jej místo toho na normální snímek nebo na layout.
+
+### **Rozlište grafiku od pozadí**
+
+| Operace | Efekt |
+| --- | --- |
+| Skrytí grafiky masteru | Ovládá viditelnost zděděných tvarů masteru bez jejich mazání nebo změny vlastních tvarů snímku. |
+| Změna výplně pozadí snímku | Mění barvu, gradient nebo obrázek pozadí. Grafika masteru jsou samostatné tvary a mohou zůstat viditelné nad tímto pozadím. Viz [Presentation Background](/slides/cs/nodejs-java/presentation-background/). |
+| Smazání tvaru z masteru | Odstraní sdílený výchozí tvar, takže už není dostupný žádnému snímku používajícímu tento master. |
 
 ## **Práce se zástupnými objekty**
 
-Zástupné objekty jsou normálně definovány na layout snímcích. Master snímek poskytuje sdílený styl a motiv, které layouty dědí, zatímco každý layout rozhoduje, které zástupné objekty jsou k dispozici a kde jsou umístěny.
+Zástupné objekty jsou obvykle definovány na layout slidech. Master slide poskytuje sdílený styl a motiv, které tyto layouty dědí, zatímco každý layout rozhoduje, které zástupné objekty jsou dostupné a kde jsou umístěny.
 
-V PowerPointu jsou příkazy pro zástupné objekty dostupné v zobrazení Slide Master.
+V PowerPointu jsou příkazy pro zástupné objekty k dispozici v zobrazení Slide Master.
 
 ![Příkaz Vložit zástupný objekt v zobrazení Slide Master v PowerPointu](slide-master_5.png)
 
-Pro přidání nových zástupných objektů s Aspose.Slides pracujte s layout snímkem, který patří k masteru:
+Aby bylo možné přidat nové zástupné objekty pomocí Aspose.Slides, pracujte s layout slide, který patří k masteru:
 
 ```javascript
 var aspose = aspose || {};
@@ -174,7 +232,7 @@ try {
 }
 ```
 
-Můžete také formátovat tvary zástupných objektů, které již na master snímku existují. Následující příklad najde zástupný objekt nadpisu a použije lineární gradientní výplň:
+Můžete také formátovat tvary zástupných objektů, které již existují na master slide. Následující příklad najde zástupný objekt titulku a aplikuje lineární gradientní výplň:
 
 ```javascript
 var aspose = aspose || {};
@@ -219,13 +277,13 @@ try {
 }
 ```
 
-![Formátovaný zástupný objekt nadpisu zděděný běžnými snímky](slide-master_8.png)
+![Formátovaný zástupný objekt titulku zděděný normálními snímky](slide-master_8.png)
 
-Další možnosti formátování zástupných objektů a textu najdete v [Nastavit výzvu v zástupném objektu](/nodejs-java/manage-placeholder/) a [Formátování textu](/nodejs-java/text-formatting/).
+Pro více možností formátování zástupných objektů a textu, viz [Nastavit výzvu textu v zástupném objektu](/nodejs-java/manage-placeholder/) a [Formátování textu](/nodejs-java/text-formatting/).
 
 ## **Změna pozadí slide masteru**
 
-Master pozadí je děděno layouty a snímky, které jej nepřepíší. Následující příklad nastaví jednotnou barvu pozadí pro první master snímek:
+Pozadí masteru je zděděno layouty a snímky, které jej nepřepíšou. Následující příklad nastaví jednotnou barvu pozadí pro první master slide:
 
 ```javascript
 var aspose = aspose || {};
@@ -253,7 +311,7 @@ Pro související témata viz [Pozadí prezentace](/nodejs-java/presentation-bac
 
 ## **Klonování slide masteru do jiné prezentace**
 
-Použijte `MasterSlideCollection.addClone` pro zkopírování master snímku do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
+Použijte `MasterSlideCollection.addClone` k kopírování master slide do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
 
 ```javascript
 var aspose = aspose || {};
@@ -272,15 +330,15 @@ try {
 }
 ```
 
-Pokud potřebujete klonovat běžné snímky spolu s jejich masterem, viz [Klonovat snímky](/nodejs-java/clone-slides/).
+Pokud potřebujete klonovat normální snímky spolu s jejich masterem, viz [Klonování snímků](/nodejs-java/clone-slides/).
 
 ## **Přidání více slide masterů**
 
-Prezentace může obsahovat více master snímků. To je užitečné, když různé sekce vyžadují odlišnou značku, strukturu stránky nebo nastavení motivu.
+Prezentace může obsahovat více master slidů. To je užitečné, když různé sekce vyžadují odlišné značky, strukturu stránek nebo nastavení motivu.
 
-![Příkazy PowerPointu pro vkládání a správu master snímků](slide-master_9.jpg)
+![Příkazy PowerPointu pro vkládání a správu master slidů](slide-master_9.jpg)
 
-Následující příklad klonuje výchozí master, přiřadí klonu jiné pozadí, vytvoří layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
+Následující příklad klonuje výchozí master, dá klonu jiné pozadí, vytvoří layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
 
 ```javascript
 var aspose = aspose || {};
@@ -316,7 +374,7 @@ try {
 
 ## **Porovnání slide masterů**
 
-Master snímky lze porovnat metodou `equals` zděděnou z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, například aktuální datum.
+Master slidy lze porovnat pomocí metody `equals` zděděné z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, jako je aktuální datum.
 
 ```javascript
 var aspose = aspose || {};
@@ -347,11 +405,11 @@ try {
 }
 ```
 
-Další informace najdete v [Porovnat snímky prezentace](/slides/cs/nodejs-java/compare-slides/).
+Další informace najdete v [Porovnání snímků prezentace](/slides/cs/nodejs-java/compare-slides/).
 
 ## **Nastavení zobrazení Slide Master jako výchozího zobrazení**
 
-Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/viewproperties/) k řízení zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
+Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/viewproperties/) pro kontrolu zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
 
 ```javascript
 var aspose = aspose || {};
@@ -369,13 +427,13 @@ try {
 }
 ```
 
-Další nastavení zobrazení viz [Uložit prezentaci](/slides/cs/nodejs-java/save-presentation/).
+Pro další nastavení zobrazení viz [Uložení prezentace](/slides/cs/nodejs-java/save-presentation/).
 
-## **Odstranění nepoužívaných master snímků**
+## **Odstranění nepoužívaných master slidů**
 
-Prezentace někdy obsahují master snímky, které již nejsou použity žádnými běžnými snímky. Odstranění nepoužívaných masterů může zmenšit velikost souboru a zjednodušit údržbu šablon.
+Prezentace někdy obsahují master slidy, které již nejsou použity žádnými normálními snímky. Odstranění nepoužívaných masterů může snížit velikost souboru a zjednodušit údržbu šablony.
 
-Použijte `removeUnused` pro odstranění nepoužívaných masterů z kolekce `getMasters()`:
+Použijte `removeUnused` k odstranění nepoužívaných masterů z kolekce `getMasters()`:
 
 ```javascript
 var aspose = aspose || {};
@@ -405,20 +463,20 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-### Jaký je rozdíl mezi slide masterem a layout snímkem?
+**Jaký je rozdíl mezi slide master a layout slidem?**
 
-Slide master definuje sdílená nastavení návrhu, jako je motiv, pozadí, společné tvary a styly textu. Layout snímek patří k masteru a definuje konkrétní uspořádání zástupných objektů. Běžný snímek používá layout snímek, takže dědí jak z layoutu, tak z masteru.
+Slide master definuje sdílená nastavení designu, jako je motiv, pozadí, společné tvary a styly textu. Layout slide patří k slide masteru a definuje konkrétní uspořádání zástupných objektů. Normální snímek používá layout slide, takže dědí jak z layoutu, tak z masteru.
 
-### Může jedna prezentace obsahovat několik slide masterů?
+**Může jedna prezentace obsahovat několik slide masterů?**
 
-Ano. Prezentace může obsahovat několik slide masterů. Použijte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo značku.
+Ano. Prezentace může obsahovat několik slide masterů. Použijte více masterů, když různé sekce vyžadují odlišné vizuální systémy nebo značkování.
 
-### Mám přidávat zástupné objekty do master snímku či do layout snímku?
+**Mám přidávat zástupné objekty do master slide nebo do layout slide?**
 
-Ve většině případů přidávejte zástupné objekty do layout snímků. Sdílené vizuální prvky a formátování umístěte na master snímek a obsahové zástupné objekty na layouty, které budou použity běžnými snímky.
+Ve většině případů přidávejte zástupné objekty do layout slidů. Sdílené vizuální prvky a formátování umístěte na master slide a obsahové zástupné objekty na layouty, které budou používat normální snímky.
 
-### Můžu smazat master snímek, který je stále používán?
+**Mohu smazat master slide, který je stále používán?**
 
-Ne. Master snímek, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky do layoutů pod jiný master nebo použijte metodu úklidu nepoužívaných masterů, která odstraní jen ty, které nejsou v použití.
+Ne. Master slide, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesunte tyto snímky na layouty pod jiný master, nebo použijte metodu pro úklid nepoužívaných masterů, která odstraňuje jen ty mastery, které nejsou používány.

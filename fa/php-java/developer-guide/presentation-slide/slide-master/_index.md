@@ -1,55 +1,55 @@
 ---
-title: مدیریت اسلاید مسترهای ارائه در PHP
-linktitle: اسلاید مستر
+title: مدیریت مسترهای اسلاید ارائه در PHP
+linktitle: مستر اسلاید
 type: docs
 weight: 70
 url: /fa/php-java/slide-master/
 keywords:
 - اسلاید مستر
-- اسلاید مستر
-- اسلاید مستر PPT
-- چندین اسلاید مستر
-- مقایسه اسلایدهای مستر
+- مستر اسلاید
+- مستر اسلاید PPT
+- مستر اسلایدهای چندگانه
+- مقایسه مستر اسلایدها
 - پس‌زمینه
-- جای‌گیر
-- کلون اسلاید مستر
-- کپی اسلاید مستر
-- تکثیر اسلاید مستر
-- اسلاید مستر بلااستفاده
+- مکان‌گیر
+- کلون مستر اسلاید
+- کپی مستر اسلاید
+- تکثیر مستر اسلاید
+- مستر اسلاید استفاده نشده
 - PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "مدیریت اسلاید مسترها در Aspose.Slides برای PHP از طریق Java: دسترسی، ویرایش، کلون، مقایسه و حذف اسلایدهای مستر در ارائه‌های PowerPoint و OpenDocument."
+description: "مدیریت مسترهای اسلاید در Aspose.Slides برای PHP از طریق Java: دسترسی، ویرایش، کلون، مقایسه و حذف مستر اسلایدها در ارائه‌های PowerPoint و OpenDocument."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-یک **اسلاید مستر** تنظیمات طراحی مشترک برای یک گروه از اسلایدها را تعریف می‌کند. می‌تواند شامل شکل‌های عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات فوتر باشد. در پاورپوینت، ویرایش اسلاید مستر روش معمول برای حفظ ثبات یک ارائه بدون تکرار همان قالب‌بندی در هر اسلاید است.
+یک **slide master** تنظیمات طراحی مشترک برای گروهی از اسلایدها را تعریف می‌کند. می‌تواند اشکال عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متنی، تنظیمات تم و تنظیمات پاورقی را شامل شود. در PowerPoint، ویرایش slide master معمول‌ترین روش برای حفظ سازگاری ارائه بدون تکرار همان قالب‌بندی در هر اسلاید است.
 
-Aspose.Slides برای PHP via Java همان مدل را پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند اسلاید مستر داشته باشد و هر اسلاید مستر می‌تواند چندین اسلاید چیدمان داشته باشد. اسلایدهای معمولاً به‌طور مستقیم به اسلاید مستر ارجاع نمی‌دهند. در عوض، یک اسلاید معمولی از یک اسلاید چیدمان استفاده می‌کند و آن اسلاید چیدمان به یک اسلاید مستر تعلق دارد.
+Aspose.Slides for PHP via Java از همان مدل پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند master slide داشته باشد و هر master slide می‌تواند چندین layout slide را شامل شود. اسلایدهای معمولاً به طور مستقیم به master slide ارجاع نمی‌دهند. در عوض، یک اسلاید معمولی از یک layout slide استفاده می‌کند و آن layout slide متعلق به یک master slide است.
 
-سطح‌های مختلف به ترتیب زیر هستند:
+سلسله‌مراتب به شرح زیر است:
 
-1. **اسلاید مستر** - طراحی و تم مشترک را تعریف می‌کند.  
-1. **اسلاید چیدمان** - چینش خاصی از جای‌گیرها و قالب‌بندی سطح چیدمان را تعریف می‌کند.  
-1. **اسلاید معمولی** - محتوای واقعی ارائه را شامل می‌شود و از یک اسلاید چیدمان استفاده می‌کند.
+1. **Slide master** - تنظیمات طراحی و تم مشترک را تعریف می‌کند.  
+1. **Layout slide** - ترتیب خاصی از placeholderها و قالب‌بندی سطح layout را تعریف می‌کند.  
+1. **Normal slide** - محتوای واقعی ارائه را در خود دارد و از یک layout slide استفاده می‌کند.
 
-![ساختار سلسله‌مراتبی اسلایدهای مستر، اسلایدهای چیدمان و اسلایدهای معمولی](slide-master_2.jpg)
+![سلسله‌مراتب master slideها، layout slideها و اسلایدهای معمولی](slide-master_2.jpg)
 
-در Aspose.Slides، یک اسلاید مستر توسط کلاس [MasterSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) نمایش داده می‌شود. تمام اسلایدهای مستر موجود در یک ارائه از طریق متد [Presentation.getMasters](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getMasters) در دسترس هستند که یک شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslidecollection/) را برمی‌گرداند.
+در Aspose.Slides، یک slide master توسط کلاس [MasterSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) نمایان می‌شود. تمام master slideهای موجود در یک ارائه از طریق روش [Presentation.getMasters](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getMasters) در دسترس هستند که یک شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslidecollection/) را برمی‌گرداند.
 
-{{% alert color="info" title="Inheritance" %}}
-هنگامی که یک ویژگی در بیش از یک سطح تعریف شود، سطح خاص‌تر برتری دارد. به عنوان مثال، اگر یک اسلاید مستر و یک اسلاید چیدمان هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن چیدمان پس‌زمینه چیدمان را استفاده می‌کنند. برای اطلاعات بیشتر درباره اسلایدهای چیدمان، به مقاله [Apply or Change Slide Layouts](/slides/fa/php-java/slide-layout/) مراجعه کنید.
+{{% alert color="info" title="وراثت" %}}
+هنگامی که یک ویژگی در بیش از یک سطح تعریف شده باشد، سطح خاص‌تر برتری دارد. به عنوان مثال، اگر یک master slide و یک layout slide هر دو پس‌زمینه‌ای را تعریف کنند، اسلایدهای مبتنی بر آن layout از پس‌زمینه layout استفاده می‌کنند. برای اطلاعات بیشتر درباره layout slideها، به [Apply or Change Slide Layouts](/slides/fa/php-java/slide-layout/) مراجعه کنید.
 {{% /alert %}}
 
-## **دسترسی به اسلایدهای مستر**
+## **دسترسی به Slide Masters**
 
-در پاورپوینت می‌توانید نمای اسلاید مستر را از **View** > **Slide Master** باز کنید.
+در PowerPoint، می‌توانید نمای Slide Master را از **View** > **Slide Master** باز کنید.
 
-![دستورات اسلاید مستر در برگه View پاورپوینت](slide-master_3.jpg)
+![دستور Slide Master در برگه View برنامه PowerPoint](slide-master_3.jpg)
 
-در Aspose.Slides، برای دسترسی به اسلایدهای مستر از متد `getMasters` استفاده کنید:
+در Aspose.Slides، از متد `getMasters` برای دسترسی به master slideها استفاده کنید:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-همچنین می‌توانید اسلاید مستری که توسط یک اسلاید معمولی استفاده می‌شود را از طریق چیدمان آن به‌دست آورید:
+همچنین می‌توانید master slide مورد استفاده توسط یک اسلاید معمولی را از طریق layout آن دریافت کنید:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -81,26 +81,26 @@ try {
 }
 ```
 
-## **محتویات یک اسلاید مستر**
+## **محتویات یک Slide Master**
 
-یک اسلاید مستر شیئی شبیه اسلاید است. این شیء از [BaseSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/) ارث می‌برد، بنابراین بسیاری از همان خصوصیات اسلاید که در اسلایدهای معمولی و چیدمان استفاده می‌شود را در دسترس دارد. اعضای مخصوص مستر در صفحه API [MasterSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) فهرست شده‌اند.
+یک master slide یک شیء شبیه اسلاید است. این شیء از [BaseSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/) ارث می‌گیرد، بنابراین بسیاری از همان ویژگی‌های اسلاید که توسط اسلایدهای معمولی و layout استفاده می‌شود، در دسترس است. اعضای مخصوص master در صفحه API [MasterSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) فهرست شده‌اند.
 
-اعضای معمولاً استفاده‌شدهٔ اسلاید مستر عبارتند از:
+اعضای پرکاربرد master slide عبارتند از:
 
 | Member | Purpose |
 | --- | --- |
-| `getBackground` | تنظیم پس‌زمینهٔ سطح مستر اسلاید. |
-| `getShapes` | اشکالی که بر روی مستر قرار می‌گیرند، مانند لوگوها، قاب‌های تصویر و متن‌های مشترک را ذخیره می‌کند. |
-| `getLayoutSlides` | اسلایدهای چیدمان مربوط به مستر را ذخیره می‌کند. |
-| `getThemeManager` | دسترسی به APIهای تم مستر را فراهم می‌کند. |
-| `getHeaderFooterManager` | سرصفحه‌ها، پاورقی‌ها، تاریخ‌ها و شمارهٔ اسلایدها را برای مستر و چیدمان‌های فرعی کنترل می‌کند. |
-| `getDependingSlides` | اسلایدهای معمولی که از طریق چیدمان‌های خود به مستر وابسته‌اند را برمی‌گرداند. |
+| `getBackground` | تنظیم پس‌زمینه سطح master. |
+| `getShapes` | اشکالی که بر روی master قرار گرفته‌اند، مانند لوگوها، فریم‌های تصویر و متن مشترک را ذخیره می‌کند. |
+| `getLayoutSlides` | layout slideهایی که به master تعلق دارند را ذخیره می‌کند. |
+| `getThemeManager` | دسترسی به APIهای تم master را فراهم می‌کند. |
+| `getHeaderFooterManager` | هدرها، فوترها، تاریخ‌ها و شماره اسلایدها را برای master و layoutهای فرزندش کنترل می‌کند. |
+| `getDependingSlides` | اسلایدهای معمولی که از طریق layoutهای خود به master وابسته‌اند را برمی‌گرداند. |
 
-## **افزودن تصویر به اسلاید مستر**
+## **اضافه‌کردن تصویر به Slide Master**
 
-زمانی که تصویری را به اسلاید مستر اضافه می‌کنید، در اسلایدهای استفاده‌کننده از چیدمان‌های آن مستر ظاهر می‌شود. این برای لوگوها، واترمارک‌ها، نوارهای تزئینی و سایر عناصر بصری تکرارشونده مفید است.
+وقتی تصویری را به یک master slide اضافه می‌کنید، در اسلایدهایی که از layoutهای آن master استفاده می‌کنند نمایش داده می‌شود. این ویژگی برای لوگوها، واترمارک‌ها، نوارهای تزئینی و سایر عناصر بصری مکرر مفید است.
 
-مثال زیر یک لوگو را به اولین اسلاید مستر اضافه می‌کند:
+مثال زیر یک لوگو را به اولین master slide اضافه می‌کند:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -128,17 +128,74 @@ try {
 }
 ```
 
-برای اطلاعات بیشتر دربارهٔ قاب‌های تصویر، به مقاله [Picture Frame](/slides/fa/php-java/picture-frame/) مراجعه کنید.
+برای اطلاعات بیشتر درباره فریم‌های تصویر، به [Picture Frame](/slides/fa/php-java/picture-frame/) مراجعه کنید.
 
-## **کار با جای‌گیرها**
+## **کنترل نمایش گرافیک‌های Master**
 
-جای‌گیرها معمولاً در اسلایدهای چیدمان تعریف می‌شوند. اسلاید مستر سبک و تم مشترکی را که آن چیدمان‌ها به ارث می‌برند، فراهم می‌کند؛ در حالی که هر چیدمان تصمیم می‌گیرد کدام جای‌گیرها در دسترس هستند و در کجا قرار گیرند.
+از [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/#setShowMasterShapes) برای پنهان کردن گرافیک‌های ارث‌گیرفته از master (مانند لوگوها یا اشکال تزئینی) بدون حذف آن‌ها از master استفاده کنید. مقدار `false` را به [Slide::setShowMasterShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#setShowMasterShapes) در اسلایدی که می‌خواهید این گرافیک‌ها حذف شوند، پاس بدهید و در اسلایدهایی که می‌خواهید نمایش داده شوند مقدار `true` بگذارید.
 
-در پاورپوینت، دستورات جای‌گیر در نمای اسلاید مستر موجود است.
+مثال خودمحافظ زیر یک نوار تزئینی آبی را بر روی یک master و دو اسلاید که از همان layout خالی استفاده می‌کنند، ایجاد می‌کند. نوار در اولین اسلاید قابل مشاهده است و در دوم پنهان می‌شود. نیازی به ارائه ورودی یا تصویر نیست.
 
-![دستورات Insert Placeholder در نمای اسلاید مستر پاورپوینت](slide-master_5.png)
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
 
-برای افزودن جای‌گیرهای جدید با Aspose.Slides، با اسلاید چیدمانی که به مستر تعلق دارد کار کنید:
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+این مثال از layout **Blank** که با یک ارائه جدید عرضه می‌شود استفاده می‌کند و placeholderهای اولیه اسلاید را حذف می‌کند.
+
+### **انتخاب دامنه تنظیم**
+
+یک اسلاید معمولی از master خود از طریق [Slide::getLayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getLayoutSlide) و [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getMasterSlide) استفاده می‌کند. تنظیم ویژگی بر روی یک اسلاید تک‌تک تنها آن اسلاید را تحت تأثیر قرار می‌دهد. پاس دادن `false` به [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#setShowMasterShapes) گرافیک‌های master را برای تمام اسلایدهایی که از همان layout مشترک استفاده می‌کنند، پنهان می‌کند، حتی اگر تنظیم خود اسلاید `true` باشد. برای پنهان کردن گرافیک فقط در یک اسلاید، ویژگی اسلاید را تغییر دهید و layout مشترک را دست‌نخورده بگذارید.
+
+این تنظیم به عنوان کنترل نمایش بر روی خود master slide پشتیبانی نمی‌شود. در یک master، [getShowMasterShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/#getShowMasterShapes) همیشه `false` برمی‌گرداند و پاس دادن `true` به [setShowMasterShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/#setShowMasterShapes) موجب استثنا می‌شود. این متد را بر روی اسلاید معمولی یا layout اعمال کنید.
+
+### **تمایز گرافیک‌ها از پس‌زمینه**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | نمایش گرافیک‌های ارث‌گیرفته از master را بدون حذف یا تغییر اشکال خود اسلاید کنترل می‌کند. |
+| Change the slide background fill | رنگ، گرادیان یا تصویر پس‌زمینه را تغییر می‌دهد. گرافیک‌های master اشکال جداگانه‌ای هستند و می‌توانند بر روی آن پس‌زمینه باقی بمانند. برای جزئیات بیشتر به [Presentation Background](/slides/fa/php-java/presentation-background/) نگاه کنید. |
+| Delete a shape from the master | شکل منبع مشترک را حذف می‌کند، به طوری که دیگر برای هیچ اسلایدی که از آن master استفاده می‌کند، در دسترس نیست. |
+
+## **کار با Placeholderها**
+
+Placeholderها معمولاً در layout slideها تعریف می‌شوند. master slide سبک و تم مشترکی را که آن layoutها ارث می‌برند، فراهم می‌کند؛ در حالی که هر layout تصمیم می‌گیرد چه placeholderهایی در دسترس هستند و کجا قرار گیرند.
+
+در PowerPoint، دستورات placeholder در نمای Slide Master موجود است.
+
+![دستورات Insert Placeholder در نمای Slide Master برنامه PowerPoint](slide-master_5.png)
+
+برای اضافه کردن placeholderهای جدید با Aspose.Slides، با layout slideی که به master تعلق دارد کار کنید:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -164,7 +221,7 @@ try {
 }
 ```
 
-همچنین می‌توانید اشکال جای‌گیر موجود در یک اسلاید مستر را قالب‌بندی کنید. مثال زیر جای‌گیر عنوان را پیدا کرده و یک پرکن خطی گرادیان اعمال می‌کند:
+همچنین می‌توانید اشکال placeholderهایی که از پیش در یک master slide وجود دارند را قالب‌بندی کنید. مثال زیر placeholder عنوان را پیدا کرده و یک پرکنش خطی گرادیان اعمال می‌کند:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -206,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![جای‌گیر عنوان قالب‌بندی‌شده که توسط اسلایدهای معمولی به ارث برده می‌شود](slide-master_8.png)
+![Placeholder عنوان قالب‌بندی شده که توسط اسلایدهای معمولی ارث‌برداری می‌شود](slide-master_8.png)
 
-برای گزینه‌های بیشتر قالب‌بندی جای‌گیر و متن، به مقالات [Set Prompt Text in Placeholder](/slides/fa/php-java/manage-placeholder/) و [Text Formatting](/slides/fa/php-java/text-formatting/) مراجعه کنید.
+برای گزینه‌های بیشتر قالب‌بندی placeholder و متن، به [Set Prompt Text in Placeholder](/slides/fa/php-java/manage-placeholder/) و [Text Formatting](/slides/fa/php-java/text-formatting/) مراجعه کنید.
 
-## **تغییر پس‌زمینهٔ اسلاید مستر**
+## **تغییر پس‌زمینه Slide Master**
 
-پس‌زمینهٔ مستر توسط چیدمان‌ها و اسلایدهایی که آن را بازنویسی نمی‌کنند به ارث می‌رسد. مثال زیر یک رنگ پس‌زمینهٔ ثابت برای اولین اسلاید مستر تنظیم می‌کند:
+پس‌زمینه master توسط layoutها و اسلایدهایی که آن را بازنویسی نمی‌کنند، به ارث می‌رسد. مثال زیر یک رنگ پس‌زمینه ثابت را برای اولین master slide تعیین می‌کند:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -232,11 +289,11 @@ try {
 }
 ```
 
-برای موضوعات مرتبط، به مقالات [Presentation Background](/slides/fa/php-java/presentation-background/) و [Presentation Theme](/slides/fa/php-java/presentation-theme/) نگاه کنید.
+برای موضوعات مرتبط، به [Presentation Background](/slides/fa/php-java/presentation-background/) و [Presentation Theme](/slides/fa/php-java/presentation-theme/) نگاه کنید.
 
-## **کلون کردن اسلاید مستر به ارائهٔ دیگر**
+## **کلون کردن Slide Master به ارائه دیگری**
 
-از متد `addClone` موجود در [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslidecollection/) برای کپی کردن یک اسلاید مستر به ارائه‌ای دیگر استفاده کنید. مستر کپی‌شده سپس می‌تواند توسط چیدمان‌ها و اسلایدهای مقصد استفاده شود.
+از `addClone` موجود در [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslidecollection/) برای کپی کردن یک master slide به ارائه دیگری استفاده کنید. master کپی‌شده سپس می‌تواند توسط layoutها و اسلایدهای موجود در ارائه مقصد استفاده شود.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -252,15 +309,15 @@ try {
 }
 ```
 
-اگر نیاز دارید اسلایدهای معمولی را همراه با مسترشان کلون کنید، به مقاله [Clone Slides](/slides/fa/php-java/clone-slides/) مراجعه کنید.
+اگر نیاز به کلون کردن اسلایدهای معمولی همراه با master آنها دارید، به [Clone Slides](/slides/fa/php-java/clone-slides/) مراجعه کنید.
 
-## **افزودن چندین اسلاید مستر**
+## **اضافه‌کردن چند Slide Master**
 
-یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. این موضوع برای بخش‌های مختلفی که نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوت دارند، مفید است.
+یک ارائه می‌تواند چندین master slide داشته باشد. این ویژگی زمانی مفید است که بخش‌های مختلف نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوتی داشته باشند.
 
-![دستورات پاورپوینت برای درج و مدیریت اسلایدهای مستر](slide-master_9.jpg)
+![دستورات PowerPoint برای درج و مدیریت master slideها](slide-master_9.jpg)
 
-مثال زیر مستر پیش‌فرض را کلون می‌کند، به کلون پس‌زمینه‌ای متفاوت می‌دهد، یک چیدمان تحت آن مستر کلون‌شده ایجاد می‌کند و اسلاید جدیدی بر پایهٔ آن چیدمان اضافه می‌کند:
+مثال زیر master پیش‌فرض را کلون می‌کند، به کلون پس‌زمینه متفاوتی می‌دهد، یک layout تحت آن master کلون شده ایجاد می‌کند و یک اسلاید جدید بر پایه آن layout اضافه می‌کند:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -285,9 +342,9 @@ try {
 }
 ```
 
-## **مقایسهٔ اسلایدهای مستر**
+## **مقایسه Slide Masterها**
 
-اسلایدهای مستر می‌توانند با متد `equals` که از [BaseSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/) ارث می‌برند، مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های یکتا مانند شناسهٔ اسلاید یا مقادیر دینامیک جای‌گیر (مانند تاریخ جاری) مورد مقایسه قرار نمی‌گیرند.
+Slide masterها می‌توانند با متد `equals` که از [BaseSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/) به ارث برده شده است، مقایسه شوند. این مقایسه ساختار و محتویات ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به فرد مثل slide IDها یا مقادیر پویا مانند تاریخ فعلی مقایسه نمی‌شوند.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -314,11 +371,11 @@ try {
 }
 ```
 
-برای اطلاعات بیشتر، به مقاله [Compare Presentation Slides](/slides/fa/php-java/compare-slides/) مراجعه کنید.
+برای اطلاعات بیشتر به [Compare Presentation Slides](/slides/fa/php-java/compare-slides/) مراجعه کنید.
 
-## **تنظیم نمای اسلاید مستر به‌عنوان نمای پیش‌فرض**
+## **تنظیم Slide Master View به عنوان نمای پیش‌فرض**
 
-از متد `setLastView` موجود در [ViewProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewproperties/) برای کنترل نمایی که پاورپوینت ابتدا باز می‌کند استفاده کنید. مثال زیر ارائه را در نمای اسلاید مستر باز می‌کند:
+از متد `setLastView` در [ViewProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند، استفاده کنید. مثال زیر ارائه را در نمای Slide Master باز می‌کند:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -330,13 +387,13 @@ try {
 }
 ```
 
-برای تنظیمات نمای بیشتر، به مقاله [Save Presentation](/slides/fa/php-java/save-presentation/) نگاه کنید.
+برای تنظیمات بیشتر نمای، به [Save Presentation](/slides/fa/php-java/save-presentation/) نگاه کنید.
 
-## **حذف اسلایدهای مستر بلااستفاده**
+## **حذف Slide Masterهای استفاده‌نشده**
 
-گاهی ارائه‌ها شامل اسلایدهای مستری می‌شوند که دیگر توسط هیچ اسلاید معمولی استفاده نمی‌شوند. حذف مسترهای بلااستفاده می‌تواند حجم فایل را کاهش داده و نگهداری الگوها را ساده‌تر کند.
+گاهی ارائه‌ها شامل master slideهایی می‌شوند که دیگر توسط هیچ اسلاید معمولی استفاده نمی‌شوند. حذف masterهای استفاده‌نشده می‌تواند حجم فایل را کاهش داده و نگهداری قالب را ساده‌تر کند.
 
-از متد `removeUnused` موجود در [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslidecollection/) برای حذف مسترهای بلااستفاده از مجموعهٔ `getMasters` استفاده کنید:
+از `removeUnused` موجود در [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslidecollection/) برای حذف masterهای استفاده‌نشده از مجموعه `getMasters` استفاده کنید:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -348,7 +405,7 @@ try {
 }
 ```
 
-همچنین می‌توانید از متد کم‌کد `removeUnusedMasterSlides` موجود در کلاس [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) استفاده کنید:
+همچنین می‌توانید از متد کم‌کد `removeUnusedMasterSlides` در کلاس [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) استفاده کنید:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -360,20 +417,20 @@ try {
 }
 ```
 
-## **سئوالات متداول**
+## **سوالات متداول**
 
-**تفاوت اسلاید مستر و اسلاید چیدمان چیست؟**
+**تفاوت بین slide master و layout slide چیست؟**
 
-اسلاید مستر تنظیمات طراحی مشترک مانند تم، پس‌زمینه، شکل‌های عمومی و سبک‌های متن را تعریف می‌کند. اسلاید چیدمان به یک اسلاید مستر تعلق دارد و چینش خاصی از جای‌گیرها را تعیین می‌کند. یک اسلاید معمولی از یک اسلاید چیدمان استفاده می‌کند، به این ترتیب از هر دو چیدمان و مستر ارث می‌برد.
+یک slide master تنظیمات طراحی مشترکی مانند تم، پس‌زمینه، اشکال عمومی و سبک‌های متنی را تعریف می‌کند. یک layout slide به یک master slide تعلق دارد و ترتیب خاصی از placeholderها را تعیین می‌کند. یک اسلاید معمولی از یک layout slide استفاده می‌کند، بنابراین از هر دو layout و master ارث می‌برد.
 
-**آیا یک ارائه می‌تواند چندین اسلاید مستر داشته باشد؟**
+**آیا یک ارائه می‌تواند چندین slide master داشته باشد؟**
 
-بله. یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. زمانی که بخش‌های مختلف نیاز به سیستم‌های بصری یا برندینگ متفاوتی دارند، از چندین مستر استفاده کنید.
+بله. یک ارائه می‌تواند چندین slide master داشته باشد. هنگام نیاز به سیستم‌های بصری یا برندینگ متفاوت برای بخش‌های مختلف، از masterهای متعدد استفاده کنید.
 
-**آیا باید جای‌گیرها را به اسلاید مستر اضافه کنم یا به اسلاید چیدمان؟**
+**آیا باید placeholderها را به master slide اضافه کنم یا به layout slide؟**
 
-در اکثر موارد، جای‌گیرها را به اسلایدهای چیدمان اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های مشترک را روی اسلاید مستر بگذارید و سپس جای‌گیرهای محتوا را روی چیدمان‌ها که اسلایدهای معمولی از آن استفاده می‌کنند، قرار دهید.
+در اکثر موارد placeholderها را به layout slideها اضافه کنید. عناصر بصری مشترک و قالب‌بندی مشترک را روی master slide بگذارید و placeholderهای محتوا را روی layoutهایی که اسلایدهای معمولی استفاده می‌کنند، قرار دهید.
 
-**آیا می‌توانم اسلاید مستری را که هنوز استفاده می‌شود حذف کنم؟**
+**آیا می‌توانم یک master slide که هنوز استفاده می‌شود را حذف کنم؟**
 
-خیر. اسلاید مستری که اسلایدهای وابسته دارد را نمی‌توان به‌صورت مستقیم حذف کرد. ابتدا آن اسلایدها را به چیدمان‌های تحت مستر دیگری منتقل کنید یا از روش پاک‌سازی مسترهای بلااستفاده استفاده کنید که فقط مسترهای غیرقابل استفاده را حذف می‌کند.
+نه. یک master slide که اسلایدهای وابسته دارد، نمی‌تواند به‌صورت مستقیم و ایمن حذف شود. ابتدا آن اسلایدها را به layoutهای یک master دیگر منتقل کنید یا از روش پاک‌سازی masterهای استفاده‌نشده که تنها masterهای بدون استفاده را حذف می‌کند، استفاده کنید.

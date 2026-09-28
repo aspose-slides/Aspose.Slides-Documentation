@@ -1,67 +1,71 @@
 ---
-title: Áp dụng hoặc Thay đổi Bố cục Slide trong C++
-linktitle: Bố cục Slide
+title: "Áp dụng hoặc Thay đổi Bố cục Slide trong C++"
+linktitle: "Bố cục Slide"
 type: docs
 weight: 60
 url: /vi/cpp/slide-layout/
 keywords:
-- bố cục slide
-- bố cục nội dung
-- trình giữ chỗ
-- thiết kế bản trình bày
-- thiết kế slide
-- bố cục không sử dụng
-- hiển thị chân trang
-- slide tiêu đề
-- tiêu đề và nội dung
-- đầu mục phần
-- hai nội dung
-- so sánh
-- chỉ tiêu đề
-- bố cục trống
-- nội dung có chú thích
-- hình ảnh có chú thích
-- tiêu đề và văn bản dọc
-- tiêu đề dọc và văn bản
-- PowerPoint
-- OpenDocument
-- bản trình bày
-- C++
-- Aspose.Slides
-description: "Áp dụng, tạo và chỉnh sửa bố cục slide trong Aspose.Slides cho C++, thêm trình giữ chỗ, xóa các bố cục không sử dụng và kiểm soát hiển thị chân trang."
+- "bố cục slide"
+- "bố cục nội dung"
+- "trình giữ chỗ"
+- "thiết kế bài thuyết trình"
+- "thiết kế slide"
+- "bố cục không sử dụng"
+- "hiển thị chân trang"
+- "slide tiêu đề"
+- "tiêu đề và nội dung"
+- "đầu mục phần"
+- "hai nội dung"
+- "so sánh"
+- "chỉ tiêu đề"
+- "bố cục trống"
+- "nội dung có chú thích"
+- "hình ảnh có chú thích"
+- "tiêu đề và văn bản dọc"
+- "tiêu đề dọc và văn bản"
+- "PowerPoint"
+- "OpenDocument"
+- "bài thuyết trình"
+- "C++"
+- "Aspose.Slides"
+description: "Áp dụng, tạo và sửa đổi bố cục slide trong Aspose.Slides cho C++, thêm trình giữ chỗ, loại bỏ các bố cục không sử dụng và kiểm soát hiển thị chân trang."
 ---
 ## **Tổng quan**
 
-Bố cục slide xác định vị trí và định dạng của các trình giữ chỗ như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán đồng thời cho phép mỗi slide chứa nội dung riêng của mình.
+Một bố cục slide xác định vị trí và định dạng của các placeholder như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán trong khi vẫn cho phép mỗi slide chứa nội dung riêng của nó.
 
-- **Slide Tiêu đề**: Chứa các trình giữ chỗ tiêu đề và phụ đề.
-- **Tiêu đề và Nội dung**: Chứa một trình giữ chỗ tiêu đề và một trình giữ chỗ nội dung đa năng.
-- **Trống**: Không chứa trình giữ chỗ nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
+Các bố cục phổ biến nhất bao gồm:
 
-## **Hiểu về Kế thừa Bố cục**
+- **Title Slide**: Chứa các placeholder tiêu đề và phụ đề.
+- **Title and Content**: Chứa một placeholder tiêu đề và một placeholder nội dung chung.
+- **Blank**: Không chứa placeholder nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
 
-Một bài thuyết trình có ba cấp độ liên quan:
+## **Hiểu về kế thừa bố cục**
 
-1. A [slide chủ](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterslide/) xác định chủ đề, định dạng chung, nền và các đối tượng chung.
-1. A [slide bố cục](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/) thuộc về một slide chủ và xác định một sắp xếp cụ thể của các trình giữ chỗ.
-1. A [slide thường](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/) sử dụng một bố cục và lưu trữ nội dung đã nhập cho slide đó.
+Một bản trình chiếu có ba cấp độ liên quan:
 
-Một slide thường kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục kế thừa từ slide chủ. Giá trị được đặt trực tiếp trên một slide thường sẽ ghi đè giá trị kế thừa ở cấp độ đó. Khi một slide thường được tạo, các hình dạng trình giữ chỗ của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các trình giữ chỗ đó thuộc về slide thường.
+1. Một [master slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterslide/) xác định giao diện, định dạng chung, nền và các đối tượng chung.
+1. Một [layout slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/) thuộc về một master và xác định một sắp xếp cụ thể của các placeholder.
+1. Một [normal slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/) sử dụng một layout và lưu trữ nội dung được nhập cho slide đó.
 
-Thêm các trình giữ chỗ cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một trình giữ chỗ khác vào bố cục sau này sẽ không tự động thêm hình dạng trình giữ chỗ tương ứng vào các slide thường đã tồn tại.
+Một normal slide kế thừa giao diện và định dạng từ layout của nó, và layout kế thừa từ master. Giá trị được đặt trực tiếp trên một normal slide sẽ ghi đè giá trị kế thừa ở cấp độ đó. Khi tạo một normal slide, các shape placeholder của nó được tạo ra từ layout đã chọn, trong khi nội dung nhập vào các placeholder đó thuộc về normal slide.
+
+Thêm các placeholder cần thiết vào một layout trước khi tạo slide từ nó. Thêm một placeholder khác vào layout sau này sẽ không tự động thêm shape placeholder tương ứng vào các normal slide đã tồn tại.
 
 Mối quan hệ này có hai hệ quả quan trọng:
 
-- Thay đổi định dạng kế thừa hoặc hình học của trình giữ chỗ hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bài thuyết trình kết quả.
-- Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Hãy gán lại các slide phụ thuộc của nó sang một bố cục khác trước, hoặc chỉ xóa các bố cục không được sử dụng.
+- Thay đổi định dạng kế thừa hoặc hình học của các placeholder hiện có trên một layout có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một layout đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bản trình chiếu kết quả.
+- Một layout vẫn đang được một slide sử dụng không thể bị xóa. Hãy gán lại các slide phụ thuộc của nó sang layout khác trước, hoặc chỉ xóa các layout không sử dụng.
 
 Để biết thêm thông tin về cấp cao nhất của cấu trúc này, xem [Slide Master](/slides/vi/cpp/slide-master/).
 
+Để ẩn logo kế thừa hoặc các shape trang trí master trên một slide hoặc thông qua một layout chia sẻ, xem [Control the Visibility of Master Graphics](/slides/vi/cpp/slide-master/). Ví dụ so sánh hai slide sử dụng cùng một master.
+
 ## **Chọn và Áp dụng Bố cục Slide**
 
-Sử dụng kiểu bố cục khi bài thuyết trình tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên bố cục có thể được chỉnh sửa bởi người dùng và có thể được bản địa hóa, vì vậy lựa chọn dựa trên tên ít tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+Sử dụng loại layout khi bản trình chiếu tuân theo các định nghĩa layout chuẩn của PowerPoint. Tên layout có thể chỉnh sửa bởi người dùng và có thể được địa phương hoá, vì vậy việc chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
 
-Ví dụ sau tìm **Tiêu đề và Nội dung** trên master đầu tiên. Nếu bố cục đó không có, nó sẽ cố ý chuyển sang **Trống**. Kiểm tra null thứ hai là cần thiết vì một bài thuyết trình có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide thường đầu tiên thông qua phương thức [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/set_layoutslide/).
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu layout đó không có, nó sẽ dự phòng một cách cố ý sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình chiếu có thể chỉ chứa các layout tùy chỉnh. Layout đã chọn sau đó được áp dụng cho slide bình thường đầu tiên qua phương thức [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -98,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Thay đổi bố cục của một slide không xóa các hình dạng thông thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí trình giữ chỗ, định dạng kế thừa và sự tương ứng giữa các trình giữ chỗ hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển đổi giữa các bố cục có sự khác biệt đáng kể.
+Thay đổi layout của một slide không loại bỏ các shape thông thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí placeholder, định dạng kế thừa và sự tương ứng giữa các placeholder hiện có và layout mới có thể thay đổi, vì vậy hãy kiểm tra đầu ra khi chuyển đổi giữa các layout khác nhau đáng kể.
 
-## **Thêm Slide Bố cục**
+## **Thêm một Bố cục Slide**
 
-Lựa chọn và tạo là hai hoạt động riêng biệt. Ví dụ trước chọn một bố cục hiện có; nó không tạo một bố cục mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterlayoutslidecollection/add/) trên bộ sưu tập bố cục của master mục tiêu.
+Lựa chọn và tạo là hai thao tác riêng biệt. Ví dụ trước chọn một layout hiện có; nó không tạo một layout mới. Để tạo một layout, gọi phương thức [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterlayoutslidecollection/add/) trên bộ sưu tập layout của master mục tiêu.
 
-Ví dụ sau luôn thêm một bố cục **Tiêu đề và Nội dung** mới có tên `Report Title and Content`, sau đó thêm một slide thường dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
+Ví dụ sau luôn thêm một layout **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một normal slide dựa trên nó. Tên layout phải là duy nhất trong bộ sưu tập.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -130,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Thêm một bố cục chỉ khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã có một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao trùng lặp.
+Chỉ thêm layout khi mẫu thực sự cần một cấu trúc có thể tái sử dụng khác. Nếu đã có một layout phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
 
-## **Thêm Trình giữ chỗ vào Slide Bố cục**
+## **Thêm Placeholder vào Bố cục Slide**
 
-Phương thức [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/) để thêm các hình dạng trình giữ chỗ vào một bố cục.
+Phương thức [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/) để thêm các shape placeholder vào một layout.
 
-| Trình giữ chỗ PowerPoint          | Phương thức `ILayoutPlaceholderManager` |
-| --------------------------------- | ---------------------------------------- |
-| ![Nội dung](content.png)          | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![Nội dung (Dọc)](contentV.png)   | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![Văn bản](text.png)              | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![Văn bản (Dọc)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![Hình ảnh](picture.png)          | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![Biểu đồ](chart.png)             | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![Bảng](table.png)                | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)         | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![Media](media.png)               | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Hình ảnh Trực tuyến](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| PowerPoint Placeholder | `ILayoutPlaceholderManager` Method |
+| ---------------------- | ---------------------------------- |
+| ![Content](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Ví dụ sau xác minh rằng bố cục **Trống** tồn tại, thêm bốn trình giữ chỗ vào nó, và sau đó tạo một slide thường sử dụng bố cục đã được chỉnh sửa. Thứ tự này có ý định: các trình giữ chỗ được thêm trước khi slide thường được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng trình giữ chỗ tương ứng trên slide đó.
+Ví dụ sau xác minh layout **Blank** tồn tại, thêm bốn placeholder vào nó, và sau đó tạo một normal slide sử dụng layout đã sửa đổi. Thứ tự này có ý đồ: các placeholder được thêm trước khi tạo normal slide, để Aspose.Slides có thể tạo các shape placeholder tương ứng trên slide đó.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -188,15 +192,15 @@ presentation->Dispose();
 
 Kết quả:
 
-![Các trình giữ chỗ trên slide bố cục](add_placeholders.png)
+![Các placeholder trên bố cục slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Thay đổi định dạng kế thừa hoặc hình học của các trình giữ chỗ bố cục hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một trình giữ chỗ bố cục mới được thêm vào sẽ không tự động được bổ sung vào các slide thường đã tồn tại. Hãy thử các thay đổi bố cục trên một bản sao của bài thuyết trình và kiểm tra mọi slide phụ thuộc.
+Thay đổi định dạng kế thừa hoặc hình học của các placeholder layout hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một placeholder layout mới được thêm sẽ không tự động điền vào các normal slide đã tồn tại. Kiểm tra các thay đổi layout trên một bản sao của bản trình chiếu và kiểm tra mọi slide phụ thuộc.
 {{% /alert %}}
 
-## **Xóa các Slide Bố cục Không dùng**
+## **Xóa các Bố cục Slide không sử dụng**
 
-Sử dụng phương thức [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để xóa các bố cục mà không có slide thường nào tham chiếu. Phương thức sẽ để nguyên các bố cục vẫn đang được sử dụng.
+Sử dụng phương thức [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để xóa các layout mà không có normal slide nào tham chiếu. Phương thức này để nguyên các layout vẫn đang được sử dụng.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -216,13 +220,11 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Để xóa một bố cục cụ thể, trước tiên sử dụng phương thức [get_HasDependingSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) hoặc [GetDependingSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/getdependingslides/) của nó. Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide::Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/remove/). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxeditexception/).
+Để xóa một layout cụ thể, trước tiên sử dụng phương thức [get_HasDependingSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) hoặc [GetDependingSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/getdependingslides/). Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide::Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/remove/). Cố gắng xóa một layout đang được sử dụng sẽ gây ra lỗi [PptxEditException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxeditexception/).
 
-## **Kiểm soát Hiển thị Chân trang trên Slide Bố cục**
+## **Kiểm soát Hiển thị Chân trang trên Bố cục Slide**
 
-Một bố cục có các trình giữ chỗ chân trang, số slide và ngày‑giờ riêng. Sử dụng phương thức [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) để kiểm soát các trình giữ chỗ này cho một bố cục. Điều này hữu ích khi, ví dụ, các bố cục nội dung nên hiển thị chân trang nhưng các bố cục tiêu đề thì không.
-
-Ví dụ sau chọn một bố cục một cách an toàn và làm cho các yếu tố chân trang của nó hiển thị:
+Một layout có riêng footer, slide-number và placeholder ngày‑giờ. Sử dụng phương thức [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) để kiểm soát các placeholder này cho một layout. Điều này hữu ích khi, ví dụ, layout nội dung nên hiển thị footer nhưng layout tiêu đề thì không.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -263,9 +265,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Kiểm soát Hiển thị Chân trang trên Master và Các Slide Bố cục Con**
+## **Kiểm soát Hiển thị Chân trang trên Master và Các Bố cục Con**
 
-Để áp dụng cài đặt chân trang nhất quán trên toàn bộ cây master, sử dụng phương thức [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Các phương thức lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các slide bố cục cũng như slide thường phụ thuộc; chúng không chỉ nhắm đến một slide thường duy nhất.
+Để áp dụng cài đặt footer nhất quán trên toàn bộ hierarchy của master, sử dụng phương thức [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Các phương thức lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các layout slide và normal slide phụ thuộc; chúng không chỉ nhắm vào một normal slide duy nhất.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -291,20 +293,20 @@ presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Sự khác nhau giữa Slide Master và Slide Bố cục là gì?**
+**Sự khác biệt giữa Master Slide và Layout Slide là gì?**
 
-Slide Master định nghĩa chủ đề và định dạng chung của bài thuyết trình. Slide Bố cục thuộc về một Slide Master và xác định một sắp xếp có thể tái sử dụng của các trình giữ chỗ. Các slide thường sử dụng những bố cục này và lưu trữ nội dung riêng cho từng slide.
+Master Slide xác định giao diện và định dạng chung của bản trình chiếu. Layout Slide thuộc về một master và xác định một sắp xếp có thể tái sử dụng của các placeholder. Normal slides sử dụng các layout này và lưu trữ nội dung riêng cho từng slide.
 
-**Tôi có thể sao chép Slide Bố cục từ một bài thuyết trình sang bài thuyết trình khác không?**
+**Tôi có thể sao chép một Layout Slide từ một bản trình chiếu sang bản khác không?**
 
-Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Khi sao chép giữa các bài thuyết trình, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác mà bố cục nguồn sử dụng.
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Khi sao chép giữa các bản trình chiếu, cũng cần xác minh phông chữ, giao diện, hình ảnh và các tài nguyên khác được layout nguồn sử dụng.
 
-**Điều gì xảy ra khi tôi chỉnh sửa một Slide Bố cục đã được sử dụng?**
+**Điều gì xảy ra khi tôi chỉnh sửa một Layout đang được sử dụng?**
 
-Các slide phụ thuộc sẽ kế thừa các thay đổi của bố cục trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng ở cấp địa phương. Do đó, hình học của trình giữ chỗ và kiểu kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [GetDependingSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/getdependingslides/) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa bố cục.
+Các slide phụ thuộc sẽ kế thừa các thay đổi layout trừ khi chúng ghi đè định dạng hoặc đối tượng liên quan ở mức cục bộ. Hình học của placeholder và kiểu kế thừa có thể thay đổi đồng thời trên nhiều slide. Sử dụng [GetDependingSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilayoutslide/getdependingslides/) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa layout.
 
-**Điều gì xảy ra nếu tôi xóa một Slide Bố cục vẫn đang được sử dụng?**
+**Điều gì sẽ xảy ra nếu tôi xóa một Layout vẫn đang được sử dụng?**
 
-Aspose.Slides sẽ ném ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc dùng [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để chỉ xóa các bố cục không được tham chiếu.
+Aspose.Slides sẽ ném lỗi [PptxEditException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc sử dụng [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để chỉ xóa các layout không được tham chiếu.

@@ -1,5 +1,5 @@
 ---
-title: Aplicar ou Alterar Layouts de Slides em Python via Java
+title: Aplicar ou Alterar Layouts de Slide em Python via Java
 linktitle: Layout de Slide
 type: docs
 weight: 60
@@ -17,7 +17,7 @@ keywords:
 - cabeçalho de seção
 - dois conteúdos
 - comparação
-- apenas título
+- somente título
 - layout em branco
 - conteúdo com legenda
 - imagem com legenda
@@ -29,11 +29,11 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aplicar, criar e modificar layouts de slides em Aspose.Slides para Python via Java, adicionar marcadores de posição, remover layouts não utilizados e controlar a visibilidade do rodapé."
+description: Aplicar, criar e modificar layouts de slide no Aspose.Slides para Python via Java, adicionar marcadores de posição, remover layouts não utilizados e controlar a visibilidade do rodapé.
 ---
 ## **Visão geral**
 
-Um layout de slide define as posições e formatação de marcadores de posição como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout dá aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
+Um layout de slide define as posições e formatação de marcadores de posição, como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout confere aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
 
 Os layouts mais comuns incluem:
 
@@ -41,28 +41,30 @@ Os layouts mais comuns incluem:
 - **Título e Conteúdo**: Contém um marcador de posição de título e um marcador de posição de conteúdo de uso geral.
 - **Em branco**: Não contém marcadores de posição de conteúdo e é útil quando cada forma será posicionada manualmente.
 
-## **Entender a Herança de Layouts**
+## **Compreender a herança de layout**
 
 Uma apresentação tem três níveis relacionados:
 
-1. A [slide mestre](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/) define o tema, formatação compartilhada, planos de fundo e objetos comuns.
-1. A [slide de layout](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/) pertence a um mestre e define um arranjo particular de marcadores de posição.
-1. A [slide normal](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/) usa um layout e armazena o conteúdo inserido para esse slide.
+1. Um [slide mestre](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/) define o tema, formatação compartilhada, planos de fundo e objetos comuns.
+1. Um [slide de layout](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/) pertence a um mestre e define um arranjo específico de marcadores de posição.
+1. Um [slide normal](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/) usa um layout e armazena o conteúdo inserido para esse slide.
 
-Um slide normal herda o tema e a formatação do seu layout, e o layout herda do seu mestre. Um valor definido diretamente em um slide normal substitui o valor herdado naquele nível. Quando um slide normal é criado, suas formas de marcador de posição são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores pertence ao slide normal.
+Um slide normal herda o tema e a formatação de seu layout, e o layout herda do seu mestre. Um valor definido diretamente em um slide normal substitui o valor herdado naquele nível. Quando um slide normal é criado, suas formas de marcador de posição são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores de posição pertence ao slide normal.
 
-Adicione os marcadores de posição necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador de posição a um layout posteriormente não adiciona automaticamente uma forma de marcador correspondente aos slides normais existentes.
+Adicione os marcadores de posição necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador de posição a um layout posteriormente não adiciona automaticamente uma forma de marcador de posição correspondente aos slides normais existentes.
 
 Esse relacionamento tem duas consequências importantes:
 
-- Alterar a formatação herdada ou a geometria de marcadores de posição existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout já em uso, inspecione seus slides dependentes e revise a apresentação resultante.
-- Um layout que ainda é usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas layouts não utilizados.
+- Alterar a formatação herdada ou a geometria dos marcadores de posição existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout que já está em uso, inspecione seus slides dependentes e revise a apresentação resultante.
+- Um layout que ainda está sendo usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas os layouts não utilizados.
 
-Para mais informações sobre o nível superior desta hierarquia, veja [Mestre de Slide](/slides/pt/python-java/slide-master/).
+Para mais informações sobre o nível superior desta hierarquia, veja [Slide Master](/slides/pt/python-java/slide-master/).
 
-## **Selecionar e Aplicar um Layout de Slide**
+Para ocultar logotipos herdados ou formas decorativas do mestre em um slide ou através de um layout compartilhado, veja [Control the Visibility of Master Graphics](/slides/pt/python-java/slide-master/). O exemplo compara dois slides que utilizam o mesmo mestre.
 
-Use um tipo de layout quando a apresentação segue definições padrão de layout do PowerPoint. Os nomes dos layouts são editáveis pelo usuário e podem ser localizados, portanto a seleção baseada em nome é menos confiável a menos que você controle o modelo de origem.
+## **Selecionar e aplicar um layout de slide**
+
+Use um tipo de layout quando a apresentação segue definições padrão de layout do PowerPoint. Os nomes dos layouts são editáveis pelo usuário e podem ser localizados, portanto a seleção baseada em nome é menos confiável, a menos que você controle o modelo de origem.
 
 O exemplo a seguir procura por **Título e Conteúdo** no primeiro mestre. Se esse layout não estiver disponível, ele recorre deliberadamente a **Em branco**. A segunda verificação por `None` é necessária porque uma apresentação pode conter apenas layouts personalizados. O layout selecionado é então aplicado ao primeiro slide normal através do método [Slide.setLayoutSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/#setLayoutSlide).
 
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Alterar o layout de um slide não remove formas comuns adicionadas diretamente ao slide. Entretanto, as posições dos marcadores de posição, a formatação herdada e a correspondência entre os marcadores existentes e o novo layout podem mudar, portanto inspeccione a saída ao alternar entre layouts substancialmente diferentes.
+Alterar o layout de um slide não remove as formas normais adicionadas diretamente ao slide. No entanto, as posições dos marcadores de posição, a formatação herdada e a correspondência entre os marcadores de posição existentes e o novo layout podem mudar, portanto inspecione a saída ao alternar entre layouts substancialmente diferentes.
 
-## **Adicionar um Slide de Layout**
+## **Adicionar um slide de layout**
 
-Seleção e criação são operações separadas. O exemplo anterior seleciona um layout existente; não o cria. Para criar um layout, chame o método [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterlayoutslidecollection/#add) na coleção de layouts do mestre de destino.
+Seleção e criação são operações distintas. O exemplo anterior seleciona um layout existente; não o cria. Para criar um layout, chame o método [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterlayoutslidecollection/#add) na coleção de layouts do mestre de destino.
 
-O exemplo a seguir sempre adiciona um novo layout **Título e Conteúdo** chamado `Report Title and Content`, depois adiciona um slide normal baseado nele. Os nomes dos layouts devem ser exclusivos dentro da coleção.
+O exemplo a seguir sempre adiciona um novo layout **Título e Conteúdo** chamado `Report Title and Content`, e então adiciona um slide normal baseado nele. Os nomes dos layouts devem ser únicos dentro da coleção.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Adicione um layout somente quando o modelo realmente precisar de outra estrutura reutilizável. Se já existir um layout adequado, selecione‑o e reutilize‑o em vez de criar um duplicado.
+Adicione um layout somente quando o modelo realmente precisar de outra estrutura reutilizável. Se já existir um layout adequado, selecione-o e reutilize-o em vez de criar um duplicado.
 
-## **Adicionar Marcadores de Posição a um Slide de Layout**
+## **Adicionar marcadores de posição a um slide de layout**
 
 O método [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getPlaceholderManager) fornece um [LayoutPlaceholderManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/) para adicionar formas de marcador de posição a um layout.
 
-| Marcador de Posição do PowerPoint | Método LayoutPlaceholderManager |
-| --------------------------------- | -------------------------------- |
-| ![Conteúdo](content.png)          | [addContentPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| Marcador de posição do PowerPoint | Método [LayoutPlaceholderManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/) |
+| --------------------------------- | ---------------------------------- |
+| ![Conteúdo](content.png)         | [addContentPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Conteúdo (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Texto](text.png)                | [addTextPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Texto (Vertical)](textV.png)    | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Imagem](picture.png)            | [addPicturePlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Gráfico](chart.png)             | [addChartPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Tabela](table.png)              | [addTablePlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)         | [addSmartArtPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Mídia](media.png)               | [addMediaPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Imagem Online](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Texto](text.png)               | [addTextPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Texto (Vertical)](textV.png)   | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Imagem](picture.png)           | [addPicturePlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Gráfico](chart.png)            | [addChartPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabela](table.png)             | [addTablePlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)       | [addSmartArtPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Mídia](media.png)             | [addMediaPlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Imagem online](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-O exemplo a seguir verifica se o layout **Em branco** existe, adiciona quatro marcadores de posição a ele e, em seguida, cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores são adicionados antes da criação do slide normal, de modo que Aspose.Slides possa gerar as formas de marcador correspondentes naquele slide.
+O exemplo a seguir verifica se o layout **Em branco** existe, adiciona quatro marcadores de posição a ele e então cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores de posição são adicionados antes de o slide normal ser criado, para que o Aspose.Slides possa gerar as formas de marcador de posição correspondentes naquele slide.
 
 ```python
 import jpype
@@ -173,13 +175,13 @@ O resultado:
 
 ![Os marcadores de posição no slide de layout](add_placeholders.png)
 
-{{% alert color="warning" title="Aviso" %}}
-Alterar a formatação herdada ou a geometria de marcadores de posição existentes no layout pode afetar slides dependentes. Um marcador de posição recém‑adicionado ao layout não é retroalimentado nos slides normais existentes. Teste alterações de layout em uma cópia da apresentação e inspecione cada slide dependente.
+{{% alert color="warning" title="Warning" %}}
+Alterar a formatação herdada ou a geometria dos marcadores de posição de layout existentes pode afetar slides dependentes. Um marcador de posição de layout recém-adicionado não é retroalimentado nos slides normais existentes. Teste as mudanças de layout em uma cópia da apresentação e inspecione cada slide dependente.
 {{% /alert %}}
 
-## **Remover Slides de Layout Não Utilizados**
+## **Remover slides de layout não utilizados**
 
-Use o método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover layouts que nenhum slide normal referencia. O método deixa intactos os layouts que ainda estão em uso.
+Use o método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover layouts que nenhum slide normal referencia. O método mantém intactos os layouts que ainda estão em uso.
 
 ```python
 import jpype
@@ -200,9 +202,9 @@ finally:
 
 Para remover um layout específico, primeiro use seu método [hasDependingSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#hasDependingSlides) ou [getDependingSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getDependingSlides). Reatribua quaisquer slides dependentes antes de chamar [LayoutSlide.remove](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#remove). Tentar remover um layout em uso gera uma [PptxEditException](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pptxeditexception/).
 
-## **Controlar a Visibilidade do Rodapé em um Slide de Layout**
+## **Controlar a visibilidade do rodapé em um slide de layout**
 
-Um layout tem seus próprios marcadores de rodapé, número de slide e data‑hora. Use o método [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) para controlar esses marcadores em um layout. Isso é útil quando, por exemplo, layouts de conteúdo devem mostrar rodapés, mas layouts de título não devem.
+Um layout tem seus próprios marcadores de posição de rodapé, número do slide e data/hora. Use o método [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) para controlar esses marcadores de posição em um layout. Isso é útil quando, por exemplo, layouts de conteúdo devem exibir rodapés, mas layouts de título não devem.
 
 O exemplo a seguir seleciona um layout com segurança e torna seus elementos de rodapé visíveis:
 
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Controlar a Visibilidade do Rodapé em um Mestre e em seus Layouts Filhos**
+## **Controlar a visibilidade do rodapé em um mestre e em seus layouts filhos**
 
-Para aplicar configurações de rodapé consistentes em toda a hierarquia de mestres, use o método [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Os métodos de propagação de [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslideheaderfootermanager/) operam no mestre e em seus slides de layout e slides normais dependentes; eles não visam apenas um slide normal.
+Para aplicar configurações de rodapé consistentes em toda a hierarquia de mestres, use o método [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Os métodos de propagação de [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslideheaderfootermanager/) operam no mestre e em seus slides de layout dependentes e slides normais; eles não visam apenas um slide normal.
 
 ```python
 import jpype
@@ -264,11 +266,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
 **Qual é a diferença entre um slide mestre e um slide de layout?**
 
-Um slide mestre define o tema da apresentação e a formatação compartilhada. Um slide de layout pertence a um mestre e define um arranjo reutilizável de marcadores de posição. Slides normais utilizam esses layouts e armazenam o conteúdo específico de cada slide.
+Um slide mestre define o tema da apresentação e a formatação compartilhada. Um slide de layout pertence a um mestre e define um arranjo reutilizável de marcadores de posição. Slides normais usam esses layouts e armazenam conteúdo específico do slide.
 
 **Posso copiar um slide de layout de uma apresentação para outra?**
 
@@ -276,8 +278,8 @@ Sim. Adicione uma cópia à coleção de destino com o método [addClone](https:
 
 **O que acontece quando modifico um layout que já está em uso?**
 
-Slides dependentes herdam as alterações do layout, a menos que substituam a formatação ou os objetos afetados localmente. A geometria dos marcadores de posição e o estilo herdado podem, portanto, mudar em muitos slides de uma só vez. Use [getDependingSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getDependingSlides) para identificar os slides afetados antes de editar o layout.
+Slides dependentes herdaram as alterações do layout, a menos que substituam localmente a formatação ou objetos afetados. A geometria dos marcadores de posição e o estilo herdado podem, portanto, mudar em vários slides simultaneamente. Use [getDependingSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getDependingSlides) para identificar os slides afetados antes de editar o layout.
 
 **O que acontece se eu remover um layout que ainda está em uso?**
 
-Aspose.Slides lança uma [PptxEditException](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover apenas layouts não referenciados.
+O Aspose.Slides lança uma [PptxEditException](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover apenas os layouts sem referência.

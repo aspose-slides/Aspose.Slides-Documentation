@@ -1,57 +1,65 @@
 ---
-title: Kelola Slide Master Presentasi di C++
-linktitle: Master Slide
+title: "Kelola Slide Master Presentasi dalam C++"
+linktitle: "Master Slide"
 type: docs
 weight: 80
 url: /id/cpp/slide-master/
 keywords:
-- slide master
-- master slide
-- slide master PPT
-- banyak slide master
-- bandingkan slide master
-- latar belakang
-- placeholder
-- klon slide master
-- salin slide master
-- duplikat slide master
-- slide master tidak terpakai
-- PowerPoint
-- OpenDocument
-- presentasi
-- C++
-- Aspose.Slides
-description: "Kelola slide master di Aspose.Slides untuk C++: akses, edit, klon, bandingkan, dan hapus slide master dalam presentasi PowerPoint dan OpenDocument."
+- "master slide"
+- "slide master"
+- "slide master PPT"
+- "beberapa slide master"
+- "bandingkan slide master"
+- "latar belakang"
+- "placeholder"
+- "kloning slide master"
+- "salin slide master"
+- "duplikasi slide master"
+- "slide master yang tidak terpakai"
+- "PowerPoint"
+- "OpenDocument"
+- "presentasi"
+- "C++"
+- "Aspose.Slides"
+description: "Kelola slide master dalam Aspose.Slides untuk C++: akses, edit, klon, bandingkan, dan hapus slide master pada presentasi PowerPoint dan OpenDocument."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Sebuah **slide master** menentukan pengaturan desain bersama untuk sekelompok slide. Itu dapat berisi bentuk umum, logo, latar belakang, gaya teks, pengaturan tema, dan pengaturan footer. Di PowerPoint, mengedit slide master adalah cara biasanya untuk menjaga konsistensi presentasi tanpa mengulangi pemformatan yang sama pada setiap slide.
+Sebuah **slide master** menentukan pengaturan desain bersama untuk sekelompok slide. Itu dapat berisi bentuk umum, logo, latar belakang, gaya teks, pengaturan tema, dan pengaturan footer. Di PowerPoint, menyunting slide master adalah cara umum untuk menjaga konsistensi presentasi tanpa mengulangi pemformatan yang sama pada setiap slide.
 
-Aspose.Slides untuk C++ mendukung model yang sama. Sebuah presentasi dapat berisi satu atau lebih master slide, dan setiap master slide dapat berisi beberapa layout slide. Slide normal biasanya tidak merujuk langsung ke master slide. Sebaliknya, slide normal menggunakan layout slide, dan layout slide tersebut merupakan bagian dari master slide.
+Aspose.Slides for C++ mendukung model yang sama. Sebuah presentasi dapat berisi satu atau lebih slide master, dan setiap slide master dapat berisi beberapa layout slide. Slide normal biasanya tidak merujuk langsung ke slide master. Sebaliknya, slide normal menggunakan layout slide, dan layout slide itu menjadi milik slide master.
 
 Hierarki adalah:
 
-1. **Slide master** - menentukan desain dan tema bersama.
+1. **Slide master** - menentukan desain bersama dan tema.
 1. **Layout slide** - menentukan susunan spesifik placeholder dan pemformatan tingkat layout.
-1. **Normal slide** - berisi konten presentasi sebenarnya dan menggunakan satu layout slide.
+1. **Normal slide** - berisi konten presentasi yang sebenarnya dan menggunakan satu layout slide.
 
-![Hierarki master slide, layout slide, dan normal slide](slide-master_2.jpg)
+![Hierarki slide master, layout slide, dan slide normal](slide-master_2.jpg)
 
-Di Aspose.Slides, slide master diwakili oleh antarmuka [IMasterSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/). Semua master slide dalam sebuah presentasi tersedia melalui koleksi [Presentation::get_Masters](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_masters/) , yang mengimplementasikan [IMasterSlideCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslidecollection/).
+Dalam Aspose.Slides, slide master direpresentasikan oleh antarmuka [IMasterSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/) . Semua slide master dalam sebuah presentasi tersedia melalui koleksi [Presentation::get_Masters](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_masters/) , yang mengimplementasikan [IMasterSlideCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslidecollection/) .
 
 {{% alert color="info" title="Inheritance" %}}
-Ketika properti yang sama didefinisikan pada lebih dari satu tingkat, tingkat yang lebih spesifik yang menang. Sebagai contoh, jika master slide dan layout slide keduanya mendefinisikan latar belakang, slide yang berbasis pada layout tersebut akan menggunakan latar belakang layout. Untuk informasi lebih lanjut tentang layout slide, lihat [Apply or Change Slide Layouts](/slides/id/cpp/slide-layout/).
+Ketika properti yang sama didefinisikan pada lebih dari satu tingkat, tingkat yang lebih spesifik yang menang. Misalnya, jika slide master dan layout slide keduanya mendefinisikan latar belakang, slide yang berbasis pada layout tersebut menggunakan latar belakang layout. Untuk informasi lebih lanjut tentang layout slide, lihat [Terapkan atau Ubah Tata Letak Slide](/slides/id/cpp/slide-layout/) .
 {{% /alert %}}
 
-## **Akses Slide Master**
+## **Mengakses Slide Master**
 
 Di PowerPoint, Anda dapat membuka tampilan Slide Master dari **View** > **Slide Master**.
 
-![Perintah Slide Master pada tab View PowerPoint](slide-master_3.jpg)
+![Perintah Slide Master pada tab View di PowerPoint](slide-master_3.jpg)
 
-Di Aspose.Slides, gunakan koleksi `get_Masters()` untuk mengakses master slide:
+Dalam Aspose.Slides, gunakan koleksi `get_Masters()` untuk mengakses slide master:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -64,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-Anda juga dapat mendapatkan master slide yang digunakan oleh slide normal melalui layout-nya:
+Anda juga dapat mendapatkan slide master yang digunakan oleh slide normal melalui layoutnya:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -81,26 +97,35 @@ presentation->Dispose();
 
 ## **Apa yang Dimiliki Slide Master**
 
-Master slide adalah objek yang mirip slide. Ia mengimplementasikan [IBaseSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/), sehingga mengekspos banyak properti slide yang sama digunakan oleh slide normal dan layout. Anggota khusus master tercantum pada halaman API [IMasterSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/).
+Slide master adalah objek yang mirip slide. Ia mengimplementasikan [IBaseSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/) , sehingga menampilkan banyak properti slide yang sama seperti yang digunakan oleh slide normal dan layout slide. Anggota khusus master terdaftar pada halaman API [IMasterSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslide/) .
 
-Anggota master slide yang umum digunakan meliputi:
+Anggota slide master yang umum digunakan meliputi:
 
 | Anggota | Tujuan |
 | --- | --- |
 | `get_Background()` | Menetapkan latar belakang slide tingkat master. |
-| `get_Shapes()` | Menyimpan bentuk yang ditempatkan pada master, seperti logo, bingkai gambar, dan teks bersama. |
-| `get_LayoutSlides()` | Menyimpan layout slide yang termasuk dalam master. |
+| `get_Shapes()` | Menyimpan bentuk yang diletakkan pada master, seperti logo, bingkai gambar, dan teks bersama. |
+| `get_LayoutSlides()` | Menyimpan layout slide yang menjadi milik master. |
 | `get_ThemeManager()` | Menyediakan akses ke API tema master. |
-| `get_HeaderFooterManager()` | Mengontrol header, footer, tanggal, dan nomor slide untuk master dan layout turunannya. |
+| `get_HeaderFooterManager()` | Mengontrol header, footer, tanggal, dan nomor slide untuk master dan layout anaknya. |
 | `GetDependingSlides()` | Mengembalikan slide normal yang bergantung pada master melalui layout mereka. |
 
 ## **Menambahkan Gambar ke Slide Master**
 
-Saat Anda menambahkan gambar ke master slide, gambar tersebut muncul pada slide yang menggunakan layout dari master tersebut. Ini berguna untuk logo, watermark, pita dekoratif, dan elemen visual berulang lainnya.
-
-Contoh berikut menambahkan logo ke master slide pertama:
+Ketika Anda menambahkan gambar ke slide master, gambar tersebut muncul pada slide yang menggunakan layout dari master itu. Ini berguna untuk logo, watermark, pita dekoratif, dan elemen visual berulang lainnya.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -119,19 +144,98 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Untuk informasi lebih lanjut tentang bingkai gambar, lihat [Picture Frame](/slides/id/cpp/picture-frame/).
+Untuk informasi lebih lanjut tentang bingkai gambar, lihat [Bingkai Gambar](/slides/id/cpp/picture-frame/) .
+
+## **Mengontrol Visibilitas Grafik Master**
+
+Gunakan [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/set_showmastershapes/) untuk menyembunyikan grafik master yang diwariskan, seperti logo atau bentuk dekoratif, tanpa menghapusnya dari master. Berikan `false` ke [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/id/cpp/aspose.slides/slide/set_showmastershapes/) pada slide yang harus menghilangkan grafik tersebut dan `true` pada slide yang harus menampilkannya.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Contoh ini menggunakan layout **Blank** yang disertakan dengan presentasi baru dan menghapus placeholder slide awal.
+
+### **Pilih Lingkup Pengaturan**
+
+Slide normal menggunakan masternya melalui [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/get_layoutslide/) dan [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslide/get_masterslide/). Menetapkan properti pada slide individu hanya memengaruhi slide itu. Memberikan `false` ke [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/id/cpp/aspose.slides/layoutslide/set_showmastershapes/) menyembunyikan grafik master untuk semua slide yang menggunakan layout bersama itu, meskipun pengaturan mereka sendiri `true`. Untuk menyembunyikan grafik hanya pada satu slide, ubah properti slide dan biarkan layout bersama tidak berubah.
+
+Pengaturan ini tidak didukung sebagai kontrol visibilitas pada slide master itu sendiri. Pada master selalu mengembalikan `false`, dan menetapkan `true` memicu `System::NotSupportedException`. Terapkan pada slide normal atau layout saja.
+
+### **Bedakan Grafik dari Latar Belakang**
+
+| Operasi | Efek |
+| --- | --- |
+| Sembunyikan grafik master | Mengontrol visibilitas shape master yang diwariskan tanpa menghapusnya atau mengubah shape slide itu sendiri. |
+| Ubah isi latar belakang slide | Mengubah warna latar belakang, gradien, atau gambar. Grafik master adalah shape terpisah dan dapat tetap terlihat di atas latar belakang tersebut. Lihat [Latar Belakang Presentasi](/slides/id/cpp/presentation-background/) . |
+| Hapus shape dari master | Menghapus shape sumber yang dibagikan, sehingga tidak lagi tersedia untuk slide mana pun yang menggunakan master tersebut. |
 
 ## **Bekerja dengan Placeholder**
 
-Placeholder biasanya didefinisikan pada layout slide. Master slide menyediakan gaya dan tema bersama yang diwarisi oleh layout tersebut, sementara setiap layout memutuskan placeholder mana yang tersedia dan di mana penempatannya.
+Placeholder biasanya didefinisikan pada layout slide. Slide master menyediakan gaya dan tema bersama yang diwarisi oleh layout tersebut, sementara setiap layout menentukan placeholder mana yang tersedia dan penempatannya.
 
 Di PowerPoint, perintah placeholder tersedia dalam tampilan Slide Master.
 
 ![Perintah Insert Placeholder dalam tampilan Slide Master PowerPoint](slide-master_5.png)
 
-Untuk menambahkan placeholder baru dengan Aspose.Slides, bekerja dengan layout slide yang termasuk dalam master:
+Untuk menambahkan placeholder baru dengan Aspose.Slides, kerjakan layout slide yang menjadi milik master:
 
 ```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -153,9 +257,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Anda juga dapat memformat bentuk placeholder yang sudah ada pada master slide. Contoh berikut menemukan placeholder judul dan menerapkan isian gradien linear:
+Anda juga dapat memformat shape placeholder yang sudah ada pada slide master. Contoh berikut menemukan placeholder judul dan menerapkan isian gradien linear:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -194,15 +315,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Placeholder judul yang diformat diwarisi oleh slide normal](slide-master_8.png)
+![Placeholder judul yang diformat diwariskan oleh slide normal](slide-master_8.png)
 
-Untuk lebih banyak opsi placeholder dan pemformatan teks, lihat [Set Prompt Text in Placeholder](/slides/id/cpp/manage-placeholder/) dan [Text Formatting](/slides/id/cpp/text-formatting/).
+Untuk opsi placeholder dan pemformatan teks lebih lanjut, lihat [Setel Teks Prompt dalam Placeholder](/slides/id/cpp/manage-placeholder/) dan [Pemformatan Teks](/slides/id/cpp/text-formatting/) .
 
 ## **Mengubah Latar Belakang Slide Master**
 
-Latar belakang master diwarisi oleh layout dan slide yang tidak menimpanya. Contoh berikut menetapkan warna latar belakang solid untuk master slide pertama:
+Latar belakang master diwariskan oleh layout dan slide yang tidak menimpanya. Contoh berikut menetapkan warna latar belakang padat untuk slide master pertama:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -216,13 +350,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Untuk topik terkait, lihat [Presentation Background](/slides/id/cpp/presentation-background/) dan [Presentation Theme](/slides/id/cpp/presentation-theme/).
+Untuk topik terkait, lihat [Latar Belakang Presentasi](/slides/id/cpp/presentation-background/) dan [Tema Presentasi](/slides/id/cpp/presentation-theme/) .
 
-## **Menduplikasi Slide Master ke Presentasi Lain**
+## **Mengkloning Slide Master ke Presentasi Lain**
 
-Gunakan [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslidecollection/addclone/) untuk menyalin master slide ke presentasi lain. Master yang disalin kemudian dapat digunakan oleh layout dan slide di presentasi tujuan.
+Gunakan [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslidecollection/addclone/) untuk menyalin slide master ke presentasi lain. Master yang disalin kemudian dapat digunakan oleh layout dan slide di presentasi tujuan.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -234,17 +374,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-Jika Anda perlu menduplikasi slide normal bersama master-nya, lihat [Clone Slides](/slides/id/cpp/clone-slides/).
+Jika Anda perlu mengklon slide normal bersamaan dengan master-nya, lihat [Klon Slide](/slides/id/cpp/clone-slides/) .
 
 ## **Menambahkan Beberapa Slide Master**
 
-Sebuah presentasi dapat berisi beberapa master slide. Ini berguna ketika bagian yang berbeda memerlukan branding, struktur halaman, atau pengaturan tema yang berbeda.
+Sebuah presentasi dapat berisi beberapa slide master. Ini berguna ketika bagian yang berbeda memerlukan branding, struktur halaman, atau pengaturan tema yang berbeda.
 
-![Perintah PowerPoint untuk menyisipkan dan mengelola master slide](slide-master_9.jpg)
+![Perintah PowerPoint untuk menyisipkan dan mengelola slide master](slide-master_9.jpg)
 
-Contoh berikut menduplikasi master default, memberi klon latar belakang yang berbeda, membuat layout di bawah master yang diklon, dan menambahkan slide baru berdasarkan layout tersebut:
+Contoh berikut mengklon master default, memberi klon latar belakang yang berbeda, membuat layout di bawah master yang diklon, dan menambahkan slide baru berdasarkan layout itu:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -271,9 +428,16 @@ presentation->Dispose();
 
 ## **Membandingkan Slide Master**
 
-Master slide dapat dibandingkan dengan metode `Equals` yang diwarisi dari [IBaseSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/). Perbandingan memeriksa struktur dan konten statis, seperti bentuk, teks, pemformatan, animasi, dan pengaturan slide lainnya. Ini tidak membandingkan pengidentifikasi unik, seperti ID slide, atau nilai placeholder dinamis, seperti tanggal saat ini.
+Slide master dapat dibandingkan dengan metode `Equals` yang diwarisi dari [IBaseSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/) . Perbandingan memeriksa struktur dan konten statis, seperti shape, teks, pemformatan, animasi, dan pengaturan slide lainnya. Itu tidak membandingkan pengenal unik, seperti ID slide, atau nilai placeholder dinamis, seperti tanggal saat ini.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -306,13 +470,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-Untuk informasi lebih lanjut, lihat [Compare Presentation Slides](/slides/id/cpp/compare-slides/).
+Untuk informasi lebih lanjut, lihat [Bandingkan Slide Presentasi](/slides/id/cpp/compare-slides/) .
 
-## **Mengatur Tampilan Slide Master sebagai Tampilan Default**
+## **Atur Tampilan Slide Master sebagai Tampilan Default**
 
-Gunakan metode `set_LastView` pada [ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/) untuk mengontrol tampilan yang dibuka pertama kali oleh PowerPoint. Contoh berikut membuka presentasi dalam tampilan Slide Master:
+Gunakan metode `set_LastView` pada [ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/) untuk mengontrol tampilan yang dibuka PowerPoint pertama kali. Contoh berikut membuka presentasi dalam tampilan Slide Master:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -320,15 +491,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Untuk pengaturan tampilan lebih lanjut, lihat [Save Presentation](/slides/id/cpp/save-presentation/).
+Untuk pengaturan tampilan lebih lanjut, lihat [Simpan Presentasi](/slides/id/cpp/save-presentation/) .
 
-## **Menghapus Master Slide yang Tidak Digunakan**
+## **Menghapus Slide Master yang Tidak Digunakan**
 
-Presentasi terkadang berisi master slide yang tidak lagi digunakan oleh slide normal mana pun. Menghapus master yang tidak terpakai dapat mengurangi ukuran file dan mempermudah pemeliharaan templat.
+Presentasi kadang berisi slide master yang tidak lagi digunakan oleh slide normal mana pun. Menghapus master yang tidak terpakai dapat mengurangi ukuran file dan menyederhanakan pemeliharaan templat.
 
-Gunakan [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/id/cpp/aspose.slides/masterslidecollection/removeunused/) untuk menghapus master yang tidak terpakai dari koleksi `get_Masters()`:
+Gunakan [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/id/cpp/aspose.slides/masterslidecollection/removeunused/) untuk menghapus master yang tidak terpakai dari koleksi `get_Masters()` :
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -339,6 +516,13 @@ presentation->Dispose();
 Anda juga dapat menggunakan metode low-code [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -350,16 +534,16 @@ presentation->Dispose();
 
 **Apa perbedaan antara slide master dan layout slide?**
 
-Slide master menentukan pengaturan desain bersama seperti tema, latar belakang, bentuk umum, dan gaya teks. Layout slide merupakan bagian dari master slide dan menentukan susunan spesifik placeholder. Slide normal menggunakan layout slide, sehingga ia mewarisi dari layout maupun master.
+Slide master menentukan pengaturan desain bersama seperti tema, latar belakang, bentuk umum, dan gaya teks. Layout slide termasuk dalam slide master dan menentukan susunan spesifik placeholder. Slide normal menggunakan layout slide, sehingga mewarisi dari layout dan master.
 
 **Apakah satu presentasi dapat berisi beberapa slide master?**
 
 Ya. Sebuah presentasi dapat berisi beberapa slide master. Gunakan beberapa master ketika bagian yang berbeda memerlukan sistem visual atau branding yang berbeda.
 
-**Haruskah saya menambahkan placeholder ke master slide atau layout slide?**
+**Haruskah saya menambahkan placeholder ke slide master atau layout slide?**
 
-Dalam kebanyakan kasus, tambahkan placeholder ke layout slide. Letakkan elemen visual bersama dan pemformatan bersama pada master slide, kemudian letakkan placeholder konten pada layout yang akan digunakan slide normal.
+Dalam kebanyakan kasus, tambahkan placeholder ke layout slide. Letakkan elemen visual bersama dan pemformatan bersama pada slide master, kemudian letakkan placeholder konten pada layout yang akan digunakan slide normal.
 
-**Apakah saya dapat menghapus master slide yang masih digunakan?**
+**Bisakah saya menghapus slide master yang masih digunakan?**
 
-Tidak. Master slide yang memiliki slide bergantung tidak dapat dihapus secara langsung dengan aman. Pertama pindahkan slide tersebut ke layout di bawah master lain, atau gunakan metode pembersihan master yang tidak terpakai yang hanya menghapus master yang tidak digunakan.
+Tidak. Slide master yang memiliki slide tergantung tidak dapat dihapus secara aman secara langsung. Pindahkan terlebih dahulu slide tersebut ke layout di bawah master lain, atau gunakan metode pembersihan master yang tidak terpakai yang hanya menghapus master yang tidak digunakan.

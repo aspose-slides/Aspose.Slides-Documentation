@@ -10,60 +10,62 @@ keywords:
 - θέση κράτησης
 - σχεδίαση παρουσίασης
 - σχεδίαση διαφάνειας
-- μη χρησιμοποιημένη διάταξη
+- αχρησιμοποίητη διάταξη
 - ορατότητα υποσέλιδου
 - διαφάνεια τίτλου
 - τίτλος και περιεχόμενο
-- κεφαλίδα ενότητας
+- επικεφαλίδα ενότητας
 - δύο περιεχόμενα
 - σύγκριση
 - μόνο τίτλος
 - κενή διάταξη
 - περιεχόμενο με λεζάντα
 - εικόνα με λεζάντα
-- τίτλος και κατακόρυφο κείμενο
-- κατακόρυφος τίτλος και κείμενο
+- τίτλος και κάθετο κείμενο
+- κάθετος τίτλος και κείμενο
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διατάξεις διαφάνειας στο Aspose.Slides για Python μέσω .NET, προσθέστε θέσεις κράτησης, αφαιρέστε μη χρησιμοποιημένες διατάξεις και ελέγξτε την ορατότητα του υποσέλιδου."
+description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διατάξεις διαφάνειας στο Aspose.Slides για Python μέσω .NET, προσθέστε θέσεις κράτησης, αφαιρέστε αχρησιμοποίητες διατάξεις και ελέγξτε την ορατότητα του υποσέλιδου."
 ---
 ## **Επισκόπηση**
 
-Η διάταξη διαφάνειας ορίζει τις θέσεις και τη μορφοποίηση των θέσεων κράτησης, όπως τίτλους, κείμενο, εικόνες, διαγράμματα και πίνακες. Η εφαρμογή μιας διάταξης δίνει στις διαφάνειες μια συνεπή δομή, ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
+Ένα πρότυπο διάταξης διαφάνειας καθορίζει τις θέσεις και τη μορφοποίηση των θέσεων κράτησης όπως τίτλοι, κείμενο, εικόνες, διαγράμματα και πίνακες. Η εφαρμογή ενός προτύπου παρέχει στις διαφάνειες μια συνεπή δομή, ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
 
 Οι πιο συνηθισμένες διατάξεις περιλαμβάνουν:
 
 - **Διαφάνεια Τίτλου**: Περιέχει θέσεις κράτησης τίτλου και υποτίτλου.
 - **Τίτλος και Περιεχόμενο**: Περιέχει μια θέση κράτησης τίτλου και μια γενικής χρήσης θέση κράτησης περιεχομένου.
-- **Κενή**: Δεν περιέχει θέσεις κράτησης περιεχομένου και είναι χρήσιμη όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
+- **Κενό**: Δεν περιέχει θέσεις κράτησης περιεχομένου και είναι χρήσιμο όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
 
 ## **Κατανόηση Κληρονομικότητας Διάταξης**
 
 Μια παρουσίαση έχει τρία σχετιζόμενα επίπεδα:
 
 1. Μια [master slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslide/) ορίζει το θέμα, τη κοινή μορφοποίηση, τα φόντα και τα κοινά αντικείμενα.
-1. Μια [layout slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/) ανήκει σε ένα master και ορίζει μια συγκεκριμένη διάταξη θέσεων κράτησης.
-1. Μια [normal slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/) χρησιμοποιεί μία διάταξη και αποθηκεύει το περιεχόμενο που εισήχθη για αυτή τη διαφάνεια.
+2. Μια [layout slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/) ανήκει σε μια κύρια διαφάνεια και ορίζει μια συγκεκριμένη διάταξη θέσεων κράτησης.
+3. Μια [normal slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/) χρησιμοποιεί μία διάταξη και αποθηκεύει το περιεχόμενο που εισήχθη για εκείνη τη διαφάνεια.
 
-Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διάταξή της, και η διάταξη κληρονομεί από το master της. Μια τιμή που ορίζεται άμεσα σε μια κανονική διαφάνεια αντικαθιστά την κληρονομημένη τιμή σε εκείνο το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα των θέσεων κράτησης παράγονται από την επιλεγμένη διάταξη, ενώ το περιεχόμενο που εισάγεται σε αυτές τις θέσεις κράτησης ανήκει στη κανονική διαφάνεια.
+Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διάταξή της, και η διάταξη κληρονομεί από την κύρια της. Μια τιμή που ορίζεται απευθείας σε μια κανονική διαφάνεια παρακάμπτει την κληρονομική τιμή σε αυτό το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα θέσεων κράτησης δημιουργούνται από την επιλεγμένη διάταξη, ενώ το περιεχόμενο που εισάγεται σε αυτές τις θέσεις ανήκει στην κανονική διαφάνεια.
 
-Προσθέστε τις απαιτούμενες θέσεις κράτησης σε μια διάταξη πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη μιας επιπλέον θέσης κράτησης σε μια διάταξη αργότερα δεν προσθέτει αυτόματα το αντίστοιχο σχήμα θέσης κράτησης στις ήδη υπάρχουσες κανονικές διαφάνειες.
+Προσθέστε τις απαιτούμενες θέσεις κράτησης σε μια διάταξη πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη μιας άλλης θέσης κράτησης σε μια διάταξη αργότερα δεν προσθέτει αυτόματα ένα αντίστοιχο σχήμα θέσης κράτησης στις υπάρχουσες κανονικές διαφάνειες.
 
 Αυτή η σχέση έχει δύο σημαντικές συνέπειες:
 
-- Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχουσών θέσεων κράτησης μιας διάταξης μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διάταξη που ήδη χρησιμοποιείται, ελέγξτε τις εξαρτημένες διαφάνειες και εξετάστε την προκύπτουσα παρουσίαση.
-- Μια διάταξη που εξακολουθεί να χρησιμοποιείται από μια διαφάνεια δεν μπορεί να αφαιρεθεί. Αναπροσαρμόστε πρώτα τις εξαρτημένες διαφάνειες σε άλλη διάταξη ή αφαιρέστε μόνο τις διατάξεις που δεν χρησιμοποιούνται.
+- Η αλλαγή της κληρονομικής μορφοποίησης ή της γεωμετρίας των υπαρχουσών θέσεων κράτησης σε μια διάταξη μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διάταξη που χρησιμοποιείται ήδη, ελέγξτε τις εξαρτημένες διαφάνειες και ανασκοπήστε την προκύπτουσα παρουσίαση.
+- Μια διάταξη που εξακολουθεί να χρησιμοποιείται από μια διαφάνεια δεν μπορεί να αφαιρεθεί. Ανανεώστε πρώτα τις εξαρτημένες διαφάνειες σε άλλη διάταξη ή αφαιρέστε μόνο τις αχρησιμοποίητες διατάξεις.
 
 Για περισσότερες πληροφορίες σχετικά με το ανώτερο επίπεδο αυτής της ιεραρχίας, δείτε [Slide Master](/slides/el/python-net/slide-master/).
 
+Για απόκρυψη κληρονομικών λογοτύπων ή διακοσμητικών σχημάτων κύριας διαφάνειας σε μία διαφάνεια ή μέσω κοινής διάταξης, δείτε [Control the Visibility of Master Graphics](/slides/el/python-net/slide-master/). Το παράδειγμα συγκρίνει δύο διαφάνειες που χρησιμοποιούν την ίδια κύρια διαφάνεια.
+
 ## **Επιλογή και Εφαρμογή Διάταξης Διαφάνειας**
 
-Χρησιμοποιήστε έναν τύπο διάταξης όταν η παρουσίαση ακολουθεί τις τυπικές ορισμούς διάταξης του PowerPoint. Τα ονόματα διατάξεων είναι επεξεργάσιμα από το χρήστη και μπορούν να μεταφραστούν, έτσι η επιλογή βάσει ονόματος είναι λιγότερο αξιόπιστη εκτός εάν ελέγχετε το πρότυπο προέλευσης.
+Χρησιμοποιήστε έναν τύπο διάταξης όταν η παρουσίαση ακολουθεί τις τυπικές ορισμοί διάταξης του PowerPoint. Τα ονόματα διατάξεων μπορούν να επεξεργαστούν από τον χρήστη και να εντοπιστούν, επομένως η επιλογή με βάση το όνομα είναι λιγότερο αξιόπιστη εκτός εάν ελέγχετε το πρότυπο πηγής.
 
-Το παρακάτω παράδειγμα αναζητά το **Title and Content** στο πρώτο master. Εάν αυτή η διάταξη δεν είναι διαθέσιμη, επιστρέφει σκόπιμα στο **Blank**. Η δεύτερη έλεγχος για null είναι αναγκαία επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διατάξεις. Η επιλεγμένη διάταξη εφαρμόζεται στη πρώτη κανονική διαφάνεια μέσω της ιδιότητας [Slide.layout_slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/layout_slide/).
+Το παρακάτω παράδειγμα αναζητά **Title and Content** στην πρώτη κύρια διαφάνεια. Αν αυτή η διάταξη δεν είναι διαθέσιμη, επανέρχεται σκόπιμα σε **Blank**. Ο δεύτερος έλεγχος για null είναι απαραίτητος επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διατάξεις. Η επιλεγμένη διάταξη εφαρμόζεται στη πρώτη κανονική διαφάνεια μέσω της ιδιότητας [Slide.layout_slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/layout_slide/).
 
 ```python
 import aspose.slides as slides
@@ -82,13 +84,13 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Η αλλαγή της διάταξης μιας διαφάνειας δεν αφαιρεί τα συνηθισμένα σχήματα που προστέθηκαν απευθείας στη διαφάνεια. Ωστόσο, οι θέσεις των θέσεων κράτησης, η κληρονομική μορφοποίηση και η αντιστοιχία μεταξύ των υπαρχουσών θέσεων κράτησης και της νέας διάταξης μπορεί να αλλάξει, γι' αυτό εξετάστε το αποτέλεσμα όταν μεταβαίνετε μεταξύ σημαντικά διαφορετικών διατάξεων.
+Η αλλαγή της διάταξης μιας διαφάνειας δεν αφαιρεί τα κανονικά σχήματα που προστέθηκαν απευθείας στη διαφάνεια. Ωστόσο, οι θέσεις των θέσεων κράτησης, η κληρονομική μορφοποίηση και η αντιστοίχηση μεταξύ των υπαρχουσών θέσεων κράτησης και της νέας διάταξης μπορεί να αλλάξει, γι' αυτό ελέγξτε το αποτέλεσμα όταν μεταβαίνετε μεταξύ σημαντικά διαφορετικών διατάξεων.
 
 ## **Προσθήκη Διάταξης Διαφάνειας**
 
-Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διάταξη· δεν τη δημιουργεί. Για να δημιουργήσετε μια διάταξη, καλέστε τη μέθοδο [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterlayoutslidecollection/add/) στη συλλογή διατάξεων του στόχου master.
+Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διάταξη· δεν δημιουργεί νέα. Για να δημιουργήσετε μια διάταξη, καλέστε τη μέθοδο [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterlayoutslidecollection/add/) στη συλλογή διατάξεων του στοχευόμενου master.
 
-Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διάταξη **Title and Content** με όνομα `Report Title and Content`, ενώ στη συνέχεια προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα διατάξεων πρέπει να είναι μοναδικά μέσα στη συλλογή.
+Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διάταξη **Title and Content** με όνομα `Report Title and Content`, στη συνέχεια προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα διατάξεων πρέπει να είναι μοναδικά μέσα στη συλλογή.
 
 ```python
 import aspose.slides as slides
@@ -101,7 +103,7 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Προσθέστε μια διάταξη μόνο όταν το πρότυπο χρειάζεται πραγματικά μια ακόμη επαναχρησιμοποιήσιμη δομή. Εάν υπάρχει ήδη μια κατάλληλη διάταξη, επιλέξτε την και χρησιμοποιήστε την ξανά αντί να δημιουργήσετε ένα αντίγραφο.
+Προσθέστε μια διάταξη μόνο όταν το πρότυπο χρειάζεται πραγματικά μια επιπλέον επαναχρησιμοποιήσιμη δομή. Εάν υπάρχει ήδη μια κατάλληλη διάταξη, επιλέξτε και χρησιμοποιήστε την ξανά αντί να δημιουργήσετε αντίγραφο.
 
 ## **Προσθήκη Θέσεων Κράτησης σε Διάταξη Διαφάνειας**
 
@@ -110,9 +112,9 @@ with slides.Presentation("input.pptx") as presentation:
 | PowerPoint Placeholder | `LayoutPlaceholderManager` Method |
 | ---------------------- | --------------------------------- |
 | ![Περιεχόμενο](content.png) | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
-| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Περιεχόμενο (Κατακόρυφα)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
 | ![Κείμενο](text.png) | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
-| ![Κείμενο (Κατακόρυφο)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Κείμενο (Κατακόρυφα)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
 | ![Εικόνα](picture.png) | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
 | ![Διάγραμμα](chart.png) | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
 | ![Πίνακας](table.png) | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
@@ -120,7 +122,7 @@ with slides.Presentation("input.pptx") as presentation:
 | ![Πολυμέσα](media.png) | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
 | ![Διαδικτυακή Εικόνα](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Το παρακάτω παράδειγμα επαληθεύει ότι η διάταξη **Blank** υπάρχει, προσθέτει τέσσερις θέσεις κράτησης σε αυτήν και, στη συνέχεια, δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διάταξη. Η σειρά είναι σκόπιμη: οι θέσεις κράτησης προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε το Aspose.Slides να μπορεί να δημιουργήσει τα αντίστοιχα σχήματα θέσεων κράτησης στη διαφάνεια.
+Το παρακάτω παράδειγμα ελέγχει ότι η διάταξη **Blank** υπάρχει, προσθέτει τέσσερις θέσεις κράτησης σε αυτήν και μετά δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διάταξη. Η σειρά είναι σκόπιμη: οι θέσεις κράτησης προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε το Aspose.Slides να μπορέσει να δημιουργήσει τα αντίστοιχα σχήματα θέσεων κράτησης σε αυτή τη διαφάνεια.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +145,15 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Οι θέσεις κράτησης στη διάταξη διαφάνειας](add_placeholders.png)
+![Οι θέσεις κράτησης στη διαφάνεια διάταξης](add_placeholders.png)
 
-{{% alert color="warning" title="Προειδοποίηση" %}}
-Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχουσών θέσεων κράτησης μιας διάταξης μπορεί να επηρεάσει τις εξαρτημένες διαφάνειες. Μια νέες προστιθέμενη θέση κράτησης διάταξης δεν συμπληρώνεται αυτόματα στις υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές διάταξης σε ένα αντίγραφο της παρουσίασης και ελέγξτε κάθε εξαρτημένη διαφάνεια.
+{{% alert color="warning" title="Warning" %}}
+Η αλλαγή της κληρονομικής μορφοποίησης ή της γεωμετρίας των υπαρχουσών θέσεων κράτησης μιας διάταξης μπορεί να επηρεάσει τις εξαρτημένες διαφάνειες. Μια πρόσφατα προστιθέμενη θέση κράτησης διάταξης δεν προστίθεται αυτόματα σε υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές διάταξης σε αντίγραφο της παρουσίασης και ελέγξτε κάθε εξαρτημένη διαφάνεια.
 {{% /alert %}}
 
-## **Αφαίρεση Μη Χρησιμοποιημένων Διατάξεων Διαφάνειας**
+## **Αφαίρεση Αχρησιμοποίητων Διατάξεων Διαφάνειας**
 
-Χρησιμοποιήτε τη μέθοδο [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) για την αφαίρεση διατάξεων που δεν αναφέρονται από καμία κανονική διαφάνεια. Η μέθοδος αφήνει αμετάβλητες τις διατάξεις που εξακολουθούν να χρησιμοποιούνται.
+Χρησιμοποιήστε τη μέθοδο [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) για να αφαιρέσετε διατάξεις που δεν αναφέρονται από καμία κανονική διαφάνεια. Η μέθοδος αφήνει ανέπαφες τις διατάξεις που εξακολουθούν να χρησιμοποιούνται.
 
 ```python
 import aspose.slides as slides
@@ -161,13 +163,13 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Για να αφαιρέσετε μια συγκεκριμένη διάταξη, πρώτα χρησιμοποιήστε την ιδιότητα [has_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/has_depending_slides/) ή τη μέθοδο [get_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/get_depending_slides/). Αντιστοιχίστε ξανά τυχόν εξαρτημένες διαφάνειες πριν καλέσετε τη [LayoutSlide.remove](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/remove/). Η προσπάθεια αφαίρεσης μιας σε χρήση διάταξης προκαλεί ένα [PptxEditException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxeditexception/).
+Για να αφαιρέσετε μια συγκεκριμένη διάταξη, πρώτα χρησιμοποιήστε την ιδιότητα [has_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/has_depending_slides/) ή τη μέθοδο [get_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/get_depending_slides/). Αναθέστε εκ των προτέρων τυχόν εξαρτημένες διαφάνειες πριν καλέσετε το [LayoutSlide.remove](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/remove/). Η προσπάθεια αφαίρεσης μιας διατάξης που χρησιμοποιείται προκαλεί την εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxeditexception/).
 
 ## **Έλεγχος Ορατότητας Υποσέλιδου σε Διάταξη Διαφάνειας**
 
-Μια διάταξη έχει το δικό της υποσέλιδο, θέση κράτησης αριθμού διαφάνειας και ημερομηνίας‑ώρας. Χρησιμοποιήστε την ιδιότητα [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/header_footer_manager/) για να ελέγξετε αυτές τις θέσεις κράτησης για μία διάταξη. Αυτό είναι χρήσιμο, για παράδειγμα, όταν οι διατάξεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα ενώ οι διατάξεις τίτλου δεν πρέπει.
+Μια διάταξη διαθέτει το δικό της υποσέλιδο, αριθμό διαφάνειας και θέσεις κράτησης ημερομηνίας‑ώρας. Χρησιμοποιήστε την ιδιότητα [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/header_footer_manager/) για να ελέγξετε αυτές τις θέσεις σε μία διάταξη. Αυτό είναι χρήσιμο, για παράδειγμα, όταν οι διατάξεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα ενώ οι διατάξεις τίτλου όχι.
 
-Το παρακάτω παράδειγμα επιλέγει μια διάταξη με ασφάλεια και καθιστά τα στοιχεία του υποσέλιδου ορατά:
+Το παρακάτω παράδειγμα επιλέγει μια διάταξη με ασφάλεια και καθιστά ορατά τα στοιχεία υποσέλιδου:
 
 ```python
 import aspose.slides as slides
@@ -191,9 +193,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Έλεγχος Ορατότητας Υποσέλιδου σε Master και τις Παράγωγες Διατάξεις**
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Master και στις Υπό-Διατάξεις του**
 
-Για να εφαρμόσετε συνεπείς ρυθμίσεις υποσέλιδου σε όλη τη ιεραρχία ενός master, χρησιμοποιήστε την ιδιότητα [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslide/header_footer_manager/). Οι μέθοδοι διάδοσης του [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslideheaderfootermanager/) λειτουργούν στο master και στις εξαρτημένες από αυτό διατάξεις διαφάνειας και κανονικές διαφάνειες· δεν στοχεύουν μόνο σε μία κανονική διαφάνεια.
+Για να εφαρμόσετε συνεπείς ρυθμίσεις υποσέλιδου σε όλη την ιεραρχία ενός master, χρησιμοποιήστε την ιδιότητα [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslide/header_footer_manager/). Οι μέθοδοι διάδοσης του [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslideheaderfootermanager/) εφαρμόζονται στο master και στις εξαρτημένες διατάξεις και κανονικές διαφάνειες· δεν στοχεύουν μόνο σε μία κανονική διαφάνεια.
 
 ```python
 import aspose.slides as slides
@@ -211,18 +213,18 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποια είναι η Διαφορά μεταξύ ενός Master Slide και ενός Layout Slide;**
+**Ποια είναι η διαφορά μεταξύ μιας Master Slide και μιας Layout Slide;**
 
-Ένα master slide ορίζει το θέμα της παρουσίασης και τη κοινή μορφοποίηση. Ένα layout slide ανήκει σε ένα master και ορίζει μια επαναχρησιμοποιήσιμη διάταξη θέσεων κράτησης. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διατάξεις και αποθηκεύουν το περιεχόμενο που είναι ειδικό για τη διαφάνειά τους.
+Μια master slide ορίζει το θέμα της παρουσίασης και τη κοινή μορφοποίηση. Μια layout slide ανήκει σε μια master slide και ορίζει μία επαναχρησιμοποιήσιμη διάταξη θέσεων κράτησης. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διατάξεις και αποθηκεύουν το περιεχόμενο της κάθε διαφάνειας.
 
-**Μπορώ να Αντιγράψω ένα Layout Slide από Μία Παρουσίαση σε Άλλη;**
+**Μπορώ να αντιγράψω μια Layout Slide από μία Παρουσίαση σε άλλη;**
 
-Ναι. Προσθέστε ένα αντίγραφο στη συλλογή προορισμού με τη μέθοδο [add_clone](https://reference.aspose.com/slides/el/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Κατά την αντιγραφή μεταξύ παρουσιάσεων, ελέγξτε επίσης τις γραμματοσειρές, τα θέματα, τις εικόνες και άλλους πόρους που χρησιμοποιεί η πηγή διάταξης.
+Ναι. Προσθέστε ένα αντίγραφο στην προοριστική συλλογή με τη μέθοδο [add_clone](https://reference.aspose.com/slides/el/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Κατά την αντιγραφή μεταξύ παρουσιάσεων, επαληθεύστε επίσης γραμματοσειρές, θέματα, εικόνες και άλλους πόρους που χρησιμοποιεί η πηγή διάταξης.
 
-**Τι Συμβαίνει Όταν Τροποποιήσω μια Διάταξη που Είναι Ήδη σε Χρήση;**
+**Τι συμβαίνει όταν τροποποιώ μια Διάταξη που χρησιμοποιείται ήδη;**
 
-Οι εξαρτημένες διαφάνειες κληρονομούν τις αλλαγές της διάταξης, εκτός εάν παρακάμψουν τη μορφοποίηση ή τα αντικείμενα τοπικά. Η γεωμετρία των θέσεων κράτησης και η κληρονομημένη μορφοποίηση μπορούν έτσι να αλλάξουν σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε το [get_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/get_depending_slides/) για να εντοπίσετε τις επηρεαζόμενες διαφάνειες πριν επεξεργαστείτε τη διάταξη.
+Οι εξαρτημένες διαφάνειες κληρονομούν τις αλλαγές της διάταξης εκτός εάν έχουν παρακάμψει το επηρεαζόμενο στυλ ή αντικείμενα τοπικά. Η γεωμετρία των θέσεων κράτησης και η κληρονομική μορφοποίηση μπορεί έτσι να αλλάξει σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε το [get_depending_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/get_depending_slides/) για να εντοπίσετε τις επηρεαζόμενες διαφάνειες πριν επεξεργαστείτε τη διάταξη.
 
-**Τι Συμβαίνει Εάν Αφαιρέσω μια Διάταξη που Είναι Ακόμη σε Χρήση;**
+**Τι συμβαίνει αν αφαιρέσω μια Διάταξη που είναι ακόμη σε χρήση;**
 
-Το Aspose.Slides εγείρει ένα [PptxEditException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxeditexception/). Αναπροσαρμόστε πρώτα τις εξαρτημένες διαφάνειες ή χρησιμοποιήστε το [remove_unused_layout_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) για να αφαιρέσετε μόνο τις μη αναφερθείσες διατάξεις.
+Το Aspose.Slides ρίχνει μια [PptxEditException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxeditexception/). Αναθέστε πρώτα τις εξαρτημένες διαφάνειες ή χρησιμοποιήστε το [remove_unused_layout_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) για να αφαιρέσετε μόνο τις αχρησιμοποίητες διατάξεις.

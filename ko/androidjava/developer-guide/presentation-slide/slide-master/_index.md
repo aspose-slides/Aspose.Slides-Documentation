@@ -11,11 +11,11 @@ keywords:
 - 다중 마스터 슬라이드
 - 마스터 슬라이드 비교
 - 배경
-- 플레이스홀더
+- 자리 표시자
 - 마스터 슬라이드 복제
 - 마스터 슬라이드 복사
 - 마스터 슬라이드 중복
-- 사용되지 않는 마스터 슬라이드
+- 사용되지 않은 마스터 슬라이드
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
@@ -26,33 +26,35 @@ description: "Aspose.Slides for Android via Java에서 슬라이드 마스터를
 ---
 ## **개요**
 
-A **슬라이드 마스터** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
+**슬라이드 마스터**는 여러 슬라이드에 대한 공유 디자인 설정을 정의합니다. 공통 도형, 로고, 배경, 텍스트 스타일, 테마 설정 및 바닥글 설정을 포함할 수 있습니다. PowerPoint에서 슬라이드 마스터를 편집하는 것이 매 슬라이드마다 동일한 서식을 반복하지 않고 프레젠테이션을 일관되게 유지하는 일반적인 방법입니다.
 
-Aspose.Slides for Android via Java supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
+Aspose.Slides for Android via Java도 동일한 모델을 지원합니다. 프레젠테이션에는 하나 이상의 마스터 슬라이드가 포함될 수 있으며, 각 마스터 슬라이드에는 여러 레이아웃 슬라이드가 포함될 수 있습니다. 일반 슬라이드는 보통 마스터 슬라이드를 직접 참조하지 않습니다. 대신 일반 슬라이드는 레이아웃 슬라이드를 사용하며, 해당 레이아웃 슬라이드는 마스터 슬라이드에 속합니다.
 
-The hierarchy is:
+계층 구조는 다음과 같습니다:
 
-1. **슬라이드 마스터** - defines the shared design and theme.
-1. **레이아웃 슬라이드** - defines a specific arrangement of placeholders and layout-level formatting.
-1. **일반 슬라이드** - contains the actual presentation content and uses one layout slide.
+1. **슬라이드 마스터** – 공유 디자인 및 테마를 정의합니다.  
+1. **레이아웃 슬라이드** – 자리 표시자와 레이아웃 수준 서식의 특정 배치를 정의합니다.  
+1. **일반 슬라이드** – 실제 프레젠테이션 콘텐츠를 포함하고 하나의 레이아웃 슬라이드를 사용합니다.
 
 ![마스터 슬라이드, 레이아웃 슬라이드 및 일반 슬라이드의 계층 구조](slide-master_2.jpg)
 
-In Aspose.Slides, a slide master is represented by the [IMasterSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imasterslide/) interface. All master slides in a presentation are available through the [Presentation.getMasters](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/#getMasters--) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imasterslidecollection/). For the full Android via Java API surface, see the [com.aspose.slides API reference](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/).
+Aspose.Slides에서 슬라이드 마스터는 [IMasterSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imasterslide/) 인터페이스로 표현됩니다. 프레젠테이션의 모든 마스터 슬라이드는 [Presentation.getMasters](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/#getMasters--) 컬렉션을 통해 사용할 수 있으며, 이 컬렉션은 [IMasterSlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imasterslidecollection/)을 구현합니다. 전체 Android via Java API 표면에 대해서는 [com.aspose.slides API reference](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/)를 참조하십시오.
 
 {{% alert color="info" title="Inheritance" %}}
-When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [슬라이드 레이아웃 적용 또는 변경](/slides/ko/androidjava/slide-layout/).
+여러 수준에서 동일한 속성이 정의된 경우, 보다 구체적인 수준이 우선합니다. 예를 들어 마스터 슬라이드와 레이아웃 슬라이드 모두 배경을 정의한 경우, 해당 레이아웃을 기반으로 하는 슬라이드는 레이아웃 배경을 사용합니다. 레이아웃 슬라이드에 대한 자세한 내용은 [Apply or Change Slide Layouts](/slides/ko/androidjava/slide-layout/)를 참고하십시오.
 {{% /alert %}}
 
-## **슬라이드 마스터에 액세스**
+## **슬라이드 마스터에 액세스하기**
 
-In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
+PowerPoint에서 **보기** > **슬라이드 마스터**를 선택하면 슬라이드 마스터 보기를 열 수 있습니다.
 
 ![PowerPoint 보기 탭의 슬라이드 마스터 명령](slide-master_3.jpg)
 
-In Aspose.Slides, use the `getMasters()` collection to access master slides:
+Aspose.Slides에서는 `getMasters()` 컬렉션을 사용하여 마스터 슬라이드에 액세스합니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-You can also get the master slide used by a normal slide through its layout:
+일반 슬라이드가 사용하는 레이아웃을 통해 해당 슬라이드가 사용 중인 마스터 슬라이드를 가져올 수도 있습니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,28 +86,30 @@ try {
 }
 ```
 
-## **슬라이드 마스터에 포함된 내용**
+## **슬라이드 마스터에 포함되는 내용**
 
-A master slide is a slide-like object. It implements [IBaseSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/), so it exposes many of the same slide properties used by normal and layout slides.
+마스터 슬라이드는 슬라이드와 유사한 객체입니다. [IBaseSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/)을 구현하므로 일반 슬라이드와 레이아웃 슬라이드에서 사용되는 많은 슬라이드 속성을 노출합니다.
 
-Commonly used master slide members include:
+일반적으로 사용되는 마스터 슬라이드 멤버는 다음과 같습니다:
 
 | 멤버 | 목적 |
 | --- | --- |
 | `getBackground()` | 마스터 수준 슬라이드 배경을 설정합니다. |
-| `getShapes()` | 마스터에 배치된 로고, 그림 프레임 및 공유 텍스트와 같은 도형을 저장합니다. |
+| `getShapes()` | 로고, 그림 프레임, 공유 텍스트 등 마스터에 배치된 도형을 저장합니다. |
 | `getLayoutSlides()` | 마스터에 속한 레이아웃 슬라이드를 저장합니다. |
-| `getThemeManager()` | 마스터 테마 API에 대한 액세스를 제공합니다. |
-| `getHeaderFooterManager()` | 마스터 및 해당 자식 레이아웃의 머리글, 바닥글, 날짜 및 슬라이드 번호를 제어합니다. |
+| `getThemeManager()` | 마스터 테마 API에 대한 접근을 제공합니다. |
+| `getHeaderFooterManager()` | 마스터와 그 하위 레이아웃에 대한 머리글, 바닥글, 날짜 및 슬라이드 번호를 제어합니다. |
 | `getDependingSlides()` | 레이아웃을 통해 마스터에 종속된 일반 슬라이드를 반환합니다. |
 
-## **슬라이드 마스터에 이미지 추가**
+## **슬라이드 마스터에 이미지 추가하기**
 
-When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
+마스터 슬라이드에 이미지를 추가하면 해당 마스터의 레이아웃을 사용하는 슬라이드에 표시됩니다. 로고, 워터마크, 장식 밴드 등 반복적으로 사용되는 시각 요소에 유용합니다.
 
-The following example adds a logo to the first master slide:
+다음 예제는 첫 번째 마스터 슬라이드에 로고를 추가합니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-For more information about picture frames, see [그림 프레임](/slides/ko/androidjava/picture-frame/).
+그림 프레임에 대한 자세한 내용은 [Picture Frame](/slides/ko/androidjava/picture-frame/)를 참고하십시오.
 
-## **플레이스홀더 작업**
+## **마스터 그래픽 가시성 제어**
 
-Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
+[IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-)를 사용하면 로고나 장식 도형과 같은 상속된 마스터 그래픽을 삭제하지 않고 숨길 수 있습니다. 해당 그래픽을 제외해야 하는 슬라이드에서는 [Slide.setShowMasterShapes](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-)에 `false`를 전달하고, 표시해야 하는 슬라이드에서는 `true`를 유지합니다.
 
-In PowerPoint, placeholder commands are available in Slide Master view.
-
-![PowerPoint 슬라이드 마스터 보기에서 삽입 플레이스홀더 명령](slide-master_5.png)
-
-To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
+다음 자체 포함 예제는 마스터에 파란색 장식 밴드를 만들고, 동일한 빈 레이아웃을 사용하는 두 슬라이드에 적용합니다. 첫 번째 슬라이드에서는 밴드가 보이고 두 번째 슬라이드에서는 숨겨집니다. 입력 프레젠테이션이나 이미지는 필요하지 않습니다.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+예제는 새 프레젠테이션에 제공되는 **Blank** 레이아웃을 사용하고 초기 슬라이드의 자체 자리 표시자를 제거합니다.
+
+### **설정 범위 선택**
+
+일반 슬라이드는 [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islide/#getLayoutSlide--)와 [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--)를 통해 마스터에 연결됩니다. 개별 슬라이드에 속성을 설정하면 해당 슬라이드에만 영향을 미칩니다. [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-)에 `false`를 전달하면 해당 공유 레이아웃을 사용하는 모든 슬라이드에서 마스터 그래픽이 숨겨집니다(각 슬라이드 자체 설정이 `true`라 하더라도). 하나의 슬라이드에서만 그래픽을 숨기려면 해당 슬라이드 속성을 변경하고 공유 레이아웃은 그대로 두세요.
+
+마스터 슬라이드 자체에 대한 가시성 제어는 지원되지 않습니다. 마스터에서는 [getShowMasterShapes](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--)가 항상 `false`를 반환하고, [setShowMasterShapes](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-)에 `true`를 전달하면 예외가 발생합니다. 대신 일반 슬라이드 또는 레이아웃에 적용하십시오.
+
+### **그래픽과 배경 구분**
+
+| 작업 | 효과 |
+| --- | --- |
+| 마스터 그래픽 숨기기 | 마스터 도형을 삭제하거나 슬라이드 자체 도형을 변경하지 않고 가시성을 제어합니다. |
+| 슬라이드 배경 채우기 변경 | 배경 색상, 그라디언트 또는 이미지를 변경합니다. 마스터 그래픽은 별도 도형이므로 배경 위에 그대로 표시될 수 있습니다. 자세한 내용은 [Presentation Background](/slides/ko/androidjava/presentation-background/)를 참조하십시오. |
+| 마스터에서 도형 삭제 | 공유 소스 도형을 제거하므로 해당 마스터를 사용하는 모든 슬라이드에서 더 이상 사용할 수 없습니다. |
+
+## **자리 표시자 작업**
+
+자리 표시자는 일반적으로 레이아웃 슬라이드에 정의됩니다. 마스터 슬라이드는 레이아웃이 상속받는 공유 스타일과 테마를 제공하며, 각 레이아웃은 어떤 자리 표시자를 사용할지와 위치를 결정합니다.
+
+PowerPoint에서는 슬라이드 마스터 보기에서 자리 표시자 명령을 사용할 수 있습니다.
+
+![PowerPoint 슬라이드 마스터 보기의 자리 표시자 삽입 명령](slide-master_5.png)
+
+Aspose.Slides에서 새 자리 표시자를 추가하려면 해당 마스터에 속한 레이아웃 슬라이드를 작업하세요:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
+이미 마스터 슬라이드에 존재하는 자리 표시자 도형을 서식 지정할 수도 있습니다. 다음 예제는 제목 자리 표시자를 찾아 선형 그라디언트 채우기를 적용합니다:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![일반 슬라이드에 상속된 서식이 적용된 제목 플레이스홀더](slide-master_8.png)
+![일반 슬라이드가 상속받은 서식이 지정된 제목 자리 표시자](slide-master_8.png)
 
-For more placeholder and text formatting options, see [플레이스홀더에서 프롬프트 텍스트 설정](/slides/ko/androidjava/manage-placeholder/) and [텍스트 서식](/slides/ko/androidjava/text-formatting/).
+더 많은 자리 표시자 및 텍스트 서식 옵션은 [Set Prompt Text in Placeholder](/slides/ko/androidjava/manage-placeholder/)와 [Text Formatting](/slides/ko/androidjava/text-formatting/)를 참고하십시오.
 
 ## **슬라이드 마스터 배경 변경**
 
-A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
+마스터 배경은 레이아웃 및 해당 배경을 재정의하지 않은 슬라이드에 상속됩니다. 다음 예제는 첫 번째 마스터 슬라이드에 단색 배경 색을 설정합니다:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-For related topics, see [프레젠테이션 배경](/slides/ko/androidjava/presentation-background/) and [프레젠테이션 테마](/slides/ko/androidjava/presentation-theme/).
+관련 주제는 [Presentation Background](/slides/ko/androidjava/presentation-background/)와 [Presentation Theme](/slides/ko/androidjava/presentation-theme/)를 확인하십시오.
 
-## **슬라이드 마스터를 다른 프레젠테이션으로 복제**
+## **슬라이드 마스터를 다른 프레젠테이션에 복제하기**
 
-Use [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
+[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-)를 사용하면 마스터 슬라이드를 다른 프레젠테이션에 복사할 수 있습니다. 복사된 마스터는 대상 프레젠테이션의 레이아웃 및 슬라이드에서 사용할 수 있습니다.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-If you need to clone normal slides together with their master, see [슬라이드 복제](/slides/ko/androidjava/clone-slides/).
+일반 슬라이드와 해당 마스터를 함께 복제하려면 [Clone Slides](/slides/ko/androidjava/clone-slides/)를 참고하십시오.
 
-## **여러 슬라이드 마스터 추가**
+## **여러 슬라이드 마스터 추가하기**
 
-A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
+프레젠테이션에 여러 마스터 슬라이드를 포함할 수 있습니다. 이는 섹션마다 다른 브랜딩, 페이지 구조 또는 테마 설정이 필요한 경우에 유용합니다.
 
-![마스터 슬라이드 삽입 및 관리용 PowerPoint 명령](slide-master_9.jpg)
+![마스터 슬라이드 삽입 및 관리에 대한 PowerPoint 명령](slide-master_9.jpg)
 
-The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
+다음 예제는 기본 마스터를 복제하고, 복제본에 다른 배경을 지정한 뒤, 해당 복제 마스터 아래에 레이아웃을 생성하고, 그 레이아웃을 기반으로 새 슬라이드를 추가합니다:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -277,9 +350,11 @@ try {
 
 ## **슬라이드 마스터 비교**
 
-Master slides can be compared with the `equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
+마스터 슬라이드는 [IBaseSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/)에서 상속받은 `equals` 메서드를 사용해 비교할 수 있습니다. 비교는 구조와 정적 콘텐츠(도형, 텍스트, 서식, 애니메이션 및 기타 슬라이드 설정)를 검사합니다. 슬라이드 ID와 같은 고유 식별자나 현재 날짜와 같은 동적 자리 표시자 값은 비교되지 않습니다.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-For more information, see [프레젠테이션 슬라이드 비교](/slides/ko/androidjava/compare-slides/).
+자세한 내용은 [Compare Presentation Slides](/slides/ko/androidjava/compare-slides/)를 참고하십시오.
 
-## **슬라이드 마스터 보기를 기본 보기로 설정**
+## **슬라이드 마스터 보기를 기본 보기로 설정하기**
 
-Use the `setLastView` method on [ViewProperties](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
+[ViewProperties](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/viewproperties/)의 `setLastView` 메서드를 사용하면 PowerPoint가 처음 열 때 표시되는 보기를 제어할 수 있습니다. 다음 예제는 프레젠테이션을 슬라이드 마스터 보기로 열어줍니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -322,15 +399,17 @@ try {
 }
 ```
 
-For more view settings, see [프레젠테이션 저장](/slides/ko/androidjava/save-presentation/).
+다른 보기 설정에 대해서는 [Save Presentation](/slides/ko/androidjava/save-presentation/)를 확인하십시오.
 
-## **사용되지 않는 마스터 슬라이드 제거**
+## **사용되지 않는 마스터 슬라이드 제거하기**
 
-Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
+프레젠테이션에 사용되지 않는 마스터 슬라이드가 남아 있을 수 있습니다. 사용되지 않는 마스터를 제거하면 파일 크기를 줄이고 템플릿 유지 관리가 간소화됩니다.
 
-Use `removeUnused` to remove unused masters from the `getMasters()` collection:
+`removeUnused`를 사용하면 `getMasters()` 컬렉션에서 사용되지 않은 마스터를 제거할 수 있습니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-You can also use the low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method:
+또는 저코드 메서드 [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-)를 사용할 수도 있습니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -356,16 +437,16 @@ try {
 
 **슬라이드 마스터와 레이아웃 슬라이드의 차이점은 무엇인가요?**
 
-A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
+슬라이드 마스터는 테마, 배경, 공통 도형 및 텍스트 스타일과 같은 공유 디자인 설정을 정의합니다. 레이아웃 슬라이드는 마스터에 속하며 자리 표시자의 구체적인 배치를 정의합니다. 일반 슬라이드는 레이아웃 슬라이드를 사용하므로 레이아웃과 마스터 모두에서 상속받습니다.
 
 **하나의 프레젠테이션에 여러 슬라이드 마스터를 포함할 수 있나요?**
 
-Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
+예. 프레젠테이션에 여러 슬라이드 마스터를 포함할 수 있습니다. 섹션마다 다른 시각 체계나 브랜딩이 필요할 때 여러 마스터를 사용하십시오.
 
-**플레이스홀더를 마스터 슬라이드에 추가해야 하나요, 레이아웃 슬라이드에 추가해야 하나요?**
+**자리 표시자를 마스터 슬라이드에 추가해야 하나요, 레이아웃 슬라이드에 추가해야 하나요?**
 
-In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
+대부분의 경우 자리 표시자는 레이아웃 슬라이드에 추가합니다. 공유 시각 요소와 공통 서식은 마스터 슬라이드에 두고, 실제 콘텐츠 자리 표시자는 일반 슬라이드가 사용할 레이아웃에 배치합니다.
 
-**여전히 사용 중인 마스터 슬라이드를 삭제할 수 있나요?**
+**아직 사용 중인 마스터 슬라이드를 삭제할 수 있나요?**
 
-No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused‑master cleanup method that removes only masters that are not in use.
+아니요. 종속 슬라이드가 있는 마스터 슬라이드는 직접 제거하면 안전하지 않습니다. 먼저 해당 슬라이드를 다른 마스터의 레이아웃으로 이동하거나, 사용되지 않은 마스터만 제거하는 정리 방법을 사용하십시오.

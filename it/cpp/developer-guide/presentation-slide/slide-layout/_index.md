@@ -1,20 +1,20 @@
 ---
-title: Applica o Modifica Layout di Diapositiva in C++
-linktitle: Layout di Diapositiva
+title: Applica o modifica i layout delle diapositive in C++
+linktitle: Layout diapositiva
 type: docs
 weight: 60
 url: /it/cpp/slide-layout/
 keywords:
-- layout di diapositiva
-- layout di contenuto
+- layout diapositiva
+- layout contenuto
 - segnaposto
-- progettazione della presentazione
-- progettazione della diapositiva
-- layout non utilizzato
-- visibilità del piè di pagina
+- progettazione presentazione
+- progettazione diapositiva
+- layout inutilizzato
+- visibilità piè di pagina
 - diapositiva titolo
 - titolo e contenuto
-- intestazione di sezione
+- intestazione sezione
 - due contenuti
 - confronto
 - solo titolo
@@ -28,42 +28,44 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Applica, crea e modifica layout diapositive in Aspose.Slides per C++, aggiungi segnaposti, rimuovi layout non utilizzati e controlla la visibilità del piè di pagina."
+description: "Applica, crea e modifica i layout delle diapositive in Aspose.Slides per C++, aggiungi segnaposti, rimuovi layout inutilizzati e controlla la visibilità del piè di pagina."
 ---
 ## **Panoramica**
 
-Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposto come titoli, testi, immagini, grafici e tabelle. Applicare un layout conferisce alle diapositive una struttura coerente consentendo al contempo a ciascuna diapositiva di contenere i propri contenuti.
+Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposti come titoli, testo, immagini, grafici e tabelle. L’applicazione di un layout conferisce alle diapositive una struttura coerente consentendo al contempo a ciascuna diapositiva di contenere il proprio contenuto.
 
 I layout più comuni includono:
 
-- **Diapositiva Titolo**: Contiene i segnaposto del titolo e del sottotitolo.
-- **Titolo e Contenuto**: Contiene un segnaposto del titolo e un segnaposto di contenuto generico.
-- **Vuota**: Non contiene segnaposti di contenuto ed è utile quando ogni forma sarà posizionata manualmente.
+- **Title Slide**: Contiene i segnaposti per titolo e sottotitolo.  
+- **Title and Content**: Contiene un segnaposto titolo e un segnaposto contenuto di uso generale.  
+- **Blank**: Non contiene segnaposti di contenuto ed è utile quando ogni forma verrà posizionata manualmente.
 
 ## **Comprendere l'ereditarietà del layout**
 
 Una presentazione ha tre livelli correlati:
 
-1. Una [diapositiva master](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
-2. Una [diapositiva layout](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/) appartiene a un master e definisce una disposizione specifica di segnaposti.
-3. Una [diapositiva normale](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
+1. Una [slide master](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.  
+1. Una [slide di layout](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/) appartiene a un master e definisce una particolare disposizione dei segnaposti.  
+1. Una [slide normale](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/) utilizza un layout e conserva il contenuto inserito per quella diapositiva.
 
-Una diapositiva normale eredita il tema e la formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una diapositiva normale sovrascrive il valore ereditato a quel livello. Quando una diapositiva normale viene creata, le sue forme segnaposto sono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposti appartiene alla diapositiva normale.
+Una slide normale eredita tema e formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una slide normale sovrascrive il valore ereditato a quel livello. Quando una slide normale viene creata, le sue forme segnaposto sono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposti appartiene alla slide normale.
 
-Aggiungi i segnaposto richiesti a un layout prima di creare diapositive da esso. L'aggiunta successiva di un altro segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle diapositive normali esistenti.
+Aggiungi i segnaposti richiesti a un layout prima di creare le diapositive da esso. L’aggiunta successiva di un nuovo segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle slide normali esistenti.
 
 Questa relazione ha due conseguenze importanti:
 
-- Modificare la formattazione ereditata o la geometria dei segnaposti esistenti su un layout può aggiornare tutte le diapositive che dipendono da esso. Prima di modificare un layout già in uso, ispeziona le diapositive dipendenti e verifica la presentazione risultante.
-- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le sue diapositive dipendenti a un altro layout, o rimuovi solo i layout non utilizzati.
+- Modificare la formattazione ereditata o la geometria dei segnaposti esistenti su un layout può aggiornare ogni diapositiva che dipende da esso. Prima di modificare un layout già in uso, ispeziona le diapositive dipendenti e verifica la presentazione risultante.  
+- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le diapositive dipendenti a un altro layout, oppure rimuovi solo i layout non utilizzati.
 
-Per ulteriori informazioni sul livello superiore di questa gerarchia, vedi [Master delle Diapositive](/slides/it/cpp/slide-master/).
+Per ulteriori informazioni sul livello superiore di questa gerarchia, consulta [Slide Master](/slides/it/cpp/slide-master/).
 
-## **Selezionare e Applicare un Layout di Diapositiva**
+Per nascondere loghi ereditati o forme decorative del master su una singola diapositiva o tramite un layout condiviso, vedi [Control the Visibility of Master Graphics](/slides/it/cpp/slide-master/). L’esempio confronta due diapositive che usano lo stesso master.
 
-Utilizza un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello originale.
+## **Selezionare e applicare un layout di diapositiva**
 
-L'esempio seguente ricerca **Titolo e Contenuto** sul primo master. Se quel layout non è disponibile, si torna deliberatamente a **Vuota**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima diapositiva normale tramite il metodo [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/set_layoutslide/).
+Usa un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall’utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello di origine.
+
+L’esempio seguente cerca **Title and Content** sul primo master. Se quel layout non è disponibile, ricade deliberatamente su **Blank**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima slide normale attraverso il metodo [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposti, la formattazione ereditata e la corrispondenza tra i segnaposti esistenti e il nuovo layout possono cambiare, quindi verifica l'output quando si passa tra layout sostanzialmente diversi.
+Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposti, la formattazione ereditata e la corrispondenza tra i segnaposti esistenti e il nuovo layout possono cambiare, quindi controlla l’output quando passi da layout sostanzialmente diversi.
 
-## **Aggiungere una Diapositiva Layout**
+## **Aggiungere una slide di layout**
 
-La selezione e la creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterlayoutslidecollection/add/) sulla collezione di layout del master di destinazione.
+Selezione e creazione sono operazioni separate. L’esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterlayoutslidecollection/add/) sulla collezione di layout del master di destinazione.
 
-L'esempio seguente aggiunge sempre un nuovo layout **Titolo e Contenuto** denominato `Report Title and Content`, quindi aggiunge una diapositiva normale basata su di esso. I nomi dei layout devono essere unici all'interno della collezione.
+L’esempio seguente aggiunge sempre un nuovo layout **Title and Content** denominato `Report Title and Content`, quindi aggiunge una slide normale basata su di esso. I nomi dei layout devono essere unici all’interno della collezione.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,13 +134,13 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Aggiungi un layout solo quando il modello necessita davvero di un'altra struttura riutilizzabile. Se esiste già un layout adeguato, selezionalo e riutilizzalo invece di crearne un duplicato.
+Aggiungi un layout solo quando il modello necessita realmente di un’altra struttura riutilizzabile. Se esiste già un layout adatto, selezionalo e riutilizzalo invece di crearne uno duplicato.
 
-## **Aggiungere Segnaposti a una Diapositiva Layout**
+## **Aggiungere segnaposti a una slide di layout**
 
 Il metodo [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) fornisce un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/) per aggiungere forme segnaposto a un layout.
 
-| PowerPoint Placeholder | `ILayoutPlaceholderManager` Method |
+| Segnaposto PowerPoint | `ILayoutPlaceholderManager` Metodo |
 | ---------------------- | ---------------------------------- |
 | ![Contenuto](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
 | ![Contenuto (Verticale)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
@@ -149,9 +151,9 @@ Il metodo [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/sl
 | ![Tabella](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
 | ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
 | ![Media](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Immagine Online](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| ![Immagine online](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-L'esempio seguente verifica che il layout **Vuota** esista, aggiunge quattro segnaposti ad esso, quindi crea una diapositiva normale che utilizza il layout modificato. L'ordine è intenzionale: i segnaposti vengono aggiunti prima che la diapositiva normale sia creata, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
+L’esempio seguente verifica che il layout **Blank** esista, aggiunge quattro segnaposti e quindi crea una slide normale che utilizza il layout modificato. L’ordine è intenzionale: i segnaposti vengono aggiunti prima della creazione della slide normale, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella slide.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -190,15 +192,15 @@ presentation->Dispose();
 
 Il risultato:
 
-![I segnaposti sulla diapositiva layout](add_placeholders.png)
+![I segnaposti sulla slide di layout](add_placeholders.png)
 
-{{% alert color="warning" title="Warning" %}}
-Modificare la formattazione ereditata o la geometria dei segnaposti del layout esistenti può influire sulle diapositive dipendenti. Un segnaposto del layout appena aggiunto non viene retrocompatibilmente inserito nelle diapositive normali esistenti. Prova le modifiche al layout su una copia della presentazione e ispeziona ogni diapositiva dipendente.
+{{% alert color="warning" title="Attenzione" %}}
+Modificare la formattazione ereditata o la geometria dei segnaposti esistenti di un layout può influire sulle diapositive dipendenti. Un segnaposto di layout appena aggiunto non viene retropropagato nelle slide normali esistenti. Prova le modifiche al layout su una copia della presentazione e ispeziona ogni diapositiva dipendente.
 {{% /alert %}}
 
-## **Rimuovere le Diapositive Layout Non Utilizzate**
+## **Rimuovere le slide di layout inutilizzate**
 
-Utilizza il metodo [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) per rimuovere i layout a cui nessuna diapositiva normale fa riferimento. Il metodo lascia intatti i layout ancora in uso.
+Usa il metodo [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) per rimuovere i layout a cui nessuna slide normale fa riferimento. Il metodo lascia intatti i layout ancora in uso.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,13 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Per rimuovere un layout specifico, usa prima il suo metodo [get_HasDependingSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) o il metodo [GetDependingSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/getdependingslides/). Riassegna le diapositive dipendenti prima di chiamare [ILayoutSlide::Remove](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/remove/). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/cpp/aspose.slides/pptxeditexception/).
+Per rimuovere un layout specifico, usa prima il suo metodo [get_HasDependingSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) o [GetDependingSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/getdependingslides/). Riassegna le eventuali slide dipendenti prima di chiamare [ILayoutSlide::Remove](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/remove/). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/cpp/aspose.slides/pptxeditexception/).
 
-## **Controllare la Visibilità del Piè di Pagina su una Diapositiva Layout**
+## **Controllare la visibilità del piè di pagina su una slide di layout**
 
-Un layout ha i propri segnaposti per piè di pagina, numero diapositiva e data/ora. Usa il metodo [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) per controllare quei segnaposti per un singolo layout. Questo è utile quando, ad esempio, i layout di contenuto devono mostrare i piè di pagina ma i layout di titolo no.
+Un layout possiede i propri segnaposti per piè di pagina, numero diapositiva e data/ora. Usa il metodo [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) per gestire questi segnaposti su un singolo layout. È utile, ad esempio, quando i layout di contenuto devono mostrare il piè di pagina ma i layout di titolo no.
 
-L'esempio seguente seleziona un layout in modo sicuro e rende visibili gli elementi del piè di pagina:
+L’esempio seguente seleziona in modo sicuro un layout e rende visibili gli elementi del piè di pagina:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -265,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Controllare la Visibilità del Piè di Pagina su un Master e sui Suoi Layout Figli**
+## **Controllare la visibilità del piè di pagina su un master e sui suoi layout figlio**
 
-Per applicare impostazioni del piè di pagina coerenti su tutta la gerarchia di un master, utilizza il metodo [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslide/get_headerfootermanager/). I metodi di propagazione di [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslideheaderfootermanager/) operano sul master e sulle sue diapositive layout dipendenti e sulle diapositive normali; non mirano a una sola diapositiva normale.
+Per applicare impostazioni di piè di pagina coerenti su un’intera gerarchia di master, usa il metodo [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslide/get_headerfootermanager/). I metodi di propagazione di [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslideheaderfootermanager/) agiscono sul master e sui suoi layout dipendenti e sulle slide normali; non mirano a una singola slide normale.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -295,18 +297,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Qual è la differenza tra una diapositiva master e una diapositiva layout?**
+**Qual è la differenza tra una slide master e una slide di layout?**
 
-Una diapositiva master definisce il tema della presentazione e la formattazione condivisa. Una diapositiva layout appartiene a un master e definisce una disposizione riutilizzabile di segnaposti. Le diapositive normali utilizzano questi layout e memorizzano i contenuti specifici della diapositiva.
+Una slide master definisce il tema della presentazione e la formattazione condivisa. Una slide di layout appartiene a un master e definisce una disposizione riutilizzabile di segnaposti. Le slide normali utilizzano quei layout e archiviano il contenuto specifico della diapositiva.
 
-**Posso copiare una diapositiva layout da una presentazione all'altra?**
+**Posso copiare una slide di layout da una presentazione all'altra?**
 
-Sì. Aggiungi una copia alla collezione di destinazione con il metodo [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
+Sì. Aggiungi una copia alla collezione di destinazione con il metodo [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Quando copi tra presentazioni, verifica anche caratteri, temi, immagini e altre risorse usate dal layout di origine.
 
-**Cosa succede se modifico un layout già in uso?**
+**Cosa succede quando modifico un layout già in uso?**
 
-Le diapositive dipendenti ereditano le modifiche al layout a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposti e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [GetDependingSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/getdependingslides/) per identificare le diapositive interessate prima di modificare il layout.
+Le slide dipendenti erediteranno le modifiche al layout a meno che non abbiano sovrascritto localmente la formattazione o gli oggetti interessati. La geometria dei segnaposti e lo stile ereditato possono quindi cambiare in molte diapositive contemporaneamente. Usa [GetDependingSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/getdependingslides/) per identificare le slide interessate prima di modificare il layout.
 
 **Cosa succede se rimuovo un layout ancora in uso?**
 
-Aspose.Slides genera una [PptxEditException](https://reference.aspose.com/slides/it/cpp/aspose.slides/pptxeditexception/). Riassegna prima le diapositive dipendenti, oppure utilizza [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) per rimuovere solo i layout non referenziati.
+Aspose.Slides lancia una [PptxEditException](https://reference.aspose.com/slides/it/cpp/aspose.slides/pptxeditexception/). Riassegna prima le slide dipendenti, oppure usa [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) per rimuovere solo i layout non referenziati.

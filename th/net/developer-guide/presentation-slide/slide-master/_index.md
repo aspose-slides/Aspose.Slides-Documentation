@@ -1,6 +1,6 @@
 ---
-title: จัดการมาสเตอร์สไลด์การนำเสนอใน .NET
-linktitle: มาสเตอร์สไลด์
+title: จัดการสไลด์มาสเตอร์ใน .NET
+linktitle: สไลด์มาสเตอร์
 type: docs
 weight: 80
 url: /th/net/slide-master/
@@ -8,12 +8,12 @@ keywords:
 - มาสเตอร์สไลด์
 - สไลด์มาสเตอร์
 - สไลด์มาสเตอร์ PPT
-- สไลด์มาสเตอร์หลายรายการ
+- หลายสไลด์มาสเตอร์
 - เปรียบเทียบสไลด์มาสเตอร์
 - พื้นหลัง
-- ตัวครอบข้อความ
-- ทำสำเนาสไลด์มาสเตอร์
+- ตำแหน่งตัวอักษร
 - คัดลอกสไลด์มาสเตอร์
+- ทำสำเนาสไลด์มาสเตอร์
 - ทำซ้ำสไลด์มาสเตอร์
 - สไลด์มาสเตอร์ที่ไม่ได้ใช้
 - PowerPoint
@@ -22,39 +22,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "จัดการมาสเตอร์สไลด์ใน Aspose.Slides สำหรับ .NET: เข้าถึง, แก้ไข, ทำสำเนา, เปรียบเทียบ, และลบสไลด์มาสเตอร์ในการนำเสนอ PowerPoint และ OpenDocument."
+description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ .NET: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบและลบสไลด์มาสเตอร์ในงานนำเสนอ PowerPoint และ OpenDocument"
 ---
 ## **ภาพรวม**
 
-A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
+**สไลด์มาสเตอร์** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์หนึ่งกลุ่ม สามารถประกอบด้วยรูปทรงทั่วไป โลโก้ พื้นหลัง สไตล์ข้อความ การตั้งค่าธีม และการตั้งค่าเท้า (footer) ได้ ใน PowerPoint การแก้ไขสไลด์มาสเตอร์เป็นวิธีปกติที่ทำให้การนำเสนอมีความสอดคล้องโดยไม่ต้องทำรูปแบบเดียวกันซ้ำในแต่ละสไลด์
 
-Aspose.Slides for .NET supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
+Aspose.Slides for .NET รองรับโมเดลเดียวกัน การนำเสนอสามารถมีสไลด์มาสเตอร์หนึ่งหรือหลายสไลด์ และแต่ละสไลด์มาสเตอร์สามารถมีสไลด์เลย์เอาต์หลายสไลด์ สไลด์ปกติทั่วไปจะไม่ได้อ้างอิงสไลด์มาสเตอร์โดยตรง แต่จะใช้สไลด์เลย์เอาต์ และสไลด์เลย์เอาต์นั้นเป็นส่วนหนึ่งของสไลด์มาสเตอร์
 
-The hierarchy is:
+ลำดับขั้นคือ:
 
-1. **มาสเตอร์สไลด์** - defines the shared design and theme.  
-1. **สไลด์แบบจัดวาง** - defines a specific arrangement of placeholders and layout-level formatting.  
-1. **สไลด์ปกติ** - contains the actual presentation content and uses one layout slide.  
+1. **สไลด์มาสเตอร์** – กำหนดการออกแบบและธีมที่ใช้ร่วมกัน  
+1. **สไลด์เลย์เอาต์** – กำหนดการจัดเรียงเฉพาะของ placeholder และการจัดรูปแบบระดับเลย์เอาต์  
+1. **สไลด์ปกติ** – ประกอบด้วยเนื้อหาการนำเสนอจริงและใช้สไลด์เลย์เอาต์หนึ่งสไลด์
 
-![ลำดับชั้นของมาสเตอร์สไลด์, สไลด์แบบจัดวาง, และสไลด์ปกติ](slide-master_2.jpg)
+![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-In Aspose.Slides, a slide master is represented by the [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) interface. All master slides in a presentation are available through the [Presentation.Masters](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/masters/) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/).
+ใน Aspose.Slides สไลด์มาสเตอร์ถูกแทนด้วยอินเทอร์เฟซ [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) ทั้งหมดของสไลด์มาสเตอร์ในงานนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation.Masters](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/masters/) ซึ่งทำงานตาม [IMasterSlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/)
 
-{{% alert color="info" title="Inheritance" %}}
+{{% alert color="info" title="การสืบทอด" %}}
 
-When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/th/net/slide-layout/).
+เมื่อคุณสมบัติเกิดขึ้นในหลายระดับ ระดับที่เจาะจงมากกว่าจะชนะ ตัวอย่างเช่น หากสไลด์มาสเตอร์และสไลด์เลย์เอาต์กำหนดพื้นหลังร่วมกัน สไลด์ที่สร้างจากเลย์เอาต์นั้นจะใช้พื้นหลังของเลย์เอาต์ รายละเอียดเพิ่มเติมเกี่ยวกับสไลด์เลย์เอาต์ ดูที่ [Apply or Change Slide Layouts](/slides/th/net/slide-layout/)
 
 {{% /alert %}}
 
-## **การเข้าถึงมาสเตอร์สไลด์**
+## **การเข้าถึงสไลด์มาสเตอร์**
 
-In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
+ใน PowerPoint คุณสามารถเปิดมุมมองสไลด์มาสเตอร์ได้จาก **View** > **Slide Master**
 
-![คำสั่ง Slide Master บนแท็บ View ของ PowerPoint](slide-master_3.jpg)
+![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-In Aspose.Slides, use the `Masters` collection to access master slides:
+ใน Aspose.Slides ใช้คอลเลกชัน `Masters` เพื่อเข้าถึงสไลด์มาสเตอร์:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var firstMasterSlide = presentation.Masters[0];
@@ -65,9 +67,11 @@ Console.WriteLine("Master slides: " + masterSlideCount);
 Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
-You can also get the master slide used by a normal slide through its layout:
+คุณยังสามารถดึงสไลด์มาสเตอร์ที่สไลด์ปกติใช้ผ่านเลย์เอาต์ของมันได้:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var slide = presentation.Slides[0];
@@ -78,28 +82,31 @@ var masterSlideName = masterSlide.Name;
 Console.WriteLine(masterSlideName);
 ```
 
-## **สิ่งที่มาสเตอร์สไลด์ประกอบด้วย**
+## **สไลด์มาสเตอร์ประกอบด้วยอะไร**
 
-A master slide is a slide-like object. It implements [IBaseSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/), so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) API page.
+สไลด์มาสเตอร์เป็นอ็อบเจ็กต์คล้ายสไลด์ มันทำตาม [IBaseSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติของสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและเลย์เอาต์ สมาชิกเฉพาะสไลด์มาสเตอร์ถูกระบุในหน้ API ของ [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/)
 
-Commonly used master slide members include:
+สมาชิกสไลด์มาสเตอร์ที่ใช้งานบ่อยรวมถึง:
 
-| Member | วัตถุประสงค์ |
+| สมาชิก | จุดประสงค์ |
 | --- | --- |
-| `Background` | Sets the master-level slide background. |
-| `Shapes` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
-| `LayoutSlides` | Stores the layout slides that belong to the master. |
-| `ThemeManager` | Provides access to the master theme APIs. |
-| `HeaderFooterManager` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
-| `GetDependingSlides` | Returns normal slides that depend on the master through their layouts. |
+| `Background` | ตั้งค่าพื้นหลังระดับมาสเตอร์ของสไลด์ |
+| `Shapes` | เก็บรูปทรงที่วางบนมาสเตอร์ เช่น โลโก้ เฟรมรูปภาพ และข้อความที่แชร์ |
+| `LayoutSlides` | เก็บสไลด์เลย์เอาต์ที่เป็นส่วนหนึ่งของมาสเตอร์ |
+| `ThemeManager` | ให้เข้าถึง API ของธีมมาสเตอร์ |
+| `HeaderFooterManager` | ควบคุมส่วนหัว ส่วนท้าย วันที่ และหมายเลขสไลด์สำหรับมาสเตอร์และเลย์เออต์ลูก |
+| `GetDependingSlides` | คืนค่าสไลด์ปกติที่พึ่งพามาสเตอร์ผ่านเลย์เอาต์ของมัน |
 
-## **เพิ่มรูปภาพลงในมาสเตอร์สไลด์**
+## **เพิ่มรูปภาพลงในสไลด์มาสเตอร์**
 
-When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
+เมื่อคุณเพิ่มรูปภาพลงในสไลด์มาสเตอร์ มันจะปรากฏบนสไลด์ที่ใช้เลย์เอาต์จากมาสเตอร์นั้น ใช้สำหรับโลโก้, ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องการทำซ้ำ
 
-The following example adds a logo to the first master slide:
+ตัวอย่างต่อไปนี้เพิ่มโลโก้ลงในสไลด์มาสเตอร์แรก:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -117,19 +124,72 @@ masterSlide.Shapes.AddPictureFrame(
 presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
 ```
 
-For more information about picture frames, see [กรอบรูป](/slides/th/net/picture-frame/).
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับเฟรมรูปภาพ ดูที่ [Picture Frame](/slides/th/net/picture-frame/)
 
-## **ทำงานกับตัวครอบข้อความ**
+## **ควบคุมการมองเห็นของกราฟิกมาสเตอร์**
 
-Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
+ใช้ [IBaseSlide.ShowMasterShapes](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/showmastershapes/) เพื่อซ่อนกราฟิกมาสเตอร์ที่สืบทอดมา เช่น โลโก้หรือรูปทรงตกแต่ง โดยไม่ต้องลบออกจากมาสเตอร์ ตั้งค่า [Slide.ShowMasterShapes](https://reference.aspose.com/slides/th/net/aspose.slides/slide/showmastershapes/) เป็น `false` บนสไลด์ที่ต้องการละเว้นกราฟิกเหล่านั้น และให้ค่า `true` บนสไลด์ที่ต้องการแสดง
 
-In PowerPoint, placeholder commands are available in Slide Master view.
-
-![คำสั่ง Insert Placeholder ในมุมมอง Slide Master ของ PowerPoint](slide-master_5.png)
-
-To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
+ตัวอย่างต่อไปนี้สร้างแถบตกแต่งสีน้ำเงินบนมาสเตอร์และสไลด์สองสไลด์ที่ใช้เลย์เอาต์เปล่าเดียวกัน แถบแสดงบนสไลด์แรกแต่ซ่อนบนสไลด์ที่สอง ไม่ต้องมีงานนำเสนอหรือรูปภาพอินพุตใด ๆ
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var masterSlide = presentation.Masters[0];
+var layoutSlide = masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank);
+layoutSlide.ShowMasterShapes = true;
+
+var slideHeight = presentation.SlideSize.Size.Height;
+var band = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var visibleSlide = presentation.Slides[0];
+visibleSlide.LayoutSlide = layoutSlide;
+visibleSlide.Shapes.Clear();
+
+var hiddenSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+
+visibleSlide.ShowMasterShapes = true;
+hiddenSlide.ShowMasterShapes = false;
+
+presentation.Save("master-graphics.pptx", SaveFormat.Pptx);
+```
+
+ตัวอย่างใช้เลย์เอาต์ **Blank** ที่มากับงานนำเสนอใหม่และลบ placeholder ของสไลด์แรกออก
+
+### **เลือกช่วงของการตั้งค่า**
+
+สไลด์ปกติใช้มาสเตอร์ของมันผ่าน [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/) และ [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/masterslide/)。การตั้งค่าคุณสมบัติบนสไลด์เดี่ยวจะส่งผลต่อสไลด์นั้นเท่านั้น การตั้งค่า [LayoutSlide.ShowMasterShapes](https://reference.aspose.com/slides/th/net/aspose.slides/layoutslide/showmastershapes/) เป็น `false` จะซ่อนกราฟิกมาสเตอร์สำหรับสไลด์ทั้งหมดที่ใช้เลย์เอาต์นั้น แม้ว่าการตั้งค่าบนสไลด์ของตนเองจะเป็น `true` ก็ตาม หากต้องการซ่อนกราฟิกบนสไลด์เดียวให้เปลี่ยนคุณสมบัติของสไลด์นั้นและคงเลย์เอาต์ที่แชร์ไว้เดิม
+
+การตั้งค่านี้ไม่ได้รับการสนับสนุนเป็นการควบคุมการมองเห็นบนสไลด์มาสเตอร์เอง บนมาสเตอร์จะคืนค่า `false` เสมอ และการกำหนดค่าเป็น `true` จะทำให้เกิด `NotSupportedException` ให้ใช้กับสไลด์ปกติหรือเลย์เอาต์แทน
+
+### **แยกแยะกราฟิกจากพื้นหลัง**
+
+| การกระทำ | ผลลัพธ์ |
+| --- | --- |
+| ซ่อนกราฟิกมาสเตอร์ | ควบคุมการมองเห็นของรูปทรงมาสเตอร์ที่สืบทอดมาโดยไม่ลบหรือเปลี่ยนรูปทรงของสไลด์เอง |
+| เปลี่ยนการเติมสีพื้นหลังของสไลด์ | เปลี่ยนสี, การไล่สี, หรือรูปภาพพื้นหลัง รูปทรงมาสเตอร์เป็นรูปทรงแยกต่างหากและสามารถมองเห็นอยู่เหนือพื้นหลังนั้นได้ ดูที่ [Presentation Background](/slides/th/net/presentation-background/) |
+| ลบรูปทรงจากมาสเตอร์ | ลบรูปทรงต้นฉบับที่แชร์ ทำให้ไม่สามารถใช้ได้กับสไลด์ใด ๆ ที่ใช้มาสเตอร์นั้นต่อไป |
+
+## **ทำงานกับ Placeholder**
+
+Placeholder ปกติจะกำหนดบนสไลด์เลย์เอาต์ มาสเตอร์ให้สไตล์และธีมที่เลย์เอาต์สืบทอด ส่วนแต่ละเลย์เอาต์จะกำหนดว่า placeholder ใดบ้างที่พร้อมใช้งานและตำแหน่งของมัน
+
+ใน PowerPoint คำสั่ง placeholder พบได้ในมุมมอง Slide Master
+
+![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+
+เพื่อเพิ่ม placeholder ใหม่ด้วย Aspose.Slides ให้ทำงานกับสไลด์เลย์เอาต์ที่เป็นส่วนหนึ่งของมาสเตอร์:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -147,9 +207,13 @@ presentation.Slides.AddEmptySlide(blankLayoutSlide);
 presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
 ```
 
-You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
+คุณยังสามารถจัดรูปแบบรูปทรง placeholder ที่มีอยู่บนสไลด์มาสเตอร์ได้ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใช้การเติมสีน้ำสีไลเนียร:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -183,15 +247,19 @@ static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType pla
 }
 ```
 
-![ตัวครอบข้อความหัวข้อที่จัดรูปแบบแล้วสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
+![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-For more placeholder and text formatting options, see [ตั้งข้อความ Prompt ใน Placeholder](/slides/th/net/manage-placeholder/) and [การจัดรูปแบบข้อความ](/slides/th/net/text-formatting/).
+สำหรับตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติม ดูที่ [Set Prompt Text in Placeholder](/slides/th/net/manage-placeholder/) และ [Text Formatting](/slides/th/net/text-formatting/)
 
-## **เปลี่ยนพื้นหลังมาสเตอร์สไลด์**
+## **เปลี่ยนพื้นหลังของสไลด์มาสเตอร์**
 
-A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
+พื้นหลังมาสเตอร์จะสืบทอดไปยังเลย์เอาต์และสไลด์ที่ไม่ได้กำหนดทับ ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบทึบสำหรับสไลด์มาสเตอร์แรก:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -203,13 +271,16 @@ masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
 ```
 
-For related topics, see [พื้นหลังการนำเสนอ](/slides/th/net/presentation-background/) and [ธีมการนำเสนอ](/slides/th/net/presentation-theme/).
+หัวข้อที่เกี่ยวข้อง ดูที่ [Presentation Background](/slides/th/net/presentation-background/) และ [Presentation Theme](/slides/th/net/presentation-theme/)
 
-## **คัดลอกมาสเตอร์สไลด์ไปยังการนำเสนออื่น**
+## **คัดลอกสไลด์มาสเตอร์ไปยังงานนำเสนออื่น**
 
-Use [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/addclone/) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
+ใช้ [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/addclone/) เพื่อคัดลอกสไลด์มาสเตอร์ไปยังงานนำเสนออื่น มาสเตอร์ที่คัดลอกแล้วสามารถใช้โดยเลย์เอาต์และสไลด์ในงานนำหมายปลายทางได้
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var sourcePresentation = new Presentation("source.pptx");
 using var destinationPresentation = new Presentation("destination.pptx");
 
@@ -219,17 +290,21 @@ var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSli
 destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
 ```
 
-If you need to clone normal slides together with their master, see [Clone Slides](/slides/th/net/clone-slides/).
+หากต้องการคัดลอกสไลด์ปกติกับมาสเตอร์ของมันด้วย ให้ดูที่ [Clone Slides](/slides/th/net/clone-slides/)
 
-## **เพิ่มมาสเตอร์สไลด์หลายรายการ**
+## **เพิ่มสไลด์มาสเตอร์หลายรายการ**
 
-A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
+งานนำเสนอสามารถมีสไลด์มาสเตอร์หลายรายการ ซึ่งเป็นประโยชน์เมื่อแต่ละส่วนต้องการแบรนด์, โครงสร้างหน้า หรือการตั้งค่าธีมที่แตกต่างกัน
 
-![คำสั่ง PowerPoint สำหรับแทรกและจัดการมาสเตอร์สไลด์](slide-master_9.jpg)
+![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
+ตัวอย่างต่อไปนี้คัดลอกมาสเตอร์เริ่มต้น, ให้คัดลอกมีพื้นหลังต่างกัน, สร้างเลย์เอาต์ภายใต้มาสเตอร์ที่คัดลอก, แล้วเพิ่มสไลด์ใหม่ที่อิงจากเลย์เอาต์นั้น:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var defaultMasterSlide = presentation.Masters[0];
@@ -248,11 +323,13 @@ presentation.Slides.AddEmptySlide(sectionBlankLayout);
 presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
 ```
 
-## **เปรียบเทียบมาสเตอร์สไลด์**
+## **เปรียบเทียบสไลด์มาสเตอร์**
 
-Master slides can be compared with the `Equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
+สไลด์มาสเตอร์สามารถเปรียบเทียบโดยใช้เมธอด `Equals` ที่สืบทอดมาจาก [IBaseSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/) การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปทรง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน และการตั้งค่าสไลด์อื่น ๆ ไม่ได้เปรียบเทียบตัวระบุเฉพาะ เช่น slide ID หรือค่าตัวแปร placeholder ที่เป็นไดนามิก เช่น วันที่ปัจจุบัน
 
 ```csharp
+using Aspose.Slides;
+
 using var firstPresentation = new Presentation("first.pptx");
 using var secondPresentation = new Presentation("second.pptx");
 
@@ -278,37 +355,46 @@ for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; 
 }
 ```
 
-For more information, see [เปรียบเทียบสไลด์การนำเสนอ](/slides/th/net/compare-slides/).
+ข้อมูลเพิ่มเติม ดูที่ [Compare Presentation Slides](/slides/th/net/compare-slides/)
 
-## **ตั้งมุมมองมาสเตอร์สไลด์เป็นมุมมองเริ่มต้น**
+## **ตั้งค่ามุมมองสไลด์มาสเตอร์เป็นมุมมองเริ่มต้น**
 
-Use the `LastView` property on [ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
+ใช้คุณสมบัติ `LastView` บน [ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นครั้งแรก ตัวอย่างต่อไปนี้เปิดงานนำเสนอในมุมมองสไลด์มาสเตอร์:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.ViewProperties.LastView = ViewType.SlideMasterView;
 presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
-For more view settings, see [บันทึกการนำเสนอ](/slides/th/net/save-presentation/).
+ตั้งค่ามุมมองเพิ่มเติมดูที่ [Save Presentation](/slides/th/net/save-presentation/)
 
-## **ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้**
+## **ลบสไลด์มาสเตอร์ที่ไม่ได้ใช้**
 
-Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
+บางครั้งงานนำเสนออาจมีสไลด์มาสเตอร์ที่ไม่มีสไลด์ปกติใดใช้ การลบมาสเตอร์ที่ไม่ได้ใช้สามารถลดขนาดไฟล์และทำให้การบำรุงรักษาเทมเพลตง่ายขึ้น
 
-Use [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/th/net/aspose.slides/masterslidecollection/removeunused/) to remove unused masters from the `Masters` collection:
+ใช้ [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/th/net/aspose.slides/masterslidecollection/removeunused/) เพื่อลบมาสเตอร์ที่ไม่ได้ใช้จากคอลเลกชัน `Masters`:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.Masters.RemoveUnused(ignorePreserveField: true);
 presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 ```
 
-You can also use the low-code [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) method:
+คุณยังสามารถใช้เมธอด low‑code [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) ได้เช่นกัน:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
@@ -317,18 +403,18 @@ presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างมาสเตอร์สไลด์และสไลด์แบบจัดวางคืออะไร?**
+**สไลด์มาสเตอร์กับสไลด์เลย์เอาต์ต่างกันอย่างไร?**
 
-A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
+สไลด์มาสเตอร์กำหนดการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปทรงทั่วไป, และสไตล์ข้อความ สไลด์เลย์เอาต์เป็นส่วนหนึ่งของสไลด์มาสเตอร์และกำหนดการจัดเรียงเฉพาะของ placeholder สไลด์ปกติใช้สไลด์เลย์เอาต์ จึงสืบทอดจากทั้งเลย์เอาต์และมาสเตอร์
 
-**การนำเสนอหนึ่งสามารถมีมาสเตอร์สไลด์หลายรายการได้หรือไม่?**
+**งานนำเสนอหนึ่งสามารถมีสไลด์มาสเตอร์หลายรายการได้หรือไม่?**
 
-Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
+ได้ งานนำเสนอสามารถมีสไลด์มาสเตอร์หลายรายการ ใช้หลายมาสเตอร์เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่แตกต่างกัน
 
-**ฉันควรเพิ่มตัวครอบข้อความลงในมาสเตอร์สไลด์หรือสไลด์แบบจัดวาง?**
+**ควรเพิ่ม placeholder ไปที่สไลด์มาสเตอร์หรือสไลด์เลย์เอาต์?**
 
-In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
+ในส่วนใหญ่ให้เพิ่ม placeholder ไปที่สไลด์เลย์เอาต์ ใส่องค์ประกอบภาพและการจัดรูปแบบที่แชร์บนสไลด์มาสเตอร์ แล้วใส่ placeholder เนื้อหาบนเลย์เอาต์ที่สไลด์ปกติจะใช้
 
-**ฉันสามารถลบมาสเตอร์สไลด์ที่ยังถูกใช้อยู่ได้หรือไม่?**
+**สามารถลบสไลด์มาสเตอร์ที่ยังถูกใช้ได้หรือไม่?**
 
-No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused‑master cleanup method that removes only masters that are not in use.
+ไม่ได้ สไลด์มาสเตอร์ที่มีสไลด์ที่พึ่งพาไม่สามารถลบโดยตรงอย่างปลอดภัย ต้องย้ายสไลด์เหล่านั้นไปยังเลย์เอตต์ภายใต้มาสเตอร์อื่นก่อน หรือใช้วิธีทำความสะอาดมาสเตอร์ที่ไม่ได้ใช้เพื่อเอามาสเตอร์ที่ไม่ได้ถูกอ้างอิงออกเท่านั้น

@@ -1,58 +1,60 @@
 ---
-title: Управление слайд‑мастерами презентаций на Android
-linktitle: Слайд‑мастер
+title: Управление шаблонами слайдов презентации на Android
+linktitle: Шаблон слайда
 type: docs
 weight: 70
 url: /ru/androidjava/slide-master/
 keywords:
-- слайд‑мастер
-- мастер‑слайд
-- PPT мастер‑слайд
-- несколько мастер‑слайдов
-- сравнение мастер‑слайдов
+- шаблон слайда
+- шаблон слайда
+- шаблон слайда PPT
+- несколько шаблонов слайдов
+- сравнение шаблонов слайдов
 - фон
 - заполнитель
-- клонирование мастер‑слайда
-- копирование мастер‑слайда
-- дублирование мастер‑слайда
-- неиспользуемый мастер‑слайд
+- клонирование шаблона слайда
+- копирование шаблона слайда
+- дублирование шаблона слайда
+- неиспользуемый шаблон слайда
 - PowerPoint
 - OpenDocument
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Управляйте слайд‑мастерами в Aspose.Slides for Android via Java: доступ, редактирование, клонирование, сравнение и удаление мастер‑слайдов в презентациях PowerPoint и OpenDocument."
+description: "Управляйте шаблонами слайдов в Aspose.Slides для Android через Java: доступ, редактирование, клонирование, сравнение и удаление шаблонов слайдов в презентациях PowerPoint и OpenDocument."
 ---
 ## **Обзор**
 
-**Слайд‑мастер** определяет общие настройки дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фон, стили текста, параметры темы и настройки колонтитулов. В PowerPoint редактирование слайд‑мастера — обычный способ поддерживать презентацию в едином стиле без повторения одинакового форматирования на каждом слайде.
+**Шаблон слайда** определяет общие настройки дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фон, стили текста, настройки темы и нижних колонтитулов. В PowerPoint редактирование шаблона слайда — обычный способ поддерживать единообразие презентации без повторения одинакового форматирования на каждом слайде.
 
-Aspose.Slides for Android via Java поддерживает ту же модель. Презентация может содержать один или несколько слайд‑мастеров, и каждый слайд‑мастер может содержать несколько слайдов‑макетов. Обычные слайды обычно не ссылаются непосредственно на слайд‑мастер. Вместо этого обычный слайд использует слайд‑макет, а этот макет принадлежит слайд‑мастеру.
+Aspose.Slides for Android via Java поддерживает такую же модель. Презентация может содержать один или несколько шаблонов слайдов, и каждый шаблон может содержать несколько макетов слайдов. Обычные слайды обычно не ссылаются напрямую на шаблон слайда. Вместо этого обычный слайд использует макет слайда, а этот макет принадлежит шаблону слайда.
 
 Иерархия выглядит так:
 
-1. **Слайд‑мастер** — определяет общий дизайн и тему.
-1. **Слайд‑макет** — определяет конкретное расположение заполнителей и форматирование уровня макета.
-1. **Обычный слайд** — содержит фактическое содержимое презентации и использует один слайд‑макет.
+1. **Шаблон слайда** – определяет общий дизайн и тему.  
+1. **Макет слайда** – определяет конкретное расположение заполнителей и форматирование уровня макета.  
+1. **Обычный слайд** – содержит фактическое содержимое презентации и использует один макет слайда.
 
-![Иерархия слайд‑мастеров, макетов и обычных слайдов](slide-master_2.jpg)
+![Иерархия шаблонов слайдов, макетов слайдов и обычных слайдов](slide-master_2.jpg)
 
-В Aspose.Slides слайд‑мастер представляется интерфейсом [IMasterSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/). Все слайд‑мастера в презентации доступны через коллекцию [Presentation.getMasters](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getMasters--) , реализующую [IMasterSlideCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/). Полный набор API для Android via Java см. в [com.aspose.slides API reference](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/).
+В Aspose.Slides шаблон слайда представлен интерфейсом [IMasterSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/). Все шаблоны слайдов в презентации доступны через коллекцию [Presentation.getMasters](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getMasters--) , реализующую [IMasterSlideCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/). Полный список API Android via Java см. в [com.aspose.slides API reference](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/).
 
 {{% alert color="info" title="Наследование" %}}
-Когда одно и то же свойство определено на нескольких уровнях, победу получает более специфичный уровень. Например, если слайд‑мастер и слайд‑макет оба задают фон, слайды, основанные на этом макете, используют фон макета. Подробнее о слайдах‑макетах см. в статье [Apply or Change Slide Layouts](/slides/ru/androidjava/slide-layout/).
+Когда одно и то же свойство определено на нескольких уровнях, выигрывает более конкретный уровень. Например, если шаблон слайда и макет слайда оба задают фон, слайды, основанные на этом макете, используют фон макета. Подробнее о макетах слайдов см. [Применить или изменить макет слайда](/slides/ru/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **Доступ к слайд‑мастерам**
+## **Доступ к шаблонам слайдов**
 
-В PowerPoint вы можете открыть представление **Slide Master** из **View** > **Slide Master**.
+В PowerPoint вы можете открыть представление шаблона слайдов из **View** > **Slide Master**.
 
-![Команда Slide Master на вкладке View в PowerPoint](slide-master_3.jpg)
+![Команда Шаблон слайда на вкладке Просмотр PowerPoint](slide-master_3.jpg)
 
-В Aspose.Slides используйте коллекцию `getMasters()`для доступа к слайд‑мастерам:
+В Aspose.Slides используйте коллекцию `getMasters()` для доступа к шаблонам слайдов:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-Также можно получить слайд‑мастер, используемый обычным слайдом, через его макет:
+Вы также можете получить шаблон слайда, используемый обычным слайдом, через его макет:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,28 +86,30 @@ try {
 }
 ```
 
-## **Что содержит слайд‑мастер**
+## **Что содержит шаблон слайда**
 
-Слайд‑мастер — это объект, похожий на слайд. Он реализует [IBaseSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseslide/), поэтому предоставляет многие из тех же свойств, что и обычные и макетные слайды.
+Шаблон слайда — объект, похожий на слайд. Он реализует [IBaseSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseslide/), поэтому предоставляет многие свойства слайдов, используемые обычными и макетными слайдами.
 
-Часто используемые члены слайд‑мастера:
+Часто используемые члены шаблона слайда:
 
 | Член | Назначение |
 | --- | --- |
-| `getBackground()` | Устанавливает фон слайда уровня мастера. |
-| `getShapes()` | Сохраняет формы, размещённые на мастере, такие как логотипы, рамки изображений и общий текст. |
-| `getLayoutSlides()` | Сохраняет слайды‑макеты, принадлежащие мастеру. |
-| `getThemeManager()` | Обеспечивает доступ к API тем мастера. |
-| `getHeaderFooterManager()` | Управляет колонтитулами, датами и номерами слайдов для мастера и его дочерних макетов. |
-| `getDependingSlides()` | Возвращает обычные слайды, зависящие от мастера через их макеты. |
+| `getBackground()` | Задает фон слайда уровня шаблона. |
+| `getShapes()` | Сохраняет фигуры, размещённые на шаблоне, такие как логотипы, рамки изображений и общий текст. |
+| `getLayoutSlides()` | Сохраняет макетные слайды, принадлежащие шаблону. |
+| `getThemeManager()` | Предоставляет доступ к API темы шаблона. |
+| `getHeaderFooterManager()` | Управляет заголовками, нижними колонтитулами, датами и номерами слайдов для шаблона и его дочерних макетов. |
+| `getDependingSlides()` | Возвращает обычные слайды, зависящие от шаблона через их макеты. |
 
-## **Добавить изображение в слайд‑мастер**
+## **Добавление изображения в шаблон слайда**
 
-Когда вы добавляете изображение в слайд‑мастер, оно появляется на слайдах, использующих макеты этого мастера. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
+Когда вы добавляете изображение в шаблон слайда, оно появляется на слайдах, использующих макеты этого шаблона. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
 
-Следующий пример добавляет логотип на первый слайд‑мастер:
+Следующий пример добавляет логотип к первому шаблону слайда:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-Подробнее о рамках изображений см. в статье [Picture Frame](/slides/ru/androidjava/picture-frame/).
+Для получения более подробной информации о рамках изображений см. [Рамка изображения](/slides/ru/androidjava/picture-frame/).
+
+## **Управление видимостью графики шаблона**
+
+Используйте [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) для скрытия унаследованной графики шаблона, такой как логотипы или декоративные фигуры, без их удаления из шаблона. Передайте `false` методу [Slide.setShowMasterShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) на слайде, где нужно скрыть эту графику, и оставьте `true` на слайдах, где её нужно отобразить.
+
+Следующий автономный пример создаёт синюю декоративную полосу на шаблоне и двух слайдах, использующих одинаковый пустой макет. Полоса видима на первом слайде и скрыта на втором. Входная презентация или изображение не требуются.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Пример использует макет **Blank**, поставляемый с новой презентацией, и удаляет собственные заполнители начального слайда.
+
+### **Выбор области применения настройки**
+
+Обычный слайд использует свой шаблон через [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/#getLayoutSlide--) и [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). Установка свойства на отдельном слайде влияет только на этот слайд. Передача `false` в [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) скрывает графику шаблона для всех слайдов, использующих общий макет, даже если их собственная настройка `true`. Чтобы скрыть графику только на одном слайде, измените свойство слайда и оставьте общий макет без изменений.
+
+Настройка не поддерживается как управление видимостью непосредственно на шаблоне слайда. На шаблоне метод [getShowMasterShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) всегда возвращает `false`, а передача `true` в [setShowMasterShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) вызывает исключение. Применяйте её к обычному слайду или к макету.
+
+### **Отличие графики от фона**
+
+| Операция | Эффект |
+| --- | --- |
+| Скрыть графику шаблона | Управляет видимостью унаследованных фигур шаблона без их удаления или изменения собственных фигур слайда. |
+| Изменить заливку фона слайда | Меняет цвет, градиент или изображение фона. Графика шаблона — отдельные фигуры и могут оставаться видимыми поверх этого фона. См. [Фон презентации](/slides/ru/androidjava/presentation-background/). |
+| Удалить фигуру из шаблона | Удаляет общую исходную фигуру, поэтому она больше недоступна ни одному слайду, использующему данный шаблон. |
 
 ## **Работа с заполнителями**
 
-Заполнители обычно определяются на слайдах‑макетах. Слайд‑мастер предоставляет общий стиль и тему, которые наследуют эти макеты, а каждый макет решает, какие заполнители доступны и где они расположены.
+Заполнители обычно определяются на макетных слайдах. Шаблон слайда предоставляет общий стиль и тему, которые наследуют эти макеты, а каждый макет решает, какие заполнители доступны и где они расположены.
 
-В PowerPoint команды заполнителей доступны в представлении Slide Master.
+В PowerPoint команды заполнителей доступны в представлении Шаблон слайда.
 
-![Команда Insert Placeholder в представлении Slide Master PowerPoint](slide-master_5.png)
+![Команда Вставить заполнитель в представлении Шаблон слайда PowerPoint](slide-master_5.png)
 
-Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с макетом, принадлежащим мастеру:
+Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с макетным слайдом, принадлежащим шаблону:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-Вы также можете отформатировать уже существующие формы заполнителей на слайде‑мастере. В следующем примере найден заполнитель заголовка и к нему применён линейный градиентный залив:
+Вы также можете форматировать фигуры заполнителей, уже существующие на шаблоне слайда. Следующий пример находит заполнитель заголовка и применяет к нему линейную градиентную заливку:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![Отформатированный заполнитель заголовка, наследуемый обычными слайдами](slide-master_8.png)
+![Отформатированный заполнитель заголовка, унаследованный обычными слайдами](slide-master_8.png)
 
-Больше вариантов форматирования заполнителей и текста см. в статьях [Set Prompt Text in Placeholder](/slides/ru/androidjava/manage-placeholder/) и [Text Formatting](/slides/ru/androidjava/text-formatting/).
+Для получения дополнительных вариантов форматирования заполнителей и текста см. [Установить текст подсказки в заполнителе](/slides/ru/androidjava/manage-placeholder/) и [Форматирование текста](/slides/ru/androidjava/text-formatting/).
 
-## **Изменить фон слайд‑мастера**
+## **Изменение фона шаблона слайда**
 
-Фон мастера наследуется макетами и слайдами, которые его не переопределяют. Пример ниже задаёт сплошной цвет фона для первого слайд‑мастера:
+Фон шаблона наследуется макетами и слайдами, которые его не переопределяют. Следующий пример задаёт сплошной цвет фона для первого шаблона слайда:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-См. также темы [Presentation Background](/slides/ru/androidjava/presentation-background/) и [Presentation Theme](/slides/ru/androidjava/presentation-theme/).
+Связанные темы см. [Фон презентации](/slides/ru/androidjava/presentation-background/) и [Тема презентации](/slides/ru/androidjava/presentation-theme/).
 
-## **Клонировать слайд‑мастер в другую презентацию**
+## **Клонирование шаблона слайда в другую презентацию**
 
-Используйте [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) для копирования слайд‑мастера в другую презентацию. Скопированный мастер затем можно использовать в макетах и слайдах целевой презентации.
+Используйте [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) для копирования шаблона слайда в другую презентацию. Скопированный шаблон потом можно использовать в макетах и слайдах целевой презентации.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-Если нужно клонировать обычные слайды вместе с их мастером, см. [Clone Slides](/slides/ru/androidjava/clone-slides/).
+Если нужно клонировать обычные слайды вместе с их шаблоном, см. [Клонировать слайды](/slides/ru/androidjava/clone-slides/).
 
-## **Добавить несколько слайд‑мастеров**
+## **Добавление нескольких шаблонов слайдов**
 
-Презентация может содержать несколько слайд‑мастеров. Это полезно, когда разные разделы требуют разных брендов, структуры страниц или настроек темы.
+Презентация может содержать несколько шаблонов слайдов. Это удобно, когда разные разделы требуют различного брендинга, структуры страниц или настроек темы.
 
-![Команды PowerPoint для вставки и управления слайд‑мастерами](slide-master_9.jpg)
+![Команды PowerPoint для вставки и управления шаблонами слайдов](slide-master_9.jpg)
 
-Следующий пример клонирует мастер по умолчанию, задаёт клону другой фон, создаёт макет под этим клонированным мастером и добавляет новый слайд на основе этого макета:
+Следующий пример клонирует шаблон по умолчанию, задаёт клону другой фон, создаёт макет под этим клонированным шаблоном и добавляет новый слайд на основе этого макета:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -275,11 +348,13 @@ try {
 }
 ```
 
-## **Сравнение слайд‑мастеров**
+## **Сравнение шаблонов слайдов**
 
-Слайд‑мастера можно сравнивать методом `equals`, унаследованным от [IBaseSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseslide/). Сравнение проверяет структуру и статическое содержимое, такое как фигуры, текст, форматирование, анимацию и другие настройки слайда. Оно не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
+Шаблоны слайдов можно сравнивать методом `equals`, унаследованным от [IBaseSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseslide/). Сравнение проверяет структуру и статическое содержимое, такое как фигуры, текст, форматирование, анимации и другие настройки слайда. Оно не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-Подробности см. в статье [Compare Presentation Slides](/slides/ru/androidjava/compare-slides/).
+Для получения дополнительной информации см. [Сравнение слайдов презентации](/slides/ru/androidjava/compare-slides/).
 
-## **Установить представление Слайд‑мастер как представление по умолчанию**
+## **Установка представления Шаблон слайда как представления по умолчанию**
 
-Используйте метод `setLastView` класса [ViewProperties](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/viewproperties/) для управления тем, какое представление PowerPoint открывает первым. В следующем примере презентация открывается в представлении Slide Master:
+Используйте метод `setLastView` у [ViewProperties](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/viewproperties/) для управления тем представлением, которое PowerPoint открывает первым. Следующий пример открывает презентацию в представлении Шаблон слайда:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -322,15 +399,17 @@ try {
 }
 ```
 
-Больше настроек представления см. в статье [Save Presentation](/slides/ru/androidjava/save-presentation/).
+Для получения дополнительных параметров представления см. [Сохранить презентацию](/slides/ru/androidjava/save-presentation/).
 
-## **Удалить неиспользуемые слайд‑мастера**
+## **Удаление неиспользуемых шаблонов слайдов**
 
-Иногда презентации содержат слайд‑мастера, которые больше не используются ни одним обычным слайдом. Удаление неиспользуемых мастеров может уменьшить размер файла и упростить обслуживание шаблона.
+Иногда в презентациях присутствуют шаблоны слайдов, которые больше не использует ни один обычный слайд. Удаление неиспользуемых шаблонов может уменьшить размер файла и упростить обслуживание шаблона.
 
-Используйте `removeUnused` для удаления неиспользуемых мастеров из коллекции `getMasters()`:
+Используйте `removeUnused` для удаления неиспользуемых шаблонов из коллекции `getMasters()`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-Также можно воспользоваться низкокодовым методом [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-):
+Можно также воспользоваться методом низкого кода [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,18 +435,18 @@ try {
 
 ## **FAQ**
 
-**В чем разница между слайд‑мастером и слайдом‑макетом?**
+**В чём разница между шаблоном слайда и макетом слайда?**
 
-Слайд‑мастер определяет общие настройки дизайна, такие как тема, фон, общие фигуры и стили текста. Слайд‑макет принадлежит слайд‑мастеру и определяет конкретное расположение заполнителей. Обычный слайд использует слайд‑макет, поэтому наследует свойства как макета, так и мастера.
+Шаблон слайда определяет общие настройки дизайна, такие как тема, фон, общие фигуры и стили текста. Макет слайда принадлежит шаблону и определяет конкретное расположение заполнителей. Обычный слайд использует макет, поэтому наследует свойства и от макета, и от шаблона.
 
-**Может ли одна презентация содержать несколько слайд‑мастеров?**
+**Можно ли в одной презентации иметь несколько шаблонов слайдов?**
 
-Да. Презентация может содержать несколько слайд‑мастеров. Используйте несколько мастеров, когда разные разделы требуют разных визуальных систем или брендинга.
+Да. Презентация может содержать несколько шаблонов слайдов. Используйте несколько шаблонов, когда разные разделы требуют разных визуальных систем или брендинга.
 
-**Следует ли добавлять заполнители в слайд‑мастер или в слайд‑макет?**
+**Следует ли добавлять заполнители в шаблон слайда или в макет слайда?**
 
-В большинстве случаев заполнять заполнителями следует слайды‑макеты. Общие визуальные элементы и общее форматирование помещайте на слайд‑мастер, а заполнители контента — на макеты, которые будут использовать обычные слайды.
+В большинстве случаев заполнители добавляют в макетные слайды. Общие визуальные элементы и общие форматы размещайте в шаблоне слайда, а заполнители контента — в макетах, которые будут использовать обычные слайды.
 
-**Можно ли удалить слайд‑мастер, который всё ещё используется?**
+**Можно ли удалить шаблон слайда, который всё ещё используется?**
 
-Нет. Слайд‑мастер, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды в макеты под другим мастером или используйте метод очистки неиспользуемых мастеров, который удаляет только те мастера, которые не задействованы.
+Нет. Шаблон слайда, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды к макетам другого шаблона или используйте метод очистки неиспользуемых шаблонов, который удаляет только те шаблоны, которые не задействованы.

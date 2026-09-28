@@ -7,14 +7,14 @@ url: /hu/androidjava/slide-layout/
 keywords:
 - diaelrendezés
 - tartalomelrendezés
-- helyőrző
-- bemutató tervezés
+- helyettesítőelem
+- prezentáció tervezés
 - dia tervezés
-- használaton kívüli elrendezés
+- nem használt elrendezés
 - lábléc láthatóság
-- cím dia
+- címdia
 - cím és tartalom
-- szakaszcím
+- szekciófejléc
 - két tartalom
 - összehasonlítás
 - csak cím
@@ -25,46 +25,48 @@ keywords:
 - függőleges cím és szöveg
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Alkalmazza, hozza létre és módosítsa a diaelrendezéseket az Aspose.Slides for Androidban Java segítségével, adjon hozzá helyőrzőket, távolítsa el a használaton kívüli elrendezéseket, és szabályozza a lábléc láthatóságát."
+description: "Diaelrendezések alkalmazása, létrehozása és módosítása az Aspose.Slides for Android-ban Java segítségével, helyettesítőelemek hozzáadása, nem használt elrendezések eltávolítása, valamint a lábléc láthatóságának szabályozása."
 ---
 ## **Áttekintés**
 
-A diárelrendezés (slide layout) meghatározza a helyőrzők, például címek, szöveg, képek, diagramok és táblázatok pozícióit és formázását. Egy elrendezés alkalmazása következetes szerkezetet ad a diáknak, miközben lehetővé teszi, hogy minden dia saját tartalmát tartalmazza.
+A diaelrendezés meghatározza a helyettesítőelemek, például a címek, szöveg, képek, diagramok és táblázatok pozícióját és formázását. Egy elrendezés alkalmazása egységes struktúrát biztosít a diák számára, miközben minden dia a saját tartalmát tartalmazhatja.
 
 A leggyakoribb elrendezések a következők:
 
-- **Title Slide**: Cím- és felirathelyőrzőket tartalmaz.
-- **Title and Content**: Egy címhelyőrzőt és egy általános tartalomhelyőrzőt tartalmaz.
-- **Blank**: Nem tartalmaz tartalomhelyőrzőket, és akkor hasznos, ha minden alakzatot kézzel helyezünk el.
+- **Title Slide**: Címdiát tartalmaz cím és alcím helyettesítőelemekkel.
+- **Title and Content**: Címhelyettesítőelemet és általános tartalomhelyettesítőelemet tartalmaz.
+- **Blank**: Nem tartalmaz tartalomhelyettesítőelemeket, és akkor hasznos, ha minden alakzatot kézzel helyezünk el.
 
 ## **Ismerje meg az elrendezés öröklődését**
 
-Egy bemutatónak három kapcsolódó szintje van:
+Egy prezentációnak három kapcsolódó szintje van:
 
 1. A [master slide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) meghatározza a témát, a megosztott formázást, a hátteret és a közös objektumokat.
-2. A [layout slide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/) egy mesterhez tartozik, és meghatároz egy adott helyőrző-eloszlást.
-3. A [normal slide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/) egy elrendezést használ, és tárolja az adott diára bevitt tartalmat.
+1. A [layout slide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/) egy masterhez tartozik és egy meghatározott helyettesítőelemek elrendezését definiálja.
+1. A [normal slide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/) egy elrendezést használ, és tárolja a diapozithoz megadott tartalmat.
 
-Egy normál dia örökli a témát és a formázást az elrendezéséből, az elrendezés pedig a mestertől örököl. Egy normál dián közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normál diát hozunk létre, a helyőrző alakzatok a kiválasztott elrendezésből generálódnak, míg a helyőrzőkbe bevitt tartalom a normál diához tartozik.
+Egy normál dia örökli a témát és a formázást az elrendezéséből, az elrendezés pedig a masterből. A normál dián közvetlenül beállított érték felülírja az örökölt értéket azon a szinten. Amikor egy normál diát létrehoznak, a helyettesítőelemek alakzata a kiválasztott elrendezésből generálódik, míg a helyettesítőelemekbe bevitt tartalom a normál diához tartozik.
 
-Adjon hozzá szükséges helyőrzőket egy elrendezéshez, mielőtt diákat hozna létre belőle. Egy helyőrző későbbi hozzáadása az elrendezéshez nem ad hozzá automatikusan megfelelő helyőrző alakzatot a meglévő normál diákhoz.
+Adjunk hozzá szükséges helyettesítőelemeket egy elrendezéshez, mielőtt diák létrehozására használnánk. Később egy további helyettesítőelem hozzáadása az elrendezéshez nem hozza létre automatikusan a megfelelő helyettesítőelemet a már meglévő normál diákon.
 
 Ennek a kapcsolatnak két fontos következménye van:
 
-- Az örökölt formázás vagy egy meglévő helyőrző geometria módosítása egy elrendezésen frissítheti az összes tőle függő diát. Mielőtt egy már használt elrendezést szerkesztené, ellenőrizze a tőle függő diákat, és tekintse át a keletkező bemutatót.
-- Egy olyan elrendezés, amelyet még diáknak használnak, nem távolítható el. Először rendelje át a függő diákat egy másik elrendezéshez, vagy csak a nem használt elrendezéseket távolítsa el.
+- Az örökölt formázás vagy a meglévő helyettesítőelem geometria módosítása az elrendezésen frissítheti az összes tőle függő diát. Mielőtt olyan elrendezést szerkesztenénk, amely már használatban van, ellenőrizzük a függő diákat, és tekintsük át a keletkezett prezentációt.
+- Egy elrendezés, amelyet még egy dia használ, nem távolítható el. Először rendeljük át a függő diákat egy másik elrendezésre, vagy csak a nem használt elrendezéseket távolítsuk el.
 
-További információért a hierarchia felső szintjéről, lásd a [Slide Master](/slides/hu/androidjava/slide-master/) oldalt.
+További információkért a hierarchia legfelső szintjéről lásd a [Slide Master](/slides/hu/androidjava/slide-master/) oldalt.
 
-## **Válassza ki és alkalmazza a diák elrendezését**
+Az örökölt logók vagy dekoratív master alakzatok egy dián vagy megosztott elrendezésen keresztül történő elrejtéséhez lásd a [Control the Visibility of Master Graphics](/slides/hu/androidjava/slide-master/) cikket. A példa két, ugyanazt a mastert használó diát hasonlít össze.
 
-Használjon elrendezéstípust, ha a bemutató a szabványos PowerPoint elrendezésdefiníciókat követi. Az elrendezésneveket a felhasználó szerkesztheti, és lokalizálhatók, ezért a név alapú kiválasztás kevésbé megbízható, hacsak nem irányítja a forrás sablont.
+## **Diaelrendezés kiválasztása és alkalmazása**
 
-A következő példa a **Title and Content** elrendezést keresi az első masteren. Ha ez az elrendezés nem érhető el, szándékosan a **Blank** elrendezésre vált. A második null ellenőrzés szükséges, mert egy bemutató csak egyedi elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [ISlide.setLayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) metódussal alkalmazzák az első normál diára.
+Használjon elrendezést, ha a prezentáció a szabványos PowerPoint elrendezésdefiníciókat követi. Az elrendezésneveket a felhasználó módosíthatja és lokalizálhatja, ezért a név alapú kiválasztás kevésbé megbízható, kivéve ha a forrás sablont kontrollálja.
+
+A következő példa a **Title and Content** elrendezést keres az első masteren. Ha ez az elrendezés nem érhető el, szándékosan a **Blank** elrendezésre tér vissza. A második null ellenőrzés szükséges, mivel egy prezentáció csak egyéni elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [ISlide.setLayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) metódussal alkalmazzák az első normál diára.
 
 ```java
 import com.aspose.slides.*;
@@ -89,13 +91,13 @@ try {
 }
 ```
 
-Egy dia elrendezésének megváltoztatása nem távolítja el a dia közvetlenül hozzáadott szokásos alakzatait. Azonban a helyőrzőpozíciók, az örökölt formázás és a meglévő helyőrzők és az új elrendezés közötti megfelelés változhat, ezért ellenőrizze a kimenetet, ha jelentősen eltérő elrendezések között vált.
+Egy dia elrendezésének módosítása nem távolítja el a diára közvetlenül hozzáadott szabályos alakzatokat. Azonban a helyettesítőelemek pozíciói, az örökölt formázás és a meglévő helyettesítőelemek és az új elrendezés közti megfelelés megváltozhat, ezért vizsgálja meg a kimenetet, amikor lényegesen eltérő elrendezések között vált.
 
 ## **Elrendezésdia hozzáadása**
 
-A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Egy elrendezés létrehozásához hívja meg a [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) metódust a célmester elrendezésgyűjteményén.
+A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Egy elrendezés létrehozásához hívja meg a [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) metódust a cél master elrendezésgyűjteményén.
 
-A következő példa mindig hozzáad egy új **Title and Content** elrendezést `Report Title and Content` néven, majd egy róla alapuló normál diát ad hozzá. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményben.
+A következő példa mindig hozzáad egy új **Title and Content** elrendezést `Report Title and Content` néven, majd ennek alapján hozzáad egy normál diát. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményben.
 
 ```java
 import com.aspose.slides.*;
@@ -112,14 +114,14 @@ try {
 }
 ```
 
-Csak akkor adjon hozzá elrendezést, ha a sablon valóban szükségeltet egy további újrahasználható struktúrát. Ha már létezik megfelelő elrendezés, válassza ki és használja újra, ahelyett, hogy duplikátumot hozna létre.
+Csak akkor adjon hozzá elrendezést, ha a sablon valóban egy további újrahasználható struktúrát igényel. Ha már létezik megfelelő elrendezés, válassza ki és használja újra a duplikálás helyett.
 
-## **Helyőrzők hozzáadása egy elrendezésdiához**
+## **Helyettesítőelemek hozzáadása egy elrendezésdiához**
 
-Az [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) metódus egy [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) objektumot biztosít az elrendezéshez helyőrző alakzatok hozzáadásához.
+Az [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) metódus egy [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) objektumot biztosít, amellyel helyettesítőelem-alakzatok adhatók hozzá egy elrendezéshez.
 
-| PowerPoint helyőrző | `ILayoutPlaceholderManager` metódus |
-| ------------------- | ---------------------------------- |
+| PowerPoint helyettesítőelem | `ILayoutPlaceholderManager` Method |
+| --------------------------- | ---------------------------------- |
 | ![Tartalom](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![Tartalom (Függőleges)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
 | ![Szöveg](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
@@ -131,7 +133,7 @@ Az [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/a
 | ![Média](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![Online kép](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-A következő példa ellenőrzi, hogy a **Blank** elrendezés létezik-e, négy helyőrzőt ad hozzá, majd egy módosított elrendezést használó normál diát hoz létre. A sorrend szándékos: a helyőrzőket a normál dia létrehozása előtt adják hozzá, így az Aspose.Slides képes létrehozni a megfelelő helyőrző alakzatokat azon a dián.
+A következő példa ellenőrzi, hogy a **Blank** elrendezés létezik-e, négy helyettesítőelemet ad hozzá, majd létrehoz egy normál diát, amely a módosított elrendezést használja. A sorrend szándékos: a helyettesítőelemeket a normál dia létrehozása előtt adják hozzá, így az Aspose.Slides a megfelelő helyettesítőelem-alakzatokat generálja azon a dián.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +161,15 @@ try {
 
 Az eredmény:
 
-![A helyőrzők az elrendezés dián](add_placeholders.png)
+![A helyettesítőelemek az elrendezésdián](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Az örökölt formázás vagy a meglévő elrendezéshelyőrzők geometriai módosítása befolyásolhatja a függő diákat. Egy újonnan hozzáadott elrendezéshelyőrző nem kerül visszatenni a meglévő normál diákba. Tesztelje az elrendezésváltozásokat a bemutató egy másolatán, és ellenőrizze minden függő diát.
+Az örökölt formázás vagy a meglévő elrendezési helyettesítőelemek geometriai módosítása befolyásolhatja a függő diát. Egy újonnan hozzáadott elrendezési helyettesítőelem nem kerül visszatöltésre a már létező normál diákba. Tesztelje az elrendezésváltoztatásokat a prezentáció egy másolatán, és ellenőrizze minden függő diát.
 {{% /alert %}}
 
-## **Használaton kívüli elrendezésdiák eltávolítása**
+## **Nem használt elrendezésdiák eltávolítása**
 
-Használja a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) metódust a nem normál diák által hivatkozott elrendezések eltávolításához. A metódus érintetlenül hagyja a még használatban lévő elrendezéseket.
+Használja a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) metódust a olyan elrendezések eltávolításához, amelyeket egyetlen normál dia sem hivatkozik. A metódus érintetlenül hagyja a még használatban lévő elrendezéseket.
 
 ```java
 import com.aspose.slides.*;
@@ -181,13 +183,11 @@ try {
 }
 ```
 
-Egy konkrét elrendezés eltávolításához először használja a [hasDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) metódust. A [ILayoutSlide.remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#remove--) meghívása előtt rendelje át a függő diát. A használt elrendezés eltávolításának kísérlete [PptxEditException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxeditexception/) kivételt eredményez.
+Egy adott elrendezés eltávolításához először használja annak a [hasDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) metódusát. A [ILayoutSlide.remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#remove--) hívása előtt rendelje át a függő diákat. Egy használt elrendezés eltávolításának kísérlete [PptxEditException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxeditexception/) kivételt eredményez.
 
 ## **Lábléc láthatóságának szabályozása egy elrendezésdián**
 
-Egy elrendezésnek saját lábléc, diaszám és dátum-idő helyőrzői vannak. Használja a [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) metódust ezeknek a helyőrzőknek az egy elrendezésre való szabályozásához. Ez akkor hasznos, ha például a tartalomelrendezéseknek láblécet kell mutatniuk, a cím-elrendezéseknek pedig nem.
-
-A következő példa biztonságosan kiválaszt egy elrendezést és láthatóvá teszi a lábléc elemeit:
+Egy elrendezésnek saját lábléc, dia-szám és dátum-idő helyettesítőelemei vannak. Használja az [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) metódust ezeknek a helyettesítőelemeknek a szabályozásához egy elrendezésen belül. Ez akkor hasznos, ha például a tartalom elrendezéseknek láblécet kell mutatniuk, míg a cím elrendezéseknek nem.
 
 ```java
 import com.aspose.slides.*;
@@ -217,9 +217,9 @@ try {
 }
 ```
 
-## **Lábléc láthatóságának szabályozása egy mesteren és annak gyermekelrendezésein**
+## **Lábléc láthatóságának szabályozása egy masteren és annak alárendelt elrendezésein**
 
-Az egységes láblécke beállítások mesterhierarchiára való alkalmazásához használja az [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) metódust. A [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) terjesztési metódusai a mesterre, annak függő elrendezésdiára és normál diákra vonatkoznak; nem csak egyetlen normál diára céloznak.
+Az egységes láblécbeállítások egy master hierarchia mentén történő alkalmazásához használja az [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) metódust. A [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) terjesztési módszerei a masteren, annak függő elrendezésdiáin és normál diáin működnek; nem egyetlen normál diát céloznak meg.
 
 ```java
 import com.aspose.slides.*;
@@ -241,18 +241,18 @@ try {
 
 ## **GYIK**
 
-**Mi a különbség egy Master Slide és egy Layout Slide között?**
+**Mi a különbség egy master diának és egy elrendezésdiának?**
 
-A master slide meghatározza a bemutató témáját és a megosztott formázást. Egy layout slide egy mesterhez tartozik, és egy újrahasználható helyőrző-eloszlást definiál. A normál diák ezeket az elrendezéseket használják, és tárolják a diához tartozó tartalmat.
+A master slide meghatározza a prezentáció témáját és a megosztott formázást. Egy elr-layout slide egy masterhez tartozik és egy újrahasználható helyettesítőelem-elrendezést definiál. A normál diák ezeket az elrendezéseket használják, és dia-specifikus tartalmat tárolnak.
 
-**Másolhatok egy Layout Slide-ot egy bemutatóból egy másikba?**
+**Másolhatok elrendezésdiát egyik prezentációból a másikba?**
 
-Igen. A [addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) metódussal adjon egy másolatot a célgyűjteményhez. Bemutatók közti másoláskor ellenőrizze a betűtípusokat, témákat, képeket és a forráselrendezés által használt egyéb erőforrásokat is.
+Igen. Egy másolatot adjon a célgyűjteményhez az [addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) metódussal. Prezentációk közötti másolás esetén ellenőrizze a forrás elrendezés által használt betűtípusokat, témákat, képeket és egyéb erőforrásokat.
 
-**Mi történik, ha módosítok egy már használatban lévő elrendezést?**
+**Mi történik, ha módosítok egy már használt elrendezést?**
 
-A függő diák öröklik az elrendezés változásait, hacsak nem írják felül a helyi formázást vagy objektumokat. A helyőrző geometria és az örökölt stílus ezért egyszerre sok dián változhat. Használja a [getDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) metódust a befolyásolt diák azonosításához az elrendezés szerkesztése előtt.
+A függő diák öröklik az elrendezés változásait, hacsak nem írják felül a helyi formázást vagy objektumokat. Így a helyettesítőelemek geometriája és az örökölt stílus számos dián egy időben megváltozhat. Az elrendezés szerkesztése előtt használja a [getDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) metódust a érintett diák azonosításához.
 
-**Mi történik, ha egy még használatban lévő elrendezést eltávolítok?**
+**Mi történik, ha eltávolítok egy még használt elrendezést?**
 
 Az Aspose.Slides egy [PptxEditException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxeditexception/) kivételt dob. Először rendelje át a függő diákat, vagy használja a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) metódust, hogy csak a nem hivatkozott elrendezéseket távolítsa el.

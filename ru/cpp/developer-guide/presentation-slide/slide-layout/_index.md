@@ -6,20 +6,20 @@ weight: 60
 url: /ru/cpp/slide-layout/
 keywords:
 - макет слайда
-- макет содержания
+- макет содержимого
 - заполнитель
 - дизайн презентации
 - дизайн слайда
 - неиспользуемый макет
 - видимость нижнего колонтитула
 - титульный слайд
-- заголовок и содержание
+- заголовок и содержимое
 - заголовок раздела
-- два содержания
+- два содержимых
 - сравнение
 - только заголовок
 - пустой макет
-- содержание с подписью
+- содержимое с подписью
 - изображение с подписью
 - заголовок и вертикальный текст
 - вертикальный заголовок и текст
@@ -28,40 +28,44 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для C++, добавляйте заполнители, удаляйте неиспользуемые макеты и управляйте видимостью нижнего колонтитула."
+description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для C++, добавляйте заполнители, удаляйте неиспользуемые макеты и контролируйте видимость нижнего колонтитула."
 ---
 ## **Обзор**
 
-Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает слайдам единообразную структуру, позволяя каждому слайду содержать собственное содержимое.
+Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает согласованную структуру слайдов, позволяя каждому слайду содержать собственное содержимое.
+
+Самые распространённые макеты включают:
 
 - **Титульный слайд**: Содержит заполнители заголовка и подзаголовка.
-- **Заголовок и содержание**: Содержит заполнитель заголовка и универсальный заполнитель содержания.
-- **Пустой**: Не содержит заполнителей содержания и полезен, когда каждый объект будет размещён вручную.
+- **Заголовок и содержание**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
+- **Пустой**: Не содержит заполнителей содержимого и полезен, когда все объекты будут размещаться вручную.
 
 ## **Понимание наследования макетов**
 
-Презентация имеет три взаимосвязанных уровня:
+Презентация имеет три связанных уровня:
 
-1. [главный слайд](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/) определяет тему, общие форматы, фоны и общие объекты.  
-2. [макетный слайд](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/) принадлежит главному слайду и определяет конкретную раскладку заполнителей.  
-3. [обычный слайд](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/) использует один макет и хранит введённое для этого слайда содержимое.  
+1. [Главный слайд](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/) определяет тему, общее форматирование, фоны и общие объекты.
+2. [Макетный слайд](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/) относится к главному слайду и определяет определённое расположение заполнителей.
+3. [Обычный слайд](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/) использует один макет и хранит введённое для него содержимое.
 
-Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его формы‑заполнители генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, относится к обычному слайду.
+Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его формы‑заполнители генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
 
-Добавьте необходимые заполнители в макет до создания слайдов на его основе. Добавление другого заполнителя в макет позже не приводит к автоматическому добавлению соответствующей формы‑заполнителя в уже существующие обычные слайды.
+Добавьте необходимые заполнители в макет перед созданием из него слайдов. Добавление другого заполнителя в макет позже не добавляет автоматически соответствующую форму‑заполнитель в существующие обычные слайды.
 
-Эта связь имеет два важных последствия:
+Эти отношения имеют две важные последствия:
 
-- Изменение унаследованного форматирования или геометрии существующего заполнителя в макете может обновить каждый слайд, зависящий от него. Перед редактированием уже используемого макета проверьте его зависимые слайды и просмотрите получившуюся презентацию.  
-- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
+- Изменение унаследованного форматирования или существующей геометрии заполнителей в макете может обновить каждый слайд, зависящий от него. Перед редактированием уже используемого макета проверьте его зависимые слайды и пересмотрите получившуюся презентацию.
+- Макет, который используется хотя бы одним слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет либо удалите только неиспользуемые макеты.
 
-Для получения дополнительной информации о верхнем уровне этой иерархии см. [Мастер‑слайд](/slides/ru/cpp/slide-master/).
+Для получения дополнительной информации о верхнем уровне этой иерархии см. [Главный слайд](/slides/ru/cpp/slide-master/).
+
+Чтобы скрыть унаследованные логотипы или декоративные объекты главного слайда на отдельном слайде или через общий макет, см. [Управление видимостью графики главного слайда](/slides/ru/cpp/slide-master/). Пример сравнивает два слайда, использующих один и тот же главный слайд.
 
 ## **Выбор и применение макета слайда**
 
-Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируемы пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов могут редактироваться пользователем и локализоваться, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
 
-Следующий пример ищет **Заголовок и содержание** на первом мастере. Если такой макет недоступен, он преднамеренно переходит к **Пустому**. Второй проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду с помощью метода [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/set_layoutslide/).
+В следующем примере ищется **Заголовок и содержание** на первом главном слайде. Если этот макет недоступен, он намеренно переходит к **Пустому**. Второй проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду с помощью метода [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -98,13 +102,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Изменение макета слайда не удаляет обычные фигуры, добавленные напрямую на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
+Изменение макета слайда не удаляет обычные формы, добавленные непосредственно к слайду. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
 
 ## **Добавление макетного слайда**
 
-Выбор и создание — отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт его. Чтобы создать макет, вызовите метод [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterlayoutslidecollection/add/) у коллекции макетов целевого мастера.
+Выбор и создание – отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт его. Чтобы создать макет, вызовите метод [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterlayoutslidecollection/add/) у коллекции макетов целевого главного слайда.
 
-Следующий пример всегда добавляет новый макет **Заголовок и содержание** с именем `Report Title and Content`, затем добавляет обычный слайд на его основе. Имена макетов должны быть уникальными в пределах коллекции.
+В следующем примере всегда добавляется новый макет **Заголовок и содержание** с именем `Report Title and Content`, затем добавляется обычный слайд, основанный на нём. Имена макетов должны быть уникальными в коллекции.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -130,26 +134,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Добавляйте макет только тогда, когда шаблон действительно требует ещё одной переиспользуемой структуры. Если подходящий макет уже существует, выберите и используйте его повторно вместо создания дубликата.
+Добавляйте макет только тогда, когда шаблон действительно нуждается в другой переиспользуемой структуре. Если подходящий макет уже существует, выберите и используйте его повторно вместо создания дубликата.
 
 ## **Добавление заполнителей в макетный слайд**
 
-Метод [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) предоставляет [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/) для добавления фигур‑заполнителей в макет.
+Метод [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) предоставляет [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/) для добавления форм‑заполнителей в макет.
 
-| Заполнитель PowerPoint | `ILayoutPlaceholderManager` Method |
-| ---------------------- | ---------------------------------- |
-| ![Content](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![Text](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![Text (Vertical)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![Picture](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![Chart](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![Table](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![Media](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![Online Image](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| Заполнитель PowerPoint              | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Содержание](content.png)          | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Содержание (вертикальное)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Текст](text.png)                 | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Текст (вертикальный)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Изображение](picture.png)        | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Диаграмма](chart.png)            | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Таблица](table.png)              | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)          | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Медиа](media.png)                | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Онлайн‑изображение](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Следующий пример проверяет существование макета **Пустой**, добавляет к нему четыре заполнителя и затем создаёт обычный слайд, использующий изменённый макет. Порядок намеренен: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог сгенерировать соответствующие фигуры‑заполнители на этом слайде.
+В следующем примере проверяется существование макета **Пустой**, в него добавляются четыре заполнителя, после чего создаётся обычный слайд, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог генерировать соответствующие формы‑заполнители на этом слайде.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -188,15 +192,15 @@ presentation->Dispose();
 
 Результат:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Заполнители на макетном слайде](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Ново‑добавленный заполнитель макета не заполняется в уже существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Новый добавленный заполнитель макета не заполняет автоматически существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
 {{% /alert %}}
 
 ## **Удаление неиспользуемых макетных слайдов**
 
-Используйте метод [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) для удаления макетов, на которые не ссылаются обычные слайды. Метод оставляет нетронутыми макеты, которые всё ещё используются.
+Используйте метод [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), чтобы удалить макеты, на которые не ссылаются обычные слайды. Метод оставляет неизменными макеты, которые всё ещё используются.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -216,13 +220,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Чтобы удалить один конкретный макет, сначала используйте его метод [get_HasDependingSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) или метод [GetDependingSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/getdependingslides/). Переназначьте любые зависимые слайды перед вызовом [ILayoutSlide::Remove](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/remove/). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/cpp/aspose.slides/pptxeditexception/).
+Чтобы удалить конкретный макет, сначала используйте его метод [get_HasDependingSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) или метод [GetDependingSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/getdependingslides/). Переназначьте все зависимые слайды перед вызовом [ILayoutSlide::Remove](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/remove/). Попытка удалить используемый макет вызывает исключение [PptxEditException](https://reference.aspose.com/slides/ru/cpp/aspose.slides/pptxeditexception/).
 
 ## **Управление видимостью нижнего колонтитула на макетном слайде**
 
-У макетного слайда есть свои заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) для управления этими заполнителями в одном макете. Это полезно, например, когда макеты содержания должны показывать нижний колонтитул, а титульные — нет.
+У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) для управления этими заполнителями в одном макете. Это полезно, когда, например, макеты содержания должны показывать нижний колонтитул, а титульные – нет.
 
-Следующий пример безопасно выбирает макет и делает его элементы нижнего колонтитула видимыми:
+В следующем примере безопасно выбирается макет и делаются видимыми его элементы нижнего колонтитула:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -263,9 +267,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Управление видимостью нижнего колонтитула в мастере и его дочерних макетах**
+## **Управление видимостью нижнего колонтитула в главном слайде и его дочерних макетах**
 
-Чтобы применить единые настройки нижнего колонтитула по всей иерархии мастера, используйте метод [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Методы распространения [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslideheaderfootermanager/) работают на мастере, его зависимых макетных слайдах и обычных слайдах; они не нацелены только на один обычный слайд.
+Чтобы применить единые настройки нижнего колонтитула по всей иерархии главного слайда, используйте метод [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Методы распространения [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslideheaderfootermanager/) работают с главным слайдом, его зависимыми макетными слайдами и обычными слайдами; они не направлены только на один обычный слайд.
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -293,18 +297,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**В чем разница между мастером‑слайда и макетным слайдом?**
+**В чём разница между главным слайдом и макетным слайдом?**
 
-Мастер‑слайд определяет тему презентации и общие форматы. Макетный слайд принадлежит мастеру и задаёт одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят содержание, специфичное для конкретного слайда.
+Главный слайд определяет тему презентации и общее форматирование. Макетный слайд относится к главному и задаёт одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят специфическое для слайда содержимое.
 
 **Можно ли скопировать макетный слайд из одной презентации в другую?**
 
-Да. Добавьте копию в целевую коллекцию с помощью метода [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/igloballayoutslidecollection/addclone/). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
+Да. Добавьте копию в целевую коллекцию с помощью метода [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/igloballayoutslidecollection/addclone/). При копировании между презентациями также проверяйте шрифты, темы, изображения и другие ресурсы, использованные в исходном макете.
 
-**Что происходит, когда я изменяю уже используемый макет?**
+**Что происходит, если я изменяю макет, который уже используется?**
 
-Зависимые слайды наследуют изменения макета, если только они не переопределяют затронутое форматирование или объекты локально. Поэтому геометрия заполнителей и унаследованный стиль могут измениться сразу на многих слайдах. Используйте [GetDependingSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/getdependingslides/) для определения затронутых слайдов перед редактированием макета.
+Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Поэтому геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [GetDependingSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/getdependingslides/), чтобы определить затронутые слайды перед редактированием макета.
 
-**Что происходит, если удалить макет, который всё ещё используется?**
+**Что происходит, если я удаляю макет, который всё ещё используется?**
 
-Aspose.Slides генерирует [PptxEditException](https://reference.aspose.com/slides/ru/cpp/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) для удаления только неиспользуемых макетов.
+Aspose.Slides выдаёт исключение [PptxEditException](https://reference.aspose.com/slides/ru/cpp/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), чтобы удалить только неиспользуемые макеты.

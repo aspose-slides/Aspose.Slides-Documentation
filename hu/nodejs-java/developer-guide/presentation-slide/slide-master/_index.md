@@ -1,56 +1,56 @@
 ---
-title: Dia mesterek kezelése a prezentációban JavaScriptben
-linktitle: Dia mester
+title: "Diák masterek kezelése a prezentációkban JavaScript-ben"
+linktitle: "Dia Master"
 type: docs
 weight: 70
 url: /hu/nodejs-java/slide-master/
 keywords:
-- dia mester
-- mester dia
-- PPT mester dia
-- több mester dia
-- mester diák összehasonlítása
-- háttér
-- helyőrző
-- mester dia klónozása
-- mester dia másolása
-- mester dia duplikálása
-- nem használt mester dia
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Dia mesterek kezelése az Aspose.Slides for Node.js via Java segítségével: hozzáférés, szerkesztés, klónozás, összehasonlítás és a mester diák eltávolítása PowerPoint és OpenDocument prezentációkban."
+- "dia master"
+- "master dia"
+- "PPT master dia"
+- "több master dia"
+- "master diák összehasonlítása"
+- "háttér"
+- "helyőrző"
+- "master dia klónozása"
+- "master dia másolása"
+- "master dia duplikálása"
+- "nem használt master dia"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Diák masterek kezelése az Aspose.Slides for Node.js via Java-ban: hozzáférés, szerkesztés, klónozás, összehasonlítás és a master diák eltávolítása PowerPoint és OpenDocument prezentációkban."
 ---
 ## **Áttekintés**
 
-A **slide master** egy csoport diák közös tervezési beállításait határozza meg. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, témabeállításokat és láblécbeállításokat. A PowerPointban a diamester szerkesztése a szokásos módja annak, hogy a bemutató egységes legyen anélkül, hogy minden dián ismételni kellene ugyanazt a formázást.
+A **slide master** közös tervezési beállításokat határoz meg egy diacsoport számára. Tartalmazhat általános alakzatokat, logókat, háttérképeket, szövegstílusokat, téma beállításokat és lábléc beállításokat. PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a prezentáció egységes maradjon anélkül, hogy minden dián megismételné a formázást.
 
-Az Aspose.Slides for Node.js via Java ugyanazt a modellt támogatja. Egy prezentáció egy vagy több mesterdiát tartalmazhat, és minden mesterdia több elrendezés-diát is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy mesterdiára. Ehelyett egy normál dia egy elrendezés-diat használ, és ez az elrendezés-dia egy mesterdia része.
+Az Aspose.Slides for Node.js via Java ugyanazt a modellt támogatja. Egy prezentáció egy vagy több master diát tartalmazhat, és minden master dia több layout diát tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master diára. Ehelyett egy normál dia egy layout diát használ, és ez a layout dia egy master diához tartozik.
 
 A hierarchia a következő:
 
-1. **Slide master** - meghatározza a közös tervezést és témát.
-1. **Layout slide** - meghatároz egy adott elrendezést a helyőrzőkkel és elrendezési szintű formázással.
-1. **Normal slide** - tartalmazza a tényleges prezentációs tartalmat és egy elrendezés-diat használ.
+1. **Slide master** – meghatározza a közös tervezést és a témát.
+1. **Layout slide** – meghatározza a helyőrzők és a layout-szintű formázás konkrét elrendezését.
+1. **Normal slide** – tartalmazza a tényleges prezentáció tartalmát és egy layout diát használ.
 
-![A mesterdiák, elrendezés-diák és normál diák hierarchiája](slide-master_2.jpg)
+![A master diák, layout diák és normál diák hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slidesban a diamester a [MasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) osztállyal van reprezentálva. A prezentáció összes mesterdiája a `Presentation.getMasters()` gyűjteményen keresztül érhető el.
+Az Aspose.Slides-ban egy slide master a [MasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) osztállyal van ábrázolva. A prezentáció összes master diája a `Presentation.getMasters()` gyűjteményen keresztül érhető el.
 
-{{% alert color="info" title="Öröklődés" %}}
-Ha ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy mesterdia és egy elrendezés-dia is meghatároz egy háttérszínt, akkor az az elrendezésen alapuló diák az elrendezés háttérét használják. További információért az elrendezés-diákról lásd a [Apply or Change Slide Layouts](/nodejs-java/slide-layout/) oldalt.
+{{% alert color="info" title="Inheritance" %}}
+Amikor ugyanaz a tulajdonság több szinten is meghatározásra kerül, a specifikusabb szint nyeri el a hatást. Például, ha egy master dia és egy layout dia is definiál egy háttérszínt, a layoutra épülő diák a layout háttérét használják. A layout diákhoz kapcsolódó további információkért lásd a [Diakialakítás alkalmazása vagy módosítása](/nodejs-java/slide-layout/) oldalt.
 {{% /alert %}}
 
-## **Mesterdiák elérése**
+## **Master diákok elérése**
 
-PowerPointban a Diamester nézetet a **Nézet** > **Diamester** menüből nyithatja meg.
+PowerPointban a **View** > **Slide Master** menüből nyithatod meg a Slide Master nézetet.
 
-![A Diamester parancs a PowerPoint Nézet lapon](slide-master_3.jpg)
+![A Slide Master parancs a PowerPoint Nézet fülön](slide-master_3.jpg)
 
-Az Aspose.Slidesban a `getMasters()` gyűjteményt használja a mesterdiák eléréséhez:
+Az Aspose.Slides-ban használd a `getMasters()` gyűjteményt a master diák eléréséhez:
 
 ```javascript
 var aspose = aspose || {};
@@ -69,7 +69,7 @@ try {
 }
 ```
 
-A normál dia által használt mesterdiát a layoutja segítségével is lekérheti:
+A normál dia által használt master diát a layoutján keresztül is lekérheted:
 
 ```javascript
 var aspose = aspose || {};
@@ -88,26 +88,26 @@ try {
 }
 ```
 
-## **Mit tartalmaz egy Diamester**
+## **A slide master tartalma**
 
-A mesterdia egy dia-szerű objektum. Örökli a közös diális viselkedést a [BaseSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseslide/) osztályból, ezért ugyanazokat a dia tulajdonságokat teszi elérhetővé, mint a normál és az elrendezés-diák. A mesterre specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) API oldalon találhatók.
+A master dia egy diához hasonló objektum. Örökli a közös dia viselkedést a [BaseSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseslide/) osztálytól, ezért sok olyan dia tulajdonságot tesz elérhetővé, amelyet a normál és layout diák is használnak. A master-specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) API oldalon vannak felsorolva.
 
-A gyakran használt mesterdia tagok a következők:
+A gyakran használt master dia tagok a következők:
 
 | Tag | Cél |
 | --- | --- |
-| `getBackground()` | Beállítja a mester szintű dia hátterét. |
-| `getShapes()` | Tárolja a mesterre helyezett alakzatokat, mint logók, képkockák és közös szöveg. |
-| `getLayoutSlides()` | Tárolja a mesterhez tartozó elrendezés-diákat. |
-| `getThemeManager()` | Hozzáférést biztosít a mester téma API-khoz. |
-| `getHeaderFooterManager()` | Kezeli a fejléceket, lábléceket, dátumokat és dia számokat a mester és al- elrendezései számára. |
-| `getDependingSlides()` | Visszaadja a normál diákat, amelyek a mesterre épülnek a layoutjaikon keresztül. |
+| `getBackground()` | Beállítja a master szintű dia háttérét. |
+| `getShapes()` | A masterre elhelyezett alakzatokat tárolja, például logókat, képkockákat és közös szöveget. |
+| `getLayoutSlides()` | A masterhez tartozó layout diák tárolja. |
+| `getThemeManager()` | Hozzáférést biztosít a master téma API-khoz. |
+| `getHeaderFooterManager()` | A master és gyerek layoutjai fejléceit, lábléceit, dátumait és dia számait vezérli. |
+| `getDependingSlides()` | Visszaadja azokat a normál diákat, amelyek a masterhez tartozó layoutokon keresztül függnek. |
 
-## **Kép hozzáadása egy Diamesterhez**
+## **Kép hozzáadása a slide masterhez**
 
-Amikor képet ad hozzá egy mesterdiához, az megjelenik azokon a diákon, amelyek a mesterből származó elrendezéseket használják. Ez hasznos logók, vízjelek, díszszalagok és más ismétlődő vizuális elemek esetén.
+Amikor egy képet adsz hozzá egy master diához, megjelenik azokon a diákon, amelyek az aztól származó layout-okat használják. Ez hasznos logók, vízjelekkel, díszítő sávokkal és más ismétlődő vizuális elemekkel.
 
-A következő példa egy logót ad az első mesterdiához:
+A következő példa egy logót ad hozzá az első master diához:
 
 ```javascript
 var aspose = aspose || {};
@@ -138,17 +138,75 @@ try {
 }
 ```
 
-További információért a képkockákról lásd a [Picture Frame](/nodejs-java/picture-frame/) oldalt.
+A képkockákról további információkért lásd a [Képkocka](/nodejs-java/picture-frame/) oldalt.
 
-## **Helyőrzők kezelése**
+## **A master grafika láthatóságának vezérlése**
 
-A helyőrzőket általában az elrendezés-diákon definiálják. A mesterdia biztosítja a közös stílust és témát, amelyet az elrendezések örökölnek, míg minden elrendezés dönti el, mely helyőrzők elérhetők és hol helyezkednek el.
+Használd a [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseslide/#setShowMasterShapes) függvényt a örökölt master grafikák, például logók vagy díszítő alakzatok elrejtésére anélkül, hogy törölnéd őket a masterról. Add meg a `false` értéket a [Slide.setShowMasterShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#setShowMasterShapes) metódusnak azon a dián, amelyik el akarja hagyni ezeket a grafikákat, és tartsd `true` értéken azon diákon, amelyek meg akarják jeleníteni őket.
 
-PowerPointban a helyőrző parancsok a Diamester nézetben érhetők el.
+A következő önálló példa egy kék díszítő sávot hoz létre egy masteren és két dián, amelyek ugyanazt az üres layoutot használják. A sáv látható az első dián, a másodikon rejtve van. Nem szükséges bemeneti prezentáció vagy kép.
 
-![A Helyőrző beszúrása parancs a PowerPoint Diamester nézetben](slide-master_5.png)
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Új helyőrzők hozzáadásához az Aspose.Slidesban dolgozzon a mesterhez tartozó elrendezés-diával:
+let presentation = new aspose.slides.Presentation();
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+    layoutSlide.setShowMasterShapes(true);
+
+    let slideHeight = presentation.getSlideSize().getSize().getHeight();
+    let band = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    let bandColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let noFillType = java.newByte(aspose.slides.FillType.NoFill);
+    band.getFillFormat().setFillType(solidFillType);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(noFillType);
+
+    let visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    let hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A példa a **Blank** layoutot használja, amely egy új prezentációval érkezik, és eltávolítja az első dia saját helyőrzőit.
+
+### **A beállítás hatókörének kiválasztása**
+
+Egy normál dia a masterjét a [Slide.getLayoutSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getLayoutSlide) és a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#getMasterSlide) segítségével használja. A tulajdonság beállítása egy egyedi dián csak arra a diára hat. A `false` érték átadása a [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#setShowMasterShapes) metódusnak elrejti a master grafikákat azokon a diákon, amelyek ezt a közös layoutot használják, még akkor is, ha saját beállításuk `true`. Egyetlen dia grafikájának elrejtéséhez módosítsd a dia tulajdonságát, és hagyd változatlanul a közös layoutot.
+
+A beállítás nem támogatott láthatóságvezérlésként a master dián magán. Egy masteren a [getShowMasterShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/#getShowMasterShapes) mindig `false` értéket ad vissza, és a [setShowMasterShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/#setShowMasterShapes) `true` értékének átadása kivételt dob. Inkább egy normál dián vagy egy layouton alkalmazd.
+
+### **Megkülönböztetés: grafika vs háttér**
+
+| Művelet | Hatás |
+| --- | --- |
+| Master grafikák elrejtése | A örökölt master alakzatok láthatóságát szabályozza anélkül, hogy törölné őket vagy megváltoztatná a dia saját alakzatait. |
+| Dia háttérkitöltésének módosítása | Megváltoztatja a háttér színét, színátmenetét vagy képét. A master grafikák külön alakzatok, és láthatóak maradhatnak ezen a háttéren. Lásd a [Presentation Background](/slides/hu/nodejs-java/presentation-background/) oldalt. |
+| Alakzat törlése a masterról | Eltávolítja a közös forrásalakzatot, így már nem áll rendelkezésre semmilyen, a mastert használó dián. |
+
+## **Helyőrzőkkel dolgozás**
+
+A helyőrzőket általában a layout diákon definiálják. A master dia biztosítja a közös stílust és témát, amelyet a layoutok örökölnek, míg minden layout dönti el, mely helyőrzők érhetők el és hol helyezkednek el.
+
+PowerPointban a helyőrző parancsok a Slide Master nézetben érhetők el.
+
+![Az Insert Placeholder parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
+
+Az új helyőrzők hozzáadásához az Aspose.Slides-ban dolgozz a masterhez tartozó layout diával:
 
 ```javascript
 var aspose = aspose || {};
@@ -174,7 +232,7 @@ try {
 }
 ```
 
-A már meglévő helyőrző alakzatokat is formázhatja a mesterdián. A következő példa megtalálja a cím helyőrzőt és lineáris színátmenetes kitöltést alkalmaz rá:
+A master dián már meglévő helyőrző alakzatokat is formázhatod. A következő példa megtalálja a cím helyőrzőt és lineáris színátmenetes kitöltést alkalmaz rá:
 
 ```javascript
 var aspose = aspose || {};
@@ -219,13 +277,13 @@ try {
 }
 ```
 
-![Formázott címes helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
+![Formázott cím helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
 
-További helyőrző és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) és a [Text Formatting](/nodejs-java/text-formatting/) oldalakat.
+A helyőrző és szövegformázási lehetőségekről további információkért lásd a [Helyőrző szöveg beállítása](/nodejs-java/manage-placeholder/) és a [Szövegformázás](/nodejs-java/text-formatting/) oldalakat.
 
-## **Diamester háttér módosítása**
+## **Slide master háttér módosítása**
 
-A mester háttér öröklődik az elrendezések és azok a diák számára, amelyek nem írják felül. A következő példa szilárd háttérszínt állít be az első mesterdiára:
+Egy master háttér öröklődik a layoutokra és azokra a diákra, amelyek nem írják felül. A következő példa egy szilárd háttérszínt állít be az első master diára:
 
 ```javascript
 var aspose = aspose || {};
@@ -249,11 +307,11 @@ try {
 }
 ```
 
-Kapcsolódó témákért lásd a [Presentation Background](/nodejs-java/presentation-background/) és a [Presentation Theme](/nodejs-java/presentation-theme/) oldalakat.
+Kapcsolódó témákért lásd a [Prezentáció háttér](/nodejs-java/presentation-background/) és a [Prezentáció téma](/nodejs-java/presentation-theme/) oldalakat.
 
-## **Diamester klónozása egy másik prezentációba**
+## **Slide master klónozása másik prezentációba**
 
-Használja a `MasterSlideCollection.addClone` metódust egy mesterdia egy másik prezentációba másolásához. A másolt mester aztán az elrendezések és diák által a célprezentációban felhasználható lesz.
+Használd a `MasterSlideCollection.addClone` metódust egy master dia másik prezentációba másolásához. A másolt master aztán a cél prezentáció layoutjai és diái használhatják.
 
 ```javascript
 var aspose = aspose || {};
@@ -272,15 +330,15 @@ try {
 }
 ```
 
-Ha a normál diákot is a mesterrel együtt kell klónozni, lásd a [Clone Slides](/nodejs-java/clone-slides/) oldalt.
+Ha a normál diákok és a master klónozására van szükséged, lásd a [Diák klónozása](/nodejs-java/clone-slides/) oldalt.
 
-## **Több Diamester hozzáadása**
+## **Több slide master hozzáadása**
 
-Egy prezentáció több mesterdiát is tartalmazhat. Ez hasznos, ha a különböző szakaszoknak eltérő vizuális rendszerek vagy márkázás szükséges.
+Egy prezentáció több master diát is tartalmazhat. Ez hasznos, amikor különböző szakaszok különböző márkaarculatot, oldalstruktúrát vagy téma beállításokat igényelnek.
 
-![PowerPoint parancsok a mesterdiák beszúrásához és kezeléséhez](slide-master_9.jpg)
+![PowerPoint parancsok master diák beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-A következő példa klónozza az alapértelmezett mestert, más háttérrel látja el a klónt, létrehoz egy elrendezést a klónozott mester alatt, és egy új diát ad hozzá az elrendezés alapján:
+A következő példa klónozza az alapértelmezett mastert, más háttérrel látja el a klónt, egy layoutot hoz létre a klónozott master alatt, és egy új diát ad hozzá, amely ezt a layoutot használja:
 
 ```javascript
 var aspose = aspose || {};
@@ -314,9 +372,9 @@ try {
 }
 ```
 
-## **Diamesterek összehasonlítása**
+## **Slide master összehasonlítása**
 
-A mesterdiák összehasonlíthatók a [BaseSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseslide/) örökölt `equals` metódusával. Az összehasonlítás ellenőrzi a szerkezetet és a statikus tartalmat, mint például az alakzatok, szöveg, formázás, animációk és egyéb dia beállítások. Nem hasonlítja össze az egyedi azonosítókat, például a dia ID-ket, vagy a dinamikus helyőrző értékeket, mint a jelenlegi dátum.
+A master diák összehasonlíthatók a [BaseSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseslide/)‑től örökölt `equals` metódussal. Az összehasonlítás a szerkezetet és a statikus tartalmat ellenőrzi, például alakzatokat, szöveget, formázást, animációkat és egyéb dia beállításokat. Nem hasonlítja össze az egyedi azonosítókat, mint a dia ID‑k, vagy a helyőrzők dinamikus értékeit, például a aktuális dátumot.
 
 ```javascript
 var aspose = aspose || {};
@@ -347,11 +405,11 @@ try {
 }
 ```
 
-További információért lásd a [Compare Presentation Slides](/slides/hu/nodejs-java/compare-slides/) oldalt.
+További információkért lásd a [Prezentáció diák összehasonlítása](/slides/hu/nodejs-java/compare-slides/) oldalt.
 
-## **Diamester nézet beállítása alapértelmezett nézetként**
+## **Slide Master nézet beállítása alapértelmezett nézetnek**
 
-Használja a `setLastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/viewproperties/) osztályon a PowerPoint által elsőként megnyitott nézet szabályozásához. A következő példa a prezentációt Diamester nézetben nyitja meg:
+Használd a `setLastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/viewproperties/) osztályon, hogy a PowerPoint által elsőként megnyitott nézetet szabályozd. A következő példa a prezentációt Slide Master nézetben nyitja meg:
 
 ```javascript
 var aspose = aspose || {};
@@ -369,13 +427,13 @@ try {
 }
 ```
 
-További nézet beállításokért lásd a [Save Presentation](/slides/hu/nodejs-java/save-presentation/) oldalt.
+További nézetbeállításokért lásd a [Prezentáció mentése](/slides/hu/nodejs-java/save-presentation/) oldalt.
 
-## **Használaton kívüli Diamesterek eltávolítása**
+## **Nem használt master diákok eltávolítása**
 
-A prezentációk néha olyan mesterdiákat tartalmaznak, amelyeket már egyetlen normál dia sem használ. A használaton kívüli mesterek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
+A prezentációk néha olyan master diákat tartalmaznak, amelyeket már egyetlen normál dia sem használ. A nem használt masterok eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
 
-Használja a `removeUnused` metódust a `getMasters()` gyűjteményből a használaton kívüli mesterek eltávolításához:
+Használd a `removeUnused` metódust a nem használt masterok eltávolításához a `getMasters()` gyűjteményből:
 
 ```javascript
 var aspose = aspose || {};
@@ -390,7 +448,7 @@ try {
 }
 ```
 
-Alacsony kódú `Compress.removeUnusedMasterSlides` metódust is használhat:
+Használhatod az alacsony-kódú `Compress.removeUnusedMasterSlides` metódust is:
 
 ```javascript
 var aspose = aspose || {};
@@ -407,18 +465,18 @@ try {
 
 ## **FAQ**
 
-### Mi a különbség a diamester és az elrendezés-dia között?
+**Mi a különbség a slide master és a layout slide között?**
 
-A diamester meghatározza a közös tervezési beállításokat, például a témát, háttérszínt, közös alakzatokat és szövegstílusokat. Az elrendezés-dia egy mesterdiához tartozik, és egy adott helyőrző elrendezést definiál. Egy normál dia egy elrendezés-diát használ, így mind az elrendezést, mind a mestert örökli.
+A slide master közös tervezési beállításokat határoz meg, például témát, hátteret, általános alakzatokat és szövegstílusokat. Egy layout slide egy master diához tartozik, és egy adott helyőrző- és elrendezési konfigurációt definiál. Egy normál dia egy layout diát használ, így a layouttól és a mastertől egyaránt örököl.
 
-### Tartalmazhat egy prezentáció több diamestert?
+**Egy prezentáció tartalmazhat több slide master-t?**
 
-Igen. Egy prezentáció több diamestert is tartalmazhat. Használjon több mestert, ha a különböző szakaszoknak eltérő vizuális rendszerek vagy márkázás szükséges.
+Igen. Egy prezentáció tartalmazhat több slide master-t. Használj több mastert, ha a különböző szakaszok különböző vizuális rendszert vagy márkaarculatot igényelnek.
 
-### Helyőrzőket a mesterdiára vagy az elrendezés-diára kellene feltennem?
+**Hová érdemes helyőrzőket felvenni: a master diára vagy a layout diára?**
 
-A legtöbb esetben helyőrzőket az elrendezés-diákra helyezze. A közös vizuális elemeket és formázásokat a mesterdiára tegye, a tartalmi helyőrzőket pedig azokra az elrendezésekre, amelyeket a normál diák használnak.
+A legtöbb esetben a helyőrzőket a layout diákra érdemes felvenni. A közös vizuális elemeket és a közös formázásokat a master dián helyezd el, majd a tartalmi helyőrzőket a layoutokba, amelyeket a normál diák használnak.
 
-### Törölhetek egy még használt mesterdiát?
+**Törölhetek olyan master diát, amely még használatban van?**
 
-Nem. Egy olyan mesterdia, amelynek függő diái vannak, nem távolítható el biztonságosan közvetlenül. Előbb helyezze át ezeket a diákot másik mester alá tartozó elrendezésekbe, vagy használjon olyan tisztítási módszert, amely csak a nem használt mestereket távolítja el.
+Nem. Olyan master diát, amelyhez függő diák kapcsolódnak, nem lehet biztonságosan közvetlenül törölni. Először helyezd át ezeket a diát egy másik master alatti layoutokra, vagy használj egy nem használt masterok tisztítására szolgáló módszert, amely csak a nem használt master diákat távolítja el.

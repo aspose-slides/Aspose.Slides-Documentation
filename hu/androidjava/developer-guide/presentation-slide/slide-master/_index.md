@@ -1,58 +1,60 @@
 ---
-title: Dia masterek kezelése Androidon
-linktitle: Dia master
+title: Prezentációs dia mesterek kezelése Androidon
+linktitle: Dia mester
 type: docs
 weight: 70
 url: /hu/androidjava/slide-master/
 keywords:
-- dia master
-- master dia
-- PPT master dia
-- több master dia
-- master diák összehasonlítása
+- dia mester
+- mester dia
+- PPT mester dia
+- több mester dia
+- mester diák összehasonlítása
 - háttér
-- helyőrző
-- master dia klónozása
-- master dia másolása
-- master dia megkettőzése
-- használaton kívüli master dia
+- helyettesítőelem
+- mester dia klónozása
+- mester dia másolása
+- mester dia duplikálása
+- nem használt mester dia
 - PowerPoint
 - OpenDocument
 - bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Dia masterek kezelése az Aspose.Slides for Android via Java-ban: master diák elérése, szerkesztése, klónozása, összehasonlítása és eltávolítása PowerPoint és OpenDocument bemutatókban."
+description: "Dia mesterek kezelése az Aspose.Slides for Android via Java segítségével: hozzáférés, szerkesztés, klónozás, összehasonlítás és a mester diák eltávolítása PowerPoint és OpenDocument bemutatókban."
 ---
 ## **Áttekintés**
 
-A **slide master** közös tervezési beállításokat határoz meg egy diacsoport számára. Tartalmazhat általános alakzatokat, logókat, háttérképeket, szövegstílusokat, téma beállításokat és lábléc beállításokat. PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a bemutató egységes legyen anélkül, hogy minden dián megismételnénk ugyanazt a formázást.
+Az **dia mester** közös tervezési beállításokat határoz meg egy diacsoport számára. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, téma‑beállításokat és lábléc‑beállításokat. A PowerPointban a dia mester szerkesztése a szokásos módja annak, hogy a bemutató következetes legyen anélkül, hogy minden dián megismételné ugyanazt a formázást.
 
-Aspose.Slides for Android via Java támogatja ugyanazt a modellt. Egy bemutató tartalmazhat egy vagy több master slide-ot, és minden master slide több layout slide-ot is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master slide-ra. Ehelyett egy normál dia egy layout slide-ot használ, és ez a layout slide egy master slide-hoz tartozik.
+Az Aspose.Slides for Android via Java támogatja ugyanazt a modellt. Egy bemutató egy vagy több mesterdiát tartalmazhat, és minden mesterdia több elrendezés diához tartozhat. A normál diák általában nem hivatkoznak közvetlenül egy mesterdiára. Ehelyett egy normál dia egy elrendezés diát használ, és ez az elrendezés dia egy mesterdiához tartozik.
 
-A hierarchia:
+A hierarchia a következő:
 
-1. **Slide master** – meghatározza a közös tervezést és a témát.
-1. **Layout slide** – meghatároz egy konkrét elrendezést a helyőrzőkkel és az elrendezési szintű formázással.
-1. **Normal slide** – tartalmazza a tényleges bemutató tartalmat és egy layout slide-ot használ.
+1. **Dia mester** – meghatározza a közös tervezést és a témát.
+2. **Elrendezés dia** – meghatároz egy adott helyettesítőelemek és elrendezési szintű formázás elrendezését.
+3. **Normál dia** – tartalmazza a tényleges bemutató tartalmat, és egy elrendezés diát használ.
 
-![A master slide-ok, layout slide-ok és normál slide-ok hierarchiája](slide-master_2.jpg)
+![A mesterdiák, elrendezés dia és normál dia hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slides-ben egy slide master-t az [IMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) interfész képviseli. A bemutató összes master slide-ja elérhető a [Presentation.getMasters](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getMasters--) gyűjteményen keresztül, amely megvalósítja a [IMasterSlideCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) interfészt. A teljes Android via Java API-hoz lásd a [com.aspose.slides API referenciát](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/).
+Az Aspose.Slides-ben egy dia mester a [IMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) interfész által van képviselve. A bemutató összes mesterdiát a [Presentation.getMasters](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getMasters--) gyűjteményen keresztül érhetjük el, amely a [IMasterSlideCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) implementálja. A teljes Android via Java API felületért lásd a [com.aspose.slides API reference](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/).
 
-{{% alert color="info" title="Öröklődés" %}}
-Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy master slide és egy layout slide is meghatároz egy háttérszínt, akkor az az elrendezésen alapuló diák az elrendezés háttérét használják. További információért a layout slide-okról lásd a [Slide Layoutok alkalmazása vagy módosítása](/slides/hu/androidjava/slide-layout/).
+{{% alert color="info" title="Inheritance" %}}
+Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy mesterdia és egy elrendezés dia is meghatároz egy háttérképet, akkor az az elrendezésen alapuló diák az elrendezés háttérképét használják. További információért az elrendezés diákról lásd a [Apply or Change Slide Layouts](/slides/hu/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **Slide master-ek elérése**
+## **Mesterdiák elérése**
 
-PowerPointban a Slide Master nézetet a **View** > **Slide Master** menüből nyithatod meg.
+A PowerPointban a dia mester nézetet a **Nézet** > **Dia mester** menüből nyithatja meg.
 
-![A Slide Master parancs a PowerPoint Nézet fülön](slide-master_3.jpg)
+![A Dia mester parancs a PowerPoint Nézet lapon](slide-master_3.jpg)
 
-Az Aspose.Slides-ben a `getMasters()` gyűjteményt kell használni a master slide-ok eléréséhez:
+Az Aspose.Slides-ben használja a `getMasters()` gyűjteményt a mesterdiák eléréséhez:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +68,11 @@ try {
 }
 ```
 
-Elérheted egy normál dia által használt master slide-ot a saját layout-ján keresztül is:
+Azt is lekérheti, hogy egy normál dia melyik mesterdiát használja az elrendezésén keresztül:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,28 +86,30 @@ try {
 }
 ```
 
-## **Mit tartalmaz egy Slide Master**
+## **A dia mester tartalma**
 
-A master slide egy diához hasonló objektum. Implementálja az [IBaseSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/) interfészt, így sok olyan dia tulajdonságot tesz elérhetővé, amelyet a normál és layout diák is használnak.
+A mesterdia egy diára hasonló objektum. Implementálja a [IBaseSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/) interfészt, így számos, a normál és elrendezés diák által használt diatulajdonságot tesz elérhetővé.
 
-Közös használatú master slide tagok közé tartozik:
+Az általában használt mesterdia tagok a következők:
 
-| Tag | Leírás |
+| Member | Cél |
 | --- | --- |
-| `getBackground()` | Beállítja a master szintű dia háttérét. |
-| `getShapes()` | Tárolja a master-re helyezett alakzatokat, például logókat, képkockákat és megosztott szöveget. |
-| `getLayoutSlides()` | Tárolja a master-hez tartozó layout slide-okat. |
-| `getThemeManager()` | Hozzáférést biztosít a master téma API-khoz. |
-| `getHeaderFooterManager()` | Kezeli a fejléceket, lábléceket, dátumokat és dia számokat a master és annak gyermek elrendezései számára. |
-| `getDependingSlides()` | Visszaadja azokat a normál diákat, amelyek a master-re támaszkodnak a layout-jaikon keresztül. |
+| `getBackground()` | Beállítja a mester szintű dia háttérét. |
+| `getShapes()` | A mesterre helyezett alakzatokat tárolja, például logókat, képkockákat és közös szöveget. |
+| `getLayoutSlides()` | A mesterhez tartozó elrendezés diák tárolja. |
+| `getThemeManager()` | Hozzáférést biztosít a mester téma API-khoz. |
+| `getHeaderFooterManager()` | A fejléc, lábléc, dátumok és dia számok vezérlését biztosítja a mester és annak alárendelt elrendezései számára. |
+| `getDependingSlides()` | Visszaadja azokat a normál diákat, amelyek elrendezéseiken keresztül a mesterre támaszkodnak. |
 
-## **Kép hozzáadása egy Slide Master-hez**
+## **Kép hozzáadása egy dia mesterhez**
 
-Amikor egy képet adsz hozzá egy master slide-hoz, az megjelenik azokon a diákon, amelyek az adott master layout-jait használják. Ez hasznos logók, vízjelek, díszítő szalagok és más ismétlődő vizuális elemek esetén.
+Amikor képet ad hozzá egy mesterdiához, az megjelenik azokon a diákon, amelyek az adott mester elrendezéseit használják. Ez hasznos logókhoz, vízjelekhez, díszítő szalagokhoz és egyéb ismétlődő vizuális elemekhez.
 
-A következő példa egy logót ad hozzá az első master slide-hoz:
+A következő példa egy logót ad hozzá az első mesterdiához:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +135,75 @@ try {
 }
 ```
 
-További információért a képkockákról lásd a [Képkocka](/slides/hu/androidjava/picture-frame/).
+További információért a képkockákról lásd a [Picture Frame](/slides/hu/androidjava/picture-frame/).
 
-## **Helyőrzőkkel való munka**
+## **A mester grafika láthatóságának vezérlése**
 
-A helyőrzőket általában a layout slide-okon definiálják. A master slide biztosítja a közös stílust és témát, amelyet ezek az elrendezések örökölnek, míg minden egyes layout meghatározza, hogy mely helyőrzők állnak rendelkezésre és hol helyezkednek el.
+Használja az [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) metódust, hogy elrejtse a örökölt mestergrafikákat, például logókat vagy díszítő alakzatokat, anélkül, hogy törölné őket a mesterből. Adjon `false` értéket a [Slide.setShowMasterShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) hívásnak azon a dián, amelyiknek el kell hagynia ezeket a grafikákat, és `true`-t tartson rajtuk azon diákon, amelyeknek meg kell jeleníteniük őket.
 
-PowerPointban a helyőrző parancsok a Slide Master nézetben érhetők el.
-
-![A Helyőrző beszúrása parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
-
-Új helyőrzők hozzáadásához az Aspose.Slides-ben, dolgozz a master-hez tartozó layout slide-dal:
+A következő önálló példa egy kék díszítő szalagot hoz létre egy mesteren, és két diát, amelyek ugyanazt az üres elrendezést használják. A szalag látható az első dián, a másodikon rejtett. Nem szükséges bemeneti bemutató vagy kép.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A példa a **Blank** (Üres) elrendezést használja egy új bemutatóban, és eltávolítja az első dia saját helyettesítőelemeit.
+
+### **A beállítás hatókörének kiválasztása**
+
+Egy normál dia a mesterét a [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/#getLayoutSlide--) és a [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--) segítségével használja. Egy adott dián a tulajdonság beállítása csak arra a diára hat. `false` átadása a [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) metódusnak elrejti a mestergrafikákat azokat a diákon, amelyek az adott közös elrendezést használják, még akkor is, ha saját beállításuk `true`. Ahhoz, hogy csak egy dián rejtsen el grafikákat, módosítsa a diátulajdonságot, és hagyja változatlanul a közös elrendezést.
+
+A beállítás nem támogatott láthatóságvezérlőként a mesterdián. Egy mesteren a [getShowMasterShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) mindig `false`‑t ad vissza, és `true` átadása a [setShowMasterShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) metódusnak kivételt dob. Alkalmazza normál diára vagy elrendezésre.
+
+### **A grafika és a háttér megkülönböztetése**
+
+| Művelet | Hatás |
+| --- | --- |
+| Elrejti a mestergrafikákat | Szabályozza az örökölt mesteralakzatok láthatóságát anélkül, hogy törölné őket vagy megváltoztatná a dia saját alakzatait. |
+| Változtatja a dia háttér kitöltését | Módosítja a háttér színét, színátmenetét vagy képét. A mestergrafikák különálló alakzatok, és láthatóak maradhatnak a háttér felett. Lásd a [Presentation Background](/slides/hu/androidjava/presentation-background/). |
+| Töröl egy alakzatot a mestertől | Eltávolítja a megosztott forrásalakzatot, így már nem áll rendelkezésre a mesterhez tartozó bármely dia számára. |
+
+## **Helyettesítőelemek kezelése**
+
+A helyettesítőelemeket általában az elrendezés diákon definiálják. A mesterdia biztosítja a közös stílust és témát, amelyet az elrendezések örökölnek, míg minden elrendezés eldönti, hogy mely helyettesítőelemek állnak rendelkezésre és hol helyezkednek el.
+
+A PowerPointban a helyettesítőelemek parancsai a Dia mester nézetben érhetők el.
+
+![A Helyettesítő elem beszúrása parancs a PowerPoint Dia mester nézetben](slide-master_5.png)
+
+Új helyettesítőelemek hozzáadásához az Aspose.Slides-ben, dolgozzon a mesterhez tartozó elrendezés diával:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -160,9 +222,12 @@ try {
 }
 ```
 
-Formázhatod a már meglévő helyőrző alakzatokat a master slide-on is. A következő példa megkeresi a címsor helyőrzőt és lineáris gradient kitöltést alkalmaz rá:
+A már a mesterdián létező helyettesítő alakzatokat is formázhatja. A következő példa megtalálja a cím helyettesítőelemet és lineáris színátmenetes kitöltést alkalmaz rá:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -181,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -196,19 +261,22 @@ try {
 }
 ```
 
-![Formázott cím helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
+![Formázott cím helyettesítőelem, amelyet a normál diák örökölnek](slide-master_8.png)
 
-További helyőrző és szövegformázási lehetőségekért lásd a [Helyőrzőben szöveg beállítása](/slides/hu/androidjava/manage-placeholder/) és a [Szövegformázás](/slides/hu/androidjava/text-formatting/) oldalakat.
+További helyettesítő és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/androidjava/manage-placeholder/) és a [Text Formatting](/slides/hu/androidjava/text-formatting/) oldalakat.
 
-## **Slide Master háttér módosítása**
+## **A dia mester háttérének módosítása**
 
-A master háttér öröklődik az elrendezések és a diák számára, amelyek nem felülírják azt. A következő példa egy homogén háttérszínt állít be az első master slide-hoz:
+A mester háttér öröklődik az elrendezések és diák által, amelyek nem írják felül. A következő példa egy egyszínű háttérszínt állít be az első mesterdiára:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -220,13 +288,15 @@ try {
 }
 ```
 
-Kapcsolódó témákért lásd a [Bemutató háttér](/slides/hu/androidjava/presentation-background/) és a [Bemutató téma](/slides/hu/androidjava/presentation-theme/) oldalakat.
+Kapcsolódó témákért lásd a [Presentation Background](/slides/hu/androidjava/presentation-background/) és a [Presentation Theme](/slides/hu/androidjava/presentation-theme/) oldalakat.
 
-## **Slide Master klónozása egy másik bemutatóba**
+## **Dia mester klónozása egy másik bemutatóba**
 
-Használd az [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) metódust egy master slide másolásához egy másik bemutatóba. A másolt master ezután a célbemutató layoutjain és diáin is felhasználható.
+Használja az [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) metódust, hogy egy mesterdiát másik bemutatóba másoljon. A másolt mester ezután az elrendezések és diák által felhasználható a célbemutatóban.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -240,22 +310,25 @@ try {
 }
 ```
 
-Ha a normál diákot a masterrel együtt kell klónozni, lásd a [Diák klónozása](/slides/hu/androidjava/clone-slides/) oldalt.
+Ha a normál diákot is klónozni kell a mesterrel együtt, lásd a [Clone Slides](/slides/hu/androidjava/clone-slides/) oldalt.
 
-## **Több Slide Master hozzáadása**
+## **Több dia mester hozzáadása**
 
-Egy bemutató több master slide-ot is tartalmazhat. Ez akkor hasznos, amikor a különböző szakaszok különböző márkaidentitást, oldalstruktúrát vagy téma beállításokat igényelnek.
+Egy bemutató több mesterdiát is tartalmazhat. Ez akkor hasznos, ha a különböző szekciók különböző márkázást, oldalstruktúrát vagy téma beállításokat igényelnek.
 
-![PowerPoint parancsok master slide-ok beszúrásához és kezeléséhez](slide-master_9.jpg)
+![PowerPoint parancsok mesterdiák beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-A következő példa klónozza az alapértelmezett master slide-ot, különböző háttérrel látja el a klónt, létrehoz egy layoutot a klónozott master alatt, és hozzáad egy új diát, amely ezt a layoutot használja:
+A következő példa klónozza az alapértelmezett mestert, másik háttérrel látja el a klónt, létrehoz egy elrendezést az adott klónozott mester alatt, és hozzáad egy új diát, amely ezt az elrendezést használja:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -275,11 +348,13 @@ try {
 }
 ```
 
-## **Slide Master-ek összehasonlítása**
+## **Dia mesterek összehasonlítása**
 
-A master slide-okat összehasonlíthatod az [IBaseSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/) által örökölt `equals` metódussal. Az összehasonlítás a struktúrát és a statikus tartalmat ellenőrzi, például alakzatok, szöveg, formázás, animációk és egyéb dia beállítások. Nem hasonlítja össze az egyedi azonosítókat, mint a dia ID-k, vagy a dinamikus helyőrző értékeket, például a aktuális dátumot.
+A mesterdiákat össze lehet hasonlítani az [IBaseSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/)-ből örökölt `equals` metódussal. Az összehasonlítás ellenőrzi a struktúrát és a statikus tartalmat, például alakzatokat, szöveget, formázást, animációkat és egyéb dia beállításokat. Nem hasonlítja össze az egyedi azonosítókat, például a dia ID‑kat, vagy a dinamikus helyettesítőelemek értékeit, például az aktuális dátumot.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -306,13 +381,15 @@ try {
 }
 ```
 
-További információért lásd a [Bemutató diák összehasonlítása](/slides/hu/androidjava/compare-slides/) oldalt.
+További információért lásd a [Compare Presentation Slides](/slides/hu/androidjava/compare-slides/) oldalt.
 
-## **Slide Master nézet beállítása alapértelmezett nézetnek**
+## **Dia mester nézet beállítása alapértelmezett nézetként**
 
-Használd a `setLastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/viewproperties/) osztályon, hogy szabályozd, melyik nézetet nyissa meg a PowerPoint elsőként. A következő példa a bemutatót a Slide Master nézetben nyitja meg:
+Használja a `setLastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/viewproperties/)‑on, hogy szabályozza a nézetet, amelyet a PowerPoint elsőként nyit meg. A következő példa a bemutatót Dia mester nézetben nyitja meg:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -322,15 +399,17 @@ try {
 }
 ```
 
-További nézetbeállításokért lásd a [Bemutató mentése](/slides/hu/androidjava/save-presentation/) oldalt.
+További nézetbeállításokért lásd a [Save Presentation](/slides/hu/androidjava/save-presentation/) oldalt.
 
-## **Használaton kívüli Master Slide-ok eltávolítása**
+## **Használaton kívüli mesterdiák eltávolítása**
 
-A bemutatók néha olyan master slide-okat tartalmaznak, amelyeket már egyetlen normál dia sem használ. A használaton kívüli master-ek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
+A bemutatók néha olyan mesterdiákat tartalmaznak, amelyeket már egyetlen normál dia sem használ. A nem használt mesterek eltávolítása csökkentheti a fájl méretét és egyszerűsítheti a sablon karbantartását.
 
-Használd a `removeUnused` metódust a `getMasters()` gyűjteményből a használaton kívüli master-ek eltávolításához:
+Használja a `removeUnused` metódust a nem használt mesterek eltávolításához a `getMasters()` gyűjteményből:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -340,9 +419,11 @@ try {
 }
 ```
 
-Használhatod a low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) metódust is:
+Alkalmazhatja alacsony kódú [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) metódust is:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,18 +435,18 @@ try {
 
 ## **GYIK**
 
-**Mi a különbség a slide master és a layout slide között?**
+**Mi a különbség egy dia mester és egy elrendezés dia között?**
 
-A slide master közös tervezési beállításokat határoz meg, mint például téma, háttér, általános alakzatok és szövegstílusok. A layout slide egy master slide-hoz tartozik, és egy konkrét helyőrző elrendezést definiál. Egy normál dia egy layout slide-ot használ, így mind a layout, mind a master tulajdonságait örökli.
+A dia mester a közös tervezési beállításokat definiálja, például témát, hátteret, közös alakzatokat és szövegstílusokat. Egy elrendezés dia egy mesterdiához tartozik, és egy adott helyettesítőelemek elrendezését határozza meg. Egy normál dia egy elrendezés diát használ, ezért mind az elrendezés, mind a mester tulajdonságait örökli.
 
-**Tartalmazhat egy bemutató több slide master-t?**
+**Tartalmazhat egy bemutató több dia mestert?**
 
-Igen. Egy bemutató több slide master-t is tartalmazhat. Használj több master-t, amikor a különböző szakaszok különböző vizuális rendszereket vagy márkát igényelnek.
+Igen. Egy bemutató több dia mestert is tartalmazhat. Használjon több mestert, ha a különböző szekciók különböző vizuális rendszereket vagy márkázást igényelnek.
 
-**Helyőrzőket a master slide-hoz vagy a layout slide-hoz kellene hozzáadni?**
+**Hová tegyek helyettesítőelemeket, a mesterdiára vagy az elrendezés diára?**
 
-A legtöbb esetben a helyőrzőket a layout slide-okra kell hozzáadni. A közös vizuális elemeket és a közös formázást a master slide-on helyezd el, majd a tartalomhelyőrzőket a normál diák által használt layout-okra.
+A legtöbb esetben az elrendezés diákra helyezze a helyettesítőelemeket. A közös vizuális elemeket és a közös formázást a mesterdiára helyezze, majd a tartalomhelyettesítőelemeket azokra az elrendezésekre, amelyeket a normál diák használni fognak.
 
-**Törölhetek egy még használt master slide-ot?**
+**Törölhetek egy még használt mesterdiát?**
 
-Nem. Egy olyan master slide, amelynek vannak függő diái, nem távolítható el biztonságosan közvetlenül. Először helyezd át ezeket a diát egy másik master alá tartozó layout-okba, vagy használd a használaton kívüli master-ek tisztítására szolgáló módszert, amely csak a nem használt master-eket távolítja el.
+Nem. Egy olyan mesterdia, amelynek függő diák vannak, nem távolítható el közvetlenül. Először helyezze át ezeket a diákat egy másik mester alá tartozó elrendezésekbe, vagy használjon egy nem használt mester tisztító módszert, amely csak a nem használt mestereket távolítja el.

@@ -1,55 +1,55 @@
 ---
-title: Quản lý các slide master của bản trình chiếu trong PHP
+title: Quản lý Slide Master trong bài thuyết trình PHP
 linktitle: Slide Master
 type: docs
 weight: 70
 url: /vi/php-java/slide-master/
 keywords:
-- slide chủ
-- slide chủ
-- slide chủ PPT
-- nhiều slide chủ
-- so sánh các slide chủ
+- slide mẫu
+- slide mẫu
+- slide mẫu PPT
+- nhiều slide mẫu
+- so sánh slide mẫu
 - nền
 - trình giữ chỗ
-- tạo bản sao slide chủ
-- sao chép slide chủ
-- nhân bản slide chủ
-- slide chủ không sử dụng
+- sao chép slide mẫu
+- chép slide mẫu
+- nhân bản slide mẫu
+- slide mẫu không sử dụng
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Quản lý slide master trong Aspose.Slides for PHP qua Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bản trình chiếu PowerPoint và OpenDocument."
+description: "Quản lý slide master trong Aspose.Slides cho PHP qua Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bài thuyết trình PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
+Một **slide master** xác định các cài đặt thiết kế chung cho một nhóm slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu văn bản, cài đặt giao diện và cài đặt chân trang. Trong PowerPoint, chỉnh sửa slide master là cách thông thường để giữ cho bài thuyết trình nhất quán mà không phải lặp lại cùng một định dạng trên mỗi slide.
 
-Aspose.Slides for PHP via Java supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
+Aspose.Slides for PHP via Java hỗ trợ cùng mô hình. Một bài thuyết trình có thể chứa một hoặc nhiều master slide, và mỗi master slide có thể chứa một số layout slide. Các slide bình thường thường không tham chiếu trực tiếp tới master slide. Thay vào đó, một slide bình thường sử dụng một layout slide, và layout slide đó thuộc về một master slide.
 
-The hierarchy is:
+Cấu trúc là:
 
-1. **Slide master** - defines the shared design and theme.
-1. **Layout slide** - defines a specific arrangement of placeholders and layout-level formatting.
-1. **Normal slide** - contains the actual presentation content and uses one layout slide.
+1. **Slide master** - xác định thiết kế và giao diện chung.
+1. **Layout slide** - xác định bố trí cụ thể của các placeholder và định dạng cấp layout.
+1. **Normal slide** - chứa nội dung thực tế của bài thuyết trình và sử dụng một layout slide.
 
-![Cấu trúc của các slide master, layout slide và slide thông thường](slide-master_2.jpg)
+![Cấu trúc của master slide, layout slide và normal slide](slide-master_2.jpg)
 
-In Aspose.Slides, a slide master is represented by the [MasterSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/) class. All master slides in a presentation are available through the [Presentation.getMasters](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getMasters) method, which returns a [MasterSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslidecollection/) object.
+Trong Aspose.Slides, một slide master được biểu diễn bằng lớp [MasterSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/) . Tất cả các master slide trong một bài thuyết trình có thể truy cập thông qua phương thức [Presentation.getMasters](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getMasters) , phương thức này trả về một đối tượng [MasterSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslidecollection/) .
 
-{{% alert color="info" title="Kế thừa" %}}
-When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/vi/php-java/slide-layout/).
+{{% alert color="info" title="Inheritance" %}}
+Khi cùng một thuộc tính được định nghĩa ở nhiều mức độ, mức độ cụ thể hơn sẽ thắng. Ví dụ, nếu một master slide và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm thông tin về layout slide, xem [Áp dụng hoặc Thay đổi Layout Slide](/slides/vi/php-java/slide-layout/) .
 {{% /alert %}}
 
 ## **Truy cập Slide Masters**
 
-In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
+Trong PowerPoint, bạn có thể mở chế độ xem Slide Master từ **View** > **Slide Master**.
 
-![Lệnh Slide Master trên thẻ View của PowerPoint](slide-master_3.jpg)
+![Lệnh Slide Master trên tab View của PowerPoint](slide-master_3.jpg)
 
-In Aspose.Slides, use the `getMasters` method to access master slides:
+Trong Aspose.Slides, sử dụng phương thức `getMasters` để truy cập master slide:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -65,7 +65,7 @@ try {
 }
 ```
 
-You can also get the master slide used by a normal slide through its layout:
+Bạn cũng có thể lấy master slide được sử dụng bởi một slide bình thường thông qua layout của nó:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -83,24 +83,24 @@ try {
 
 ## **Nội dung của Slide Master**
 
-A master slide is a slide-like object. It extends [BaseSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslide/), so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [MasterSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/) API page.
+Một master slide là một đối tượng giống slide. Nó kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslide/) , vì vậy nó cung cấp nhiều thuộc tính slide giống như slide bình thường và layout. Các thành viên đặc thù của master được liệt kê trên trang API [MasterSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/) .
 
-Commonly used master slide members include:
+Các thành viên master slide thường được sử dụng bao gồm:
 
 | Thành viên | Mục đích |
 | --- | --- |
 | `getBackground` | Đặt nền slide ở mức master. |
-| `getShapes` | Lưu trữ các shape được đặt trên master, chẳng hạn logo, khung ảnh và văn bản chia sẻ. |
+| `getShapes` | Lưu trữ các hình dạng đặt trên master, chẳng hạn như logo, khung ảnh và văn bản chung. |
 | `getLayoutSlides` | Lưu trữ các layout slide thuộc về master. |
-| `getThemeManager` | Cung cấp quyền truy cập vào API chủ đề master. |
-| `getHeaderFooterManager` | Kiểm soát header, footer, ngày tháng và số slide cho master và các layout con của nó. |
-| `getDependingSlides` | Trả về các slide thông thường phụ thuộc vào master thông qua layout của chúng. |
+| `getThemeManager` | Cung cấp quyền truy cập vào các API chủ đề master. |
+| `getHeaderFooterManager` | Kiểm soát đầu trang, chân trang, ngày và số slide cho master và các layout con. |
+| `getDependingSlides` | Trả về các slide bình thường phụ thuộc vào master thông qua layout của chúng. |
 
-## **Thêm hình ảnh vào Slide Master**
+## **Thêm Hình Ảnh vào Slide Master**
 
-When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
+Khi bạn thêm một hình ảnh vào master slide, nó sẽ xuất hiện trên các slide sử dụng layout từ master đó. Điều này hữu ích cho logo, watermark, dải trang trí và các yếu tố hình ảnh lặp lại khác.
 
-The following example adds a logo to the first master slide:
+Ví dụ sau thêm một logo vào master slide đầu tiên:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -128,17 +128,74 @@ try {
 }
 ```
 
-For more information about picture frames, see [Picture Frame](/slides/vi/php-java/picture-frame/).
+Để biết thêm thông tin về khung ảnh, xem [Khung Hình](/slides/vi/php-java/picture-frame/) .
+
+## **Kiểm Soát Khả Năng Hiển Thị của Đồ Họa Master**
+
+Sử dụng [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslide/#setShowMasterShapes) để ẩn đồ họa master kế thừa, chẳng hạn như logo hoặc hình dạng trang trí, mà không xóa chúng khỏi master. Truyền `false` tới [Slide::setShowMasterShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slide/#setShowMasterShapes) trên slide cần bỏ qua các đồ họa đó và giữ `true` trên các slide cần hiển thị chúng.
+
+Ví dụ tự chứa sau tạo một dải trang trí màu xanh trên master và hai slide dùng cùng một layout trống. Dải này hiển thị trên slide đầu tiên và ẩn trên slide thứ hai. Không cần bất kỳ file bài thuyết trình hay hình ảnh đầu vào nào.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ví dụ sử dụng layout **Blank** được cung cấp với một bài thuyết trình mới và loại bỏ các placeholder của slide ban đầu.
+
+### **Chọn phạm vi của cài đặt**
+
+Một slide bình thường sử dụng master của nó thông qua [Slide::getLayoutSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slide/#getLayoutSlide) và [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#getMasterSlide) . Đặt thuộc tính trên một slide riêng chỉ ảnh hưởng tới slide đó. Truyền `false` tới [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#setShowMasterShapes) sẽ ẩn đồ họa master cho các slide dùng layout chung đó, ngay cả khi cài đặt riêng của chúng là `true`. Để ẩn đồ họa chỉ trên một slide, thay đổi thuộc tính của slide và giữ nguyên layout chung.
+
+Cài đặt này không được hỗ trợ như một điều khiển hiển thị trên chính master slide. Trên master, [getShowMasterShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/#getShowMasterShapes) luôn trả về `false`, và truyền `true` tới [setShowMasterShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/#setShowMasterShapes) sẽ gây ra ngoại lệ. Hãy áp dụng nó cho slide bình thường hoặc layout thay vì master.
+
+### **Phân biệt đồ họa với nền**
+
+| Thao tác | Hiệu quả |
+| --- | --- |
+| Ẩn đồ họa master | Kiểm soát việc hiển thị các shape master kế thừa mà không xóa chúng hoặc thay đổi các shape của slide. |
+| Thay đổi màu nền slide | Thay đổi màu, gradient hoặc hình ảnh nền. Đồ họa master là các shape riêng biệt và có thể vẫn hiển thị trên nền đó. Xem [Nền Bài Thuyết Trình](/slides/vi/php-java/presentation-background/) . |
+| Xóa một shape khỏi master | Xóa shape nguồn chia sẻ, do đó không còn khả dụng cho bất kỳ slide nào sử dụng master đó. |
 
 ## **Làm việc với Placeholder**
 
-Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
+Placeholder thường được định nghĩa trên layout slide. Master slide cung cấp kiểu và giao diện chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholder nào có sẵn và chúng được đặt ở đâu.
 
-In PowerPoint, placeholder commands are available in Slide Master view.
+Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ Slide Master view.
 
-![Lệnh Insert Placeholder trong PowerPoint Slide Master view](slide-master_5.png)
+![Lệnh Insert Placeholder trong chế độ Slide Master của PowerPoint](slide-master_5.png)
 
-To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
+Để thêm placeholder mới với Aspose.Slides, làm việc với layout slide thuộc về master:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -164,7 +221,7 @@ try {
 }
 ```
 
-You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
+Bạn cũng có thể định dạng các shape placeholder đã tồn tại trên master slide. Ví dụ sau tìm placeholder tiêu đề và áp dụng màu gradient tuyến tính:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -206,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Placeholder tiêu đề đã định dạng được kế thừa bởi các slide thông thường](slide-master_8.png)
+![Placeholder tiêu đề đã định dạng được kế thừa bởi các slide bình thường](slide-master_8.png)
 
-For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/vi/php-java/manage-placeholder/) and [Text Formatting](/slides/vi/php-java/text-formatting/).
+Để biết thêm các tùy chọn định dạng placeholder và văn bản, xem [Đặt Văn bản Gợi ý trong Placeholder](/slides/vi/php-java/manage-placeholder/) và [Định dạng Văn bản](/slides/vi/php-java/text-formatting/) .
 
-## **Thay đổi nền Slide Master**
+## **Thay Đổi Nền Slide Master**
 
-A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
+Nền master được kế thừa bởi các layout và slide không ghi đè nó. Ví dụ sau đặt màu nền đặc cho master slide đầu tiên:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -232,11 +289,11 @@ try {
 }
 ```
 
-For related topics, see [Presentation Background](/slides/vi/php-java/presentation-background/) and [Presentation Theme](/slides/vi/php-java/presentation-theme/).
+Để tham khảo các chủ đề liên quan, xem [Nền Bài Thuyết Trình](/slides/vi/php-java/presentation-background/) và [Giao diện Bài Thuyết Trình](/slides/vi/php-java/presentation-theme/) .
 
-## **Sao chép Slide Master sang bản trình chiếu khác**
+## **Sao chép Slide Master sang Bài Thuyết Trình Khác**
 
-Use `addClone` from [MasterSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslidecollection/) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
+Sử dụng `addClone` từ [MasterSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslidecollection/) để sao chép một master slide vào một bài thuyết trình khác. Master được sao chép sau đó có thể được sử dụng bởi các layout và slide trong bài thuyết trình đích.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -252,15 +309,15 @@ try {
 }
 ```
 
-If you need to clone normal slides together with their master, see [Clone Slides](/slides/vi/php-java/clone-slides/).
+Nếu bạn cần sao chép các slide bình thường cùng với master của chúng, xem [Sao chép Slide](/slides/vi/php-java/clone-slides/) .
 
-## **Thêm nhiều Slide Masters**
+## **Thêm Nhiều Slide Masters**
 
-A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
+Một bài thuyết trình có thể chứa nhiều master slide. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc cài đặt giao diện khác nhau.
 
-![Các lệnh PowerPoint để chèn và quản lý slide master](slide-master_9.jpg)
+![Các lệnh PowerPoint để chèn và quản lý master slide](slide-master_9.jpg)
 
-The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
+Ví dụ sau sao chép master mặc định, cho bản sao một nền khác, tạo một layout dưới master đã sao chép và thêm một slide mới dựa trên layout đó:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -287,7 +344,7 @@ try {
 
 ## **So sánh Slide Masters**
 
-Master slides can be compared with the `equals` method inherited from [BaseSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
+Slide master có thể được so sánh bằng phương thức `equals` kế thừa từ [BaseSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslide/) . So sánh kiểm tra cấu trúc và nội dung tĩnh, chẳng hạn như shape, văn bản, định dạng, hoạt ảnh và các cài đặt slide khác. Nó không so sánh các định danh duy nhất như ID slide, hoặc các giá trị placeholder động như ngày hiện tại.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -314,11 +371,11 @@ try {
 }
 ```
 
-For more information, see [Compare Presentation Slides](/slides/vi/php-java/compare-slides/).
+Để biết thêm thông tin, xem [So sánh Slide Bài Thuyết Trình](/slides/vi/php-java/compare-slides/) .
 
 ## **Đặt Slide Master View làm chế độ xem mặc định**
 
-Use the `setLastView` method on [ViewProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
+Sử dụng phương thức `setLastView` trên [ViewProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/viewproperties/) để điều khiển chế độ xem mà PowerPoint mở đầu tiên. Ví dụ sau mở bài thuyết trình ở chế độ Slide Master view:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -330,13 +387,13 @@ try {
 }
 ```
 
-For more view settings, see [Save Presentation](/slides/vi/php-java/save-presentation/).
+Đối với các cài đặt hiển thị khác, xem [Lưu Bài Thuyết Trình](/slides/vi/php-java/save-presentation/) .
 
-## **Xóa các Slide Masters không được sử dụng**
+## **Xóa các Master Slide Không được Sử dụng**
 
-Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
+Các bài thuyết trình đôi khi chứa các master slide không còn được bất kỳ slide bình thường nào sử dụng. Xóa các master không sử dụng có thể giảm kích thước file và đơn giản hoá việc bảo trì mẫu.
 
-Use `removeUnused` from [MasterSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslidecollection/) to remove unused masters from the `getMasters` collection:
+Sử dụng `removeUnused` từ [MasterSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslidecollection/) để xóa các master không sử dụng khỏi bộ sưu tập `getMasters` :
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -348,7 +405,7 @@ try {
 }
 ```
 
-You can also use the low-code `removeUnusedMasterSlides` method from the [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) class:
+Bạn cũng có thể dùng phương thức low-code `removeUnusedMasterSlides` từ lớp [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) :
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -360,20 +417,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Sự khác biệt giữa slide master và layout slide là gì?**
+**Sự khác nhau giữa slide master và layout slide là gì?**
 
-A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
+Slide master xác định các cài đặt thiết kế chung như giao diện, nền, hình dạng chung và kiểu chữ. Layout slide thuộc về một master slide và xác định một bố trí cụ thể của các placeholder. Slide bình thường sử dụng một layout slide, vì vậy nó kế thừa từ cả layout và master.
 
-**Một bản trình chiếu có thể chứa nhiều slide master không?**
+**Một bài thuyết trình có thể chứa nhiều slide master không?**
 
-Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
+Có. Một bài thuyết trình có thể chứa nhiều slide master. Sử dụng nhiều master khi các phần khác nhau cần các hệ thống hình ảnh hoặc thương hiệu khác nhau.
 
-**Nên thêm placeholder vào slide master hay layout slide?**
+**Tôi nên thêm placeholder vào slide master hay layout slide?**
 
-In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
+Trong hầu hết các trường hợp, hãy thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh chung và định dạng chung trên slide master, sau đó đặt các placeholder nội dung trên các layout mà slide bình thường sẽ sử dụng.
 
-**Có thể xóa một slide master vẫn đang được sử dụng không?**
+**Tôi có thể xóa một slide master đang được sử dụng không?**
 
-No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused‑master cleanup method that removes only masters that are not in use.
+Không. Một slide master có các slide phụ thuộc không thể bị xóa trực tiếp một cách an toàn. Đầu tiên chuyển những slide đó sang các layout dưới một master khác, hoặc sử dụng phương pháp dọn dẹp master không dùng để chỉ xóa các master không có trong sử dụng.

@@ -1,17 +1,17 @@
 ---
-title: Folienlayouts in Python anwenden oder ändern
-linktitle: Folienlayout
+title: Slide-Layouts in Python anwenden oder ändern
+linktitle: Slide-Layout
 type: docs
 weight: 60
 url: /de/python-net/slide-layout/
 keywords:
-- Folienlayout
-- Inhaltslayout
+- Slide-Layout
+- Inhalts-Layout
 - Platzhalter
 - Präsentationsdesign
-- Foliendesign
-- unbenutztes Layout
-- Fußzeilen‑Sichtbarkeit
+- Foliengestaltung
+- Unbenutztes Layout
+- Fußzeilensichtbarkeit
 - Titelfolie
 - Titel und Inhalt
 - Abschnittsüberschrift
@@ -28,42 +28,44 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Folienlayouts in Aspose.Slides für Python über .NET anwenden, erstellen und ändern, Platzhalter hinzufügen, unbenutzte Layouts entfernen und die Sichtbarkeit der Fußzeile steuern."
+description: "Slide-Layouts in Aspose.Slides für Python via .NET anwenden, erstellen und ändern, Platzhalter hinzufügen, unbenutzte Layouts entfernen und die Fußzeilensichtbarkeit steuern."
 ---
 ## **Übersicht**
 
-Ein Folienlayout definiert die Positionen und die Formatierung von Platzhaltern wie Titeln, Text, Bildern, Diagrammen und Tabellen. Durch das Anwenden eines Layouts erhalten Folien eine konsistente Struktur, während jede Folie ihren eigenen Inhalt enthalten kann.
+Ein Folienlayout definiert die Positionen und die Formatierung von Platzhaltern wie Titeln, Text, Bildern, Diagrammen und Tabellen. Das Anwenden eines Layouts verleiht Folien eine konsistente Struktur, ermöglicht jedoch, dass jede Folie ihren eigenen Inhalt enthält.
 
 Die am häufigsten verwendeten Layouts umfassen:
 
 - **Titelfolie**: Enthält Platzhalter für Titel und Untertitel.
-- **Titel und Inhalt**: Enthält einen Titelplatzhalter und einen allgemein nutzbaren Inhaltsplatzhalter.
-- **Leer**: Enthält keine Inhaltsplatzhalter und ist nützlich, wenn jede Form manuell positioniert wird.
+- **Titel und Inhalt**: Enthält einen Titel‑Platzhalter und einen allgemeinen Inhalts‑Platzhalter.
+- **Leer**: Enthält keine Inhalts‑Platzhalter und ist nützlich, wenn jede Form manuell positioniert wird.
 
 ## **Verstehen der Layoutvererbung**
 
-Eine Präsentation hat drei miteinander verbundene Ebenen:
+Eine Präsentation hat drei verwandte Ebenen:
 
-1. Eine [Masterfolie](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/) definiert das Thema, die gemeinsame Formatierung, Hintergründe und gemeinsame Objekte.
-1. Eine [Layoutfolie](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/) gehört zu einem Master und definiert eine bestimmte Anordnung von Platzhaltern.
-1. Eine [normale Folie](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/) verwendet ein Layout und speichert den für diese Folie eingegebenen Inhalt.
+1. Eine [Masterfolie](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/) definiert das Design, die gemeinsame Formatierung, Hintergründe und gemeinsame Objekte.
+2. Eine [Layoutfolie](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/) gehört zu einem Master und definiert eine bestimmte Anordnung von Platzhaltern.
+3. Eine [Normalfolie](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/) verwendet ein Layout und speichert den für diese Folie eingegebenen Inhalt.
 
-Eine normale Folie erbt Thema und Formatierung von ihrem Layout, und das Layout erbt vom zugehörigen Master. Ein direkt auf einer normalen Folie festgelegter Wert überschreibt den vererbten Wert auf dieser Ebene. Wenn eine normale Folie erstellt wird, werden ihre Platzhalterformen aus dem ausgewählten Layout generiert, während der in diese Platzhalter eingegebene Inhalt zur normalen Folie gehört.
+Eine Normalfolie erbt Design und Formatierung von ihrem Layout, und das Layout erbt vom zugehörigen Master. Ein direkt auf einer Normalfolie festgelegter Wert überschreibt den geerbten Wert auf dieser Ebene. Wenn eine Normalfolie erstellt wird, werden ihre Platzhalterformen aus dem ausgewählten Layout generiert, während der in diese Platzhalter eingegebene Inhalt zur Normalfolie gehört.
 
-Fügen Sie einem Layout die erforderlichen Platzhalter hinzu, bevor Sie Folien daraus erstellen. Das spätere Hinzufügen eines weiteren Platzhalters zu einem Layout fügt nicht automatisch die entsprechenden Platzhalterformen zu bereits existierenden normalen Folien hinzu.
+Fügen Sie erforderliche Platzhalter zu einem Layout hinzu, bevor Sie Folien daraus erstellen. Das spätere Hinzufügen eines weiteren Platzhalters zu einem Layout erzeugt nicht automatisch die entsprechende Platzhalterform in bereits vorhandenen Normalfolien.
 
 Diese Beziehung hat zwei wichtige Konsequenzen:
 
-- Das Ändern der vererbten Formatierung oder der vorhandenen Platzhaltergeometrie in einem Layout kann jede davon abhängige Folie aktualisieren. Vor dem Bearbeiten eines bereits verwendeten Layouts sollten Sie seine abhängigen Folien prüfen und die resultierende Präsentation überprüfen.
-- Ein Layout, das noch von einer Folie verwendet wird, kann nicht entfernt werden. Ordnen Sie seine abhängigen Folien zuerst einem anderen Layout zu oder entfernen Sie nur nicht verwendete Layouts.
+- Das Ändern der vererbten Formatierung oder der vorhandenen Platzhaltergeometrie in einem Layout kann jede davon abhängige Folie aktualisieren. Vor dem Bearbeiten eines bereits genutzten Layouts sollten Sie dessen abhängige Folien prüfen und die resultierende Präsentation überprüfen.
+- Ein Layout, das noch von einer Folie verwendet wird, kann nicht entfernt werden. Ordnen Sie seine abhängigen Folien zuerst einem anderen Layout zu oder entfernen Sie nur ungenutzte Layouts.
 
-Weitere Informationen zur obersten Ebene dieser Hierarchie finden Sie unter [Slide Master](/slides/de/python-net/slide-master/).
+Weitere Informationen zur obersten Ebene dieser Hierarchie finden Sie unter [Folienmaster](/slides/de/python-net/slide-master/).
 
-## **Auswahl und Anwendung eines Folienlayouts**
+Um geerbte Logos oder dekorative Master‑Formen auf einer Folie oder über ein gemeinsam genutztes Layout auszublenden, siehe [Steuerung der Sichtbarkeit von Master‑Grafiken](/slides/de/python-net/slide-master/). Das Beispiel vergleicht zwei Folien, die denselben Master verwenden.
 
-Verwenden Sie einen Layouttyp, wenn die Präsentation den standardmäßigen PowerPoint‑Layoutdefinitionen folgt. Layoutnamen können vom Benutzer bearbeitet und lokalisiert werden, sodass eine namensbasierte Auswahl weniger zuverlässig ist, es sei denn, Sie steuern die Quellvorlage.
+## **Auswählen und Anwenden eines Folienlayouts**
 
-Das folgende Beispiel sucht in dem ersten Master nach **Titel und Inhalt**. Wenn dieses Layout nicht verfügbar ist, greift es bewusst auf **Leer** zurück. Die zweite Null‑Prüfung ist erforderlich, weil eine Präsentation nur benutzerdefinierte Layouts enthalten kann. Das ausgewählte Layout wird anschließend über die Eigenschaft [Slide.layout_slide](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/layout_slide/) auf die erste normale Folie angewendet.
+Verwenden Sie einen Layouttyp, wenn die Präsentation den standardmäßigen PowerPoint‑Layout‑Definitionen folgt. Layout‑Namen können vom Benutzer bearbeitet und lokalisiert werden, daher ist eine Auswahl anhand des Namens weniger zuverlässig, es sei denn, Sie kontrollieren die Ausgangsvorlage.
+
+Das folgende Beispiel sucht auf dem ersten Master nach **Titel und Inhalt**. Wenn dieses Layout nicht verfügbar ist, fällt es bewusst auf **Leer** zurück. Die zweite Null‑Prüfung ist erforderlich, weil eine Präsentation nur benutzerdefinierte Layouts enthalten kann. Das ausgewählte Layout wird dann über die Eigenschaft [Slide.layout_slide](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/layout_slide/) auf die erste Normalfolie angewendet.
 
 ```python
 import aspose.slides as slides
@@ -82,13 +84,13 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Das Ändern des Layouts einer Folie entfernt nicht die direkt zur Folie hinzugefügten normalen Formen. Platzhalterpositionen, vererbte Formatierung und die Übereinstimmung zwischen bestehenden Platzhaltern und dem neuen Layout können sich jedoch ändern, sodass Sie die Ausgabe prüfen sollten, wenn Sie zwischen wesentlich unterschiedlichen Layouts wechseln.
+Das Ändern des Layouts einer Folie entfernt nicht die regulären Formen, die direkt zur Folie hinzugefügt wurden. Allerdings können Platzhalterpositionen, vererbte Formatierung und die Zuordnung zwischen bestehenden Platzhaltern und dem neuen Layout geändert werden, sodass Sie die Ausgabe prüfen sollten, wenn Sie zwischen deutlich unterschiedlichen Layouts wechseln.
 
 ## **Hinzufügen einer Layoutfolie**
 
-Auswahl und Erstellung sind getrennte Vorgänge. Das vorherige Beispiel wählt ein vorhandenes Layout aus; es erstellt keines. Um ein Layout zu erstellen, rufen Sie die Methode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterlayoutslidecollection/add/) auf der Layoutsammlung des Ziel‑Masters auf.
+Auswahl und Erstellung sind separate Vorgänge. Das vorherige Beispiel wählt ein vorhandenes Layout aus; es erstellt keines. Um ein Layout zu erstellen, rufen Sie die Methode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterlayoutslidecollection/add/) auf der Layout‑Sammlung des Ziel‑Masters auf.
 
-Das folgende Beispiel fügt stets ein neues **Titel und Inhalt**‑Layout mit dem Namen `Report Title and Content` hinzu und erstellt anschließend eine normale Folie basierend darauf. Layoutnamen müssen innerhalb der Sammlung eindeutig sein.
+Das folgende Beispiel fügt stets ein neues **Titel und Inhalt**‑Layout mit dem Namen `Report Title and Content` hinzu und erstellt anschließend eine Normalfolie, die darauf basiert. Layout‑Namen müssen innerhalb der Sammlung eindeutig sein.
 
 ```python
 import aspose.slides as slides
@@ -101,26 +103,26 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Fügen Sie ein Layout nur hinzu, wenn die Vorlage wirklich eine weitere wiederverwendbare Struktur benötigt. Falls bereits ein geeignetes Layout existiert, wählen Sie es aus und verwenden Sie es erneut, anstatt ein Duplikat zu erstellen.
+Fügen Sie ein Layout nur hinzu, wenn die Vorlage tatsächlich eine weitere wiederverwendbare Struktur benötigt. Existiert bereits ein geeignetes Layout, wählen Sie es aus und verwenden Sie es erneut, anstatt ein Duplikat zu erstellen.
 
 ## **Platzhalter zu einer Layoutfolie hinzufügen**
 
 Die Eigenschaft [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/placeholder_manager/) stellt einen [LayoutPlaceholderManager](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/) zum Hinzufügen von Platzhalterformen zu einem Layout bereit.
 
-| PowerPoint‑Platzhalter | `LayoutPlaceholderManager`‑Methode |
+| PowerPoint-Platzhalter | `LayoutPlaceholderManager` Methode |
 | ---------------------- | ----------------------------------- |
 | ![Inhalt](content.png) | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
-| ![Inhalt (vertikal)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Inhalt (Vertikal)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
 | ![Text](text.png) | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
-| ![Text (vertikal)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Text (Vertikal)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
 | ![Bild](picture.png) | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
 | ![Diagramm](chart.png) | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
 | ![Tabelle](table.png) | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
 | ![SmartArt](smartart.png) | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
-| ![Media](media.png) | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Medium](media.png) | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
 | ![Online‑Bild](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Das folgende Beispiel prüft, ob das **Leer**‑Layout existiert, fügt ihm vier Platzhalter hinzu und erstellt anschließend eine normale Folie, die das modifizierte Layout verwendet. Die Reihenfolge ist beabsichtigt: Die Platzhalter werden hinzugefügt, bevor die normale Folie erstellt wird, damit Aspose.Slides die entsprechenden Platzhalterformen auf dieser Folie generieren kann.
+Das folgende Beispiel prüft, ob das **Leer**‑Layout vorhanden ist, fügt ihm vier Platzhalter hinzu und erstellt anschließend eine Normalfolie, die das modifizierte Layout verwendet. Die Reihenfolge ist beabsichtigt: Die Platzhalter werden hinzugefügt, bevor die Normalfolie erstellt wird, sodass Aspose.Slides die entsprechenden Platzhalterformen auf dieser Folie erzeugen kann.
 
 ```python
 import aspose.slides as slides
@@ -146,12 +148,12 @@ Das Ergebnis:
 ![Die Platzhalter auf der Layoutfolie](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Das Ändern der vererbten Formatierung oder der Geometrie bestehender Layout‑Platzhalter kann abhängige Folien beeinflussen. Ein neu hinzugefügter Layout‑Platzhalter wird nicht nachträglich in bereits vorhandene normale Folien eingefügt. Testen Sie Layout‑Änderungen an einer Kopie der Präsentation und prüfen Sie jede abhängige Folie.
+Das Ändern der vererbten Formatierung oder der Geometrie vorhandener Layout‑Platzhalter kann abhängige Folien beeinflussen. Ein neu hinzugefügter Layout‑Platzhalter wird nicht rückwirkend in bestehende Normalfolien eingefügt. Testen Sie Layout‑Änderungen an einer Kopie der Präsentation und prüfen Sie jede abhängige Folie.
 {{% /alert %}}
 
-## **Entfernen nicht verwendeter Layoutfolien**
+## **Entfernen ungenutzter Layoutfolien**
 
-Verwenden Sie die Methode [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), um Layouts zu entfernen, auf die keine normale Folie verweist. Die Methode lässt Layouts, die noch verwendet werden, unverändert.
+Verwenden Sie die Methode [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), um Layouts zu entfernen, auf die keine Normalfolie verweist. Die Methode lässt Layouts, die noch verwendet werden, unverändert.
 
 ```python
 import aspose.slides as slides
@@ -161,11 +163,11 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Um ein bestimmtes Layout zu entfernen, verwenden Sie zunächst seine Eigenschaft [has_depending_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/has_depending_slides/) oder die Methode [get_depending_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/get_depending_slides/). Ordnen Sie alle abhängigen Folien neu zu, bevor Sie [LayoutSlide.remove](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/remove/) aufrufen. Der Versuch, ein noch verwendetes Layout zu entfernen, löst eine [PptxEditException](https://reference.aspose.com/slides/de/python-net/aspose.slides/pptxeditexception/) aus.
+Um ein bestimmtes Layout zu entfernen, verwenden Sie zunächst seine Eigenschaft [has_depending_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/has_depending_slides/) oder die Methode [get_depending_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/get_depending_slides/). Ordnen Sie alle abhängigen Folien neu zu, bevor Sie [LayoutSlide.remove](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/remove/) aufrufen. Der Versuch, ein verwendetes Layout zu entfernen, löst eine [PptxEditException](https://reference.aspose.com/slides/de/python-net/aspose.slides/pptxeditexception/) aus.
 
-## **Steuerung der Fußzeilen‑Sichtbarkeit auf einer Layoutfolie**
+## **Steuerung der Fußzeilensichtbarkeit auf einer Layoutfolie**
 
-Ein Layout hat eigene Platzhalter für Fußzeile, Folienzahl und Datum‑Uhrzeit. Verwenden Sie die Eigenschaft [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/header_footer_manager/), um diese Platzhalter für ein Layout zu steuern. Dies ist nützlich, wenn beispielsweise Inhalts‑Layouts Fußzeilen anzeigen sollen, Titelfolien jedoch nicht.
+Ein Layout verfügt über eigene Fußzeilen-, Foliennummer‑ und Datum‑Uhrzeit‑Platzhalter. Verwenden Sie die Eigenschaft [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/header_footer_manager/), um diese Platzhalter für ein Layout zu steuern. Dies ist nützlich, wenn beispielsweise Inhalts‑Layouts Fußzeilen anzeigen sollen, Titel‑Layouts jedoch nicht.
 
 Das folgende Beispiel wählt ein Layout sicher aus und macht dessen Fußzeilenelemente sichtbar:
 
@@ -191,9 +193,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Steuerung der Fußzeilen‑Sichtbarkeit auf einem Master und seinen untergeordneten Layouts**
+## **Steuerung der Fußzeilensichtbarkeit auf einem Master und dessen Kind‑Layouts**
 
-Um über eine Master‑Hierarchie hinweg einheitliche Fußzeileneinstellungen anzuwenden, verwenden Sie die Eigenschaft [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/header_footer_manager/). Die Propagationsmethoden von [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslideheaderfootermanager/) wirken auf den Master sowie dessen abhängige Layout‑ und Normalfolien; sie zielen nicht nur auf eine einzelne normale Folie.
+Um konsistente Fußzeileneinstellungen über eine Master‑Hierarchie hinweg anzuwenden, verwenden Sie die Eigenschaft [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslide/header_footer_manager/). Die Propagationsmethoden von [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslideheaderfootermanager/) wirken auf den Master sowie dessen abhängige Layout‑ und Normalfolien; sie richten sich nicht nur an eine einzelne Normalfolie.
 
 ```python
 import aspose.slides as slides
@@ -209,20 +211,20 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Häufig gestellte Fragen**
 
 **Was ist der Unterschied zwischen einer Masterfolie und einer Layoutfolie?**
 
-Eine Masterfolie definiert das Thema und die gemeinsame Formatierung der Präsentation. Eine Layoutfolie gehört zu einem Master und definiert eine wiederverwendbare Anordnung von Platzhaltern. Normale Folien verwenden diese Layouts und speichern folienspezifischen Inhalt.
+Eine Masterfolie definiert das Design der Präsentation und die gemeinsam genutzte Formatierung. Eine Layoutfolie gehört zu einem Master und definiert eine wiederverwendbare Anordnung von Platzhaltern. Normalfolien verwenden diese Layouts und speichern den folienspezifischen Inhalt.
 
 **Kann ich eine Layoutfolie von einer Präsentation in eine andere kopieren?**
 
-Ja. Fügen Sie mit der Methode [add_clone](https://reference.aspose.com/slides/de/python-net/aspose.slides/globallayoutslidecollection/add_clone/) eine Kopie zur Ziel‑Sammlung hinzu. Beim Kopieren zwischen Präsentationen sollten Sie außerdem Schriftarten, Themen, Bilder und weitere vom Quell‑Layout genutzte Ressourcen prüfen.
+Ja. Fügen Sie mit der Methode [add_clone](https://reference.aspose.com/slides/de/python-net/aspose.slides/globallayoutslidecollection/add_clone/) eine Kopie zur Ziel‑Sammlung hinzu. Beim Kopieren zwischen Präsentationen sollten Sie außerdem Schriften, Designs, Bilder und andere vom Quell‑Layout verwendete Ressourcen überprüfen.
 
 **Was passiert, wenn ich ein bereits verwendetes Layout ändere?**
 
-Abhängige Folien übernehmen die Layout‑Änderungen, sofern sie die betroffenen Formatierungen oder Objekte nicht lokal überschreiben. Die Platzhaltergeometrie und die vererbte Gestaltung können dadurch auf vielen Folien gleichzeitig geändert werden. Verwenden Sie [get_depending_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/get_depending_slides/), um die betroffenen Folien vor der Bearbeitung des Layouts zu ermitteln.
+Abhängige Folien erben die Layout‑Änderungen, sofern sie die betroffene Formatierung oder Objekte nicht lokal überschreiben. Daher können die Platzhaltergeometrie und die geerbte Gestaltung gleichzeitig auf vielen Folien geändert werden. Verwenden Sie [get_depending_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslide/get_depending_slides/), um vor dem Bearbeiten des Layouts die betroffenen Folien zu ermitteln.
 
 **Was passiert, wenn ich ein noch verwendetes Layout entferne?**
 
-Aspose.Slides löst eine [PptxEditException](https://reference.aspose.com/slides/de/python-net/aspose.slides/pptxeditexception/) aus. Ordnen Sie zunächst die abhängigen Folien neu zu oder verwenden Sie [remove_unused_layout_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), um nur nicht referenzierte Layouts zu entfernen.
+Aspose.Slides löst eine [PptxEditException](https://reference.aspose.com/slides/de/python-net/aspose.slides/pptxeditexception/) aus. Ordnen Sie zuerst die abhängigen Folien neu zu oder verwenden Sie [remove_unused_layout_slides](https://reference.aspose.com/slides/de/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), um nur nicht referenzierte Layouts zu entfernen.

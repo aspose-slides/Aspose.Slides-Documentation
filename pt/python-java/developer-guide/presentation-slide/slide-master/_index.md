@@ -1,5 +1,5 @@
 ---
-title: Gerenciar mestres de slides de apresentação em Python via Java
+title: Gerenciar Mestres de Slides de Apresentação em Python via Java
 linktitle: Mestre de Slide
 type: docs
 weight: 70
@@ -10,7 +10,7 @@ keywords:
 - slide mestre PPT
 - vários slides mestres
 - comparar slides mestres
-- fundo
+- plano de fundo
 - marcador de posição
 - clonar slide mestre
 - copiar slide mestre
@@ -26,33 +26,31 @@ description: "Gerencie mestres de slides no Aspose.Slides para Python via Java: 
 ---
 ## **Visão geral**
 
-Um **slide master** define configurações de design compartilhadas para um grupo de slides. Ele pode conter formas comuns, logotipos, fundos, estilos de texto, configurações de tema e configurações de rodapé. No PowerPoint, editar um slide master é a forma usual de manter uma apresentação consistente sem repetir a mesma formatação em cada slide.
+Um **slide master** define configurações de design compartilhadas para um grupo de slides. Ele pode conter formas comuns, logotipos, fundos, estilos de texto, configurações de tema e configurações de rodapé. No PowerPoint, editar um slide master é a maneira usual de manter uma apresentação consistente sem repetir a mesma formatação em cada slide.
 
-Aspose.Slides for Python via Java suporta o mesmo modelo. Uma apresentação pode conter um ou mais slides mestres, e cada slide mestre pode conter vários slides de layout. Slides normais normalmente não referenciam um slide mestre diretamente. Em vez disso, um slide normal usa um slide de layout, e esse slide de layout pertence a um slide mestre.
+Aspose.Slides for Python via Java oferece suporte ao mesmo modelo. Uma apresentação pode conter um ou mais master slides, e cada master slide pode conter vários layout slides. Slides normais geralmente não referenciam um master slide diretamente. Em vez disso, um slide normal usa um layout slide, e esse layout slide pertence a um master slide.
 
 A hierarquia é:
 
-1. **Slide master** – define o design e o tema compartilhados.  
-1. **Slide de layout** – define um arranjo específico de marcadores de posição e formatação de nível de layout.  
-1. **Slide normal** – contém o conteúdo real da apresentação e usa um slide de layout.
+1. **Slide master** - define o design e o tema compartilhados.  
+1. **Layout slide** - define um arranjo específico de placeholders e formatação de nível de layout.  
+1. **Normal slide** - contém o conteúdo real da apresentação e usa um layout slide.
 
-![A hierarquia de slides mestres, slides de layout e slides normais](slide-master_2.jpg)
+![A hierarquia de master slides, layout slides e normal slides](slide-master_2.jpg)
 
-No Aspose.Slides, um slide master é representado pela classe [MasterSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/). Todos os slides mestres em uma apresentação estão disponíveis por meio da coleção [Presentation.getMasters](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getMasters), que é representada por [MasterSlideCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslidecollection/).
+No Aspose.Slides, um slide master é representado pela classe [MasterSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/) . Todos os master slides em uma apresentação estão disponíveis através da coleção [Presentation.getMasters](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getMasters) , que é representada por [MasterSlideCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslidecollection/) .
 
 {{% alert color="info" title="Inheritance" %}}
-
-Quando a mesma propriedade é definida em mais de um nível, o nível mais específico prevalece. Por exemplo, se um slide mestre e um slide de layout ambos definirem um fundo, os slides baseados naquele layout usarão o fundo do layout. Para mais informações sobre slides de layout, veja [Apply or Change Slide Layouts](/slides/pt/python-java/slide-layout/).
-
+Quando a mesma propriedade é definida em mais de um nível, o nível mais específico prevalece. Por exemplo, se um master slide e um layout slide definirem um fundo, os slides baseados nesse layout usarão o fundo do layout. Para mais informações sobre layout slides, veja [Aplicar ou Alterar Layouts de Slide](/slides/pt/python-java/slide-layout/) .
 {{% /alert %}}
 
-## **Acessar Slides Mestres**
+## **Acessar Slide Masters**
 
 No PowerPoint, você pode abrir a visualização Slide Master em **View** > **Slide Master**.
 
 ![O comando Slide Master na guia View do PowerPoint](slide-master_3.jpg)
 
-No Aspose.Slides, use a coleção [Presentation.getMasters](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getMasters) para acessar slides mestres:
+No Aspose.Slides, use a coleção [Presentation.getMasters](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getMasters) para acessar master slides:
 
 ```python
 import jpype
@@ -75,10 +73,10 @@ finally:
     presentation.dispose()
 ```
 
-Você também pode obter o slide mestre usado por um slide normal por meio de seu layout:
+Você também pode obter o master slide usado por um slide normal através de seu layout:
 
 ```python
-import jpype
+import jpile
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -100,24 +98,24 @@ finally:
 
 ## **O que um Slide Master contém**
 
-Um slide mestre é um objeto semelhante a um slide. Ele herda de [BaseSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/), portanto expõe muitas das mesmas propriedades de slide usadas por slides normais e de layout. Membros específicos do mestre estão listados na página da API [MasterSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/).
+Um master slide é um objeto semelhante a um slide. Ele herda de [BaseSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/) , portanto expõe muitas das mesmas propriedades de slide usadas por slides normais e de layout. Membros específicos de master são listados na página de API [MasterSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/) .
 
-Membros de slide mestre usados com frequência incluem:
+Membros de master slide comumente usados incluem:
 
-| Membro | Finalidade |
+| Membro | Propósito |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getBackground) | Define o plano de fundo do slide ao nível do mestre. |
-| [getShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getShapes) | Armazena formas colocadas no mestre, como logotipos, quadros de imagem e texto compartilhado. |
-| [getLayoutSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getLayoutSlides) | Armazena os slides de layout que pertencem ao mestre. |
-| [getThemeManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getThemeManager) | Fornece acesso às APIs de tema do mestre. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Controla cabeçalhos, rodapés, datas e números de slide para o mestre e seus layouts filhos. |
-| [getDependingSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getDependingSlides) | Retorna slides normais que dependem do mestre por meio de seus layouts. |
+| [getBackground](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getBackground) | Define o fundo do slide em nível de master. |
+| [getShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getShapes) | Armazena formas colocadas no master, como logotipos, molduras de imagem e texto compartilhado. |
+| [getLayoutSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getLayoutSlides) | Armazena os layout slides que pertencem ao master. |
+| [getThemeManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getThemeManager) | Fornece acesso às APIs de tema do master. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Controla cabeçalhos, rodapés, datas e números de slides para o master e seus layouts filhos. |
+| [getDependingSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getDependingSlides) | Retorna slides normais que dependem do master através de seus layouts. |
 
-## **Adicionar uma imagem a um Slide Master**
+## **Adicionar uma Imagem a um Slide Master**
 
-Ao adicionar uma imagem a um slide mestre, ela aparece nos slides que usam layouts daquele mestre. Isso é útil para logotipos, marcas d’água, faixas decorativas e outros elementos visuais repetidos.
+Quando você adiciona uma imagem a um master slide, ela aparece nos slides que usam layouts desse master. Isso é útil para logotipos, marcas d'água, faixas decorativas e outros elementos visuais repetidos.
 
-O exemplo a seguir adiciona um logotipo ao primeiro slide mestre:
+O exemplo a seguir adiciona um logotipo ao primeiro master slide:
 
 ```python
 import jpype
@@ -143,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-Para mais informações sobre quadros de imagem, veja [Picture Frame](/slides/pt/python-java/picture-frame/).
+Para mais informações sobre molduras de imagem, veja [Moldura de Imagem](/slides/pt/python-java/picture-frame/) .
 
-## **Trabalhar com marcadores de posição**
+## **Controlar a Visibilidade de Gráficos do Master**
 
-Marcadores de posição são normalmente definidos em slides de layout. O slide mestre fornece o estilo e o tema compartilhados que esses layouts herdam, enquanto cada layout decide quais marcadores de posição estão disponíveis e onde eles são colocados.
+Use [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#setShowMasterShapes) para ocultar gráficos herdados do master, como logotipos ou formas decorativas, sem excluí-los do master. Passe `False` para [Slide.setShowMasterShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/#setShowMasterShapes) no slide que deve omitir esses gráficos e mantenha `True` nos slides que devem exibi-los.
 
-No PowerPoint, os comandos de marcador de posição estão disponíveis na visualização Slide Master.
+O exemplo a seguir cria uma faixa decorativa azul em um master e dois slides que usam o mesmo layout em branco. A faixa está visível no primeiro slide e oculta no segundo. Nenhuma apresentação ou imagem de entrada é necessária.
 
-![O comando Insert Placeholder na visualização Slide Master do PowerPoint](slide-master_5.png)
+```python
+import jpype
+import asposeslides
 
-Para adicionar novos marcadores de posição com Aspose.Slides, trabalhe com o slide de layout que pertence ao mestre:
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+O exemplo usa o layout **Blank** fornecido com uma nova apresentação e remove os placeholders próprios do slide inicial.
+
+### **Escolher o Escopo da Configuração**
+
+Um slide normal usa seu master através de [Slide.getLayoutSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/#getLayoutSlide) e [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#getMasterSlide) . Definir a propriedade em um slide individual afeta apenas esse slide. Passar `False` para [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/layoutslide/#setShowMasterShapes) oculta os gráficos do master para slides que usam esse layout compartilhado, mesmo que sua própria configuração seja `True`. Para ocultar gráficos em apenas um slide, altere a propriedade do slide e deixe o layout compartilhado inalterado.
+
+A configuração não é suportada como controle de visibilidade no próprio master slide. Em um master, [getShowMasterShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#getShowMasterShapes) sempre retorna `False`, e passar `True` para [setShowMasterShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslide/#setShowMasterShapes) gera uma exceção. Aplique-a a um slide normal ou a um layout.
+
+### **Distinguir Gráficos do Fundo**
+
+| Operação | Efeito |
+| --- | --- |
+| Ocultar gráficos do master | Controla a visibilidade de shapes herdados do master sem excluí-los ou alterar os shapes próprios do slide. |
+| Alterar o preenchimento de fundo do slide | Altera a cor, gradiente ou imagem de fundo. Gráficos do master são shapes separados e podem permanecer visíveis sobre esse fundo. Veja [Fundo da Apresentação](/slides/pt/python-java/presentation-background/). |
+| Excluir um shape do master | Remove o shape fonte compartilhado, de modo que não esteja mais disponível para nenhum slide que use esse master. |
+
+## **Trabalhar com Placeholders**
+
+Placeholders são normalmente definidos em layout slides. O master slide fornece o estilo e tema compartilhados que esses layouts herdam, enquanto cada layout decide quais placeholders estão disponíveis e onde são posicionados.
+
+No PowerPoint, os comandos de placeholder estão disponíveis na visualização Slide Master.
+
+![O comando Inserir Placeholder na visualização Slide Master do PowerPoint](slide-master_5.png)
+
+Para adicionar novos placeholders com Aspose.Slides, trabalhe com o layout slide que pertence ao master:
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Você também pode formatar formas de marcador de posição que já existem em um slide mestre. O exemplo a seguir encontra o marcador de posição de título e aplica um preenchimento de gradiente linear:
+Você também pode formatar shapes de placeholder que já existam em um master slide. O exemplo a seguir encontra o placeholder de título e aplica um preenchimento de gradiente linear:
 
 ```python
 import jpype
@@ -218,13 +276,13 @@ finally:
     presentation.dispose()
 ```
 
-![Marcador de posição de título formatado herdado por slides normais](slide-master_8.png)
+![Placeholder de título formatado herdado por slides normais](slide-master_8.png)
 
-Para mais opções de marcador de posição e formatação de texto, veja [Set Prompt Text in Placeholder](/slides/pt/python-java/manage-placeholder/) e [Text Formatting](/slides/pt/python-java/text-formatting/).
+Para mais opções de placeholder e formatação de texto, veja [Definir Texto de Prompt em Placeholder](/slides/pt/python-java/manage-placeholder/) e [Formatação de Texto](/slides/pt/python-java/text-formatting/) .
 
-## **Alterar o fundo de um Slide Master**
+## **Alterar o Fundo de um Slide Master**
 
-Um fundo de mestre é herdado por layouts e slides que não o substituem. O exemplo a seguir define uma cor de fundo sólida para o primeiro slide mestre:
+Um fundo de master é herdado por layouts e slides que não o substituem. O exemplo a seguir define uma cor de fundo sólida para o primeiro master slide:
 
 ```python
 import jpype
@@ -251,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-Para tópicos relacionados, veja [Presentation Background](/slides/pt/python-java/presentation-background/) e [Presentation Theme](/slides/pt/python-java/presentation-theme/).
+Para tópicos relacionados, veja [Fundo da Apresentação](/slides/pt/python-java/presentation-background/) e [Tema da Apresentação](/slides/pt/python-java/presentation-theme/) .
 
-## **Clonar um Slide Master para outra apresentação**
+## **Clonar um Slide Master para outra Apresentação**
 
-Use [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslidecollection/#addClone) para copiar um slide mestre para outra apresentação. O mestre copiado pode então ser usado por layouts e slides na apresentação de destino.
+Use [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslidecollection/#addClone) para copiar um master slide para outra apresentação. O master copiado pode então ser usado por layouts e slides na apresentação de destino.
 
 ```python
 import jpype
@@ -278,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-Se precisar clonar slides normais junto com seu mestre, veja [Clone Slides](/slides/pt/python-java/clone-slides/).
+Se precisar clonar slides normais junto com seu master, veja [Clonar Slides](/slides/pt/python-java/clone-slides/) .
 
-## **Adicionar vários Slides Mestres**
+## **Adicionar Vários Slide Masters**
 
-Uma apresentação pode conter vários slides mestres. Isso é útil quando diferentes seções exigem diferentes identidades visuais, estrutura de página ou configurações de tema.
+Uma apresentação pode conter múltiplos master slides. Isso é útil quando diferentes seções requerem diferentes marcas, estrutura de página ou configurações de tema.
 
-![Comandos do PowerPoint para inserir e gerenciar slides mestres](slide-master_9.jpg)
+![Comandos do PowerPoint para inserir e gerenciar master slides](slide-master_9.jpg)
 
-O exemplo a seguir clona o mestre padrão, atribui ao clone um fundo diferente, cria um layout sob esse mestre clonado e adiciona um novo slide baseado nesse layout:
+O exemplo a seguir clona o master padrão, atribui ao clone um fundo diferente, cria um layout sob esse master clonado e adiciona um novo slide baseado nesse layout:
 
 ```python
 import jpype
@@ -321,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Comparar Slides Mestres**
+## **Comparar Slide Masters**
 
-Slides mestres podem ser comparados com o método [equals](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#equals) herdado de [BaseSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/). A comparação verifica estrutura e conteúdo estático, como formas, texto, formatação, animações e outras configurações de slide. Não compara identificadores únicos, como IDs de slide, ou valores dinâmicos de marcadores de posição, como a data atual.
+Master slides podem ser comparados com o método [equals](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#equals) herdado de [BaseSlide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/) . A comparação verifica a estrutura e o conteúdo estático, como shapes, texto, formatação, animações e outras configurações de slide. Não compara identificadores únicos, como IDs de slide, ou valores dinâmicos de placeholder, como a data atual.
 
 ```python
 import jpype
@@ -353,7 +411,7 @@ finally:
     second_presentation.dispose()
 ```
 
-Para mais informações, veja [Compare Presentation Slides](/slides/pt/python-java/compare-slides/).
+Para mais informações, veja [Comparar Slides da Apresentação](/slides/pt/python-java/compare-slides/) .
 
 ## **Definir a visualização Slide Master como visualização padrão**
 
@@ -376,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-Para mais configurações de visualização, veja [Save Presentation](/slides/pt/python-java/save-presentation/).
+Para mais configurações de visualização, veja [Salvar Apresentação](/slides/pt/python-java/save-presentation/) .
 
-## **Remover Slides Mestres não usados**
+## **Remover Slide Masters Não Utilizados**
 
-Apresentações às vezes contêm slides mestres que não são mais usados por nenhum slide normal. Remover mestres não utilizados pode reduzir o tamanho do arquivo e simplificar a manutenção de modelos.
+As apresentações às vezes contêm master slides que não são mais usados por nenhum slide normal. Remover masters não utilizados pode reduzir o tamanho do arquivo e simplificar a manutenção do modelo.
 
-Use [removeUnused](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslidecollection/#removeUnused) para remover mestres não usados da coleção [Presentation.getMasters](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getMasters):
+Use [removeUnused](https://reference.aspose.com/slides/pt/python-java/aspose.slides/masterslidecollection/#removeUnused) para remover masters não utilizados da coleção [Presentation.getMasters](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getMasters) :
 
 ```python
 import jpype
@@ -401,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-Você também pode usar o método de low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/compress/#removeUnusedMasterSlides):
+Você também pode usar o método low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/compress/#removeUnusedMasterSlides) :
 
 ```python
 import jpype
@@ -422,18 +480,18 @@ finally:
 
 ## **FAQ**
 
-**Qual é a diferença entre um slide master e um slide de layout?**
+**Qual é a diferença entre um slide master e um layout slide?**
 
-Um slide master define configurações de design compartilhadas, como tema, fundo, formas comuns e estilos de texto. Um slide de layout pertence a um slide master e define um arranjo específico de marcadores de posição. Um slide normal usa um slide de layout, herdando tanto do layout quanto do master.
+Um slide master define configurações de design compartilhadas, como tema, fundo, formas comuns e estilos de texto. Um layout slide pertence a um slide master e define um arranjo específico de placeholders. Um slide normal usa um layout slide, portanto herda tanto do layout quanto do master.
 
-**Uma apresentação pode conter vários slides mestres?**
+**Uma apresentação pode conter vários slide masters?**
 
-Sim. Uma apresentação pode conter vários slides mestres. Use múltiplos mestres quando diferentes seções precisarem de sistemas visuais ou identidades diferentes.
+Sim. Uma apresentação pode conter vários slide masters. Use múltiplos masters quando diferentes seções precisam de diferentes sistemas visuais ou branding.
 
-**Devo adicionar marcadores de posição a um slide master ou a um slide de layout?**
+**Devo adicionar placeholders a um master slide ou a um layout slide?**
 
-Na maioria dos casos, adicione marcadores de posição a slides de layout. Coloque elementos visuais compartilhados e formatação comum no slide master e coloque os marcadores de posição de conteúdo nos layouts que os slides normais usarão.
+Na maioria dos casos, adicione placeholders a layout slides. Coloque elementos visuais compartilhados e formatação compartilhada no master slide, e coloque os placeholders de conteúdo nos layouts que os slides normais usarão.
 
-**Posso excluir um slide master que ainda está em uso?**
+**Posso excluir um master slide que ainda está sendo usado?**
 
-Não. Um slide master que tem slides dependentes não pode ser removido com segurança diretamente. Primeiro mova esses slides para layouts sob outro master, ou use um método de limpeza de mestres não usados que remova apenas mestres que não estejam em uso.
+Não. Um master slide que tem slides dependentes não pode ser removido com segurança diretamente. Primeiro mova esses slides para layouts sob outro master, ou use um método de limpeza de masters não usados que remove apenas masters que não estão em uso.

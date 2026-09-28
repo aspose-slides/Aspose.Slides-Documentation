@@ -1,12 +1,12 @@
 ---
-title: Slide-Layouts in Java anwenden oder ändern
-linktitle: Slide-Layout
+title: Anwenden oder Ändern von Folienlayouts in Java
+linktitle: Folienlayout
 type: docs
 weight: 60
 url: /de/java/slide-layout/
 keywords:
-- Slide-Layout
-- Inhalts-Layout
+- Folienlayout
+- Inhaltslayout
 - Platzhalter
 - Präsentationsdesign
 - Foliendesign
@@ -28,42 +28,44 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Slide-Layouts in Aspose.Slides für Java anwenden, erstellen und ändern, Platzhalter hinzufügen, ungenutzte Layouts entfernen und die Sichtbarkeit der Fußzeile steuern."
+description: "Folienlayouts in Aspose.Slides für Java anwenden, erstellen und ändern, Platzhalter hinzufügen, ungenutzte Layouts entfernen und die Sichtbarkeit der Fußzeile steuern."
 ---
 ## **Übersicht**
 
 Ein Folienlayout definiert die Positionen und Formatierungen von Platzhaltern wie Titeln, Text, Bildern, Diagrammen und Tabellen. Das Anwenden eines Layouts verleiht Folien eine konsistente Struktur, während jede Folie ihren eigenen Inhalt enthalten kann.
 
-Die am häufigsten verwendeten Layouts sind:
+Die gebräuchlichsten Layouts umfassen:
 
-- **Titelfolie**: Enthält Platzhalter für Titel und Untertitel.
-- **Titel und Inhalt**: Enthält einen Titel‑Platzhalter und einen allgemeinen Inhalts‑Platzhalter.
-- **Leer**: Enthält keine Inhalts‑Platzhalter und ist nützlich, wenn jede Form manuell positioniert wird.
+- **Title Slide**: Enthält Platzhalter für Titel und Untertitel.
+- **Title and Content**: Enthält einen Titelplatzhalter und einen allgemeinen Inhaltsplatzhalter.
+- **Blank**: Enthält keine Inhaltsplatzhalter und ist nützlich, wenn jede Form manuell positioniert wird.
 
-## **Verstehen der Layout‑Vererbung**
+## **Layout‑Vererbung verstehen**
 
-Eine Präsentation hat drei zusammenhängende Ebenen:
+Eine Präsentation hat drei verwandte Ebenen:
 
-1. Eine [Masterfolie](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslide/) definiert das Design, geteilte Formatierungen, Hintergründe und gemeinsame Objekte.
-2. Eine [Layoutfolie](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/) gehört zu einem Master und definiert eine bestimmte Anordnung von Platzhaltern.
-3. Eine [Normalfolie](https://reference.aspose.com/slides/de/java/com.aspose.slides/islide/) verwendet ein Layout und speichert den für diese Folie eingegebenen Inhalt.
+1. Eine [Masterfolie](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslide/) definiert das Design, die geteilte Formatierung, Hintergründe und gemeinsame Objekte.  
+2. Eine [Layoutfolie](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/) gehört zu einem Master und definiert eine bestimmte Anordnung von Platzhaltern.  
+3. Eine [normale Folie](https://reference.aspose.com/slides/de/java/com.aspose.slides/islide/) verwendet ein Layout und speichert den für diese Folie eingegebenen Inhalt.
 
-Eine Normalfolie erbt Design und Formatierung von ihrem Layout, und das Layout erbt vom zugehörigen Master. Ein direkt auf einer Normalfolie gesetzter Wert überschreibt den vererbten Wert auf dieser Ebene. Beim Erstellen einer Normalfolie werden ihre Platzhalter‑Formen aus dem ausgewählten Layout generiert, während der in die Platzhalter eingegebene Inhalt zur Normalfolie gehört.
+Eine normale Folie erbt Design und Formatierung von ihrem Layout, und das Layout erbt vom zugehörigen Master. Ein direkt auf einer normalen Folie festgelegter Wert überschreibt den geerbten Wert auf dieser Ebene. Beim Erzeugen einer normalen Folie werden die Platzhalterformen aus dem ausgewählten Layout generiert, während der in diese Platzhalter eingegebene Inhalt zur normalen Folie gehört.
 
-Fügen Sie erforderliche Platzhalter zu einem Layout hinzu, bevor Sie daraus Folien erstellen. Das spätere Hinzufügen eines weiteren Platzhalters zu einem Layout fügt nicht automatisch eine entsprechende Platzhalter‑Form zu bereits bestehenden Normalfolien hinzu.
+Fügen Sie erforderliche Platzhalter einem Layout hinzu, bevor Sie Folien daraus erstellen. Das spätere Hinzufügen eines weiteren Platzhalters zu einem Layout fügt nicht automatisch die entsprechende Platzhalterform zu bereits bestehenden normalen Folien hinzu.
 
 Diese Beziehung hat zwei wichtige Konsequenzen:
 
-- Das Ändern von geerbten Formatierungen oder vorhandener Platzhalter‑Geometrie in einem Layout kann jede davon abhängige Folie aktualisieren. Prüfen Sie vor dem Bearbeiten eines bereits genutzten Layouts dessen abhängige Folien und überprüfen Sie die resultierende Präsentation.
-- Ein Layout, das noch von einer Folie verwendet wird, kann nicht entfernt werden. Weisen Sie seine abhängigen Folien zuerst einem anderen Layout zu oder entfernen Sie nur ungenutzte Layouts.
+- Das Ändern geerbter Formatierungen oder der Geometrie vorhandener Layout‑Platzhalter kann jede davon abhängige Folie aktualisieren. Prüfen Sie vor dem Bearbeiten eines bereits genutzten Layouts dessen abhängige Folien und überprüfen Sie die resultierende Präsentation.  
+- Ein Layout, das noch von einer Folie verwendet wird, kann nicht entfernt werden. Ordnen Sie zunächst seine abhängigen Folien einem anderen Layout zu oder entfernen Sie nur ungenutzte Layouts.
 
-Weitere Informationen zur obersten Ebene dieser Hierarchie finden Sie unter [Folien‑Master](/slides/de/java/slide-master/).
+Weitere Informationen zur obersten Ebene dieser Hierarchie finden Sie unter [Folienmaster](/slides/de/java/slide-master/).
+
+Um geerbte Logos oder dekorative Master‑Formen auf einer Folie oder über ein gemeinsames Layout auszublenden, siehe [Control the Visibility of Master Graphics](/slides/de/java/slide-master/). Das Beispiel vergleicht zwei Folien, die denselben Master verwenden.
 
 ## **Auswahl und Anwendung eines Folienlayouts**
 
-Verwenden Sie einen Layouttyp, wenn die Präsentation den standardmäßigen PowerPoint‑Layout‑Definitionen folgt. Layoutnamen sind vom Benutzer editierbar und können lokalisiert werden, sodass eine namensbasierte Auswahl weniger zuverlässig ist, es sei denn, Sie kontrollieren die Quellvorlage.
+Verwenden Sie einen Layouttyp, wenn die Präsentation den standardisierten PowerPoint‑Layout‑Definitionen folgt. Layout‑Namen sind vom Benutzer editierbar und können lokalisiert werden, sodass eine namensbasierte Auswahl weniger zuverlässig ist, sofern Sie die Quellvorlage kontrollieren.
 
-Das folgende Beispiel sucht nach **Titel und Inhalt** im ersten Master. Ist dieses Layout nicht verfügbar, wird bewusst auf **Leer** ausgewichen. Die zweite Null‑Prüfung ist nötig, weil eine Präsentation nur benutzerdefinierte Layouts enthalten kann. Das ausgewählte Layout wird dann über die [ISlide.setLayoutSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)‑Methode auf die erste Normalfolie angewendet.
+Das folgende Beispiel sucht nach **Title and Content** im ersten Master. Ist dieses Layout nicht verfügbar, fällt es bewusst auf **Blank** zurück. Der zweite Null‑Check ist nötig, weil eine Präsentation ausschließlich benutzerdefinierte Layouts enthalten kann. Das ausgewählte Layout wird dann über die [ISlide.setLayoutSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)‑Methode auf die erste normale Folie angewendet.
 
 ```java
 import com.aspose.slides.*;
@@ -88,13 +90,13 @@ try {
 }
 ```
 
-Das Ändern des Layouts einer Folie entfernt nicht die direkt auf der Folie hinzugefügten normalen Formen. Platzhalterpositionen, geerbte Formatierungen und die Zuordnung zwischen vorhandenen Platzhaltern und dem neuen Layout können jedoch ändern, weshalb Sie die Ausgabe prüfen sollten, wenn Sie zwischen wesentlich unterschiedlichen Layouts wechseln.
+Das Ändern des Layouts einer Folie entfernt nicht die direkt hinzugefügten normalen Formen. Platzhalterpositionen, geerbte Formatierungen und die Zuordnung zwischen vorhandenen Platzhaltern und dem neuen Layout können sich jedoch ändern, weshalb das Ergebnis beim Wechsel zwischen stark unterschiedlichen Layouts geprüft werden sollte.
 
 ## **Hinzufügen einer Layoutfolie**
 
-Auswahl und Erstellung sind getrennte Vorgänge. Das vorherige Beispiel wählt ein vorhandenes Layout aus; es erstellt kein neues. Um ein Layout zu erstellen, rufen Sie die [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-)‑Methode auf der Layout‑Sammlung des Ziel‑Masters auf.
+Auswahl und Erstellung sind separate Vorgänge. Das vorherige Beispiel wählt ein vorhandenes Layout aus; es erstellt keines. Um ein Layout zu erstellen, rufen Sie die [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-)‑Methode in der Layout‑Sammlung des Ziel‑Masters auf.
 
-Das folgende Beispiel fügt stets ein neues **Titel und Inhalt**‑Layout mit dem Namen `Report Title and Content` hinzu und erstellt danach eine Normalfolie, die darauf basiert. Layoutnamen müssen innerhalb der Sammlung eindeutig sein.
+Das folgende Beispiel fügt stets ein neues **Title and Content**‑Layout mit dem Namen `Report Title and Content` hinzu und erzeugt anschließend eine normale Folie, die darauf basiert. Layout‑Namen müssen innerhalb der Sammlung eindeutig sein.
 
 ```java
 import com.aspose.slides.*;
@@ -111,26 +113,26 @@ try {
 }
 ```
 
-Fügen Sie ein Layout nur dann hinzu, wenn die Vorlage tatsächlich eine weitere wiederverwendbare Struktur benötigt. Existiert bereits ein geeignetes Layout, wählen Sie dieses aus und nutzen Sie es, anstatt ein Duplikat zu erstellen.
+Fügen Sie ein Layout nur hinzu, wenn die Vorlage tatsächlich eine weitere wiederverwendbare Struktur benötigt. Existiert ein passendes Layout bereits, wählen Sie es aus und verwenden Sie es erneut, anstatt ein Duplikat zu erstellen.
 
-## **Hinzufügen von Platzhaltern zu einer Layoutfolie**
+## **Platzhalter zu einer Layoutfolie hinzufügen**
 
-Die [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)‑Methode liefert einen [ILayoutPlaceholderManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/) zum Hinzufügen von Platzhalter‑Formen zu einem Layout.
+Die [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)‑Methode liefert einen [ILayoutPlaceholderManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/) zum Hinzufügen von Platzhalterformen zu einem Layout.
 
-| PowerPoint‑Platzhalter            | `ILayoutPlaceholderManager` Methode |
-| --------------------------------- | ----------------------------------- |
-| ![Inhalt](content.png)            | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
-| ![Inhalt (Vertikal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
-| ![Text](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
-| ![Text (Vertikal)](textV.png)     | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
-| ![Bild](picture.png)              | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
-| ![Diagramm](chart.png)            | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
-| ![Tabelle](table.png)             | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
-| ![SmartArt](smartart.png)         | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
-| ![Medien](media.png)              | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
-| ![Online‑Bild](onlineImage.png)   | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
+| PowerPoint Platzhalter | `ILayoutPlaceholderManager` Methode |
+| ---------------------- | ----------------------------------- |
+| ![Content](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Picture](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Chart](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Table](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Das folgende Beispiel prüft, ob das **Leer**‑Layout existiert, fügt ihm vier Platzhalter hinzu und erstellt anschließend eine Normalfolie, die das modifizierte Layout verwendet. Die Reihenfolge ist beabsichtigt: Die Platzhalter werden vor der Erstellung der Normalfolie hinzugefügt, sodass Aspose.Slides die entsprechenden Platzhalter‑Formen auf dieser Folie erzeugen kann.
+Das folgende Beispiel überprüft, ob das **Blank**‑Layout vorhanden ist, fügt ihm vier Platzhalter hinzu und erzeugt dann eine normale Folie, die das geänderte Layout verwendet. Die Reihenfolge ist beabsichtigt: Die Platzhalter werden hinzugefügt, bevor die normale Folie erstellt wird, sodass Aspose.Slides die entsprechenden Platzhalterformen auf dieser Folie generieren kann.
 
 ```java
 import com.aspose.slides.*;
@@ -158,17 +160,15 @@ try {
 
 Das Ergebnis:
 
-![Die Platzhalter auf der Layoutfolie](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-
-Das Ändern geerbter Formatierungen oder der Geometrie vorhandener Layout‑Platzhalter kann abhängige Folien beeinflussen. Ein neu hinzugefügter Layout‑Platzhalter wird nicht rückwirkend in bestehenden Normalfolien eingefügt. Testen Sie Layout‑Änderungen an einer Kopie der Präsentation und prüfen Sie jede abhängige Folie.
-
+Das Ändern geerbter Formatierungen oder der Geometrie vorhandener Layout‑Platzhalter kann abhängige Folien beeinflussen. Ein neu hinzugefügter Layout‑Platzhalter wird nicht nachträglich in vorhandene normale Folien eingefügt. Testen Sie Layout‑Änderungen an einer Kopie der Präsentation und prüfen Sie jede abhängige Folie.
 {{% /alert %}}
 
 ## **Entfernen ungenutzter Layoutfolien**
 
-Verwenden Sie die [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)‑Methode, um Layouts zu entfernen, auf die keine Normalfolie verweist. Die Methode lässt Layouts, die noch verwendet werden, unverändert.
+Verwenden Sie die [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)‑Methode, um Layouts zu entfernen, auf die keine normale Folie verweist. Layouts, die noch verwendet werden, bleiben unverändert erhalten.
 
 ```java
 import com.aspose.slides.*;
@@ -182,13 +182,11 @@ try {
 }
 ```
 
-Um ein bestimmtes Layout zu entfernen, prüfen Sie zunächst dessen [hasDependingSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--)‑ oder [getDependingSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getDependingSlides--)‑Methode. Weisen Sie abhängige Folien neu zu, bevor Sie [ILayoutSlide.remove](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#remove--) aufrufen. Der Versuch, ein benutztes Layout zu entfernen, löst eine [PptxEditException](https://reference.aspose.com/slides/de/java/com.aspose.slides/pptxeditexception/) aus.
+Um ein bestimmtes Layout zu entfernen, nutzen Sie zunächst dessen [hasDependingSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--)‑ oder [getDependingSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getDependingSlides--)‑Methode. Ordnen Sie abhängige Folien neu zu, bevor Sie [ILayoutSlide.remove](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#remove--) aufrufen. Der Versuch, ein verwendetes Layout zu entfernen, löst eine [PptxEditException](https://reference.aspose.com/slides/de/java/com.aspose.slides/pptxeditexception/) aus.
 
 ## **Steuerung der Fußzeilen‑Sichtbarkeit auf einer Layoutfolie**
 
-Ein Layout besitzt eigene Fußzeilen‑, Folien‑Nummern‑ und Datum‑Uhrzeit‑Platzhalter. Verwenden Sie die [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--)‑Methode, um diese Platzhalter für ein Layout zu steuern. Dies ist nützlich, wenn zum Beispiel Inhalts‑Layouts Fußzeilen anzeigen sollen, Titel‑Layouts jedoch nicht.
-
-Das folgende Beispiel wählt ein Layout sicher aus und macht dessen Fußzeilenelemente sichtbar:
+Ein Layout besitzt eigene Fußzeilen‑, Folien‑nummer‑ und Datum‑Uhrzeit‑Platzhalter. Verwenden Sie die [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--)‑Methode, um diese Platzhalter für ein Layout zu steuern. Dies ist nützlich, wenn beispielsweise Inhalts‑Layouts Fußzeilen anzeigen sollen, Titelfolien jedoch nicht.
 
 ```java
 import com.aspose.slides.*;
@@ -218,9 +216,9 @@ try {
 }
 ```
 
-## **Steuerung der Fußzeilen‑Sichtbarkeit auf einem Master und seinen Kind‑Layouts**
+## **Steuerung der Fußzeilen‑Sichtbarkeit auf einem Master und dessen untergeordneten Layouts**
 
-Um konsistente Fußzeileneinstellungen über eine Master‑Hierarchie hinweg anzuwenden, verwenden Sie die [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--)‑Methode. Die Propagations‑Methoden von [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslideheaderfootermanager/) wirken auf den Master sowie auf dessen abhängige Layout‑ und Normalfolien; sie zielen nicht nur auf eine einzelne Normalfolie.
+Um einheitliche Fußzeilen‑Einstellungen über eine Master‑Hierarchie hinweg anzuwenden, nutzen Sie die [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--)‑Methode. Die Verbreitungsmethoden des [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslideheaderfootermanager/) wirken auf den Master sowie dessen abhängige Layout‑ und Normalfolien; sie richten sich nicht nur an eine einzelne normale Folie.
 
 ```java
 import com.aspose.slides.*;
@@ -244,16 +242,16 @@ try {
 
 **Was ist der Unterschied zwischen einer Masterfolie und einer Layoutfolie?**
 
-Eine Masterfolie definiert das Design und die geteilten Formatierungen einer Präsentation. Eine Layoutfolie gehört zu einem Master und definiert eine wiederverwendbare Anordnung von Platzhaltern. Normalfolien nutzen diese Layouts und speichern folienspezifischen Inhalt.
+Eine Masterfolie definiert das Design und die geteilte Formatierung der Präsentation. Eine Layoutfolie gehört zu einem Master und legt eine wiederverwendbare Anordnung von Platzhaltern fest. Normale Folien verwenden diese Layouts und speichern den folienspezifischen Inhalt.
 
 **Kann ich eine Layoutfolie von einer Präsentation in eine andere kopieren?**
 
-Ja. Fügen Sie mit der [addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-)‑Methode eine Kopie zur Ziel‑Sammlung hinzu. Beim Kopieren zwischen Präsentationen sollten Sie zudem Schriften, Designs, Bilder und andere vom Quell‑Layout genutzte Ressourcen überprüfen.
+Ja. Fügen Sie eine Kopie zur Ziel‑Sammlung mit der [addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-)‑Methode hinzu. Beim Kopieren zwischen Präsentationen sollten Sie zudem Schriftarten, Designs, Bilder und andere vom Quell‑Layout genutzte Ressourcen prüfen.
 
-**Was passiert, wenn ich ein bereits genutztes Layout ändere?**
+**Was passiert, wenn ich ein Layout ändere, das bereits verwendet wird?**
 
-Abhängige Folien erben die Layout‑Änderungen, sofern sie die betroffenen Formatierungen oder Objekte nicht lokal überschreiben. Platzhalter‑Geometrie und vererbte Stile können daher auf vielen Folien gleichzeitig ändern. Verwenden Sie [getDependingSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getDependingSlides--), um vor der Bearbeitung des Layouts die betroffenen Folien zu ermitteln.
+Abhängige Folien erben die Layout‑Änderungen, sofern sie die betroffenen Formatierungen oder Objekte nicht lokal überschrieben haben. Die Geometrie von Platzhaltern und geerbte Stile können daher gleichzeitig auf vielen Folien geändert werden. Verwenden Sie [getDependingSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/#getDependingSlides--), um die betroffenen Folien vor der Bearbeitung des Layouts zu ermitteln.
 
-**Was passiert, wenn ich ein noch genutztes Layout entferne?**
+**Was passiert, wenn ich ein Layout entferne, das noch verwendet wird?**
 
-Aspose.Slides wirft eine [PptxEditException](https://reference.aspose.com/slides/de/java/com.aspose.slides/pptxeditexception/). Weisen Sie zuerst die abhängigen Folien neu zu oder verwenden Sie [removeUnusedLayoutSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-), um nur nicht referenzierte Layouts zu entfernen.
+Aspose.Slides wirft eine [PptxEditException](https://reference.aspose.com/slides/de/java/com.aspose.slides/pptxeditexception/). Ordnen Sie zunächst die abhängigen Folien neu zu oder nutzen Sie [removeUnusedLayoutSlides](https://reference.aspose.com/slides/de/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-), um nur nicht referenzierte Layouts zu entfernen.

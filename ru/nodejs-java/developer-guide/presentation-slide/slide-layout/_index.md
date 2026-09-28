@@ -11,11 +11,11 @@ keywords:
 - дизайн презентации
 - дизайн слайда
 - неиспользуемый макет
-- видимость колонтитула
+- видимость нижнего колонтитула
 - титульный слайд
 - заголовок и содержание
 - заголовок раздела
-- два содержимых
+- двойное содержимое
 - сравнение
 - только заголовок
 - пустой макет
@@ -29,42 +29,44 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для Node.js через Java, добавляйте заполнители, удаляйте неиспользуемые макеты и управляйте видимостью колонтитула."
+description: "Применяйте, создавайте и модифицируйте макеты слайдов в Aspose.Slides для Node.js через Java, добавляйте заполнители, удаляйте неиспользуемые макеты и управляйте видимостью нижних колонтитулов."
 ---
 ## **Обзор**
 
-Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета придаёт слайдам согласованную структуру, позволяя каждому слайду содержать собственное содержание.
+Слайд‑макет определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает слайдам согласованную структуру, позволяя каждому слайду содержать собственное содержание.
 
-Самыми распространёнными макетами являются:
+Самые часто используемые макеты включают:
 
 - **Title Slide**: Содержит заполнители заголовка и подзаголовка.
 - **Title and Content**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
-- **Blank**: Не содержит заполнителей содержимого и полезен, когда все объекты размещаются вручную.
+- **Blank**: Не содержит заполнителей содержимого и полезен, когда каждая форма будет позиционироваться вручную.
 
 ## **Понимание наследования макетов**
 
 Презентация имеет три связанных уровня:
 
-1. A [master slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) определяет тему, общие форматирования, фоны и общие объекты.
-2. A [layout slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/) принадлежит мастеру и определяет конкретное расположение заполнителей.
-3. A [normal slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/) использует один макет и хранит введённое для него содержание.
+1. A [главный слайд](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) определяет тему, общие форматирования, фон и общие объекты.
+1. A [слайд макета](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/) принадлежит главному слайду и определяет конкретное расположение заполнителей.
+1. A [обычный слайд](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/) использует один макет и хранит введённое для этого слайда содержание.
 
-Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от своего мастера. Значение, установленное непосредственно для обычного слайда, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его заполнители‑фигуры генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
+Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его формы‑заполнители генерируются из выбранного макета, тогда как содержание, введённое в эти заполнители, принадлежит обычному слайду.
 
-Добавьте необходимые заполнители к макету перед созданием слайдов из него. Добавление другого заполнителя к макету позже не добавит автоматически соответствующую форму‑заполнитель в существующие обычные слайды.
+Добавьте необходимые заполнители в макет до создания из него слайдов. Добавление другого заполнителя в макет позже не создаёт автоматически соответствующую форму‑заполнитель в уже существующих обычных слайдах.
 
-Эта связь имеет два важных следствия:
+У этих отношений есть два важных последствия:
 
-- Изменение унаследованного форматирования или геометрии существующего заполнителя на макете может обновить каждый слайд, который от него зависит. Перед редактированием уже используемого макета проверьте зависимые слайды и просмотрите получившуюся презентацию.
-- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
+- Изменение унаследованного форматирования или геометрии существующих заполнителей макета может обновить каждый слайд, зависящий от него. Перед редактированием используемого макета проверьте его зависимые слайды и результатирующую презентацию.
+- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удаляйте только неиспользуемые макеты.
 
-Для получения дополнительной информации о верхнем уровне этой иерархии см. [Slide Master](/slides/ru/nodejs-java/slide-master/).
+Для получения дополнительной информации о верхнем уровне этой иерархии см. [Слайд‑мастер](/slides/ru/nodejs-java/slide-master/).
+
+Чтобы скрыть унаследованные логотипы или декоративные элементы мастера на отдельном слайде или через общий макет, см. [Управление видимостью графики мастера](/slides/ru/nodejs-java/slide-master/). Пример сравнивает два слайда, использующие один и тот же мастер.
 
 ## **Выбор и применение макета слайда**
 
-Используйте значение [SlideLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidelayouttype/), когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируются пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+Используйте значение [SlideLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidelayouttype/), когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируемы пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
 
-В следующем примере ищется **Title and Content** на первом мастере. Если этот макет недоступен, он намеренно переключается на **Blank**. Вторичная проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+Следующий пример ищет **Title and Content** на первом мастере. Если этот макет недоступен, он намеренно переключается на **Blank**. Вторая проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/#setLayoutSlide).
 
 ```javascript
 var aspose = aspose || {};
@@ -93,13 +95,13 @@ try {
 }
 ```
 
-Изменение макета слайда не удаляет обычные формы, добавленные напрямую на слайд. Однако позиция заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно разными макетами.
+Изменение макета слайда не удаляет обычные формы, добавленные напрямую к слайду. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
 
-## **Добавление макета‑слайда**
+## **Добавление макета слайда**
 
-Выбор и создание – отдельные операции. В предыдущем примере выбирается существующий макет; он не создаётся. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) у коллекции макетов целевого мастера.
+Выбор и создание — отдельные операции. В предыдущем примере выбирается существующий макет; он не создаётся. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) в коллекции макетов целевого мастера.
 
-В следующем примере всегда добавляется новый макет **Title and Content** с именем `Report Title and Content`, затем на его основе создаётся обычный слайд. Имена макетов должны быть уникальными в пределах коллекции.
+Следующий пример всегда добавляет новый макет **Title and Content** с именем `Report Title and Content`, а затем добавляет обычный слайд на его основе. Имена макетов должны быть уникальными в пределах коллекции.
 
 ```javascript
 var aspose = aspose || {};
@@ -119,26 +121,26 @@ try {
 }
 ```
 
-Добавляйте макет только тогда, когда шаблон действительно нуждается в новой переиспользуемой структуре. Если подходящий макет уже существует, выберите и используйте его вместо создания дубликата.
+Добавляйте макет только тогда, когда шаблон действительно нуждается в новой переиспользуемой структуре. Если подходящий макет уже существует, выбирайте и переиспользуйте его вместо создания дубликата.
 
-## **Добавление заполнителей к макету‑слайду**
+## **Добавление заполнителей в макетный слайд**
 
-Метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) предоставляет объект [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/) для добавления форм‑заполнителей к макету.
+Метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) предоставляет [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/) для добавления форм‑заполнителей в макет.
 
-| Заполнитель PowerPoint              | ``LayoutPlaceholderManager`` Метод |
-| ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| Заполнитель PowerPoint | `LayoutPlaceholderManager` Метод |
+| ---------------------- | -------------------------------- |
+| ![Содержание](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Содержание (Вертикальное)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Текст](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Текст (Вертикальное)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Изображение](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Диаграмма](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Таблица](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Медиа](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Онлайн‑изображение](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-В следующем примере проверяется наличие макета **Blank**, к нему добавляются четыре заполнителя, после чего создаётся обычный слайд, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог генерировать соответствующие формы‑заполнители на этом слайде.
+Следующий пример проверяет наличие макета **Blank**, добавляет к нему четыре заполнителя и затем создаёт обычный слайд, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог сгенерировать соответствующие формы‑заполнители на этом слайде.
 
 ```javascript
 var aspose = aspose || {};
@@ -169,15 +171,15 @@ try {
 
 Результат:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Заполнители на макетном слайде](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Ново‑добавленный заполнитель макета не заполняется автоматически в существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+Изменение унаследованного форматирования или геометрии существующих заполнителей макета может затронуть зависимые слайды. Ново‑добавленный заполнитель макета не заполняется автоматически в уже существующих обычных слайдах. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
 {{% /alert %}}
 
-## **Удаление неиспользуемых макетов‑слайдов**
+## **Удаление неиспользуемых макетов слайдов**
 
-Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылаются обычные слайды. Метод оставляет в системе макеты, которые всё ещё используются.
+Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылается ни один обычный слайд. Метод оставляет нетронутыми макеты, которые всё ещё используются.
 
 ```javascript
 var aspose = aspose || {};
@@ -192,13 +194,13 @@ try {
 }
 ```
 
-Чтобы удалить конкретный макет, сначала используйте его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте любые зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/).
+Чтобы удалить конкретный макет, сначала используйте его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте любые зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет вызывает исключение [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/).
 
-## **Управление видимостью колонтитулов на макете‑слайде**
+## **Управление видимостью нижних колонтитулов на макетном слайде**
 
-У макета есть собственные заполнители колонтитулов, номеров слайдов и даты/времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) для управления этими заполнителями у одного макета. Это полезно, например, когда заполнители контента должны показывать колонтитулы, а заполнители заголовков — нет.
+У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) для управления этими заполнителями в одном макете. Это полезно, когда, например, макеты содержимого должны показывать колонтитулы, а макеты заголовков — нет.
 
-В следующем примере безопасно выбирается макет и делают его элементы колонтитула видимыми:
+Следующий пример безопасно выбирает макет и делает его элементы нижнего колонтитула видимыми:
 
 ```javascript
 var aspose = aspose || {};
@@ -232,9 +234,9 @@ try {
 }
 ```
 
-## **Управление видимостью колонтитулов на мастере и его дочерних макетах**
+## **Управление видимостью нижних колонтитулов на мастере и его дочерних макетах**
 
-Чтобы применить согласованные настройки колонтитулов по всей иерархии мастера, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslideheaderfootermanager/) работают с мастером, его зависимыми макетами‑слайдами и обычными слайдами; они не нацелены только на один обычный слайд.
+Чтобы применить согласованные настройки колонтитулов по всей иерархии мастера, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslideheaderfootermanager/) работают на мастере и его зависимых макетных и обычных слайдах; они не ориентированы только на один обычный слайд.
 
 ```javascript
 var aspose = aspose || {};
@@ -257,18 +259,18 @@ try {
 
 ## **FAQ**
 
-**В чём разница между мастер‑слайдом и макетом‑слайдом?**
+**В чем разница между мастером слайда и макетным слайдом?**
 
-Мастер‑слайд определяет тему презентации и общие форматирования. Макет‑слайд принадлежит мастеру и определяет одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят содержание, специфичное для конкретного слайда.
+Мастер слайда определяет тему презентации и общие параметры форматирования. Макетный слайд принадлежит мастеру и определяет одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят содержание, специфичное для конкретного слайда.
 
-**Можно ли скопировать макет‑слайд из одной презентации в другую?**
+**Могу ли я скопировать макетный слайд из одной презентации в другую?**
 
 Да. Добавьте копию в целевую коллекцию с помощью метода [addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
-**Что происходит, если изменить макет, который уже используется?**
+**Что происходит, когда я изменяю уже используемый макет?**
 
-Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованный стиль могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды перед редактированием макета.
+Зависимые слайды наследуют изменения макета, если они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды до редактирования макета.
 
-**Что произойдёт, если попытаться удалить макет, который всё ещё используется?**
+**Что произойдет, если я удалю макет, который всё ещё используется?**
 
-Aspose.Slides бросит [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления только непереключённых макетов.
+Aspose.Slides генерирует исключение [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления только неупомянутых макетов.

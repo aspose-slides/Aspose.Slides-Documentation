@@ -1,54 +1,54 @@
 ---
-title: Gérer les slide masters de présentation en Python via Java
-linktitle: Masque de diapositive
+title: Gérer les masters de diapositives de présentation en Python via Java
+linktitle: Master de diapositive
 type: docs
 weight: 70
 url: /fr/python-java/slide-master/
 keywords:
-- masque de diapositive
-- diapositive maître
-- diapositive maître PPT
-- plusieurs diapositives maîtres
-- comparer les diapositives maîtres
+- master de diapositive
+- diapositive master
+- diapositive master PPT
+- plusieurs masters de diapositives
+- comparer les masters de diapositives
 - arrière-plan
 - espace réservé
-- cloner la diapositive maître
-- copier la diapositive maître
-- dupliquer la diapositive maître
-- diapositive maître inutilisée
+- cloner la diapositive master
+- copier la diapositive master
+- dupliquer la diapositive master
+- master de diapositive inutilisé
 - PowerPoint
 - OpenDocument
 - présentation
 - Python
 - Java
 - Aspose.Slides
-description: "Gérer les masques de diapositives dans Aspose.Slides pour Python via Java: accéder, modifier, cloner, comparer et supprimer les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
+description: "Gérer les masters de diapositives dans Aspose.Slides pour Python via Java : accéder, modifier, cloner, comparer et supprimer les masters de diapositives dans les présentations PowerPoint et OpenDocument."
 ---
 ## **Vue d'ensemble**
 
-Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la façon habituelle de maintenir une présentation cohérente sans répéter le même formatage sur chaque diapositive.
+Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière-plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la méthode habituelle pour garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Aspose.Slides for Python via Java prend en charge le même modèle. Une présentation peut contenir une ou plusieurs slide masters, et chaque slide master peut contenir plusieurs layout slides. Les diapositives normales ne font généralement pas référence directement à un slide master. Au lieu de cela, une diapositive normale utilise un layout slide, et ce layout slide appartient à un slide master.
+Aspose.Slides for Python via Java prend en charge le même modèle. Une présentation peut contenir un ou plusieurs slide masters, et chaque slide master peut contenir plusieurs layout slides. Les diapositives normales ne font généralement pas référence directement à un slide master. À la place, une diapositive normale utilise un layout slide, et ce layout slide appartient à un slide master.
 
 La hiérarchie est :
 
-1. **Slide master** – définit la conception et le thème partagés.  
-1. **Layout slide** – définit une disposition spécifique des espaces réservés et du formatage au niveau de la mise en page.  
-1. **Normal slide** – contient le contenu réel de la présentation et utilise un layout slide.
+1. **Slide master** - définit la conception et le thème partagés.  
+1. **Layout slide** - définit une disposition spécifique d'espace réservés et de formatage au niveau de la disposition.  
+1. **Normal slide** - contient le contenu réel de la présentation et utilise une disposition de diapositive.
 
 ![La hiérarchie des slide masters, layout slides et normal slides](slide-master_2.jpg)
 
-Dans Aspose.Slides, un slide master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/). Toutes les slide masters d’une présentation sont accessibles via la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getMasters), qui est représentée par [MasterSlideCollection](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslidecollection/).
+Dans Aspose.Slides, un slide master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/). Tous les slide masters d’une présentation sont accessibles via la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getMasters), qui est représentée par [MasterSlideCollection](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un slide master et un layout slide définissent tous deux un arrière‑plan, les diapositives basées sur ce layout utilisent l’arrière‑plan du layout. Pour plus d’informations sur les layout slides, voir [Appliquer ou modifier les mises en page des diapositives](/slides/fr/python-java/slide-layout/).
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un slide master et un layout slide définissent tous deux un arrière‑plan, les diapositives basées sur ce layout utilisent l’arrière‑plan du layout. Pour plus d’informations sur les layout slides, voir [Apply or Change Slide Layouts](/slides/fr/python-java/slide-layout/).
 {{% /alert %}}
 
 ## **Accéder aux slide masters**
 
 Dans PowerPoint, vous pouvez ouvrir la vue Slide Master depuis **View** > **Slide Master**.
 
-![Commande Slide Master dans l’onglet View de PowerPoint](slide-master_3.jpg)
+![La commande Slide Master dans l’onglet View de PowerPoint](slide-master_3.jpg)
 
 Dans Aspose.Slides, utilisez la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getMasters) pour accéder aux slide masters :
 
@@ -96,24 +96,24 @@ finally:
     presentation.dispose()
 ```
 
-## **Ce que contient un slide master**
+## **Contenu d’un slide master**
 
-Un slide master est un objet semblable à une diapositive. Il hérite de [BaseSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/), il expose donc de nombreuses propriétés de diapositive utilisées par les diapositives normales et les layout slides. Les membres spécifiques au master sont répertoriés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/).
+Un slide master est un objet semblable à une diapositive. Il hérite de [BaseSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/), il expose donc de nombreuses propriétés de diapositive également utilisées par les diapositives normales et les layouts. Les membres spécifiques au master sont répertoriés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/).
 
-Les membres de slide master les plus couramment utilisés incluent :
+Les membres les plus couramment utilisés sont :
 
-| Membre | Utilité |
+| Membre | Objectif |
 | --- | --- |
 | [getBackground](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getBackground) | Définit l’arrière‑plan de la diapositive au niveau du master. |
-| [getShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getShapes) | Stocke les formes placées sur le master, comme les logos, les cadres d’image et le texte partagé. |
-| [getLayoutSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getLayoutSlides) | Stocke les layout slides qui appartiennent au master. |
+| [getShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getShapes) | Contient les formes placées sur le master, comme les logos, les cadres d’image et le texte partagé. |
+| [getLayoutSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getLayoutSlides) | Contient les layout slides qui appartiennent au master. |
 | [getThemeManager](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getThemeManager) | Fournit l’accès aux API du thème du master. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le master et ses layouts enfants. |
-| [getDependingSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getDependingSlides) | Renvoie les diapositives normales qui dépendent du master via leurs layouts. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le master et ses dispositions enfants. |
+| [getDependingSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getDependingSlides) | Renvoie les diapositives normales qui dépendent du master via leurs dispositions. |
 
 ## **Ajouter une image à un slide master**
 
-Lorsque vous ajoutez une image à un slide master, elle apparaît sur les diapositives qui utilisent des layouts de ce master. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
+Lorsque vous ajoutez une image à un slide master, elle apparaît sur les diapositives qui utilisent les layouts de ce master. C’est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
 
 L’exemple suivant ajoute un logo au premier slide master :
 
@@ -141,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-Pour plus d’informations sur les cadres d’image, voir [Cadre d’image](/slides/fr/python-java/picture-frame/).
+Pour plus d’informations sur les cadres d’image, voir [Picture Frame](/slides/fr/python-java/picture-frame/).
+
+## **Contrôler la visibilité des graphiques du master**
+
+Utilisez [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#setShowMasterShapes) pour masquer les graphiques hérités du master, tels que les logos ou formes décoratives, sans les supprimer du master. Passez `False` à [Slide.setShowMasterShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#setShowMasterShapes) sur la diapositive qui doit omettre ces graphiques et conservez `True` sur les diapositives qui doivent les afficher.
+
+L’exemple autonome suivant crée une bande décorative bleue sur un master et deux diapositives qui utilisent le même layout vierge. La bande est visible sur la première diapositive et masquée sur la seconde. Aucun fichier de présentation ou image d’entrée n’est requis.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+L’exemple utilise le layout **Blank** fourni avec une nouvelle présentation et supprime les espaces réservés propres à la diapositive initiale.
+
+### **Choisir la portée du réglage**
+
+Une diapositive normale utilise son master via [Slide.getLayoutSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getLayoutSlide) et [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/layoutslide/#getMasterSlide). Le réglage de la propriété sur une diapositive individuelle n’affecte que cette diapositive. Passer `False` à [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/layoutslide/#setShowMasterShapes) masque les graphiques du master pour toutes les diapositives qui utilisent ce layout partagé, même si leur propre réglage est `True`. Pour masquer les graphiques sur une seule diapositive, modifiez la propriété de la diapositive et laissez le layout partagé inchangé.
+
+Le réglage n’est pas supporté comme contrôle de visibilité sur le slide master lui‑même. Sur un master, [getShowMasterShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#getShowMasterShapes) renvoie toujours `False`, et passer `True` à [setShowMasterShapes](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslide/#setShowMasterShapes) lève une exception. Appliquez‑le à une diapositive normale ou à un layout à la place.
+
+### **Différencier les graphiques de l’arrière‑plan**
+
+| Opération | Effet |
+| --- | --- |
+| Masquer les graphiques du master | Contrôle la visibilité des formes héritées du master sans les supprimer ni modifier les propres formes de la diapositive. |
+| Modifier le remplissage d’arrière‑plan de la diapositive | Modifie la couleur, le dégradé ou l’image d’arrière‑plan. Les graphiques du master sont des formes séparées et peuvent rester visibles au‑dessus de cet arrière‑plan. Voir [Presentation Background](/slides/fr/python-java/presentation-background/). |
+| Supprimer une forme du master | Supprime la forme source partagée, de sorte qu’elle ne soit plus disponible pour aucune diapositive utilisant ce master. |
 
 ## **Travailler avec les espaces réservés**
 
 Les espaces réservés sont généralement définis sur les layout slides. Le slide master fournit le style et le thème partagés que ces layouts héritent, tandis que chaque layout décide quels espaces réservés sont disponibles et où ils sont placés.
 
-Dans PowerPoint, les commandes d’espace réservé sont disponibles dans la vue Slide Master.
+Dans PowerPoint, les commandes d’espace réservé sont disponibles en vue Slide Master.
 
-![Commande Insérer un espace réservé dans la vue Slide Master de PowerPoint](slide-master_5.png)
+![La commande Insert Placeholder dans la vue Slide Master de PowerPoint](slide-master_5.png)
 
-Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez avec le layout slide qui appartient au master :
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur le layout slide qui appartient au master :
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Vous pouvez également mettre en forme les formes d’espace réservé déjà présentes sur un slide master. L’exemple suivant trouve l’espace réservé de titre et applique un remplissage en dégradé linéaire :
+Vous pouvez également formater les formes d’espace réservé déjà présentes sur un slide master. L’exemple suivant trouve l’espace réservé titre et applique un remplissage en dégradé linéaire :
 
 ```python
 import jpype
@@ -216,9 +276,9 @@ finally:
     presentation.dispose()
 ```
 
-![Espace réservé de titre formaté hérité par les diapositives normales](slide-master_8.png)
+![Espace réservé titre formaté hérité par les diapositives normales](slide-master_8.png)
 
-Pour plus d’options de mise en forme des espaces réservés et du texte, voir [Définir le texte d’invite dans l’espace réservé](/slides/fr/python-java/manage-placeholder/) et [Mise en forme du texte](/slides/fr/python-java/text-formatting/).
+Pour plus d’options de formatage des espaces réservés et du texte, voir [Set Prompt Text in Placeholder](/slides/fr/python-java/manage-placeholder/) et [Text Formatting](/slides/fr/python-java/text-formatting/).
 
 ## **Modifier l’arrière‑plan d’un slide master**
 
@@ -249,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-Pour les sujets associés, voir [Arrière‑plan de la présentation](/slides/fr/python-java/presentation-background/) et [Thème de la présentation](/slides/fr/python-java/presentation-theme/).
+Pour les sujets associés, voir [Presentation Background](/slides/fr/python-java/presentation-background/) et [Presentation Theme](/slides/fr/python-java/presentation-theme/).
 
 ## **Cloner un slide master vers une autre présentation**
 
-Utilisez [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslidecollection/#addClone) pour copier un slide master dans une autre présentation. Le master copié peut alors être utilisé par les layouts et les diapositives de la présentation de destination.
+Utilisez [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslidecollection/#addClone) pour copier un slide master dans une autre présentation. Le master copié peut alors être utilisé par les layouts et les diapositives de la présentation cible.
 
 ```python
 import jpype
@@ -276,7 +336,7 @@ finally:
     destination_presentation.dispose()
 ```
 
-Si vous devez cloner des diapositives normales avec leur master, voir [Cloner des diapositives](/slides/fr/python-java/clone-slides/).
+Si vous devez cloner des diapositives normales avec leur master, voir [Clone Slides](/slides/fr/python-java/clone-slides/).
 
 ## **Ajouter plusieurs slide masters**
 
@@ -284,7 +344,7 @@ Une présentation peut contenir plusieurs slide masters. Cela est utile lorsque 
 
 ![Commandes PowerPoint pour insérer et gérer les slide masters](slide-master_9.jpg)
 
-L’exemple suivant clone le master par défaut, donne au clone un arrière‑plan différent, crée un layout sous ce master cloné et ajoute une nouvelle diapositive basée sur ce layout :
+L’exemple suivant clone le master par défaut, donne au clone un arrière‑plan différent, crée un layout sous ce master cloné, puis ajoute une nouvelle diapositive basée sur ce layout :
 
 ```python
 import jpype
@@ -319,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Comparer les slide masters**
+## **Comparer des slide masters**
 
-Les slide masters peuvent être comparés avec la méthode [equals](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#equals) héritée de [BaseSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
+Les slide masters peuvent être comparés avec la méthode [equals](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#equals) héritée de [BaseSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les IDs de diapositives, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
 
 ```python
 import jpype
@@ -351,7 +411,7 @@ finally:
     second_presentation.dispose()
 ```
 
-Pour plus d’informations, voir [Comparer les diapositives d’une présentation](/slides/fr/python-java/compare-slides/).
+Pour plus d’informations, voir [Compare Presentation Slides](/slides/fr/python-java/compare-slides/).
 
 ## **Définir la vue Slide Master comme vue par défaut**
 
@@ -374,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-Pour plus de paramètres d’affichage, voir [Enregistrer la présentation](/slides/fr/python-java/save-presentation/).
+Pour d’autres paramètres de vue, voir [Save Presentation](/slides/fr/python-java/save-presentation/).
 
 ## **Supprimer les slide masters inutilisés**
 
-Les présentations contiennent parfois des slide masters qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masters inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+Les présentations contiennent parfois des slide masters qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masters inutilisés peut réduire la taille du fichier et simplifier la maintenance des modèles.
 
-Utilisez [removeUnused](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslidecollection/#removeUnused) pour enlever les masters inutilisés de la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getMasters) :
+Utilisez [removeUnused](https://reference.aspose.com/slides/fr/python-java/aspose.slides/masterslidecollection/#removeUnused) pour retirer les masters inutilisés de la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getMasters) :
 
 ```python
 import jpype
@@ -399,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-Vous pouvez également utiliser la méthode low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/compress/#removeUnusedMasterSlides) :
+Vous pouvez également employer la méthode low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/compress/#removeUnusedMasterSlides) :
 
 ```python
 import jpype
@@ -422,16 +482,16 @@ finally:
 
 **Quelle est la différence entre un slide master et un layout slide ?**
 
-Un slide master définit les paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Un layout slide appartient à un slide master et définit une disposition spécifique des espaces réservés. Une diapositive normale utilise un layout slide, elle hérite donc à la fois du layout et du master.
+Un slide master définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Un layout slide appartient à un slide master et définit une disposition spécifique d’espaces réservés. Une diapositive normale utilise un layout slide, elle hérite donc à la fois du layout et du master.
 
 **Une présentation peut‑elle contenir plusieurs slide masters ?**
 
-Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs masters lorsque différentes sections nécessitent des systèmes visuels ou des identités de marque différents.
+Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs masters lorsque différentes sections requièrent des systèmes visuels ou une identité de marque différents.
 
-**Dois‑je ajouter des espaces réservés à un slide master ou à un layout slide ?**
+**Dois‑je ajouter les espaces réservés à un slide master ou à un layout slide ?**
 
-Dans la plupart des cas, ajoutez les espaces réservés aux layout slides. Placez les éléments visuels partagés et le formatage commun sur le slide master, puis placez les espaces réservés de contenu sur les layouts que les diapositives normales utiliseront.
+Dans la plupart des cas, ajoutez les espaces réservés aux layout slides. Placez les éléments visuels partagés et le formatage commun sur le slide master, puis mettez les espaces réservés de contenu sur les layouts que les diapositives normales utiliseront.
 
 **Puis‑je supprimer un slide master qui est encore utilisé ?**
 
-Non. Un slide master qui possède des diapositives dépendantes ne peut pas être supprimé en toute sécurité. Déplacez d’abord ces diapositives vers des layouts sous un autre master, ou utilisez une méthode de nettoyage qui supprime uniquement les masters qui ne sont pas utilisés.
+Non. Un slide master qui possède des diapositives dépendantes ne peut pas être supprimé directement en toute sécurité. Déplacez d’abord ces diapositives vers des layouts sous un autre master, ou utilisez une méthode de nettoyage des masters inutilisés qui ne supprime que les masters qui ne sont pas utilisés.

@@ -12,10 +12,10 @@ keywords:
 - дизайн слайда
 - неиспользуемый макет
 - видимость нижнего колонтитула
-- заглавный слайд
-- заголовок и содержание
+- титульный слайд
+- заголовок и содержимое
 - заголовок раздела
-- два содержимого
+- два содержимых
 - сравнение
 - только заголовок
 - пустой макет
@@ -28,42 +28,44 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для PHP через Java, добавляйте заполнители, удаляйте неиспользуемые макеты и управляйте видимостью нижнего колонтитула."
+description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для PHP через Java, добавляйте заполнители, удаляйте неиспользуемые макеты и контролируйте видимость нижнего колонтитула."
 ---
 ## **Обзор**
 
-Макет слайда определяет расположение и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает слайдам единообразную структуру, позволяя каждому слайду содержать собственное содержание.
+Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета даёт слайдам единообразную структуру, позволяя каждому слайду содержать собственный контент.
 
-Самые распространённые макеты включают:
+Самыми распространёнными макетами являются:
 
-- **Title Slide**: Содержит заполнители заголовка и подзаголовка.
-- **Title and Content**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
-- **Blank**: Не содержит заполнителей содержимого и полезен, когда каждую форму нужно позиционировать вручную.
+- **Титульный слайд**: содержит заполнители заголовка и подзаголовка.  
+- **Заголовок и содержимое**: содержит заполнитель заголовка и общий заполнитель содержимого.  
+- **Пустой**: не содержит заполнителей содержимого и удобен, когда все фигуры размещаются вручную.
 
-## **Понимание наследования макета**
+## **Понимание наследования макетов**
 
 Презентация имеет три взаимосвязанных уровня:
 
-1. A [master slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslide/) определяет тему, общие форматы, фоны и общие объекты.
-1. A [layout slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/) принадлежит мастеру и определяет конкретное расположение заполнителей.
-1. A [normal slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/) использует один макет и хранит введённое для этого слайда содержание.
+1. [master slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslide/) определяет тему, общие параметры форматирования, фоны и общие объекты.  
+1. [layout slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/) принадлежит мастеру и задаёт конкретное расположение заполнителей.  
+1. [normal slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/) использует один макет и хранит введённый для него контент.
 
-Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от мастера. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. Когда создаётся обычный слайд, его формы‑заполнители генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
+Обычный слайд наследует тему и форматирование от своего макета, а макет — от своего мастера. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его фигуры‑заполнители генерируются из выбранного макета, тогда как контент, введённый в эти заполнители, принадлежит обычному слайду.
 
-Добавьте необходимые заполнители в макет до создания из него слайдов. Добавление другого заполнителя в макет позже не добавит автоматически соответствующую форму‑заполнитель к уже существующим обычным слайдам.
+Добавьте необходимые заполнители в макет до создания из него слайдов. Добавление позже нового заполнителя в макет не создаст автоматически соответствующую фигуру‑заполнитель в уже существующих обычных слайдах.
 
-Эти отношения имеют два важных следствия:
+Эти отношения имеют две важные последствия:
 
-- Изменение унаследованного форматирования или геометрии существующих заполнителей в макете может обновить каждый слайд, зависящий от него. Перед редактированием уже используемого макета проверьте его зависимые слайды и просмотрите получившуюся презентацию.
+- Изменение унаследованного форматирования или геометрии существующего заполнителя в макете может обновить каждый слайд, который от него зависит. Прежде чем редактировать макет, уже используемый в презентации, проверьте его зависимые слайды и просмотрите получившуюся презентацию.  
 - Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удаляйте только неиспользуемые макеты.
 
-Для получения дополнительной информации о верхнем уровне этой иерархии смотрите [Slide Master](/slides/ru/php-java/slide-master/).
+Для получения дополнительной информации о верхнем уровне этой иерархии см. [Slide Master](/slides/ru/php-java/slide-master/).
+
+Чтобы скрыть унаследованные логотипы или декоративные фигуры мастера на одном слайде или через общий макет, см. [Control the Visibility of Master Graphics](/slides/ru/php-java/slide-master/). Пример сравнивает два слайда, использующие один и тот же мастер.
 
 ## **Выбор и применение макета слайда**
 
-Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов могут редактироваться пользователем и локализоваться, поэтому выбор по имени менее надёжен, если только вы не контролируете исходный шаблон.
+Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируются пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если только вы не контролируете исходный шаблон.
 
-В следующем примере ищется **Title and Content** на первом мастере. Если этот макет недоступен, происходит намеренный переход к **Blank**. Вторая проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду с помощью метода [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/#setLayoutSlide).
+В следующем примере ищется **Title and Content** на первом мастере. Если этот макет недоступен, происходит намеренный переход к **Blank**. Вторую проверку на `null` необходимо выполнить, потому что презентация может содержать только пользовательские макеты. Выбранный макет затем применяется к первому обычному слайду методом [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-Изменение макета слайда не удаляет обычные формы, добавленные непосредственно на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
+Изменение макета слайда не удаляет обычные фигуры, добавленные непосредственно в слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
 
 ## **Добавление макета слайда**
 
-Выбор и создание — это отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт его. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterlayoutslidecollection/#add) у коллекции макетов целевого мастера.
+Выбор и создание — отдельные операции. В предыдущем примере выбирается существующий макет; он не создаётся. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterlayoutslidecollection/#add) у коллекции макетов целевого мастера.
 
-В следующем примере всегда добавляется новый **Title and Content** макет с именем `Report Title and Content`, после чего добавляется обычный слайд, основанный на нём. Имена макетов должны быть уникальными в пределах коллекции.
+В следующем примере всегда добавляется новый макет **Title and Content** с именем `Report Title and Content`, после чего создаётся обычный слайд на его основе. Имена макетов должны быть уникальны в пределах коллекции.
 
 ```php
 use aspose\slides\Presentation;
@@ -115,14 +117,14 @@ try {
 }
 ```
 
-Добавляйте макет только тогда, когда шаблон действительно нуждается в дополнительной переиспользуемой структуре. Если подходящий макет уже существует, выберите и повторно используйте его вместо создания дубликата.
+Добавляйте макет только тогда, когда шаблон действительно нуждается в ещё одной повторно используемой структуре. Если подходящий макет уже существует, выберите и переиспользуйте его вместо создания дубликата.
 
-## **Добавление заполнителей к макету слайда**
+## **Добавление заполнителей в макет слайда**
 
-Метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getPlaceholderManager) предоставляет [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/) для добавления форм‑заполнителей в макет.
+Метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getPlaceholderManager) возвращает объект [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/) для добавления фигур‑заполнителей в макет.
 
-| Заполнитель PowerPoint | `LayoutPlaceholderManager` Method |
-| ---------------------- | --------------------------------- |
+| Заполнитель PowerPoint | `LayoutPlaceholderManager` Метод |
+| ---------------------- | -------------------------------- |
 | ![Содержание](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Содержание (вертикальное)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
 | ![Текст](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
@@ -131,10 +133,10 @@ try {
 | ![Диаграмма](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
 | ![Таблица](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
 | ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Медиа](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
 | ![Онлайн‑изображение](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-В следующем примере проверяется наличие макета **Blank**, в него добавляются четыре заполнителя, после чего создаётся обычный слайд, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог генерировать соответствующие формы‑заполнители на этом слайде.
+В следующем примере проверяется наличие макета **Blank**, в него добавляются четыре заполнителя, а затем создаётся обычный слайд, использующий модифицированный макет. Порядок намеренно выбран: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог сгенерировать соответствующие фигуры‑заполнители на этом слайде.
 
 ```php
 use aspose\slides\Presentation;
@@ -167,12 +169,12 @@ try {
 ![Заполнители на макете слайда](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Изменение унаследованного форматирования или геометрии существующих заполнителей в макете может повлиять на зависимые слайды. Недавно добавленный заполнитель макета не заполняется автоматически в существующих обычных слайдах. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Нововведённый заполнитель макета не будет автоматически добавлен в уже существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
 {{% /alert %}}
 
 ## **Удаление неиспользуемых макетов слайдов**
 
-Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылается ни один обычный слайд. Метод оставляет нетронутыми макеты, которые всё ещё используются.
+Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылаются обычные слайды. Метод сохраняет макеты, находящиеся в использовании.
 
 ```php
 use aspose\slides\Compress;
@@ -188,13 +190,13 @@ try {
 }
 ```
 
-Чтобы удалить конкретный макет, сначала используйте его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте все зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pptxeditexception/).
+Чтобы удалить конкретный макет, сначала вызовите его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте все зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет приводит к исключению [PptxEditException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pptxeditexception/).
 
 ## **Управление видимостью нижнего колонтитула на макете слайда**
 
-У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты/времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getHeaderFooterManager), чтобы управлять этими заполнителями для одного макета. Это полезно, например, когда макеты содержимого должны показывать нижний колонтитул, а макеты заголовков — нет.
+У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты/времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) для управления этими заполнителями в рамках одного макета. Это полезно, например, когда макеты содержимого должны отображать нижний колонтитул, а титульные — нет.
 
-В следующем примере безопасно выбирается макет и делаются видимыми его элементы нижнего колонтитула:
+В следующем примере безопасно выбирается макет и делаются его элементы нижнего колонтитула видимыми:
 
 ```php
 use aspose\slides\Presentation;
@@ -228,7 +230,7 @@ try {
 
 ## **Управление видимостью нижнего колонтитула на мастере и его дочерних макетах**
 
-Чтобы применить единые настройки нижнего колонтитула по всей иерархии мастера, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslideheaderfootermanager/) работают на мастер, его зависимые макеты слайдов и обычные слайды; они не нацелены только на один обычный слайд.
+Чтобы задать согласованные настройки нижних колонтитулов по всей иерархии мастера, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslideheaderfootermanager/) работают как с мастером, так и с его зависимыми макетами и обычными слайдами; они не направлены только на один обычный слайд.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,18 +253,18 @@ try {
 
 ## **FAQ**
 
-**В чём разница между мастером слайда и макетом слайда?**
+**В чём разница между мастер‑слайдом и макетом слайда?**
 
-Мастер‑слайд определяет тему презентации и общие форматы. Макет‑слайд принадлежит мастеру и задаёт одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят содержимое, специфичное для слайда.
+Мастер‑слайд определяет тему презентации и общие параметры форматирования. Макет‑слайд принадлежит мастеру и задаёт один повторно используемый набор заполнителей. Обычные слайды используют эти макеты и хранят контент, специфичный для конкретного слайда.
 
-**Можно ли скопировать макет‑слайда из одной презентации в другую?**
+**Можно ли скопировать макет‑слайд из одной презентации в другую?**
 
 Да. Добавьте копию в целевую коллекцию с помощью метода [addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/globallayoutslidecollection/#addClone). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
-**Что происходит, когда я изменяю макет, который уже используется?**
+**Что происходит, если я изменяю макет, который уже используется?**
 
-Зависимые слайды наследуют изменения макета, если они не переопределяют затронутое форматирование или объекты локально. Поэтому геометрия заполнителей и унаследованные стили могут измениться сразу на множестве слайдов. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды перед редактированием макета.
+Зависимые слайды наследуют изменения макета, если они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут изменить внешний вид множества слайдов одновременно. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды перед редактированием макета.
 
-**Что произойдёт, если удалить макет, который всё ещё используется?**
+**Что произойдёт, если попытаться удалить макет, который всё ещё используется?**
 
-Aspose.Slides генерирует [PptxEditException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), чтобы удалить только неиспользуемые макеты.
+Aspose.Slides выбросит исключение [PptxEditException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления только неиспользуемых макетов.

@@ -1,56 +1,58 @@
 ---
-title: 使用 Python via Java 管理簡報投影片母片
-linktitle: 投影片母片
+title: 在 Python via Java 中管理簡報投影片母版
+linktitle: 投影片母版
 type: docs
 weight: 70
 url: /zh-hant/python-java/slide-master/
 keywords:
-- 投影片母片
-- 母片投影片
-- PPT 母片投影片
-- 多個母片投影片
-- 比較母片投影片
+- 投影片母版
+- 母版投影片
+- PPT 母版投影片
+- 多個母版投影片
+- 比較母版投影片
 - 背景
-- 佔位元
-- 複製母片投影片
-- 拷貝母片投影片
-- 重複母片投影片
-- 未使用的母片投影片
+- 占位元件
+- 複製母版投影片
+- 拷貝母版投影片
+- 重複母版投影片
+- 未使用的母版投影片
 - PowerPoint
 - OpenDocument
 - 簡報
 - Python
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Python via Java 中管理投影片母片：在 PowerPoint 與 OpenDocument 簡報中存取、編輯、複製、比較及移除母片投影片。"
+description: "在 Aspose.Slides for Python via Java 中管理投影片母版：存取、編輯、複製、比較與移除 PowerPoint 與 OpenDocument 簡報中的母版投影片。"
 ---
 ## **概觀**
 
-一個 **投影片母片** 定義了一組投影片的共用設計設定。它可以包含共用的圖形、標誌、背景、文字樣式、主題設定以及頁眉頁腳設定。在 PowerPoint 中，編輯投影片母片是保持簡報一致性的常用方式，無需在每張投影片上重複相同的格式設定。
+**投影片母版** 定義一組投影片的共用設計設定。它可以包含共用圖形、標誌、背景、文字樣式、主題設定以及頁尾設定。在 PowerPoint 中，編輯投影片母版是保持簡報一致性的常用方式，無需在每張投影片上重複相同的格式設定。
 
-Aspose.Slides for Python via Java 支援相同的模型。簡報可以包含一個或多個母片投影片，而每個母片投影片可以包含多個版面投影片。普通投影片通常不會直接參考母片投影片。相反地，普通投影片會使用版面投影片，而該版面投影片屬於某個母片投影片。
+Aspose.Slides for Python via Java 支援相同的模型。一個簡報可以包含一個或多個母版投影片，而每個母版投影片可以包含多個版面投影片。普通投影片通常不會直接參照母版投影片。相反，普通投影片會使用版面投影片，而該版面投影片屬於某個母版投影片。
 
 層級結構如下：
 
-1. **投影片母片** - 定義共用的設計與主題。  
-1. **版面投影片** - 定義佔位元的特定排列與版面層級的格式設定。  
-1. **普通投影片** - 包含實際的簡報內容，使用一個版面投影片。
+1. **投影片母版** ─ 定義共用的設計與主題。  
+1. **版面投影片** ─ 定義占位元件的具體排列與版面層級格式。  
+1. **普通投影片** ─ 包含實際的簡報內容，並使用一個版面投影片。
 
-![投影片母片、版面投影片與普通投影片的層級結構](slide-master_2.jpg)
+![母版投影片、版面投影片與普通投影片的層級結構](slide-master_2.jpg)
 
-在 Aspose.Slides 中，投影片母片以 [MasterSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/) 類別表示。簡報中所有的母片投影片可透過 [Presentation.getMasters](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getMasters) 集合取得，該集合以 [MasterSlideCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslidecollection/) 表示。
+在 Aspose.Slides 中，投影片母版由 [MasterSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/) 類別表示。簡報中所有的母版投影片可透過 [Presentation.getMasters](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getMasters) 集合取得，該集合由 [MasterSlideCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslidecollection/) 表示。
 
-{{% alert color="info" title="Inheritance" %}}
-當同一屬性在多個層級中都有定義時，較具體的層級會優先。舉例來說，若母片投影片與版面投影片同時定義了背景，則基於該版面的投影片會使用版面的背景。欲取得更多關於版面投影片的資訊，請參閱 [Apply or Change Slide Layouts](/slides/zh-hant/python-java/slide-layout/)。
+{{% alert color="info" title="繼承" %}}
+
+當同一屬性在多個層級中都有定義時，較具體的層級會優先。舉例來說，若母版投影片與版面投影片都定義了背景，則基於該版面的投影片會使用版面背景。更多版面投影片的資訊，請參閱 [套用或變更投影片版面](/slides/zh-hant/python-java/slide-layout/)。
+
 {{% /alert %}}
 
-## **存取投影片母片**
+## **存取投影片母版**
 
-在 PowerPoint 中，可從 **檢視** > **投影片母片** 開啟投影片母片檢視。
+在 PowerPoint 中，您可以從 **檢視** > **投影片母版** 開啟投影片母版檢視。
 
-![PowerPoint「檢視」索引標籤中的「投影片母片」指令](slide-master_3.jpg)
+![PowerPoint「檢視」索標籤上的投影片母版指令](slide-master_3.jpg)
 
-在 Aspose.Slides 中，使用 [Presentation.getMasters](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getMasters) 集合來存取母片投影片：
+在 Aspose.Slides 中，使用 [Presentation.getMasters](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getMasters) 集合存取母版投影片：
 
 ```python
 import jpype
@@ -73,7 +75,7 @@ finally:
     presentation.dispose()
 ```
 
-您也可以透過普通投影片的版面取得其所使用的母片投影片：
+您也可以透過普通投影片的版面取得其使用的母版投影片：
 
 ```python
 import jpype
@@ -96,26 +98,26 @@ finally:
     presentation.dispose()
 ```
 
-## **投影片母片包含哪些內容**
+## **投影片母版的內容**
 
-母片投影片是一種類似投影片的物件。它繼承自 [BaseSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/)，因此具有許多普通投影片與版面投影片共用的屬性。母片專屬的成員列於 [MasterSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/) API 頁面。
+母版投影片是一種類似投影片的物件。它繼承自 [BaseSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/)，因此會暴露許多普通投影片與版面投影片使用的相同屬性。母版專屬的成員列於 [MasterSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/) API 頁面。
 
-常用的母片投影片成員包括：
+常用的母版投影片成員包括：
 
-| 成員 | 用途 |
+| 成員 | 目的 |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getBackground) | 設定母片層級的投影片背景。 |
-| [getShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getShapes) | 儲存放置於母片上的圖形，例如標誌、圖片框和共用文字。 |
-| [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getLayoutSlides) | 儲存屬於母片的版面投影片。 |
-| [getThemeManager](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getThemeManager) | 提供存取母片主題的 API。 |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | 控制母片及其子版面的頁首、頁尾、日期與投影片編號。 |
-| [getDependingSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getDependingSlides) | 返回依賴於母片且透過版面使用的普通投影片。 |
+| [getBackground](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getBackground) | 設定母版層級的投影片背景。 |
+| [getShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getShapes) | 儲存放置於母版上的圖形，例如標誌、圖片框與共用文字。 |
+| [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getLayoutSlides) | 儲存屬於該母版的版面投影片。 |
+| [getThemeManager](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getThemeManager) | 提供存取母版主題 API 的介面。 |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | 控制母版及其子版面的頁首、頁尾、日期與投影片編號。 |
+| [getDependingSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getDependingSlides) | 回傳透過版面依賴於該母版的普通投影片。 |
 
-## **在投影片母片上新增圖像**
+## **將圖像加入投影片母版**
 
-將圖像加入母片投影片時，會顯示在使用該母片版面的投影片上。這對於標誌、水印、裝飾條紋或其他需重複出現的視覺元素非常有用。
+將圖像加入母版投影片時，使用該母版版面的所有投影片都會顯示該圖像。這對於標誌、水印、裝飾條帶等重複出現的視覺元素非常有用。
 
-以下範例在第一個母片投影片上加入標誌：
+以下範例在第一個母版投影片上加入標誌：
 
 ```python
 import jpype
@@ -141,17 +143,77 @@ finally:
     presentation.dispose()
 ```
 
-欲取得更多關於圖片框的資訊，請參閱 [Picture Frame](/slides/zh-hant/python-java/picture-frame/)。
+更多關於圖片框的資訊，請參閱 [Picture Frame](/slides/zh-hant/python-java/picture-frame/)。
 
-## **使用佔位元**
+## **控制母版圖形的可見性**
 
-佔位元通常在版面投影片上定義。母片投影片提供共用的樣式與主題，供這些版面繼承，而每個版面決定哪些佔位元可用以及它們的放置位置。
+使用 [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#setShowMasterShapes) 來隱藏繼承自母版的圖形（例如標誌或裝飾形狀），但不會從母版中刪除它們。在需要省略這些圖形的投影片上，將 [Slide.setShowMasterShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slide/#setShowMasterShapes) 設為 `False`，而在要顯示的投影片上保持 `True`。
 
-在 PowerPoint 中，佔位元指令可在投影片母片檢視中使用。
+以下獨立範例在母版上建立藍色裝飾條帶，並在兩張使用相同空白版面的投影片上示範其可見與隱藏情況。此範例不需要任何輸入簡報或圖像。
 
-![PowerPoint 投影片母片檢視中的「插入佔位元」指令](slide-master_5.png)
+```python
+import jpype
+import asposeslides
 
-若要使用 Aspose.Slides 新增佔位元，請對屬於母片的版面投影片進行操作：
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+範例使用新簡報內建的 **Blank** 版面，並移除初始投影片的占位元件。
+
+### **選擇設定的範圍**
+
+普通投影片透過 [Slide.getLayoutSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slide/#getLayoutSlide) 以及 [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/layoutslide/#getMasterSlide) 取得母版。將屬性設定在單一投影片上僅會影響該投影片本身。將 `False` 傳遞給 [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/layoutslide/#setShowMasterShapes) 會隱藏使用該共用版面的所有投影片的母版圖形，即使它們自己的設定為 `True`。若僅想在單一投影片上隱藏圖形，請變更該投影片的屬性，並保留共用版面不變。
+
+此設定在母版投影片本身並不支援可見性控制。對於母版，[getShowMasterShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#getShowMasterShapes) 永遠回傳 `False`，且將 `True` 傳遞給 [setShowMasterShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslide/#setShowMasterShapes) 會拋出例外。請在普通投影片或版面上使用此功能。
+
+### **將圖形與背景區分**
+
+| 操作 | 影響 |
+| --- | --- |
+| 隱藏母版圖形 | 控制繼承自母版的圖形可見性，且不會刪除圖形或變更投影片本身的圖形。 |
+| 變更投影片背景填色 | 變更背景的顏色、漸層或圖像。母版圖形是獨立的形狀，可在背景之上保持可見。請參閱 [Presentation Background](/slides/zh-hant/python-java/presentation-background/)。 |
+| 從母版刪除圖形 | 移除共用來源圖形，之後任何使用該母版的投影片皆不會再取得此圖形。 |
+
+## **使用占位元件**
+
+占位元件通常定義於版面投影片上。母版投影片提供共用的樣式與主題，版面則決定哪些占位元件可用以及它們的放置位置。
+
+在 PowerPoint 中，占位元件指令可在投影片母版檢視中使用。
+
+![PowerPoint 投影片母版檢視中的「插入占位元件」指令](slide-master_5.png)
+
+若要使用 Aspose.Slides 新增占位元件，請操作屬於母版的版面投影片：
 
 ```python
 import jpype
@@ -178,7 +240,7 @@ finally:
     presentation.dispose()
 ```
 
-您也可以格式化已存在於母片投影片上的佔位元圖形。以下範例找到標題佔位元並套用線性漸層填色：
+您也可以格式化已存在於母版投影片上的占位元件形狀。以下範例找出標題占位元件並套用線性漸層填色：
 
 ```python
 import jpype
@@ -216,13 +278,13 @@ finally:
     presentation.dispose()
 ```
 
-![普通投影片繼承的已格式化標題佔位元](slide-master_8.png)
+![普通投影片繼承的已格式化標題占位元件](slide-master_8.png)
 
-欲取得更多佔位元與文字格式化的選項，請參閱 [Set Prompt Text in Placeholder](/slides/zh-hant/python-java/manage-placeholder/) 與 [Text Formatting](/slides/zh-hant/python-java/text-formatting/)。
+更多占位元件與文字格式化選項，請參閱 [Set Prompt Text in Placeholder](/slides/zh-hant/python-java/manage-placeholder/) 與 [Text Formatting](/slides/zh-hant/python-java/text-formatting/)。
 
-## **變更投影片母片背景**
+## **變更投影片母版背景**
 
-母片背景會被版面與未自行覆寫背景的投影片繼承。以下範例為第一個母片投影片設定單色背景：
+母版背景會被版面與未覆寫背景的投影片繼承。以下範例為第一個母版投影片設定單色背景：
 
 ```python
 import jpype
@@ -249,11 +311,11 @@ finally:
     presentation.dispose()
 ```
 
-相關主題請參閱 [Presentation Background](/slides/zh-hant/python-java/presentation-background/) 與 [Presentation Theme](/slides/zh-hant/python-java/presentation-theme/)。
+相關主題請見 [Presentation Background](/slides/zh-hant/python-java/presentation-background/) 與 [Presentation Theme](/slides/zh-hant/python-java/presentation-theme/)。
 
-## **將投影片母片複製到其他簡報**
+## **將投影片母版複製至其他簡報**
 
-使用 [MasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslidecollection/#addClone) 可將母片投影片複製到另一個簡報。複製後的母片即可供目標簡報的版面與投影片使用。
+使用 [MasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslidecollection/#addClone) 可將母版投影片複製到另一個簡報。複製後的母版即可被目的簡報中的版面與投影片使用。
 
 ```python
 import jpype
@@ -276,15 +338,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-若需同時複製普通投影片及其母片，請參閱 [Clone Slides](/slides/zh-hant/python-java/clone-slides/)。
+若需同時複製普通投影片及其母版，請參閱 [Clone Slides](/slides/zh-hant/python-java/clone-slides/)。
 
-## **新增多個投影片母片**
+## **新增多個投影片母版**
 
-簡報可以包含多個母片投影片。當不同章節需要不同的品牌、版面結構或主題設定時，這非常實用。
+簡報可包含多個母版投影片。這在不同章節需要不同品牌、頁面結構或主題設定時相當有用。
 
-![PowerPoint 插入與管理母片投影片的指令](slide-master_9.jpg)
+![PowerPoint 插入與管理母版投影片的指令](slide-master_9.jpg)
 
-以下範例會複製預設母片、為複製品設定不同的背景、在該複製母片下建立版面，並依據該版面新增投影片：
+以下範例複製預設母版、為複製品設定不同的背景、在該複製母版下建立版面，並以該版面新增投影片：
 
 ```python
 import jpype
@@ -319,9 +381,9 @@ finally:
     presentation.dispose()
 ```
 
-## **比較投影片母片**
+## **比較投影片母版**
 
-母片投影片可使用從 [BaseSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/) 繼承的 [equals](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#equals) 方法進行比較。比較會檢查結構與靜態內容，例如圖形、文字、格式、動畫與其他投影片設定。它不會比較唯一識別碼（如投影片 ID）或動態佔位元值（如當前日期）。
+母版投影片可使用繼承自 [BaseSlide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/) 的 [equals](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#equals) 方法進行比較。比較會檢查結構與靜態內容，例如圖形、文字、格式、動畫以及其他投影片設定；不會比較唯一識別碼（如投影片 ID）或動態占位元件值（如目前日期）。
 
 ```python
 import jpype
@@ -351,11 +413,11 @@ finally:
     second_presentation.dispose()
 ```
 
-欲取得更多資訊，請參閱 [Compare Presentation Slides](/slides/zh-hant/python-java/compare-slides/)。
+更多資訊，請參閱 [Compare Presentation Slides](/slides/zh-hant/python-java/compare-slides/)。
 
-## **將投影片母片檢視設為預設檢視**
+## **將投影片母版檢視設為預設檢視**
 
-使用 [ViewProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/viewproperties/) 上的 [setLastView](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/viewproperties/#setLastView) 方法，可控制 PowerPoint 首次開啟時的檢視模式。以下範例在投影片母片檢視中開啟簡報：
+在 [ViewProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/viewproperties/) 上使用 [setLastView](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/viewproperties/#setLastView) 方法，可控制 PowerPoint 首次開啟的檢視。以下範例在投影片母版檢視中開啟簡報：
 
 ```python
 import jpype
@@ -374,13 +436,13 @@ finally:
     presentation.dispose()
 ```
 
-欲取得更多檢視設定，請參閱 [Save Presentation](/slides/zh-hant/python-java/save-presentation/)。
+其他檢視設定請見 [Save Presentation](/slides/zh-hant/python-java/save-presentation/)。
 
-## **移除未使用的投影片母片**
+## **移除未使用的母版投影片**
 
-簡報有時會包含已不再被任何普通投影片使用的母片投影片。移除未使用的母片可減少檔案大小並簡化範本維護。
+簡報有時會包含已不再被任何普通投影片使用的母版投影片。移除未使用的母版可以減少檔案大小並簡化模板維護。
 
-使用 [removeUnused](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslidecollection/#removeUnused) 方法，從 [Presentation.getMasters](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getMasters) 集合中移除未使用的母片：
+使用 [removeUnused](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/masterslidecollection/#removeUnused) 從 [Presentation.getMasters](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getMasters) 集合中移除未使用的母版：
 
 ```python
 import jpype
@@ -418,20 +480,20 @@ finally:
     presentation.dispose()
 ```
 
-## **常見問題**
+## **常見問題集**
 
-**投影片母片與版面投影片有何差異？**
+**投影片母版與版面投影片有何不同？**
 
-投影片母片定義共用的設計設定，如主題、背景、共用圖形與文字樣式。版面投影片屬於母片，並定義佔位元的具體排列。普通投影片使用版面投影片，因此會同時繼承版面與母片的設定。
+投影片母版定義共用的設計設定，例如主題、背景、共用圖形與文字樣式。版面投影片屬於母版，定義占位元件的具體排列。普通投影片使用版面投影片，因此同時繼承版面與母版的設定。
 
-**一個簡報可以包含多個投影片母片嗎？**
+**一個簡報可以包含多個投影片母版嗎？**
 
-可以。簡報可以包含多個投影片母片。當不同章節需要不同的視覺系統或品牌時，請使用多個母片。
+可以。簡報可以包含多個投影片母版。當不同章節需要不同的視覺系統或品牌時，請使用多個母版。
 
-**應該在母片還是版面投影片上新增佔位元？**
+**應該在母版投影片還是版面投影片上加入占位元件？**
 
-大多數情況下，應在版面投影片上新增佔位元。將共用的視覺元素與共用格式放在母片上，然後在普通投影片會使用的版面上放置內容佔位元。
+大多數情況下，應在版面投影片上加入占位元件。將共用的視覺元素與共用格式放在母版投影片上，然後在普通投影片會使用的版面上放置內容占位元件。
 
-**我可以刪除仍在使用中的母片嗎？**
+**我可以刪除仍被使用的母版投影片嗎？**
 
-不行。具有相依投影片的母片無法直接安全地刪除。請先將這些投影片移動至其他母片的版面，或使用僅移除未使用母片的清理方法。
+不能。仍有依賴投影片的母版投影片無法直接安全刪除。請先將這些投影片移至另一個母版的版面，或使用僅移除未被使用的母版的清理方法。

@@ -1,5 +1,5 @@
 ---
-title: Beheer presentatie-masterdia's in PHP
+title: Beheer dia-masters van presentaties in PHP
 linktitle: Dia-master
 type: docs
 weight: 70
@@ -11,7 +11,7 @@ keywords:
 - meerdere masterdia's
 - masterdia's vergelijken
 - achtergrond
-- tijdelijke aanduiding
+- placeholder
 - masterdia klonen
 - masterdia kopiëren
 - masterdia dupliceren
@@ -21,37 +21,35 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Beheer masterdia's in Aspose.Slides voor PHP via Java: toegang, bewerken, klonen, vergelijken en verwijderen van masterdia's in PowerPoint- en OpenDocument-presentaties."
+description: "Beheer dia-masters in Aspose.Slides voor PHP via Java: openen, bewerken, klonen, vergelijken en verwijderen van masterdia's in PowerPoint- en OpenDocument-presentaties."
 ---
 ## **Overzicht**
 
-Een **masterdia** definieert gedeelde ontwerpinstellingen voor een groep dia's. Het kan gemeenschappelijke vormen, logo's, achtergronden, tekststijlen, thema‑instellingen en voettekstinstellingen bevatten. In PowerPoint is het bewerken van een masterdia de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak op elke dia te herhalen.
+Een **slide master** definieert gedeelde ontwerpinstellingen voor een groep dia's. Het kan gemeenschappelijke vormen, logo's, achtergronden, tekststijlen, themainstellingen en voettekstinstellingen bevatten. In PowerPoint is het bewerken van een slide master de gebruikelijke manier om een presentatie consistent te houden zonder dezelfde opmaak op elke dia te herhalen.
 
-Aspose.Slides for PHP via Java ondersteunt hetzelfde model. Een presentatie kan één of meer masterdia's bevatten, en elke masterdia kan meerdere lay‑outdia's bevatten. Normale dia's verwijzen meestal niet direct naar een masterdia. In plaats daarvan gebruikt een normale dia een lay‑outdia, en die lay‑outdia behoort tot een masterdia.
+Aspose.Slides voor PHP via Java ondersteunt hetzelfde model. Een presentatie kan één of meer master‑dia's bevatten, en elke master‑dia kan meerdere layout‑dia's bevatten. Normale dia's verwijzen meestal niet direct naar een master‑dia. In plaats daarvan gebruikt een normale dia een layout‑dia, en die layout‑dia behoort tot een master‑dia.
 
 De hiërarchie is:
 
-1. **Masterdia** – definieert het gedeelde ontwerp en thema.  
-1. **Lay‑outdia** – definieert een specifieke rangschikking van tijdelijke aanduidingen en lay‑out‑niveau opmaak.  
-1. **Normale dia** – bevat de daadwerkelijke presentatietoepassing en gebruikt één lay‑outdia.
+1. **Slide master** – definieert het gedeelde ontwerp en thema.  
+1. **Layout slide** – definieert een specifieke indeling van placeholders en layout‑niveau opmaak.  
+1. **Normal slide** – bevat de feitelijke presentatiewaarde en gebruikt één layout‑dia.
 
-![De hiërarchie van masterdia's, lay‑outdia's en normale dia's](slide-master_2.jpg)
+![De hiërarchie van master‑dia's, layout‑dia's en normale dia's](slide-master_2.jpg)
 
-In Aspose.Slides wordt een masterdia weergegeven door de [MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/)‑klasse. Alle masterdia's in een presentatie zijn beschikbaar via de [Presentation.getMasters](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getMasters)‑methode, die een [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/)‑object retourneert.
+In Aspose.Slides wordt een slide master weergegeven door de [MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/)‑klasse. Alle master‑dia's in een presentatie zijn toegankelijk via de [Presentation.getMasters](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getMasters)‑methode, die een [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/)‑object retourneert.
 
-{{% alert color="info" title="Erfenis" %}}
-
-Wanneer dezelfde eigenschap op meer dan één niveau wordt gedefinieerd, wint het specifiekere niveau. Bijvoorbeeld, als een masterdia en een lay‑outdia beide een achtergrond definiëren, gebruiken dia's die op die lay‑out zijn gebaseerd de lay‑out‑achtergrond. Zie voor meer informatie over lay‑outdia's [Apply or Change Slide Layouts](/slides/nl/php-java/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Wanneer dezelfde eigenschap op meer dan één niveau wordt gedefinieerd, wint het specifiekere niveau. Bijvoorbeeld, als een master‑dia en een layout‑dia beide een achtergrond definiëren, gebruiken dia's gebaseerd op die layout de layout‑achtergrond. Voor meer informatie over layout‑dia's, zie [Apply or Change Slide Layouts](/slides/nl/php-java/slide-layout/).
 {{% /alert %}}
 
-## **Masterdia’s Benaderen**
+## **Toegang tot Slide Masters**
 
-In PowerPoint kun je de masterdia‑weergave openen via **Beeld** > **Masterdia**.
+In PowerPoint kun je de Slide Master‑weergave openen via **Beeld** > **Slide Master**.
 
-![De masterdia‑opdracht op het PowerPoint‑tabblad Beeld](slide-master_3.jpg)
+![De Slide Master‑opdracht in het PowerPoint‑tabblad Beeld](slide-master_3.jpg)
 
-In Aspose.Slides gebruik je de `getMasters`‑methode om masterdia's te benaderen:
+In Aspose.Slides gebruik je de `getMasters`‑methode om master‑dia's op te vragen:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -67,7 +65,7 @@ try {
 }
 ```
 
-Je kunt ook de masterdia die door een normale dia wordt gebruikt via de bijbehorende lay‑out verkrijgen:
+Je kunt ook de master‑dia ophalen die door een normale dia wordt gebruikt via zijn layout:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -83,26 +81,26 @@ try {
 }
 ```
 
-## **Wat Een Masterdia Bevat**
+## **Wat een Slide Master Bevat**
 
-Een masterdia is een object dat op een dia lijkt. Het erft van [BaseSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseslide/), zodat het veel van dezelfde dia‑eigenschappen blootlegt die door normale en lay‑outdia's worden gebruikt. Master‑specifieke leden staan opgesomd op de [MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/)‑API‑pagina.
+Een master‑dia is een dia‑achtig object. Het breidt [BaseSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseslide/) uit, waardoor het veel van dezelfde dia‑eigenschappen beschikbaar maakt die normale en layout‑dia's gebruiken. Master‑specifieke leden staan vermeld op de API‑pagina van [MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/).
 
-Veelgebruikte masterdia‑leden omvatten:
+Veelgebruikte master‑dia‑leden zijn onder andere:
 
 | Lid | Doel |
 | --- | --- |
-| `getBackground` | Stelt de achtergrond van de masterdia in. |
-| `getShapes` | Bevat vormen die op de master zijn geplaatst, zoals logo's, afbeeldingskaders en gedeelde tekst. |
-| `getLayoutSlides` | Bevat de lay‑outdia's die bij de master horen. |
+| `getBackground` | Stelt de master‑niveau dia‑achtergrond in. |
+| `getShapes` | Bevat vormen die op de master zijn geplaatst, zoals logo's, afbeeldingkaders en gedeelde tekst. |
+| `getLayoutSlides` | Bevat de layout‑dia's die bij de master horen. |
 | `getThemeManager` | Biedt toegang tot de master‑thema‑API’s. |
-| `getHeaderFooterManager` | Beheert kopteksten, voetteksten, datums en paginanummers voor de master en diens onderliggende lay‑outs. |
-| `getDependingSlides` | Retourneert normale dia's die via hun lay‑outs afhankelijk zijn van de master. |
+| `getHeaderFooterManager` | Beheert kop‑ en voetteksten, datums en dia‑nummers voor de master en diens onderliggende layouts. |
+| `getDependingSlides` | Retourneert normale dia's die via hun layouts afhankelijk zijn van de master. |
 
-## **Een Afbeelding Aan Een Masterdia Toevoegen**
+## **Een Afbeelding Toevoegen aan een Slide Master**
 
-Wanneer je een afbeelding aan een masterdia toevoegt, verschijnt deze op dia's die lay‑outs van die master gebruiken. Dit is handig voor logo's, watermerken, decoratieve balken en andere terugkerende visuele elementen.
+Wanneer je een afbeelding toevoegt aan een master‑dia, wordt deze getoond op dia's die layouts van die master gebruiken. Dit is handig voor logo's, watermerken, decoratieve banden en andere herhaalde visuele elementen.
 
-Het volgende voorbeeld voegt een logo toe aan de eerste masterdia:
+Het volgende voorbeeld voegt een logo toe aan de eerste master‑dia:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -130,17 +128,74 @@ try {
 }
 ```
 
-Voor meer informatie over afbeeldingskaders, zie [Picture Frame](/slides/nl/php-java/picture-frame/).
+Voor meer informatie over afbeeldingkaders, zie [Picture Frame](/slides/nl/php-java/picture-frame/).
 
-## **Werken Met Tijdelijke Aanduidingen**
+## **Zichtbaarheid van Master‑Grafieken Beheren**
 
-Tijdelijke aanduidingen worden normaal gedefinieerd op lay‑outdia's. De masterdia levert de gedeelde stijl en het thema die die lay‑outs erven, terwijl elke lay‑out beslist welke tijdelijke aanduidingen beschikbaar zijn en waar ze worden geplaatst.
+Gebruik [BaseSlide::setShowMasterShapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseslide/#setShowMasterShapes) om geërfde master‑grafieken, zoals logo's of decoratieve vormen, te verbergen zonder ze van de master te verwijderen. Geef `false` door aan [Slide::setShowMasterShapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/#setShowMasterShapes) op de dia die die grafieken moet weglaten en houd het op `true` voor dia's die ze moeten weergeven.
 
-In PowerPoint zijn de tijdelijke‑aanduiding‑opdrachten beschikbaar in de masterdia‑weergave.
+Het volgende zelfstandige voorbeeld maakt een blauwe decoratieve band op een master en twee dia's die dezelfde lege layout gebruiken. De band is zichtbaar op de eerste dia en verborgen op de tweede. Er is geen invoerpresentatie of afbeelding nodig.
 
-![De opdracht Plaats Tijdelijke Aanduiding in de PowerPoint‑masterdia‑weergave](slide-master_5.png)
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
 
-Om nieuwe tijdelijke aanduidingen toe te voegen met Aspose.Slides, werk je met de lay‑outdia die bij de master hoort:
+$presentation = new Presentation();
+try {
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $layoutSlide = $masterSlide->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $layoutSlide->setShowMasterShapes(true);
+
+    $slideHeight = java_values($presentation->getSlideSize()->getSize()->getHeight());
+    $band = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 60, $slideHeight);
+    $bandColor = new Java("java.awt.Color", 70, 130, 180);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor($bandColor);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $visibleSlide = $presentation->getSlides()->get_Item(0);
+    $visibleSlide->setLayoutSlide($layoutSlide);
+    $visibleSlide->getShapes()->clear();
+
+    $hiddenSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $visibleSlide->setShowMasterShapes(true);
+    $hiddenSlide->setShowMasterShapes(false);
+
+    $presentation->save("master-graphics.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Het voorbeeld maakt gebruik van de **Blank**‑layout die wordt geleverd met een nieuwe presentatie en verwijdert de eigen placeholders van de initiële dia.
+
+### **Kies de Reikwijdte van de Instelling**
+
+Een normale dia gebruikt zijn master via [Slide::getLayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/#getLayoutSlide) en [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#getMasterSlide). De eigenschap op een individuele dia instellen heeft alleen effect op die dia. Het doorgeven van `false` aan [LayoutSlide::setShowMasterShapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#setShowMasterShapes) verbergt master‑grafieken voor alle dia's die die gedeelde layout gebruiken, zelfs als hun eigen instelling `true` is. Om grafieken alleen op één dia te verbergen, wijzig je de dia‑eigenschap en laat je de gedeelde layout ongewijzigd.
+
+De instelling wordt niet ondersteund als een zichtbaarheid‑controle op de master‑dia zelf. Op een master geeft [getShowMasterShapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/#getShowMasterShapes) altijd `false` terug, en het doorgeven van `true` aan [setShowMasterShapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/#setShowMasterShapes) veroorzaakt een uitzondering. Pas de methode toe op een normale dia of een layout.
+
+### **Grafieken Onderscheiden van de Achtergrond**
+
+| Handeling | Effect |
+| --- | --- |
+| Master‑grafieken verbergen | Beheert de zichtbaarheid van geërfde master‑vormen zonder ze te verwijderen of de eigen vormen van de dia te wijzigen. |
+| Dia‑achtergrondvulling wijzigen | Wijzigt de achtergrondkleur, -gradient of -afbeelding. Master‑grafieken zijn afzonderlijke vormen en kunnen zichtbaar blijven boven die achtergrond. Zie [Presentation Background](/slides/nl/php-java/presentation-background/). |
+| Een vorm van de master verwijderen | Verwijdert de gedeelde bronvorm, zodat deze niet meer beschikbaar is voor enige dia die die master gebruikt. |
+
+## **Werken met Placeholders**
+
+Placeholders worden normaal gedefinieerd op layout‑dia's. De master‑dia levert de gedeelde stijl en het thema waar deze layouts van erven, terwijl elke layout beslist welke placeholders beschikbaar zijn en waar ze worden geplaatst.
+
+In PowerPoint zijn placeholder‑opdrachten beschikbaar in de Slide Master‑weergave.
+
+![De opdracht Placeholder invoegen in de PowerPoint Slide Master‑weergave](slide-master_5.png)
+
+Om nieuwe placeholders toe te voegen met Aspose.Slides, werk je met de layout‑dia die bij de master hoort:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -166,7 +221,7 @@ try {
 }
 ```
 
-Je kunt ook de vorm van bestaande tijdelijke aanduidingen op een masterdia opmaken. Het volgende voorbeeld zoekt de titel‑tijdelijke‑aanduiding en past een lineaire gradiëntenvulling toe:
+Je kunt ook de vorm van een bestaande placeholder op een master‑dia opmaken. Het volgende voorbeeld vindt de titel‑placeholder en past een lineaire gradientvulling toe:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -208,13 +263,13 @@ function findPlaceholder($masterSlide, $placeholderType)
 }
 ```
 
-![Opgepaste titel‑tijdelijke‑aanduiding geërfd door normale dia's](slide-master_8.png)
+![Opgemaakte titel‑placeholder die geërfd wordt door normale dia's](slide-master_8.png)
 
-Voor meer opties rond tijdelijke aanduidingen en tekstopmaak, zie [Set Prompt Text in Placeholder](/slides/nl/php-java/manage-placeholder/) en [Text Formatting](/slides/nl/php-java/text-formatting/).
+Voor meer placeholder‑ en tekstopmaakopties, zie [Set Prompt Text in Placeholder](/slides/nl/php-java/manage-placeholder/) en [Text Formatting](/slides/nl/php-java/text-formatting/).
 
-## **De Achtergrond Van Een Masterdia Wijzigen**
+## **Een Slide Master‑Achtergrond Wijzigen**
 
-Een masterachtergrond wordt geërfd door lay‑outs en dia's die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste masterdia:
+Een master‑achtergrond wordt geërfd door layouts en dia's die deze niet overschrijven. Het volgende voorbeeld stelt een effen achtergrondkleur in voor de eerste master‑dia:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -236,9 +291,9 @@ try {
 
 Voor gerelateerde onderwerpen, zie [Presentation Background](/slides/nl/php-java/presentation-background/) en [Presentation Theme](/slides/nl/php-java/presentation-theme/).
 
-## **Een Masterdia Kopiëren Naar Een Andere Presentatie**
+## **Een Slide Master Kloon naar Een Andere Presentatie**
 
-Gebruik `addClone` van [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/) om een masterdia te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens door lay‑outs en dia's in de bestemmingspresentatie worden gebruikt.
+Gebruik `addClone` vanuit [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/) om een master‑dia te kopiëren naar een andere presentatie. De gekopieerde master kan vervolgens worden gebruikt door layouts en dia's in de bestemmingspresentatie.
 
 ```php
 $sourcePresentation = new Presentation("source.pptx");
@@ -256,13 +311,13 @@ try {
 
 Als je normale dia's samen met hun master wilt klonen, zie [Clone Slides](/slides/nl/php-java/clone-slides/).
 
-## **Meerdere Masterdia’s Toevoegen**
+## **Meerdere Slide Masters Toevoegen**
 
-Een presentatie kan meerdere masterdia's bevatten. Dit is handig wanneer verschillende secties verschillende branding, paginacompositie of themainstellingen vereisen.
+Een presentatie kan meerdere master‑dia's bevatten. Dit is nuttig wanneer verschillende secties verschillende branding, paginastuctuur of themainstellingen vereisen.
 
-![PowerPoint‑opdrachten voor het invoegen en beheren van masterdia's](slide-master_9.jpg)
+![PowerPoint‑opdrachten voor het invoegen en beheren van master‑dia's](slide-master_9.jpg)
 
-Het volgende voorbeeld kloont de standaardmaster, geeft het kloon een andere achtergrond, maakt een lay‑out onder die gekloonde master en voegt een nieuwe dia toe op basis van die lay‑out:
+Het volgende voorbeeld kloont de standaard master, geeft de kloon een andere achtergrond, maakt een layout onder die gekloonde master en voegt een nieuwe dia toe gebaseerd op die layout:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -287,9 +342,9 @@ try {
 }
 ```
 
-## **Masterdia’s Vergelijken**
+## **Slide Masters Vergelijken**
 
-Masterdia's kunnen worden vergeleken met de `equals`‑methode die is geërfd van [BaseSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseslide/). De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Unieke identifiers, zoals dia‑ID's, of dynamische tijdelijke‑aanduidingswaarden, zoals de huidige datum, worden niet vergeleken.
+Master‑dia's kunnen worden vergeleken met de `equals`‑methode die is overgeërfd van [BaseSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseslide/). De vergelijking controleert structuur en statische inhoud, zoals vormen, tekst, opmaak, animaties en andere dia‑instellingen. Unieke identifiers, zoals dia‑ID's, of dynamische placeholder‑waarden, zoals de huidige datum, worden niet vergeleken.
 
 ```php
 $firstPresentation = new Presentation("first.pptx");
@@ -318,9 +373,9 @@ try {
 
 Voor meer informatie, zie [Compare Presentation Slides](/slides/nl/php-java/compare-slides/).
 
-## **Masterdia‑Weergave Als Standaardweergave Instellen**
+## **Slide Master‑Weergave Instellen als Standaardweergave**
 
-Gebruik de `setLastView`‑methode op [ViewProperties](https://reference.aspose.com/slides/nl/php-java/aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint bij het openen eerst laat zien. Het volgende voorbeeld opent de presentatie in masterdia‑weergave:
+Gebruik de `setLastView`‑methode op [ViewProperties](https://reference.aspose.com/slides/nl/php-java/aspose.slides/viewproperties/) om de weergave te bepalen die PowerPoint eerst opent. Het volgende voorbeeld opent de presentatie in Slide Master‑weergave:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -334,11 +389,11 @@ try {
 
 Voor meer weergave‑instellingen, zie [Save Presentation](/slides/nl/php-java/save-presentation/).
 
-## **Ongebruikte Masterdia’s Verwijderen**
+## **Ongebruikte Master‑Dia's Verwijderen**
 
-Soms bevatten presentaties masterdia's die door geen enkele normale dia meer worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het beheer van sjablonen vereenvoudigen.
+Presentaties bevatten soms master‑dia's die niet meer door normale dia's worden gebruikt. Het verwijderen van ongebruikte masters kan de bestandsgrootte verkleinen en het onderhoud van sjablonen vereenvoudigen.
 
-Gebruik `removeUnused` van [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/) om ongebruikte masters uit de `getMasters`‑collectie te verwijderen:
+Gebruik `removeUnused` vanuit [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/) om ongebruikte masters uit de `getMasters`‑collectie te verwijderen:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -350,7 +405,7 @@ try {
 }
 ```
 
-Je kunt ook de low‑code‑methode `removeUnusedMasterSlides` van de [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/)‑klasse gebruiken:
+Je kunt ook de low‑code `removeUnusedMasterSlides`‑methode uit de [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/)‑klasse gebruiken:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -364,18 +419,18 @@ try {
 
 ## **FAQ**
 
-**Wat is het verschil tussen een masterdia en een lay‑outdia?**
+**Wat is het verschil tussen een slide master en een layout slide?**
 
-Een masterdia definieert gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekststijlen. Een lay‑outdia behoort tot een masterdia en definieert een specifieke rangschikking van tijdelijke aanduidingen. Een normale dia gebruikt een lay‑outdia en erft daardoor zowel van de lay‑out als van de master.
+Een slide master definieert gedeelde ontwerpinstellingen zoals thema, achtergrond, gemeenschappelijke vormen en tekststijlen. Een layout slide behoort tot een master‑dia en definieert een specifieke rangschikking van placeholders. Een normale dia gebruikt een layout slide, waardoor hij zowel van de layout als van de master erft.
 
-**Kan een presentatie meerdere masterdia's bevatten?**
+**Kan één presentatie meerdere slide masters bevatten?**
 
-Ja. Een presentatie kan meerdere masterdia's bevatten. Gebruik meerdere masters wanneer verschillende secties andere visuele systemen of branding nodig hebben.
+Ja. Een presentatie kan meerdere slide masters bevatten. Gebruik meerdere masters wanneer verschillende secties verschillende visuele systemen of branding nodig hebben.
 
-**Moet ik tijdelijke aanduidingen toevoegen aan een masterdia of aan een lay‑outdia?**
+**Moet ik placeholders toevoegen aan een master‑dia of een layout‑dia?**
 
-In de meeste gevallen voeg je tijdelijke aanduidingen toe aan lay‑outdia's. Plaats gedeelde visuele elementen en gedeelde opmaak op de masterdia, en plaats inhoudelijke tijdelijke aanduidingen op de lay‑outs die normale dia's zullen gebruiken.
+In de meeste gevallen voeg je placeholders toe aan layout‑dia's. Plaats gedeelde visuele elementen en gedeelde opmaak op de master‑dia, en zet de inhoud‑placeholders op de layouts die normale dia's zullen gebruiken.
 
-**Kan ik een masterdia verwijderen die nog in gebruik is?**
+**Kan ik een master‑dia verwijderen die nog wordt gebruikt?**
 
-Nee. Een masterdia met afhankelijke dia's kan niet veilig direct worden verwijderd. Verplaats die dia's eerst naar lay‑outs onder een andere master, of gebruik een opschoonmethode die alleen ongebruikte masters verwijdert.
+Nee. Een master‑dia met afhankelijke dia's kan niet veilig direct worden verwijderd. Verplaats die dia's eerst naar layouts onder een andere master, of gebruik een opruimingsmethode voor ongebruikte masters die alleen masters verwijdert die niet in gebruik zijn.

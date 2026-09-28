@@ -1,60 +1,60 @@
 ---
-title: จัดการ Slide Masters ของการนำเสนอใน Android
-linktitle: สไลด์มาสเตอร์
+title: จัดการมาสเตอร์สไลด์ของการนำเสนอบน Android
+linktitle: มาสเตอร์สไลด์
 type: docs
 weight: 70
 url: /th/androidjava/slide-master/
 keywords:
-- สไลด์มาสเตอร์
 - มาสเตอร์สไลด์
-- มาสเตอร์สไลด์ PPT
-- หลายมาสเตอร์สไลด์
-- เปรียบเทียบมาสเตอร์สไลด์
+- สไลด์มาสเตอร์
+- สไลด์มาสเตอร์ PPT
+- หลายสไลด์มาสเตอร์
+- เปรียบเทียบสไลด์มาสเตอร์
 - พื้นหลัง
-- ตัวแทนตำแหน่ง
-- คัดลอกมาสเตอร์สไลด์
-- สำเนามาสเตอร์สไลด์
-- ทำซ้ำมาสเตอร์สไลด์
-- มาสเตอร์สไลด์ที่ไม่ได้ใช้
+- ตัวอ้างอิง
+- คัดลอกสไลด์มาสเตอร์
+- ทำสำเนาสไลด์มาสเตอร์
+- ทำซ้ำสไลด์มาสเตอร์
+- สไลด์มาสเตอร์ที่ไม่ได้ใช้
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "จัดการสไลด์มาสเตอร์ใน Aspose.Slides สำหรับ Android ผ่าน Java: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบ, และลบมาสเตอร์สไลด์ในการนำเสนอ PowerPoint และ OpenDocument"
+description: "จัดการมาสเตอร์สไลด์ใน Aspose.Slides สำหรับ Android ผ่าน Java: เข้าถึง, แก้ไข, คัดลอก, เปรียบเทียบ, และลบสไลด์มาสเตอร์ในงานนำเสนอ PowerPoint และ OpenDocument."
 ---
 ## **ภาพรวม**
 
-A **slide master** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ มันอาจมีรูปทรงทั่วไป, โลโก้, พื้นหลัง, สไตล์ข้อความ, การตั้งค่าธีม, และการตั้งค่าข้อความท้ายสไลด์ ใน PowerPoint การแก้ไข slide master เป็นวิธีทั่วไปที่จะทำให้การนำเสนอคงความสม่ำเสมอโดยไม่ต้องทำรูปแบบเดียวกันซ้ำในทุกสไลด์
+**มาสเตอร์สไลด์** กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกันสำหรับกลุ่มสไลด์ สามารถประกอบด้วยรูปทรงทั่วไป, โลโก้, พื้นหลัง, สไตล์ข้อความ, การตั้งค่าธีม, และการตั้งค่าฝั่งล่าง (footer) ใน PowerPoint การแก้ไขมาสเตอร์สไลด์เป็นวิธีปกติในการทำให้การนำเสนอมีความสอดคล้องโดยไม่ต้องทำซ้ำการฟอร์แมตเดียวกันบนทุกสไลด์
 
-Aspose.Slides for Android via Java รองรับโมเดลเดียวกัน การนำเสนอสามารถมี slide master หนึ่งหรือหลายหน้าตา และแต่ละ slide master สามารถมี layout slide หลายหน้า สไลด์ปกติส่วนใหญ่จะไม่อ้างอิง slide master โดยตรง แต่จะใช้ layout slide ซึ่ง layout slide นั้นเป็นส่วนหนึ่งของ slide master
+Aspose.Slides for Android via Java รองรับโมเดลเดียวกัน การนำเสนอสามารถมีมาสเตอร์สไลด์หนึ่งหรือหลายสไลด์ และแต่ละมาสเตอร์สไลด์สามารถมีสไลด์เค้าโครงหลายสไลด์ สไลด์ปกติมักไม่อ้างอิงมาสเตอร์สไลด์โดยตรง แต่สไลด์ปกติใช้สไลด์เค้าโครง และสไลด์เค้าโครงนั้นเป็นของมาสเตอร์สไลด์
 
-โครงสร้างคือ:
+ลำดับชั้นของมาสเตอร์สไลด์, สไลด์เค้าโครง, และสไลด์ปกติ:
 
-1. **Slide master** - กำหนดการออกแบบและธีมที่ใช้ร่วมกัน
-1. **Layout slide** - กำหนดการจัดเรียงเฉพาะของ placeholder และรูปแบบระดับ layout
-1. **Normal slide** - มีเนื้อหาในการนำเสนอจริงและใช้ layout slide หนึ่งหน้า
+1. **มาสเตอร์สไลด์** - กำหนดการออกแบบและธีมที่ใช้ร่วมกัน.
+2. **สไลด์เค้าโครง** - กำหนดการจัดวางเฉพาะของ placeholder และการฟอร์แมตระดับเค้าโครง.
+3. **สไลด์ปกติ** - มีเนื้อหาการนำเสนอจริงและใช้สไลด์เค้าโครงหนึ่งสไลด์.
 
-![โครงสร้างของ master slide, layout slide, และ normal slide](slide-master_2.jpg)
+![ลำดับชั้นของมาสเตอร์สไลด์, สไลด์เค้าโครง, และสไลด์ปกติ](slide-master_2.jpg)
 
-ใน Aspose.Slides, slide master แสดงด้วยอินเทอร์เฟซ [IMasterSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslide/) ทั้งหมดของ master slide ในการนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getMasters--) ซึ่งทำหน้าที่เป็น [IMasterSlideCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/) สำหรับ API เต็มของ Android via Java, ดูที่ [com.aspose.slides API reference](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/)
+ใน Aspose.Slides, มาสเตอร์สไลด์จะถูกแทนด้วยอินเทอร์เฟซ [IMasterSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslide/) . มาสเตอร์สไลด์ทั้งหมดในงานนำเสนอสามารถเข้าถึงได้ผ่านคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getMasters--) ซึ่ง implements [IMasterSlideCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/). สำหรับ API เต็มของ Android via Java โปรดดูที่ [com.aspose.slides API reference](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/).
 
-{{% alert color="info" title="การสืบทอด" %}}
-
-เมื่อคุณสมบัติเช่นเดียวกันถูกกำหนดในระดับมากกว่าหนึ่งระดับ ระดับที่ระบุเฉพาะมากกว่าจะชนะ ตัวอย่างเช่น หาก master slide และ layout slide ทั้งสองกำหนดพื้นหลัง, สไลด์ที่อ้างอิง layout นั้นจะใช้พื้นหลังของ layout สำหรับข้อมูลเพิ่มเติมเกี่ยวกับ layout slide, ดูที่ [Apply or Change Slide Layouts](/slides/th/androidjava/slide-layout/)
-
+{{% alert color="info" title="Inheritance" %}}
+เมื่อคุณสมบัติเดียวกันถูกกำหนดในหลายระดับ ระดับที่เฉพาะเจาะจงกว่าจะชนะ เช่น หากมาสเตอร์สไลด์และสไลด์เค้าโครงทั้งสองกำหนดพื้นหลัง สไลด์ที่อิงจากเค้าโครงนั้นจะใช้พื้นหลังของเค้าโครง สำหรับข้อมูลเพิ่มเติมเกี่ยวกับสไลด์เค้าโครงดูที่ [Apply or Change Slide Layouts](/slides/th/androidjava/slide-layout/).
 {{% /alert %}}
 
-## **เข้าถึง Slide Masters**
+## **เข้าถึงมาสเตอร์สไลด์**
 
-ใน PowerPoint, คุณสามารถเปิดมุมมอง Slide Master ได้จาก **View** > **Slide Master**.
+ใน PowerPoint คุณสามารถเปิดมุมมองมาสเตอร์สไลด์ได้จาก **View** > **Slide Master**.
 
-![คำสั่ง Slide Master บนแท็บ View ของ PowerPoint](slide-master_3.jpg)
+![คำสั่ง Slide Master ในแท็บ View ของ PowerPoint](slide-master_3.jpg)
 
-ใน Aspose.Slides, ใช้คอลเลกชัน `getMasters()` เพื่อเข้าถึง master slide:
+ใน Aspose.Slides ใช้คอลเลกชัน `getMasters()` เพื่อเข้าถึงมาสเตอร์สไลด์:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +68,11 @@ try {
 }
 ```
 
-คุณยังสามารถรับ master slide ที่ใช้โดยสไลด์ปกติผ่าน layout ของมันได้:
+คุณยังสามารถรับมาสเตอร์สไลด์ที่ใช้โดยสไลด์ปกติผ่านเค้าโครงของมันได้:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,28 +86,30 @@ try {
 }
 ```
 
-## **เนื้อหาของ Slide Master**
+## **สิ่งที่มาสเตอร์สไลด์ประกอบด้วย**
 
-master slide เป็นอ็อบเจกต์คล้ายสไลด์ มันทำงานตาม [IBaseSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและ layout slide
+มาสเตอร์สไลด์เป็นวัตถุที่คล้ายสไลด์ มัน implements [IBaseSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/) ดังนั้นจึงเปิดเผยคุณสมบัติของสไลด์หลายอย่างที่ใช้โดยสไลด์ปกติและสไลด์เค้าโครง
 
-สมาชิกของ master slide ที่ใช้บ่อยได้แก่:
+สมาชิกที่ใช้บ่อยของมาสเตอร์สไลด์รวมถึง:
 
 | สมาชิก | วัตถุประสงค์ |
 | --- | --- |
-| `getBackground()` | ตั้งค่าพื้นหลังระดับ master |
-| `getShapes()` | จัดเก็บรูปทรงที่วางบน master เช่น โลโก้, ฟรามภาพ, และข้อความที่ใช้ร่วมกัน |
-| `getLayoutSlides()` | จัดเก็บ layout slide ที่เป็นของ master |
-| `getThemeManager()` | ให้การเข้าถึง API ธีมของ master |
-| `getHeaderFooterManager()` | ควบคุมหัวกระดาษ, ท้ายกระดาษ, วันที่, และหมายเลขสไลด์สำหรับ master และ layout ลูก |
-| `getDependingSlides()` | คืนค่าสไลด์ปกติที่พึ่งพา master ผ่าน layout ของมัน |
+| `getBackground()` | ตั้งค่าพื้นหลังของสไลด์ระดับมาสเตอร์. |
+| `getShapes()` | เก็บรูปทรงที่วางบนมาสเตอร์ เช่น โลโก้, กรอบภาพ, และข้อความที่ใช้ร่วมกัน. |
+| `getLayoutSlides()` | เก็บสไลด์เค้าโครงที่เป็นของมาสเตอร์. |
+| `getThemeManager()` | ให้การเข้าถึง API ธีมของมาสเตอร์. |
+| `getHeaderFooterManager()` | ควบคุมหัวเรื่อง, ส่วนท้าย, วันที่, และหมายเลขสไลด์สำหรับมาสเตอร์และเค้าโครงลูกของมัน. |
+| `getDependingSlides()` | คืนค่าสไลด์ปกติที่พึ่งพามาสเตอร์ผ่านเค้าโครงของพวกมัน. |
 
-## **เพิ่มรูปภาพไปยัง Slide Master**
+## **เพิ่มรูปภาพในมาสเตอร์สไลด์**
 
-เมื่อคุณเพิ่มรูปภาพไปยัง master slide, รูปนั้นจะแสดงในสไลด์ที่ใช้ layout จาก master นั้น ซึ่งเป็นประโยชน์สำหรับโลโก้, วอเตอร์มาร์ก, แถบตกแต่ง, และองค์ประกอบภาพที่ต้องการใช้งานซ้ำ
+เมื่อคุณเพิ่มรูปภาพลงในมาสเตอร์สไลด์ รูปภาพจะปรากฏบนสไลด์ที่ใช้เค้าโครงจากมาสเตอร์นั้น ซึ่งมีประโยชน์สำหรับโลโก้, ลายน้ำ, แถบตกแต่ง, และองค์ประกอบภาพอื่น ๆ ที่ต้องการใช้ซ้ำ
 
-ตัวอย่างต่อไปนี้เพิ่มโลโก้ไปยัง master slide แรก:
+ตัวอย่างต่อไปนี้เพิ่มโลโก้ลงในมาสเตอร์สไลด์แรก:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +135,75 @@ try {
 }
 ```
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟรามภาพ, ดูที่ [Picture Frame](/slides/th/androidjava/picture-frame/)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับกรอบภาพ ดูที่ [Picture Frame](/slides/th/androidjava/picture-frame/).
+
+## **ควบคุมการแสดงผลของกราฟิกมาสเตอร์**
+
+ใช้ [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) เพื่อซ่อนกราฟิกมาสเตอร์ที่สืบทอดมา เช่น โลโก้หรือรูปทรงตกแต่ง โดยไม่ต้องลบออกจากมาสเตอร์ ให้ส่งค่า `false` ไปยัง [Slide.setShowMasterShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) บนสไลด์ที่ต้องการไม่แสดงกราฟิกเหล่านั้นและเก็บค่า `true` บนสไลด์ที่ต้องการแสดง
+
+ตัวอย่างที่เป็นอิสระต่อเนื่องต่อไปนี้สร้างแถบตกแต่งสีน้ำเงินบนมาสเตอร์และสองสไลด์ที่ใช้เค้าโครงเปล่าเดียวกัน แถบจะมองเห็นได้บนสไลด์แรกและซ่อนบนสไลด์ที่สอง ไม่จำเป็นต้องมีงานนำเสนอหรือรูปภาพเข้า.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ตัวอย่างใช้เค้าโครง **Blank** ที่มาพร้อมกับงานนำเสนอใหม่และลบ placeholder ของสไลด์เริ่มต้นออก.
+
+### **เลือกขอบเขตของการตั้งค่า**
+
+สไลด์ปกติใช้มาสเตอร์ของมันผ่าน [ISlide.getLayoutSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islide/#getLayoutSlide--) และ [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). การตั้งค่าคุณสมบัติบนสไลด์เดี่ยวจะส่งผลเฉพาะสไลด์นั้น การส่งค่า `false` ไปยัง [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) จะซ่อนกราฟิกมาสเตอร์สำหรับสไลด์ที่ใช้เค้าโครงที่แชร์ แม้การตั้งค่าของสไลด์นั้นจะเป็น `true` ก็ตาม หากต้องการซ่อนกราฟิกบนสไลด์เดียว ให้เปลี่ยนคุณสมบัติของสไลด์และไม่เปลี่ยนเค้าโครงที่แชร์
+
+การตั้งค่านี้ไม่รองรับเป็นการควบคุมการมองเห็นบนมาสเตอร์สไลด์เอง บนมาสเตอร์, [getShowMasterShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) จะคืนค่า `false` เสมอและการส่งค่า `true` ไปยัง [setShowMasterShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) จะทำให้เกิดข้อยกเว้น ใช้บนสไลด์ปกติหรือเค้าโครงแทน
+
+### **แยกกราฟิกออกจากพื้นหลัง**
+
+| การดำเนินการ | ผลลัพธ์ |
+| --- | --- |
+| ซ่อนกราฟิกมาสเตอร์ | ควบคุมการมองเห็นของรูปทรงมาสเตอร์ที่สืบทอดโดยไม่ลบหรือเปลี่ยนแปลงรูปทรงของสไลด์เอง. |
+| เปลี่ยนการเติมพื้นหลังของสไลด์ | เปลี่ยนสีพื้นหลัง, การไล่สี, หรือรูปภาพ พื้นหลังกราฟิกมาสเตอร์เป็นรูปทรงแยกต่างหากและสามารถมองเห็นอยู่เหนือพื้นหลังนั้น ดูที่ [Presentation Background](/slides/th/androidjava/presentation-background/). |
+| ลบรูปทรงจากมาสเตอร์ | เอารูปทรงต้นแบบที่ใช้ร่วมกันออก ทำให้สไลด์ใด ๆ ที่ใช้มาสเตอร์นั้นไม่มีรูปทรงดังกล่าว. |
 
 ## **ทำงานกับ Placeholder**
 
-Placeholder มักจะกำหนดบน layout slide master slide ให้สไตล์และธีมที่ใช้ร่วมกันซึ่ง layout สืบทอด, ส่วนแต่ละ layout จะตัดสินใจว่า placeholder ไหนพร้อมใช้งานและตำแหน่งใด
+Placeholder ปกติจะถูกกำหนดบนสไลด์เค้าโครง มาสเตอร์สไลด์ให้สไตล์และธีมที่ใช้ร่วมกันซึ่งเค้าโครงเหล่านั้นสืบทอด ในขณะที่แต่ละเค้าโครงตัดสินใจว่า placeholder ใดบ้างที่พร้อมใช้งานและวางตำแหน่งที่ไหน
 
-ใน PowerPoint, คำสั่ง placeholder มีให้ในมุมมอง Slide Master
+ใน PowerPoint คำสั่ง placeholder มีให้ใช้ในมุมมอง Slide Master.
 
 ![คำสั่ง Insert Placeholder ในมุมมอง Slide Master ของ PowerPoint](slide-master_5.png)
 
-การเพิ่ม placeholder ใหม่ด้วย Aspose.Slides ทำได้โดยทำงานกับ layout slide ที่เป็นของ master:
+เพื่อเพิ่ม placeholder ใหม่ด้วย Aspose.Slides ให้ทำงานกับสไลด์เค้าโครงที่เป็นของมาสเตอร์:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -162,9 +222,12 @@ try {
 }
 ```
 
-คุณยังสามารถจัดรูปแบบ placeholder ที่มีอยู่บน master slide ได้ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใช้การเติมสีไล่ระดับเส้นตรง:
+คุณยังสามารถจัดรูปแบบรูปทรง placeholder ที่มีอยู่แล้วบนมาสเตอร์สไลด์ ตัวอย่างต่อไปนี้ค้นหา placeholder ของหัวเรื่องและใช้การเติมไลเนียร์ไล่สี:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -183,8 +246,8 @@ try {
     }
 
     if (titlePlaceholder != null) {
-        int redGradientColor = Color.valueOf(255, 0, 0).toArgb();
-        int purpleGradientColor = Color.valueOf(128, 0, 128).toArgb();
+        Color redGradientColor = new Color(255, 0, 0);
+        Color purpleGradientColor = new Color(128, 0, 128);
 
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
@@ -198,19 +261,22 @@ try {
 }
 ```
 
-![Placeholder ของหัวเรื่องที่จัดรูปแบบแล้วสืบทอดโดยสไลด์ปกติ](slide-master_8.png)
+![Placeholder ของหัวเรื่องที่จัดรูปแบบแล้วที่สืบทอดโดยสไลด์ปกติ](slide-master_8.png)
 
-สำหรับตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติม, ดูที่ [Set Prompt Text in Placeholder](/slides/th/androidjava/manage-placeholder/) และ [Text Formatting](/slides/th/androidjava/text-formatting/)
+สำหรับตัวเลือกการจัดรูปแบบ placeholder และข้อความเพิ่มเติม ดูที่ [Set Prompt Text in Placeholder](/slides/th/androidjava/manage-placeholder/) และ [Text Formatting](/slides/th/androidjava/text-formatting/).
 
-## **เปลี่ยนพื้นหลังของ Slide Master**
+## **เปลี่ยนพื้นหลังของมาสเตอร์สไลด์**
 
-พื้นหลังของ master จะถูกสืบทอดโดย layout และสไลด์ที่ไม่ได้กำหนดทับ ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบทึบสำหรับ master slide แรก:
+พื้นหลังของมาสเตอร์จะถูกสืบทอดโดยเค้าโครงและสไลด์ที่ไม่ทำการทับซ้อน ตัวอย่างต่อไปนี้ตั้งค่าสีพื้นหลังแบบทึบสำหรับมาสเตอร์สไลด์แรก:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
-    int masterBackgroundColor = Color.GREEN;
+    Color masterBackgroundColor = Color.GREEN;
 
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -222,13 +288,15 @@ try {
 }
 ```
 
-สำหรับหัวข้อที่เกี่ยวข้อง, ดูที่ [Presentation Background](/slides/th/androidjava/presentation-background/) และ [Presentation Theme](/slides/th/androidjava/presentation-theme/)
+สำหรับหัวข้อที่เกี่ยวข้อง ดูที่ [Presentation Background](/slides/th/androidjava/presentation-background/) และ [Presentation Theme](/slides/th/androidjava/presentation-theme/).
 
-## **คัดลอก Slide Master ไปยังการนำเสนออื่น**
+## **คัดลอกมาสเตอร์สไลด์ไปยังงานนำเสนออื่น**
 
-ใช้ [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) เพื่อคัดลอก master slide ไปยังการนำเสนออื่น master ที่คัดลอกแล้วสามารถใช้โดย layout และสไลด์ในการนำเสนอปลายทาง
+ใช้ [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) เพื่อคัดลอกมาสเตอร์สไลด์ไปยังงานนำเสนออื่น มาสเตอร์ที่คัดลอกแล้วสามารถใช้โดยเค้าโครงและสไลด์ในงานนำหมายปลายทาง.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -242,22 +310,25 @@ try {
 }
 ```
 
-หากคุณต้องการคัดลอกสไลด์ปกติกับ master ของมันพร้อมกัน, ดูที่ [Clone Slides](/slides/th/androidjava/clone-slides/)
+หากต้องการคัดลอกสไลด์ปกติพร้อมกับมาสเตอร์ของมัน ดูที่ [Clone Slides](/slides/th/androidjava/clone-slides/).
 
-## **เพิ่มหลาย Slide Masters**
+## **เพิ่มมาสเตอร์สไลด์หลายอัน**
 
-การนำเสนอสามารถมี master slide หลายหน้า ซึ่งมีประโยชน์เมื่อส่วนต่าง ๆ ต้องการแบรนด์, โครงสร้างหน้า, หรือการตั้งค่าธีมที่แตกต่างกัน
+งานนำเสนอสามารถมีมาสเตอร์สไลด์หลายอัน ซึ่งเป็นประโยชน์เมื่อแต่ละส่วนต้องการแบรนด์, โครงสร้างหน้า, หรือการตั้งค่าธีมที่แตกต่างกัน.
 
-![คำสั่ง PowerPoint สำหรับแทรกและจัดการ master slide](slide-master_9.jpg)
+![คำสั่ง PowerPoint สำหรับการแทรกและจัดการมาสเตอร์สไลด์](slide-master_9.jpg)
 
-ตัวอย่างต่อไปนี้คัดลอก master เริ่มต้น, ให้พื้นหลังที่ต่างกัน, สร้าง layout ภายใต้ master ที่คัดลอกนั้น, และเพิ่มสไลด์ใหม่ที่อิงตาม layout นั้น:
+ตัวอย่างต่อไปนี้คัดลอกมาสเตอร์เริ่มต้น, ตั้งค่าพื้นหลังที่แตกต่างให้กับสำเนา, สร้างเค้าโครงภายใต้มาสเตอร์ที่คัดลอก, และเพิ่มสไลด์ใหม่ที่อิงจากเค้าโครงนั้น:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
     IMasterSlide sectionMasterSlide = presentation.getMasters().addClone(defaultMasterSlide);
-    int sectionMasterBackgroundColor = Color.GRAY;
+    Color sectionMasterBackgroundColor = Color.GRAY;
 
     sectionMasterSlide.getBackground().setType(BackgroundType.OwnBackground);
     sectionMasterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
@@ -277,11 +348,13 @@ try {
 }
 ```
 
-## **เปรียบเทียบ Slide Masters**
+## **เปรียบเทียบมาสเตอร์สไลด์**
 
-Master slide สามารถเปรียบเทียบได้ด้วยเมธอด `equals` ที่สืบทอดจาก [IBaseSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/) การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาคงที่ เช่น รูปทรง, ข้อความ, การจัดรูปแบบ, แอนิเมชัน, และการตั้งค่าสไลด์อื่น ๆ ไม่ได้เปรียบเทียบตัวระบุที่เป็นเอกลักษณ์ เช่น slide ID หรือค่าของ placeholder ที่เปลี่ยนแปลงเช่นวันที่ปัจจุบัน
+มาสเตอร์สไลด์สามารถเปรียบเทียบด้วยเมธอด `equals` ที่สืบทอดจาก [IBaseSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/). การเปรียบเทียบตรวจสอบโครงสร้างและเนื้อหาคงที่เช่นรูปทรง, ข้อความ, ฟอร์แมต, การเคลื่อนไหว, และการตั้งค่าอื่น ๆ ของสไลด์ ไม่ได้เปรียบเทียบตัวระบุเฉพาะเช่น slide ID หรือค่าของ placeholder แบบไดนามิก เช่น วันที่ปัจจุบัน.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -308,13 +381,15 @@ try {
 }
 ```
 
-สำหรับข้อมูลเพิ่มเติม, ดูที่ [Compare Presentation Slides](/slides/th/androidjava/compare-slides/)
+สำหรับข้อมูลเพิ่มเติม ดูที่ [Compare Presentation Slides](/slides/th/androidjava/compare-slides/).
 
-## **ตั้งค่า Slide Master View เป็นมุมมองค่าเริ่มต้น**
+## **ตั้งมุมมองมาสเตอร์สไลด์เป็นมุมมองเริ่มต้น**
 
-ใช้เมธอด `setLastView` บน [ViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นแรก ตัวอย่างต่อไปนี้เปิดการนำเสนอในมุมมอง Slide Master:
+ใช้เมธอด `setLastView` บน [ViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/viewproperties/) เพื่อควบคุมมุมมองที่ PowerPoint เปิดเป็นครั้งแรก ตัวอย่างต่อไปนี้เปิดงานนำเสนอในมุมมอง Slide Master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -324,15 +399,17 @@ try {
 }
 ```
 
-สำหรับการตั้งค่ามุมมองเพิ่มเติม, ดูที่ [Save Presentation](/slides/th/androidjava/save-presentation/)
+สำหรับการตั้งค่ามุมมองเพิ่มเติม ดูที่ [Save Presentation](/slides/th/androidjava/save-presentation/).
 
-## **ลบ Master Slides ที่ไม่ได้ใช้**
+## **ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้**
 
-บางครั้งการนำเสนออาจมี master slide ที่ไม่ได้ถูกสไลด์ปกติใด ๆ ใช้ การลบ master ที่ไม่ได้ใช้สามารถลดขนาดไฟล์และทำให้การดูแลเทมเพลตง่ายขึ้น
+บางครั้งงานนำเสนอมีมาสเตอร์สไลด์ที่ไม่ได้ใช้โดยสไลด์ปกติใด ๆ การลบมาสเตอร์ที่ไม่ได้ใช้สามารถลดขนาดไฟล์และทำให้การดูแลเทมเพลตง่ายขึ้น
 
-ใช้ `removeUnused` เพื่อลบ master ที่ไม่ได้ใช้จากคอลเลกชัน `getMasters()`:
+ใช้ `removeUnused` เพื่อลบมาสเตอร์ที่ไม่ได้ใช้จากคอลเลกชัน `getMasters()`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -345,6 +422,8 @@ try {
 คุณยังสามารถใช้เมธอด low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -354,20 +433,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่าง slide master และ layout slide คืออะไร?**
+**ความแตกต่างระหว่างมาสเตอร์สไลด์และสไลด์เค้าโครงคืออะไร?**
 
-Slide master กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปทรงทั่วไป, และสไตล์ข้อความ Layout slide เป็นส่วนหนึ่งของ slide master และกำหนดการจัดเรียงเฉพาะของ placeholder สไลด์ปกติใช้ layout slide ดังนั้นจึงสืบทอดจากทั้ง layout และ master
+มาสเตอร์สไลด์กำหนดการตั้งค่าการออกแบบที่ใช้ร่วมกัน เช่น ธีม, พื้นหลัง, รูปทรงทั่วไป, และสไตล์ข้อความ สไลด์เค้าโครงเป็นส่วนหนึ่งของมาสเตอร์สไลด์และกำหนดการจัดวางเฉพาะของ placeholder สไลด์ปกติใช้สไลด์เค้าโครง ดังนั้นจึงสืบทอดจากทั้งเค้าโครงและมาสเตอร์.
 
-**การนำเสนอสามารถมี slide master ได้หลายอันหรือไม่?**
+**งานนำเสนอหนึ่งสามารถมีมาสเตอร์สไลด์หลายอันได้หรือไม่?**
 
-ได้ การนำเสนอสามารถมี slide master หลายอัน ใช้หลาย master เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่แตกต่างกัน
+ได้ งานนำเสนอสามารถมีมาสเตอร์สไลด์หลายอันได้ ใช้หลายมาสเตอร์เมื่อส่วนต่าง ๆ ต้องการระบบภาพหรือแบรนด์ที่แตกต่างกัน.
 
-**ควรเพิ่ม placeholder ไปที่ slide master หรือ layout slide?**
+**ควรเพิ่ม placeholder ไปยังมาสเตอร์สไลด์หรือสไลด์เค้าโครง?**
 
-ส่วนใหญ่ควรเพิ่ม placeholder ไปที่ layout slide ใส่องค์ประกอบภาพและการจัดรูปแบบที่ใช้ร่วมกันบน slide master แล้วใส่ placeholder ของเนื้อหาบน layout ที่สไลด์ปกติจะใช้
+ในกรณีส่วนใหญ่ให้เพิ่ม placeholder ไปยังสไลด์เค้าโครง วางองค์ประกอบภาพที่ใช้ร่วมกันและฟอร์แมตที่ใช้ร่วมกันบนมาสเตอร์สไลด์ แล้วใส่ placeholder เนื้อหาในเค้าโครงที่สไลด์ปกติจะใช้.
 
-**ฉันสามารถลบ slide master ที่ยังถูกใช้งานได้หรือไม่?**
+**ฉันสามารถลบมาสเตอร์สไลด์ที่ยังถูกใช้ได้หรือไม่?**
 
-ไม่ได้ slide master ที่มีสไลด์ dependent ไม่สามารถลบได้อย่างปลอดภัย ให้ย้ายสไลด์เหล่านั้นไปยัง layout ภายใต้ master อื่น หรือใช้วิธีทำความสะอาด master ที่ไม่ได้ใช้เพื่อลบเฉพาะ master ที่ไม่มีการอ้างอิง
+ไม่ได้ มาสเตอร์สไลด์ที่มีสไลด์ที่พึ่งพาอยู่ไม่สามารถลบได้โดยตรง ต้องย้ายสไลด์เหล่านั้นไปยังเค้าโครงภายใต้มาสเตอร์อื่นก่อน หรือใช้วิธีทำความสะอาดมาสเตอร์ที่ไม่ได้ใช้ที่ลบเฉพาะมาสเตอร์ที่ไม่ได้ใช้.

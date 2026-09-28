@@ -1,70 +1,72 @@
 ---
-title: اعمال یا تغییر طرح اسلاید در Python via Java
-linktitle: طرح اسلاید
+title: اعمال یا تغییر طرح‌بندی اسلاید در پایتون از طریق جاوا
+linktitle: طرح‌بندی اسلاید
 type: docs
 weight: 60
 url: /fa/python-java/slide-layout/
 keywords:
-- طرح اسلاید
-- طرح محتوا
-- فیلد نگهدارنده
+- طرح‌بندی اسلاید
+- طرح‌بندی محتوا
+- متغیر نگهدارنده
 - طراحی ارائه
 - طراحی اسلاید
-- طرح استفاده‌نشده
-- قابلیت مشاهده پاورقی
+- طرح‌بندی استفاده‌نشده
+- نمایش پاورقی
 - اسلاید عنوان
 - عنوان و محتوا
-- سربرگ بخش
+- سرصفحه بخش
 - دو محتوا
 - مقایسه
 - فقط عنوان
-- طرح خالی
-- محتوا با کپشن
-- تصویر با کپشن
+- طرح‌بندی خالی
+- محتوا با توضیح
+- تصویر با توضیح
 - عنوان و متن عمودی
 - عنوان عمودی و متن
-- PowerPoint
+- پاورپوینت
 - OpenDocument
 - ارائه
-- Python
-- Java
+- پایتون
+- جاوا
 - Aspose.Slides
-description: "اعمال، ایجاد و اصلاح طرح‌های اسلاید در Aspose.Slides برای Python via Java، افزودن فیلدهای نگهدارنده، حذف طرح‌های استفاده‌نشده و کنترل قابلیت مشاهده پاورقی."
+description: "اعمال، ایجاد و تغییر طرح‌بندی‌های اسلاید در Aspose.Slides برای پایتون از طریق جاوا، افزودن متغیرهای نگهدارنده، حذف طرح‌بندی‌های استفاده‌نشده و کنترل نمایش پاورقی."
 ---
 ## **نمای کلی**
 
-یک طرح اسلاید موقعیت‌ها و قالب‌بندی فیلدهای نگهدارنده‌ای مانند عنوان‌ها، متن، تصاویر، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختار یکسانی می‌دهد در حالی که به هر اسلاید اجازه می‌دهد محتوای خاص خود را داشته باشد.
+یک طرح‌بندی اسلاید موقعیت‌ها و قالب‌بندی متغیرهای نگهدارنده مانند عنوان‌ها، متن، تصاویر، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح‌بندی به اسلایدها ساختار ثابتی می‌دهد در حالی که به هر اسلاید اجازه می‌دهد محتویات خاص خود را داشته باشد.
 
-متداول‌ترین طرح‌ها شامل:
+اکثر طرح‌بندی‌های رایج شامل:
 
-- **Title Slide**: شامل فیلدهای نگهدارندهٔ عنوان و زیرعنوان است.
-- **Title and Content**: شامل یک فیلد نگهدارندهٔ عنوان و یک فیلد نگهدارندهٔ محتوای عمومی است.
-- **Blank**: هیچ فیلد نگهدارنده‌ای ندارد و زمانی مفید است که همهٔ اشکال به‌صورت دستی موقعیت‌یابی شوند.
+- **Title Slide**: شامل متغیرهای نگهدارنده عنوان و زیرعنوان است.
+- **Title and Content**: شامل یک متغیر نگهدارنده عنوان و یک متغیر نگهدارنده محتوای عمومی است.
+- **Blank**: حاوی هیچ متغیر نگهدارنده محتوایی نیست و در زمانی مفید است که تمام شکل‌ها به صورت دستی موقعیت‌یابی می‌شوند.
 
-## **درک وراثت طرح**
+## **درک ارث‌بری طرح‌بندی**
 
 یک ارائه دارای سه سطح مرتبط است:
 
-1. یک [master slide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
-1. یک [layout slide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/) متعلق به یک master است و ترتیب خاصی از فیلدهای نگهدارنده را تعریف می‌کند.
-1. یک [normal slide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/) از یک layout استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌کند.
+1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/) تم، قالب‌بندی مشترک، پس‌زمینه و اشیای عمومی را تعریف می‌کند.
+1. یک [اسلاید طرح‌بندی](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/) به یک مستر تعلق دارد و ترتیب خاصی از متغیرهای نگهدارنده را تعریف می‌کند.
+1. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/) از یک طرح‌بندی استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌کند.
 
-یک اسلاید عادی قالب و تم را از layout خود به ارث می‌برد و layout نیز از master خود ارث می‌برد. مقدار تنظیم‌شده مستقیم بر روی اسلاید عادی، مقدار ارث‌برده‌شده را در همان سطح بازنویسی می‌کند. وقتی یک اسلاید عادی ساخته می‌شود، اشکال فیلدهای نگهدارنده از layout انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده به این فیلدها به اسلاید عادی تعلق دارد.
+یک اسلاید عادی قالب‌بندی و تم را از طرح‌بندی خود به ارث می‌برد و طرح‌بندی از مستر خود به ارث می‌برد. مقداری که مستقیماً بر روی اسلاید عادی تنظیم می‌شود، مقدار ارث‌بری را در همان سطح لغو می‌کند. وقتی یک اسلاید عادی ایجاد می‌شود، اشکال متغیرهای نگهدارنده آن از طرح‌بندی انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده به این متغیرها متعلق به اسلاید عادی است.
 
-قبل از ایجاد اسلایدها، فیلدهای نگهدارنده مورد نیاز را به یک layout اضافه کنید. افزودن فیلد نگهدارندهٔ دیگر به یک layout پس از آن، به‌صورت خودکار فیلد نگهدارندهٔ متناظر را به اسلایدهای عادی موجود اضافه نمی‌کند.
+متغیرهای نگهدارنده مورد نیاز را قبل از ایجاد اسلایدها به یک طرح‌بندی اضافه کنید. افزودن متغیر نگهدارنده دیگر به یک طرح‌بندی بعداً به‌صورت خودکار شکل متغیر مربوطه را به اسلایدهای عادی موجود اضافه نمی‌کند.
 
 این رابطه دو پیامد مهم دارد:
 
-- تغییر قالب‌بندی ارث‌برده یا هندسهٔ فیلدهای نگهدارنده موجود در یک layout می‌تواند تمام اسلایدهای وابسته را به‌روز کند. قبل از ویرایش.layout که در حال استفاده است، اسلایدهای وابسته را بررسی و ارائهٔ حاصل را بازبینی کنید.
-- یک layout که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته را به layout دیگری اختصاص دهید یا فقط layoutهای استفاده‌نشده را حذف کنید.
+- تغییر قالب‌بندی ارث‌بری یا هندسه متغیرهای نگهدارنده موجود در یک طرح‌بندی می‌تواند تمام اسلایدهایی را که به آن وابسته‌اند به‌روز کند. قبل از ویرایش طرح‌بندی‌ای که در حال استفاده است، اسلایدهای وابسته را بررسی کنید و ارائه حاصل را مرور کنید.
+- یک طرح‌بندی که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته آن را به طرح‌بندی دیگری اختصاص دهید یا فقط طرح‌بندی‌های بدون استفاده را حذف کنید.
 
-برای اطلاعات بیشتر درباره سطح بالای این سلسله‌مراتبی، به [Slide Master](/slides/fa/python-java/slide-master/) مراجعه کنید.
+برای اطلاعات بیشتر درباره سطح بالایی این سلسله‌مراتب، به [اسلاید مستر](/slides/fa/python-java/slide-master/) مراجعه کنید.
 
-## **انتخاب و اعمال یک Layout اسلاید**
+برای مخفی کردن لوگوهای ارث‌بری یا اشکال تزئینی مستر در یک اسلاید یا از طریق یک طرح‌بندی مشترک، به [کنترل نمایش گرافیک‌های مستر](/slides/fa/python-java/slide-master/) نگاه کنید. مثال دو اسلاید استفاده‌کننده از همان مستر را مقایسه می‌کند.
 
-زمانی که ارائه از تعریف‌های استاندارد PowerPoint پیروی می‌کند، از یک نوع layout استفاده کنید. نام‌های layout قابل ویرایش توسط کاربر هستند و می‌توانند локалیزه شوند، بنابراین انتخاب بر مبنای نام کمتر قابل اطمینان است مگر این که قالب منبع را کنترل کنید.
+## **انتخاب و اعمال یک طرح‌بندی اسلاید**
 
-مثال زیر به‌دنبال **Title and Content** در اولین master می‌گردد. اگر آن layout در دسترس نباشد، عمداً به **Blank** بازمی‌گردد. بررسی دوم برای `None` ضروری است زیرا یک ارائه می‌تواند فقط layoutهای سفارشی داشته باشد. سپس layout انتخاب‌شده از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/#setLayoutSlide) به اولین اسلاید عادی اعمال می‌شود.
+از یک نوع طرح‌بندی وقتی استفاده کنید که ارائه تعریف‌های استاندارد طرح‌بندی پاورپوینت را دنبال می‌کند. نام‌های طرح‌بندی قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر پایه نام کمتر قابل اعتماد است مگر آنکه قالب منبع را تحت کنترل داشته باشید.
+
+مثال زیر به دنبال **Title and Content** در اولین مستر می‌گردد. اگر آن طرح‌بندی در دسترس نباشد، به‌صراحت به **Blank** باز می‌گردد. بررسی دوم برای `None` ضروری است چون یک ارائه می‌تواند فقط طرح‌بندی‌های سفارشی داشته باشد. سپس طرح‌بندی انتخاب‌شده از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/#setLayoutSlide) به اولین اسلاید عادی اعمال می‌شود.
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-تغییر layout یک اسلاید اشکال معمولی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. اما موقعیت فیلدهای نگهدارنده، قالب‌بندی ارث‌برده و نگاشت بین فیلدهای موجود و layout جدید ممکن است تغییر کند، بنابراین هنگام جابجایی بین layoutهای متفاوت، خروجی را بررسی کنید.
+تغییر طرح‌بندی یک اسلاید اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. اما موقعیت متغیرهای نگهدارنده، قالب‌بندی ارث‌بری و تطابق بین متغیرهای موجود و طرح‌بندی جدید می‌تواند تغییر کند، بنابراین هنگام جابجایی بین طرح‌بندی‌های متفاوت به‌خروجی دقت کنید.
 
-## **افزودن یک Layout اسلاید**
+## **افزودن یک اسلاید طرح‌بندی**
 
-انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک layout موجود را انتخاب می‌کرد؛ آن را ایجاد نمی‌کرد. برای ایجاد یک layout، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterlayoutslidecollection/#add) را بر روی مجموعهٔ layoutهای master هدف فراخوانی کنید.
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح‌بندی موجود را انتخاب می‌کرد؛ یک طرح‌بندی جدید ایجاد نمی‌کرد. برای ایجاد یک طرح‌بندی، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterlayoutslidecollection/#add) را بر روی مجموعه طرح‌بندی‌های مستر هدف صدا بزنید.
 
-مثال زیر همیشه یک layout جدید **Title and Content** به نام `Report Title and Content` اضافه می‌کند، سپس اسلاید عادی مبتنی بر آن را می‌سازد. نام‌های layout باید درون مجموعه یکتا باشند.
+مثال زیر همیشه یک طرح‌بندی جدید **Title and Content** به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی بر پایه آن می‌سازد. نام‌های طرح‌بندی باید درون مجموعه یکتا باشند.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-یک layout فقط زمانی اضافه شود که قالب واقعاً به یک ساختار قابل استفاده مجدد دیگر نیاز داشته باشد. اگر یک layout مناسب قبلاً وجود داشته باشد، به‌جای ایجاد تکثیر، آن را انتخاب و مجدداً استفاده کنید.
+یک طرح‌بندی تنها زمانی اضافه کنید که قالب واقعاً به ساختار قابل استفاده دیگری نیاز داشته باشد. اگر یک طرح‌بندی مناسب پیش از این وجود داشته باشد، به‌جای ایجاد نسخهٔ تکراری، آن را انتخاب و دوباره استفاده کنید.
 
-## **افزودن فیلدهای نگهدارنده به یک Layout اسلاید**
+## **افزودن متغیرهای نگهدارنده به یک اسلاید طرح‌بندی**
 
-متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/) را برای افزودن اشکال فیلد نگهدارنده به یک layout فراهم می‌کند.
+متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/) برای افزودن اشکال متغیرهای نگهدارنده به یک طرح‌بندی فراهم می‌کند.
 
-| فیلد نگهدارندهٔ PowerPoint | متد [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/) |
-| --------------------------- | -------------------------------------------------------- |
-| ![Content](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| متغیر نگهدارنده PowerPoint | متد |
+| --------------------------- | ---- |
+| ![محتوا](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![محتوا (عمودی)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![متن](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![متن (عمودی)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![تصویر](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![نمودار](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![جدول](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
 | ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![رسانه](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![تصویر آنلاین](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-مثال زیر بررسی می‌کند که آیا layout **Blank** موجود است، چهار فیلد نگهدارنده به آن اضافه می‌کند و سپس اسلاید عادی‌ای که از layout اصلاح‌شده استفاده می‌کند را می‌سازد. ترتیب به‌صورت عمدی است: فیلدهای نگهدارنده قبل از ایجاد اسلاید عادی اضافه می‌شوند تا Aspose.Slides بتواند اشکال فیلدهای متناظر را بر روی آن اسلاید تولید کند.
+مثال زیر اطمینان می‌یابد که طرح‌بندی **Blank** موجود است، چهار متغیر نگهدارنده را به آن اضافه می‌کند و سپس اسلاید عادی‌ای که از طرح‌بندی اصلاح‌شده استفاده می‌کند را می‌سازد. ترتیب این کار عمدی است: متغیرهای نگهدارنده پیش از ایجاد اسلاید عادی اضافه می‌شوند تا Aspose.Slides بتواند اشکال متغیرهای مربوطه را روی آن اسلاید تولید کند.
 
 ```python
 import jpype
@@ -171,15 +173,15 @@ finally:
 
 نتیجه:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![متغیرهای نگهدارنده در اسلاید طرح‌بندی](add_placeholders.png)
 
-{{% alert color="warning" title="Warning" %}}
-تغییر قالب‌بندی ارث‌برده یا هندسهٔ فیلدهای نگهدارندهٔ layout می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. فیلد نگهدارندهٔ جدید به‌صورت خودکار به اسلایدهای عادی موجود اضافه نمی‌شود. تغییرات layout را روی یک نسخهٔ کپی از ارائه تست کنید و هر اسلاید وابسته را بررسی کنید.
+{{% alert color="warning" title="هشدار" %}}
+تغییر قالب‌بندی ارث‌بری یا هندسهٔ متغیرهای نگهدارندهٔ موجود در طرح‌بندی می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک متغیر نگهدارندهٔ تازه اضافه‌شده به صورت خودکار در اسلایدهای عادی موجود پر نمی‌شود. تغییرات طرح‌بندی را روی یک کپی از ارائه آزمایش کنید و هر اسلاید وابسته را بررسی کنید.
 {{% /alert %}}
 
-## **حذف Layoutهای استفاده‌نشده**
+## **حذف اسلایدهای طرح‌بندی استفاده نشده**
 
-از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف layoutهایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد استفاده کنید. این متد layoutهایی را که هنوز استفاده می‌شوند، دست نخورده می‌گذارد.
+از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف طرح‌بندی‌هایی که هیچ اسلاید عادی به آن ارجاع نمی‌دهد استفاده کنید. این متد طرح‌بندی‌هایی که هنوز در استفاده هستند را دست‌نخورده می‌گذارد.
 
 ```python
 import jpype
@@ -198,13 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-برای حذف یک layout خاص، ابتدا از متد [hasDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. قبل از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را مجدداً اختصاص دهید. تلاش برای حذف یک layout استفاده‌شده منجر به ایجاد [PptxEditException](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pptxeditexception/) می‌شود.
+برای حذف یک طرح‌بندی خاص، ابتدا از متد [hasDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. قبل از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را به طرح‌بندی دیگری اختصاص دهید. تلاش برای حذف یک طرح‌بندی استفاده‌شده منجر به پرتاب [PptxEditException](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pptxeditexception/) می‌شود.
 
-## **کنترل نمایش پاورقی در یک Layout اسلاید**
+## **کنترل نمایش پاورقی در یک اسلاید طرح‌بندی**
 
-یک layout فیلدهای نگهدارندهٔ پاورقی، شماره اسلاید و تاریخ‑زمان خود را دارد. برای کنترل این فیلدها در یک layout از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) استفاده کنید. این برای مثال وقتی محتوا باید پاورقی نشان دهد ولی layoutهای عنوان نه، مفید است.
+یک طرح‌بندی پاورقی، شمارهٔ اسلاید و متغیرهای نگهدارندهٔ تاریخ/زمان خود را دارد. از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) برای کنترل این متغیرها برای یک طرح‌بندی استفاده کنید. این مورد زمانی مفید است که مثلاً طرح‌بندی‌های محتوا باید پاورقی نشان دهند اما طرح‌بندی‌های عنوان نه.
 
-مثال زیر به‌صورت ایمن یک layout را انتخاب می‌کند و عناصر پاورقی آن را قابل مشاهده می‌سازد:
+مثال زیر یک طرح‌بندی را به‌صورت ایمن انتخاب می‌کند و عناصر پاورقی آن را قابل مشاهده می‌سازد:
 
 ```python
 import jpype
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **کنترل نمایش پاورقی در یک Master و Layoutهای فرزند آن**
+## **کنترل نمایش پاورقی در یک مستر و طرح‌بندی‌های فرزند آن**
 
-برای اعمال تنظیمات یکسان پاورقی در سراسر سلسله‌مراتبی master، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. روش‌های انتشار [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslideheaderfootermanager/) بر روی master و layoutهای وابسته و اسلایدهای عادی عمل می‌کند؛ نه فقط یک اسلاید عادی.
+برای اعمال تنظیمات پاورقی سازگار در سرتاسر سلسله‌مراتب مستر، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. متدهای انتشار [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslideheaderfootermanager/) بر روی مستر و اسلایدهای طرح‌بندی وابسته و اسلایدهای عادی عمل می‌کنند؛ آنها تنها یک اسلاید عادی را هدف‌گیری نمی‌کنند.
 
 ```python
 import jpype
@@ -266,18 +268,18 @@ finally:
 
 ## **سوالات متداول**
 
-**تفاوت بین Master Slide و Layout Slide چیست؟**
+**تفاوت بین اسلاید مستر و اسلاید طرح‌بندی چیست؟**
 
-یک master slide تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. یک layout slide متعلق به یک master است و یک ترتیب قابل استفاده مجدد از فیلدهای نگهدارنده را تعریف می‌کند. اسلایدهای عادی از این layoutها استفاده می‌کنند و محتوای خاص هر اسلاید را ذخیره می‌نمایند.
+اسلاید مستر تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح‌بندی به یک مستر تعلق دارد و یک ترتیب قابل استفادهٔ متغیرهای نگهدارنده را تعریف می‌کند. اسلایدهای عادی از این طرح‌بندی‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک Layout Slide را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
+**آیا می‌توانم یک اسلاید طرح‌بندی را از یک ارائه به ارائه دیگر کپی کنم؟**
 
-بله. با متد [addClone](https://reference.aspose.com/slides/fa/python-java/aspose.slides/globallayoutslidecollection/#addClone) یک کپی به مجموعه مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، قلم‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط layout منبع را نیز بررسی کنید.
+بله. با استفاده از متد [addClone](https://reference.aspose.com/slides/fa/python-java/aspose.slides/globallayoutslidecollection/#addClone) یک کپی به مجموعه مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط طرح‌بندی منبع را نیز بررسی کنید.
 
-**اگر یک Layout که در حال استفاده است را تغییر دهم، چه اتفاقی می‌افتد؟**
+**وقتی یک طرح‌بندی که در حال استفاده است را تغییر می‌دهم چه اتفاقی می‌افتد؟**
 
-اسلایدهای وابسته تغییرات layout را به‌ارث می‌برند مگر اینکه قالب‌بندی یا اشیای مؤثر را به‌صورت محلی بازنویسی کنند. هندسهٔ فیلدهای نگهدارنده و سبک‌های ارث‌برده ممکن است به‌طور همزمان در بسیاری از اسلایدها تغییر کند. قبل از ویرایش layout از [getDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getDependingSlides) برای شناسایی اسلایدهای متاثر استفاده کنید.
+اسلایدهای وابسته تغییرات طرح‌بندی را به‌ارث می‌برند مگر آنکه قالب‌بندی یا اشیای مربوطه را به‌صورت محلی بازنویسی کرده باشند. هندسهٔ متغیرهای نگهدارنده و استایل ارث‌بری می‌تواند به‌ناوبرا بر تعداد زیادی اسلاید تاثیر بگذارد. برای شناسایی اسلایدهای تحت تأثیر، قبل از ویرایش طرح‌بندی از [getDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getDependingSlides) استفاده کنید.
 
-**اگر یک Layout که هنوز در استفاده است را حذف کنم چه می‌شود؟**
+**اگر یک طرح‌بندی که هنوز در استفاده است را حذف کنم چه می‌شود؟**
 
-Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را مجدداً اختصاص دهید یا از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف تنها layoutهای بدون ارجاع استفاده کنید.
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به طرح‌بندی دیگری منتقل کنید یا برای حذف فقط طرح‌بندی‌های بدون ارجاع از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) بهره بگیرید.

@@ -1,5 +1,5 @@
 ---
-title: Python में प्रस्तुति स्लाइड मास्टर को प्रबंधित करें
+title: Python में प्रेज़ेंटेशन स्लाइड मास्टर्स प्रबंधित करें
 linktitle: स्लाइड मास्टर
 type: docs
 weight: 80
@@ -9,47 +9,47 @@ keywords:
 - मास्टर स्लाइड
 - PPT मास्टर स्लाइड
 - एकाधिक मास्टर स्लाइड्स
-- मास्टर स्लाइड्स की तुलना करें
+- मास्टर स्लाइड्स की तुलना
 - पृष्ठभूमि
 - प्लेसहोल्डर
 - मास्टर स्लाइड क्लोन करें
 - मास्टर स्लाइड कॉपी करें
 - मास्टर स्लाइड डुप्लिकेट करें
-- अप्रयुक्त मास्टर स्लाइड
+- अनुपयोगी मास्टर स्लाइड
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेज़ेंटेशन
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET में स्लाइड मास्टर को प्रबंधित करें: PowerPoint और OpenDocument प्रस्तुतियों में मास्टर स्लाइडों तक पहुँच, संपादन, क्लोन, तुलना और हटाना।"
+description: "Aspose.Slides for Python via .NET में स्लाइड मास्टर्स प्रबंधित करें: PowerPoint और OpenDocument प्रस्तुतियों में मास्टर स्लाइड्स तक पहुँच, संपादन, क्लोन, तुलना और हटाना।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-एक **slide master** कई स्लाइडों के समूह के लिए साझा डिज़ाइन सेटिंग्स को परिभाषित करता है। इसमें सामान्य आकार, लोगो, पृष्ठभूमि, टेक्स्ट शैलियां, थीम सेटिंग्स और फुटर सेटिंग्स शामिल हो सकते हैं। PowerPoint में, slide master को संपादित करना वह सामान्य तरीका है जिससे प्रस्तुति को लगातार समान स्वरूप में रखा जा सकता है, बिना हर स्लाइड पर समान फ़ॉर्मेटिंग दोहराए।
+एक **slide master** समूह की स्लाइड्स के लिए साझा डिज़ाइन सेटिंग्स को परिभाषित करता है। इसमें सामान्य आकार, लोगो, पृष्ठभूमि, टेक्स्ट शैलियाँ, थीम सेटिंग्स और फ़ूटर सेटिंग्स शामिल हो सकते हैं। PowerPoint में, स्लाइड मास्टर को संपादित करना वह सामान्य तरीका है जिससे प्रस्तुति को लगातार रखा जा सके बिना प्रत्येक स्लाइड पर समान फ़ॉर्मेटिंग दोहराए।
 
-Aspose.Slides for Python via .NET भी वही मॉडल समर्थन करता है। एक प्रस्तुति में एक या अधिक master स्लाइडें हो सकती हैं, और प्रत्येक master स्लाइड में कई layout स्लाइडें हो सकती हैं। सामान्य स्लाइडें सीधे master स्लाइड को संदर्भित नहीं करतीं। इसके बजाय, एक सामान्य स्लाइड एक layout स्लाइड का उपयोग करती है, और वह layout स्लाइड किसी master स्लाइड से संबंधित होती है।
+Aspose.Slides for Python via .NET भी वही मॉडल समर्थन करता है। एक प्रस्तुति में एक या अधिक मास्टर स्लाइड्स हो सकती हैं, और प्रत्येक मास्टर स्लाइड में कई लेआउट स्लाइड्स हो सकती हैं। सामान्य स्लाइड्स आम तौर पर सीधे किसी मास्टर स्लाइड को संदर्भित नहीं करतीं। इसके बजाय, एक सामान्य स्लाइड एक लेआउट स्लाइड का उपयोग करती है, और वह लेआउट स्लाइड किसी मास्टर स्लाइड से जुड़ी होती है।
 
-क्रमविन्यास इस प्रकार है:
+क्रमागत संरचना इस प्रकार है:
 
 1. **Slide master** – साझा डिज़ाइन और थीम को परिभाषित करता है।  
-2. **Layout slide** – प्लेसहोल्डर और लेआउट-स्तर फ़ॉर्मेटिंग की विशिष्ट व्यवस्था को परिभाषित करता है।  
-3. **Normal slide** – वास्तविक प्रस्तुति सामग्री को रखता है और एक layout स्लाइड का उपयोग करता है।
+1. **Layout slide** – प्लेसहोल्डर्स और लेआउट‑स्तर फ़ॉर्मेटिंग की विशिष्ट व्यवस्था को परिभाषित करता है।  
+1. **Normal slide** – वास्तविक प्रस्तुति सामग्री को सम्मिलित करता है और एक लेआउट स्लाइड का उपयोग करता है।
 
-![master slides, layout slides, और normal slides का क्रमविन्यास](slide-master_2.jpg)
+![मास्टर स्लाइड्स, लेआउट स्लाइड्स, और सामान्य स्लाइड्स की पदानुक्रम](slide-master_2.jpg)
 
-Aspose.Slides में, एक slide master को [MasterSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) क्लास द्वारा प्रतिनिधित्व किया जाता है। प्रस्तुति में सभी master स्लाइडें `Presentation.masters` कलेक्शन के माध्यम से उपलब्ध हैं।
+Aspose.Slides में, एक स्लाइड मास्टर को [MasterSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) क्लास द्वारा दर्शाया जाता है। प्रस्तुति में सभी मास्टर स्लाइड्स `Presentation.masters` संग्रह के माध्यम से उपलब्ध होती हैं।
 
 {{% alert color="info" title="Inheritance" %}}
-जब एक ही प्रॉपर्टी एक से अधिक स्तर पर परिभाषित होती है, तो अधिक विशिष्ट स्तर को प्राथमिकता मिलती है। उदाहरण के लिए, यदि एक master slide और एक layout slide दोनों एक पृष्ठभूमि परिभाषित करते हैं, तो उस लेआउट पर आधारित स्लाइडें लेआउट की पृष्ठभूमि का उपयोग करती हैं। लेआउट स्लाइडों के बारे में अधिक जानकारी के लिए देखें [Apply or Change Slide Layouts](/slides/hi/python-net/slide-layout/)।
+जब एक ही गुण एक से अधिक स्तर पर परिभाषित होता है, तो अधिक विशिष्ट स्तर विजयी होता है। उदाहरण के लिए, यदि एक मास्टर स्लाइड और एक लेआउट स्लाइड दोनों पृष्ठभूमि निर्धारित करते हैं, तो उस लेआउट पर आधारित स्लाइड्स लेआउट पृष्ठभूमि का उपयोग करेंगी। लेआउट स्लाइड्स के बारे में अधिक जानकारी के लिए देखें: [स्लाइड लेआउट लागू करें या बदलें](/slides/hi/python-net/slide-layout/)।
 {{% /alert %}}
 
-## **Slide Masters तक पहुँच**
+## **स्लाइड मास्टर तक पहुँच**
 
-PowerPoint में, आप **View** > **Slide Master** से Slide Master व्यू खोल सकते हैं।
+PowerPoint में, आप **View** > **Slide Master** से स्लाइड मास्टर दृश्य खोल सकते हैं।
 
-![PowerPoint View टैब पर Slide Master कमांड](slide-master_3.jpg)
+![PowerPoint View टैब में स्लाइड मास्टर कमांड](slide-master_3.jpg)
 
-Aspose.Slides में, master स्लाइडों तक पहुँचने के लिए `masters` कलेक्शन का उपयोग करें:
+Aspose.Slides में, मास्टर स्लाइड्स तक पहुँचने के लिए `masters` संग्रह का उपयोग करें:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-आप सामान्य स्लाइड के लेआउट के माध्यम से उपयोग की गई master slide को भी प्राप्त कर सकते हैं:
+आप एक सामान्य स्लाइड के लेआउट के माध्यम से उपयोग किए गए मास्टर स्लाइड को भी प्राप्त कर सकते हैं:
 
 ```python
 import aspose.slides as slides
@@ -77,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Slide Master में क्या होता है**
+## **एक स्लाइड मास्टर में क्या शामिल होता है**
 
-एक master slide एक स्लाइड‑समान वस्तु है। यह [BaseSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslide/) क्लास से सामान्य स्लाइड व्यवहार को विरासत में लेता है, इसलिए यह सामान्य और layout स्लाइडों द्वारा उपयोग किए जाने वाले कई समान स्लाइड प्रॉपर्टीज़ को उजागर करता है। master‑विशिष्ट सदस्य [MasterSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) API पृष्ठ पर सूचीबद्ध हैं।
+मास्टर स्लाइड एक स्लाइड‑समान वस्तु है। यह [BaseSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslide/) क्लास से सामान्य स्लाइड व्यवहार को विरासत में लेती है, इसलिए यह सामान्य और लेआउट स्लाइड्स द्वारा उपयोग किए जाने वाले कई समान स्लाइड गुण प्रदान करती है। मास्टर‑विशिष्ट सदस्य [MasterSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) API पृष्ठ पर सूचीबद्ध हैं।
 
-सामान्यतः उपयोग किए जाने वाले master slide सदस्यों में शामिल हैं:
+सामान्यतः उपयोग किए जाने वाले मास्टर स्लाइड सदस्यों में शामिल हैं:
 
 | सदस्य | उद्देश्य |
 | --- | --- |
-| `background` | master‑स्तर की स्लाइड पृष्ठभूमि सेट करता है। |
-| `shapes` | master पर रखे गए आकारों को संग्रहीत करता है, जैसे लोगो, चित्र फ्रेम, और साझा टेक्स्ट। |
-| `layout_slides` | उन layout स्लाइडों को संग्रहीत करता है जो master से संबंधित हैं। |
-| `theme_manager` | master थीम API तक पहुँच प्रदान करता है। |
-| `header_footer_manager` | master और उसकी चाइल्ड लेआउट्स के लिए हेडर, फुटर, तिथियां, और स्लाइड नंबर नियंत्रित करता है। |
-| `get_depending_slides` | उन normal स्लाइडों को लौटाता है जो अपने लेआउट के माध्यम से master पर निर्भर हैं। |
+| `background` | मास्टर‑स्तर स्लाइड पृष्ठभूमि सेट करता है। |
+| `shapes` | मास्टर पर रखी गई आकृतियों को संग्रहीत करता है, जैसे लोगो, चित्र फ्रेम, और साझा टेक्स्ट। |
+| `layout_slides` | उस मास्टर से संबंधित लेआउट स्लाइड्स को संग्रहीत करता है। |
+| `theme_manager` | मास्टर थीम API तक पहुँच प्रदान करता है। |
+| `header_footer_manager` | मास्टर और उसके चाइल्ड लेआउट्स के हेडर, फ़ूटर, तिथियों और स्लाइड नंबरों को नियंत्रित करता है। |
+| `get_depending_slides` | उन सामान्य स्लाइड्स को लौटाता है जो लेआउट्स के माध्यम से मास्टर पर निर्भर हैं। |
 
-## **Slide Master में छवि जोड़ना**
+## **स्लाइड मास्टर में एक छवि जोड़ें**
 
-जब आप एक master slide में छवि जोड़ते हैं, तो वह उस master से लेआउट प्रयोग करने वाली सभी स्लाइडों में दिखती है। यह लोगो, वॉटरमार्क, सजावटी बैंड, और अन्य दोहराए जाने वाले दृश्य तत्वों के लिए उपयोगी है।
+जब आप मास्टर स्लाइड में एक छवि जोड़ते हैं, तो वह उस मास्टर से जुड़े लेआउट्स का उपयोग करने वाली स्लाइड्स पर दिखाई देती है। यह लोगो, वॉटरमार्क, सजावटी बैंड और अन्य दोहराए जाने वाले दृश्य तत्वों के लिए उपयोगी है।
 
-निम्न उदाहरण पहले master slide में एक लोगो जोड़ता है:
+निम्न उदाहरण पहले मास्टर स्लाइड में एक लोगो जोड़ता है:
 
 ```python
 import aspose.slides as slides
@@ -120,17 +120,66 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-चित्र फ्रेम के बारे में अधिक जानकारी के लिए देखें [Picture Frame](/slides/hi/python-net/picture-frame/)।
+चित्र फ्रेम के बारे में अधिक जानकारी के लिए देखें: [Picture Frame](/slides/hi/python-net/picture-frame/)।
 
-## **Placeholders के साथ कार्य करना**
+## **मास्टर ग्राफ़िक्स की दृश्यता नियंत्रित करें**
 
-Placeholders आम तौर पर layout स्लाइडों पर परिभाषित होते हैं। master slide साझा शैली और थीम प्रदान करता है जिसे लेआउट विरासत में लेते हैं, जबकि प्रत्येक लेआउट तय करता है कि कौन से placeholders उपलब्ध हैं और वे कहाँ रखे गए हैं।
+वारिसित मास्टर ग्राफ़िक्स, जैसे लोगो या सजावटी आकार, को हटाए बिना छुपाने के लिए [BaseSlide.show_master_shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslide/show_master_shapes/) का उपयोग करें। जिस स्लाइड पर इन ग्राफ़िक्स को हटाना है, उस पर `Slide.show_master_shapes` को `False` सेट करें और उन स्लाइड्स पर `True` रखें जहाँ उन्हें दिखाना है।
 
-PowerPoint में, placeholder कमांड Slide Master व्यू में उपलब्ध हैं।
+निम्न स्व-निर्भर उदाहरण एक नीले सजावटी बैंड को मास्टर पर बनाता है और दो स्लाइड्स को समान खाली लेआउट का उपयोग करके बनाता है। बैंड पहली स्लाइड पर दिखाई देता है और दूसरी स्लाइड पर छिपा रहता है। कोई इनपुट प्रस्तुति या छवि आवश्यक नहीं है।
 
-![PowerPoint Slide Master व्यू में Insert Placeholder कमांड](slide-master_5.png)
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-Aspose.Slides के साथ नए placeholders जोड़ने के लिए, master से संबंधित layout स्लाइड पर कार्य करें:
+with slides.Presentation() as presentation:
+    master_slide = presentation.masters[0]
+    layout_slide = master_slide.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_slide.show_master_shapes = True
+
+    slide_height = presentation.slide_size.size.height
+    band = master_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 60, slide_height)
+    band.fill_format.fill_type = slides.FillType.SOLID
+    band.fill_format.solid_fill_color.color = draw.Color.steel_blue
+    band.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    visible_slide = presentation.slides[0]
+    visible_slide.layout_slide = layout_slide
+    visible_slide.shapes.clear()
+
+    hidden_slide = presentation.slides.add_empty_slide(layout_slide)
+
+    visible_slide.show_master_shapes = True
+    hidden_slide.show_master_shapes = False
+
+    presentation.save("master-graphics.pptx", slides.export.SaveFormat.PPTX)
+```
+
+यह उदाहरण नई प्रस्तुति के साथ प्रदान किए गए **Blank** लेआउट का उपयोग करता है और प्रारंभिक स्लाइड के अपने प्लेसहोल्डर्स को हटाता है।
+
+### **सेटिंग की सीमा चुनें**
+
+एक सामान्य स्लाइड अपने मास्टर को [Slide.layout_slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/layout_slide/) और [LayoutSlide.master_slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/master_slide/) के माध्यम से उपयोग करती है। एक व्यक्तिगत स्लाइड पर गुण सेट करने से केवल वही स्लाइड प्रभावित होती है। जब आप [LayoutSlide.show_master_shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/show_master_shapes/) को `False` सेट करते हैं, तो वह साझा लेआउट का उपयोग करने वाली सभी स्लाइड्स पर मास्टर ग्राफ़िक्स को छुपा देता है, भले ही उनकी अपनी सेटिंग `True` हो। केवल एक स्लाइड पर ग्राफ़िक्स छुपाने के लिए, स्लाइड गुण को बदलें और साझा लेआउट को अपरिवर्तित रखें।
+
+यह सेटिंग मास्टर स्लाइड स्वयं पर दृश्य नियंत्रण के रूप में समर्थित नहीं है। मास्टर पर यह हमेशा `False` लौटाता है, और `True` असाइन करने पर अपवाद उत्पन्न होता है। इसे एक सामान्य स्लाइड या लेआउट पर लागू करें।
+
+### **ग्राफ़िक्स को पृष्ठभूमि से अलग करें**
+
+| ऑपरेशन | प्रभाव |
+| --- | --- |
+| मास्टर ग्राफ़िक्स छुपाएँ | वारिसित मास्टर आकारों की दृश्यता को हटाए बिना या स्लाइड की अपनी आकृतियों को बदले बिना नियंत्रित करता है। |
+| स्लाइड पृष्ठभूमि भर बदलें | पृष्ठभूमि का रंग, ग्रेडिएंट या छवि बदलता है। मास्टर ग्राफ़िक्स अलग आकार होते हैं और उस पृष्ठभूमि के ऊपर दिखाई दे सकते हैं। देखें: [Presentation Background](/slides/hi/python-net/presentation-background/)। |
+| मास्टर से आकार हटाएँ | साझा स्रोत आकार को हटा देता है, इसलिए वह किसी भी स्लाइड द्वारा अब उपलब्ध नहीं रहता जो उस मास्टर को उपयोग करती है। |
+
+## **प्लेसहोल्डर्स के साथ कार्य करें**
+
+प्लेसहोल्डर्स आमतौर पर लेआउट स्लाइड्स पर परिभाषित होते हैं। मास्टर स्लाइड साझा शैली और थीम प्रदान करती है जिसे लेआउट्स विरासत में लेते हैं, जबकि प्रत्येक लेआउट तय करता है कि कौन से प्लेसहोल्डर्स उपलब्ध हैं और उन्हें कहाँ रखा गया है।
+
+PowerPoint में, प्लेसहोल्डर कमांड्स स्लाइड मास्टर दृश्य में उपलब्ध हैं।
+
+![PowerPoint स्लाइड मास्टर दृश्य में Insert Placeholder कमांड](slide-master_5.png)
+
+Aspose.Slides के साथ नए प्लेसहोल्डर्स जोड़ने के लिए, उस लेआउट स्लाइड के साथ काम करें जो मास्टर से संबद्ध है:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +200,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-आप master slide पर पहले से मौजूद placeholder आकारों को भी फ़ॉर्मेट कर सकते हैं। निम्न उदाहरण शीर्षक placeholder को खोजता है और एक रैखिक ग्रेडिएंट भराव लागू करता है:
+आप मास्टर स्लाइड पर पहले से मौजूद प्लेसहोल्डर आकारों को भी फ़ॉर्मेट कर सकते हैं। निम्न उदाहरण शीर्षक प्लेसहोल्डर को खोजता है और एक रैखिक ग्रेडिएंट भर लागू करता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -183,13 +232,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![समान रूप से फ़ॉर्मेट किया गया शीर्षक placeholder जिसे normal स्लाइडों ने विरासत में प्राप्त किया है](slide-master_8.png)
+![सामान्य स्लाइड्स द्वारा विरासत में प्राप्त फ़ॉर्मेटेड शीर्षक प्लेसहोल्डर](slide-master_8.png)
 
-अधिक placeholder और टेक्स्ट फ़ॉर्मेटिंग विकल्पों के लिए देखें [Set Prompt Text in Placeholder](/slides/hi/python-net/manage-placeholder/) और [Text Formatting](/slides/hi/python-net/text-formatting/)।
+अधिक प्लेसहोल्डर और टेक्स्ट फ़ॉर्मेटिंग विकल्पों के लिए देखें: [Set Prompt Text in Placeholder](/slides/hi/python-net/manage-placeholder/) और [Text Formatting](/slides/hi/python-net/text-formatting/)।
 
-## **Slide Master पृष्ठभूमि बदलना**
+## **स्लाइड मास्टर पृष्ठभूमि बदलें**
 
-एक master पृष्ठभूमि को लेआउट और उन स्लाइडों द्वारा विरासत में लिया जाता है जो इसे ओवरराइड नहीं करतीं। निम्न उदाहरण पहले master slide के लिए एक ठोस पृष्ठभूमि रंग सेट करता है:
+मास्टर पृष्ठभूमि उन लेआउट्स और स्लाइड्स द्वारा विरासत में मिलती है जो इसे ओवरराइड नहीं करतीं। निम्न उदाहरण पहले मास्टर स्लाइड के लिए ठोस पृष्ठभूमि रंग सेट करता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +254,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-संबंधित विषयों के लिए देखें [Presentation Background](/slides/hi/python-net/presentation-background/) और [Presentation Theme](/slides/hi/python-net/presentation-theme/)।
+संबंधित विषयों के लिए देखें: [Presentation Background](/slides/hi/python-net/presentation-background/) और [Presentation Theme](/slides/hi/python-net/presentation-theme/)।
 
-## **Slide Master को किसी अन्य प्रस्तुति में क्लोन करना**
+## **एक स्लाइड मास्टर को दूसरी प्रस्तुति में क्लोन करें**
 
-[MasterSlideCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslidecollection/) क्लास पर `add_clone` मेथड का उपयोग करके एक master slide को दूसरी प्रस्तुति में कॉपी करें। कॉपी किया गया master फिर लक्ष्य प्रस्तुति में लेआउट और स्लाइडों द्वारा उपयोग किया जा सकता है।
+[MasterSlideCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslidecollection/) क्लास पर `add_clone` मेथड का उपयोग करके किसी मास्टर स्लाइड को दूसरी प्रस्तुति में कॉपी करें। कॉपी किया गया मास्टर तब गंतव्य प्रस्तुति में लेआउट्स और स्लाइड्स द्वारा उपयोग किया जा सकता है।
 
 ```python
 import aspose.slides as slides
@@ -222,15 +271,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-यदि आपको master के साथ normal स्लाइडों को भी क्लोन करना है, तो देखें [Clone Slides](/slides/hi/python-net/clone-slides/)।
+यदि आपको सामान्य स्लाइड्स को उनके मास्टर के साथ क्लोन करने की आवश्यकता है, तो देखें: [Clone Slides](/slides/hi/python-net/clone-slides/)।
 
-## **एक से अधिक Slide Masters जोड़ना**
+## **कई स्लाइड मास्टर जोड़ें**
 
-एक प्रस्तुति में कई master स्लाइडें हो सकती हैं। यह तब उपयोगी होता है जब विभिन्न अनुभागों को अलग‑अलग ब्रांडिंग, पृष्ठ संरचना, या थीम सेटिंग्स की आवश्यकता होती है।
+एक प्रस्तुति में कई मास्टर स्लाइड्स हो सकती हैं। यह तब उपयोगी होता है जब विभिन्न सेक्शन को अलग‑अलग ब्रांडिंग, पृष्ठ संरचना, या थीम सेटिंग्स की आवश्यकता हो।
 
-![master स्लाइडों को सम्मिलित और प्रबंधित करने के लिए PowerPoint कमांड](slide-master_9.jpg)
+![मास्टर स्लाइड्स को सम्मिलित और प्रबंधित करने के लिए PowerPoint कमांड्स](slide-master_9.jpg)
 
-निम्न उदाहरण डिफ़ॉल्ट master को क्लोन करता है, क्लोन को अलग पृष्ठभूमि देता है, उस क्लोन किए गए master के तहत एक खाली लेआउट प्राप्त करता है, और उस लेआउट के आधार पर एक नई स्लाइड जोड़ता है:
+निम्न उदाहरण डिफ़ॉल्ट मास्टर को क्लोन करता है, क्लोन को अलग पृष्ठभूमि देता है, क्लोन किए गए मास्टर के तहत एक खाली लेआउट प्राप्त करता है, और उस लेआउट के आधार पर एक नई स्लाइड जोड़ता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -256,9 +305,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slide Masters की तुलना करना**
+## **स्लाइड मास्टर की तुलना करें**
 
-Master स्लाइडों की तुलना `equals` मेथड से की जा सकती है, जो [BaseSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslide/) क्लास से विरासत में मिली है। तुलना संरचना और स्थैतिक सामग्री की जाँच करती है, जैसे आकार, टेक्स्ट, फ़ॉर्मेटिंग, एनीमेशन, और अन्य स्लाइड सेटिंग्स। यह अनन्य पहचानकर्ताओं जैसे slide IDs या गतिशील placeholder मानों (जैसे वर्तमान तिथि) की तुलना नहीं करती।
+मास्टर स्लाइड्स को [BaseSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslide/) क्लास से विरासत में मिले `equals` मेथड के साथ तुलना किया जा सकता है। तुलना संरचना और स्थैतिक सामग्री, जैसे आकार, टेक्स्ट, फ़ॉर्मेटिंग, एनीमेशन और अन्य स्लाइड सेटिंग्स की जाँच करती है। यह अद्वितीय पहचानकर्ता, जैसे स्लाइड IDs, या गतिशील प्लेसहोल्डर मान, जैसे वर्तमान तिथि, की तुलना नहीं करती।
 
 ```python
 import aspose.slides as slides
@@ -281,11 +330,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-अधिक जानकारी के लिए देखें [Compare Presentation Slides](/slides/hi/python-net/compare-slides/)।
+अधिक जानकारी के लिए देखें: [Compare Presentation Slides](/slides/hi/python-net/compare-slides/)।
 
-## **डिफ़ॉल्ट व्यू के रूप में Slide Master व्यू सेट करना**
+## **डिफ़ॉल्ट दृश्य के रूप में स्लाइड मास्टर दृश्य सेट करें**
 
-प्रेज़ेंटेशन के [ViewProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/) पर `last_view` प्रॉपर्टी का उपयोग करके PowerPoint द्वारा पहली बार खोले जाने वाले व्यू को नियंत्रित करें। निम्न उदाहरण प्रस्तुति को Slide Master व्यू में खोलता है:
+प्रस्तुति के [ViewProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/) पर `last_view` गुण का उपयोग करके वह दृश्य नियंत्रित किया जा सकता है जो PowerPoint पहले खोलता है। निम्न उदाहरण प्रस्तुति को स्लाइड मास्टर दृश्य में खोलता है:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +344,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-अधिक व्यू सेटिंग्स के लिए देखें [Save Presentation](/slides/hi/python-net/save-presentation/)।
+अधिक दृश्य सेटिंग्स के लिए देखें: [Save Presentation](/slides/hi/python-net/save-presentation/)।
 
-## **अप्रयोगी Master Slides को हटाना**
+## **अनुपयोगी मास्टर स्लाइड्स हटाएँ**
 
-कभी‑कभी प्रस्तुतियों में ऐसे master स्लाइडें रहती हैं जो अब किसी normal स्लाइड द्वारा उपयोग नहीं की जा रही होतीं। अप्रयोगी masters को हटाने से फ़ाइल आकार छोटा हो सकता है और टेम्पलेट रखरखाव सरल हो जाता है।
+कभी‑कभी प्रस्तुतियों में ऐसी मास्टर स्लाइड्स होती हैं जो किसी भी सामान्य स्लाइड द्वारा उपयोग नहीं की जा रही होतीं। अनुपयोगी मास्टर को हटाने से फ़ाइल आकार घट सकता है और टेम्पलेट रखरखाव सरल हो सकता है।
 
-`masters` कलेक्शन से अप्रयोगी masters को हटाने के लिए `remove_unused` का उपयोग करें:
+`masters` संग्रह से अनुपयोगी मास्टर को हटाने के लिए `remove_unused` का उपयोग करें:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +360,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-आप नीचे‑कोड वाले `remove_unused_master_slides` मेथड को भी उपयोग कर सकते हैं, जो [Compress](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/) क्लास का हिस्सा है:
+आप कम‑कोड `remove_unused_master_slides` मेथड को [Compress](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/) क्लास से भी उपयोग कर सकते हैं:
 
 ```python
 import aspose.slides as slides
@@ -321,20 +370,20 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-### Slide master और layout slide में क्या अंतर है?
+**स्लाइड मास्टर और लेआउट स्लाइड में क्या अंतर है?**
 
-एक slide master थीम, पृष्ठभूमि, सामान्य आकार, और टेक्स्ट शैलियों जैसी साझा डिज़ाइन सेटिंग्स को परिभाषित करता है। एक layout slide एक master slide का हिस्सा होती है और placeholders की विशिष्ट व्यवस्था को परिभाषित करती है। एक normal slide एक layout slide का उपयोग करती है, इसलिए वह लेआउट और master दोनों से विरासत में प्राप्त होती है।
+एक स्लाइड मास्टर थीम, पृष्ठभूमि, सामान्य आकार और टेक्स्ट शैलियों जैसी साझा डिज़ाइन सेटिंग्स को परिभाषित करता है। एक लेआउट स्लाइड मास्टर स्लाइड से जुड़ी होती है और प्लेसहोल्डर्स की विशिष्ट व्यवस्था को परिभाषित करती है। एक सामान्य स्लाइड लेआउट स्लाइड का उपयोग करती है, इसलिए वह दोनों लेआउट और मास्टर से विरासत में लेती है।
 
-### क्या एक प्रस्तुति में कई slide masters हो सकते हैं?
+**क्या एक प्रस्तुति में कई स्लाइड मास्टर हो सकते हैं?**
 
-हाँ। एक प्रस्तुति में कई slide masters हो सकते हैं। विभिन्न अनुभागों को अलग‑अलग दृश्य सिस्टम या ब्रांडिंग की आवश्यकता होने पर कई masters का उपयोग करें।
+हाँ। एक प्रस्तुति में कई स्लाइड मास्टर हो सकते हैं। अलग‑अलग सेक्शन को अलग‑अलग दृश्य प्रणाली या ब्रांडिंग की आवश्यकता होने पर कई मास्टर का उपयोग करें।
 
-### मुझे placeholders master slide में जोड़ने चाहिए या layout slide में?
+**मास्टर स्लाइड में या लेआउट स्लाइड में प्लेसहोल्डर्स जोड़ने चाहिए?**
 
-अधिकांश मामलों में, placeholders को layout स्लाइडों में जोड़ें। साझा दृश्य तत्व और साझा फ़ॉर्मेटिंग master slide पर रखें, और सामग्री placeholders को उन लेआउट्स पर रखें जो normal स्लाइडें उपयोग करेंगी।
+अधिकांश मामलों में, प्लेसहोल्डर्स को लेआउट स्लाइड्स में जोड़ें। साझा दृश्य तत्व और साझा फ़ॉर्मेटिंग को मास्टर स्लाइड पर रखें, और सामग्री प्लेसहोल्डर्स को उन लेआउट्स पर रखें जिन्हें सामान्य स्लाइड्स उपयोग करेंगी।
 
-### क्या मैं किसी master slide को हटा सकता हूँ जो अभी भी उपयोग में है?
+**क्या मैं अभी भी उपयोग में होने वाली मास्टर स्लाइड को हटा सकता हूँ?**
 
-नहीं। जिस master slide के नीचे निर्भरताएँ मौजूद हैं, उसे सीधे हटाना सुरक्षित नहीं है। पहले उन स्लाइडों को किसी अन्य master के लेआउट में स्थानांतरित करें, या केवल अप्रयुक्त masters को हटाने वाली सफ़ाई विधि का उपयोग करें।
+नहीं। एक मास्टर स्लाइड जिसे निर्भर स्लाइड्स हैं, उसे सीधे सुरक्षित रूप से नहीं हटाया जा सकता। पहले उन स्लाइड्स को किसी अन्य मास्टर के लेआउट्स में स्थानांतरित करें, या अनउपयोगी‑मास्टर साफ़‑सफ़ाई मेथड का उपयोग करें जो केवल अप्रयुक्त मास्टर को हटाता है।

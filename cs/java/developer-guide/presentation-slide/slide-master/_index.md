@@ -1,57 +1,61 @@
 ---
-title: Správa hlavních snímků prezentace v Javě
-linktitle: Hlavní snímek
+title: Správa hlavních návrhů snímků v Java
+linktitle: Hlavní návrh snímku
 type: docs
 weight: 70
 url: /cs/java/slide-master/
 keywords:
+- hlavní návrh snímku
 - hlavní snímek
-- master snímek
 - PPT hlavní snímek
-- více hlavních snímků
+- více hlavních návrhů snímků
 - porovnání hlavních snímků
 - pozadí
-- zástupný symbol
-- klonování hlavního snímku
-- kopírování hlavního snímku
-- duplikování hlavního snímku
-- nepoužívaný hlavní snímek
+- zástupce
+- klonovat hlavní snímek
+- kopírovat hlavní snímek
+- duplikovat hlavní snímek
+- nepoužitý hlavní snímek
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Spravujte hlavní snímky v Aspose.Slides pro Javu: přístup, úprava, klonování, porovnání a odstranění hlavních snímků v prezentacích PowerPoint a OpenDocument."
+description: "Spravujte hlavní návrhy snímků v Aspose.Slides pro Java: přístup, úprava, klonování, porovnání a odstraňování hlavních snímků v prezentacích PowerPoint i OpenDocument."
 ---
 ## **Přehled**
 
-Slide Master definuje společná nastavení designu pro skupinu snímků. Může obsahovat běžné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava Slide Masteru obvyklý způsob, jak zachovat konzistenci prezentace, aniž byste museli opakovat stejné formátování na každém snímku.
+**hlavní návrh snímku** definuje sdílená nastavení návrhu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava hlavního návrhu snímku obvyklý způsob, jak udržet prezentaci konzistentní, aniž byste opakovali stejné formátování na každém snímku.
 
-Aspose.Slides for Java podporuje stejný model. Prezentace může obsahovat jeden nebo více master snímků a každý master snímek může obsahovat několik layout snímků. Normální snímky obvykle neodkazují přímo na master snímek. Místo toho normální snímek používá layout snímek a ten patří k master snímku.
+Aspose.Slides for Java podporuje stejný model. Prezentace může obsahovat jeden nebo více hlavních návrhů snímků a každý hlavní návrh snímku může obsahovat několik návrhů rozložení. Normální snímky se obvykle nepřistupují přímo k hlavnímu návrhu snímku. Místo toho normální snímek používá návrh rozložení, který patří k hlavnímu návrhu snímku.
 
 Hierarchie je:
 
-1. **Slide master** – definuje sdílený design a motiv.
-1. **Layout slide** – definuje konkrétní uspořádání zástupných symbolů a formátování na úrovni rozvržení.
-1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden layout slide.
+1. **Hlavní návrh snímku** – definuje sdílený návrh a motiv.
+1. **Návrh rozložení** – definuje konkrétní uspořádání zástupců a formátování na úrovni rozložení.
+1. **Normální snímek** – obsahuje skutečný obsah prezentace a používá jeden návrh rozložení.
 
-![Hierarchie hlavních snímků, rozvržení snímků a běžných snímků](slide-master_2.jpg)
+![Hierarchie hlavních návrhů snímků, návrhů rozložení a normálních snímků](slide-master_2.jpg)
 
-V Aspose.Slides je slide master reprezentován rozhraním [IMasterSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslide/). Všechny master snímky v prezentaci jsou dostupné přes kolekci [Presentation.getMasters](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getMasters--) , která implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslidecollection/).
+V Aspose.Slides je hlavní návrh snímku reprezentován rozhraním [IMasterSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslide/). Všechny hlavní návrhy snímků v prezentaci jsou dostupné přes kolekci [Presentation.getMasters](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getMasters--) , která implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-Když je stejná vlastnost definována na více úrovních, vyhrává specifikovanější úroveň. Například pokud master snímek i layout snímek oba definují pozadí, snímky založené na tomto layoutu použijí pozadí layoutu. Další informace o layout snímcích najdete v [Apply or Change Slide Layouts](/slides/cs/java/slide-layout/).
+
+Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud hlavní návrh snímku a návrh rozložení oba definují pozadí, snímky založené na tomto rozložení použijí pozadí rozložení. Další informace o návrzích rozložení najdete v [Apply or Change Slide Layouts](/slides/cs/java/slide-layout/).
+
 {{% /alert %}}
 
-## **Přístup k Slide Masterům**
+## **Přístup k hlavním návrhům snímků**
 
-V PowerPointu můžete otevřít zobrazení Slide Masteru přes **View** > **Slide Master**.
+V PowerPointu můžete otevřít zobrazení Hlavní návrh snímku přes **Zobrazení** > **Hlavní návrh snímku**.
 
-![Příkaz Slide Master na kartě Zobrazení v PowerPointu](slide-master_3.jpg)
+![Příkaz Hlavní návrh snímku na kartě Zobrazení v PowerPointu](slide-master_3.jpg)
 
-V Aspose.Slides použijte kolekci `getMasters()` k přístupu k master snímkům:
+V Aspose.Slides použijte kolekci `getMasters()` k přístupu k hlavním návrhům snímků:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -65,9 +69,11 @@ try {
 }
 ```
 
-Můžete také získat master snímek použité normálním snímkem prostřednictvím jeho layoutu:
+Můžete také získat hlavní návrh snímku použitý normálním snímkem přes jeho rozložení:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,28 +87,30 @@ try {
 }
 ```
 
-## **Co Slide Master obsahuje**
+## **Co hlavní návrh snímku obsahuje**
 
-Master snímek je objekt podobný snímku. Implementuje [IBaseSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/), takže vystavuje mnoho stejných vlastností snímků používaných normálními a layout snímky. Členy specifické pro master jsou uvedeny na stránce API [IMasterSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslide/).
+Hlavní návrh snímku je objekt podobný snímku. Implementuje [IBaseSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/), takže vystavuje mnoho stejných vlastností snímku používaných normálními a rozloženími snímků. Členy specifické pro hlavní návrh jsou uvedeny na stránce API [IMasterSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslide/).
 
-Běžně používané členy master snímku zahrnují:
+Mezi často používané členy hlavního návrhu patří:
 
-| Member | Účel |
+| Člen | Účel |
 | --- | --- |
-| `getBackground()` | Nastavuje pozadí snímku na úrovni masteru. |
-| `getShapes()` | Ukládá tvary umístěné na masteru, jako jsou loga, rámečky obrázků a sdílený text. |
-| `getLayoutSlides()` | Ukládá layout snímky, které patří k masteru. |
-| `getThemeManager()` | Poskytuje přístup k API motivu masteru. |
-| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, data a čísla snímků pro master a jeho podřazené layouty. |
-| `getDependingSlides()` | Vrací běžné snímky, které závisí na masteru skrze jejich layouty. |
+| `getBackground()` | Nastavuje pozadí na úrovni hlavního návrhu snímku. |
+| `getShapes()` | Uchovává tvary umístěné na hlavním návrhu, např. loga, rámy obrázků a sdílený text. |
+| `getLayoutSlides()` | Uchovává návrhy rozložení, které patří k hlavnímu návrhu. |
+| `getThemeManager()` | Poskytuje přístup k API motivu hlavního návrhu. |
+| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, datum a čísla snímků pro hlavní návrh a jeho podřízená rozložení. |
+| `getDependingSlides()` | Vrací normální snímky, které jsou na hlavním návrhu závislé přes svá rozložení. |
 
-## **Přidání obrázku do Slide Masteru**
+## **Přidání obrázku do hlavního návrhu snímku**
 
-Když přidáte obrázek do master snímku, objeví se na snímcích, které používají layouty z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
+Když přidáte obrázek do hlavního návrhu snímku, objeví se na snímcích, které používají rozložení z tohoto hlavního návrhu. To je užitečné pro loga, vodotisky, dekorativní pásy a další opakující se vizuální prvky.
 
-Následující příklad přidává logo do prvního master snímku:
+Následující příklad přidává logo na první hlavní návrh snímku:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -128,19 +136,75 @@ try {
 }
 ```
 
-Další informace o rámečcích obrázků najdete v [Picture Frame](/slides/cs/java/picture-frame/).
+Další informace o rámech obrázků najdete v [Picture Frame](/slides/cs/java/picture-frame/).
 
-## **Práce se zástupnými symboly**
+## **Řízení viditelnosti grafiky hlavního návrhu**
 
-Zástupné symboly jsou obvykle definovány na layout snímcích. Master snímek poskytuje sdílený styl a motiv, který tyto layouty dědí, zatímco každý layout rozhoduje, které zástupné symboly jsou k dispozici a kde jsou umístěny.
+Použijte [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) k skrytí zděděné grafiky hlavního návrhu, jako jsou loga nebo dekorativní tvary, aniž byste je mazali z hlavního návrhu. Na snímku, který má grafiku vynechat, předáte `false` metodě [Slide.setShowMasterShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slide/#setShowMasterShapes-boolean-). Na snímcích, kde má být grafika zobrazena, ponechte `true`.
 
-V PowerPointu jsou příkazy pro zástupné symboly dostupné v zobrazení Slide Master.
-
-![Příkaz Vložit zástupný symbol v zobrazení Slide Master v PowerPointu](slide-master_5.png)
-
-Pro přidání nových zástupných symbolů pomocí Aspose.Slides pracujte s layout snímkem, který patří k masteru:
+Následující samostatný příklad vytvoří modrý dekorativní pás na hlavním návrhu a dvou snímcích, které používají stejné prázdné rozložení. Pás je viditelný na prvním snímku a skrytý na druhém. Nepotřebujete žádnou vstupní prezentaci ani obrázek.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    Color bandColor = new Color(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Příklad používá rozložení **Blank** dodávané s novou prezentací a odstraňuje počáteční zástupce snímku.
+
+### **Zvolte rozsah nastavení**
+
+Normální snímek používá svého hlavního návrhu přes [ISlide.getLayoutSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islide/#getLayoutSlide--) a [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ilayoutslide/#getMasterSlide--). Nastavení vlastnosti na jednotlivém snímku ovlivní jen tento snímek. Předáním `false` metodě [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) skryjete grafiku hlavního návrhu pro snímky, které používají toto sdílené rozložení, i když jejich vlastní nastavení je `true`. Pro skrytí grafiky jen na jednom snímku změňte vlastnost snímku a nechte sdílené rozložení nezměněné.
+
+Nastavení není podporováno jako řízení viditelnosti přímo na hlavním návrhu snímku. Na hlavním návrhu metoda [getShowMasterShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/masterslide/#getShowMasterShapes--) vždy vrací `false` a předání `true` metodě [setShowMasterShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) vyvolá výjimku. Použijte ji na normálním snímku nebo na rozložení.
+
+### **Rozlišujte grafiku od pozadí**
+
+| Operace | Efekt |
+| --- | --- |
+| Skrýt grafiku hlavního návrhu | Řídí viditelnost zděděných tvarů hlavního návrhu, aniž byste je mazali nebo měnili vlastní tvary snímku. |
+| Změnit výplň pozadí snímku | Změní barvu, gradient nebo obrázek pozadí. Grafika hlavního návrhu jsou samostatné tvary a mohou zůstat viditelné nad tímto pozadím. Viz [Presentation Background](/slides/cs/java/presentation-background/). |
+| Smazat tvar z hlavního návrhu | Odstraní sdílený zdrojový tvar, takže již není k dispozici žádnému snímku používajícímu tento hlavní návrh. |
+
+## **Práce se zástupci**
+
+Zástupci jsou obvykle definováni na návrzích rozložení. Hlavní návrh snímku poskytuje sdílený styl a motiv, které tyto rozložení zdědí, zatímco každé rozložení rozhoduje, kteří zástupci jsou k dispozici a kde jsou umístěni.
+
+V PowerPointu jsou příkazy pro zástupce dostupné v zobrazení Hlavní návrh snímku.
+
+![Příkaz Vložit zástupce v zobrazení Hlavní návrh snímku v PowerPointu](slide-master_5.png)
+
+Pro přidání nových zástupců s Aspose.Slides pracujte s návrhem rozložení, který patří k hlavnímu návrhu:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -159,9 +223,12 @@ try {
 }
 ```
 
-Můžete také formátovat tvary zástupných symbolů, které již existují na master snímku. Následující příklad najde zástupný symbol titulu a použije lineární gradientní výplň:
+Můžete také formátovat tvary zástupců, které již na hlavním návrhu existují. Následující příklad najde zástupce nadpisu a použije lineární gradientní výplň:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -186,7 +253,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0f, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
@@ -195,15 +262,18 @@ try {
 }
 ```
 
-![Formátovaný zástupný symbol titulu děděný běžnými snímky](slide-master_8.png)
+![Formátovaný nadpisový zástupce zděděný normálními snímky](slide-master_8.png)
 
-Další možnosti formátování zástupných symbolů a textu najdete v [Set Prompt Text in Placeholder](/slides/cs/java/manage-placeholder/) a [Text Formatting](/slides/cs/java/text-formatting/).
+Další možnosti formátování zástupců a textu najdete v [Set Prompt Text in Placeholder](/slides/cs/java/manage-placeholder/) a [Text Formatting](/slides/cs/java/text-formatting/).
 
-## **Změna pozadí Slide Masteru**
+## **Změna pozadí hlavního návrhu snímku**
 
-Master pozadí je děděno layouty a snímky, které jej nepřepíšou. Následující příklad nastavuje jednotnou barvu pozadí pro první master snímek:
+Pozadí hlavního návrhu je zděděno rozloženími a snímky, které jej nepřepíší. Následující příklad nastaví jednotnou barvu pozadí pro první hlavní návrh snímku:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -219,13 +289,15 @@ try {
 }
 ```
 
-Pro související témata viz [Presentation Background](/slides/cs/java/presentation-background/) a [Presentation Theme](/slides/cs/java/presentation-theme/).
+Související témata najdete v [Presentation Background](/slides/cs/java/presentation-background/) a [Presentation Theme](/slides/cs/java/presentation-theme/).
 
-## **Klonování Slide Masteru do jiné prezentace**
+## **Klonování hlavního návrhu snímku do jiné prezentace**
 
-Použijte [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) k zkopírování master snímku do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
+Použijte [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) k zkopírování hlavního návrhu snímku do jiné prezentace. Zkopírovaný hlavní návrh může být následně použit rozloženími a snímky v cílové prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -239,17 +311,20 @@ try {
 }
 ```
 
-Pokud potřebujete klonovat normální snímky společně s jejich masterem, viz [Clone Slides](/slides/cs/java/clone-slides/).
+Pokud potřebujete klonovat normální snímky spolu s jejich hlavním návrhem, podívejte se na [Clone Slides](/slides/cs/java/clone-slides/).
 
-## **Přidání více Slide Masterů**
+## **Přidání více hlavních návrhů snímků**
 
-Prezentace může obsahovat více master snímků. To je užitečné, když různé sekce vyžadují odlišné brandování, strukturu stránek nebo nastavení motivu.
+Prezentace může obsahovat více hlavních návrhů snímků. To je užitečné, když různé sekce vyžadují odlišné značkování, strukturu stránek nebo nastavení motivu.
 
-![Příkazy PowerPointu pro vkládání a správu master snímků](slide-master_9.jpg)
+![Příkazy PowerPointu pro vkládání a správu hlavních návrhů snímků](slide-master_9.jpg)
 
-Následující příklad klonuje výchozí master, nastaví klonu jiné pozadí, vytvoří layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
+Následující příklad klonuje výchozí hlavní návrh, dá klonu jiné pozadí, vytvoří rozložení pod tímto klonovaným hlavním návrhem a přidá nový snímek založený na tomto rozložení:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -274,11 +349,13 @@ try {
 }
 ```
 
-## **Porovnání Slide Masterů**
+## **Porovnání hlavních návrhů snímků**
 
-Master snímky lze porovnat metodou `equals` zděděnou z [IBaseSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných symbolů, jako je aktuální datum.
+Hlavní návrhy snímků lze porovnat metodou `equals`, která je zděděna z [IBaseSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Neporovnává jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupců, jako je aktuální datum.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -305,13 +382,15 @@ try {
 }
 ```
 
-Další informace viz [Compare Presentation Slides](/slides/cs/java/compare-slides/).
+Další informace najdete v [Compare Presentation Slides](/slides/cs/java/compare-slides/).
 
-## **Nastavení zobrazení Slide Master jako výchozího zobrazení**
+## **Nastavení zobrazení Hlavní návrh snímku jako výchozího zobrazení**
 
-Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/viewproperties/), abyste řídili, které zobrazení PowerPoint otevře jako první. Následující příklad otevírá prezentaci ve zobrazení Slide Master:
+Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/viewproperties/) k řízení zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Hlavní návrh snímku:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -323,13 +402,15 @@ try {
 
 Další nastavení zobrazení najdete v [Save Presentation](/slides/cs/java/save-presentation/).
 
-## **Odstranění nepoužívaných master snímků**
+## **Odstranění nepoužívaných hlavních návrhů snímků**
 
-Prezentace někdy obsahují master snímky, které již nejsou použity žádnými normálními snímky. Odstranění nepoužívaných masterů může snížit velikost souboru a zjednodušit údržbu šablony.
+Někdy prezentace obsahují hlavní návrhy snímků, které již žádný normální snímek nepoužívá. Odstranění nepoužívaných hlavních návrhů může zmenšit velikost souboru a usnadnit údržbu šablon.
 
-Použijte `removeUnused` k odstranění nepoužívaných masterů z kolekce `getMasters()`:
+Použijte `removeUnused` k odstranění nepoužívaných hlavních návrhů z kolekce `getMasters()`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -342,6 +423,8 @@ try {
 Můžete také použít low‑code metodu [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -353,18 +436,18 @@ try {
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi Slide Masterem a Layout snímkem?**
+**Jaký je rozdíl mezi hlavním návrhem snímku a návrhem rozložení?**
 
-Slide Master definuje společná nastavení designu, jako jsou motiv, pozadí, společné tvary a styly textu. Layout snímek patří k Slide Masteru a určuje konkrétní uspořádání zástupných symbolů. Normální snímek používá layout snímek, takže dědí jak z layoutu, tak z masteru.
+Hlavní návrh snímku definuje sdílená nastavení návrhu, jako je motiv, pozadí, společné tvary a styly textu. Návrh rozložení patří k hlavnímu návrhu snímku a definuje konkrétní uspořádání zástupců. Normální snímek používá návrh rozložení, takže dědí jak z rozložení, tak z hlavního návrhu.
 
-**Může jedna prezentace obsahovat několik Slide Masterů?**
+**Může jedna prezentace obsahovat několik hlavních návrhů snímků?**
 
-Ano. Prezentace může obsahovat několik Slide Masterů. Používejte více masterů, když různé sekce vyžadují odlišné vizuální systémy nebo brandování.
+Ano. Prezentace může obsahovat několik hlavních návrhů snímků. Používejte více hlavních návrhů, když různé sekce potřebují odlišné vizuální systémy nebo značkování.
 
-**Mám přidávat zástupné symboly do Slide Masteru nebo do Layout snímku?**
+**Mám přidávat zástupce do hlavního návrhu snímku nebo do návrhu rozložení?**
 
-Ve většině případů přidávejte zástupné symboly do layout snímků. Sdílené vizuální prvky a formátování umístěte na Slide Master, potom vložte obsahové zástupné symboly na layouty, které budou použity normálními snímky.
+Ve většině případů přidávejte zástupce do návrhů rozložení. Sdílené vizuální prvky a sdílené formátování umístěte na hlavní návrh snímku a obsahové zástupce pak na rozložení, která normální snímky použijí.
 
-**Mohu smazat Slide Master, který je stále používán?**
+**Mohu smazat hlavní návrh snímku, který je ještě používán?**
 
-Ne. Slide Master, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky na layouty pod jiný master nebo použijte metoda pro úklid nepoužívaných masterů, která odstraní jen ty mastery, které nejsou v použití.
+Ne. Hlavní návrh snímku, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky do rozložení pod jiný hlavní návrh nebo použijte metodu pro úklid nepoužívaných hlavních návrhů, která odstraňuje jen ty, které nejsou v použití.

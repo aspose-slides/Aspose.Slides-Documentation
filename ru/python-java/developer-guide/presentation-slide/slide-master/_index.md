@@ -1,56 +1,56 @@
 ---
-title: Управление слайд‑мастерами презентации в Python через Java
-linktitle: Слайд‑мастер
+title: Управление мастерами слайдов презентации в Python через Java
+linktitle: Мастер слайда
 type: docs
 weight: 70
 url: /ru/python-java/slide-master/
 keywords:
-- слайд‑мастер
-- мастер‑слайд
-- PPT‑мастер‑слайд
-- несколько мастер‑слайдов
-- сравнение мастер‑слайдов
+- мастер слайда
+- мастер слайда
+- мастер слайда PPT
+- несколько мастеров слайдов
+- сравнение мастеров слайдов
 - фон
 - заполнитель
-- клонирование мастер‑слайда
-- копирование мастер‑слайда
-- дублирование мастер‑слайда
-- неиспользуемый мастер‑слайд
+- клонирование мастера слайда
+- копирование мастера слайда
+- дублирование мастера слайда
+- неиспользуемый мастер слайда
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Управляйте слайд‑мастерами в Aspose.Slides для Python через Java: получайте доступ, редактируйте, клонируйте, сравнивайте и удаляйте мастер‑слайды в презентациях PowerPoint и OpenDocument."
+description: "Управляйте мастерами слайдов в Aspose.Slides для Python через Java: получайте доступ, редактируйте, клонируйте, сравнивайте и удаляйте мастера слайдов в презентациях PowerPoint и OpenDocument."
 ---
 ## **Обзор**
 
-**Слайд‑мастер** определяет общие параметры дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фоны, стили текста, настройки темы и параметры нижнего колонтитула. В PowerPoint редактирование слайд‑мастера — обычный способ поддерживать согласованность презентации без повторения одинакового форматирования на каждом слайде.
+**Мастер‑слайда** определяет общие параметры дизайна для группы слайдов. Он может содержать общие фигуры, логотипы, фон, стили текста, параметры темы и параметры колонтитулов. В PowerPoint редактирование мастера‑слайда обычно используется для поддержания согласованности презентации без необходимости повторять одинаковое форматирование на каждом слайде.
 
-Aspose.Slides for Python via Java поддерживает ту же модель. Презентация может содержать один или несколько мастеров, каждый мастер может содержать несколько макетных слайдов. Обычные слайды обычно не ссылаются напрямую на мастер. Вместо этого обычный слайд использует макетный слайд, а этот макетный слайд принадлежит мастеру.
+Aspose.Slides for Python via Java поддерживает ту же модель. Презентация может содержать один или несколько мастеров‑слайдов, и каждый мастер‑слайд может содержать несколько шаблонных слайдов. Обычные слайды обычно не ссылаются напрямую на мастер‑слайд. Вместо этого обычный слайд использует шаблонный слайд, а этот шаблонный слайд принадлежит мастеру‑слайду.
 
 Иерархия выглядит так:
 
-1. **Слайд‑мастер** — определяет общий дизайн и тему.  
-1. **Макетный слайд** — определяет конкретное расположение заполнителей и форматирование уровня макета.  
-1. **Обычный слайд** — содержит фактическое содержание презентации и использует один макетный слайд.
+1. **Мастер‑слайд** – определяет общий дизайн и тему.  
+1. **Шаблонный слайд** – определяет конкретное расположение заполнителей и форматирование уровня шаблона.  
+1. **Обычный слайд** – содержит фактическое содержимое презентации и использует один шаблонный слайд.
 
-![Иерархия мастеров слайдов, макетных слайдов и обычных слайдов](slide-master_2.jpg)
+![Иерархия мастеров‑слайдов, шаблонных слайдов и обычных слайдов](slide-master_2.jpg)
 
-В Aspose.Slides слайд‑мастер представлен классом [MasterSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/). Все мастеры в презентации доступны через коллекцию [Presentation.getMasters](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getMasters), которая представлена классом [MasterSlideCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslidecollection/).
+В Aspose.Slides мастер‑слайд представлен классом [MasterSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/). Все мастера‑слайды в презентации доступны через коллекцию [Presentation.getMasters](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getMasters), которая представлена классом [MasterSlideCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-Когда одно и то же свойство определено на нескольких уровнях, приоритет имеет более конкретный уровень. Например, если мастер‑слайд и макетный слайд оба задают фон, слайды, основанные на этом макете, используют фон макета. Подробнее о макетных слайдах см. в статье [Apply or Change Slide Layouts](/slides/ru/python-java/slide-layout/).
+Когда одно и то же свойство определено на нескольких уровнях, более специфичный уровень берёт верх. Например, если мастер‑слайд и шаблонный слайд оба задают фон, слайды, основанные на этом шаблоне, используют фон шаблона. Подробнее о шаблонных слайдах см. в статье [Apply or Change Slide Layouts](/slides/ru/python-java/slide-layout/).
 {{% /alert %}}
 
-## **Доступ к слайд‑мастерам**
+## **Доступ к мастерам слайдов**
 
-В PowerPoint можно открыть представление Слайд‑мастер через **Вид** > **Слайд‑мастер**.
+В PowerPoint вы можете открыть представление Мастера‑слайда через **View** > **Slide Master**.
 
 ![Команда Slide Master на вкладке View в PowerPoint](slide-master_3.jpg)
 
-В Aspose.Slides используйте коллекцию [Presentation.getMasters](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getMasters) для доступа к мастерам:
+В Aspose.Slides используйте коллекцию [Presentation.getMasters](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getMasters) для доступа к мастерам‑слайдов:
 
 ```python
 import jpype
@@ -73,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-Также можно получить мастер‑слайд, используемый обычным слайдом, через его макет:
+Вы также можете получить мастер‑слайд, используемый обычным слайдом, через его шаблон:
 
 ```python
 import jpype
@@ -96,26 +96,26 @@ finally:
     presentation.dispose()
 ```
 
-## **Что содержится в слайд‑мастере**
+## **Что содержит мастер‑слайд**
 
-Мастер‑слайд — объект, похожий на слайд. Он наследуется от [BaseSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/), поэтому предоставляет многие из тех же свойств, что и обычные и макетные слайды. Члены, специфичные для мастера, перечислены на странице API [MasterSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/).
+Мастер‑слайд – это объект, похожий на слайд. Он наследуется от [BaseSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/), поэтому предоставляет многие из тех же свойств, что и обычные и шаблонные слайды. Специфические для мастера члены перечислены на странице API [MasterSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/).
 
-Часто используемые члены мастера включают:
+Часто используемые члены мастера‑слайда включают:
 
-| Элемент | Назначение |
+| Member | Purpose |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getBackground) | Устанавливает фон уровня мастера. |
-| [getShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getShapes) | Хранит фигуры, размещённые в мастере, такие как логотипы, рамки изображений и общий текст. |
-| [getLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getLayoutSlides) | Содержит макетные слайды, принадлежащие мастеру. |
+| [getBackground](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getBackground) | Задает фон уровня мастера. |
+| [getShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getShapes) | Содержит фигуры, размещённые на мастере, такие как логотипы, рамки изображений и общий текст. |
+| [getLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getLayoutSlides) | Хранит шаблонные слайды, принадлежащие мастеру. |
 | [getThemeManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getThemeManager) | Предоставляет доступ к API темы мастера. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Управляет верхними и нижними колонтитулами, датами и номерами слайдов для мастера и его дочерних макетов. |
-| [getDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getDependingSlides) | Возвращает обычные слайды, зависящие от мастера через их макеты. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Управляет колонтитулами, датами и номерами слайдов для мастера и его дочерних шаблонов. |
+| [getDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getDependingSlides) | Возвращает обычные слайды, зависящие от мастера через их шаблоны. |
 
-## **Добавление изображения в слайд‑мастер**
+## **Добавление изображения в мастер‑слайд**
 
-Когда вы добавляете изображение в мастер‑слайд, оно появляется на слайдах, использующих макеты этого мастера. Это полезно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
+Когда вы добавляете изображение в мастер‑слайд, оно появляется на слайдах, использующих шаблоны из этого мастера. Это удобно для логотипов, водяных знаков, декоративных полос и других повторяющихся визуальных элементов.
 
-Следующий пример добавляет логотип на первый слайд‑мастер:
+Следующий пример добавляет логотип к первому мастеру‑слайду:
 
 ```python
 import jpype
@@ -143,15 +143,75 @@ finally:
 
 Подробнее о рамках изображений см. в статье [Picture Frame](/slides/ru/python-java/picture-frame/).
 
+## **Управление видимостью графики мастера**
+
+Используйте [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#setShowMasterShapes), чтобы скрыть унаследованную графику мастера, такую как логотипы или декоративные фигуры, без их удаления из мастера. Передайте `False` в [Slide.setShowMasterShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#setShowMasterShapes) на слайде, где нужно скрыть графику, и оставьте `True` на слайдах, где её следует показать.
+
+Следующий автономный пример создаёт синюю декоративную полосу на мастере и два слайда, использующие один и тот же пустой шаблон. Полоса видна на первом слайде и скрыта на втором. Входные презентация и изображение не требуются.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Пример использует шаблон **Blank**, поставляемый с новой презентацией, и удаляет собственные заполнители начального слайда.
+
+### **Выбор области применения настройки**
+
+Обычный слайд использует свой мастер через [Slide.getLayoutSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#getLayoutSlide) и [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getMasterSlide). Установка свойства на отдельном слайде влияет только на этот слайд. Передача `False` в [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#setShowMasterShapes) скрывает графику мастера для всех слайдов, использующих данный общий шаблон, даже если их собственная настройка `True`. Чтобы скрыть графику только на одном слайде, измените свойство слайда и оставьте общий шаблон неизменным.
+
+Настройка не поддерживается как контроль видимости непосредственно на мастере‑слайде. На мастере [getShowMasterShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getShowMasterShapes) всегда возвращает `False`, а передача `True` в [setShowMasterShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#setShowMasterShapes) вызывает исключение. Применяйте её к обычному слайду или к шаблону.
+
+### **Отличие графики от фона**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Управляет видимостью унаследованных фигур мастера без их удаления или изменения собственных фигур слайда. |
+| Change the slide background fill | Меняет цвет, градиент или изображение фона. Графика мастера — отдельные фигуры, которые могут оставаться видимыми поверх этого фона. См. [Presentation Background](/slides/ru/python-java/presentation-background/). |
+| Delete a shape from the master | Удаляет общую исходную фигуру, поэтому она больше недоступна ни одному слайду, использующему этот мастер. |
+
 ## **Работа с заполнителями**
 
-Заполнители обычно определяются на макетных слайдах. Слайд‑мастер обеспечивает общий стиль и тему, которые наследуют макеты, а каждый макет решает, какие заполнители доступны и где они расположены.
+Заполнители обычно определяются на шаблонных слайдах. Мастер‑слайд обеспечивает общий стиль и тему, которые наследуют эти шаблоны, а каждый шаблон решает, какие заполнители доступны и где они расположены.
 
-В PowerPoint команды заполнителей доступны в представлении Слайд‑мастер.
+В PowerPoint команды заполнителей доступны в представлении Мастера‑слайда.
 
-![Команда Insert Placeholder в представлении Slide Master в PowerPoint](slide-master_5.png)
+![Команда Insert Placeholder в представлении Мастера‑слайда PowerPoint](slide-master_5.png)
 
-Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с макетным слайдом, принадлежащим мастеру:
+Чтобы добавить новые заполнители с помощью Aspose.Slides, работайте с шаблонным слайдом, принадлежащим мастеру:
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Вы также можете форматировать уже существующие фигуры‑заполнители на мастере. Следующий пример находит заполнитель заголовка и применяет линейную градиентную заливку:
+Вы также можете форматировать уже существующие фигуры‑заполнители на мастере‑слайде. Следующий пример находит заполнитель заголовка и применяет линейный градиент заливки:
 
 ```python
 import jpype
@@ -216,13 +276,13 @@ finally:
     presentation.dispose()
 ```
 
-![Отформатированный заголовок‑заполнитель, унаследованный обычными слайдами](slide-master_8.png)
+![Отформатированный заполнитель заголовка, унаследованный обычными слайдами](slide-master_8.png)
 
-Для дополнительных вариантов форматирования заполнителей и текста см. статьи [Set Prompt Text in Placeholder](/slides/ru/python-java/manage-placeholder/) и [Text Formatting](/slides/ru/python-java/text-formatting/).
+Для дополнительных вариантов форматирования заполнителей и текста см. [Set Prompt Text in Placeholder](/slides/ru/python-java/manage-placeholder/) и [Text Formatting](/slides/ru/python-java/text-formatting/).
 
-## **Изменение фона слайд‑мастера**
+## **Изменение фона мастера‑слайда**
 
-Фон мастера наследуется макетами и слайдами, которые его не переопределяют. Следующий пример задаёт сплошной цвет фона для первого мастера:
+Фон мастера наследуется шаблонами и слайдами, которые его не переопределяют. Следующий пример задает сплошной цвет фона для первого мастера‑слайда:
 
 ```python
 import jpype
@@ -251,9 +311,9 @@ finally:
 
 См. также темы [Presentation Background](/slides/ru/python-java/presentation-background/) и [Presentation Theme](/slides/ru/python-java/presentation-theme/).
 
-## **Клонирование слайд‑мастера в другую презентацию**
+## **Клонирование мастера‑слайда в другую презентацию**
 
-Используйте [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslidecollection/#addClone) для копирования слайд‑мастера в другую презентацию. Скопированный мастер затем можно использовать в макетах и слайдах целевой презентации.
+Используйте [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslidecollection/#addClone), чтобы скопировать мастер‑слайд в другую презентацию. Скопированный мастер затем может использоваться шаблонами и слайдами в целевой презентации.
 
 ```python
 import jpype
@@ -276,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-Если требуется клонировать обычные слайды вместе с их мастером, см. статью [Clone Slides](/slides/ru/python-java/clone-slides/).
+Если нужно клонировать обычные слайды вместе с их мастером, см. [Clone Slides](/slides/ru/python-java/clone-slides/).
 
-## **Добавление нескольких слайд‑мастеров**
+## **Добавление нескольких мастеров‑слайдов**
 
-Презентация может содержать несколько мастеров. Это удобно, когда разные разделы требуют различного брендинга, структуры страниц или настроек темы.
+Презентация может содержать несколько мастеров‑слайдов. Это полезно, когда разные разделы требуют различного брендинга, структуры страниц или настроек темы.
 
-![Команды PowerPoint для вставки и управления мастер‑слайдами](slide-master_9.jpg)
+![Команды PowerPoint для вставки и управления мастерами‑слайдов](slide-master_9.jpg)
 
-Следующий пример клонирует мастер‑по‑умолчанию, задаёт клону иной фон, создает макет под этим клоном и добавляет новый слайд на основе этого макета:
+Следующий пример клонирует мастер‑по‑умолчанию, задаёт клону иной фон, создаёт шаблон под этим клоном и добавляет новый слайд на основе этого шаблона:
 
 ```python
 import jpype
@@ -319,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Сравнение слайд‑мастеров**
+## **Сравнение мастеров‑слайдов**
 
-Мастера слайдов можно сравнивать с помощью метода [equals](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#equals), унаследованного от [BaseSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/). Сравнение проверяет структуру и статическое содержание, такие как фигуры, текст, форматирование, анимацию и другие параметры слайда. Он не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
+Мастера‑слайды можно сравнивать с помощью метода [equals](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#equals), унаследованного от [BaseSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/). Сравнение проверяет структуру и статическое содержимое, такие как фигуры, текст, форматирование, анимацию и другие параметры слайда. Оно не сравнивает уникальные идентификаторы, например ID слайдов, или динамические значения заполнителей, такие как текущая дата.
 
 ```python
 import jpype
@@ -353,9 +413,9 @@ finally:
 
 Подробнее см. в статье [Compare Presentation Slides](/slides/ru/python-java/compare-slides/).
 
-## **Установка представления Слайд‑мастер по умолчанию**
+## **Установка представления мастера‑слайда как представления по умолчанию**
 
-Используйте метод [setLastView](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#setLastView) класса [ViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/) для управления тем представлением, которое PowerPoint открывает первым. Следующий пример открывает презентацию в представлении Слайд‑мастер:
+Используйте метод [setLastView](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#setLastView) у класса [ViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/) для управления тем представлением, которое PowerPoint открывает первым. Следующий пример открывает презентацию в режиме Мастера‑слайда:
 
 ```python
 import jpype
@@ -374,11 +434,11 @@ finally:
     presentation.dispose()
 ```
 
-Больше настроек представления см. в статье [Save Presentation](/slides/ru/python-java/save-presentation/).
+Для дополнительных настроек представления см. [Save Presentation](/slides/ru/python-java/save-presentation/).
 
-## **Удаление неиспользуемых слайд‑мастеров**
+## **Удаление неиспользуемых мастеров‑слайдов**
 
-Иногда в презентациях остаются мастера, которые больше не используются обычными слайдами. Удаление неиспользуемых мастеров может уменьшить размер файла и упростить обслуживание шаблона.
+Иногда в презентациях остаются мастера‑слайды, которые больше не используются обычными слайдами. Удаление неиспользуемых мастеров может снизить размер файла и упростить обслуживание шаблонов.
 
 Используйте [removeUnused](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslidecollection/#removeUnused) для удаления неиспользуемых мастеров из коллекции [Presentation.getMasters](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getMasters):
 
@@ -399,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-Можно также воспользоваться методом низкого кода [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/compress/#removeUnusedMasterSlides):
+Также можно воспользоваться методом low‑code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/compress/#removeUnusedMasterSlides):
 
 ```python
 import jpype
@@ -420,18 +480,18 @@ finally:
 
 ## **FAQ**
 
-**В чём разница между слайд‑мастером и макетным слайдом?**
+**В чём разница между мастером‑слайда и шаблонным слайдом?**
 
-Слайд‑мастер определяет общие параметры дизайна, такие как тема, фон, общие фигуры и стили текста. Макетный слайд принадлежит мастеру и задаёт конкретное расположение заполнителей. Обычный слайд использует макетный слайд, поэтому наследует свойства как макета, так и мастера.
+Мастер‑слайд задаёт общие параметры дизайна, такие как тема, фон, общие фигуры и стили текста. Шаблонный слайд принадлежит мастеру‑слайду и определяет конкретное расположение заполнителей. Обычный слайд использует шаблонный слайд, поэтому наследует параметры как от шаблона, так и от мастера.
 
-**Можно ли в одной презентации иметь несколько слайд‑мастеров?**
+**Может ли одна презентация содержать несколько мастеров‑слайдов?**
 
-Да. Презентация может содержать несколько мастеров. Используйте несколько мастеров, когда разные разделы требуют разных визуальных систем или брендинга.
+Да. Презентация может содержать несколько мастеров‑слайдов. Используйте несколько мастеров, когда разные разделы требуют разных визуальных систем или брендирования.
 
-**Куда лучше добавлять заполнители: в мастер‑слайд или в макетный слайд?**
+**Стоит ли добавлять заполнители в мастер‑слайд или в шаблонный слайд?**
 
-В большинстве случаев заполнители добавляют в макетные слайды. Общие визуальные элементы и общие параметры форматирования размещаются в мастере, а заполнители контента — в макетах, которые будут использовать обычные слайды.
+В большинстве случаев заполнители добавляют в шаблонные слайды. На мастер‑слайд помещают общие визуальные элементы и общие параметры форматирования, а заполнители контента – в шаблоны, которые будут использовать обычные слайды.
 
 **Можно ли удалить мастер‑слайд, который всё ещё используется?**
 
-Нет. Мастер‑слайд, имеющий зависимые слайды, нельзя безопасно удалить напрямую. Сначала перенесите эти слайды в макеты под другим мастером или используйте метод очистки, удаляющий только неиспользуемые мастеры.
+Нет. Мастер‑слайд, от которого зависят другие слайды, нельзя безопасно удалить напрямую. Сначала переместите эти слайды к шаблонам другого мастера или используйте метод очистки неиспользуемых мастеров, который удаляет только те мастеры, которые не задействованы.

@@ -1,5 +1,5 @@
 ---
-title: Gestion des maîtres de diapositives de présentation en JavaScript
+title: Gérer les maîtres de diapositives de présentation en JavaScript
 linktitle: Maître de diapositive
 type: docs
 weight: 70
@@ -8,51 +8,49 @@ keywords:
 - maître de diapositive
 - diapositive maître
 - diapositive maître PPT
-- plusieurs maîtres de diapositives
-- comparaison de maîtres de diapositives
+- plusieurs diapositives maîtres
+- comparer les diapositives maîtres
 - arrière-plan
 - espace réservé
-- cloner diapositive maître
-- copier diapositive maître
-- dupliquer diapositive maître
-- maître de diapositive inutilisé
+- cloner la diapositive maître
+- copier la diapositive maître
+- dupliquer la diapositive maître
+- diapositive maître inutilisée
 - PowerPoint
 - OpenDocument
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gérez les maîtres de diapositives dans Aspose.Slides pour Node.js via Java : accédez, modifiez, clonez, comparez et supprimez les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
+description: "Gérer les maîtres de diapositives dans Aspose.Slides pour Node.js via Java : accéder, modifier, cloner, comparer et supprimer les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
 ---
-## **Vue d’ensemble**
+## **Vue d'ensemble**
 
-Un **maître de diapositive** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, la modification d’un maître de diapositive est la façon habituelle de garder une présentation cohérente sans répéter le même formatage sur chaque diapositive.
+Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la façon habituelle de conserver une présentation cohérente sans répéter le même formatage sur chaque diapositive.
 
-Aspose.Slides for Node.js via Java prend en charge le même modèle. Une présentation peut contenir une ou plusieurs maîtres de diapositives, et chaque maître peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas référence directement à un maître de diapositive. À la place, une diapositive normale utilise une diapositive de mise en page, et cette diapositive de mise en page appartient à un maître de diapositive.
+Aspose.Slides for Node.js via Java prend en charge le même modèle. Une présentation peut contenir un ou plusieurs slide masters, et chaque slide master peut contenir plusieurs layout slides. Les diapositives normales ne référencent généralement pas directement un slide master. À la place, une diapositive normale utilise un layout slide, et ce layout slide appartient à un slide master.
 
 La hiérarchie est :
 
-1. **Maître de diapositive** – définit la conception et le thème partagés.  
-1. **Diapositive de mise en page** – définit une disposition spécifique de zones réservées et de formatage au niveau de la mise en page.  
-1. **Diapositive normale** – contient le contenu réel de la présentation et utilise une diapositive de mise en page.
+1. **Slide master** – définit la conception et le thème partagés.  
+1. **Layout slide** – définit une disposition spécifique des espaces réservés et du formatage au niveau de la disposition.  
+1. **Normal slide** – contient le contenu réel de la présentation et utilise une disposition.
 
-![La hiérarchie des maîtres de diapositives, des diapositives de mise en page et des diapositives normales](slide-master_2.jpg)
+![Hiérarchie des slide masters, layout slides et slides normales](slide-master_2.jpg)
 
-Dans Aspose.Slides, un maître de diapositive est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/). Tous les maîtres de diapositives d’une présentation sont accessibles via la collection `Presentation.getMasters()`.
+Dans Aspose.Slides, un slide master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/). Tous les slide masters d’une présentation sont disponibles via la collection `Presentation.getMasters()`.
 
-{{% alert color="info" title="Héritage" %}}
-
-Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un maître de diapositive et une diapositive de mise en page définissent tous deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l’arrière‑plan de la mise en page. Pour plus d’informations sur les diapositives de mise en page, voir [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si un slide master et un layout slide définissent tous deux un arrière‑plan, les diapositives basées sur cette disposition utilisent l’arrière‑plan de la disposition. Pour plus d'informations sur les layout slides, voir [Appliquer ou modifier les dispositions des diapositives](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
-## **Accéder aux maîtres de diapositives**
+## **Accéder aux slide masters**
 
-Dans PowerPoint, vous pouvez ouvrir la vue Maître des diapositives via **Affichage** > **Maître des diapositives**.
+Dans PowerPoint, vous pouvez ouvrir la vue Slide Master depuis **Affichage** > **Slide Master**.
 
-![La commande Maître des diapositives dans l’onglet Affichage de PowerPoint](slide-master_3.jpg)
+![Commande Slide Master dans l’onglet Affichage de PowerPoint](slide-master_3.jpg)
 
-Dans Aspose.Slides, utilisez la collection `getMasters()` pour accéder aux maîtres de diapositives :
+Dans Aspose.Slides, utilisez la collection `getMasters()` pour accéder aux slide masters :
 
 ```javascript
 var aspose = aspose || {};
@@ -71,7 +69,7 @@ try {
 }
 ```
 
-Vous pouvez également obtenir le maître de diapositive utilisé par une diapositive normale via sa mise en page :
+Vous pouvez également obtenir le slide master utilisé par une diapositive normale via son layout :
 
 ```javascript
 var aspose = aspose || {};
@@ -90,26 +88,26 @@ try {
 }
 ```
 
-## **Contenu d’un maître de diapositive**
+## **Ce que contient un slide master**
 
-Un maître de diapositive est un objet semblable à une diapositive. Il hérite du comportement commun des diapositives depuis [BaseSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/), ce qui lui donne accès à de nombreuses propriétés de diapositive également utilisées par les diapositives normales et de mise en page. Les membres spécifiques au maître sont listés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/).
+Un slide master est un objet de type diapositive. Il hérite du comportement commun des diapositives à partir de [BaseSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/), ce qui lui donne accès à de nombreuses propriétés de diapositive utilisées par les diapositives normales et les layout slides. Les membres spécifiques au master sont répertoriés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/).
 
-Parmi les membres du maître de diapositive les plus utilisés :
+Les membres les plus couramment utilisés sont :
 
 | Membre | Objectif |
 | --- | --- |
-| `getBackground()` | Définit l’arrière‑plan au niveau du maître. |
-| `getShapes()` | Contient les formes placées sur le maître, comme les logos, les cadres d’image et le texte partagé. |
-| `getLayoutSlides()` | Contient les diapositives de mise en page appartenant au maître. |
-| `getThemeManager()` | Fournit l’accès aux API du thème du maître. |
-| `getHeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le maître et ses mises en page enfants. |
-| `getDependingSlides()` | Retourne les diapositives normales qui dépendent du maître via leurs mises en page. |
+| `getBackground()` | Définit l’arrière‑plan au niveau du master. |
+| `getShapes()` | Contient les formes placées sur le master, telles que les logos, les cadres d’image et le texte partagé. |
+| `getLayoutSlides()` | Contient les layout slides qui appartiennent au master. |
+| `getThemeManager()` | Fournit l’accès aux API du thème du master. |
+| `getHeaderFooterManager()` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le master et ses layouts enfants. |
+| `getDependingSlides()` | Renvoie les diapositives normales dépendantes du master via leurs layouts. |
 
-## **Ajouter une image à un maître de diapositive**
+## **Ajouter une image à un slide master**
 
-Lorsque vous ajoutez une image à un maître de diapositive, elle apparaît sur les diapositives qui utilisent des mises en page de ce maître. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
+Lorsque vous ajoutez une image à un slide master, elle apparaît sur les diapositives qui utilisent les layouts de ce master. C’est pratique pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
 
-L’exemple suivant ajoute un logo au premier maître de diapositive :
+L’exemple suivant ajoute un logo au premier slide master :
 
 ```javascript
 var aspose = aspose || {};
@@ -140,17 +138,75 @@ try {
 }
 ```
 
-Pour plus d’informations sur les cadres d’image, voir [Picture Frame](/nodejs-java/picture-frame/).
+Pour plus d'informations sur les cadres d’image, voir [Picture Frame](/nodejs-java/picture-frame/).
+
+## **Contrôler la visibilité des graphiques du master**
+
+Utilisez [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/#setShowMasterShapes) pour masquer les graphiques hérités du master, tels que les logos ou formes décoratives, sans les supprimer du master. Passez `false` à [Slide.setShowMasterShapes](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#setShowMasterShapes) sur la diapositive qui doit omettre ces graphiques et conservez-le à `true` sur les diapositives qui doivent les afficher.
+
+L’exemple autonome suivant crée une bande décorative bleue sur un master et deux diapositives qui utilisent le même layout vierge. La bande est visible sur la première diapositive et masquée sur la seconde. Aucun document d’entrée ni image n’est requis.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = masterSlide.getLayoutSlides().getByType(blankLayoutType);
+    layoutSlide.setShowMasterShapes(true);
+
+    let slideHeight = presentation.getSlideSize().getSize().getHeight();
+    let band = masterSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    let bandColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    let solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    let noFillType = java.newByte(aspose.slides.FillType.NoFill);
+    band.getFillFormat().setFillType(solidFillType);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(noFillType);
+
+    let visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    let hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+L’exemple utilise le layout **Blank** fourni avec une nouvelle présentation et supprime les espaces réservés propres à la diapositive initiale.
+
+### **Choisir la portée du paramètre**
+
+Une diapositive normale utilise son master via [Slide.getLayoutSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#getLayoutSlide) et [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/layoutslide/#getMasterSlide). Définir la propriété sur une diapositive individuelle n’affecte que celle‑ci. Passer `false` à [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/layoutslide/#setShowMasterShapes) masque les graphiques du master pour toutes les diapositives qui utilisent ce layout partagé, même si leur propre paramètre est `true`. Pour masquer les graphiques sur une seule diapositive, modifiez la propriété de la diapositive et laissez le layout partagé tel quel.
+
+Le paramètre n’est pas pris en charge comme contrôle de visibilité sur le slide master lui‑même. Sur un master, [getShowMasterShapes](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/#getShowMasterShapes) renvoie toujours `false`, et passer `true` à [setShowMasterShapes](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/masterslide/#setShowMasterShapes) déclenche une exception. Appliquez‑le à une diapositive normale ou à un layout à la place.
+
+### **Distinguer les graphiques de l'arrière‑plan**
+
+| Opération | Effet |
+| --- | --- |
+| Masquer les graphiques du master | Contrôle la visibilité des formes héritées du master sans les supprimer ni modifier les formes propres à la diapositive. |
+| Modifier le remplissage de l’arrière‑plan de la diapositive | Change la couleur, le dégradé ou l’image d’arrière‑plan. Les graphiques du master sont des formes distinctes et peuvent rester visibles au‑dessus de cet arrière‑plan. Voir [Presentation Background](/slides/fr/nodejs-java/presentation-background/). |
+| Supprimer une forme du master | Supprime la forme source partagée, de sorte qu’elle ne soit plus disponible pour aucune diapositive utilisant ce master. |
 
 ## **Travailler avec les espaces réservés**
 
-Les espaces réservés sont généralement définis sur les diapositives de mise en page. Le maître de diapositive fournit le style et le thème partagés que ces mises en page héritent, tandis que chaque mise en page décide quels espaces réservés sont disponibles et où ils sont placés.
+Les espaces réservés sont généralement définis sur les layout slides. Le slide master fournit le style et le thème partagés que ces layouts héritent, tandis que chaque layout décide quels espaces réservés sont disponibles et où ils sont placés.
 
-Dans PowerPoint, les commandes d’espace réservé sont disponibles en mode Maître des diapositives.
+Dans PowerPoint, les commandes d’espace réservé sont disponibles dans la vue Slide Master.
 
-![La commande Insérer un espace réservé dans la vue Maître des diapositives de PowerPoint](slide-master_5.png)
+![Commande Insérer un espace réservé dans la vue Slide Master de PowerPoint](slide-master_5.png)
 
-Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur la diapositive de mise en page qui appartient au maître :
+Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez sur le layout slide qui appartient au master :
 
 ```javascript
 var aspose = aspose || {};
@@ -176,7 +232,7 @@ try {
 }
 ```
 
-Vous pouvez également formater les formes d’espace réservé déjà présentes sur un maître de diapositive. L’exemple suivant trouve l’espace réservé au titre et applique un remplissage en dégradé linéaire :
+Vous pouvez également mettre en forme les formes d’espace réservé qui existent déjà sur un slide master. L’exemple suivant trouve l’espace réservé de titre et applique un remplissage en dégradé linéaire :
 
 ```javascript
 var aspose = aspose || {};
@@ -221,13 +277,13 @@ try {
 }
 ```
 
-![Espace réservé au titre formaté hérité par les diapositives normales](slide-master_8.png)
+![Espace réservé de titre formaté hérité par les diapositives normales](slide-master_8.png)
 
-Pour d’autres options de formatage des espaces réservés et du texte, voir [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) et [Text Formatting](/nodejs-java/text-formatting/).
+Pour plus d’options de mise en forme des espaces réservés et du texte, voir [Définir le texte d’invite dans l’espace réservé](/nodejs-java/manage-placeholder/) et [Mise en forme du texte](/nodejs-java/text-formatting/).
 
-## **Modifier l’arrière‑plan d’un maître de diapositive**
+## **Modifier l'arrière‑plan d'un slide master**
 
-Un arrière‑plan de maître est hérité par les mises en page et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier maître de diapositive :
+Un arrière‑plan de master est hérité par les layouts et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier slide master :
 
 ```javascript
 var aspose = aspose || {};
@@ -251,11 +307,11 @@ try {
 }
 ```
 
-Pour les sujets associés, voir [Presentation Background](/nodejs-java/presentation-background/) et [Presentation Theme](/nodejs-java/presentation-theme/).
+Pour les sujets connexes, voir [Presentation Background](/nodejs-java/presentation-background/) et [Presentation Theme](/nodejs-java/presentation-theme/).
 
-## **Cloner un maître de diapositive vers une autre présentation**
+## **Cloner un slide master vers une autre présentation**
 
-Utilisez `MasterSlideCollection.addClone` pour copier un maître de diapositive dans une autre présentation. Le maître copié peut alors être utilisé par les mises en page et les diapositives de la présentation de destination.
+Utilisez `MasterSlideCollection.addClone` pour copier un slide master dans une autre présentation. Le master copié peut ensuite être utilisé par les layouts et les diapositives de la présentation de destination.
 
 ```javascript
 var aspose = aspose || {};
@@ -274,15 +330,15 @@ try {
 }
 ```
 
-Si vous devez cloner des diapositives normales avec leur maître, voir [Clone Slides](/nodejs-java/clone-slides/).
+Si vous devez cloner des diapositives normales avec leur master, voir [Clone Slides](/nodejs-java/clone-slides/).
 
-## **Ajouter plusieurs maîtres de diapositives**
+## **Ajouter plusieurs slide masters**
 
-Une présentation peut contenir plusieurs maîtres de diapositives. Ceci est utile lorsque différentes sections nécessitent une identité visuelle, une structure de page ou des paramètres de thème différents.
+Une présentation peut contenir plusieurs slide masters. Cela est utile lorsque différentes sections nécessitent des identités visuelles, structures de page ou paramètres de thème différents.
 
-![Commandes PowerPoint pour insérer et gérer les maîtres de diapositives](slide-master_9.jpg)
+![Commandes PowerPoint pour insérer et gérer les slide masters](slide-master_9.jpg)
 
-L’exemple suivant clone le maître par défaut, donne au clone un arrière‑plan différent, crée une mise en page sous ce maître cloné, et ajoute une nouvelle diapositive basée sur cette mise en page :
+L’exemple suivant clone le master par défaut, donne au clone un arrière‑plan différent, crée un layout sous ce master clone, puis ajoute une nouvelle diapositive basée sur ce layout :
 
 ```javascript
 var aspose = aspose || {};
@@ -316,9 +372,9 @@ try {
 }
 ```
 
-## **Comparer les maîtres de diapositives**
+## **Comparer les slide masters**
 
-Les maîtres de diapositives peuvent être comparés avec la méthode `equals` héritée de [BaseSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les IDs de diapositive, ni les valeurs dynamiques d’espaces réservés, comme la date actuelle.
+Les slide masters peuvent être comparés avec la méthode `equals` héritée de [BaseSlide](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, le formatage, les animations et les autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les IDs de diapositive, ni les valeurs dynamiques des espaces réservés, comme la date actuelle.
 
 ```javascript
 var aspose = aspose || {};
@@ -351,9 +407,9 @@ try {
 
 Pour plus d’informations, voir [Compare Presentation Slides](/slides/fr/nodejs-java/compare-slides/).
 
-## **Définir la vue Maître des diapositives comme vue par défaut**
+## **Définir la vue Slide Master comme vue par défaut**
 
-Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en mode Maître des diapositives :
+Utilisez la méthode `setLastView` sur [ViewProperties](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewproperties/) pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Slide Master :
 
 ```javascript
 var aspose = aspose || {};
@@ -371,13 +427,13 @@ try {
 }
 ```
 
-Pour plus de paramètres d’affichage, voir [Save Presentation](/slides/fr/nodejs-java/save-presentation/).
+Pour d’autres paramètres de vue, voir [Save Presentation](/slides/fr/nodejs-java/save-presentation/).
 
-## **Supprimer les maîtres de diapositives inutilisés**
+## **Supprimer les slide masters inutilisés**
 
-Les présentations contiennent parfois des maîtres de diapositives qui ne sont plus utilisés par aucune diapositive normale. Supprimer les maîtres inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+Les présentations contiennent parfois des slide masters qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masters inutilisés peut réduire la taille du fichier et simplifier la maintenance des modèles.
 
-Utilisez `removeUnused` pour retirer les maîtres inutilisés de la collection `getMasters()` :
+Utilisez `removeUnused` pour retirer les masters inutilisés de la collection `getMasters()` :
 
 ```javascript
 var aspose = aspose || {};
@@ -392,7 +448,7 @@ try {
 }
 ```
 
-Vous pouvez également utiliser la méthode à faible code `Compress.removeUnusedMasterSlides` :
+Vous pouvez également utiliser la méthode low‑code `Compress.removeUnusedMasterSlides` :
 
 ```javascript
 var aspose = aspose || {};
@@ -409,18 +465,18 @@ try {
 
 ## **FAQ**
 
-### Quelle est la différence entre un maître de diapositive et une diapositive de mise en page ?
+**Quelle est la différence entre un slide master et un layout slide ?**
 
-Un maître de diapositive définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une diapositive de mise en page appartient à un maître de diapositive et définit une disposition spécifique d’espaces réservés. Une diapositive normale utilise une diapositive de mise en page, ainsi elle hérite à la fois de la mise en page et du maître.
+Un slide master définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Un layout slide appartient à un slide master et définit une disposition spécifique des espaces réservés. Une diapositive normale utilise un layout slide, héritant ainsi du layout et du master.
 
-### Une présentation peut‑t‑elle contenir plusieurs maîtres de diapositives ?
+**Une présentation peut‑elle contenir plusieurs slide masters ?**
 
-Oui. Une présentation peut contenir plusieurs maîtres de diapositives. Utilisez plusieurs maîtres lorsque différentes sections nécessitent des systèmes visuels ou une identité de marque différents.
+Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs masters lorsque différentes sections exigent des systèmes visuels ou une identité de marque différents.
 
-### Dois‑je ajouter des espaces réservés à un maître de diapositive ou à une diapositive de mise en page ?
+**Dois‑je ajouter des espaces réservés à un slide master ou à un layout slide ?**
 
-Dans la plupart des cas, ajoutez les espaces réservés aux diapositives de mise en page. Placez les éléments visuels partagés et le formatage commun sur le maître de diapositive, puis mettez les espaces réservés de contenu sur les mises en page que les diapositives normales utiliseront.
+Dans la plupart des cas, ajoutez les espaces réservés aux layout slides. Placez les éléments visuels partagés et le formatage commun sur le slide master, puis ajoutez les espaces réservés de contenu sur les layouts que les diapositives normales utiliseront.
 
-### Puis‑je supprimer un maître de diapositive qui est encore utilisé ?
+**Puis‑je supprimer un slide master qui est encore utilisé ?**
 
-Non. Un maître de diapositive qui possède des diapositives dépendantes ne peut pas être supprimé en toute sécurité directement. Déplacez d’abord ces diapositives vers des mises en page sous un autre maître, ou utilisez une méthode de nettoyage des maîtres inutilisés qui ne supprime que les maîtres qui ne sont pas utilisés.
+Non. Un slide master qui possède des diapositives dépendantes ne peut pas être supprimé directement. Déplacez d’abord ces diapositives vers des layouts sous un autre master, ou utilisez une méthode de nettoyage des masters inutilisés qui ne supprime que les masters qui ne sont pas employés.

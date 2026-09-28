@@ -8,10 +8,10 @@ keywords:
 - layout diapositiva
 - layout contenuto
 - segnaposto
-- progettazione della presentazione
-- progettazione della diapositiva
+- progettazione presentazione
+- progettazione diapositiva
 - layout inutilizzato
-- visibilità del piè di pagina
+- visibilità piè di pagina
 - diapositiva titolo
 - titolo e contenuto
 - intestazione sezione
@@ -32,38 +32,40 @@ description: "Applica, crea e modifica i layout delle diapositive in Aspose.Slid
 ---
 ## **Panoramica**
 
-Un layout diapositiva definisce le posizioni e la formattazione dei segnaposti come titoli, testo, immagini, grafici e tabelle. L’applicazione di un layout conferisce alle diapositive una struttura coerente consentendo a ciascuna diapositiva di contenere i propri contenuti.
+Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposto come titoli, testo, immagini, grafici e tabelle. Applicare un layout conferisce alle diapositive una struttura coerente consentendo a ciascuna diapositiva di contenere il proprio contenuto.
 
 I layout più comuni includono:
 
-- **Title Slide**: contiene segnaposti per titolo e sottotitolo.  
-- **Title and Content**: contiene un segnaposto titolo e un segnaposto di contenuto generico.  
-- **Blank**: non contiene segnaposti e risulta utile quando tutte le forme vengono posizionate manualmente.
+- **Title Slide**: Contiene segnaposto per titolo e sottotitolo.
+- **Title and Content**: Contiene un segnaposto per il titolo e un segnaposto di contenuto generico.
+- **Blank**: Non contiene segnaposti di contenuto ed è utile quando ogni forma sarà posizionata manualmente.
 
-## **Comprendere l'ereditarietà del layout**
+## **Comprendere l'Eredità dei Layout**
 
 Una presentazione ha tre livelli correlati:
 
-1. Una [master slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.  
-1. Una [layout slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/) appartiene a un master e definisce una particolare disposizione di segnaposti.  
-1. Una [normal slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/) utilizza un layout e memorizza i contenuti inseriti per quella diapositiva.
+1. Una [master slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
+1. Una [layout slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/) appartiene a un master e definisce una particolare disposizione dei segnaposto.
+1. Una [normal slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
 
-Una diapositiva normale eredita tema e formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una diapositiva normale sovrascrive il valore ereditato a quel livello. Quando viene creata una diapositiva normale, le forme segnaposto vengono generate dal layout selezionato, mentre i contenuti inseriti in quei segnaposti appartengono alla diapositiva normale.
+Una normal slide eredita il tema e la formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una normal slide sovrascrive il valore ereditato a quel livello. Quando una normal slide viene creata, le sue forme segnaposto vengono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposto appartiene alla normal slide.
 
-Aggiungi i segnaposti necessari a un layout prima di creare le diapositive da esso. L’aggiunta successiva di un altro segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle diapositive normali esistenti.
+Aggiungi i segnaposto richiesti a un layout prima di creare diapositive da esso. L'aggiunta successiva di un altro segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle diapositive normali esistenti.
 
-Questa relazione ha due conseguenze importanti:
+Questa relazione ha due importanti conseguenze:
 
-- Cambiare la formattazione ereditata o la geometria di un segnaposto esistente su un layout può aggiornare tutte le diapositive che dipendono da esso. Prima di modificare un layout già in uso, controlla le diapositive dipendenti e verifica la presentazione risultante.  
-- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le diapositive dipendenti a un altro layout, o rimuovi solo i layout non utilizzati.
+- Modificare la formattazione ereditata o la geometria dei segnaposto esistenti su un layout può aggiornare tutte le diapositive che dipendono da esso. Prima di modificare un layout già in uso, controlla le diapositive dipendenti e revisiona la presentazione risultante.
+- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le sue diapositive dipendenti a un altro layout, oppure rimuovi solo i layout inutilizzati.
 
 Per ulteriori informazioni sul livello superiore di questa gerarchia, vedere [Slide Master](/slides/it/php-java/slide-master/).
 
-## **Selezionare e applicare un layout diapositiva**
+Per nascondere loghi ereditati o forme decorative del master su una singola diapositiva o attraverso un layout condiviso, vedere [Control the Visibility of Master Graphics](/slides/it/php-java/slide-master/). L'esempio confronta due diapositive che usano lo stesso master.
 
-Usa un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall’utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello di origine.
+## **Selezionare e Applicare un Layout di Diapositiva**
 
-L’esempio seguente cerca **Title and Content** sul primo master. Se quel layout non è disponibile, ricade deliberatamente su **Blank**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima diapositiva normale tramite il metodo [Slide.setLayoutSlide](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/#setLayoutSlide).
+Usa un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello di origine.
+
+L'esempio seguente cerca **Title and Content** nel primo master. Se quel layout non è disponibile, ricade deliberatamente su **Blank**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima normal slide tramite il metodo [Slide.setLayoutSlide](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
 use aspose\slides\Presentation;
@@ -90,13 +92,13 @@ try {
 }
 ```
 
-Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposti, la formattazione ereditata e la corrispondenza tra i segnaposti esistenti e il nuovo layout possono cambiare, quindi controlla l’output quando si passa tra layout sostanzialmente diversi.
+Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposto, la formattazione ereditata e la corrispondenza tra i segnaposto esistenti e il nuovo layout possono cambiare, quindi verifica l'output quando passi da layout sostanzialmente diversi.
 
-## **Aggiungere una diapositiva di layout**
+## **Aggiungere una Diapositiva Layout**
 
-Selezione e creazione sono operazioni separate. L’esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterlayoutslidecollection/#add) sulla raccolta di layout del master di destinazione.
+La selezione e la creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterlayoutslidecollection/#add) sulla collezione di layout del master di destinazione.
 
-L’esempio seguente aggiunge sempre un nuovo layout **Title and Content** denominato `Report Title and Content`, quindi aggiunge una diapositiva normale basata su di esso. I nomi dei layout devono essere unici all’interno della raccolta.
+L'esempio seguente aggiunge sempre un nuovo layout **Title and Content** denominato `Report Title and Content`, quindi aggiunge una normal slide basata su di esso. I nomi dei layout devono essere univoci all'interno della collezione.
 
 ```php
 use aspose\slides\Presentation;
@@ -115,26 +117,26 @@ try {
 }
 ```
 
-Aggiungi un layout solo quando il modello necessita realmente di un’altra struttura riutilizzabile. Se esiste già un layout appropriato, selezionalo e riutilizzalo anziché crearne uno duplicato.
+Aggiungi un layout solo quando il modello ha realmente bisogno di un'altra struttura riutilizzabile. Se esiste già un layout adatto, selezionalo e riusalo invece di crearne un duplicato.
 
-## **Aggiungere segnaposti a una diapositiva di layout**
+## **Aggiungere Segnaposto a una Diapositiva Layout**
 
 Il metodo [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getPlaceholderManager) fornisce un [LayoutPlaceholderManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/) per aggiungere forme segnaposto a un layout.
 
-| Segnaposto PowerPoint              | Metodo `LayoutPlaceholderManager` |
+| Segnaposto PowerPoint              | `LayoutPlaceholderManager` Method |
 | ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| ![Contenuto](content.png)          | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Contenuto (Verticale)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Testo](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Testo (Verticale)](textV.png)    | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Immagine](picture.png)           | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Grafico](chart.png)              | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabella](table.png)              | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)          | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Immagine Online](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-L’esempio seguente verifica che il layout **Blank** esista, aggiunge quattro segnaposti ad esso, quindi crea una diapositiva normale che utilizza il layout modificato. L’ordine è intenzionale: i segnaposti vengono aggiunti prima della creazione della diapositiva normale, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
+L'esempio seguente verifica che il layout **Blank** esista, aggiunge quattro segnaposto a esso e poi crea una normal slide che utilizza il layout modificato. L'ordine è intenzionale: i segnaposto vengono aggiunti prima della creazione della normal slide, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
 
 ```php
 use aspose\slides\Presentation;
@@ -164,15 +166,15 @@ try {
 
 Il risultato:
 
-![I segnaposti sulla diapositiva di layout](add_placeholders.png)
+![I segnaposti sulla diapositiva layout](add_placeholders.png)
 
-{{% alert color="warning" title="Avviso" %}}
-Modificare la formattazione ereditata o la geometria dei segnaposti di layout esistenti può influire sulle diapositive dipendenti. Un segnaposto di layout aggiunto di recente non viene retrofatto nelle diapositive normali esistenti. Prova le modifiche al layout su una copia della presentazione e controlla ogni diapositiva dipendente.
+{{% alert color="warning" title="Warning" %}}
+Modificare la formattazione ereditata o la geometria dei segnaposto esistenti su un layout può influire sulle diapositive dipendenti. Un segnaposto layout aggiunto di recente non viene retrocompatibilmente inserito nelle diapositive normali esistenti. Prova le modifiche al layout su una copia della presentazione e controlla ogni diapositiva dipendente.
 {{% /alert %}}
 
-## **Rimuovere le diapositive di layout inutilizzate**
+## **Rimuovere Diapositive Layout Inutilizzate**
 
-Usa il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) per rimuovere i layout a cui non fa riferimento alcuna diapositiva normale. Il metodo lascia intatti i layout ancora in uso.
+Usa il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) per rimuovere i layout a cui non fa riferimento alcuna normal slide. Il metodo lascia intatti i layout ancora in uso.
 
 ```php
 use aspose\slides\Compress;
@@ -188,13 +190,11 @@ try {
 }
 ```
 
-Per rimuovere un layout specifico, usa prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#hasDependingSlides) o [getDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getDependingSlides). Riassegna le eventuali diapositive dipendenti prima di chiamare [LayoutSlide.remove](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#remove). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxeditexception/).
+Per rimuovere uno specifico layout, usa prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#hasDependingSlides) o [getDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getDependingSlides). Riassegna le diapositive dipendenti prima di chiamare [LayoutSlide.remove](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#remove). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxeditexception/).
 
-## **Controllare la visibilità del piè di pagina su una diapositiva di layout**
+## **Controllare la Visibilità del Piè di Pagina su una Diapositiva Layout**
 
-Un layout ha il proprio piè di pagina, numero diapositiva e segnaposto data‑ora. Usa il metodo [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) per controllare quei segnaposti per un singolo layout. Questo è utile quando, ad esempio, i layout di contenuto devono mostrare i piè di pagina ma i layout di titolo no.
-
-L’esempio seguente seleziona in modo sicuro un layout e rende visibili i suoi elementi del piè di pagina:
+Un layout ha i propri segnaposto per piè di pagina, numero diapositiva e data/ora. Usa il metodo [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) per controllare questi segnaposto per un singolo layout. È utile, ad esempio, quando i layout di contenuto devono mostrare i piè di pagina ma i layout di titolo no.
 
 ```php
 use aspose\slides\Presentation;
@@ -226,9 +226,9 @@ try {
 }
 ```
 
-## **Controllare la visibilità del piè di pagina su un master e i suoi layout figli**
+## **Controllare la Visibilità del Piè di Pagina su un Master e sui Suoi Layout Figlio**
 
-Per applicare impostazioni di piè di pagina coerenti su tutta la gerarchia del master, usa il metodo [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/#getHeaderFooterManager). I metodi di propagazione di [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslideheaderfootermanager/) operano sul master e sui suoi layout dipendenti e sulle diapositive normali; non mirano a una sola diapositiva normale.
+Per applicare impostazioni di piè di pagina coerenti su tutta la gerarchia del master, usa il metodo [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/#getHeaderFooterManager). I metodi di propagazione di [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslideheaderfootermanager/) operano sul master e sui suoi layout dipendenti e sulle diapositive normali; non hanno effetto su una singola diapositiva normale.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,19 +249,19 @@ try {
 }
 ```
 
-## **Domande frequenti**
+## **FAQ**
 
-**Qual è la differenza tra una diapositiva master e una diapositiva di layout?**
+**Qual è la differenza tra una Master Slide e una Layout Slide?**
 
-Una diapositiva master definisce il tema della presentazione e la formattazione condivisa. Una diapositiva di layout appartiene a un master e definisce una disposizione riutilizzabile di segnaposti. Le diapositive normali usano quei layout e memorizzano i contenuti specifici della diapositiva.
+Una master slide definisce il tema della presentazione e la formattazione condivisa. Una layout slide appartiene a un master e definisce una disposizione riutilizzabile di segnaposto. Le normal slide utilizzano questi layout e memorizzano il contenuto specifico della diapositiva.
 
-**Posso copiare una diapositiva di layout da una presentazione all'altra?**
+**Posso copiare una Layout Slide da una presentazione all'altra?**
 
-Sì. Aggiungi una copia alla raccolta di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/globallayoutslidecollection/#addClone). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
+Sì. Aggiungi una copia alla collezione di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/globallayoutslidecollection/#addClone). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
 
-**Cosa succede se modifico un layout già in uso?**
+**Cosa succede quando modifico un layout già in uso?**
 
-Le diapositive dipendenti ereditano le modifiche al layout a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposti e lo stile ereditato possono quindi cambiare contemporaneamente su molte diapositive. Usa [getDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getDependingSlides) per identificare le diapositive interessate prima di modificare il layout.
+Le diapositive dipendenti ereditano le modifiche al layout, a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposto e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [getDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/#getDependingSlides) per identificare le diapositive interessate prima di modificare il layout.
 
 **Cosa succede se rimuovo un layout ancora in uso?**
 

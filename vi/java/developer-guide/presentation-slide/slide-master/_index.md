@@ -1,57 +1,61 @@
 ---
-title: Quản lý Slide Master trong bản trình bày Java
-linktitle: Slide Master
+title: "Quản lý Slide Master của Bài thuyết trình trong Java"
+linktitle: "Slide Master"
 type: docs
 weight: 70
 url: /vi/java/slide-master/
 keywords:
-- slide master
-- slide master
-- slide master PPT
-- nhiều slide master
-- so sánh slide master
-- nền
-- trình giữ chỗ
-- sao chép slide master
-- sao chép slide master
-- nhân bản slide master
-- slide master không sử dụng
-- PowerPoint
-- OpenDocument
-- bản trình bày
-- Java
-- Aspose.Slides
-description: "Quản lý slide master trong Aspose.Slides cho Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong bản trình bày PowerPoint và OpenDocument."
+  - "slide master"
+  - "slide master"
+  - "slide master PPT"
+  - "nhiều slide master"
+  - "so sánh slide master"
+  - "nền"
+  - "trình giữ chỗ"
+  - "sao chép slide master"
+  - "chép slide master"
+  - "nhân bản slide master"
+  - "slide master không dùng"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "bài thuyết trình"
+  - "Java"
+  - "Aspose.Slides"
+description: "Quản lý slide master trong Aspose.Slides cho Java: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bài thuyết trình PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-Một **slide master** xác định các cài đặt thiết kế chung cho một nhóm các slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu văn bản, cài đặt chủ đề và cài đặt chân trang. Trong PowerPoint, chỉnh sửa một slide master là cách thường dùng để giữ cho bản trình bày nhất quán mà không phải lặp lại cùng một định dạng trên mỗi slide.
+A **slide master** defines shared design settings for a group of slides. It can contain common shapes, logos, backgrounds, text styles, theme settings, and footer settings. In PowerPoint, editing a slide master is the usual way to keep a presentation consistent without repeating the same formatting on every slide.
 
-Aspose.Slides for Java hỗ trợ cùng mô hình. Một bản trình bày có thể chứa một hoặc nhiều master slide, và mỗi master slide có thể chứa một số layout slide. Các slide bình thường thường không tham chiếu trực tiếp tới một master slide. Thay vào đó, một slide bình thường sử dụng một layout slide, và layout slide đó thuộc về một master slide.
+Aspose.Slides for Java supports the same model. A presentation can contain one or more master slides, and each master slide can contain several layout slides. Normal slides do not usually refer to a master slide directly. Instead, a normal slide uses a layout slide, and that layout slide belongs to a master slide.
 
-Cây phân cấp như sau:
+The hierarchy is:
 
-1. **Slide master** - xác định thiết kế và chủ đề chung.
-1. **Layout slide** - xác định cách sắp xếp cụ thể của các placeholder và định dạng cấp layout.
-1. **Normal slide** - chứa nội dung thực của bản trình bày và sử dụng một layout slide.
+1. **Slide master** - defines the shared design and theme.
+1. **Layout slide** - defines a specific arrangement of placeholders and layout-level formatting.
+1. **Normal slide** - contains the actual presentation content and uses one layout slide.
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![Sơ đồ phân cấp của slide master, layout slide và normal slide](slide-master_2.jpg)
 
-Trong Aspose.Slides, slide master được biểu diễn bằng giao diện [IMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/). Tất cả các master slide trong một bản trình bày có sẵn qua bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getMasters--) , bộ sưu tập này thực thi [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/).
+In Aspose.Slides, a slide master is represented by the [IMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) interface. All master slides in a presentation are available through the [Presentation.getMasters](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getMasters--) collection, which implements [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-Khi cùng một thuộc tính được định nghĩa ở nhiều mức, mức cụ thể hơn sẽ thắng. Ví dụ, nếu một master slide và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm thông tin về layout slide, xem [Áp dụng hoặc Thay đổi Bố cục Slide](/slides/vi/java/slide-layout/).
+
+When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Áp dụng hoặc Thay đổi Bố cục Slide](/slides/vi/java/slide-layout/).
+
 {{% /alert %}}
 
 ## **Truy cập Slide Masters**
 
-Trong PowerPoint, bạn có thể mở chế độ xem Slide Master từ **View** > **Slide Master**.
+In PowerPoint, you can open the Slide Master view from **View** > **Slide Master**.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![Lệnh Slide Master trên tab View của PowerPoint](slide-master_3.jpg)
 
-Trong Aspose.Slides, dùng bộ sưu tập `getMasters()` để truy cập các master slide:
+In Aspose.Slides, use the `getMasters()` collection to access master slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -65,9 +69,11 @@ try {
 }
 ```
 
-Bạn cũng có thể lấy master slide được sử dụng bởi một slide bình thường thông qua layout của nó:
+You can also get the master slide used by a normal slide through its layout:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -83,26 +89,28 @@ try {
 
 ## **Nội dung của Slide Master**
 
-Một master slide là một đối tượng dạng slide. Nó thực thi [IBaseSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/), vì vậy nó cung cấp nhiều thuộc tính slide giống như slide bình thường và layout. Các thành viên riêng của master được liệt kê trên trang API [IMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/).
+A master slide is a slide-like object. It implements [IBaseSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/), so it exposes many of the same slide properties used by normal and layout slides. Master-specific members are listed on the [IMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) API page.
 
-Các thành viên master slide thường được sử dụng bao gồm:
+Commonly used master slide members include:
 
 | Thành viên | Mục đích |
 | --- | --- |
-| `getBackground()` | Đặt nền slide mức master. |
-| `getShapes()` | Lưu trữ các hình dạng được đặt trên master, như logo, khung hình ảnh và văn bản chung. |
-| `getLayoutSlides()` | Lưu trữ các layout slide thuộc về master. |
-| `getThemeManager()` | Cung cấp quyền truy cập vào các API chủ đề master. |
-| `getHeaderFooterManager()` | Điều khiển tiêu đề, chân trang, ngày tháng và số slide cho master và các layout con. |
-| `getDependingSlides()` | Trả về các slide bình thường phụ thuộc vào master thông qua layout của chúng. |
+| `getBackground()` | Sets the master-level slide background. |
+| `getShapes()` | Stores shapes placed on the master, such as logos, picture frames, and shared text. |
+| `getLayoutSlides()` | Stores the layout slides that belong to the master. |
+| `getThemeManager()` | Provides access to the master theme APIs. |
+| `getHeaderFooterManager()` | Controls headers, footers, dates, and slide numbers for the master and its child layouts. |
+| `getDependingSlides()` | Returns normal slides that depend on the master through their layouts. |
 
 ## **Thêm Hình ảnh vào Slide Master**
 
-Khi bạn thêm hình ảnh vào một master slide, hình ảnh sẽ xuất hiện trên các slide dùng layout từ master đó. Điều này hữu ích cho logo, dấu nước, dải trang trí và các yếu tố hình ảnh lặp lại khác.
+When you add an image to a master slide, it appears on slides that use layouts from that master. This is useful for logos, watermarks, decorative bands, and other repeated visual elements.
 
-Ví dụ sau thêm một logo vào master slide đầu tiên:
+The following example adds a logo to the first master slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -128,19 +136,75 @@ try {
 }
 ```
 
-Để biết thêm thông tin về khung hình ảnh, xem [Picture Frame](/slides/vi/java/picture-frame/).
+For more information about picture frames, see [Picture Frame](/slides/vi/java/picture-frame/).
+
+## **Kiểm soát Hiển thị Đồ họa Master**
+
+Use [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Pass `false` to [Slide.setShowMasterShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#setShowMasterShapes-boolean-) on the slide that should omit those graphics and keep it `true` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    Color bandColor = new Color(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Chọn Phạm vi Cài đặt**
+
+A normal slide uses its master through [ISlide.getLayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getLayoutSlide--) and [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/#getMasterSlide--). Setting the property on an individual slide affects only that slide. Passing `false` to [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) hides master graphics for slides that use that shared layout, even if their own setting is `true`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master, [getShowMasterShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/masterslide/#getShowMasterShapes--) always returns `false`, and passing `true` to [setShowMasterShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) raises an exception. Apply it to a normal slide or a layout instead.
+
+### **Phân biệt Đồ họa và Nền**
+
+| Thao tác | Hiệu quả |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/vi/java/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
 
 ## **Làm việc với Placeholder**
 
-Placeholder thường được định nghĩa trên layout slide. Master slide cung cấp kiểu và chủ đề chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholder nào có sẵn và vị trí của chúng.
+Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
 
-Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ xem Slide Master.
+In PowerPoint, placeholder commands are available in Slide Master view.
 
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+![Lệnh Insert Placeholder trong PowerPoint Slide Master view](slide-master_5.png)
 
-Để thêm placeholder mới với Aspose.Slides, làm việc với layout slide thuộc về master:
+To add new placeholders with Aspose.Slides, work with the layout slide that belongs to the master:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -159,9 +223,12 @@ try {
 }
 ```
 
-Bạn cũng có thể định dạng các shape placeholder đã có trên master slide. Ví dụ sau tìm placeholder tiêu đề và áp dụng màu gradient tuyến tính:
+You can also format placeholder shapes that already exist on a master slide. The following example finds the title placeholder and applies a linear gradient fill:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -186,7 +253,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(FillType.Gradient);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0f, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0f, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0f, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", SaveFormat.Pptx);
@@ -195,15 +262,18 @@ try {
 }
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![Tiêu đề placeholder được định dạng kế thừa bởi các slide bình thường](slide-master_8.png)
 
-Để biết thêm các tùy chọn định dạng placeholder và văn bản, xem [Đặt Văn bản Gợi ý trong Placeholder](/slides/vi/java/manage-placeholder/) và [Định dạng Văn bản](/slides/vi/java/text-formatting/).
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/vi/java/manage-placeholder/) and [Text Formatting](/slides/vi/java/text-formatting/).
 
 ## **Thay đổi Nền Slide Master**
 
-Nền master được kế thừa bởi các layout và slide không ghi đè nó. Ví dụ sau đặt màu nền đặc cho master slide đầu tiên:
+A master background is inherited by layouts and slides that do not override it. The following example sets a solid background color for the first master slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
@@ -219,13 +289,15 @@ try {
 }
 ```
 
-Đối với các chủ đề liên quan, xem [Presentation Background](/slides/vi/java/presentation-background/) và [Presentation Theme](/slides/vi/java/presentation-theme/).
+For related topics, see [Presentation Background](/slides/vi/java/presentation-background/) and [Presentation Theme](/slides/vi/java/presentation-theme/).
 
-## **Sao chép Slide Master sang Bản Trình Bày Khác**
+## **Sao chép Slide Master sang Bản trình chiếu Khác**
 
-Sử dụng [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) để sao chép một master slide vào bản trình bày khác. Master đã sao chép sau đó có thể được sử dụng bởi các layout và slide trong bản đích.
+Use [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/#addClone-com.aspose.slides.IMasterSlide-) to copy a master slide into another presentation. The copied master can then be used by layouts and slides in the destination presentation.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation sourcePresentation = new Presentation("source.pptx");
 Presentation destinationPresentation = new Presentation("destination.pptx");
 try {
@@ -239,17 +311,20 @@ try {
 }
 ```
 
-Nếu bạn cần sao chép các slide bình thường cùng với master của chúng, xem [Clone Slides](/slides/vi/java/clone-slides/).
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/vi/java/clone-slides/).
 
 ## **Thêm Nhiều Slide Master**
 
-Một bản trình bày có thể chứa nhiều master slide. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc cài đặt chủ đề khác nhau.
+A presentation can contain multiple master slides. This is useful when different sections require different branding, page structure, or theme settings.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![Các lệnh PowerPoint để chèn và quản lý slide master](slide-master_9.jpg)
 
-Ví dụ sau sao chép master mặc định, đặt nền khác cho bản sao, tạo một layout dưới master đã sao chép, và thêm một slide mới dựa trên layout đó:
+The following example clones the default master, gives the clone a different background, creates a layout under that cloned master, and adds a new slide based on that layout:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -276,9 +351,11 @@ try {
 
 ## **So sánh Slide Masters**
 
-Các master slide có thể được so sánh bằng phương thức `equals` kế thừa từ [IBaseSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/). So sánh kiểm tra cấu trúc và nội dung tĩnh, như shape, văn bản, định dạng, hoạt ảnh và các cài đặt slide khác. Nó không so sánh các định danh duy nhất, như ID slide, hay các giá trị placeholder động, như ngày hiện tại.
+Master slides can be compared with the `equals` method inherited from [IBaseSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/). The comparison checks structure and static content, such as shapes, text, formatting, animations, and other slide settings. It does not compare unique identifiers, such as slide IDs, or dynamic placeholder values, such as the current date.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation firstPresentation = new Presentation("first.pptx");
 Presentation secondPresentation = new Presentation("second.pptx");
 try {
@@ -305,13 +382,15 @@ try {
 }
 ```
 
-Để biết thêm thông tin, xem [So sánh Các Slide trong Bản Trình Bày](/slides/vi/java/compare-slides/).
+For more information, see [Compare Presentation Slides](/slides/vi/java/compare-slides/).
 
-## **Đặt Slide Master View làm Chế độ Xem Mặc Định**
+## **Đặt Slide Master View làm View Mặc định**
 
-Sử dụng phương thức `setLastView` trên [ViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewproperties/) để kiểm soát chế độ xem PowerPoint mở đầu tiên. Ví dụ sau mở bản trình bày ở chế độ Slide Master:
+Use the `setLastView` method on [ViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewproperties/) to control the view that PowerPoint opens first. The following example opens the presentation in Slide Master view:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -321,15 +400,17 @@ try {
 }
 ```
 
-Đối với các cài đặt chế độ xem khác, xem [Save Presentation](/slides/vi/java/save-presentation/).
+For more view settings, see [Save Presentation](/slides/vi/java/save-presentation/).
 
-## **Xóa các Master Slide Không Được Sử Dụng**
+## **Xóa Slide Master Không được Sử dụng**
 
-Đôi khi bản trình bày chứa các master slide không còn được bất kỳ slide bình thường nào sử dụng. Xóa các master không dùng có thể giảm kích thước tệp và đơn giản hóa việc bảo trì mẫu.
+Presentations sometimes contain master slides that are no longer used by any normal slides. Removing unused masters can reduce file size and simplify template maintenance.
 
-Sử dụng `removeUnused` để xóa các master không dùng khỏi bộ sưu tập `getMasters()`:
+Use `removeUnused` to remove unused masters from the `getMasters()` collection:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -339,9 +420,11 @@ try {
 }
 ```
 
-Bạn cũng có thể dùng phương thức low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) :
+You can also use the low-code [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     Compress.removeUnusedMasterSlides(presentation);
@@ -351,20 +434,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
 **Sự khác nhau giữa slide master và layout slide là gì?**
 
-Slide master xác định các cài đặt thiết kế chung như chủ đề, nền, hình dạng chung và kiểu văn bản. Layout slide thuộc về một master slide và xác định cách sắp xếp cụ thể của các placeholder. Slide bình thường sử dụng một layout slide, vì vậy nó kế thừa từ cả layout và master.
+A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-**Một bản trình bày có thể chứa nhiều slide master không?**
+**Một bản trình chiếu có thể chứa nhiều slide master không?**
 
-Có. Một bản trình bày có thể chứa nhiều slide master. Sử dụng nhiều master khi các phần khác nhau cần hệ thống hình ảnh hoặc thương hiệu khác nhau.
+Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-**Nên thêm placeholder vào master slide hay layout slide?**
+**Nên thêm placeholder vào slide master hay layout slide?**
 
-Trong hầu hết các trường hợp, thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh chung và định dạng chung trên master slide, sau đó đặt placeholder nội dung trên các layout mà slide bình thường sẽ sử dụng.
+In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-**Có thể xóa một master slide vẫn đang được sử dụng không?**
+**Có thể xóa một slide master vẫn còn được sử dụng không?**
 
-Không. Master slide có các slide phụ thuộc không thể bị xóa một cách an toàn. Trước tiên hãy chuyển các slide đó sang layout dưới master khác, hoặc dùng phương pháp dọn dẹp master không dùng chỉ xóa các master không có slide phụ thuộc.
+No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.

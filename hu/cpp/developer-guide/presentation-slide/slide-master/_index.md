@@ -1,59 +1,65 @@
 ---
-title: Prezentáció dia mestereinek kezelése C++-ban
-linktitle: Dia mester
+title: "Kezelje a bemutató diamestereket C++-ban"
+linktitle: "Dia Master"
 type: docs
 weight: 80
 url: /hu/cpp/slide-master/
 keywords:
-- dia mester
-- mester dia
-- PPT mester dia
-- több mester dia
-- mester diák összehasonlítása
-- háttér
-- helyőrző
-- mester dia klónozása
-- mester dia másolása
-- mester dia duplikálása
-- használaton kívüli mester dia
+- "dia mester"
+- "mester dia"
+- "PPT mester dia"
+- "több mester dia"
+- "mester diák összehasonlítása"
+- "háttér"
+- "helyfoglaló"
+- "mester dia klónozása"
+- "mester dia másolása"
+- "mester dia duplikálása"
+- "nem használt mester dia"
 - PowerPoint
 - OpenDocument
-- prezentáció
+- "bemutató"
 - C++
 - Aspose.Slides
-description: "Dia mesterek kezelése az Aspose.Slides for C++-ban: hozzáférés, szerkesztés, klónozás, összehasonlítás és mester diák eltávolítása PowerPoint és OpenDocument prezentációkban."
+description: "Kezelje a diamestereket az Aspose.Slides C++-ban: hozzáférés, szerkesztés, klónozás, összehasonlítás és a mester diák eltávolítása PowerPoint és OpenDocument bemutatókban."
 ---
 ## **Áttekintés**
 
-A **dia mester** meghatározza a csoport diái számára közös tervezési beállításokat. Tartalmazhat közös alakzatokat, logókat, háttereket, szövegstílusokat, téma beállításokat és láblécbeállításokat. PowerPointban a dia mester szerkesztése a szokásos módja annak, hogy a bemutató egységes maradjon anélkül, hogy minden diára külön-külön alkalmaznánk ugyanazt a formázást.
+A **slide master** közös tervezési beállításokat határoz meg egy diacsoport számára. Tartalmazhat közös alakzatokat, logókat, háttereket, szövegstílusokat, téma beállításokat és lábléc beállításokat. A PowerPointban a slide master szerkesztése a szokásos módja annak, hogy a bemutató konzisztens maradjon anélkül, hogy minden dián ismételné a formázást.
 
-Az Aspose.Slides for C++ ugyanazt a modellt támogatja. Egy bemutató egy vagy több mester diát tartalmazhat, és minden mester dia több elrendezési diát is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy mester diára. Ehelyett egy normál dia egy elrendezési diát használ, amely egy mester diához tartozik.
+Az Aspose.Slides for C++ támogatja ugyanazt a modellt. Egy bemutató egy vagy több mester diát tartalmazhat, és minden mester dia több elrendezés diát (layout slide) tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy mester diára. Ehelyett egy normál dia egy elrendezés diát használ, és ez az elrendezés dia egy mester diához tartozik.
 
-A hierarchia:
+A hierarchia a következő:
 
-1. **Dia mester** – meghatározza a közös tervezést és témát.  
-1. **Elrendezési dia** – meghatározza a helyőrzők és elrendezési szintű formázás konkrét elrendezését.  
-1. **Normál dia** – a tényleges bemutató tartalmat tartalmazza, és egy elrendezési diát használ.
+1. **Slide master** - meghatározza a közös tervezést és témát.  
+1. **Layout slide** - meghatároz egy konkrét elrendezést helyfoglalókkal és elrendezés-szintű formázással.  
+1. **Normal slide** - tartalmazza a tényleges bemutató tartalmat és egy elrendezés diát használ.
 
-![A mester diák, elrendezési diák és normál diák hierarchiája](slide-master_2.jpg)
+![A mester diákok, elrendezés diák és normál diákok hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slides-ben egy dia mester a [IMasterSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/) interfésszel van ábrázolva. A bemutató összes mester diája a [Presentation::get_Masters](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_masters/) gyűjteményen keresztül érhető el, amely a [IMasterSlideCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/) implementációja.
+Az Aspose.Slides-ban egy slide master-t a [IMasterSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/) interfész képviseli. A bemutató összes mester diája elérhető a [Presentation::get_Masters](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_masters/) gyűjteményen keresztül, amely a [IMasterSlideCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/) interfészt valósítja meg.
 
-{{% alert color="info" title="Öröklődés" %}}
-
-Ha ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyeri el a hatalmat. Például, ha egy mester dia és egy elrendezési dia is meghatároz egy hátteret, az adott elrendezésre épülő diák az elrendezési hátteret használják. Az elrendezési diákról további információért lásd a [Diaelrendezések Alkalmazása vagy Módosítása](/slides/hu/cpp/slide-layout/) oldalt.
-
+{{% alert color="info" title="Inheritance" %}}
+Ha ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyeri el a hatást. Például, ha egy mester dia és egy elrendezés dia is meghatároz egy hátteret, akkor a layoutot használó diák a layout háttérét alkalmazzák. További információért az elrendezés diákról lásd a [Apply or Change Slide Layouts](/slides/hu/cpp/slide-layout/) oldalt.
 {{% /alert %}}
 
-## **Dia Mesterek Elérése**
+## **Slide Master elérése**
 
-PowerPointban a **Nézet** > **Dia mester** menüpontból nyithatja meg a Dia Mester nézetet.
+A PowerPointban a Slide Master nézetet a **View** > **Slide Master** menüpontból nyithatja meg.
 
-![A Dia Mester parancs a PowerPoint Nézet lapon](slide-master_3.jpg)
+![A Slide Master parancs a PowerPoint Nézet (View) lapon](slide-master_3.jpg)
 
-Az Aspose.Slides-ban a `get_Masters()` gyűjteményt használva érheti el a mester diákat:
+Az Aspose.Slides-ban használja a `get_Masters()` gyűjteményt a mester diák eléréséhez:
 
 ```cpp
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto firstMasterSlide = presentation->get_Master(0);
@@ -66,9 +72,17 @@ System::Console::WriteLine(System::String(u"Layouts in the first master: ") + fi
 presentation->Dispose();
 ```
 
-A normál dia által használt mester diát a saját elrendezésén keresztül is lekérheti:
+A normál dia által használt mester diát az elrendezésén keresztül is lekérdezheti:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -81,28 +95,39 @@ System::Console::WriteLine(masterSlideName);
 presentation->Dispose();
 ```
 
-## **Mi Van Egy Dia Mesterben**
+## **Mi található egy Slide Master-ben**
 
-A mester dia egy dia-szerű objektum. Implementálja az [IBaseSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/) interfészt, így ugyanazok a dia tulajdonságok érhetők el, mint a normál és elrendezési diák esetén. A mesterre jellemző tagok a [IMasterSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/) API oldalon vannak felsorolva.
+A master slide egy dia-szerű objektum. Implementálja a [IBaseSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/) interfészt, ezért ugyanazokat a dia tulajdonságokat teszi elérhetővé, mint a normál és elrendezés diák. A master-specifikus tagok a [IMasterSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/) API oldalán találhatók.
 
-A gyakran használt mester dia tagok:
+Az általánosan használt master slide tagok a következők:
 
-| Tag | Cél |
+| Tag | Leírás |
 | --- | --- |
-| `get_Background()` | Beállítja a mester szintű dia háttérét. |
-| `get_Shapes()` | Tárolja a mesteren elhelyezett alakzatokat, például logókat, képkereteket és megosztott szöveget. |
-| `get_LayoutSlides()` | Tárolja a mesterhez tartozó elrendezési diákot. |
-| `get_ThemeManager()` | Hozzáférést biztosít a mester téma API-khoz. |
-| `get_HeaderFooterManager()` | A mester és gyermek elrendezései fejlécét, láblécét, dátumát és dia számait szabályozza. |
-| `GetDependingSlides()` | Visszaadja a normál diákokat, amelyek az elrendezéseiken keresztül függnek a mestertől. |
+| `get_Background()` | Beállítja a master szintű dia hátterét. |
+| `get_Shapes()` | A masterre elhelyezett alakzatokat tárolja, például logókat, képkereteket és megosztott szöveget. |
+| `get_LayoutSlides()` | A masterhez tartozó elrendezés diák tárolja. |
+| `get_ThemeManager()` | Hozzáférést biztosít a master téma API-khoz. |
+| `get_HeaderFooterManager()` | A fejlécek, láblécek, dátumok és dia számok vezérlése a master és annak gyermek elrendezései számára. |
+| `GetDependingSlides()` | Visszaadja azokat a normál diákot, amelyek a masterhez tartoznak az elrendezésükön keresztül. |
 
-## **Kép Hozzáadása Egy Dia Mesterhez**
+## **Kép hozzáadása egy Slide Master-hez**
 
-Amikor képet ad hozzá egy mester diához, az a mesterhez tartozó elrendezéseket használó diákon is megjelenik. Hasznos logók, vízjelek, díszszalagok és egyéb ismétlődő vizuális elemek esetén.
+Amikor egy képet ad hozzá egy master diához, az a masterhez tartozó elrendezéseket használó diákon megjelenik. Ez hasznos logók, vízjelek, díszbövetek és egyéb ismétlődő vizuális elemek esetén.
 
-Az alábbi példa egy logót ad az első mester diához:
+A következő példa egy logót ad az első master diához:
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -121,19 +146,100 @@ presentation->Save(u"presentation-with-logo.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A képkeretekről további információért lásd a [Képkeret](/slides/hu/cpp/picture-frame/) oldalt.
+Az képkeretekről további információk a [Picture Frame](/slides/hu/cpp/picture-frame/) oldalon találhatók.
 
-## **Munka Helyőrzőkkel**
+## **A master grafika láthatóságának vezérlése**
 
-A helyőrzőket általában elrendezési diákon definiálják. A mester dia biztosítja a közös stílust és témát, amit ezek az elrendezések örökölnek, míg minden elrendezés dönt arról, hogy mely helyőrzők állnak rendelkezésre és hol helyezkednek el.
+A [IBaseSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/set_showmastershapes/) használatával elrejtheti a örökölt master grafikákat, például logókat vagy dísz alakzatokat, anélkül, hogy törölné azokat a masterről. Adjon `false` értéket a [Slide::set_ShowMasterShapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slide/set_showmastershapes/) metódusnak azon dián, amelynek el kell rejtenie ezeket a grafikákat, és `true`-t azoknál a diákon, amelyeknél meg kell jeleníteni.
 
-PowerPointban a helyőrzőparancsok a Dia Mester nézetben érhetők el.
-
-![A Helyőrző Beszúrása parancs a PowerPoint Dia Mester nézetben](slide-master_5.png)
-
-Új helyőrzők hozzáadásához az Aspose.Slides-ban a mesterhez tartozó elrendezési diával dolgozzunk:
+A következő önálló példa egy kék díszbövetet hoz létre egy masteren, valamint két diát, amelyek ugyanazt az üres elrendezést használják. A bövet látható az első dián, a másodikon rejtett. Nem szükséges bemeneti bemutató vagy kép.
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
+auto layoutSlide = masterSlide->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+layoutSlide->set_ShowMasterShapes(true);
+
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+auto band = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 60.0f, slideHeight);
+band->get_FillFormat()->set_FillType(FillType::Solid);
+band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+band->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+auto visibleSlide = presentation->get_Slide(0);
+visibleSlide->set_LayoutSlide(layoutSlide);
+visibleSlide->get_Shapes()->Clear();
+
+auto hiddenSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+visibleSlide->set_ShowMasterShapes(true);
+hiddenSlide->set_ShowMasterShapes(false);
+
+presentation->Save(u"master-graphics.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+A példa a **Blank** elrendezést használja, amely egy új bemutatóval együtt érkezik, és eltávolítja az első dia saját helyfoglalóit.
+
+### **A beállítás hatókörének kiválasztása**
+
+Egy normál dia a masterét a [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/get_layoutslide/) és a [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/get_masterslide/) segítségével használja. A tulajdonság egyedi dián való beállítása csak azt a diát érinti. `false` átadása a [LayoutSlide::set_ShowMasterShapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/layoutslide/set_showmastershapes/) metódusnak elrejti a master grafikákat azokat a diákra, amelyek ezt a megosztott elrendezést használják, még akkor is, ha saját beállításuk `true`. Ahhoz, hogy csak egy dián rejtsen el grafikákat, módosítsa a dia tulajdonságát, és hagyja változatlanul a megosztott elrendezést.
+
+A beállítás nem támogatott a master dia láthatóságának vezérlésére. A masteren mindig `false`-t ad vissza, és `true` érték beállítása `System::NotSupportedException`-t dob. Használja normál dián vagy elrendezésen.
+
+### **A grafikák és a háttér megkülönböztetése**
+
+| Művelet | Hatás |
+| --- | --- |
+| Master grafikák elrejtése | Az örökölt master alakzatok láthatóságát szabályozza, anélkül hogy törölné őket vagy megváltoztatná a dia saját alakzatait. |
+| A dia háttér kitöltésének módosítása | Megváltoztatja a háttér színét, gradiensét vagy képét. A master grafikák külön alakzatok, és láthatóak maradhatnak ezen háttér felett. Lásd a [Presentation Background](/slides/hu/cpp/presentation-background/) oldalt. |
+| Alakzat törlése a masterből | Eltávolítja a megosztott forrás alakzatot, így már nem érhető el semmilyen, a mastert használó dián. |
+
+## **Helyfoglalók kezelése**
+
+A helyfoglalók általában az elrendezés diákon vannak definiálva. A master slide biztosítja a megosztott stílust és témát, amelyet az elrendezések örökölnek, míg minden elrendezés meghatározza, mely helyfoglalók érhetők el és hol vannak elhelyezve.
+
+A PowerPointban a helyfoglaló parancsok a Slide Master nézetben érhetők el.
+
+![A Helyfoglaló beszúrása parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
+
+Új helyfoglalók hozzáadásához az Aspose.Slides használatával, dolgozzon a masterhez tartozó elrendezés diával:
+
+```cpp
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -155,9 +261,26 @@ presentation->Save(u"presentation-with-placeholder.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Már meglévő helyőrző alakzatok formázása is lehetséges egy mester dián. Az alábbi példa megtalálja a cím helyőrzőt, és lineáris színátmenetes kitöltést alkalmaz rá:
+Megformázhatja a master dián már létező helyfoglaló alakzatokat is. A következő példa megtalálja a cím helyfoglalót és lineáris gradiens kitöltést alkalmaz rá:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -196,15 +319,28 @@ presentation->Save(u"presentation-title-style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Formázott cím helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
+![Formázott cím helyfoglaló, amely a normál diákra öröklődik](slide-master_8.png)
 
-További helyőrző- és szövegformázási lehetőségekért lásd a [Helyőrző Szöveg Beállítása](/slides/hu/cpp/manage-placeholder/) és a [Szövegformázás](/slides/hu/cpp/text-formatting/) oldalakat.
+További helyfoglaló és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/cpp/manage-placeholder/) és a [Text Formatting](/slides/hu/cpp/text-formatting/) oldalakat.
 
-## **Dia Mester Háttér Módosítása**
+## **Slide Master háttér módosítása**
 
-A mester háttér öröklődik az elrendezések és azok a diák, amelyek nem írják felül. Az alábbi példa egy szilárd háttérszínt állít be az első mester diához:
+A master háttér az elrendezések és diák által öröklődik, amelyek nem írják felül. A következő példa egy egyszínes háttérszínt állít be az első master diára:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto masterSlide = presentation->get_Master(0);
@@ -218,13 +354,19 @@ presentation->Save(u"presentation-master-background.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Kapcsolódó témák: [Bemutató Háttér](/slides/hu/cpp/presentation-background/) és [Bemutató Téma](/slides/hu/cpp/presentation-theme/).
+Kapcsolódó témákért lásd a [Presentation Background](/slides/hu/cpp/presentation-background/) és a [Presentation Theme](/slides/hu/cpp/presentation-theme/) oldalakat.
 
-## **Dia Mester Klónozása Másik Bemutatóba**
+## **Slide Master klónozása egy másik bemutatóba**
 
-Használja az [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/addclone/) metódust egy mester dia másik bemutatóba másolásához. A másolt mester ezután használható az elrendezések és diák számára a célbemutatóban.
+A [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/addclone/) használatával egy mester diát másolhat egy másik bemutatóba. A másolt master aztán az elrendezések és diák által a célbemutatóban használható.
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto sourcePresentation = System::MakeObject<Presentation>(u"source.pptx");
 auto destinationPresentation = System::MakeObject<Presentation>(u"destination.pptx");
 
@@ -236,17 +378,34 @@ destinationPresentation->Dispose();
 sourcePresentation->Dispose();
 ```
 
-Ha normál diákot szeretne klónozni a mesterével együtt, lásd a [Diák Klónozása](/slides/hu/cpp/clone-slides/) oldalt.
+Ha normál diák másolására is szükség van a masterrel együtt, lásd a [Clone Slides](/slides/hu/cpp/clone-slides/) oldalt.
 
-## **Több Dia Mester Hozzáadása**
+## **Több Slide Master hozzáadása**
 
-Egy bemutató több mester diát is tartalmazhat. Hasznos, ha különböző szekciók különféle márkázást, oldalstruktúrát vagy téma beállításokat igényelnek.
+Egy bemutató több mester diát is tartalmazhat. Ez akkor hasznos, amikor a különböző szakaszok különböző arculatot, oldalstruktúrát vagy téma beállításokat igényelnek.
 
 ![PowerPoint parancsok mester diák beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-Az alábbi példa klónozza az alapértelmezett mestert, a klónnak más hátteret ad, létrehozza egy elrendezést az úgy klónozott mester alatt, és egy új diát ad hozzá, amely azt az elrendezést használja:
+A következő példa klónozza az alapértelmezett mastert, más háttérrel látja el a klónt, létrehoz egy elrendezést a klónozott master alatt, és hozzáad egy új diát, amely ezt az elrendezést használja:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 auto defaultMasterSlide = presentation->get_Master(0);
@@ -271,11 +430,18 @@ presentation->Save(u"presentation-with-multiple-masters.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **Dia Mesterek Összehasonlítása**
+## **Slide Master összehasonlítása**
 
-A mester diák összehasonlíthatók a [IBaseSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/) által örökölt `Equals` metódussal. Az összehasonlítás a struktúrát és a statikus tartalmat vizsgálja, például alakzatokat, szöveget, formázást, animációkat és egyéb dia beállításokat. Nem hasonlítja össze az egyedi azonosítókat, például a dia‑azonosítókat, vagy a dinamikus helyőrző értékeket, például az aktuális dátumot.
+A master diák összehasonlíthatók az [IBaseSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/) örökölt `Equals` metódusával. Az összehasonlítás ellenőrzi a szerkezetet és a statikus tartalmat, mint például alakzatok, szöveg, formázás, animációk és egyéb dia beállítások. Nem hasonlítja össze az egyedi azonosítókat, például a dia ID-ket, vagy a dinamikus helyfoglaló értékeket, mint a jelenlegi dátum.
 
 ```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto firstPresentation = System::MakeObject<Presentation>(u"first.pptx");
 auto secondPresentation = System::MakeObject<Presentation>(u"second.pptx");
 auto firstPresentationMasterCount = firstPresentation->get_Masters()->get_Count();
@@ -308,13 +474,20 @@ secondPresentation->Dispose();
 firstPresentation->Dispose();
 ```
 
-További információért lásd a [Bemutató Diák Összehasonlítása](/slides/hu/cpp/compare-slides/) oldalt.
+További információért lásd a [Compare Presentation Slides](/slides/hu/cpp/compare-slides/) oldalt.
 
-## **Dia Mester Nézet Beállítása Alapértelmezett Nézetként**
+## **A Slide Master nézet beállítása alapértelmezett nézetként**
 
-Használja a `set_LastView` metódust a [ViewProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/viewproperties/) osztályon, hogy meghatározza, melyik nézetet nyissa meg a PowerPoint elsőként. Az alábbi példa a bemutatót Dia Mester nézetben nyitja meg:
+A [ViewProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/viewproperties/) `set_LastView` metódusával szabályozhatja, hogy a PowerPoint melyik nézetet nyissa meg először. A következő példa a bemutatót Slide Master nézetben nyitja meg:
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -322,15 +495,21 @@ presentation->Save(u"presentation-master-view.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-További nézetbeállításokért lásd a [Bemutató Mentése](/slides/hu/cpp/save-presentation/) oldalt.
+További nézetbeállításokért lásd a [Save Presentation](/slides/hu/cpp/save-presentation/) oldalt.
 
-## **Nem Használt Mester Diák Eltávolítása**
+## **Használaton kívüli Master diák eltávolítása**
 
-Előfordulhat, hogy egy bemutató olyan mester diákat tartalmaz, amelyeket már egyetlen normál dia sem használ. A nem használt mesterek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablon karbantartását.
+Néhány bemutató olyan master diákat tartalmaz, amelyeket már egyetlen normál dia sem használ. A használaton kívüli master diák eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablon karbantartását.
 
-Használja a [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/hu/cpp/aspose.slides/masterslidecollection/removeunused/) metódust a `get_Masters()` gyűjteményből a nem használt mesterek eltávolításához:
+A használaton kívüli master diák eltávolításához használja a [MasterSlideCollection::RemoveUnused](https://reference.aspose.com/slides/hu/cpp/aspose.slides/masterslidecollection/removeunused/) metódust a `get_Masters()` gyűjteményből:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 presentation->get_Masters()->RemoveUnused(true);
@@ -338,9 +517,16 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Alacsony kódú módszerként használhatja a [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) metódust is:
+Alkalmazhatja az alacsony kódú [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) metódust is:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
 LowCode::Compress::RemoveUnusedMasterSlides(presentation);
@@ -348,20 +534,20 @@ presentation->Save(u"presentation-clean.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Mi a különbség egy dia mester és egy elrendezési dia között?**
+**Mi a különbség egy slide master és egy layout slide között?**
 
-A dia mester meghatározza a közös tervezési beállításokat, például a témát, hátteret, közös alakzatokat és szövegstílusokat. Egy elrendezési dia egy mester diához tartozik, és egy konkrét helyőrző elrendezést definiál. Egy normál dia egy elrendezési diát használ, így a elrendezésből és a mesterből egyaránt örököl.
+A slide master közös tervezési beállításokat határoz meg, mint a téma, háttér, közös alakzatok és szövegstílusok. Egy layout slide egy master slide-hez tartozik, és egy konkrét helyfoglaló elrendezést definiál. Egy normál dia egy layout slide-ot használ, így mind a layout, mind a master beállításait örökli.
 
-**Több dia mester is lehet egy bemutatóban?**
+**Tartalmazhat egy bemutató több slide master-t?**
 
-Igen. Egy bemutató tartalmazhat több dia mestert is. Több mestert használjon, ha a különböző szekcióknak eltérő vizuális rendszerekre vagy márkázásra van szükségük.
+Igen. Egy bemutató több slide master-t is tartalmazhat. Több master használható, ha a különböző szakaszokhoz különböző vizuális rendszerek vagy arculatok szükségesek.
 
-**Helyőrzőket a mester diára vagy az elrendezési diára kell-e feltenni?**
+**Hol kell helyfoglalókat hozzáadni: a master slide-hez vagy a layout slide-hez?**
 
-A legtöbb esetben az elrendezési diákba érdemes helyőrzőket tenni. A közös vizuális elemeket és formázást a mester diára helyezze, a tartalomhelyőrzőket pedig azokra az elrendezési diákra, amelyeket a normál diák használnak.
+A legtöbb esetben a helyfoglalókat a layout diákhoz kell hozzáadni. A közös vizuális elemeket és közös formázást a master slide-re helyezze, majd a tartalmi helyfoglalókat azokban a layoutokban, amelyeket a normál diák használnak.
 
-**Törölhetek-e egy még használt mester diát?**
+**Törölhetek egy még használt master slide-ot?**
 
-Nem. A mester diát, amelyhez függő diák tartoznak, nem lehet biztonságosan közvetlenül eltávolítani. Először mozgassa át ezeket a diákat egy másik mester alatti elrendezésbe, vagy használja a nem használt mesterek tisztítási módszerét, amely csak a nem használt mestereket távolítja el.
+Nem. Egy master slide, amelynek függő diái vannak, nem távolítható el biztonságosan. Először helyezze át ezeket a diákat egy másik master alá tartozó layoutokra, vagy használja a nem használt master takarítási módszert, amely csak a nem használt master-diákat távolítja el.

@@ -13,13 +13,13 @@ keywords:
 - неиспользуемый макет
 - видимость нижнего колонтитула
 - слайд заголовка
-- заголовок и содержание
+- заголовок и содержимое
 - заголовок раздела
-- два содержания
+- два блока содержимого
 - сравнение
 - только заголовок
 - пустой макет
-- содержание с подписью
+- содержимое с подписью
 - изображение с подписью
 - заголовок и вертикальный текст
 - вертикальный заголовок и текст
@@ -33,38 +33,40 @@ description: "Применяйте, создавайте и изменяйте �
 ---
 ## **Обзор**
 
-Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает единообразную структуру слайдов, позволяя каждому слайду содержать собственный контент.
+Макет слайда определяет положения и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета придаёт слайдам единообразную структуру, позволяя каждому слайду содержать собственное содержимое.
 
-Самыми распространёнными макетами являются:
+Самые распространённые макеты включают:
 
-- **Слайд заголовка**: содержит заполнители заголовка и подзаголовка.
-- **Заголовок и содержание**: содержит заполнитель заголовка и общий заполнитель содержания.
-- **Пустой**: не содержит заполнителей и полезен, когда все объекты размещаются вручную.
+- **Слайд заголовка**: Содержит заполнители заголовка и подзаголовка.
+- **Заголовок и содержимое**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
+- **Пустой**: Не содержит заполнителей содержимого и полезен, когда каждый объект будет размещён вручную.
 
-## **Понимание наследования макета**
+## **Понимание наследования макетов**
 
 Презентация имеет три связанных уровня:
 
-1. [главный слайд](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/) определяет тему, общие стили, фоны и общие объекты.
-1. [макет слайда](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/) принадлежит главному слайду и задаёт конкретное расположение заполнителей.
-1. [обычный слайд](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/) использует один макет и хранит введённый для него контент.
+1. A [главный слайд](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/) определяет тему, общий формат, фон и общие объекты.
+1. A [слайд макета](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/) принадлежит главному слайду и определяет конкретное расположение заполнителей.
+1. A [обычный слайд](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/) использует один макет и хранит введённое в него содержимое.
 
-Обычный слайд наследует тему и форматирование от своего макета, а макет — от главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его заполнительные формы генерируются из выбранного макета, тогда как введённый в эти заполнители контент принадлежит обычному слайду.
+Обычный слайд наследует тему и форматирование от своего макета, а макет наследуется от своего главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его формы‑заполнители генерируются из выбранного макета, в то время как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
 
-Добавьте необходимые заполнители в макет перед созданием слайдов на его основе. Добавление нового заполнителя в макет позже не добавит автоматически соответствующую форму заполнителя в уже существующие обычные слайды.
+Добавьте необходимые заполнители в макет до создания слайдов из него. Добавление другого заполнителя в макет позже не добавит автоматически соответствующую форму‑заполнитель в уже существующие обычные слайды.
 
 Эти отношения имеют два важных следствия:
 
 - Изменение унаследованного форматирования или геометрии существующего заполнителя в макете может обновить каждый слайд, зависящий от него. Перед редактированием уже используемого макета проверьте его зависимые слайды и просмотрите получившуюся презентацию.
-- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удаляйте только неиспользуемые макеты.
+- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
 
-Для получения дополнительной информации о верхнем уровне этой иерархии см. [Slide Master](/slides/ru/python-java/slide-master/).
+Для получения дополнительной информации о верхнем уровне этой иерархии см. [Главный слайд](/slides/ru/python-java/slide-master/).
+
+Чтобы скрыть унаследованные логотипы или декоративные элементы главного слайда на отдельном слайде или через общий макет, см. [Управление видимостью графики главного слайда](/slides/ru/python-java/slide-master/). Пример сравнивает два слайда, использующие один и тот же главный слайд.
 
 ## **Выбор и применение макета слайда**
 
-Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируемы пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируются пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
 
-В следующем примере ищется **Заголовок и содержание** на первом мастере. Если этот макет недоступен, происходит откат к **Пустому**. Вторичная проверка на `None` необходима, поскольку презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#setLayoutSlide).
+Следующий пример ищет **Заголовок и содержимое** на первом главном слайде. Если этот макет недоступен, он намеренно переходит к **Пустой**. Вторая проверка на `None` необходима, потому что презентация может содержать только пользовательские макеты. Выбранный макет затем применяется к первому обычному слайду через метод [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#setLayoutSlide).
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Изменение макета слайда не удаляет обычные формы, добавленные напрямую на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно разными макетами.
+Изменение макета слайда не удаляет обычные формы, добавленные непосредственно к слайду. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
 
 ## **Добавление макета слайда**
 
-Выбор и создание — отдельные операции. В предыдущем примере выбирается существующий макет; он не создаётся. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterlayoutslidecollection/#add) у коллекции макетов целевого мастера.
+Выбор и создание — это отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт его. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterlayoutslidecollection/#add) в коллекции макетов целевого главного слайда.
 
-В следующем примере всегда добавляется новый макет **Заголовок и содержание** с именем `Report Title and Content`, а затем создаётся обычный слайд на его основе. Имена макетов должны быть уникальными в коллекции.
+Следующий пример всегда добавляет новый макет **Заголовок и содержимое** с именем `Report Title and Content`, затем добавляет обычный слайд на его основе. Имена макетов должны быть уникальны в пределах коллекции.
 
 ```python
 import jpype
@@ -120,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Добавляйте макет только тогда, когда шаблон действительно нуждается в дополнительной переиспользуемой структуре. Если подходящий макет уже существует, выбирайте и переиспользуйте его вместо создания дубликата.
+Добавляйте макет только тогда, когда шаблон действительно нуждается в новой переиспользуемой структуре. Если подходящий макет уже существует, выберите и переиспользуйте его вместо создания дубликата.
 
-## **Добавление заполнителей в макет слайда**
+## **Добавление заполнителей к макету слайда**
 
 Метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getPlaceholderManager) предоставляет [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/) для добавления форм‑заполнителей в макет.
 
-| Заполнитель PowerPoint              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/) Метод |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | [addContentPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
-| ![Content (Vertical)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Text](text.png)                   | [addTextPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Text (Vertical)](textV.png)       | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Picture](picture.png)             | [addPicturePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Chart](chart.png)                 | [addChartPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Table](table.png)                 | [addTablePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png)           | [addSmartArtPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Media](media.png)                 | [addMediaPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
-| ![Online Image](onlineImage.png)    | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
+| Заполнитель PowerPoint               | Метод LayoutPlaceholderManager |
+| ------------------------------------ | ------------------------------ |
+| ![Содержание](content.png)           | [addContentPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Содержание (вертикальное)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Текст](text.png)                   | [addTextPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Текст (вертикальное)](textV.png)   | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Изображение](picture.png)          | [addPicturePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Диаграмма](chart.png)              | [addChartPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Таблица](table.png)                | [addTablePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)            | [addSmartArtPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Медиа](media.png)                  | [addMediaPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Онлайн‑изображение](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-В следующем примере проверяется, существует ли макет **Пустой**, к нему добавляются четыре заполнителя, после чего создаётся обычный слайд, использующий изменённый макет. Порядок намеренно выбран так: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог генерировать соответствующие формы‑заполнители на этом слайде.
+Следующий пример проверяет, существует ли макет **Пустой**, добавляет к нему четыре заполнителя, а затем создаёт обычный слайд, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides смог сгенерировать соответствующие формы‑заполнители на этом слайде.
 
 ```python
 import jpype
@@ -173,13 +175,13 @@ finally:
 
 ![Заполнители на макете слайда](add_placeholders.png)
 
-{{% alert color="warning" title="Предупреждение" %}}
-Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Новый заполнитель макета не заполняется автоматически в уже существующих обычных слайдах. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+{{% alert color="warning" title="Warning" %}}
+Изменение унаследованного форматирования или геометрии существующих заполнителей в макете может повлиять на зависимые слайды. Недавно добавленный заполнитель макета не заполняет автоматически существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
 {{% /alert %}}
 
 ## **Удаление неиспользуемых макетов слайдов**
 
-Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылается ни один обычный слайд. Метод оставляет используемые макеты без изменений.
+Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылается ни один обычный слайд. Метод оставляет в неизменном виде макеты, которые всё ещё используются.
 
 ```python
 import jpype
@@ -198,13 +200,11 @@ finally:
     presentation.dispose()
 ```
 
-Чтобы удалить конкретный макет, сначала воспользуйтесь его методом [hasDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте любые зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет вызовет исключение [PptxEditException](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pptxeditexception/).
+Чтобы удалить конкретный макет, сначала используйте его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте все зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pptxeditexception/).
 
 ## **Управление видимостью нижнего колонтитула на макете слайда**
 
-У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты/времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) для управления этими заполнителями одного макета. Это полезно, когда, например, макеты содержания должны показывать нижний колонтитул, а макеты заголовков — нет.
-
-В следующем примере безопасно выбирается макет и его элементы нижнего колонтитула делаются видимыми:
+У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) для управления этими заполнителями для одного макета. Это полезно, например, когда макеты содержимого должны показывать нижний колонтитул, а макеты заголовков — нет.
 
 ```python
 import jpype
@@ -237,9 +237,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Управление видимостью нижнего колонтитула в мастере и его дочерних макетах**
+## **Управление видимостью нижнего колонтитула на главном слайде и его дочерних макетах**
 
-Чтобы применить согласованные настройки нижнего колонтитула к всей иерархии мастера, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения из [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslideheaderfootermanager/) работают как с мастером, так и с его зависимыми макетами и обычными слайдами; они не ориентированы только на один обычный слайд.
+Чтобы применить согласованные настройки нижнего колонтитула во всей иерархии главного слайда, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masterslideheaderfootermanager/) работают и с главным слайдом, и с его зависимыми макетами и обычными слайдами; они не ориентированы только на один обычный слайд.
 
 ```python
 import jpype
@@ -266,18 +266,18 @@ finally:
 
 ## **Часто задаваемые вопросы**
 
-**В чём разница между главным слайдом и макетом слайда?**
+**В чем разница между главным слайдом и макетом слайда?**
 
-Главный слайд определяет тему презентации и общие стили. Макет слайда принадлежит главному слайду и задаёт один переиспользуемый набор размещения заполнителей. Обычные слайды используют эти макеты и хранят контент, специфичный для конкретного слайда.
+Главный слайд определяет тему презентации и общий формат. Макет слайда принадлежит главному слайду и задаёт одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят содержание, характерное для конкретного слайда.
 
-**Можно ли скопировать макет слайда из одной презентации в другую?**
+**Можно ли копировать макет слайда из одной презентации в другую?**
 
 Да. Добавьте копию в целевую коллекцию с помощью метода [addClone](https://reference.aspose.com/slides/ru/python-java/aspose.slides/globallayoutslidecollection/#addClone). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
 **Что происходит, когда я изменяю макет, который уже используется?**
 
-Зависимые слайды наследуют изменения макета, если они не переопределяют затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды перед редактированием макета.
+Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованный стиль могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды перед редактированием макета.
 
-**Что происходит, если я пытаюсь удалить макет, который всё ещё используется?**
+**Что происходит, если удалить макет, который всё ещё используется?**
 
-Aspose.Slides генерирует исключение [PptxEditException](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления только неиспользуемых макетов.
+Aspose.Slides выдаёт [PptxEditException](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления только нереферентных макетов.

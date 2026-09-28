@@ -7,14 +7,14 @@ url: /vi/androidjava/slide-layout/
 keywords:
 - bố cục slide
 - bố cục nội dung
-- khung giữ chỗ
-- thiết kế bản trình bày
+- trình giữ chỗ
+- thiết kế bản trình chiếu
 - thiết kế slide
 - bố cục không sử dụng
 - hiển thị chân trang
 - slide tiêu đề
 - tiêu đề và nội dung
-- đầu mục phần
+- tiêu đề phần
 - hai nội dung
 - so sánh
 - chỉ tiêu đề
@@ -25,46 +25,48 @@ keywords:
 - tiêu đề dọc và văn bản
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Áp dụng, tạo và chỉnh sửa bố cục slide trong Aspose.Slides cho Android bằng Java, thêm khung giữ chỗ, xóa các bố cục không sử dụng và kiểm soát hiển thị chân trang."
+description: "Áp dụng, tạo và chỉnh sửa bố cục slide trong Aspose.Slides cho Android bằng Java, thêm trình giữ chỗ, xóa các bố cục không sử dụng và kiểm soát hiển thị chân trang."
 ---
 ## **Tổng quan**
 
-Bố cục slide xác định vị trí và định dạng của các khung giữ chỗ như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán đồng thời cho phép mỗi slide chứa nội dung riêng của nó.
+Một bố cục slide xác định vị trí và định dạng của các placeholder như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán đồng thời cho phép mỗi slide chứa nội dung riêng của nó.
 
-Các bố cục phổ biến nhất bao gồm:
+Các bố cục thường gặp bao gồm:
 
-- **Slide Tiêu đề**: chứa các khung giữ chỗ tiêu đề và phụ đề.
-- **Tiêu đề và Nội dung**: chứa một khung giữ chỗ tiêu đề và một khung giữ chỗ nội dung đa mục đích.
-- **Trống**: không chứa khung giữ chỗ nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
+- **Title Slide**: Chứa các placeholder tiêu đề và phụ đề.
+- **Title and Content**: Chứa một placeholder tiêu đề và một placeholder nội dung đa mục đích.
+- **Blank**: Không chứa placeholder nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
 
-## **Hiểu về Kế thừa Bố cục**
+## **Hiểu về kế thừa bố cục**
 
-Một bản trình bày có ba cấp độ liên quan:
+Một bản trình bày có ba mức liên quan:
 
-1. Một [master slide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterslide/) xác định giao diện, định dạng chia sẻ, nền và các đối tượng chung.
-2. Một [layout slide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/) thuộc về slide chủ đề và xác định một sắp xếp cụ thể của các khung giữ chỗ.
-3. Một [normal slide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islide/) sử dụng một bố cục và lưu trữ nội dung được nhập cho slide đó.
+1. Một [master slide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterslide/) xác định chủ đề, định dạng chia sẻ, nền và các đối tượng chung.
+2. Một [layout slide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/) thuộc về master và xác định một bố trí cụ thể của các placeholder.
+3. Một [normal slide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islide/) sử dụng một layout và lưu trữ nội dung được nhập cho slide đó.
 
-Một slide bình thường kế thừa giao diện và định dạng từ bố cục của nó, và bố cục kế thừa từ slide chủ đề. Giá trị được đặt trực tiếp trên slide bình thường sẽ ghi đè lên giá trị kế thừa ở cấp độ đó. Khi một slide bình thường được tạo, các hình dạng khung giữ chỗ của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các khung giữ chỗ đó thuộc về slide bình thường.
+Một slide bình thường kế thừa chủ đề và định dạng từ layout của nó, và layout kế thừa từ master. Giá trị được đặt trực tiếp trên slide bình thường sẽ ghi đè giá trị kế thừa ở mức đó. Khi một slide bình thường được tạo, các hình dạng placeholder của nó được tạo từ layout đã chọn, trong khi nội dung nhập vào các placeholder đó thuộc về slide bình thường.
 
-Thêm các khung giữ chỗ cần thiết vào bố cục trước khi tạo slide từ nó. Thêm một khung giữ chỗ khác vào bố cục sau này sẽ không tự động thêm hình dạng khung giữ chỗ tương ứng vào các slide bình thường đã tồn tại.
+Thêm các placeholder cần thiết vào layout trước khi tạo slide từ nó. Thêm một placeholder khác vào layout sau này sẽ không tự động thêm một hình dạng placeholder tương ứng vào các slide bình thường đã tồn tại.
 
 Mối quan hệ này có hai hậu quả quan trọng:
 
-- Thay đổi định dạng kế thừa hoặc hình học của khung giữ chỗ hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem xét bản trình bày kết quả.
-- Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Hãy chuyển các slide phụ thuộc sang một bố cục khác trước, hoặc chỉ xóa các bố cục không được sử dụng.
+- Thay đổi định dạng kế thừa hoặc hình học placeholder hiện có trên layout có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một layout đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bản trình bày kết quả.
+- Một layout vẫn đang được một slide sử dụng không thể bị xóa. Hãy chuyển các slide phụ thuộc sang một layout khác trước, hoặc chỉ xóa các layout không được sử dụng.
 
 Để biết thêm thông tin về cấp cao nhất của cây phân cấp này, xem [Slide Master](/slides/vi/androidjava/slide-master/).
 
-## **Chọn và Áp dụng Bố cục Slide**
+Để ẩn logo kế thừa hoặc các hình dạng trang trí master trên một slide hoặc thông qua một layout chia sẻ, xem [Control the Visibility of Master Graphics](/slides/vi/androidjava/slide-master/). Ví dụ so sánh hai slide sử dụng cùng một master.
 
-Sử dụng kiểu bố cục khi bản trình bày tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được địa phương hoá, vì vậy việc lựa chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+## **Chọn và Áp dụng một Slide Layout**
 
-Ví dụ sau tìm **Tiêu đề và Nội dung** trên slide chủ đề đầu tiên. Nếu bố cục đó không khả dụng, nó sẽ cố tình chuyển sang **Trống**. Kiểm tra null thứ hai là cần thiết vì một bản trình bày có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua phương thức [ISlide.setLayoutSlide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
+Sử dụng một loại layout khi bản trình bày tuân theo các định nghĩa layout chuẩn của PowerPoint. Tên layout có thể chỉnh sửa bởi người dùng và có thể được địa phương hóa, vì vậy việc lựa chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu layout đó không có, nó sẽ cố tình chuyển sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình bày có thể chỉ chứa các layout tùy chỉnh. Layout đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua phương thức [ISlide.setLayoutSlide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
 
 ```java
 import com.aspose.slides.*;
@@ -89,13 +91,13 @@ try {
 }
 ```
 
-Thay đổi bố cục của một slide không xóa các hình dạng thông thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí khung giữ chỗ, định dạng kế thừa và sự tương ứng giữa các khung giữ chỗ hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển đổi giữa các bố cục có sự khác biệt đáng kể.
+Thay đổi layout của một slide không xóa các hình dạng thông thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí placeholder, định dạng kế thừa và sự tương ứng giữa các placeholder hiện có và layout mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển đổi giữa các layout có sự khác biệt đáng kể.
 
-## **Thêm một Slide Bố cục**
+## **Thêm một Layout Slide**
 
-Lựa chọn và tạo mới là hai thao tác riêng biệt. Ví dụ trước chọn một bố cục hiện có; nó không tạo ra một bố cục mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) trên bộ sưu tập bố cục của slide chủ đề mục tiêu.
+Lựa chọn và tạo là các thao tác riêng biệt. Ví dụ trước chọn một layout đã tồn tại; nó không tạo mới. Để tạo một layout, gọi phương thức [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) trên bộ sưu tập layout của master mục tiêu.
 
-Ví dụ sau luôn thêm một bố cục **Tiêu đề và Nội dung** mới có tên `Report Title and Content`, sau đó thêm một slide bình thường dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
+Ví dụ sau luôn thêm một layout **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một slide bình thường dựa trên nó. Tên layout phải là duy nhất trong bộ sưu tập.
 
 ```java
 import com.aspose.slides.*;
@@ -112,26 +114,26 @@ try {
 }
 ```
 
-Chỉ thêm một bố cục khi mẫu thực sự cần một cấu trúc có thể tái sử dụng khác. Nếu đã tồn tại một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
+Chỉ thêm layout khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã tồn tại layout phù hợp, hãy chọn và sử dụng lại nó thay vì tạo bản sao.
 
-## **Thêm Khung Giữ chỗ vào Slide Bố cục**
+## **Thêm Placeholder vào một Layout Slide**
 
-Phương thức [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) để thêm các hình dạng khung giữ chỗ vào một bố cục.
+Phương thức [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) để thêm các hình dạng placeholder vào layout.
 
-| Khung Giữ chỗ PowerPoint | Phương thức `ILayoutPlaceholderManager` |
-| ------------------------ | ---------------------------------------- |
-| ![Content](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
-| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
-| ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
-| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
-| ![Picture](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
-| ![Chart](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
-| ![Table](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| Placeholder PowerPoint | `ILayoutPlaceholderManager` Method |
+| ---------------------- | ---------------------------------- |
+| ![Nội dung](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Nội dung (Dọc)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Văn bản](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Văn bản (Dọc)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Hình ảnh](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Biểu đồ](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Bảng](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
 | ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
-| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
-| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
+| ![Phương tiện](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Hình ảnh trực tuyến](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Ví dụ sau kiểm tra xem bố cục **Trống** có tồn tại không, thêm bốn khung giữ chỗ vào nó, và sau đó tạo một slide bình thường sử dụng bố cục đã sửa đổi. Thứ tự này có mục đích: các khung giữ chỗ được thêm trước khi slide bình thường được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng khung giữ chỗ tương ứng trên slide đó.
+Ví dụ sau kiểm tra xem layout **Blank** có tồn tại, thêm bốn placeholder vào nó, và sau đó tạo một slide bình thường sử dụng layout đã chỉnh sửa. Thứ tự này có mục đích: các placeholder được thêm trước khi slide bình thường được tạo, vì vậy Aspose.Slides có thể tạo các hình dạng placeholder tương ứng trên slide đó.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +161,15 @@ try {
 
 Kết quả:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Các placeholder trên layout slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Thay đổi định dạng kế thừa hoặc hình học của các khung giữ chỗ bố cục hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một khung giữ chỗ bố cục mới được thêm sẽ không được tự động bổ sung vào các slide bình thường đã tồn tại. Hãy thử nghiệm các thay đổi bố cục trên một bản sao của bản trình bày và kiểm tra mọi slide phụ thuộc.
+Thay đổi định dạng kế thừa hoặc hình học của các placeholder layout hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một placeholder layout mới được thêm vào sẽ không được tự động bổ sung vào các slide bình thường đã tồn tại. Hãy thử thay đổi layout trên một bản sao của bản trình bày và kiểm tra mọi slide phụ thuộc.
 {{% /alert %}}
 
-## **Xóa các Slide Bố cục Không được Sử dụng**
+## **Xóa các Layout Slide Không được Sử dụng**
 
-Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để xóa các bố cục mà không có slide bình thường nào tham chiếu. Phương thức này sẽ giữ nguyên các bố cục vẫn đang được sử dụng.
+Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để xóa các layout mà không có slide bình thường nào tham chiếu. Phương thức này giữ lại các layout vẫn đang được sử dụng.
 
 ```java
 import com.aspose.slides.*;
@@ -181,11 +183,13 @@ try {
 }
 ```
 
-Để xóa một bố cục cụ thể, đầu tiên sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) của nó. Chuyển giao bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.remove](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#remove--). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra lỗi [PptxEditException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pptxeditexception/).
+Để xóa một layout cụ thể, trước tiên sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) của nó. Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.remove](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#remove--). Cố gắng xóa một layout đang được sử dụng sẽ gây ra [PptxEditException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pptxeditexception/).
 
-## **Kiểm soát Hiển thị Chân trang trên Slide Bố cục**
+## **Kiểm soát Hiển thị Footer trên Layout Slide**
 
-Một bố cục có các khung giữ chỗ chân trang, số slide và ngày‑giờ riêng. Sử dụng phương thức [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) để kiểm soát các khung giữ chỗ này cho một bố cục. Điều này hữu ích khi, ví dụ, các bố cục nội dung nên hiển thị chân trang nhưng các bố cục tiêu đề không nên.
+Một layout có các placeholder footer, số slide và ngày‑giờ riêng. Sử dụng phương thức [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) để điều khiển các placeholder này cho một layout. Điều này hữu ích khi, ví dụ, layout nội dung nên hiển thị footer nhưng layout tiêu đề thì không.
+
+Ví dụ sau chọn một layout một cách an toàn và làm cho các thành phần footer của nó hiển thị:
 
 ```java
 import com.aspose.slides.*;
@@ -215,9 +219,9 @@ try {
 }
 ```
 
-## **Kiểm soát Hiển thị Chân trang trên Master và Các Bố cục Con của Nó**
+## **Kiểm soát Hiển thị Footer trên Master và Các Layout Con của Nó**
 
-Để áp dụng cài đặt chân trang nhất quán trên toàn bộ cây master, sử dụng phương thức [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Các phương thức lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các slide bố cục và slide bình thường phụ thuộc; chúng không chỉ áp dụng cho một slide bình thường duy nhất.
+Để áp dụng cài đặt footer nhất quán trên toàn bộ cây master, sử dụng phương thức [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Các phương thức lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các layout slide và slide bình thường phụ thuộc; chúng không chỉ nhắm mục tiêu một slide bình thường duy nhất.
 
 ```java
 import com.aspose.slides.*;
@@ -237,20 +241,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Sự Khác nhau giữa Master Slide và Layout Slide là gì?**
+**Sự khác biệt giữa Master Slide và Layout Slide là gì?**
 
-Một master slide xác định giao diện và định dạng chia sẻ của bản trình bày. Một layout slide thuộc về một master và xác định một sắp xếp có thể tái sử dụng của các khung giữ chỗ. Các slide bình thường sử dụng các bố cục đó và lưu trữ nội dung riêng cho từng slide.
+Master slide xác định chủ đề và định dạng chung của bản trình bày. Layout slide thuộc về một master và xác định một bố trí placeholder có thể tái sử dụng. Các slide bình thường sử dụng các layout này và lưu trữ nội dung riêng của từng slide.
 
-**Tôi có thể sao chép một Layout Slide từ một bản trình bày sang bản trình bày khác không?**
+**Bạn có thể sao chép một Layout Slide từ một bản trình bày sang bản khác không?**
 
-Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Khi sao chép giữa các bản trình bày, cũng nên kiểm tra phông chữ, giao diện, hình ảnh và các nguồn tài nguyên khác mà bố cục nguồn sử dụng.
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Khi sao chép giữa các bản trình bày, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác mà layout nguồn sử dụng.
 
-**Điều gì xảy ra khi tôi chỉnh sửa một Layout đã được sử dụng?**
+**Điều gì xảy ra khi tôi chỉnh sửa một Layout đang được sử dụng?**
 
-Các slide phụ thuộc sẽ kế thừa các thay đổi của bố cục trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng ở cấp địa phương. Vì vậy, hình học của khung giữ chỗ và kiểu kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa bố cục.
+Các slide phụ thuộc sẽ kế thừa các thay đổi của layout trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng tại chỗ. Do đó, hình học placeholder và kiểu dáng kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa layout.
 
-**Điều gì sẽ xảy ra nếu tôi xóa một Layout đang được sử dụng?**
+**Điều gì sẽ xảy ra nếu tôi xóa một Layout vẫn đang được sử dụng?**
 
-Aspose.Slides sẽ ném ra một lỗi [PptxEditException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pptxeditexception/). Hãy chuyển giao các slide phụ thuộc trước, hoặc sử dụng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để chỉ xóa các bố cục không được tham chiếu.
+Aspose.Slides sẽ ném ra một [PptxEditException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pptxeditexception/). Hãy chuyển lại các slide phụ thuộc trước, hoặc dùng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) để chỉ xóa các layout không được tham chiếu.

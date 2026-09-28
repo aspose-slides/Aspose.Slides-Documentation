@@ -1,47 +1,47 @@
 ---
-title: Verwalten von Präsentations‑Folienmastern in Python via Java
+title: Verwalten von Folienmastern in Präsentationen mit Python via Java
 linktitle: Folienmaster
 type: docs
 weight: 70
 url: /de/python-java/slide-master/
 keywords:
-- folienmaster
-- master‑folie
-- PPT‑master‑folie
-- mehrere master‑folien
-- master‑folien vergleichen
-- hintergrund
-- platzhalter
-- master‑folie klonen
-- master‑folie kopieren
-- master‑folie duplizieren
-- unbenutzte master‑folie
+- Folienmaster
+- Masterfolie
+- PPT-Masterfolie
+- mehrere Masterfolien
+- Masterfolien vergleichen
+- Hintergrund
+- Platzhalter
+- Masterfolie klonen
+- Masterfolie kopieren
+- Masterfolie duplizieren
+- unbenutzte Masterfolie
 - PowerPoint
 - OpenDocument
-- präsentation
+- Präsentation
 - Python
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Folienmaster in Aspose.Slides für Python via Java: Zugriff, Bearbeitung, Klonen, Vergleich und Entfernen von Master‑Folien in PowerPoint‑ und OpenDocument‑Präsentationen."
+description: "Verwalten Sie Folienmaster in Aspose.Slides für Python via Java: Zugriff, Bearbeitung, Klonen, Vergleich und Entfernen von Masterfolien in PowerPoint- und OpenDocument-Präsentationen."
 ---
 ## **Übersicht**
 
-Ein **slide master** definiert gemeinsame Design‑Einstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Designthemen und Fußzeileneinstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters der übliche Weg, um eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
+Ein **Folienmaster** definiert geteilte Design‑Einstellungen für eine Gruppe von Folien. Er kann gemeinsame Formen, Logos, Hintergründe, Textstile, Thema‑Einstellungen und Fußzeilen‑Einstellungen enthalten. In PowerPoint ist das Bearbeiten eines Folienmasters die übliche Methode, um eine Präsentation konsistent zu halten, ohne dieselbe Formatierung auf jeder Folie zu wiederholen.
 
-Aspose.Slides for Python via Java unterstützt dasselbe Modell. Eine Präsentation kann einen oder mehrere Master‑Folien enthalten, und jede Master‑Folie kann mehrere Layout‑Folien enthalten. Normale Folien verweisen in der Regel nicht direkt auf eine Master‑Folie. Stattdessen verwendet eine normale Folie eine Layout‑Folie, und diese Layout‑Folie gehört zu einer Master‑Folie.
+Aspose.Slides für Python via Java unterstützt dasselbe Modell. Eine Präsentation kann ein oder mehrere Masterfolien enthalten, und jede Masterfolie kann mehrere Layoutfolien enthalten. Normale Folien verweisen normalerweise nicht direkt auf eine Masterfolie. Stattdessen verwendet eine normale Folie eine Layoutfolie, und diese Layoutfolie gehört zu einer Masterfolie.
 
-Die Hierarchie lautet:
+Die Hierarchie ist:
 
-1. **Slide master** – definiert das gemeinsame Design und Thema.  
-1. **Layout slide** – definiert eine spezifische Anordnung von Platzhaltern und Layout‑Formatierungen.  
-1. **Normal slide** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layout‑Folie.
+1. **Folienmaster** – definiert das geteilte Design und das Thema.  
+1. **Layoutfolie** – definiert eine spezifische Anordnung von Platzhaltern und layoutbezogener Formatierung.  
+1. **Normale Folie** – enthält den eigentlichen Präsentationsinhalt und verwendet eine Layoutfolie.
 
-![Die Hierarchie von Master‑Folien, Layout‑Folien und normalen Folien](slide-master_2.jpg)
+![Die Hierarchie von Masterfolien, Layoutfolien und normalen Folien](slide-master_2.jpg)
 
-In Aspose.Slides wird ein Folienmaster durch die [MasterSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/)‑Klasse repräsentiert. Alle Master‑Folien einer Präsentation sind über die [Presentation.getMasters](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getMasters)‑Auflistung verfügbar, die durch [MasterSlideCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslidecollection/) dargestellt wird.
+In Aspose.Slides wird ein Folienmaster durch die Klasse [MasterSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/) dargestellt. Alle Masterfolien in einer Präsentation sind über die Sammlung [Presentation.getMasters](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getMasters) verfügbar, die durch [MasterSlideCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslidecollection/) repräsentiert wird.
 
-{{% alert color="info" title="Inheritance" %}}
-Wenn dieselbe Eigenschaft auf mehreren Ebenen definiert ist, gewinnt die spezifischere Ebene. Beispiel: Definieren sowohl eine Master‑Folie als auch eine Layout‑Folie einen Hintergrund, verwenden Folien, die auf diesem Layout basieren, den Layout‑Hintergrund. Weitere Informationen zu Layout‑Folien finden Sie unter [Apply or Change Slide Layouts](/slides/de/python-java/slide-layout/).
+{{% alert color="info" title="Vererbung" %}}
+Wenn dieselbe Eigenschaft auf mehr als einer Ebene definiert ist, gewinnt die spezifischere Ebene. Zum Beispiel, wenn sowohl eine Masterfolie als auch eine Layoutfolie einen Hintergrund definieren, verwenden Folien, die auf diesem Layout basieren, den Hintergrund des Layouts. Weitere Informationen zu Layoutfolien finden Sie unter [Anwenden oder Ändern von Folienlayouts](/slides/de/python-java/slide-layout/).
 {{% /alert %}}
 
 ## **Zugriff auf Folienmaster**
@@ -50,7 +50,7 @@ In PowerPoint können Sie die Folienmaster‑Ansicht über **Ansicht** > **Folie
 
 ![Der Folienmaster‑Befehl auf der Registerkarte Ansicht in PowerPoint](slide-master_3.jpg)
 
-In Aspose.Slides nutzen Sie die [Presentation.getMasters](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getMasters)‑Auflistung, um Master‑Folien zuzugreifen:
+In Aspose.Slides verwenden Sie die Sammlung [Presentation.getMasters](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getMasters) um auf Masterfolien zuzugreifen:
 
 ```python
 import jpype
@@ -73,10 +73,10 @@ finally:
     presentation.dispose()
 ```
 
-Sie können auch die Master‑Folie erhalten, die von einer normalen Folie über ihr Layout verwendet wird:
+Sie können die von einer normalen Folie verwendete Masterfolie auch über ihr Layout erhalten:
 
 ```python
-import jpype
+import jpide
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -98,24 +98,24 @@ finally:
 
 ## **Was ein Folienmaster enthält**
 
-Eine Master‑Folie ist ein folienähnliches Objekt. Sie erbt von [BaseSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/), sodass sie viele derselben Folieneigenschaften bereitstellt, die von normalen und Layout‑Folien verwendet werden. Master‑spezifische Mitglieder sind auf der API‑Seite von [MasterSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/) aufgeführt.
+Eine Masterfolie ist ein folienähnliches Objekt. Sie erbt von [BaseSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/), sodass sie viele der selben Folieneigenschaften bereitstellt, die von normalen und Layoutfolien verwendet werden. Master‑spezifische Member sind auf der API‑Seite [MasterSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/) aufgelistet.
 
-Häufig genutzte Master‑Folie‑Mitglieder umfassen:
+Häufig verwendete Masterfolien‑Member umfassen:
 
-| Mitglied | Zweck |
+| Member | Zweck |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#getBackground) | Legt den master‑bezogenen Folienhintergrund fest. |
-| [getShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#getShapes) | Speichert Formen, die auf dem Master platziert sind, z. B. Logos, Bildrahmen und gemeinsamen Text. |
-| [getLayoutSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getLayoutSlides) | Enthält die Layout‑Folien, die zum Master gehören. |
-| [getThemeManager](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getThemeManager) | Bietet Zugriff auf die Master‑Theme‑APIs. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Steuert Kopf‑ und Fußzeilen, Datum und Foliennummern für den Master und seine untergeordneten Layouts. |
+| [getBackground](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#getBackground) | Setzt den Master‑Folienhintergrund. |
+| [getShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#getShapes) | Speichert Formen, die auf dem Master platziert sind, wie Logos, Bildrahmen und gemeinsamen Text. |
+| [getLayoutSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getLayoutSlides) | Speichert die Layoutfolien, die zum Master gehören. |
+| [getThemeManager](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getThemeManager) | Stellt Zugriff auf die Master‑Theme‑APIs bereit. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | Steuert Kopf‑ und Fußzeilen, Datum und Folienzahlen für den Master und seine untergeordneten Layouts. |
 | [getDependingSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getDependingSlides) | Gibt normale Folien zurück, die über ihre Layouts vom Master abhängen. |
 
 ## **Ein Bild zu einem Folienmaster hinzufügen**
 
-Wenn Sie ein Bild zu einer Master‑Folie hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Das ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederkehrende Bildelemente.
+Wenn Sie ein Bild zu einer Masterfolie hinzufügen, erscheint es auf Folien, die Layouts dieses Masters verwenden. Dies ist nützlich für Logos, Wasserzeichen, dekorative Bänder und andere wiederkehrende visuelle Elemente.
 
-Das folgende Beispiel fügt das Logo zur ersten Master‑Folie hinzu:
+Das folgende Beispiel fügt der ersten Masterfolie ein Logo hinzu:
 
 ```python
 import jpype
@@ -141,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-Weitere Informationen zu Bildrahmen finden Sie unter [Picture Frame](/slides/de/python-java/picture-frame/).
+Weitere Informationen zu Bildrahmen finden Sie unter [Bildrahmen](/slides/de/python-java/picture-frame/).
+
+## **Die Sichtbarkeit von Master‑Grafiken steuern**
+
+Verwenden Sie [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#setShowMasterShapes), um geerbte Master‑Grafiken, wie Logos oder dekorative Formen, auszublenden, ohne sie vom Master zu löschen. Übergeben Sie `False` an [Slide.setShowMasterShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/slide/#setShowMasterShapes) auf der Folie, die diese Grafiken weglassen soll, und lassen Sie es `True` auf Folien, die sie anzeigen sollen.
+
+Das folgende eigenständige Beispiel erstellt ein blaues dekoratives Band auf einem Master und zwei Folien, die dasselbe leere Layout verwenden. Das Band ist auf der ersten Folie sichtbar und auf der zweiten ausgeblendet. Keine Eingabepräsentation oder Bild ist erforderlich.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Das Beispiel verwendet das mit einer neuen Präsentation gelieferte Layout **Blank** und entfernt die eigenen Platzhalter der Anfangsfolie.
+
+### **Den Geltungsbereich der Einstellung wählen**
+
+Eine normale Folie verwendet ihren Master über [Slide.getLayoutSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/slide/#getLayoutSlide) und [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/layoutslide/#getMasterSlide). Das Setzen der Eigenschaft auf einer einzelnen Folie wirkt nur auf diese Folie. Das Übergeben von `False` an [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/layoutslide/#setShowMasterShapes) blendet Master‑Grafiken für Folien aus, die dieses gemeinsame Layout verwenden, selbst wenn deren eigene Einstellung `True` ist. Um Grafiken nur auf einer Folie auszublenden, ändern Sie die Folieneigenschaft und lassen das gemeinsame Layout unverändert.
+
+Die Einstellung wird nicht als Sichtbarkeitssteuerung auf der Masterfolie selbst unterstützt. Auf einem Master gibt [getShowMasterShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#getShowMasterShapes) stets `False` zurück, und das Übergeben von `True` an [setShowMasterShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslide/#setShowMasterShapes) löst eine Ausnahme aus. Wenden Sie sie stattdessen auf eine normale Folie oder ein Layout an.
+
+### **Grafiken vom Hintergrund unterscheiden**
+
+| Operation | Effekt |
+| --- | --- |
+| Master‑Grafiken ausblenden | Steuert die Sichtbarkeit geerbter Master‑Formen, ohne sie zu löschen oder die eigenen Formen der Folie zu ändern. |
+| Folienhintergrundfüllung ändern | Ändert die Hintergrundfarbe, den Verlauf oder das Bild. Master‑Grafiken sind separate Formen und können über diesem Hintergrund sichtbar bleiben. Siehe [Präsentationshintergrund](/slides/de/python-java/presentation-background/). |
+| Eine Form vom Master löschen | Entfernt die gemeinsame Quellform, sodass sie für keine Folie mehr verfügbar ist, die diesen Master verwendet. |
 
 ## **Mit Platzhaltern arbeiten**
 
-Platzhalter werden normalerweise auf Layout‑Folien definiert. Der Master‑Folie liefert den gemeinsamen Stil und das Theme, das diese Layouts erben, während jedes Layout entscheidet, welche Platzhalter verfügbar sind und wo sie platziert werden.
+Platzhalter werden normalerweise auf Layoutfolien definiert. Die Masterfolie liefert den gemeinsamen Stil und das Theme, das diese Layouts erben, während jedes Layout entscheidet, welche Platzhalter verfügbar sind und wo sie platziert werden.
 
-In PowerPoint sind Platzhalter‑Befehle in der Folienmaster‑Ansicht verfügbar.
+In PowerPoint stehen Platzhalterbefehle in der Folienmaster‑Ansicht zur Verfügung.
 
 ![Der Befehl Platzhalter einfügen in der Folienmaster‑Ansicht von PowerPoint](slide-master_5.png)
 
-Um neue Platzhalter mit Aspose.Slides hinzuzufügen, arbeiten Sie mit der Layout‑Folie, die zum Master gehört:
+Um neue Platzhalter mit Aspose.Slides hinzuzufügen, arbeiten Sie mit der Layoutfolie, die zum Master gehört:
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-Sie können auch Platzhalterformen formatieren, die bereits auf einer Master‑Folie existieren. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
+Sie können auch Platzhalterformen, die bereits auf einer Masterfolie existieren, formatieren. Das folgende Beispiel findet den Titel‑Platzhalter und wendet eine lineare Farbverlauf‑Füllung an:
 
 ```python
 import jpype
@@ -218,11 +278,11 @@ finally:
 
 ![Formatierter Titel‑Platzhalter, der von normalen Folien geerbt wird](slide-master_8.png)
 
-Weitere Optionen für Platzhalter‑ und Textformatierung finden Sie unter [Set Prompt Text in Placeholder](/slides/de/python-java/manage-placeholder/) und [Text Formatting](/slides/de/python-java/text-formatting/).
+Weitere Optionen für Platzhalter‑ und Textformatierung finden Sie unter [Prompt‑Text im Platzhalter festlegen](/slides/de/python-java/manage-placeholder/) und [Textformatierung](/slides/de/python-java/text-formatting/).
 
-## **Hintergrund eines Folienmasters ändern**
+## **Den Hintergrund einer Folienmaster ändern**
 
-Ein Master‑Hintergrund wird von Layouts und Folien geerbt, die ihn nicht überschreiben. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für die erste Master‑Folie:
+Ein Master‑Hintergrund wird von Layouts und Folien, die ihn nicht überschreiben, geerbt. Das folgende Beispiel setzt eine einfarbige Hintergrundfarbe für die erste Masterfolie:
 
 ```python
 import jpype
@@ -249,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-Verwandte Themen finden Sie unter [Presentation Background](/slides/de/python-java/presentation-background/) und [Presentation Theme](/slides/de/python-java/presentation-theme/).
+Für verwandte Themen siehe [Präsentationshintergrund](/slides/de/python-java/presentation-background/) und [Präsentationsthema](/slides/de/python-java/presentation-theme/).
 
-## **Einen Folienmaster in eine andere Präsentation klonen**
+## **Eine Folienmaster in eine andere Präsentation klonen**
 
-Verwenden Sie [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslidecollection/#addClone), um eine Master‑Folie in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
+Verwenden Sie [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslidecollection/#addClone), um eine Masterfolie in eine andere Präsentation zu kopieren. Der kopierte Master kann dann von Layouts und Folien in der Zielpräsentation verwendet werden.
 
 ```python
 import jpype
@@ -276,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-Falls Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Clone Slides](/slides/de/python-java/clone-slides/).
+Wenn Sie normale Folien zusammen mit ihrem Master klonen müssen, siehe [Folien klonen](/slides/de/python-java/clone-slides/).
 
 ## **Mehrere Folienmaster hinzufügen**
 
-Eine Präsentation kann mehrere Master‑Folien enthalten. Das ist nützlich, wenn unterschiedliche Abschnitte verschiedene Markenauftritte, Seitenstrukturen oder Theme‑Einstellungen benötigen.
+Eine Präsentation kann mehrere Masterfolien enthalten. Dies ist nützlich, wenn verschiedene Abschnitte unterschiedliche Markenbildung, Seitenstruktur oder Theme‑Einstellungen benötigen.
 
-![PowerPoint‑Befehle zum Einfügen und Verwalten von Master‑Folien](slide-master_9.jpg)
+![PowerPoint‑Befehle zum Einfügen und Verwalten von Masterfolien](slide-master_9.jpg)
 
-Das folgende Beispiel klont den Standard‑Master, gibt dem Klon einen anderen Hintergrund, erstellt ein Layout unter diesem geklonten Master und fügt eine neue Folie basierend auf diesem Layout hinzu:
+Das folgende Beispiel klont den Standard‑Master, gibt dem Klon einen anderen Hintergrund, erstellt ein Layout unter diesem geklonten Master und fügt eine neue Folie hinzu, die auf diesem Layout basiert:
 
 ```python
 import jpype
@@ -319,9 +379,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Folienmaster vergleichen**
+## **Masterfolien vergleichen**
 
-Master‑Folien können mit der von [BaseSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/) geerbten [equals](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#equals)‑Methode verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt, wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht nicht eindeutige Kennungen wie Folien‑IDs oder dynamische Platzhalter‑Werte wie das aktuelle Datum.
+Masterfolien können mit der von [BaseSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/) geerbten Methode [equals](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#equals) verglichen werden. Der Vergleich prüft Struktur und statischen Inhalt, wie Formen, Text, Formatierung, Animationen und andere Folieneinstellungen. Er vergleicht nicht eindeutige Kennungen, wie Folien‑IDs, oder dynamische Platzhalterwerte, wie das aktuelle Datum.
 
 ```python
 import jpype
@@ -351,7 +411,7 @@ finally:
     second_presentation.dispose()
 ```
 
-Weitere Informationen finden Sie unter [Compare Presentation Slides](/slides/de/python-java/compare-slides/).
+Für weitere Informationen siehe [Präsentationsfolien vergleichen](/slides/de/python-java/compare-slides/).
 
 ## **Folienmaster‑Ansicht als Standardansicht festlegen**
 
@@ -374,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-Weitere Ansichtseinstellungen finden Sie unter [Save Presentation](/slides/de/python-java/save-presentation/).
+Für weitere Ansichtseinstellungen siehe [Präsentation speichern](/slides/de/python-java/save-presentation/).
 
-## **Unbenutzte Master‑Folien entfernen**
+## **Ungenutzte Masterfolien entfernen**
 
-Manchmal enthalten Präsentationen Master‑Folien, die von keiner normalen Folie mehr verwendet werden. Das Entfernen unbenutzter Master‑Folien kann die Dateigröße verringern und die Vorlagenwartung vereinfachen.
+Präsentationen enthalten manchmal Masterfolien, die von keiner normalen Folie mehr verwendet werden. Das Entfernen ungenutzter Master kann die Dateigröße reduzieren und die Vorlagenwartung vereinfachen.
 
-Verwenden Sie [removeUnused](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslidecollection/#removeUnused), um unbenutzte Master‑Folien aus der [Presentation.getMasters](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getMasters)‑Auflistung zu entfernen:
+Verwenden Sie [removeUnused](https://reference.aspose.com/slides/de/python-java/aspose.slides/masterslidecollection/#removeUnused), um ungenutzte Master aus der Sammlung [Presentation.getMasters](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getMasters) zu entfernen:
 
 ```python
 import jpype
@@ -399,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-Sie können auch die Low‑Code‑Methode [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/compress/#removeUnusedMasterSlides) verwenden:
+Sie können zudem die Low‑Code‑Methode [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/compress/#removeUnusedMasterSlides) verwenden:
 
 ```python
 import jpype
@@ -420,18 +480,18 @@ finally:
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einem Folienmaster und einer Layout‑Folie?**
+**Was ist der Unterschied zwischen einem Folienmaster und einer Layoutfolie?**
 
-Ein Folienmaster definiert gemeinsame Design‑Einstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layout‑Folie gehört zu einem Folienmaster und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layout‑Folie und erbt somit sowohl vom Layout als auch vom Master.
+Ein Folienmaster definiert gemeinsame Design‑Einstellungen wie Theme, Hintergrund, gemeinsame Formen und Textstile. Eine Layoutfolie gehört zu einer Masterfolie und definiert eine spezifische Anordnung von Platzhaltern. Eine normale Folie verwendet eine Layoutfolie, sodass sie sowohl vom Layout als auch vom Master erbt.
 
 **Kann eine Präsentation mehrere Folienmaster enthalten?**
 
-Ja. Eine Präsentation kann mehrere Folienmaster enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Markenauftritte benötigen.
+Ja. Eine Präsentation kann mehrere Folienmaster enthalten. Verwenden Sie mehrere Master, wenn verschiedene Abschnitte unterschiedliche visuelle Systeme oder Marken benötigen.
 
-**Sollte ich Platzhalter zu einem Folienmaster oder zu einer Layout‑Folie hinzufügen?**
+**Sollte ich Platzhalter zu einer Masterfolie oder einer Layoutfolie hinzufügen?**
 
-In den meisten Fällen fügen Sie Platzhalter zu Layout‑Folien hinzu. Platzieren Sie gemeinsam genutzte visuelle Elemente und Formatierungen auf dem Folienmaster und setzen Sie Inhalts‑Platzhalter auf den Layout‑Folien, die von normalen Folien verwendet werden.
+In den meisten Fällen sollten Sie Platzhalter zu Layoutfolien hinzufügen. Gemeinsame visuelle Elemente und gemeinsame Formatierung auf die Masterfolie setzen, dann Inhalts‑Platzhalter auf die Layouts, die von normalen Folien verwendet werden.
 
-**Kann ich eine Folienmaster‑Folie löschen, die noch verwendet wird?**
+**Kann ich eine Masterfolie löschen, die noch verwendet wird?**
 
-Nein. Eine Folienmaster‑Folie, die abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zuerst diese Folien zu Layouts unter einem anderen Master oder verwenden Sie eine Bereinigungs‑Methode, die nur unbenutzte Master entfernt.
+Nein. Eine Masterfolie, die abhängige Folien hat, kann nicht sicher direkt entfernt werden. Verschieben Sie zunächst diese Folien zu Layouts unter einem anderen Master, oder verwenden Sie eine Bereinigungs‑Methode für ungenutzte Master, die nur Master entfernt, die nicht verwendet werden.

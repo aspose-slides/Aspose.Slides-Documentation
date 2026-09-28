@@ -1,69 +1,69 @@
 ---
-title: C++ में स्लाइड लेआउट लागू करें या बदलें
-linktitle: स्लाइड लेआउट
+title: "C++ में स्लाइड लेआउट लागू करें या बदलें"
+linktitle: "स्लाइड लेआउट"
 type: docs
 weight: 60
 url: /hi/cpp/slide-layout/
 keywords:
 - स्लाइड लेआउट
-- सामग्री लेआउट
+- कंटेंट लेआउट
 - प्लेसहोल्डर
-- प्रस्तुति डिजाइन
-- स्लाइड डिजाइन
-- अनुपयोगी लेआउट
-- फुटर दृश्यता
+- प्रस्तुति डिज़ाइन
+- स्लाइड डिज़ाइन
+- अप्रयुक्त लेआउट
+- फ़ूटर दृश्यता
 - शीर्षक स्लाइड
 - शीर्षक और सामग्री
 - सेक्शन हेडर
 - दो सामग्री
 - तुलना
 - केवल शीर्षक
-- ब्लैंक लेआउट
-- कैप्शन के साथ सामग्री
-- कैप्शन के साथ चित्र
-- शीर्षक और ऊर्ध्वाधर टेक्स्ट
-- ऊर्ध्वाधर शीर्षक और टेक्स्ट
+- खाली लेआउट
+- शीर्षक के साथ सामग्री
+- चित्र के साथ शीर्षक
+- शीर्षक और ऊर्ध्वाधर पाठ
+- ऊर्ध्वाधर शीर्षक और पाठ
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ में स्लाइड लेआउट को लागू करें, बनाएं और संशोधित करें, प्लेसहोल्डर जोड़ें, अनउपयोगित लेआउट हटाएँ, और फुटर दृश्यता को नियंत्रित करें।"
+description: "Aspose.Slides for C++ में स्लाइड लेआउट लागू करें, बनाएँ और संशोधित करें, प्लेसहोल्डर जोड़ें, अप्रयुक्त लेआउट हटाएँ, और फ़ूटर दृश्यता को नियंत्रित करें।"
 ---
 ## **अवलोकन**
 
-एक स्लाइड लेआउट प्लेसहोल्डर जैसे शीर्षक, टेक्स्ट, चित्र, चार्ट और टेबल की स्थितियों और फ़ॉर्मेटिंग को परिभाषित करता है। लेआउट को लागू करने से स्लाइड्स में एक समान संरचना मिलती है जबकि प्रत्येक स्लाइड अपना स्वयं का कंटेंट रख सकता है।
+स्लाइड लेआउट शीर्षक, पाठ, चित्र, चार्ट और तालिकाओं जैसे प्लेसहोल्डर्स की स्थिति और स्वरूपण को परिभाषित करता है। लेआउट लागू करने से स्लाइड्स में एक समान संरचना मिलती है जबकि प्रत्येक स्लाइड अपना सामग्री रख सकती है।
 
-सबसे सामान्य लेआउट शामिल हैं:
-
-- **Title Slide**: शीर्षक और उपशीर्षक प्लेसहोल्डर शामिल हैं।
-- **Title and Content**: एक शीर्षक प्लेसहोल्डर और एक सामान्य प्रयोजन सामग्री प्लेसहोल्डर शामिल है।
-- **Blank**: कोई सामग्री प्लेसहोल्डर नहीं होते और यह तब उपयोगी है जब प्रत्येक आकार को मैन्युअल रूप से स्थित किया जाएगा।
+- **Title Slide**: शीर्षक और उपशीर्षक प्लेसहोल्डर्स शामिल करता है।
+- **Title and Content**: शीर्षक प्लेसहोल्डर और एक सामान्य-उद्देश्य सामग्री प्लेसहोल्डर शामिल करता है।
+- **Blank**: कोई सामग्री प्लेसहोल्डर नहीं होता और उपयोगी है जब हर आकार मैन्युअली स्थित किया जाएगा।
 
 ## **लेआउट विरासत को समझें**
 
 एक प्रस्तुति में तीन संबंधित स्तर होते हैं:
 
-1. एक [master slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslide/) प्रस्तुतिकरण की थीम, साझा फ़ॉर्मेटिंग, पृष्ठभूमि, और सामान्य वस्तुओं को परिभाषित करता है।
-1. एक [layout slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/) एक मास्टर से जुड़ा होता है और प्लेसहोल्डर की विशिष्ट व्यवस्था को परिभाषित करता है।
-1. एक [normal slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/) एक लेआउट का उपयोग करता है और उस स्लाइड के लिए दर्ज किए गए कंटेंट को संग्रहीत करता है।
+1. एक [master slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslide/) थीम, साझा स्वरूपण, पृष्ठभूमि और सामान्य वस्तुओं को परिभाषित करता है।
+2. एक [layout slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/) एक master से जुड़ा होता है और प्लेसहोल्डर्स की एक विशिष्ट व्यवस्था परिभाषित करता है।
+3. एक [normal slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/) एक लेआउट का उपयोग करता है और उस स्लाइड के लिए दर्ज की गई सामग्री को संग्रहीत करता है।
 
-एक normal slide अपने लेआउट से थीम और फ़ॉर्मेटिंग को विरासत में प्राप्त करता है, और लेआउट अपने मास्टर से विरासत में लेता है। normal slide पर सीधे सेट किया गया मान उस स्तर पर विरासत में मिले मान को ओवरराइड करता है। जब एक normal slide बनाई जाती है, तो उसके प्लेसहोल्डर आकार चयनित लेआउट से उत्पन्न होते हैं, जबकि उन प्लेसहोल्डर में दर्ज किया गया कंटेंट normal slide से सम्बंधित होता है।
+एक normal slide अपने लेआउट से थीम और स्वरूपण विरासत में प्राप्त करता है, और लेआउट अपने master से विरासत में लेता है। normal slide पर सीधे सेट किया गया मान उस स्तर पर विरासत में मिला मान को ओवरराइड करता है। जब एक normal slide बनाया जाता है, तो उसके प्लेसहोल्डर आकार चयनित लेआउट से उत्पन्न होते हैं, जबकि उन प्लेसहोल्डर्स में दर्ज की गई सामग्री normal slide से संबंधित रहती है।
 
-एक लेआउट बनाते समय आवश्यक प्लेसहोल्डर जोड़ें। बाद में लेआउट में दूसरा प्लेसहोल्डर जोड़ने से मौजूदा normal स्लाइड्स में स्वचालित रूप से संबंधित प्लेसहोल्डर आकार नहीं जुड़ता।
+स्लाइड्स बनाने से पहले लेआउट में आवश्यक प्लेसहोल्डर्स जोड़ें। बाद में लेआउट में एक और प्लेसहोल्डर जोड़ने से मौजूदा normal स्लाइड्स में स्वचालित रूप से संबंधित प्लेसहोल्डर आकार नहीं जुड़ता।
 
 इस संबंध के दो महत्वपूर्ण परिणाम हैं:
 
-- लेआउट पर विरासत में मिले फ़ॉर्मेटिंग या मौजूदा प्लेसहोल्डर ज्योमेट्री को बदलने से उस पर निर्भर सभी स्लाइड्स अपडेट हो सकती हैं। उपयोग में पहले से मौजूद लेआउट को संपादित करने से पहले, उसकी निर्भर स्लाइड्स की जाँच करें और परिणामस्वरूप प्रस्तुतिकरण की समीक्षा करें।
-- वह लेआउट जिसे अभी भी कोई स्लाइड उपयोग कर रही है, उसे हटाया नहीं जा सकता। पहले उसकी निर्भर स्लाइड्स को किसी अन्य लेआउट पर पुनः असाइन करें, या केवल अनउपयोगित लेआउट्स को हटाएँ।
+- लेआउट पर विरासत में मिला स्वरूपण या मौजूदा प्लेसहोल्डर ज्योमेट्री बदलने से उस पर निर्भर सभी स्लाइड्स अपडेट हो सकती हैं। उपयोग में मौजूद लेआउट को संपादित करने से पहले, उसके निर्भर स्लाइड्स की जाँच करें और परिणामी प्रस्तुति की समीक्षा करें।
+- किसी स्लाइड द्वारा अभी भी उपयोग में रहे लेआउट को हटाया नहीं जा सकता। पहले उसके निर्भर स्लाइड्स को अन्य लेआउट में पुनः असाइन करें, या केवल अप्रयुक्त लेआउट्स को हटाएँ।
 
-इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिए देखें [Slide Master](/slides/hi/cpp/slide-master/)।
+इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिए, देखें [Slide Master](/slides/hi/cpp/slide-master/)।
+
+एक स्लाइड पर विरासत में मिले लोगो या सजावटी master आकार को छिपाने के लिए या साझा लेआउट के माध्यम से, देखें [Control the Visibility of Master Graphics](/slides/hi/cpp/slide-master/)। यह उदाहरण समान master का उपयोग करने वाली दो स्लाइड्स की तुलना करता है।
 
 ## **स्लाइड लेआउट चुनें और लागू करें**
 
-जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का अनुसरण करती है, तो लेआउट प्रकार का उपयोग करें। लेआउट नाम उपयोगकर्ता द्वारा संपादित किए जा सकते हैं और स्थानीयकरण योग्य होते हैं, इसलिए नाम-आधारित चयन कम विश्वसनीय होता है जब तक आप स्रोत टेम्पलेट को नियंत्रित नहीं करते।
+जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का अनुसरण करती है, तो लेआउट प्रकार का उपयोग करें। लेआउट नाम उपयोगकर्ता-सम्पादित होते हैं और स्थानीयकृत किए जा सकते हैं, इसलिए नाम-आधारित चयन विश्वसनीय नहीं होता जब तक आप स्रोत टेम्पलेट को नियंत्रित न करें।
 
-निम्न उदाहरण पहले मास्टर पर **Title and Content** खोजता है। यदि वह लेआउट उपलब्ध नहीं है, तो यह जानबूझकर **Blank** पर फ़ॉल बैक करता है। दूसरा null चेक आवश्यक है क्योंकि एक प्रस्तुतीकरण में केवल कस्टम लेआउट हो सकते हैं। चयनित लेआउट को फिर [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/set_layoutslide/) मेथड के माध्यम से पहले normal स्लाइड पर लागू किया जाता है।
+निम्न उदाहरण पहली master पर **Title and Content** लेआउट की खोज करता है। यदि वह लेआउट उपलब्ध नहीं है, तो यह जानबूझकर **Blank** पर वापस जाता है। दूसरा null जांच आवश्यक है क्योंकि प्रस्तुति में केवल कस्टम लेआउट हो सकते हैं। चयनित लेआउट फिर [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/set_layoutslide/) मेथड के माध्यम से पहली normal स्लाइड पर लागू किया जाता है।
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -100,13 +100,13 @@ presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-स्लाइड का लेआउट बदलने से सीधे स्लाइड में जोड़े गए सामान्य आकार हटते नहीं हैं। हालांकि, प्लेसहोल्डर की स्थिति, विरासत में मिला फ़ॉर्मेटिंग, और मौजूदा प्लेसहोल्डर व नए लेआउट के बीच संबंध बदल सकते हैं, इसलिए बहुत अलग लेआउट्स के बीच स्विच करते समय आउटपुट की जाँच करें।
+स्लाइड का लेआउट बदलने से सीधे स्लाइड में जोड़े गए सामान्य आकार नहीं हटते। हालांकि, प्लेसहोल्डर स्थितियां, विरासत में मिला स्वरूपण, और मौजूदा प्लेसहोल्डर्स व नए लेआउट के बीच का मेल बदल सकता है, इसलिए महत्वपूर्ण रूप से अलग लेआउट्स के बीच स्विच करते समय आउटपुट की जाँच करें।
 
 ## **लेआउट स्लाइड जोड़ें**
 
-चयन और निर्माण अलग-अलग ऑपरेशन हैं। पिछले उदाहरण ने मौजूदा लेआउट का चयन किया; उसने कोई नया लेआउट नहीं बनाया। लेआउट बनाने के लिए लक्ष्य मास्टर के लेआउट संग्रह पर [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterlayoutslidecollection/add/) मेथड को कॉल करें।
+चयन और निर्माण अलग-अलग क्रियाएँ हैं। पिछले उदाहरण में एक मौजूदा लेआउट चुना गया; यह नया नहीं बनाता। लेआउट बनाने के लिए, लक्ष्य master के लेआउट संग्रह पर [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterlayoutslidecollection/add/) मेथड को कॉल करें।
 
-निम्न उदाहरण हमेशा `Report Title and Content` नामक एक नया **Title and Content** लेआउट जोड़ता है, फिर उसके आधार पर एक normal स्लाइड जोड़ता है। लेआउट नाम संग्रह में अद्वितीय होने चाहिए।
+निम्न उदाहरण हमेशा `Report Title and Content` नामक एक नया **Title and Content** लेआउट जोड़ता है, फिर उस पर आधारित एक normal स्लाइड जोड़ता है। लेआउट नाम संग्रह में अद्वितीय होने चाहिए।
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -132,26 +132,26 @@ presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-टेम्पलेट को वास्तव में एक और पुन: प्रयोज्य संरचना की आवश्यकता होने पर ही लेआउट जोड़ें। यदि उपयुक्त लेआउट पहले से मौजूद है, तो डुप्लिकेट बनाने के बजाय उसे चुनें और पुन: उपयोग करें।
+केवल तब लेआउट जोड़ें जब टेम्पलेट को वास्तव में एक और पुन: प्रयोज्य संरचना की आवश्यकता हो। यदि उपयुक्त लेआउट पहले से मौजूद है, तो डुप्लिकेट बनाने के बजाय उसे चुनें और पुन: उपयोग करें।
 
-## **लेआउट स्लाइड में प्लेसहोल्डर जोड़ें**
+## **लेआउट स्लाइड में प्लेसहोल्डर्स जोड़ें**
 
-[ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) मेथड एक [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/) प्रदान करता है जो लेआउट में प्लेसहोल्डर आकार जोड़ने के लिए उपयोग होता है।
+[ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) मेथड लेआउट में प्लेसहोल्डर आकार जोड़ने के लिए एक [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/) प्रदान करता है।
 
-| PowerPoint प्लेसहोल्डर              | `ILayoutPlaceholderManager` मेथड |
-| ----------------------------------- | -------------------------------- |
-| ![सामग्री](content.png)             | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
-| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![पाठ](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
-| ![पाठ (ऊर्ध्वाधर)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![चित्र](picture.png)               | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
-| ![चार्ट](chart.png)                 | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
-| ![टेबल](table.png)                 | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
-| ![मीडिया](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
-| ![ऑनलाइन इमेज](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
+| PowerPoint प्लेसहोल्डर | `ILayoutPlaceholderManager` Method |
+| ---------------------- | ---------------------------------- |
+| ![सामग्री](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![सामग्री (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![पाठ](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![पाठ (Vertical)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![चित्र](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![चार्ट](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![तालिका](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![मीडिया](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![ऑनलाइन इमेज](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-निम्न उदाहरण **Blank** लेआउट के मौजूद होने की जाँच करता है, उसमें चार प्लेसहोल्डर जोड़ता है, और फिर उस संशोधित लेआउट का उपयोग करने वाली एक normal स्लाइड बनाता है। क्रम जानबूझकर है: प्लेसहोल्डर पहले जोड़े जाते हैं, फिर normal स्लाइड बनाई जाती है, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर आकार उत्पन्न कर सके।
+निम्न उदाहरण सत्यापित करता है कि **Blank** लेआउट मौजूद है, उसमें चार प्लेसहोल्डर जोड़ता है, और फिर एक normal स्लाइड बनाता है जो संशोधित लेआउट का उपयोग करती है। क्रम जानबूझकर है: प्लेसहोल्डर normal स्लाइड बनने से पहले जोड़े जाते हैं, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर आकार उत्पन्न कर सके।
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -190,15 +190,15 @@ presentation->Dispose();
 
 परिणाम:
 
-![लेआउट स्लाइड पर प्लेसहोल्डर](add_placeholders.png)
+![लेआउट स्लाइड पर प्लेसहोल्डर्स](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-विरासत में मिले फ़ॉर्मेटिंग या मौजूदा लेआउट प्लेसहोल्डर की ज्योमेट्री को बदलने से निर्भर स्लाइड्स प्रभावित हो सकती हैं। नया जोड़ा गया लेआउट प्लेसहोल्डर मौजूदा normal स्लाइड्स में बॅकफ़िल नहीं होता। लेआउट परिवर्तन को प्रस्तुति की एक कॉपी पर परीक्षण करें और प्रत्येक निर्भर स्लाइड की जाँच करें।
+विरासत में मिले स्वरूपण या मौजूदा लेआउट प्लेसहोल्डर्स की ज्योमेट्री बदलने से निर्भर स्लाइड्स प्रभावित हो सकते हैं। नया जोड़ा गया लेआउट प्लेसहोल्डर मौजूदा normal स्लाइड्स में बैकफ़िल नहीं होता। लेआउट परिवर्तन को प्रस्तुति की एक कॉपी पर परीक्षण करें और हर निर्भर स्लाइड की जाँच करें।
 {{% /alert %}}
 
-## **अप्रयुक्त लेआउट स्लाइड हटाएँ**
+## **अप्रयुक्त लेआउट स्लाइड्स हटाएँ**
 
-लेआउट को हटाने के लिए जो कोई normal स्लाइड संदर्भित नहीं करती, [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) मेथड का उपयोग करें। यह मेथड उन लेआउट्स को ऐसे ही छोड़ देता है जो अभी भी उपयोग में हैं।
+[Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) मेथड का प्रयोग उन लेआउट्स को हटाने के लिए करें जिनका कोई normal स्लाइड संदर्भ नहीं है। यह मेथड अभी भी उपयोग में रहने वाले लेआउट्स को अपरिवर्तित छोड़ देता है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -218,13 +218,13 @@ presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-एक विशिष्ट लेआउट हटाने के लिए, पहले उसकी [get_HasDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) मेथड या [GetDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/getdependingslides/) मेथड का उपयोग करें। किसी भी निर्भर स्लाइड को पुनः असाइन करें और फिर [ILayoutSlide::Remove](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/remove/) को कॉल करें। उपयोग में रहे लेआउट को हटाने की कोशिश करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उत्पन्न होती है।
+एक विशेष लेआउट हटाने के लिए, पहले उसकी [get_HasDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) मेथड या [GetDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/getdependingslides/) मेथड का उपयोग करें। [ILayoutSlide::Remove](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/remove/) को कॉल करने से पहले किसी भी निर्भर स्लाइड को पुनः असाइन करें। उपयोग में लेआउट को हटाने का प्रयास करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उत्पन्न होता है।
 
-## **लेआउट स्लाइड पर फुटर दृश्यता नियंत्रित करें**
+## **लेआउट स्लाइड पर फ़ूटर दृश्यता नियंत्रित करें**
 
-एक लेआउट का अपना फुटर, स्लाइड-नंबर, और डेट-टाइम प्लेसहोल्डर होता है। उन प्लेसहोल्डर को एक लेआउट के लिए नियंत्रित करने हेतु [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) मेथड का उपयोग करें। यह तब उपयोगी होता है जब उदाहरण के तौर पर कंटेंट लेआउट्स में फुटर दिखाना हो लेकिन शीर्षक लेआउट्स में न दिखे।
+एक लेआउट में अपना फ़ूटर, स्लाइड-नंबर, और तिथि-समय प्लेसहोल्डर होते हैं। एक लेआउट के लिए इन प्लेसहोल्डर्स को नियंत्रित करने हेतु [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) मेथड का उपयोग करें। यह उपयोगी है जब उदाहरण के तौर पर सामग्री लेआउट्स को फ़ूटर दिखाना चाहिए लेकिन शीर्षक लेआउट्स को नहीं।
 
-निम्न उदाहरण सुरक्षित रूप से एक लेआउट चुनता है और उसके फुटर तत्वों को दृश्यमान बनाता है:
+निम्न उदाहरण एक लेआउट को सुरक्षित रूप से चुनता है और उसके फ़ूटर तत्वों को दृश्यमान बनाता है:
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -265,9 +265,9 @@ presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **मास्टर और उसके चाइल्ड लेआउट्स पर फुटर दृश्यता नियंत्रित करें**
+## **मास्टर और उसके चाइल्ड लेआउट्स पर फ़ूटर दृश्यता नियंत्रित करें**
 
-मास्टर पदानुक्रम में सुसंगत फुटर सेटिंग्स लागू करने हेतु [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslide/get_headerfootermanager/) मेथड का उपयोग करें। [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslideheaderfootermanager/) की प्रसार विधियाँ मास्टर और उसकी निर्भर लेआउट स्लाइड्स एवं normal स्लाइड्स पर लागू होती हैं; वे केवल एक normal स्लाइड को लक्षित नहीं करतीं।
+मास्टर पदानुक्रम में समान फ़ूटर सेटिंग्स लागू करने के लिए, [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslide/get_headerfootermanager/) मेथड का उपयोग करें। [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslideheaderfootermanager/) के प्रसारण मेथड्स मास्टर, उसके निर्भर लेआउट स्लाइड्स और normal स्लाइड्स पर कार्य करते हैं; वे केवल एक normal स्लाइड को लक्षित नहीं करते।
 
 ```cpp
 #include <DOM/IMasterSlide.h>
@@ -297,16 +297,16 @@ presentation->Dispose();
 
 **मास्टर स्लाइड और लेआउट स्लाइड में क्या अंतर है?**
 
-एक master slide प्रस्तुति की थीम और साझा फ़ॉर्मेटिंग को परिभाषित करता है। एक layout slide एक master से जुड़ी होती है और प्लेसहोल्डर की एक पुन: उपयोग योग्य व्यवस्था को परिभाषित करती है। normal स्लाइड्स उन लेआउट्स का उपयोग करती हैं और स्लाइड-विशिष्ट कंटेंट संग्रहीत करती हैं।
+एक master स्लाइड प्रस्तुति का थीम और साझा स्वरूपण निर्धारित करती है। एक layout स्लाइड master का हिस्सा होती है और प्लेसहोल्डर्स की एक पुन: प्रयोज्य व्यवस्था को परिभाषित करती है। normal स्लाइड्स इन लेआउट्स का उपयोग करती हैं और स्लाइड-विशिष्ट सामग्री संग्रहीत करती हैं।
 
-**क्या मैं एक प्रस्तुति से दूसरी प्रस्तुति में लेआउट स्लाइड कॉपी कर सकता हूँ?**
+**क्या मैं एक लेआउट स्लाइड को एक प्रस्तुति से दूसरे में कॉपी कर सकता हूँ?**
 
-हां। गंतव्य संग्रह में कॉपी जोड़ने के लिए [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igloballayoutslidecollection/addclone/) मेथड का उपयोग करें। प्रस्तुति के बीच कॉपी करते समय फ़ॉन्ट, थीम, चित्र और स्रोत लेआउट द्वारा उपयोग किए गए अन्य संसाधनों की भी जाँच करें।
+हाँ। गंतव्य संग्रह में एक कॉपी जोड़ें [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igloballayoutslidecollection/addclone/) मेथड द्वारा। प्रस्तुति के बीच कॉपी करते समय, स्रोत लेआउट द्वारा उपयोग किए गए फ़ॉन्ट, थीम, चित्र और अन्य संसाधनों की भी जाँच करें।
 
-**जब मैं एक लेआउट को संशोधित करता हूं जो पहले से उपयोग में है तो क्या होता है?**
+**जब मैं पहले से उपयोग में रहे लेआउट को संशोधित करता हूँ तो क्या होता है?**
 
-निर्भर स्लाइड्स लेआउट परिवर्तन को विरासत में प्राप्त करती हैं जब तक कि वे स्थानीय रूप से प्रभावित फ़ॉर्मेटिंग या वस्तुओं को ओवरराइड नहीं करतीं। इसलिए कई स्लाइड्स पर प्लेसहोल्डर ज्योमेट्री और विरासत में मिली शैली एक साथ बदल सकती है। बदलाव करने से पहले प्रभावित स्लाइड्स की पहचान करने हेतु [GetDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/getdependingslides/) का उपयोग करें।
+निर्भर स्लाइड्स लेआउट परिवर्तन को विरासत में लेती हैं जब तक वे स्थानीय स्तर पर प्रभावित स्वरूपण या वस्तुओं को ओवरराइड नहीं करतीं। इसलिए कई स्लाइड्स में एक साथ प्लेसहोल्डर ज्योमेट्री और विरासत में मिला स्टाइल बदल सकता है। लेआउट संपादित करने से पहले प्रभावित स्लाइड्स की पहचान के लिए [GetDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/getdependingslides/) का उपयोग करें।
 
-**यदि मैं एक लेआउट हटाता हूं जो अभी भी उपयोग में है तो क्या होता है?**
+**यदि मैं अभी भी उपयोग में रहे लेआउट को हटाता हूँ तो क्या होता है?**
 
-Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उत्पन्न करती है। पहले निर्भर स्लाइड्स को पुनः असाइन करें, या केवल अनरेफ़रेंस्ड लेआउट्स को हटाने के लिए [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) का उपयोग करें।
+Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उत्पन्न करता है। पहले निर्भर स्लाइड्स को पुनः असाइन करें, या केवल बिना संदर्भ वाले लेआउट्स को हटाने के लिये [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) का उपयोग करें।

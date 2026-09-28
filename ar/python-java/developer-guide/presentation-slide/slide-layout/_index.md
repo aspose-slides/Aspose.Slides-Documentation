@@ -7,14 +7,14 @@ url: /ar/python-java/slide-layout/
 keywords:
 - تخطيط الشريحة
 - تخطيط المحتوى
-- عنصر نائب
+- نائبة
 - تصميم العرض التقديمي
 - تصميم الشريحة
 - تخطيط غير مستخدم
 - إظهار التذييل
 - شريحة عنوان
 - عنوان ومحتوى
-- عنوان القسم
+- رأس القسم
 - محتوى مزدوج
 - مقارنة
 - عنوان فقط
@@ -29,42 +29,44 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "تطبيق، إنشاء وتعديل تخطيطات الشرائح في Aspose.Slides لبايثون عبر جافا، إضافة عناصر نائب، إزالة التخطيطات غير المستخدمة، والتحكم في إظهار التذييل."
+description: "تطبيق وإنشاء وتعديل تخطيطات الشرائح في Aspose.Slides لبايثون عبر جافا، إضافة نائبات، إزالة التخطيطات غير المستخدمة، والتحكم في إظهار التذييل."
 ---
 ## **نظرة عامة**
 
-يعرف تخطيط الشريحة مواضع وتنسيق العناصر النائبة مثل العناوين والنصوص والصور والمخططات والجداول. يضيف تطبيق تخطيط إلى الشرائح هيكلًا متسقًا مع السماح لكل شريحة بمحتواها الخاص.
+يُعرّف تخطيط الشريحة مواضع وتنسيق النائبات مثل العناوين والنصوص والصور والمخططات والجداول. يوفّر تطبيق التخطيط بنية متسقة للشرائح مع السماح لكل شريحة بمحتواها الخاص.
 
-تشمل التخطيطات الأكثر شيوعًا:
+أكثر التخطيطات شيوعًا هي:
 
-- **شريحة عنوان**: تحتوي على عناصر نائب للعنوان والعنوان الفرعي.
-- **العنوان والمحتوى**: تحتوي على عنصر نائب للعنوان وعنصر نائب عام للمحتوى.
-- **فارغ**: لا يحتوي على أي عناصر نائب ويُستَخدم عندما يتم وضع كل شكل يدويًا.
+- **شريحة العنوان**: تحتوي على نائبة العنوان ونائبة العنوان الفرعي.
+- **العنوان والمحتوى**: تحتوي على نائبة عنوان ونائبة محتوى عامة.
+- **فارغة**: لا تحتوي على نائبات محتوى وتكون مفيدة عندما يتم وضع كل شكل يدويًا.
 
-## **فهم توريث التخطيط**
+## **فهم وراثة التخطيط**
 
-تحتوي العرض التقديمي على ثلاثة مستويات مترابطة:
+العرض التقديمي يحتوي على ثلاثة مستويات مترابطة:
 
-1. A [شريحة رئيسية](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterslide/) تعرف السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
-1. A [شريحة تخطيط](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/) تنتمي إلى شريحة رئيسية وتحدد ترتيبًا معينًا للعناصر النائبة.
-1. A [شريحة عادية](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/) تستخدم تخطيطًا واحدًا وتخزن المحتوى المدخل لتلك الشريحة.
+1. تُعرّف [شريحة رئيسية](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterslide/) السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
+1. تنتمي [شريحة تخطيط](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/) إلى شريحة رئيسية وتحدّد ترتيبًا معينًا للنائبات.
+1. تستخدم [شريحة عادية](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/) تخطيطًا واحدًا وتخزن المحتوى المدخل لتلك الشريحة.
 
-تتورّث الشريحة العادية السمة والتنسيق من تخطيطها، ويرث التخطيط من شريحة رئيسية. أي قيمة تُحدَّد مباشرةً على شريحة عادية تتجاوز القيمة الموروثة على ذلك المستوى. عند إنشاء شريحة عادية، تُولد أشكال العناصر النائبة منها بناءً على التخطيط المحدد، بينما يخص المحتوى المدخل إلى تلك العناصر النائبة الشريحة العادية نفسها.
+ترث الشريحة العادية السمة والتنسيق من التخطيط، ويرث التخطيط من شريحة الرئيس. قيمة تُحدد مباشرةً على الشريحة العادية تُعيد كتابة القيمة الموروثة على ذلك المستوى. عند إنشاء شريحة عادية، تُولد أشكال النائبات من التخطيط المحدد، بينما ينتمي المحتوى المدخل إلى تلك النائبات إلى الشريحة العادية.
 
-أضف العناصر النائبة المطلوبة إلى التخطيط قبل إنشاء الشرائح منه. إضافة عنصر نائب آخر إلى التخطيط لاحقًا لا يضيف تلقائيًا شكل عنصر نائب مماثل إلى الشرائح العادية القائمة.
+أضف النائبات المطلوبة إلى التخطيط قبل إنشاء الشرائح منه. إضافة نائبة أخرى إلى التخطيط لاحقًا لا تُضيف شكل نائبة مكافئ إلى الشرائح العادية الموجودة تلقائيًا.
 
-للعلاقة نتيجتين مهمتين:
+لهذا العلاقة نتيجتان مهمتان:
 
-- تغيير التنسيق الموروث أو شكل العنصر النائب الموجود في التخطيط يمكن أن يُحدّث كل الشريحة التي تعتمد عليه. قبل تعديل تخطيط مستخدم بالفعل، افحص الشرائح التابعة له وراجع النتيجة المتوقعة.
-- لا يمكن إزالة تخطيط ما يزال مستخدمًا من قبل شريحة. أعد تعيين الشرائح التابعة له إلى تخطيط آخر أولًا، أو احذف فقط التخطيطات غير المستخدمة.
+- تعديل التنسيق الموروث أو شكل النائبة الموجودة على التخطيط يمكن أن يُحدّث كل الشريحة التي تعتمد عليه. قبل تحرير تخطيط مُستَخدم، افحص الشرائح التابعة له وراجع العرض الناتج.
+- لا يمكن إزالة تخطيط ما يزال مستخدمًا من قبل شريحة. عيّن الشرائح التابعة له إلى تخطيط آخر أولاً، أو احذف فقط التخطيطات غير المستخدمة.
 
-لمزيد من المعلومات حول المستوى الأعلى من هذه الهرمية، راجع [شريحة رئيسية](/slides/ar/python-java/slide-master/).
+لمزيد من المعلومات حول المستوى العلوي من هذه الهرمية، انظر [شريحة رئيسية](/slides/ar/python-java/slide-master/).
 
-## **اختيار وتطبيق تخطيط الشريحة**
+لإخفاء الشعارات الموروثة أو الأشكال الزخرفية من شريحة رئيسية على شريحة واحدة أو عبر تخطيط مشترك، انظر [Control the Visibility of Master Graphics](/slides/ar/python-java/slide-master/). يوضح المثال مقارنة شريحتين تستخدمان نفس الرئيس.
 
-استخدم نوع تخطيط عندما يتبع العرض التقديمي تعريفات تخطيط PowerPoint القياسية. يمكن تعديل أسماء التخطيطات من قبل المستخدم ويمكن ترجمتها، لذا فإن الاختيار القائم على الاسم أقل موثوقية ما لم تتحكم في القالب المصدر.
+## **تحديد وتطبيق تخطيط الشريحة**
 
-المثال التالي يبحث عن **Title and Content** في أول شريحة رئيسية. إذا كان ذلك التخطيط غير متوفر، فإنه يعيد إلى **Blank** عن قصد. الفحص الثاني للـ `None` ضروري لأن العرض قد يحتوي على تخطيطات مخصصة فقط. ثم يُطبق التخطيط المحدد على أول شريحة عادية عبر طريقة [Slide.setLayoutSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/#setLayoutSlide).
+استخدم نوع التخطيط عندما يتبع العرض التعريفات القياسية لتخطيطات PowerPoint. يمكن تحرير أسماء التخطيطات من قبل المستخدم ويمكن تعريبها، لذا فإن الاختيار بناءً على الاسم يكون أقل موثوقية ما لم تتحكم في القالب المصدر.
+
+يبحث المثال التالي عن **العنوان والمحتوى** في أول شريحة رئيسية. إذا كان ذلك التخطيط غير متوفر، ينتقل عمداً إلى **فارغة**. الفحص الثاني للـ `None` ضروري لأن العرض قد يحتوي فقط على تخطيطات مخصصة. ثم يُطبق التخطيط المحدد على أول شريحة عادية عبر طريقة [Slide.setLayoutSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/#setLayoutSlide).
 
 ```python
 import jpype
@@ -92,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-تغيير تخطيط الشريحة لا يزيل الأشكال العادية التي أضيفت مباشرةً إلى الشريحة. ومع ذلك، قد تتغير مواضع العناصر النائبة، التنسيق الموروث، والارتباط بين العناصر النائبة الموجودة والتخطيط الجديد، لذا تحقق من النتيجة عند الانتقال بين تخطيطات مختلفة جذريًا.
+تغيير تخطيط الشريحة لا يزيل الأشكال العادية التي أضيفت مباشرةً إلى الشريحة. ومع ذلك، يمكن أن تتغيّر مواضع النائبات، التنسيق الموروث، والارتباط بين النائبات الموجودة والتخطيط الجديد، لذا افحص الناتج عند الانتقال بين تخطيطات مختلفة بشكل كبير.
 
 ## **إضافة شريحة تخطيط**
 
-الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدعِ طريقة [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterlayoutslidecollection/#add) على مجموعة تخطيطات الشريحة الرئيسة المستهدفة.
+الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا يُنشئ واحدًا. لإنشاء تخطيط، استدعِ طريقة [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterlayoutslidecollection/#add) على مجموعة تخطيطات الشريحة الرئيسة المستهدفة.
 
-المثال التالي يضيف دائمًا تخطيطًا جديدًا **Title and Content** باسم `Report Title and Content`، ثم يضيف شريحة عادية تستند إليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
+يضيف المثال التالي دائمًا تخطيطًا جديدًا **العنوان والمحتوى** يُسمّى `Report Title and Content`، ثم يضيف شريحة عادية تعتمد عليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
 
 ```python
 import jpype
@@ -120,14 +122,14 @@ finally:
     presentation.dispose()
 ```
 
-أضف تخطيطًا فقط عندما يحتاج القالب إلى هيكل قابل لإعادة الاستخدام آخر بحق. إذا كان هناك تخطيط مناسب موجود بالفعل، فاختره وأعد استخدامه بدلًا من إنشاء نسخة مكررة.
+أضف تخطيطًا فقط عندما يحتاج القالب فعلاً إلى بنية قابلة لإعادة الاستخدام. إذا كان هناك تخطيط مناسب موجودًا بالفعل، اختره وأعد استخدامه بدلاً من إنشاء نسخة مكررة.
 
-## **إضافة عناصر نائب إلى شريحة تخطيط**
+## **إضافة نائبات إلى شريحة تخطيط**
 
-توفر طريقة [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getPlaceholderManager) كائنًا من نوع [LayoutPlaceholderManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/) لإضافة أشكال عناصر نائب إلى التخطيط.
+توفر طريقة [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getPlaceholderManager) كائنًا من نوع [LayoutPlaceholderManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/) لإضافة أشكال نائبة إلى التخطيط.
 
-| PowerPoint Placeholder | [LayoutPlaceholderManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/) Method |
-| ---------------------- | ---------------------------------- |
+| نائبة PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/) الطريقة |
+| ---------------- | ------------------------------------------------------------ |
 | ![المحتوى](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![المحتوى (عمودي)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
 | ![نص](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
@@ -139,7 +141,7 @@ finally:
 | ![وسائط](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
 | ![صورة عبر الإنترنت](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-المثال التالي يتحقق من وجود التخطيط **Blank**، يضيف إليه أربعة عناصر نائب، ثم ينشئ شريحة عادية تستخدم التخطيط المعدل. الترتيب متعمّد: تُضاف العناصر النائبة قبل إنشاء الشريحة العادية، بحيث يمكن Aspose.Slides توليد أشكال العناصر النائبة المقابلة على تلك الشريحة.
+يتأكد المثال التالي من وجود تخطيط **فارغة**، يضيف إليه أربعة نائبات، ثم ينشئ شريحة عادية تستخدم التخطيط المعدَّل. الترتيب مقصود: تُضاف النائبات قبل إنشاء الشريحة العادية، بحيث يستطيع Aspose.Slides توليد أشكال النائبة المقابلة على تلك الشريحة.
 
 ```python
 import jpype
@@ -169,17 +171,17 @@ finally:
     presentation.dispose()
 ```
 
-النتيجة:
+الناتج:
 
-![العناصر النائبة على شريحة التخطيط](add_placeholders.png)
+![النائبات على شريحة التخطيط](add_placeholders.png)
 
-{{% alert color="warning" title="تحذير" %}}
-تغيير التنسيق الموروث أو شكل العناصر النائبة الموجودة في التخطيط يمكن أن يؤثر على الشرائح التابعة. العنصر النائب المضاف حديثًا لا يُضاف تلقائيًا إلى الشرائح العادية القائمة. اختبر تغييرات التخطيط على نسخة من العرض التقديمي وافحص كل شريحة مُعتمدة.
+{{% alert color="warning" title="Warning" %}}
+تغيير التنسيق الموروث أو شكل النائبة الموجودة على التخطيط يمكن أن يؤثر على الشرائح التابعة. النائبة المضافة حديثًا لا تُملأ تلقائيًا في الشرائح العادية القائمة. اختبر تغييرات التخطيط على نسخة من العرض وافحص كل شريحة تابعة.
 {{% /alert %}}
 
 ## **إزالة شرائح التخطيط غير المستخدمة**
 
-استخدم طريقة [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تترك الطريقة التخطيطات التي لا يزال يتم استخدامها كما هي.
+استخدم طريقة [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تترك الطريقة التخطيطات التي لا تزال قيد الاستخدام كما هي.
 
 ```python
 import jpype
@@ -198,13 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-لإزالة تخطيط محدد، استخدم أولًا طريقة [hasDependingSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#hasDependingSlides) أو [getDependingSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getDependingSlides). أعد تعيين أي شرائح تابعة قبل استدعاء [LayoutSlide.remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#remove). محاولة إزالة تخطيط مستخدم تُثير استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pptxeditexception/).
+لإزالة تخطيط محدد واحد، استدعِ أولاً طريقة [hasDependingSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#hasDependingSlides) أو [getDependingSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getDependingSlides). أعد تعيين أي شرائح تابعة قبل استدعاء [LayoutSlide.remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#remove). محاولة إزالة تخطيط مُستَخدم تُطلق استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pptxeditexception/).
 
-## **التحكم في إظهار التذييل على شريحة تخطيط**
+## **التحكم في إظهار التذييل على شريحة التخطيط**
 
-يحتوي التخطيط على تذييل خاص به، وعناصر نائب لرقم الشريحة وتاريخ/وقت. استخدم طريقة [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) للتحكم في تلك العناصر النائبة لتخطيط واحد. هذا مفيد عندما، على سبيل المثال، تُظهر تخطيطات المحتوى التذييلات بينما لا تُظهر تخطيطات العنوان ذلك.
+للتخطيط خاصية تذييل، رقم الشريحة، وتاريخ/وقت نائبة خاصة به. استخدم طريقة [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) للتحكم في تلك النائبات لتخطيط واحد. هذا مفيد عندما يُراد أن تُظهر تخطيطات المحتوى التذييلات بينما لا تُظهر تخطيطات العنوان ذلك.
 
-المثال التالي يختار تخطيطًا بأمان ويجعل عناصر التذييل الخاصة به مرئية:
+يختار المثال التالي تخطيطًا بأمان ويجعل عناصر التذييل الخاصة به مرئية:
 
 ```python
 import jpype
@@ -237,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **التحكم في إظهار التذييل على شريحة رئيسية وتخطيطاتها الفرعية**
+## **التحكم في إظهار التذييل على الشريحة الرئيسية وتخطيطاتها الفرعية**
 
-لتطبيق إعدادات تذييل متسقة عبر شجرة شريحة رئيسية، استخدم طريقة [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterslide/#getHeaderFooterManager). تعمل طرق النشر في [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterslideheaderfootermanager/) على الشريحة الرئيسة وتخطيطاتها التابعة والشرائح العادية؛ لا تستهدف شريحة عادية واحدة فقط.
+لتطبيق إعدادات تذييل متسقة عبر هيكل شريحة رئيسية، استدعِ طريقة [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterslide/#getHeaderFooterManager). تعمل طرق النشر في [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masterslideheaderfootermanager/) على الشريحة الرئيسة وتخطيطاتها التابعة والشرائح العادية؛ لا تستهدف شريحة عادية واحدة فقط.
 
 ```python
 import jpype
@@ -264,20 +266,20 @@ finally:
     presentation.dispose()
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما الفرق بين شريحة رئيسية وشريحة تخطيط؟**
+**ما هو الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
 
-تُعرّف الشريحة الرئيسية سمة العرض التقديمي وتنسيقها المشترك. تنتمي شريحة التخطيط إلى شريحة رئيسية وتُعرّف ترتيبًا واحدًا قابلًا لإعادة الاستخدام للعناصر النائبة. تستخدم الشرائح العادية تلك التخطيطات وتخزن محتوىً خاصًا بالشريحة.
+تُعرّف الشريحة الرئيسية سمة العرض وتنسيق العناصر المشتركة. تنتمي شريحة التخطيط إلى شريحة رئيسية وتحدد ترتيبًا قابلاً لإعادة الاستخدام للنائبات. تستخدم الشرائح العادية تلك التخطيطات وتخزن محتوى كل شريحة على حدة.
 
 **هل يمكنني نسخ شريحة تخطيط من عرض تقديمي إلى آخر؟**
 
-نعم. أضف نسخة إلى مجموعة الوجهة باستخدام طريقة [addClone](https://reference.aspose.com/slides/ar/python-java/aspose.slides/globallayoutslidecollection/#addClone). عند النسخ بين عروض تقديمية، تحقق أيضًا من الخطوط، السمات، الصور، والموارد الأخرى المستخدمة في التخطيط المصدر.
+نعم. أضف نسخة إلى مجموعة الوجهة باستعمال طريقة [addClone](https://reference.aspose.com/slides/ar/python-java/aspose.slides/globallayoutslidecollection/#addClone). عند النسخ بين عروض تقديمية، تحقَّق أيضًا من الخطوط، السمات، الصور، والموارد الأخرى المستخدمة في التخطيط المصدر.
 
-**ماذا يحدث عندما أعدّل تخطيطًا قيد الاستخدام بالفعل؟**
+**ماذا يحدث عندما أقوم بتعديل تخطيط مُستخدم بالفعل؟**
 
-تورّث الشرائح التابعة تغييرات التخطيط ما لم تتجاوز التنسيقات أو الكائنات المتأثرة محليًا. يمكن أن يتغيّر شكل العنصر النائب والتنسيق الموروث على العديد من الشرائح مرة واحدة. استخدم [getDependingSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getDependingSlides) لتحديد الشرائح المتأثرة قبل تعديل التخطيط.
+تُورّث الشرائح التابعة تغييرات التخطيط ما لم تقم بتجاوز التنسيق أو الكائنات المتأثرة محليًا. يمكن أن يتغيّر شكل النائبة والتنسيق الموروث على العديد من الشرائح دفعة واحدة. استخدم [getDependingSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/layoutslide/#getDependingSlides) لتحديد الشرائح المتأثرة قبل تحرير التخطيط.
 
-**ماذا يحدث إذا أزلت تخطيطًا لا يزال قيد الاستخدام؟**
+**ماذا يحدث إذا قمت بإزالة تخطيط ما زال قيد الاستخدام؟**
 
-ترمي Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pptxeditexception/). أعد تعيين الشرائح التابعة أولًا، أو استخدم [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) لإزالة التخطيطات غير المشار إليها فقط.
+يطلق Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pptxeditexception/). عيّن الشرائح التابعة أولاً إلى تخطيط آخر، أو استعمل [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) لإزالة التخطيطات غير المرجعية فقط.

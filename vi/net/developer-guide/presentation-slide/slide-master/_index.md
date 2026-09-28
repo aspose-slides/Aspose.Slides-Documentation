@@ -1,60 +1,60 @@
 ---
-title: Quản lý Slide Master của Bản trình bày trong .NET
-linktitle: Slide Master
+title: "Quản lý Slide Master của Bài thuyết trình trong .NET"
+linktitle: "Slide Master"
 type: docs
 weight: 80
 url: /vi/net/slide-master/
 keywords:
 - slide master
-- slide master
+- master slide
 - slide master PPT
 - nhiều slide master
 - so sánh slide master
 - nền
-- trình giữ chỗ
+- placeholder
 - sao chép slide master
-- chép slide master
+- sao chép slide master
 - nhân bản slide master
 - slide master không dùng
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Quản lý slide master trong Aspose.Slides cho .NET: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bản trình bày PowerPoint và OpenDocument."
+description: "Quản lý slide master trong Aspose.Slides cho .NET: truy cập, chỉnh sửa, sao chép, so sánh và xóa slide master trong các bài thuyết trình PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-Một **slide master** định nghĩa các cài đặt thiết kế chung cho một nhóm slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu chữ, cài đặt giao diện và cài đặt chân trang. Trong PowerPoint, chỉnh sửa slide master là cách thường dùng để giữ cho bản trình bày nhất quán mà không phải lặp lại cùng một định dạng trên mỗi slide.
+Một **slide master** định nghĩa các thiết lập thiết kế chung cho một nhóm các slide. Nó có thể chứa các hình dạng chung, logo, nền, kiểu chữ, thiết lập chủ đề và thiết lập chân trang. Trong PowerPoint, việc chỉnh sửa một slide master là cách thường dùng để duy trì sự nhất quán của bản trình bày mà không phải lặp lại cùng một định dạng trên mỗi slide.
 
-Aspose.Slides for .NET hỗ trợ cùng mô hình này. Một bản trình bày có thể chứa một hoặc nhiều slide master, và mỗi slide master có thể chứa một số slide layout. Các slide thường không tham chiếu trực tiếp tới slide master. Thay vào đó, một slide thường sử dụng một slide layout, và slide layout đó thuộc về một slide master.
+Aspose.Slides for .NET hỗ trợ cùng mô hình này. Một bản trình bày có thể chứa một hoặc nhiều master slide, và mỗi master slide có thể chứa một số layout slide. Các slide thường không tham chiếu trực tiếp tới master slide. Thay vào đó, một slide thường sử dụng một layout slide, và layout slide đó thuộc về một master slide.
 
 Cấu trúc phân cấp như sau:
 
-1. **Slide master** – định nghĩa thiết kế và giao diện chung.
-1. **Layout slide** – định nghĩa sắp xếp cụ thể của các placeholder và định dạng mức layout.
+1. **Slide master** – định nghĩa thiết kế và chủ đề chung.
+1. **Layout slide** – định nghĩa cách sắp xếp các placeholder và định dạng ở mức layout.
 1. **Normal slide** – chứa nội dung thực tế của bản trình bày và sử dụng một layout slide.
 
-![Cấu trúc phân cấp của slide master, layout slide và normal slide](slide-master_2.jpg)
+![Cấu trúc phân cấp của master slide, layout slide và normal slide](slide-master_2.jpg)
 
-Trong Aspose.Slides, slide master được biểu diễn bằng giao diện [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/). Tất cả các slide master trong một bản trình bày có thể truy cập qua bộ sưu tập [Presentation.Masters](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/masters/), bộ sưu tập này thực hiện [IMasterSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/).
+Trong Aspose.Slides, một slide master được biểu diễn bằng giao diện [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/). Tất cả các master slide trong một bản trình bày có thể truy cập qua collection [Presentation.Masters](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/masters/), collection này thực thi [IMasterSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/).
 
 {{% alert color="info" title="Inheritance" %}}
-
-Khi cùng một thuộc tính được định nghĩa ở nhiều mức, mức cụ thể hơn sẽ thắng. Ví dụ, nếu một slide master và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm thông tin về layout slide, xem [Apply or Change Slide Layouts](/slides/vi/net/slide-layout/).
-
+Khi cùng một thuộc tính được định nghĩa ở nhiều cấp độ, cấp độ cụ thể hơn sẽ thắng. Ví dụ, nếu một master slide và một layout slide đều định nghĩa nền, các slide dựa trên layout đó sẽ sử dụng nền của layout. Để biết thêm về layout slide, xem [Apply or Change Slide Layouts](/slides/vi/net/slide-layout/).
 {{% /alert %}}
 
 ## **Truy cập Slide Masters**
 
-Trong PowerPoint, bạn có thể mở chế độ Slide Master bằng **View** > **Slide Master**.
+Trong PowerPoint, bạn có thể mở chế độ Slide Master từ **View** > **Slide Master**.
 
-![Lệnh Slide Master trên thẻ View của PowerPoint](slide-master_3.jpg)
+![Lệnh Slide Master trên tab View của PowerPoint](slide-master_3.jpg)
 
-Trong Aspose.Slides, sử dụng bộ sưu tập `Masters` để truy cập các slide master:
+Trong Aspose.Slides, sử dụng collection `Masters` để truy cập các master slide:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var firstMasterSlide = presentation.Masters[0];
@@ -65,9 +65,11 @@ Console.WriteLine("Master slides: " + masterSlideCount);
 Console.WriteLine("Layouts in the first master: " + firstMasterLayoutSlideCount);
 ```
 
-Bạn cũng có thể lấy slide master được sử dụng bởi một slide thường thông qua layout của nó:
+Bạn cũng có thể lấy master slide được một slide thường sử dụng thông qua layout của nó:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var slide = presentation.Slides[0];
@@ -80,26 +82,29 @@ Console.WriteLine(masterSlideName);
 
 ## **Nội dung của một Slide Master**
 
-Slide master là một đối tượng giống slide. Nó thực hiện [IBaseSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseslide/), vì vậy nó cung cấp nhiều thuộc tính slide giống như các slide thường và layout. Các thành viên đặc thù của master được liệt kê trên trang API [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/).
+Một master slide là một đối tượng giống slide. Nó thực thi [IBaseSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseslide/), vì vậy nó cung cấp nhiều thuộc tính slide giống như slide thường và layout. Các thành viên riêng của master được liệt kê trên trang API [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/).
 
-Các thành viên master thường được sử dụng bao gồm:
+Các thành viên master slide thường dùng bao gồm:
 
-| Thành viên | Mục đích |
+| Member | Purpose |
 | --- | --- |
-| `Background` | Đặt nền ở mức master. |
-| `Shapes` | Lưu các hình dạng đặt trên master, như logo, khung ảnh và văn bản chia sẻ. |
-| `LayoutSlides` | Lưu các layout slide thuộc về master. |
-| `ThemeManager` | Cung cấp truy cập tới các API giao diện của master. |
-| `HeaderFooterManager` | Điều khiển tiêu đề, chân trang, ngày tháng và số slide cho master và các layout con của nó. |
+| `Background` | Đặt nền slide ở mức master. |
+| `Shapes` | Lưu trữ các hình dạng được đặt trên master, chẳng hạn như logo, khung ảnh và văn bản chung. |
+| `LayoutSlides` | Lưu trữ các layout slide thuộc về master. |
+| `ThemeManager` | Cung cấp truy cập vào các API chủ đề của master. |
+| `HeaderFooterManager` | Kiểm soát tiêu đề, chân trang, ngày tháng và số slide cho master và các layout con của nó. |
 | `GetDependingSlides` | Trả về các slide thường phụ thuộc vào master thông qua layout của chúng. |
 
-## **Thêm Hình ảnh vào Slide Master**
+## **Thêm hình ảnh vào Slide Master**
 
-Khi bạn thêm hình ảnh vào slide master, hình ảnh sẽ xuất hiện trên các slide sử dụng layout từ master đó. Điều này hữu ích cho logo, watermark, dải trang trí và các yếu tố hình ảnh lặp lại khác.
+Khi bạn thêm hình ảnh vào một master slide, nó sẽ hiển thị trên các slide sử dụng layout từ master đó. Tính năng này hữu ích cho logo, dấu nước, dải trang trí và các yếu tố hình ảnh lặp lại khác.
 
-Ví dụ sau thêm một logo vào slide master đầu tiên:
+Ví dụ sau thêm một logo vào master slide đầu tiên:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -117,19 +122,72 @@ masterSlide.Shapes.AddPictureFrame(
 presentation.Save("presentation-with-logo.pptx", SaveFormat.Pptx);
 ```
 
-Để biết thêm thông tin về khung ảnh, xem [Picture Frame](/slides/vi/net/picture-frame/).
+Để biết thêm về khung ảnh, xem [Picture Frame](/slides/vi/net/picture-frame/).
+
+## **Kiểm soát hiển thị đồ họa của Master**
+
+Sử dụng [IBaseSlide.ShowMasterShapes](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseslide/showmastershapes/) để ẩn các đồ họa kế thừa từ master, chẳng hạn như logo hoặc hình dạng trang trí, mà không xóa chúng khỏi master. Đặt [Slide.ShowMasterShapes](https://reference.aspose.com/slides/vi/net/aspose.slides/slide/showmastershapes/) thành `false` trên slide muốn bỏ các đồ họa đó và giữ `true` trên các slide muốn hiển thị chúng.
+
+Ví dụ tự chứa dưới đây tạo một dải trang trí màu xanh trên master và hai slide sử dụng cùng một layout trống. Dải này hiển thị trên slide đầu tiên và ẩn trên slide thứ hai. Không cần bản trình bày hoặc hình ảnh đầu vào.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var masterSlide = presentation.Masters[0];
+var layoutSlide = masterSlide.LayoutSlides.GetByType(SlideLayoutType.Blank);
+layoutSlide.ShowMasterShapes = true;
+
+var slideHeight = presentation.SlideSize.Size.Height;
+var band = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var visibleSlide = presentation.Slides[0];
+visibleSlide.LayoutSlide = layoutSlide;
+visibleSlide.Shapes.Clear();
+
+var hiddenSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+
+visibleSlide.ShowMasterShapes = true;
+hiddenSlide.ShowMasterShapes = false;
+
+presentation.Save("master-graphics.pptx", SaveFormat.Pptx);
+```
+
+Ví dụ sử dụng layout **Blank** được cung cấp trong một bản trình bày mới và loại bỏ các placeholder riêng của slide đầu tiên.
+
+### **Chọn phạm vi thiết lập**
+
+Một slide thường sử dụng master thông qua [ISlide.LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/layoutslide/) và [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/masterslide/). Đặt thuộc tính trên một slide riêng chỉ ảnh hưởng đến slide đó. Đặt [LayoutSlide.ShowMasterShapes](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutslide/showmastershapes/) thành `false` sẽ ẩn đồ họa master cho tất cả các slide dùng cùng layout, ngay cả khi thiết lập riêng của chúng là `true`. Để ẩn đồ họa chỉ trên một slide, thay đổi thuộc tính của slide và giữ layout chung không đổi.
+
+Thiết lập này không được hỗ trợ làm điều khiển hiển thị trên chính master slide. Trên master luôn trả về `false`, và gán `true` sẽ ném `NotSupportedException`. Áp dụng nó cho slide thường hoặc layout thay vì master.
+
+### **Phân biệt đồ họa và nền**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Kiểm soát việc ẩn các shape kế thừa từ master mà không xóa chúng hoặc thay đổi các shape riêng của slide. |
+| Change the slide background fill | Thay đổi màu, gradient hoặc hình ảnh nền. Đồ họa master là các shape riêng biệt và có thể vẫn hiển thị trên nền mới. Xem [Presentation Background](/slides/vi/net/presentation-background/). |
+| Delete a shape from the master | Loại bỏ shape nguồn chung, vì vậy nó sẽ không còn khả dụng cho bất kỳ slide nào dùng master đó. |
 
 ## **Làm việc với Placeholder**
 
-Placeholder thường được định nghĩa trên layout slide. Slide master cung cấp kiểu dáng và giao diện chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholder nào có sẵn và vị trí của chúng.
+Placeholder thường được định nghĩa trên layout slide. Master slide cung cấp kiểu và chủ đề chung mà các layout kế thừa, trong khi mỗi layout quyết định placeholder nào có sẵn và chúng được đặt ở đâu.
 
-Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ Slide Master view.
+Trong PowerPoint, các lệnh placeholder có sẵn trong chế độ Slide Master.
 
 ![Lệnh Insert Placeholder trong chế độ Slide Master của PowerPoint](slide-master_5.png)
 
 Để thêm placeholder mới với Aspose.Slides, làm việc với layout slide thuộc về master:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -147,9 +205,13 @@ presentation.Slides.AddEmptySlide(blankLayoutSlide);
 presentation.Save("presentation-with-placeholder.pptx", SaveFormat.Pptx);
 ```
 
-Bạn cũng có thể định dạng các placeholder đã tồn tại trên slide master. Ví dụ sau tìm placeholder tiêu đề và áp dụng tô đầy gradient tuyến tính:
+Bạn cũng có thể định dạng các shape placeholder đã tồn tại trên master slide. Ví dụ dưới đây tìm placeholder tiêu đề và áp dụng màu gradient tuyến tính:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -183,15 +245,19 @@ static IAutoShape? FindPlaceholder(IMasterSlide masterSlide, PlaceholderType pla
 }
 ```
 
-![Placeholder tiêu đề đã định dạng được kế thừa bởi slide thường](slide-master_8.png)
+![Placeholder tiêu đề đã định dạng kế thừa bởi các slide thường](slide-master_8.png)
 
 Để biết thêm các tùy chọn định dạng placeholder và văn bản, xem [Set Prompt Text in Placeholder](/slides/vi/net/manage-placeholder/) và [Text Formatting](/slides/vi/net/text-formatting/).
 
-## **Thay đổi Nền của Slide Master**
+## **Thay đổi nền Slide Master**
 
-Nền master được kế thừa bởi các layout và slide không ghi đè nó. Ví dụ sau đặt màu nền đặc cho slide master đầu tiên:
+Nền master được kế thừa bởi các layout và slide không ghi đè nó. Ví dụ sau đặt màu nền đặc cho master slide đầu tiên:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var masterSlide = presentation.Masters[0];
@@ -205,11 +271,14 @@ presentation.Save("presentation-master-background.pptx", SaveFormat.Pptx);
 
 Đối với các chủ đề liên quan, xem [Presentation Background](/slides/vi/net/presentation-background/) và [Presentation Theme](/slides/vi/net/presentation-theme/).
 
-## **Sao chép Slide Master sang Bản Trình Bày Khác**
+## **Sao chép Slide Master sang bản trình bày khác**
 
-Sử dụng [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/addclone/) để sao chép một slide master vào bản trình bày khác. Master đã sao chép sau đó có thể được sử dụng bởi các layout và slide trong bản trình bày đích.
+Sử dụng [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/addclone/) để sao chép một master slide vào bản trình bày khác. Master đã sao chép sau đó có thể được sử dụng bởi các layout và slide trong bản đích.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var sourcePresentation = new Presentation("source.pptx");
 using var destinationPresentation = new Presentation("destination.pptx");
 
@@ -219,17 +288,21 @@ var clonedMasterSlide = destinationPresentation.Masters.AddClone(sourceMasterSli
 destinationPresentation.Save("destination-with-master.pptx", SaveFormat.Pptx);
 ```
 
-Nếu bạn cần sao chép cả slide thường cùng với master của chúng, xem [Clone Slides](/slides/vi/net/clone-slides/).
+Nếu bạn cần sao chép cả các slide thường cùng với master của chúng, xem [Clone Slides](/slides/vi/net/clone-slides/).
 
-## **Thêm Nhiều Slide Master**
+## **Thêm nhiều Slide Master**
 
-Một bản trình bày có thể chứa nhiều slide master. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc cài đặt giao diện riêng.
+Một bản trình bày có thể chứa nhiều master slide. Điều này hữu ích khi các phần khác nhau yêu cầu thương hiệu, cấu trúc trang hoặc thiết lập chủ đề riêng.
 
-![Các lệnh PowerPoint để chèn và quản lý slide master](slide-master_9.jpg)
+![Các lệnh PowerPoint để chèn và quản lý master slide](slide-master_9.jpg)
 
 Ví dụ sau sao chép master mặc định, đặt nền khác cho bản sao, tạo một layout dưới master đã sao chép và thêm một slide mới dựa trên layout đó:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var defaultMasterSlide = presentation.Masters[0];
@@ -250,9 +323,11 @@ presentation.Save("presentation-with-multiple-masters.pptx", SaveFormat.Pptx);
 
 ## **So sánh Slide Masters**
 
-Slide master có thể được so sánh bằng phương thức `Equals` kế thừa từ [IBaseSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseslide/). Việc so sánh kiểm tra cấu trúc và nội dung tĩnh, chẳng hạn như hình dạng, văn bản, định dạng, hoạt ảnh và các cài đặt slide khác. Nó không so sánh các định danh duy nhất như ID slide, hay các giá trị placeholder động như ngày hiện tại.
+Các master slide có thể được so sánh bằng phương thức `Equals` kế thừa từ [IBaseSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseslide/). So sánh kiểm tra cấu trúc và nội dung tĩnh, chẳng hạn như shape, văn bản, định dạng, hoạt ảnh và các thiết lập slide khác. Nó không so sánh các định danh duy nhất như ID slide, hay các giá trị placeholder động như ngày hiện tại.
 
 ```csharp
+using Aspose.Slides;
+
 using var firstPresentation = new Presentation("first.pptx");
 using var secondPresentation = new Presentation("second.pptx");
 
@@ -278,28 +353,34 @@ for (var firstMasterIndex = 0; firstMasterIndex < firstPresentationMasterCount; 
 }
 ```
 
-Để biết thêm chi tiết, xem [Compare Presentation Slides](/slides/vi/net/compare-slides/).
+Để biết thêm, xem [Compare Presentation Slides](/slides/vi/net/compare-slides/).
 
-## **Đặt Slide Master View làm View Mặc định**
+## **Đặt chế độ Slide Master làm chế độ mặc định**
 
-Sử dụng thuộc tính `LastView` trên [ViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties/) để điều khiển view mà PowerPoint mở đầu tiên. Ví dụ sau mở bản trình bày trong chế độ Slide Master view:
+Sử dụng thuộc tính `LastView` trên [ViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties/) để điều khiển chế độ mà PowerPoint mở đầu tiên. Ví dụ dưới mở bản trình bày ở chế độ Slide Master:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.ViewProperties.LastView = ViewType.SlideMasterView;
 presentation.Save("presentation-master-view.pptx", SaveFormat.Pptx);
 ```
 
-Đối với các cài đặt view khác, xem [Save Presentation](/slides/vi/net/save-presentation/).
+Để biết thêm các thiết lập chế độ xem, xem [Save Presentation](/slides/vi/net/save-presentation/).
 
-## **Xóa Các Slide Master Không dùng**
+## **Xóa các Master Slide không dùng**
 
-Đôi khi bản trình bày chứa các slide master không còn được bất kỳ slide thường nào sử dụng. Xóa các master không dùng có thể giảm kích thước tệp và đơn giản hoá việc bảo trì mẫu.
+Đôi khi bản trình bày chứa các master slide không còn được bất kỳ slide thường nào sử dụng. Xóa các master không dùng có thể giảm kích thước tệp và đơn giản hoá việc bảo trì mẫu.
 
-Sử dụng [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/vi/net/aspose.slides/masterslidecollection/removeunused/) để xóa các master không dùng khỏi bộ sưu tập `Masters`:
+Sử dụng [MasterSlideCollection.RemoveUnused](https://reference.aspose.com/slides/vi/net/aspose.slides/masterslidecollection/removeunused/) để xóa các master không dùng khỏi collection `Masters`:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 presentation.Masters.RemoveUnused(ignorePreserveField: true);
@@ -309,6 +390,9 @@ presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 Bạn cũng có thể dùng phương thức low-code [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) :
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("presentation.pptx");
 
 Aspose.Slides.LowCode.Compress.RemoveUnusedMasterSlides(presentation);
@@ -319,16 +403,16 @@ presentation.Save("presentation-clean.pptx", SaveFormat.Pptx);
 
 **Sự khác nhau giữa slide master và layout slide là gì?**
 
-Slide master định nghĩa các cài đặt thiết kế chung như giao diện, nền, các hình dạng và kiểu văn bản chung. Layout slide thuộc về một slide master và định nghĩa sắp xếp cụ thể của các placeholder. Slide thường sử dụng một layout slide, vì vậy nó kế thừa cả từ layout và master.
+Slide master định nghĩa các thiết lập thiết kế chung như chủ đề, nền, hình dạng chung và kiểu chữ. Layout slide thuộc về một master slide và định nghĩa cách sắp xếp cụ thể của các placeholder. Slide thường sử dụng một layout slide, vì vậy nó kế thừa từ cả layout và master.
 
 **Một bản trình bày có thể chứa nhiều slide master không?**
 
 Có. Một bản trình bày có thể chứa nhiều slide master. Sử dụng nhiều master khi các phần khác nhau cần hệ thống hình ảnh hoặc thương hiệu riêng.
 
-**Nên thêm placeholder vào slide master hay layout slide?**
+**Nên thêm placeholder vào master slide hay layout slide?**
 
-Trong hầu hết các trường hợp, hãy thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh và định dạng chung trên slide master, sau đó đặt các placeholder nội dung trên các layout mà slide thường sẽ sử dụng.
+Trong hầu hết các trường hợp, thêm placeholder vào layout slide. Đặt các yếu tố hình ảnh và định dạng chung trên master slide, sau đó đặt các placeholder nội dung trên layout mà các slide thường sẽ sử dụng.
 
-**Tôi có thể xóa một slide master còn đang được sử dụng không?**
+**Tôi có thể xóa một master slide đang được dùng không?**
 
-Không. Slide master có các slide phụ thuộc không thể bị xóa trực tiếp một cách an toàn. Đầu tiên di chuyển các slide đó sang layout thuộc master khác, hoặc sử dụng phương pháp dọn dẹp master không dùng để chỉ xóa các master không có slide phụ thuộc.
+Không. Master slide có slide phụ thuộc không thể bị xóa trực tiếp một cách an toàn. Đầu tiên hãy di chuyển các slide đó sang layout dưới master khác, hoặc sử dụng phương pháp dọn dẹp master không dùng chỉ xóa các master không được sử dụng.

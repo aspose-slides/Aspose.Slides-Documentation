@@ -6,7 +6,7 @@ weight: 60
 url: /ru/androidjava/slide-layout/
 keywords:
 - макет слайда
-- макет содержимого
+- макет содержания
 - заполнитель
 - дизайн презентации
 - дизайн слайда
@@ -15,11 +15,11 @@ keywords:
 - титульный слайд
 - заголовок и содержание
 - заголовок раздела
-- два блока содержимого
+- два содержания
 - сравнение
 - только заголовок
 - пустой макет
-- содержимое с подписью
+- содержание с подписью
 - изображение с подписью
 - заголовок и вертикальный текст
 - вертикальный заголовок и текст
@@ -33,38 +33,40 @@ description: "Применяйте, создавайте и изменяйте �
 ---
 ## **Обзор**
 
-Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета дает слайдам единообразную структуру, позволяя каждому слайду содержать свой собственный контент.
+Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета обеспечивает слайдам единообразную структуру, позволяя каждому слайду содержать собственное содержимое.
 
-Самыми распространёнными макетами являются:
+Наиболее распространённые макеты включают:
 
 - **Титульный слайд**: Содержит заполнители заголовка и подзаголовка.
-- **Заголовок и содержание**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
-- **Пустой**: Не содержит заполнителей содержимого и полезен, когда все объекты будут позиционироваться вручную.
+- **Заголовок и содержание**: Содержит заполнитель заголовка и универсальный заполнитель содержания.
+- **Пустой**: Не содержит заполнителей содержания и полезен, когда каждый объект будет размещён вручную.
 
-## **Понимание наследования макетов**
+## **Понимание наследования макета**
 
-Презентация имеет три связанных уровня:
+Презентация имеет три взаимосвязанных уровня:
 
 1. [главный слайд](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/) определяет тему, общие форматы, фон и общие объекты.
-1. [макет слайда](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/) принадлежит главному слайду и определяет конкретное расположение заполнителей.
-1. [обычный слайд](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/) использует один макет и сохраняет введённое для него содержание.
+2. [макетный слайд](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/) принадлежит главному слайду и определяет конкретное расположение заполнителей.
+3. [обычный слайд](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/) использует один макет и сохраняет введённое для этого слайда содержимое.
 
-Обычный слайд наследует тему и форматирование от своего макета, а макет наследует от главного слайда. Значение, установленное напрямую на обычном слайде, переопределяет унаследованное значение на этом уровне. Когда обычный слайд создаётся, его формы‑заполнители генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
+Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от главного слайда. Значение, установленное непосредственно на обычном слайде, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его формы‑заполнители генерируются из выбранного макета, при этом содержимое, введённое в эти заполнители, принадлежит обычному слайду.
 
-Добавьте необходимые заполнители в макет перед созданием из него слайдов. Добавление другого заполнителя в макет позже не добавляет автоматически соответствующую форму‑заполнитель в существующие обычные слайды.
+Добавьте необходимые заполнители в макет до создания из него слайдов. Добавление другого заполнителя в макет позже не приводит к автоматическому добавлению соответствующей формы‑заполнителя в уже существующие обычные слайды.
 
-Эти взаимоотношения имеют два важных следствия:
+Эти отношения имеют две важные последствия:
 
-- Изменение унаследованного форматирования или существующей геометрии заполнителя в макете может обновить каждый слайд, который от него зависит. Перед редактированием уже используемого макета проверьте его зависимые слайды и просмотрите получившуюся презентацию.
+- Изменение унаследованного форматирования или геометрии существующих заполнителей в макете может обновить каждый слайд, зависящий от него. Перед редактированием уже используемого макета проверьте его зависимые слайды и просмотрите получившуюся презентацию.
 - Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
 
 Для получения дополнительной информации о верхнем уровне этой иерархии см. [Главный слайд](/slides/ru/androidjava/slide-master/).
 
+Чтобы скрыть унаследованные логотипы или декоративные элементы главного слайда на отдельном слайде или через общий макет, см. [Управление видимостью графики главного слайда](/slides/ru/androidjava/slide-master/). Пример сравнивает два слайда, использующих один и тот же главный слайд.
+
 ## **Выбор и применение макета слайда**
 
-Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируемы пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+Используйте тип макета, когда презентация следует стандартным определением макетов PowerPoint. Имена макетов могут редактироваться пользователем и локализоваться, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
 
-Следующий пример ищет **Title and Content** на первом главном слайде. Если этот макет недоступен, он преднамеренно переходит к **Blank**. Вторая проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [ISlide.setLayoutSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
+В следующем примере ищется макет **Заголовок и содержание** на первом главном слайде. Если такой макет недоступен, он намеренно переходит к **Пустому**. Вторая проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [ISlide.setLayoutSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
 
 ```java
 import com.aspose.slides.*;
@@ -89,13 +91,13 @@ try {
 }
 ```
 
-Изменение макета слайда не удаляет обычные фигуры, добавленные непосредственно на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
+Изменение макета слайда не удаляет обычные фигуры, добавленные непосредственно на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно разными макетами.
 
-## **Добавление макета слайда**
+## **Добавление макетного слайда**
 
-Выбор и создание — отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт его. Чтобы создать макет, вызовите метод [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) в коллекции макетов целевого главного слайда.
+Выбор и создание — отдельные операции. В предыдущем примере выбирается существующий макет; он не создаётся. Чтобы создать макет, вызовите метод [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) у коллекции макетов целевого главного слайда.
 
-Следующий пример всегда добавляет новый макет **Title and Content** с именем `Report Title and Content`, а затем добавляет обычный слайд, основанный на нём. Имена макетов должны быть уникальными в коллекции.
+В следующем примере всегда добавляется новый макет **Заголовок и содержание** с именем `Report Title and Content`, после чего добавляется обычный слайд, основанный на нём. Имена макетов должны быть уникальными в пределах коллекции.
 
 ```java
 import com.aspose.slides.*;
@@ -112,26 +114,26 @@ try {
 }
 ```
 
-Добавляйте макет только тогда, когда шаблон действительно нуждается в ещё одной переиспользуемой структуре. Если подходящий макет уже существует, выберите и повторно используйте его вместо создания дубликата.
+Добавляйте макет только тогда, когда шаблон действительно нуждается в другой переиспользуемой структуре. Если подходящий макет уже существует, выберите и используйте его повторно, вместо создания дубликата.
 
-## **Добавление заполнителей в макет слайда**
+## **Добавление заполнителей в макетный слайд**
 
-Метод [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) предоставляет [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) для добавления фигур‑заполнителей в макет.
+Метод [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) предоставляет [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), позволяющий добавлять формы‑заполнители в макет.
 
-| Заполнитель PowerPoint | Метод `ILayoutPlaceholderManager` |
-| ---------------------- | --------------------------------- |
-| ![Содержание](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| Заполнитель PowerPoint              | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Содержание](content.png)          | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
 | ![Содержание (вертикальное)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
-| ![Текст](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
-| ![Текст (вертикальный)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
-| ![Изображение](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
-| ![Диаграмма](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
-| ![Таблица](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
-| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
-| ![Медиа](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Текст](text.png)                  | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Текст (вертикальный)](textV.png)  | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Изображение](picture.png)         | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Диаграмма](chart.png)             | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Таблица](table.png)               | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Медиа](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
 | ![Онлайн‑изображение](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Следующий пример проверяет, что макет **Blank** существует, добавляет к нему четыре заполнителя и затем создаёт обычный слайд, использующий модифицированный макет. Порядок намеренно такой: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог сгенерировать соответствующие фигуры‑заполнители на этом слайде.
+В следующем примере проверяется наличие макета **Пустой**, добавляются четыре заполнителя, после чего создаётся обычный слайд, использующий изменённый макет. Порядок намеренно такой: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог генерировать соответствующие формы‑заполнители на этом слайде.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +161,15 @@ try {
 
 Результат:
 
-![Заполнители на макете слайда](add_placeholders.png)
+![Заполнители на макетном слайде](add_placeholders.png)
 
-{{% alert color="warning" title="Предупреждение" %}}
-Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Ново‑добавленный заполнитель макета не подтягивается в существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+{{% alert color="warning" title="Warning" %}}
+Изменение унаследованного форматирования или геометрии существующих заполнителей в макете может повлиять на зависимые слайды. Новый заполнитель макета не заполняет автоматически существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
 {{% /alert %}}
 
-## **Удаление неиспользуемых макетов слайдов**
+## **Удаление неиспользуемых макетных слайдов**
 
-Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) для удаления макетов, которые не используются ни одним обычным слайдом. Метод оставляет нетронутыми макеты, которые всё ещё используются.
+Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) для удаления макетов, на которые не ссылаются обычные слайды. Метод оставляет нетронутыми макеты, которые всё ещё используются.
 
 ```java
 import com.aspose.slides.*;
@@ -181,13 +183,13 @@ try {
 }
 ```
 
-Чтобы удалить конкретный макет, сначала воспользуйтесь его методом [hasDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) или [getDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Переназначьте любые зависимые слайды перед вызовом [ILayoutSlide.remove](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#remove--). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/).
+Чтобы удалить конкретный макет, сначала используйте его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) или [getDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Переназначьте все зависимые слайды перед вызовом [ILayoutSlide.remove](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#remove--). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/).
 
-## **Управление видимостью нижнего колонтитула на макете слайда**
+## **Управление видимостью нижнего колонтитула на макетном слайде**
 
-У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) для управления этими заполнителями одного макета. Это полезно, когда, например, макеты с содержимым должны отображать нижний колонтитул, а макеты заголовков — нет.
+У макета есть свои заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) для управления этими заполнителями для одного макета. Это полезно, например, когда в макетах содержания должны отображаться нижние колонтитулы, а в макетах заголовков — нет.
 
-Следующий пример безопасно выбирает макет и делает его элементы нижнего колонтитула видимыми:
+В следующем примере безопасно выбирается макет и делаются видимыми его элементы нижнего колонтитула:
 
 ```java
 import com.aspose.slides.*;
@@ -219,7 +221,7 @@ try {
 
 ## **Управление видимостью нижнего колонтитула в главном слайде и его дочерних макетах**
 
-Чтобы применить согласованные настройки нижнего колонтитула во всей иерархии главного слайда, используйте метод [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Методы распространения [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) работают на главном слайде и его зависимых макетных и обычных слайдах; они не ориентированы только на один обычный слайд.
+Чтобы применить единые настройки нижнего колонтитула по всей иерархии главного слайда, используйте метод [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Методы распространения [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) работают на главном слайде и его зависимых макетных и обычных слайдах; они не ориентированы только на один обычный слайд.
 
 ```java
 import com.aspose.slides.*;
@@ -241,18 +243,18 @@ try {
 
 ## **FAQ**
 
-**Какова разница между главным слайдом и макетом слайда?**
+**В чём разница между главным слайдом и макетным слайдом?**
 
-Главный слайд определяет тему презентации и общие форматирования. Макет слайда принадлежит главному слайду и определяет одну переиспользуемую расстановку заполнителей. Обычные слайды используют эти макеты и хранят контент, специфичный для конкретного слайда.
+Главный слайд определяет тему презентации и общие форматы. Макетный слайд принадлежит главному слайду и задаёт одно переиспользуемое расположение заполнителей. Обычные слайды используют эти макеты и сохраняют содержание, специфичное для конкретного слайда.
 
-**Могу ли я скопировать макет слайда из одной презентации в другую?**
+**Можно ли скопировать макетный слайд из одной презентации в другую?**
 
-Да. Добавьте копию в целевую коллекцию с помощью метода [addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
+Да. Добавьте копию в коллекцию назначения с помощью метода [addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
-**Что происходит, если я изменяю макет, который уже используется?**
+**Что происходит при изменении уже используемого макета?**
 
-Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) для определения затронутых слайдов перед редактированием макета.
+Зависимые слайды наследуют изменения макета, если только они не переопределяют затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) , чтобы определить затронутые слайды перед редактированием макета.
 
-**Что происходит, если я удаляю макет, который всё ещё используется?**
+**Что происходит, если удалить макет, который всё ещё используется?**
 
-Aspose.Slides генерирует [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) для удаления только несовпадающих макетов.
+Aspose.Slides генерирует [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-), чтобы удалить только непосланные макеты.

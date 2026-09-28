@@ -1,24 +1,24 @@
 ---
-title: Dia-layouts toepassen of wijzigen in Python via Java
-linktitle: Dia-layout
+title: Dia-indelingen toepassen of wijzigen in Python via Java
+linktitle: Dia-indeling
 type: docs
 weight: 60
 url: /nl/python-java/slide-layout/
 keywords:
-- dia-layout
-- inhoudslayout
+- dia-indeling
+- inhoudsindeling
 - placeholder
 - presentatie-ontwerp
 - dia-ontwerp
-- ongebruikte lay-out
+- ongebruikte indeling
 - voettekst-zichtbaarheid
-- titeldia
+- titel-dia
 - titel en inhoud
 - sectiekop
 - twee inhoud
 - vergelijking
 - alleen titel
-- lege layout
+- lege indeling
 - inhoud met bijschrift
 - afbeelding met bijschrift
 - titel en verticale tekst
@@ -29,40 +29,44 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Dia-layouts toepassen, maken en wijzigen in Aspose.Slides voor Python via Java, placeholders toevoegen, ongebruikte lay-outs verwijderen en de voettekst-zichtbaarheid beheren."
+description: Pas dia-indelingen toe, maak ze aan en wijzig ze in Aspose.Slides voor Python via Java, voeg placeholders toe, verwijder ongebruikte indelingen en beheer de zichtbaarheid van de voettekst.
 ---
 ## **Overzicht**
 
-Een dia‑lay‑out definieert de posities en opmaak van placeholders zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een lay‑out geeft dia's een consistente structuur terwijl elke dia zijn eigen inhoud kan bevatten.
+Een dia‑indeling definieert de posities en opmaak van tijdelijke elementen zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een indeling geeft dia’s een consistente structuur, terwijl elke dia zijn eigen inhoud kan bevatten.
 
-- **Titel­dia**: Bevat placeholder voor titel en ondertitel.
+De meest voorkomende indelingen zijn:
+
+- **Titel‑dia**: Bevat titel‑ en subtitel‑placeholder‑elementen.
 - **Titel en inhoud**: Bevat een titel‑placeholder en een algemene inhouds‑placeholder.
-- **Leeg**: Bevat geen inhouds‑placeholders en is handig wanneer elke vorm handmatig wordt geplaatst.
+- **Leeg**: Bevat geen inhouds‑placeholder‑elementen en is handig wanneer elke vorm handmatig wordt gepositioneerd.
 
-## **Begrijp layout‑overerving**
+## **Begrijp overerving van indelingen**
 
 Een presentatie heeft drie gerelateerde niveaus:
 
-1. Een [masterdia](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterslide/) definieert het thema, gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
-1. Een [lay-outdia](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/) behoort tot een master en definieert een specifieke rangschikking van placeholders.
-1. Een [normale dia](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/) gebruikt één lay‑out en slaat de inhoud op die voor die dia is ingevoerd.
+1. Een [master‑dia](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterslide/) definieert het thema, de gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
+1. Een [indelings‑dia](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/) behoort tot een master en definieert een bepaalde rangschikking van placeholders.
+1. Een [normale dia](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/) gebruikt één indeling en slaat de ingevoerde inhoud voor die dia op.
 
-Een normale dia erft thema en opmaak van zijn lay‑out, en de lay‑out erft van de master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt aangemaakt, worden de placeholder‑vormen gegenereerd vanuit de geselecteerde lay‑out, terwijl de inhoud die in die placeholders wordt ingevoerd tot de normale dia behoort.
+Een normale dia erft thema en opmaak van zijn indeling, en de indeling erft van zijn master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt aangemaakt, worden de placeholder‑vormen gegenereerd uit de geselecteerde indeling, terwijl de ingevoerde inhoud in die placeholders bij de normale dia hoort.
 
-Voeg vereiste placeholders toe aan een lay‑out voordat je er dia's vanuit maakt. Later een extra placeholder aan een lay‑out toevoegen resulteert niet automatisch in een overeenkomstige placeholder‑vorm op bestaande normale dia's.
+Voeg de benodigde placeholders toe aan een indeling voordat je er dia’s van maakt. Later een extra placeholder aan een indeling toevoegen, voegt niet automatisch een overeenkomstige placeholder‑vorm toe aan bestaande normale dia’s.
 
-Deze relatie heeft twee belangrijke consequenties:
+Deze relatie heeft twee belangrijke gevolgen:
 
-- Het wijzigen van geërfde opmaak of bestaande placeholder‑geometrie op een lay‑out kan elke dia die ervan afhankelijk is bijwerken. Controleer vóór het bewerken van een al in gebruik zijnde lay‑out de afhankelijke dia's en controleer de resulterende presentatie.
-- Een lay‑out die nog door een dia wordt gebruikt, kan niet worden verwijderd. Ken eerst de afhankelijke dia's aan een andere lay‑out toe, of verwijder alleen ongebruikte lay‑outs.
+- Het wijzigen van geërfde opmaak of bestaande placeholder‑geometrie op een indeling kan elke dia die ervan afhankelijk is bijwerken. Controleer vóór het bewerken van een al in gebruik zijnde indeling de afhankelijke dia’s en bekijk de resulterende presentatie.
+- Een indeling die nog door een dia wordt gebruikt, kan niet worden verwijderd. Ken eerst de afhankelijke dia’s toe aan een andere indeling toe, of verwijder alleen ongebruikte indelingen.
 
-Voor meer informatie over het hoogste niveau van deze hiërarchie, zie [Slide Master](/slides/nl/python-java/slide-master/).
+Voor meer informatie over het hoogste niveau van deze hiërarchie, zie [Dia‑master](/slides/nl/python-java/slide-master/).
 
-## **Selecteer en pas een dia‑lay‑out toe**
+Om geërfde logo’s of decoratieve master‑vormen op één dia of via een gedeelde indeling te verbergen, zie [Stuur de zichtbaarheid van master‑graphics](/slides/nl/python-java/slide-master/). Het voorbeeld vergelijkt twee dia’s die dezelfde master gebruiken.
 
-Gebruik een lay‑outtype wanneer de presentatie de standaard PowerPoint‑lay‑outdefinities volgt. Lay‑outnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, waardoor selectie op basis van naam minder betrouwbaar is tenzij je de bron‑template beheert.
+## **Selecteer en pas een dia‑indeling toe**
 
-Het volgende voorbeeld zoekt naar **Titel en inhoud** op de eerste master. Als die lay‑out niet beschikbaar is, valt het expres terug op **Leeg**. De tweede controle op `None` is noodzakelijk omdat een presentatie uitsluitend aangepaste lay‑outs kan bevatten. De geselecteerde lay‑out wordt vervolgens toegepast op de eerste normale dia via de [Slide.setLayoutSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#setLayoutSlide) methode.
+Gebruik een indelingstype wanneer de presentatie de standaard PowerPoint‑indelingsdefinities volgt. Indelingsnamen zijn door de gebruiker bewerkbaar en kunnen gelokaliseerd worden, waardoor selecteren op naam minder betrouwbaar is tenzij je de bron‑sjabloon beheert.
+
+Het volgende voorbeeld zoekt **Titel en inhoud** op de eerste master. Als die indeling niet beschikbaar is, valt het opzettelijk terug op **Leeg**. De tweede controle op `None` is nodig omdat een presentatie alleen aangepaste indelingen kan bevatten. De geselecteerde indeling wordt vervolgens toegepast op de eerste normale dia via de [Slide.setLayoutSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#setLayoutSlide)‑methode.
 
 ```python
 import jpype
@@ -90,13 +94,13 @@ finally:
     presentation.dispose()
 ```
 
-Het wijzigen van de lay‑out van een dia verwijdert niet de gewone vormen die rechtstreeks aan de dia zijn toegevoegd. Echter, placeholder‑posities, geërfde opmaak en de overeenkomst tussen bestaande placeholders en de nieuwe lay‑out kunnen veranderen, dus controleer de output bij het wisselen tussen wezenlijk verschillende lay‑outs.
+Het wijzigen van de indeling van een dia verwijdert geen gewone vormen die direct aan de dia zijn toegevoegd. Echter, placeholder‑posities, geërfde opmaak en de overeenkomst tussen bestaande placeholders en de nieuwe indeling kunnen wijzigen, dus controleer de output bij het wisselen tussen wezenlijk verschillende indelingen.
 
-## **Voeg een lay‑outdia toe**
+## **Voeg een indelings‑dia toe**
 
-Selectie en creatie zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande lay‑out; het maakt er geen aan. Om een lay‑out te maken, roep je de [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterlayoutslidecollection/#add) methode aan op de lay‑outcollectie van de beoogde master.
+Selectie en aanmaak zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande indeling; het maakt er geen nieuwe aan. Om een indeling aan te maken, roep je de [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterlayoutslidecollection/#add)‑methode aan op de indelingscollectie van de doel‑master.
 
-Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud** lay‑out toe met de naam `Report Title and Content`, en voegt vervolgens een normale dia toe op basis daarvan. Lay‑outnamen moeten uniek zijn binnen de collectie.
+Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud**‑indeling toe met de naam `Report Title and Content`, en voegt vervolgens een normale dia toe op basis daarvan. Indelingsnamen moeten uniek zijn binnen de collectie.
 
 ```python
 import jpype
@@ -118,26 +122,26 @@ finally:
     presentation.dispose()
 ```
 
-Voeg alleen een lay‑out toe wanneer de template daadwerkelijk een extra herbruikbare structuur nodig heeft. Als er al een geschikte lay‑out bestaat, selecteer en hergebruik deze in plaats van een duplicaat te maken.
+Voeg alleen een indeling toe wanneer het sjabloon echt een extra herbruikbare structuur nodig heeft. Als er al een geschikte indeling bestaat, selecteer en hergebruik die in plaats van een duplicaat te maken.
 
-## **Voeg placeholders toe aan een lay‑outdia**
+## **Voeg placeholders toe aan een indelings‑dia**
 
-De [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getPlaceholderManager) methode biedt een [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/) om placeholder‑vormen aan een lay‑out toe te voegen.
+De [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getPlaceholderManager)‑methode biedt een [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/) voor het toevoegen van placeholder‑vormen aan een indeling.
 
-| PowerPoint‑placeholder | [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/) Method |
+| PowerPoint‑placeholder | [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/) Methode |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | ![Inhoud](content.png) | [addContentPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Inhoud (verticaal)](contentV.png) | [addVerticalContentPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
 | ![Tekst](text.png) | [addTextPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
 | ![Tekst (verticaal)](textV.png) | [addVerticalTextPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
 | ![Afbeelding](picture.png) | [addPicturePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Grafiek](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Diagram](chart.png) | [addChartPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
 | ![Tabel](table.png) | [addTablePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
 | ![SmartArt](smartart.png) | [addSmartArtPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
 | ![Media](media.png) | [addMediaPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
 | ![Online‑afbeelding](onlineImage.png) | [addOnlineImagePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Het volgende voorbeeld controleert of de **Leeg** lay‑out bestaat, voegt er vier placeholders aan toe, en maakt vervolgens een normale dia die de aangepaste lay‑out gebruikt. De volgorde is opzettelijk: de placeholders worden toegevoegd voordat de normale dia wordt aangemaakt, zodat Aspose.Slides de overeenkomstige placeholder‑vormen op die dia kan genereren.
+Het volgende voorbeeld controleert of de **Leeg**‑indeling bestaat, voegt er vier placeholders aan toe en maakt vervolgens een normale dia die de aangepaste indeling gebruikt. De volgorde is opzettelijk: de placeholders worden toegevoegd vóórdat de normale dia wordt aangemaakt, zodat Aspose.Slides de overeenkomstige placeholder‑vormen op die dia kan genereren.
 
 ```python
 import jpype
@@ -169,15 +173,15 @@ finally:
 
 Het resultaat:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![De placeholders op de indelings‑dia](add_placeholders.png)
 
-{{% alert color="warning" title="Warning" %}}
-Het wijzigen van geërfde opmaak of de geometrie van bestaande lay‑out‑placeholders kan invloed hebben op afhankelijke dia's. Een nieuw toegevoegde lay‑out‑placeholder wordt niet retroactief toegevoegd aan bestaande normale dia's. Test lay‑out‑wijzigingen op een kopie van de presentatie en controleer elke afhankelijke dia.
+{{% alert color="warning" title="Waarschuwing" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande indelings‑placeholders kan afhankelijke dia’s beïnvloeden. Een nieuw toegevoegde indelings‑placeholder wordt niet automatisch aangevuld in bestaande normale dia’s. Test indelingswijzigingen op een kopie van de presentatie en controleer elke afhankelijke dia.
 {{% /alert %}}
 
-## **Verwijder ongebruikte lay‑outdia's**
+## **Verwijder ongebruikte indelings‑dia's**
 
-Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) methode om lay‑outs te verwijderen waar geen enkele normale dia naar verwijst. De methode laat lay‑outs die nog in gebruik zijn onaangeroerd.
+Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides)‑methode om indelingen die door geen normale dia worden gerefereerd te verwijderen. De methode laat indelingen die nog in gebruik zijn ongewijzigd.
 
 ```python
 import jpype
@@ -196,11 +200,13 @@ finally:
     presentation.dispose()
 ```
 
-Om één specifieke lay‑out te verwijderen, gebruik eerst de [hasDependingSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#hasDependingSlides) of [getDependingSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getDependingSlides) methode. Ken eventuele afhankelijke dia's opnieuw toe voordat je [LayoutSlide.remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#remove) aanroept. Een poging om een gebruikte lay‑out te verwijderen resulteert in een [PptxEditException](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pptxeditexception/).
+Om één specifieke indeling te verwijderen, gebruik eerst de [hasDependingSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#hasDependingSlides)‑ of [getDependingSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getDependingSlides)‑methode. Ken alle afhankelijke dia’s opnieuw toe voordat je [LayoutSlide.remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#remove) aanroept. Pogingen om een gebruikte indeling te verwijderen geven een [PptxEditException](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pptxeditexception/) terug.
 
-## **Bestuur de zichtbaarheid van de voettekst op een lay‑outdia**
+## **Stuur de zichtbaarheid van de voettekst op een indelings‑dia**
 
-Een lay‑out heeft zijn eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑placeholders. Gebruik de [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getHeaderFooterManager) methode om die placeholders voor één lay‑out te beheren. Dit is handig wanneer bijvoorbeeld inhoudslay‑outs voetteksten moeten tonen, maar titel‑lay‑outs niet.
+Een indeling heeft eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑placeholders. Gebruik de [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getHeaderFooterManager)‑methode om die placeholders voor één indeling te beheersen. Handig wanneer bijvoorbeeld inhouds‑indelingen footers moeten tonen maar titel‑indelingen niet.
+
+Het volgende voorbeeld selecteert veilig een indeling en maakt de voettekst‑elementen zichtbaar:
 
 ```python
 import jpype
@@ -233,9 +239,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Bestuur de zichtbaarheid van de voettekst op een master en diens onderliggende lay‑outs**
+## **Stuur de zichtbaarheid van de voettekst op een master en de onderliggende indelingen**
 
-Om consistente voettekst‑instellingen toe te passen over een master‑hiërarchie, gebruik je de [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterslide/#getHeaderFooterManager) methode. De propagatiemethoden van [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterslideheaderfootermanager/) werken op de master en zijn afhankelijke lay‑outdia's en normale dia's; ze richten zich niet uitsluitend op één enkele normale dia.
+Om consistente voettekst‑instellingen door een master‑hiërarchie heen toe te passen, gebruik je de [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterslide/#getHeaderFooterManager)‑methode. De propagatiemethoden van [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/python-java/aspose.slides/masterslideheaderfootermanager/) werken op de master en op de afhankelijke indelings‑dia’s en normale dia’s; ze richten zich niet op één enkele normale dia.
 
 ```python
 import jpype
@@ -262,18 +268,18 @@ finally:
 
 ## **FAQ**
 
-**Wat is het verschil tussen een masterdia en een lay‑outdia?**
+**Wat is het verschil tussen een master‑dia en een indelings‑dia?**
 
-Een masterdia definieert het thema en de gedeelde opmaak van de presentatie. Een lay‑outdia behoort tot een master en definieert één herbruikbare rangschikking van placeholders. Normale dia's gebruiken die lay‑outs en slaan dia‑specifieke inhoud op.
+Een master‑dia definieert het thema en de gedeelde opmaak van de presentatie. Een indelings‑dia behoort tot een master en definieert één herbruikbare rangschikking van placeholders. Normale dia’s gebruiken die indelingen en slaan dia‑specifieke inhoud op.
 
-**Kan ik een lay‑outdia van de ene presentatie naar de andere kopiëren?**
+**Kan ik een indelings‑dia van de ene presentatie naar de andere kopiëren?**
 
-Ja. Voeg een kopie toe aan de bestemmingscollectie met de [addClone](https://reference.aspose.com/slides/nl/python-java/aspose.slides/globallayoutslidecollection/#addClone) methode. Bij het kopiëren tussen presentaties moet je ook lettertypen, thema's, afbeeldingen en andere bronnen die door de bron‑lay‑out worden gebruikt verifiëren.
+Ja. Voeg een kopie toe aan de doel‑collectie met de [addClone](https://reference.aspose.com/slides/nl/python-java/aspose.slides/globallayoutslidecollection/#addClone)‑methode. Bij het kopiëren tussen presentaties dien je ook lettertypen, thema’s, afbeeldingen en andere door de bron‑indeling gebruikte bronnen te controleren.
 
-**Wat gebeurt er als ik een al gebruikte lay‑out wijzig?**
+**Wat gebeurt er als ik een indeling wijzig die al in gebruik is?**
 
-Afhankelijke dia's erven de lay‑out‑wijzigingen tenzij ze de betreffende opmaak of objecten lokaal overschrijven. Placeholder‑geometrie en geërfde styling kunnen daardoor op veel dia's tegelijk veranderen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getDependingSlides) om de getroffen dia's te identificeren vóór het bewerken van de lay‑out.
+Afhankelijke dia’s erven de wijzigingen in de indeling, tenzij ze de getroffen opmaak of objecten lokaal hebben overschreven. Placeholder‑geometrie en geërfde styling kunnen daardoor in één keer op veel dia’s veranderen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/layoutslide/#getDependingSlides) om de getroffen dia’s te identificeren vóór je de indeling bewerkt.
 
-**Wat gebeurt er als ik een lay‑out verwijder die nog in gebruik is?**
+**Wat gebeurt er als ik een indeling verwijder die nog in gebruik is?**
 
-Aspose.Slides geeft een [PptxEditException](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pptxeditexception/) fout. Ken eerst de afhankelijke dia's opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) om alleen niet‑gerefereerde lay‑outs te verwijderen.
+Aspose.Slides gooit een [PptxEditException](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pptxeditexception/). Ken eerst de afhankelijke dia’s opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/compress/#removeUnusedLayoutSlides) om alleen niet‑gerefereerde indelingen te verwijderen.

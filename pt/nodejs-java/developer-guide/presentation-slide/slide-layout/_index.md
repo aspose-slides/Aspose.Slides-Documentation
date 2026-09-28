@@ -10,7 +10,7 @@ keywords:
 - marcador de posição
 - design de apresentação
 - design de slide
-- layout não usado
+- layout não utilizado
 - visibilidade do rodapé
 - slide de título
 - título e conteúdo
@@ -29,40 +29,44 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aplicar, criar e modificar layouts de slide no Aspose.Slides para Node.js via Java, adicionar marcadores de posição, remover layouts não usados e controlar a visibilidade do rodapé."
+description: "Aplicar, criar e modificar layouts de slide no Aspose.Slides para Node.js via Java, adicionar marcadores de posição, remover layouts não utilizados e controlar a visibilidade do rodapé."
 ---
-## **Visão Geral**
+## **Visão geral**
 
-Um layout de slide define as posições e a formatação de marcadores de posição, como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout fornece aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
+Um layout de slide define as posições e a formatação de marcadores de posição, como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout confere aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
 
-- **Slide de Título**: Contém marcadores de posição de título e subtítulo.  
-- **Título e Conteúdo**: Contém um marcador de posição de título e um marcador de posição de conteúdo de uso geral.  
-- **Em Branco**: Não contém marcadores de posição de conteúdo e é útil quando cada forma será posicionada manualmente.
+Os layouts mais comuns incluem:
 
-## **Entender Herança de Layout**
+- **Slide de Título**: Contém marcadores de título e subtítulo.
+- **Título e Conteúdo**: Contém um marcador de título e um marcador de conteúdo de uso geral.
+- **Em branco**: Não contém marcadores de conteúdo e é útil quando cada forma será posicionada manualmente.
+
+## **Entender a Herança de Layout**
 
 Uma apresentação tem três níveis relacionados:
 
-1. Um [slide mestre](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslide/) define o tema, a formatação compartilhada, os fundos e objetos comuns.  
-1. Um [slide de layout](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/) pertence a um mestre e define uma disposição particular de marcadores de posição.  
+1. Um [slide mestre](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslide/) define o tema, formatação compartilhada, fundos e objetos comuns.
+1. Um [slide de layout](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/) pertence a um master e define um arranjo particular de marcadores.
 1. Um [slide normal](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slide/) usa um layout e armazena o conteúdo inserido para esse slide.
 
-Um slide normal herda o tema e a formatação de seu layout, e o layout herda do seu mestre. Um valor definido diretamente em um slide normal substitui o valor herdado naquele nível. Quando um slide normal é criado, suas formas de marcador de posição são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores de posição pertence ao slide normal.
+Um slide normal herda o tema e a formatação do seu layout, e o layout herda do seu master. Um valor definido diretamente em um slide normal substitui o valor herdado naquele nível. Quando um slide normal é criado, suas formas de marcador são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores pertence ao slide normal.
 
-Adicione os marcadores de posição necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador de posição a um layout posteriormente não adiciona automaticamente uma forma de marcador de posição correspondente aos slides normais existentes.
+Adicione os marcadores necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador a um layout posteriormente não adiciona automaticamente uma forma de marcador correspondente aos slides normais existentes.
 
 Esse relacionamento tem duas consequências importantes:
 
-- Alterar a formatação herdada ou a geometria dos marcadores de posição existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout que já está em uso, inspecione seus slides dependentes e revise a apresentação resultante.  
-- Um layout que ainda está sendo usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas os layouts não utilizados.
+- Uma alteração na formatação herdada ou na geometria dos marcadores existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout já em uso, verifique seus slides dependentes e revise a apresentação resultante.
+- Um layout que ainda é usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas layouts não utilizados.
 
 Para mais informações sobre o nível superior desta hierarquia, veja [Mestre de Slide](/slides/pt/nodejs-java/slide-master/).
 
+Para ocultar logos herdados ou formas decorativas do master em um slide ou por meio de um layout compartilhado, veja [Controlar a Visibilidade de Gráficos do Mestre](/slides/pt/nodejs-java/slide-master/). O exemplo compara dois slides usando o mesmo master.
+
 ## **Selecionar e Aplicar um Layout de Slide**
 
-Use um valor [SlideLayoutType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidelayouttype/) quando a apresentação segue definições padrão de layout do PowerPoint. Os nomes dos layouts são editáveis pelo usuário e podem ser localizados, portanto a seleção baseada em nome é menos confiável, a menos que você controle o modelo de origem.
+Use um valor [SlideLayoutType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slidelayouttype/) quando a apresentação segue definições padrão de layout do PowerPoint. Nomes de layout são editáveis pelo usuário e podem ser localizados, portanto a seleção baseada em nome é menos confiável a menos que você controle o modelo de origem.
 
-O exemplo a seguir procura por **Título e Conteúdo** no primeiro mestre. Se esse layout não estiver disponível, ele recua deliberadamente para **Em Branco**. A segunda verificação de nulo é necessária porque uma apresentação pode conter apenas layouts personalizados. O layout selecionado é então aplicado ao primeiro slide normal através do método [Slide.setLayoutSlide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+O exemplo a seguir procura por **Título e Conteúdo** no primeiro master. Se esse layout não estiver disponível, ele recua deliberadamente para **Em branco**. A segunda verificação de nulo é necessária porque uma apresentação pode conter apenas layouts personalizados. O layout selecionado é então aplicado ao primeiro slide normal através do método [Slide.setLayoutSlide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slide/#setLayoutSlide).
 
 ```javascript
 var aspose = aspose || {};
@@ -91,13 +95,13 @@ try {
 }
 ```
 
-Alterar o layout de um slide não remove formas comuns adicionadas diretamente ao slide. Contudo, as posições dos marcadores de posição, a formatação herdada e a correspondência entre os marcadores de posição existentes e o novo layout podem mudar, portanto inspecione o resultado ao trocar entre layouts substancialmente diferentes.
+Mudar o layout de um slide não remove as formas normais adicionadas diretamente ao slide. Entretanto, as posições dos marcadores, a formatação herdada e a correspondência entre marcadores existentes e o novo layout podem mudar, portanto inspecione a saída ao alternar entre layouts substancialmente diferentes.
 
 ## **Adicionar um Slide de Layout**
 
-Seleção e criação são operações distintas. O exemplo anterior seleciona um layout existente; ele não cria um. Para criar um layout, chame o método [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) na coleção de layouts do mestre de destino.
+A seleção e a criação são operações distintas. O exemplo anterior seleciona um layout existente; não o cria. Para criar um layout, chame o método [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) na coleção de layouts do master de destino.
 
-O exemplo a seguir sempre adiciona um novo layout **Título e Conteúdo** chamado `Report Title and Content`, e então adiciona um slide normal baseado nele. Os nomes dos layouts devem ser únicos dentro da coleção.
+O exemplo a seguir sempre adiciona um novo layout **Título e Conteúdo** denominado `Report Title and Content`, depois adiciona um slide normal baseado nele. Nomes de layout devem ser únicos dentro da coleção.
 
 ```javascript
 var aspose = aspose || {};
@@ -119,24 +123,24 @@ try {
 
 Adicione um layout somente quando o modelo realmente precisar de outra estrutura reutilizável. Se já existir um layout adequado, selecione e reutilize‑o em vez de criar um duplicado.
 
-## **Adicionar Marcadores de Posição a um Slide de Layout**
+## **Adicionar Marcadores a um Slide de Layout**
 
-O método [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) fornece um [LayoutPlaceholderManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/) para adicionar formas de marcadores de posição a um layout.
+O método [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) fornece um [LayoutPlaceholderManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/) para adicionar formas de marcador a um layout.
 
-| Marcador de Posição do PowerPoint | Método `LayoutPlaceholderManager` |
+| Marcador PowerPoint               | Método `LayoutPlaceholderManager` |
 | --------------------------------- | --------------------------------- |
-| ![Conteúdo](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Conteúdo](content.png)          | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
 | ![Conteúdo (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
-| ![Texto](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
-| ![Texto (Vertical)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
-| ![Imagem](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
-| ![Gráfico](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
-| ![Tabela](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
-| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
-| ![Mídia](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Texto](text.png)                | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Texto (Vertical)](textV.png)    | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Imagem](picture.png)            | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Gráfico](chart.png)             | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabela](table.png)              | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)         | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Mídia](media.png)               | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
 | ![Imagem Online](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-O exemplo a seguir verifica se o layout **Em Branco** existe, adiciona quatro marcadores de posição a ele e então cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores de posição são adicionados antes da criação do slide normal, para que Aspose.Slides possa gerar as formas de marcador de posição correspondentes nesse slide.
+O exemplo a seguir verifica se o layout **Em branco** existe, adiciona quatro marcadores a ele e, em seguida, cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores são adicionados antes da criação do slide normal, para que Aspose.Slides possa gerar as formas de marcador correspondentes naquele slide.
 
 ```javascript
 var aspose = aspose || {};
@@ -167,15 +171,15 @@ try {
 
 O resultado:
 
-![Os marcadores de posição no slide de layout](add_placeholders.png)
+![Os marcadores no slide de layout](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Alterar a formatação herdada ou a geometria dos marcadores de posição de layout existentes pode afetar os slides dependentes. Um marcador de posição de layout recém‑adicionado não é retroalimentado nos slides normais existentes. Teste alterações de layout em uma cópia da apresentação e inspecione cada slide dependente.
+Mudar a formatação herdada ou a geometria dos marcadores de layout existentes pode afetar slides dependentes. Um marcador de layout recém‑adicionado não é retroalimentado nos slides normais existentes. Teste alterações de layout em uma cópia da apresentação e inspecione cada slide dependente.
 {{% /alert %}}
 
 ## **Remover Slides de Layout Não Utilizados**
 
-Use o método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover layouts que nenhum slide normal referencia. O método deixa intactos os layouts que ainda estão em uso.
+Use o método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover layouts que nenhum slide normal referencia. O método mantém intactos os layouts que ainda estão em uso.
 
 ```javascript
 var aspose = aspose || {};
@@ -194,7 +198,7 @@ Para remover um layout específico, primeiro use seu método [hasDependingSlides
 
 ## **Controlar a Visibilidade do Rodapé em um Slide de Layout**
 
-Um layout tem seus próprios marcadores de posição de rodapé, número do slide e data/hora. Use o método [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) para controlar esses marcadores de posição em um layout. Isso é útil quando, por exemplo, layouts de conteúdo devem mostrar rodapés, mas os layouts de título não.
+Um layout tem seus próprios marcadores de rodapé, número de slide e data/hora. Use o método [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) para controlar esses marcadores em um layout. Isso é útil quando, por exemplo, layouts de conteúdo devem exibir rodapés, mas layouts de título não.
 
 O exemplo a seguir seleciona um layout com segurança e torna seus elementos de rodapé visíveis:
 
@@ -230,9 +234,9 @@ try {
 }
 ```
 
-## **Controlar a Visibilidade do Rodapé em um Mestre e Seus Layouts Filhos**
+## **Controlar a Visibilidade do Rodapé em um Master e Seus Layouts Filhos**
 
-Para aplicar configurações de rodapé consistentes em toda a hierarquia de mestre, use o método [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Os métodos de propagação de [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslideheaderfootermanager/) operam no mestre e em seus slides de layout e slides normais dependentes; eles não visam apenas um slide normal.
+Para aplicar configurações de rodapé consistentes em toda a hierarquia de master, use o método [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Os métodos de propagação de [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslideheaderfootermanager/) operam sobre o master e seus slides de layout dependentes e slides normais; eles não visam apenas um slide normal.
 
 ```javascript
 var aspose = aspose || {};
@@ -253,20 +257,20 @@ try {
 }
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Qual é a diferença entre um slide mestre e um slide de layout?**
+**Qual é a diferença entre um Master Slide e um Layout Slide?**
 
-Um slide mestre define o tema da apresentação e a formatação compartilhada. Um slide de layout pertence a um mestre e define uma disposição reutilizável de marcadores de posição. Slides normais usam esses layouts e armazenam o conteúdo específico de cada slide.
+Um master slide define o tema da apresentação e a formatação compartilhada. Um layout slide pertence a um master e define um arranjo reutilizável de marcadores. Slides normais usam esses layouts e armazenam conteúdo específico de cada slide.
 
-**Posso copiar um slide de layout de uma apresentação para outra?**
+**Posso copiar um Layout Slide de uma apresentação para outra?**
 
-Sim. Adicione uma cópia à coleção de destino com o método [addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Ao copiar entre apresentações, verifique também fontes, temas, imagens e outros recursos usados pelo layout de origem.
+Sim. Adicione uma cópia à coleção de destino usando o método [addClone](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Ao copiar entre apresentações, também verifique fontes, temas, imagens e outros recursos usados pelo layout de origem.
 
 **O que acontece quando modifico um layout que já está em uso?**
 
-Slides dependentes herdam as alterações do layout, a menos que sobrescrevam a formatação ou objetos afetados localmente. A geometria dos marcadores de posição e o estilo herdado podem, portanto, mudar em muitos slides de uma vez. Use [getDependingSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) para identificar os slides afetados antes de editar o layout.
+Slides dependentes herdam as alterações do layout, a menos que substituam a formatação ou objetos afetados localmente. A geometria dos marcadores e o estilo herdado podem, portanto, mudar em vários slides de uma vez. Use [getDependingSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) para identificar os slides afetados antes de editar o layout.
 
 **O que acontece se eu remover um layout que ainda está em uso?**
 
-Aspose.Slides lança uma [PptxEditException](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover apenas os layouts não referenciados.
+O Aspose.Slides lança uma [PptxEditException](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) para remover apenas os layouts não referenciados.

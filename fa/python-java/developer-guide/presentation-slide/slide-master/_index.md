@@ -8,10 +8,10 @@ keywords:
 - اسلاید مستر
 - اسلاید مستر
 - اسلاید مستر PPT
-- اسلاید مسترهای متعدد
-- مقایسه اسلاید مسترها
+- اسلایدهای مستر متعدد
+- مقایسه اسلایدهای مستر
 - پس‌زمینه
-- نگهدارنده
+- محل‌دار
 - کلون اسلاید مستر
 - کپی اسلاید مستر
 - تکثیر اسلاید مستر
@@ -22,35 +22,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "مدیریت اسلاید مسترها در Aspose.Slides برای پایتون از طریق جاوا: دسترسی، ویرایش، کلون، مقایسه و حذف اسلاید مسترها در ارائه‌های PowerPoint و OpenDocument."
+description: "مدیریت اسلاید مسترها در Aspose.Slides برای پایتون از طریق جاوا: دسترسی، ویرایش، کلون، مقایسه و حذف اسلایدهای مستر در ارائه‌های PowerPoint و OpenDocument."
 ---
 ## **نمای کلی**
 
-یک **slide master** تنظیمات طراحی مشترک برای یک گروه از اسلایدها را تعریف می‌کند. می‌تواند شامل اشکال عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متنی، تنظیمات قالب و تنظیمات پاورقی باشد. در PowerPoint، ویرایش یک slide master رایج‌ترین روش برای حفظ یکپارچگی ارائه بدون تکرار همان فرمت‌بندی در هر اسلاید است.
+یک **slide master** تنظیمات طراحی مشترک را برای گروهی از اسلایدها تعریف می‌کند. می‌تواند شامل اشکال عمومی، لوگوها، پس‌زمینه‌ها، سبک‌های متن، تنظیمات تم و تنظیمات پاورقی باشد. در PowerPoint، ویرایش یک slide master معمول‌ترین روش برای حفظ سازگاری ارائه بدون تکرار قالب‌بندی یکسان در هر اسلاید است.
 
-Aspose.Slides for Python via Java از همین مدل پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند master slide داشته باشد و هر master slide می‌تواند چندین layout slide را شامل شود. اسلایدهای معمولی معمولاً مستقیماً به یک master slide ارجاع نمی‌دهند. در عوض، یک اسلاید معمولی از یک layout slide استفاده می‌کند و آن layout slide متعلق به یک master slide است.
+Aspose.Slides برای Python از طریق Java از همین مدل پشتیبانی می‌کند. یک ارائه می‌تواند یک یا چند اسلاید مستر داشته باشد و هر اسلاید مستر می‌تواند چندین اسلاید لِی‌آوت داشته باشد. اسلایدهای معمولی معمولاً مستقیماً به اسلاید مستر ارجاع نمی‌دهند. در عوض، یک اسلاید معمولی از یک اسلاید لِی‌آوت استفاده می‌کند که آن لِی‌آوت به یک اسلاید مستر تعلق دارد.
 
-سلسله‌مراتب به این صورت است:
+ساختار به صورت زیر است:
 
-1. **Slide master** – تنظیمات طراحی و قالب مشترک را تعریف می‌کند.  
-1. **Layout slide** – چینش خاصی از نگهدارنده‌ها و قالب‌بندی سطح layout را تعیین می‌کند.  
-1. **Normal slide** – محتوای واقعی ارائه را در بر می‌گیرد و از یک layout slide استفاده می‌کند.
+1. **Slide master** - طراحی و تم مشترک را تعریف می‌کند.  
+1. **Layout slide** - چینش خاصی از جای‌دارهای محتوا و قالب‌بندی سطح لِی‌آوت را تعریف می‌کند.  
+1. **Normal slide** - محتوای واقعی ارائه را در بر دارد و از یک اسلاید لِی‌آوت استفاده می‌کند.
 
 ![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
 
-در Aspose.Slides، یک slide master توسط کلاس [MasterSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/) نمایندگی می‌شود. تمام master slideهای موجود در یک ارائه از طریق مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getMasters) در دسترس هستند که توسط [MasterSlideCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslidecollection/) نمایندگی می‌شود.
+در Aspose.Slides، یک slide master توسط کلاس [MasterSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/) نمایش داده می‌شود. همه اسلایدهای مستر در یک ارائه از طریق مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getMasters) در دسترس هستند که توسط [MasterSlideCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslidecollection/) نمایان می‌شود.
 
 {{% alert color="info" title="Inheritance" %}}
-زمانی که یک ویژگی در بیش از یک سطح تعریف شود، سطح خاص‌تر برتری دارد. به عنوان مثال، اگر یک master slide و یک layout slide هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهای مبتنی بر آن layout از پس‌زمینه layout استفاده می‌کنند. برای اطلاعات بیشتر درباره layout slideها، به صفحه [Apply or Change Slide Layouts](/slides/fa/python-java/slide-layout/) مراجعه کنید.
+زمانی که یک ویژگی در بیش از یک سطح تعریف شده باشد، سطح خاص‌تر برتری دارد. برای مثال، اگر یک اسلاید مستر و یک اسلاید لِی‌آوت هر دو پس‌زمینه‌ای تعریف کنند، اسلایدهایی که بر پایه آن لِی‌آوت هستند از پس‌زمینه لِی‌آوت استفاده می‌کنند. برای اطلاعات بیشتر درباره اسلایدهای لِی‌آوت، به [Apply or Change Slide Layouts](/slides/fa/python-java/slide-layout/) مراجعه کنید.
 {{% /alert %}}
 
 ## **دسترسی به Slide Masters**
 
-در PowerPoint، می‌توانید نمای Slide Master را از **View** > **Slide Master** باز کنید.
+در PowerPoint می‌توانید نمای Slide Master را از **View** > **Slide Master** باز کنید.
 
 ![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
 
-در Aspose.Slides، برای دسترسی به master slideها از مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getMasters) استفاده کنید:
+در Aspose.Slides، برای دسترسی به اسلایدهای مستر از مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getMasters) استفاده کنید:
 
 ```python
 import jpype
@@ -73,7 +73,7 @@ finally:
     presentation.dispose()
 ```
 
-همچنین می‌توانید master slideی که یک اسلاید معمولی از آن استفاده می‌کند را از طریق layout آن به دست آورید:
+همچنین می‌توانید اسلاید مستری که یک اسلاید معمولی از طریق لِی‌آوت خود استفاده می‌کند را به دست آورید:
 
 ```python
 import jpype
@@ -96,26 +96,26 @@ finally:
     presentation.dispose()
 ```
 
-## **محتویات یک Slide Master**
+## **محتوای یک Slide Master**
 
-یک master slide یک شیء شبیه اسلاید است. از [BaseSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/) ارث‌بری می‌کند، بنابراین بسیاری از ویژگی‌های اسلایدی که توسط اسلایدهای معمولی و layout استفاده می‌شود را در اختیار دارد. اعضای مخصوص master در صفحه API [MasterSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/) لیست شده‌اند.
+یک اسلاید مستر یک شیء شبیه اسلاید است. این شیء از [BaseSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/) به ارث می‌برد، بنابراین بسیاری از ویژگی‌های اسلاید که توسط اسلایدهای معمولی و لِی‌آوت استفاده می‌شود را نشان می‌دهد. اعضای خاص مستر در صفحه API [MasterSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/) فهرست شده‌اند.
 
-اعضای معمولاً استفاده‌شده master slide عبارتند از:
+عضوهای معمولاً استفاده‌شدهٔ اسلاید مستر شامل:
 
 | Member | Purpose |
 | --- | --- |
-| [getBackground](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getBackground) | تنظیم پس‌زمینه اسلاید در سطح master. |
-| [getShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getShapes) | اشکالی که بر روی master قرار گرفته‌اند مانند لوگوها، فریم‌های تصویری و متن‌های مشترک را ذخیره می‌کند. |
-| [getLayoutSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getLayoutSlides) | layout slideهایی را که به این master تعلق دارند نگه می‌دارد. |
-| [getThemeManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getThemeManager) | دسترسی به APIهای قالب master را فراهم می‌کند. |
-| [getHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | کنترل سرصفحه‌ها، پاورقی‌ها، تاریخ‌ها و شماره اسلایدها برای master و layoutهای فرزند آن. |
-| [getDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getDependingSlides) | اسلایدهای معمولی که از طریق layoutهای خود به این master وابسته‌اند را باز می‌گرداند. |
+| [getBackground](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getBackground) | تنظیم پس‌زمینهٔ سطح مستر اسلاید. |
+| [getShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getShapes) | نگهداری اشکالی که روی مستر قرار گرفته‌اند، مانند لوگوها، قاب‌های تصویر و متن‌های مشترک. |
+| [getLayoutSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getLayoutSlides) | نگهداری اسلایدهای لِی‌آوتی که به مستر تعلق دارند. |
+| [getThemeManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getThemeManager) | دسترسی به APIهای تم مستر. |
+| [getHeaderFooterManager](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getHeaderFooterManager) | کنترل سرصفحه، پاورقی، تاریخ و شماره اسلاید برای مستر و لِی‌آوت‌های فرزند آن. |
+| [getDependingSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getDependingSlides) | بازگرداندن اسلایدهای معمولی که از طریق لِی‌آوت‌های خود به مستر وابسته‌اند. |
 
-## **افزودن تصویر به Slide Master**
+## **افزودن تصویر به یک Slide Master**
 
-زمانی که تصویری به یک master slide اضافه می‌کنید، بر روی اسلایدهایی که از layoutهای آن master استفاده می‌کنند نمایش داده می‌شود. این ویژگی برای لوگوها، واترمارک‌ها، نوارهای تزئینی و سایر عناصر بصری تکراری مفید است.
+هنگامی که یک تصویر را به یک اسلاید مستر اضافه می‌کنید، در اسلایدهایی که از لِی‌آوت‌های آن مستر استفاده می‌کنند ظاهر می‌شود. این کار برای لوگوها، واترمارک‌ها، باندهای تزئینی و سایر عناصر بصری تکراری مفید است.
 
-مثال زیر یک لوگو را به اولین master slide اضافه می‌کند:
+مثال زیر یک لوگو را به اولین اسلاید مستر اضافه می‌کند:
 
 ```python
 import jpype
@@ -141,17 +141,77 @@ finally:
     presentation.dispose()
 ```
 
-برای اطلاعات بیشتر درباره فریم‌های تصویری، به صفحه [Picture Frame](/slides/fa/python-java/picture-frame/) مراجعه کنید.
+برای اطلاعات بیشتر دربارهٔ قاب‌های تصویر، به [Picture Frame](/slides/fa/python-java/picture-frame/) مراجعه کنید.
+
+## **کنترل نمایش گرافیک‌های مستر**
+
+از [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#setShowMasterShapes) استفاده کنید تا گرافیک‌های ارث‌برگرفتهٔ مستر مانند لوگوها یا اشکال تزئینی را بدون حذف آن‌ها از مستر مخفی کنید. مقدار `False` را به [Slide.setShowMasterShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/#setShowMasterShapes) در اسلایدی که باید این گرافیک‌ها حذف شوند بدهید و روی اسلایدهایی که باید نمایش داده شوند مقدار `True` بگذارید.
+
+مثال زیر یک باند تزئینی آبی روی یک مستر و دو اسلاید که از همان لِی‌آوت خالی استفاده می‌کنند، ایجاد می‌کند. باند در اسلاید اول قابل مشاهده و در اسلاید دوم مخفی است. نیازی به ارائه یا تصویر ورودی نیست.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+این مثال از لِی‌آوت **Blank** موجود در یک ارائهٔ جدید استفاده می‌کند و جای‌دارهای اسلاید اولیه را حذف می‌کند.
+
+### **انتخاب دامنهٔ تنظیم**
+
+یک اسلاید معمولی از طریق [Slide.getLayoutSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slide/#getLayoutSlide) و [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#getMasterSlide) به مستر خود دسترسی پیدا می‌کند. تنظیم این ویژگی روی یک اسلاید منفرد تنها بر همان اسلاید تأثیر می‌گذارد. مقدار `False` را به [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/layoutslide/#setShowMasterShapes) پاس دادن گرافیک‌های مستر را برای اسلایدهایی که از همان لِی‌آوت مشترک استفاده می‌کنند مخفی می‌کند، حتی اگر تنظیم خودشان `True` باشد. برای مخفی کردن گرافیک فقط در یک اسلاید، ویژگی اسلاید را تغییر دهید و لِی‌آوت مشترک را دست‌نخورده بگذارید.
+
+این تنظیم به‌عنوان کنترل قابلیت نمایش بر روی خود اسلاید مستر پشتیبانی نمی‌شود. در یک مستر، [getShowMasterShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#getShowMasterShapes) همیشه `False` برمی‌گرداند و پاس دادن `True` به [setShowMasterShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslide/#setShowMasterShapes) استثنائی ایجاد می‌کند. آن را بر روی یک اسلاید معمولی یا یک لِی‌آوت اعمال کنید.
+
+### **تمایز گرافیک‌ها از پس‌زمینه**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | کنترل نمایش اشکال ارث‌برگرفتهٔ مستر بدون حذف یا تغییر اشکال خود اسلاید. |
+| Change the slide background fill | تغییر رنگ، گرادیانت یا تصویر پس‌زمینه. گرافیک‌های مستر اشکال جداگانه‌ای هستند و می‌توانند بر روی آن پس‌زمینه دیده شوند. به [Presentation Background](/slides/fa/python-java/presentation-background/) مراجعه کنید. |
+| Delete a shape from the master | حذف شکل منبع مشترک، به‌طوری که دیگر برای هیچ اسلایدی که از آن مستر استفاده می‌کند در دسترس نباشد. |
 
 ## **کار با Placeholders**
 
-Placeholders عموماً در layout slideها تعریف می‌شوند. master slide سبک و قالب مشترکی را که layoutها از آن ارث می‌برند فراهم می‌کند، در حالی که هر layout تصمیم می‌گیرد کدام placeholders در دسترس هستند و در کجا قرار می‌گیرند.
+Placeholders معمولاً در اسلایدهای لِی‌آوت تعریف می‌شوند. اسلاید مستر سبک و تم مشترکی را که این لِی‌آوت‌ها ارث می‌برند، فراهم می‌کند، در حالی که هر لِی‌آوت تصمیم می‌گیرد کدام Placeholders در دسترس هستند و کجا قرار می‌گیرند.
 
-در PowerPoint، فرمان‌های placeholder در نمای Slide Master موجود هستند.
+در PowerPoint، فرمان‌های Placeholder در نمای Slide Master موجود است.
 
 ![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
 
-برای افزودن placeholders جدید با Aspose.Slides، به layout slideی که به master تعلق دارد کار کنید:
+برای افزودن Placeholders جدید با Aspose.Slides، با اسلاید لِی‌آوتی که به مستر تعلق دارد کار کنید:
 
 ```python
 import jpype
@@ -178,7 +238,7 @@ finally:
     presentation.dispose()
 ```
 
-همچنین می‌توانید شکل‌های placeholderی که از پیش بر روی master slide وجود دارند را قالب‌بندی کنید. مثال زیر placeholder عنوان را پیدا می‌کند و یک پرکن خطی گرادیان اعمال می‌نماید:
+همچنین می‌توانید اشکال Placeholder که قبلاً روی یک اسلاید مستر وجود دارند را قالب‌بندی کنید. مثال زیر Placeholder عنوان را پیدا کرده و یک پر کردن گرادیان خطی اعمال می‌کند:
 
 ```python
 import jpype
@@ -218,11 +278,11 @@ finally:
 
 ![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-برای گزینه‌های بیشتر مربوط به placeholders و قالب‌بندی متن، به صفحات [Set Prompt Text in Placeholder](/slides/fa/python-java/manage-placeholder/) و [Text Formatting](/slides/fa/python-java/text-formatting/) مراجعه کنید.
+برای گزینه‌های بیشتر مربوط به Placeholder و قالب‌بندی متن، به [Set Prompt Text in Placeholder](/slides/fa/python-java/manage-placeholder/) و [Text Formatting](/slides/fa/python-java/text-formatting/) مراجعه کنید.
 
-## **تغییر پس‌زمینه Slide Master**
+## **تغییر پس‌زمینهٔ یک Slide Master**
 
-یک پس‌زمینه master توسط layoutها و اسلایدهایی که آن را بازنویسی نمی‌کنند، به ارث می‌رسد. مثال زیر رنگ پس‌زمینه‌ی جامد را برای اولین master slide تنظیم می‌کند:
+پس‌زمینهٔ مستر توسط لِی‌آوت‌ها و اسلایدهایی که آن را بازنویسی نمی‌کنند، به ارث می‌رسد. مثال زیر یک رنگ پس‌زمینهٔ ثابت برای اولین اسلاید مستر تنظیم می‌کند:
 
 ```python
 import jpype
@@ -249,11 +309,11 @@ finally:
     presentation.dispose()
 ```
 
-برای موضوعات مرتبط، به صفحات [Presentation Background](/slides/fa/python-java/presentation-background/) و [Presentation Theme](/slides/fa/python-java/presentation-theme/) نگاهی بیندازید.
+برای موضوعات مرتبط، به [Presentation Background](/slides/fa/python-java/presentation-background/) و [Presentation Theme](/slides/fa/python-java/presentation-theme/) مراجعه کنید.
 
-## **کلون کردن یک Slide Master به ارائه دیگر**
+## **کلون کردن یک Slide Master به ارائه‌ای دیگر**
 
-از متد [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslidecollection/#addClone) برای کپی یک master slide به یک ارائه دیگر استفاده کنید. master کپی‌شده سپس می‌تواند توسط layoutها و اسلایدهای موجود در ارائه مقصد استفاده شود.
+از [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslidecollection/#addClone) برای کپی یک اسلاید مستر به یک ارائهٔ دیگر استفاده کنید. مستر کپی‌شده سپس می‌تواند توسط لِی‌آوت‌ها و اسلایدهای مقصد استفاده شود.
 
 ```python
 import jpype
@@ -276,15 +336,15 @@ finally:
     destination_presentation.dispose()
 ```
 
-اگر نیاز دارید اسلایدهای معمولی را به همراه master آن‌ها کلون کنید، به صفحه [Clone Slides](/slides/fa/python-java/clone-slides/) مراجعه کنید.
+اگر نیاز دارید اسلایدهای معمولی را همراه با مسترشان کلون کنید، به [Clone Slides](/slides/fa/python-java/clone-slides/) مراجعه کنید.
 
-## **افزودن چندین Slide Master**
+## **اضافه‌کردن چند Slide Master**
 
-یک ارائه می‌تواند شامل چندین master slide باشد. این ویژگی زمانی مفید است که بخش‌های مختلف نیاز به برندینگ، ساختار صفحه یا تنظیمات قالب متفاوتی داشته باشند.
+یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. این برای بخش‌های مختلف که نیاز به برندینگ، ساختار صفحه یا تنظیمات تم متفاوتی دارند مفید است.
 
 ![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
 
-مثال زیر master پیش‌فرض را کلون می‌کند، به کلون پس‌زمینه‌ای متفاوت می‌دهد، یک layout تحت آن master کلون‌شده ایجاد می‌کند و سپس اسلایدی جدید بر پایه آن layout اضافه می‌نماید:
+مثال زیر مستر پیش‌فرض را کلون می‌کند، به کلون پس‌زمینهٔ متفاوتی می‌دهد، یک لِی‌آوت تحت آن مستر کلون‌شده ایجاد می‌کند و یک اسلاید جدید بر پایهٔ آن لِی‌آوت اضافه می‌کند:
 
 ```python
 import jpype
@@ -321,7 +381,7 @@ finally:
 
 ## **مقایسه Slide Masters**
 
-Slide masterها می‌توانند با متد [equals](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#equals) که از [BaseSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/) به ارث می‌برد، مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به فرد مانند slide ID یا مقادیر پویا مانند تاریخ فعلی در مقایسه درنظر گرفته نمی‌شوند.
+اسلایدهای مستر می‌توانند با استفاده از متد [equals](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#equals) که از [BaseSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/) به ارث می‌رسد، مقایسه شوند. این مقایسه ساختار و محتوای ثابت مانند اشکال، متن، قالب‌بندی، انیمیشن‌ها و سایر تنظیمات اسلاید را بررسی می‌کند. شناسه‌های منحصر به فرد مانند شناسه‌های اسلاید یا مقادیر پویا مانند تاریخ جاری در مقایسه در نظر گرفته نمی‌شوند.
 
 ```python
 import jpype
@@ -351,11 +411,11 @@ finally:
     second_presentation.dispose()
 ```
 
-برای اطلاعات بیشتر، به صفحه [Compare Presentation Slides](/slides/fa/python-java/compare-slides/) مراجعه کنید.
+برای اطلاعات بیشتر، به [Compare Presentation Slides](/slides/fa/python-java/compare-slides/) مراجعه کنید.
 
 ## **تنظیم Slide Master View به عنوان نمای پیش‌فرض**
 
-از متد [setLastView](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#setLastView) در کلاس [ViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/) برای کنترل نمایی که PowerPoint ابتدا باز می‌کند، استفاده کنید. مثال زیر ارائه را در نمای Slide Master باز می‌کند:
+از متد [setLastView](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#setLastView) بر روی [ViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/) استفاده کنید تا نمایی که PowerPoint ابتدا باز می‌کند کنترل شود. مثال زیر ارائه را در نمای Slide Master باز می‌کند:
 
 ```python
 import jpype
@@ -374,13 +434,13 @@ finally:
     presentation.dispose()
 ```
 
-برای تنظیمات بیشتر نمایی، به صفحه [Save Presentation](/slides/fa/python-java/save-presentation/) نگاه کنید.
+برای تنظیمات نمای بیشتر، به [Save Presentation](/slides/fa/python-java/save-presentation/) مراجعه کنید.
 
 ## **حذف Slide Masterهای استفاده‌نشده**
 
-گاهی ارائه‌ها شامل master slideهایی می‌شوند که دیگر توسط هیچ اسلاید معمولی استفاده نمی‌شوند. حذف masterهای استفاده‌نشده می‌تواند حجم فایل را کاهش داده و نگهداری قالب را ساده‌تر کند.
+گاهی اوقات ارائه‌ها شامل اسلایدهای مستری می‌شوند که دیگر توسط هیچ اسلاید معمولی استفاده نمی‌شوند. حذف مسترهای استفاده‌نشده می‌تواند اندازهٔ فایل را کاهش دهد و نگهداری قالب را ساده‌تر کند.
 
-از متد [removeUnused](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslidecollection/#removeUnused) برای حذف masterهای استفاده‌نشده از مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getMasters) استفاده کنید:
+از [removeUnused](https://reference.aspose.com/slides/fa/python-java/aspose.slides/masterslidecollection/#removeUnused) برای حذف مسترهای استفاده‌نشده از مجموعه [Presentation.getMasters](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getMasters) استفاده کنید:
 
 ```python
 import jpype
@@ -399,7 +459,7 @@ finally:
     presentation.dispose()
 ```
 
-همچنین می‌توانید از متد کم‌کد [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/compress/#removeUnusedMasterSlides) بهره ببرید:
+همچنین می‌توانید از متد کم‌کد [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/compress/#removeUnusedMasterSlides) استفاده کنید:
 
 ```python
 import jpype
@@ -418,20 +478,20 @@ finally:
     presentation.dispose()
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**تفاوت بین slide master و layout slide چیست؟**
+**تفاوت اسلاید مستر و اسلاید لِی‌آوت چیست؟**
 
-یک slide master تنظیمات طراحی مشترکی مانند قالب، پس‌زمینه، اشکال عمومی و سبک‌های متنی را تعریف می‌کند. یک layout slide به یک master slide تعلق دارد و چینش خاصی از placeholders را تعیین می‌کند. یک اسلاید معمولی از یک layout slide استفاده می‌کند، بنابراین از هر دو layout و master ارث می‌برد.
+یک اسلاید مستر تنظیمات طراحی مشترکی مانند تم، پس‌زمینه، اشکال عمومی و سبک‌های متن را تعریف می‌کند. یک اسلاید لِی‌آوت به یک اسلاید مستر تعلق دارد و چینش خاصی از جای‌دارها را تعیین می‌کند. یک اسلاید معمولی از یک اسلاید لِی‌آوت استفاده می‌کند، بنابراین از هر دو لِی‌آوت و مستر ارث می‌برد.
 
-**آیا یک ارائه می‌تواند چندین slide master داشته باشد؟**
+**آیا یک ارائه می‌تواند چندین اسلاید مستر داشته باشد؟**
 
-بله. یک ارائه می‌تواند چندین slide master داشته باشد. هنگامی که بخش‌های مختلف نیاز به سیستم‌های بصری یا برندینگ متفاوتی دارند، از masterهای متعدد استفاده کنید.
+بله. یک ارائه می‌تواند چندین اسلاید مستر داشته باشد. از مسترهای متعدد زمانی استفاده کنید که بخش‌های مختلف به سیستم‌های بصری یا برندینگ متفاوتی نیاز دارند.
 
-**آیا باید placeholders را به master slide یا layout slide اضافه کنم؟**
+**آیا باید Placeholders را به اسلاید مستر یا اسلاید لِی‌آوت اضافه کنم؟**
 
-در اکثر موارد، placeholders را به layout slideها اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های مشترک را بر روی master slide قرار دهید و سپس placeholders محتوا را بر روی layoutهایی که اسلایدهای معمولی استفاده می‌کنند، اضافه کنید.
+در اکثر موارد Placeholders را به اسلایدهای لِی‌آوت اضافه کنید. عناصر بصری مشترک و قالب‌بندی‌های مشترک را در اسلاید مستر قرار دهید و سپس Placeholders محتوا را در لِی‌آوت‌هایی که اسلایدهای معمولی استفاده می‌کنند، بگذارید.
 
-**آیا می‌توانم یک master slide که هنوز استفاده می‌شود را حذف کنم؟**
+**آیا می‌توانم یک اسلاید مستر که هنوز استفاده می‌شود را حذف کنم؟**
 
-نه. یک master slide که اسلایدهای وابسته دارد، نمی‌تواند به‌صورت مستقیم حذف شود. ابتدا آن اسلایدها را به layoutهای تحت master دیگری منتقل کنید یا از روش پاک‌سازی masterهای استفاده‌نشده که تنها masterهای بدون استفاده را حذف می‌کند، استفاده کنید.
+خیر. یک اسلاید مستر که اسلایدهای وابسته دارد، به‌صورت مستقیم نمی‌تواند به‌صورت ایمن حذف شود. ابتدا آن اسلایدها را به لِی‌آوت‌های تحت مستر دیگری منتقل کنید یا از روش پاک‌سازی مسترهای استفاده‌نشده که فقط مسترهای غیرقابل استفاده را حذف می‌کند، استفاده کنید.

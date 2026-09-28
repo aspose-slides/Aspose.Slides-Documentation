@@ -7,14 +7,14 @@ url: /vi/net/slide-layout/
 keywords:
 - bố cục slide
 - bố cục nội dung
-- trình giữ chỗ
-- thiết kế bản trình bày
+- placeholder
+- thiết kế bài thuyết trình
 - thiết kế slide
 - bố cục không sử dụng
 - hiển thị footer
 - slide tiêu đề
 - tiêu đề và nội dung
-- đầu mục phần
+- tiêu đề phần
 - hai nội dung
 - so sánh
 - chỉ tiêu đề
@@ -25,46 +25,48 @@ keywords:
 - tiêu đề dọc và văn bản
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - C#
 - .NET
 - Aspose.Slides
-description: "Áp dụng, tạo và sửa đổi bố cục slide trong Aspose.Slides cho .NET, thêm trình giữ chỗ, xóa bố cục không sử dụng và kiểm soát hiển thị footer."
+description: "Áp dụng, tạo và sửa đổi bố cục slide trong Aspose.Slides cho .NET, thêm placeholder, xóa các bố cục không sử dụng và kiểm soát hiển thị footer."
 ---
 ## **Tổng quan**
 
-Bố cục slide xác định vị trí và định dạng của các placeholder như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán trong khi cho phép mỗi slide chứa nội dung riêng của nó.
+Bố cục slide xác định vị trí và định dạng của các placeholder như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán đồng thời cho phép mỗi slide chứa nội dung riêng của nó.
 
 Các bố cục phổ biến nhất bao gồm:
 
 - **Title Slide**: Chứa các placeholder tiêu đề và phụ đề.
-- **Title and Content**: Chứa một placeholder tiêu đề và một placeholder nội dung chung.
-- **Blank**: Không chứa placeholder nội dung nào và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
+- **Title and Content**: Chứa một placeholder tiêu đề và một placeholder nội dung đa mục đích.
+- **Blank**: Không chứa placeholder nội dung và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
 
-## **Hiểu về Kế thừa Bố cục**
+## **Hiểu về kế thừa bố cục**
 
-Một bản trình bày có ba cấp độ liên quan:
+Một bản trình chiếu có ba cấp độ liên quan:
 
 1. Một [master slide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/) xác định chủ đề, định dạng chung, nền và các đối tượng chung.
 2. Một [layout slide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/) thuộc về một master và xác định một sắp xếp cụ thể của các placeholder.
 3. Một [normal slide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/) sử dụng một bố cục và lưu trữ nội dung đã nhập cho slide đó.
 
-Một normal slide kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục kế thừa từ master của nó. Giá trị được đặt trực tiếp trên một normal slide sẽ ghi đè giá trị kế thừa ở cấp độ đó. Khi một normal slide được tạo, các shape placeholder của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các placeholder đó thuộc về normal slide.
+Slide thường kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục kế thừa từ master. Giá trị được đặt trực tiếp trên slide thường sẽ ghi đè giá trị được kế thừa ở cấp độ đó. Khi một slide thường được tạo, các hình dạng placeholder của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các placeholder đó thuộc về slide thường.
 
-Thêm các placeholder cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một placeholder khác vào bố cục sau này sẽ không tự động thêm shape placeholder tương ứng vào các normal slide đã tồn tại.
+Thêm các placeholder cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một placeholder khác vào bố cục sau này sẽ không tự động thêm hình dạng placeholder tương ứng vào các slide thường đã tồn tại.
 
-Mối quan hệ này có hai hậu quả quan trọng:
+Mối quan hệ này có hai hệ quả quan trọng:
 
-- Thay đổi định dạng kế thừa hoặc hình học của các placeholder hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bản trình bày kết quả.
-- Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Đầu tiên hãy gán lại các slide phụ thuộc của nó sang một bố cục khác, hoặc chỉ xóa các bố cục không được sử dụng.
+- Thay đổi định dạng kế thừa hoặc hình học placeholder hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem xét bản trình chiếu kết quả.
+- Một bố cục đang được một slide sử dụng không thể bị xóa. Hãy gán lại các slide phụ thuộc của nó sang một bố cục khác trước, hoặc chỉ xóa các bố cục không được sử dụng.
 
-Để biết thêm thông tin về cấp cao nhất của cấu trúc này, xem [Slide Master](/slides/vi/net/slide-master/).
+Để biết thêm thông tin về cấp độ cao nhất của cấu trúc này, xem [Slide Master](/slides/vi/net/slide-master/).
 
-## **Chọn và Áp dụng Bố cục Slide**
+Để ẩn logo kế thừa hoặc các hình dạng master trang trí trên một slide hoặc thông qua một bố cục chung, xem [Control the Visibility of Master Graphics](/slides/vi/net/slide-master/). Ví dụ so sánh hai slide sử dụng cùng một master.
 
-Sử dụng kiểu bố cục khi bản trình bày tuân theo các định nghĩa bố cục tiêu chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được địa phương hoá, do đó việc chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+## **Chọn và áp dụng một bố cục slide**
 
-Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không khả dụng, nó sẽ cố ý chuyển sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình bày có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua thuộc tính [ISlide.LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/layoutslide/).
+Sử dụng loại bố cục khi bản trình chiếu tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được bản địa hoá, vì vậy việc chọn dựa trên tên ít tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không có, nó cố ý chuyển sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình chiếu có thể chỉ chứa các bố cục tùy chỉnh. Bố cục được chọn sau đó được áp dụng cho slide thường đầu tiên thông qua thuộc tính [ISlide.LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/layoutslide/).
 
 ```csharp
 using System;
@@ -85,13 +87,13 @@ presentation.Slides[0].LayoutSlide = targetLayout;
 presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-Thay đổi bố cục của một slide không loại bỏ các shape thông thường đã được thêm trực tiếp vào slide. Tuy nhiên, vị trí placeholder, định dạng kế thừa và sự tương ứng giữa các placeholder hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra đầu ra khi chuyển đổi giữa các bố cục khác nhau đáng kể.
+Thay đổi bố cục của một slide không xóa các hình dạng thông thường đã được thêm trực tiếp vào slide. Tuy nhiên, vị trí placeholder, định dạng kế thừa và sự tương ứng giữa các placeholder hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra kết quả khi chuyển đổi giữa các bố cục khác nhau đáng kể.
 
-## **Thêm Layout Slide**
+## **Thêm một bố cục slide**
 
-Lựa chọn và tạo mới là các thao tác riêng biệt. Ví dụ trước chọn một bố cục hiện có; nó không tạo mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/vi/net/aspose.slides/masterlayoutslidecollection/add/) trên bộ sưu tập bố cục của master mục tiêu.
+Việc chọn và tạo là các hoạt động riêng biệt. Ví dụ trước chọn một bố cục hiện có; nó không tạo ra một bố cục mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/vi/net/aspose.slides/masterlayoutslidecollection/add/) trên bộ sưu tập bố cục của master mục tiêu.
 
-Ví dụ sau luôn thêm một bố cục **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một normal slide dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
+Ví dụ sau luôn thêm một bố cục **Title and Content** mới có tên `Report Title and Content`, rồi thêm một slide thường dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
 
 ```csharp
 using Aspose.Slides;
@@ -106,26 +108,26 @@ presentation.Slides.AddEmptySlide(reportLayout);
 presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-Chỉ thêm bố cục khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã có một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
+Chỉ thêm một bố cục khi mẫu thực sự cần một cấu trúc có thể tái sử dụng khác. Nếu đã có một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
 
-## **Thêm Placeholder vào Layout Slide**
+## **Thêm Placeholder vào một bố cục slide**
 
 Thuộc tính [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/placeholdermanager/) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutplaceholdermanager/) để thêm các shape placeholder vào một bố cục.
 
-| Placeholder PowerPoint               | `ILayoutPlaceholderManager` Phương thức |
-| ------------------------------------ | --------------------------------------- |
-| ![Content](content.png)              | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
-| ![Content (Vertical)](contentV.png)  | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
-| ![Text](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
-| ![Text (Vertical)](textV.png)        | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
-| ![Picture](picture.png)              | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
-| ![Chart](chart.png)                  | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
-| ![Table](table.png)                  | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
-| ![SmartArt](smartart.png)            | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
-| ![Media](media.png)                  | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
-| ![Online Image](onlineImage.png)     | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
+| Placeholder PowerPoint | Phương thức `ILayoutPlaceholderManager` |
+| ----------------------- | ---------------------------------------- |
+| ![Nội dung](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Nội dung (Dọc)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Văn bản](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Văn bản (Dọc)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Hình ảnh](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Biểu đồ](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Bảng](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Phương tiện](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Hình ảnh trực tuyến](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Ví dụ sau xác nhận rằng bố cục **Blank** tồn tại, thêm bốn placeholder vào nó, và sau đó tạo một normal slide sử dụng bố cục đã chỉnh sửa. Thứ tự này có chủ đích: các placeholder được thêm trước khi normal slide được tạo, để Aspose.Slides có thể tạo các shape placeholder tương ứng trên slide đó.
+Ví dụ sau kiểm tra xem bố cục **Blank** có tồn tại hay không, thêm bốn placeholder vào nó, và sau đó tạo một slide thường sử dụng bố cục đã được sửa đổi. Thứ tự này có ý định: các placeholder được thêm trước khi slide thường được tạo, vì vậy Aspose.Slides có thể tạo các shape placeholder tương ứng trên slide đó.
 
 ```csharp
 using System;
@@ -153,15 +155,15 @@ presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Các placeholder trên layout slide](add_placeholders.png)
+![Các placeholder trên bố cục slide](add_placeholders.png)
 
 {{% alert color="warning" title="Warning" %}}
-Thay đổi định dạng kế thừa hoặc hình học của các placeholder hiện có trên bố cục có thể ảnh hưởng đến các slide phụ thuộc. Một placeholder mới được thêm vào không được tự động bổ sung vào các normal slide đã tồn tại. Hãy thử các thay đổi bố cục trên một bản sao của bản trình bày và kiểm tra mọi slide phụ thuộc.
+Thay đổi định dạng kế thừa hoặc hình học của các placeholder bố cục hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một placeholder bố cục mới được thêm vào sẽ không được tự động đưa vào các slide thường hiện có. Hãy thử các thay đổi bố cục trên một bản sao của bản trình chiếu và kiểm tra mọi slide phụ thuộc.
 {{% /alert %}}
 
-## **Xóa Layout Slides Không sử dụng**
+## **Xóa các bố cục slide không sử dụng**
 
-Sử dụng phương thức [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để xóa các bố cục mà không có normal slide nào tham chiếu. Phương thức sẽ để nguyên các bố cục vẫn đang được sử dụng.
+Sử dụng phương thức [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để xóa các bố cục mà không có slide thường nào tham chiếu. Phương thức này để lại các bố cục vẫn đang được sử dụng.
 
 ```csharp
 using Aspose.Slides;
@@ -174,11 +176,13 @@ Compress.RemoveUnusedLayoutSlides(presentation);
 presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-Để xóa một bố cục cụ thể, đầu tiên hãy sử dụng thuộc tính [HasDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/hasdependingslides/) hoặc phương thức [GetDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/getdependingslides/). Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/remove/). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/).
+Để xóa một bố cục cụ thể, trước tiên sử dụng thuộc tính [HasDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/hasdependingslides/) hoặc phương thức [GetDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/getdependingslides/) của nó. Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/remove/). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra lỗi [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/).
 
-## **Kiểm soát Hiển thị Footer trên Layout Slide**
+## **Kiểm soát hiển thị Footer trên một bố cục slide**
 
-Một layout có footer, số slide và placeholder ngày‑giờ riêng. Sử dụng thuộc tính [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/headerfootermanager/) để điều khiển các placeholder này cho một layout. Điều này hữu ích khi, ví dụ, các layout nội dung cần hiển thị footer nhưng các layout tiêu đề thì không.
+Một bố cục có các placeholder footer, số slide và ngày‑giờ riêng. Sử dụng thuộc tính [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/headerfootermanager/) để kiểm soát các placeholder đó cho một bố cục. Điều này hữu ích khi, ví dụ, các bố cục nội dung nên hiển thị footer nhưng các bố cục tiêu đề thì không.
+
+Ví dụ sau chọn một bố cục một cách an toàn và làm cho các yếu tố footer của nó hiển thị:
 
 ```csharp
 using System;
@@ -204,9 +208,9 @@ headerFooterManager.SetDateTimeText("Date and time text");
 presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
-## **Kiểm soát Hiển thị Footer trên Master và Các Layout Con của Nó**
+## **Kiểm soát hiển thị Footer trên Master và các Layout con**
 
-Để áp dụng cài đặt footer nhất quán trên toàn bộ cây master, sử dụng thuộc tính [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/headerfootermanager/). Các phương pháp lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các layout slide cũng như normal slide phụ thuộc; chúng không chỉ ảnh hưởng đến một normal slide duy nhất.
+Để áp dụng cài đặt footer nhất quán trên toàn bộ cấu trúc master, sử dụng thuộc tính [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/headerfootermanager/). Các phương pháp lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các layout slide phụ thuộc cũng như các slide thường; chúng không chỉ áp dụng cho một slide thường duy nhất.
 
 ```csharp
 using Aspose.Slides;
@@ -226,18 +230,18 @@ presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 
 ## **Câu hỏi thường gặp**
 
-**Sự khác biệt giữa Master Slide và Layout Slide là gì?**
+**Sự khác nhau giữa Master Slide và Layout Slide là gì?**
 
-Master slide xác định chủ đề và định dạng chung của bản trình bày. Layout slide thuộc về một master và xác định một cách sắp xếp placeholder có thể tái sử dụng. Normal slide sử dụng các layout này và lưu trữ nội dung riêng cho từng slide.
+Một master slide xác định chủ đề và định dạng chung của bản trình chiếu. Một layout slide thuộc về một master và xác định một sắp xếp placeholder có thể tái sử dụng. Các slide thường sử dụng các bố cục này và lưu trữ nội dung riêng cho từng slide.
 
-**Tôi có thể sao chép Layout Slide từ một bản trình bày sang bản khác không?**
+**Tôi có thể sao chép một Layout Slide từ một bản trình chiếu sang bản khác không?**
 
-Có. Thêm một bản sao vào bộ sưu tập đích bằng phương pháp [AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/globallayoutslidecollection/addclone/). Khi sao chép giữa các bản trình bày, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác mà layout nguồn sử dụng.
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/globallayoutslidecollection/addclone/). Khi sao chép giữa các bản trình chiếu, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác được bố cục nguồn sử dụng.
 
-**Điều gì sẽ xảy ra nếu tôi chỉnh sửa một Layout đang được sử dụng?**
+**Điều gì xảy ra khi tôi chỉnh sửa một Layout đang được sử dụng?**
 
-Các slide phụ thuộc sẽ kế thừa các thay đổi của layout trừ khi chúng đã ghi đè định dạng hoặc đối tượng liên quan cục bộ. Vì vậy hình học placeholder và kiểu định dạng kế thừa có thể thay đổi đồng thời trên nhiều slide. Sử dụng [GetDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/getdependingslides/) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa layout.
+Các slide phụ thuộc sẽ kế thừa các thay đổi của bố cục trừ khi chúng ghi đè định dạng hoặc đối tượng bị ảnh hưởng tại chỗ. Do đó, hình học placeholder và kiểu kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [GetDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/getdependingslides/) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa bố cục.
 
-**Nếu tôi xóa một Layout vẫn đang được sử dụng thì sẽ ra sao?**
+**Điều gì xảy ra nếu tôi xóa một Layout vẫn đang được sử dụng?**
 
-Aspose.Slides sẽ ném ra một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc dùng [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để chỉ xóa những layout không được tham chiếu.
+Aspose.Slides sẽ ném ra một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/). Đầu tiên hãy gán lại các slide phụ thuộc, hoặc sử dụng [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để chỉ xóa các bố cục không được tham chiếu.
