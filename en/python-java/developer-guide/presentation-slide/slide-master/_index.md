@@ -146,6 +146,66 @@ finally:
 
 For more information about picture frames, see [Picture Frame](/slides/python-java/picture-frame/).
 
+## **Control the Visibility of Master Graphics**
+
+Use [BaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#setShowMasterShapes) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Pass `False` to [Slide.setShowMasterShapes](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#setShowMasterShapes) on the slide that should omit those graphics and keep it `True` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType, SlideLayoutType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    master_slide = presentation.getMasters().get_Item(0)
+    layout_slide = master_slide.getLayoutSlides().getByType(SlideLayoutType.Blank)
+    layout_slide.setShowMasterShapes(True)
+
+    slide_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+    band = master_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slide_height)
+    band_color = Color(70, 130, 180)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(band_color)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    visible_slide = presentation.getSlides().get_Item(0)
+    visible_slide.setLayoutSlide(layout_slide)
+    visible_slide.getShapes().clear()
+
+    hidden_slide = presentation.getSlides().addEmptySlide(layout_slide)
+
+    visible_slide.setShowMasterShapes(True)
+    hidden_slide.setShowMasterShapes(False)
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Choose the Scope of the Setting**
+
+A normal slide uses its master through [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) and [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/#getMasterSlide). Setting the property on an individual slide affects only that slide. Passing `False` to [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/#setShowMasterShapes) hides master graphics for slides that use that shared layout, even if their own setting is `True`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master, [getShowMasterShapes](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getShowMasterShapes) always returns `False`, and passing `True` to [setShowMasterShapes](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#setShowMasterShapes) raises an exception. Apply it to a normal slide or a layout instead.
+
+### **Distinguish Graphics from the Background**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/python-java/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
+
 ## **Work with Placeholders**
 
 Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.

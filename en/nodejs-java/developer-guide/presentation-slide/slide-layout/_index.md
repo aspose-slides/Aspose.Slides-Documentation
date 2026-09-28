@@ -61,6 +61,8 @@ This relationship has two important consequences:
 
 For more information about the top level of this hierarchy, see [Slide Master](/slides/nodejs-java/slide-master/).
 
+To hide inherited logos or decorative master shapes on one slide or through a shared layout, see [Control the Visibility of Master Graphics](/slides/nodejs-java/slide-master/). The example compares two slides using the same master.
+
 ## **Select and Apply a Slide Layout**
 
 Use a [SlideLayoutType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidelayouttype/) value when the presentation follows standard PowerPoint layout definitions. Layout names are user-editable and can be localized, so name-based selection is less reliable unless you control the source template.

@@ -140,6 +140,60 @@ try {
 
 For more information about picture frames, see [Picture Frame](/slides/androidjava/picture-frame/).
 
+## **Control the Visibility of Master Graphics**
+
+Use [IBaseSlide.setShowMasterShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#setShowMasterShapes-boolean-) to hide inherited master graphics, such as logos or decorative shapes, without deleting them from the master. Pass `false` to [Slide.setShowMasterShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#setShowMasterShapes-boolean-) on the slide that should omit those graphics and keep it `true` on slides that should display them.
+
+The following self-contained example creates a blue decorative band on a master and two slides that use the same blank layout. The band is visible on the first slide and hidden on the second. No input presentation or image is required.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide layoutSlide = masterSlide.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    layoutSlide.setShowMasterShapes(true);
+
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+    IAutoShape band = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 60, slideHeight);
+    int bandColor = Color.rgb(70, 130, 180);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(bandColor);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ISlide visibleSlide = presentation.getSlides().get_Item(0);
+    visibleSlide.setLayoutSlide(layoutSlide);
+    visibleSlide.getShapes().clear();
+
+    ISlide hiddenSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    visibleSlide.setShowMasterShapes(true);
+    hiddenSlide.setShowMasterShapes(false);
+
+    presentation.save("master-graphics.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The example uses the **Blank** layout supplied with a new presentation and removes the initial slide's own placeholders.
+
+### **Choose the Scope of the Setting**
+
+A normal slide uses its master through [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getLayoutSlide--) and [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/#getMasterSlide--). Setting the property on an individual slide affects only that slide. Passing `false` to [LayoutSlide.setShowMasterShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/#setShowMasterShapes-boolean-) hides master graphics for slides that use that shared layout, even if their own setting is `true`. To hide graphics on just one slide, change the slide property and leave the shared layout unchanged.
+
+The setting is not supported as a visibility control on the master slide itself. On a master, [getShowMasterShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/#getShowMasterShapes--) always returns `false`, and passing `true` to [setShowMasterShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/#setShowMasterShapes-boolean-) raises an exception. Apply it to a normal slide or a layout instead.
+
+### **Distinguish Graphics from the Background**
+
+| Operation | Effect |
+| --- | --- |
+| Hide master graphics | Controls the visibility of inherited master shapes without deleting them or changing the slide's own shapes. |
+| Change the slide background fill | Changes the background color, gradient, or image. Master graphics are separate shapes and can remain visible over that background. See [Presentation Background](/slides/androidjava/presentation-background/). |
+| Delete a shape from the master | Removes the shared source shape, so it is no longer available to any slide using that master. |
+
 ## **Work with Placeholders**
 
 Placeholders are normally defined on layout slides. The master slide provides the shared style and theme that those layouts inherit, while each layout decides which placeholders are available and where they are placed.
@@ -384,18 +438,18 @@ try {
 
 ## **FAQ**
 
-### What is the difference between a slide master and a layout slide?
+**What is the difference between a slide master and a layout slide?**
 
 A slide master defines shared design settings such as theme, background, common shapes, and text styles. A layout slide belongs to a master slide and defines a specific arrangement of placeholders. A normal slide uses a layout slide, so it inherits from both the layout and the master.
 
-### Can one presentation contain several slide masters?
+**Can one presentation contain several slide masters?**
 
 Yes. A presentation can contain several slide masters. Use multiple masters when different sections need different visual systems or branding.
 
-### Should I add placeholders to a master slide or a layout slide?
+**Should I add placeholders to a master slide or a layout slide?**
 
 In most cases, add placeholders to layout slides. Put shared visual elements and shared formatting on the master slide, then put content placeholders on the layouts that normal slides will use.
 
-### Can I delete a master slide that is still used?
+**Can I delete a master slide that is still used?**
 
 No. A master slide that has dependent slides cannot be safely removed directly. First move those slides to layouts under another master, or use an unused-master cleanup method that removes only masters that are not in use.
