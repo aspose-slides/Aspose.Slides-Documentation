@@ -59,7 +59,7 @@ Créez un dossier nommé *HelloSlidesDocker* et ajoutez‑y les trois fichiers s
 </Project>
 ```
 
-*Program.cs* crée une [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/), ajoute un rectangle avec du texte à sa première diapositive, et enregistre la présentation deux fois avec la méthode [Save](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/save/) : en PPTX et en PDF. Les deux fichiers sont placés dans le dossier *output* du répertoire de travail. L'application liste ensuite les polices qui ont été remplacées lors du rendu du PDF, en utilisant [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/), afin que vous puissiez voir si le conteneur possède les polices utilisées par la présentation.
+*Program.cs* crée une [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), ajoute un rectangle avec du texte à sa première diapositive, et enregistre la présentation deux fois avec la méthode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) : en PPTX et en PDF. Les deux fichiers sont placés dans le dossier *output* du répertoire de travail. L'application liste ensuite les polices qui ont été remplacées lors du rendu du PDF, en utilisant [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), afin que vous puissiez voir si le conteneur possède les polices utilisées par la présentation.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ L'étape Alpine installe trois paquets et modifie un paramètre :
 - `font-dejavu` fournit des polices. Sans aucune police, la conversion s'arrête avec `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` et `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` fournissent les données de culture. Les images .NET Alpine s'exécutent par défaut en mode globalisation invariante, et dans ce mode Aspose.Slides s'arrête avec une `CultureNotFoundException` pour `en-US`.
 
-Construisez, exécutez et copiez la sortie avec les mêmes commandes qu'auparavant. Sur cette image, l'application n'affiche que la ligne `Saved` : avec Aspose.Slides.NET sous Linux, fontconfig choisit le remplacement d'une police manquante, et [GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) ne la répertorie pas. [Déployer des polices](/slides/fr/net/deploy-fonts/) montre comment vérifier quelle police est utilisée.
+Construisez, exécutez et copiez la sortie avec les mêmes commandes qu'auparavant. Sur cette image, l'application n'affiche que la ligne `Saved` : avec Aspose.Slides.NET sous Linux, fontconfig choisit le remplacement d'une police manquante, et [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) ne la répertorie pas. [Déployer des polices](/slides/fr/net/deploy-fonts/) montre comment vérifier quelle police est utilisée.
 
 ## **FAQ**
 

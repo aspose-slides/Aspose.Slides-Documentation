@@ -68,7 +68,7 @@ La bibliothèque Linux du package requiert la bibliothèque `fontconfig` :
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Sans elle, la création d’une [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/) échoue avec une `TypeInitializationException` dont l’`DllNotFoundException` interne indique que `libfontconfig.so.1` ne peut pas être ouvert.
+Sans elle, la création d’une [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) échoue avec une `TypeInitializationException` dont l’`DllNotFoundException` interne indique que `libfontconfig.so.1` ne peut pas être ouvert.
 
 Les images de base minimales peuvent également ne pas contenir `fontconfig`. L’image de base AWS Lambda pour .NET 8, par exemple, ne contient ni `fontconfig` ni aucune police. Dans une image de conteneur construite dessus, exécutez `dnf install -y fontconfig`, ce qui installe aussi les polices Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Prise en charge de la mondialisation**
 
-Les deux packages nécessitent la prise en charge de la mondialisation .NET, fournie sous Linux via les bibliothèques ICU. En [mode globalization‑invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), la création d’une [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/) échoue avec `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Les deux packages nécessitent la prise en charge de la mondialisation .NET, fournie sous Linux via les bibliothèques ICU. En [mode globalization‑invariant](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), la création d’une [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) échoue avec `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Certaines images de conteneur activent ce mode. Les images runtime .NET pour Alpine Linux (`runtime-deps`, `runtime` et `aspnet`), par exemple, définissent `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` et n’incluent pas ICU. Dans une image construite à partir de celles‑ci, installez ICU et désactivez le mode :
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Le programme ajoute un rectangle avec du texte à la première diapositive et enregistre la présentation sous *hello.pptx* avec la méthode [Save](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/save/). Il rend ensuite la diapositive avec [GetImage](https://reference.aspose.com/slides/fr/net/aspose.slides/slide/getimage/) et enregistre le résultat sous *hello.png* avec [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/save/) au format [ImageFormat.Png](https://reference.aspose.com/slides/fr/net/aspose.slides/imageformat/). Les facteurs d’échelle de 1 rendent un pixel par point, de sorte que la diapositive par défaut de 720 × 540 points devient une image de 720 × 540 pixels, le texte étant visible à l’intérieur du rectangle. Sans licence, les deux fichiers portent également un filigrane d’évaluation ; voir [Licensing](/slides/fr/net/licensing/). Si une exigence manque, le programme s’arrête avec l’une des exceptions décrites dans [Linux](#linux).
+Le programme ajoute un rectangle avec du texte à la première diapositive et enregistre la présentation sous *hello.pptx* avec la méthode [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Il rend ensuite la diapositive avec [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) et enregistre le résultat sous *hello.png* avec [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) au format [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Les facteurs d’échelle de 1 rendent un pixel par point, de sorte que la diapositive par défaut de 720 × 540 points devient une image de 720 × 540 pixels, le texte étant visible à l’intérieur du rectangle. Sans licence, les deux fichiers portent également un filigrane d’évaluation ; voir [Licensing](/slides/fr/net/licensing/). Si une exigence manque, le programme s’arrête avec l’une des exceptions décrites dans [Linux](#linux).
 
 ## **Outils de développement**
 

@@ -28,7 +28,7 @@ Vous pouvez définir la police à utiliser lorsqu’une police particulière est
 
 ## **Obtenir les substitutions de polices**
 
-Utilisez la méthode [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) pour déterminer quelles polices seront substituées lorsque la présentation sera rendue. La méthode renvoie des objets [FontSubstitutionInfo](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsubstitutioninfo/) qui identifient les noms de police d’origine et de substitution.
+Utilisez la méthode [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) pour déterminer quelles polices seront substituées lorsque la présentation sera rendue. La méthode renvoie des objets [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) qui identifient les noms de police d’origine et de substitution.
 
 L’exemple C# suivant répertorie toutes les substitutions de polices pour une présentation :
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Obtenir les substitutions de polices pour des diapositives sélectionnées**
 
-Utilisez la surcharge de [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) avec un argument `int[] slides` pour examiner uniquement les substitutions nécessaires au rendu de diapositives spécifiques. Cela est utile lorsque vous rendez ou exportez une partie d’une présentation, que vous effectuez une vérification incrémentielle d’une grande présentation, que vous localisez des diapositives dépendantes de polices indisponibles, que vous préparez un package de polices minimal pour un serveur ou un conteneur, ou que vous diagnostiquer les différences de rendu sans traiter les diapositives non concernées.
+Utilisez la surcharge de [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) avec un argument `int[] slides` pour examiner uniquement les substitutions nécessaires au rendu de diapositives spécifiques. Cela est utile lorsque vous rendez ou exportez une partie d’une présentation, que vous effectuez une vérification incrémentielle d’une grande présentation, que vous localisez des diapositives dépendantes de polices indisponibles, que vous préparez un package de polices minimal pour un serveur ou un conteneur, ou que vous diagnostiquer les différences de rendu sans traiter les diapositives non concernées.
 
-Le tableau `slides` contient des index de diapositives à base 1 : `1` identifie la première diapositive. En revanche, l’indexeur de la collection [Presentation.Slides](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/slides/fr/) est à base 0, de sorte que la même diapositive est accessible via `presentation.Slides[0]`. Gardez cette différence à l’esprit lors de la construction du tableau afin d’éviter les erreurs d’indice de +1/‑1.
+Le tableau `slides` contient des index de diapositives à base 1 : `1` identifie la première diapositive. En revanche, l’indexeur de la collection [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) est à base 0, de sorte que la même diapositive est accessible via `presentation.Slides[0]`. Gardez cette différence à l’esprit lors de la construction du tableau afin d’éviter les erreurs d’indice de +1/‑1.
 
-Appelez la surcharge via la propriété [Presentation.FontsManager](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/fontsmanager/). Elle ne renvoie que les substitutions déterminées pendant le rendu des diapositives sélectionnées. Chaque résultat est un objet [FontSubstitutionInfo](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsubstitutioninfo/) contenant les noms de police d’origine et de substitution. Le résultat reflète l’environnement de polices actuel et les [polices chargées externes](/slides/fr/net/custom-font/). Les règles de substitution stockées dans une [IFontSubstRuleCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsubstrulecollection/) modifient la sortie rendue mais ne sont pas reflétées dans le résultat.
+Appelez la surcharge via la propriété [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Elle ne renvoie que les substitutions déterminées pendant le rendu des diapositives sélectionnées. Chaque résultat est un objet [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) contenant les noms de police d’origine et de substitution. Le résultat reflète l’environnement de polices actuel et les [polices chargées externes](/slides/fr/net/custom-font/). Les règles de substitution stockées dans une [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) modifient la sortie rendue mais ne sont pas reflétées dans le résultat.
 
 La même substitution peut être requise par plusieurs diapositives sélectionnées. Dédupliquez les résultats lorsque vous créez un inventaire de polices ou un rapport de pré‑flight. L’exemple suivant signale chaque substitution retournée puis crée une liste triée de mappages de polices uniques :
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-L’interface [IFontsManager](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/) fournit les deux surcharges. Choisissez‑en une selon la portée de l’opération de rendu :
+L’interface [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) fournit les deux surcharges. Choisissez‑en une selon la portée de l’opération de rendu :
 
 | Surcharge | Lorsque l’utiliser |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) sans arguments | Vous avez besoin des substitutions pour l’ensemble de la présentation. |
-| [GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) avec `int[] slides` | Vous avez besoin des substitutions pour une plage sélectionnée, une vérification incrémentielle ou une exportation partielle. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) sans arguments | Vous avez besoin des substitutions pour l’ensemble de la présentation. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) avec `int[] slides` | Vous avez besoin des substitutions pour une plage sélectionnée, une vérification incrémentielle ou une exportation partielle. |
 
 ## **Définir des règles de substitution de polices**
 
@@ -94,9 +94,9 @@ Pour spécifier la police qu’Aspose.Slides doit utiliser lorsqu’une police s
 
 1. Chargez la présentation.  
 2. Créez des définitions de police pour les polices source et de substitution.  
-3. Créez une [FontSubstRule](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsubstrule/) avec la condition [WhenInaccessible](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsubstcondition/).  
-4. Ajoutez la règle à une [FontSubstRuleCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsubstrulecollection/).  
-5. Assignez la collection à la propriété [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
+3. Créez une [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) avec la condition [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).  
+4. Ajoutez la règle à une [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).  
+5. Assignez la collection à la propriété [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
 6. Rendez ou convertissez la présentation.
 
 L’exemple C# suivant substitue `Arial` à `SomeRareFont` lorsque `SomeRareFont` est indisponible, puis rend la première diapositive pour vérifier le résultat. La police de substitution doit être disponible pour Aspose.Slides.
@@ -160,4 +160,4 @@ Oui. Les polices installées et les emplacements de recherche de polices diffèr
 
 **Comment garantir une sélection de police cohérente lors de conversions par lots ?**
 
-Utilisez les mêmes fichiers de police et les mêmes versions sur chaque machine ou conteneur, [chargez les polices externes requises](/slides/fr/net/custom-font/), et [intégrez les polices](/slides/fr/net/embedded-font/) lorsque les licences le permettent. Vous pouvez également appeler [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/) avant l’export pour identifier les substitutions inattendues.
+Utilisez les mêmes fichiers de police et les mêmes versions sur chaque machine ou conteneur, [chargez les polices externes requises](/slides/fr/net/custom-font/), et [intégrez les polices](/slides/fr/net/embedded-font/) lorsque les licences le permettent. Vous pouvez également appeler [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) avant l’export pour identifier les substitutions inattendues.

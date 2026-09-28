@@ -77,7 +77,7 @@ Non. PowerPoint n'est pas requis ; Aspose.Slides est un moteur autonome pour cr�
 
 **Comment le multithreading fonctionne-t-il ? Le traitement peut-il être parallélisé ?**
 
-Il est sûr de traiter différents documents dans des threads distincts ; le même objet [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/) ne doit pas être utilisé par [multiple threads](/slides/fr/net/multithreading/) simultanément.
+Il est sûr de traiter différents documents dans des threads distincts ; le même objet [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ne doit pas être utilisé par [multiple threads](/slides/fr/net/multithreading/) simultanément.
 
 **Les mots de passe de fichiers et le chiffrement sont-ils pris en charge ?**
 

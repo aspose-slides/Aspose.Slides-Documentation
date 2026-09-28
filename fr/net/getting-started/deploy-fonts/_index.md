@@ -56,7 +56,7 @@ L’application console suivante indique les polices qu’Aspose.Slides substitu
 </Project>
 ```
 
-*Program.cs* ajoute une zone de texte par nom de police à une diapositive et assigne la police via la propriété [LatinFont](https://reference.aspose.com/slides/fr/net/aspose.slides/baseportionformat/latinfont/). Les noms de police proviennent de la ligne de commande ; sans arguments, l’application vérifie Calibri, Arial et Times New Roman. Elle affiche les dossiers dans lesquels Aspose.Slides recherche les polices ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsloader/getfontfolders/)), rend la diapositive vers *output/fonts.pdf* et affiche les substitutions signalées par [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fr/net/aspose.slides/ifontsmanager/getsubstitutions/). Les deux étapes optionnelles au début, le chargement d’un dossier *fonts* et la lecture d’une variable `DEFAULT_FONT`, sont expliquées plus loin dans cet article.
+*Program.cs* ajoute une zone de texte par nom de police à une diapositive et assigne la police via la propriété [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Les noms de police proviennent de la ligne de commande ; sans arguments, l’application vérifie Calibri, Arial et Times New Roman. Elle affiche les dossiers dans lesquels Aspose.Slides recherche les polices ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), rend la diapositive vers *output/fonts.pdf* et affiche les substitutions signalées par [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Les deux étapes optionnelles au début, le chargement d’un dossier *fonts* et la lecture d’une variable `DEFAULT_FONT`, sont expliquées plus loin dans cet article.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Charger les polices depuis le dossier de l’application**
 
-Au lieu d’installer les polices dans l’image, vous pouvez les livrer avec l’application et les charger avec [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/fr/net/aspose.slides/fontsloader/loadexternalfonts/). Les polices sont alors disponibles uniquement pour Aspose.Slides, et elles sont déployées avec l’application. *FontCheck* fait cela : *FontCheck.csproj* copie le dossier *fonts* vers la sortie de l’application, et *Program.cs* transmet ce dossier à `LoadExternalFonts` avant de créer la présentation. [Custom Font](/slides/fr/net/custom-font/) décrit les autres moyens de fournir des polices, comme le chargement depuis la mémoire.
+Au lieu d’installer les polices dans l’image, vous pouvez les livrer avec l’application et les charger avec [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Les polices sont alors disponibles uniquement pour Aspose.Slides, et elles sont déployées avec l’application. *FontCheck* fait cela : *FontCheck.csproj* copie le dossier *fonts* vers la sortie de l’application, et *Program.cs* transmet ce dossier à `LoadExternalFonts` avant de créer la présentation. [Custom Font](/slides/fr/net/custom-font/) décrit les autres moyens de fournir des polices, comme le chargement depuis la mémoire.
 
 Reconstruisez l’image, puis vérifiez Calibri et Carlito :
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Définir une police par défaut pour les polices manquantes**
 
-Lorsqu’une police est manquante, Aspose.Slides utilise une substitution qu’il choisit lui‑-même. Pour choisir vous‑même, définissez la propriété [DefaultRegularFont](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/defaultregularfont/) de [LoadOptions](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/) et transmettez les options au constructeur [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/). *FontCheck* lit le nom de police depuis la variable d’environnement `DEFAULT_FONT`. Avec Carlito chargé, utilisez‑le pour les polices manquantes :
+Lorsqu’une police est manquante, Aspose.Slides utilise une substitution qu’il choisit lui‑-même. Pour choisir vous‑même, définissez la propriété [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) de [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) et transmettez les options au constructeur [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* lit le nom de police depuis la variable d’environnement `DEFAULT_FONT`. Avec Carlito chargé, utilisez‑le pour les polices manquantes :
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-La police par défaut remplace chaque police manquante. Pour mapper des polices individuelles, par exemple Arial vers Liberation Sans et Calibri vers Carlito, utilisez les [règles de substitution de police](/slides/fr/net/font-substitution/). Les règles modifient le rendu, mais `GetSubstitutions` ne les reflète pas, il faut donc vérifier les polices dans le fichier de sortie. Pour le texte asiatique, définissez également [DefaultAsianFont](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/defaultasianfont/); voir [Default Font](/slides/fr/net/default-font/).
+La police par défaut remplace chaque police manquante. Pour mapper des polices individuelles, par exemple Arial vers Liberation Sans et Calibri vers Carlito, utilisez les [règles de substitution de police](/slides/fr/net/font-substitution/). Les règles modifient le rendu, mais `GetSubstitutions` ne les reflète pas, il faut donc vérifier les polices dans le fichier de sortie. Pour le texte asiatique, définissez également [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); voir [Default Font](/slides/fr/net/default-font/).
 
 ## **Installer des polices sur Alpine Linux**
 

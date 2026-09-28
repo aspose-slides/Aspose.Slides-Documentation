@@ -14,7 +14,7 @@ description: "Historique: les problèmes connus publiés avec Aspose.Slides for 
 ---
 {{% alert color="info" title="Note" %}}
 
-Ceci est une page historique. Elle répertorie les problèmes connus publiés avec Aspose.Slides for .NET 14.1.0, sorti en 2014, et ne décrit pas la version actuelle. Pour les changements de chaque version, voir les [notes de version](https://releases.aspose.com/slides/fr/net/release-notes/).
+Ceci est une page historique. Elle répertorie les problèmes connus publiés avec Aspose.Slides for .NET 14.1.0, sorti en 2014, et ne décrit pas la version actuelle. Pour les changements de chaque version, voir les [notes de version](https://releases.aspose.com/slides/net/release-notes/).
 
 {{% /alert %}}
 

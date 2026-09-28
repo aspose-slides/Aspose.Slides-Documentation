@@ -62,7 +62,7 @@ Sans licence, Aspose.Slides fonctionne en mode d’évaluation : il ajoute un fi
 
 ## **Obtenir de l’aide**
 
-[Support produit](/slides/fr/net/product-support/) explique comment poser une question sur le [forum de support gratuit](https://forum.aspose.com/c/slides/fr/11) et ce qu’il faut inclure lors de la signalisation d’un problème.
+[Support produit](/slides/fr/net/product-support/) explique comment poser une question sur le [forum de support gratuit](https://forum.aspose.com/c/slides/11) et ce qu’il faut inclure lors de la signalisation d’un problème.
 
 ## **FAQ**
 

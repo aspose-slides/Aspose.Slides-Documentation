@@ -123,7 +123,7 @@ Les fonctionnalités d’Aspose.Slides pour .NET peuvent être divisées en ces 
 ## **Support technique**
 Aspose fournit un support technique gratuit et illimité pour tous ses produits. Le support est disponible pour tous les utilisateurs (y compris les utilisateurs avec des packages d’évaluation). Si vous avez besoin d’aide avec Aspose.Slides pour .NET, considérez les points suivants :
 
-- Le principal canal de support est les [Forums Aspose](https://forum.aspose.com/). Publiez votre question dans le [forum Aspose.Slides](https://forum.aspose.com/c/slides/fr/11) — et elle recevra une réponse en quelques heures. L’équipe de support Aspose.Slides répond directement aux questions postées sur le forum.
+- Le principal canal de support est les [Forums Aspose](https://forum.aspose.com/). Publiez votre question dans le [forum Aspose.Slides](https://forum.aspose.com/c/slides/11) — et elle recevra une réponse en quelques heures. L’équipe de support Aspose.Slides répond directement aux questions postées sur le forum.
 - Veuillez noter qu’Aspose ne fournit pas de support technique par téléphone. Le support téléphonique est disponible uniquement pour les questions de vente et d’achat.
 - Lorsque vous attendez une réponse sur les forums, soyez patient et prenez en compte les différences de fuseau horaire.
 
@@ -140,10 +140,10 @@ Cette table répertorie les ressources techniques importantes d’Aspose.Slides 
 
 |**Ressource**|**Description**|
 | :- | :- |
-|[page d’accueil d’Aspose.Slides pour .NET](https://products.aspose.com/slides/fr/net/)|Page d’accueil du produit.|
-|[blog Aspose.Slides](https://blog.aspose.com/category/slides/fr/)|Consultez régulièrement cette page pour obtenir des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
+|[page d’accueil d’Aspose.Slides pour .NET](https://products.aspose.com/slides/net/)|Page d’accueil du produit.|
+|[blog Aspose.Slides](https://blog.aspose.com/category/slides/)|Consultez régulièrement cette page pour obtenir des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[téléchargement Aspose.Slides pour .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Téléchargez ici la dernière version d’Aspose.Slides. Nous publions fréquemment de nouvelles versions.|
-|[forum de support Aspose.Slides](https://forum.aspose.com/c/slides/fr/11)|Publiez vos questions et problèmes ici pour une résolution rapide.|
+|[forum de support Aspose.Slides](https://forum.aspose.com/c/slides/11)|Publiez vos questions et problèmes ici pour une résolution rapide.|
 |[documentation produit Aspose.Slides pour .NET](/slides/fr/net/)|Documentation en ligne complète contenant ce document et la référence API d’Aspose.Slides.|
 
 ## **Exigences de niveau de confiance**
@@ -153,7 +153,7 @@ Sur le .NET Framework, Aspose.Slides nécessite une confiance totale et ne fonct
 ## **FAQ**
 
 ### Prend‑il en charge les niveaux de conformité PDF pour l’archivage et l’accessibilité (PDF/A et PDF/UA) ?
-Oui. Vous pouvez enregistrer au format PDF avec PDF/A‑2a/2b/2u, PDF/A‑3a/3b, ainsi que PDF/UA en configurant les [options d’exportation PDF](https://reference.aspose.com/slides/fr/net/aspose.slides.export/pdfoptions/).
+Oui. Vous pouvez enregistrer au format PDF avec PDF/A‑2a/2b/2u, PDF/A‑3a/3b, ainsi que PDF/UA en configurant les [options d’exportation PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### Existe‑t‑il un mécanisme de substitution de polices et une prise en charge des polices personnalisées pour garantir un rendu correct ?
 Oui. La bibliothèque vous permet de [charger des polices personnalisées](/slides/fr/net/custom-font/) et de [définir des règles de repli](/slides/fr/net/fallback-font/) afin que les glyphes manquants soient substitués de manière fiable lors de la conversion et du rendu.
@@ -168,13 +168,13 @@ Non. Aspose.Slides est un moteur autonome ; PowerPoint n’est pas nécessaire s
 Oui, vous pouvez traiter différents documents en parallèle dans des threads séparés ; il suffit d’éviter d’utiliser la même instance de présentation simultanément [entre les threads](/slides/fr/net/multithreading/).
 
 ### Les macros sont‑elles conservées et puis‑je gérer VBA dans les fichiers PPTM/PPSM ?
-Oui. Les présentations contenant des macros [sont prises en charge](/slides/fr/net/presentation-via-vba/), et vous pouvez [examiner et gérer les projets VBA](https://reference.aspose.com/slides/fr/net/aspose.slides.vba/) dans ces fichiers.
+Oui. Les présentations contenant des macros [sont prises en charge](/slides/fr/net/presentation-via-vba/), et vous pouvez [examiner et gérer les projets VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/) dans ces fichiers.
 
 ### Puis‑je convertir un PDF ou du HTML en diapositives PowerPoint ?
 Oui. Vous pouvez [importer des pages PDF ou du contenu HTML](/slides/fr/net/import-presentation/) pour créer ou remplir des diapositives dans une présentation.
 
 ### L’exportation XPS est‑elle prise en charge, et puis‑je contrôler la qualité et le contenu du résultat XPS ?
-Oui. L’[exportation vers XPS](/slides/fr/net/convert-powerpoint-to-xps/) est disponible, et les [options d’enregistrement](https://reference.aspose.com/slides/fr/net/aspose.slides.export/xpsoptions/) vous permettent d’ajuster la qualité de sortie et le contenu inclus.
+Oui. L’[exportation vers XPS](/slides/fr/net/convert-powerpoint-to-xps/) est disponible, et les [options d’enregistrement](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) vous permettent d’ajuster la qualité de sortie et le contenu inclus.
 
 ### Puis‑je convertir des diapositives en images et contrôler la qualité du rendu ?
 Oui. Les diapositives peuvent être [rendu en PNG, JPEG, GIF, BMP, TIFF](/slides/fr/net/convert-powerpoint-to-png/) et d’autres formats avec un contrôle précis de la taille et de la qualité.
