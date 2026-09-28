@@ -7,7 +7,7 @@ description: "SharePoint फ़ार्म पर Aspose.Slides for SharePoint 
 ---
 ## **पैकेज सामग्री**
 
-Aspose.Slides for SharePoint को ZIP संग्रह के रूप में [download page](https://releases.aspose.com/slides/hi/sharepoint/) से डाउनलोड किया जाता है। संग्रह में एक SharePoint समाधान पैकेज (WSP) और प्रत्येक समर्थित SharePoint संस्करण के लिए एक सेटअप प्रोग्राम होता है:
+Aspose.Slides for SharePoint को ZIP संग्रह के रूप में [download page](https://releases.aspose.com/slides/sharepoint/) से डाउनलोड किया जाता है। संग्रह में एक SharePoint समाधान पैकेज (WSP) और प्रत्येक समर्थित SharePoint संस्करण के लिए एक सेटअप प्रोग्राम होता है:
 
 | SharePoint संस्करण | सेटअप प्रोग्राम | समाधान पैकेज |
 | :- | :- | :- |

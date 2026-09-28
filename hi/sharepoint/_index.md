@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint एक फार्म समाधान है Sh
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/hi/sharepoint/release-notes/">रिलीज़ नोट्स</a></li>
-<li><a href="https://releases.aspose.com/slides/hi/sharepoint/">डाउनलोड</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">रिलीज़ नोट्स</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">डाउनलोड</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hi/11">नि:शुल्क समर्थन फ़ोरम</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">नि:शुल्क समर्थन फ़ोरम</a></li>
 <li><a href="https://helpdesk.aspose.com/">भुगतान समर्थन हेल्पडेस्क</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint एक फार्म समाधान है Sh
 
 Aspose.Slides for SharePoint को फार्म पर एक बार स्थापित किया जाता है और फिर किसी भी दस्तावेज़ लाइब्रेरी से प्रयोग किया जाता है जहाँ यह सक्रिय किया गया हो:
 
-1. [download page](https://releases.aspose.com/slides/hi/sharepoint/) से ZIP संग्रह डाउनलोड करें और इसे अपने SharePoint फार्म के किसी सर्वर पर अनज़िप करें।
+1. [download page](https://releases.aspose.com/slides/sharepoint/) से ZIP संग्रह डाउनलोड करें और इसे अपने SharePoint फार्म के किसी सर्वर पर अनज़िप करें।
 2. अपने SharePoint संस्करण के अनुसार सेटअप प्रोग्राम चलाएँ: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* या *Setup2019.exe*। ऐसा खाता उपयोग करें जो SharePoint समाधान स्थापित और परिनियोजित कर सके। लाइसेंस समझौते को स्वीकार करें, वह साइट संग्रह चुनें जहाँ फीचर को सक्रिय करना है, और सेटअप को समाधान परिनियोजित करने दें। प्रत्येक स्क्रीन का विवरण [Installation](/slides/hi/sharepoint/installing-aspose-slides-for-sharepoint/) में दिया गया है।
 3. उन साइट संग्रहों में से किसी एक की दस्तावेज़ लाइब्रेरी खोलें, PPT या PPTX फ़ाइल के मेनू को खोलें, और **Convert via Aspose.Slides** चुनें। SharePoint 2007 पर मेनू आइटम का नाम **Convert with Aspose.Slides** है।
 4. **Convert to** के तहत **PDF - Adobe Portable Document** चुनें। यदि आवश्यक हो तो लक्ष्य फ़ाइल नाम और फ़ोल्डर बदलें, और **Convert** पर क्लिक करें।

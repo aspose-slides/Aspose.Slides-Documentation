@@ -18,7 +18,7 @@ Aspose.Slides for SharePoint निम्नलिखित इनपुट स�
 - PPTX – Office Open XML प्रस्तुति
 
 {{% alert color="info" title="Note" %}}
-दस्तावेज़ों को रूपांतरित करने के लिए, Aspose.Slides for SharePoint एक निर्मित संस्करण पर निर्भर करता है जो [Aspose.Slides for .NET](https://products.aspose.com/slides/hi/net/) का है।
+दस्तावेज़ों को रूपांतरित करने के लिए, Aspose.Slides for SharePoint एक निर्मित संस्करण पर निर्भर करता है जो [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) का है।
 
 {{% /alert %}}
 
