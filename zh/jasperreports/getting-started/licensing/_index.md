@@ -7,9 +7,9 @@ description: "了解 Aspose.Slides for JasperReports 评估版在导出文件中
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports 可在[下载页面](https://releases.aspose.com/slides/zh/jasperreport/)免费、无限期试用。试用版和正式授权版使用相同的下载文件。
+Aspose.Slides for JasperReports 可在[下载页面](https://releases.aspose.com/slides/jasperreport/)免费、无限期试用。试用版和正式授权版使用相同的下载文件。
 
-当您对试用满意时，[购买许可证](https://purchase.aspose.com/pricing/slides/zh/jasperreports/)。请确保您已阅读并同意订阅条款。
+当您对试用满意时，[购买许可证](https://purchase.aspose.com/pricing/slides/jasperreports/)。请确保您已阅读并同意订阅条款。
 
 许可证可在订单付款后从订单页面下载。许可证是一个纯文本、已数字签名的 XML 文件，其中包含客户名称、购买的产品和许可证类型等信息。切勿以任何方式修改许可证文件的内容：修改后许可证将失效。
 

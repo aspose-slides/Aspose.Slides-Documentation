@@ -64,12 +64,12 @@ Aspose.Slides for JasperReports 为 JasperReports Library 和 JasperReports Serv
 <hr>
 <p>参考资料</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/zh/jasperreport/release-notes/">发布说明</a></li>
-<li><a href="https://releases.aspose.com/slides/zh/jasperreport/">下载</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">发布说明</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">下载</a></li>
 </ul>
 <p>支持</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh/11">免费支持论坛</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免费支持论坛</a></li>
 <li><a href="https://helpdesk.aspose.com/">收费支持服务台</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for JasperReports 为 JasperReports Library 和 JasperReports Serv
 
 以下步骤编译一个单行报表，填充数据，并使用来自 Maven Central 的 JasperReports 6.16.0 将其导出为 PPTX。你需要 JDK 11 或更高版本以及 Apache Maven。
 
-1. 从[下载页面](https://releases.aspose.com/slides/zh/jasperreport/)下载 ZIP 并解压。其 *lib* 文件夹按 JasperReports 版本范围划分子文件夹，每个子文件夹包含对应范围的 jar。对于 JasperReports 6.16.0，将 *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* 复制到一个空项目文件夹中。
+1. 从[下载页面](https://releases.aspose.com/slides/jasperreport/)下载 ZIP 并解压。其 *lib* 文件夹按 JasperReports 版本范围划分子文件夹，每个子文件夹包含对应范围的 jar。对于 JasperReports 6.16.0，将 *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* 复制到一个空项目文件夹中。
 
 2. 该 jar 位于 ZIP 中而非 Maven 仓库，因此需要将其安装到本地 Maven 仓库。在项目文件夹中运行以下命令：
 
