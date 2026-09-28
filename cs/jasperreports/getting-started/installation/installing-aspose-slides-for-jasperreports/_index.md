@@ -7,7 +7,7 @@ description: "Vyberte jar soubory Aspose.Slides pro JasperReports, které odpov�
 ---
 ## **Vyberte jar soubory pro vaši verzi JasperReports**
 
-Aspose.Slides for JasperReports je distribuováno jako ZIP soubor na [download page](https://releases.aspose.com/slides/cs/jasperreport/). Jeho složka *lib* obsahuje podsložku pro každý rozsah verzí JasperReports. Vezměte jar soubory ze složky, která odpovídá verzi JasperReports, kterou používáte:
+Aspose.Slides for JasperReports je distribuováno jako ZIP soubor na [download page](https://releases.aspose.com/slides/jasperreport/). Jeho složka *lib* obsahuje podsložku pro každý rozsah verzí JasperReports. Vezměte jar soubory ze složky, která odpovídá verzi JasperReports, kterou používáte:
 
 | Verze JasperReports | Podsložka *lib* |
 | :- | :- |

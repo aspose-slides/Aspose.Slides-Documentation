@@ -64,12 +64,12 @@ Exportuje vyplněný report do PPT a PPTX, jeden snímek na stránku reportu, a 
 <hr>
 <p>REFERENCE</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/cs/jasperreport/release-notes/">Poznámky k vydání</a></li>
-<li><a href="https://releases.aspose.com/slides/cs/jasperreport/">Stáhnout</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Poznámky k vydání</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Stáhnout</a></li>
 </ul>
 <p>PODPORA</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/cs/11">Bezplatné fórum podpory</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Bezplatné fórum podpory</a></li>
 <li><a href="https://helpdesk.aspose.com/">Placená podpora helpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Exportuje vyplněný report do PPT a PPTX, jeden snímek na stránku reportu, a 
 
 Tyto kroky zkompilují jednorozdělový report, vyplní jej a exportují do PPTX pomocí JasperReports 6.16.0 z Maven Central. Potřebujete JDK 11 nebo novější a Apache Maven.
 
-1. Stáhněte ZIP ze [stránky ke stažení](https://releases.aspose.com/slides/cs/jasperreport/) a rozbalte jej. Jeho složka *lib* má podsložku pro každé rozmezí verzí JasperReports a každá obsahuje JAR pro dané rozmezí. Pro JasperReports 6.16.0 zkopírujte *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* do prázdné složky projektu.
+1. Stáhněte ZIP ze [stránky ke stažení](https://releases.aspose.com/slides/jasperreport/) a rozbalte jej. Jeho složka *lib* má podsložku pro každé rozmezí verzí JasperReports a každá obsahuje JAR pro dané rozmezí. Pro JasperReports 6.16.0 zkopírujte *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* do prázdné složky projektu.
 
 2. JAR je součástí ZIPu, nikoliv Maven repozitáře, takže jej nainstalujte do svého lokálního Maven repozitáře. Spusťte tento příkaz ve složce projektu:
 

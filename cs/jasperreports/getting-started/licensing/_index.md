@@ -7,9 +7,9 @@ description: "Zjistěte, co zkušební verze Aspose.Slides for JasperReports př
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports je k dispozici jako bezplatná, časově neomezená zkušební verze ze [stránky ke stažení](https://releases.aspose.com/slides/cs/jasperreport/). Zkušební a licencované verze produktu jsou ke stažení ze stejného souboru.
+Aspose.Slides for JasperReports je k dispozici jako bezplatná, časově neomezená zkušební verze ze [stránky ke stažení](https://releases.aspose.com/slides/jasperreport/). Zkušební a licencované verze produktu jsou ke stažení ze stejného souboru.
 
-Pokud jste se se zkušební verzí spokojeni, [zakupte licenci](https://purchase.aspose.com/pricing/slides/cs/jasperreports/). Ujistěte se, že rozumíte a souhlasíte s podmínkami předplatného.
+Pokud jste se se zkušební verzí spokojeni, [zakupte licenci](https://purchase.aspose.com/pricing/slides/jasperreports/). Ujistěte se, že rozumíte a souhlasíte s podmínkami předplatného.
 
 Licence je k stažení na stránce objednávky po zaplacení objednávky. Licence je v čistém textu, digitálně podepsaný XML soubor, který obsahuje informace jako název klienta, zakoupený produkt a typ licence. Obsah licenčního souboru v žádném případě neupravujte: úprava zneplatní licenci.
 
