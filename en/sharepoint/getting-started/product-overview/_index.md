@@ -3,35 +3,30 @@ title: Product Overview
 type: docs
 weight: 10
 url: /sharepoint/product-overview/
+description: "An overview of Aspose.Slides for SharePoint: the presentation formats it converts and the SharePoint versions it installs on."
 ---
 
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **Welcome to Aspose.Slides for SharePoint!**
-
-Aspose.Slides for SharePoint is a flexible solution that makes it possible to convert PowerPoint® documents within Microsoft SharePoint Sites.
-
 ## **Product Overview**
 
-Aspose.Slides for SharePoint supports a number of PowerPoint document formats:
+Aspose.Slides for SharePoint converts PowerPoint presentations stored in SharePoint document libraries to other formats, on the server.
+
+It converts the following PowerPoint formats:
 
 - PPT – Microsoft PowerPoint presentation 97 - 2003
-- PPS – Microsoft PowerPoint slideShow 97 - 2003
-- POT – Microsoft PowerPoint Template 97 - 2003
 - PPTX – Office Open XML presentation
-- PPSX – Office Open XML slideShow
-- POTX – Office Open XML template
 
-Aspose.Slides for SharePoint is designed to be work with the following products:
+It converts them to PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX and POTM. See [Supported File Formats](/slides/sharepoint/supported-file-formats/) for details.
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+The download contains a separate setup program and solution package for each of the following products:
 
-There are no other system requirements besides ones, which exist for the products above.
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-**Use Aspose.Slides for SharePoint to convert documents from SharePoint's document library** 
+**Use Aspose.Slides for SharePoint to convert documents from SharePoint's document library**
 
-![SharePoint's document library](product-overview_2.png)
+![A SharePoint document library with the Convert with Aspose.Slides menu item](product-overview_2.png)

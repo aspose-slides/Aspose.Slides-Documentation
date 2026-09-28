@@ -3,35 +3,50 @@ title: Multiple Format Support
 type: docs
 weight: 10
 url: /sharepoint/multiple-format-support/
+description: "The input formats Aspose.Slides for SharePoint accepts and the output formats offered on its conversion page."
 ---
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-With Aspose.Slides for SharePoint, you can convert documents between many popular office document formats from within a SharePoint document library. Conversions are done with high fidelity and precision. 
-
-{{% /alert %}} 
-## **Supported Input Formats**
-Aspose.Slides for SharePoint supports the following input formats: 
-
-- PPT – Microsoft PowerPoint Presentation 97 - 2003
-- PPS – Microsoft PowerPoint SlideShow 97 - 2003
-- POT – Microsoft PowerPoint Template 97 - 2003
-- PPTX – Office Open XML Presentation
-- PPSX – Office Open XML SlideShow
-- POTX – Office Open XML Template
-
-{{% alert color="info" %}} 
-
-To generate documents, Aspose.Slides for SharePoint relies on a built-in version of [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), the Aspose's only PowerPoint documents processing component.
+With Aspose.Slides for SharePoint, you can convert PowerPoint presentations to many popular document formats from within a SharePoint document library.
 
 {{% /alert %}}
+
+## **Supported Input Formats**
+
+Aspose.Slides for SharePoint converts the following input formats:
+
+- PPT – Microsoft PowerPoint Presentation 97 - 2003
+- PPTX – Office Open XML Presentation
+
+{{% alert color="info" title="Note" %}}
+
+To convert documents, Aspose.Slides for SharePoint relies on a built-in version of [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
+
+{{% /alert %}}
+
 ## **Supported Output Formats**
-The following output formats are supported by Aspose.Slides for SharePoint: 
 
-- PDF – Portable Document Format
-- TIFF – Pictures Package
+The **Convert to** list on the conversion page offers the following output formats, in this order:
+
+- PDF – Adobe Portable Document
+- TIFF – Pictures package
 - XPS – XML Paper Specification
+- PPS – Slide show presentation
+- PPSX – Microsoft PowerPoint Open XML Slide Show
+- ODP – OpenDocument presentation
+- PPTM – Microsoft PowerPoint Open XML Macro-Enabled Presentation
+- PPSM – Microsoft PowerPoint Open XML Macro-Enabled Slide Show
+- POTX – Microsoft PowerPoint Template
+- POTM – PowerPoint Open XML Macro-Enabled Presentation Template
+- PDFNotes – Presentation notes view in PDF format
+- HTML – Presentation in HTML format
+- TIFFNotes – Presentation notes view as multi-page TIFF image
+- SWF – Shockwave Flash Movie
+- SWFNotes – Presentation notes view as multi-page SWF
 
-**Selecting the output format from the Conversion Settings screen** 
+**Selecting the output format on the Conversion Settings page**
 
-![todo:image_alt_text](multiple-format-support_1.png)
+![The Conversion Settings page with the Convert to list of output formats](multiple-format-support_1.png)
+
+The screenshot was taken with an earlier version, which offered only the PDF, TIFF and XPS formats.

@@ -3,18 +3,23 @@ title: Evaluate Aspose.Slides
 type: docs
 weight: 70
 url: /sharepoint/evaluate-aspose-slides/
+description: "What the evaluation version of Aspose.Slides for SharePoint does, how its output is marked, and how to turn it into the licensed version."
 ---
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
+The evaluation download of Aspose.Slides for SharePoint is the same as the purchased download. It becomes the licensed version when you install the license solution package on the farm; see [Installing Aspose.Slides for SharePoint License](/slides/sharepoint/installing-aspose-slides-for-sharepoint-license/). No code is involved.
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark on every slide of generated PDF, TIFF and XPS files.
+Without a license, Aspose.Slides for SharePoint converts to every supported format, but the converted files carry an evaluation watermark, and the conversion page shows an evaluation notice.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**Evaluation watermark in a converted PDF file**
 
-{{% /alert %}} {{% alert color="info" %}} 
+![A PDF file converted in evaluation mode, with the evaluation watermark over the slide](evaluate-aspose-slides_1.png)
 
-If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+If you want to test Aspose.Slides without the evaluation limitations, you can also request a 30-day temporary license. See [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}
