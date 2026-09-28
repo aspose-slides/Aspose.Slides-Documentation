@@ -7,7 +7,7 @@ description: "Az Aspose.Slides for SharePoint licenc telepítése egy SharePoint
 ---
 {{% alert color="info" title="Note" %}}
 
-Miután elégedett a kiértékelésével, megvásárolhat egy [licencet vásárolni](https://purchase.aspose.com/pricing/slides/hu/sharepoint/). A vásárlás előtt győződjön meg róla, hogy megértette és egyetért a licenc előfizetési feltételeivel. A licencet e‑mailben kapja meg, miután a rendelést kiegyenlítették.
+Miután elégedett a kiértékelésével, megvásárolhat egy [licencet vásárolni](https://purchase.aspose.com/pricing/slides/sharepoint/). A vásárlás előtt győződjön meg róla, hogy megértette és egyetért a licenc előfizetési feltételeivel. A licencet e‑mailben kapja meg, miután a rendelést kiegyenlítették.
 
 A licenc egy ZIP archívum, amely egy szokásos SharePoint megoldáscsomagot tartalmaz. Az archívum tartalmazza:
 

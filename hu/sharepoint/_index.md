@@ -57,12 +57,12 @@ PPT és PPTX fájlokat PDF, TIFF, XPS, HTML, SWF és ODP, valamint a PPS, PPSX, 
 <hr>
 <p>REFERENCIÁK</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/hu/sharepoint/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/sharepoint/">Letöltés</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetős támogatási helpdesk</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ PPT és PPTX fájlokat PDF, TIFF, XPS, HTML, SWF és ODP, valamint a PPS, PPSX, 
 
 Az Aspose.Slides for SharePoint egyszer kerül telepítésre a farmon, majd bármelyik dokumentumtárból használható, ahol aktiválva van:
 
-1. Töltse le a ZIP archívumot a [letöltési oldalról](https://releases.aspose.com/slides/hu/sharepoint/), és csomagolja ki egy szerveren a SharePoint farmjában.
+1. Töltse le a ZIP archívumot a [letöltési oldalról](https://releases.aspose.com/slides/sharepoint/), és csomagolja ki egy szerveren a SharePoint farmjában.
 2. Futtassa a SharePoint verziójának megfelelő telepítőprogramot: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* vagy *Setup2019.exe*. Használjon olyan fiókot, amely telepíthet és telepíthet SharePoint megoldásokat. Fogadja el a licencszerződést, válassza ki a webhelygyűjteményeket, ahol aktiválni kívánja a funkciót, és hagyja, hogy a telepítő telepítse a megoldást. Minden képernyő le van írva a [Telepítés](/slides/hu/sharepoint/installing-aspose-slides-for-sharepoint/) című cikkben.
 3. Nyisson meg egy dokumentumtárat az egyik webhelygyűjteményben, nyissa meg egy PPT vagy PPTX fájl menüjét, és válassza a **Convert via Aspose.Slides** lehetőséget. A SharePoint 2007-ben a menüpont neve **Convert with Aspose.Slides**.
 4. A **Convert to** menüpont alatt válassza a **PDF - Adobe Portable Document** lehetőséget. Ha szükséges, módosítsa a célfájl nevét és mappáját, majd kattintson a **Convert** gombra.

@@ -20,7 +20,7 @@ Az Aspose.Slides for SharePoint a következő bemeneti formátumokat konvertálj
 
 {{% alert color="info" title="Megjegyzés" %}}
 
-A dokumentumok konvertálásához az Aspose.Slides for SharePoint egy beépített [Aspose.Slides for .NET](https://products.aspose.com/slides/hu/net/) verziót használ.
+A dokumentumok konvertálásához az Aspose.Slides for SharePoint egy beépített [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) verziót használ.
 
 {{% /alert %}}
 

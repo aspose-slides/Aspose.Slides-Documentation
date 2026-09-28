@@ -7,7 +7,7 @@ description: "Telepítse az Aspose.Slides for SharePoint‑t egy SharePoint farm
 ---
 ## **Csomag tartalma**
 
-Az Aspose.Slides for SharePoint a [letöltési oldal](https://releases.aspose.com/slides/hu/sharepoint/)ról ZIP archívumként tölthető le. Az archívum egy SharePoint megoldáscsomagot (WSP) és egy telepítőprogramot tartalmaz minden támogatott SharePoint verzióhoz:
+Az Aspose.Slides for SharePoint a [letöltési oldal](https://releases.aspose.com/slides/sharepoint/)ról ZIP archívumként tölthető le. Az archívum egy SharePoint megoldáscsomagot (WSP) és egy telepítőprogramot tartalmaz minden támogatott SharePoint verzióhoz:
 
 | SharePoint verzió | Telepítőprogram | Megoldáscsomag |
 | :- | :- | :- |
