@@ -1,24 +1,19 @@
 ---
-title: Установка Aspose.Slides для Reporting Services в Power BI
+title: Установить Aspose.Slides for Reporting Services в Power BI
 type: docs
 weight: 20
 url: /ru/reportingservices/power-bi/
-keywords: "Power BI, установка, Aspose.Slides для Reporting Services в Power BI"
-description: "Установка Aspose.Slides для Reporting Services в Power BI"
+keywords:
+- Power BI Report Server
+- установка
+- Aspose.Slides for Reporting Services
+description: "Установите Aspose.Slides for Reporting Services на Power BI Report Server, чтобы экспортировать постраничные (RDL) отчёты в форматы PowerPoint."
 ---
-
 ## **Power BI**
-Вы можете установить Aspose.Slides для Reporting Services на сервер Power BI по тем же процессам установки:
 
-Смотрите 
+Вы можете установить Aspose.Slides for Reporting Services на Power BI Report Server тем же способом установки:
 
-* [Установить с помощью MSI установщика](https://docs.aspose.com/slides/reportingservices/install-with-msi-installer/#installation). Программа установки автоматически обнаруживает установленный Power BI на сервере, устанавливает продукт и затем настраивает его для вашей рабочей среды. 
-* [Установить вручную](https://docs.aspose.com/slides/reportingservices/install-manually/).
+* [Установить с помощью MSI Installer](/slides/ru/reportingservices/install-with-msi-installer/). Программа установки автоматически обнаруживает установленный Power BI Report Server, устанавливает продукт и затем настраивает его для вашей рабочей среды.
+* [Установить вручную](/slides/ru/reportingservices/install-manually/). Используйте сборку из папки *Bin\Universal* ZIP-пакета.
 
-{{% alert title="Примечание" color="warning" %}} 
-
-**Aspose.Slides для Reporting Services** требует установки **.NET Framework 3.5** на хост-машине. 
-
-{{% /alert %}}
-
-Aspose.Slides для SSRS поддерживает страницированные отчеты (cdl).
+Aspose.Slides for Reporting Services экспортирует постраничные отчёты (RDL) из Power BI Report Server. Для требований, включая .NET Framework 3.5 на хост-машине, см. [Системные требования](/slides/ru/reportingservices/system-requirements/).

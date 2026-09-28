@@ -3,17 +3,22 @@ title: Đánh giá Aspose.Slides
 type: docs
 weight: 80
 url: /vi/reportingservices/evaluate-aspose-slides/
+keywords:
+- đánh giá
+- thử nghiệm
+- dấu nước đánh giá
+- giấy phép tạm thời
+- Aspose.Slides for Reporting Services
+description: "Tìm hiểu cách phiên bản đánh giá của Aspose.Slides for Reporting Services hoạt động, cách nó đánh dấu các bản trình bày đã xuất, và cách đánh giá mà không có dấu đó."
 ---
-{{% alert color="primary" %}} 
+## **Phiên bản Đánh giá**
 
-Bạn có thể dễ dàng tải xuống Aspose.Slides để đánh giá. Bản tải xuống dùng để đánh giá giống với bản tải xuống đã mua. Phiên bản đánh giá chỉ cần thêm một vài dòng mã để áp dụng giấy phép là sẽ được cấp phép.
+Bạn có thể tải về Aspose.Slides for Reporting Services để đánh giá từ [trang tải xuống của nó](https://releases.aspose.com/slides/vi/reportingservices/). Bản tải đánh giá giống với bản đã mua. Nó sẽ được cấp phép khi bạn sao chép tệp giấy phép vào máy chủ báo cáo — không cần viết mã; xem [Cấp phép](/slides/vi/reportingservices/license-aspose-slides-for-reporting-services/).
 
-Phiên bản đánh giá của Aspose.Slides (không chỉ định giấy phép) cung cấp đầy đủ chức năng của sản phẩm, nhưng nó sẽ chèn một dấu watermarc đánh giá trên mỗi slide của bản trình chiếu được tạo.
+Phiên bản đánh giá (không có giấy phép) cung cấp đầy đủ chức năng của sản phẩm, nhưng nó chèn một dấu nước đánh giá vào các bản trình bày được xuất.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Báo cáo được xuất ở chế độ đánh giá, kèm dấu nước đánh giá](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+## **Đánh giá Không có Dấu Nước**
 
-Nếu bạn muốn thử Aspose.Slides mà không có các hạn chế của phiên bản đánh giá, bạn cũng có thể yêu cầu Giấy phép tạm thời trong 30 ngày. Vui lòng tham khảo [Cách để nhận Giấy phép tạm thời?](https://purchase.aspose.com/temporary-license)
-
-{{% /alert %}}
+Nếu bạn muốn thử Aspose.Slides for Reporting Services mà không có dấu nước đánh giá, bạn có thể yêu cầu giấy phép tạm thời trong 30 ngày. Vui lòng tham khảo [Cách nhận Giấy phép Tạm thời?](https://purchase.aspose.com/temporary-license)

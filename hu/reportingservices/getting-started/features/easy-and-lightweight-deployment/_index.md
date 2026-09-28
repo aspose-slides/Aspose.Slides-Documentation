@@ -1,28 +1,28 @@
 ---
-title: Egyszerű és könnyűsúlyú telepítés
+title: Egyszerű és könnyű telepítés
 type: docs
 weight: 50
 url: /hu/reportingservices/easy-and-lightweight-deployment/
+description: "Ismerje meg, hogyan települ az Aspose.Slides for Reporting Services: egy assembly a jelentéskiszolgáló bin mappájában, regisztrálva a jelentéskiszolgáló konfigurációjában."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides for Reporting Services egy [rendering extension](http://msdn2.microsoft.com/en-us/library/ms154606.aspx) a Microsoft SQL Server Reporting Services számára.  
-Aspose.Slides for Reporting Services egyetlen MSI telepítőként érhető el, amely a következő egyikét futtató számítógépekre telepíthető: 
+Az Aspose.Slides for Reporting Services egy [renderelési kiterjesztés](https://learn.microsoft.com/en-us/sql/reporting-services/extensions/rendering-extension/rendering-extensions-overview) a Microsoft SQL Server Reporting Services és a Power BI Report Server számára.  
+Az Aspose.Slides for Reporting Services egyetlen MSI telepítőként érhető el, amely telepíthető olyan számítógépekre, amelyeken támogatott jelentéskiszolgáló fut, 32‑bit vagy 64‑bit; lásd a [Rendszerkövetelmények](/slides/hu/reportingservices/system-requirements/).
 
-- Microsoft SQL Server 2005 Reporting Services (32-bit és 64-bit)
-- Microsoft SQL Server 2008 Reporting Services (32-bit és 64-bit)
+Kézzel is egyszerűen telepíthető és kezelhető az Aspose.Slides for Reporting Services, mivel csak egy .NET assembly‑ből, a *Aspose.Slides* *.ReportingServices.dll*‑ből áll, amely teljesen C#‑ban íródott, CLS‑kompatibilis, és csak biztonságos managed kódot tartalmaz.
 
-Az Aspose.Slides for Reporting Services kézzel is könnyen telepíthető és kezelhető, mivel csak egy .NET összeállítóból áll: *Aspose.Slides* *.ReportingServices.dll*, amely teljesen C#‑ban íródott, CLS‑kompatibilis, és kizárólag biztonságos kezelt kódot tartalmaz. 
+{{% /alert %}}
 
-{{% /alert %}} 
+A ZIP letöltés tartalmazza az Aspose.Slides.ReportingServices.dll két változatát a jelentéskiszolgálókhoz:
 
-Az MSI telepítő és a ZIP letöltés tartalmazza az Aspose.Slides for ReportingServices-t: 
+- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – a Microsoft SQL Server 2005‑höz és a .NET Framework 2.0‑hoz építve (x86 és x64 használatra)
+- Bin\Universal\Aspose.Slides.ReportingServices.dll – a Microsoft SQL Server 2008 és későbbi verziók, a Power BI Report Server és a .NET Framework 2.0 számára építve (x86 és x64 használatra)
 
-- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – Microsoft SQL Server 2005 és .NET Framework 2.0 számára építve (x86 és x64 használathoz)
-- Bin\SSRS2008\Aspose.Slides.ReportingServices.dll – Microsoft SQL Server 2008 és .NET Framework 2.0 számára építve (x86 és x64 használathoz)
+Az MSI telepítő ugyanazokat a két változatot telepíti, és a megfelelő példányt választja ki minden jelentéskiszolgáló‑példányhoz. A [Telepítés kézzel](/slides/hu/reportingservices/install-manually/) minden fájlt felsorol a ZIP letöltésben.
 
-Telepítéskor az Aspose.Slides.ReportingServices.dll a ReportServer\bin könyvtárba kerül, és a konfigurációs fájl frissül, hogy a Reporting Services felismerje az új megjelenítési kiterjesztést. Ezeket a lépéseket az Aspose.Slides for Reporting Services telepítő végzi, de a dokumentációban később leírtak szerint kézzel is elvégezhetők. 
+A telepítés során az Aspose.Slides.ReportingServices.dll a ReportServer\bin könyvtárba másolódik, és a konfigurációs fájl frissül, hogy a Reporting Services tudomására hozza az új renderelési kiterjesztést. Ezeket a lépéseket az Aspose.Slides for Reporting Services telepítője végzi, de kézzel is elvégezhetők, amint azt a dokumentáció későbbi része leírja.
 
 ![todo:image_alt_text](easy-and-lightweight-deployment_1.png)
 
-**Figure**: Az Aspose.Slides.ReportingServices.dll a **ReportServer\bin** könyvtárba kerül.
+**Ábra**: Az Aspose.Slides.ReportingServices.dll a **ReportServer\bin** könyvtárba kerül másolásra.

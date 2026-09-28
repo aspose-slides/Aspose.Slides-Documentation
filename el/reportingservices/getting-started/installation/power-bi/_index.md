@@ -1,23 +1,19 @@
 ---
-title: Εγκατάσταση του Aspose.Slides for Reporting Services στο Power BI
+title: Εγκαταστήστε το Aspose.Slides for Reporting Services στο Power BI
 type: docs
 weight: 20
 url: /el/reportingservices/power-bi/
-keywords: "Power BI, εγκατάσταση, Aspose.Slides for Reporting Services στο Power BI"
-description: "Εγκατάσταση Aspose.Slides for Reporting Services στο Power BI"
+keywords:
+- Power BI Report Server
+- εγκατάσταση
+- Aspose.Slides for Reporting Services
+description: "Εγκαταστήστε το Aspose.Slides for Reporting Services στο Power BI Report Server για να εξαγάγετε σελίδες (RDL) αναφορές σε μορφές PowerPoint."
 ---
 ## **Power BI**
-Μπορείτε να εγκαταστήσετε το Aspose.Slides for Reporting Services σε διακομιστή Power BI μέσω των ίδιων διαδικασιών εγκατάστασης:
 
-Δείτε
+Μπορείτε να εγκαταστήσετε το Aspose.Slides for Reporting Services στο Power BI Report Server μέσω των ίδιων διαδικασιών εγκατάστασης:
 
-* [Εγκατάσταση με MSI Installer](https://docs.aspose.com/slides/el/reportingservices/install-with-msi-installer/#installation). Το πρόγραμμα εγκατάστασης εντοπίζει αυτόματα το εγκατεστημένο Power BI στον διακομιστή, εγκαθιστά το προϊόν και έπειτα το ρυθμίζει για το περιβάλλον εργασίας σας.
-* [Εγκατάσταση χειροκίνητα](https://docs.aspose.com/slides/el/reportingservices/install-manually/).
+* [Εγκατάσταση με MSI Installer](/slides/el/reportingservices/install-with-msi-installer/). Το πρόγραμμα εγκατάστασης εντοπίζει αυτόματα τον εγκατεστημένο Power BI Report Server, εγκαθιστά το προϊόν και στη συνέχεια το ρυθμίζει για το εργασιακό σας περιβάλλον.
+* [Εγκατάσταση χειροκίνητα](/slides/el/reportingservices/install-manually/). Χρησιμοποιήστε το assembly από τον φάκελο *Bin\Universal* του πακέτου ZIP.
 
-{{% alert title="Note" color="warning" %}} 
-
-**Aspose.Slides for Reporting Services** απαιτεί την εγκατάσταση του **.NET Framework 3.5** στο κεντρικό μηχάνημα.
-
-{{% /alert %}}
-
-Το Aspose.Slides for SSRS υποστηρίζει σελιδοποιημένες αναφορές (cdl).
+Το Aspose.Slides for Reporting Services εξάγει σελίδες αναφορές (RDL) από το Power BI Report Server. Για τις απαιτήσεις, συμπεριλαμβανομένου του .NET Framework 3.5 στο κεντρικό σύστημα, δείτε [Απαιτήσεις Συστήματος](/slides/el/reportingservices/system-requirements/).

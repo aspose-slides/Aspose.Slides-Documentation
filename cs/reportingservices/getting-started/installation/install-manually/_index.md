@@ -1,152 +1,90 @@
 ---
-title: Instalace ručně
+title: Instalovat ručně
 type: docs
 weight: 30
 url: /cs/reportingservices/install-manually/
+keywords:
+- ruční instalace
+- rsreportserver.config
+- rssrvpolicy.config
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "Instalujte Aspose.Slides for Reporting Services ručně z balíčku ZIP obsahujícího pouze DLL: kterou sestavu zkopírovat a co přidat do rsreportserver.config a rssrvpolicy.config."
 ---
-{{% alert color="primary" %}} 
+## **Přehled**
 
-Postupujte podle těchto kroků pouze v případě, že chcete nainstalovat Aspose.Slides for Reporting Services ručně. V takovém případě jste stáhli ZIP balíček obsahující soubory sestavení. 
+Postupujte podle těchto kroků pro instalaci Aspose.Slides for Reporting Services bez instalátoru MSI, z balíčku ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* na [download page](https://releases.aspose.com/slides/cs/reportingservices/). Registrují stejná rozšíření jako [MSI installer](/slides/cs/reportingservices/install-with-msi-installer/). Opakujte je pro každou instanci serveru reportů.
 
-{{% /alert %}} 
+Před zahájením zkontrolujte [systémové požadavky](/slides/cs/reportingservices/system-requirements/). Na serveru reportů potřebujete lokální oprávnění správce.
 
-{{% alert title="Note" color="warning" %}} 
+## **Vyberte sestavu**
 
-**Aspose.Slides for Reporting Services** vyžaduje instalaci **.NET Framework 3.5** na hostitelském počítači. 
+Balíček ZIP obsahuje několik sestavení. Zkopírujte přesně jeden *Aspose.Slides.ReportingServices.dll* na server reportů:
 
-{{% /alert %}}
+| Soubor v balíčku ZIP | Použít pro |
+| :- | :- |
+| *Bin\Universal\Aspose.Slides.ReportingServices.dll* | SQL Server 2008 a novější Reporting Services a Power BI Report Server |
+| *Bin\SSRS2005\Aspose.Slides.ReportingServices.dll* | SQL Server 2005 Reporting Services |
+| *Bin\ReportViewer2010\Aspose.Slides.ReportingServices.dll* | Ne pro server reportů: aplikace, které exportují z ovládacího prvku ReportViewer 2010 nebo 2012, viz [Použití Aspose.Slides s ReportViewer 2010 a 2012](/slides/cs/reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/) |
+| *Bin\RplExport\Aspose.ReportingServices.Debug.Rpl.dll* | Volitelné: ukládá reporty ve formátu RPL pro hlášení problémů, viz [Exportování reportů do formátu RPL](/slides/cs/reportingservices/exporting-reports-to-rpl-format/) |
 
-### **Manuální instalace**
-Tyto instrukce ukazují, jak zkopírovat a upravit soubory v adresáři, kde je nainstalováno Microsoft SQL Server Reporting Services:
+## **Najděte složku serveru reportů**
 
-1. Najděte instalační adresář Report Serveru.  
-   Kořenový adresář pro Microsoft SQL Server je obvykle zde: ***C:\Program Files\Microsoft SQL Server***
-   
-   {{% alert color="primary" %}} 
-   
-   **Microsoft SQL Server 2005 a 2008**: Na počítači může být nakonfigurováno několik instancí Microsoft SQL Serveru a mohou být umístěny v různých podadresářích MSSQL.x, například MSSQL.1, MSSQL.2 atd. Před pokračováním musíte najít správný adresář ***C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer***. 
-   
-   {{% /alert %}} Všechny cesty uvedené níže budou odkazovat na tento adresář jako <Instance>. 
+Níže uvedené kroky odkazují na složku *ReportServer* serveru reportů, která obsahuje *rsreportserver.config* a *rssrvpolicy.config*. Ve výchozí instalaci je to:
 
-2. Zkopírujte soubor Aspose.Slides.ReportingServices.dll do složky **C:\Program Files\Microsoft SQL Server\xxx\Reporting Services\ReportServer\bin**.  
-   Stažení **Aspose.Slides.ReportingServices.zip** obsahuje **Aspose.Slides.ReportingServices.dll**. {{% alert color="primary" %}} 
+| Server reportů | Výchozí složka *ReportServer* |
+| :- | :- |
+| SQL Server 2017 a novější Reporting Services | `C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer` |
+| Power BI Report Server | `C:\Program Files\Microsoft Power BI Report Server\PBIRS\ReportServer` |
+| SQL Server 2016 a starší Reporting Services | `C:\Program Files\Microsoft SQL Server\<instance folder>\Reporting Services\ReportServer`, where the instance folder is, for example, `MSRS13.MSSQLSERVER` for SQL Server 2016 or `MSSQL.x` for SQL Server 2005 |
 
-   V některých případech, když zkopírujete DLL do adresáře **ReportServer\bin**, může se spolu s ní zkopírovat i explicitně přiřazené oprávnění NTFS. Tato oprávnění mohou způsobit, že Microsoft SQL Server Reporting Services bude mít při načítání **Aspose.Slides.ReportingServices.dll** odmítnutý přístup. Pokud k tomu dojde, nové exportní formáty nebudou k dispozici. Zkontrolujte a potvrďte, že jsou nastavená správná oprávnění NTFS:
+Pro další umístění viz článek Microsoftu [RsReportServer.config configuration file](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/rsreportserver-config-configuration-file).
 
-   1. Klikněte pravým tlačítkem na **Aspose.Slides.ReportingServices.dll**.  
-   2. Vyberte **Properties** a přejděte na kartu **Security**.  
-   3. Odstraňte všechna explicitně přiřazená oprávnění NTFS a ponechte pouze zděděná oprávnění.
+## **Instalace rozšíření**
 
-{{% /alert %}}
+1. Zkopírujte vybranou sestavu do podsložky *bin* ve složce *ReportServer*.
 
-3. Zaregistrujte Aspose.Slides for Reporting Services jako rozšíření vykreslování:  
-   1. Otevřete *C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rsreportserver.config*.  
-   2. Přidejte tyto řádky do elementu <Render>:
+   Zkopírovaný soubor nesmí mít explicitně přiřazená oprávnění NTFS, jinak server reportů odmítne přístup při načítání sestavy a nové formáty exportu se nezobrazí. Klikněte pravým tlačítkem na soubor, vyberte **Properties**, a na kartě **Security** odstraňte všechna explicitně přiřazená oprávnění, ponechte pouze zděděná. Pokud karta **General** zobrazuje možnost **Unblock**, vyberte ji.
 
-**<Render>**
+1. Uložte kopii *rsreportserver.config* a poté otevřete soubor v textovém editoru. Přidejte tyto položky uvnitř elementu `<Render>`:
 
-``` xml
+   ```xml
+   <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASXPSS" Type="Aspose.Slides.ReportingServices.XpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASODP" Type="Aspose.Slides.ReportingServices.OdpRenderer,Aspose.Slides.ReportingServices"/>
+   ```
 
-   ...
+   Každá položka registrová jeden exportní formát; `Name` musí být jedinečný mezi vykreslovacími rozšířeními. Instalátor MSI registruje stejných šest názvů a typů. Vynechte položku, pokud nechcete její formát v seznamu exportu.
 
-  <!--Začněte zde.-->
+1. Uložte kopii *rssrvpolicy.config* a poté otevřete soubor v textovém editoru. Najděte skupinu kódu, jejíž `Description` je "This code group grants MyComputer code Execution permission." a přidejte tuto skupinu kódu jako její poslední podřízenou:
 
-  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   ```xml
+   <CodeGroup class="UnionCodeGroup" version="1" PermissionSetName="FullTrust" Name="Aspose.Slides_for_Reporting_Services" Description="This code group grants full trust to the Aspose.Slides.ReportingServices.dll assembly.">
+       <IMembershipCondition class="StrongNameMembershipCondition" version="1" PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf"/>
+   </CodeGroup>
+   ```
 
-  <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+   `PublicKeyBlob` je veřejný klíč sestavy Aspose.Slides.ReportingServices. Udržujte jej v jednom řádku.
 
-  <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+1. Uložte oba soubory. Server reportů načte své konfigurační soubory znovu pokaždé, když jsou uloženy. Pokud soubor obsahuje poškozený XML, server reportů jej ignoruje nebo se nespustí, proto obnovte svou kopii, pokud se něco pokazí.
 
-  <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+## **Zkontrolujte instalaci**
 
-  <!--Ukončete zde.-->
+Otevřete stránkovaný report ve webovém portálu (Report Manager na SQL Server 2014 a dříve) a otevřete seznam **Export**. Nyní obsahuje následující formáty:
 
-</Render>
+- PPT – PowerPoint prezentace pomocí Aspose.Slides
+- PPS – PowerPoint SlideShow pomocí Aspose.Slides
+- PPTX – PowerPoint 2007 prezentace pomocí Aspose.Slides
+- PPSX – PowerPoint 2007 SlideShow pomocí Aspose.Slides
+- ODP – OpenDocument prezentace pomocí Aspose.Slides
+- XPS – pomocí Aspose.Slides
 
+Vyberte jeden z nich pro export reportu. Soubor se otevře v aplikaci přiřazené k jeho formátu.
 
+![Report exportovaný do PowerPointu pomocí Aspose.Slides for Reporting Services](install-manually_2.png)
 
-```
-
-4. Udělte Aspose.Slides for Reporting Services oprávnění k provedení:  
-   1. Otevřete **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config**.  
-   2. Přidejte následující jako poslední položku ve druhém vnějším elementu <CodeGroup> (který by měl být `<CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission. ">`).
-
-**<CodeGroup>**
-
-``` xml
-
-
-
-...
-
-  <CodeGroup>
-
-    ...
-
-    <!--Začněte zde.-->
-
-    <CodeGroup
-
-        class="UnionCodeGroup"
-
-        version="1"
-
-        PermissionSetName="FullTrust"
-
-        Name="Aspose.Slides_for_Reporting_Services"
-
-        Description="This code group grants full trust to the AS4SSRS assembly.">
-
-        <IMembershipCondition
-
-            class="StrongNameMembershipCondition"
-
-            version="1"
-
-            PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e
-
-            99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2
-
-            d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744
-
-            e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf" />
-
-    </CodeGroup>
-
-    <!--Ukončete zde.-->
-
-  </CodeGroup>
-
-</CodeGroup>
-
-
-
-```
-
-5. Ověřte, že Aspose.Slides for Reporting Services byl úspěšně nainstalován:  
-   1. Otevřete Report Manager a zkontrolujte seznam dostupných typů exportu pro report.  
-   
-      {{% alert color="primary" %}} Report Manager můžete spustit otevřením prohlížeče (Microsoft Internet Explorer 6.0 nebo novější) a zadáním URL Report Manageru do adresního řádku (ve výchozím nastavení je http://< ComputerName >/Reports).  
-   
-      {{% /alert %}}
-
-   1. Vyberte report na serveru.  
-   1. Otevřete seznam **Select Format**.  
-      Měli byste vidět seznam exportních formátů poskytovaných Aspose.Slides for Reporting Services.  
-   1. Vyberte **PPT – PowerPoint Presentation via Aspose.Slides**.  
-
-   **Aspose.Slides for Reporting Services byl úspěšně nainstalován a nové exportní formáty jsou k dispozici.**  
-
-![todo:image_alt_text](install-manually_1.png)
-
-
-
-
-6. Klikněte na odkaz **Export**.  
-   Report je vygenerován ve zvoleném formátu, odeslán klientovi a následně otevřen v příslušné aplikaci. V našem případě byl report otevřen v Microsoft PowerPoint.  
-
-   **PPT report vygenerovaný pomocí Aspose.Slides for Reporting Services.**  
-
-![todo:image_alt_text](install-manually_2.png)
-
-Úspěšně jste nainstalovali Aspose.Slides for Reporting Services a vygenerovali report jako prezentaci Microsoft PowerPoint!
+Pokud se formáty nezobrazí, zkontrolujte oprávnění NTFS zkopírované sestavy. Bez licence obsahují exportované soubory vodotisk s hodnocením; viz [Licencování](/slides/cs/reportingservices/license-aspose-slides-for-reporting-services/).

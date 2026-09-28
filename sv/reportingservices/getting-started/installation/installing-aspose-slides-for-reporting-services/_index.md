@@ -3,37 +3,29 @@ title: Installera Aspose.Slides för Reporting Services
 type: docs
 weight: 10
 url: /sv/reportingservices/installing-aspose-slides-for-reporting-services/
+keywords:
+- installation
+- MSI-installationsprogram
+- manuell installation
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "Välj hur du installerar Aspose.Slides for Reporting Services på en rapportserver - med MSI-installationsprogrammet eller från ZIP-paketet som bara innehåller DLL-filer - och hitta de relaterade installationsartiklarna."
 ---
-{{% alert color="primary" %}} 
+## **Installationsalternativ**
 
-Denna artikel fokuserar på installationen av Aspose.Slides för Reporting Services på en server.
+Aspose.Slides for Reporting Services installeras på själva rapportservern. Innan du börjar, kontrollera [systemkraven](/slides/sv/reportingservices/system-requirements/).
 
-{{% /alert %}} 
-### **Installationsalternativ**
-Aspose.Slides för Reporting Services kan distribueras på två sätt: 
+Den [nedladdningssidan](https://releases.aspose.com/slides/sv/reportingservices/) erbjuder två paket för varje version:
 
-* automatiskt genom att använda ett MSI‑installationsprogram
-* manuellt genom att kopiera samlingen och modifiera konfigurationsfilerna. 
+- **Aspose.Slides for Reporting Services XX.XX** — ett MSI‑installationsprogram. Den upptäcker rapportserverinstanserna på maskinen, kopierar tillägget till de du väljer och uppdaterar deras konfigurationsfiler. Se [Installera med MSI‑installationsprogrammet](/slides/sv/reportingservices/install-with-msi-installer/).
+- **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — ett ZIP‑paket för manuell installation: du kopierar en assembly och redigerar två konfigurationsfiler. Se [Installera manuellt](/slides/sv/reportingservices/install-manually/).
 
-MSI‑installationsprogrammet för den automatiska installationen (Aspose.Slides for Reporting Services XX.XX) och zip‑paketet som innehåller filer för den manuella installationen (Aspose.Slides for Reporting Services XX.XX DLL Only) kan hämtas från [produktsidan för releaser](https://releases.aspose.com/slides/sv/reportingservices/). 
+Samma paket installerar Aspose.Slides for Reporting Services på [Power BI Report Server](/slides/sv/reportingservices/power-bi/).
 
-{{% alert color="primary" %}} 
+## **Relaterade artiklar**
 
-Aspose.Slides för Reporting Services kan installeras på en Power BI‑server.
-
-{{% /alert %}} 
-
-### **Länkar till installationsartiklar**
-
-- [Installation med MSI‑installationsprogram](/slides/sv/reportingservices/install-with-msi-installer/).
-- [Manuell installation](/slides/sv/reportingservices/install-manually/).
-- [Om‑installering av Aspose.Slides för Reporting Services](/slides/sv/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Manuell integration med Visual Studio 2005 eller 2008 Report Designer](/slides/sv/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Anpassning av rubrik för Microsoft PowerPoint‑rendering‑tillägg](/slides/sv/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Licensiering av Aspose.Slides för Reporting Services](/slides/sv/reportingservices/license-aspose-slides-for-reporting-services/).
-
-{{% alert title="Note" color="warning" %}} 
-
-**Aspose.Slides för Reporting Services** kräver installation av .NET Framework 3.5 på värddatorn. 
-
-{{% /alert %}}
+- [Licensiering av Aspose.Slides for Reporting Services](/slides/sv/reportingservices/license-aspose-slides-for-reporting-services/)
+- [Ominstallation av Aspose.Slides for Reporting Services](/slides/sv/reportingservices/re-installing-aspose-slides-for-reporting-services/)
+- [Manuell integration med Visual Studio 2005 eller 2008 Report Designer](/slides/sv/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)
+- [Anpassning av rubrik för Microsoft PowerPoint-renderingtillägg](/slides/sv/reportingservices/customizing-powerpoint-rendering-extension-caption/)

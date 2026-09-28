@@ -1,30 +1,90 @@
 ---
 title: Aspose.Slides for Reporting Services
 second_title: Aspose.Slides for Reporting Services
-description: Aspose.Slides for Reporting Services는 Microsoft SQL Server 2005, 2008, 2012, 2016 및 2017 Reporting Services(32-bit 및 64-bit)에서 진정한 PPT 및 PPS 보고서를 생성할 수 있게 해주는 시장 유일의 솔루션입니다.
 type: docs
 weight: 50
 url: /ko/reportingservices/
+keywords:
+- 문서
+- SQL Server Reporting Services
+- SSRS
+- Power BI Report Server
+- 페이지 매김 보고서
+- RDL
+- PowerPoint 내보내기
+- Aspose.Slides
+description: "시작하기: Aspose.Slides for Reporting Services를 설치하고, 첫 번째 보고서를 PowerPoint로 내보내며, 내보내기 형식, 시스템 요구 사항 및 지원 정보를 확인하십시오."
 is_root: true
 ---
-{{% alert color="primary" %}}
+<img src="home_1.png" alt="Aspose.Slides for Reporting Services" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-![Aspose.Slides for Reporting Services 제품 로고](home_1.png)
+Aspose.Slides for Reporting Services는 Microsoft SQL Server Reporting Services 및 Power BI Report Server용 렌더링 확장 기능으로, 서버에 Microsoft PowerPoint 없이 페이지 매김(RDL) 보고서의 내보내기 목록에 프레젠테이션 형식을 추가합니다.
 
-**Aspose.Slides for Reporting Services에 오신 것을 환영합니다**
+보고서를 PPT, PPTX, PPS 및 PPSX 프레젠테이션 및 슬라이드 쇼, ODP, 그리고 XPS 형식으로 내보냅니다.
 
-Aspose.Slides for Reporting Services는 Microsoft SQL Server 2005, 2008, 2012, 2016 및 2017 Reporting Services(32-bit 및 64-bit)에서 진정한 PPT 및 PPS 보고서를 생성할 수 있게 해주는 시장 유일의 솔루션입니다. 표, 매트릭스, 차트 및 이미지를 포함한 모든 RDL 보고서 기능은 최고 수준의 정밀도로 Microsoft PowerPoint 프레젠테이션으로 변환됩니다.
+<div style="clear:both"></div>
 
-{{% /alert %}}
+------
 
-## **Aspose.Slides for Reporting Services 리소스**
+<div class="row">
+<div class="col-md-4">
+<p><b>시작하기</b></p>
+<hr>
+<p>시작하기</p>
+<ul>
+<li><a href="/slides/ko/reportingservices/installing-aspose-slides-for-reporting-services/">설치</a></li>
+<li><a href="/slides/ko/reportingservices/system-requirements/">시스템 요구 사항</a></li>
+<li><a href="/slides/ko/reportingservices/install-with-msi-installer/">MSI 설치 관리자를 사용하여 설치</a></li>
+<li><a href="/slides/ko/reportingservices/install-manually/">수동 설치</a></li>
+<li><a href="/slides/ko/reportingservices/power-bi/">Power BI Report Server에 설치</a></li>
+</ul>
+<p>평가</p>
+<ul>
+<li><a href="/slides/ko/reportingservices/supported-file-formats/">지원 파일 형식</a></li>
+<li><a href="/slides/ko/reportingservices/evaluate-aspose-slides/">평가판 제한 사항</a></li>
+<li><a href="/slides/ko/reportingservices/license-aspose-slides-for-reporting-services/">라이선스</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Slides로 빌드</b></p>
+<hr>
+<p>내보내기</p>
+<ul>
+<li><a href="/slides/ko/reportingservices/support-for-embedding-audio-in-presentation/">PPTX 출력에 오디오 삽입</a></li>
+<li><a href="/slides/ko/reportingservices/paginated-reports/">Power BI Report Builder에서 페이지 매김 보고서</a></li>
+</ul>
+<p>예제</p>
+<ul>
+<li><a href="/slides/ko/reportingservices/sample-reports-gallery/">샘플 보고서 갤러리</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>참조 및 지원</b></p>
+<hr>
+<p>참조</p>
+<ul>
+<li><a href="https://releases.aspose.com/slides/ko/reportingservices/release-notes/">릴리스 노트</a></li>
+<li><a href="https://releases.aspose.com/slides/ko/reportingservices/">다운로드</a></li>
+</ul>
+<p>지원</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/ko/11">무료 지원 포럼</a></li>
+<li><a href="https://helpdesk.aspose.com/">유료 지원 헬프데스크</a></li>
+</ul>
+</div>
+</div>
 
-다음은 작업을 수행하는 데 필요할 수 있는 유용한 리소스에 대한 링크입니다.
+------
 
-- [Aspose.Slides for Reporting Services 온라인 문서](/slides/ko/reportingservices/)
-- [Aspose.Slides for Reporting Services 기능](/slides/ko/reportingservices/features/)
-- [Aspose.Slides for Reporting Services 릴리스 노트](https://releases.aspose.com/slides/ko/reportingservices/release-notes/)
-- [Aspose.Slides for Reporting Services 제품 페이지](https://products.aspose.com/slides/ko/reporting-services/)
-- [Aspose.Slides for Reporting Services 다운로드](https://releases.aspose.com/slides/ko/reportingservices/)
-- [Aspose.Slides for Reporting Services 무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)
-- [Aspose.Slides for Reporting Services 유료 지원 헬프데스크](https://helpdesk.aspose.com/)
+## **첫 번째 내보내기**
+
+코드를 작성할 필요가 없습니다: 확장 기능을 보고서 서버에 설치하면 해당 서버의 모든 페이지 매김 보고서 내보내기 목록에 형식이 표시됩니다.
+
+1. 보고서 서버가 .NET Framework 3.5를 포함한 [시스템 요구 사항](/slides/ko/reportingservices/system-requirements/)을 충족하는지 확인합니다.
+2. [다운로드 페이지](https://releases.aspose.com/slides/ko/reportingservices/)에서 MSI 설치 관리자인 *Aspose.Slides for Reporting Services*를 다운로드합니다. 대신 수동으로 설치하려면 ZIP 패키지인 *Aspose.Slides for Reporting Services (DLLs Only)*를 다운로드합니다.
+3. 보고서 서버에 확장 기능을 설치합니다: 관리자로 MSI를 실행하고, [MSI 설치 관리자를 사용하여 설치](/slides/ko/reportingservices/install-with-msi-installer/)에 설명된 대로 하거나, ZIP 패키지의 경우 [수동 설치](/slides/ko/reportingservices/install-manually/)를 따릅니다.
+4. 브라우저에서 보고서 서버의 웹 포털(SQL Server 2014 이하에서는 Report Manager)을 엽니다. 기본 주소는 `https://<ComputerName>/reports`입니다.
+5. 페이지 매김 보고서를 엽니다. 보고서 도구 모음에서 **Export** 목록을 열고 **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**를 선택합니다. 도구 모음에 별도의 **Export** 버튼이 있는 경우(Report Manager와 같이) 해당 버튼을 선택합니다.
+6. 브라우저가 다운로드한 PPTX 파일을 열거나 저장합니다.
+
+라이선스가 없으면 내보낸 프레젠테이션에 평가 워터마크가 표시됩니다 — [라이선스](/slides/ko/reportingservices/license-aspose-slides-for-reporting-services/)를 참고하십시오. 내보내기 목록에 있는 다른 형식은 [지원 파일 형식](/slides/ko/reportingservices/supported-file-formats/)을 참고하세요.

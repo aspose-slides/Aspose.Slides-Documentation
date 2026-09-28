@@ -1,19 +1,24 @@
 ---
-title: Aspose.Slides értékelése
+title: Az Aspose.Slides értékelése
 type: docs
 weight: 80
 url: /hu/reportingservices/evaluate-aspose-slides/
+keywords:
+- értékelés
+- próba
+- értékelő vízjel
+- ideiglenes licenc
+- Aspose.Slides for Reporting Services
+description: "Ismerje meg, hogyan működik az Aspose.Slides for Reporting Services értékelő verziója, hogyan jelöli meg az exportált prezentációkat, és hogyan tesztelheti azt a jelzés nélkül."
 ---
-{{% alert color="primary" %}}
+## **Értékelő verzió**
 
-Az Aspose.Slides-ot könnyedén letöltheti értékelés céljából. Az értékelő letöltés ugyanaz, mint a vásárolt letöltés. Az értékelő verzió egyszerűen licencessé válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
+Letöltheti az Aspose.Slides for Reporting Services értékelő változatát a [letöltési oldaláról](https://releases.aspose.com/slides/hu/reportingservices/). Az értékelő letöltés megegyezik a megvásárolt letöltéssel. Licencszerűvé válik, ha egy licencfájlt másol a jelentéskiszolgálóra – nincs szükség kódra; lásd a [Licencelés](/slides/hu/reportingservices/license-aspose-slides-for-reporting-services/) oldalt.
 
-Az Aspose.Slides értékelő verziója (licenc megadása nélkül) a teljes termékfunkcionalitást biztosítja, de minden létrehozott prezentáció diájára egy értékelő vízjelet helyez el.
+Az értékelő verzió (licenc nélkül) teljes termékfunkcionalitást biztosít, de egy értékelő vízjelet helyez el az exportált prezentációkba.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Egy jelentés exportálva értékelő módban, az értékelő vízjellel](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}}
+## **Értékelés vízjel nélkül**
 
-Ha az Aspose.Slides-ot az értékelő verzió korlátozása nélkül szeretné tesztelni, kérhet egy 30 napos átmeneti licencet is. Kérjük, tekintse meg a [Hogyan lehet átmeneti licencet szerezni?](https://purchase.aspose.com/temporary-license)
-
-{{% /alert %}}
+Ha az Aspose.Slides for Reporting Services-t az értékelő vízjel nélkül szeretné tesztelni, kérhet 30 napos ideiglenes licencet. Tekintse meg a [Hogyan kaphat ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.

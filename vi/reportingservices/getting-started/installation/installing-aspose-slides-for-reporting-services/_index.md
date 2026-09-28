@@ -1,39 +1,31 @@
 ---
-title: Cài đặt Aspose.Slides cho Reporting Services
+title: Cài đặt Aspose.Slides for Reporting Services
 type: docs
 weight: 10
 url: /vi/reportingservices/installing-aspose-slides-for-reporting-services/
+keywords:
+- cài đặt
+- trình cài đặt MSI
+- cài đặt thủ công
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "Chọn cách cài đặt Aspose.Slides for Reporting Services trên máy chủ báo cáo — bằng trình cài đặt MSI hoặc từ gói ZIP chỉ chứa DLLs — và tìm các bài viết thiết lập liên quan."
 ---
-{{% alert color="primary" %}} 
+## **Tùy chọn cài đặt**
 
-Bài viết này tập trung vào việc cài đặt Aspose.Slides cho Reporting Services trên máy chủ.
+Aspose.Slides for Reporting Services được cài đặt trực tiếp trên máy chủ báo cáo. Trước khi bắt đầu, kiểm tra [yêu cầu hệ thống](/slides/vi/reportingservices/system-requirements/).
 
-{{% /alert %}} 
-### **Tùy chọn Cài đặt**
-Aspose.Slides cho Reporting Services có thể được triển khai theo hai cách: 
+[trang tải xuống](https://releases.aspose.com/slides/vi/reportingservices/) cung cấp hai gói cho mỗi phiên bản:
 
-* tự động bằng cách sử dụng trình cài đặt MSI
-* thủ công bằng cách sao chép assembly và chỉnh sửa các tệp cấu hình. 
+- **Aspose.Slides for Reporting Services XX.XX** — một trình cài đặt MSI. Nó phát hiện các phiên bản máy chủ báo cáo trên máy, sao chép phần mở rộng vào những cái bạn chọn và cập nhật các tệp cấu hình của chúng. Xem [Cài đặt bằng Trình cài đặt MSI](/slides/vi/reportingservices/install-with-msi-installer/).
+- **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — một gói ZIP để cài đặt thủ công: bạn sao chép một assembly và chỉnh sửa hai tệp cấu hình. Xem [Cài đặt thủ công](/slides/vi/reportingservices/install-manually/).
 
-Trình cài đặt MSI cho cài đặt tự động (Aspose.Slides for Reporting Services XX.XX) và gói zip chứa các tệp cho cài đặt thủ công (Aspose.Slides for Reporting Services XX.XX DLL Only) có thể được tải xuống từ [trang phát hành sản phẩm](https://releases.aspose.com/slides/vi/reportingservices/). 
+Các gói tương tự cài đặt Aspose.Slides for Reporting Services trên [Power BI Report Server](/slides/vi/reportingservices/power-bi/).
 
-{{% alert color="primary" %}} 
+## **Bài viết liên quan**
 
-Aspose.Slides cho Reporting Services có thể được cài đặt trên máy chủ Power BI.
-
-{{% /alert %}} 
-
-### **Liên kết đến các Bài viết Cài đặt**
-
-- [Cài đặt bằng trình cài đặt MSI](/slides/vi/reportingservices/install-with-msi-installer/).
-- [Cài đặt thủ công](/slides/vi/reportingservices/install-manually/).
-- [Cài đặt lại Aspose.Slides cho Reporting Services](/slides/vi/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Tích hợp thủ công với Visual Studio 2005 hoặc 2008 Report Designer](/slides/vi/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Tùy chỉnh chú thích phần mở rộng hiển thị Microsoft PowerPoint](/slides/vi/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Cấp phép cho Aspose.Slides cho Reporting Services](/slides/vi/reportingservices/license-aspose-slides-for-reporting-services/).
-
-{{% alert title="Lưu ý" color="warning" %}} 
-
-**Aspose.Slides cho Reporting Services** yêu cầu cài đặt .NET Framework 3.5 trên máy chủ.
-
-{{% /alert %}}
+- [Cấp phép Aspose.Slides for Reporting Services](/slides/vi/reportingservices/license-aspose-slides-for-reporting-services/)
+- [Cài đặt lại Aspose.Slides for Reporting Services](/slides/vi/reportingservices/re-installing-aspose-slides-for-reporting-services/)
+- [Tích hợp thủ công với Visual Studio 2005 hoặc 2008 Report Designer](/slides/vi/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)
+- [Tùy chỉnh chú thích phần mở rộng hiển thị Microsoft PowerPoint](/slides/vi/reportingservices/customizing-powerpoint-rendering-extension-caption/)

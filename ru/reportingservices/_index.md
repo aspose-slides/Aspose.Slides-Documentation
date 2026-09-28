@@ -1,31 +1,90 @@
 ---
-title: Aspose.Slides для Reporting Services
+title: Aspose.Slides for Reporting Services
 second_title: Aspose.Slides for Reporting Services
-description: Aspose.Slides для Reporting Services — единственное решение на рынке, которое позволяет генерировать настоящие отчеты в формате PPT и PPS в Microsoft SQL Server 2005, 2008, 2012, 2016 и 2017 Reporting Services (32-битные и 64-битные).
 type: docs
 weight: 50
 url: /ru/reportingservices/
+keywords:
+- документация
+- SQL Server Reporting Services
+- SSRS
+- Power BI Report Server
+- пагинированные отчёты
+- RDL
+- экспорт PowerPoint
+- Aspose.Slides
+description: "Начните здесь: установите Aspose.Slides for Reporting Services, экспортируйте первый отчёт в PowerPoint и ознакомьтесь с форматами экспорта, системными требованиями и поддержкой."
 is_root: true
 ---
+<img src="home_1.png" alt="Aspose.Slides for Reporting Services" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-{{% alert color="primary" %}}
+Aspose.Slides for Reporting Services — это расширение рендеринга для Microsoft SQL Server Reporting Services и Power BI Report Server, которое добавляет форматы презентаций в список экспорта пагинированных (RDL) отчетов, без Microsoft PowerPoint на сервере.
 
-![Логотип продукта Aspose.Slides для Reporting Services](home_1.png)
+Он экспортирует отчеты в презентации PPT, PPTX, PPS и PPSX, а также в слайд‑шоу, в ODP и в XPS.
 
-**Добро пожаловать в Aspose.Slides для Reporting Services**
+<div style="clear:both"></div>
 
-Aspose.Slides для Reporting Services — единственное решение на рынке, которое позволяет генерировать настоящие отчеты в формате PPT и PPS в Microsoft SQL Server 2005, 2008, 2012, 2016 и 2017 Reporting Services (32-битные и 64-битные). Все функции отчетов RDL, включая таблицы, матрицы, диаграммы и изображения, преобразуются с высокой степенью точности в презентации Microsoft PowerPoint.
+------
 
-{{% /alert %}}
+<div class="row">
+<div class="col-md-4">
+<p><b>Get Started</b></p>
+<hr>
+<p>GETTING STARTED</p>
+<ul>
+<li><a href="/slides/ru/reportingservices/installing-aspose-slides-for-reporting-services/">Установка</a></li>
+<li><a href="/slides/ru/reportingservices/system-requirements/">Требования к системе</a></li>
+<li><a href="/slides/ru/reportingservices/install-with-msi-installer/">Установить с помощью MSI‑установщика</a></li>
+<li><a href="/slides/ru/reportingservices/install-manually/">Установить вручную</a></li>
+<li><a href="/slides/ru/reportingservices/power-bi/">Установить на Power BI Report Server</a></li>
+</ul>
+<p>EVALUATE</p>
+<ul>
+<li><a href="/slides/ru/reportingservices/supported-file-formats/">Поддерживаемые форматы файлов</a></li>
+<li><a href="/slides/ru/reportingservices/evaluate-aspose-slides/">Ограничения пробной версии</a></li>
+<li><a href="/slides/ru/reportingservices/license-aspose-slides-for-reporting-services/">Лицензирование</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Build with Slides</b></p>
+<hr>
+<p>EXPORT</p>
+<ul>
+<li><a href="/slides/ru/reportingservices/support-for-embedding-audio-in-presentation/">Встраивание аудио в вывод PPTX</a></li>
+<li><a href="/slides/ru/reportingservices/paginated-reports/">Пагинированные отчеты из Power BI Report Builder</a></li>
+</ul>
+<p>EXAMPLES</p>
+<ul>
+<li><a href="/slides/ru/reportingservices/sample-reports-gallery/">Галерея образцов отчетов</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<p><b>Reference &amp; Support</b></p>
+<hr>
+<p>REFERENCE</p>
+<ul>
+<li><a href="https://releases.aspose.com/slides/ru/reportingservices/release-notes/">Примечания к выпуску</a></li>
+<li><a href="https://releases.aspose.com/slides/ru/reportingservices/">Скачать</a></li>
+</ul>
+<p>SUPPORT</p>
+<ul>
+<li><a href="https://forum.aspose.com/c/slides/ru/11">Бесплатный форум поддержки</a></li>
+<li><a href="https://helpdesk.aspose.com/">Платная служба поддержки</a></li>
+</ul>
+</div>
+</div>
 
-## **Ресурсы Aspose.Slides для Reporting Services**
+------
 
-Ниже приведены ссылки на некоторые полезные ресурсы, которые могут вам понадобиться для выполнения ваших задач.
+## **Ваш первый экспорт**
 
-- [Онлайн документация Aspose.Slides для Reporting Services](/slides/ru/reportingservices/)
-- [Особенности Aspose.Slides для Reporting Services](/slides/ru/reportingservices/features/)
-- [Примечания к релизу Aspose.Slides для Reporting Services](https://releases.aspose.com/slides/reportingservices/release-notes/)
-- [Страница продукта Aspose.Slides для Reporting Services](https://products.aspose.com/slides/reporting-services/)
-- [Скачать Aspose.Slides для Reporting Services](https://releases.aspose.com/slides/reportingservices/)
-- [Форум бесплатной поддержки Aspose.Slides для Reporting Services](https://forum.aspose.com/c/slides/11)
-- [Платная поддержка Aspose.Slides для Reporting Services](https://helpdesk.aspose.com/)
+Кода писать не требуется: вы устанавливаете расширение на сервер отчетов, и его форматы появляются в списке экспорта каждого пагинированного отчета на этом сервере.
+
+1. Убедитесь, что сервер отчетов соответствует [требованиям к системе](/slides/ru/reportingservices/system-requirements/), включая .NET Framework 3.5.
+2. Со [страница загрузки](https://releases.aspose.com/slides/ru/reportingservices/), скачайте MSI‑установщик, *Aspose.Slides for Reporting Services*. Чтобы установить вручную, скачайте ZIP‑пакет, *Aspose.Slides for Reporting Services (DLLs Only)*.
+3. Установите расширение на сервер отчетов: запустите MSI от имени администратора, как описано в [Установить с помощью MSI‑установщика](/slides/ru/reportingservices/install-with-msi-installer/), или следуйте инструкциям [Установить вручную](/slides/ru/reportingservices/install-manually/) для ZIP‑пакета.
+4. В браузере откройте веб‑портал сервера отчетов (Report Manager в SQL Server 2014 и более ранних версиях). По умолчанию его адрес: `https://<ComputerName>/reports`.
+5. Откройте пагинированный отчет. На панели инструментов отчета откройте список **Экспорт** и выберите **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. Если на панели есть отдельная кнопка **Экспорт**, как в Report Manager, нажмите её.
+6. Откройте или сохраните файл PPTX, который загрузил браузер.
+
+Без лицензии экспортируемая презентация содержит водяной знак оценки — см. [Лицензирование](/slides/ru/reportingservices/license-aspose-slides-for-reporting-services/). Для остальных форматов в списке экспорта см. [Поддерживаемые форматы файлов](/slides/ru/reportingservices/supported-file-formats/).

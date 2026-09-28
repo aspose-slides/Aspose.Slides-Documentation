@@ -1,41 +1,49 @@
 ---
-title: Licentie Aspose.Slides voor Reporting Services
+title: Licentie Aspose.Slides for Reporting Services
 type: docs
 weight: 70
 url: /nl/reportingservices/license-aspose-slides-for-reporting-services/
+keywords:
+- licentie
+- licensering
+- evaluatiewatermerk
+- tijdelijke licentie
+- Aspose.Slides for Reporting Services
+description: "Pas een licentie toe op Aspose.Slides for Reporting Services door het licentiebestand naar de rapportserver te kopiëren, en controleer of geëxporteerde presentaties niet langer het evaluatiewatermerk bevatten."
 ---
 ## **Licentieondersteuning**
-{{% alert color="primary" %}} 
 
-U kunt een evaluatieversie van **Aspose.Slides for Reporting Services** downloaden vanaf [de Releases-pagina](https://releases.aspose.com/slides/nl/reportingservices/). De evaluatieversie biedt dezelfde functionaliteit als de gelicentieerde versie van het product. Het evaluatiepakket is hetzelfde als het aangekochte pakket. De evaluatieversie wordt simpelweg gelicentieerd nadat u een paar regels code hebt toegevoegd (om de licentie toe te passen).
+De evaluatieversie van Aspose.Slides for Reporting Services is hetzelfde pakket als de aangeschafte, van [its download page](https://releases.aspose.com/slides/nl/reportingservices/), en biedt dezelfde functionaliteit. Zonder licentie werkt het in evaluatiemodus en voegt het een evaluatiewatermerk toe aan geëxporteerde presentaties.
 
-Wanneer u tevreden bent met uw evaluatie van het product, kunt u een [licentie aanschaffen](https://purchase.aspose.com/buy). We raden u aan de verschillende abonnementsopties door te nemen. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
+De evaluatieversie wordt gelicensureerd wanneer u een licentiebestand naar de rapportserver kopieert. Er is geen code bij betrokken.
 
-{{% /alert %}} 
+Wanneer u tevreden bent met uw evaluatie, kunt u [purchase a license](https://purchase.aspose.com/pricing/slides/nl/reporting-services/). We raden u aan de verschillende abonnementstypen door te nemen. Als u vragen heeft, neem dan contact op met het verkoopteam van Aspose.
 
-## **Licensering in Aspose.Slides for Reporting Service**
+## **Licensering in Aspose.Slides for Reporting Services**
 
-* Een evaluatieversie wordt gelicentieerd nadat u een licentie heeft aangeschaft en een paar regels code toevoegt (om de licentie toe te passen).
-* De licentie is een platte‑tekst XML‑bestand dat details bevat, zoals de productnaam, het aantal ontwikkelaars waarvoor het gelicentieerd is, de vervaldatum van het abonnement, enzovoort. 
-* Het licentiebestand is digitaal ondertekend, dus u mag het bestand niet wijzigen. Zelfs een onbedoelde extra regeleinde in de inhoud van het bestand maakt het ongeldig.
-* Om de beperkingen van de evaluatieversie te vermijden, moet u een licentie instellen voordat u Aspose.Slides for Reporting Service gebruikt. 
+* De licentie is een platte‑tekst XML‑bestand dat details bevat zoals de productnaam, het aantal ontwikkelaars waarvoor het gelicentieerd is, de vervaldatum van het abonnement, enzovoort.
+* Het licentiebestand is digitaal ondertekend, dus mag u het niet wijzigen. Zelfs een onbedoelde extra regeleinde in de inhoud van het bestand maakt het ongeldig.
 
-Download de licentie naar uw computer en kopieer deze naar de **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\bin** map, waar **Aspose.Slides.ReportingServices.dll** is geïnstalleerd. 
+Om de licentie toe te passen:
 
-Om te bevestigen dat de licentie correct is geïnstalleerd, exporteer een willekeurig rapport als een Microsoft PowerPoint‑presentatie. Als het document geen watermerk bevat, is de licentie succesvol geactiveerd. 
+1. Kopieer het licentiebestand naar de *ReportServer\bin*-map van elke rapportserver‑instantie, waar *Aspose.Slides.ReportingServices.dll* geïnstalleerd is — bijvoorbeeld *C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer\bin*. [Install Manually](/slides/nl/reportingservices/install-manually/#find-the-report-server-folder) geeft de standaardmappen weer.
+2. Zorg ervoor dat het bestand één van de namen heeft waar de extensie naar zoekt: *Aspose.Slides.ReportingServices.lic*, *Aspose.Slides.Reporting.Services.lic*, *Aspose.Slides.Product.Family.lic*, *Aspose.Total.ReportingServices.lic*, *Aspose.Total.Reporting.Services.lic*, *Aspose.Total.Product.Family.lic* of *Aspose.Total.lic*.
+3. Exporteer een willekeurig rapport als een presentatie. Als er geen watermerk in staat, is de licentie actief.
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_1.png)
+De extensie zoekt het licentiebestand ook in *%ProgramData%\Aspose\Slides* (meestal *C:\ProgramData\Aspose\Slides*), dus één kopie daar dient voor elke instantie op de machine.
 
-Wanneer een geldig Aspose.Slides.ReportingServices.lic‑bestand aanwezig is in de *ReportServer\bin* map, is er geen evaluatiewatermerk. 
+**Gelicentieerde modus**
+
+Wanneer een geldig licentiebestand wordt gevonden, bevatten geëxporteerde presentaties geen evaluatiewatermerk.
+
+![Een rapport geëxporteerd met een licentie: geen evaluatiewatermerk](license-aspose-slides-for-reporting-services_2.png)
 
 **Evaluatiemodus**
 
-Aspose.Slides for Reporting Services voegt een watermerk toe wanneer er in de evaluatiemodus wordt gewerkt (geen licentie)
+Zonder licentie voegt Aspose.Slides for Reporting Services een evaluatiewatermerk toe aan geëxporteerde presentaties.
 
-![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
+![Een rapport geëxporteerd in evaluatiemodus, met het evaluatiewatermerk](license-aspose-slides-for-reporting-services_1.png)
 
-{{% alert color="primary" %}} 
-
-Om Aspose.Slides for Reporting Services zonder beperkingen te testen, kunt u een **30‑daagse tijdelijke licentie** aanvragen. Zie de [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) pagina voor meer informatie.
-
+{{% alert color="info" title="Note" %}}
+Om Aspose.Slides for Reporting Services zonder beperkingen te testen, kunt u een **30‑daagse Tijdelijke Licentie** aanvragen. Zie de [Hoe een tijdelijke licentie te krijgen](https://purchase.aspose.com/temporary-license) pagina voor meer informatie.
 {{% /alert %}}

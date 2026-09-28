@@ -3,31 +3,29 @@ title: Εγκατάσταση Aspose.Slides for Reporting Services
 type: docs
 weight: 10
 url: /el/reportingservices/installing-aspose-slides-for-reporting-services/
+keywords:
+- εγκατάσταση
+- εγκαταστάτης MSI
+- χειροκίνητη εγκατάσταση
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "Επιλέξτε πώς να εγκαταστήσετε το Aspose.Slides for Reporting Services σε έναν διακομιστή αναφορών — με τον εγκαταστάτη MSI ή από το πακέτο ZIP μόνο με DLLs — και βρείτε τα σχετικά άρθρα εγκατάστασης."
 ---
-{{% alert color="primary" %}} 
-Αυτό το άρθρο εστιάζει στην εγκατάσταση του Aspose.Slides for Reporting Services σε έναν διακομιστή.
-{{% /alert %}} 
-### **Επιλογές Εγκατάστασης**
-Το Aspose.Slides for Reporting Services μπορεί να αναπτυχθεί με δύο τρόπους: 
+## **Επιλογές εγκατάστασης**
 
-* αυτόματα χρησιμοποιώντας έναν εγκαταστάτη MSI
-* χειροκίνητα αντιγράφοντας τη βιβλιοθήκη και τροποποιώντας τα αρχεία ρυθμίσεων. 
+Το Aspose.Slides for Reporting Services εγκαθίσταται στον ίδιο τον διακομιστή αναφορών. Πριν ξεκινήσετε, ελέγξτε τις [απαιτήσεις συστήματος](/slides/el/reportingservices/system-requirements/).
 
-Ο εγκαταστάτης MSI για την αυτόματη εγκατάσταση (Aspose.Slides for Reporting Services XX.XX) και το πακέτο zip που περιέχει αρχεία για τη χειροκίνητη εγκατάσταση (Aspose.Slides for Reporting Services XX.XX DLL Only) μπορούν να ληφθούν από τη [σελίδα κυκλοφορίας προϊόντος](https://releases.aspose.com/slides/el/reportingservices/). 
+Η [σελίδα λήψης](https://releases.aspose.com/slides/el/reportingservices/) προσφέρει δύο πακέτα για κάθε έκδοση:
 
-{{% alert color="primary" %}} 
-Το Aspose.Slides for Reporting Services μπορεί να εγκατασταθεί σε διακομιστή Power BI.
-{{% /alert %}} 
+- **Aspose.Slides for Reporting Services XX.XX** — ένας εγκαταστάτης MSI. Ανιχνεύει τις παρουσίες του διακομιστή αναφορών στον υπολογιστή, αντιγράφει την επέκταση σε αυτές που επιλέγετε και ενημερώνει τα αρχεία διαμόρφωσής τους. Δείτε [Εγκατάσταση με τον εγκαταστάτη MSI](/slides/el/reportingservices/install-with-msi-installer/).
+- **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — ένα πακέτο ZIP για χειροκίνητη εγκατάσταση: αντιγράφετε ένα σύνολο και επεξεργάζεστε δύο αρχεία διαμόρφωσης. Δείτε [Εγκατάσταση χειροκίνητα](/slides/el/reportingservices/install-manually/).
 
-### **Σύνδεσμοι σε Άρθρα Εγκατάστασης**
+Τα ίδια πακέτα εγκαθιστούν το Aspose.Slides for Reporting Services στον [Power BI Report Server](/slides/el/reportingservices/power-bi/).
 
-- [Εγκατάσταση με εγκαταστάτη MSI](/slides/el/reportingservices/install-with-msi-installer/).
-- [Χειροκίνητη εγκατάσταση](/slides/el/reportingservices/install-manually/).
-- [Επανεγκατάσταση του Aspose.Slides for Reporting Services](/slides/el/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Χειροκίνητη ενσωμάτωση με τον Visual Studio 2005 ή 2008 Report Designer](/slides/el/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Προσαρμογή λεζάντας επέκτασης απόδοσης Microsoft PowerPoint](/slides/el/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Αδειοδότηση του Aspose.Slides for Reporting Services](/slides/el/reportingservices/license-aspose-slides-for-reporting-services/).
+## **Σχετικά άρθρα**
 
-{{% alert title="Note" color="warning" %}} 
-**Aspose.Slides for Reporting Services** απαιτεί την εγκατάσταση του .NET Framework 3.5 στο κεντρικό μηχάνημα. 
-{{% /alert %}}
+- [Αδειοδότηση Aspose.Slides for Reporting Services](/slides/el/reportingservices/license-aspose-slides-for-reporting-services/)
+- [Επανεγκατάσταση Aspose.Slides for Reporting Services](/slides/el/reportingservices/re-installing-aspose-slides-for-reporting-services/)
+- [Χειροκίνητη ενσωμάτωση με Visual Studio 2005 ή 2008 Report Designer](/slides/el/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)
+- [Προσαρμογή λεζάντας επέκτασης απόδοσης Microsoft PowerPoint](/slides/el/reportingservices/customizing-powerpoint-rendering-extension-caption/)

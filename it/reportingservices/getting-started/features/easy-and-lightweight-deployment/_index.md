@@ -3,26 +3,26 @@ title: Distribuzione facile e leggera
 type: docs
 weight: 50
 url: /it/reportingservices/easy-and-lightweight-deployment/
+description: "Scopri come viene distribuito Aspose.Slides for Reporting Services: una singola assembly nella cartella bin del server di report, registrata nella configurazione del server di report."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Nota" %}}
 
-Aspose.Slides for Reporting Services è un'[estensione di rendering](http://msdn2.microsoft.com/en-us/library/ms154606.aspx) per Microsoft SQL Server Reporting Services.  
-Aspose.Slides for Reporting Services viene fornito come singolo installer MSI che può essere installato sui computer che eseguono una delle seguenti versioni:
+Aspose.Slides for Reporting Services è una [estensione di rendering](https://learn.microsoft.com/en-us/sql/reporting-services/extensions/rendering-extension/rendering-extensions-overview) per Microsoft SQL Server Reporting Services e Power BI Report Server.  
+Aspose.Slides for Reporting Services è fornita come un unico installer MSI che può essere installato su computer che eseguono un server di report supportato, a 32‑bit o 64‑bit; vedere i [Requisiti di sistema](/slides/it/reportingservices/system-requirements/).
 
-- Microsoft SQL Server 2005 Reporting Services (32‑bit e 64‑bit)
-- Microsoft SQL Server 2008 Reporting Services (32‑bit e 64‑bit)
+È anche facile distribuire e gestire Aspose.Slides for Reporting Services manualmente, poiché è composta da una sola assembly .NET *Aspose.Slides* *.ReportingServices.dll* , scritta interamente in C#, conforme a CLS e contenente solo codice gestito sicuro.
 
-È inoltre semplice distribuire e gestire manualmente Aspose.Slides for Reporting Services, poiché è costituito da un unico assembly .NET *Aspose.Slides*.ReportingServices.dll, scritto interamente in C#, conforme a CLS e contenente solo codice gestito sicuro.  
+{{% /alert %}}
 
-{{% /alert %}} 
+Il download ZIP include due build di Aspose.Slides.ReportingServices.dll per i server di report:
 
-L’installer MSI e il download ZIP includono Aspose.Slides for ReportingServices:
+- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – compilata per Microsoft SQL Server 2005 e .NET Framework 2.0 (da usare per x86 e x64)
+- Bin\Universal\Aspose.Slides.ReportingServices.dll – compilata per Microsoft SQL Server 2008 e versioni successive, Power BI Report Server e .NET Framework 2.0 (da usare per x86 e x64)
 
-- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – compilato per Microsoft SQL Server 2005 e .NET Framework 2.0 (da usare per x86 e x64)
-- Bin\SSRS2008\Aspose.Slides.ReportingServices.dll – compilato per Microsoft SQL Server 2008 e .NET Framework 2.0 (da usare per x86 e x64)
+L’installer MSI installa le stesse due build e seleziona quella corretta per ogni istanza del server di report. [Installa manualmente](/slides/it/reportingservices/install-manually/) elenca tutti i file nel download ZIP.
 
-Durante l’installazione, Aspose.Slides.ReportingServices.dll viene copiato nella cartella ReportServer\bin e il file di configurazione viene aggiornato affinché Reporting Services riconosca la nuova estensione di rendering. Queste operazioni sono eseguite dall’installer di Aspose.Slides for Reporting Services, ma è anche possibile effettuarle manualmente come descritto più avanti nella presente documentazione. 
+Durante l’installazione, Aspose.Slides.ReportingServices.dll viene copiata nella directory ReportServer\bin e il file di configurazione viene aggiornato in modo che Reporting Services sia a conoscenza della nuova estensione di rendering. Queste operazioni vengono eseguite dall’installer di Aspose.Slides for Reporting Services, ma è possibile effettuarle manualmente come descritto più avanti in questa documentazione.
 
 ![todo:image_alt_text](easy-and-lightweight-deployment_1.png)
 
-**Figura**: Aspose.Slides.ReportingServices.dll viene copiato nella directory **ReportServer\bin**.
+**Figura**: Aspose.Slides.ReportingServices.dll è copiata nella directory **ReportServer\bin**.

@@ -1,151 +1,90 @@
 ---
-title: ติดตั้งด้วยตนเอง
+title: การติดตั้งด้วยตนเอง
 type: docs
 weight: 30
 url: /th/reportingservices/install-manually/
+keywords:
+- การติดตั้งด้วยตนเอง
+- rsreportserver.config
+- rssrvpolicy.config
+- SQL Server Reporting Services
+- Power BI Report Server
+- Aspose.Slides for Reporting Services
+description: "ติดตั้ง Aspose.Slides for Reporting Services ด้วยตนเองจากแพ็กเกจ ZIP ที่มีเฉพาะ DLLs: กำหนดว่า Assembly ใดจะคัดลอกและต้องเพิ่มอะไรใน rsreportserver.config และ rssrvpolicy.config."
 ---
-{{% alert color="primary" %}} 
+## **ภาพรวม**
 
-ทำตามขั้นตอนต่อไปนี้เฉพาะเมื่อต้องการติดตั้ง Aspose.Slides for Reporting Services ด้วยตนเอง ในกรณีนี้คุณได้ดาวน์โหลดแพคเกจ ZIP ที่มีไฟล์ assembly อยู่ 
+ทำตามขั้นตอนเหล่านี้เพื่อติดตั้ง Aspose.Slides for Reporting Services โดยไม่ใช้ตัวติดตั้ง MSI จากแพ็กเกจ ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* บน[download page](https://releases.aspose.com/slides/th/reportingservices/). พวกมันจะแสดงส่วนขยายเดียวกับ[MSI installer](/slides/th/reportingservices/install-with-msi-installer/). ทำซ้ำสำหรับแต่ละอินสแตนซ์ของเซิร์ฟเวอร์รายงาน
 
-{{% /alert %}} 
+ก่อนเริ่ม ตรวจสอบ[system requirements](/slides/th/reportingservices/system-requirements/). คุณต้องมีสิทธิ์ผู้ดูแลระบบระดับท้องถิ่นบนเซิร์ฟเวอร์รายงาน
 
-{{% alert title="Note" color="warning" %}} 
+## **เลือก Assembly**
 
-**Aspose.Slides for Reporting Services** จำเป็นต้องติดตั้ง **.NET Framework 3.5** บนเครื่องโฮสต์ 
+แพ็กเกจ ZIP มีหลายบิลด์ คัดลอกไฟล์ *Aspose.Slides.ReportingServices.dll* เพียงไฟล์เดียวไปยังเซิร์ฟเวอร์รายงาน:
 
-{{% /alert %}}
+| ไฟล์ในแพ็กเกจ ZIP | ใช้สำหรับ |
+| :- | :- |
+| *Bin\Universal\Aspose.Slides.ReportingServices.dll* | SQL Server 2008 ขึ้นไป Reporting Services และ Power BI Report Server |
+| *Bin\SSRS2005\Aspose.Slides.ReportingServices.dll* | SQL Server 2005 Reporting Services |
+| *Bin\ReportViewer2010\Aspose.Slides.ReportingServices.dll* | ไม่ใช่สำหรับเซิร์ฟเวอร์รายงาน: แอปพลิเคชันที่ส่งออกจากคอนโทรล ReportViewer 2010 หรือ 2012, ดู[Using Aspose.Slides with ReportViewer 2010 and 2012](/slides/th/reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/) |
+| *Bin\RplExport\Aspose.ReportingServices.Debug.Rpl.dll* | ตัวเลือก: บันทึกรายงานในรูปแบบ RPL สำหรับรายงานปัญหา, ดู[Exporting Reports to RPL Format](/slides/th/reportingservices/exporting-reports-to-rpl-format/) |
 
-### **การติดตั้งด้วยตนเอง**
-คำแนะนำเหล่านี้แสดงวิธีคัดลอกและแก้ไขไฟล์ในไดเรกทอรีที่ติดตั้ง Microsoft SQL Server Reporting Services:
+## **ค้นหาโฟลเดอร์ Report Server**
 
-1. ค้นหาไดเรกทอรีการติดตั้ง Report Server  
-   ไดเรกทอรีรากของ Microsoft SQL Server ปกติจะอยู่ที่: ***C:\Program Files\Microsoft SQL Server***
-   
-   {{% alert color="primary" %}} 
-   
-   **Microsoft SQL Server 2005 and 2008**: อาจมีหลายอินสแตนซ์ของ Microsoft SQL Server ที่กำหนดค่าบนเครื่องและอาจอยู่ในไดเรกทอรีย่อย MSSQL.x ต่าง ๆ เช่น MSSQL.1, MSSQL.2 เป็นต้น คุณต้องค้นหาไดเรกทอรี ***C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer*** ที่ถูกต้องก่อนดำเนินการต่อ  
-   
-   {{% /alert %}} All paths used below will refer to this directory as <Instance>. 
+ขั้นตอนต่อไปนี้อ้างอิงถึงโฟลเดอร์ *ReportServer* ของเซิร์ฟเวอร์รายงาน ซึ่งเก็บไฟล์ *rsreportserver.config* และ *rssrvpolicy.config*. ในการติดตั้งค่าเริ่มต้น โฟลเดอร์นี้คือ:
 
-2. คัดลอก Aspose.Slides.ReportingServices.dll ไปยังโฟลเดอร์ **C:\Program Files\Microsoft SQL Server\xxx\Reporting Services\ReportServer\bin**  
-   ไฟล์ดาวน์โหลด **Aspose.Slides.ReportingServices.zip** มี **Aspose.Slides.ReportingServices.dll** อยู่ {{% alert color="primary" %}} 
+| เซิร์ฟเวอร์รายงาน | โฟลเดอร์ *ReportServer* เริ่มต้น |
+| :- | :- |
+| SQL Server 2017 ขึ้นไป Reporting Services | `C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer` |
+| Power BI Report Server | `C:\Program Files\Microsoft Power BI Report Server\PBIRS\ReportServer` |
+| SQL Server 2016 และก่อนหน้า Reporting Services | `C:\Program Files\Microsoft SQL Server\<instance folder>\Reporting Services\ReportServer`, โดยที่โฟลเดอร์อินสแตนซ์อาจเป็น `MSRS13.MSSQLSERVER` สำหรับ SQL Server 2016 หรือ `MSSQL.x` สำหรับ SQL Server 2005 |
 
-ในบางกรณี เมื่อคุณคัดลอก DLL ไปยังไดเรกทอรี **ReportServer\bin** มันอาจถูกคัดลอกพร้อมกับการกำหนดสิทธิ์ไฟล์ NTFS โดยตรง สิทธิ์ NTFS นี้ทำให้ Microsoft SQL Server Reporting Services ไม่สามารถเข้าถึงได้เมื่อติดตั้ง **Aspose.Slides.ReportingServices.dll** หากเกิดเช่นนี้ รูปแบบการส่งออกใหม่จะไม่พร้อมใช้งาน ตรวจสอบและยืนยันว่ามีการกำหนดสิทธิ์ NTFS ที่ถูกต้องอยู่ :
+สำหรับตำแหน่งเพิ่มเติม ดูบทความของ Microsoft[RsReportServer.config configuration file](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/rsreportserver-config-configuration-file)
 
-   1. คลิกขวาที่ **Aspose.Slides.ReportingServices.dll**.  
-   2. คลิก **Properties** และเลือกแท็บ **Security**.  
-   3. ลบสิทธิ์ NTFS ที่กำหนดโดยตรงออกและให้คงไว้เฉพาะสิทธิ์ที่สืบทอดมา  
+## **ติดตั้ง Extension**
 
-{{% /alert %}}
+1. คัดลอก Assembly ที่คุณเลือกไปยังโฟลเดอร์ย่อย *bin* ของโฟลเดอร์ *ReportServer*  
 
-3. ลงทะเบียน Aspose.Slides for Reporting Services เป็นส่วนขยายการแสดงผล:  
-   1. เปิด *C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rsreportserver.config*.  
-   1. เพิ่มบรรทัดต่อไปนี้ในองค์ประกอบ <Render>:  
+   ไฟล์ที่คัดลอกต้องไม่มีการกำหนดสิทธิ์ NTFS อย่างเจาะจง มิฉะนั้นเซิร์ฟเวอร์รายงานจะถูกปฏิเสธการเข้าถึงเมื่อโหลด Assembly และรูปแบบการส่งออกใหม่จะไม่แสดง ให้คลิกขวาไฟล์ เลือก**Properties** แล้วที่แท็บ**Security** ลบสิทธิ์ที่กำหนดโดยตรงไว้ ทั้งหมดให้เหลือเฉพาะสิทธิ์ที่สืบทอด หากแท็บ**General** มีตัวเลือก**Unblock** ให้เลือก
 
-**<Render>**
+2. บันทึกสำเนา*rsreportserver.config* แล้วเปิดไฟล์ในโปรแกรมแก้ไขข้อความ เพิ่มรายการเหล่านี้ภายในแท็ก `<Render>`:  
 
-``` xml
+   ```xml
+   <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASXPSS" Type="Aspose.Slides.ReportingServices.XpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASODP" Type="Aspose.Slides.ReportingServices.OdpRenderer,Aspose.Slides.ReportingServices"/>
+   ```
 
-   ...
+   แต่ละรายการลงทะเบียนรูปแบบการส่งออกหนึ่งรูปแบบ; `Name` ต้องไม่ซ้ำกับส่วนขยายการเรนเดอร์อื่น ตัวติดตั้ง MSI ลงทะเบียนชื่อและประเภทเดียวกันหกรายการ หากไม่ต้องการรูปแบบใดในรายการส่งออก ให้ลบรายการนั้นออก
 
-  <!--เริ่มที่นี่.-->
+3. บันทึกสำเนา*rssrvpolicy.config* แล้วเปิดไฟล์ในโปรแกรมแก้ไขข้อความ ค้นหากลุ่มโค้ดที่ `Description` เป็น "This code group grants MyComputer code Execution permission." แล้วเพิ่มกลุ่มโค้ดนี้เป็นบุตรสุดท้ายของมัน:  
 
-  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   ```xml
+   <CodeGroup class="UnionCodeGroup" version="1" PermissionSetName="FullTrust" Name="Aspose.Slides_for_Reporting_Services" Description="This code group grants full trust to the Aspose.Slides.ReportingServices.dll assembly.">
+       <IMembershipCondition class="StrongNameMembershipCondition" version="1" PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf"/>
+   </CodeGroup>
+   ```
 
-  <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+   `PublicKeyBlob` คือคีย์สาธารณะของ Assembly Aspose.Slides.ReportingServices เก็บไว้ในบรรทัดเดียว
 
-  <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+4. บันทึกไฟล์ทั้งสอง เซิร์ฟเวอร์รายงานจะอ่านไฟล์กำหนดค่าใหม่ทุกครั้งที่บันทึก หากไฟล์มี XML ที่ไม่ถูกต้อง เซิร์ฟเวอร์จะละเลยหรือไม่เริ่มทำงาน ดังนั้นให้กู้คืนสำเนาที่บันทึกไว้หากพบปัญหา
 
-  <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+## **ตรวจสอบการติดตั้ง**
 
-  <!--จบที่นี่.-->
+เปิดรายงานแบบหน้าในเว็บพอร์ทัล (Report Manager บน SQL Server 2014 หรือต่ำกว่า) แล้วเปิดรายการ**Export** รายการนี้จะปรากฏรูปแบบต่อไปนี้:
 
-</Render>
+- PPT – พรีเซนเทชัน PowerPoint ผ่าน Aspose.Slides
+- PPS – สไลด์โชว์ PowerPoint ผ่าน Aspose.Slides
+- PPTX – พรีเซนเทชัน PowerPoint 2007 ผ่าน Aspose.Slides
+- PPSX – สไลด์โชว์ PowerPoint 2007 ผ่าน Aspose.Slides
+- ODP – พรีเซนเทชัน OpenDocument ผ่าน Aspose.Slides
+- XPS – ผ่าน Aspose.Slides
 
+เลือกหนึ่งรายการเพื่อส่งออกรายงาน ไฟล์จะเปิดในแอปพลิเคชันที่เชื่อมโยงกับรูปแบบนั้น
 
+![รายงานที่ส่งออกเป็น PowerPoint โดย Aspose.Slides for Reporting Services](install-manually_2.png)
 
-```
-
-4. ให้สิทธิ์การดำเนินการแก่ Aspose.Slides for Reporting Services:  
-   1. เปิด **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config**.  
-   1. เพิ่มโค้ดต่อไปนี้เป็นรายการสุดท้ายในองค์ประกอบ <CodeGroup> ชั้นที่สองจากด้านนอก (ซึ่งควรเป็น <CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="This code group grants MyComputer code Execution permission. ">)  
-
-**<CodeGroup>**
-
-``` xml
-
-
-
-...
-
-  <CodeGroup>
-
-    ...
-
-    <!--เริ่มที่นี่.-->
-
-    <CodeGroup
-
-        class="UnionCodeGroup"
-
-        version="1"
-
-        PermissionSetName="FullTrust"
-
-        Name="Aspose.Slides_for_Reporting_Services"
-
-        Description="This code group grants full trust to the AS4SSRS assembly.">
-
-        <IMembershipCondition
-
-            class="StrongNameMembershipCondition"
-
-            version="1"
-
-            PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e
-
-            99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2
-
-            d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744
-
-            e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf" />
-
-    </CodeGroup>
-
-    <!--จบที่นี่.-->
-
-  </CodeGroup>
-
-</CodeGroup>
-
-
-
-```
-
-5. ตรวจสอบว่า Aspose.Slides for Reporting Services ได้รับการติดตั้งอย่างสมบูรณ์แล้ว:  
-   1. เปิด Report Manager และตรวจสอบรายการประเภทการส่งออกที่มีสำหรับรายงาน  
-
-   {{% alert color="primary" %}} คุณสามารถเปิด Report Manager ได้โดยเปิดเว็บบราว์เซอร์ (Microsoft Internet Explorer 6.0 หรือใหม่กว่า) แล้วพิมพ์ URL ของ Report Manager ในแถบที่อยู่ (ค่าเริ่มต้นคือ http://< ComputerName >/Reports ).  
-   {{% /alert %}}
-
-1. เลือกรายงานบนเซิร์ฟเวอร์  
-1. เปิดรายการ **Select Format**  
-   คุณควรเห็นรายการรูปแบบการส่งออกที่จัดทำโดย Aspose.Slides for Reporting Services  
-1. เลือก **PPT – PowerPoint Presentation via Aspose.Slides**  
-
-**Aspose.Slides for Reporting Services ติดตั้งสำเร็จและรูปแบบการส่งออกใหม่พร้อมใช้งาน**  
-
-![todo:image_alt_text](install-manually_1.png)
-
-
-
-
-6. คลิกลิงก์ **Export**.  
-   รายงานจะถูกสร้างในรูปแบบที่เลือก ส่งไปยังลูกค้า และจากนั้นเปิดในแอปพลิเคชันที่เหมาะสม ในกรณีของเรา รายงานถูกเปิดใน Microsoft PowerPoint.  
-
-**รายงาน PPT ที่สร้างโดย Aspose.Slides for Reporting Services**  
-
-![todo:image_alt_text](install-manually_2.png)
-
-คุณได้ติดตั้ง Aspose.Slides for Reporting Services เสร็จสมบูรณ์และสร้างรายงานเป็นงานนำเสนอ Microsoft PowerPoint เรียบร้อยแล้ว!
+หากรูปแบบไม่ปรากฏ ตรวจสอบสิทธิ์ NTFS ของ Assembly ที่คัดลอก หากไม่มีลิขสิทธิ์ ไฟล์ที่ส่งออกจะมีลายน้ำการประเมิน; ดู[Licensing](/slides/th/reportingservices/license-aspose-slides-for-reporting-services/).

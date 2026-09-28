@@ -3,6 +3,7 @@ title: Podporované formáty souborů
 type: docs
 weight: 20
 url: /cs/reportingservices/supported-file-formats/
+description: "Zobrazte, které formáty Aspose.Slides for Reporting Services načítá (RDL, RPL) a do kterých formátů prezentací a dokumentů exportuje zprávy."
 ---
 ## **Podporované verze Microsoft PowerPoint**
 - Microsoft PowerPoint 97
@@ -14,17 +15,18 @@ url: /cs/reportingservices/supported-file-formats/
 - Microsoft PowerPoint 2013
 - Microsoft PowerPoint 2016
 - Microsoft PowerPoint 2019
-- Microsoft PowerPoint for MAC
+- Microsoft PowerPoint pro MAC
 
 ## **Podporované formáty souborů**
-Následující tabulka uvádí formáty souborů, které Aspose.Slides pro Reporting Services může načíst a uložit.
+Následující tabulka uvádí formáty souborů, které Aspose.Slides for Reporting Services může načíst a uložit.
 
 |**Formát**|**Popis**|**Načíst**|**Uložit**|**Poznámky**|
 | :- | :- | :- | :- | :- |
-|[PPT](https://docs.fileformat.com/presentation/ppt/)|Prezentace PowerPoint 97‑2003||{{< emoticons/tick >}}||
-|[PPS](https://docs.fileformat.com/presentation/pps/)|Prezentace PowerPoint SlideShow 97‑2003||{{< emoticons/tick >}}||
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|Prezentace PowerPoint 2007‑2019||{{< emoticons/tick >}}||
-|[PPSX](https://docs.fileformat.com/presentation/ppsx/)|Prezentace PowerPoint SlideShow 2007‑2019||{{< emoticons/tick >}}||
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|Dokumenty XPS||{{< emoticons/tick >}}||
-|RPL|Rozložení stránky sestavy|{{< emoticons/tick >}}|||
-|RDL|Jazyk definice sestavy|{{< emoticons/tick >}}|||
+|[PPT](https://docs.fileformat.com/presentation/ppt/)|PowerPoint prezentace 97 - 2003||{{< emoticons/tick >}}||
+|[PPS](https://docs.fileformat.com/presentation/pps/)|PowerPoint slideShow 97 - 2003||{{< emoticons/tick >}}||
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|PowerPoint prezentace 2007 - 2019||{{< emoticons/tick >}}||
+|[PPSX ](https://docs.fileformat.com/presentation/ppsx/)|PowerPoint slideShow 2007 - 2019||{{< emoticons/tick >}}||
+|[ODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument prezentace||{{< emoticons/tick >}}||
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XPS dokumenty||{{< emoticons/tick >}}||
+|RPL|Rozložení stránky zprávy|{{< emoticons/tick >}}|||
+|RDL|Jazyk definice zprávy|{{< emoticons/tick >}}|||

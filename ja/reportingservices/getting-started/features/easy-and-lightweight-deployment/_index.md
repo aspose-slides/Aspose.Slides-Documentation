@@ -1,28 +1,27 @@
 ---
-title: 簡単で軽量なデプロイメント
+title: 簡単で軽量なデプロイ
 type: docs
 weight: 50
 url: /ja/reportingservices/easy-and-lightweight-deployment/
+description: "Aspose.Slides for Reporting Services がどのようにデプロイされるかを学びます。レポートサーバーの bin フォルダーに 1 つのアセンブリが配置され、レポートサーバーの構成に登録されます。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Aspose.Slides for Reporting Services は、Microsoft SQL Server Reporting Services および Power BI Report Server 用のレンダリング拡張機能です。  
+Aspose.Slides for Reporting Services は、サポートされているレポート サーバー（32 ビットまたは 64 ビット）上で実行されるコンピューターにインストールできる単一の MSI インストーラーとして提供されます。システム要件は [System Requirements](/slides/ja/reportingservices/system-requirements/) を参照してください。
 
-Aspose.Slides for Reporting Services は、Microsoft SQL Server Reporting Services 用の [レンダリング拡張機能](http://msdn2.microsoft.com/en-us/library/ms154606.aspx) です。 
-Aspose.Slides for Reporting Services は、以下のいずれかのコンピュータにインストールできる単一 MSI インストーラーとして提供されています: 
+Aspose.Slides for Reporting Services は、1 つの .NET アセンブリ *Aspose.Slides* *.ReportingServices.dll* だけで構成されており、完全に C# で記述され、CLS に準拠し、安全なマネージド コードのみを含むため、手動での展開および管理も容易です。
 
-- Microsoft SQL Server 2005 Reporting Services (32ビットおよび64ビット)
-- Microsoft SQL Server 2008 Reporting Services (32ビットおよび64ビット)
+{{% /alert %}}
 
-Aspose.Slides for Reporting Services は、1つの .NET アセンブリ *Aspose.Slides* *.ReportingServices.dll* で構成され、完全に C# で記述されており、CLS 準拠で、安全なマネージコードのみを含むため、手動での展開と管理も簡単です。 
+ZIP ダウンロードには、レポート サーバー用の Aspose.Slides.ReportingServices.dll の 2 つのビルドが含まれています。
 
-{{% /alert %}} 
+- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – Microsoft SQL Server 2005 および .NET Framework 2.0 用にビルドされました (x86 および x64 用)
+- Bin\Universal\Aspose.Slides.ReportingServices.dll – Microsoft SQL Server 2008 以降、Power BI Report Server、.NET Framework 2.0 用にビルドされました (x86 および x64 用)
 
-MSI インストーラーと ZIP ダウンロードには、Aspose.Slides for ReportingServices が含まれています: 
+MSI インストーラーは同じ 2 つのビルドをインストールし、各レポート サーバー インスタンスに適したものを選択します。[Install Manually](/slides/ja/reportingservices/install-manually/) では ZIP ダウンロード内のすべてのファイルが一覧表示されています。
 
-- Bin\SSRS2005\Aspose.Slides.ReportingServices.dll – Microsoft SQL Server 2005 および .NET Framework 2.0 用にビルドされています (x86 および x64 用)
-- Bin\SSRS2008\Aspose.Slides.ReportingServices.dll – Microsoft SQL Server 2008 および .NET Framework 2.0 用にビルドされています (x86 および x64 用)
-
-インストール時に、Aspose.Slides.ReportingServices.dll は ReportServer\bin ディレクトリにコピーされ、設定ファイルが更新されて Reporting Services が新しいレンダリング拡張機能を認識するようになります。これらの手順は、Aspose.Slides for Reporting Services インストーラーによって実行されますが、このドキュメントでさらに詳しく説明されているように、手動で実行することもできます。 
+インストール時に、Aspose.Slides.ReportingServices.dll は ReportServer\bin ディレクトリにコピーされ、構成ファイルが更新されて Reporting Services が新しいレンダリング拡張機能を認識できるようになります。これらの手順は Aspose.Slides for Reporting Services インストーラーによって実行されますが、本ドキュメントの後述にあるように手動で実行することも可能です。
 
 ![todo:image_alt_text](easy-and-lightweight-deployment_1.png)
 

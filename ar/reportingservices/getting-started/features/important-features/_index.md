@@ -1,21 +1,21 @@
 ---
-title: ميزات هامة
+title: الميزات الهامة
 type: docs
 weight: 10
 url: /ar/reportingservices/important-features/
+description: "تصفح الميزات الرئيسية لـ Aspose.Slides for Reporting Services، مع رابط للمقالة الخاصة بكل ميزة."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+يقدم هذا القسم وصفًا تفصيليًا لميزات Aspose.Slides for Reporting Services. انقر على الروابط في الجدول أدناه لتعرف المزيد عن هذه الميزات.
 
-يقدم هذا القسم وصفًا تفصيليًا لميزات Aspose.Slides لخدمات التقارير. انقر على الروابط في الجدول أدناه لمعرفة المزيد عن الميزات. 
-
-{{% /alert %}} 
+{{% /alert %}}
 
 |**الميزة** |**الوصف** |
 | :- | :- |
-|[تصدير PPT و PPS و PPTX و PPSX](/slides/ar/reportingservices/ppt-2c-pps-2c-pptx-and-ppsx-export/)|تصدير التقارير كعروض تقديمية من Microsoft PowerPoint من خدمات التقارير في Microsoft SQL Server دون استخدام Microsoft PowerPoint. |
-|[دعم شامل لـ RDL](/slides/ar/reportingservices/comprehensive-rdl-support/)|لا حاجة لإعادة تصميم تقاريرك حيث يتم دعم جميع مواصفات RDL بالكامل. |
-|[دقة عالية لتصميم التقرير](/slides/ar/reportingservices/high-fidelity-to-the-report-design/)|تحتوي تقارير PPT و PPS على نفس التخطيط والمظهر كما هو الحال في PDF وأنماط أخرى. |
-|[نشر سهل وخفيف الوزن](/slides/ar/reportingservices/easy-and-lightweight-deployment/)|Aspose.Slides لخدمات التقارير هو امتداد لتقديم التقارير لـ Microsoft SQL Server 2005 و 2008 (x86 و x64). |
-|[ترخيص بسيط وبأسعار معقولة](/slides/ar/reportingservices/simple-and-affordable-licensing/)|رخصة واحدة لكل خادم أو رخصة واحدة لجميع خوادمك. عدد غير محدود من المطورين. |
-|[دعم فني مجاني على مستوى عالمي](/slides/ar/reportingservices/world-class-free-technical-support/)|يتم تقديم دعم فني غير محدود مباشرة من قبل مطوري المنتج. |
+|[تصدير PPT, PPS, PPTX و PPSX](/slides/ar/reportingservices/ppt-pps-pptx-and-ppsx-export/)|تصدير التقارير كعروض تقديمية Microsoft PowerPoint من Microsoft SQL Server Reporting Services دون الحاجة إلى برنامج Microsoft PowerPoint. |
+|[دعم RDL شامل](/slides/ar/reportingservices/comprehensive-rdl-support/)|لا حاجة لإعادة تصميم تقاريرك حيث يتم دعم جميع مواصفات RDL بالكامل. |
+|[دقة عالية لتصميم التقرير](/slides/ar/reportingservices/high-fidelity-to-the-report-design/)|تقارير PPT و PPS لها نفس التخطيط والمظهر كما في PDF وغيرها من الصيغ. |
+|[نشر سهل وخفيف](/slides/ar/reportingservices/easy-and-lightweight-deployment/)|Aspose.Slides for Reporting Services هو امتداد عرض لتقارير Microsoft SQL Server Reporting Services وPower BI Report Server (x86 و x64). انظر [متطلبات النظام](/slides/ar/reportingservices/system-requirements/) للإصدارات المدعومة. |
+|[ترخيص بسيط وميسور](/slides/ar/reportingservices/simple-and-affordable-licensing/)|ترخيص واحد لكل خادم أو ترخيص واحد لجميع خوادمك. عدد غير محدود من المطورين. |
+|[دعم فني مجاني على مستوى عالمي](/slides/ar/reportingservices/world-class-free-technical-support/)|يتم توفير دعم فني غير محدود مباشرة من قبل مطوري المنتج. |

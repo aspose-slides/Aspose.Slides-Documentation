@@ -3,143 +3,88 @@ title: التثبيت اليدوي
 type: docs
 weight: 30
 url: /ar/reportingservices/install-manually/
+keywords:
+- التثبيت اليدوي
+- rsreportserver.config
+- rssrvpolicy.config
+- خدمات تقارير SQL Server
+- خادم تقارير Power BI
+- Aspose.Slides لخدمات التقارير
+description: "تثبيت Aspose.Slides لخدمات التقارير يدويًا من حزمة ZIP التي تحتوي على ملفات DLL فقط: أي تجميعة يجب نسخها، وما الذي يجب إضافته إلى rsreportserver.config و rssrvpolicy.config."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+اتبع الخطوات التالية لتثبيت Aspose.Slides for Reporting Services دون مثبت MSI، من حزمة ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* على [صفحة التحميل](https://releases.aspose.com/slides/ar/reportingservices/). وهي تسجل نفس الإضافات مثل [مثبت MSI](/slides/ar/reportingservices/install-with-msi-installer/). كررها لكل نسخة من خادم التقارير.
 
-اتبع هذه الخطوات فقط إذا كنت تخطط لتثبيت Aspose.Slides لخدمات التقارير يدويًا. في هذه الحالة، قمت بتنزيل حزمة ZIP تحتوي على ملفات التجميع. 
+قبل البدء، تحقق من [متطلبات النظام](/slides/ar/reportingservices/system-requirements/). تحتاج إلى صلاحيات المسؤول المحلي على خادم التقارير.
 
-{{% /alert %}} 
+## **اختيار التجميعة**
 
-{{% alert title="ملاحظة" color="warning" %}} 
+تحتوي حزمة ZIP على عدة بنى. انسخ ملفًا واحدًا *Aspose.Slides.ReportingServices.dll* إلى خادم التقارير:
 
-**Aspose.Slides لخدمات التقارير** يتطلب تثبيت **.NET Framework 3.5** على الجهاز المضيف. 
+| الملف في حزمة ZIP | الاستخدام |
+| :- | :- |
+| *Bin\Universal\Aspose.Slides.ReportingServices.dll* | SQL Server 2008 وما بعده لخدمات التقارير، وPower BI Report Server |
+| *Bin\SSRS2005\Aspose.Slides.ReportingServices.dll* | SQL Server 2005 لخدمات التقارير |
+| *Bin\ReportViewer2010\Aspose.Slides.ReportingServices.dll* | ليس لخادم تقارير: تطبيقات تصدر من التحكم ReportViewer 2010 أو 2012، انظر [استخدام Aspose.Slides مع ReportViewer 2010 و 2012](/slides/ar/reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/) |
+| *Bin\RplExport\Aspose.ReportingServices.Debug.Rpl.dll* | اختياري: يحفظ التقارير بصيغة RPL لتقارير الأخطاء، انظر [تصدير التقارير إلى صيغة RPL](/slides/ar/reportingservices/exporting-reports-to-rpl-format/) |
 
-{{% /alert %}}
+## **إيجاد مجلد خادم التقارير**
 
-### **التثبيت اليدوي**
-توضح هذه التعليمات كيفية نسخ وتعديل الملفات في الدليل الذي تم تثبيت Microsoft SQL Server Reporting Services فيه:
+تشير الخطوات التالية إلى مجلد *ReportServer* الخاص بخادم التقارير، الذي يحتوي على *rsreportserver.config* و *rssrvpolicy.config*. في تثبيت افتراضي، يكون:
 
-1. حدد دليل تثبيت خادم التقرير.
-   يكون الدليل الجذري لـ Microsoft SQL Server عادةً هنا: ***C:\Program Files\Microsoft SQL Server***
-   
-   {{% alert color="primary" %}} 
-   
-   **Microsoft SQL Server 2005 و 2008**: قد يكون هناك عدة مثيلات من Microsoft SQL Server مُكوّنة على الجهاز وقد تشغل مجلدات MSSQL.x فرعية مختلفة مثل MSSQL.1، MSSQL.2 وهكذا. يجب عليك العثور على الدليل الصحيح ***C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer*** قبل المتابعة إلى الخطوة التالية.
-   
-   {{% /alert %}} تشير جميع المسارات المستخدمة أدناه إلى هذا الدليل باعتباره <Instance>. 
+| خادم التقارير | المجلد الافتراضي *ReportServer* |
+| :- | :- |
+| SQL Server 2017 وما بعده لخدمات التقارير | `C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\ReportServer` |
+| Power BI Report Server | `C:\Program Files\Microsoft Power BI Report Server\PBIRS\ReportServer` |
+| SQL Server 2016 وما قبلها لخدمات التقارير | `C:\Program Files\Microsoft SQL Server\<مجلد النسخة>\Reporting Services\ReportServer`، حيث يكون مجلد النسخة على سبيل المثال `MSRS13.MSSQLSERVER` لـ SQL Server 2016 أو `MSSQL.x` لـ SQL Server 2005 |
 
-2. انسخ Aspose.Slides.ReportingServices.dll إلى المجلد **C:\Program Files\Microsoft SQL Server\xxx\Reporting Services\ReportServer\bin**.
-   تحتوي تنزيل **Aspose.Slides.ReportingServices.zip** على **Aspose.Slides.ReportingServices.dll**. {{% alert color="primary" %}} 
+لمزيد من المواقع، راجع مقالة ملف تكوين Microsoft’s [RsReportServer.config configuration file](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/rsreportserver-config-configuration-file).
 
-في بعض الحالات، عند نسخ DLL إلى دليل **ReportServer\bin**، قد يتم نسخه بجانب أذونات ملف NTFS المعينة له. تتسبب أذونات NTFS في رفض Microsoft SQL Server Reporting Services الوصول عند تحميل **Aspose.Slides.ReportingServices.dll**. إذا حدث ذلك، فلن تصبح تنسيقات التصدير الجديدة متاحة. تحقق وتأكد من أن أذونات NTFS الصحيحة موجودة :
+## **تثبيت الامتداد**
 
-   1. انقر بزر الماوس الأيمن على **Aspose.Slides.ReportingServices.dll**.
-   1. انقر على **خصائص** واختر علامة التبويب **الأمان**.
-   1. قم بإزالة أي أذونات NTFS المعينة بشكل صريح واترك فقط الأذونات الموروثة.
+1. انسخ التجميعة التي اخترتها إلى المجلد الفرعي *bin* داخل مجلد *ReportServer*.
 
-{{% /alert %}}
+   يجب ألا يحمل الملف المنسوخ أذونات NTFS معينة صراحةً، وإلا سيُحرم خادم التقارير من الوصول عند تحميل التجميعة ولن تظهر صيغ التصدير الجديدة. انقر بزر الماوس الأيمن على الملف، اختر **Properties**، وفي تبويب **Security** احذف أي أذونات معينة صراحةً، واترك الأذونات الموروثة فقط. إذا ظهر خيار **Unblock** في تبويب **General**، فاختره.
 
-3. سجل Aspose.Slides لخدمات التقارير كامتداد عرض: 
-   1. افتح *C:\Program
-      Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rsreportserver.config*.
-   1. أضف هذه الأسطر إلى عنصر <Render>: 
+2. احفظ نسخة من *rsreportserver.config*، ثم افتح الملف في محرر نصوص. أضف هذه الإدخالات داخل عنصر `<Render>`:
 
-**<Render>**
+   ```xml
+   <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASXPSS" Type="Aspose.Slides.ReportingServices.XpsRenderer,Aspose.Slides.ReportingServices"/>
+   <Extension Name="ASODP" Type="Aspose.Slides.ReportingServices.OdpRenderer,Aspose.Slides.ReportingServices"/>
+   ```
 
-``` xml
+   كل إدخال يسجل صيغة تصدير واحدة؛ يجب أن يكون `Name` فريدًا بين امتدادات العرض. مس installer MSI يسجل نفس الأسماء والأنواع الستة. احذف إدخالًا إذا لم ترغب في ظهور صيغته في قائمة التصدير.
 
-   ...
+3. احفظ نسخة من *rssrvpolicy.config*، ثم افتح الملف في محرر نصوص. ابحث عن مجموعة التعليمات البرمجية التي يكون `Description` الخاص بها هو "This code group grants MyComputer code Execution permission." وأضف مجموعة التعليمات البرمجية هذه كأخر عنصر فرعي لها:
 
-  <!--ابدأ هنا.-->
+   ```xml
+   <CodeGroup class="UnionCodeGroup" version="1" PermissionSetName="FullTrust" Name="Aspose.Slides_for_Reporting_Services" Description="This code group grants full trust to the Aspose.Slides.ReportingServices.dll assembly.">
+       <IMembershipCondition class="StrongNameMembershipCondition" version="1" PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf"/>
+   </CodeGroup>
+   ```
 
-  <Extension Name="ASPPT" Type="Aspose.Slides.ReportingServices.PptRenderer,Aspose.Slides.ReportingServices"/>
+   `PublicKeyBlob` هو المفتاح العام لتجميعة Aspose.Slides.ReportingServices. احتفظ به في سطر واحد.
 
-  <Extension Name="ASPPS" Type="Aspose.Slides.ReportingServices.PpsRenderer,Aspose.Slides.ReportingServices"/>
+4. احفظ كلا الملفين. يقرأ خادم التقارير ملفات التكوين مرة أخرى كلما تم حفظها. إذا احتوى ملف على XML غير صالح، سيتجاهله خادم التقارير أو لن يبدأ، لذا استعد نسختك إذا حدث أي خطأ.
 
-  <Extension Name="ASPPTX" Type="Aspose.Slides.ReportingServices.PptxRenderer,Aspose.Slides.ReportingServices"/>
+## **التحقق من التثبيت**
 
-  <Extension Name="ASPPSX" Type="Aspose.Slides.ReportingServices.PpsxRenderer,Aspose.Slides.ReportingServices"/>
+افتح تقريرًا مقسمًا إلى صفحات في بوابة الويب (Report Manager على SQL Server 2014 وما قبله) وافتح قائمة **Export**. الآن تشمل هذه الصيغ:
 
-  <!--انتهى هنا.-->
+- PPT - عرض PowerPoint عبر Aspose.Slides
+- PPS - عرض شريحة PowerPoint عبر Aspose.Slides
+- PPTX - عرض PowerPoint 2007 عبر Aspose.Slides
+- PPSX - عرض شريحة PowerPoint 2007 عبر Aspose.Slides
+- ODP - عرض OpenDocument عبر Aspose.Slides
+- XPS - عبر Aspose.Slides
 
-</Render>
+اختر واحدة منها لتصدير التقرير. يفتح الملف في التطبيق المرتبط بصيغته.
 
-```
+![تقرير تم تصديره إلى PowerPoint بواسطة Aspose.Slides for Reporting Services](install-manually_2.png)
 
-4. أعطِ Aspose.Slides لخدمات التقارير أذونات للتنفيذ: 
-   1. افتح **C:\Program Files\Microsoft SQL Server\<Instance>\Reporting Services\ReportServer\rssrvpolicy.config**.
-   1. أضف ما يلي كآخر عنصر في عنصر <CodeGroup> الخارجي الثاني (الذي يجب أن يكون <CodeGroup class="FirstMatchCodeGroup" version="1" PermissionSetName="Execution" Description="هذا مجموعة التعليمات البرمجية تمنح أذونات تنفيذ لكود MyComputer. ">).
-
-**<CodeGroup>**
-
-``` xml
-
-...
-
-  <CodeGroup>
-
-    ...
-
-    <!--ابدأ هنا.-->
-
-    <CodeGroup
-
-        class="UnionCodeGroup"
-
-        version="1"
-
-        PermissionSetName="FullTrust"
-
-        Name="Aspose.Slides_for_Reporting_Services"
-
-        Description="هذه مجموعة التعليمات البرمجية تمنح الثقة الكاملة لتجميع AS4SSRS.">
-
-        <IMembershipCondition
-
-            class="StrongNameMembershipCondition"
-
-            version="1"
-
-            PublicKeyBlob="00240000048000009400000006020000002400005253413100040000010001005542e
-
-            99cecd28842dad186257b2c7b6ae9b5947e51e0b17b4ac6d8cecd3e01c4d20658c5e4ea1b9a6c8f854b2
-
-            d796c4fde740dac65e834167758cff283eed1be5c9a812022b015a902e0b97d4e95569eb8c0971834744
-
-            e633d9cb4c4a6d8eda03c12f486e13a1a0cb1aa101ad94943236384cbbf5c679944b994de9546e493bf" />
-
-    </CodeGroup>
-
-    <!--انتهى هنا.-->
-
-  </CodeGroup>
-
-</CodeGroup>
-
-```
-
-5. تحقق من أنه تم تثبيت Aspose.Slides لخدمات التقارير بنجاح: 
-   1. افتح مدير التقارير وافحص قائمة أنواع التصدير المتاحة للتقرير. 
-   
-      {{% alert color="primary" %}} يمكنك تشغيل مدير التقارير عن طريق فتح متصفح (Microsoft Internet Explorer 6.0 أو إصدار أحدث) وكتابة عنوان URL لمدير التقارير في شريط العنوان (بشكل افتراضي هو http://< ComputerName >/Reports ). 
-   
-      {{% /alert %}}
-
-1. اختر تقريرًا على الخادم.
-1. افتح قائمة **اختيار التنسيق**.
-   يجب أن ترى قائمة بتنسيقات التصدير المقدمة من Aspose.Slides لخدمات التقارير. 
-1. اختر **PPT – عرض تقديمي PowerPoint عبر Aspose.Slides**. 
-
-   **تم تثبيت Aspose.Slides لخدمات التقارير بنجاح والتنسيقات الجديدة متاحة.** 
-
-![todo:image_alt_text](install-manually_1.png)
-
-6. انقر على رابط **تصدير**.
-   يتم إنشاء التقرير بالتنسيق المختار، ثم يُرسل إلى العميل، ثم يُفتح في التطبيق المناسب. في حالتنا، تم فتح التقرير في Microsoft PowerPoint. 
-
-   **تقرير PPT تم إنشاؤه بواسطة Aspose.Slides لخدمات التقارير.** 
-
-![todo:image_alt_text](install-manually_2.png)
-
-لقد قمت بتثبيت Aspose.Slides لخدمات التقارير بنجاح وأنشأت تقريرًا كعرض تقديمي من Microsoft PowerPoint!
+إذا لم تظهر الصيغ، تفقد أذونات NTFS للتجميعة المنسوخة. بدون ترخيص، تحمل الملفات المصدرة علامة مائية للتقييم؛ راجع [Licensing](/slides/ar/reportingservices/license-aspose-slides-for-reporting-services/).

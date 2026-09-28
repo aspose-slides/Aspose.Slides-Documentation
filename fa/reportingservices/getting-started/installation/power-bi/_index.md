@@ -3,19 +3,17 @@ title: نصب Aspose.Slides for Reporting Services در Power BI
 type: docs
 weight: 20
 url: /fa/reportingservices/power-bi/
-keywords: "Power BI, نصب, Aspose.Slides for Reporting Services در Power BI"
-description: "نصب Aspose.Slides for Reporting Services در Power BI"
+keywords:
+- سرور گزارش Power BI
+- نصب
+- Aspose.Slides for Reporting Services
+description: "Aspose.Slides for Reporting Services را بر روی Power BI Report Server نصب کنید تا گزارش‌های صفحه‌بندی‌شده (RDL) را به فرمت‌های PowerPoint صادر کنید."
 ---
 ## **Power BI**
-شما می‌توانید Aspose.Slides for Reporting Services را بر روی سرور Power BI با استفاده از همان فرآیندهای نصب نصب کنید:
 
-ببینید
+می‌توانید Aspose.Slides for Reporting Services را بر روی Power BI Report Server از طریق همان فرآیندهای نصب نصب نمایید:
 
-* [Install with MSI Installer](https://docs.aspose.com/slides/fa/reportingservices/install-with-msi-installer/#installation). برنامه نصب به‌صورت خودکار Power BI نصب‌شده روی سرور را شناسایی می‌کند، محصول را نصب می‌نماید و سپس برای محیط کاری شما تنظیم می‌شود.
-* [نصب به‌صورت دستی](https://docs.aspose.com/slides/fa/reportingservices/install-manually/).
+* [Install with MSI Installer](/slides/fa/reportingservices/install-with-msi-installer/). برنامه نصب به‌طور خودکار Power BI Report Server نصب‌شده را شناسایی می‌کند، محصول را نصب کرده و سپس آن را برای محیط کاری شما پیکربندی می‌کند.
+* [Install Manually](/slides/fa/reportingservices/install-manually/). از اسمبلی موجود در پوشه *Bin\Universal* بستهٔ ZIP استفاده کنید.
 
-{{% alert title="Note" color="warning" %}} 
-**Aspose.Slides for Reporting Services** نیاز به نصب **.NET Framework 3.5** روی دستگاه میزبان دارد. 
-{{% /alert %}}
-
-Aspose.Slides for SSRS از گزارش‌های صفحه‌بندی‌شده (cdl) پشتیبانی می‌کند.
+Aspose.Slides for Reporting Services گزارش‌های صفحه‌بندی‌شده (RDL) را از Power BI Report Server استخراج می‌کند. برای نیازمندی‌ها، از جمله .NET Framework 3.5 بر روی ماشین میزبان، به [System Requirements](/slides/fa/reportingservices/system-requirements/) مراجعه کنید.
