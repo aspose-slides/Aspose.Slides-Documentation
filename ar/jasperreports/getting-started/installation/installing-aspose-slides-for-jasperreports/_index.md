@@ -7,7 +7,7 @@ description: "اختر ملفات jar الخاصة بـ Aspose.Slides لـ Jaspe
 ---
 ## **اختر ملفات jar لإصدار JasperReports الخاص بك**
 
-Aspose.Slides for JasperReports يتم توزيعه كملف ZIP على صفحة [download page](https://releases.aspose.com/slides/ar/jasperreport/). يحتوي مجلد *lib* على مجلد فرعي واحد لكل نطاق من إصدارات JasperReports. خذ ملفات jar من المجلد الفرعي الذي يغطي إصدار JasperReports الذي تستخدمه:
+Aspose.Slides for JasperReports يتم توزيعه كملف ZIP على صفحة [download page](https://releases.aspose.com/slides/jasperreport/). يحتوي مجلد *lib* على مجلد فرعي واحد لكل نطاق من إصدارات JasperReports. خذ ملفات jar من المجلد الفرعي الذي يغطي إصدار JasperReports الذي تستخدمه:
 
 | إصدار JasperReports | المجلد الفرعي لـ *lib* |
 | :- | :- |

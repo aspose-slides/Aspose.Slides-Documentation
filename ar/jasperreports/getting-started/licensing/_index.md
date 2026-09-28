@@ -6,9 +6,9 @@ url: /ar/jasperreports/licensing/
 description: "تعرف على ما تضيفه نسخة التقييم من Aspose.Slides for JasperReports إلى الملفات المصدرة، وكيفية تطبيق ترخيص في JasperReports و JasperReports Server."
 ---
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for JasperReports متاح كتقييم مجاني غير محدود الوقت من [صفحة التحميل](https://releases.aspose.com/slides/ar/jasperreport/). نسخة التقييم والنسخة المرخصة من المنتج هما نفس ملف التحميل.
+Aspose.Slides for JasperReports متاح كتقييم مجاني غير محدود الوقت من [صفحة التحميل](https://releases.aspose.com/slides/jasperreport/). نسخة التقييم والنسخة المرخصة من المنتج هما نفس ملف التحميل.
 
-عند رضاك عن التقييم، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/jasperreports/). تأكد من أنك تفهم وتوافق على شروط الاشتراك.
+عند رضاك عن التقييم، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/jasperreports/). تأكد من أنك تفهم وتوافق على شروط الاشتراك.
 
 يمكن تنزيل الترخيص من صفحة الطلب بعد إتمام الدفع. الترخيص هو ملف XML نصي واضح موقع رقمياً يحتوي على معلومات مثل اسم العميل، المنتج المشتراى ونوع الترخيص. لا تقم بتعديل محتوى ملف الترخيص بأي شكل: فإن ذلك يبطل الترخيص.
 
