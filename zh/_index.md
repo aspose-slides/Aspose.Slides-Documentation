@@ -28,16 +28,16 @@ Aspose.Slides 是一套用于在没有 Microsoft PowerPoint 的情况下创建�
 <hr>
 <p>.NET</p>
 <ul>
-<li><a href="/slides/zh/net/"><b>Aspose.Slides for .NET</b></a><br>用于 .NET 应用程序。<br><small><a href="/slides/zh/net/installation/">安装</a> · <a href="/slides/zh/net/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/net/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/net/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/net/"><b>Aspose.Slides for .NET</b></a><br>用于 .NET 应用程序。<br><small><a href="/slides/zh/net/installation/">安装</a> · <a href="/slides/zh/net/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/net/">API 参考</a> · <a href="https://releases.aspose.com/slides/net/release-notes/">发行说明</a></small></li>
 </ul>
 <p>JAVA</p>
 <ul>
-<li><a href="/slides/zh/java/"><b>Aspose.Slides for Java</b></a><br>用于 Java 应用程序。<br><small><a href="/slides/zh/java/installation/">安装</a> · <a href="/slides/zh/java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/java/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/java/release-notes/">发行说明</a></small></li>
-<li><a href="/slides/zh/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>用于 Android 应用程序。<br><small><a href="/slides/zh/androidjava/install-aspose-slides-for-android-via-java/">安装</a> · <a href="/slides/zh/androidjava/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/androidjava/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/androidjava/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/java/"><b>Aspose.Slides for Java</b></a><br>用于 Java 应用程序。<br><small><a href="/slides/zh/java/installation/">安装</a> · <a href="/slides/zh/java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/java/">API 参考</a> · <a href="https://releases.aspose.com/slides/java/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/androidjava/"><b>Aspose.Slides for Android via Java</b></a><br>用于 Android 应用程序。<br><small><a href="/slides/zh/androidjava/install-aspose-slides-for-android-via-java/">安装</a> · <a href="/slides/zh/androidjava/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/androidjava/">API 参考</a> · <a href="https://releases.aspose.com/slides/androidjava/release-notes/">发行说明</a></small></li>
 </ul>
 <p>C++</p>
 <ul>
-<li><a href="/slides/zh/cpp/"><b>Aspose.Slides for C++</b></a><br>用于 C++ 应用程序。<br><small><a href="/slides/zh/cpp/installation/">安装</a> · <a href="/slides/zh/cpp/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/cpp/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/cpp/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/cpp/"><b>Aspose.Slides for C++</b></a><br>用于 C++ 应用程序。<br><small><a href="/slides/zh/cpp/installation/">安装</a> · <a href="/slides/zh/cpp/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/cpp/">API 参考</a> · <a href="https://releases.aspose.com/slides/cpp/release-notes/">发行说明</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -45,17 +45,17 @@ Aspose.Slides 是一套用于在没有 Microsoft PowerPoint 的情况下创建�
 <hr>
 <p>PYTHON</p>
 <ul>
-<li><a href="/slides/zh/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>包含其使用的 .NET 运行时。<br><small><a href="/slides/zh/python-net/installation/">安装</a> · <a href="/slides/zh/python-net/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/python-net/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/python-net/release-notes/">发行说明</a></small></li>
-<li><a href="/slides/zh/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>通过 JPype 运行 Java 库。<br><small><a href="/slides/zh/python-java/installation/">安装</a> · <a href="/slides/zh/python-java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/python-java/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/python-java/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/python-net/"><b>Aspose.Slides for Python via .NET</b></a><br>包含其使用的 .NET 运行时。<br><small><a href="/slides/zh/python-net/installation/">安装</a> · <a href="/slides/zh/python-net/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/python-net/">API 参考</a> · <a href="https://releases.aspose.com/slides/python-net/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/python-java/"><b>Aspose.Slides for Python via Java</b></a><br>通过 JPype 运行 Java 库。<br><small><a href="/slides/zh/python-java/installation/">安装</a> · <a href="/slides/zh/python-java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/python-java/">API 参考</a> · <a href="https://releases.aspose.com/slides/python-java/release-notes/">发行说明</a></small></li>
 </ul>
 <p>NODE.JS</p>
 <ul>
-<li><a href="/slides/zh/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>在 Java 虚拟机中运行 Java 库。<br><small><a href="/slides/zh/nodejs-java/installation/">安装</a> · <a href="/slides/zh/nodejs-java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/nodejs-java/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/nodejs-java/release-notes/">发行说明</a></small></li>
-<li><a href="/slides/zh/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>通过 edge-js 运行 .NET 库。<br><small><a href="/slides/zh/nodejs-net/installation/">安装</a> · <a href="/slides/zh/nodejs-net/developer-guide/">开发者指南</a> · <a href="/slides/zh/nodejs-net/api-reference/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/nodejs-net/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/nodejs-java/"><b>Aspose.Slides for Node.js via Java</b></a><br>在 Java 虚拟机中运行 Java 库。<br><small><a href="/slides/zh/nodejs-java/installation/">安装</a> · <a href="/slides/zh/nodejs-java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/nodejs-java/">API 参考</a> · <a href="https://releases.aspose.com/slides/nodejs-java/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/nodejs-net/"><b>Aspose.Slides for Node.js via .NET</b></a><br>通过 edge-js 运行 .NET 库。<br><small><a href="/slides/zh/nodejs-net/installation/">安装</a> · <a href="/slides/zh/nodejs-net/developer-guide/">开发者指南</a> · <a href="/slides/zh/nodejs-net/api-reference/">API 参考</a> · <a href="https://releases.aspose.com/slides/nodejs-net/release-notes/">发行说明</a></small></li>
 </ul>
 <p>PHP</p>
 <ul>
-<li><a href="/slides/zh/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>通过 PHP/Java Bridge 调用 Java 库。<br><small><a href="/slides/zh/php-java/installation/">安装</a> · <a href="/slides/zh/php-java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/zh/php-java/">API 参考</a> · <a href="https://releases.aspose.com/slides/zh/php-java/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/php-java/"><b>Aspose.Slides for PHP via Java</b></a><br>通过 PHP/Java Bridge 调用 Java 库。<br><small><a href="/slides/zh/php-java/installation/">安装</a> · <a href="/slides/zh/php-java/getting-started/">快速入门</a> · <a href="https://reference.aspose.com/slides/php-java/">API 参考</a> · <a href="https://releases.aspose.com/slides/php-java/release-notes/">发行说明</a></small></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -63,12 +63,12 @@ Aspose.Slides 是一套用于在没有 Microsoft PowerPoint 的情况下创建�
 <hr>
 <p>REPORTING</p>
 <ul>
-<li><a href="/slides/zh/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>将 JasperReports 报表导出为 PowerPoint。<br><small><a href="/slides/zh/jasperreports/installing-aspose-slides-for-jasperreports/">安装</a> · <a href="https://releases.aspose.com/slides/zh/jasperreport/release-notes/">发行说明</a></small></li>
-<li><a href="/slides/zh/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>将 SQL Server Reporting Services 报表导出为 PowerPoint。<br><small><a href="/slides/zh/reportingservices/installing-aspose-slides-for-reporting-services/">安装</a> · <a href="https://releases.aspose.com/slides/zh/reportingservices/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/jasperreports/"><b>Aspose.Slides for JasperReports</b></a><br>将 JasperReports 报表导出为 PowerPoint。<br><small><a href="/slides/zh/jasperreports/installing-aspose-slides-for-jasperreports/">安装</a> · <a href="https://releases.aspose.com/slides/jasperreport/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/reportingservices/"><b>Aspose.Slides for Reporting Services</b></a><br>将 SQL Server Reporting Services 报表导出为 PowerPoint。<br><small><a href="/slides/zh/reportingservices/installing-aspose-slides-for-reporting-services/">安装</a> · <a href="https://releases.aspose.com/slides/reportingservices/release-notes/">发行说明</a></small></li>
 </ul>
 <p>SHAREPOINT</p>
 <ul>
-<li><a href="/slides/zh/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>转换 SharePoint 站点中的演示文稿。<br><small><a href="/slides/zh/sharepoint/installing-aspose-slides-for-sharepoint/">安装</a> · <a href="https://releases.aspose.com/slides/zh/sharepoint/release-notes/">发行说明</a></small></li>
+<li><a href="/slides/zh/sharepoint/"><b>Aspose.Slides for SharePoint</b></a><br>转换 SharePoint 站点中的演示文稿。<br><small><a href="/slides/zh/sharepoint/installing-aspose-slides-for-sharepoint/">安装</a> · <a href="https://releases.aspose.com/slides/sharepoint/release-notes/">发行说明</a></small></li>
 </ul>
 </div>
 </div>
