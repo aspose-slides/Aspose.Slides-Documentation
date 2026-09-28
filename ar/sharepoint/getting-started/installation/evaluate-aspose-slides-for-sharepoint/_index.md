@@ -11,7 +11,7 @@ description: "قم بتقييم Aspose.Slides for SharePoint عبر التحمي
 
 {{% /alert %}}
 
-التقييم والنسخة المدفوعة من Aspose.Slides for SharePoint هما نفس عملية التحميل. [تنزيل Aspose.Slides for SharePoint](https://releases.aspose.com/slides/ar/sharepoint/),[تثبيتها](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint/), وتعمل في وضع التقييم بشكل افتراضي.
+التقييم والنسخة المدفوعة من Aspose.Slides for SharePoint هما نفس عملية التحميل. [تنزيل Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/),[تثبيتها](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint/), وتعمل في وضع التقييم بشكل افتراضي.
 
 في وضع التقييم، يحمل المستند المحول علامة مائية توضح أنه نسخة تجريبية. عندما تقوم بشراء ترخيص، قم بتثبيت حل الترخيص فوق نسخة التقييم المثبتة، كما هو موضح في [تثبيت ترخيص Aspose.Slides for SharePoint](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint-license/)، ويعمل Aspose.Slides for SharePoint في وضع الترخيص.
 

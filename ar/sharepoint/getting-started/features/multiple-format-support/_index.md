@@ -20,7 +20,7 @@ description: "الصيغ المدخلة التي يقبلها Aspose.Slides for 
 
 {{% alert color="info" title="ملاحظة" %}}
 
-لتحويل المستندات، يعتمد Aspose.Slides for SharePoint على نسخة مدمجة من [Aspose.Slides for .NET](https://products.aspose.com/slides/ar/net/).
+لتحويل المستندات، يعتمد Aspose.Slides for SharePoint على نسخة مدمجة من [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 

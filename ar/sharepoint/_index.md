@@ -57,12 +57,12 @@ Aspose.Slides for SharePoint هو حل مزرعة لـ SharePoint من إصدا�
 <hr>
 <p>المراجع</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ar/sharepoint/release-notes/">ملاحظات الإصدار</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/sharepoint/">التنزيل</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">التنزيل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب مساعدة الدعم المدفوع</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Aspose.Slides for SharePoint هو حل مزرعة لـ SharePoint من إصدا�
 
 Aspose.Slides for SharePoint يتم تثبيته مرة واحدة على المزرعة ثم يُستخدم من أي مكتبة مستندات يتم تفعيلها فيه:
 
-1. قم بتنزيل الأرشيف ZIP من [صفحة التحميل](https://releases.aspose.com/slides/ar/sharepoint/) وفك ضغطه على خادم في مزرعة SharePoint الخاصة بك.
+1. قم بتنزيل الأرشيف ZIP من [صفحة التحميل](https://releases.aspose.com/slides/sharepoint/) وفك ضغطه على خادم في مزرعة SharePoint الخاصة بك.
 2. شغّل برنامج الإعداد الذي يطابق إصدار SharePoint لديك: *Setup2007.exe*، *Setup2010.exe*، *Setup2013.exe*، *Setup2016.exe* أو *Setup2019.exe*. استخدم حسابًا يمكنه تثبيت ونشر حلول SharePoint. وافق على اتفاقية الترخيص، اختر مجموعات المواقع لتفعيل الميزة عليها، ودع برنامج الإعداد ينشر الحل. يتم شرح كل شاشة في [التثبيت](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint/).
 3. افتح مكتبة مستندات في إحدى مجموعات المواقع، افتح قائمة ملف PPT أو PPTX، واختر **Convert via Aspose.Slides**. في SharePoint 2007، يُسمى عنصر القائمة **Convert with Aspose.Slides**.
 4. ضمن **Convert to**، اختر **PDF - Adobe Portable Document**. غيّر اسم الملف والملف الوجهة إذا لزم الأمر، ثم انقر **Convert**.

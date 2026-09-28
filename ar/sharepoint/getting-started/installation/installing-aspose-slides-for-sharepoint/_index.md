@@ -7,7 +7,7 @@ description: "تثبيت Aspose.Slides for SharePoint على مجموعة ShareP
 ---
 ## **محتويات الحزمة**
 
-Aspose.Slides for SharePoint يتم تنزيله من [صفحة التنزيل](https://releases.aspose.com/slides/ar/sharepoint/) كملف ZIP. يحتوي الأرشيف على حزمة حل SharePoint (WSP) واحدة وبرنامج إعداد واحد لكل إصدار من إصدارات SharePoint المدعومة:
+Aspose.Slides for SharePoint يتم تنزيله من [صفحة التنزيل](https://releases.aspose.com/slides/sharepoint/) كملف ZIP. يحتوي الأرشيف على حزمة حل SharePoint (WSP) واحدة وبرنامج إعداد واحد لكل إصدار من إصدارات SharePoint المدعومة:
 
 | إصدار SharePoint | برنامج الإعداد | حزمة الحل |
 | :- | :- | :- |
