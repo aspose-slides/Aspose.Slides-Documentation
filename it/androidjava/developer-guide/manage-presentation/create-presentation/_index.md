@@ -31,10 +31,10 @@ Prima di iniziare, aggiungi Aspose.Slides al tuo progetto Android dal repository
 
 Per creare una presentazione e inserire una casella di testo nella prima diapositiva, segui questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.  
-2. Ottieni tale diapositiva dalla [slide collection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islidecollection/) tramite il suo indice, 0.  
-3. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) della [shape collection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishapecollection/) e imposta il testo del suo [text frame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframe/) con il metodo [setText](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
-4. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) , nel formato [SaveFormat.Pptx](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/saveformat/).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/). Una nuova presentazione contiene già una diapositiva vuota.  
+2. Ottieni tale diapositiva dalla [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) tramite il suo indice, 0.  
+3. Aggiungi un rettangolo con il metodo [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) della [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) e imposta il testo del suo [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) con il metodo [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-).  
+4. Salva la presentazione come file PPTX con il metodo [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) , nel formato [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/).
 
 Il codice viene eseguito all'interno di un `Activity`, ad esempio nel suo metodo `onCreate`. Salva il file nella directory restituita dal metodo [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) : l'archiviazione privata della tua app, a cui può scrivere senza richiedere alcuna autorizzazione.
 
@@ -83,7 +83,7 @@ Utilizza le [BLOB management strategies](/slides/it/androidjava/manage-blob/), l
 
 ### Posso creare/salvare presentazioni in parallelo?
 
-Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/) da [multiple threads](/slides/it/androidjava/multithreading/). Esegui istanze separate e isolate per thread o processo.
+Non è possibile operare sulla stessa istanza di [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) da [multiple threads](/slides/it/androidjava/multithreading/). Esegui istanze separate e isolate per thread o processo.
 
 ### Come rimuovere la filigrana di valutazione e le limitazioni?
 
