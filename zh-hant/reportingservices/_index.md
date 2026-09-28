@@ -63,12 +63,12 @@ Aspose.Slides for Reporting Services 是一個針對 Microsoft SQL Server Report
 <hr>
 <p>參考</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/zh-hant/reportingservices/release-notes/">發行說明</a></li>
-<li><a href="https://releases.aspose.com/slides/zh-hant/reportingservices/">下載</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">發行說明</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">下載</a></li>
 </ul>
 <p>支援</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/zh-hant/11">免費支援論壇</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">免費支援論壇</a></li>
 <li><a href="https://helpdesk.aspose.com/">付費支援服務台</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for Reporting Services 是一個針對 Microsoft SQL Server Report
 不需要編寫任何程式碼：只要在報表伺服器上安裝此擴充功能，即可在該伺服器上所有分頁報表的匯出清單中看到其格式。
 
 1. 確認報表伺服器符合 [系統需求](/slides/zh-hant/reportingservices/system-requirements/)，包括 .NET Framework 3.5。
-1. 從 [下載頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)，下載 MSI 安裝程式 *Aspose.Slides for Reporting Services*。如果想手動安裝，請下載 ZIP 套件 *Aspose.Slides for Reporting Services (DLLs Only)*。
+1. 從 [下載頁面](https://releases.aspose.com/slides/reportingservices/)，下載 MSI 安裝程式 *Aspose.Slides for Reporting Services*。如果想手動安裝，請下載 ZIP 套件 *Aspose.Slides for Reporting Services (DLLs Only)*。
 1. 在報表伺服器上安裝此擴充功能：以系統管理員身份執行 MSI，方法如同在 [使用 MSI 安裝程式安裝](/slides/zh-hant/reportingservices/install-with-msi-installer/) 中所述，或依照 [手動安裝](/slides/zh-hant/reportingservices/install-manually/) 針對 ZIP 套件的說明進行。
 1. 在瀏覽器中開啟報表伺服器的 Web 入口 (SQL Server 2014 及之前的版本稱為 Report Manager)。預設位址為 `https://<ComputerName>/reports`。
 1. 開啟一份分頁報表。於報表工具列上，開啟 **Export** 清單並選取 **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**。若工具列有獨立的 **Export** 按鈕（如 Report Manager），亦請點選它。

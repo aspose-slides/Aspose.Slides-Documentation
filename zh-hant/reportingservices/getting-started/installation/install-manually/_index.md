@@ -14,7 +14,7 @@ description: "從僅含 DLL 的 ZIP 套件手動安裝 Aspose.Slides for Reporti
 ---
 ## **概觀**
 
-請依照以下步驟從 ZIP 套件 *Aspose.Slides for Reporting Services XX.XX (DLLs Only)*（於[下載頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)）安裝 Aspose.Slides for Reporting Services，無需 MSI 安裝程式。它們會註冊與[MSI 安裝程式](/slides/zh-hant/reportingservices/install-with-msi-installer/)相同的擴充功能。對每個報表伺服器實例重複這些步驟。
+請依照以下步驟從 ZIP 套件 *Aspose.Slides for Reporting Services XX.XX (DLLs Only)*（於[下載頁面](https://releases.aspose.com/slides/reportingservices/)）安裝 Aspose.Slides for Reporting Services，無需 MSI 安裝程式。它們會註冊與[MSI 安裝程式](/slides/zh-hant/reportingservices/install-with-msi-installer/)相同的擴充功能。對每個報表伺服器實例重複這些步驟。
 
 在開始之前，請檢查[系統需求](/slides/zh-hant/reportingservices/system-requirements/)。您需要在報表伺服器上具有本機管理員權限。
 

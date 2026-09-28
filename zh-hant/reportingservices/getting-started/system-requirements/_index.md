@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services 作為渲染擴充功能在報表伺服器�
 
 同時支援 32 位元 和 64 位元 報表伺服器。SQL Server 2005 使用其自有的擴充組建；所有較新版本以及 Power BI Report Server 使用相同的組建。[手動安裝](/slides/zh-hant/reportingservices/install-manually/)顯示要複製的檔案。
 
-如果您的報表伺服器版本不在此清單中，請在部署前於[免費支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)詢問。
+如果您的報表伺服器版本不在此清單中，請在部署前於[免費支援論壇](https://forum.aspose.com/c/slides/11)詢問。
 
 ## **報表伺服器版本**
 

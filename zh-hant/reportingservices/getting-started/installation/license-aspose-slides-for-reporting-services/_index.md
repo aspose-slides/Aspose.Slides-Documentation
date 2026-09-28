@@ -13,11 +13,11 @@ description: "透過將授權檔案複製到報表伺服器，以套用授權至
 ---
 ## **授權支援**
 
-Aspose.Slides for Reporting Services 的評估版與購買版使用相同的套件，下載自[其下載頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)，並提供相同的功能。未授權時，它會以評估模式運作，並在匯出的簡報中插入評估浮水印。
+Aspose.Slides for Reporting Services 的評估版與購買版使用相同的套件，下載自[其下載頁面](https://releases.aspose.com/slides/reportingservices/)，並提供相同的功能。未授權時，它會以評估模式運作，並在匯出的簡報中插入評估浮水印。
 
 當您將授權檔案複製到報表伺服器時，評估版即會變為已授權。此過程不涉及任何程式碼。
 
-當您對評估結果滿意時，您可以[購買授權](https://purchase.aspose.com/pricing/slides/zh-hant/reporting-services/)。建議您瀏覽不同的訂閱類型。如有任何問題，請聯繫 Aspose 銷售團隊。
+當您對評估結果滿意時，您可以[購買授權](https://purchase.aspose.com/pricing/slides/reporting-services/)。建議您瀏覽不同的訂閱類型。如有任何問題，請聯繫 Aspose 銷售團隊。
 
 ## **Aspose.Slides for Reporting Services 的授權**
 

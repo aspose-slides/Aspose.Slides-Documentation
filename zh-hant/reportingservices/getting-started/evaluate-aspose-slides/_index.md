@@ -13,7 +13,7 @@ description: "了解 Aspose.Slides for Reporting Services 評估版的運作方�
 ---
 ## **評估版**
 
-您可以從[其下載頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)下載 Aspose.Slides for Reporting Services 以進行評估。評估版下載與購買版下載相同。將授權檔案複製到報表伺服器即可取得授權——不需要任何程式碼；請參閱[授權](/slides/zh-hant/reportingservices/license-aspose-slides-for-reporting-services/)。
+您可以從[其下載頁面](https://releases.aspose.com/slides/reportingservices/)下載 Aspose.Slides for Reporting Services 以進行評估。評估版下載與購買版下載相同。將授權檔案複製到報表伺服器即可取得授權——不需要任何程式碼；請參閱[授權](/slides/zh-hant/reportingservices/license-aspose-slides-for-reporting-services/)。
 
 評估版（未授權）提供完整的產品功能，但會在匯出的簡報中插入評估水印。
 

@@ -16,7 +16,7 @@ description: "選擇在報告伺服器上安裝 Aspose.Slides for Reporting Serv
 
 Aspose.Slides for Reporting Services 會安裝在報告伺服器本身。開始之前，請檢查[系統需求](/slides/zh-hant/reportingservices/system-requirements/)。
 
-[下載頁面](https://releases.aspose.com/slides/zh-hant/reportingservices/)提供每個版本的兩個套件：
+[下載頁面](https://releases.aspose.com/slides/reportingservices/)提供每個版本的兩個套件：
 
 - **Aspose.Slides for Reporting Services XX.XX** — MSI 安裝程式。它會偵測機器上的報告伺服器實例，將擴充功能複製到您選取的實例，並更新它們的設定檔。請參閱[使用 MSI 安裝程式安裝](/slides/zh-hant/reportingservices/install-with-msi-installer/)。
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — 手動安裝的 ZIP 套件：您只需複製一個組件並編輯兩個設定檔。請參閱[手動安裝](/slides/zh-hant/reportingservices/install-manually/)。
