@@ -57,7 +57,7 @@ A continuación sincroniza el proyecto con los archivos Gradle, de modo que Grad
 
 ### **Elegir una versión**
 
-Aspose.Slides for Android via Java no se construye para todas las versiones del repositorio. Sus compilaciones se publican solo para algunas versiones de Aspose.Slides for Java, y una versión sin compilación Android no se resuelve. Elige una versión que aparezca en la [página de descarga de Aspose.Slides for Android via Java](https://releases.aspose.com/slides/es/androidjava/).
+Aspose.Slides for Android via Java no se construye para todas las versiones del repositorio. Sus compilaciones se publican solo para algunas versiones de Aspose.Slides for Java, y una versión sin compilación Android no se resuelve. Elige una versión que aparezca en la [página de descarga de Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/).
 
 ### **Scripts de compilación Groovy**
 
@@ -108,11 +108,11 @@ Desde 2018, el control de versiones de Aspose.Slides for Android via Java se ha 
 
 ### ¿Cómo puedo comprobar que Aspose.Slides está integrado correctamente?
 
-Compila tu proyecto, instancia una [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) vacía y guárdala con un nombre nuevo. Si el archivo se crea sin lanzar excepciones, la biblioteca se ha integrado con éxito.
+Compila tu proyecto, instancia una [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) vacía y guárdala con un nombre nuevo. Si el archivo se crea sin lanzar excepciones, la biblioteca se ha integrado con éxito.
 
 ### ¿Cómo puedo limitar el consumo de memoria al procesar presentaciones grandes?
 
-Llama al método [dispose](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/#dispose--) de cada instancia de [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) dentro de un bloque `finally` para liberar sus recursos de inmediato, y procesa una presentación grande a la vez. Esto ayuda a prevenir errores de falta de memoria y mantiene predecible el uso total de memoria durante operaciones por lotes.
+Llama al método [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) de cada instancia de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) dentro de un bloque `finally` para liberar sus recursos de inmediato, y procesa una presentación grande a la vez. Esto ayuda a prevenir errores de falta de memoria y mantiene predecible el uso total de memoria durante operaciones por lotes.
 
 ### ¿Puedo excluir formatos de exportación no deseados para reducir el tamaño final del JAR?
 

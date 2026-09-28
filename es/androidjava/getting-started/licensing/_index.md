@@ -23,14 +23,14 @@ description: "Aplicar, gestionar y solucionar problemas de licencias en Aspose.S
 
 Aspose.Slides se puede usar en modo de evaluación o con una licencia válida. La versión de evaluación ofrece la misma funcionalidad que la versión con licencia, pero añade una marca de agua de evaluación a cada diapositiva de cada presentación que guarda y trunca el texto que su código lee de las presentaciones.
 
-Este artículo explica cómo funciona el licenciamiento en Aspose.Slides y cómo aplicar una licencia antes de usar la biblioteca. Una licencia puede cargarse desde un archivo, un flujo o un recurso incrustado utilizando la clase [License](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/license/). El artículo también muestra cómo validar si una licencia se ha aplicado correctamente.
+Este artículo explica cómo funciona el licenciamiento en Aspose.Slides y cómo aplicar una licencia antes de usar la biblioteca. Una licencia puede cargarse desde un archivo, un flujo o un recurso incrustado utilizando la clase [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/). El artículo también muestra cómo validar si una licencia se ha aplicado correctamente.
 
 ## **Evaluar Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-Puede descargar una versión de evaluación de **Aspose.Slides for Android via Java** desde su [página de descarga](https://releases.aspose.com/slides/es/androidjava/). La versión de evaluación ofrece las mismas funcionalidades que la versión con licencia del producto. El paquete de evaluación es idéntico al paquete adquirido. La versión de evaluación pasa a estar licenciada simplemente añadiendo unas pocas líneas de código (para aplicar la licencia).
+Puede descargar una versión de evaluación de **Aspose.Slides for Android via Java** desde su [página de descarga](https://releases.aspose.com/slides/androidjava/). La versión de evaluación ofrece las mismas funcionalidades que la versión con licencia del producto. El paquete de evaluación es idéntico al paquete adquirido. La versión de evaluación pasa a estar licenciada simplemente añadiendo unas pocas líneas de código (para aplicar la licencia).
 
-Una vez que esté satisfecho con su evaluación de **Aspose.Slides**, puede [adquirir una licencia](https://purchase.aspose.com/pricing/slides/es/android-java/). Recomendamos revisar los diferentes tipos de suscripción. Si tiene preguntas, contacte al equipo de ventas de Aspose.
+Una vez que esté satisfecho con su evaluación de **Aspose.Slides**, puede [adquirir una licencia](https://purchase.aspose.com/pricing/slides/android-java/). Recomendamos revisar los diferentes tipos de suscripción. Si tiene preguntas, contacte al equipo de ventas de Aspose.
 
 Cada licencia de Aspose incluye una suscripción de un año para actualizaciones gratuitas a nuevas versiones o correcciones lanzadas durante el periodo de suscripción. Los usuarios con productos con licencia (o incluso versiones de evaluación) obtienen soporte técnico gratuito e ilimitado.
 {{% /alert %}} 
@@ -59,7 +59,7 @@ Para probar Aspose.Slides sin limitaciones, puede solicitar una **30-Day Tempora
 Una licencia puede cargarse desde un **archivo** o **flujo**.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides proporciona la clase [License](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/license/) para operaciones de licenciamiento.
+Aspose.Slides proporciona la clase [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) para operaciones de licenciamiento.
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -83,9 +83,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Si coloca el archivo de licencia en un directorio diferente, al llamar al método [setLicense](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) el nombre del archivo de licencia al final de la ruta especificada debe ser idéntico al nombre de su archivo de licencia.
+Si coloca el archivo de licencia en un directorio diferente, al llamar al método [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) el nombre del archivo de licencia al final de la ruta especificada debe ser idéntico al nombre de su archivo de licencia.
 
-Por ejemplo, puede cambiar el nombre del archivo de licencia a *Aspose.Slides.Android.via.Java.lic.xml*. Entonces, en su código, debe pasar la ruta al archivo (que termine con *Aspose.Slides.Android.via.Java.lic.xml*) al método [setLicense](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Por ejemplo, puede cambiar el nombre del archivo de licencia a *Aspose.Slides.Android.via.Java.lic.xml*. Entonces, en su código, debe pasar la ruta al archivo (que termine con *Aspose.Slides.Android.via.Java.lic.xml*) al método [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 {{% /alert %}}
 
 ### **Flujo**
@@ -102,7 +102,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **Flujo desde los recursos de la aplicación**
 
-En una aplicación Android, coloque el archivo de licencia en la carpeta *assets* del módulo de la aplicación, *app/src/main/assets*, de modo que se empaquete en el APK. Abra el archivo con el método [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) y pase el flujo al método [setLicense](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). El código se ejecuta dentro de una `Activity`, por ejemplo en su método `onCreate`, antes de que la aplicación utilice Aspose.Slides:
+En una aplicación Android, coloque el archivo de licencia en la carpeta *assets* del módulo de la aplicación, *app/src/main/assets*, de modo que se empaquete en el APK. Abra el archivo con el método [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) y pase el flujo al método [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-). El código se ejecuta dentro de una `Activity`, por ejemplo en su método `onCreate`, antes de que la aplicación utilice Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -139,7 +139,7 @@ if (license.isLicensed())
 ## **Seguridad en subprocesos**
 
 {{% alert color="warning" title="Warning" %}}
-El método [setLicense](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) no es seguro para subprocesos. Si este método debe llamarse simultáneamente desde varios subprocesos, puede querer usar primitivas de sincronización (como un bloqueo) para evitar problemas.
+El método [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) no es seguro para subprocesos. Si este método debe llamarse simultáneamente desde varios subprocesos, puede querer usar primitivas de sincronización (como un bloqueo) para evitar problemas.
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
