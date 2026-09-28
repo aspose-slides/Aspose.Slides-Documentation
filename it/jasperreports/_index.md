@@ -64,12 +64,12 @@ Esporta un report compilato in PPT e PPTX, una diapositiva per pagina di report,
 <hr>
 <p>RIFERIMENTO</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/it/jasperreport/release-notes/">Note di rilascio</a></li>
-<li><a href="https://releases.aspose.com/slides/it/jasperreport/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Note di rilascio</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Download</a></li>
 </ul>
 <p>SUPPORTO</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/it/11">Forum di supporto gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum di supporto gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk di supporto a pagamento</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Esporta un report compilato in PPT e PPTX, una diapositiva per pagina di report,
 
 Questi passaggi compilano un report di una riga, lo compilano e lo esportano in PPTX con JasperReports 6.16.0 da Maven Central. È necessario JDK 11 o superiore e Apache Maven.
 
-1. Scarica il file ZIP dalla [pagina di download](https://releases.aspose.com/slides/it/jasperreport/) e decomprimilo. La sua cartella *lib* contiene una sottocartella per ciascuna gamma di versioni di JasperReports, e ognuna contiene il jar per quella gamma. Per JasperReports 6.16.0, copia *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* in una cartella di progetto vuota.
+1. Scarica il file ZIP dalla [pagina di download](https://releases.aspose.com/slides/jasperreport/) e decomprimilo. La sua cartella *lib* contiene una sottocartella per ciascuna gamma di versioni di JasperReports, e ognuna contiene il jar per quella gamma. Per JasperReports 6.16.0, copia *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* in una cartella di progetto vuota.
 
 2. Il jar è incluso nel ZIP anziché provenire da un repository Maven, quindi installalo nel tuo repository Maven locale. Esegui questo comando nella cartella del progetto:
 

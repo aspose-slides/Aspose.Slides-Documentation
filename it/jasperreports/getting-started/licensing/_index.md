@@ -6,9 +6,9 @@ url: /it/jasperreports/licensing/
 description: "Scopri cosa aggiunge la versione di valutazione di Aspose.Slides per JasperReports ai file esportati e come applicare una licenza in JasperReports e JasperReports Server."
 ---
 {{% alert color="info" title="Note" %}}
-Aspose.Slides per JasperReports è disponibile come valutazione gratuita e senza limiti di tempo dalla [pagina di download](https://releases.aspose.com/slides/it/jasperreport/). Le versioni di valutazione e con licenza del prodotto sono lo stesso download.
+Aspose.Slides per JasperReports è disponibile come valutazione gratuita e senza limiti di tempo dalla [pagina di download](https://releases.aspose.com/slides/jasperreport/). Le versioni di valutazione e con licenza del prodotto sono lo stesso download.
 
-Quando sei soddisfatto della valutazione, [acquista una licenza](https://purchase.aspose.com/pricing/slides/it/jasperreports/). Assicurati di comprendere e accettare i termini di abbonamento.
+Quando sei soddisfatto della valutazione, [acquista una licenza](https://purchase.aspose.com/pricing/slides/jasperreports/). Assicurati di comprendere e accettare i termini di abbonamento.
 
 La licenza è disponibile per il download dalla pagina dell'ordine dopo che l'ordine è stato pagato. La licenza è un file XML in chiaro, firmato digitalmente, che contiene informazioni come il nome del cliente, il prodotto acquistato e il tipo di licenza. Non modificare in alcun modo il contenuto del file di licenza: farlo invalida la licenza.
 
