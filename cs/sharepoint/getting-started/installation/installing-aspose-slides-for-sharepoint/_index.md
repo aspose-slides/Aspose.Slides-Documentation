@@ -1,75 +1,93 @@
 ---
-title: Instalace Aspose.Slides pro SharePoint
+title: Instalace Aspose.Slides for SharePoint
 type: docs
 weight: 10
 url: /cs/sharepoint/installing-aspose-slides-for-sharepoint/
+description: "Nainstalujte Aspose.Slides for SharePoint na farmu SharePoint: vyberte instalační program pro vaši verzi SharePoint, spusťte kontrolu systému a nasadíte a aktivujete řešení."
 ---
-{{% alert color="primary" %}} 
+## **Obsah balíčku**
 
-Aspose.Slides for SharePoint se stahuje jako archiv Aspose.Slides.SharePoint.zip. Archiv obsahuje: 
+Aspose.Slides for SharePoint se stahuje ze [stránky ke stažení](https://releases.aspose.com/slides/cs/sharepoint/) jako archiv ZIP. Archiv obsahuje jeden balíček řešení SharePoint (WSP) a jeden instalační program pro každou podporovanou verzi SharePoint:
 
-- **Aspose.Slides.SharePoint.wsp**: soubor řešení SharePoint. Aspose.Slides for SharePoint je zabalen jako řešení SharePoint pro usnadnění aktivace a deaktivace v celé farmě serverů.
-- **Aspose_LicenseAgreement.rtf**: Licenční smlouva pro koncového uživatele.
-- **Setup.exe**: instalační program.
-- **Setup.exe.config**: konfigurační soubor instalace.
+| Verze SharePoint | Instalační program | Balíček řešení |
+| :- | :- | :- |
+| SharePoint 2007 | Setup2007.exe | Aspose.Slides.SharePoint2007.wsp |
+| SharePoint 2010 | Setup2010.exe | Aspose.Slides.SharePoint2010.wsp |
+| SharePoint Server 2013 | Setup2013.exe | Aspose.Slides.SharePoint2013.wsp |
+| SharePoint Server 2016 | Setup2016.exe | Aspose.Slides.SharePoint2016.wsp |
+| SharePoint Server 2019 | Setup2019.exe | Aspose.Slides.SharePoint2019.wsp |
 
-{{% /alert %}} 
-## **Instalační proces**
-Před spuštěním instalace program setup provádí kontrolu, že:
+Každý instalační program má vedle sebe konfigurační soubor (například *Setup2019.exe.config*), který uvádí název balíčku řešení, který se má nainstalovat. Složka *License* obsahuje odkaz na smlouvu o koncovém uživatelském licencování a oznámení o licencích třetích stran.
 
-- je nainstalován WSS 3.0 nebo MOSS 2007.
-- uživatel má oprávnění instalovat řešení SharePoint.
-- databáze SharePoint je online.
-- služba WSS Administration je spuštěna.
-- služba WSS Timer je spuštěna.
+Aspose.Slides for SharePoint je zabalen jako řešení SharePoint, které SharePoint nasazuje napříč farmou serverů. Jeho funkce je následně aktivována nebo deaktivována pro konkrétní kolekci webů.
 
-Služby WSS Administration a Timer jsou potřebné, protože některé akce instalace závisí na časovém úkolu, který se šíří na všechny servery v farmě.
+## **Proces instalace**
+
+Před instalací spustí instalační program kontrolu systému. Ověřuje, že:
+
+- SharePoint je nainstalován na serveru.
+- Aktuální uživatel má oprávnění instalovat a nasazovat řešení SharePoint.
+- Služba SharePoint Administration je spuštěna.
+- Služba SharePoint Timer je spuštěna.
+- Balíček řešení uvedený v konfiguračním souboru je přítomen.
+
+Služby Administration a Timer jsou potřeba, protože některé akce instalace běží jako časové úlohy, které šíří řešení do všech serverů ve farmě.
 
 ### **Spuštění instalace**
-Pro instalaci Aspose.Slides for SharePoint: 
 
-1. Rozbalte archiv Aspose.Slides.SharePoint na místní disk na serveru MOSS 7.0 nebo WSS 3.0.
-2. Spusťte setup.exe a postupujte podle pokynů na obrazovce.
-   Program setup provádí následující kroky:
-   1. Kontroluje předpoklady instalace. Instalace nebude pokračovat, pokud některá kontrola selže. 
+Pro instalaci Aspose.Slides for SharePoint:
 
-      **Spouštění systémové kontroly** 
+1. Rozbalte archiv ZIP na lokální jednotku na serveru ve farmě SharePoint.
+2. Spusťte instalační program odpovídající vaší verzi SharePoint (viz tabulka výše) a řiďte se pokyny na obrazovce. Instalační program:
+   1. Provede kontrolu systému. Instalace neproběhne, pokud některá kontrola selže.
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_1.png)
+      **Spuštění kontroly systému**
 
+      ![Obrazovka System Check instalačního programu](installing-aspose-slides-for-sharepoint_1.png)
 
+   2. Zobrazí smlouvu o koncovém uživatelském licencování. Musíte ji přijmout, abyste mohli pokračovat.
 
+      **Smlouva o licencích**
 
-3. Zobrazí Licenční smlouvu pro koncového uživatele. Pro pokračování musíte smlouvu přijmout. 
+      ![Obrazovka licence instalačního programu](installing-aspose-slides-for-sharepoint_2.png)
 
-   **EULA** 
+   3. Zobrazí cíle nasazení. Vyberte webové aplikace a kolekce webů, pro které chcete funkci aktivovat.
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_2.png)
+      **Výběr cílů nasazení**
 
+      ![Obrazovka cílových kolekcí webů instalačního programu](installing-aspose-slides-for-sharepoint_3.png)
 
+   4. Nasadí řešení do farmy.
 
+      **Průběh instalace**
 
-4. Zobrazí výběr cíle nasazení. Vybere webové aplikace a kolekce webů, pro které má být funkce aktivována. 
+      ![Obrazovka průběhu instalace instalačního programu](installing-aspose-slides-for-sharepoint_4.png)
 
-   **Výběr cílů nasazení** 
+   5. Aktivuje Aspose.Slides for SharePoint ve vybraných kolekcích webů.
+   6. Vyjmenuje webové aplikace a kolekce webů, kde bylo řešení nasazeno a aktivováno.
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_3.png)
+      **Úspěšná instalace**
 
+      ![Obrazovka dokončené instalace instalačního programu](installing-aspose-slides-for-sharepoint_5.png)
 
+{{% alert color="info" title="Note" %}}
+Snímky obrazovky byly pořízeny na SharePoint 2007. Instalátory pro novější verze procházejí stejnými obrazovkami.
+{{% /alert %}}
 
+Pokud je již ve farmě nainstalována stejná verze Aspose.Slides for SharePoint, instalační program nabídne opravu nebo odebrání. Pokud je nainstalována jiná verze, nabídne upgrade nebo odebrání.
 
-5. Nasadí funkci do farmy serverů. 
+Po instalaci se v nabídce souborů v knihovnách dokumentů vybraných kolekcí webů objeví položka **Convert via Aspose.Slides** (na SharePoint 2007 **Convert with Aspose.Slides**). Pro konverzi první prezentace viz [Převod dokumentů Microsoft PowerPoint do jiných formátů](/slides/cs/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/). Co řešení do farmy přidává, je popsáno v [Nasazení a aktivace](/slides/cs/sharepoint/deployment-and-activation/).
 
-   **Ukazatel průběhu instalace** 
+## **Často kladené otázky**
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_4.png)
+**Který instalační program mám spustit?**
 
+Ten, jehož název odpovídá vaší verzi SharePoint. Například spusťte *Setup2016.exe* na farmě SharePoint Server 2016. Každý instalační program instaluje pouze svůj vlastní balíček řešení.
 
+**Potřebuji samostatné stažení pro licencovanou verzi?**
 
+Ne. Ten samý balíček funguje v režimu zkušební verze, dokud neinstalujete licenční řešení; viz [Instalace licencí Aspose.Slides for SharePoint](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint-license/).
 
-6. Aktivuje Aspose.Slides pro vybrané kolekce webů a nakonfiguruje jejich nadřazené webové aplikace.
-7. Zobrazí seznam webových aplikací a kolekcí webů, pro které byla funkce nasazena a aktivována. 
+**Jak produkt odebrat?**
 
-   **Úspěšná instalace** 
-
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_5.png)
+Spusťte znovu stejný instalační program a vyberte **Remove**; viz [Odinstalace Aspose.Slides for SharePoint](/slides/cs/sharepoint/uninstalling-aspose-slides-for-sharepoint/).

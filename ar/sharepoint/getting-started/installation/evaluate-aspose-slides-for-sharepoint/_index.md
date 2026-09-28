@@ -1,20 +1,20 @@
 ---
-title: تقييم Aspose.Slides لـ SharePoint
+title: تقييم Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /ar/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "قم بتقييم Aspose.Slides for SharePoint عبر التحميل العادي: قم بتثبيتها، حوِّل العروض التقديمية في وضع التقييم، وانتقل إلى وضع الترخيص عبر تثبيت حل الترخيص."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+استفد من تجربة Aspose.Slides for SharePoint المجانية: لا توجد لها حد زمني وتأتي مع دعم فني مجاني. نشجعك على تجربة المنتج قبل الشراء، حتى تتأكد أنه يلبي احتياجاتك.
 
-تأكد من الاستفادة من تقييم Aspose.Words المجاني لـ SharePoint: ليس له حد زمني، ويأتي مع دعم فني مجاني. نشجع مستخدمينا على تقييم منتجاتنا قبل الشراء حتى تعرف أن المنتج سيفعل ما تريده.
+{{% /alert %}}
 
-{{% /alert %}} 
+التقييم والنسخة المدفوعة من Aspose.Slides for SharePoint هما نفس عملية التحميل. [تنزيل Aspose.Slides for SharePoint](https://releases.aspose.com/slides/ar/sharepoint/),[تثبيتها](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint/), وتعمل في وضع التقييم بشكل افتراضي.
 
-إنه نفس التنزيل لكل من النسخة التجريبية والنسخة المدفوعة من Aspose.Slides لـ SharePoint. ببساطة [قم بتنزيل Aspose.Slides لـ SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) من صفحة التنزيل، [ثبته]() وسيدخل في وضع التجريب بشكل افتراضي.
+في وضع التقييم، يحمل المستند المحول علامة مائية توضح أنه نسخة تجريبية. عندما تقوم بشراء ترخيص، قم بتثبيت حل الترخيص فوق نسخة التقييم المثبتة، كما هو موضح في [تثبيت ترخيص Aspose.Slides for SharePoint](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint-license/)، ويعمل Aspose.Slides for SharePoint في وضع الترخيص.
 
-وضع التقييم يضيف علامة مائية للتقييم على كل شريحة في المستند المصدر. عندما تشتري ترخيصًا، ما عليك سوى تثبيت حل الترخيص فوق النسخة التجريبية المثبتة من Aspose.Slides لـ SharePoint وسيعمل بعد ذلك في وضع الترخيص.
+**علامة مائية للتقييم على الشريحة**
 
-**علامة مائية للتقييم على شريحة**
-
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![شريحة تم تحويلها في وضع التقييم، مع علامة مائية للتقييم](evaluate-aspose-slides-for-sharepoint_1.png)

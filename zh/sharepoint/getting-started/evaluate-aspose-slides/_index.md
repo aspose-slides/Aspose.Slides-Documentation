@@ -3,18 +3,22 @@ title: 评估 Aspose.Slides
 type: docs
 weight: 70
 url: /zh/sharepoint/evaluate-aspose-slides/
+description: "Aspose.Slides for SharePoint 评估版的功能、输出如何标记，以及如何将其转化为授权版本。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Aspose.Slides for SharePoint 的评估下载与购买下载相同。 在农场上安装许可证解决方案包后，它会转变为授权版本；请参阅[Installing Aspose.Slides for SharePoint License](/slides/zh/sharepoint/installing-aspose-slides-for-sharepoint-license/)。 不涉及任何代码。
 
-您可以轻松下载 Aspose.Slides 进行评估。评估下载与购买下载是相同的。只需添加几行代码以应用许可证，评估版本便会变为许可版本。
+如果没有许可证，Aspose.Slides for SharePoint 可以转换为所有受支持的格式，但转换后的文件会带有评估水印，且转换页面会显示评估通知。
 
-Aspose.Slides 的评估版本（未指定许可证）提供完整的产品功能，但会在生成的 PDF、TIFF 和 XPS 文件的每一页上插入评估水印。
+**转换为 PDF 文件时的评估水印**
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![在评估模式下转换的 PDF 文件，幻灯片上带有评估水印](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}}
 
-如果您想在没有评估版本限制的情况下测试 Aspose.Slides，您也可以请求 30 天的临时许可证。有关更多信息，请参阅 [如何获取临时许可证？](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+
+如果您想在没有评估限制的情况下测试 Aspose.Slides，也可以申请 30 天的临时许可证。 请参阅[如何获取临时许可证？](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

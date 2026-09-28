@@ -3,18 +3,22 @@ title: Оценка Aspose.Slides
 type: docs
 weight: 70
 url: /ru/sharepoint/evaluate-aspose-slides/
+description: "Что делает оценочная версия Aspose.Slides for SharePoint, как отмечается её вывод и как превратить её в лицензированную версию."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Оценочная загрузка Aspose.Slides for SharePoint идентична загрузке, полученной при покупке. Она превращается в лицензированную версию после установки пакета решения лицензии на ферме; см. [Installing Aspose.Slides for SharePoint License](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint-license/). Код не требуется.
 
-Вы можете легко скачать Aspose.Slides для оценки. Загружаемая версия для оценки идентична купленной версии. Версия для оценки просто становится лицензированной, когда вы добавляете несколько строк кода для применения лицензии.
+Без лицензии Aspose.Slides for SharePoint преобразует документы во все поддерживаемые форматы, но полученные файлы содержат оценочный водяной знак, а страница конвертации отображает уведомление об оценочной версии.
 
-Версия для оценки Aspose.Slides (без указанной лицензии) предоставляет полную функциональность продукта, но вставляет водяной знак оценки на каждый слайд сгенерированных PDF, TIFF и XPS файлов.
+**Оценочный водяной знак в преобразованном PDF‑файле**
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![PDF‑файл, преобразованный в режиме оценки, с оценочным водяным знаком поверх слайда](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}}
 
-Если вы хотите протестировать Aspose.Slides без ограничений версии для оценки, вы также можете запросить временную лицензию на 30 дней. Пожалуйста, обратитесь к [Как получить временную лицензию?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" title="Note" %}}
+
+Если вы хотите протестировать Aspose.Slides без ограничений оценки, вы также можете запросить 30‑дневную временную лицензию. См. [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

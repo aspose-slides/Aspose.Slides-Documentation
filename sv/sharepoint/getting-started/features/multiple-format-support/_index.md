@@ -3,30 +3,49 @@ title: Stöd för flera format
 type: docs
 weight: 10
 url: /sv/sharepoint/multiple-format-support/
+description: "Inmatningsformaten som Aspose.Slides för SharePoint accepterar och utdataformaten som erbjuds på dess konverteringssida."
 ---
-{{% alert color="primary" %}} 
-Med Aspose.Slides för SharePoint kan du konvertera dokument mellan många populära kontorsdokumentformat från ett SharePoint-dokumentbibliotek. Konverteringarna utförs med hög noggrannhet och precision. 
-{{% /alert %}} 
-## **Stödda indataformat**
-Aspose.Slides för SharePoint stöder följande indataformat: 
+{{% alert color="info" title="Note" %}}
+
+Med Aspose.Slides för SharePoint kan du konvertera PowerPoint-presentationer till många populära dokumentformat från ett SharePoint-dokumentbibliotek.
+
+{{% /alert %}}
+
+## **Stödda inmatningsformat**
+
+Aspose.Slides för SharePoint konverterar följande inmatningsformat:
 
 - PPT – Microsoft PowerPoint-presentation 97 - 2003
-- PPS – Microsoft PowerPoint-diasshow 97 - 2003
-- POT – Microsoft PowerPoint-mall 97 - 2003
 - PPTX – Office Open XML-presentation
-- PPSX – Office Open XML-diasshow
-- POTX – Office Open XML-mall
 
-{{% alert color="primary" %}} 
-För att generera dokument förlitar sig Aspose.Slides för SharePoint på en inbyggd version av [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), Asposes enda komponent för bearbetning av PowerPoint-dokument. 
+{{% alert color="info" title="Note" %}}
+
+För att konvertera dokument förlitar sig Aspose.Slides för SharePoint på en inbyggd version av [Aspose.Slides for .NET](https://products.aspose.com/slides/sv/net/).
+
 {{% /alert %}}
-## **Stödda utdataformat**
-Följande utdataformat stöds av Aspose.Slides för SharePoint: 
 
-- PDF – Portabelt dokumentformat
+## **Stödda utdataformat**
+
+Listan **Convert to** på konverteringssidan erbjuder följande utdataformat, i denna ordning:
+
+- PDF – Adobe Portable Document
 - TIFF – Bildpaket
 - XPS – XML Paper Specification
+- PPS – Bildspelspresentation
+- PPSX – Microsoft PowerPoint Open XML-bildspel
+- ODP – OpenDocument-presentation
+- PPTM – Microsoft PowerPoint Open XML-makroaktiverad presentation
+- PPSM – Microsoft PowerPoint Open XML-makroaktiverat bildspel
+- POTX – Microsoft PowerPoint-mall
+- POTM – PowerPoint Open XML-makroaktiverad presentationsmall
+- PDFNotes – Presentationsanteckningsvy i PDF-format
+- HTML – Presentation i HTML-format
+- TIFFNotes – Presentationsanteckningsvy som flerbladig TIFF-bild
+- SWF – Shockwave Flash-film
+- SWFNotes – Presentationsanteckningsvy som flerbladig SWF
 
-**Välja utdataformat från konverteringsinställningsskärmen** 
+**Välja utdataformat på sidan Konverteringsinställningar**
 
-![todo:image_alt_text](multiple-format-support_1.png)
+![Konverteringsinställningssidan med listan Convert to för utdataformat](multiple-format-support_1.png)
+
+Skärmdumpen togs med en äldre version som bara erbjöd PDF-, TIFF- och XPS-format.

@@ -3,35 +3,49 @@ title: Unterstützung mehrerer Formate
 type: docs
 weight: 10
 url: /de/sharepoint/multiple-format-support/
+description: "Die Eingabeformate, die Aspose.Slides for SharePoint akzeptiert, und die auf seiner Konvertierungsseite angebotenen Ausgabeformate."
 ---
+{{% alert color="info" title="Hinweis" %}}
 
-{{% alert color="primary" %}} 
-
-Mit Aspose.Slides für SharePoint können Sie Dokumente zwischen vielen gängigen Office-Dokumentformaten innerhalb einer SharePoint-Dokumentbibliothek konvertieren. Die Konvertierungen erfolgen mit hoher Treue und Präzision. 
-
-{{% /alert %}} 
-## **Unterstützte Eingabeformate**
-Aspose.Slides für SharePoint unterstützt die folgenden Eingabeformate: 
-
-- PPT – Microsoft PowerPoint-Präsentation 97 - 2003
-- PPS – Microsoft PowerPoint-Diashow 97 - 2003
-- POT – Microsoft PowerPoint-Vorlage 97 - 2003
-- PPTX – Office Open XML-Präsentation
-- PPSX – Office Open XML-Diashow
-- POTX – Office Open XML-Vorlage
-
-{{% alert color="primary" %}} 
-
-Um Dokumente zu generieren, verlässt sich Aspose.Slides für SharePoint auf eine integrierte Version von [Aspose.Slides für .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), dem einzigen PowerPoint-Dokumentverarbeitungsmodul von Aspose.
+Mit Aspose.Slides for SharePoint können Sie PowerPoint‑Präsentationen in viele gängige Dokumentformate direkt aus einer SharePoint‑Dokumentenbibliothek konvertieren.
 
 {{% /alert %}}
+
+## **Unterstützte Eingabeformate**
+
+Aspose.Slides for SharePoint konvertiert die folgenden Eingabeformate:
+
+- PPT – Microsoft PowerPoint‑Präsentation 97‑2003
+- PPTX – Office Open XML‑Präsentation
+
+{{% alert color="info" title="Hinweis" %}}
+
+Um Dokumente zu konvertieren, verwendet Aspose.Slides for SharePoint eine integrierte Version von [Aspose.Slides for .NET](https://products.aspose.com/slides/de/net/).
+
+{{% /alert %}}
+
 ## **Unterstützte Ausgabeformate**
-Die folgenden Ausgabeformate werden von Aspose.Slides für SharePoint unterstützt: 
 
-- PDF – Tragbares Dokumentenformat
+Die **Convert to**‑Liste auf der Konvertierungsseite bietet die folgenden Ausgabeformate in dieser Reihenfolge:
+
+- PDF – Adobe Portable Document
 - TIFF – Bilderpaket
-- XPS – XML-Papier-Spezifikation
+- XPS – XML Paper Specification
+- PPS – Diashow‑Präsentation
+- PPSX – Microsoft PowerPoint Open XML Diashow
+- ODP – OpenDocument‑Präsentation
+- PPTM – Microsoft PowerPoint Open XML Makro‑aktivierte Präsentation
+- PPSM – Microsoft PowerPoint Open XML Makro‑aktivierte Diashow
+- POTX – Microsoft PowerPoint‑Vorlage
+- POTM – PowerPoint Open XML Makro‑aktivierte Vorlagendatei
+- PDFNotes – Präsentationsnotizen‑Ansicht im PDF‑Format
+- HTML – Präsentation im HTML‑Format
+- TIFFNotes – Präsentationsnotizen‑Ansicht als mehrseitiges TIFF‑Bild
+- SWF – Shockwave Flash Movie
+- SWFNotes – Präsentationsnotizen‑Ansicht als mehrseitiges SWF
 
-**Auswahl des Ausgabeformats auf dem Bildschirm für die Konfiguration der Konvertierung** 
+**Auswahl des Ausgabeformats auf der Seite „Conversion Settings“**
 
-![todo:image_alt_text](multiple-format-support_1.png)
+![Die Seite „Conversion Settings“ mit der Liste „Convert to“ der Ausgabeformate](multiple-format-support_1.png)
+
+Der Screenshot wurde mit einer früheren Version aufgenommen, die nur die Formate PDF, TIFF und XPS bot.

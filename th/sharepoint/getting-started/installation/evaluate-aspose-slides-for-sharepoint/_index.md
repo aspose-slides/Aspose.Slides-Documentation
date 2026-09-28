@@ -1,19 +1,20 @@
 ---
-title: ประเมิน Aspose.Slides สำหรับ SharePoint
+title: ประเมิน Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /th/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "ประเมิน Aspose.Slides for SharePoint ด้วยการดาวน์โหลดปกติ: ติดตั้ง, แปลงการนำเสนอในโหมดทดลอง, และสลับไปยังโหมดที่มีไลเซนส์โดยการติดตั้งโซลูชันไลเซนส์."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-อย่าลืมใช้ประโยชน์จากการประเมิน Aspose.Words for SharePoint ฟรี: ไม่มีข้อจำกัดเวลาและมาพร้อมกับการสนับสนุนทางเทคนิคฟรี เราแนะนำให้ผู้ใช้ของเราทดสอบผลิตภัณฑ์ก่อนซื้อ เพื่อให้คุณมั่นใจว่าผลิตภัณฑ์จะทำตามที่คุณต้องการ
+ใช้ประโยชน์จากการทดลองใช้ Aspose.Slides for SharePoint ฟรี: ไม่มีการจำกัดเวลาและมาพร้อมการสนับสนุนทางเทคนิคฟรี เราแนะนำให้คุณทดลองผลิตภัณฑ์ก่อนซื้อ เพื่อให้คุณมั่นใจว่ามันทำตามที่คุณต้องการ
 
-{{% /alert %}} 
+{{% /alert %}}
 
-การดาวน์โหลดสำหรับรุ่นประเมินและรุ่นที่ชำระเงินของ Aspose.Slides for SharePoint เป็นไฟล์เดียวกัน เพียงแค่ [ดาวน์โหลด Aspose.Slides for SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) จากหน้าดาวน์โหลด, [ติดตั้ง]() แล้วโปรแกรมจะทำงานในโหมดประเมินโดยค่าเริ่มต้น. 
+รุ่นทดลองและเวอร์ชันที่ต้องชำระของ Aspose.Slides for SharePoint มีการดาวน์โหลดเดียวกัน [Download Aspose.Slides for SharePoint](https://releases.aspose.com/slides/th/sharepoint/),[install it](/slides/th/sharepoint/installing-aspose-slides-for-sharepoint/),และจะทำงานในโหมดทดลองโดยค่าเริ่มต้น.
 
-โหมดประเมินจะฉีดลายน้ำการประเมินเข้าไปในแต่ละสไลด์ของเอกสารที่ส่งออก เมื่อคุณได้ซื้อใบอนุญาตแล้ว เพียงแค่ติดตั้งโซลูชันใบอนุญาตเหนือสำเนาการประเมินที่ติดตั้งของ Aspose.Slides for SharePoint แล้วระบบจะทำงานในโหมดที่ได้รับการอนุญาต. 
+ในโหมดทดลอง เอกสารที่แปลงจะมีลายน้ำการทดลอง เมื่อคุณได้ซื้อไลเซนส์แล้ว ให้ติดตั้งโซลูชันไลเซนส์บนสำเนาการทดลองที่ติดตั้งไว้ ตามที่อธิบายใน [Installing Aspose.Slides for SharePoint License](/slides/th/sharepoint/installing-aspose-slides-for-sharepoint-license/),และ Aspose.Slides for SharePoint จะทำงานในโหมดที่มีไลเซนส์.
 
-**ลายน้ำการประเมินบนสไลด์** 
+**ลายน้ำการทดลองบนสไลด์**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![สไลด์ที่แปลงในโหมดทดลองพร้อมลายน้ำการทดลอง](evaluate-aspose-slides-for-sharepoint_1.png)

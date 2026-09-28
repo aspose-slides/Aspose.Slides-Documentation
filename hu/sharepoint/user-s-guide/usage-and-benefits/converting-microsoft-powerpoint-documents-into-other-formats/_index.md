@@ -1,54 +1,54 @@
 ---
-title: Microsoft PowerPoint dokumentumok konvertálása más formátumokra
+title: Microsoft PowerPoint dokumentumok konvertálása más formátumokba
 type: docs
 weight: 40
 url: /hu/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+description: "Konvertáljon PowerPoint prezentációt egy SharePoint dokumentumtárban PDF vagy más formátumba a Convert via Aspose.Slides menüpont használatával, lépésről lépésre."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Amikor az Aspose.Slides for SharePoint telepítve van a SharePoint kiszolgálón, hozzáadja a **Convert via Aspose.Slides.SharePoint** lehetőséget a bemutató menüjéhez, ahogy az alább látható:
+Amikor az Aspose.Slides for SharePoint fel van telepítve a SharePoint szerveren, és egy webhelygyűjteményhez aktiválva van, a dokumentumtárak dokumentumok menüjéhez hozzáadja a **Convert via Aspose.Slides** elemet, ahogy alább látható. A SharePoint 2007 esetén az elem neve **Convert with Aspose.Slides**.
 
-**Az Aspose.Slides for SharePoint telepítése hozzáadja a Convert via Aspose.Slides lehetőséget a dokumentumok menüjéhez**
+**Az Aspose.Slides for SharePoint telepítése hozzáadja a Convert via Aspose.Slides elemet a dokumentum menükhöz**
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
+![Dokumentum menü a Convert via Aspose.Slides elemmel](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
 
-{{% /alert %}} 
-## **Bemutató konvertálása**
-A Microsoft PowerPoint dokumentum konvertálásához egy SharePoint dokumentumtárból: 
+{{% /alert %}}
 
-1. Válasszon ki egy Microsoft PowerPoint dokumentumot egy dokumentumtárban.
-2. Kattintson a lefelé mutató nyílra a menü megjelenítéséhez, majd kattintson a **Convert via Aspose.Slides.SharePoint** lehetőségre. 
+## **Prezentáció konvertálása**
 
-   **A Presentation 2 fájl menüje, amely megjeleníti a Convert via Aspose.Slides lehetőséget** 
+1. Válasszon ki egy Microsoft PowerPoint prezentációt egy dokumentumtárban.
+2. Nyissa meg a menüt, és kattintson a **Convert via Aspose.Slides** gombra.
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
+   **A Presentation 2 fájl menüje, amely a Convert via Aspose.Slides elemet mutatja**
 
+   ![A prezentáció menüje egy dokumentumtárban, a Convert via Aspose.Slides elem kiemelve](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
 
+3. Válassza ki a kimeneti formátumot a **Convert to** alatt. Ha szeretné, módosítsa a kimeneti fájl nevét és a célmappát.
+4. Kattintson a **Convert** gombra a fájl konvertálásához.
 
+   **A konverziós oldal lehetővé teszi a kimeneti formátum, a fájlnév és a cél kiválasztását**
 
-3. Válassza ki a kívánt kimeneti formátumot az űrlapon. Ha szeretné, módosíthatja a kimeneti fájl nevét és a célmappát.
-4. Kattintson a **Convert** gombra a fájl konvertálásához. 
+   ![A konverziós oldal a kimeneti formátummal, a célfájlal és a célmappával](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
 
-   **A konvertálási űrlap lehetővé teszi a kimeneti fájlformátum, név és cél kiválasztását** 
+5. A konverzió befejezésekor sikerüzenet jelenik meg.
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
+   **A konverzió sikeres volt**
 
+   ![A konverzió eredményei oldal](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
 
+6. Kattintson a **Source Library** (a forrásmappához) vagy a **Destination Library** (a mentett fájl mappájához) gombra.
 
+   A konvertált dokumentum megjelenik a dokumentumtárban.
 
-5. Amikor a konvertálás befejeződik, egy sikerüzenet jelenik meg. 
+   **A konvertált dokumentum a mentés helyén lévő könyvtárban megjelenítve**
 
-   **A konvertálás sikeres volt** 
+   ![A konvertált fájl a dokumentumtárban](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
+{{% alert color="info" title="Note" %}}
 
+A képernyőképek egy korábbi verzióval készültek, amely csak a PDF, TIFF és XPS formátumokat kínálta. Az aktuális konverziós oldal több kimeneti formátumot kínál; lásd a [Több formátumtámogatás](/slides/hu/sharepoint/multiple-format-support/).
 
+{{% /alert %}}
 
-
-6. Kattintson a **Source Library** (a forráskönyvtárba való navigáláshoz) vagy a **Destination Library** (a fájl mentésének célkönyvtárába való navigáláshoz) lehetőségre. 
-
-   A konvertált dokumentum megjelenik a dokumentumtárban. 
-
-   **A konvertált dokumentum a mentési könyvtárban látható** 
-
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
+A SharePoint 2010 és újabb verzióiban kiválaszthat egy vagy több prezentációt a könyvtárban, és rákattint a **Convert Slides** gombra a **Aspose Tools** szalagfület. Ez megnyitja ugyanazt a konverziós oldalt.

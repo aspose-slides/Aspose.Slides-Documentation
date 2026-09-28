@@ -1,20 +1,20 @@
 ---
-title: Évaluer Aspose.Slides pour SharePoint
+title: Évaluer Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /fr/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Évaluez Aspose.Slides for SharePoint avec le téléchargement standard: installez-le, convertissez des présentations en mode évaluation, et passez en mode sous licence en installant la solution de licence."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Profitez de l'evaluation gratuite d'Aspose.Slides for SharePoint: elle n'a aucune limite de temps et comprend une assistance technique gratuite. Nous vous encourageons a evaluer le produit avant de l'acheter, afin de vous assurer qu'il repond a vos besoins.
 
-Assurez-vous de profiter de l'évaluation gratuite d'Aspose.Words pour SharePoint : elle n'a pas de limite de temps et est accompagnée d'un support technique gratuit. Nous encourageons nos utilisateurs à évaluer nos produits avant d'acheter afin que vous sachiez que le produit fera ce que vous souhaitez qu'il fasse.
+{{% /alert %}}
 
-{{% /alert %}} 
+L'evaluation et la version payante d'Aspose.Slides for SharePoint sont le meme telechargement. [Telecharger Aspose.Slides for SharePoint](https://releases.aspose.com/slides/fr/sharepoint/), [l'installer](/slides/fr/sharepoint/installing-aspose-slides-for-sharepoint/), et il fonctionne en mode evaluation par defaut.
 
-C'est le même téléchargement pour l'évaluation et la version payante d'Aspose.Slides pour SharePoint. Il suffit de [télécharger Aspose.Slides pour SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) depuis la page de téléchargement, [de l'installer]() et il fonctionnera en mode d'évaluation par défaut. 
+En mode evaluation, le document converti porte un filigrane d'evaluation. Lorsque vous avez acheté une licence, installez la solution de licence sur la copie d'evaluation installee, comme décrit dans [Installation de la licence Aspose.Slides for SharePoint](/slides/fr/sharepoint/installing-aspose-slides-for-sharepoint-license/), et Aspose.Slides for SharePoint fonctionne en mode sous licence.
 
-Le mode d'évaluation injecte un filigrane d'évaluation sur chaque diapositive dans le document exporté. Lorsque vous avez acheté une licence, il suffit d'installer la solution de licence sur la copie d'évaluation installée d'Aspose.Slides pour SharePoint et elle fonctionnera alors en mode sous licence. 
+**Filigrane d'evaluation sur une diapositive**
 
-**Filigrane d'évaluation sur une diapositive** 
-
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Diapositive convertie en mode evaluation, avec le filigrane d'evaluation](evaluate-aspose-slides-for-sharepoint_1.png)

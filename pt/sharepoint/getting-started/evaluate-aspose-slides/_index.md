@@ -3,17 +3,22 @@ title: Avaliar Aspose.Slides
 type: docs
 weight: 70
 url: /pt/sharepoint/evaluate-aspose-slides/
+description: "O que a versão de avaliação do Aspose.Slides for SharePoint faz, como sua saída é marcada e como transformá‑la na versão licenciada."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Você pode baixar o Aspose.Slides facilmente para avaliação. O download de avaliação é o mesmo que o download adquirido. A versão de avaliação simplesmente se torna licenciada quando você adiciona algumas linhas de código para aplicar a licença.
+O download de avaliação do Aspose.Slides for SharePoint é o mesmo que o download adquirido. Ele se torna a versão licenciada quando você instala o pacote de solução de licença na fazenda; veja [Installing Aspose.Slides for SharePoint License](/slides/pt/sharepoint/installing-aspose-slides-for-sharepoint-license/). Nenhum código está envolvido.
 
-A versão de avaliação do Aspose.Slides (sem uma licença especificada) fornece toda a funcionalidade do produto, mas insere uma marca d'água de avaliação em cada slide dos arquivos PDF, TIFF e XPS gerados.
+Sem uma licença, o Aspose.Slides for SharePoint converte para todos os formatos suportados, mas os arquivos convertidos apresentam uma marca d'água de avaliação, e a página de conversão exibe um aviso de avaliação.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**Marca d'água de avaliação em um arquivo PDF convertido**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![Um arquivo PDF convertido em modo de avaliação, com a marca d'água de avaliação sobre o slide](evaluate-aspose-slides_1.png)
 
-Se você quiser testar o Aspose.Slides sem as limitações da versão de avaliação, também pode solicitar uma Licença Temporária de 30 dias. Consulte [Como obter uma Licença Temporária?](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+Se você quiser testar o Aspose.Slides sem as limitações de avaliação, também pode solicitar uma licença temporária de 30 dias. Veja [Como obter uma Licença Temporária?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}

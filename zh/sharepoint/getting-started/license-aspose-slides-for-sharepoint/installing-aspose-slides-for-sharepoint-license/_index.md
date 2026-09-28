@@ -1,59 +1,65 @@
 ---
-title: 安装 Aspose.Slides for SharePoint 许可证
+title: 在 SharePoint 上安装 Aspose.Slides 许可证
 type: docs
 weight: 10
 url: /zh/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "在 SharePoint 场中安装 Aspose.Slides for SharePoint 许可证：将许可证解决方案添加到解决方案存储，部署它，并检查转换后的文件不再带有评估水印。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+一旦您对评估版满意，您可以[购买许可证](https://purchase.aspose.com/pricing/slides/zh/sharepoint/)。购买前，请确保您已了解并同意许可证订阅条款。订单付款后，许可证将通过电子邮件发送给您。
 
-一旦您对评估结果感到满意，您可以 [购买许可证](https://purchase.aspose.com/buy)。在购买之前，请确保您理解并同意许可证订阅条款。订单付款后，许可证将通过电子邮件发送给您。
+许可证是一个包含常规 SharePoint 解决方案包的 ZIP 压缩文件。压缩包包含：
 
-许可证是一个 ZIP 压缩包，包含一个常规的 SharePoint 解决方案包。该压缩包包含：
-
-- Aspose.Slides.SharePoint.License.wsp – SharePoint 解决方案包文件。许可证被打包为 SharePoint 解决方案，以便于在服务器农场中进行部署和撤回。
+- Aspose.Slides.SharePoint.License.wsp – SharePoint 解决方案包文件。许可证以 SharePoint 解决方案的形式打包，以便在服务器场之间轻松部署和回收。
 - readme.txt – 许可证安装说明。
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **部署许可证**
-许可证安装是在服务器控制台通过 **stsadm.exe** 进行的。
 
-{{% alert color="primary" %}} 
+许可证安装通过服务器控制台使用 **stsadm.exe** 完成。
 
-以下部分省略了路径以便于清晰展示。
+{{% alert color="info" title="Note" %}}
 
-{{% /alert %}} 
+以下章节省略了路径，以保持简洁。
 
-按照以下步骤部署 Aspose.Slides for SharePoint 许可证：
+{{% /alert %}}
 
-1. 运行 stsadm 将解决方案添加到 SharePoint 解决方案库：
+执行以下步骤以部署 Aspose.Slides for SharePoint 许可证：
 
-``` xml
+1. 运行 stsadm 将解决方案添加到 SharePoint 解决方案存储：
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
-```
+2. 将解决方案部署到场中的所有服务器：
 
-2. 将解决方案部署到农场中的所有服务器：
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-``` xml
+3. 执行管理计时器作业以立即完成部署：
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
-```
+`addsolution` 操作在 `-filename` 中接受解决方案文件的路径；`deploysolution` 操作在 `-name` 中接受已在解决方案存储中存在的解决方案名称。
 
-3. 执行管理定时任务以立即完成部署：
+{{% alert color="info" title="Note" %}}
 
-``` xml
+如果 SharePoint 管理服务未运行，在执行部署步骤时会出现警告。**stsadm.exe** 依赖该服务以及 SharePoint 计时器服务在服务器场之间复制解决方案数据。如果这些服务在您的服务器场未运行，可能需要在每台服务器上单独部署许可证。
 
- Stsadm.exe -o execadmsvcjobs
+{{% /alert %}}
 
-```
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+在 SharePoint 2010 及更高版本中，SharePoint Management Shell cmdlet `Add-SPSolution`、`Install-SPSolution` 和 `Start-SPAdminJob` 分别对应 `addsolution`、`deploysolution` 和 `execadmsvcjobs` 操作。请参阅[Stsadm 与 Microsoft PowerShell 在 SharePoint Server 中的映射](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping)。
 
-如果 Windows SharePoint Services Administration 服务未运行，您在运行部署步骤时会收到警告。**stsadm.exe** 依赖此服务和 Windows SharePoint Timer Service 来在农场中复制解决方案数据。如果这些服务在您的服务器农场中未运行，您可能需要在每台服务器上部署许可证。
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **测试许可证**
-要测试许可证是否正确安装，请将任何文档转换为新格式。如果文档中没有评估水印，则表示许可证已成功激活。
+
+要测试许可证是否已正确安装，可将任意演示文稿转换为新格式。如果转换后的文件中没有评估水印，则说明许可证已生效。

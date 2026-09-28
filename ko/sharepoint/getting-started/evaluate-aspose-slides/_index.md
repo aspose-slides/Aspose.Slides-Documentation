@@ -3,17 +3,22 @@ title: Aspose.Slides 평가
 type: docs
 weight: 70
 url: /ko/sharepoint/evaluate-aspose-slides/
+description: "Aspose.Slides for SharePoint 평가 버전이 수행하는 작업, 출력에 표시되는 방식 및 라이선스 버전으로 전환하는 방법."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides를 평가용으로 쉽게 다운로드할 수 있습니다. 평가용 다운로드는 구매 후 다운로드와 동일합니다. 라이선스를 적용하는 몇 줄의 코드를 추가하면 평가 버전이 단순히 정식 라이선스로 전환됩니다.
+Aspose.Slides for SharePoint의 평가용 다운로드는 구매한 다운로드와 동일합니다. 라이선스 솔루션 패키지를 팜에 설치하면 라이선스가 적용된 버전이 됩니다; 자세한 내용은 [Installing Aspose.Slides for SharePoint License](/slides/ko/sharepoint/installing-aspose-slides-for-sharepoint-license/)를 참고하세요. 코드는 필요하지 않습니다.
 
-라이선스가 지정되지 않은 Aspose.Slides 평가 버전은 전체 제품 기능을 제공하지만, 생성된 PDF, TIFF 및 XPS 파일의 모든 슬라이드에 평가 워터마크를 삽입합니다.
+라이선스가 없으면 Aspose.Slides for SharePoint는 지원되는 모든 형식으로 변환하지만, 변환된 파일에는 평가용 워터마크가 표시되고 변환 페이지에 평가 알림이 표시됩니다.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**변환된 PDF 파일의 평가 워터마크**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![평가 모드에서 변환된 PDF 파일이며 슬라이드에 평가 워터마크가 표시됩니다](evaluate-aspose-slides_1.png)
 
-평가 버전 제한 없이 Aspose.Slides를 테스트하려면 30일 임시 라이선스를 요청할 수 있습니다. 자세한 내용은 [임시 라이선스 받는 방법?](https://purchase.aspose.com/temporary-license) 를 참고하십시오.
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+평가 제한 없이 Aspose.Slides를 테스트하고 싶다면 30일 임시 라이선스를 요청할 수 있습니다. 자세한 내용은 [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)를 확인하세요.
 
 {{% /alert %}}

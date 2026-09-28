@@ -1,59 +1,65 @@
 ---
-title: Installation der Aspose.Slides für SharePoint-Lizenz
+title: Installation der Aspose.Slides for SharePoint Lizenz
 type: docs
 weight: 10
 url: /de/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "Installieren Sie die Aspose.Slides for SharePoint‑Lizenz in einer SharePoint‑Farm: Fügen Sie die Lizenzlösung dem Lösungs‑Store hinzu, stellen Sie sie bereit und überprüfen Sie, dass konvertierte Dateien kein Evaluierungswasserzeichen mehr enthalten."
 ---
+{{% alert color="info" title="Hinweis" %}}
 
-{{% alert color="primary" %}} 
+Sobald Sie mit Ihrer Evaluation zufrieden sind, können Sie [eine Lizenz erwerben](https://purchase.aspose.com/pricing/slides/de/sharepoint/). Stellen Sie vor dem Kauf sicher, dass Sie die Lizenz‑Abonnementbedingungen verstanden haben und ihnen zustimmen. Die Lizenz wird Ihnen per E‑Mail zugesandt, sobald die Bestellung bezahlt wurde.
 
-Sobald Sie mit Ihrer Evaluierung zufrieden sind, können Sie eine [Lizenz kaufen](https://purchase.aspose.com/buy). Stellen Sie vor dem Kauf sicher, dass Sie die Bedingungen des Lizenzabonnements verstehen und akzeptieren. Die Lizenz wird Ihnen per E-Mail zugesandt, sobald die Bestellung bezahlt wurde.
+Die Lizenz ist ein ZIP‑Archiv, das ein reguläres SharePoint‑Lösungspaket enthält. Das Archiv enthält:
 
-Die Lizenz ist eine ZIP-Datei, die ein reguläres SharePoint-Lösungs-Paket enthält. Die Archive enthalten:
+- Aspose.Slides.SharePoint.License.wsp – die SharePoint‑Lösungsdatei. Die Lizenz ist als SharePoint‑Lösung verpackt, um die Bereitstellung und das Zurückziehen über eine Serverfarm zu vereinfachen.
+- readme.txt – Anweisungen zur Lizenzinstallation.
 
-- Aspose.Slides.SharePoint.License.wsp – die SharePoint-Lösungs-Paketdatei. Die Lizenz ist als SharePoint-Lösung verpackt, um die Bereitstellung und Rücknahme über eine Serverfarm zu erleichtern.
-- readme.txt – Lizenzinstallationsanleitungen.
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **Bereitstellung der Lizenz**
-Die Lizenzinstallation erfolgt über die Serverkonsole mittels **stsadm.exe**.
 
-{{% alert color="primary" %}} 
+Die Lizenzinstallation wird über die Serverkonsole mit **stsadm.exe** durchgeführt.
 
-Die Pfade werden im folgenden Abschnitt der Klarheit halber weggelassen.
+{{% alert color="info" title="Hinweis" %}}
 
-{{% /alert %}} 
+Die Pfade werden im folgenden Abschnitt aus Gründen der Übersichtlichkeit weggelassen.
 
-Führen Sie die folgenden Schritte aus, um die Aspose.Slides für SharePoint-Lizenz bereitzustellen:
+{{% /alert %}}
 
-1. Führen Sie stsadm aus, um die Lösung im SharePoint-Lösungs-Store hinzuzufügen: 
+Führen Sie die folgenden Schritte aus, um die Aspose.Slides for SharePoint‑Lizenz bereitzustellen:
 
-``` xml
+1. Führen Sie stsadm aus, um die Lösung zum SharePoint‑Lösungsstore hinzuzufügen:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
-```
+2. Stellen Sie die Lösung auf allen Servern der Farm bereit:
 
-2. Stellen Sie die Lösung auf allen Servern in der Farm bereit: 
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-``` xml
+3. Führen Sie administrative Timer‑Jobs aus, um die Bereitstellung sofort abzuschließen:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
-```
+Der `addsolution`‑Vorgang erwartet den Pfad der Lösungsdatei in `-filename`; der `deploysolution`‑Vorgang erwartet den Namen der bereits im Lösungsstore vorhandenen Lösung in `-name`.
 
-3. Führen Sie administrative Timer-Jobs aus, um die Bereitstellung sofort abzuschließen: 
+{{% alert color="info" title="Hinweis" %}}
 
-``` xml
+Sie erhalten eine Warnung beim Ausführen des Bereitstellungsschritts, wenn der SharePoint‑Administrationsdienst nicht läuft. **stsadm.exe** hängt von diesem Dienst und dem SharePoint‑Timer‑Dienst ab, um Lösungsdaten über die Farm zu replizieren. Wenn diese Dienste in Ihrer Serverfarm nicht laufen, müssen Sie die Lizenz möglicherweise auf jedem Server bereitstellen.
 
- Stsadm.exe -o execadmsvcjobs
+{{% /alert %}}
 
-```
+{{% alert color="info" title="Hinweis" %}}
 
-{{% alert color="primary" %}} 
+Auf SharePoint 2010 und höher entsprechen die SharePoint Management Shell‑Cmdlets `Add-SPSolution`, `Install-SPSolution` und `Start-SPAdminJob` den Vorgängen `addsolution`, `deploysolution` und `execadmsvcjobs`. Siehe [Stsadm-zu-Microsoft-PowerShell-Mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-Sie erhalten eine Warnung, wenn Sie den Bereitstellungsschritt ausführen, wenn der Windows SharePoint-Dienste-Administrationsdienst nicht ausgeführt wird. **stsadm.exe** ist auf diesen Dienst und den Windows SharePoint Timer-Dienst angewiesen, um Lösungsdaten über die Farm zu replizieren. Wenn diese Dienste nicht auf Ihrer Serverfarm ausgeführt werden, müssen Sie die Lizenz auf jedem Server bereitstellen. 
+{{% /alert %}}
 
-{{% /alert %}} 
-## **Testen der Lizenz**
-Um zu testen, ob die Lizenz korrekt installiert wurde, konvertieren Sie ein beliebiges Dokument in ein neues Format. Wenn das Dokument kein Evaluierungs-Wasserzeichen enthält, wurde die Lizenz erfolgreich aktiviert. 
+## **Lizenz testen**
+
+Um zu prüfen, ob die Lizenz korrekt installiert wurde, konvertieren Sie eine beliebige Präsentation in ein neues Format. Wenn im konvertierten Dokument kein Evaluierungswasserzeichen zu sehen ist, ist die Lizenz aktiv.

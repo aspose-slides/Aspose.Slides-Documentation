@@ -3,53 +3,54 @@ title: Konvertieren von Microsoft PowerPoint-Dokumenten in andere Formate
 type: docs
 weight: 40
 url: /de/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+description: "Konvertieren Sie eine PowerPoint-Präsentation in einer SharePoint-Dokumentbibliothek in PDF oder ein anderes Format Schritt für Schritt mit dem Menüeintrag Convert via Aspose.Slides."
 ---
+{{% alert color="info" title="Hinweis" %}}
 
-{{% alert color="primary" %}} 
+When Aspose.Slides for SharePoint is installed on the SharePoint server and activated for a site collection, it adds the **Convert via Aspose.Slides** item to the menu of documents in its document libraries, as shown below. On SharePoint 2007, the item is named **Convert with Aspose.Slides**.
 
-Wenn Aspose.Slides für SharePoint auf dem SharePoint-Server installiert ist, wird die **Konvertieren über Aspose.Slides.SharePoint**-Option zum Menü einer Präsentation hinzugefügt, wie unten gezeigt: 
+**Installing Aspose.Slides for SharePoint adds the Convert via Aspose.Slides item to document menus**
 
-**Die Installation von Aspose.Slides für SharePoint fügt die Option Konvertieren über Aspose.Slides zu den Dokumentmenüs hinzu** 
+![Ein Dokumentenmenü mit dem Eintrag Convert via Aspose.Slides](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_1.png)
+{{% /alert %}}
 
-{{% /alert %}} 
-## **Konvertieren einer Präsentation**
-Um ein Microsoft PowerPoint-Dokument aus einer SharePoint-Dokumentbibliothek zu konvertieren: 
+## **Converting a Presentation**
 
-1. Wählen Sie ein Microsoft PowerPoint-Dokument in einer Dokumentbibliothek aus.
-2. Klicken Sie auf den Abwärtspfeil, um ein Menü anzuzeigen, und klicken Sie auf **Konvertieren über Aspose.Slides.SharePoint**. 
+To convert a Microsoft PowerPoint presentation (PPT or PPTX) from a SharePoint document library:
 
-   **Das Menü der Präsentation 2-Datei zeigt die Option Konvertieren über Aspose.Slides** 
+1. Select a Microsoft PowerPoint presentation in a document library.
+2. Open its menu and click **Convert via Aspose.Slides**.
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
+   **The menu of the Presentation 2 file, showing the Convert via Aspose.Slides item**
 
+   ![Das Menü einer Präsentation in einer Dokumentbibliothek, wobei der Eintrag Convert via Aspose.Slides hervorgehoben ist](converting-microsoft-powerpoint-documents-into-other-formats_2.png)
 
+3. Select the output format under **Convert to**. If you wish, change the output file name and the destination folder.
+4. Click **Convert** to convert the file.
 
+   **The conversion page lets you select the output format, file name and destination**
 
-3. Wählen Sie das gewünschte Ausgabeformat aus dem Formular aus. Wenn Sie möchten, ändern Sie den Dateinamen und den Zielordner.
-4. Klicken Sie auf **Konvertieren**, um die Datei zu konvertieren. 
+   ![Die Konvertierungsseite mit dem Ausgabeformat, der Zieldatei und dem Zielordner](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
 
-   **Das Konvertierungsformular lässt Sie das Ausgabe-Dateiformat, den Namen und das Ziel auswählen** 
+5. When the conversion is complete, a success message is displayed.
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_3.png)
+   **The conversion was successful**
 
+   ![Die Seite mit den Konvertierungsergebnissen](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
 
+6. Click **Source Library** (to go to the source folder) or **Destination Library** (to go to the folder the file was saved to).
 
+   The converted document appears in the document library.
 
-5. Wenn die Konvertierung abgeschlossen ist, wird eine Erfolgsmeldung angezeigt. 
+   **The converted document shown in the library it was saved to**
 
-   **Die Konvertierung war erfolgreich** 
+   ![Die konvertierte Datei in der Dokumentbibliothek](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
 
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_4.png)
+{{% alert color="info" title="Hinweis" %}}
 
+The screenshots were taken with an earlier version, which offered only the PDF, TIFF and XPS formats. The current conversion page offers more output formats; see [Mehrfachformatunterstützung](/slides/de/sharepoint/multiple-format-support/).
 
+{{% /alert %}}
 
-
-6. Klicken Sie auf **Quellbibliothek** (um zum Quelldirektorium zu gelangen) oder **Zielbibliothek** (um zum Verzeichnis zu gelangen, in dem die Datei gespeichert wurde). 
-
-   Das konvertierte Dokument erscheint in der Dokumentbibliothek. 
-
-   **Das konvertierte Dokument wird in der Bibliothek angezeigt, in der es gespeichert wurde** 
-
-![todo:image_alt_text](converting-microsoft-powerpoint-documents-into-other-formats_5.png)
+On SharePoint 2010 and later, you can also select one or more presentations in the library and click **Convert Slides** on the **Aspose Tools** ribbon tab. It opens the same conversion page.

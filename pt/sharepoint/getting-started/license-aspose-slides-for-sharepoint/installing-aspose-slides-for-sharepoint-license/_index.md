@@ -3,56 +3,63 @@ title: Instalando a licença Aspose.Slides para SharePoint
 type: docs
 weight: 10
 url: /pt/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "Instale a licença Aspose.Slides para SharePoint em uma fazenda SharePoint: adicione a solução de licença ao repositório de soluções, implante-a e verifique se os arquivos convertidos não apresentam mais a marca d'água de avaliação."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Quando estiver satisfeito com a avaliação, você pode [purchase a license](https://purchase.aspose.com/buy). Antes de comprar, certifique‑se de que entende e concorda com os termos de assinatura da licença. A licença é enviada por e‑mail quando o pedido for pago.
+Uma vez que você esteja satisfeito com sua avaliação, pode [adquirir uma licença](https://purchase.aspose.com/pricing/slides/pt/sharepoint/). Antes de comprar, certifique‑se de que entende e aceita os termos de assinatura da licença. A licença é enviada por e‑mail para você quando o pedido for pago.
 
 A licença é um arquivo ZIP que contém um pacote de solução SharePoint padrão. O arquivo contém:
 
 - Aspose.Slides.SharePoint.License.wsp – o arquivo do pacote de solução SharePoint. A licença é empacotada como uma solução SharePoint para facilitar a implantação e a retirada em uma fazenda de servidores.
 - readme.txt – instruções de instalação da licença.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **Implantando a Licença**
-A instalação da licença é feita a partir do console do servidor via **stsadm.exe**.
 
-{{% alert color="primary" %}} 
+A instalação da licença é realizada a partir do console do servidor via **stsadm.exe**.
 
-Os caminhos foram omitidos na seção a seguir para clareza.
+{{% alert color="info" title="Note" %}}
 
-{{% /alert %}} 
+Os caminhos foram omitidos na seção a seguir para maior clareza.
 
-Execute as etapas a seguir para implantar a licença do Aspose.Slides for SharePoint:
+{{% /alert %}}
 
-1. Execute stsadm para adicionar a solução ao repositório de soluções SharePoint: 
+Execute as etapas a seguir para implantar a licença Aspose.Slides para SharePoint:
 
-``` xml
+1. Execute stsadm para adicionar a solução ao repositório de soluções SharePoint:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
-```
+2. Implante a solução em todos os servidores da fazenda:
 
-2. Implante a solução em todos os servidores da fazenda: 
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-``` xml
+3. Execute trabalhos de timer administrativos para concluir a implantação imediatamente:
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
-```
+A operação `addsolution` recebe o caminho do arquivo da solução em `-filename`; a operação `deploysolution` recebe o nome da solução que já está no repositório de soluções em `-name`.
 
-3. Execute trabalhos de temporizador administrativos para concluir a implantação imediatamente: 
+{{% alert color="info" title="Note" %}}
 
-``` xml
+Você receberá um aviso ao executar a etapa de implantação se o serviço de Administração do SharePoint não estiver em execução. **stsadm.exe** depende desse serviço e do serviço Timer do SharePoint para replicar os dados da solução em toda a fazenda. Se esses serviços não estiverem em execução na sua fazenda de servidores, talvez seja necessário implantar a licença em cada servidor.
 
- Stsadm.exe -o execadmsvcjobs
+{{% /alert %}}
 
-```
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+No SharePoint 2010 e versões posteriores, os cmdlets do SharePoint Management Shell `Add-SPSolution`, `Install-SPSolution` e `Start-SPAdminJob` correspondem às operações `addsolution`, `deploysolution` e `execadmsvcjobs`. Veja [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-Você receberá um aviso ao executar a etapa de implantação se o serviço Windows SharePoint Services Administration não estiver em execução. **stsadm.exe** depende desse serviço e do Windows SharePoint Timer Service para replicar os dados da solução na fazenda. Se esses serviços não estiverem em execução na sua fazenda de servidores, pode ser necessário implantar a licença em cada servidor. 
+{{% /alert %}}
 
-{{% /alert %}} 
 ## **Testar a Licença**
-Para testar se a licença foi instalada corretamente, converta qualquer documento para um novo formato. Se não houver marca d'água de avaliação no documento, a licença foi ativada com sucesso.
+
+Para testar se a licença foi instalada corretamente, converta qualquer apresentação para um novo formato. Se não houver marca d'água de avaliação no arquivo convertido, a licença está ativa.

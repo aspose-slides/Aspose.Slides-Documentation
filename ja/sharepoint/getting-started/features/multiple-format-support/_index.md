@@ -1,37 +1,51 @@
----  
-title: 複数形式のサポート  
-type: docs  
-weight: 10  
-url: /ja/sharepoint/multiple-format-support/  
----  
+---
+title: 複数形式のサポート
+type: docs
+weight: 10
+url: /ja/sharepoint/multiple-format-support/
+description: "Aspose.Slides for SharePoint が受け付ける入力形式と、変換ページで提供される出力形式です。"
+---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}  
+Aspose.Slides for SharePoint を使用すると、SharePoint ドキュメント ライブラリ内から PowerPoint プレゼンテーションを多数の一般的なドキュメント形式に変換できます。
 
-Aspose.Slides for SharePointを使用すると、SharePointドキュメントライブラリ内から多くの一般的なオフィスドキュメント形式にドキュメントを変換できます。変換は高忠実度と精度で行われます。  
+{{% /alert %}}
 
-{{% /alert %}}  
-## **サポートされている入力形式**  
-Aspose.Slides for SharePointは、以下の入力形式をサポートしています：  
+## **サポートされている入力形式**
 
-- PPT – Microsoft PowerPoint プレゼンテーション 97 - 2003  
-- PPS – Microsoft PowerPoint スライドショー 97 - 2003  
-- POT – Microsoft PowerPoint テンプレート 97 - 2003  
-- PPTX – Office Open XML プレゼンテーション  
-- PPSX – Office Open XML スライドショー  
-- POTX – Office Open XML テンプレート  
+Aspose.Slides for SharePoint は次の入力形式を変換します。
 
-{{% alert color="primary" %}}  
+- PPT – Microsoft PowerPoint プレゼンテーション 97 - 2003
+- PPTX – Office Open XML プレゼンテーション
 
-ドキュメントを生成するために、Aspose.Slides for SharePointは、Asposeの唯一のPowerPointドキュメント処理コンポーネントである[Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx)の組み込みバージョンに依存しています。  
+{{% alert color="info" title="Note" %}}
 
-{{% /alert %}}  
-## **サポートされている出力形式**  
-Aspose.Slides for SharePointは、以下の出力形式をサポートしています：  
+ドキュメントを変換するには、Aspose.Slides for SharePoint は組み込みの [Aspose.Slides for .NET](https://products.aspose.com/slides/ja/net/) を利用します。
 
-- PDF – ポータブルドキュメント形式  
-- TIFF – 画像パッケージ  
-- XPS – XML用紙仕様  
+{{% /alert %}}
 
-**変換設定画面から出力形式を選択する**  
+## **サポートされている出力形式**
 
-![todo:image_alt_text](multiple-format-support_1.png)  
+変換ページの **Convert to** リストには、以下の出力形式がこの順序で表示されます。
+
+- PDF – Adobe ポータブルドキュメント
+- TIFF – 画像パッケージ
+- XPS – XML Paper Specification
+- PPS – スライドショー プレゼンテーション
+- PPSX – Microsoft PowerPoint Open XML スライドショー
+- ODP – OpenDocument プレゼンテーション
+- PPTM – Microsoft PowerPoint Open XML マクロ有効プレゼンテーション
+- PPSM – Microsoft PowerPoint Open XML マクロ有効スライドショー
+- POTX – Microsoft PowerPoint テンプレート
+- POTM – PowerPoint Open XML マクロ有効プレゼンテーションテンプレート
+- PDFNotes – PDF 形式のプレゼンテーションノート表示
+- HTML – HTML 形式のプレゼンテーション
+- TIFFNotes – 複数ページの TIFF 画像としてのプレゼンテーションノート表示
+- SWF – Shockwave Flash ムービー
+- SWFNotes – 複数ページの SWF としてのプレゼンテーションノート表示
+
+**変換設定ページで出力形式を選択する**
+
+![変換設定ページの出力形式リスト](multiple-format-support_1.png)
+
+このスクリーンショットは、PDF、TIFF、XPS のみが提供されていた以前のバージョンで撮影されたものです。

@@ -3,14 +3,17 @@ title: Giới thiệu
 type: docs
 weight: 10
 url: /vi/sharepoint/introduction/
+description: "Giới thiệu về hướng dẫn người dùng Aspose.Slides cho SharePoint: sản phẩm thực hiện những gì trong một trang SharePoint và các bài viết nào đề cập đến thư viện tài liệu, lợi ích và việc chuyển đổi."
 ---
-{{% alert color="primary" %}} 
-Các trang SharePoint được thiết kế để hợp tác, giao tiếp và lưu trữ nội dung nhằm đáp ứng các nhu cầu kinh doanh cụ thể. Nó cho phép một nhóm cá nhân đạt được mục tiêu chung bằng cách tạo điều kiện cho việc chia sẻ thông tin và giao tiếp. Thông tin thường được cung cấp dưới dạng trang web và có thể truy cập qua trình duyệt web. 
-{{% /alert %}} 
-## **SharePoint và Aspose.Slides là gì?**
-Aspose.Slides for SharePoint là giải pháp linh hoạt để chuyển đổi ~Microsoft PowerPoint document sang các định dạng khác như PPT, POT, PPS, PPTX, PPSX và POTX. Aspose.Slides for SharePoint cho phép bạn đọc và chuyển đổi các tệp PowerPoint trong một ứng dụng SharePoint mà không cần sử dụng Microsoft PowerPoint. 
+{{% alert color="info" title="Note" %}}
+Trang SharePoint được thiết kế cho việc cộng tác, giao tiếp và lưu trữ nội dung nhằm đáp ứng các nhu cầu kinh doanh cụ thể. Chúng cho phép một nhóm người đạt được mục tiêu chung bằng cách tạo điều kiện cho việc chia sẻ thông tin và giao tiếp. Thông tin thường được cung cấp dưới dạng trang web và được truy cập thông qua trình duyệt web.
+{{% /alert %}}
 
-Bài viết này bao gồm các nội dung sau: 
+## **SharePoint và Aspose.Slides là gì?**
+
+Aspose.Slides cho SharePoint là giải pháp chuyển đổi bản trình bày Microsoft PowerPoint (PPT và PPTX) sang các định dạng khác: PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX và POTM. Nó cho phép bạn chuyển đổi các tệp PowerPoint trong một trang SharePoint mà không cần sử dụng Microsoft PowerPoint. Danh sách đầy đủ các định dạng có trong [Định dạng tệp được hỗ trợ](/slides/vi/sharepoint/supported-file-formats/).
+
+Bài viết này bao gồm các mục sau:
 
 - [Ghi chú về thư viện tài liệu SharePoint](/slides/vi/sharepoint/sharepoint-document-library/).
 - [Lợi ích của việc sử dụng Aspose.Slides cho SharePoint](/slides/vi/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).

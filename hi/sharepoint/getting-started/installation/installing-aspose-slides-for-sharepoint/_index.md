@@ -3,72 +3,91 @@ title: Aspose.Slides for SharePoint स्थापित करना
 type: docs
 weight: 10
 url: /hi/sharepoint/installing-aspose-slides-for-sharepoint/
+description: "SharePoint फ़ार्म पर Aspose.Slides for SharePoint स्थापित करें: अपने SharePoint संस्करण के लिए सेटअप प्रोग्राम चुनें, सिस्टम जांच चलाएँ, और समाधान को तैनात व सक्रिय करें।"
 ---
-{{% alert color="primary" %}} 
+## **पैकेज सामग्री**
 
-Aspose.Slides for SharePoint को Aspose.Slides.SharePoint.zip अभिलेख के रूप में डाउनलोड किया जाता है। अभिलेख में शामिल हैं: 
+Aspose.Slides for SharePoint को ZIP संग्रह के रूप में [download page](https://releases.aspose.com/slides/hi/sharepoint/) से डाउनलोड किया जाता है। संग्रह में एक SharePoint समाधान पैकेज (WSP) और प्रत्येक समर्थित SharePoint संस्करण के लिए एक सेटअप प्रोग्राम होता है:
 
-- **Aspose.Slides.SharePoint.wsp**: SharePoint समाधान फ़ाइल। Aspose.Slides for SharePoint को सर्वर फ़ार्म में सक्रियण और निष्क्रियण को आसान बनाने के लिए SharePoint समाधान के रूप में पैकेज किया गया है।
-- **Aspose_LicenseAgreement.rtf**: अंतिम उपयोगकर्ता लाइसेंस समझौता।
-- **Setup.exe**: सेटअप प्रोग्राम।
-- **Setup.exe.config**: सेटअप कॉन्फ़िगरेशन फ़ाइल।
+| SharePoint संस्करण | सेटअप प्रोग्राम | समाधान पैकेज |
+| :- | :- | :- |
+| SharePoint 2007 | Setup2007.exe | Aspose.Slides.SharePoint2007.wsp |
+| SharePoint 2010 | Setup2010.exe | Aspose.Slides.SharePoint2010.wsp |
+| SharePoint Server 2013 | Setup2013.exe | Aspose.Slides.SharePoint2013.wsp |
+| SharePoint Server 2016 | Setup2016.exe | Aspose.Slides.SharePoint2016.wsp |
+| SharePoint Server 2019 | Setup2019.exe | Aspose.Slides.SharePoint2019.wsp |
 
-{{% /alert %}} 
-## **स्थापना प्रक्रिया**
-स्थापना चलाने से पहले, सेटअप प्रोग्राम यह जांचता है कि:
+प्रत्येक सेटअप प्रोग्राम के बगल में एक कॉन्फ़िगरेशन फ़ाइल होती है (उदाहरण के लिए, *Setup2019.exe.config*), जो स्थापित करने वाले समाधान पैकेज का नाम बताती है। *License* फ़ोल्डर में अंतिम‑उपयोगकर्ता लाइसेंस समझौते और तृतीय‑पक्ष लाइसेंस नोटिसों का लिंक होता है।
 
-- WSS 3.0 या MOSS 2007 स्थापित है।
-- उपयोगकर्ता के पास SharePoint समाधान स्थापित करने की अनुमति है।
-- SharePoint डेटाबेस ऑनलाइन है।
-- WSS प्रशासन सेवा शुरू की गई है।
-- WSS टाइमर सेवा शुरू की गई है।
+Aspose.Slides for SharePoint को एक SharePoint समाधान के रूप में पैकेज किया गया है, जिसे SharePoint सर्वर फ़ार्म में तैनात करता है। इसका फीचर फिर प्रत्येक साइट संग्रह के अनुसार सक्रिय या निष्क्रिय किया जाता है।
 
-WSS प्रशासन और टाइमर सेवाएँ आवश्यक हैं क्योंकि कुछ सेटअप कार्रवाईओं को सर्वर फ़ार्म के सभी सर्वरों तक पहुँचाने के लिए टाइमर जॉब पर निर्भर होना पड़ता है। 
-### **स्थापना चलाना**
-Aspose.Slides for SharePoint स्थापित करने के लिए: 
+## **इंस्टॉलेशन प्रक्रिया**
 
-1. Aspose.Slides.SharePoint ज़िप को MOSS 7.0 या WSS 3.0 सर्वर पर स्थानीय ड्राइव में अनपैक करें।
-2. setup.exe चलाएँ और स्क्रीन पर दिए गए निर्देशों का पालन करें।
-   सेटअप प्रोग्राम निम्नलिखित कार्य करता है: 
-   1. स्थापना पूर्वापेक्षाएँ जांचता है। यदि कोई जांच विफल होती है तो सेटअप आगे नहीं बढ़ेगा। 
+स्थापना से पहले, सेटअप प्रोग्राम एक सिस्टम जांच चलाता है। यह सत्यापित करता है कि:
 
-      **सिस्टम जांच चलाना** 
+- सर्वर पर SharePoint स्थापित है।
+- वर्तमान उपयोगकर्ता के पास SharePoint समाधान स्थापित करने और तैनात करने की अनुमति है।
+- SharePoint Administration सेवा चल रही है।
+- SharePoint Timer सेवा चल रही है।
+- कॉन्फ़िगरेशन फ़ाइल में नामित समाधान पैकेज मौजूद है।
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_1.png)
+Administration और Timer सेवाओं की आवश्यकता इसलिए है क्योंकि कुछ सेटअप कार्य टाइमर जॉब के रूप में चलते हैं जो समाधान को फ़ार्म के सभी सर्वरों में वितरित करते हैं।
 
+### **इंस्टॉलेशन चलाना**
 
+Aspose.Slides for SharePoint स्थापित करने के लिए:
 
+1. SharePoint फ़ार्म के किसी सर्वर पर ZIP संग्रह को स्थानीय ड्राइव पर अनज़िप करें।
+2. अपने SharePoint संस्करण से मेल खाने वाले सेटअप प्रोग्राम को चलाएँ (ऊपर तालिका देखें) और स्क्रीन पर दिखाए गए निर्देशों का पालन करें। सेटअप प्रोग्राम:
+   1. सिस्टम जांच चलाता है। यदि कोई जांच विफल होती है तो सेटअप जारी नहीं रहता।
 
-3. अंतिम उपयोगकर्ता लाइसेंस समझौता प्रदर्शित करता है। आगे बढ़ने के लिए आपको समझौते को स्वीकार करना होगा। 
+      **सिस्टम जांच चलाना**
 
-   **EULA** 
+      ![सेटअप प्रोग्राम की सिस्टम जांच स्क्रीन](installing-aspose-slides-for-sharepoint_1.png)
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_2.png)
+   2. अंतिम‑उपयोगकर्ता लाइसेंस समझौता प्रदर्शित करता है। जारी रखने के लिए आपको इसे स्वीकार करना होगा।
 
+      **लाइसेंस समझौता**
 
+      ![सेटअप प्रोग्राम की लाइसेंस समझौता स्क्रीन](installing-aspose-slides-for-sharepoint_2.png)
 
+   3. परिनियोजन लक्ष्य प्रदर्शित करता है। फीचर को सक्रिय करने के लिये वेब एप्लिकेशन और साइट संग्रह चुनें।
 
-4. डिप्लॉयमेंट लक्ष्य चयन प्रदर्शित करता है। वेब एप्लिकेशन और साइट संग्रह चुनता है जिनके लिए फ़ीचर सक्रिय किया जाना चाहिए। 
+      **परिनियोजन लक्ष्य चुनना**
 
-   **डिप्लॉयमेंट लक्ष्य चुनना** 
+      ![सेटअप प्रोग्राम की साइट संग्रह परिनियोजन लक्ष्य स्क्रीन](installing-aspose-slides-for-sharepoint_3.png)
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_3.png)
+   4. समाधान को फ़ार्म में तैनात करता है।
 
+      **इंस्टॉलेशन प्रगति**
 
+      ![सेटअप प्रोग्राम की इंस्टॉलेशन प्रगति स्क्रीन](installing-aspose-slides-for-sharepoint_4.png)
 
+   5. चयनित साइट संग्रहों पर Aspose.Slides for SharePoint को सक्रिय करता है।
+   6. उन वेब एप्लिकेशन और साइट संग्रहों की सूची दिखाता है जहाँ समाधान तैनात एवं सक्रिय किया गया है।
 
-5. फ़ीचर को सर्वर फ़ार्म में तैनात करता है। 
+      **सफल इंस्टॉलेशन**
 
-   **स्थापना प्रगति बार** 
+      ![सेटअप प्रोग्राम की इंस्टॉलेशन पूर्ण स्क्रीन](installing-aspose-slides-for-sharepoint_5.png)
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_4.png)
+{{% alert color="info" title="Note" %}}
+स्क्रीनशॉट्स SharePoint 2007 पर लिए गए थे। बाद के संस्करणों के सेटअप प्रोग्राम भी समान स्क्रीन दिखाते हैं।
+{{% /alert %}}
 
+यदि वही संस्करण का Aspose.Slides for SharePoint पहले से स्थापित है, तो सेटअप प्रोग्राम उसे मरम्मत या हटाने का विकल्प देता है। यदि अन्य संस्करण स्थापित है, तो वह अपग्रेड या हटाने का विकल्प देता है।
 
+स्थापना के बाद, चयनित साइट संग्रहों के दस्तावेज़ लाइब्रेरी में फ़ाइल मेनू में **Convert via Aspose.Slides** आइटम दिखाई देता है (SharePoint 2007 पर **Convert with Aspose.Slides**)। पहला प्रेज़ेंटेशन रूपांतरित करने के लिए देखें [Converting Microsoft PowerPoint Documents into Other Formats](/slides/hi/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/)। फ़ार्म में समाधान द्वारा जोड़ा गया क्या है, यह [Deployment and Activation](/slides/hi/sharepoint/deployment-and-activation/) में वर्णित है।
 
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-6. चयनित साइट संग्रहों के लिए Aspose.Slides सक्रिय करता है और उनके मूल वेब एप्लिकेशन को कॉन्फ़िगर करता है।
-7. फ़ीचर जिन वेब एप्लिकेशन और साइट संग्रहों के लिए तैनात और सक्रिय किया गया है, उसकी सूची प्रदर्शित करता है। 
+**मैं कौन सा सेटअप प्रोग्राम चलाऊँ?**
 
-   **सफल स्थापना** 
+अपने SharePoint संस्करण से मेल खाने वाला नाम वाला प्रोग्राम चलाएँ। उदाहरण के लिए, SharePoint Server 2016 फ़ार्म पर *Setup2016.exe* चलाएँ। प्रत्येक सेटअप प्रोग्राम केवल अपना समाधान पैकेज स्थापित करता है।
 
-![todo:image_alt_text](installing-aspose-slides-for-sharepoint_5.png)
+**क्या लाइसेंस्ड संस्करण के लिए अलग डाउनलोड की आवश्यकता है?**
+
+नहीं। वही पैकेज मूल्यांकन मोड में काम करता है जब तक आप लाइसेंस समाधान स्थापित नहीं करते; देखें [Installing Aspose.Slides for SharePoint License](/slides/hi/sharepoint/installing-aspose-slides-for-sharepoint-license/)।
+
+**मैं उत्पाद को कैसे हटाऊँ?**
+
+उसी सेटअप प्रोग्राम को फिर से चलाएँ और **Remove** चुनें; देखें [Uninstalling Aspose.Slides for SharePoint](/slides/hi/sharepoint/uninstalling-aspose-slides-for-sharepoint/).

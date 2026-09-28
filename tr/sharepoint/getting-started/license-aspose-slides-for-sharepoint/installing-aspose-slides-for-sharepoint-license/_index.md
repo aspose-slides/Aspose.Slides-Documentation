@@ -3,56 +3,63 @@ title: Aspose.Slides for SharePoint Lisansını Kurma
 type: docs
 weight: 10
 url: /tr/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "Aspose.Slides for SharePoint lisansını bir SharePoint çiftliğine kurun: lisans çözümünü çözüm deposuna ekleyin, dağıtın ve dönüştürülen dosyaların artık değerlendirme filigranı taşımadığını kontrol edin."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Değerlendirmenizden memnun kaldığınızda bir lisans satın alabilirsiniz. Satın almadan önce lisans abonelik koşullarını anladığınızdan ve kabul ettiğinizden emin olun. Sipariş ödendikten sonra lisans size e-posta ile gönderilir.
+Değerlendirmenizi memnuniyetle tamamladıktan sonra bir lisans [satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/sharepoint/). Satın almadan önce lisans abonelik koşullarını anladığınızdan ve kabul ettiğinizden emin olun. Sipariş ödenince lisans size e-posta ile gönderilir.
 
 Lisans, normal bir SharePoint çözüm paketi içeren bir ZIP arşividir. Arşiv şunları içerir:
 
-- Aspose.Slides.SharePoint.License.wsp – SharePoint çözüm paketi dosyası. Lisans, bir sunucu çiftliğinde dağıtımı ve geri çekmeyi kolaylaştırmak için bir SharePoint çözümü olarak paketlenir.
+- Aspose.Slides.SharePoint.License.wsp – SharePoint çözüm paketi dosyası. Lisans, bir sunucu çiftliğinde dağıtımı ve geri çekmeyi kolaylaştırmak için SharePoint çözümü olarak paketlenir.
 - readme.txt – Lisans kurulum talimatları.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **Lisansı Dağıtma**
-Lisans kurulumu, sunucu konsolundan stsadm.exe aracılığıyla gerçekleştirilir.
 
-{{% alert color="primary" %}} 
+Lisans kurulumu, sunucu konsolundan **stsadm.exe** aracılığıyla gerçekleştirilir.
 
-Aşağıdaki bölümde açıklık getirmek için yollar atlanmıştır.
+{{% alert color="info" title="Note" %}}
 
-{{% /alert %}} 
+Aşağıdaki bölümde açıklık sağlamak için yollar atlanmıştır.
+
+{{% /alert %}}
 
 Aspose.Slides for SharePoint lisansını dağıtmak için aşağıdaki adımları izleyin:
 
-1. stsadm'i çalıştırarak çözümü SharePoint çözüm deposuna ekleyin: 
+1. Çözümü SharePoint çözüm deposuna eklemek için stsadm'i çalıştırın:
 
-``` xml
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+2. Çözümü çiftlikteki tüm sunuculara dağıtın:
 
-```
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-2. Çözümü çiftlikteki tüm sunuculara dağıtın: 
+3. Dağıtımı hemen tamamlamak için yönetim zamanlayıcı işlerini çalıştırın:
 
-``` xml
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+`addsolution` işlemi, çözüm dosyasının yolunu `-filename` parametresinde alır; `deploysolution` işlemi, zaten çözüm deposunda bulunan çözümün adını `-name` parametresinde alır.
 
-```
+{{% alert color="info" title="Note" %}}
 
-3. Dağıtımı hemen tamamlamak için yönetim zamanlayıcı görevlerini yürütün: 
+Dağıtım adımını çalıştırırken SharePoint Yönetim hizmeti çalışmıyorsa bir uyarı alırsınız. **stsadm.exe**, çiftlikte çözüm verilerini çoğaltmak için bu hizmete ve SharePoint Zamanlayıcı hizmetine dayanır. Bu hizmetler sunucu çiftliğinizde çalışmıyorsa, lisansı her sunucuya dağıtmanız gerekebilir.
 
-``` xml
+{{% /alert %}}
 
- Stsadm.exe -o execadmsvcjobs
+{{% alert color="info" title="Note" %}}
 
-```
+SharePoint 2010 ve sonraki sürümlerde, SharePoint Yönetim Shell cmdlet'leri `Add-SPSolution`, `Install-SPSolution` ve `Start-SPAdminJob` sırasıyla `addsolution`, `deploysolution` ve `execadmsvcjobs` işlemlerine karşılık gelir. Bkz. [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
 
-{{% alert color="primary" %}} 
+{{% /alert %}}
 
-Dağıtım adımını çalıştırırken Windows SharePoint Services Administration hizmeti çalışmıyorsa uyarı alırsınız. stsadm.exe, bu hizmete ve çiftlik içinde çözüm verilerini çoğaltmak için Windows SharePoint Timer Service'e dayanır. Bu hizmetler sunucu çiftliğinizde çalışmıyorsa, lisansı her sunucuya dağıtmanız gerekebilir. 
+## **Lisansı Test Etme**
 
-{{% /alert %}} 
-## **Lisansı Test Et**
-Lisansın doğru şekilde kurulduğunu test etmek için herhangi bir belgeyi yeni bir formata dönüştürün. Belgede değerlendirme filigranı yoksa, lisans başarıyla etkinleştirilmiştir.
+Lisansın doğru bir şekilde kurulduğunu test etmek için herhangi bir sunumu yeni bir formata dönüştürün. Dönüştürülmüş dosyada değerlendirme filigranı yoksa, lisans aktiftir.

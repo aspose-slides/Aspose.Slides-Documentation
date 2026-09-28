@@ -1,19 +1,20 @@
 ---
-title: Evaluasi Aspose.Slides untuk SharePoint
+title: Evaluasi Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /id/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Evaluasi Aspose.Slides for SharePoint dengan unduhan reguler: pasang, konversi presentasi dalam mode evaluasi, dan beralih ke mode berlisensi dengan menginstal solusi lisensi."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Pastikan memanfaatkan evaluasi gratis Aspose.Words untuk SharePoint: tidak memiliki batas waktu, dan dilengkapi dengan dukungan teknis gratis. Kami mendorong pengguna kami untuk mengevaluasi produk kami sebelum membeli sehingga Anda tahu bahwa produk tersebut akan melakukan apa yang Anda inginkan.
+Manfaatkan evaluasi gratis Aspose.Slides for SharePoint: tidak memiliki batas waktu dan dilengkapi dengan dukungan teknis gratis. Kami mendorong Anda untuk mengevaluasi produk ini sebelum membeli, sehingga Anda tahu bahwa produk ini melakukan apa yang Anda butuhkan.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Unduhan yang sama tersedia untuk versi evaluasi dan versi berbayar Aspose.Slides untuk SharePoint. Cukup [unduh Aspose.Slides untuk SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) dari halaman unduhan, [pasang itu]() dan secara default akan berjalan dalam mode evaluasi. 
+Evaluasi dan versi berbayar Aspose.Slides for SharePoint menggunakan unduhan yang sama. [Unduh Aspose.Slides for SharePoint](https://releases.aspose.com/slides/id/sharepoint/), [pasang](/slides/id/sharepoint/installing-aspose-slides-for-sharepoint/), dan secara default berjalan dalam mode evaluasi.
 
-Mode evaluasi menyisipkan watermark evaluasi pada setiap slide ke dalam dokumen yang diekspor. Ketika Anda telah membeli lisensi, cukup pasang solusi lisensi di atas salinan evaluasi Aspose.Slides untuk SharePoint yang terpasang dan maka akan beroperasi dalam mode berlisensi. 
+Dalam mode evaluasi, dokumen yang dikonversi memiliki watermark evaluasi. Setelah Anda membeli lisensi, pasang solusi lisensi di atas salinan evaluasi yang sudah diinstal, seperti dijelaskan dalam [Menginstal Lisensi Aspose.Slides for SharePoint](/slides/id/sharepoint/installing-aspose-slides-for-sharepoint-license/), dan Aspose.Slides for SharePoint berjalan dalam mode berlisensi.
 
-**Watermark evaluasi pada slide** 
+**Watermark evaluasi pada slide**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Sebuah slide yang dikonversi dalam mode evaluasi, dengan watermark evaluasi](evaluate-aspose-slides-for-sharepoint_1.png)

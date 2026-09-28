@@ -1,20 +1,24 @@
----  
-title: Evaluar Aspose.Slides  
-type: docs  
-weight: 70  
-url: /es/sharepoint/evaluate-aspose-slides/  
----  
+---
+title: Evaluar Aspose.Slides
+type: docs
+weight: 70
+url: /es/sharepoint/evaluate-aspose-slides/
+description: "Qué hace la versión de evaluación de Aspose.Slides para SharePoint, cómo se marca su salida y cómo convertirla en la versión con licencia."
+---
+{{% alert color="info" title="Nota" %}}
 
-{{% alert color="primary" %}}  
+La descarga de evaluación de Aspose.Slides para SharePoint es la misma que la descarga comprada. Se convierte en la versión con licencia cuando instalas el paquete de solución de licencia en la granja; consulta [Instalación de la licencia de Aspose.Slides para SharePoint](/slides/es/sharepoint/installing-aspose-slides-for-sharepoint-license/). No se requiere código.
 
-Puede descargar fácilmente Aspose.Slides para evaluación. La descarga de evaluación es la misma que la descarga comprada. La versión de evaluación simplemente se convierte en licenciada cuando añade unas pocas líneas de código para aplicar la licencia.  
+Sin una licencia, Aspose.Slides para SharePoint convierte a todos los formatos compatibles, pero los archivos convertidos llevan una marca de agua de evaluación, y la página de conversión muestra un aviso de evaluación.
 
-La versión de evaluación de Aspose.Slides (sin una licencia especificada) proporciona toda la funcionalidad del producto, pero inserta una marca de agua de evaluación en cada diapositiva de los archivos PDF, TIFF y XPS generados.  
+**Marca de agua de evaluación en un archivo PDF convertido**
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)  
+![Archivo PDF convertido en modo de evaluación, con la marca de agua de evaluación sobre la diapositiva](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}}  
+{{% /alert %}}
 
-Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, también puede solicitar una Licencia Temporal de 30 días. Por favor, consulte [¿Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license)  
+{{% alert color="info" title="Nota" %}}
 
-{{% /alert %}}  
+Si deseas probar Aspose.Slides sin las limitaciones de evaluación, también puedes solicitar una licencia temporal de 30 días. Consulta [¿Cómo obtener una licencia temporal?](https://purchase.aspose.com/temporary-license)
+
+{{% /alert %}}

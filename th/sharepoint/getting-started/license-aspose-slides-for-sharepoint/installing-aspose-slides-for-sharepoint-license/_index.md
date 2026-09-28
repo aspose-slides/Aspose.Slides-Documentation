@@ -3,56 +3,55 @@ title: การติดตั้งใบอนุญาต Aspose.Slides ส�
 type: docs
 weight: 10
 url: /th/sharepoint/installing-aspose-slides-for-sharepoint-license/
+description: "ติดตั้งใบอนุญาต Aspose.Slides สำหรับ SharePoint บนฟาร์ม SharePoint: เพิ่มโซลูชันใบอนุญาตลงในที่เก็บโซลูชัน, ปรับใช้, และตรวจสอบว่าไฟล์ที่แปลงแล้วไม่แสดงลายน้ำการประเมินอีกต่อไป"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+เมื่อคุณพอใจกับการประเมินแล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/th/sharepoint/) ได้ ก่อนทำการซื้อ โปรดตรวจสอบว่าคุณเข้าใจและยอมรับเงื่อนไขการสมัครสมาชิกของใบอนุญาต ใบอนุญาตจะถูกส่งทางอีเมลให้คุณเมื่อคำสั่งซื้อได้รับการชำระเงิน
 
-เมื่อคุณพอใจกับการประเมินของคุณแล้ว คุณสามารถ [ซื้อใบอนุญาต](https://purchase.aspose.com/buy). ก่อนทำการซื้อ กรุณาแน่ใจว่าคุณเข้าใจและยอมรับเงื่อนไขการสมัครสมาชิกของใบอนุญาต. ใบอนุญาตจะถูกส่งทางอีเมลให้คุณเมื่อคำสั่งซื้อได้รับการชำระเงินแล้ว.
+ใบอนุญาตเป็นไฟล์ ZIP ที่บรรจุแพ็คเกจโซลูชัน SharePoint ธรรมดา ไฟล์ ZIP มีเนื้อหาดังต่อไปนี้:
 
-ใบอนุญาตเป็นไฟล์ ZIP ที่บรรจุแพคเกจโซลูชัน SharePoint ธรรมดา ไฟล์ ZIP นี้ประกอบด้วย:
+- Aspose.Slides.SharePoint.License.wsp – ไฟล์แพ็คเกจโซลูชัน SharePoint. ใบอนุญาตถูกบรรจุเป็นโซลูชัน SharePoint เพื่อทำให้การปรับใช้และการดึงออกในฟาร์มเซิร์ฟเวอร์ทำได้ง่าย
+- readme.txt – คำแนะนำการติดตั้งใบอนุญาต
+{{% /alert %}}
 
-- Aspose.Slides.SharePoint.License.wsp – ไฟล์แพคเกจโซลูชัน SharePoint ใบอนุญาตถูกบรรจุเป็นโซลูชัน SharePoint เพื่อให้ง่ายต่อการปรับใช้และถอนออกในฟาร์มเซิร์ฟเวอร์
-- readme.txt – คำแนะนำการติดตั้งใบอนุญาต.
-
-{{% /alert %}} 
 ## **การปรับใช้ใบอนุญาต**
-การติดตั้งใบอนุญาตทำจากคอนโซลเซิร์ฟเวอร์ผ่าน **stsadm.exe**.
 
-{{% alert color="primary" %}} 
+การติดตั้งใบอนุญาตทำจากคอนโซลของเซิร์ฟเวอร์ผ่าน **stsadm.exe**.
 
-เส้นทางถูกละเว้นในส่วนต่อไปนี้เพื่อความกระชับ.
+{{% alert color="info" title="Note" %}}
+เส้นทางจะถูกละเว้นในส่วนต่อไปนี้เพื่อความชัดเจน.
+{{% /alert %}}
 
-{{% /alert %}} 
+ทำตามขั้นตอนต่อไปนี้เพื่อปรับใช้ใบอนุญาต Aspose.Slides for SharePoint:
 
-ทำตามขั้นตอนต่อไปนี้เพื่อปรับใช้ใบอนุญาต Aspose.Slides สำหรับ SharePoint:
+1. เรียกใช้ stsadm เพื่อเพิ่มโซลูชันเข้าสู่ที่เก็บโซลูชันของ SharePoint:
+   
+   ```bat
+   Stsadm.exe -o addsolution -filename Aspose.Slides.SharePoint.License.wsp
+   ```
 
-1. Run stsadm to add the solution to the SharePoint solution store: 
+2. ปรับใช้โซลูชันไปยังเซิร์ฟเวอร์ทั้งหมดในฟาร์ม:
+   
+   ```bat
+   Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
+   ```
 
-``` xml
+3. ดำเนินการงานตัวจับเวลาแบบผู้ดูแลเพื่อให้การปรับใช้เสร็จสมบูรณ์ทันที:
+   
+   ```bat
+   Stsadm.exe -o execadmsvcjobs
+   ```
 
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp
+`addsolution` รับพาธของไฟล์โซลูชันใน `-filename`; `deploysolution` รับชื่อของโซลูชันที่มีอยู่แล้วในที่เก็บโซลูชันใน `-name`.
 
-```
+{{% alert color="info" title="Note" %}}
+คุณจะได้รับคำเตือนเมื่อทำขั้นตอนการปรับใช้หากบริการ SharePoint Administration ไม่ทำงาน **stsadm.exe** พึ่งพาบริการนี้และบริการ SharePoint Timer เพื่อทำสำเนาข้อมูลโซลูชันทั่วฟาร์ม หากบริการเหล่านี้ไม่ทำงานในฟาร์มเซิร์ฟเวอร์ของคุณ คุณอาจต้องปรับใช้ใบอนุญาตบนแต่ละเซิร์ฟเวอร์
+{{% /alert %}}
 
-2. Deploy the solution to all servers in the farm: 
+{{% alert color="info" title="Note" %}}
+บน SharePoint 2010 และรุ่นต่อมา คำสั่งของ SharePoint Management Shell `Add-SPSolution`, `Install-SPSolution` และ `Start-SPAdminJob` สอดคล้องกับการดำเนินการ `addsolution`, `deploysolution` และ `execadmsvcjobs` ดูที่ [Stsadm to Microsoft PowerShell mapping in SharePoint Server](https://learn.microsoft.com/en-us/sharepoint/technical-reference/stsadm-to-microsoft-powershell-mapping).
+{{% /alert %}}
 
-``` xml
-
- Stsadm.exe -o deploysolution -name Aspose.Slides.SharePoint.License.wsp -immediate -force
-
-```
-
-3. Execute administrative timer jobs to complete the deployment immediately: 
-
-``` xml
-
- Stsadm.exe -o execadmsvcjobs
-
-```
-
-{{% alert color="primary" %}} 
-
-คุณจะได้รับคำเตือนเมื่อดำเนินการขั้นตอนการปรับใช้ หากบริการ Windows SharePoint Services Administration ไม่ทำงาน **stsadm.exe** พึ่งพาบริการนี้และ Windows SharePoint Timer Service เพื่อทำซ้ำข้อมูลโซลูชันทั่วฟาร์ม หากบริการเหล่านี้ไม่ได้ทำงานในฟาร์มเซิร์ฟเวอร์ของคุณ คุณอาจต้องปรับใช้ใบอนุญาตบนเซิร์ฟเวอร์แต่ละเครื่อง. 
-
-{{% /alert %}} 
 ## **ทดสอบใบอนุญาต**
-เพื่อทดสอบว่าใบอนุญาตติดตั้งอย่างถูกต้องหรือไม่ ให้แปลงเอกสารใด ๆ ไปเป็นรูปแบบใหม่ หากไม่มีลายน้ำการประเมินในเอกสาร แสดงว่าใบอนุญาตได้เปิดใช้งานสำเร็จ.
+
+เพื่อตรวจสอบว่าใบอนุญาตติดตั้งอย่างถูกต้อง ให้แปลงงานนำเสนอใด ๆ ไปเป็นรูปแบบใหม่ หากไม่มีลายน้ำการประเมินในไฟล์ที่แปลงแล้ว ใบอนุญาตจะทำงาน

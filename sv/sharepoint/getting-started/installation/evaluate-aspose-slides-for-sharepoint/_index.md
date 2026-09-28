@@ -3,17 +3,18 @@ title: Utvärdera Aspose.Slides för SharePoint
 type: docs
 weight: 40
 url: /sv/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Utvärdera Aspose.Slides för SharePoint med den vanliga nedladdningen: installera den, konvertera presentationer i utvärderingsläge och byt till licensierat läge genom att installera licenslösningen."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Obs" %}}
 
-Se till att dra nytta av den kostnadsfria Aspose.Words för SharePoint‑utvärderingen: den har ingen tidsgräns och levereras med gratis teknisk support. Vi uppmuntrar våra användare att utvärdera våra produkter innan de köper dem så att du vet att produkten kommer att göra vad du vill att den ska göra.
+Ta fördel av den kostnadsfria Aspose.Slides for SharePoint‑utvärderingen: den har ingen tidsbegränsning och kommer med gratis teknisk support. Vi uppmuntrar dig att utvärdera produkten innan du köper, så att du vet att den gör vad du behöver.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Det är samma nedladdning för både utvärderings‑ och betalda versionen av Aspose.Slides för SharePoint. Ladda helt enkelt ner [Aspose.Slides for SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) från nedladdningssidan, [installera den]() och den kommer att fungera i utvärderingsläget som standard. 
+Utvärderings‑ och den betalda versionen av Aspose.Slides for SharePoint är samma nedladdning. [Ladda ner Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sv/sharepoint/), [installera den](/slides/sv/sharepoint/installing-aspose-slides-for-sharepoint/), och den körs i utvärderingsläge som standard.
 
-Utvärderingsläget lägger till ett utvärderingsvattenmärke på varje bild i det exporterade dokumentet. När du har köpt en licens installerar du helt enkelt licenslösningen över den installerade utvärderingskopian av Aspose.Slides för SharePoint, så att den sedan fungerar i licensierat läge. 
+I utvärderingsläge innehåller det konverterade dokumentet ett utvärderingsvattenstämpel. När du har köpt en licens, installera licenslösningen över den installerade utvärderingskopian, som beskrivs i [Installera Aspose.Slides for SharePoint‑licens](/slides/sv/sharepoint/installing-aspose-slides-for-sharepoint-license/), och Aspose.Slides for SharePoint körs i licensierat läge.
 
-**Utvärderingsvattenmärke på en bild** 
+**Utvärderingsvattenstämpel på en bild**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![En bild konverterad i utvärderingsläge, med utvärderingsvattenstämpeln](evaluate-aspose-slides-for-sharepoint_1.png)

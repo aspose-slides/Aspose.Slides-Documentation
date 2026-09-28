@@ -1,20 +1,20 @@
 ---
-title: Оцените Aspose.Slides для SharePoint
+title: Оценить Aspose.Slides for SharePoint
 type: docs
 weight: 40
 url: /ru/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Оцените Aspose.Slides for SharePoint с помощью обычной загрузки: установите его, конвертируйте презентации в оценочном режиме и перейдите в лицензированный режим, установив лицензионное решение."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Воспользуйтесь бесплатной оценочной версией Aspose.Slides for SharePoint: у неё нет ограничения по времени и она поставляется с бесплатной технической поддержкой. Мы рекомендуем оценить продукт перед покупкой, чтобы убедиться, что он соответствует вашим требованиям.
 
-Не забудьте воспользоваться бесплатной оценкой Aspose.Words для SharePoint: у нее нет временного ограничения, и она поставляется с бесплатной технической поддержкой. Мы настоятельно рекомендуем нашим пользователям оценивать наши продукты перед покупкой, чтобы вы знали, что продукт будет делать то, что вам нужно.
+{{% /alert %}}
 
-{{% /alert %}} 
+Оценочная и платная версии Aspose.Slides for SharePoint доступны по одной и той же загрузке. [Скачать Aspose.Slides for SharePoint](https://releases.aspose.com/slides/ru/sharepoint/), [установите его](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint/), и по умолчанию работает в оценочном режиме.
 
-Это одно и то же скачивание как для версии оценки, так и для платной версии Aspose.Slides для SharePoint. Просто [скачайте Aspose.Slides для SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) со страницы загрузки, [установите его]() и он будет работать в режиме оценки по умолчанию. 
+В оценочном режиме преобразованный документ содержит водяной знак оценки. После покупки лицензии установите лицензионное решение поверх установленной оценочной копии, как описано в [Установка лицензии Aspose.Slides for SharePoint](/slides/ru/sharepoint/installing-aspose-slides-for-sharepoint-license/), и Aspose.Slides for SharePoint будет работать в лицензированном режиме.
 
-Режим оценки добавляет водяной знак оценки на каждый слайд в экспортируемом документе. Когда вы купите лицензию, просто установите лицензионное решение поверх установленной копии Aspose.Slides для SharePoint, и оно затем будет работать в лицензионном режиме. 
+**Водяной знак оценки на слайде**
 
-**Водяной знак оценки на слайде** 
-
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Слайд, конвертированный в оценочном режиме, с водяным знаком оценки](evaluate-aspose-slides-for-sharepoint_1.png)

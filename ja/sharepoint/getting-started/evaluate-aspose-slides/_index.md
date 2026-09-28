@@ -1,20 +1,24 @@
 ---
-title: Aspose.Slidesの評価
+title: Aspose.Slides の評価
 type: docs
 weight: 70
 url: /ja/sharepoint/evaluate-aspose-slides/
+description: "Aspose.Slides for SharePoint の評価版が何を行うか、出力がどのようにマークされるか、そしてそれをライセンス版に変換する方法。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Aspose.Slides for SharePoint の評価版ダウンロードは、購入版ダウンロードと同じです。ファームにライセンス ソリューション パッケージをインストールするとライセンス版になります。詳細は[Installing Aspose.Slides for SharePoint License](/slides/ja/sharepoint/installing-aspose-slides-for-sharepoint-license/)をご覧ください。コードは関与しません。
 
-Aspose.Slidesを評価用に簡単にダウンロードできます。評価ダウンロードは購入したダウンロードと同じです。評価版は、ライセンスを適用するための数行のコードを追加すると、単にライセンス付きになります。
+ライセンスがない場合、Aspose.Slides for SharePoint はすべてのサポート対象フォーマットに変換できますが、変換されたファイルには評価用の透かしが付加され、変換ページには評価通知が表示されます。
 
-ライセンスが指定されていないAspose.Slidesの評価版は、製品の全機能を提供しますが、生成されたPDF、TIFF、XPSファイルのすべてのスライドに評価用の透かしが挿入されます。
+**変換された PDF ファイルの評価用透かし**
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![評価モードで変換された PDF ファイル、スライド上に評価用透かしが表示されています](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}}
 
-評価版の制限なしでAspose.Slidesをテストしたい場合は、30日間の一時ライセンスをリクエストすることもできます。詳しくは[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)を参照してください。
+{{% alert color="info" title="Note" %}}
+
+評価制限なしで Aspose.Slides をテストしたい場合は、30 日間の一時ライセンスを要求することもできます。詳細は[How to get a Temporary License?](https://purchase.aspose.com/temporary-license)をご覧ください。
 
 {{% /alert %}}

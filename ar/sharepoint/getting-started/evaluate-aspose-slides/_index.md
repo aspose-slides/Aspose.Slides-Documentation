@@ -3,18 +3,18 @@ title: تقييم Aspose.Slides
 type: docs
 weight: 70
 url: /ar/sharepoint/evaluate-aspose-slides/
+description: "ما يفعله نسخة التقييم من Aspose.Slides for SharePoint، وكيف يتم وضع علامة على ناتجها، وكيفية تحويلها إلى النسخة المرخصة."
 ---
+{{% alert color="info" title="Note" %}}
+تنزيل التقييم لـ Aspose.Slides for SharePoint هو نفسه التنزيل المشتراَء. يصبح النسخة المرخصة عندما تقوم بتثبيت حزمة حل الترخيص على المزرعة؛ راجع [تثبيت ترخيص Aspose.Slides for SharePoint](/slides/ar/sharepoint/installing-aspose-slides-for-sharepoint-license/). لا يتضمن أي شفرة.
 
-{{% alert color="primary" %}} 
+بدون ترخيص، يقوم Aspose.Slides for SharePoint بالتحويل إلى كل تنسيق مدعوم، ولكن الملفات المحولة تحمل علامة مائية للتقييم، وتظهر صفحة التحويل إشعار تقييم.
 
-يمكنك بسهولة تنزيل Aspose.Slides للتقييم. تنزيل النسخة التجريبية هو نفسه تنزيل النسخة المشتراة. تصبح النسخة التجريبية مرخصة ببساطة عندما تضيف بضع أسطر من التعليمات البرمجية لتطبيق الترخيص.
+**علامة مائية للتقييم في ملف PDF محول**
 
-توفر النسخة التجريبية من Aspose.Slides (بدون ترخيص محدد) الوظائف الكاملة للمنتج، ولكنها تضيف علامة مائية للتقييم على كل شريحة من شرائح ملفات PDF و TIFF و XPS المولدة.
+![ملف PDF تم تحويله في وضع التقييم، مع العلامة المائية للتقييم فوق الشريحة](evaluate-aspose-slides_1.png)
+{{% /alert %}}
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% /alert %}} {{% alert color="primary" %}} 
-
-إذا كنت ترغب في اختبار Aspose.Slides بدون قيود النسخة التجريبية، يمكنك أيضًا طلب ترخيص مؤقت لمدة 30 يومًا. يرجى الرجوع إلى [كيفية الحصول على ترخيص مؤقت؟](https://purchase.aspose.com/temporary-license)
-
+{{% alert color="info" title="Note" %}}
+إذا كنت ترغب في اختبار Aspose.Slides دون قيود التقييم، يمكنك أيضًا طلب ترخيص مؤقت لمدة 30 يومًا. راجع [كيفية الحصول على ترخيص مؤقت؟](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}

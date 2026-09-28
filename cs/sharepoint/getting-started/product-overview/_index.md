@@ -3,34 +3,29 @@ title: Přehled produktu
 type: docs
 weight: 10
 url: /cs/sharepoint/product-overview/
+description: "Přehled Aspose.Slides pro SharePoint: formáty prezentací, které převádí, a verze SharePointu, na které se instalují."
 ---
-![Aspose.Slides for SharePoint](product-overview_1.png)
-
-## **Vítejte v Aspose.Slides for SharePoint!**
-
-Aspose.Slides for SharePoint je flexibilní řešení, které umožňuje převádět dokumenty PowerPoint® v rámci webů Microsoft SharePoint.
+![Aspose.Slides pro SharePoint](product-overview_1.png)
 
 ## **Přehled produktu**
 
-Aspose.Slides for SharePoint podporuje řadu formátů dokumentů PowerPoint:
+Aspose.Slides for SharePoint převádí prezentace PowerPoint uložené v knihovnách dokumentů SharePointu na jiné formáty na serveru.
 
-- PPT – Microsoft PowerPoint prezentace 97 - 2003
-- PPS – Microsoft PowerPoint prezentace jako promítání 97 - 2003
-- POT – Microsoft PowerPoint šablona 97 - 2003
-- PPTX – Office Open XML prezentace
-- PPSX – Office Open XML promítání
-- POTX – Office Open XML šablona
+Převádí následující formáty PowerPoint:
 
-Aspose.Slides for SharePoint je navržen tak, aby spolupracoval s následujícími produkty:
+- PPT – prezentace Microsoft PowerPoint 97‑2003
+- PPTX – prezentace Office Open XML
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+Převádí je do PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX a POTM. Podívejte se na [Podporované formáty souborů](/slides/cs/sharepoint/supported-file-formats/) pro podrobnosti.
 
-Nejsou požadovány žádné další systémové požadavky mimo ty, které jsou vyžadovány pro výše uvedené produkty.
+Ke stažení obsahuje samostatný instalační program a balíček řešení pro každý z následujících produktů:
 
-**Použijte Aspose.Slides for SharePoint k převodu dokumentů z knihovny dokumentů SharePoint** 
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-![Knihovna dokumentů SharePoint](product-overview_2.png)
+**Použijte Aspose.Slides for SharePoint k převodu dokumentů z knihovny dokumentů SharePointu**
+
+![Knihovna dokumentů SharePoint s položkou nabídky Převést pomocí Aspose.Slides](product-overview_2.png)

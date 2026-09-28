@@ -1,19 +1,20 @@
 ---
-title: Aspose.Slides for SharePoint Değerlendirmesi
+title: Aspose.Slides for SharePoint'i Değerlendirin
 type: docs
 weight: 40
 url: /tr/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Aspose.Slides for SharePoint'i normal indirme ile değerlendirin: kurun, sunuları değerlendirme modunda dönüştürün ve lisans çözümünü kurarak lisanslı moda geçin."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Aspose.Words for SharePoint ücretsiz değerlendirmesinden yararlanmaya dikkat edin: süresizdir ve ücretsiz teknik destek içerir. Kullanıcılarımızı ürünlerimizi satın almadan önce değerlendirmeye teşvik ediyoruz, böylece ürünün istediğiniz şeyi yapacağını bilirsiniz.
+Ücretsiz Aspose.Slides for SharePoint değerlendirmesinden yararlanın: süresi yoktur ve ücretsiz teknik destekle birlikte gelir. Ürünü satın almadan önce değerlendirmenizi öneririz, böylece ihtiyacınız olanı yaptığını bilirsiniz.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Değerlendirme ve ücretli sürüm için aynı indirme dosyası kullanılır. İndirme sayfasından sadece [Aspose.Slides for SharePoint'i indir](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) ve [kurun]() ve varsayılan olarak değerlendirme modunda çalışacaktır. 
+Aspose.Slides for SharePoint'in değerlendirme ve ücretli sürümü aynı indirme dosyasıdır. [Aspose.Slides for SharePoint'i İndir](https://releases.aspose.com/slides/tr/sharepoint/), [kurun](/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint/), ve varsayılan olarak değerlendirme modunda çalışır.
 
-Değerlendirme modu, dışa aktarılan belgeye her slayt için bir değerlendirme filigranı ekler. Lisans satın aldığınızda, yalnızca Aspose.Slides for SharePoint'in kurulu değerlendirme kopyasının üzerine lisans çözümünü kurun; böylece lisanslı modda çalışacaktır. 
+Değerlendirme modunda, dönüştürülen belge bir değerlendirme filigranı taşır. Bir lisans satın aldığınızda, [Aspose.Slides for SharePoint Lisansı Kurulumu](/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint-license/)’nda açıklandığı gibi, kurulu değerlendirme kopyasının üzerine lisans çözümünü kurun ve Aspose.Slides for SharePoint lisanslı modda çalışır.
 
-**Değerlendirme filigranı bir slaytta** 
+**Değerlendirme filigranı bir slaytta**
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Değerlendirme modunda dönüştürülmüş bir slayt, değerlendirme filigranı ile](evaluate-aspose-slides-for-sharepoint_1.png)

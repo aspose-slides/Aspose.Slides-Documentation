@@ -3,15 +3,18 @@ title: Aspose.Slides for SharePoint का मूल्यांकन करे
 type: docs
 weight: 40
 url: /hi/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "नियमित डाउनलोड के साथ Aspose.Slides for SharePoint का मूल्यांकन करें: इसे इंस्टॉल करें, मूल्यांकन मोड में प्रस्तुतियों को परिवर्तित करें, और लाइसेंस समाधान को इंस्टॉल करके लाइसेंस प्राप्त मोड में स्विच करें।"
 ---
-{{% alert color="primary" %}} 
-Aspose.Words for SharePoint का मुफ्त मूल्यांकन उपयोग करने का सुनिश्चित करें: इसमें कोई समय सीमा नहीं है, और यह मुफ्त तकनीकी समर्थन के साथ आता है। हम अपने उपयोगकर्ताओं को हमारे उत्पादों का खरीदने से पहले मूल्यांकन करने के लिए प्रेरित करते हैं ताकि आप यह जानते हों कि उत्पाद वही करेगा जिसकी आप अपेक्षा करते हैं। 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
 
-यह Aspose.Slides for SharePoint के मूल्यांकन और भुगतान संस्करण दोनों के लिए एक ही डाउनलोड है। बस डाउनलोड पृष्ठ से [download Aspose.Slides for SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) डाउनलोड करें, [इंस्टॉल करें]() करें और यह डिफ़ॉल्ट रूप से मूल्यांकन मोड में काम करेगा। 
+Aspose.Slides for SharePoint का मुफ्त मूल्यांकन उपयोग करें: इसमें कोई समय सीमा नहीं है और यह मुफ्त तकनीकी समर्थन के साथ आता है। हम आपको उत्पाद को खरीदने से पहले मूल्यांकन करने के लिए प्रोत्साहित करते हैं, ताकि आप जान सकें कि यह आपकी आवश्यकता को पूरा करता है।
 
-मूल्यांकन मोड निर्यात किए गए दस्तावेज़ में प्रत्येक स्लाइड पर एक मूल्यांकन वॉटरमार्क डालता है। जब आप लाइसेंस खरीद लेते हैं, तो बस Aspose.Slides for SharePoint की स्थापित मूल्यांकन प्रतिलिपि पर लाइसेंस समाधान स्थापित करें और यह लाइसेंस प्राप्त मोड में काम करेगा। 
+{{% /alert %}}
 
-**स्लाइड पर मूल्यांकन वॉटरमार्क** 
+Aspose.Slides for SharePoint का मूल्यांकन संस्करण और भुगतान संस्करण एक ही डाउनलोड हैं। [Aspose.Slides for SharePoint डाउनलोड करें](https://releases.aspose.com/slides/hi/sharepoint/), [इसे इंस्टॉल करें](/slides/hi/sharepoint/installing-aspose-slides-for-sharepoint/), और यह डिफ़ॉल्ट रूप से मूल्यांकन मोड में काम करता है।
 
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+मूल्यांकन मोड में, परिवर्तित दस्तावेज़ में एक मूल्यांकन वॉटरमार्क होता है। जब आप लाइसेंस खरीद लेते हैं, तो स्थापित मूल्यांकन प्रतिलिपि पर लाइसेंस समाधान इंस्टॉल करें, जैसा कि [Aspose.Slides for SharePoint लाइसेंस स्थापित करना](/slides/hi/sharepoint/installing-aspose-slides-for-sharepoint-license/), और Aspose.Slides for SharePoint लाइसेंस प्राप्त मोड में काम करता है।
+
+**स्लाइड पर मूल्यांकन वॉटरमार्क**
+
+![मूल्यांकन मोड में परिवर्तित की गई स्लाइड, जिसमें मूल्यांकन वॉटरमार्क है](evaluate-aspose-slides-for-sharepoint_1.png)

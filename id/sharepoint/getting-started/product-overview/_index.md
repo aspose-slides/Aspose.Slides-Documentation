@@ -3,34 +3,29 @@ title: Gambaran Produk
 type: docs
 weight: 10
 url: /id/sharepoint/product-overview/
+description: "Gambaran tentang Aspose.Slides for SharePoint: format presentasi yang dikonversinya dan versi SharePoint yang dipasang."
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **Selamat datang di Aspose.Slides for SharePoint!**
-
-Aspose.Slides for SharePoint adalah solusi fleksibel yang memungkinkan konversi dokumen PowerPoint® dalam situs Microsoft SharePoint.
-
 ## **Gambaran Produk**
 
-Aspose.Slides for SharePoint mendukung sejumlah format dokumen PowerPoint:
+Aspose.Slides for SharePoint mengonversi presentasi PowerPoint yang disimpan di perpustakaan dokumen SharePoint ke format lain, di server.
+
+Ini mengonversi format PowerPoint berikut:
 
 - PPT – Presentasi Microsoft PowerPoint 97 - 2003
-- PPS – SlideShow Microsoft PowerPoint 97 - 2003
-- POT – Template Microsoft PowerPoint 97 - 2003
 - PPTX – Presentasi Office Open XML
-- PPSX – SlideShow Office Open XML
-- POTX – Template Office Open XML
 
-Aspose.Slides for SharePoint dirancang untuk bekerja dengan produk berikut:
+Ini mengonversinya ke PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX, dan POTM. Lihat [Format File yang Didukung](/slides/id/sharepoint/supported-file-formats/) untuk detail.
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+Unduhan berisi program instalasi terpisah dan paket solusi untuk masing-masing produk berikut:
 
-Tidak ada persyaratan sistem lain selain yang ada untuk produk di atas.
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-**Gunakan Aspose.Slides for SharePoint untuk mengonversi dokumen dari perpustakaan dokumen SharePoint** 
+**Gunakan Aspose.Slides for SharePoint untuk mengonversi dokumen dari perpustakaan dokumen SharePoint**
 
-![SharePoint's document library](product-overview_2.png)
+![Perpustakaan dokumen SharePoint dengan item menu Convert with Aspose.Slides](product-overview_2.png)

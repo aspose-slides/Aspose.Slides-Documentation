@@ -1,36 +1,31 @@
 ---
-title: Termékáttekintés
+title: Termék áttekintése
 type: docs
 weight: 10
 url: /hu/sharepoint/product-overview/
+description: "Az Aspose.Slides for SharePoint áttekintése: a konvertált prezentációformátumok és a telepített SharePoint verziók."
 ---
 ![Aspose.Slides for SharePoint](product-overview_1.png)
 
-## **Üdvözöljük az Aspose.Slides for SharePoint-ben!**
+## **Termék áttekintése**
 
-Az Aspose.Slides for SharePoint egy rugalmas megoldás, amely lehetővé teszi a PowerPoint® dokumentumok átalakítását a Microsoft SharePoint webhelyeken.
+Az Aspose.Slides for SharePoint a SharePoint dokumentumtárakban tárolt PowerPoint-prezentációkat szerveren más formátumokra konvertál.
 
-## **Termékáttekintés**
+A következő PowerPoint-formátumokat konvertálja:
 
-Az Aspose.Slides for SharePoint számos PowerPoint-dokumentumformátumot támogat:
+- PPT – Microsoft PowerPoint prezentáció 97-2003
+- PPTX – Office Open XML prezentáció
 
-- PPT – Microsoft PowerPoint bemutató 97-2003
-- PPS – Microsoft PowerPoint diavetítés 97-2003
-- POT – Microsoft PowerPoint sablon 97-2003
-- PPTX – Office Open XML bemutató
-- PPSX – Office Open XML diavetítés
-- POTX – Office Open XML sablon
+Ezeket PDF, TIFF, XPS, HTML, SWF, ODP, PPS, PPSX, PPTM, PPSM, POTX és POTM formátumokra konvertálja. Tekintse meg a [Támogatott fájlformátumok](/slides/hu/sharepoint/supported-file-formats/) a részletekért.
 
-Az Aspose.Slides for SharePoint úgy lett tervezve, hogy a következő termékekkel együttműködjön:
+A letöltés tartalmaz egy külön telepítőprogramot és megoldáscsomagot az alábbi termékekhez:
 
-- Windows SharePoint Services 3.0 (WSS)
-- Microsoft Office SharePoint Server 2007 (MOSS) Standard
-- Microsoft Office SharePoint Server 2007 (MOSS) Enterprise
-- Microsoft Office SharePoint Server 2013
-- Microsoft Office SharePoint Server 2019
+- SharePoint 2007
+- SharePoint 2010
+- SharePoint Server 2013
+- SharePoint Server 2016
+- SharePoint Server 2019
 
-Nincsenek további rendszerkövetelmények az itt felsorolt termékeken kívül.
+**Használja az Aspose.Slides for SharePoint-et a dokumentumok a SharePoint dokumentumtárból történő konvertálásához**
 
-**Használja az Aspose.Slides for SharePoint-et a SharePoint dokumentumtárából származó dokumentumok konvertálásához** 
-
-![SharePoint dokumentumtár](product-overview_2.png)
+![SharePoint dokumentumtár a Convert with Aspose.Slides menüponttal](product-overview_2.png)

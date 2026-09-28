@@ -1,19 +1,18 @@
 ---
-title: Vyhodnotit Aspose.Slides pro SharePoint
+title: Vyhodnoťte Aspose.Slides pro SharePoint
 type: docs
 weight: 40
 url: /cs/sharepoint/evaluate-aspose-slides-for-sharepoint/
+description: "Vyhodnoťte Aspose.Slides pro SharePoint pomocí běžného stažení: nainstalujte jej, převádějte prezentace v zkušebním režimu a přepněte do licencovaného režimu instalací licenčního řešení."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Využijte bezplatnou zkušební verzi Aspose.Slides pro SharePoint: nemá časové omezení a je doprovázena bezplatnou technickou podporou. Doporučujeme produkt vyzkoušet před zakoupením, abyste měli jistotu, že splňuje vaše potřeby.
+{{% /alert %}}
 
-Ujistěte se, že využijete bezplatné hodnocení Aspose.Words pro SharePoint: nemá časové omezení a zahrnuje bezplatnou technickou podporu. Povzbuzujeme naše uživatele, aby si naše produkty vyzkoušeli před zakoupením, abyste věděli, že produkt zvládne to, co od něj očekáváte.
+Zkušební i placená verze Aspose.Slides pro SharePoint jsou stejný soubor ke stažení. [Stáhnout Aspose.Slides pro SharePoint](https://releases.aspose.com/slides/cs/sharepoint/), [nainstalujte jej](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint/), a ve výchozím nastavení funguje v zkušebním režimu.
 
-{{% /alert %}} 
+V zkušebním režimu obsahuje převzatý dokument vodoznak zkušební verze. Po zakoupení licence nainstalujte řešení licence přes nainstalovanou zkušební kopii, jak je popsáno v [Instalace licence Aspose.Slides pro SharePoint](/slides/cs/sharepoint/installing-aspose-slides-for-sharepoint-license/), a Aspose.Slides pro SharePoint funguje v licencovaném režimu.
 
-Jedná se o stejný balíček ke stažení pro hodnocení i placenou verzi Aspose.Slides pro SharePoint. Stačí [stáhněte Aspose.Slides for SharePoint](http://www.aspose.com/community/files/73/sharepoint-components/aspose.slides-for-sharepoint/default.aspx) ze stránky ke stažení, [nainstalujte jej]() a ve výchozím nastavení bude fungovat v režimu hodnocení. 
+**Vodoznak zkušební verze na snímku**
 
-Režim hodnocení vloží vodotisk hodnocení na každý snímek do exportovaného dokumentu. Po zakoupení licence stačí nainstalovat licenční řešení nad již nainstalovanou hodnocenou kopii Aspose.Slides for SharePoint a poté bude fungovat v licencovaném režimu. 
-
-**Vodotisk hodnocení na snímku** 
-
-![todo:image_alt_text](evaluate-aspose-slides-for-sharepoint_1.png)
+![Snímek převedený v zkušebním režimu s vodoznakem zkušební verze](evaluate-aspose-slides-for-sharepoint_1.png)

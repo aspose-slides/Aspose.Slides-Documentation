@@ -3,17 +3,22 @@ title: 評估 Aspose.Slides
 type: docs
 weight: 70
 url: /zh-hant/sharepoint/evaluate-aspose-slides/
+description: "Aspose.Slides for SharePoint 評估版的功能、其輸出如何被標記，以及如何將其轉換為授權版。"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-您可以輕鬆下載 Aspose.Slides 進行評估。評估版下載與正式購買版下載相同。只要在程式碼中加入幾行授權程式，即可將評估版轉為授權版。
+Aspose.Slides for SharePoint 的評估版下載與購買版下載相同。 在伺服器農場上安裝授權解決方案套件後，它會變為授權版本；請參閱[Installing Aspose.Slides for SharePoint License](/slides/zh-hant/sharepoint/installing-aspose-slides-for-sharepoint-license/)。 不涉及程式碼。
 
-Aspose.Slides 的評估版（未指定授權）提供完整的產品功能，但會在產生的 PDF、TIFF 和 XPS 檔案的每一張投影片上插入評估水印。
+若未授權，Aspose.Slides for SharePoint 可轉換為所有支援的格式，但轉換後的檔案會帶有評估浮水印，且轉換頁面會顯示評估通知。
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+**轉換為 PDF 檔案的評估浮水印**
 
-{{% /alert %}} {{% alert color="primary" %}} 
+![在評估模式下轉換的 PDF 檔案，浮水印覆蓋在投影片上](evaluate-aspose-slides_1.png)
 
-如果您想在不受評估版限制的情況下測試 Aspose.Slides，也可以申請 30 天的臨時授權。請參閱 [如何取得臨時授權？](https://purchase.aspose.com/temporary-license)
+{{% /alert %}}
+
+{{% alert color="info" title="Note" %}}
+
+如果您想在不受評估限制的情況下測試 Aspose.Slides，也可以申請 30 天的臨時許可證。 請參閱[如何取得臨時許可證？](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}
