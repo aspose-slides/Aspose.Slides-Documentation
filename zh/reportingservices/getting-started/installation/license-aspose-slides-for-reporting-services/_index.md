@@ -13,11 +13,11 @@ description: "通过将许可证文件复制到报表服务器来为 Aspose.Slid
 ---
 ## **许可证支持**
 
-Aspose.Slides for Reporting Services 的评估版与已购买的版本包相同，可从[其下载页面](https://releases.aspose.com/slides/zh/reportingservices/)获取，并提供相同的功能。未授权时，它以评估模式运行，并在导出的演示文稿中插入评估水印。
+Aspose.Slides for Reporting Services 的评估版与已购买的版本包相同，可从[其下载页面](https://releases.aspose.com/slides/reportingservices/)获取，并提供相同的功能。未授权时，它以评估模式运行，并在导出的演示文稿中插入评估水印。
 
 当您将许可证文件复制到报表服务器后，评估版即转为正式授权。此过程不涉及任何代码。
 
-当您对评估满意后，可[购买许可证](https://purchase.aspose.com/pricing/slides/zh/reporting-services/)。我们建议您了解不同的订阅类型。如有疑问，请联系 Aspose 销售团队。
+当您对评估满意后，可[购买许可证](https://purchase.aspose.com/pricing/slides/reporting-services/)。我们建议您了解不同的订阅类型。如有疑问，请联系 Aspose 销售团队。
 
 ## **Aspose.Slides for Reporting Services 中的授权**
 

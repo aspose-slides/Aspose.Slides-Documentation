@@ -14,7 +14,7 @@ description: "从仅 DLL 的 ZIP 包手动安装 Aspose.Slides for Reporting Ser
 ---
 ## **概述**
 
-按照以下步骤从 ZIP 包 *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* 在[下载页面](https://releases.aspose.com/slides/zh/reportingservices/)安装 Aspose.Slides for Reporting Services（无需 MSI 安装程序）。它们会注册与[MSI 安装程序](/slides/zh/reportingservices/install-with-msi-installer/)相同的扩展。对每个报告服务器实例重复此操作。
+按照以下步骤从 ZIP 包 *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* 在[下载页面](https://releases.aspose.com/slides/reportingservices/)安装 Aspose.Slides for Reporting Services（无需 MSI 安装程序）。它们会注册与[MSI 安装程序](/slides/zh/reportingservices/install-with-msi-installer/)相同的扩展。对每个报告服务器实例重复此操作。
 
 在开始之前，请检查[系统要求](/slides/zh/reportingservices/system-requirements/)。您需要在报告服务器上拥有本地管理员权限。
 

@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services 作为呈现扩展运行在报告服务器�
 
 支持 32 位和 64 位报告服务器。SQL Server 2005 使用其自带的扩展构建；所有后续版本和 Power BI 报告服务器使用相同的构建。[手动安装](/slides/zh/reportingservices/install-manually/) 显示要复制的文件。
 
-如果您的报告服务器版本不在此列表中，请在部署前在[免费支持论坛](https://forum.aspose.com/c/slides/zh/11)询问。
+如果您的报告服务器版本不在此列表中，请在部署前在[免费支持论坛](https://forum.aspose.com/c/slides/11)询问。
 
 ## **报告服务器版本**
 

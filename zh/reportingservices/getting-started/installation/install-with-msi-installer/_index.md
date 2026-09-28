@@ -15,7 +15,7 @@ description: "使用 MSI 安装程序安装 Aspose.Slides for Reporting Services
 
 MSI 安装程序是安装 Aspose.Slides for Reporting Services 的最简方式。它需要 .NET Framework 3.5 并且在报表服务器上具有管理员权限；请参阅 [系统要求](/slides/zh/reportingservices/system-requirements/)。
 
-1. 从 [下载页面](https://releases.aspose.com/slides/zh/reportingservices/) 下载 MSI 安装程序 *Aspose.Slides for Reporting Services XX.XX*，并复制到报表服务器。
+1. 从 [下载页面](https://releases.aspose.com/slides/reportingservices/) 下载 MSI 安装程序 *Aspose.Slides for Reporting Services XX.XX*，并复制到报表服务器。
 2. 以管理员身份运行。如果缺少 .NET Framework 3.5，安装程序会停止并显示提示；请安装 .NET Framework 3.5 功能后重新运行。
 3. 同意许可协议。
 4. 在 **Custom Setup** 页面，功能树列出安装程序在机器上检测到的每个 SQL Server Reporting Services 和 Power BI Report Server 实例。要保持实例不变，请单击其图标并选择 **Entire feature will be unavailable**。Express 版不支持渲染扩展，请不要选择 Express 实例。安装程序会隐藏 SQL Server 2016 及更早版本的 Express 实例。
