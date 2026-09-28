@@ -13,7 +13,7 @@ description: "Dowiedz się, jak zachowuje się wersja ewaluacyjna Aspose.Slides 
 ---
 ## **Wersja ewaluacyjna**
 
-Możesz pobrać Aspose.Slides for Reporting Services do ewaluacji ze [strony pobierania](https://releases.aspose.com/slides/pl/reportingservices/). Pobranie ewaluacyjne jest takie same jak pobranie zakupione. Staje się licencjonowane po skopiowaniu pliku licencji na serwer raportów — nie wymaga kodu; zobacz [Licencjonowanie](/slides/pl/reportingservices/license-aspose-slides-for-reporting-services/).
+Możesz pobrać Aspose.Slides for Reporting Services do ewaluacji ze [strony pobierania](https://releases.aspose.com/slides/reportingservices/). Pobranie ewaluacyjne jest takie same jak pobranie zakupione. Staje się licencjonowane po skopiowaniu pliku licencji na serwer raportów — nie wymaga kodu; zobacz [Licencjonowanie](/slides/pl/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Wersja ewaluacyjna (bez licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny ewaluacji do eksportowanych prezentacji.
 
