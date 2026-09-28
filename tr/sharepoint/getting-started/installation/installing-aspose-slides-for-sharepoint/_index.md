@@ -7,7 +7,7 @@ description: "Aspose.Slides for SharePoint'i bir SharePoint çiftliğine kurun: 
 ---
 ## **Paket İçeriği**
 
-Aspose.Slides for SharePoint, [indirme sayfası](https://releases.aspose.com/slides/tr/sharepoint/) üzerinden ZIP arşivi olarak indirilir. Arşiv, desteklenen her SharePoint sürümü için bir SharePoint çözüm paketi (WSP) ve bir kurulum programı içerir:
+Aspose.Slides for SharePoint, [indirme sayfası](https://releases.aspose.com/slides/sharepoint/) üzerinden ZIP arşivi olarak indirilir. Arşiv, desteklenen her SharePoint sürümü için bir SharePoint çözüm paketi (WSP) ve bir kurulum programı içerir:
 
 | SharePoint sürümü | Kurulum programı | Çözüm paketi |
 | :- | :- | :- |

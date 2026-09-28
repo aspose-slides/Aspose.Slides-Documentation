@@ -7,7 +7,7 @@ description: "Aspose.Slides for SharePoint lisansını bir SharePoint çiftliği
 ---
 {{% alert color="info" title="Note" %}}
 
-Değerlendirmenizi memnuniyetle tamamladıktan sonra bir lisans [satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/sharepoint/). Satın almadan önce lisans abonelik koşullarını anladığınızdan ve kabul ettiğinizden emin olun. Sipariş ödenince lisans size e-posta ile gönderilir.
+Değerlendirmenizi memnuniyetle tamamladıktan sonra bir lisans [satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/sharepoint/). Satın almadan önce lisans abonelik koşullarını anladığınızdan ve kabul ettiğinizden emin olun. Sipariş ödenince lisans size e-posta ile gönderilir.
 
 Lisans, normal bir SharePoint çözüm paketi içeren bir ZIP arşividir. Arşiv şunları içerir:
 

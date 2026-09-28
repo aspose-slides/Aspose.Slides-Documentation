@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint aşağıdaki giriş biçimlerini dönüştürür:
 
 {{% alert color="info" title="Not" %}}
 
-Belgeleri dönüştürmek için Aspose.Slides for SharePoint, yerleşik bir [Aspose.Slides for .NET](https://products.aspose.com/slides/tr/net/) sürümüne dayanır.
+Belgeleri dönüştürmek için Aspose.Slides for SharePoint, yerleşik bir [Aspose.Slides for .NET](https://products.aspose.com/slides/net/) sürümüne dayanır.
 
 {{% /alert %}}
 

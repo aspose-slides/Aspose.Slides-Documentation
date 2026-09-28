@@ -11,7 +11,7 @@ description: "Aspose.Slides for SharePoint'i normal indirme ile değerlendirin: 
 
 {{% /alert %}}
 
-Aspose.Slides for SharePoint'in değerlendirme ve ücretli sürümü aynı indirme dosyasıdır. [Aspose.Slides for SharePoint'i İndir](https://releases.aspose.com/slides/tr/sharepoint/), [kurun](/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint/), ve varsayılan olarak değerlendirme modunda çalışır.
+Aspose.Slides for SharePoint'in değerlendirme ve ücretli sürümü aynı indirme dosyasıdır. [Aspose.Slides for SharePoint'i İndir](https://releases.aspose.com/slides/sharepoint/), [kurun](/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint/), ve varsayılan olarak değerlendirme modunda çalışır.
 
 Değerlendirme modunda, dönüştürülen belge bir değerlendirme filigranı taşır. Bir lisans satın aldığınızda, [Aspose.Slides for SharePoint Lisansı Kurulumu](/slides/tr/sharepoint/installing-aspose-slides-for-sharepoint-license/)’nda açıklandığı gibi, kurulu değerlendirme kopyasının üzerine lisans çözümünü kurun ve Aspose.Slides for SharePoint lisanslı modda çalışır.
 
