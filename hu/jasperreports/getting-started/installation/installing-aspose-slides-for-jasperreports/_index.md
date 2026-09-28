@@ -7,7 +7,7 @@ description: "Válassza ki a JasperReports verziójához megfelelő Aspose.Slide
 ---
 ## **Válassza ki a jar fájlokat a JasperReports verziójához**
 
-Aspose.Slides for JasperReports egy ZIP fájlként érhető el a [letöltési oldalon](https://releases.aspose.com/slides/hu/jasperreport/). A *lib* könyvtárában minden JasperReports verziótartományhoz van egy alkönyvtár. Vegye a jar fájlokat a megfelelő alkönyvtárból, amely lefedi a használt JasperReports verziót:
+Aspose.Slides for JasperReports egy ZIP fájlként érhető el a [letöltési oldalon](https://releases.aspose.com/slides/jasperreport/). A *lib* könyvtárában minden JasperReports verziótartományhoz van egy alkönyvtár. Vegye a jar fájlokat a megfelelő alkönyvtárból, amely lefedi a használt JasperReports verziót:
 
 | JasperReports verzió | *lib* alkönyvtára |
 | :- | :- |

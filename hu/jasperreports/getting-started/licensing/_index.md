@@ -7,9 +7,9 @@ description: "Ismerje meg, hogy az Aspose.Slides for JasperReports értékelő v
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports ingyenes, időkorlát nélküli értékelő verzióban elérhető a [letöltő oldalon](https://releases.aspose.com/slides/hu/jasperreport/). Az értékelő és a licenszelt verziók ugyanazzal a letöltéssel érhetők el.
+Aspose.Slides for JasperReports ingyenes, időkorlát nélküli értékelő verzióban elérhető a [letöltő oldalon](https://releases.aspose.com/slides/jasperreport/). Az értékelő és a licenszelt verziók ugyanazzal a letöltéssel érhetők el.
 
-Ha elégedett vagy az értékelő verzióval, [vásárolj licencet](https://purchase.aspose.com/pricing/slides/hu/jasperreports/). Győződj meg róla, hogy megérted és elfogadod az előfizetési feltételeket.
+Ha elégedett vagy az értékelő verzióval, [vásárolj licencet](https://purchase.aspose.com/pricing/slides/jasperreports/). Győződj meg róla, hogy megérted és elfogadod az előfizetési feltételeket.
 
 A licenc a megrendelés oldalon tölthető le, miután a rendelés ki lett fizetve. A licenc egy tiszta szöveges, digitálisan aláírt XML fájl, amely információkat tartalmaz, például az ügyfél nevét, a megvásárolt terméket és a licenc típusát. Ne módosítsd a licencfájl tartalmát semmilyen módon: ez érvényteleníti a licencet.
 

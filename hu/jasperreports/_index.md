@@ -64,12 +64,12 @@ Ez a kitöltött jelentést PPT és PPTX formátumba exportálja, oldalanként e
 <hr>
 <p>REFERENCIA</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/hu/jasperreport/release-notes/">Kiadási megjegyzések</a></li>
-<li><a href="https://releases.aspose.com/slides/hu/jasperreport/">Letöltés</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Kiadási megjegyzések</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Letöltés</a></li>
 </ul>
 <p>TÁMOGATÁS</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/hu/11">Ingyenes támogatási fórum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ingyenes támogatási fórum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Fizetett támogatási helpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Ez a kitöltött jelentést PPT és PPTX formátumba exportálja, oldalanként e
 
 Ezek a lépések egy egyvonalas jelentést fordítanak le, töltik ki, és PPTX-be exportálják a JasperReports 6.16.0 verzióval a Maven Centralról. Szüksége van JDK 11 vagy újabb, valamint az Apache Maven-re.
 
-1. Töltse le a ZIP fájlt a [letöltési oldalról](https://releases.aspose.com/slides/hu/jasperreport/) és csomagolja ki. A *lib* mappája minden JasperReports verziótartományhoz egy almappát tartalmaz, és mindegyikben a tartományhoz tartozó jar fájl van. A JasperReports 6.16.0-hoz másolja a *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* fájlt egy üres projekt mappába.
+1. Töltse le a ZIP fájlt a [letöltési oldalról](https://releases.aspose.com/slides/jasperreport/) és csomagolja ki. A *lib* mappája minden JasperReports verziótartományhoz egy almappát tartalmaz, és mindegyikben a tartományhoz tartozó jar fájl van. A JasperReports 6.16.0-hoz másolja a *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* fájlt egy üres projekt mappába.
 
 2. Az jar a ZIP-ben van, nem Maven tárolóból, ezért telepíteni kell a helyi Maven tárolóba. Futassa ezt a parancsot a projekt mappában:
 
