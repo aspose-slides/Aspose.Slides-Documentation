@@ -72,14 +72,14 @@ Aspose.Slides for Android via Java เป็นไลบรารีคลาส
 <hr>
 <p>เอกสารอ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/th/androidjava/">เอกสารอ้างอิง API</a></li>
-<li><a href="https://releases.aspose.com/slides/th/androidjava/release-notes/">บันทึกการปล่อย</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">เอกสารอ้างอิง API</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">บันทึกการปล่อย</a></li>
 <li><a href="/slides/th/androidjava/known-issues/">ปัญหาที่ทราบ</a></li>
-<li><a href="https://releases.aspose.com/slides/th/androidjava/">ดาวน์โหลด</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">ดาวน์โหลด</a></li>
 </ul>
 <p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรัมสนับสนุนฟรี</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">ฟอรัมสนับสนุนฟรี</a></li>
 <li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบจ่ายเงิน</a></li>
 </ul>
 </div>

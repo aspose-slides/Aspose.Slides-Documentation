@@ -31,10 +31,10 @@ description: "สร้างการนำเสนอด้วย Java แล
 
 เพื่อสร้างการนำเสนอและใส่กล่องข้อความบนสไลด์แรก ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) การนำเสนอใหม่จะมีสไลด์ว่างเปล่าอยู่แล้วหนึ่งสไลด์
-1. ดึงสไลด์นั้นจาก [slide collection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/) โดยใช้ดัชนี 0
-1. เพิ่มสี่เหลี่ยมด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ของ [shape collection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/) และตั้งค่าข้อความของ [text frame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ด้วยเมธอด [setText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-)
-1. บันทึกการนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ในรูปแบบ [SaveFormat.Pptx](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/saveformat/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) การนำเสนอใหม่จะมีสไลด์ว่างเปล่าอยู่แล้วหนึ่งสไลด์
+1. ดึงสไลด์นั้นจาก [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) โดยใช้ดัชนี 0
+1. เพิ่มสี่เหลี่ยมด้วยเมธอด [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) ของ [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) และตั้งค่าข้อความของ [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) ด้วยเมธอด [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-)
+1. บันทึกการนำเสนอเป็นไฟล์ PPTX ด้วยเมธอด [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ในรูปแบบ [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/)
 
 โค้ดทำงานภายใน `Activity` ตัวอย่างเช่นในเมธอด `onCreate` ของมัน บันทึกไฟล์ไปยังไดเรกทอรีที่คืนค่าจากเมธอด [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) คือที่เก็บส่วนตัวของแอปซึ่งสามารถเขียนได้โดยไม่ต้องขอสิทธิใด ๆ
 
@@ -83,7 +83,7 @@ try {
 
 ### Can I create/save presentations in parallel?
 
-คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) เดียวจาก [multiple threads](/slides/th/androidjava/multithreading/) ได้ ให้สร้างอินสแตนซ์แยกต่างหากต่อเธรดหรือกระบวนการ
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) เดียวจาก [multiple threads](/slides/th/androidjava/multithreading/) ได้ ให้สร้างอินสแตนซ์แยกต่างหากต่อเธรดหรือกระบวนการ
 
 ### How do I remove the trial watermark and limitations?
 

@@ -23,14 +23,14 @@ description: "ใช้, จัดการ และแก้ไขปัญห
 
 Aspose.Slides สามารถใช้ได้ในโหมดประเมินหรือด้วยใบอนุญาตที่ถูกต้อง เวอร์ชันทดลองให้ฟังก์ชันการทำงานเดียวกับเวอร์ชันที่มีใบอนุญาต แต่จะเพิ่มลายน้ำการประเมินลงในทุกสไลด์ของแต่ละงานนำเสนอที่บันทึกและตัดข้อความที่โค้ดของคุณอ่านจากงานนำเสนอให้สั้นลง
 
-บทความนี้อธิบายว่าการให้ใบอนุญาตทำงานอย่างไรใน Aspose.Slides และวิธีการใช้ใบอนุญาตก่อนใช้ไลบรารี สามารถโหลดใบอนุญาตจากไฟล์, สตรีม หรือทรัพยากรฝังตัวโดยใช้คลาส [คลาส License](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/license/) ได้ อีกทั้งบทความยังแสดงวิธีตรวจสอบว่าใบอนุญาตได้ถูกนำไปใช้อย่างถูกต้องหรือไม่
+บทความนี้อธิบายว่าการให้ใบอนุญาตทำงานอย่างไรใน Aspose.Slides และวิธีการใช้ใบอนุญาตก่อนใช้ไลบรารี สามารถโหลดใบอนุญาตจากไฟล์, สตรีม หรือทรัพยากรฝังตัวโดยใช้คลาส [คลาส License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) ได้ อีกทั้งบทความยังแสดงวิธีตรวจสอบว่าใบอนุญาตได้ถูกนำไปใช้อย่างถูกต้องหรือไม่
 
 ## **ประเมิน Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
-คุณสามารถดาวน์โหลดเวอร์ชันทดลองของ **Aspose.Slides for Android via Java** จาก[หน้าดาวน์โหลด](https://releases.aspose.com/slides/th/androidjava/). เวอร์ชันทดลองให้ฟังก์ชันการทำงานเดียวกับเวอร์ชันที่มีใบอนุญาตของผลิตภัณฑ์ แพ็คเกจทดลองเหมือนกับแพ็คเกจที่ซื้อ เวอร์ชันทดลองจะกลายเป็นแบบมีใบอนุญาตเมื่อคุณเพิ่มบรรทัดโค้ดบางส่วน (เพื่อใช้ใบอนุญาต)
+คุณสามารถดาวน์โหลดเวอร์ชันทดลองของ **Aspose.Slides for Android via Java** จาก[หน้าดาวน์โหลด](https://releases.aspose.com/slides/androidjava/). เวอร์ชันทดลองให้ฟังก์ชันการทำงานเดียวกับเวอร์ชันที่มีใบอนุญาตของผลิตภัณฑ์ แพ็คเกจทดลองเหมือนกับแพ็คเกจที่ซื้อ เวอร์ชันทดลองจะกลายเป็นแบบมีใบอนุญาตเมื่อคุณเพิ่มบรรทัดโค้ดบางส่วน (เพื่อใช้ใบอนุญาต)
 
-เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** คุณสามารถ[ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/th/android-java/)ได้ เราแนะนำให้คุณตรวจสอบประเภทการสมัครสมาชิกต่าง ๆ หากมีคำถาม ติดต่อทีมขายของ Aspose
+เมื่อคุณพอใจกับการประเมิน **Aspose.Slides** คุณสามารถ[ซื้อใบอนุญาต](https://purchase.aspose.com/pricing/slides/android-java/)ได้ เราแนะนำให้คุณตรวจสอบประเภทการสมัครสมาชิกต่าง ๆ หากมีคำถาม ติดต่อทีมขายของ Aspose
 
 ทุกใบอนุญาตของ Aspose มาพร้อมการสมัครสมาชิกหนึ่งปีสำหรับการอัปเกรดเป็นเวอร์ชันใหม่หรือการแก้ไขที่ปล่อยภายในระยะสมัครสมาชิก ผู้ใช้ที่มีผลิตภัณฑ์ที่มีใบอนุญาต (หรือแม้แต่เวอร์ชันทดลอง) จะได้รับการสนับสนุนทางเทคนิคฟรีและไม่จำกัดจำนวน
 {{% /alert %}} 
@@ -59,7 +59,7 @@ Aspose.Slides สามารถใช้ได้ในโหมดประเ
 ใบอนุญาตสามารถโหลดจาก **ไฟล์** หรือ **สตรีม** ได้
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides ให้คลาส [คลาส License](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/license/) สำหรับการทำงานที่เกี่ยวกับใบอนุญาต
+Aspose.Slides ให้คลาส [คลาส License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) สำหรับการทำงานที่เกี่ยวกับใบอนุญาต
 {{% /alert %}} 
 
 {{% alert color="warning" title="Warning" %}}
@@ -85,9 +85,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
 {{% alert color="warning" title="Warning" %}}
-หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียกเมธอด [setLicense](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) ชื่อไฟล์ใบอนุญาตที่อยู่ท้ายเส้นทางที่ระบุต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณ
+หากคุณวางไฟล์ใบอนุญาตในไดเรกทอรีอื่น เมื่อเรียกเมธอด [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) ชื่อไฟล์ใบอนุญาตที่อยู่ท้ายเส้นทางที่ระบุต้องตรงกับชื่อไฟล์ใบอนุญาตของคุณ
 
-เช่นคุณอาจเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.Android.via.Java.lic.xml* แล้วในโค้ดของคุณต้องส่งเส้นทางไปยังไฟล์ (จบด้วย *Aspose.Slides.Android.via.Java.lic.xml*) ไปยังเมธอด [setLicense](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-)
+เช่นคุณอาจเปลี่ยนชื่อไฟล์ใบอนุญาตเป็น *Aspose.Slides.Android.via.Java.lic.xml* แล้วในโค้ดของคุณต้องส่งเส้นทางไปยังไฟล์ (จบด้วย *Aspose.Slides.Android.via.Java.lic.xml*) ไปยังเมธอด [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-)
 {{% /alert %}}
 
 ### **สตรีม**
@@ -104,7 +104,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **สตรีมจากแอปแอสเซ็ต**
 
-ในแอป Android ให้วางไฟล์ใบอนุญาตในโฟลเดอร์ *assets* ของโมดูลแอป, *app/src/main/assets*, เพื่อให้รวมอยู่ใน APK เปิดไฟล์ด้วยเมธอด [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) และส่งสตรีมไปยังเมธอด [setLicense](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) โค้ดจะทำงานภายใน `Activity` เช่นในเมธอด `onCreate` ก่อนที่แอปจะใช้ Aspose.Slides:
+ในแอป Android ให้วางไฟล์ใบอนุญาตในโฟลเดอร์ *assets* ของโมดูลแอป, *app/src/main/assets*, เพื่อให้รวมอยู่ใน APK เปิดไฟล์ด้วยเมธอด [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) และส่งสตรีมไปยังเมธอด [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) โค้ดจะทำงานภายใน `Activity` เช่นในเมธอด `onCreate` ก่อนที่แอปจะใช้ Aspose.Slides:
 
 ```java
 import android.util.Log;
@@ -141,7 +141,7 @@ if (license.isLicensed())
 ## **ความปลอดภัยในการทำงานหลายเธรด**
 
 {{% alert color="warning" title="Warning" %}}
-เมธอด [setLicense](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) ไม่ปลอดภัยต่อการทำงานหลายเธรด หากเมธอดนี้ต้องถูกเรียกพร้อมกันจากหลายเธรด คุณอาจต้องใช้กลไกการซิงโครไนซ์ (เช่น lock) เพื่อหลีกเลี่ยงปัญหา
+เมธอด [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) ไม่ปลอดภัยต่อการทำงานหลายเธรด หากเมธอดนี้ต้องถูกเรียกพร้อมกันจากหลายเธรด คุณอาจต้องใช้กลไกการซิงโครไนซ์ (เช่น lock) เพื่อหลีกเลี่ยงปัญหา
 {{% /alert %}}
 
 ## **FAQ**

@@ -57,7 +57,7 @@ dependencies {
 
 ### **เลือกเวอร์ชัน**
 
-Aspose.Slides for Android via Java ไม่ได้สร้างสำหรับทุกเวอร์ชันใน repository การสร้างของมันเผยแพร่สำหรับบางเวอร์ชันของ Aspose.Slides for Java เท่านั้น และเวอร์ชันที่ไม่มีการสร้าง Android จะไม่สามารถ resolve ได้ เลือกเวอร์ชันที่ระบุในหน้า [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/th/androidjava/)
+Aspose.Slides for Android via Java ไม่ได้สร้างสำหรับทุกเวอร์ชันใน repository การสร้างของมันเผยแพร่สำหรับบางเวอร์ชันของ Aspose.Slides for Java เท่านั้น และเวอร์ชันที่ไม่มีการสร้าง Android จะไม่สามารถ resolve ได้ เลือกเวอร์ชันที่ระบุในหน้า [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/)
 
 ### **สคริปต์การสร้าง Groovy**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### วิธีการตรวจสอบว่า Aspose.Slides ถูกผสานอย่างถูกต้องหรือไม่?
 
-สร้างโปรเจกต์ของคุณ, สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ว่างและบันทึกด้วยชื่อใหม่ หากไฟล์ถูกสร้างขึ้นโดยไม่มีข้อยกเว้น แสดงว่าไลบรารีได้ถูกรวมอย่างสำเร็จ
+สร้างโปรเจกต์ของคุณ, สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ว่างและบันทึกด้วยชื่อใหม่ หากไฟล์ถูกสร้างขึ้นโดยไม่มีข้อยกเว้น แสดงว่าไลบรารีได้ถูกรวมอย่างสำเร็จ
 
 ### วิธีการจำกัดการใช้หน่วยความจำเมื่อประมวลผลการนำเสนอขนาดใหญ่?
 
-เรียกเมธอด [dispose](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#dispose--) ของแต่ละอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ในบล็อก `finally` เพื่อปล่อยทรัพยากรโดยเร็ว และประมวลผลการนำเสนอขนาดใหญ่ทีละหนึ่ง การทำเช่นนี้ช่วยป้องกันข้อผิดพลาด out-of-memory และทำให้การใช้หน่วยความจำโดยรวมคาดเดาได้ในกระบวนการแบบแบตช์
+เรียกเมธอด [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) ของแต่ละอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ในบล็อก `finally` เพื่อปล่อยทรัพยากรโดยเร็ว และประมวลผลการนำเสนอขนาดใหญ่ทีละหนึ่ง การทำเช่นนี้ช่วยป้องกันข้อผิดพลาด out-of-memory และทำให้การใช้หน่วยความจำโดยรวมคาดเดาได้ในกระบวนการแบบแบตช์
 
 ### ฉันสามารถยกเว้นรูปแบบการส่งออกที่ไม่ต้องการเพื่อทำให้ขนาด JAR สุดท้ายเล็กลงได้หรือไม่?
 
