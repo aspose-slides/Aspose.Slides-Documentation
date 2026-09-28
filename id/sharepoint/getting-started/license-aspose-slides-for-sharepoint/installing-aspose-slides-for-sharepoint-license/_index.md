@@ -7,7 +7,7 @@ description: "Instal lisensi Aspose.Slides untuk SharePoint pada farm SharePoint
 ---
 {{% alert color="info" title="Note" %}}
 
-Setelah Anda puas dengan evaluasi Anda, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/id/sharepoint/). Sebelum membeli, pastikan Anda memahami dan menyetujui ketentuan langganan lisensi. Lisensi akan dikirimkan ke email Anda setelah pesanan dibayar.
+Setelah Anda puas dengan evaluasi Anda, Anda dapat [membeli lisensi](https://purchase.aspose.com/pricing/slides/sharepoint/). Sebelum membeli, pastikan Anda memahami dan menyetujui ketentuan langganan lisensi. Lisensi akan dikirimkan ke email Anda setelah pesanan dibayar.
 
 Lisensi berupa arsip ZIP yang berisi paket solusi SharePoint standar. Arsip tersebut berisi:
 

@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint mengonversi format input berikut:
 
 {{% alert color="info" title="Catatan" %}}
 
-Untuk mengonversi dokumen, Aspose.Slides for SharePoint bergantung pada versi bawaan [Aspose.Slides for .NET](https://products.aspose.com/slides/id/net/).
+Untuk mengonversi dokumen, Aspose.Slides for SharePoint bergantung pada versi bawaan [Aspose.Slides for .NET](https://products.aspose.com/slides/net/).
 
 {{% /alert %}}
 

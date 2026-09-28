@@ -7,7 +7,7 @@ description: "Instal Aspose.Slides untuk SharePoint pada farm SharePoint: pilih 
 ---
 ## **Isi Paket**
 
-Aspose.Slides for SharePoint diunduh dari [halaman unduhan](https://releases.aspose.com/slides/id/sharepoint/) sebagai arsip ZIP. Arsip tersebut berisi satu paket solusi SharePoint (WSP) dan satu program pemasangan untuk setiap versi SharePoint yang didukung:
+Aspose.Slides for SharePoint diunduh dari [halaman unduhan](https://releases.aspose.com/slides/sharepoint/) sebagai arsip ZIP. Arsip tersebut berisi satu paket solusi SharePoint (WSP) dan satu program pemasangan untuk setiap versi SharePoint yang didukung:
 
 | Versi SharePoint | Program pemasangan | Paket solusi |
 | :- | :- | :- |

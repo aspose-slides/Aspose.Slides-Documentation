@@ -57,12 +57,12 @@ Ini mengonversi file PPT dan PPTX ke PDF, TIFF, XPS, HTML, SWF, dan ODP, serta k
 <hr>
 <p>REFERENSI</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/id/sharepoint/release-notes/">Catatan rilis</a></li>
-<li><a href="https://releases.aspose.com/slides/id/sharepoint/">Unduh</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/release-notes/">Catatan rilis</a></li>
+<li><a href="https://releases.aspose.com/slides/sharepoint/">Unduh</a></li>
 </ul>
 <p>DUKUNGAN</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/id/11">Forum dukungan gratis</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Forum dukungan gratis</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk dukungan berbayar</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ Ini mengonversi file PPT dan PPTX ke PDF, TIFF, XPS, HTML, SWF, dan ODP, serta k
 
 Aspose.Slides for SharePoint diinstal satu kali pada farm dan kemudian digunakan dari setiap perpustakaan dokumen yang diaktifkan:
 
-1. Unduh arsip ZIP dari [halaman unduhan](https://releases.aspose.com/slides/id/sharepoint/) dan ekstrak di server dalam farm SharePoint Anda.
+1. Unduh arsip ZIP dari [halaman unduhan](https://releases.aspose.com/slides/sharepoint/) dan ekstrak di server dalam farm SharePoint Anda.
 2. Jalankan program pemasangan yang sesuai dengan versi SharePoint Anda: *Setup2007.exe*, *Setup2010.exe*, *Setup2013.exe*, *Setup2016.exe* atau *Setup2019.exe*. Gunakan akun yang dapat menginstal dan menyebarkan solusi SharePoint. Terima perjanjian lisensi, pilih koleksi situs untuk mengaktifkan fitur, dan biarkan pemasangan menyebarkan solusi. Setiap layar dijelaskan di [Instalasi](/slides/id/sharepoint/installing-aspose-slides-for-sharepoint/).
 3. Buka perpustakaan dokumen di salah satu koleksi situs tersebut, buka menu file PPT atau PPTX, dan pilih **Convert via Aspose.Slides**. Pada SharePoint 2007, item menu bernama **Convert with Aspose.Slides**.
 4. Di bawah **Convert to**, pilih **PDF - Adobe Portable Document**. Ubah nama file tujuan dan folder jika diperlukan, kemudian klik **Convert**.

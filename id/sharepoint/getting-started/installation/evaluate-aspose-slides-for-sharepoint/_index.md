@@ -11,7 +11,7 @@ Manfaatkan evaluasi gratis Aspose.Slides for SharePoint: tidak memiliki batas wa
 
 {{% /alert %}}
 
-Evaluasi dan versi berbayar Aspose.Slides for SharePoint menggunakan unduhan yang sama. [Unduh Aspose.Slides for SharePoint](https://releases.aspose.com/slides/id/sharepoint/), [pasang](/slides/id/sharepoint/installing-aspose-slides-for-sharepoint/), dan secara default berjalan dalam mode evaluasi.
+Evaluasi dan versi berbayar Aspose.Slides for SharePoint menggunakan unduhan yang sama. [Unduh Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/), [pasang](/slides/id/sharepoint/installing-aspose-slides-for-sharepoint/), dan secara default berjalan dalam mode evaluasi.
 
 Dalam mode evaluasi, dokumen yang dikonversi memiliki watermark evaluasi. Setelah Anda membeli lisensi, pasang solusi lisensi di atas salinan evaluasi yang sudah diinstal, seperti dijelaskan dalam [Menginstal Lisensi Aspose.Slides for SharePoint](/slides/id/sharepoint/installing-aspose-slides-for-sharepoint-license/), dan Aspose.Slides for SharePoint berjalan dalam mode berlisensi.
 
