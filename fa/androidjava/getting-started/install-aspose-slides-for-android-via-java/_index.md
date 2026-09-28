@@ -57,7 +57,7 @@ dependencies {
 
 ### **انتخاب نسخه**
 
-Aspose.Slides for Android via Java برای تمام نسخه‌های موجود در مخزن ساخته نشده است. ساخت‌های آن تنها برای برخی نسخه‌های Aspose.Slides for Java منتشر می‌شوند و نسخه‌ای که ساخت Android ندارد، نمی‌تواند حل شود. نسخه‌ای را که در صفحه [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/fa/androidjava/) فهرست شده است، انتخاب کنید.
+Aspose.Slides for Android via Java برای تمام نسخه‌های موجود در مخزن ساخته نشده است. ساخت‌های آن تنها برای برخی نسخه‌های Aspose.Slides for Java منتشر می‌شوند و نسخه‌ای که ساخت Android ندارد، نمی‌تواند حل شود. نسخه‌ای را که در صفحه [Aspose.Slides for Android via Java download page](https://releases.aspose.com/slides/androidjava/) فهرست شده است، انتخاب کنید.
 
 ### **اسکریپت‌های ساخت Groovy**
 
@@ -108,11 +108,11 @@ dependencies {
 
 ### چگونه می‌توانم تأیید کنم که Aspose.Slides به درستی یکپارچه شده است؟
 
-پروژه خود را بسازید، یک [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) خالی را نمونه‌سازی کنید و آن را با نام جدیدی ذخیره کنید. اگر فایل بدون پرتاب استثنا ایجاد شد، کتابخانه با موفقیت یکپارچه شده است.
+پروژه خود را بسازید، یک [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) خالی را نمونه‌سازی کنید و آن را با نام جدیدی ذخیره کنید. اگر فایل بدون پرتاب استثنا ایجاد شد، کتابخانه با موفقیت یکپارچه شده است.
 
 ### چگونه می‌توانم مصرف حافظه را هنگام پردازش ارائه‌های بزرگ محدود کنم؟
 
-متد [dispose](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#dispose--) هر نمونه [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) را در بلوک `finally` فراخوانی کنید تا منابع آن به‌سرعت آزاد شوند، و یک بار یک ارائه بزرگ را پردازش کنید. این کار به جلوگیری از خطاهای out‑of‑memory کمک می‌کند و مصرف کلی حافظه را در عملیات‌های دسته‌ای قابل پیش‌بینی نگه می‌دارد.
+متد [dispose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#dispose--) هر نمونه [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) را در بلوک `finally` فراخوانی کنید تا منابع آن به‌سرعت آزاد شوند، و یک بار یک ارائه بزرگ را پردازش کنید. این کار به جلوگیری از خطاهای out‑of‑memory کمک می‌کند و مصرف کلی حافظه را در عملیات‌های دسته‌ای قابل پیش‌بینی نگه می‌دارد.
 
 ### آیا می‌توانم فرمت‌های خروجی ناخواسته را برای کوچک کردن اندازه نهایی JAR حذف کنم؟
 

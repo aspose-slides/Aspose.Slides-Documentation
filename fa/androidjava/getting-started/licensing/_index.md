@@ -23,15 +23,15 @@ description: "مجوزها را در Aspose.Slides برای Android via Java ا�
 
 Aspose.Slides می‌تواند در حالت ارزیابی یا با یک لایسنس معتبر استفاده شود. نسخه ارزیابی همان عملکرد نسخه لایسنس‌دار را فراهم می‌کند، اما یک واترمارک ارزیابی را به هر اسلاید از هر ارائه‌ای که ذخیره می‌کند اضافه می‌کند و متنی که کد شما از ارائه‌ها می‌خواند را کوتاه می‌کند.
 
-این مقاله توضیح می‌دهد که مجوزدهی در Aspose.Slides چگونه کار می‌کند و چطور قبل از استفاده از کتابخانه یک لایسنس اعمال کنید. لایسنس می‌تواند از یک فایل، استریم یا منبع جاسازی‌شده با استفاده از کلاس [License](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/license/) بارگذاری شود. همچنین مقاله نشان می‌دهد چگونه صحت اعمال لایسنس را اعتبارسنجی کنید.
+این مقاله توضیح می‌دهد که مجوزدهی در Aspose.Slides چگونه کار می‌کند و چطور قبل از استفاده از کتابخانه یک لایسنس اعمال کنید. لایسنس می‌تواند از یک فایل، استریم یا منبع جاسازی‌شده با استفاده از کلاس [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) بارگذاری شود. همچنین مقاله نشان می‌دهد چگونه صحت اعمال لایسنس را اعتبارسنجی کنید.
 
 ## **ارزیابی Aspose.Slides**
 
 {{% alert color="info" title="Note" %}}
 
-می‌توانید یک نسخه ارزیابی **Aspose.Slides for Android via Java** را از [صفحه دانلود](https://releases.aspose.com/slides/fa/androidjava/) آن دریافت کنید. نسخه ارزیابی همان عملکردهای نسخه لایسنس‌دار محصول را ارائه می‌دهد. بسته ارزیابی همانند بسته خریداری‌شده است. نسخه ارزیابی پس از افزودن چند خط کد برای اعمال لایسنس به سادگی لایسنس‌دار می‌شود.
+می‌توانید یک نسخه ارزیابی **Aspose.Slides for Android via Java** را از [صفحه دانلود](https://releases.aspose.com/slides/androidjava/) آن دریافت کنید. نسخه ارزیابی همان عملکردهای نسخه لایسنس‌دار محصول را ارائه می‌دهد. بسته ارزیابی همانند بسته خریداری‌شده است. نسخه ارزیابی پس از افزودن چند خط کد برای اعمال لایسنس به سادگی لایسنس‌دار می‌شود.
 
-پس از رضایت از ارزیابی **Aspose.Slides** می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/fa/android-java/). توصیه می‌کنیم انواع مختلف اشتراک را بررسی کنید. اگر سؤال دارید، با تیم فروش Aspose تماس بگیرید.
+پس از رضایت از ارزیابی **Aspose.Slides** می‌توانید [یک لایسنس خریداری کنید](https://purchase.aspose.com/pricing/slides/android-java/). توصیه می‌کنیم انواع مختلف اشتراک را بررسی کنید. اگر سؤال دارید، با تیم فروش Aspose تماس بگیرید.
 
 هر لایسنس Aspose شامل یک اشتراک یک‌ساله برای ارتقاءهای رایگان به نسخه‌های جدید یا اصلاحات منتشرشده در دورهٔ اشتراک است. کاربران محصولات لایسنس‌دار (حتی نسخه‌های ارزیابی) پشتیبانی فنی رایگان و نامحدود دریافت می‌کنند.
 
@@ -64,7 +64,7 @@ Aspose.Slides می‌تواند در حالت ارزیابی یا با یک لا
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides کلاس [License](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/license/) را برای عملیات مجوزدهی فراهم می‌کند.
+Aspose.Slides کلاس [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) را برای عملیات مجوزدهی فراهم می‌کند.
 
 {{% /alert %}} 
 
@@ -96,9 +96,9 @@ license.setLicense("Aspose.Slides.Android.via.Java.lic");
 
 {{% alert color="warning" title="Warning" %}}
 
-اگر فایل لایسنس را در مسیر دیگری قرار دهید، هنگام فراخوانی متد [setLicense](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-)، نام فایل لایسنس در انتهای مسیر مشخص‌شده باید همان نام فایل لایسنس شما باشد.
+اگر فایل لایسنس را در مسیر دیگری قرار دهید، هنگام فراخوانی متد [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-)، نام فایل لایسنس در انتهای مسیر مشخص‌شده باید همان نام فایل لایسنس شما باشد.
 
-به عنوان مثال، می‌توانید نام فایل لایسنس را به *Aspose.Slides.Android.via.Java.lic.xml* تغییر دهید. سپس در کد خود باید مسیر فایل (که به *Aspose.Slides.Android.via.Java.lic.xml* ختم می‌شود) را به متد [setLicense](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) پاس کنید.
+به عنوان مثال، می‌توانید نام فایل لایسنس را به *Aspose.Slides.Android.via.Java.lic.xml* تغییر دهید. سپس در کد خود باید مسیر فایل (که به *Aspose.Slides.Android.via.Java.lic.xml* ختم می‌شود) را به متد [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-) پاس کنید.
 
 {{% /alert %}}
 
@@ -116,7 +116,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.l
 
 ### **استریم از App Assets**
 
-در یک برنامهٔ اندروید، فایل لایسنس را در پوشهٔ *assets* ماژول برنامه، *app/src/main/assets* قرار دهید تا در APK بسته شود. با متد [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) فایل را باز کنید و استریم را به متد [setLicense](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) پاس دهید. این کد داخل یک `Activity` اجرا می‌شود، برای مثال در متد `onCreate` آن، پیش از اینکه برنامه از Aspose.Slides استفاده کند:
+در یک برنامهٔ اندروید، فایل لایسنس را در پوشهٔ *assets* ماژول برنامه، *app/src/main/assets* قرار دهید تا در APK بسته شود. با متد [getAssets](https://developer.android.com/reference/android/content/Context#getAssets()) فایل را باز کنید و استریم را به متد [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) پاس دهید. این کد داخل یک `Activity` اجرا می‌شود، برای مثال در متد `onCreate` آن، پیش از اینکه برنامه از Aspose.Slides استفاده کند:
 
 ```java
 import android.util.Log;
@@ -154,7 +154,7 @@ if (license.isLicensed())
 
 {{% alert color="warning" title="Warning" %}}
 
-متد [setLicense](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) ایمن در برابر چندنخی نیست. اگر این متد لازم باشد که همزمان از چندین نخ فراخوانی شود، ممکن است بخواهید از primitives همگام‌سازی (مانند قفل) برای جلوگیری از مشکلات استفاده کنید.
+متد [setLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) ایمن در برابر چندنخی نیست. اگر این متد لازم باشد که همزمان از چندین نخ فراخوانی شود، ممکن است بخواهید از primitives همگام‌سازی (مانند قفل) برای جلوگیری از مشکلات استفاده کنید.
 
 {{% /alert %}}
 

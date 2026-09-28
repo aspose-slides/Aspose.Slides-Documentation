@@ -31,10 +31,10 @@ description: "ارائه‌ها را در جاوا با Aspose.Slides برای �
 
 برای ایجاد یک ارائه و قرار دادن یک جعبه متن بر روی اولین اسلاید آن، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید از قبل شامل یک اسلاید خالی است.  
-2. آن اسلاید را از [slide collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) با استفاده از اندیس 0 دریافت کنید.  
-3. یک مستطیل با روش [addAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) از [shape collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/) اضافه کنید و متن [text frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) آن را با روش [setText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) تنظیم کنید.  
-4. ارائه را به‌عنوان فایل PPTX با روش [save](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-)، در قالب [SaveFormat.Pptx](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/saveformat/) ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ایجاد کنید. یک ارائهٔ جدید از قبل شامل یک اسلاید خالی است.  
+2. آن اسلاید را از [slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) با استفاده از اندیس 0 دریافت کنید.  
+3. یک مستطیل با روش [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) از [shape collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) اضافه کنید و متن [text frame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) آن را با روش [setText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) تنظیم کنید.  
+4. ارائه را به‌عنوان فایل PPTX با روش [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-)، در قالب [SaveFormat.Pptx](https://reference.aspose.com/slides/androidjava/com.aspose.slides/saveformat/) ذخیره کنید.
 
 کد داخل یک `Activity` اجرا می‌شود، برای مثال در متد `onCreate` آن. این کد فایل را در دایرکتوری‌ای که توسط متد [getFilesDir](https://developer.android.com/reference/android/content/Context#getFilesDir()) برگردانده می‌شود ذخیره می‌کند: حافظهٔ خصوصی برنامهٔ شما که بدون درخواست هیچ‌گونه مجوزی می‌تواند به آن نوشت.
 

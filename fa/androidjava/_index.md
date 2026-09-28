@@ -72,14 +72,14 @@ Aspose.Slides برای Android از طریق Java یک کتابخانهٔ کلا
 <hr>
 <p>مرجع</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/fa/androidjava/">مستندات API</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/androidjava/release-notes/">یادداشت‌های انتشار</a></li>
+<li><a href="https://reference.aspose.com/slides/androidjava/">مستندات API</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/release-notes/">یادداشت‌های انتشار</a></li>
 <li><a href="/slides/fa/androidjava/known-issues/">مشکلات شناخته‌شده</a></li>
-<li><a href="https://releases.aspose.com/slides/fa/androidjava/">دانلود</a></li>
+<li><a href="https://releases.aspose.com/slides/androidjava/">دانلود</a></li>
 </ul>
 <p>پشتیبانی</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/fa/11">انجمن پشتیبانی رایگان</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">انجمن پشتیبانی رایگان</a></li>
 <li><a href="https://helpdesk.aspose.com/">پشتیبانی پولی</a></li>
 </ul>
 </div>
