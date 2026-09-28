@@ -64,12 +64,12 @@ Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, sam
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/sv/jasperreport/release-notes/">Versionsnoteringar</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/jasperreport/">Nedladdning</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Versionsnoteringar</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Nedladdning</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/sv/11">Gratis supportforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis supportforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betald supporthelpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Den exporterar en ifylld rapport till PPT och PPTX, en bild per rapportsida, sam
 
 Dessa steg kompilerar en enradig rapport, fyller den och exporterar den till PPTX med JasperReports 6.16.0 från Maven Central. Du behöver JDK 11 eller senare samt Apache Maven.
 
-1. Ladda ner ZIP‑filen från [download page](https://releases.aspose.com/slides/sv/jasperreport/) och packa upp den. Dess *lib*-mapp har en underkatalog per JasperReports‑versionsintervall, och varje underkatalog innehåller JAR‑filen för det intervallet. För JasperReports 6.16.0, kopiera *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* till en tom projektmapp.
+1. Ladda ner ZIP‑filen från [download page](https://releases.aspose.com/slides/jasperreport/) och packa upp den. Dess *lib*-mapp har en underkatalog per JasperReports‑versionsintervall, och varje underkatalog innehåller JAR‑filen för det intervallet. För JasperReports 6.16.0, kopiera *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* till en tom projektmapp.
 
 2. JAR‑filen finns i ZIP‑filen istället för i ett Maven‑arkiv, så installera den i ditt lokala Maven‑arkiv. Kör följande kommando i projektmappen:
 

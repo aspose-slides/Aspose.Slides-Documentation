@@ -7,7 +7,7 @@ description: "Välj de Aspose.Slides for JasperReports‑jar-filerna som matchar
 ---
 ## **Välj jar-filerna för din JasperReports-version**
 
-Aspose.Slides for JasperReports distribueras som en ZIP-fil på [download page](https://releases.aspose.com/slides/sv/jasperreport/). Dess *lib*-mapp har en underkatalog per intervall av JasperReports-versioner. Hämta jar-filerna från underkatalogen som täcker den JasperReports-version du använder:
+Aspose.Slides for JasperReports distribueras som en ZIP-fil på [download page](https://releases.aspose.com/slides/jasperreport/). Dess *lib*-mapp har en underkatalog per intervall av JasperReports-versioner. Hämta jar-filerna från underkatalogen som täcker den JasperReports-version du använder:
 
 | JasperReports-version | Underkatalog i *lib* |
 | :- | :- |

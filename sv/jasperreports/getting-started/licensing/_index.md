@@ -7,9 +7,9 @@ description: "Lär dig vad utvärderingsversionen av Aspose.Slides for JasperRep
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports finns tillgänglig som en gratis, tidsobestämd utvärdering från [nedladdningssidan](https://releases.aspose.com/slides/sv/jasperreport/). Utvärderings- och licensierade versioner av produkten är samma nedladdning.
+Aspose.Slides for JasperReports finns tillgänglig som en gratis, tidsobestämd utvärdering från [nedladdningssidan](https://releases.aspose.com/slides/jasperreport/). Utvärderings- och licensierade versioner av produkten är samma nedladdning.
 
-När du är nöjd med utvärderingen, [köp en licens](https://purchase.aspose.com/pricing/slides/sv/jasperreports/). Se till att du förstår och godkänner prenumerationsvillkoren.
+När du är nöjd med utvärderingen, [köp en licens](https://purchase.aspose.com/pricing/slides/jasperreports/). Se till att du förstår och godkänner prenumerationsvillkoren.
 
 Licensen kan hämtas från ordersidan efter att beställningen har betalats. Licensen är en klartext, digitalt signerad XML‑fil som innehåller information såsom kundnamn, den köpta produkten och licenstypen. Ändra inte innehållet i licensfilen på något sätt: det gör licensen ogiltig.
 
