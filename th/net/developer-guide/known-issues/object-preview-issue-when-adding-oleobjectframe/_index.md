@@ -1,69 +1,73 @@
 ---
-title: ปัญหาการแสดงตัวอย่างวัตถุเมื่อเพิ่ม OleObjectFrame
-linktitle: ปัญหาวัตถุ OLE
+title: ตำแหน่งตัวอย่างวัตถุก่อนแสดงเมื่อเพิ่ม OleObjectFrame
+linktitle: ตัวอย่าง OLE ก่อนแสดง
 type: docs
 weight: 10
 url: /th/net/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - ปัญหาการแสดงตัวอย่าง
+- ตำแหน่งตัวอย่างก่อนแสดง
+- ตามการออกแบบ
 - ฝังวัตถุ
 - ฝังไฟล์
-- วัตถุเปลี่ยนแปลง
+- วัตถุถูกเปลี่ยนแปลง
 - ตัวอย่างวัตถุ
-- การนำเสนอ
+- งานนำเสนอ
 - PowerPoint
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้สาเหตุที่ข้อความ EMBEDDED OLE OBJECT ปรากฏเมื่อเพิ่ม OleObjectFrame ใน Aspose.Slides สำหรับ .NET และวิธีแก้ไขปัญหาการแสดงตัวอย่างในงานนำเสนอ PPT, PPTX และ ODP"
+description: "ทำไมวัตถุ OLE ที่เพิ่มด้วย Aspose.Slides สำหรับ .NET ถึงแสดงตำแหน่ง EMBEDDED OLE OBJECT จนกว่าจะมีการอัปเดตตัวอย่างและวิธีการตั้งค่าภาพตัวอย่างของคุณเอง"
 ---
 ## **บทนำ**
 
-ด้วย Aspose.Slides สำหรับ .NET เมื่อคุณเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/oleobjectframe) ลงในสไลด์ จะมีข้อความ "EMBEDDED OLE OBJECT" ปรากฏบนสไลด์ผลลัพธ์ ข้อความนี้ตั้งใจให้แสดงและ NOT a bug
+โดยใช้ Aspose.Slides สำหรับ .NET เมื่อคุณเพิ่ม [OleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/oleobjectframe/) ลงในสไลด์ จะมีข้อความ "EMBEDDED OLE OBJECT" แสดงบนสไลด์ผลลัพธ์ ข้อความนี้เป็นการทำงานตามปกติและไม่ได้เป็นบั๊ก
 
 สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการทำงานกับวัตถุ OLE ดูที่ [Manage OLE](/slides/th/net/manage-ole/).
 
-## **คำอธิบายและวิธีแก้ไข**
+## **คำอธิบายและวิธีแก้**
 
-Aspose.Slides แสดงข้อความ "EMBEDDED OLE OBJECT" เพื่อแจ้งว่าวัตถุ OLE ได้รับการเปลี่ยนแปลงและต้องอัปเดตรูปภาพพรีวิว
+Aspose.Slides แสดงข้อความ "EMBEDDED OLE OBJECT" เพื่อแจ้งให้คุณทราบว่ามีการเปลี่ยนแปลงวัตถุ OLE และต้องอัปเดตรูปภาพตัวอย่าง
 
-ตัวอย่างเช่น หากคุณเพิ่มแผนภูมิ Microsoft Excel เป็น [OleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/oleobjectframe) ลงในสไลด์ (สำหรับรายละเอียดเพิ่มเติม ดูบทความ "Manage OLE") และจากนั้นเปิดงานนำเสนอใน Microsoft PowerPoint คุณจะเห็นภาพนี้บนสไลด์:
+ตัวอย่างเช่น หากคุณเพิ่มแผนภูมิ Microsoft Excel เป็น [OleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/oleobjectframe/) ลงในสไลด์ (สำหรับรายละเอียดเพิ่มเติม ดูบทความ "Manage OLE") แล้วเปิดงานนำเสนอใน Microsoft PowerPoint คุณจะเห็นรูปภาพนี้บนสไลด์:
 
 ![ข้อความวัตถุ OLE](OLE_object_message.png)
 
-หากคุณต้องการตรวจสอบและยืนยันว่าวัตถุ OLE ของคุณถูกเพิ่มลงในสไลด์ คุณต้องดับเบิลคลิกที่ข้อความ "EMBEDDED OLE OBJECT" หรือคลิกขวาที่ข้อความแล้วเลือกตัวเลือก **วัตถุ > แก้ไข**:
+หากต้องการตรวจสอบและยืนยันว่วัตถุ OLE ของคุณถูกเพิ่มลงในสไลด์ คุณต้องดับเบิลคลิกที่ข้อความ "EMBEDDED OLE OBJECT" หรือคุณสามารถคลิกขวาที่ข้อความและเลือกตัวเลือก **Object > Edit**:
 
 ![วัตถุ OLE > แก้ไข](OLE_object_edit.png)
 
-PowerPoint จากนั้นเปิดวัตถุ OLE ฝังอยู่
+PowerPoint จะเปิดวัตถุ OLE ที่ฝังอยู่
 
 ![ข้อมูลวัตถุ OLE](OLE_object_data.png)
 
-สไลด์อาจยังคงแสดงข้อความ "EMBEDDED OLE OBJECT" อยู่ เมื่อคุณคลิกที่วัตถุ OLE การพรีวิวสไลด์จะอัปเดตและข้อความ "EMBEDDED OLE OBJECT" จะถูกแทนที่ด้วยภาพจริงของวัตถุ OLE
+สไลด์อาจยังคงแสดงข้อความ "EMBEDDED OLE OBJECT" อยู่ เมื่อคุณคลิ้ววัตถุ OLE แล้ว ตัวอย่างสไลด์จะอัปเดตและข้อความ "EMBEDDED OLE OBJECT" จะถูกแทนที่ด้วยภาพจริงของวัตถุ OLE
 
-![พรีวิววัตถุ OLE](OLE_object_preview.png)
+![ตัวอย่างวัตถุ OLE](OLE_object_preview.png)
 
-ตอนนี้คุณอาจต้องการบันทึกงานนำเสนอของคุณเพื่อให้แน่ใจว่าภาพของวัตถุ OLE ถูกอัปเดตอย่างถูกต้อง ด้วยวิธีนี้ หลังจากบันทึกงานนำเสนอแล้ว เมื่อคุณเปิดงานนำเสนออีกครั้ง คุณจะ NOT see the "EMBEDDED OLE OBJECT" message.
+ตอนนี้ คุณอาจต้องการบันทึกงานนำเสนอของคุณเพื่อให้แน่ใจว่าภาพของวัตถุ OLE จะอัปเดตอย่างถูกต้อง ด้วยวิธีนี้ หลังจากบันทึกงานนำเสนอ แล้วเปิดงานนำเสนออีกครั้ง คุณจะไม่เห็นข้อความ "EMBEDDED OLE OBJECT"
 
-## **วิธีแก้ไขอื่น ๆ**
+## **วิธีแก้ไขอื่นๆ**
 
-### **วิธีแก้ไข 1: แทนที่ข้อความ "Embedded OLE Object" ด้วยรูปภาพ**
+### **วิธีแก้ 1: แทนที่ข้อความ "Embedded OLE Object" ด้วยภาพ**
 
-หากคุณไม่ต้องการลบข้อความ "EMBEDDED OLE OBJECT" โดยการเปิดงานนำเสนอใน PowerPoint แล้วบันทึก คุณสามารถแทนที่ข้อความนั้นด้วยภาพพรีวิวที่คุณต้องการได้ โค้ดต่อไปนี้แสดงกระบวนการ:
+หากคุณไม่ต้องการลบข้อความ "EMBEDDED OLE OBJECT" โดยการเปิดงานนำเสนอใน PowerPoint แล้วบันทึก คุณสามารถแทนที่ข้อความนั้นด้วยภาพตัวอย่างที่คุณต้องการได้ โค้ดต่อไปนี้แสดงกระบวนการ:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("embeddedOLE.pptx");
 
 var slide = presentation.Slides[0];
 var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-// Add an image to presentation resources.
+// เพิ่มรูปภาพไปยังทรัพยากรของงานนำเสนอ.
 using var imageStream = File.OpenRead("myImage.png");
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Set a title and the image for the OLE object preview.
-oleFrame.SubstitutePictureTitle = "My title";
+// ตั้งค่ารูปภาพสำหรับการแสดงตัวอย่างของวัตถุ OLE.
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;
 
@@ -74,6 +78,6 @@ presentation.Save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 
 ![ภาพวัตถุ OLE ใหม่](OLE_object_new_image.png)
 
-### **วิธีแก้ไข 2: สร้างส่วนเสริมสำหรับ PowerPoint**
+### **วิธีแก้ 2: สร้าง Add-On สำหรับ PowerPoint**
 
 คุณยังสามารถสร้างส่วนเสริมสำหรับ Microsoft PowerPoint ที่อัปเดตวัตถุ OLE ทั้งหมดเมื่อคุณเปิดงานนำเสนอในโปรแกรมได้

@@ -1,111 +1,96 @@
 ---
 title: Funkciók áttekintése
 type: docs
-weight: 20
+weight: 94
 url: /hu/net/features-overview/
 keywords:
 - funkciók
 - támogatott platformok
-- fájlformátum
+- fájlformátumok
 - konverzió
 - renderelés
-- formázás
+- prezentációs tartalom
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for .NET-et: egy hatékony API, amely lehetővé teszi a PowerPoint és OpenDocument prezentációk hatékony létrehozását, szerkesztését, automatizálását és konvertálását."
+description: "Tekintse át, hogy az Aspose.Slides for .NET milyen területeket fed le, mielőtt értékelné: támogatott platformok, fájlformátumok, dia renderelés, valamint a létrehozható és szerkeszthető tartalom."
 ---
-## **Támogatott platformok**
-Aspose.Slides for .NET támogatja a legnépszerűbb fejlesztési és üzemeltetési platformokat. Tekintse meg a részleteket:
+## **Áttekintés**
 
-|**Jellemző**|**Leírás**|
-| :- | :- |
-|ASP.NET Webalkalmazások|Az Aspose.Slides for .NET használatával ASP.NET Webalkalmazásokat építhet a .NET Framework 2.0‑tól 4.6.2‑ig terjedő verzióihoz|
-|Webszolgáltatások|Az Aspose.Slides for .NET segítségével Webszolgáltatásokat telepíthet|
-|WinForms alkalmazások|Az Aspose.Slides for .NET Windows Forms alkalmazások fejlesztésére is használható|
+Aspose.Slides for .NET egy osztálykönyvtár PowerPoint és OpenDocument prezentációk létrehozásához, olvasásához, szerkesztéséhez, átalakításához és rendereléséhez. Nem rendelkezik saját felhasználói felülettel, és nem igényel Microsoft PowerPointot vagy Office-ot, így konzolos alkalmazásokban, asztali alkalmazásokban, például Windows Forms-ban, webalkalmazásokban és webszolgáltatásokban is használható. Ez a cikk összefoglalja, hogy a könyvtár mit fed le, és hivatkozásokat tartalmaz az egyes területeket leíró cikkekre.
+
+## **Támogatott platformok**
+
+Az Aspose.Slides for .NET két NuGet csomagként van terjesztve, ugyanazzal az API-val:
+
+|**Csomag**|**A csomagban lévő build-ek**|**Operációs rendszerek**|
+| :- | :- | :- |
+|[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|.NET Framework 4.6.2, .NET Standard 2.0 és .NET 6. Használható .NET Framework 4.6.2 vagy újabb, illetve .NET 6 vagy újabb verzióval.|Windows. Linux és macOS a `libgdiplus` könyvtárral és a `System.Drawing.EnableUnixSupport` kapcsolóval.|
+|[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)|.NET 6. Használható .NET 6 vagy újabb verzióval.|Windows (x86, x64), Linux (x64 glibc 2.23 vagy újabb, ARM64 glibc 2.39 vagy újabb), és macOS (x64, ARM64).|
+
+[Telepítés](/slides/hu/net/installation/) leírja, melyik csomagot válassza, és hogy egyes csomagoknak mi szükséges Linuxon. [System Requirements](/slides/hu/net/system-requirements/) részletesen felsorolja a támogatott platformokat.
 
 ## **Fájlformátumok és konverziók**
-Aspose.Slides for .NET támogatja a legtöbb PowerPoint dokumentumformátumot. Lehetővé teszi, hogy ezeket a szervezetek által széles körben használt és egymás között cserélhető népszerű formátumokba exportálja. Tekintse meg a részleteket:
+
+Aspose.Slides megnyitja és menti a PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP és PowerPoint XML prezentációkat. PDF és HTML tartalmakat importál diákba, és prezentációkat ment PDF, XPS, HTML, HTML5, TIFF, animált GIF, SWF, Markdown és XAML formátumban. [Supported File Formats](/slides/hu/net/supported-file-formats/) felsorolja az összes formátumot a megfelelő olvasó és író API-val.
 
 |**Jellemző**|**Leírás**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/hu/net/ppt-vs-pptx/)|Az Aspose.Slides for .NET a leggyorsabb feldolgozást biztosít ehhez a prezentációs dokumentumformátumhoz.|
-|[PPT to PPTX conversion](/slides/hu/net/convert-ppt-to-pptx/)|Az Aspose.Slides for .NET támogatja a PPT‑ről PPTX‑re történő konverziót.|
-|[Portable Document Format (PDF)](/slides/hu/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az Adobe Portable Document Format (PDF) dokumentumokba.|
-|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/hu/net/convert-powerpoint-to-xps/)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az XML Parser Specification (XPS) dokumentumokba.|
-|[Tagged Image File Format (TIFF)](/slides/hu/net/convert-powerpoint-to-tiff/)|Az összes támogatott prezentációs fájlformátumot exportálhatja a Tagged Image File Format (TIFF) formátumba.|
-|[PPTX To HTML Conversion](/slides/hu/net/convert-powerpoint-ppt-and-pptx-to-html/)|Az Aspose.Slides for .NET támogatja a PresentationEx HTML formátumba történő konvertálását.|
+|[PPT és PPTX](/slides/hu/net/ppt-vs-pptx/)|Olvas és írja mind a bináris PowerPoint 97-2003 formátumot, mind az Office Open XML formátumot.|
+|[PPT to PPTX átalakítás](/slides/hu/net/convert-ppt-to-pptx/)|Átalakítja a régi PPT prezentációkat PPTX formátumba.|
+|[Portable Document Format (PDF)](/slides/hu/net/convert-powerpoint-to-pdf/)|Exportálja a prezentációkat PDF-be, beleértve a PDF/A és PDF/UA dokumentumokat.|
+|[XML Paper Specification (XPS)](/slides/hu/net/convert-powerpoint-to-xps/)|Exportálja a prezentációkat XPS dokumentumokként.|
+|[Tagged Image File Format (TIFF)](/slides/hu/net/convert-powerpoint-to-tiff/)|Exportálja a prezentációkat TIFF képekként.|
+|[HTML](/slides/hu/net/convert-powerpoint-to-html/)|Exportálja a prezentációkat HTML és HTML5 formátumba.|
+|[PDF és HTML import](/slides/hu/net/import-presentation/)|Diákat hoz létre PDF oldalakról és HTML tartalmakból.|
 
 ## **Prezentáció renderelése**
-Az Aspose.Slides for .NET magas hűségű renderelést támogat a prezentációs dokumentumok diáihoz különféle grafikus formátumokban. Tekintse meg a részleteket:
 
-|**Jellemző**|**Leírás**|
-| :- | :- |
-|.NET által támogatott képformátumok|Az Aspose.Slides for .NET segítségével a prezentációs diákat és a diákon lévő képeket az összes .NET által támogatott grafikus formátumba, például TIFF, PNG, BMP, JPEG, GIF és metafájlok formátumába renderelheti.|
-|SVG formátum|Az Aspose.Slides for .NET beépített metódusokat is biztosít, amelyek lehetővé teszik a prezentációs diák Scalable Vector Graphics (SVG) formátumba exportálását.|
+Az Aspose.Slides diák és egyedi alakzatok renderelését PNG, JPEG, BMP, GIF, TIFF és SVG képek formájában, valamint diák EMF metafájlokként végzi. Lásd a [Prezentációs diák átalakítása képekké](/slides/hu/net/convert-slide/), [Dia renderelése SVG képként](/slides/hu/net/render-a-slide-as-an-svg-image/) és [Alakzat bélyegképek létrehozása](/slides/hu/net/create-shape-thumbnails/) cikkeket.
 
 ## **Tartalmi funkciók**
-Az Aspose.Slides for .NET lehetővé teszi a prezentációs dokumentumok szinte minden elemének vagy tartalmának elérését, módosítását vagy létrehozását. Tekintse meg a részleteket:
 
-|**Jellemző**|**Leírás**|
+Az Aspose.Slides lehetővé teszi, hogy szinte minden tartalmat létrehozzon, olvasson és módosítson egy prezentációban:
+
+|**Terület**|**Mit tehet**|
 | :- | :- |
-|Mesterdiák|A mesterdiák határozzák meg a normál diák elrendezését. Az Aspose.Slides for .NET lehetővé teszi a prezentációs dokumentumok mesterdiáinak elérését és módosítását.|
-|Normál diák|Az Aspose.Slides for .NET segítségével különböző típusú új diákat hozhat létre; hozzáférhet és módosíthatja a meglévő diákat a prezentációkban.|
-|Diák klónozása / másolása|Az Aspose.Slides for .NET beépített metódusokkal rendelkezik, amelyek lehetővé teszik a meglévő diák klónozását vagy másolását egy prezentáción belül. A másolt és klónozott diák egy prezentációból egy másikba is felhasználhatók. Mivel egy dia a mesterdiótól örökli az elrendezést, a beépített klónozási metódusok automatikusan másolják a mestert klónozáskor.|
-|Diák szekcióinak kezelése|Metódusok a diák különböző szekciókba szervezésére egy prezentáción belül.|
-|Helyőrzők és szöveghelyőrzők|Hozzáférhet a diákon található helyőrzőkhöz és szöveghelyőrzőkhöz. Emellett a megfelelő metódus segítségével teljesen új diát hozhat létre szöveghelyőrzőkkel.|
-|Fejléc és lábléc|Az Aspose.Slides for .NET megkönnyíti a diák fejlécének/láblécének kezelését.|
-|Megjegyzések a diákon|Az Aspose.Slides for .NET segítségével elérheti és módosíthatja a diákhoz tartozó megjegyzéseket, valamint új megjegyzéseket is hozzáadhat.|
-|Alakzat keresése|Alakzatot a dián a hozzá tartozó alternatív szöveg alapján is megtalálhat.|
-|Háttér|Az Aspose.Slides for .NET lehetővé teszi a mester- vagy normál diákhoz tartozó háttérrel való munkát a prezentációban.|
-|Szövegdobozok|A szövegdobozok teljesen újra létrehozhatók. Hozzáférhet a meglévő szövegdobozokhoz. A szövegeket módosíthatja anélkül, hogy elveszítené az eredeti formázást.|
-|Téglalap alakzatok|Az Aspose.Slides for .NET segítségével téglalap alakzatokat hozhat létre vagy módosíthat.|
-|Polivonalis alakzatok|Az Aspose.Slides for .NET segítségével többpontos vonal alakzatokat hozhat létre vagy módosíthat.|
-|Ellipszis alakzatok|Az Aspose.Slides for .NET segítségével ellipszis alakzatokat hozhat létre vagy módosíthat.|
-|Csoportos alakzatok|Az Aspose.Slides for .NET támogatja a csoportos alakzatokat.|
-|Auto alakzatok|Az Aspose.Slides for .NET támogatja az automatikus alakzatokat.|
-|SmartArt|Az Aspose.Slides for .NET támogatja a SmartArt alakzatokat a MS PowerPointban.|
-|Diagramok|Az Aspose.Slides for .NET támogatja az MSO diagramokat a PowerPointban.|
-|Alakzatok sorosítása|Az Aspose.Slides for .NET számos alakzatot támogat. Ha egy alakzatot nem támogat, használhat sorosítási módszert, amellyel a meglévő diáról sorosíthatja azt az alakzatot. Így a továbbiakban igényeinek megfelelően felhasználhatja.|
-|Képkockák|Az Aspose.Slides for .NET segítségével képeket kezelhet képkockákban.|
-|Hangkeretek|Az Aspose.Slides for .NET segítségével hangfájlokat linkelhet vagy beágyazhat a diák hangkereteibe.|
-|Videókeretek|A videófájlok kezelhetők videókeretekben. Az Aspose.Slides for .NET támogatja a linkelt és beágyazott videókat is.|
-|OLE keret|Az Aspose.Slides for .NET segítségével OLE objektumokat kezelhet OLE keretekben.|
-|Táblák|Az Aspose.Slides for .NET táblákat támogat a diákon.|
-|ActiveX vezérlők|ActiveX vezérlők támogatása.|
-|VBA makrók|VBA makrók kezelése a prezentációkon belül.|
-|Szövegkeret|A szöveg elérhető bármely alakzaton keresztül a hozzá tartozó szövegkeret segítségével.|
-|Szöveg beolvasása|A beépített beolvasási metódusok segítségével szöveget kereshet a prezentációban, a prezentáció vagy a dia szintjén.|
-|Animációk|Animációkat alkalmazhat alakzatokra.|
-|Diavetítések|Az Aspose.Slides for .NET támogatja a diavetítéseket és a diaátmeneteket.|
+|[Diák](/slides/hu/net/presentation-slide/)|Dia hozzáadása, klónozása, átrendezése és eltávolítása; elrendezések és masterek alkalmazása; diák szervezése szekciókba; a dia méretének módosítása.|
+|[Tervezés](/slides/hu/net/presentation-design/)|Háttér, témaszínek, fejléc és lábléc, valamint betűtípusok beállítása.|
+|[Szöveg](/slides/hu/net/manage-text/)|Szövegkeretek, bekezdések és szakaszok létrehozása és szerkesztése; betűtípusok, színek, jelöltek és igazítás beállítása; szöveg keresése és cseréje.|
+|[Alakzatok](/slides/hu/net/powerpoint-shapes/)|AutoShape-ek, vonalak, csatlakozók, csoportos alakzatok és képkockák létrehozása; pozíció, méret, vonal és egységes, gradient vagy minta kitöltés beállítása; alakzat keresése alternatív szöveg alapján.|
+|[Táblázatok](/slides/hu/net/powerpoint-table/), [diagramok](/slides/hu/net/powerpoint-charts/), és [SmartArt](/slides/hu/net/powerpoint-smartart/)|Táblázatok, Microsoft Office diagramok és SmartArt diagramok létrehozása és szerkesztése.|
+|[Média](/slides/hu/net/manage-media-files/), [OLE objektumok](/slides/hu/net/manage-ole/), és [ActiveX vezérlők](/slides/hu/net/activex/)|Beágyazott vagy hivatkozott audio és video keretek hozzáadása, OLE objektumok beágyazása, valamint ActiveX vezérlők hozzáadása, módosítása vagy eltávolítása.|
+|[Jegyzetek](/slides/hu/net/presentation-notes/) és [megjegyzések](/slides/hu/net/presentation-comments/)|Előadói jegyzetek és felülvizsgálati megjegyzések hozzáadása, olvasása és szerkesztése.|
+|[Animáció](/slides/hu/net/powerpoint-animation/) és [átmenetek](/slides/hu/net/slide-transition/)|Animációs hatások alkalmazása az alakzatokra, diaátmenetek beállítása, valamint a diavetítés beállításainak konfigurálása.|
+|[Biztonság](/slides/hu/net/presentation-security/)|Prezentációk titkosítása jelszóval, írásvédelem beállítása, valamint digitális aláírások kezelése.|
+|[VBA makrók](/slides/hu/net/presentation-via-vba/)|VBA modulok hozzáadása, kinyerése és eltávolítása makróval ellátott prezentációkban.|
+|[Tulajdonságok](/slides/hu/net/presentation-properties/)|Dokumentum tulajdonságok olvasása és szerkesztése.|
 
-## **Formázási funkciók**
-Az Aspose.Slides for .NET segítségével formázhat szövegeket és alakzatokat a prezentációk diáin. Tekintse meg a részleteket:
+## **GYIK**
 
-|**Jellemző**|**Leírás**|
-| :- | :- |
-|Szövegformázás|<p>Az Aspose.Slides for .NET-ben a szövegeket az alakzatokhoz tartozó szövegkereteken keresztül kezelheti. Így a szövegeket a szövegkeretekhez tartozó bekezdések és részek használatával formázhatja. Ezeket a szövegelemeket az Aspose.Slides for .NET segítségével lehet formázni.</p><p>- Betűtípus típusa</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolás</p><p>- Bekezdés orientációja</p>|
-|Alakzatformázás|<p>Az Aspose.Slides for .NET-ben a dia alapvető eleme egy alakzat. Az ilyen alakzat elemeket az Aspose.Slides for .NET segítségével formázhatja:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, a színátmenetet, a szilárd színt)</p><p>- Szöveg</p><p>- Kép</p>|
+**Szükséges-e a Microsoft PowerPoint telepítése a szerveren vagy PC-n a könyvtár működéséhez?**
 
-## **FAQ**
-
-### Szükséges-e a Microsoft PowerPoint telepítése a szerveren/PC-n a könyvtár működéséhez?
 Nem. A PowerPoint nem szükséges; az Aspose.Slides egy önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és rendereléséhez.
 
-### Hogyan működik a többmagos feldolgozás? Párhuzamosítható a feldolgozás?
-Biztonságos különböző dokumentumokat külön szálakon feldolgozni; ugyanazt a [prezentáció](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektumot nem szabad egyszerre [több szál](/slides/hu/net/multithreading/) által használni.
+**Hogyan működik a több szálas feldolgozás? Párhuzamosítható a feldolgozás?**
 
-### Támogatottak-e a fájl jelszavak és a titkosítás?
-Igen. [Megnyithat](/slides/hu/net/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat nyitási és írási jelszót, valamint ellenőrizheti a védelem állapotát.
+Biztonságos különböző dokumentumok feldolgozása külön szálakon; ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/net/multithreading/) egyidejűleg használni.
 
-### Gondoskodnom kell a betűtípus csomagokról Linux konténerekben?
-Igen. Ajánlott a gyakori betűtípus csomagokat telepíteni és/vagy kifejezetten [megadni a betűtípus könyvtárakat](/slides/hu/net/custom-font/) az alkalmazásában, hogy elkerülje a váratlan helyettesítéseket.
+**Támogatottak-e a fájl jelszavak és a titkosítás?**
 
-### Vannak korlátozások az értékelési verzióban?
-Az [értékelő módban](/slides/hu/net/licensing/) a kimenethez vízjel kerül, és bizonyos korlátozások érvényesek; egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) érhető el a teljes funkcionalitás teszteléséhez.
+Igen. [Megnyithat](/slides/hu/net/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat megnyitási és írási jelszót, valamint ellenőrizheti a védelem állapotát.
 
-### Támogatott-e külső formátumok importálása a prezentációba (PDF/HTML → PPTX)?
-Igen. [PDF oldalakat és HTML tartalmat](/slides/hu/net/import-presentation/) adhat hozzá egy prezentációhoz, amelyet diákra alakít.
+**Fontokkal kapcsolatban kell aggódnom Linux konténerekben?**
+
+Igen. A prezentációkban használt betűtípusokat, vagy megfelelő helyettesítőket, telepíteni kell a rendszerre, hogy a szöveg helyesen jelenjen meg. A [font könyvtárak megadása](/slides/hu/net/custom-font/) is lehetséges az alkalmazásban. A [Telepítés](/slides/hu/net/installation/) felsorolja az egyes csomagok Linux előkövetelményeit.
+
+**Vannak korlátozások az értékelő verzióban?**
+
+Igen. [licenc](/slides/hu/net/licensing/) hiányában az Aspose.Slides minden mentett diára egy értékelő vízjelet helyez, és levágja a prezentációkból olvasott szöveget. Egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) elérhető a teljes funkcionalitás teszteléséhez.
+
+**Támogatott-e külső formátumok importálása egy prezentációba (PDF vagy HTML PPTX-be)?**
+
+Igen. [PDF oldalakat és HTML tartalmat](/slides/hu/net/import-presentation/) adhat hozzá egy prezentációhoz, amelyeket diákká alakít.

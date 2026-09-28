@@ -1,13 +1,17 @@
 ---
-title: Requisitos de Sistema
+title: Requisitos do Sistema
 type: docs
 weight: 60
 url: /pt/net/system-requirements/
 keywords:
-- requisitos de sistema
-- sistema operacional
-- instalação
-- dependências
+- requisitos do sistema
+- plataformas suportadas
+- frameworks de destino
+- .NET Framework
+- .NET Standard
+- libgdiplus
+- fontconfig
+- Alpine
 - Windows
 - Linux
 - macOS
@@ -17,123 +21,104 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra os requisitos de sistema do Aspose.Slides para .NET. Garanta suporte perfeito ao PowerPoint e OpenDocument no Windows, Linux e macOS."
+description: "Verifique o que o Aspose.Slides para .NET precisa antes de instalá-lo: os frameworks que cada pacote NuGet tem como alvo, os sistemas operacionais e processadores suportados, e as bibliotecas e fontes que o Linux requer."
 ---
 ## **Introdução**
 
-Aspose.Slides for .NET não requer que o Microsoft PowerPoint esteja instalado porque o Aspose.Slides é um mecanismo independente de criação, conversão, layout de página e renderização de documentos do Microsoft PowerPoint.
+Aspose.Slides for .NET é uma biblioteca autônoma: não requer Microsoft PowerPoint ou Microsoft Office. É publicada como dois pacotes NuGet, [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) e [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/). Ambos fornecem os mesmos namespaces e classes Aspose.Slides; diferem nas estruturas de destino e na forma como desenham os slides, o que determina onde são executados e o que precisam.
 
-## **Sistemas Operacionais Suportados**
+Este artigo lista as versões .NET e plataformas que cada pacote suporta, bem como as bibliotecas de sistema e fontes necessárias no Linux, e termina com um pequeno programa que verifica sua configuração. Para adicionar um pacote a um projeto, veja [Installation](/slides/pt/net/installation/).
 
-Aspose.Slides for .NET suporta qualquer sistema operacional de 32 bits ou 64 bits onde o framework .NET ou Mono esteja instalado, incluindo (mas não se limitando a):
+## **Versões .NET Suportadas**
 
-### **Windows**
+Cada pacote contém uma compilação do Aspose.Slides por framework de destino, e o NuGet seleciona a compilação que corresponde ao framework de destino do seu projeto.
 
-- Microsoft Windows 2000 Server ( x64, x86)
-- Microsoft Windows 2003 Server ( x64, x86)
-- Microsoft Windows 2022 Server
-- Microsoft Windows Vista ( x64, x86)
-- Microsoft Windows XP ( x64, x86)
-- Microsoft Windows 7 ( x64, x86)
-- Microsoft Windows 8, 8.1 ( x64, x86)
-- Microsoft Windows 10 ( x64, x86)
-- Microsoft Windows 11 ( x64, x86)
-- Microsoft Azure
+| Pacote | Frameworks de destino no pacote | Seu projeto pode direcionar |
+|---|---|---|
+| Aspose.Slides.NET | `net462`, `net6.0`, `netstandard2.0` | .NET Framework 4.6.2 ou posterior; .NET 6 ou posterior, incluindo .NET 8, .NET 9 e .NET 10 |
+| Aspose.Slides.NET6.CrossPlatform | `net6.0` | .NET 6 ou posterior, incluindo .NET 8, .NET 9 e .NET 10 |
 
-### **Linux**
+A compilação `netstandard2.0` permite que uma biblioteca de classes .NET Standard 2.0 faça referência ao Aspose.Slides.NET. Uma aplicação que usa tal biblioteca executa a compilação que corresponde ao framework de destino da própria aplicação: uma aplicação .NET 8, por exemplo, executa a compilação `net6.0`.
 
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine, e outros)
+## **Sistemas Operacionais e Processadores Suportados**
 
-### **Mac**
+**Aspose.Slides.NET** contém apenas código gerenciado independente de processador (AnyCPU), portanto roda na arquitetura do processador do runtime .NET que o carrega. Ele desenha slides através da biblioteca System.Drawing.Common da Microsoft, que a Microsoft suporta [somente no Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). No Linux, o Aspose.Slides.NET portanto precisa da biblioteca `libgdiplus` e de uma opção de inicialização, descritas em [Linux](#linux). Ele funciona em distribuições Linux que fornecem `libgdiplus`, como Debian, Ubuntu e Alpine Linux.
 
-- Mac OS X
+**Aspose.Slides.NET6.CrossPlatform** desenha slides com seu próprio mecanismo gráfico. O mecanismo é uma biblioteca nativa que o pacote contém em uma compilação por plataforma, portanto o pacote roda apenas nessas plataformas:
 
-## **Frameworks Suportados**
+| Sistema operacional | Processadores | Observações |
+|---|---|---|
+| Windows | x86, x64 | Windows em ARM64 não é suportado. |
+| Linux | x64, ARM64 | Requer glibc 2.23 ou superior em x64 e glibc 2.39 ou superior em ARM64. |
+| macOS | x64 (Intel), ARM64 (Apple silicon) | |
 
-Aspose.Slides for .NET suporta os frameworks .NET e Mono:
+Aspose.Slides.NET6.CrossPlatform não funciona no Alpine Linux ou em outras distribuições baseadas em musl ao invés de glibc, nem em distribuições com glibc mais antigo, como o CentOS 7. Use Aspose.Slides.NET nesses sistemas.
 
-### **Frameworks .NET**
+No Windows, a biblioteca nativa do Aspose.Slides.NET6.CrossPlatform usa o runtime Microsoft Visual C++ (*MSVCP140.dll* e *VCRUNTIME140.dll*, além de *VCRUNTIME140_1.dll* em x64). Se esses arquivos estiverem ausentes na máquina de destino, instale o [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170).
 
-- .NET Framework 2.0
-- .NET Framework 3.5
-- .NET Framework 4.0
-- .NET Framework 4.0_ClientProfile
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.5.2
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.7
-- .NET Framework 4.7.2
-- .NET 5
-- .NET 6
-- .NET 7
-- .NET 8
-- .NET 9
-- .NET Core
-- Suporte a COM Interop (COM, C++, VBScript)
+## **Linux**
 
-### **Framework Mono**
+Ambos os pacotes precisam de bibliotecas de sistema adicionais no Linux. Sem elas, o primeiro exemplo em [Create Presentations](/slides/pt/net/create-presentation/) falha com uma exceção ao invés de salvar o arquivo. Os comandos abaixo são para Debian e Ubuntu; nessas distribuições, cada biblioteca também traz as fontes DejaVu (`fonts-dejavu-core`), então o texto é renderizado sem pacotes de fontes adicionais.
 
-- Suporte MONO em plataformas MAC e Linux
+### **Aspose.Slides.NET6.CrossPlatform**
 
-## **Ambientes de Desenvolvimento**
+A biblioteca Linux do pacote requer a biblioteca `fontconfig`:
 
-Aspose.Slides for .NET pode ser usado para desenvolver aplicações em qualquer ambiente de desenvolvimento que tenha como alvo a plataforma .NET, mas estes ambientes são explicitamente suportados:
-
-- Microsoft Visual Studio 2005
-- Microsoft Visual Studio 2008
-- Microsoft Visual Studio 2010
-- Microsoft Visual Studio 2012
-- Microsoft Visual Studio 2013
-- Microsoft Visual Studio 2015
-- Microsoft Visual Studio 2017
-- Microsoft Visual Studio 2019
-- Microsoft Visual Studio 2022
-
-## **Compilações Principais do Aspose.Slides**
-
-Atualmente, existem duas compilações principais do Aspose.Slides — Aspose.Slides.NET e Aspose.Slides.NET6.CrossPlatform.
-
-### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-
-Esta é a versão principal do produto. Ela usa o mecanismo gráfico padrão do .NET.
-- Em plataformas não Windows, pode ser necessário instalar a biblioteca `libgdiplus` e suas dependências.
-- Antes da versão Aspose.Slides 25.3, para plataformas não Windows, era necessário usar o DLL .NET Standard 2.0 do pacote ZIP do Aspose.Slides.
-- A partir da versão Aspose.Slides 25.3, o pacote NuGet pode ser usado diretamente mesmo em sistemas não Windows.
-- Ao executar em sistemas não Windows, sua aplicação deve incluir a seguinte linha na inicialização:
-```cs
-AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
-- **A partir da versão 25.3, você pode usar este pacote em plataformas que suportam .NET, como Linux aarch64 (ARM64).**
 
-#### **Pacotes Adicionais para Linux Alpine**
+Sem ela, a criação de uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) falha com um `TypeInitializationException` cujo `DllNotFoundException` interno indica que `libfontconfig.so.1` não pode ser aberto.
 
-Ao executar Aspose.Slides for .NET em um contêiner Alpine Linux, instalar apenas `libgdiplus` pode não ser suficiente. Contêineres Alpine normalmente não incluem fontes por padrão. Se nenhuma fonte estiver disponível, as operações de renderização ou conversão podem falhar com um erro semelhante a:
+Imagens base mínimas podem não incluir `fontconfig` também. A imagem base AWS Lambda para .NET 8, por exemplo, não contém `fontconfig` nem fontes. Em uma imagem de contêiner construída sobre ela, execute `dnf install -y fontconfig`, que também instala as fontes Noto Sans.
+
+### **Aspose.Slides.NET**
+
+O pacote requer duas coisas no Linux:
+
+1. A biblioteca `libgdiplus`:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y libgdiplus
+   ```
+
+2. A opção `System.Drawing.EnableUnixSupport`, ativada no início da sua aplicação antes de qualquer chamada ao Aspose.Slides. Em um *Program.cs* com declarações de nível superior, coloque-a após as diretivas `using`:
+
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
+
+Sem `libgdiplus`, salvar uma apresentação falha com um `TypeInitializationException` cujo `DllNotFoundException` interno indica que `libgdiplus` não pode ser carregado. Sem a opção, a exceção interna é `PlatformNotSupportedException: System.Drawing.Common is not supported on non-Windows platforms`.
+
+{{% alert color="warning" title="Warning" %}}
+A opção funciona apenas com System.Drawing.Common 6, a versão da qual o Aspose.Slides.NET depende. A Microsoft a removeu no System.Drawing.Common 7. Se o seu projeto referencia System.Drawing.Common 7 ou posterior, direta ou indiretamente através de outro pacote, o Aspose.Slides.NET falha no Linux com `PlatformNotSupportedException` mesmo com `libgdiplus` instalado e a opção ativada. Nesse caso, use Aspose.Slides.NET6.CrossPlatform.
+{{% /alert %}}
+
+### **Alpine Linux**
+
+No Alpine Linux, use Aspose.Slides.NET com a opção descrita acima. Imagens Alpine normalmente não contêm fontes, e `libgdiplus` sozinho não instala nenhuma, portanto instale `libgdiplus` junto com ao menos um pacote de fontes. Sem fontes, salvar uma apresentação falha com este erro:
+
 ```text
-System.ArgumentException: Font '?' cannot be found
+System.ArgumentException: Font '?' cannot be found.
 ```
-Para usar o Aspose.Slides no Alpine, instale `libgdiplus` juntamente com pelo menos um pacote de fontes.
 
-**Opção 1: Fontes DejaVu**
+**Opção 1: fontes DejaVu**
 
-A opção recomendada é instalar o pacote ttf-dejavu:
-```
+A opção recomendada é o pacote `ttf-dejavu`:
+
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     ttf-dejavu
 ```
 
-O pacote `ttf-dejavu` instala automaticamente as dependências relacionadas a fontes necessárias, como `fontconfig`, `encodings`, `mkfontscale` e `mkfontdir`. Nenhum pacote de fontes adicional é necessário para a maioria dos casos de uso.
+Nas versões atuais do Alpine, `ttf-dejavu` instala o pacote `font-dejavu`, que também instala `fontconfig` e as ferramentas de fontes das quais depende.
 
-**Opção 2: Fontes Principais da Microsoft**
+**Opção 2: fontes principais da Microsoft**
 
-Se suas apresentações utilizarem fontes específicas da Microsoft, como Arial, Times New Roman, Courier New ou Verdana, instale as Fontas Principais da Microsoft:
-```
+Se suas apresentações usam fontes da Microsoft como Arial, Times New Roman, Courier New ou Verdana, instale as fontes principais da Microsoft. A etapa `update-ms-fonts` baixa as fontes enquanto a imagem é construída, portanto a compilação precisa de acesso à internet:
+
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     fontconfig \
@@ -142,44 +127,59 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-Use esta opção apenas quando as apresentações processadas exigirem fontes da Microsoft. Na maioria dos cenários, instalar `ttf-dejavu` é mais simples e confiável.
+### **Suporte à Globalização**
 
-**Requisitos adicionais para globalização**
+Ambos os pacotes precisam do suporte à globalização do .NET, que o .NET no Linux fornece por meio das bibliotecas ICU. No [modo de globalização invariável](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), criar uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) falha com `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
-Para habilitar o suporte adequado à globalização no Alpine, instale o pacote `icu-libs` e desative o modo invariável:
+Algumas imagens de contêiner ativam esse modo. As imagens de runtime .NET para Alpine Linux (`runtime-deps`, `runtime` e `aspnet`), por exemplo, definem `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` e não incluem ICU. Em uma imagem construída sobre elas, instale ICU e desative o modo:
+
 ```dockerfile
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 RUN apk --no-cache add icu-libs
 ```
 
-### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+Também certifique-se de que o arquivo do seu projeto não define a propriedade `InvariantGlobalization` como `true`.
 
-Esta é a versão do Aspose.Slides que utiliza um motor gráfico multiplataforma personalizado desenvolvido pela equipe do Aspose.Slides. Em plataformas não Windows, a biblioteca `fontconfig` pode ser necessária.
+## **Verifique sua configuração**
 
-**Plataformas Suportadas**
-- *Windows*: x86, x86_64  
-- *Linux*: x86_64, ARM64 (aarch64)
-- *macOS*: x86_64, ARM64 (aarch64)
+Para verificar se um pacote e seus requisitos estão presentes, execute um programa que salva uma apresentação e renderiza um slide em uma imagem. Salvar e renderizar usam a biblioteca gráfica e as fontes, que são fornecidas pelos requisitos de Linux acima.
 
-**Plataformas Não Suportadas**
-- *Windows 11 ARM* (ARM64) — *Não está sendo considerado no momento*
+Crie um aplicativo de console e adicione o pacote conforme descrito em [Installation](/slides/pt/net/installation/), substitua o conteúdo de *Program.cs* pelo código abaixo e execute `dotnet run`. Se usar Aspose.Slides.NET no Linux, adicione a instrução de opção `System.Drawing.EnableUnixSupport` mostrada em [Linux](#linux) após as diretivas `using`. O programa usa declarações de nível superior e declarações `using`, que requerem C# 9 ou posterior. Projetos que visam .NET 6 ou posterior utilizam uma versão mais recente do C# por padrão; em um projeto que visa .NET Framework, adicione `<LangVersion>latest</LangVersion>` a um `PropertyGroup` no arquivo de projeto.
 
-{{%  alert  title="Notes"  color="primary"  %}}  
-Para Linux x64, GLIBC 2.23+ é necessário; para Linux ARM64, GLIBC 2.39+ é necessário. Sistemas como CentOS 7 (GLIBC 2.14) não são suportados. Se precisar executar o Aspose.Slides no CentOS 7 ou em outros sistemas incompatíveis (por exemplo, Alpine), use o pacote padrão: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
-{{% /alert %}} 
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Perguntas Frequentes**
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+
+using var image = slide.GetImage(1f, 1f);
+image.Save("hello.png", ImageFormat.Png);
+```
+
+O programa adiciona um retângulo com texto ao primeiro slide e salva a apresentação como *hello.pptx* usando o método [Save](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/save/). Em seguida, renderiza o slide com [GetImage](https://reference.aspose.com/slides/pt/net/aspose.slides/slide/getimage/) e salva o resultado como *hello.png* usando [IImage.Save](https://reference.aspose.com/slides/pt/net/aspose.slides/iimage/save/) no formato [ImageFormat.Png](https://reference.aspose.com/slides/pt/net/aspose.slides/imageformat/). Os fatores de escala de 1 renderizam um pixel por ponto, de modo que o slide padrão de 720 × 540 pontos se torna uma imagem de 720 × 540 pixels, com o texto visível dentro do retângulo. Sem licença, ambos os arquivos também contêm uma marca d'água de avaliação; veja [Licensing](/slides/pt/net/licensing/). Se algum requisito estiver ausente, o programa termina com uma das exceções descritas em [Linux](#linux).
+
+## **Ferramentas de Desenvolvimento**
+
+Você pode compilar aplicações que usam Aspose.Slides com qualquer ferramenta que suporte o framework de destino do seu projeto: o .NET SDK e sua interface de linha de comando `dotnet` no Windows, Linux e macOS, ou o Visual Studio no Windows. [Installation](/slides/pt/net/installation/) descreve ambos.
+
+## **FAQ**
 
 **Preciso ter o Microsoft PowerPoint instalado para conversões e renderização?**
 
-Não, o PowerPoint não é necessário; o Aspose.Slides é um motor independente para [criar](/slides/pt/net/create-presentation/), modificar, [converter](/slides/pt/net/convert-presentation/) e [renderizar](/slides/pt/net/convert-powerpoint-to-png/) apresentações.
+Não, o PowerPoint não é necessário. Aspose.Slides é um mecanismo autônomo para [criar](/slides/pt/net/create-presentation/), modificar, [converter](/slides/pt/net/convert-presentation/) e [renderizar](/slides/pt/net/convert-powerpoint-to-png/) apresentações.
+
+**Qual pacote devo usar?**
+
+Use Aspose.Slides.NET no Windows e Aspose.Slides.NET6.CrossPlatform no Linux e macOS. No Alpine Linux, em sistemas Linux cujo glibc seja mais antigo que as versões listadas acima, e em projetos que visam .NET Framework, use Aspose.Slides.NET. Adicione apenas um dos dois pacotes a um projeto.
 
 **Quais fontes são necessárias para renderização correta?**
 
-As fontes usadas na apresentação, ou substitutos adequados, devem estar disponíveis no sistema operacional. No Linux e macOS, instale pacotes de fontes comuns para garantir renderização consistente.
+As fontes usadas na apresentação, ou substitutos adequados, devem estar disponíveis no sistema operacional. No Linux e macOS, instale os pacotes de fontes que suas apresentações precisam para obter renderização consistente. No Alpine Linux, instale ao menos um pacote de fontes além de `libgdiplus`, conforme descrito em [Alpine Linux](#alpine-linux).
 
-Para contêineres Alpine Linux, instale ao menos um pacote de fontes além do `libgdiplus`. A configuração mínima recomendada é `libgdiplus` com `ttf-dejavu`. Se forem necessárias fontes da Microsoft como Arial, Times New Roman, Courier New ou Verdana, use `msttcorefonts-installer` junto com `fontconfig`.
+**Por que uma fonte personalizada é renderizada como fallback ou texto ausente no Linux?**
 
-**Por que uma fonte personalizada é renderizada como substituta ou texto ausente no Linux?**
-
-Se o arquivo de fonte tiver entradas da tabela de nomes inconsistentes ou corrompidas, a pilha de correspondência de fontes do Linux (FreeType/fontconfig) pode selecionar um registro inválido, fazendo com que a fonte não seja resolvida. Usar uma versão da fonte com registros de tabela de nomes corrigidos ou instalar um substituto consistente resolve o problema.
+Se o arquivo de fonte tiver entradas de tabela de nomes inconsistentes ou corrompidas, a pilha de correspondência de fontes do Linux (FreeType/fontconfig) pode selecionar um registro inválido, causando a fonte não ser resolvida. Usar uma versão da fonte com registros de tabela de nomes corrigidos ou instalar um substituto consistente resolve o problema.

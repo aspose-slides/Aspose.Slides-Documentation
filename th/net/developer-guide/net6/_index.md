@@ -1,78 +1,81 @@
 ---
-title: การสนับสนุน .NET 6
+title: แพคเกจข้ามแพลตฟอร์มสำหรับ .NET 6 และรุ่นถัดไป
+linktitle: แพคเกจข้ามแพลตฟอร์ม
 type: docs
 weight: 235
 url: /th/net/net6/
 keywords:
+- Aspose.Slides.NET6.CrossPlatform
+- ข้ามแพลตฟอร์ม
 - การสนับสนุน .NET 6
-- โซลูชันคลาวด์
-- AWS Lambda
-- Azure Functions
-- System.Drawing.Common
-- GDI
+- Linux
+- macOS
+- fontconfig
 - libgdiplus
+- System.Drawing.Common
 - CS0433
+- AWS Lambda
 - .NET
 - C#
 - Aspose.Slides
-description: "กำหนดค่า Aspose.Slides สำหรับ .NET 6 เพื่อสร้าง แก้ไข และแปลงงานนำเสนอ PowerPoint PPT, PPTX และ ODP ในแอปพลิเคชัน C# ที่ทันสมัยและข้ามแพลตฟอร์ม"
+description: "เรียนรู้ว่าเมื่อใดควรใช้แพคเกจ Aspose.Slides.NET6.CrossPlatform: ทำไมจึงมีอยู่, แพลตฟอร์มที่ทำงานได้, และสิ่งที่ต้องการบน Linux แทน libgdiplus."
 ---
 ## **บทนำ**
 
-เริ่มต้นตั้งแต่ [Aspose.Slides 23.2](https://www.nuget.org/packages/Aspose.Slides.NET/23.2.0) การสนับสนุน .NET6 ได้ถูกนำมาใช้ ความพิเศษของการสนับสนุนนี้คือ .NET6 ไม่ได้สนับสนุน System.Drawing.Common บน Linux อีกต่อไป ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)) และ Slides ได้ทำการดำเนินการย่อยกราฟิกนี้เองในรูปแบบคอมโพเนนต์ C++  
+Aspose.Slides for .NET เผยแพร่เป็นแพ็คเกจ NuGet สองตัว [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) วาดสไลด์ผ่านไลบรารี System.Drawing.Common ของ Microsoft. [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) วาดสไลด์ด้วยเครื่องมือกราฟิกของตนเองแทน. บทความนี้อธิบายเหตุผลที่มีแพ็คเกจที่สอง, ที่ที่ทำงาน, สิ่งที่ต้องการบน Linux, และวิธีที่ทำงานร่วมกับ System.Drawing.Common ในโครงการเดียว.
 
-Aspose.Slides สำหรับ .NET ตอนนี้ทำงานได้โดยไม่ต้องพึ่งพา GDI/libgdiplus บน:
-* Windows
-* Linux
+## **ทำไมต้องมีแพ็คเกจแยกต่างหาก**
 
-*MacOS* ยังอยู่ในระหว่างการพัฒนา
+ตั้งแต่ .NET 6 เป็นต้นไป Microsoft รองรับ System.Drawing.Common [เฉพาะบน Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). ดังนั้นบน Linux Aspose.Slides.NET จำเป็นต้องใช้สวิตช์ `System.Drawing.EnableUnixSupport` ร่วมกับไลบรารี `libgdiplus` และจะล้มเหลวหากโครงการอ้างอิง System.Drawing.Common เวอร์ชัน 7 หรือสูงกว่า. [System Requirements](/slides/th/net/system-requirements/) อธิบายเงื่อนไขเหล่านี้.
 
-## **การใช้ Slides for .NET 6 บน AWS และ Azure**
+Aspose.Slides.NET6.CrossPlatform ไม่ใช้ System.Drawing.Common หรือ `libgdiplus`. เครื่องมือกราฟิกของมันเป็นไลบรารีเนทีฟที่แพ็คเกจใส่ไว้ในแต่ละการสร้างสำหรับแต่ละแพลตฟอร์มที่รองรับ. ทั้งสองแพ็คเกจให้เนมสเปซและคลาส Aspose.Slides ที่เหมือนกัน, ดังนั้นการสลับจากหนึ่งไปยังอีกอันหนึ่งจะเปลี่ยนเฉพาะการอ้างอิงแพ็คเกจ, ไม่ใช่โค้ดของคุณ.
 
-.NET6 เป็นเวอร์ชันที่แนะนำสำหรับ Aspose.Slides ที่ใช้งานบนคลาวด์ (AWS, Azure หรือโซลูชันคลาวด์อื่น)
+| | Aspose.Slides.NET | Aspose.Slides.NET6.CrossPlatform |
+|---|---|---|
+| กราฟิก | System.Drawing.Common | Native graphics engine included in the package |
+| เฟรมเวิร์กเป้าหมาย | `net462`, `net6.0`, `netstandard2.0` | `net6.0` |
+| ความต้องการของ Linux | `libgdiplus` and the `System.Drawing.EnableUnixSupport` switch | `fontconfig` |
+| Alpine Linux | Supported | Not supported |
 
-ก่อนหน้านี้เมื่อใช้ Aspose.Slides บนโฮสต์ Linux จำเป็นต้องติดตั้ง dependency เพิ่มเติม (libgdiplus) ซึ่งมักไม่สะดวกหรือเป็นไปได้ยาก (เช่นเมื่อใช้ [AWS Lambda](https://aws.amazon.com/lambda)) ด้วย Slides for .NET6 dependency เหล่านั้นไม่จำเป็นต้องใช้อีกต่อไป ทำให้การปรับใช้ง่ายขึ้นมาก
+## **แพลตฟอร์มที่รองรับ**
 
-อีกประเด็นหนึ่งคือปัญหาที่เกิดขึ้นเมื่อ Aspose.Slides ถูกใช้บนโซลูชันคลาวด์ที่รันบนโฮสต์ Windows ตัวอย่างเช่น [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview) มีข้อจำกัดในการทำงานและทำให้เกิดปัญหาระหว่างการส่งออก PDF (ดู [this](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#unsupported-frameworks)) การใช้ Aspose.Slides for .NET6 จะแก้ปัญหานี้ได้
+Aspose.Slides.NET6.CrossPlatform ทำงานกับ .NET 6 และรุ่นต่อ ๆ ไปบนแพลตฟอร์มต่อไปนี้:
 
-## **การใช้แพ็คเกจ System.Drawing.Common และคลาสของ Slides for .NET 6 (CS0433: The Type Exists in Both Slides and System.Drawing.Common Error)**
+- **Windows**: x86 และ x64. ไลบรารีเนทีฟใช้ Microsoft Visual C++ runtime; ดู [System Requirements](/slides/th/net/system-requirements/).
+- **Linux**: x64 พร้อม glibc 2.23 หรือสูงกว่า, และ ARM64 พร้อม glibc 2.39 หรือสูงกว่า.
+- **macOS**: x64 (Intel) และ ARM64 (Apple silicon).
 
-บางครั้งทั้ง System.Drawing และ Slides for .NET6 จำเป็นต้องใช้ร่วมกันในโปรเจกต์ (เช่นเมื่อโปรเจกต์ .NET6 ขึ้นกับแพ็คเกจอื่นที่ต่อมาอิงกับ System.Drawing) สิ่งนี้อาจทำให้เกิดข้อผิดพลาดเช่น:
+มันไม่ทำงานบน Windows ARM64, บน Alpine Linux หรือดิสโทรอื่นที่สร้างด้วย musl แทน glibc, หรือบนดิสโทรที่ใช้ glibc รุ่นเก่าเช่น CentOS 7. ใช้ Aspose.Slides.NET บนระบบเหล่านั้น.
 
-* CS0433: The type 'Image' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
-* CS0433: The type 'Graphics' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
+## **การติดตั้งบน Linux**
 
-ในกรณีนี้คุณสามารถใช้ [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) สำหรับ Aspose.Slides (เวอร์ชันที่ต่ำกว่า 24.8):
-1) เลือก assembly ของ Aspose.Slides จาก dependencies ของโปรเจกต์แล้วคลิก **Properties**.  
-   ![คุณสมบัติของแพ็คเกจ Aspose Slides](package_properties.png)
-2) ตั้งค่า alias (เช่น "Slides").  
-   ![การตั้งค่า alias ของ Aspose Slides](set_alias.png)
+บน Linux แพ็คเกจต้องการไลบรารี `fontconfig` แต่ไม่ต้องการ `libgdiplus`. บน Debian และ Ubuntu ให้ติดตั้ง `fontconfig` แล้วเพิ่มแพ็คเกจลงในโครงการของคุณ:
 
-ตอนนี้ประเภทจาก System.Drawing.Common จะถูกใช้เป็นค่าเริ่มต้น ควรระบุ alias ของ assembly ภายนอกที่จุดที่ต้องการใช้ประเภทของ Aspose.Slides
-
-```c#
-extern alias Slides;
-using Slides::Aspose.Slides;
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
+dotnet add package Aspose.Slides.NET6.CrossPlatform
 ```
 
-ตัวอย่างเต็ม:
+บน Debian และ Ubuntu, `libfontconfig1` จะติดตั้งฟอนต์ DejaVu ด้วย, ดังนั้นข้อความจะแสดงผลโดยไม่ต้องติดตั้งฟอนต์อื่น. หากไม่มี `fontconfig`, การสร้าง [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) จะล้มเหลวด้วย `TypeInitializationException` ที่มี `DllNotFoundException` ระบุว่าไม่สามารถเปิด `libfontconfig.so.1`. [System Requirements](/slides/th/net/system-requirements/) มีโปรแกรมสั้น ๆ เพื่อตรวจสอบการตั้งค่า.
 
-```c#
-extern alias Slides;
-using Slides::Aspose.Slides;
+## **โฮสต์คลาวด์และคอนเทนเนอร์**
 
-static Slides::System.Drawing.Image GetThumbnail(Presentation pres)
-{
-    return pres.Slides[0].GetThumbnail();
-}
-```
+เนื่องจากไม่ต้องการ `libgdiplus`, Aspose.Slides.NET6.CrossPlatform เป็นแพ็คเกจที่ควรใช้บนโฮสต์ Linux ที่ไม่สามารถติดตั้ง `libgdiplus`. อย่างไรก็ตามยังต้องการ `fontconfig` และฟอนต์, ซึ่งอิมเมจฐานที่มีขนาดขั้นต่ำอาจไม่มี. ตัวอย่างเช่นอิมเมจฐาน AWS Lambda สำหรับ .NET 8 ไม่มีทั้งสองอย่าง. ในอิมเมจคอนเทนเนอร์ที่สร้างจากอิมเมจนั้น, รัน `dnf install -y fontconfig` ซึ่งจะติดตั้งฟอนต์ Noto Sans ด้วย.
 
-ตั้งแต่เวอร์ชัน 24.8 API สาธารณะที่ไม่สนับสนุนและอิงกับ System.Drawing ได้ถูกลบออกแล้ว สำหรับตัวอย่างโค้ดด้านบน คุณสามารถดึงรูปสไลด์ได้ดังต่อไปนี้
+สำหรับคู่มือของแพลตฟอร์มคลาวด์เฉพาะ, ดู [Aspose.Slides on Cloud Platforms](/slides/th/net/slides-on-cloud-platforms/).
 
-```cs
-static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
-{
-    return presentation.Slides[0].GetImage();
-}
-```
-API ใหม่มีรายละเอียดเพิ่มเติมใน [Modern API](/slides/th/net/modern-api/).
+## **การใช้ System.Drawing.Common ในโครงการเดียวกัน (CS0433)**
+
+โครงการที่ใช้ Aspose.Slides.NET6.CrossPlatform สามารถอ้างอิง System.Drawing.Common ได้เช่นกัน, ไม่ว่าจะโดยตรงหรือผ่านแพ็คเกจอื่น. เวอร์ชันปัจจุบันของ Aspose.Slides ไม่ได้เปิดเผยประเภทสาธารณะใด ๆ ในเนมสเปซ `System`, ดังนั้นไลบรารีทั้งสองจึงไม่ขัดแย้ง, และคุณสามารถนำเข้าเนมสเปซ `Aspose.Slides` และ `System.Drawing` ในไฟล์เดียวกันได้.
+
+หากคอมไพเลอร์รายงานข้อผิดพลาด CS0433 เนื่องจากประเภทเช่น `Image` หรือ `Graphics` มีอยู่ใน Aspose.Slides และ System.Drawing.Common ทั้งสอง, โครงการของคุณอาจใช้ Aspose.Slides รุ่นเก่า. ให้อัปเดตแพ็คเกจเป็นรุ่นล่าสุด. Aspose.Slides ส่งคืนภาพที่เรนเดอร์เป็นอ็อบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) ซึ่งอธิบายใน [Modern API](/slides/th/net/modern-api/).
+
+## **คำถามที่พบบ่อย**
+
+**ฉันต้องเปลี่ยนโค้ดของฉันหรือไม่เมื่อสลับจาก Aspose.Slides.NET ไปยัง Aspose.Slides.NET6.CrossPlatform?**
+
+ไม่. ทั้งสองแพ็คเกจให้เนมสเปซและคลาส Aspose.Slides ที่เหมือนกัน, ดังนั้นคุณเพียงเปลี่ยนการอ้างอิงแพ็คเกจ. Aspose.Slides.NET6.CrossPlatform ไม่ต้องการสวิตช์ `System.Drawing.EnableUnixSupport`. เพิ่มเพียงหนึ่งในสองแพ็คเกจลงในโครงการเท่านั้น.
+
+**ฉันสามารถใช้ Aspose.Slides.NET6.CrossPlatform ในโครงการ .NET Framework ได้หรือไม่?**
+
+ไม่. แพ็คเกจนี้รองรับเฉพาะ .NET 6 และรุ่นต่อ ๆ ไป. สำหรับ .NET Framework 4.6.2 และรุ่นต่อ ๆ ไป ให้ใช้ Aspose.Slides.NET.

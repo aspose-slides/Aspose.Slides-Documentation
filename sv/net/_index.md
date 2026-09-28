@@ -13,14 +13,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Börja här: installera Aspose.Slides för .NET, skapa en första presentation och hitta guiderna för vanliga uppgifter, API-referensen och support."
+description: "Börja här: installera Aspose.Slides för .NET, skapa en första presentation och hitta guiderna för vanliga uppgifter, distribution och API‑referensen."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET är ett klassbibliotek för att skapa, läsa, redigera och konvertera PowerPoint‑ och OpenDocument‑presentationer i .NET‑applikationer, utan Microsoft PowerPoint eller Office‑automation.
+Aspose.Slides för .NET är ett klassbibliotek för att skapa, läsa, redigera och konvertera PowerPoint- och OpenDocument-presentationer i .NET‑applikationer, utan Microsoft PowerPoint eller Office‑automatisering.
 
-Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade och mall‑varianter, och exporterar till PDF, XPS, HTML, SVG, TIFF, Markdown och bilder.
+Det läser och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade och mall‑varianter, och exporterar till PDF, XPS, HTML, SVG, TIFF, Markdown och bilder.
 
 <div style="clear:both"></div>
 
@@ -30,16 +30,18 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 <div class="col-md-4">
 <p><b>Kom igång</b></p>
 <hr>
-<p>KOMMA IGÅNG</p>
+<p>KOM IGÅNG</p>
 <ul>
 <li><a href="/slides/sv/net/installation/">Installation</a></li>
 <li><a href="/slides/sv/net/create-presentation/">Skapa din första presentation</a></li>
-<li><a href="/slides/sv/net/getting-started/">Kom igång‑guide</a></li>
+<li><a href="/slides/sv/net/system-requirements/">Systemkrav</a></li>
+<li><a href="/slides/sv/net/getting-started/">Kom i gång-guide</a></li>
 </ul>
 <p>UTVÄRDERA</p>
 <ul>
-<li><a href="/slides/sv/net/supported-file-formats/">Filformat som stöds</a></li>
-<li><a href="/slides/sv/net/evaluate-aspose-slides/">Begränsningar i provversion</a></li>
+<li><a href="/slides/sv/net/supported-file-formats/">Stödda filformat</a></li>
+<li><a href="/slides/sv/net/features-overview/">Översikt över funktioner</a></li>
+<li><a href="/slides/sv/net/evaluate-aspose-slides/">Begränsningar för provversion</a></li>
 <li><a href="/slides/sv/net/licensing/">Licensiering</a></li>
 </ul>
 </div>
@@ -51,42 +53,52 @@ Det laddar och sparar PPT, PPTX, PPS, POT och ODP, inklusive makro‑aktiverade 
 <li><a href="/slides/sv/net/open-presentation/">Öppna en presentation</a></li>
 <li><a href="/slides/sv/net/save-presentation/">Spara en presentation</a></li>
 <li><a href="/slides/sv/net/convert-powerpoint-to-pdf/">Konvertera till PDF</a></li>
-<li><a href="/slides/sv/net/convert-slide/">Rendera slides som bilder</a></li>
+<li><a href="/slides/sv/net/convert-slide/">Rendera bilder som bildfiler</a></li>
 <li><a href="/slides/sv/net/manage-text/">Redigera text och former</a></li>
 </ul>
-<p>SLIDES‑ARBETSFÖRDE</p>
+<p>SLIDES‑ARBETSFLODER</p>
 <ul>
 <li><a href="/slides/sv/net/powerpoint-charts/">Diagram</a></li>
 <li><a href="/slides/sv/net/powerpoint-animation/">Animationer</a></li>
-<li><a href="/slides/sv/net/manage-media-files/">Audio och video</a></li>
-<li><a href="/slides/sv/net/presentation-design/">Slide‑design</a></li>
+<li><a href="/slides/sv/net/manage-media-files/">Ljud och video</a></li>
+<li><a href="/slides/sv/net/presentation-design/">Bilddesign</a></li>
 <li><a href="/slides/sv/net/merge-presentation/">Slå ihop presentationer</a></li>
 </ul>
 <p>EXEMPEL</p>
 <ul>
-<li><a href="/slides/sv/net/examples/">Exempel per slide‑element</a></li>
+<li><a href="/slides/sv/net/examples/">Exempel per bildelement</a></li>
 <li><a href="https://github.com/aspose-slides/Aspose.Slides-for-.NET">Exempel på GitHub</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referens &amp; Support</b></p>
+<p><b>Distribuera &amp; Support</b></p>
 <hr>
+<p>DISTRIBUERA</p>
+<ul>
+<li><a href="/slides/sv/net/net6/">Korsplattform (.NET 6+)</a></li>
+<li><a href="/slides/sv/net/how-to-run-aspose-slides-in-docker/">Kör i Docker</a></li>
+<li><a href="/slides/sv/net/deploy-fonts/">Teckensnitt</a></li>
+<li><a href="/slides/sv/net/security/">Säkerhet</a></li>
+</ul>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">API‑referens</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">Release‑anteckningar</a></li>
+<li><a href="https://reference.aspose.com/slides/sv/net/">API‑referens</a></li>
+<li><a href="https://releases.aspose.com/slides/sv/net/release-notes/">Versionsanteckningar</a></li>
 <li><a href="/slides/sv/net/known-issues/">Kända problem</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">Nedladdning</a></li>
+<li><a href="/slides/sv/net/api-limitations/">Begränsningar i utdata‑metadata</a></li>
+<li><a href="https://releases.aspose.com/slides/sv/net/">Ladda ner</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Gratis supportforum</a></li>
-<li><a href="https://helpdesk.aspose.com/">Betald support‑helpdesk</a></li>
+<li><a href="https://forum.aspose.com/c/slides/sv/11">Gratis supportforum</a></li>
+<li><a href="https://helpdesk.aspose.com/">Betald supporthelpdesk</a></li>
 </ul>
 </div>
 </div>
 
 ------
+
+<a name="your-first-presentation"></a>
 
 ## **Din första presentation**
 
@@ -100,7 +112,9 @@ cd HelloSlides
 Lägg sedan till ett paket för din plattform:
 
 - På Windows: `dotnet add package Aspose.Slides.NET`
-- På Linux och macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — se [Installation](/slides/sv/net/installation/) för Linux‑förutsättningen och för systemen som behöver Aspose.Slides.NET istället.
+- På Linux och macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — se [Installation](/slides/sv/net/installation/) för Linux‑förutsättningen och för de system som behöver Aspose.Slides.NET istället.
+
+Ersätt innehållet i *Program.cs* med denna kod och kör `dotnet run`:
 
 ```csharp
 using Aspose.Slides;
@@ -113,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-Programmet sparar *hello.pptx* med ett bildspel som innehåller en textruta. Utan licens innehåller den sparade filen ett utvärderingsvattenstämpel — se [Licensiering](/slides/sv/net/licensing/). För fler sätt att skapa och fylla en presentation, se [Skapa presentationer](/slides/sv/net/create-presentation/).
+Programmet sparar *hello.pptx* med en bild som innehåller en textruta. Utan licens innehåller den sparade filen ett utvärderingsvattenstämpel — se [Licensing](/slides/sv/net/licensing/). För fler sätt att skapa och fylla en presentation, se [Create Presentations](/slides/sv/net/create-presentation/).

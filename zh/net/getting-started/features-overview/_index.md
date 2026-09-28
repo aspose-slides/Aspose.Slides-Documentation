@@ -1,117 +1,96 @@
 ---
-title: 功能概述
+title: 功能概览
 type: docs
-weight: 20
+weight: 94
 url: /zh/net/features-overview/
 keywords:
 - 功能
-- 支持的平台
+- 受支持的平台
 - 文件格式
 - 转换
 - 渲染
-- 格式化
+- 演示文稿内容
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "探索 Aspose.Slides for .NET：一个强大的 API，可高效地创建、编辑、自动化和转换 PowerPoint 与 OpenDocument 演示文稿。"
+description: "在评估 Aspose.Slides for .NET 之前，先了解它涵盖的内容：受支持的平台、文件格式、幻灯片渲染，以及您可以创建和编辑的内容。"
 ---
-## **受支持的平台**
-Aspose.Slides for .NET 支持最流行的开发和部署平台。查看以下详细信息：
+## **概述**
+
+Aspose.Slides for .NET 是一个类库，用于创建、读取、编辑、转换和渲染 PowerPoint 和 OpenDocument 演示文稿。它没有自己的用户界面，也不需要 Microsoft PowerPoint 或 Office，因此您可以在控制台应用程序、Windows Forms 桌面应用程序、Web 应用程序和 Web 服务中使用它。本文概述了库的功能范围，并链接到描述各个领域的文章。
+
+## **支持的平台**
+
+Aspose.Slides for .NET 以两个具有相同 API 的 NuGet 包发布：
+
+|**包**|**包中包含的构建**|**操作系统**|
+| :- | :- | :- |
+|[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|.NET Framework 4.6.2、.NET Standard 2.0 和 .NET 6。可在 .NET Framework 4.6.2 或更高版本，或 .NET 6 或更高版本上使用。|Windows。Linux 和 macOS 需要 `libgdiplus` 库以及 `System.Drawing.EnableUnixSupport` 开关。|
+|[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)|.NET 6。可在 .NET 6 或更高版本上使用。|Windows（x86、x64）、Linux（使用 glibc 2.23 或更高的 x64，使用 glibc 2.39 或更高的 ARM64）以及 macOS（x64、ARM64）。|
+
+[安装](/slides/zh/net/installation/) 解释了选择哪个包以及每个包在 Linux 上的需求。[系统要求](/slides/zh/net/system-requirements/) 列出了支持的平台的详细信息。
+
+## **文件格式和转换**
+
+Aspose.Slides 打开并保存 PPT、PPTX、PPS、POT、PPSX、POTX、PPTM、PPSM、POTM、ODP、OTP、FODP 和 PowerPoint XML 演示文稿。它可以将 PDF 和 HTML 内容导入到幻灯片中，并将演示文稿保存为 PDF、XPS、HTML、HTML5、TIFF、动画 GIF、SWF、Markdown 和 XAML。[Supported File Formats](/slides/zh/net/supported-file-formats/) 列出了每种格式以及读取或写入它的 API。
 
 |**功能**|**描述**|
 | :- | :- |
-|ASP.NET Web 应用程序|使用 Aspose.Slides for .NET 构建目标 .NET Framework 2.0 到 4.6.2 版本的 ASP.NET Web 应用程序|
-|Web 服务|使用 Aspose.Slides for .NET 部署 Web 服务|
-|WinForms 应用程序|Aspose.Slides for .NET 也可用于开发 Windows Forms 应用程序|
-
-## **文件格式与转换**
-Aspose.Slides for .NET 支持大多数 PowerPoint 文档格式。它还能将这些文档导出为组织广泛使用并相互交换的流行格式。查看以下详细信息：
-
-|**功能**|**描述**|
-| :- | :- |
-|[Microsoft PowerPoint（PPT）](/slides/zh/net/ppt-vs-pptx/)|Aspose.Slides for .NET 为此演示文稿格式提供最快的处理速度。|
-|[PPT 转 PPTX 转换](/slides/zh/net/convert-ppt-to-pptx/)|Aspose.Slides for .NET 支持 PPT 转 PPTX 的转换。|
-|[便携文档格式（PDF）](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|您可以使用单一方法将所有受支持的文件格式导出为 Adobe Portable Document Format（PDF）文档。|
-|[XML 解析器规范（XPS）](https://docs.aspose.com/slides/zh/net/convert-powerpoint-to-xps/)|您可以使用单一方法将所有受支持的文件格式导出为 XML Parser Specification（XPS）文档。|
-|[标签图像文件格式（TIFF）](/slides/zh/net/convert-powerpoint-to-tiff/)|您可以将所有受支持的演示文稿文件格式导出为 Tagged Image File Format（TIFF）。|
-|[PPTX 到 HTML 转换](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NET 支持将 PresentationEx 转换为 HTML 格式。|
+|[PPT 和 PPTX](/slides/zh/net/ppt-vs-pptx/)|读取和写入二进制 PowerPoint 97-2003 格式以及 Office Open XML 格式。|
+|[PPT 到 PPTX 转换](/slides/zh/net/convert-ppt-to-pptx/)|将旧版 PPT 演示文稿转换为 PPTX。|
+|[便携文档格式 (PDF)](/slides/zh/net/convert-powerpoint-to-pdf/)|将演示文稿导出为 PDF，包括 PDF/A 和 PDF/UA 文档。|
+|[XML 纸张规范 (XPS)](/slides/zh/net/convert-powerpoint-to-xps/)|将演示文稿导出为 XPS 文档。|
+|[标记图像文件格式 (TIFF)](/slides/zh/net/convert-powerpoint-to-tiff/)|将演示文稿导出为 TIFF 图像。|
+|[HTML](/slides/zh/net/convert-powerpoint-to-html/)|将演示文稿导出为 HTML 和 HTML5。|
+|[PDF 和 HTML 导入](/slides/zh/net/import-presentation/)|从 PDF 页面和 HTML 内容创建幻灯片。|
 
 ## **演示文稿渲染**
-Aspose.Slides for .NET 支持将演示文稿中的幻灯片高保真渲染为各种图形格式。查看以下详细信息：
 
-|**功能**|**描述**|
-| :- | :- |
-|.NET 支持的图像格式|使用 Aspose.Slides for .NET，您可以将演示文稿幻灯片及幻灯片中的图像渲染为所有 .NET 支持的图形格式，如 TIFF、PNG、BMP、JPEG、GIF 和元文件。|
-|SVG 格式|Aspose.Slides for .NET 还提供内置方法，允许您将演示文稿幻灯片导出为可缩放矢量图形（SVG）格式。|
+Aspose.Slides 将幻灯片和单个形状渲染为 PNG、JPEG、BMP、GIF、TIFF 和 SVG 图像，并将幻灯片渲染为 EMF 元文件。请参阅[Convert Presentation Slides to Images](/slides/zh/net/convert-slide/)、[Render a Slide as an SVG Image](/slides/zh/net/render-a-slide-as-an-svg-image/)和[Create Shape Thumbnails](/slides/zh/net/create-shape-thumbnails/)。
 
 ## **内容功能**
-Aspose.Slides for .NET 允许您访问、修改或创建几乎所有演示文稿文档的项目或内容。查看以下详细信息：
 
-|**功能**|**描述**|
+Aspose.Slides 让您几乎可以创建、读取和修改演示文稿的所有内容：
+
+|**区域**|**您可以执行的操作**|
 | :- | :- |
-|母版幻灯片|母版幻灯片定义普通幻灯片的布局。Aspose.Slides for .NET 允许您访问并修改演示文稿的母版幻灯片。|
-|普通幻灯片|使用 Aspose.Slides for .NET，您可以创建不同类型的新幻灯片；还可以访问并修改演示文稿中已有的幻灯片。|
-|克隆 / 复制幻灯片|Aspose.Slides for .NET 提供内置方法，允许您在演示文稿中克隆或复制现有幻灯片。您还可以将复制或克隆的幻灯片从一个演示文稿使用到另一个演示文稿。由于幻灯片从母版幻灯片继承布局，内置的克隆方法会自动复制母版。|
-|管理幻灯片分段|用于在演示文稿内部将幻灯片组织到不同分段的方法。|
-|占位符和文本占位符|您可以访问幻灯片中的占位符和文本占位符。此外，您可以使用相应的方法从头创建带有文本占位符的幻灯片。|
-|页眉和页脚|Aspose.Slides for .NET 便于在幻灯片中处理页眉/页脚。|
-|幻灯片备注|使用 Aspose.Slides for .NET，您可以访问并修改与幻灯片关联的备注，也可以添加新备注。|
-|查找形状|您还可以使用形状的替代文本在幻灯片中查找特定形状。|
-|背景|Aspose.Slides for .NET 允许您处理与母版或普通幻灯片关联的背景。|
-|文本框|可以从头创建文本框。您可以访问已有的文本框，并在不丢失原始文本格式的情况下修改其文本。|
-|矩形形状|您可以使用 Aspose.Slides for .NET 创建或修改矩形形状。|
-|折线形状|您可以使用 Aspose.Slides for .NET 创建或修改折线形状。|
-|椭圆形状|您可以使用 Aspose.Slides for .NET 创建或修改椭圆形状。|
-|组合形状|Aspose.Slides for .NET 支持组合形状|
-|自动形状|Aspose.Slides for .NET 支持自动形状|
-|SmartArt|Aspose.Slides for .NET 为 MS PowerPoint 中的 SmartArt 形状提供支持|
-|图表|Aspose.Slides for .NET 为 PowerPoint 中的 MSO 图表提供支持|
-|形状序列化|Aspose.Slides for .NET 支持大量形状。当 Aspose.Slides for .NET 缺少对某一形状的支持时，您可以使用序列化方法将该形状从现有幻灯片序列化，从而在后续根据需求使用该形状。|
-|图片框|您可以使用 Aspose.Slides for .NET 管理图片框中的图片。|
-|音频框|您可以在幻灯片的音频框中链接或嵌入音频文件。|
-|视频框|您可以处理视频框中的视频文件。Aspose.Slides for .NET 还提供对链接和嵌入视频的支持。|
-|OLE 框|您可以使用 Aspose.Slides for .NET 管理 OLE 框中的 OLE 对象。|
-|表格|Aspose.Slides for .NET 支持幻灯片中的表格|
-|ActiveX 控件|支持 ActiveX 控件|
-|VBA 宏|支持在演示文稿中管理 VBA 宏。|
-|文本框|您可以通过与形状关联的文本框访问该形状的文本。|
-|文本扫描|您可以使用内置的扫描方法在演示文稿或幻灯片级别扫描文本。|
-|动画|您可以对形状应用动画|
-|幻灯片放映|Aspose.Slides for .NET 支持幻灯片放映和幻灯片切换|
-
-## **格式化功能**
-使用 Aspose.Slides for .NET，您可以对演示文稿中的文本和形状进行格式化。查看以下详细信息：
-
-|**功能**|**描述**|
-| :- | :- |
-|文本格式化|<p>在 Aspose.Slides for .NET 中，您可以通过与形状关联的文本框管理文本。因此，您可以使用文本框关联的段落和片段对文本进行格式化。这些文本元素可以通过 Aspose.Slides for .NET 进行格式化。</p><p>- 字体类型</p><p>- 字体大小</p><p>- 字体颜色</p><p>- 字体阴影</p><p>- 段落对齐</p><p>- 段落项目符号</p><p>- 段落方向</p>|
-|形状格式化|<p>在 Aspose.Slides for .NET 中，幻灯片的基本元素是形状。您可以使用 Aspose.Slides for .NET 对这些形状元素进行格式化：</p><p>- 位置</p><p>- 大小</p><p>- 线条</p><p>- 填充（包括图案、渐变、纯色）</p><p>- 文本</p><p>- 图像</p>|
+|[幻灯片](/slides/zh/net/presentation-slide/)|添加、克隆、重新排序和删除幻灯片；应用布局和母版；将幻灯片组织到章节中；更改幻灯片尺寸。|
+|[设计](/slides/zh/net/presentation-design/)|设置背景、主题颜色、页眉页脚和字体。|
+|[文本](/slides/zh/net/manage-text/)|创建和编辑文本框、段落和文本段；设置字体、颜色、项目符号和对齐方式；查找和替换文本。|
+|[形状](/slides/zh/net/powerpoint-shapes/)|创建自动形状、线条、连接器、组合形状和图片框；设置位置、大小、线条以及实色、渐变或图案填充；通过备用文本查找形状。|
+|[表格](/slides/zh/net/powerpoint-table/), [图表](/slides/zh/net/powerpoint-charts/), and [SmartArt](/slides/zh/net/powerpoint-smartart/)|创建和编辑表格、Microsoft Office 图表以及 SmartArt 图形。|
+|[媒体](/slides/zh/net/manage-media-files/), [OLE 对象](/slides/zh/net/manage-ole/), and [ActiveX 控件](/slides/zh/net/activex/)|添加嵌入或链接的音频和视频框，嵌入 OLE 对象，并添加、修改或删除 ActiveX 控件。|
+|[备注](/slides/zh/net/presentation-notes/) and [批注](/slides/zh/net/presentation-comments/)|添加、读取和编辑演讲者备注以及审阅批注。|
+|[动画](/slides/zh/net/powerpoint-animation/) and [切换](/slides/zh/net/slide-transition/)|对形状应用动画效果，设置幻灯片切换，并配置幻灯片放映设置。|
+|[安全](/slides/zh/net/presentation-security/)|使用密码加密演示文稿，设置写保护，并处理数字签名。|
+|[VBA 宏](/slides/zh/net/presentation-via-vba/)|在启用宏的演示文稿中添加、提取和移除 VBA 模块。|
+|[属性](/slides/zh/net/presentation-properties/)|读取和编辑文档属性。
 
 ## **常见问题**
 
-### 我需要在服务器/电脑上安装 Microsoft PowerPoint 才能使用该库吗？
+**我是否需要在服务器或电脑上安装 Microsoft PowerPoint 才能使用该库？**
 
-不需要。PowerPoint 并非必装；Aspose.Slides 是一个独立的引擎，用于创建、编辑、转换和渲染演示文稿。
+不需要。PowerPoint 并非必需；Aspose.Slides 是一个独立的引擎，用于创建、编辑、转换和渲染演示文稿。
 
-### 多线程是如何工作的？可以并行处理吗？
+**多线程是如何工作的？可以并行处理吗？**
 
-在不同线程中处理不同文档是安全的；同一个[presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)对象不能被[multiple threads](/slides/zh/net/multithreading/)同时使用。
+在不同线程中处理不同文档是安全的；同一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 对象不能同时被 [多个线程](/slides/zh/net/multithreading/) 使用。
 
-### 支持文件密码和加密吗？
+**是否支持文件密码和加密？**
 
-支持。您可以[/slides/zh/net/password-protected-presentation/]打开受加密的演示文稿，设置或移除打开和写入密码，并检查保护状态。
+是的。[您可以](/slides/zh/net/password-protected-presentation/) 打开受加密的演示文稿，设置或移除打开和写入密码，并检查保护状态。
 
-### 在 Linux 容器中需要关心字体包吗？
+**在 Linux 容器中需要关注字体吗？**
 
-需要。建议安装常用字体包，或在应用程序中显式[specify font directories](/slides/zh/net/custom-font/)，以避免意外的字体替换。
+是的。演示文稿中使用的字体或合适的替代字体必须安装在系统上，才能正确渲染文本。您也可以在应用程序中[指定字体目录](/slides/zh/net/custom-font/)。[安装](/slides/zh/net/installation/) 列出了每个包的 Linux 前置条件。
 
-### 评估版有哪些限制？
+**评估版是否有限制？**
 
-在[evaluation mode](/slides/zh/net/licensing/)下，输出会添加水印并存在一定限制；可使用[30-day temporary license](https://purchase.aspose.com/temporary-license/)进行完整功能测试。
+是的。没有[许可证](/slides/zh/net/licensing/)，Aspose.Slides 会在每个保存的幻灯片上添加评估水印，并截断从演示文稿读取的文本。可使用[30 天临时许可证](https://purchase.aspose.com/temporary-license/)进行完整功能测试。
 
-### 是否支持将外部格式导入到演示文稿（PDF/HTML → PPTX）？
+**是否支持将外部格式导入演示文稿（PDF 或 HTML 转换为 PPTX）？**
 
-支持。您可以将[PDF pages and HTML content](/slides/zh/net/import-presentation/)添加到演示文稿中，转换为幻灯片。
+是的。您可以将[PDF 页面和 HTML 内容](/slides/zh/net/import-presentation/)添加到演示文稿中，转换为幻灯片。

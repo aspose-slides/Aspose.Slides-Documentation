@@ -1,394 +1,220 @@
 ---
-title: Hogyan futtassuk az Aspose.Slides-t Dockerben
-linktitle: Aspose.Slides Dockerben
+title: "Az Aspose.Slides for .NET futtatása Dockerben"
+linktitle: "Docker"
 type: docs
 weight: 140
 url: /hu/net/how-to-run-aspose-slides-in-docker/
 keywords:
-- támogatott OS
-- Aspose.Slides Dockerben
+- Docker
+- Dockerfile
 - Docker konténer
-- Aspose Docker
-- GDI
-- libgdiplus
-- System.Drawing.Common
+- többlépcsős felépítés
+- konténerkép
 - Linux
-- képtár
-- Windows Server Core
+- Ubuntu
+- Alpine
+- libfontconfig
+- libgdiplus
+- betűtípusok
+- PDF konverzió
 - PowerPoint
-- OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Az Aspose.Slides futtatása Docker konténerekben: képek, függőségek, betűtípusok és licenc beállítása a PowerPoint és OpenDocument feldolgozására szolgáló skálázható szolgáltatások építéséhez."
+description: "Az Aspose.Slides for .NET konzolos alkalmazás felépítése és futtatása Dockerben: egy többlépcsős Dockerfile a hivatalos .NET képeken, a szükséges Linux könyvtárak és betűtípusok, valamint a generált fájlok gépére másolásának módja."
 ---
-## **Támogatott operációs rendszerek**
-Az Aspose.Slides futtatható Docker konténerekben a .NET Core platform használatával. Általánosságban az Aspose.Slides támogatja az összes konténer (OS) típust, amelyet a .NET Core platform támogat. Azonban a GDI vagy a [libgdiplus](https://github.com/mono/libgdiplus) elérhetőnek és megfelelően beállítottaknak kell lenniük a befolyásolt konténerekben.
+## **Áttekintés**
 
-A Docker használatához először telepíteni kell a rendszeren. A Docker Windows vagy Mac rendszerekre történő telepítésének megismeréséhez használja a következő hivatkozásokat:
+Ez a cikk bemutatja, hogyan futtatható az Aspose.Slides for .NET egy Docker konténerben. Készít egy kis konzolos alkalmazást, amely létrehoz egy prezentációt szövegdobozzal, és PDF-re konvertálja, többfázisú Dockerfile-lal csomagolja a Microsoft hivatalos .NET képeire, futtatja, és átmásolja a generált fájlokat a gépedre. A cikk felsorolja a Linux könyvtárakat és betűtípusokat is, amelyekre az Aspose.Slidesnek szüksége van a konténerben, és egy Alpine Linux változattal zárul.
 
-- [Telepítse a Docker-t Windowsra](https://docs.docker.com/docker-for-windows/install/)
-- [Telepítse a Docker-t Mac-re](https://docs.docker.com/docker-for-mac/install/)
+A gépeden csak a Dockerra van szükség. A .NET SDK a build képen része, így nem kell telepíteni. A Docker telepítéséhez lásd [Get Docker](https://docs.docker.com/get-started/get-docker/).
 
-Docker-t Linuxon és Windows Serveren is futtathatja a következő oldalak útmutatásait követve:
+## **Válaszd ki a csomagot és az alapképet**
 
-- [Docker telepítése és konfigurálása Linuxon (apt-get libgdiplus)](#install-and-configure-docker-on-linux-apt-get-libgdiplus)
-- [Docker telepítése és konfigurálása Linuxon (make install libgdiplus)](#install-and-configure-docker-on-linux-make-install-libgdiplus)
-- [Docker telepítése és konfigurálása Windows Server Core-on](#install-and-configure-docker-on-windows-server-core)
+Az alapértelmezett .NET 10 konténerképek az Ubuntu 24.04-en alapulnak. Ezeken a képeken a [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) csomagot kell használni. Ez `fontconfig` könyvtárat igényel, és a .NET runtime kép sem tartalmazza azt a könyvtárat, sem betűtípusokat, ezért a cikkben szereplő Dockerfile mindkettőt telepíti.
 
-A Docker Windows Server Nano-ra történő telepítése és konfigurálása nem támogatott. Sajnos a Windows Server Nano nem tartalmaz beépített grafikus alrendszert. Nem tartalmazza a gdiplus.dll fájlt, amelyre a System.Drawing.Common könyvtárnak szüksége van, ezért nem használható az Aspose.Slides könyvtárral együtt.
+Az Aspose.Slides.NET6.CrossPlatform nem fut Alpine Linuxon. Alpine-alapú képekhez használja a [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) csomagot `libgdiplus`-szal, ahogyan a [Run on Alpine Linux](#run-on-alpine-linux) leírja. A [Telepítés](/slides/hu/net/installation/) összehasonlítja a két csomagot.
 
-Miközben lehetséges Linux konténereket Windowson futtatni, azt javasoljuk, hogy natívan Linuxon futtassa őket (akár egy VirtualBox‑os VM‑ben kézzel telepített Linuxon is).
+## **Projekt létrehozása**
 
-## **Docker telepítése és konfigurálása Linuxon (apt-get libgdiplus)**
-- OS: Ubuntu 18.04.
-- Dockerfile: Dockerfile-Ubuntu18_04_apt_get_libgdiplus
+Hozzon létre egy *HelloSlidesDocker* nevű mappát, és adja hozzá a következő három fájlt.
 
-Ez a Dockerfile olyan utasításokat tartalmaz, amelyekkel egy konténerkép építhető, a libgdiplus csomag az Ubuntu hivatalos csomagtárolóiból telepítve.
+*HelloSlidesDocker.csproj* egy .NET 10 konzolos alkalmazást ír le, a lent használt konténerképek verzióját, és hivatkozik az Aspose.Slides.NET6.CrossPlatform csomagra. Állítsa be a csomag verzióját a [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) oldalon felsorolt legújabbra.
 
-A Dockerfile tartalma:
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
 
-``` csharp
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
+  <ItemGroup>
+    <PackageReference Include="Aspose.Slides.NET6.CrossPlatform" Version="26.9.0" />
+  </ItemGroup>
 
-\# libgdiplus telepítése
-
-RUN apt-get update -y && apt-get install -y apt-utils
-
-RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
-
-\# csatolási pontok létrehozása
-
-VOLUME /slides-src
-
-\# Aspose.Slides felépítése és tesztelése indításkor
-
-WORKDIR /slides-src
-
-CMD ./build/netcore.linux.tests.sh
-
+</Project>
 ```
 
-Nézzük meg, mit jelent a Dockerfile minden egyes sorának:
+*Program.cs* létrehoz egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektumot, hozzáad egy szöveget tartalmazó téglalapot az első diájához, és kétszer menti a prezentációt a [Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódussal: PPTX‑ként és PDF‑ként. Mindkét fájl az *output* mappába kerül a munkakönyvtár alatt. Az alkalmazás ezután felsorolja a PDF renderelése közben helyettesített betűtípusokat a [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) használatával, így láthatja, hogy a konténer rendelkezik‑e a prezentáció által használt betűtípusokkal.
 
-1. A konténer képe a microsoft/dotnet:2.1-sdk-bionic képre épül (a Microsoft által előre épített és a Docker [public hub](https://hub.docker.com/r/microsoft/dotnet/) oldalon közzétett képre). Ez a kép már tartalmazza a telepített dotnet 2.1 SDK‑t. A Bionic utótag azt jelenti, hogy az Ubuntu 18.04 (kódnév bionic) lesz a konténer OS‑e. Az utótag megváltoztatásával lehetséges más alap‑OS-t használni (például: stretch – Debian 9, alpine – Alpine Linux). Ebben az esetben a Dockerfile tartalmának módosítása szükséges (például az 'apt-get' helyett 'yum' használata).
+```c#
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-``` csharp
+var outputFolder = "output";
+Directory.CreateDirectory(outputFolder);
 
- FROM microsoft/dotnet:2.1-sdk-bionic AS build:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello from a Docker container!";
 
+var pptxPath = Path.Combine(outputFolder, "hello.pptx");
+var pdfPath = Path.Combine(outputFolder, "hello.pdf");
+presentation.Save(pptxPath, SaveFormat.Pptx);
+presentation.Save(pdfPath, SaveFormat.Pdf);
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
+{
+    Console.WriteLine($"Font substitution: {substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+Console.WriteLine($"Saved {pptxPath} and {pdfPath}");
 ```
 
-2. Frissíti a rendelkezésre álló csomagok adatbázisát, és telepíti az apt-utils csomagot.
+*.dockerignore* a helyi build *bin* és *obj* mappáit, valamint a korábbi futások kimenetét tartja távol a Docker build kontextustól, így a kép csak a forrásfájlokból épül.
 
-``` csharp
-
- RUN apt-get update -y && apt-get install -y apt-utils
-
+```text
+bin/
+obj/
+output/
 ```
 
-3. Telepíti a System.Drawing.Common könyvtár által igényelt 'libgdiplus' és 'libc6-dev' csomagokat.
+## **Dockerfile írása**
 
-``` csharp
+Adjon hozzá egy *Dockerfile* nevű fájlt ugyanabba a mappába:
 
- RUN apt-get install -y libgdiplus && apt-get install -y libc6-dev
+```dockerfile
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+COPY HelloSlidesDocker.csproj .
+RUN dotnet restore
+COPY . .
+RUN dotnet publish --no-restore -c Release -o /app
 
+FROM mcr.microsoft.com/dotnet/runtime:10.0
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libfontconfig1 fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY --from=build /app .
+RUN mkdir output && chown $APP_UID output
+USER $APP_UID
+ENTRYPOINT ["dotnet", "HelloSlidesDocker.dll"]
 ```
 
-4. Deklarálja a /slides-src mappát csatolási pontként, amelyet a gazdagépen lévő slide‑net forrásmappához való hozzáférés biztosítására használunk.
+A fájl két szakaszból áll:
 
-``` csharp
+- **A build szakasz** a .NET SDK képből indul. Elsőként másolja a projektfájlt, és visszaállítja a NuGet csomagokat, így a Docker újrahasználja ezt a réteget amíg a projektfájl nem változik. Ezután másolja a forráskódot, és kiadja az alkalmazást a */app* könyvtárba.
+- **A runtime szakasz** a kisebb .NET runtime képből indul, amely nem tartalmaz SDK‑t, és csak a kiadott alkalmazást másolja be. Két csomagot telepít:
+  - `libfontconfig1`: az Aspose.Slides.NET6.CrossPlatform ennek a könyvtárnak a betöltésével indul. Nélküle az alkalmazás `DllNotFoundException` hibával áll le, amely a `libfontconfig.so.1` fájlt említi.
+  - `fonts-dejavu-core`: a runtime kép nem tartalmaz betűtípusokat, és az Aspose.Slidesnek legalább egy telepített betűtípusra van szüksége a szöveg rajzolásához; nincsenek ilyenek, a konverzió `InvalidOperationException: Cannot find any fonts installed on the system.` hibával áll le. A nem telepített betűtípusok helyett helyettesítő betűtípussal rajzol. A DejaVu betűtípusok egy kis készletet biztosítanak, amely lehetővé teszi a szöveg megjelenítését; a prezentációk eredeti betűtípusaival való megjelenítéshez lásd a [Deploy Fonts](/slides/hu/net/deploy-fonts/) útmutatót.
 
- VOLUME /slides-src
+  `--no-install-recommends` és a csomaglisták eltávolítása segít a kép méretének csökkentésében. Az utolsó sorok létrehozzák az *output* mappát, a nem root `app` felhasználóhoz rendelik (amely a hivatalos .NET képekben a `APP_UID` változóban szerepel), és a felhasználóként futtatják az alkalmazást.
 
+ASP.NET Core alkalmazás esetén a runtime szakaszt indítsa a `mcr.microsoft.com/dotnet/aspnet:10.0` képből. Ez ugyanazon Ubuntu képen alapul, ezért ugyanazok a csomagok szükségesek.
+
+## **Konténer felépítése és futtatása**
+
+Nyisson egy terminált a *HelloSlidesDocker* mappában. Építse fel a képet, majd futtasson egy konténert belőle:
+
+```bash
+docker build -t hello-slides .
+docker run --name hello-slides-run hello-slides
 ```
 
-5. Beállítja a slides‑src mappát munkakönyvtárként a konténeren belül.
+Az első build letölti az alapképeket és a NuGet csomagokat, ezért hosszabb ideig tart, mint a későbbi buildek. A konténer lefuttatja az alkalmazást és leáll. Kiírja a következőt:
 
-``` csharp
-
- WORKDIR /slides-src
-
+```text
+Font substitution: Calibri -> DejaVu Sans
+Saved output/hello.pptx and output/hello.pdf
 ```
 
-6. Deklarál egy alapértelmezett parancsot, amely a konténer indulásakor lesz futtatva, ha explicit módon nincs megadva más parancs.
+Az első sor azt mutatja, hogy a szöveg a Calibri-t használja, amely egy új prezentáció alapértelmezett betűtípusa, és hogy a Calibri nincs telepítve a képen, így az Aspose.Slides a szöveget DejaVu Sans-szal rajzolta. A PDF-ben a szöveg valós, kiválasztható szöveg ebben a betűtípusban. Licenc nélkül az Aspose.Slides minden mentett diára egy értékelő vízjelet ad hozzá; lásd [Licenc](/slides/hu/net/licensing/).
 
-``` csharp
+## **Kimenet másolása a gépre**
 
- CMD ./build/netcore.linux.tests.sh
+A fájlok a leállított konténer */app/output* mappájában vannak. Másolja őket egy *output* mappába a gépén, majd távolítsa el a konténert:
 
+```bash
+docker cp hello-slides-run:/app/output/. ./output
+docker rm hello-slides-run
 ```
 
-Az útmutató szerint a konténer képe Ubuntu 18.04 OS‑szel, dotnet‑sdk‑val, libgdiplus‑szal és libc6‑dev‑csomagokkal lesz előre telepítve. Emellett a képen előre definiált csatolási pont és előre definiált parancs is lesz.
+Ez a két parancs ugyanúgy működik Bash‑ben, PowerShell‑ben és a Windows Parancssorban.
 
-A kép építéséhez a Dockerfile használatával a slides‑netuil Docker könyvtárba kell menni, és a következőt kell futtatni:
+Linuxon helyette egy mappát csatolhat a gépéről a konténerbe, így az alkalmazás közvetlenül oda írja a fájlokat:
 
-``` csharp
-
- $ docker build -f Dockerfile-Ubuntu18_04_apt_get_libgdiplus -t ubuntu18_04_apt_get_libgdiplus .
-
+```bash
+mkdir -p output
+docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-slides
 ```
 
-*-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus* -- megadja, hogy melyik Dockerfile‑t használja.  
-*-t ubuntu18_04_apt_get_libgdiplus* -- megadja a létrejövő kép címkéjét (nevét).  
-*'.'* -- megadja a Docker kontextust. Jelen esetben a kontextus az aktuális mappa, és üres — mivel a slides‑net forrásokat csatolási pontként adjuk meg (így nem kell újraépíteni a Docker‑képet minden forrásváltozáskor).
+A `--user` kapcsoló az alkalmazást az Ön felhasználói és csoport‑azonosítóival futtatja, így írni tud a létrehozott mappába, és a fájlok az Önhöz tartoznak. A `--rm` a konténert a leálláskor eltávolítja.
 
-A végrehajtás eredménye így néz ki:
+## **Futtatás Alpine Linuxon**
 
-``` csharp
+Az alkalmazás Alpine‑alapú képen való futtatásához váltsunk az Aspose.Slides.NET csomagra, és módosítsuk a runtime szakaszt. A build szakasz változatlan marad.
 
- Successfully built 62dd34ddc142
+1. A *HelloSlidesDocker.csproj*-ben cserélje ki a csomagra hivatkozást:
 
-Successfully tagged ubuntu18_04_apt_get_libgdiplus:latest
+   ```xml
+   <PackageReference Include="Aspose.Slides.NET" Version="26.9.0" />
+   ```
 
-```
+1. A *Program.cs*-ben adja hozzá ezt a kifejezést a `using` direktívák után, az első Aspose.Slides hívás előtt. Ez engedélyezi a System.Drawing támogatást Linuxon, amelyet az Aspose.Slides.NET használ:
 
-Annak ellenőrzéséhez, hogy az új kép hozzá lett‑e adva a helyi képtárhoz:
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
 
-``` csharp
+1. A *Dockerfile*-ban cserélje ki a runtime szakaszt (mindennel, ami a második `FROM` sortól kezdődik) a következőre:
 
- $ docker images
+   ```dockerfile
+   FROM mcr.microsoft.com/dotnet/runtime:10.0-alpine
+   ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+   RUN apk add --no-cache icu-libs libgdiplus font-dejavu
+   WORKDIR /app
+   COPY --from=build /app .
+   RUN mkdir output && chown $APP_UID output
+   USER $APP_UID
+   ENTRYPOINT ["dotnet", "HelloSlidesDocker.dll"]
+   ```
 
-\----
+Az Alpine szakasz három csomagot telepít és egy beállítást módosít:
 
-REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+- `libgdiplus` a grafikai könyvtár, amelyet az Aspose.Slides.NET Linuxon használ.
+- `font-dejavu` betűtípusokat biztosít. Nincs betűtípus, a konverzió `System.ArgumentException: Font '?' cannot be found` hibával áll le.
+- `icu-libs` és `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` biztosítják a kulturális adatokat. Az Alpine .NET képek alapértelmezés szerint a globalizáció‑invariáns módban futnak, ebben a módban az Aspose.Slides `CultureNotFoundException` hibával áll le az `en-US` esetén.
 
-ubuntu18_04_apt_get_libgdiplus   latest              62dd34ddc142        2 minutes ago         1.78GB
+Építse, futtassa, és másolja a kimenetet a fenti ugyanazokkal a parancsokkal. Ezen a képen az alkalmazás csak a `Saved` sort írja ki: Linuxon az Aspose.Slides.NET esetén a fontconfig választja ki a hiányzó betűtípus helyettesítőjét, és a [GetSubstitutions](https://reference.aspose.com/slides/hu/net/aspose.slides/ifontsmanager/getsubstitutions/) nem sorolja fel. A [Betűtípusk telepítése](/slides/hu/net/deploy-fonts/) bemutatja, hogyan ellenőrizhető, mely betűtípust használták.
 
-```
+## **GYIK**
 
-Miután a kép elkészült, a következő paranccsal indíthatjuk el:
+**Az alkalmazás leáll a „Unable to load shared library 'libaspose.slides.drawing.capi…'” hibaüzenettel. Mi hiányzik?**
 
-``` csharp
+Ubuntu és Debian képeken a `libfontconfig1` csomagra van szükség; az üzenet a `libfontconfig.so.1` fájlt sorolja fel, amelyet nem sikerült megnyitni. Alpine Linuxon az üzenet azt jelenti, hogy az Aspose.Slides.NET6.CrossPlatform van használatban; váltsunk az Aspose.Slides.NET-re, amint a [Run on Alpine Linux](#run-on-alpine-linux) leírása tartalmaz.
 
- $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest
+**Miért más betűtípusban jelenik meg a PDF szövege, mint a PowerPointban?**
 
-```
+A prezentáció által használt betűtípusok nincsenek telepítve a képen, ezért az Aspose.Slides helyettesítő betűtípussal rajzolja a szöveget. Az alkalmazás kimenete felsorolja az egyes helyettesített betűtípusokat. A [Betűtípusk telepítése](/slides/hu/net/deploy-fonts/) bemutatja, hogyan telepíthetők a betűtípusok a képre vagy hogyan tölthetők be az alkalmazás mappájából.
 
-*-it* -- megadja, hogy a parancs interaktívan fusson, lehetővé téve a kimenet megtekintését és a bevitel rögzítését.  
-*-v `pwd`/../../:/slides-src* -- megadja a mappát az előre definiált csatolási ponthoz — mivel az aktuális munkakönyvtár a slides‑netuidocker, így a konténerben lévő slides‑src mappa a gazdagépen lévő slides‑net mappára mutat. A `pwd` relatív útvonalat ad meg.  
-*--add-host dev.slides.external.tool.server:192.168.1.48* -- módosítja a konténer hosts fájlját, hogy feloldja a dev.slides.external.tool.server URL‑t.  
-*ubuntu1804aptgetlibgdiplus:latest* -- megadja a futtatandó képet.
+**Szükségem van a .NET SDK-ra a gépemen?**
 
-A fenti parancs eredménye a netcore.linux.tests.sh kimenete lesz (mivel ez volt beállítva alapértelmezett parancsként a konténerhez):
-
-``` csharp
-
- Restoring packages for /slides-src/targets/.NETCore/tests/Aspose.Slides.FuncTests.NetCore/Aspose.Slides.FuncTests.NetCore.csproj...
-
-Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.DOM.NetStandard/Aspose.Slides.DOM.NetStandard.csproj...
-
-Restoring packages for /slides-src/targets/.NETStandard/main/Aspose.Slides.CompoundFile.NetStandard/Aspose.Slides.CompoundFile.NetStandard.csproj...
-
-Installing System.Text.Encoding.CodePages 4.4.0.
-
-Installing System.Drawing.Common 4.5.0.
-
-...
-
-Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.FuncTests.NetCore.trx
-
-Total tests: Unknown. Passed: 2110. Failed: 108. Skipped: 210.
-
-...
-
-Results File: /slides-src/build-out/netstandard20/test-results/main/Aspose.Slides.RegrTests.NetCore.trx
-
-Total tests: 2124. Passed: 1550. Failed: 103. Skipped: 471.
-
-```
-
-Az eredményből látszik, hogy a Func és Regr tesztek naplófájljai a /build-out/netstandard20/test-results/main/ könyvtárba kerültek. Összesen körülbelül 200 teszt hibázott – mindegyik a konténerben hiányzó szükséges betűtípusok miatt fellépő renderelési problémára vezethető vissza.
-
-Az alapértelmezett konténerparancs felülírásához a futtatás során használhatjuk ezt a parancsot:
-
-``` csharp
-
- $ docker run -it -v pwd/../../:/slides-src --add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_apt_get_libgdiplus:latest /bin/bash
-
-```
-
-Így a netcore.linux.tests.sh helyett a /bin/bash lesz végrehajtva, és egy aktív terminál‑szekciót nyújt a konténerben, ahonnan a (./build/netcore.linux.tests.sh) futtatható. Ez a megközelítés hasznos lehet hibaelhárítási helyzetekben.
-
-## **Docker telepítése és konfigurálása Linuxon (make install libgdiplus)**
-- OS: Ubuntu 18.04.
-- Dockerfile: Dockerfile-Ubuntu18_04_make_libgdiplus
-
-Jelenleg az Ubuntu csak a libgdiplus 4.2‑es verzióját tartalmazza, míg a 5.6‑os verzió már elérhető a termék [official site](https://github.com/mono/libgdiplus/releases) oldalán. A libgdiplus legújabb verziójának teszteléséhez egy olyan képre van szükség, amely a forrásból épített libgdiplus‑t tartalmazza.
-
-Nézzük meg a Dockerfile tartalmát:
-
-``` csharp
-
- FROM microsoft/dotnet:2.1-sdk-bionic AS build
-
-\# legújabb stabil libgdiplus felépítése
-
-RUN apt-get update -y
-
-RUN apt-get install -y libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
-
-RUN git clone -b 5.6 https://github.com/mono/libgdiplus
-
-WORKDIR /libgdiplus
-
-RUN ./autogen.sh
-
-RUN make
-
-RUN make install
-
-RUN ln -s /usr/local/lib/libgdiplus.so /usr/lib/libgdiplus.so
-
-\# csatolási pontok létrehozása
-
-VOLUME /slides-src
-
-\# Aspose.Slides felépítése és tesztelése indításkor
-
-WORKDIR /slides-src
-
-CMD ./build/netcore.linux.tests.sh
-
-```
-
-Az egyetlen különbség a *build latest stable libgdiplus* szakasz. Ez a szakasz telepíti az összes szükséges eszközt a libgdiplus felépítéséhez, klónozza a forráskódot, majd lefordítja és a megfelelő helyre telepíti. Minden egyéb megegyezik a [Docker telepítése és konfigurálása Linuxon (apt-get libgdiplus)](/slides/hu/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/) lapon leírtakkal.
-
-**Megjegyzés**: Ne felejtse el különböző képcímkéket (neveket) használni a docker build és docker run parancsoknál a létrehozott képhez:
-
-``` csharp
-
- $ docker build \-f Dockerfile-Ubuntu18_04_apt_get_libgdiplus \-t ubuntu18_04_make_libgdiplus .
-
-$ docker run \-it \-v pwd/../../:/slides-src \--add-host dev.slides.external.tool.server:192.168.1.48 ubuntu18_04_make_libgdiplus:latest
-
-```
-
-## **Docker telepítése és konfigurálása Windows Server Core-on**
-- OS: Ubuntu 18.04.
-- Dockerfile: Dockerfile*WinServerCore*
-
-**Megjegyzés**: Windows 10 Pro vagy Windows Server 2016 szükséges a Windows konténerek futtatásához.
-
-Sajnos a Microsoft nem biztosít Windows Server Core képet a dotnet SDK‑val előre telepítve, ezért azt manuálisan kell telepíteni:
-
-``` csharp
-
- # escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#set powershell default executor
-\# határozza meg a PowerShell alapértelmezett végrehajtót
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# escape=
-
-FROM microsoft/windowsservercore:1803 AS installer-env
-
-#set powershell default executor
-\# határozza meg a PowerShell alapértelmezett végrehajtót
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-\# Retrieve .NET Core SDK
-\# .NET Core SDK lekérése
-
-ENV DOTNET_SDK_VERSION 2.1.301
-
-ENV DOTNET_PATH "c:/Program Files/dotnet"
-
-RUN Invoke-WebRequest -OutFile dotnet.zip https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$Env:DOTNET_SDK_VERSION/dotnet-sdk-$Env:DOTNET_SDK_VERSION-win-x64.zip; 
-
-    $dotnet_sha512 = 'f2f6cc020f89dc4d4f8064cc914cffabde0ce422715138778a6bcbbb6803ca66d6fd967097a0209c47c89b85dd9e93db48486ac86999bd3a533e45b789fcea89'; 
-
-    if ((Get-FileHash dotnet.zip -Algorithm sha512).Hash -ne $dotnet_sha512) { 
-
-        Write-Host 'CHECKSUM VERIFICATION FAILED!'; 
-
-        exit 1; 
-
-    }; 
-
-    
-
-    Expand-Archive dotnet.zip -DestinationPath $Env:DOTNET_PATH;
-#return cmd as default executor
-# visszaállítja a cmd-t alapértelmezett végrehajtónak
-SHELL ["cmd", "/S", "/C"]
-\# In order to set system PATH, ContainerAdministrator must be used
-\# A rendszer PATH beállításához a ContainerAdministrator felhasználót kell használni
-USER ContainerAdministrator
-RUN setx /M PATH "%PATH%;c:/Program Files/dotnet"
-USER ContainerUser
-\# create mount points
-\# csatolási pontok létrehozása
-VOLUME c:/slides-src
-#build and test Aspose.Slides on start
-# Aspose.Slides felépítése és tesztelése indításkor
-WORKDIR c:/slides-src
-CMD .\external\buildtools\nant\nant.exe -buildfile:.\build\netcore.tests.build -D:obfuscate_eaz_use_mock=true -D:slidesnet.run.func.tests=true -D:slidesnet.run.regr.tests=true
-
-```
-
-A kapott kép a microsoft/windowsservercore:1803 képre épül, amelyet a Microsoft a [docker hub](https://hub.docker.com/u/microsoft) oldalon biztosít. A megadott verziójú dotnet‑sdk le lesz töltve és kicsomagolva; a rendszer PATH változója frissül, hogy tartalmazza a dotnet végrehajtható állomány útvonalát. Az utolsó sor definiálja a parancsot, amely a func és regr teszteket futtatja a konténeren belül a nant.exe‑t használva alapértelmezett műveletként a konténer indításakor.
-
-Parancs a kép építéséhez:
-
-``` csharp
-
- docker build -f Dockerfile_WinServerCore -t winservercore_slides .
-
-```
-
-Parancs a kép futtatásához:
-
-``` csharp
-
- docker run -it --cpu-count 3 --memory 8589934592 -v e:\Project\Aspose\slides-net:c:\slides-src winservercore_slides:latest
-
-```
-
-**Megjegyzés**: A Windows konténer parancsa 2 extra argumentumot használ:
-
-*-cpu-count 3* – a konténer számára rendelkezésre álló processzorok számát állítja be.  
-*-memory 8589934592* – a konténer számára elérhető memória mennyiségét állítja be.
-
-Ezek határozzák meg a magok számát és a rendelkezésre álló memória mennyiségét. Alapértelmezés szerint csak 1 mag és 1 GB RAM áll rendelkezésre a Windows konténerhez (a Linux konténereknek alapból nincs korlátozása).
-
-Emellett egy argumentum hiányzik a Linux konténerhez használt parancshoz képest:
-
-*-add-host dev.slides.external.tool.server:192.168.1.48* – mivel a Windows‑on futó konténernek nincs szüksége az external.tool.server‑re.
-
-A fenti parancs eredménye a következőképpen néz ki:
-
-``` csharp
-
- NAnt 0.92 (Build 0.92.4543.0; release; 6/9/2012)
-
-Copyright (C) 2001-2012 Gerry Shaw
-
-http://nant.sourceforge.net
-
-netcore20_runtests:
-
-   [delete] Deleting directory 'c:\slides-src\build-out\netcore20\test-results\'.
-
-   [mkdir] Creating directory 'c:\slides-src\build-out\netcore20\test-results\'.
-
-...
-
-[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.FuncTests.NetCore.trx
-
-[exec] Total tests: 2338. Passed: 2115. Failed: 19. Skipped: 204.
-
-...
-
-[exec] Results File: C:\slides-src\/build-out/netcore20/test-results//main\Aspose.Slides.RegrTests.NetCore.trx
-
-[exec] Total tests: 2728. Passed: 2147. Failed: 110. Skipped: 471.
-
-```
+Nem. A build szakasz a SDK képen belül fordítja le az alkalmazást. A SDK csak akkor szükséges, ha a Dockeron kívül is szeretné felépíteni és futtatni az alkalmazást; lásd a [Telepítés](/slides/hu/net/installation/) oldalt.

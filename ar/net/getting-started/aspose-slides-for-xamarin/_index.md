@@ -1,11 +1,12 @@
 ---
-title: Aspose.Slides لـ Xamarin
+title: Aspose.Slides لـ Xamarin (تاريخية)
+linktitle: Xamarin (تاريخية)
 type: docs
-weight: 150
+weight: 200
 url: /ar/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
-- تطوير الجوال
+- تطوير التطبيقات المحمولة
 - Android
 - PowerPoint
 - OpenDocument
@@ -13,45 +14,51 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "قم بإنشاء تطبيقات جوال Xamarin باستخدام C# لعرض وتحرير وتحويل العروض التقديمية باستخدام Aspose.Slides، مع دعم ميزات غنية لصيغ PPT و PPTX و ODP على نظام Android."
+description: "تاريخية: كيف دعمت Aspose.Slides لإصدار .NET من 20.2 إلى 22.10 منصة Xamarin.Android عبر مكتبة منفصلة. الإصدارات الحالية لا تتضمنها."
 ---
-## **مقدمة**
+{{% alert color="info" title="ملاحظة" %}}
 
-Xamarin هو إطار عمل يُستخدم لتطوير الجوال في .NET C#. يحتوي Xamarin على أدوات ومكتبات توسّع قدرات منصة .NET. يسمح للمطورين بإنشاء تطبيقات لنظام التشغيل **Android**.
-
-{{% alert color="info" %}} 
-
-لتطوير التطبيقات في Xamarin، يمكن للمبرمجين استخدام بيئات التطوير المعتادة الخاصة بهم (C#، Visual Studio، ومكتبات الطرف الثالث).
+هذه صفحة تاريخية. إصدارات 20.2 إلى 22.10 من حزمة Aspose.Slides.NET شملت مكتبة Xamarin.Android منفصلة، *Aspose.Slides.Droid.dll*، التي يستخدمها الكود في هذه الصفحة. الإصدارات اللاحقة لا تشملها: الحزمة الحالية تحتوي على بنى لـ .NET Framework 4.6.2، .NET 6، و .NET Standard 2.0 فقط. أنهت مايكروسوفت دعم جميع SDKs لـ Xamarin في 1 مايو 2024؛ راجع [سياسة دعم Xamarin](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
 {{% /alert %}}
 
-Aspose.Slides API يعمل على منصة Xamarin. لتحقيق ذلك، تضيف حزمة Aspose.Slides .NET ملف DLL منفصل لـ Xamarin. يدعم Aspose.Slides لـ Xamarin معظم الميزات المتاحة في نسخة .NET:
+## **المقدمة**
 
-- تحويل وعرض العروض التقديمية.  
-- تحرير محتويات العروض التقديمية: النصوص، الأشكال، المخططات، SmartArt، الصوت/الفيديو، الخطوط، إلخ.  
-- معالجة/التعامل مع الرسوم المتحركة، التأثيرات ثنائية الأبعاد، WordArt، إلخ.  
-- معالجة/التعامل مع البيانات الوصفية وخصائص المستند.  
+Xamarin هو إطار يستخدم لتطوير التطبيقات المحمولة في .NET C#. يمتلك Xamarin أدوات ومكتبات توسّع قدرات منصة .NET. يتيح للمطورين بناء تطبيقات لنظام التشغيل **Android**.
+
+{{% alert color="info" title="ملاحظة" %}}
+
+للتطوير في Xamarin، يمكن للبرمجة استخدام بيئات التطوير المعتادة لديهم (C#، Visual Studio، ومكتبات الجهات الخارجية).
+
+{{% /alert %}}
+
+عملت واجهة برمجة تطبيقات Aspose.Slides على منصة Xamarin. لتحقيق ذلك، أضافت حزمة Aspose.Slides.NET، في الإصدارات 20.2 إلى 22.10، مكتبة DLL منفصلة لـ Xamarin. دعمت Aspose.Slides لـ Xamarin معظم الميزات المتوفرة في نسخة .NET:
+
+- تحويل وعرض العروض التقديمية.
+- تحرير محتويات العروض التقديمية: النص، الأشكال، المخططات، SmartArt، الصوت/الفيديو، الخطوط، إلخ.
+- معالجة/التعامل مع الرسوم المتحركة، تأثيرات 2D، WordArt، إلخ.
+- معالجة/التعامل مع البيانات الوصفية وخصائص المستند.
 - استنساخ، دمج، مقارنة، تقسيم، إلخ.
 
-قدمنا مقارنة بالميزات الكاملة في قسم آخر قريب من أسفل هذه الصفحة.
+لقد قدمنا مقارنة للميزات الكاملة في قسم آخر قرب أسفل هذه الصفحة.
 
-في Aspose.Slides لـ Xamarin API، تكون الفئات والمساحات الاسمية والمنطق والسلوك مشابهة قدر الإمكان لنسخة .NET. يمكنك ترحيل تطبيقات Aspose.Slides .NET إلى Xamarin بأقل تكلفة.
+في واجهة برمجة تطبيقات Aspose.Slides لـ Xamarin، كانت الفئات والمساحات الاسمية والمنطق والسلوك مشابهة قدر الإمكان لنسخة .NET. يمكنك ترحيل تطبيقات Aspose.Slides .NET الخاصة بك إلى Xamarin بأقل تكلفة.
 
 ## **مثال سريع**
-يمكنك استخدام Aspose.Slides لـ Xamarin لبناء واستخدام تطبيق C# الخاص بك عبر Slides for Android.
+يمكنك استخدام Aspose.Slides لـ Xamarin لإنشاء واستخدام تطبيق C# الخاص بك عبر Slides for Android.
 
-نقدم مثالًا لتطبيق Android عبر Xamarin يستخدم Aspose.Slides لعرض شرائح العروض ويضيف شكلًا جديدًا على الشريحة عند اللمس. يمكنك العثور على المصدر الكامل للأمثلة على[GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+نقدم مثالًا لتطبيق Android عبر Xamarin يستخدم Aspose.Slides لعرض شرائح العرض ويضيف شكلًا جديدًا على الشريحة عند اللمس. يمكنك العثور على الشيفرة الكاملة للأمثلة على [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 لنبدأ بإنشاء تطبيق Xamarin Android:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creating a Xamarin Android app](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-أولاً، ننشئ تخطيط محتوى يحتوي على عنصر عرض صورة، وزرّي Prev و Next:
+أولاً، نقوم بإنشاء تخطيط محتوى سيحتوي على عرض صورة، وزر Prev، وزر Next:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Content layout with an image view and Prev and Next buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 **XML - content_main.xml - إنشاء تخطيط المحتوى**
-``` 
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -94,7 +101,7 @@ Aspose.Slides API يعمل على منصة Xamarin. لتحقيق ذلك، تضي
 </LinearLayout>
 ```
 
-هنا، نشير إلى مكتبة "Aspose.Slides.Droid.dll" التي تتضمن عرض تقديمي تجريبي ("HelloWorld.pptx") في أصول تطبيق Xamarin ونضيف تهيئتها إلى MainActivity:
+هنا، نشير إلى مكتبة "Aspose.Slides.Droid.dll" التي تتضمن عرضًا تقديميًا تجريبيًا ("HelloWorld.pptx") في أصول تطبيق Xamarin وتضيف تهيئتها إلى MainActivity:
 
 **C# - MainActivity.cs - التهيئة**
 ``` csharp
@@ -134,9 +141,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-دعنا نضيف الدالة التي تعرض شرائح Prev و Next عند النقر على الأزرار:
-
-**C# - MainActivity.cs - عرض الشرائح عند النقر على زر Prev و Next**
+لنضيف الدالة لعرض شرائح Prev و Next عند النقر على الأزرار:
+**C# - MainActivity.cs - عرض الشرائح عند النقر على أزرار Prev و Next**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -262,7 +268,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -270,9 +276,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-أخيرًا، لنُنفّذ دالة لإضافة شكل إهليلجي عند لمس الشريحة:
-
-**C# - MainActivity.cs - إضافة إهليلج عند النقر على الشريحة**
+أخيرًا، لننفذ دالة لإضافة شكل إهليلجي عند اللمس على الشريحة:
+**C# - MainActivity.cs - إضافة إهليلج بواسطة النقر على الشريحة**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -282,7 +287,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -302,48 +307,48 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-كل نقرة على شريحة العرض تُضيف إهليلجًا عشوائيًا ملونًا:
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+كل نقرة على شريحة العرض تؤدي إلى إضافة إهليلج عشوائي اللون:
+![Slide with ellipses added by touch](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **الميزات المدعومة**
 
 |**الميزات**|**Aspose.Slides لـ .NET**|**Aspose.Slides لـ Xamarin**|
 | :- | :- | :- |
-|**ميزات العرض التقديمي**:| | |
+|**ميزات العروض التقديمية**:| | |
 |إنشاء عروض تقديمية جديدة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|فتح/حفظ صيغ PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|فتح/حفظ صيغ PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|دعم إضافات PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|دعم إضافات PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|دعم ميزات PowerPoint 2016|مقيد|مقيد|
-|دعم ميزات PowerPoint 2019|مقيد|مقيد|
+|صيغ PowerPoint 97 - 2003 (فتح/حفظ)|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|صيغ PowerPoint 2007 (فتح/حفظ)|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|دعم ملحقات PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|دعم ملحقات PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|دعم ميزات PowerPoint 2016|restricted|restricted|
+|دعم ميزات PowerPoint 2019|restricted|restricted|
 |تحويل PPT إلى PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |تحويل PPTX إلى PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX داخل PPT|مقيد|مقيد|
-|معالجة القوالب|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX داخل PPT|restricted|restricted|
+|معالجة السمات|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |معالجة الماكرو|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |معالجة خصائص المستند|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|حماية بكلمة مرور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|استخراج نص سريع|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|حماية كلمة المرور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|استخراج النص بسرعة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |تضمين الخطوط|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |عرض التعليقات|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
-|إيقاف المهام الطويلة|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
+|إيقاف مهام طويلة الأمد|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
 |**صيغ التصدير:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|مقيد|مقيد|
-|SWF|مقيد|مقيد|
+|ODP|restricted|restricted|
+|SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**صيغ الاستيراد:**| | |
-|HTML|مقيد|مقيد|
+|HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ميزات الشرائح الرئيسة:**| | |
-|الوصول إلى جميع الشرائح الرئيسة الموجودة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|إنشاء/إزالة الشرائح الرئيسة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|استنساخ الشرائح الرئيسة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ميزات الشرائح الرئيسية:**| | |
+|الوصول إلى جميع الشرائح الرئيسية الموجودة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|إنشاء/إزالة الشرائح الرئيسية|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|استنساخ الشرائح الرئيسية|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ميزات شرائح التخطيط:**| | |
 |الوصول إلى جميع شرائح التخطيط الموجودة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |إنشاء/إزالة شرائح التخطيط|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -353,36 +358,36 @@ public class MainActivity : AppCompatActivity
 |إنشاء/إزالة الشرائح|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |استنساخ الشرائح|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |تصدير الشرائح إلى صور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|إنشاء/تحرير/إزالة أقسام الشريحة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|إنشاء/تحرير/إزالة أقسام الشرائح|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ميزات شرائح الملاحظات**:| | |
 |الوصول إلى جميع شرائح الملاحظات الموجودة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ميزات الشكل:**| | |
-|الوصول إلى جميع أشكال الشريحة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|الوصول إلى جميع أشكال الشرائح|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |إضافة أشكال جديدة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |استنساخ الأشكال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |تصدير الأشكال المنفصلة إلى صور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**أنواع الأشكال المدعومة:**| | |
-|جميع أنواع الأشكال المعرّفة مسبقًا|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|جميع أنواع الأشكال المعرفة مسبقًا|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |إطارات الصور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |الجداول|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |المخططات|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |مخطط قديم|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|كائنات OLE, ActiveX|مقيد|مقيد|
+|كائنات OLE, ActiveX|restricted|restricted|
 |إطارات الفيديو|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |إطارات الصوت|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|الموصلات|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ميزات الشكل الجماعي:**| | |
-|الوصول إلى الأشكال الجماعية|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|إنشاء الأشكال الجماعية|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|فك تجميع الأشكال الجماعية الموجودة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|موصلات|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ميزات مجموعة الأشكال:**| | |
+|الوصول إلى مجموعات الأشكال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|إنشاء مجموعات الأشكال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|إلغاء تجميع مجموعات الأشكال الموجودة|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ميزات تأثيرات الشكل:**| | |
-|تأثيرات ثنائية الأبعاد|مقيد|مقيد|
-|تأثيرات ثلاثية الأبعاد|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|تأثيرات 2D|restricted|restricted|
+|تأثيرات 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**ميزات النص:**| | |
 |تنسيق الفقرات|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|تنسيق المقاطع|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|تنسيق الأجزاء|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ميزات الرسوم المتحركة:**| | |
 |تصدير الرسوم المتحركة إلى SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |تصدير الرسوم المتحركة إلى HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

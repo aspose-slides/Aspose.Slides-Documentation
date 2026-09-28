@@ -1,36 +1,40 @@
 ---
-title: 声明
+title: 信任级别要求
 type: docs
-weight: 110
+weight: 190
 url: /zh/net/declaration/
 keywords:
-- 声明
-- 组件
-- Full Trust 权限
-- 注册表设置
-- 系统文件
+- 信任级别
+- 完全信任权限
+- 部分信任
+- 中等信任
+- 代码访问安全
+- ASP.NET
+- .NET Framework
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "了解 Aspose.Slides for .NET 的信任要求、权限和托管限制，以便您能够安全地在服务器上部署处理 PPT、PPTX 和 ODP 的应用程序。"
+description: "Aspose.Slides for .NET 所需的代码访问安全信任级别：在 .NET Framework 上需要完全信任，在 .NET 6 及更高版本上无需信任设置。"
 ---
+## **概述**
 
-{{% alert color="primary" %}}
-所有 Aspose .NET 组件都需要 Full Trust 权限集，因为它们有时必须访问注册表设置、系统文件以及存储在其他位置（虚拟目录之外）的文件，以执行某些操作（例如解析字体）。此外，Aspose .NET 组件基于核心 .NET 系统类，在许多情况下也需要 Full Trust 权限集。
-{{% /alert %}}
+代码访问安全（CAS）信任级别仅在 .NET Framework 中存在。本文说明它们对 Aspose.Slides for .NET 的意义：该库在 .NET Framework 上需要全信任，而在 .NET 6 及更高版本上没有可配置的信任级别。
 
-Internet Service Providers（托管多家公司多个应用的服务提供商）通常强制使用 Medium Trust 安全级别。在 .NET 2.0 环境中，此安全级别会施加以下限制：
+## **.NET Framework**
 
-- OleDbPermission 不可用。这意味着您无法使用 ADO.NET 托管的 OLE DB 数据提供程序访问数据库。
-- EventLogPermission 不可用。这意味着您无法访问 Windows 事件日志。
-- ReflectionPermission 不可用。这意味着您无法使用反射。
-- RegistryPermission 不可用。这意味着您无法访问注册表。
-- WebPermission 受限。这意味着您的应用程序只能与您在 <trust> 元素中定义的地址或地址范围通信。
-- FileIOPermission 受限。这意味着您只能访问位于应用程序虚拟目录层次结构中的文件。
+Aspose.Slides 在 .NET Framework 上需要全信任。它无法在部分信任环境下运行，例如配置为 Medium Trust (`<trust level="Medium" />`) 的 ASP.NET 应用程序：创建一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 对象会导致 `SecurityException`。
 
-{{% alert color="primary" %}}
-鉴于上述原因，Aspose .NET 组件只能在授予 Full Trust 权限集的服务器上使用。
-{{% /alert %}}
+Microsoft 不再将 ASP.NET 部分信任视为将应用程序相互隔离的方式，并建议改为在独立的应用程序池中运行应用程序。参见 [ASP.NET 部分信任不能保证应用隔离](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation)。
+
+## **.NET 6 and Later**
+
+在 .NET 6 及更高版本上，代码访问安全不可用，因此没有可授予的信任级别。Aspose.Slides 以运行您应用程序的账户权限执行。若要限制应用程序的访问范围，Microsoft 建议使用操作系统边界，例如用户账户、容器或虚拟机。参见 [代码访问安全 (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas)。
+
+## **FAQ**
+
+**我可以在运行 ASP.NET 中等信任的托管提供商上使用 Aspose.Slides 吗？**
+
+在中等信任下不可行。在 .NET Framework 上，使用 Aspose.Slides 的应用程序必须以全信任运行。

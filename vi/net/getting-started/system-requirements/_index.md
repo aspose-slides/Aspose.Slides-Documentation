@@ -5,138 +5,120 @@ weight: 60
 url: /vi/net/system-requirements/
 keywords:
 - yêu cầu hệ thống
-- hệ điều hành
-- cài đặt
-- phụ thuộc
+- nền tảng được hỗ trợ
+- các framework mục tiêu
+- .NET Framework
+- .NET Standard
+- libgdiplus
+- fontconfig
+- Alpine
 - Windows
 - Linux
 - macOS
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Khám phá yêu cầu hệ thống của Aspose.Slides for .NET. Đảm bảo hỗ trợ PowerPoint và OpenDocument liền mạch trên Windows, Linux và macOS."
+description: "Kiểm tra những gì Aspose.Slides for .NET cần trước khi cài đặt: các framework mà mỗi gói NuGet nhắm tới, hệ điều hành và bộ xử lý được hỗ trợ, và các thư viện cùng phông chữ mà Linux yêu cầu."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides for .NET không yêu cầu cài đặt Microsoft PowerPoint vì Aspose.Slides là một công cụ độc lập tạo, chuyển đổi, bố trí trang và hiển thị tài liệu Microsoft PowerPoint.
+Aspose.Slides for .NET là một thư viện độc lập: nó không cần Microsoft PowerPoint hay Microsoft Office. Nó được công bố dưới dạng hai gói NuGet, [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) và [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/). Cả hai cung cấp cùng các namespace và lớp Aspose.Slides; chúng khác nhau ở framework mục tiêu và cách chúng vẽ slide, quyết định nơi chúng chạy và những gì chúng cần.
 
-## **Hệ điều hành được hỗ trợ**
+Bài viết này liệt kê các phiên bản .NET và nền tảng mà mỗi gói hỗ trợ và các thư viện hệ thống và phông chữ mà Linux cần, và kết thúc bằng một chương trình ngắn kiểm tra môi trường của bạn. Để thêm một gói vào dự án, xem [Installation](/slides/vi/net/installation/).
 
-Aspose.Slides for .NET hỗ trợ bất kỳ hệ điều hành 32-bit hoặc 64-bit nào có cài đặt .NET hoặc Mono framework, bao gồm (nhưng không giới hạn ở):
+## **Các phiên bản .NET được hỗ trợ**
 
-### **Windows**
+Mỗi gói chứa một bản dựng của Aspose.Slides cho mỗi framework mục tiêu, và NuGet chọn bản dựng phù hợp với framework mục tiêu của dự án của bạn.
 
-- Microsoft Windows 2000 Server (x64, x86)
-- Microsoft Windows 2003 Server (x64, x86)
-- Microsoft Windows 2022 Server
-- Microsoft Windows Vista (x64, x86)
-- Microsoft Windows XP (x64, x86)
-- Microsoft Windows 7 (x64, x86)
-- Microsoft Windows 8, 8.1 (x64, x86)
-- Microsoft Windows 10 (x64, x86)
-- Microsoft Windows 11 (x64, x86)
-- Microsoft Azure
+| Gói | Các framework mục tiêu trong gói | Dự án của bạn có thể mục tiêu |
+|---|---|---|
+| Aspose.Slides.NET | `net462`, `net6.0`, `netstandard2.0` | .NET Framework 4.6.2 hoặc sau này; .NET 6 hoặc sau này, bao gồm .NET 8, .NET 9 và .NET 10 |
+| Aspose.Slides.NET6.CrossPlatform | `net6.0` | .NET 6 hoặc sau này, bao gồm .NET 8, .NET 9 và .NET 10 |
 
-### **Linux**
+Bản dựng `netstandard2.0` cho phép một thư viện lớp .NET Standard 2.0 tham chiếu Aspose.Slides.NET. Ứng dụng sử dụng thư viện đó sẽ chạy bản dựng phù hợp với framework mục tiêu của chính ứng dụng: ví dụ, một ứng dụng .NET 8 sẽ chạy bản dựng `net6.0`.
 
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine và các bản khác)
+## **Hệ điều hành và bộ xử lý được hỗ trợ**
 
-### **Mac**
+**Aspose.Slides.NET** chứa chỉ mã quản lý độc lập với bộ xử lý (AnyCPU), vì vậy nó chạy trên kiến trúc bộ xử lý của runtime .NET tải nó. Nó vẽ slide thông qua thư viện System.Drawing.Common của Microsoft, mà Microsoft chỉ hỗ trợ **trên Windows**. Trên Linux, Aspose.Slides.NET do đó cần thư viện `libgdiplus` và một công tắc khởi động, mô tả trong [Linux](#linux). Nó chạy trên các bản phân phối Linux cung cấp `libgdiplus`, chẳng hạn Debian, Ubuntu và Alpine Linux.
 
-- Mac OS X
+**Aspose.Slides.NET6.CrossPlatform** vẽ slide bằng cơ chế đồ họa riêng. Cơ chế này là một thư viện native mà gói chứa một bản dựng cho mỗi nền tảng, vì vậy gói chỉ chạy trên các nền tảng sau:
 
-## **Framework được hỗ trợ**
+| Hệ điều hành | Bộ xử lý | Ghi chú |
+|---|---|---|
+| Windows | x86, x64 | Windows trên ARM64 không được hỗ trợ. |
+| Linux | x64, ARM64 | Yêu cầu glibc 2.23 hoặc sau này trên x64 và glibc 2.39 hoặc sau này trên ARM64. |
+| macOS | x64 (Intel), ARM64 (Apple silicon) |  |
 
-Aspose.Slides for .NET hỗ trợ các framework .NET và Mono:
+Aspose.Slides.NET6.CrossPlatform không chạy trên Alpine Linux hoặc các bản phân phối dựa trên musl thay vì glibc, hoặc trên các bản phân phối có glibc cũ hơn, chẳng hạn CentOS 7. Sử dụng Aspose.Slides.NET trên các hệ thống đó.
 
-### **.NET Frameworks**
+Trên Windows, thư viện native của Aspose.Slides.NET6.CrossPlatform sử dụng runtime Microsoft Visual C++ (*MSVCP140.dll* và *VCRUNTIME140.dll*, cộng với *VCRUNTIME140_1.dll* trên x64). Nếu các tệp này thiếu trên máy đích, cài đặt [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170).
 
-- .NET Framework 2.0
-- .NET Framework 3.5
-- .NET Framework 4.0
-- .NET Framework 4.0_ClientProfile
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.5.2
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.5.0
-- .NET Framework 4.5.1
-- .NET Framework 4.6.0
-- .NET Framework 4.6.2
-- .NET Framework 4.7
-- .NET Framework 4.7.2
-- .NET 5
-- .NET 6
-- .NET 7
-- .NET 8
-- .NET 9
-- .NET Core
-- COM Interop support (COM, C++, VBScript)
+## **Linux**
 
-### **Mono Framework**
+Cả hai gói đều cần các thư viện hệ thống bổ sung trên Linux. Nếu không, ví dụ đầu tiên trong [Create Presentations](/slides/vi/net/create-presentation/) sẽ thất bại với một ngoại lệ thay vì lưu file. Các lệnh dưới đây dành cho Debian và Ubuntu; trên các bản phân phối này, mỗi thư viện cũng kéo theo các phông DejaVu (`fonts-dejavu-core`), vì vậy văn bản được hiển thị mà không cần gói phông thêm.
 
-- MONO Support in MAC and Linux platforms
+### **Aspose.Slides.NET6.CrossPlatform**
 
-## **Môi trường phát triển**
+Thư viện Linux của gói yêu cầu thư viện `fontconfig`:
 
-Aspose.Slides for .NET có thể được sử dụng để phát triển ứng dụng trong bất kỳ môi trường phát triển nào nhắm tới nền tảng .NET, nhưng những môi trường sau được hỗ trợ rõ ràng:
-
-- Microsoft Visual Studio 2005
-- Microsoft Visual Studio 2008
-- Microsoft Visual Studio 2010
-- Microsoft Visual Studio 2012
-- Microsoft Visual Studio 2013
-- Microsoft Visual Studio 2015
-- Microsoft Visual Studio 2017
-- Microsoft Visual Studio 2019
-- Microsoft Visual Studio 2022
-
-## **Các bản dựng chính của Aspose.Slides**
-
-Hiện tại, có hai bản dựng chính của Aspose.Slides — Aspose.Slides.NET và Aspose.Slides.NET6.CrossPlatform.
-
-### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
-
-Đây là phiên bản chính của sản phẩm. Nó sử dụng engine đồ họa .NET tiêu chuẩn.
-- Trên các nền tảng không phải Windows, bạn có thể cần cài đặt thư viện `libgdiplus` và các phụ thuộc của nó.
-- Trước phiên bản Aspose.Slides 25.3, trên các nền tảng không phải Windows, cần sử dụng DLL .NET Standard 2.0 từ gói ZIP Aspose.Slides.
-- Bắt đầu từ phiên bản Aspose.Slides 25.3, gói NuGet có thể được sử dụng trực tiếp ngay cả trên các hệ thống không phải Windows.
-- Khi chạy trên các hệ thống không phải Windows, ứng dụng của bạn phải bao gồm dòng sau khi khởi động:
-```cs
-AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```bash
+sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
-- **Bắt đầu từ phiên bản 25.3, bạn có thể sử dụng gói này trên các nền tảng hỗ trợ .NET, như Linux aarch64 (ARM64).**
 
-#### **Gói bổ sung cho Linux Alpine**
+Nếu không, việc tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sẽ thất bại với `TypeInitializationException` mà ngoại lệ bên trong `DllNotFoundException` báo rằng `libfontconfig.so.1` không thể mở.
 
-Khi chạy Aspose.Slides for .NET trong một container Alpine Linux, việc chỉ cài đặt `libgdiplus` có thể không đủ. Các container Alpine thường không bao gồm phông chữ mặc định. Nếu không có phông chữ, các thao tác hiển thị hoặc chuyển đổi có thể thất bại với lỗi tương tự như:
+Các image cơ sở tối thiểu có thể cũng không bao gồm `fontconfig`. Ví dụ, image base của AWS Lambda cho .NET 8 không chứa `fontconfig` cũng như bất kỳ phông nào. Trong một container image được xây dựng trên nó, chạy `dnf install -y fontconfig`, lệnh này cũng sẽ cài đặt phông Noto Sans.
+
+### **Aspose.Slides.NET**
+
+Gói này yêu cầu hai thứ trên Linux:
+
+1. Thư viện `libgdiplus`:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y libgdiplus
+   ```
+
+2. Công tắc `System.Drawing.EnableUnixSupport`, được bật ở đầu ứng dụng trước bất kỳ lời gọi Aspose.Slides nào. Trong *Program.cs* với top-level statements, đặt nó sau các chỉ thị `using`:
+
+   ```c#
+   System.AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+   ```
+
+Nếu không có `libgdiplus`, việc lưu một bài thuyết trình sẽ thất bại với `TypeInitializationException` mà ngoại lệ bên trong `DllNotFoundException` báo rằng không thể tải `libgdiplus`. Nếu không bật công tắc, ngoại lệ bên trong sẽ là `PlatformNotSupportedException: System.Drawing.Common is not supported on non-Windows platforms`.
+
+{{% alert color="warning" title="Warning" %}}
+Công tắc này chỉ hoạt động với System.Drawing.Common 6, phiên bản mà Aspose.Slides.NET phụ thuộc. Microsoft đã loại bỏ nó trong System.Drawing.Common 7. Nếu dự án của bạn tham chiếu System.Drawing.Common 7 hoặc cao hơn, trực tiếp hoặc qua gói khác, Aspose.Slides.NET sẽ thất bại trên Linux với `PlatformNotSupportedException` ngay cả khi đã cài đặt `libgdiplus` và bật công tắc. Trong trường hợp đó, sử dụng Aspose.Slides.NET6.CrossPlatform.
+{{% /alert %}}
+
+### **Alpine Linux**
+
+Trên Alpine Linux, sử dụng Aspose.Slides.NET với công tắc đã mô tả ở trên. Các image Alpine thường không có phông chữ, và `libgdiplus` một mình không cài đặt phông, vì vậy hãy cài đặt `libgdiplus` cùng với ít nhất một gói phông. Nếu không có phông, việc lưu bài thuyết trình sẽ thất bại với lỗi này:
 
 ```text
-System.ArgumentException: Font '?' cannot be found
+System.ArgumentException: Font '?' cannot be found.
 ```
-Để sử dụng Aspose.Slides trên Alpine, hãy cài đặt `libgdiplus` cùng với ít nhất một gói phông chữ.
 
 **Tùy chọn 1: Phông DejaVu**
 
-Khuyến nghị cài đặt gói ttf-dejavu:
+Gói khuyến nghị là `ttf-dejavu`:
 
-```
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     ttf-dejavu
 ```
 
-Gói `ttf-dejavu` tự động cài đặt các phụ thuộc liên quan đến phông chữ cần thiết, như `fontconfig`, `encodings`, `mkfontscale` và `mkfontdir`. Không cần gói phông chữ bổ sung cho hầu hết các trường hợp.
+Trên các bản phát hành Alpine hiện tại, `ttf-dejavu` cài đặt gói `font-dejavu`, cũng cài đặt `fontconfig` và các công cụ phông mà nó phụ thuộc.
 
-**Tùy chọn 2: Microsoft Core Fonts**
+**Tùy chọn 2: Phông chữ Core của Microsoft**
 
-Nếu bản trình bày của bạn sử dụng các phông chữ đặc thù của Microsoft, như Arial, Times New Roman, Courier New hoặc Verdana, hãy cài đặt Microsoft Core Fonts thay thế:
+Nếu các bài thuyết trình của bạn sử dụng phông chữ Microsoft như Arial, Times New Roman, Courier New hoặc Verdana, cài đặt các phông chữ core của Microsoft thay thế. Bước `update-ms-fonts` tải xuống các phông chữ khi image được xây dựng, vì vậy quá trình build cần có kết nối internet:
 
-```
+```dockerfile
 RUN apk add --no-cache \
     libgdiplus \
     fontconfig \
@@ -145,46 +127,59 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-Chỉ sử dụng tùy chọn này khi các bản trình bày cần các phông chữ của Microsoft. Đối với hầu hết các tình huống, việc cài đặt `ttf-dejavu` đơn giản và đáng tin cậy hơn.
+### **Hỗ trợ Quốc tế hoá**
 
-**Yêu cầu bổ sung cho toàn cục hoá**
+Cả hai gói đều cần hỗ trợ quốc tế hoá .NET, mà .NET trên Linux cung cấp thông qua các thư viện ICU. Trong [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization), việc tạo một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sẽ thất bại với `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
-Để bật hỗ trợ toàn cục hoá đúng cách trên Alpine, cài đặt gói `icu-libs` và tắt chế độ invariant:
+Một số image container bật chế độ này. Các image runtime của .NET cho Alpine Linux (`runtime-deps`, `runtime`, và `aspnet`), chẳng hạn, đặt `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` và không bao gồm ICU. Trong một image được xây dựng trên chúng, cài đặt ICU và tắt chế độ này:
 
 ```dockerfile
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 RUN apk --no-cache add icu-libs
 ```
 
-### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+Cũng đảm bảo rằng tệp dự án của bạn không đặt thuộc tính `InvariantGlobalization` thành `true`.
 
-Đây là phiên bản Aspose.Slides sử dụng một engine đồ họa tùy chỉnh đa nền tảng được phát triển bởi nhóm Aspose.Slides.  
-Trên các nền tảng không phải Windows, thư viện `fontconfig` có thể được yêu cầu.
+## **Kiểm tra Cài đặt của Bạn**
 
-**Nền tảng được hỗ trợ**
-- *Windows*: x86, x86_64  
-- *Linux*: x86_64, ARM64 (aarch64)
-- *macOS*: x86_64, ARM64 (aarch64)
+Để kiểm tra rằng một gói và các yêu cầu của nó đã sẵn sàng, chạy một chương trình lưu một bài thuyết trình và render một slide thành hình ảnh. Việc lưu và render sử dụng thư viện đồ họa và các phông chữ, chính là những gì các yêu cầu Linux ở trên cung cấp.
 
-**Nền tảng không được hỗ trợ**
-- *Windows 11 ARM* (ARM64) — *Chưa được xem xét hiện tại*
+Tạo một ứng dụng console và thêm gói như mô tả trong [Installation](/slides/vi/net/installation/), thay thế nội dung của *Program.cs* bằng mã dưới đây, và chạy `dotnet run`. Nếu bạn dùng Aspose.Slides.NET trên Linux, thêm câu lệnh công tắc `System.Drawing.EnableUnixSupport` được mô tả trong [Linux](#linux) sau các chỉ thị `using`. Chương trình sử dụng top-level statements và khai báo `using`, cần C# 9 trở lên. Các dự án mục tiêu .NET 6 trở lên mặc định sử dụng phiên bản C# mới hơn; trong một dự án mục tiêu .NET Framework, thêm `<LangVersion>latest</LangVersion>` vào một `PropertyGroup` trong tệp dự án.
 
-{{%  alert  title="Notes"  color="primary"  %}}  
-Đối với Linux x64, cần GLIBC 2.23+; đối với Linux ARM64, cần GLIBC 2.39+. Các hệ thống như CentOS 7 (GLIBC 2.14) không được hỗ trợ. Nếu bạn cần chạy Aspose.Slides trên CentOS 7 hoặc các hệ thống không tương thích khác (ví dụ: Alpine), hãy sử dụng gói tiêu chuẩn: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
-{{% /alert %}} 
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.TextFrame.Text = "Hello, Aspose.Slides!";
+presentation.Save("hello.pptx", SaveFormat.Pptx);
+
+using var image = slide.GetImage(1f, 1f);
+image.Save("hello.png", ImageFormat.Png);
+```
+
+Chương trình thêm một hình chữ nhật có chữ vào slide đầu tiên và lưu bài thuyết trình thành *hello.pptx* bằng phương thức [Save](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/save/). Sau đó render slide bằng [GetImage](https://reference.aspose.com/slides/vi/net/aspose.slides/slide/getimage/) và lưu kết quả thành *hello.png* bằng [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/save/) ở định dạng [ImageFormat.Png](https://reference.aspose.com/slides/vi/net/aspose.slides/imageformat/). Hệ số phóng đại 1 render một pixel cho mỗi point, vì vậy slide mặc định 720 × 540 point trở thành ảnh 720 × 540 pixel, với chữ hiển thị bên trong hình chữ nhật. Khi không có giấy phép, cả hai tệp cũng sẽ có dấu watermark đánh giá; xem [Licensing](/slides/vi/net/licensing/). Nếu thiếu một yêu cầu nào đó, chương trình sẽ dừng với một trong các ngoại lệ được mô tả trong [Linux](#linux).
+
+## **Công cụ Phát triển**
+
+Bạn có thể xây dựng các ứng dụng sử dụng Aspose.Slides bằng bất kỳ công cụ nào hỗ trợ framework mục tiêu của dự án: .NET SDK và giao diện dòng lệnh `dotnet` trên Windows, Linux và macOS, hoặc Visual Studio trên Windows. [Installation](/slides/vi/net/installation/) mô tả cả hai.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có cần cài đặt Microsoft PowerPoint để chuyển đổi và hiển thị không?**
+**Tôi có cần cài đặt Microsoft PowerPoint để chuyển đổi và render không?**
 
-Không, không cần PowerPoint; Aspose.Slides là một engine độc lập để [tạo](/slides/vi/net/create-presentation/), chỉnh sửa, [chuyển đổi](/slides/vi/net/convert-presentation/), và [hiển thị](/slides/vi/net/convert-powerpoint-to-png/) các bản trình bày.
+Không, PowerPoint không bắt buộc. Aspose.Slides là một engine độc lập để [tạo](/slides/vi/net/create-presentation/), chỉnh sửa, [chuyển đổi](/slides/vi/net/convert-presentation/) và [render](/slides/vi/net/convert-powerpoint-to-png/) các bài thuyết trình.
 
-**Các phông chữ nào cần cho việc hiển thị chính xác?**
+**Tôi nên sử dụng gói nào?**
 
-Các phông chữ được sử dụng trong bản trình bày, hoặc các phông chữ thay thế phù hợp, phải có sẵn trong hệ điều hành. Trên Linux và macOS, hãy cài đặt các gói phông chữ phổ biến để đảm bảo hiển thị nhất quán.
+Dùng Aspose.Slides.NET trên Windows và Aspose.Slides.NET6.CrossPlatform trên Linux và macOS. Trên Alpine Linux, trên các hệ thống Linux có glibc cũ hơn các phiên bản nêu trên, và trong các dự án mục tiêu .NET Framework, dùng Aspose.Slides.NET. Chỉ thêm một trong hai gói vào dự án.
 
-Đối với các container Alpine Linux, cài đặt ít nhất một gói phông chữ ngoài `libgdiplus`. Cấu hình tối thiểu được khuyến nghị là `libgdiplus` cùng với `ttf-dejavu`. Nếu cần các phông chữ của Microsoft như Arial, Times New Roman, Courier New hoặc Verdana, hãy dùng `msttcorefonts-installer` cùng với `fontconfig`.
+**Cần những phông chữ nào để render đúng?**
 
-**Tại sao một phông chữ tùy chỉnh lại hiển thị như dự phòng hoặc thiếu văn bản trên Linux?**
+Các phông chữ được sử dụng trong bài thuyết trình, hoặc các phông thay thế phù hợp, phải có sẵn trong hệ điều hành. Trên Linux và macOS, cài đặt các gói phông mà bài thuyết trình của bạn cần để có việc render nhất quán. Trên Alpine Linux, cài đặt ít nhất một gói phông bổ sung ngoài `libgdiplus`, như mô tả trong [Alpine Linux](#alpine-linux).
 
-Nếu tệp phông chữ có các mục bảng tên không nhất quán hoặc bị hỏng, stack khớp phông chữ của Linux (FreeType/fontconfig) có thể chọn một bản ghi không hợp lệ, khiến phông chữ không được nhận diện. Sử dụng phiên bản phông chữ với bảng tên đã được sửa chữa hoặc cài đặt một bản thay thế nhất quán sẽ giải quyết vấn đề.
+**Tại sao phông chữ tùy chỉnh lại hiển thị dưới dạng dự phòng hoặc văn bản bị thiếu trên Linux?**
+
+Nếu tệp phông có các mục bảng tên không nhất quán hoặc bị hỏng, stack khớp phông Linux (FreeType/fontconfig) có thể chọn một bản ghi không hợp lệ, gây ra việc phông không được giải quyết. Sử dụng phiên bản phông chữ có bảng tên đã được sửa hoặc cài đặt một phông thay thế đồng nhất sẽ giải quyết vấn đề.

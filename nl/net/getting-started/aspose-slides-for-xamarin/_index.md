@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides voor Xamarin
+title: Aspose.Slides voor Xamarin (Historisch)
+linktitle: Xamarin (Historisch)
 type: docs
-weight: 150
+weight: 200
 url: /nl/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,48 +14,52 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bouw Xamarin‑mobiele apps in C# om presentaties te bekijken, bewerken en converteren met Aspose.Slides, met rijke functionaliteit voor PPT, PPTX en ODP op Android."
+description: "Historisch: hoe Aspose.Slides voor .NET versies 20.2 tot 22.10 Xamarin.Android ondersteunde via een aparte bibliotheek. Huidige versies bevatten dit niet."
 ---
-## **Introductie**
+{{% alert color="info" title="Opmerking" %}}
 
-Xamarin is een framework dat wordt gebruikt voor mobiele ontwikkeling in .NET C#. Xamarin beschikt over tools en bibliotheken die de mogelijkheden van het .NET‑platform uitbreiden. Het stelt ontwikkelaars in staat om applicaties te bouwen voor het **Android**‑besturingssysteem. 
-
-{{% alert color="info" %}} 
-
-Voor ontwikkeling in Xamarin kunnen programmeurs hun reguliere ontwikkelomgevingen (C#, Visual Studio en bibliotheken van derden) gebruiken.
+Dit is een historische pagina. Versies 20.2 tot 22.10 van het Aspose.Slides.NET‑pakket bevatten een aparte Xamarin.Android‑bibliotheek, *Aspose.Slides.Droid.dll*, die in de code op deze pagina wordt gebruikt. Latere versies bevatten deze niet meer: het huidige pakket biedt alleen builds voor .NET Framework 4.6.2, .NET 6 en .NET Standard 2.0. Microsoft heeft op 1 mei 2024 de ondersteuning voor alle Xamarin‑SDK’s beëindigd; zie het [Xamarin‑ondersteuningsbeleid](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
 {{% /alert %}}
 
-Aspose.Slides API werkt op het Xamarin‑platform. Om dit te realiseren voegt het Aspose.Slides .NET‑pakket een aparte DLL voor Xamarin toe. Aspose.Slides voor Xamarin ondersteunt de meeste functies die beschikbaar zijn in de .NET‑versie:
+## **Introductie**
 
-- presentaties converteren en weergeven.
-- inhoud in presentaties bewerken: tekst, vormen, diagrammen, SmartArt, audio/video, lettertypen, enz.
-- animaties, 2D‑effecten, WordArt, enz. behandelen.
-- metadata en documenteigenschappen behandelen.
-- clonen, samenvoegen, vergelijken, opsplitsen, enz.
+Xamarin is een framework dat wordt gebruikt voor mobiele ontwikkeling in .NET C#. Xamarin biedt tools en bibliotheken die de mogelijkheden van het .NET‑platform uitbreiden. Het stelt ontwikkelaars in staat om applicaties te bouwen voor het **Android**‑besturingssysteem.
 
-We hebben een vergelijking van de volledige functies verstrekt in een andere sectie vlak onderaan deze pagina.
+{{% alert color="info" title="Opmerking" %}}
 
-In de Aspose.Slides‑API voor Xamarin zijn de klassen, namespaces, logica en gedrag zo veel mogelijk gelijk aan de .NET‑versie. U kunt uw Aspose.Slides‑.NET‑toepassingen met minimale kosten naar Xamarin migreren.
+Voor ontwikkeling in Xamarin kunnen programmeurs hun gewone ontwikkelomgevingen gebruiken (C#, Visual Studio en 3rd‑party‑bibliotheken).
 
+{{% /alert %}}
+
+De Aspose.Slides‑API werkte op het Xamarin‑platform. Om dit te bereiken heeft het Aspose.Slides.NET‑pakket, in de versies 20.2 tot 22.10, een aparte DLL voor Xamarin toegevoegd. Aspose.Slides voor Xamarin ondersteunde het grootste deel van de functies die beschikbaar zijn in de .NET‑versie:
+
+- presentaties converteren en bekijken.
+- inhoud van presentaties bewerken: tekst, vormen, grafieken, SmartArt, audio/video, lettertypen, enz.
+- omgaan met animaties, 2D‑effecten, WordArt, enz.
+- omgaan met metadata en documenteigenschappen.
+- klonen, samenvoegen, vergelijken, splitsen, enz.
+
+We hebben een vergelijking van de volledige functionaliteit in een andere sectie onderaan deze pagina opgenomen.
+
+In de Aspose.Slides‑API voor Xamarin waren de klassen, namespaces, logica en gedrag zo veel mogelijk gelijk aan de .NET‑versie. U kon uw Aspose.Slides‑.NET‑applicaties met minimale inspanning naar Xamarin migreeren.
 
 ## **Snel voorbeeld**
-U kunt Aspose.Slides voor Xamarin gebruiken om uw C#‑applicatie via Slides for Android te bouwen en te benutten.
 
-We bieden een voorbeeld van een Android‑via‑Xamarin‑applicatie die Aspose.Slides gebruikt om presentatiedia’s weer te geven en een nieuwe vorm aan de dia toe te voegen bij aanraking. U vindt de volledige broncode van de voorbeelden op [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+U kunt Aspose.Slides voor Xamarin gebruiken om uw C#‑applicatie te bouwen en te benutten via Slides for Android.
+
+We bieden een voorbeeld van een Android‑via‑Xamarin‑applicatie die Aspose.Slides gebruikt om presentatiedia's weer te geven en een nieuwe vorm toevoegt op de dia bij aanraking. De volledige broncode van de voorbeelden vindt u op [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Laten we beginnen met het maken van een Xamarin Android‑app:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Een Xamarin Android‑app maken](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Eerst maken we een lay-out die een ImageView, Prev‑ en Next‑knoppen bevat:
+Eerst maken we een layout die een ImageView, een “Prev”‑ en een “Next”‑knop bevat:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Layout met een ImageView en Prev‑ en Next‑knoppen](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-
-
-**XML - content_main.xml - Layout maken**
-``` 
+**XML – content_main.xml – Layout maken**  
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -97,12 +102,9 @@ Eerst maken we een lay-out die een ImageView, Prev‑ en Next‑knoppen bevat:
 </LinearLayout>
 ```
 
+Hier verwijzen we naar de bibliotheek “Aspose.Slides.Droid.dll” die een voorbeeldpresentatie (“HelloWorld.pptx”) bevat en voegen we de initialisatie toe aan MainActivity:
 
-
-Hier verwijzen we naar de “Aspose.Slides.Droid.dll”‑bibliotheek die een voorbeeldpresentatie (“HelloWorld.pptx”) bevat in de Xamarin‑applicatie‑Assets en voegen we de initialisatie toe aan MainActivity:
-
-**C# - MainActivity.cs - Initialisatie**
-
+**C# – MainActivity.cs – Initialisatie**  
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -140,10 +142,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Laten we de functie toevoegen om de Prev‑ en Next‑dia’s weer te geven bij het aanraken van de knoppen:
+Laten we de functie toevoegen om de vorige en volgende dia’s weer te geven bij het indrukken van de knoppen:
 
-**C# - MainActivity.cs - Dia’s weergeven bij klik op Prev‑ en Next‑knop**
-
+**C# – MainActivity.cs – Dia’s weergeven bij Prev‑ en Next‑knop**  
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -269,7 +270,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -277,12 +278,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+Tot slot implementeren we een functie om bij een aanraking op de dia een elliptische vorm toe te voegen:
 
-
-Tot slot implementeren we een functie om bij een aanraking op de dia een ellipsvorm toe te voegen:
-
-**C# - MainActivity.cs - Ellips toevoegen bij klik op dia**
-
+**C# – MainActivity.cs – Ellips toevoegen bij klik op dia**  
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -292,7 +290,7 @@ Tot slot implementeren we een functie om bij een aanraking op de dia een ellipsv
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -312,10 +310,9 @@ Tot slot implementeren we een functie om bij een aanraking op de dia een ellipsv
 }
 ```
 
-Elke klik op de presentatiedia zorgt voor een ellips met willekeurige kleur:
+Elke klik op de presentatiedia zorgt voor een willekeurig gekleurde ellips:
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
-
+![Dia met ellipsen toegevoegd door aanraking](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Ondersteunde functies**
 
@@ -323,78 +320,78 @@ Elke klik op de presentatiedia zorgt voor een ellips met willekeurige kleur:
 | :- | :- | :- |
 |**Presentatiefuncties:**| | |
 |Nieuwe presentaties maken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97‑2003-formaten openen/opslaan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint‑2007-formaten openen/opslaan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Ondersteuning voor PowerPoint‑2010‑extensies|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Ondersteuning voor PowerPoint‑2013‑extensies|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Ondersteuning voor PowerPoint‑2016-functies|restricted|restricted|
-|Ondersteuning voor PowerPoint‑2019-functies|restricted |restricted|
-|Conversie PPT → PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Conversie PPTX → PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX in PPT|restricted|restricted|
-|Verwerking van thema's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Verwerking van macro's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Verwerking van documenteigenschappen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97 – 2003‑formaten openen/opslaan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2007‑formaten openen/opslaan|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2010‑uitbreidingen ondersteunen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2013‑uitbreidingen ondersteunen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2016‑functies ondersteunen|beperkt|beperkt|
+|PowerPoint 2019‑functies ondersteunen|beperkt|beperkt|
+|PPT → PPTX‑conversie|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX → PPT‑conversie|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX in PPT|beperkt|beperkt|
+|Thema‑verwerking|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Macro‑verwerking|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Document‑eigenschappen verwerken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Wachtwoordbeveiliging|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Snelle teksextractie|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Snelle tekstextractie|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Lettertypen insluiten|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Weergave van opmerkingen|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
-|Onderbreken van langdurige taken|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
+|Commentaarrendering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Onderbreken van langdurige taken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Exportformaten:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restricted |restricted|
-|SWF|restricted|restricted|
+|ODP|beperkt|beperkt|
+|SWF|beperkt|beperkt|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Importformaten:**| | |
-|HTML|restricted|restricted|
+|HTML|beperkt|beperkt|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Functies van meester‑dia's:**| | |
-|Toegang tot alle bestaande meester‑dia's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Meester‑dia's maken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Meester‑dia's klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Functies van lay-outdia's:**| | |
-|Toegang tot alle bestaande lay-outdia's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Lay-outdia's maken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Lay-outdia's klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Masterdia‑functies:**| | |
+|Alle bestaande masterdia’s benaderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Masterdia’s maken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Masterdia’s klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Layoutdia‑functies:**| | |
+|Alle bestaande layoutdia’s benaderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Layoutdia’s maken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Layoutdia’s klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Dia‑functies:**| | |
-|Toegang tot alle bestaande dia's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia's maken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia's klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dia's exporteren naar afbeeldingen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Alle bestaande dia’s benaderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Dia’s maken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Dia’s klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Dia’s exporteren naar afbeeldingen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Dia‑secties maken/bewerken/verwijderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Notitiesdia‑functies:**| | |
-|Toegang tot alle bestaande notitiesdia's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Vormfuncties:**| | |
-|Toegang tot alle dia‑vormen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Notitiedia‑functies:**| | |
+|Alle bestaande notitiedia’s benaderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Vorm‑functies:**| | |
+|Alle dia‑vormen benaderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Nieuwe vormen toevoegen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vormen klonen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vormen afzonderlijk exporteren naar afbeeldingen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Ondersteunde vormtypes:**| | |
-|Alle vooraf gedefinieerde vormtypes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Afbeeldingskaders|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Ondersteunde vormtypen:**| | |
+|Alle vooraf gedefinieerde vormtypen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Beeldkaders|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabellen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagrammen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Grafieken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Legacy‑diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Oude diagrammen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX‑objecten|restricted|restricted|
-|Video‑frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Audio‑frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|OLE, ActiveX‑objecten|beperkt|beperkt|
+|Video‑kaders|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Audio‑kaders|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Connectoren|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Functies van groepsvormen:**| | |
-|Toegang tot groepsvormen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Groepsvormen maken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Groepsvormen ongroeperen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Functies van vormeffecten:**| | |
-|2D‑effecten|restricted|restricted|
+|**Groep‑vorm‑functies:**| | |
+|Groep‑vormen benaderen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Groep‑vormen maken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Groep‑vormen opsplitsen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Vorm‑effect‑functies:**| | |
+|2D‑effecten|beperkt|beperkt|
 |3D‑effecten|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Tekstfuncties:**| | |
-|Opmaak van alinea's|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Opmaak van segmenten|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Animatiefuncties:**| | |
+|**Tekst‑functies:**| | |
+|Alinea‑opmaak|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Deel‑opmaak|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Animatie‑functies:**| | |
 |Animatie exporteren naar SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Animatie exporteren naar HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

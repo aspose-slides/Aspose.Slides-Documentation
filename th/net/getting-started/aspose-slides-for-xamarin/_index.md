@@ -1,58 +1,65 @@
 ---
-title: Aspose.Slides สำหรับ Xamarin
+title: Aspose.Slides สำหรับ Xamarin (Historical)
+linktitle: Xamarin (Historical)
 type: docs
-weight: 150
+weight: 200
 url: /th/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
-- การพัฒนาโมบาย
+- การพัฒนาแอปมือถือ
 - Android
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "สร้างแอปโมบาย Xamarin ด้วย C# เพื่อดู, แก้ไขและแปลงการนำเสนอด้วย Aspose.Slides รองรับคุณลักษณะที่ครบครันสำหรับ PPT, PPTX และ ODP บน Android."
+description: "ประวัติศาสตร์: วิธีที่ Aspose.Slides สำหรับ .NET เวอร์ชัน 20.2 ถึง 22.10 รองรับ Xamarin.Android ผ่านไลบรารีแยกต่างหาก เวอร์ชันปัจจุบันไม่ได้รวมไลบรารีนี้."
 ---
-## **บทนำ**
+{{% alert color="info" title="Note" %}}
 
-Xamarin เป็นเฟรมเวิร์กที่ใช้สำหรับการพัฒนาแอปพลิเคชันบนมือถือใน .NET C#. Xamarin มีเครื่องมือและไลบรารีที่ขยายความสามารถของแพลตฟอร์ม .NET. มันอนุญาตให้นักพัฒนาสร้างแอปพลิเคชันสำหรับระบบปฏิบัติการ **Android**.
-
-{{% alert color="info" %}} 
-
-สำหรับการพัฒนาใน Xamarin โปรแกรมเมอร์สามารถใช้สภาพแวดล้อมการพัฒนาปกติของพวกเขา (C#, Visual Studioและไลบรารีของบุคคลที่สาม). 
+นี่เป็นหน้าประวัติศาสตร์ เวอร์ชัน 20.2 ถึง 22.10 ของแพคเกจ Aspose.Slides.NET รวมไลบรารี Xamarin.Android แยกต่างหาก, *Aspose.Slides.Droid.dll*, ซึ่งโค้ดในหน้านี้ใช้ เวอร์ชันหลังไม่ได้รวมไลบรารีนี้: แพคเกจปัจจุบันมีบิลด์สำหรับ .NET Framework 4.6.2, .NET 6, และ .NET Standard 2.0 เท่านั้น Microsoft ยุติการสนับสนุนสำหรับ SDK ของ Xamarin ทั้งหมดเมื่อวันที่ 1 พฤษภาคม 2024; ดูที่ [Xamarin support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 
 {{% /alert %}}
 
-Aspose.Slides API ทำงานบนแพลตฟอร์ม Xamarin. เพื่อให้บรรลุสิ่งนี้ แพ็กเกจ Aspose.Slides .NET เพิ่ม DLL แยกสำหรับ Xamarin. Aspose.Slides for Xamarin รองรับส่วนใหญ่ของคุณลักษณะที่มีในรุ่น .NET:
+## **บทนำ**
 
-- แปลงและดูพรีเซนเทชัน
-- แก้ไขเนื้อหาในพรีเซนเทชัน: ข้อความ, รูปร่าง, แผนภูมิ, SmartArt, สื่อ audio/video, ฟอนต์ ฯลฯ
-- จัดการ/ทำงานกับแอนิเมชัน, เอฟเฟ็กต์ 2D, WordArt ฯลฯ
-- จัดการ/ทำงานกับเมตาเดต้าและคุณสมบัติเขเอกสาร
-- โคลน, ผสาน, เปรียบเทียบ, แยก, ฯลฯ
+Xamarin คือเฟรมเวิร์กที่ใช้สำหรับการพัฒนาแอปมือถือใน .NET C#. Xamarin มีเครื่องมือและไลบรารีที่ขยายความสามารถของแพลตฟอร์ม .NET. มันอนุญาตให้ผู้พัฒนาสร้างแอปพลิเคชันสำหรับระบบปฏิบัติการ **Android**.
 
-เราได้จัดทำการเปรียบเทียบคุณลักษณะทั้งหมดในส่วนอื่นใกล้ด้านล่างของหน้านี้
+{{% alert color="info" title="Note" %}}
 
-ใน Aspose.Slides for Xamarin API คลาส, เนมสเปซ, โลจิกและพฤติกรรมจะเหมือนกับรุ่น .NET มากที่สุดเท่าที่จะทำได้ คุณสามารถย้ายแอปพลิเคชัน Aspose.Slides .NET ของคุณไปยัง Xamarin ได้ด้วยค่าใช้จ่ายที่ต่ำที่สุด
+สำหรับการพัฒนาใน Xamarin โปรแกรมเมอร์สามารถใช้สภาพแวดล้อมการพัฒนาปกติของตน (C#, Visual Studio, และไลบรารีของบุคคลที่สาม) ได้.
+
+{{% /alert %}}
+
+Aspose.Slides API ทำงานบนแพลตฟอร์ม Xamarin เพื่อให้บรรลุเป้าหมายนี้ แพคเกจ Aspose.Slides.NET ในเวอร์ชัน 20.2 ถึง 22.10 ได้เพิ่ม DLL แยกสำหรับ Xamarin Aspose.Slides for Xamarin รองรับส่วนใหญ่ของฟีเจอร์ที่มีในเวอร์ชัน .NET:
+
+- การแปลงและการดูงานนำเสนอ.
+- การแก้ไขเนื้อหาในงานนำเสนอ: ข้อความ, รูปร่าง, แผนภูมิ, SmartArt, เสียง/วิดีโอ, ฟอนต์ เป็นต้น.
+- การจัดการหรือทำงานกับแอนิเมชัน, เอฟเฟกต์ 2D, WordArt เป็นต้น.
+- การจัดการเมทาดาต้าและคุณสมบัติเขียนไฟล์.
+- การทำสำเนา, การผสาน, การเปรียบเทียบ, การแยกส่วน เป็นต้น.
+
+เรามีการเปรียบเทียบคุณสมบัติทั้งหมดในส่วนอื่นใกล้ด้านล่างของหน้านี้
+
+ใน API ของ Aspose.Slides for Xamarin คลาส, เนมสเปซ, โลจิกและพฤติกรรมถูกทำให้คล้ายกับเวอร์ชัน .NET มากที่สุด คุณสามารถย้ายแอปพลิเคชัน Aspose.Slides .NET ของคุณไปยัง Xamarin ได้ด้วยต้นทุนที่ต่ำสุด
 
 ## **ตัวอย่างอย่างรวดเร็ว**
 
-คุณสามารถใช้ Aspose.Slides for Xamarin เพื่อสร้างและใช้งานแอปพลิเคชัน C# ของคุณผ่าน Slides for Android
+คุณสามารถใช้ Aspose.Slides for Xamarin เพื่อสร้างและใช้งานแอป C# ของคุณผ่าน Slides for Android
 
-เราจัดให้มีตัวอย่างแอปพลิเคชัน Android ผ่าน Xamarin ที่ใช้ Aspose.Slides เพื่อแสดงสไลด์พรีเซนเทชันและเพิ่มรูปร่างใหม่บนสไลด์เมื่อสัมผัส คุณสามารถค้นหาโค้ดเต็มของตัวอย่างได้บน [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+เรานำเสนอ ตัวอย่างแอป Android ผ่าน Xamarin ที่ใช้ Aspose.Slides เพื่อแสดงสไลด์งานนำเสนอและเพิ่มรูปร่างใหม่บนสไลด์เมื่อสัมผัส คุณสามารถค้นหาโค้ดเต็มของตัวอย่างได้บน [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-เริ่มต้นโดยการสร้าง Xamarin Android App:
+เริ่มต้นโดยสร้าง Xamarin Android App:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creating a Xamarin Android app](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-แรกเราจะสร้างเลเอาต์เนื้อหาซึ่งจะประกอบด้วย ImageView, ปุ่ม Prev และ Next:
+แรก เราจะสร้างเลย์เอาต์เนื้อหาซึ่งจะประกอบด้วย ImageView, ปุ่ม Prev และ Next:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Content layout with an image view and Prev and Next buttons](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-**XML - content_main.xml - สร้างเค้าโครงเนื้อหา**
-``` 
+**XML - content_main.xml - สร้างเลย์เอาต์เนื้อหา**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -95,7 +102,7 @@ Aspose.Slides API ทำงานบนแพลตฟอร์ม Xamarin. เ�
 </LinearLayout>
 ```
 
-ที่นี่ เราอ้างอิงไลบรารี "Aspose.Slides.Droid.dll" ที่รวมพรีเซนเทชันตัวอย่าง ("HelloWorld.pptx") เข้าไปใน Assets ของแอปพลิเคชัน Xamarin และเพิ่มการเริ่มต้นใน MainActivity:
+ที่นี่ เราอ้างอิงไลบรารี "Aspose.Slides.Droid.dll" ที่รวมตัวอย่างงานนำเสนอ ("HelloWorld.pptx") เข้าไปใน Assets ของแอป Xamarin และเพิ่มการเริ่มต้นใน MainActivity:
 
 **C# - MainActivity.cs - การเริ่มต้น**
 ``` csharp
@@ -135,9 +142,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-เพิ่มฟังก์ชันเพื่อแสดงสไลด์ Prev และ Next เมื่อกดปุ่ม:
+ให้เพิ่มฟังก์ชันเพื่อแสดงสไลด์ Prev และ Next เมื่อกดปุ่ม:
 
-**C# - MainActivity.cs - Display slides on Prev and Next button click**
+**C# - MainActivity.cs - แสดงสไลด์เมื่อคลิกปุ่ม Prev และ Next**
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -263,7 +270,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -271,9 +278,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-สุดท้าย เราจะทำฟังก์ชันเพื่อเพิ่มรูปร่างวงรีบนสไลด์เมื่อสัมผัส:
+สุดท้าย ให้ทำฟังก์ชันเพิ่มวงรีบนสไลด์เมื่อสัมผัส:
 
-**C# - MainActivity.cs - Add ellipse by slide click**
+**C# - MainActivity.cs - เพิ่มวงรีโดยคลิกสไลด์**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -283,7 +290,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -303,34 +310,34 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-แต่ละคลิกบนสไลด์พรีเซนเทชันจะทำให้เพิ่มวงรีสีสุ่ม:
+แต่ละการคลิกบนสไลด์งานนำเสนอจะทำให้เพิ่มวงรีสีสุ่ม:
+![Slide with ellipses added by touch](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
-## **คุณลักษณะที่รองรับ**
+## **ฟีเจอร์ที่รองรับ**
 
-|**คุณสมบัติ**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
+|**คุณลักษณะ**|**Aspose.Slides สำหรับ .NET**|**Aspose.Slides สำหรับ Xamarin**|
 | :- | :- | :- |
-|**คุณลักษณะการพรีเซนเทชัน:**| | |
-|สร้างพรีเซนเทชันใหม่|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|เปิด/บันทึกรูปแบบ PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|เปิด/บันทึกรูปแบบ PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|รองรับส่วนขยาย PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|รองรับส่วนขยาย PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|รองรับคุณลักษณะ PowerPoint 2016|restricted|restricted|
-|รองรับคุณลักษณะ PowerPoint 2019|restricted|restricted|
-|การแปลง PPT เป็น PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การแปลง PPTX เป็น PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX ใน PPT|restricted|restricted|
-|การประมวลผลธีม|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การประมวลผลมาโคร|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การประมวลผลคุณสมบัติเขเอกสาร|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การป้องกันด้วยรหัสผ่าน|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การสกัดข้อความอย่างรวดเร็ว|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ฝังฟอนต์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การแสดงคอมเมนต์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การขัดจังหวะงานที่ทำงานนาน|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**รูปแบบการส่งออก:**| | |
+|**Presentation features**:| | |
+|Create new presentations|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97 - 2003 formats open/save|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2007 formats open/save|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2010 extensions support|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2013 extensions support|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2016 features support|restricted|restricted|
+|PowerPoint 2019 features support|restricted|restricted|
+|PPT 2 PPTX conversion|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX 2 PPT conversion|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX in PPT|restricted|restricted|
+|Themes processing|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Macros processing|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Document properties processing|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Password protection|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Fast text extraction|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Embedding fonts|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Comments rendering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Interrupting of long-running tasks|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Export formats:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -338,53 +345,53 @@ public class MainActivity : AppCompatActivity
 |ODP|restricted|restricted|
 |SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**รูปแบบการนำเข้า:**| | |
+|**Import formats:**| | |
 |HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะสไลด์มาสเตอร์:**| | |
-|เข้าถึงสไลด์มาสเตอร์ที่มีอยู่ทั้งหมด|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|สร้าง/ลบสไลด์มาสเตอร์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|โคลนสไลด์มาสเตอร์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะสไลด์เลย์เอาต์:**| | |
-|เข้าถึงสไลด์เลย์เอาต์ที่มีอยู่ทั้งหมด|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|สร้าง/ลบสไลด์เลย์เอาต์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|โคลนสไลด์เลย์เอาต์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะสไลด์:**| | |
-|เข้าถึงสไลด์ที่มีอยู่ทั้งหมด|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|สร้าง/ลบสไลด์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|โคลนสไลด์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ส่งออกสไลด์เป็นภาพ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|สร้าง/แก้ไข/ลบส่วนของสไลด์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะสไลด์โน้ต**| | |
-|เข้าถึงสไลด์โน้ตที่มีอยู่ทั้งหมด|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะรูปร่าง:**| | |
-|เข้าถึงรูปร่างทั้งหมดของสไลด์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|เพิ่มรูปร่างใหม่|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|โคลนรูปร่าง|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ส่งออกรูปร่างแยกเป็นภาพ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ประเภทรูปร่างที่รองรับ:**| | |
-|ประเภทรูปร่างที่กำหนดล่วงหน้าทั้งหมด|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|กรอบรูปภาพ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ตาราง|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|แผนภูมิ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Master slides features:**| | |
+|Accessing all existing master slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/removing master slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning master slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Layout slides features:**| | |
+|Accessing all existing layout slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/removing layout slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning layout slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Slide features:**| | |
+|Accessing all existing slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/removing slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Exporting slides to images|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating/editing/removing slide sections|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Notes slides features**:| | |
+|Accessing all existing notes slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Shape features:**| | |
+|Accessing all slide shapes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Adding new shapes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Cloning shapes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Exporting separate shapes to images|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Supported shape types:**| | |
+|All predefined shape types|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Picture frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Tables|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Charts|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|แผนภาพเก่า|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Legacy diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|วัตถุ OLE, ActiveX|restricted|restricted|
-|เฟรมวิดีโอ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|เฟรมเสียง|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|คอนเนคเตอร์|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะกลุ่มรูปร่าง:**| | |
-|เข้าถึงกลุ่มรูปร่าง|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|สร้างกลุ่มรูปร่าง|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ยกเลิกการจัดกลุ่มรูปร่างที่มีอยู่|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะเอฟเฟกต์ของรูปร่าง:**| | |
-|เอฟเฟกต์ 2D|restricted|restricted|
-|เอฟเฟกต์ 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**คุณลักษณะข้อความ:**| | |
-|การจัดรูปแบบย่อหน้า|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|การจัดรูปแบบส่วนย่อย|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**คุณลักษณะแอนิเมชัน:**| | |
-|ส่งออกแอนิเมชันเป็น SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|ส่งออกแอนิเมชันเป็น HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|OLE, ActiveX objects|restricted|restricted|
+|Video frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Audio frames|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Connectors|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Group shape features:**| | |
+|Accessing group shapes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Creating group shapes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Ungrouping existing group shapes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Shape effects features:**| | |
+|2D effects|restricted|restricted|
+|3D effects|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**Text features:**| | |
+|Paragraphs formatting|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Portions formatting|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Animation Features:**| | |
+|Export animation to SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|Export animation to HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

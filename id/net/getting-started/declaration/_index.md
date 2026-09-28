@@ -1,39 +1,40 @@
 ---
-title: Deklarasi
+title: Persyaratan Tingkat Kepercayaan
 type: docs
-weight: 110
+weight: 190
 url: /id/net/declaration/
 keywords:
-- deklarasi
-- komponen
-- izin Full Trust
-- pengaturan registri
-- file sistem
+- tingkat kepercayaan
+- izin Kepercayaan Penuh
+- kepercayaan parsial
+- Medium Trust
+- keamanan akses kode
+- ASP.NET
+- .NET Framework
 - PowerPoint
 - OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari persyaratan kepercayaan, izin, dan batasan hosting Aspose.Slides untuk .NET sehingga Anda dapat dengan aman menyebarkan aplikasi yang memproses PPT, PPTX, dan ODP di server."
+description: "Level kepercayaan keamanan akses kode yang dibutuhkan Aspose.Slides untuk .NET: kepercayaan penuh pada .NET Framework, dan tidak ada pengaturan kepercayaan pada .NET 6 dan versi lebih baru."
 ---
-{{% alert color="primary" %}} 
+## **Gambaran Umum**
 
-Semua komponen Aspose .NET memerlukan set izin Full Trust karena terkadang mereka harus mengakses pengaturan registri, file sistem, dan file yang disimpan di lokasi lain (selain direktori virtual) untuk operasi tertentu (misalnya parsing font). Selain itu, Komponen Aspose .NET didasarkan pada kelas sistem .NET inti, yang dalam banyak kasus memerlukan set izin Full Trust. 
+Level kepercayaan Code Access Security (CAS) hanya ada di .NET Framework. Artikel ini menjelaskan apa artinya bagi Aspose.Slides untuk .NET: perpustakaan memerlukan kepercayaan penuh pada .NET Framework, dan pada .NET 6 dan yang lebih baru tidak ada level kepercayaan yang dapat dikonfigurasi.
 
-{{% /alert %}} 
+## **.NET Framework**
 
-Penyedia Layanan Internet, yang menampung banyak aplikasi dari berbagai perusahaan, kebanyakan menerapkan tingkat keamanan Medium Trust. Pada kasus .NET 2.0, tingkat keamanan tersebut menerapkan batasan-batasan berikut: 
+Aspose.Slides memerlukan kepercayaan penuh pada .NET Framework. Ia tidak berjalan di bawah kepercayaan parsial, seperti aplikasi ASP.NET yang dikonfigurasi untuk Medium Trust (`<trust level="Medium" />`): pembuatan objek [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) gagal dengan `SecurityException`.
 
-- OleDbPermission tidak tersedia. Ini berarti Anda tidak dapat menggunakan penyedia data OLE DB terkelola ADO.NET untuk mengakses basis data.
-- EventLogPermission tidak tersedia. Ini berarti Anda tidak dapat mengakses log peristiwa Windows.
-- ReflectionPermission tidak tersedia. Ini berarti Anda tidak dapat menggunakan refleksi.
-- RegistryPermission tidak tersedia. Ini berarti Anda tidak dapat mengakses registri.
-- WebPermission dibatasi. Ini berarti aplikasi Anda hanya dapat berkomunikasi dengan alamat atau rentang alamat yang Anda definisikan dalam elemen <trust>.
-- FileIOPermission dibatasi. Ini berarti Anda hanya dapat mengakses file dalam hirarki direktori virtual aplikasi Anda.
+Microsoft tidak lagi memperlakukan ASP.NET partial trust sebagai cara untuk mengisolasi aplikasi satu sama lain, dan menyarankan menjalankan aplikasi dalam kumpulan aplikasi terpisah. Lihat [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 
-{{% alert color="primary" %}} 
+## **.NET 6 and Later**
 
-Karena alasan di atas, komponen Aspose .NET hanya dapat digunakan pada server yang memberikan set izin Full Trust. 
+Code Access Security tidak tersedia pada .NET 6 dan yang lebih baru, sehingga tidak ada level kepercayaan yang dapat diberikan. Aspose.Slides berjalan dengan izin akun yang menjalankan aplikasi Anda. Untuk membatasi apa yang dapat diakses oleh sebuah aplikasi, Microsoft menyarankan batasan sistem operasi, seperti akun pengguna, kontainer, atau mesin virtual. Lihat [Code access security (CAS)](https://learn.microsoft.com/en-us/dotnet/core/porting/net-framework-tech-unavailable#code-access-security-cas).
 
-{{% /alert %}}
+## **FAQ**
+
+**Apakah saya dapat menggunakan Aspose.Slides dengan penyedia hosting yang menjalankan aplikasi ASP.NET dalam Medium Trust?**
+
+Tidak dalam Medium Trust. Pada .NET Framework, aplikasi yang menggunakan Aspose.Slides harus berjalan dengan kepercayaan penuh.

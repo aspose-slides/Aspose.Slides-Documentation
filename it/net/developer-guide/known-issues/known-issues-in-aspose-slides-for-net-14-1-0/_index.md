@@ -1,19 +1,27 @@
 ---
-title: Problemi noti in Aspose.Slides per .NET 14.1.0
+title: Problemi noti in Aspose.Slides per .NET 14.1.0 (Storico)
 type: docs
 weight: 20
 url: /it/net/known-issues-in-aspose-slides-for-net-14-1-0/
 keywords:
 - problema noto
+- storico
+- versione 14.1.0
 - .NET
 - C#
 - Aspose.Slides
-description: "Esamina i problemi noti in Aspose.Slides per .NET 14.1.0 per garantire un lavoro preciso con i file PowerPoint e OpenDocument e per evitare sorprese nelle tue presentazioni."
+description: "Storico: i problemi noti pubblicati con Aspose.Slides per .NET 14.1.0 nel 2014, conservati per riferimento. Non è un elenco di problemi nella versione corrente."
 ---
-Di seguito sono riportati i Problemi noti e le Limitazioni in Aspose.Slides per .NET 14.1.0.
+{{% alert color="info" title="Note" %}}
 
-1. Alcune forme hanno geometria errata nei documenti PPT serializzati (Call outs).
-1. Non tutte le funzionalità di formattazione del testo PPTX sono supportate nella serializzazione PPT (tabulazione, rientro e limitazioni di formattazione dei paragrafi).
+Questa è una pagina storica. Elenca i problemi noti pubblicati con Aspose.Slides per .NET 14.1.0, rilasciata nel 2014, e non descrive la versione corrente. Per le modifiche in ogni versione, vedere le [note di rilascio](https://releases.aspose.com/slides/it/net/release-notes/).
+
+{{% /alert %}}
+
+Di seguito sono elencati i Problemi Noti e le Limitazioni in Aspose.Slides per .NET 14.1.0.
+
+1. Alcune forme hanno una geometria errata nei documenti PPT serializzati (callout).
+1. Non tutte le funzionalità di formattazione del testo PPTX sono supportate nella serializzazione PPT (limiti di tabulazione, rientro e formattazione dei paragrafi).
 1. Le informazioni sulla lingua del testo e le impostazioni di ortografia non sono presenti nei documenti PPT serializzati.
-1. Non tutte le funzionalità dei temi PPTX sono supportate nella serializzazione PPT (solo la serializzazione dei formati di riempimento, dei formati di linea e dei caratteri).
-1. Sono noti problemi nella serializzazione PPT di OLE/ActiveX verso PPT.
+1. Non tutte le funzionalità dei temi PPTX sono supportate nella serializzazione PPT (solo la serializzazione di formati di riempimento, formati di linea e carattere).
+1. Ci sono problemi noti nella serializzazione OLE/ActiveX da PPT a PPT.

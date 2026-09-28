@@ -1,26 +1,26 @@
 ---
-title: Aspose.Slides for .NET
-second_title: Aspose.Slides for .NET
+title: Aspose.Slides สำหรับ .NET
+second_title: Aspose.Slides สำหรับ .NET
 type: docs
 weight: 10
 url: /th/net/
 keywords:
 - เอกสาร
-- การประมวลผลพรีเซนเทชัน
-- การแปลงพรีเซนเทชัน
+- การประมวลผลการนำเสนอ
+- การแปลงการนำเสนอ
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for .NET, สร้างพรีเซนเทชันแรก, และค้นหาแนวทางสำหรับงานทั่วไป, เอกสารอ้างอิง API และการสนับสนุน."
+description: "เริ่มต้นที่นี่: ติดตั้ง Aspose.Slides for .NET, สร้างการนำเสนอแรก, และค้นหาคู่มือสำหรับงานทั่วไป, การปรับใช้และอ้างอิง API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for .NET" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for .NET เป็นไลบรารีคลาสสำหรับสร้าง, อ่าน, แก้ไขและแปลงพรีเซนเทชัน PowerPoint และ OpenDocument ในแอปพลิเคชัน .NET โดยไม่ต้องใช้ Microsoft PowerPoint หรือ Office Automation.
+Aspose.Slides for .NET เป็นไลบรารีคลาสสำหรับสร้าง อ่าน แก้ไข และแปลงงานนำเสนอ PowerPoint และ OpenDocument ในแอปพลิเคชัน .NET โดยไม่ต้องใช้ Microsoft PowerPoint หรือ Office Automation
 
-ไลบรารีนี้สามารถโหลดและบันทึกไฟล์ PPT, PPTX, PPS, POT และ ODP รวมถึงรูปแบบที่มีแมโครและเทมเพลตได้ และสามารถส่งออกเป็น PDF, XPS, HTML, SVG, TIFF, Markdown และรูปภาพ.
+มันสามารถโหลดและบันทึกไฟล์ PPT, PPTX, PPS, POT และ ODP รวมถึงรูปแบบที่มีมาโครและเทมเพลต และส่งออกเป็น PDF, XPS, HTML, SVG, TIFF, Markdown และภาพต่างๆ
 
 <div style="clear:both"></div>
 
@@ -28,19 +28,21 @@ Aspose.Slides for .NET เป็นไลบรารีคลาสสำหร
 
 <div class="row">
 <div class="col-md-4">
-<p><b>เริ่มต้นใช้งาน</b></p>
+<p><b>เริ่มต้น</b></p>
 <hr>
 <p>เริ่มต้นใช้งาน</p>
 <ul>
 <li><a href="/slides/th/net/installation/">การติดตั้ง</a></li>
-<li><a href="/slides/th/net/create-presentation/">สร้างพรีเซนเทชันแรกของคุณ</a></li>
+<li><a href="/slides/th/net/create-presentation/">สร้างการนำเสนอแรกของคุณ</a></li>
+<li><a href="/slides/th/net/system-requirements/">ข้อกำหนดของระบบ</a></li>
 <li><a href="/slides/th/net/getting-started/">คู่มือเริ่มต้นใช้งาน</a></li>
 </ul>
 <p>ประเมิน</p>
 <ul>
 <li><a href="/slides/th/net/supported-file-formats/">รูปแบบไฟล์ที่รองรับ</a></li>
-<li><a href="/slides/th/net/evaluate-aspose-slides/">ข้อจำกัดของการทดลองใช้</a></li>
-<li><a href="/slides/th/net/licensing/">การให้ใบอนุญาต</a></li>
+<li><a href="/slides/th/net/features-overview/">ภาพรวมคุณลักษณะ</a></li>
+<li><a href="/slides/th/net/evaluate-aspose-slides/">ข้อจำกัดของการทดลอง</a></li>
+<li><a href="/slides/th/net/licensing/">การให้สิทธิ์ใช้</a></li>
 </ul>
 </div>
 <div class="col-md-4">
@@ -48,8 +50,8 @@ Aspose.Slides for .NET เป็นไลบรารีคลาสสำหร
 <hr>
 <p>งานทั่วไป</p>
 <ul>
-<li><a href="/slides/th/net/open-presentation/">เปิดพรีเซนเทชัน</a></li>
-<li><a href="/slides/th/net/save-presentation/">บันทึกพรีเซนเทชัน</a></li>
+<li><a href="/slides/th/net/open-presentation/">เปิดการนำเสนอ</a></li>
+<li><a href="/slides/th/net/save-presentation/">บันทึกการนำเสนอ</a></li>
 <li><a href="/slides/th/net/convert-powerpoint-to-pdf/">แปลงเป็น PDF</a></li>
 <li><a href="/slides/th/net/convert-slide/">แปลงสไลด์เป็นภาพ</a></li>
 <li><a href="/slides/th/net/manage-text/">แก้ไขข้อความและรูปร่าง</a></li>
@@ -60,7 +62,7 @@ Aspose.Slides for .NET เป็นไลบรารีคลาสสำหร
 <li><a href="/slides/th/net/powerpoint-animation/">การเคลื่อนไหว</a></li>
 <li><a href="/slides/th/net/manage-media-files/">เสียงและวิดีโอ</a></li>
 <li><a href="/slides/th/net/presentation-design/">การออกแบบสไลด์</a></li>
-<li><a href="/slides/th/net/merge-presentation/">ผสานพรีเซนเทชัน</a></li>
+<li><a href="/slides/th/net/merge-presentation/">ผสานการนำเสนอ</a></li>
 </ul>
 <p>ตัวอย่าง</p>
 <ul>
@@ -69,40 +71,50 @@ Aspose.Slides for .NET เป็นไลบรารีคลาสสำหร
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>อ้างอิงและการสนับสนุน</b></p>
+<p><b>ปรับใช้ &amp; สนับสนุน</b></p>
 <hr>
+<p>ปรับใช้</p>
+<ul>
+<li><a href="/slides/th/net/net6/">ข้ามแพลตฟอร์ม (.NET 6+)</a></li>
+<li><a href="/slides/th/net/how-to-run-aspose-slides-in-docker/">รันใน Docker</a></li>
+<li><a href="/slides/th/net/deploy-fonts/">ฟอนต์</a></li>
+<li><a href="/slides/th/net/security/">ความปลอดภัย</a></li>
+</ul>
 <p>อ้างอิง</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/net/">เอกสาร API</a></li>
-<li><a href="https://releases.aspose.com/slides/net/release-notes/">บันทึกการปล่อยเวอร์ชัน</a></li>
+<li><a href="https://reference.aspose.com/slides/th/net/">อ้างอิง API</a></li>
+<li><a href="https://releases.aspose.com/slides/th/net/release-notes/">บันทึกเวอร์ชัน</a></li>
 <li><a href="/slides/th/net/known-issues/">ปัญหาที่ทราบ</a></li>
-<li><a href="https://releases.aspose.com/slides/net/">ดาวน์โหลด</a></li>
+<li><a href="/slides/th/net/api-limitations/">ข้อจำกัดเมตาดาต้า</a></li>
+<li><a href="https://releases.aspose.com/slides/th/net/">ดาวน์โหลด</a></li>
 </ul>
-<p>การสนับสนุน</p>
+<p>สนับสนุน</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">ฟอรั่มสนับสนุนฟรี</a></li>
-<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือแบบชำระค่าบริการ</a></li>
+<li><a href="https://forum.aspose.com/c/slides/th/11">ฟอรั่มสนับสนุนฟรี</a></li>
+<li><a href="https://helpdesk.aspose.com/">ศูนย์ช่วยเหลือสนับสนุนแบบชำระเงิน</a></li>
 </ul>
 </div>
 </div>
 
 ------
 
-## **พรีเซนเทชันแรกของคุณ**
+<a name="your-first-presentation"></a>
 
-สร้างแอปพลิเคชันคอนโซลด้วย .NET SDK เวอร์ชัน 6 หรือใหม่กว่า:
+## **การนำเสนอแรกของคุณ**
+
+สร้างแอปพลิเคชันคอนโซลด้วย .NET SDK 6 หรือเวอร์ชันใหม่กว่า:
 
 ```bash
 dotnet new console -n HelloSlides
 cd HelloSlides
 ```
 
-จากนั้นเพิ่มแพ็กเกจหนึ่งรายการสำหรับแพลตฟอร์มของคุณ:
+จากนั้นเพิ่มแพ็กเกจหนึ่งสำหรับแพลตฟอร์มของคุณ:
 
 - บน Windows: `dotnet add package Aspose.Slides.NET`
-- บน Linux และ macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — ดู [Installation](/slides/th/net/installation/) สำหรับข้อกำหนดของ Linux และสำหรับระบบที่ต้องใช้ Aspose.Slides.NET แทน.
+- บน Linux และ macOS: `dotnet add package Aspose.Slides.NET6.CrossPlatform` — ดู [การติดตั้ง](/slides/th/net/installation/) สำหรับข้อกำหนดล่วงหน้าของ Linux และสำหรับระบบที่ต้องการ Aspose.Slides.NET แทน
 
-แทนที่เนื้อหาใน *Program.cs* ด้วยโค้ดนี้และรัน `dotnet run`:
+แทนที่เนื้อหาของ *Program.cs* ด้วยโค้ดนี้และเรียกใช้ `dotnet run`:
 
 ```csharp
 using Aspose.Slides;
@@ -115,4 +127,4 @@ shape.TextFrame.Text = "Hello, Aspose.Slides!";
 presentation.Save("hello.pptx", SaveFormat.Pptx);
 ```
 
-โปรแกรมจะบันทึกไฟล์ *hello.pptx* ที่มีสไลด์หนึ่งสไลด์พร้อมกล่องข้อความ. หากไม่มีใบอนุญาต ไฟล์ที่บันทึกจะมีลายน้ำการประเมินผล — ดู [Licensing](/slides/th/net/licensing/). สำหรับวิธีเพิ่มเติมในการสร้างและเติมเนื้อหาในพรีเซนเทชัน ดูที่ [Create Presentations](/slides/th/net/create-presentation/).
+โปรแกรมจะบันทึก *hello.pptx* ที่มีสไลด์หนึ่งที่มีช่องข้อความ หากไม่มีใบอนุญาตไฟล์ที่บันทึกจะมีลายน้ำการประเมิน — ดู [การให้สิทธิ์ใช้](/slides/th/net/licensing/). สำหรับวิธีเพิ่มเติมในการสร้างและเติมข้อมูลการนำเสนอ ดู [สร้างการนำเสนอ](/slides/th/net/create-presentation/).

@@ -1,117 +1,96 @@
 ---
 title: Özellikler Genel Bakışı
 type: docs
-weight: 20
+weight: 94
 url: /tr/net/features-overview/
 keywords:
 - özellikler
 - desteklenen platformlar
-- dosya formatı
+- dosya biçimleri
 - dönüşüm
-- işleme
-- biçimlendirme
+- renderleme
+- sunum içeriği
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'i keşfedin: PowerPoint ve OpenDocument sunumlarını verimli bir şekilde oluşturmak, düzenlemek, otomatikleştirmek ve dönüştürmek için güçlü bir API."
+description: "Aspose.Slides for .NET'in neleri kapsadığını değerlendirmeden önce gözden geçirin: desteklenen platformlar, dosya biçimleri, slayt renderleme ve oluşturup düzenleyebileceğiniz içerik."
 ---
-## **Desteklenen Platformlar**
-Aspose.Slides for .NET, en popüler geliştirme ve dağıtım platformlarını destekler. Bu ayrıntıları inceleyin:
+## **Genel Bakış**
 
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|ASP.NET Web Uygulamaları|Aspose.Slides for .NET'i, .NET Framework 2.0'dan 4.6.2'ye kadar olan sürümleri hedefleyen ASP.NET Web Uygulamaları oluşturmak için kullanın|
-|Web Servisleri|Aspose.Slides for .NET'i Web Servisleri dağıtmak için kullanın|
-|WinForms Uygulamaları|Aspose.Slides for .NET, Windows Forms Uygulamaları geliştirmek için de kullanılabilir|
+Aspose.Slides for .NET, PowerPoint ve OpenDocument sunumlarını oluşturmak, okumak, düzenlemek, dönüştürmek ve render etmek için bir sınıf kitaplığıdır. Kendi kullanıcı arayüzüne sahip değildir ve Microsoft PowerPoint ya da Office gerektirmez, bu yüzden konsol uygulamalarında, Windows Forms gibi masaüstü uygulamalarında, web uygulamalarında ve web servislerinde kullanabilirsiniz. Bu makale, kütüphanenin neler kapsadığını özetler ve her alanı açıklayan makalelere bağlantılar sağlar.
+
+## **Desteklenen Platformlar**
+
+Aspose.Slides for .NET, aynı API'ye sahip iki NuGet paketi olarak dağıtılır:
+
+|**Paket**|**Paketteki Derlemeler**|**İşletim Sistemleri**|
+| :- | :- | :- |
+|[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|.NET Framework 4.6.2, .NET Standard 2.0 ve .NET 6. .NET Framework 4.6.2 veya daha yeni bir sürümle, ya da .NET 6 veya daha yeni bir sürümle kullanabilirsiniz.|Windows. `libgdiplus` kütüphanesi ve `System.Drawing.EnableUnixSupport` anahtarıyla Linux ve macOS.|
+|[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)|.NET 6. .NET 6 veya daha yeni bir sürümle kullanabilirsiniz.|Windows (x86, x64), Linux (x64 ve glibc 2.23 veya daha yeni, ARM64 ve glibc 2.39 veya daha yeni), ve macOS (x64, ARM64).|
+
+[Kurulum](/slides/tr/net/installation/) hangi paketin seçileceğini ve her birinin Linux'ta neye ihtiyacı olduğunu açıklar. [Sistem Gereksinimleri](/slides/tr/net/system-requirements/) desteklenen platformları ayrıntılı olarak listeler.
 
 ## **Dosya Biçimleri ve Dönüşümler**
-Aspose.Slides for .NET, çoğu PowerPoint belge biçimini destekler. Ayrıca bunları, organizasyonların yaygın olarak kullandığı ve birbirleri arasında paylaştığı popüler formatlara dışa aktarmanıza olanak tanır. Bu ayrıntılara göz atın:
+
+Aspose.Slides, PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP ve PowerPoint XML sunumlarını açar ve kaydeder. PDF ve HTML içeriğini slaytlara aktarır ve sunumları PDF, XPS, HTML, HTML5, TIFF, animasyonlu GIF, SWF, Markdown ve XAML olarak kaydeder. [Desteklenen Dosya Biçimleri](/slides/tr/net/supported-file-formats/) her formatı, onu okuyan veya yazan API ile listeler.
 
 |**Özellik**|**Açıklama**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/tr/net/ppt-vs-pptx/)|Aspose.Slides for .NET, bu sunum belge biçimi için en hızlı işleme sağlayıcıdır.|
-|[PPT'den PPTX'e dönüştürme](/slides/tr/net/convert-ppt-to-pptx/)|Aspose.Slides for .NET, PPT'den PPTX'e dönüştürmeyi destekler.|
-|[Portable Document Format (PDF)](/slides/tr/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Desteklenen tüm dosya biçimlerini tek bir yöntemle Adobe Portable Document Format (PDF) belgelerine dışa aktarabilirsiniz.|
-|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/tr/net/convert-powerpoint-to-xps/)|Desteklenen tüm dosya biçimlerini tek bir yöntemle XML Parser Specification (XPS) belgelerine dışa aktarabilirsiniz.|
-|[Tagged Image File Format (TIFF)](/slides/tr/net/convert-powerpoint-to-tiff/)|Desteklenen tüm sunum dosya biçimlerini Tagged Image File Format (TIFF) formatına dışa aktarabilirsiniz.|
-|[PPTX To HTML Conversion](/slides/tr/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NET, PresentationEx'in HTML formatına dönüştürülmesini destekler.|
+|[PPT ve PPTX](/slides/tr/net/ppt-vs-pptx/)|Hem ikili PowerPoint 97-2003 formatını hem de Office Open XML formatını okuyup yazabilir.|
+|[PPT'den PPTX dönüşümü](/slides/tr/net/convert-ppt-to-pptx/)|Eski PPT sunumlarını PPTX'e dönüştürür.|
+|[Taşınabilir Belge Biçimi (PDF)](/slides/tr/net/convert-powerpoint-to-pdf/)|Sunumları PDF'ye, PDF/A ve PDF/UA belgeleri dahil olmak üzere dışa aktarır.|
+|[XML Kağıt Spesifikasyonu (XPS)](/slides/tr/net/convert-powerpoint-to-xps/)|Sunumları XPS belgelerine dışa aktarır.|
+|[Etiketli Görüntü Dosyası Biçimi (TIFF)](/slides/tr/net/convert-powerpoint-to-tiff/)|Sunumları TIFF görüntülerine dışa aktarır.|
+|[HTML](/slides/tr/net/convert-powerpoint-to-html/)|Sunumları HTML ve HTML5'e dışa aktarır.|
+|[PDF ve HTML içe aktarımı](/slides/tr/net/import-presentation/)|PDF sayfalarından ve HTML içeriğinden slaytlar oluşturur.|
 
-## **Sunum Oluşturma**
-Aspose.Slides for .NET, sunum belgelerindeki slaytların çeşitli grafik biçimlerine yüksek sadakatli işlenmesini destekler. Bu ayrıntılara göz atın:
+## **Sunum Görüntüleme**
 
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|.NET Destekli Görüntü Biçimleri|Aspose.Slides for .NET ile sunum slaytlarını ve slaytlardaki görüntüleri TIFF, PNG, BMP, JPEG, GIF ve metafile gibi .NET'in desteklediği tüm grafik biçimlerine işleyebilirsiniz.|
-|SVG Biçimi|Aspose.Slides for .NET ayrıca sunum slaytlarını Scalable Vector Graphics (SVG) biçimlerine dışa aktarmanızı sağlayan yerleşik yöntemler sunar.|
+Aspose.Slides, slaytları ve tek tek şekilleri PNG, JPEG, BMP, GIF, TIFF ve SVG görüntüleri olarak ve slaytları EMF metafile olarak render eder. Bakınız [Sunum Slaytlarını Görsellere Dönüştür](/slides/tr/net/convert-slide/), [Bir Slaytı SVG Görseli Olarak Render Et](/slides/tr/net/render-a-slide-as-an-svg-image/), ve [Şekil Küçük Resimleri Oluştur](/slides/tr/net/create-shape-thumbnails/).
 
 ## **İçerik Özellikleri**
-Aspose.Slides for .NET, sunum belgelerindeki neredeyse tüm öğelere veya içeriklere erişmenizi, bunları değiştirmenizi veya oluşturmanızı sağlar. Bu ayrıntılara göz atın:
 
-|**Özellik**|**Açıklama**|
+Aspose.Slides, bir sunumun neredeyse tüm içeriğini oluşturmanıza, okumanıza ve değiştirmenize olanak tanır:
+
+|**Alan**|**Yapabilecekleriniz**|
 | :- | :- |
-|Ana Slaytlar|Ana slaytlar, normal slaytların düzenini tanımlar. Aspose.Slides for .NET, sunum belgelerinin Ana Slaytlarına erişmenize ve bunları değiştirmenize olanak tanır|
-|Normal Slaytlar|Aspose.Slides for .NET ile farklı tiplerde yeni slaytlar oluşturabilirsiniz; ayrıca sunumlardaki mevcut slaytlara erişebilir ve onları düzenleyebilirsiniz|
-|Slayt Kopyalama / Çoğaltma|Aspose.Slides for .NET, bir sunum içinde mevcut slaytları kopyalayabilmeniz veya çoğaltabilmeniz için yerleşik yöntemler sağlar. Ayrıca bir sunumdan diğerine kopyalanan ve çoğaltılan slaytları kullanabilirsiniz. Bir slayt, düzenini ana slayttan devraldığından, yerleşik çoğaltma yöntemleri otomatik olarak ana slaytı kopyalar|
-|Slayt Bölümlerini Yönetme|Sunum içinde slaytları farklı bölümlere organize etmek için yöntemler|
-|Yer Tutucular ve Metin Tutucular|Bir slayttaki yer tutuculara ve metin tutuculara erişebilirsiniz. Ayrıca uygun yöntemle sıfırdan metin tutucu içeren bir slayt oluşturabilirsiniz|
-|Üstbilgi ve Altbilgi|Aspose.Slides for .NET, slaytlardaki üstbilgi/altbilgileri yönetmeyi kolaylaştırır|
-|Slaytlardaki Notlar|Aspose.Slides for .NET ile bir slayta ekli notlara erişebilir, bunları düzenleyebilir ve yeni notlar ekleyebilirsiniz|
-|Şekil Bulma|Bir şeklin alternatif metnini kullanarak belirli bir şekli slayttan bulabilirsiniz|
-|Arka Planlar|Aspose.Slides for .NET, bir sunumdaki ana veya normal slaytlarla ilişkilendirilmiş arka planlarla çalışmanıza olanak tanır|
-|Metin Kutuları|Metin kutuları sıfırdan oluşturulabilir. Mevcut metin kutularına erişebilirsiniz. Ayrıca orijinal metin biçimini koruyarak metinlerini değiştirebilirsiniz|
-|Dikdörtgen Şekiller|Aspose.Slides for .NET ile dikdörtgen şekilleri oluşturabilir veya düzenleyebilirsiniz|
-|Çoklu Çizgi Şekiller|Aspose.Slides for .NET ile çoklu çizgi şekilleri oluşturabilir veya düzenleyebilirsiniz|
-|Elips Şekiller|Aspose.Slides for .NET ile elips şekilleri oluşturabilir veya düzenleyebilirsiniz|
-|Grup Şekilleri|Aspose.Slides for .NET, grup şekillerini destekler|
-|Otomatik Şekiller|Aspose.Slides for .NET, otomatik şekilleri destekler|
-|SmartArt|Aspose.Slides for .NET, MS PowerPoint'teki SmartArt şekilleri için destek sunar|
-|Grafikler|Aspose.Slides for .NET, PowerPoint'teki MSO Grafiklerini destekler|
-|Şekil Serileştirme|Aspose.Slides for .NET, çok sayıda şekli destekler. Aspose.Slides for .NET bir şekli desteklemediğinde, mevcut bir slayttan o şekli serileştirmenizi sağlayan bir serileştirme yöntemi kullanabilirsiniz. Böylece şekli ihtiyaçlarınıza göre daha sonra kullanabilirsiniz|
-|Resim Çerçeveleri|Aspose.Slides for .NET ile resim çerçevelerindeki resimleri yönetebilirsiniz|
-|Ses Çerçeveleri|Aspose.Slides for .NET ile slaytlardaki ses çerçevelerine ses dosyalarını bağlayabilir veya gömebilirsiniz|
-|Video Çerçeveleri|Video dosyalarını video çerçevelerinde yönetebilirsiniz. Aspose.Slides for .NET, bağlanmış ve gömülü videoları da destekler|
-|OLE Çerçevesi|Aspose.Slides for .NET ile OLE çerçevelerindeki OLE Nesnelerini yönetebilirsiniz|
-|Tablolar|Aspose.Slides for .NET, slaytlarda tabloları destekler|
-|ActiveX Kontrolleri|ActiveX kontrolleri desteği|
-|VBA Makroları|Sunumlar içinde VBA makrolarını yönetme desteği|
-|Metin Çerçevesi|Herhangi bir şeklin metin çerçevesi aracılığıyla metne erişebilirsiniz|
-|Metin Tarama|Yerleşik tarama yöntemleriyle bir sunumun veya slaydın düzeyinde metin tarayabilirsiniz|
-|Animasyonlar|Şekiller üzerine animasyonlar uygulayabilirsiniz|
-|Slayt Gösterileri|Aspose.Slides for .NET, slayt gösterileri ve geçişlerini destekler|
-
-## **Biçimlendirme Özellikleri**
-Aspose.Slides for .NET ile sunumlardaki slaytlarda metin ve şekilleri biçimlendirebilirsiniz. Bu ayrıntılara göz atın:
-
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|Metin Biçimlendirme|<p>Aspose.Slides for .NET'te, şekillere bağlı metin çerçeveleri aracılığıyla metinleri yönetebilirsiniz. Böylece, metinleri şekillere bağlı paragraflar ve bölümler kullanarak biçimlendirebilirsiniz. Bu metin öğeleri Aspose.Slides for .NET ile biçimlendirilebilir.</p><p>- Yazı Tipi</p><p>- Yazı Boyutu</p><p>- Yazı Rengi</p><p>- Yazı Tonları</p><p>- Paragraf Hizalaması</p><p>- Paragraf Madde İşaretleri</p><p>- Paragraf Yönlendirmesi</p>|
-|Şekil Biçimlendirme|<p>Aspose.Slides for .NET'te, bir slaydın temel öğesi bir şekildir. Bu şekil öğelerini Aspose.Slides for .NET ile biçimlendirebilirsiniz:</p><p>- Konum</p><p>- Boyut</p><p>- Çizgi</p><p>- Doldurma (Desen, Gradyan, Katı dahil)</p><p>- Metin</p><p>- Resim</p>|
+|[Slaytlar](/slides/tr/net/presentation-slide/)|Slayt ekle, kopyala, yeniden sırala ve sil; düzen ve ana temaları uygula; slaytları bölümlere organize et; slayt boyutunu değiştir.|
+|[Tasarım](/slides/tr/net/presentation-design/)|Arka planları, tema renklerini, üstbilgi ve altbilgileri ve yazı tiplerini ayarla.|
+|[Metin](/slides/tr/net/manage-text/)|Metin çerçeveleri, paragraflar ve bölümler oluştur ve düzenle; yazı tiplerini, renkleri, madde işaretlerini ve hizalamayı ayarla; metni bul ve değiştir.|
+|[Şekiller](/slides/tr/net/powerpoint-shapes/)|AutoShape'ler, çizgiler, bağlayıcılar, grup şekilleri ve resim çerçeveleri oluştur; konum, boyut, çizgi ve düz, degradeli ya da desen dolgusu ayarla; bir şekli alternatif metniyle bul.|
+|[Tablolar](/slides/tr/net/powerpoint-table/), [grafikler](/slides/tr/net/powerpoint-charts/), ve [SmartArt](/slides/tr/net/powerpoint-smartart/)|Tablolar, Microsoft Office grafikleri ve SmartArt diyagramları oluştur ve düzenle.|
+|[Medya](/slides/tr/net/manage-media-files/), [OLE nesneleri](/slides/tr/net/manage-ole/), ve [ActiveX denetimleri](/slides/tr/net/activex/)|Gömülü veya bağlanmış ses ve video çerçeveleri ekle, OLE nesnelerini göm, ve ActiveX denetimlerini ekle, değiştir veya kaldır.|
+|[Notlar](/slides/tr/net/presentation-notes/) ve [yorumlar](/slides/tr/net/presentation-comments/)|Sunum notları ve inceleme yorumları ekle, oku ve düzenle.|
+|[Animasyon](/slides/tr/net/powerpoint-animation/) ve [geçişler](/slides/tr/net/slide-transition/)|Şekillere animasyon efektleri uygula, slayt geçişlerini ayarla ve slayt gösterisi ayarlarını yapılandır.|
+|[Güvenlik](/slides/tr/net/presentation-security/)|Sunumları şifreyle şifrele, yazma koruması ayarla ve dijital imzalarla çalış.|
+|[VBA makroları](/slides/tr/net/presentation-via-vba/)|Makro etkin sunumlarda VBA modüllerini ekle, çıkar ve kaldır.|
+|[Özellikler](/slides/tr/net/presentation-properties/)|Belge özelliklerini oku ve düzenle.|
 
 ## **SSS**
 
-### Kütüphanenin çalışması için sunucu/PC'ye Microsoft PowerPoint kurmam gerekir mi?
+**Kütüphanenin çalışması için sunucu ya da PC'ye Microsoft PowerPoint kurmam gerekir mi?**
 
-Hayır. PowerPoint gerekmez; Aspose.Slides, sunum oluşturma, düzenleme, dönüştürme ve renderleme için bağımsız bir motor sağlar.
+Hayır. PowerPoint gerekli değildir; Aspose.Slides, sunumları oluşturmak, düzenlemek, dönüştürmek ve render etmek için bağımsız bir motor sağlar.
 
-### Çoklu iş parçacığı nasıl çalışıyor? İşlem paralelleştirilebilir mi?
+**Çok iş parçacığı (multithreading) nasıl çalışır? İşlem paralelleştirilebilir mi?**
 
-Farklı belgeleri farklı iş parçacıklarında işlemem güvenlidir; aynı [presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesi aynı anda [multiple threads](/slides/tr/net/multithreading/) tarafından kullanılmamalıdır.
+Farklı belgeleri farklı iş parçacıklarında işlemek güvenlidir; aynı [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesi aynı anda [çoklu iş parçacıkları](/slides/tr/net/multithreading/) tarafından kullanılmamalıdır.
 
-### Dosya şifreleri ve şifreleme destekleniyor mu?
+**Dosya şifreleri ve şifreleme destekleniyor mu?**
 
-Evet. [Şifreli sunumları](/slides/tr/net/password-protected-presentation/) açabilir, açma ve yazma şifresi ayarlayabilir veya kaldırabilir ve koruma durumunu kontrol edebilirsiniz.
+Evet. [Bunu yapabilirsiniz](/slides/tr/net/password-protected-presentation/) şifreli sunumları açabilir, açma ve yazma şifresi ayarlayabilir veya kaldırabilir ve koruma durumunu kontrol edebilirsiniz.
 
-### Linux konteynerlerinde font paketleriyle ilgilenmem gerekir mi?
+**Linux konteynerlerinde yazı tiplerine (font) dikkat etmem gerekir mi?**
 
-Evet. Beklenmedik font değişimlerini önlemek için yaygın font paketlerini kurmanız ve/veya uygulamanızda açıkça [font dizinlerini](/slides/tr/net/custom-font/) belirtmeniz önerilir.
+Evet. Sunumlarınızda kullanılan yazı tipleri veya uygun alternatifleri, metnin doğru görüntülenebilmesi için sistemde yüklü olmalıdır. Ayrıca uygulamanızda [yazı tipi dizinlerini belirtebilir](/slides/tr/net/custom-font/) irsiniz. [Kurulum](/slides/tr/net/installation/) her paketin Linux önkoşullarını listeler.
 
-### Değerlendirme sürümünde sınırlamalar var mı?
+**Değerlendirme sürümünde sınırlamalar var mı?**
 
-[Değerlendirme modunda](/slides/tr/net/licensing/), çıktıya bir filigran eklenir ve belirli sınırlamalar geçerlidir; tam özellik testi için bir [30 günlük geçici lisans](https://purchase.aspose.com/temporary-license/) mevcuttur.
+Evet. Bir [lisans](/slides/tr/net/licensing/) olmadan, Aspose.Slides kaydettiği her slayta bir değerlendirme filigranı ekler ve sunumlardan okunan metni kısaltır. Tam özellikli test için bir [30 günlük geçici lisans](https://purchase.aspose.com/temporary-license/) mevcuttur.
 
-### Harici formatların sunuma (PDF/HTML → PPTX) aktarılması destekleniyor mu?
+**Harici formatların (PDF veya HTML'den PPTX'e) bir sunuma içe aktarılması destekleniyor mu?**
 
-Evet. [PDF sayfalarını ve HTML içeriğini](/slides/tr/net/import-presentation/) bir sunuma ekleyebilir ve bunları slaytlara dönüştürebilirsiniz.
+Evet. Bir sunuma [PDF sayfaları ve HTML içeriği](/slides/tr/net/import-presentation/) ekleyebilir, bunları slaytlara dönüştürebilirsiniz.

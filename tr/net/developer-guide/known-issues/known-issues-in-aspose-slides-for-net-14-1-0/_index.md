@@ -1,19 +1,27 @@
 ---
-title: Aspose.Slides for .NET 14.1.0'de Bilinen Sorunlar
+title: Aspose.Slides for .NET 14.1.0 (Tarihsel) Bilinen Sorunlar
 type: docs
 weight: 20
 url: /tr/net/known-issues-in-aspose-slides-for-net-14-1-0/
 keywords:
 - bilinen sorun
+- tarihsel
+- sürüm 14.1.0
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET 14.1.0 sürümündeki bilinen sorunları gözden geçirerek PowerPoint ve OpenDocument dosyalarıyla doğru çalışmanızı sağlayın ve sunumlarınızda sürprizlerle karşılaşmayın."
+description: "Tarihsel: 2014'te Aspose.Slides for .NET 14.1.0 ile yayınlanan bilinen sorunlar, referans olması için saklanmıştır. Güncel sürümdeki sorunların bir listesi değildir."
 ---
-Aşağıda Aspose.Slides for .NET 14.1.0 sürümündeki Bilinen Sorunlar ve Sınırlamalar yer almaktadır.
+{{% alert color="info" title="Note" %}}
 
-1. Serileştirilmiş PPT belgelerinde bazı şekillerin geometrisi yanlıştır (Call outs).
+Bu bir tarihsel sayfadır. 2014'te yayımlanan Aspose.Slides for .NET 14.1.0 ile ilgili bilinen sorunları listeler ve mevcut sürümü açıklamaz. Her sürümdeki değişiklikler için [sürüm notları](https://releases.aspose.com/slides/tr/net/release-notes/).
+
+{{% /alert %}}
+
+Aşağıda Aspose.Slides for .NET 14.1.0'daki Bilinen Sorunlar ve Sınırlamalar yer almaktadır.
+
+1. Serileştirilmiş PPT belgelerinde (Call outs) bazı şekiller yanlış geometrik yapıya sahiptir.
 1. PPT serileştirmesinde tüm PPTX metin biçimlendirme özellikleri desteklenmez (sekme, girinti ve paragraf biçimlendirme sınırlamaları).
-1. Serileştirilmiş PPT belgelerinde metin dili ve imla ayarları hakkında bilgi bulunmaz.
-1. PPT serileştirmesinde tüm PPTX tema özellikleri desteklenmez (yalnızca dolgu biçimleri, çizgi biçimleri ve yazı tipi serileştirilir).
-1. OLE/ActiveX PPT'den PPT'ye serileştirme işleminde bilinen sorunlar vardır.
+1. Serileştirilmiş PPT belgelerinde metin dili ve yazım denetimi ayarları hakkında bilgi bulunmaz.
+1. PPT serileştirmesinde tüm PPTX tema özellikleri desteklenmez (yalnızca dolgu formatları, çizgi formatları ve yazı tipinin serileştirilmesi).
+1. OLE/ActiveX PPT'den PPT'ye serileştirilmesinde bilinen sorunlar vardır.

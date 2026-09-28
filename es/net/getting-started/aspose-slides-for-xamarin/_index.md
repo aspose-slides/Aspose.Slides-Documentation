@@ -1,7 +1,8 @@
 ---
-title: Aspose.Slides para Xamarin
+title: Aspose.Slides para Xamarin (Histórica)
+linktitle: Xamarin (Histórica)
 type: docs
-weight: 150
+weight: 200
 url: /es/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
@@ -13,30 +14,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Cree aplicaciones móviles Xamarin en C# para ver, editar y convertir presentaciones con Aspose.Slides, con soporte de funciones avanzadas para PPT, PPTX y ODP en Android."
+description: "Histórico: cómo las versiones 20.2 a 22.10 de Aspose.Slides para .NET soportaban Xamarin.Android mediante una biblioteca separada. Las versiones actuales no la incluyen."
 ---
+{{% alert color="info" title="Nota" %}}
+
+Esta es una página histórica. Las versiones 20.2 a 22.10 del paquete Aspose.Slides.NET incluían una biblioteca Xamarin.Android independiente, *Aspose.Slides.Droid.dll*, que el código de esta página utiliza. Las versiones posteriores no la incluyen: el paquete actual contiene compilaciones solo para .NET Framework 4.6.2, .NET 6 y .NET Standard 2.0. Microsoft finalizó el soporte para todos los SDK de Xamarin el 1 de mayo de 2024; consulte la [política de soporte de Xamarin](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
+
+{{% /alert %}}
+
 ## **Introducción**
 
-Xamarin es un framework usado para el desarrollo móvil en .NET C#. Xamarin dispone de herramientas y bibliotecas que amplían las capacidades de la plataforma .NET. Permite a los desarrolladores crear aplicaciones para el sistema operativo **Android**.
+Xamarin es un framework utilizado para el desarrollo móvil en .NET C#. Xamarin dispone de herramientas y bibliotecas que amplían las capacidades de la plataforma .NET. Permite a los desarrolladores crear aplicaciones para el sistema operativo **Android**.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Nota" %}}
 
 Para el desarrollo en Xamarin, los programadores pueden usar sus entornos de desarrollo habituales (C#, Visual Studio y bibliotecas de terceros).
 
 {{% /alert %}}
 
-La API de Aspose.Slides funciona en la plataforma Xamarin. Para lograrlo, el paquete Aspose.Slides .NET agrega un DLL separado para Xamarin. Aspose.Slides para Xamarin admite la mayor parte de las funcionalidades disponibles en la versión .NET:
+La API Aspose.Slides funcionaba en la plataforma Xamarin. Para lograrlo, el paquete Aspose.Slides.NET, en las versiones 20.2 a 22.10, añadió una DLL independiente para Xamarin. Aspose.Slides para Xamarin soportaba la mayoría de las funciones disponibles en la versión .NET:
 
 - conversión y visualización de presentaciones.  
-- edición del contenido de presentaciones: texto, formas, gráficos, SmartArt, audio/vídeo, fuentes, etc.  
+- edición de contenidos en presentaciones: texto, formas, gráficos, SmartArt, audio/video, fuentes, etc.  
 - gestión de animaciones, efectos 2D, WordArt, etc.  
 - gestión de metadatos y propiedades del documento.  
 - clonación, combinación, comparación, división, etc.
 
-Hemos proporcionado una comparación de todas las funcionalidades en otra sección cerca del final de esta página.
+Proporcionamos una comparación de todas las funcionalidades en otra sección cerca del final de esta página.
 
-En la API de Aspose.Slides para Xamarin, las clases, espacios de nombres, lógica y comportamiento son lo más parecidos posible a la versión .NET. Puede migrar sus aplicaciones Aspose.Slides .NET a Xamarin con costos mínimos.
-
+En la API Aspose.Slides para Xamarin, las clases, espacios de nombres, lógica y comportamiento eran lo más parecidos posible a la versión .NET. Podía migrar sus aplicaciones Aspose.Slides .NET a Xamarin con costos mínimos.
 
 ## **Ejemplo rápido**
 Puede usar Aspose.Slides para Xamarin para crear y utilizar su aplicación C# a través de Slides para Android.
@@ -45,14 +51,14 @@ Ofrecemos un ejemplo de aplicación Android mediante Xamarin que usa Aspose.Slid
 
 Comencemos creando una aplicación Xamarin Android:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Creando una aplicación Xamarin Android](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Primero, creamos un diseño de contenido que contendrá una vista de imagen y los botones Anterior y Siguiente:
+Primero, creamos un layout de contenido que contendrá una vista de imagen y los botones Anterior y Siguiente:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![Layout de contenido con una vista de imagen y botones Anterior y Siguiente](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-**XML - content_main.xml - Crear diseño de contenido**
-``` 
+**XML - content_main.xml - Crear layout de contenido**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -95,7 +101,7 @@ Primero, creamos un diseño de contenido que contendrá una vista de imagen y lo
 </LinearLayout>
 ```
 
-Aquí, hacemos referencia a la biblioteca "Aspose.Slides.Droid.dll" que incluye una presentación de ejemplo ("HelloWorld.pptx") en los Assets de la aplicación Xamarin y añadimos su inicialización en MainActivity:
+Aquí, referenciamos la biblioteca "Aspose.Slides.Droid.dll" que incluye una presentación de muestra ("HelloWorld.pptx") en los Assets de la aplicación Xamarin y añadimos su inicialización a MainActivity:
 
 **C# - MainActivity.cs - Inicialización**
 
@@ -138,7 +144,7 @@ public class MainActivity : AppCompatActivity
 
 Añadamos la función para mostrar las diapositivas Anterior y Siguiente al pulsar los botones:
 
-**C# - MainActivity.cs - Mostrar diapositivas al hacer clic en los botones Anterior y Siguiente**
+**C# - MainActivity.cs - Mostrar diapositivas al pulsar los botones Anterior y Siguiente**
 
 ``` csharp
 using System.Diagnostics;
@@ -265,7 +271,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -275,7 +281,7 @@ public class MainActivity : AppCompatActivity
 
 Por último, implementemos una función para añadir una forma elíptica al tocar la diapositiva:
 
-**C# - MainActivity.cs - Añadir elipse al hacer clic en la diapositiva**
+**C# - MainActivity.cs - Añadir elipse al pulsar la diapositiva**
 
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
@@ -286,7 +292,7 @@ Por último, implementemos una función para añadir una forma elíptica al toca
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -306,12 +312,11 @@ Por último, implementemos una función para añadir una forma elíptica al toca
 }
 ```
 
-Cada clic en la diapositiva de la presentación agrega una elipse de color aleatorio:
+Cada pulsación en la diapositiva de la presentación genera una elipse de color aleatorio:
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+![Diapositiva con elipses añadidas al tocarla](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
-
-## **Funciones admitidas**
+## **Funciones compatibles**
 
 |**FUNCIONALIDADES**|**Aspose.Slides para .NET**|**Aspose.Slides para Xamarin**|
 | :- | :- | :- |
@@ -321,17 +326,17 @@ Cada clic en la diapositiva de la presentación agrega una elipse de color aleat
 |Abrir/guardar formatos PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Soporte de extensiones PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Soporte de extensiones PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Soporte de funciones PowerPoint 2016|restricted|restricted|
-|Soporte de funciones PowerPoint 2019|restricted|restricted|
-|Conversión PPT → PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Conversión PPTX → PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX en PPT|restricted|restricted|
+|Soporte de funciones PowerPoint 2016|restringido|restringido|
+|Soporte de funciones PowerPoint 2019|restringido|restringido|
+|Conversión PPT a PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Conversión PPTX a PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX en PPT|restringido|restringido|
 |Procesamiento de temas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Procesamiento de macros|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Procesamiento de propiedades del documento|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Protección con contraseña|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Extracción rápida de texto|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Incrustar fuentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Incrustación de fuentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Renderizado de comentarios|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Interrupción de tareas de larga duración|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Formatos de exportación:**| | |
@@ -339,11 +344,11 @@ Cada clic en la diapositiva de la presentación agrega una elipse de color aleat
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restricted|restricted|
-|SWF|restricted|restricted|
+|ODP|restringido|restringido|
+|SWF|restringido|restringido|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Formatos de importación:**| | |
-|HTML|restricted|restricted|
+|HTML|restringido|restringido|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funciones de diapositivas maestras:**| | |
@@ -362,29 +367,29 @@ Cada clic en la diapositiva de la presentación agrega una elipse de color aleat
 |Crear/editar/eliminar secciones de diapositivas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funciones de diapositivas de notas:**| | |
 |Acceso a todas las diapositivas de notas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funciones de forma:**| | |
+|**Funciones de formas:**| | |
 |Acceso a todas las formas de la diapositiva|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Agregar nuevas formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Añadir nuevas formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Clonar formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Exportar formas individuales a imágenes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Tipos de forma admitidos:**| | |
+|Exportar formas separadas a imágenes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Tipos de forma compatibles:**| | |
 |Todos los tipos de forma predefinidos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Marco de imagen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Marcos de imagen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tablas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Gráficos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagrama heredado|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diagramas heredados|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, objetos ActiveX|restricted|restricted|
-|Marco de vídeo|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Marco de audio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|OLE, objetos ActiveX|restringido|restringido|
+|Marcos de vídeo|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Marcos de audio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Conectores|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funciones de formas agrupadas:**| | |
-|Acceso a formas agrupadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Crear formas agrupadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Desagrupar formas agrupadas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funciones de grupos de formas:**| | |
+|Acceso a grupos de formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Crear grupos de formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Desagrupar grupos de formas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funciones de efectos de forma:**| | |
-|Efectos 2D|restricted|restricted|
+|Efectos 2D|restringido|restringido|
 |Efectos 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Funciones de texto:**| | |
 |Formato de párrafos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|

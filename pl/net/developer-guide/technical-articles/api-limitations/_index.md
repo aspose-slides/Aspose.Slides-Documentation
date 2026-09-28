@@ -1,35 +1,38 @@
 ---
-title: Ograniczenia API
+title: Ograniczenia metadanych wyjściowych
 type: docs
 weight: 320
 url: /pl/net/api-limitations/
 keywords:
-- Ograniczenia API
+- ograniczenia API
 - format eksportu
 - aplikacja
 - producent
 - właściwości dokumentu
 - metadane
+- generator
 - PowerPoint
 - OpenDocument
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Poznaj ograniczenia Aspose.Slides for .NET: eksporty ustawiają stałe metadane Application/Producer w plikach PPT, PPTX, ODP i PDF—pomagając planować integracje bez niespodzianek."
+description: "Aspose.Slides dla .NET zapisuje stałe metadane aplikacji, twórcy i producenta w zapisanych plikach PPTX, PDF i ODP, niezależnie od ustawionej nazwy aplikacji."
 ---
 ## **Przegląd**
 
-Kiedy prezentacje są tworzone lub eksportowane przy użyciu Aspose.Slides, pewne techniczne metadane są zapisywane w pliku wyjściowym. Ten artykuł wyjaśnia ograniczenia dotyczące pól metadanych `Application`, `Creator` i `Producer` w plikach PPTX i PDF.
+Podczas tworzenia lub eksportowania prezentacji przy użyciu Aspose.Slides, pewne techniczne metadane są zapisywane w pliku wyjściowym. Ten artykuł wyjaśnia ograniczenia dotyczące pól metadanych `Application`, `Creator`, `Producer` oraz generator w plikach PPTX, PDF i ODP.
 
-## **Application i Producer**
+## **Aplikacja i Producent**
 
-Kiedy tworzysz lub eksportujesz prezentacje przy użyciu Aspose.Slides for .NET, niektóre techniczne metadane są zapisywane w pliku. Dwa pola często budzą pytania:
+Podczas tworzenia lub eksportowania prezentacji przy użyciu Aspose.Slides for .NET, niektóre techniczne metadane są zapisywane w pliku. Dwa pola często budzą pytania:
 
-**Application** identyfikuje program, który utworzył lub ostatnio zapisał prezentację **PPTX**. W Aspose.Slides for .NET wartość ta jest stała i pokazuje dostawcę biblioteki, a nie nazwę Twojej aplikacji, nawet jeśli ustawisz [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/pl/net/aspose.slides/documentproperties/nameofapplication/).
+**Application** określa program, który utworzył lub ostatnio zapisał prezentację **PPTX**. W Aspose.Slides for .NET ta wartość jest stała i wyświetla nazwę biblioteki zamiast nazwy Twojej aplikacji, nawet jeśli ustawisz [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/pl/net/aspose.slides/documentproperties/nameofapplication/).
 
-**Producer** identyfikuje silnik renderujący, który wygenerował finalny plik podczas eksportu. W eksportach **PDF** metadane używają pól **Creator** i **Producer**. W Aspose.Slides for .NET oba te pola są stałe i odzwierciedlają bibliotekę oraz jej wersję.
+**Producer** określa silnik renderujący, który wygenerował ostateczny plik podczas eksportu. W eksportach **PDF** metadane używają pól **Creator** i **Producer**. W Aspose.Slides for .NET oba te pola są stałe i odzwierciedlają bibliotekę oraz jej wersję.
 
 **Co jest ograniczone**
 
-Nie możesz nadpisać tych pól za pomocą API dla powyższych formatów. Dla **PPTX** właściwość Application jest zapisywana jako "Aspose.Slides for .NET". Dla **PDF** właściwości Creator i Producer są zapisywane jako "Aspose.Slides for .NET x.x.x". To zachowanie jest zamierzone i obowiązuje niezależnie od tego, w jaki sposób wczytujesz lub zapisujesz plik oraz niezależnie od wartości przypisanych do [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/pl/net/aspose.slides/documentproperties/nameofapplication/).
+Nie możesz nadpisać tych pól za pomocą API dla wymienionych formatów. Dla **PPTX** właściwość Application jest zapisywana jako „Aspose.Slides for .NET”. Dla **PDF** właściwości Creator i Producer są zapisywane jako „Aspose.Slides for .NET” z wersją biblioteki. Dla **ODP** pole generator jest zapisywane jako „Aspose.Slides for .NET” z wersją biblioteki. Takie zachowanie jest zamierzone i obowiązuje niezależnie od tego, jak wczytujesz lub zapisujesz plik, oraz niezależnie od wartości przypisanych do [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/pl/net/aspose.slides/documentproperties/nameofapplication/).
+
+To ograniczenie nie dotyczy plików **PPT**: w pliku PPT nazwa aplikacji, którą ustawiłeś w [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/pl/net/aspose.slides/documentproperties/nameofapplication/), jest zapisywana.

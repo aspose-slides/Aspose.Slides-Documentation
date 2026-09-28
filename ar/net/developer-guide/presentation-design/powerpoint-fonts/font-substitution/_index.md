@@ -10,27 +10,27 @@ keywords:
 - استبدال الخط
 - استبدال الخط
 - استبدال الخط
-- قاعدة الاستبدال
-- قاعدة الاستبدال
+- قاعدة استبدال
+- قاعدة استبدال
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تكوين قواعد استبدال الخطوط وفحص الخطوط المستبدلة في Aspose.Slides لـ .NET أثناء عرض أو تحويل عروض PowerPoint وOpenDocument التقديمية."
+description: "تكوين قواعد استبدال الخطوط وتفقد الخطوط المستبدلة في Aspose.Slides لـ .NET عند عرض أو تحويل عروض PowerPoint وOpenDocument."
 ---
 ## **نظرة عامة**
 
-تسمح استبدال الخطوط لـ Aspose.Slides باستخدام خط متاح بدلاً من خط لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على المخرجات المعروضة؛ ولا يغيّر الخط المعين لمحتوى العرض التقديمي.
+استبدال الخط يسمح لـ Aspose.Slides باستخدام خط متاح بدلًا من خط لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على المخرجات المُعرضة؛ ولا يغيّر الخط المعين لمحتوى العرض.
 
-يمكنك تحديد الخط الذي سيتم استخدامه عندما يكون خط معين غير متوفر، ويمكنك فحص الاستبدالات التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على اتساق المخرجات عبر بيئات تحتوي على خطوط مثبتة مختلفة.
+يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متاح، ويمكنك فحص عمليات الاستبدال التي سيجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على تناسق المخرجات عبر بيئات مختلفة لديها خطوط مثبتة مختلفة.
 
 ## **الحصول على استبدالات الخطوط**
 
-استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) لتحديد الخطوط التي سيتم استبدالها عند عرض العرض التقديمي. تُعيد الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والمستبدل.
+استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) لتحديد الخطوط التي ستُستبدل عندما يُعرض العرض التقديمي. تُرجع الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والبديل.
 
-المثال التالي بلغة C# يدرج جميع استبدالات الخطوط لعروض تقديمي:
+المثال التالي بلغة C# يسرد جميع استبدالات الخطوط لعرض تقديمي:
 
 ```csharp
 using System;
@@ -46,13 +46,13 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **الحصول على استبدالات الخطوط للشرائح المحددة**
 
-استخدم نسخة الطريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) التي تقبل معامل `int[] slides` لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. هذا مفيد عندما تقوم بعرض أو تصدير جزء من العرض التقديمي، أو فحص عرض تقديمي كبير بشكل تدريجي، أو تحديد الشرائح التي تعتمد على خطوط غير متوفرة، أو إعداد حزمة خطوط قليلة لملقم أو حاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
+استخدم طريقة [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) ذات الوسيط `int[] slides` لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. يكون هذا مفيدًا عند عرض أو تصدير جزء من العرض، أو فحص عرض تقديمي كبير بصورة تدريجية، أو تحديد الشرائح التي تعتمد على خطوط غير متاحة، أو إعداد حزمة خطوط صغيرة للخادم أو الحاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
 
-مصفوفة `slides` تحتوي على فهارس الشرائح بدءًا من الواحد: `1` يحدد الشريحة الأولى. بالمقابل، فهرس مجموعة [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) هو صفرية الأساس، لذلك يتم الوصول إلى نفس الشريحة عبر `presentation.Slides[0]`. احرص على مراعاة هذا الفرق عند بناء المصفوفة لتجنب أخطاء الفهرسة.
+المصفوفة `slides` تحتوي على فهارس شرائح تبدأ من الواحد: `1` يُشير إلى الشريحة الأولى. بالمقابل، فهرس مجموعة [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) يبدأ من الصفر، لذا تُصبح نفس الشريحة `presentation.Slides[0]`. احرص على مراعاة هذا الفرق عند بناء المصفوفة لتجنب أخطاء الإزاحة.
 
-استدعِ النسخة عبر الخاصية [Presentation.FontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/fontsmanager/). تُعيد فقط الاستبدالات التي تم تحديدها أثناء عرض الشرائح المحددة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والمستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد الرجوع التلقائي المكوّنة، وقواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsubstrulecollection/)، و[الخطوط المحملة خارجيًا](/slides/ar/net/custom-font/).
+استدعِ النسخة المتعددة الوسائط عبر الخاصية [Presentation.FontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/fontsmanager/). تُرجع الاستبدالات المحددة أثناء عرض الشرائح المختارة فقط. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والبديل. تُعكس النتيجة بيئة الخط الحالية و[الخطوط المحملة خارجيًا](/slides/ar/net/custom-font/). قواعد الاستبدال المخزنة في [IFontSubstRuleCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsubstrulecollection/) تُغيّر المخرجات المعروضة لكنها لا تظهر في النتيجة.
 
-يمكن أن يتطلب نفس الاستبدال أكثر من شريحة محددة. قم بإزالة الازدواجية من النتائج عند إنشاء جرد للخطوط أو تقرير الفحص المسبق. المثال التالي يوضح كل استبدال تم إرجاعه ثم يُنشئ قائمة مرتبة من تعيينات الخطوط الفريدة:
+قد يتطلب نفس الاستبدال أكثر من شريحة مختارة. قم بإزالة التكرار عند إنشاء جرد الخطوط أو تقرير الفحص المسبق. المثال التالي يُبلّغ عن كل استبدال مُرجع ثم يُنشئ قائمة مرتبة بخرائط الخطوط الفريدة:
 
 ```csharp
 using System;
@@ -83,23 +83,23 @@ foreach (var entry in sortedPreflightEntries)
 
 توفر الواجهة [IFontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/) كلا النسختين. اختر واحدة حسب نطاق عملية العرض:
 
-| النسخة | متى تُستخدم |
+| Overload | Use it when |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) بدون معلمات | عندما تحتاج إلى استبدالات للعرض التقديمي بأكمله. |
-| [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) مع `int[] slides` | عندما تحتاج إلى استبدالات لنطاق محدد أو فحص تدريجي أو تصدير جزئي. |
+| [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) مع عدم وجود وسائط | تحتاج إلى استبدالات للعرض التقديمي بالكامل. |
+| [GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) مع `int[] slides` | تحتاج إلى استبدالات لنطاق مختار، فحص تدريجي، أو تصدير جزئي. |
 
 ## **تحديد قواعد استبدال الخطوط**
 
-لتحديد الخط الذي يجب على Aspose.Slides استخدامه عندما يكون الخط المصدر غير متوفر:
+لتحديد الخط الذي يجب أن يستخدمه Aspose.Slides عندما يكون الخط المصدر غير متاح:
 
-1. حمّل العرض التقديمي.  
-2. أنشئ تعريفات الخط للمصدر والخط المستبدل.  
-3. أنشئ قاعدة [FontSubstRule](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstrule/) مع الشرط [WhenInaccessible](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstcondition/).  
-4. أضف القاعدة إلى مجموعة [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstrulecollection/).  
-5. عيّن المجموعة إلى الخاصية [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
-6. اعرض أو حوّل العرض التقديمي.
+1. تحميل العرض التقديمي.  
+2. إنشاء تعريفات للخط المصدر والبديل.  
+3. إنشاء [FontSubstRule](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstrule/) مع الشرط [WhenInaccessible](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstcondition/).  
+4. إضافة القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsubstrulecollection/).  
+5. تعيين المجموعة إلى خاصية [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
+6. عرض أو تحويل العرض التقديمي.
 
-المثال التالي بلغة C# يستبدل الخط `Arial` بالخط `SomeRareFont` عندما يكون `SomeRareFont` غير متوفر، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط المستبدل متاحًا لـ Aspose.Slides.
+المثال التالي بلغة C# يستبدل `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متاح، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متوفرًا لـ Aspose.Slides.
 
 ```csharp
 using Aspose.Slides;
@@ -119,36 +119,36 @@ image.Save("slide.jpg", ImageFormat.Jpeg);
 ```
 
 {{% alert color="info" title="Note" %}}
-لإجراء تغيير غير مشروط للخطوط المستخدمة في جميع أنحاء العرض التقديمي، راجع [استبدال الخط](/slides/ar/net/font-replacement/).
+لك تغيير غير مشروط للخطوط المستخدمة في جميع أنحاء العرض، راجع [Font Replacement](/slides/ar/net/font-replacement/).
 {{% /alert %}}
 
 ## **القيود على خطوط معادلات الرياضيات**
 
-قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل للنص العادي عندما يمكن لـ Aspose.Slides استبدال خط غير قابل للوصول بالخط المتاح المحدد في القاعدة.
+قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل للنص العادي عندما يمكن لـ Aspose.Slides استبدال خط غير قابل للوصول بخط متاح محدد بقاعدة.
 
-معادلات Office Math لها متطلب إضافي. إذا استخدمت المعادلة **Cambria Math**، قد تحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر، مثل **STIX Two Math**، أن تحل محل **Cambria Math** لهذا الغرض، وقد يظل العرض يُظهر أن **Cambria Math** مطلوب.
+معادلات Office Math لديها متطلب إضافي. إذا استخدمت المعادلة **Cambria Math**، قد يحتاج Aspose.Slides إلى ذلك الخط بالضبط لحساب وعرض تخطيط المعادلة. قاعدة تستبدل بخط رياضي آخر، مثل **STIX Two Math**، لا يمكنها استبدال **Cambria Math** لهذا الغرض، وقد يظل العرض يبلّغ أن **Cambria Math** مطلوب.
 
-لعرض أو تحويل مثل هذا العرض التقديمي، اجعل **Cambria Math** متوفرًا لـ Aspose.Slides. قم بتثبيته في نظام التشغيل أو حمّله كـ [external font](/slides/ar/net/custom-font/).
+للعرض أو التحويل لمثل هذا العرض، قم بجعل **Cambria Math** متاحًا لـ Aspose.Slides. ثبّته في نظام التشغيل أو حمّله ك[خط خارجي](/slides/ar/net/custom-font/).
 
-هذا القيد ينطبق على تخطيط المعادلات. لا تزال قواعد الاستبدال المذكورة أعلاه تنطبق على نص العرض التقديمي العادي.
+هذا القيد يطبق على تخطيط المعادلات. قواعد الاستبدال الموضحة أعلاه لا تزال تنطبق على نص العرض العادي.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين استبدال الخط (Font Replacement) واستبدال الخط (Font Substitution)؟**
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**
 
-[Font replacement](/slides/ar/net/font-replacement/) يغيّر الخط عمدًا من أحده إلى آخر في جميع أنحاء العرض التقديمي. بينما يختار استبدال الخط (font substitution) خطًا للمخرجات المعروضة عندما يتحقق الشرط المكوّن، مثل عدم توفر الخط الأصلي.
+[Font replacement](/slides/ar/net/font-replacement/) يغيّر خطًا بآخر عمدًا في جميع أنحاء العرض. استبدال الخط يختار خطًا للمخرجات المعروضة عندما يتم استيفاء الشرط المحدد، مثل عدم توفر الخط الأصلي.
 
-**متى تُطبق قواعد الاستبدال؟**
+**متى تُطبّق قواعد الاستبدال؟**
 
-تشارك القواعد في [سلسلة اختيار الخط](/slides/ar/net/font-selection-sequence/) أثناء العرض والتحويل. مع `WhenInaccessible`، تُستخدم القاعدة فقط عندما لا يتمكن Aspose.Slides من الوصول إلى الخط المصدر.
+تشارك القواعد في [سلسلة اختيار الخط](/slides/ar/net/font-selection-sequence/) أثناء العرض والتحويل. مع `WhenInaccessible`، تُستعمل القاعدة فقط عندما لا يستطيع Aspose.Slides الوصول إلى الخط المصدر.
 
-**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مُكوَّنة؟**
+**ماذا يحدث إذا كان الخط مفقودًا ولا توجد قاعدة استبدال مكوّنة؟**
 
-يقوم Aspose.Slides باختيار أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة به. تعتمد النتيجة على الخطوط المتوفرة في بيئة التشغيل.
+يختار Aspose.Slides أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة به. تعتمد النتيجة على الخطوط المتوفرة في بيئة وقت التشغيل.
 
-**هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**
+**هل يمكنني تحميل خطوط خارجية لتجنّب الاستبدال؟**
 
-نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/net/custom-font/) حتى يتمكن Aspose.Slides من استخدامها أثناء العرض والتحويل.
+نعم. يمكنك [تحميل خطوط خارجية](/slides/ar/net/custom-font/) حتى يستخدمها Aspose.Slides أثناء العرض والتحويل.
 
 **هل توزع Aspose الخطوط مع المكتبة؟**
 
@@ -156,8 +156,8 @@ image.Save("slide.jpg", ImageFormat.Jpeg);
 
 **هل يمكن أن تختلف نتائج الاستبدال بين Windows وLinux وmacOS؟**
 
-نعم. تختلف الخطوط المثبتة ومواقع البحث عن الخط بحسب نظام التشغيل، لذلك قد يكون الخط المتاح على جهاز واحد يحتاج إلى استبدال على جهاز آخر.
+نعم. تختلف الخطوط المثبتة ومواقع البحث عن الخط حسب نظام التشغيل، لذا قد يحتاج خط متوفر على جهاز إلى استبدال على جهاز آخر.
 
-**كيف يمكنني جعل اختيار الخطوط ثابتًا في التحويلات الدفعية؟**
+**كيف يمكن جعل اختيار الخط متسقًا في عمليات التحويل الدفعية؟**
 
-استخدم نفس ملفات الخط وإصداراته على كل جهاز أو حاوية، [تحميل الخطوط الخارجية المطلوبة](/slides/ar/net/custom-font/)، و[دمج الخطوط](/slides/ar/net/embedded-font/) عندما تسمح الترخيص بذلك. يمكنك أيضًا استدعاء [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.
+استخدم نفس ملفات الخطوط والإصدارات على كل جهاز أو حاوية، [حمّل الخطوط الخارجية المطلوبة](/slides/ar/net/custom-font/)، و[ضمن الخطوط](/slides/ar/net/embedded-font/) عندما تسمح الرخص. يمكنك أيضًا استدعاء [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ar/net/aspose.slides/ifontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.

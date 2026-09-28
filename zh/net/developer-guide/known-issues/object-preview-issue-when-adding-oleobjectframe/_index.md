@@ -1,12 +1,14 @@
 ---
-title: 添加 OleObjectFrame 时的对象预览问题
-linktitle: OLE 对象问题
+title: 添加 OleObjectFrame 时的对象预览占位符
+linktitle: OLE 预览占位符
 type: docs
 weight: 10
 url: /zh/net/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - 预览问题
+- 预览占位符
+- 设计如此
 - 嵌入对象
 - 嵌入文件
 - 对象已更改
@@ -16,43 +18,46 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解在 Aspose.Slides for .NET 中添加 OleObjectFrame 时为何出现 EMBEDDED OLE OBJECT，以及如何修复 PPT、PPTX 和 ODP 演示文稿中的预览问题。"
+description: "为什么使用 Aspose.Slides for .NET 添加的 OLE 对象会显示 “EMBEDDED OLE OBJECT” 占位符，直至其预览更新，以及如何设置自定义预览图像。"
 ---
+## **简介**
 
-## **介绍**
+使用 Aspose.Slides for .NET 时，当您向幻灯片添加 [OleObjectFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/oleobjectframe/) 时，输出幻灯片上会显示 “EMBEDDED OLE OBJECT” 消息。此消息是有意的，并非错误。
 
-使用 Aspose.Slides for .NET，将 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) 添加到幻灯片时，输出幻灯片上会显示 “EMBEDDED OLE OBJECT” 信息。此信息是有意的，且不是错误。
+有关处理 OLE 对象的更多信息，请参阅 [Manage OLE](/slides/zh/net/manage-ole/)。
 
-如需了解有关 OLE 对象的更多信息，请参阅 [Manage OLE](/slides/zh/net/manage-ole/)。
+## **说明与解决方案**
 
-## **解释与解决方案**
+Aspose.Slides 显示 “EMBEDDED OLE OBJECT” 消息，以通知您 OLE 对象已更改，需要更新预览图像。
 
-Aspose.Slides 会显示 “EMBEDDED OLE OBJECT” 信息，以通知您 OLE 对象已更改，需要更新预览图像。
-
-例如，如果您将 Microsoft Excel 图表作为 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) 添加到幻灯片（更多详情请参阅 “Manage OLE” 文章），然后在 Microsoft PowerPoint 中打开演示文稿，您将在幻灯片上看到如下图像：
+例如，如果您将 Microsoft Excel 图表作为 [OleObjectFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/oleobjectframe/) 添加到幻灯片中（有关更多细节，请参阅 “Manage OLE” 文章），然后在 Microsoft PowerPoint 中打开演示文稿，您将在幻灯片上看到以下图像：
 
 ![OLE object message](OLE_object_message.png)
 
-若要检查并确认 OLE 对象已添加到幻灯片，需双击 “EMBEDDED OLE OBJECT” 信息，或右键单击它并选择 **Object > Edit** 选项。
+如果您想检查并确认 OLE 对象已添加到幻灯片中，需要双击 “EMBEDDED OLE OBJECT” 消息，或者右键单击它并通过 **Object > Edit** 选项进行操作。
 
 ![OLE object > Edit](OLE_object_edit.png)
 
-PowerPoint 会打开嵌入的 OLE 对象。
+PowerPoint 随后打开嵌入的 OLE 对象。
 
 ![OLE object data](OLE_object_data.png)
 
-幻灯片可能仍保留 “EMBEDDED OLE OBJECT” 信息。单击 OLE 对象后，幻灯片预览会更新，“EMBEDDED OLE OBJECT” 信息将被 OLE 对象的实际图像替代。
+幻灯片可能仍保留 “EMBEDDED OLE OBJECT” 消息。单击 OLE 对象后，幻灯片预览将更新，且 “EMBEDDED OLE OBJECT” 消息将被 OLE 对象的实际图像取代。
 
 ![OLE object preview](OLE_object_preview.png)
 
-现在，您可能需要保存演示文稿，以确保 OLE 对象的图像正确更新。这样，保存后再次打开演示文稿时，将不会再看到 “EMBEDDED OLE OBJECT” 信息。
+现在，您可能希望保存演示文稿，以确保 OLE 对象的图像正确更新。这样，在保存演示文稿后再次打开时，您将不会看到 “EMBEDDED OLE OBJECT” 消息。
 
-## **其它解决方案**
+## **其他解决方案**
 
-### **解决方案 1：用图像替换 “Embedded OLE Object” 信息**
+### **解决方案 1：用图像替换 “Embedded OLE Object” 消息**
 
-如果您不想通过在 PowerPoint 中打开演示文稿并保存来删除 “EMBEDDED OLE OBJECT” 信息，可以用您喜欢的预览图像替换该信息。以下代码行演示了此过程：
+如果您不想通过在 PowerPoint 中打开演示文稿并保存来移除 “EMBEDDED OLE OBJECT” 消息，可以将该消息替换为您首选的预览图像。以下代码行演示了该过程：
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("embeddedOLE.pptx");
 
 var slide = presentation.Slides[0];
@@ -62,19 +67,17 @@ var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 using var imageStream = File.OpenRead("myImage.png");
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Set a title and the image for the OLE object preview.
-oleFrame.SubstitutePictureTitle = "My title";
+// Set the image for the OLE object preview.
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;
 
 presentation.Save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 ```
 
-
-包含 `OleObjectFrame` 的幻灯片随后会变为如下：
+包含 `OleObjectFrame` 的幻灯片随后会更改为以下内容：
 
 ![New OLE object image](OLE_object_new_image.png)
 
-### **解决方案 2：为 PowerPoint 创建加载项**
+### **解决方案 2：为 PowerPoint 创建插件**
 
-您还可以为 Microsoft PowerPoint 创建加载项，在程序中打开演示文稿时更新所有 OLE 对象。
+您也可以为 Microsoft PowerPoint 创建一个插件，在打开演示文稿时更新所有 OLE 对象。

@@ -1,35 +1,38 @@
 ---
-title: API Sınırlamaları
+title: Çıktı Üst Veri Sınırlamaları
 type: docs
 weight: 320
 url: /tr/net/api-limitations/
 keywords:
 - API sınırlamaları
-- dışa aktarma formatı
+- dışa aktarma biçimi
 - uygulama
 - üretici
 - belge özellikleri
-- meta veri
+- üst veri
+- üreteç
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET sınırlamalarını öğrenin: dışa aktarmalar PPT, PPTX, ODP ve PDF'de sabit Application/Producer meta verilerini ayarlar—böylece entegrasyonları sürpriz olmadan planlayabilirsiniz."
+description: "Aspose.Slides for .NET, belirlediğiniz uygulama adı ne olursa olsun, kaydedilen PPTX, PDF ve ODP dosyalarına sabit uygulama, oluşturucu ve üretici üst verileri yazar."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides ile sunumlar oluşturulduğunda veya dışa aktarıldığında, belirli teknik meta veriler çıkış dosyasına yazılır. Bu makale, PPTX ve PDF dosyalarındaki `Application`, `Creator` ve `Producer` meta veri alanlarıyla ilgili kısıtlamaları açıklar.
+Aspose.Slides ile sunumlar oluşturulduğunda veya dışa aktarıldığında, belirli teknik üst veriler çıkış dosyasına yazılır. Bu makale, PPTX, PDF ve ODP dosyalarındaki `Application`, `Creator`, `Producer` ve generator üst veri alanlarıyla ilgili sınırlamaları açıklamaktadır.
 
-## **Uygulama ve Üretici**
+## **Application ve Producer**
 
-Aspose.Slides for .NET ile sunumlar oluşturduğunuzda veya dışa aktardığınızda, bazı teknik meta veriler dosyaya yazılır. İki alan genellikle sorular doğurur:
+Aspose.Slides for .NET ile sunumlar oluşturduğunuzda veya dışa aktardığınızda, dosyaya bazı teknik üst veriler yazılır. Sıklıkla soru gündeme gelen iki alan:
 
-**Application** bir **PPTX** sunumunu oluşturan veya en son kaydeden programı tanımlar. Aspose.Slides for .NET'te bu değer sabittir ve uygulama adınız yerine kütüphane satıcısını gösterir, hatta [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) ayarlasanız bile.
+**Application** bir **PPTX** sunumunu oluşturan veya en son kaydeden programı tanımlar. Aspose.Slides for .NET içinde bu değer sabittir ve uygulama adınız yerine kütüphane adını gösterir; hatta [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) ayarlasanız bile.
 
-**Producer** dışa aktarım sırasında son dosyayı oluşturan renderleme motorunu tanımlar. **PDF** dışa aktarımlarında meta veriler **Creator** ve **Producer** alanlarını kullanır. Aspose.Slides for .NET ile her iki alan da sabit olup kütüphane ve sürümünü yansıtır.
+**Producer** dışa aktarım sırasında final dosyasını üreten işleme motorunu tanımlar. **PDF** dışa aktarmalarında üst veriler **Creator** ve **Producer** alanlarını kullanır. Aspose.Slides for .NET ile bu ikisi de sabittir ve kütüphane ile sürümünü yansıtır.
 
-**Ne kısıtlanmıştır**
+**Kısıtlamalar**
 
-Bu alanları API üzerinden yukarıdaki formatlar için geçersiz kılamazsınız. **PPTX** için Application özelliği "Aspose.Slides for .NET" olarak yazılır. **PDF** için Creator ve Producer özellikleri "Aspose.Slides for .NET x.x.x" olarak yazılır. Bu davranış tasarım gereği olup dosyanın nasıl yüklendiği veya kaydedildiği ve [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) değerine atanan değerler ne olursa olsun uygulanır.
+Bu alanları API üzerinden yukarıdaki biçimlerde geçersiz kılmanız mümkün değildir. **PPTX** için Application özelliği “Aspose.Slides for .NET” olarak yazılır. **PDF** için Creator ve Producer özellikleri “Aspose.Slides for .NET” ve ardından kütüphane sürümü biçiminde yazılır. **ODP** için generator alanı “Aspose.Slides for .NET” ve ardından kütüphane sürümü biçiminde yazılır. Bu davranış tasarım gereği olup, dosyanın nasıl yüklendiği veya kaydedildiği ve [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) deki değerler göz ardı edilir.
+
+Bu kısıtlama **PPT** dosyaları için geçerli değildir: bir PPT dosyasında, [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/nameofapplication/) içinde ayarladığınız uygulama adı kaydedilir.

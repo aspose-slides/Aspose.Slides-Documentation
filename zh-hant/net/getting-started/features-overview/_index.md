@@ -1,7 +1,7 @@
 ---
-title: 功能概覽
+title: 功能概述
 type: docs
-weight: 20
+weight: 94
 url: /zh-hant/net/features-overview/
 keywords:
 - 功能
@@ -9,109 +9,88 @@ keywords:
 - 檔案格式
 - 轉換
 - 呈現
-- 格式化
+- 簡報內容
 - PowerPoint
 - OpenDocument
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "探索 Aspose.Slides for .NET：一套功能強大的 API，可有效建立、編輯、自動化與轉換 PowerPoint 與 OpenDocument 簡報。"
+description: "在評估 Aspose.Slides for .NET 之前，先檢視其涵蓋的內容：支援平台、檔案格式、投影片呈現，以及您可以建立和編輯的內容。"
 ---
-## **支援的平台**
-Aspose.Slides for .NET 支援最受歡迎的開發與部署平台。請參閱以下細節：
+## **概述**
 
-|**功能**|**說明**|
-| :- | :- |
-|ASP.NET Web Applications|使用 Aspose.Slides for .NET 建構目標為 .NET Framework 2.0 至 4.6.2 版本的 ASP.NET Web 應用程式|
-|Web Services|使用 Aspose.Slides for .NET 部署 Web 服務|
-|WinForms Applications|Aspose.Slides for .NET 也可用於開發 Windows Forms 應用程式|
+Aspose.Slides for .NET 是一個用於建立、讀取、編輯、轉換和呈現 PowerPoint 與 OpenDocument 簡報的類別庫。它沒有自己的使用者介面，也不需要 Microsoft PowerPoint 或 Office，因此您可以在主控台應用程式、桌面應用程式（如 Windows Forms）、Web 應用程式和 Web 服務中使用它。本文概述了此函式庫的功能範圍，並連結到描述各個領域的文章。
+
+## **支援平台**
+
+Aspose.Slides for .NET 以具有相同 API 的兩個 NuGet 套件發行：
+
+|**套件**|**套件內的建置**|**作業系統**|
+| :- | :- | :- |
+|[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|.NET Framework 4.6.2、.NET Standard 2.0 以及 .NET 6。可搭配 .NET Framework 4.6.2 或更新版本，或 .NET 6 或更新版本使用。|Windows。Linux 與 macOS 需要 `libgdiplus` 函式庫以及 `System.Drawing.EnableUnixSupport` 開關。|
+|[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)|.NET 6。可搭配 .NET 6 或更新版本使用。|Windows（x86、x64）、Linux（x64，glibc 2.23 以上，ARM64，glibc 2.39 以上）以及 macOS（x64、ARM64）。|
+
+[Installation](/slides/zh-hant/net/installation/) 說明如何選擇套件以及每個套件在 Linux 上的需求。[System Requirements](/slides/zh-hant/net/system-requirements/) 詳細列出支援的平台。
 
 ## **檔案格式與轉換**
-Aspose.Slides for .NET 支援大部分 PowerPoint 文件格式，並且可將它們匯出為組織常用且廣泛交換的流行格式。請參閱以下細節：
 
-|**功能**|**說明**|
+Aspose.Slides 可以開啟與儲存 PPT、PPTX、PPS、POT、PPSX、POTX、PPTM、PPSM、POTM、ODP、OTP、FODP 以及 PowerPoint XML 簡報。它可將 PDF 與 HTML 內容匯入至投影片，並可將簡報儲存為 PDF、XPS、HTML、HTML5、TIFF、動畫 GIF、SWF、Markdown 與 XAML。[Supported File Formats](/slides/zh-hant/net/supported-file-formats/) 列出每種格式及其對應的讀寫 API。
+
+|**功能**|**描述**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/zh-hant/net/ppt-vs-pptx/)|Aspose.Slides for .NET 為此簡報檔案格式提供最快的處理速度。|
-|[PPT 轉換為 PPTX](/slides/zh-hant/net/convert-ppt-to-pptx/)|Aspose.Slides for .NET 支援將 PPT 轉換為 PPTX。|
-|[Portable Document Format (PDF)](/slides/zh-hant/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|您可以使用單一方法將所有支援的檔案格式匯出為 Adobe Portable Document Format (PDF) 文件。|
-|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/zh-hant/net/convert-powerpoint-to-xps/)|您可以使用單一方法將所有支援的檔案格式匯出為 XML Parser Specification (XPS) 文件。|
-|[Tagged Image File Format (TIFF)](/slides/zh-hant/net/convert-powerpoint-to-tiff/)|您可以將所有支援的簡報檔案格式匯出為 Tagged Image File Format (TIFF)。|
-|[PPTX 轉換為 HTML](/slides/zh-hant/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NET 支援將 PresentationEx 轉換為 HTML 格式。|
+|[PPT 和 PPTX](/slides/zh-hant/net/ppt-vs-pptx/)|讀寫二進位 PowerPoint 97-2003 格式與 Office Open XML 格式。|
+|[PPT 轉換為 PPTX](/slides/zh-hant/net/convert-ppt-to-pptx/)|將舊版 PPT 簡報轉換為 PPTX。|
+|[可攜式文件格式 (PDF)](/slides/zh-hant/net/convert-powerpoint-to-pdf/)|將簡報匯出為 PDF，包含 PDF/A 與 PDF/UA 文件。|
+|[XML 紙張規格 (XPS)](/slides/zh-hant/net/convert-powerpoint-to-xps/)|將簡報匯出為 XPS 文件。|
+|[標記式影像檔案格式 (TIFF)](/slides/zh-hant/net/convert-powerpoint-to-tiff/)|將簡報匯出為 TIFF 圖像。|
+|[HTML](/slides/zh-hant/net/convert-powerpoint-to-html/)|將簡報匯出為 HTML 與 HTML5。|
+|[PDF 與 HTML 匯入](/slides/zh-hant/net/import-presentation/)|從 PDF 頁面與 HTML 內容建立投影片。|
 
 ## **簡報呈現**
-Aspose.Slides for .NET 支援高忠實度地將簡報文件中的投影片渲染為各種圖形格式。請參閱以下細節：
 
-|**功能**|**說明**|
-| :- | :- |
-|.NET Supported Image Formats|使用 Aspose.Slides for .NET，您可以將簡報投影片及投影片中的影像渲染為所有 .NET 支援的圖形格式，例如 TIFF、PNG、BMP、JPEG、GIF 與圖增檔。|
-|SVG Format|Aspose.Slides for .NET 也提供內建方法，讓您將簡報投影片匯出為 Scalable Vector Graphics (SVG) 格式。|
+Aspose.Slides 可將投影片與個別圖形渲染為 PNG、JPEG、BMP、GIF、TIFF 與 SVG 圖像，並將投影片渲染為 EMF 中繪檔。請參閱 [將簡報投影片轉換為圖像](/slides/zh-hant/net/convert-slide/)、[將投影片渲染為 SVG 圖像](/slides/zh-hant/net/render-a-slide-as-an-svg-image/) 與 [建立圖形縮圖](/slides/zh-hant/net/create-shape-thumbnails/)。
 
 ## **內容功能**
-Aspose.Slides for .NET 讓您能存取、修改或建立幾乎所有簡報文件的項目或內容。請參閱以下細節：
 
-|**功能**|**說明**|
+Aspose.Slides 讓您可以建立、讀取與修改簡報中幾乎所有的內容：
+
+|**領域**|**您可以執行的操作**|
 | :- | :- |
-|Master Slides|Master Slides 定義了普通投影片的版面配置。Aspose.Slides for .NET 允許您存取與修改簡報文件的 Master Slides。|
-|Normal Slides|使用 Aspose.Slides for .NET，您可建立不同類型的新投影片；也可存取與修改簡報中現有的投影片。|
-|Cloning / Copying Slides|Aspose.Slides for .NET 提供內建方法，可在同一簡報內克隆或複製現有投影片。您也可以將複製或克隆的投影片從一個簡報使用到另一個。由於投影片會從 Master Slide 繼承版面配置，內建的克隆方法會自動在克隆時複製 Master。|
-|Managing Slides sections|提供方法將投影片組織於簡報中的不同區段。|
-|Place Holders and Text Holders|您可以存取投影片中的 placeholder 與 text holder。此外，您也能使用相應方法從頭建立含有文字占位符的投影片。|
-|Header and Footers|Aspose.Slides for .NET 便利地處理投影片的頁首與頁尾。|
-|Notes in Slides|使用 Aspose.Slides for .NET，您可以存取與修改投影片相關的備註，亦可新增備註。|
-|Finding a Shape|您也可以使用與形狀關聯的替代文字來尋找特定形狀。|
-|Backgrounds|Aspose.Slides for .NET 允許您處理與 Master 或普通投影片相關的背景。|
-|Text Boxes|文字方塊可從頭建立，您亦可存取現有文字方塊，並在不遺失原始格式的情況下修改其文字。|
-|Rectangle Shapes|您可以使用 Aspose.Slides for .NET 建立或修改矩形形狀。|
-|Poly Line Shapes|您可以使用 Aspose.Slides for .NET 建立或修改折線形狀。|
-|Ellipse Shapes|您可以使用 Aspose.Slides for .NET 建立或修改橢圓形狀。|
-|Group Shapes|Aspose.Slides for .NET 支援群組形狀|
-|Auto Shapes|Aspose.Slides for .NET 支援自動形狀|
-|SmartArt|Aspose.Slides for .NET 提供對 MS PowerPoint 中 SmartArt 形狀的支援|
-|Charts|Aspose.Slides for .NET 提供對 PowerPoint 中 MSO 圖表的支援|
-|Shapes Serialization|Aspose.Slides for .NET 支援大量形狀。當 Aspose.Slides for .NET 尚未支援某形狀時，您可使用序列化方法將該形狀從現有投影片序列化，之後依需求再使用該形狀。|
-|Picture Frames|您可以使用 Aspose.Slides for .NET 管理圖片框中的圖片。|
-|Audio Frames|您可以在投影片的音訊框中連結或嵌入音訊檔案。|
-|Video Frames|您可以在影片框中處理影片檔案。Aspose.Slides for .NET 亦支援連結與嵌入式影片。|
-|OLE Frame|您可以使用 Aspose.Slides for .NET 管理 OLE 框中的 OLE 物件。|
-|Tables|Aspose.Slides for .NET 支援投影片中的表格。|
-|ActiveX Controls|支援 ActiveX 控制項|
-|VBA Macros|支援管理簡報內的 VBA 巨集。|
-|Text Frame|您可以透過與形狀關聯的文字框，存取任何形狀的文字。|
-|Text Scanning|您可以使用內建的掃描方法，在簡報或投影片層級掃描文字。|
-|Animations|您可以對形狀套用動畫。|
-|Slide Shows|Aspose.Slides for .NET 支援投影片播放與投影片轉場。|
-
-## **格式化功能**
-使用 Aspose.Slides for .NET，您可以對簡報投影片中的文字與形狀進行格式化。請參閱以下細節：
-
-|**功能**|**說明**|
-| :- | :- |
-|Text Formatting|<p>在 Aspose.Slides for .NET 中，您可以透過與形狀關聯的文字框來管理文字。因此，您可以使用文字框的段落與文字區塊來格式化文字。這些文字元素可透過 Aspose.Slides for .NET 進行格式化。</p><p>- 字型類型</p><p>- 字型大小</p><p>- 字型顏色</p><p>- 字型色階</p><p>- 段落對齊</p><p>- 段落項目符號</p><p>- 段落方向</p>|
-|Shape Formatting|<p>在 Aspose.Slides for .NET 中，投影片的基本元素是形狀。您可以使用 Aspose.Slides for .NET 對這些形狀元素進行格式化：</p><p>- 位置</p><p>- 大小</p><p>- 線條</p><p>- 填充（包括圖案、漸層、純色）</p><p>- 文字</p><p>- 圖像</p>|
+|[投影片](/slides/zh-hant/net/presentation-slide/)|新增、複製、重新排序與移除投影片；套用版面配置與母片；將投影片組織成章節；變更投影片大小。|
+|[設計](/slides/zh-hant/net/presentation-design/)|設定背景、主題顏色、頁首與頁尾，以及字型。|
+|[文字](/slides/zh-hant/net/manage-text/)|建立與編輯文字框、段落與文字片段；設定字型、顏色、項目符號與對齊方式；搜尋與取代文字。|
+|[圖形](/slides/zh-hant/net/powerpoint-shapes/)|建立自動形狀、線條、連接線、群組圖形與圖片框；設定位置、大小、線條及實心、漸層或圖案填色；依替代文字找尋圖形。|
+|[表格](/slides/zh-hant/net/powerpoint-table/)、[圖表](/slides/zh-hant/net/powerpoint-charts/) 與 [SmartArt](/slides/zh-hant/net/powerpoint-smartart/)|建立與編輯表格、Microsoft Office 圖表以及 SmartArt 圖示。|
+|[媒體](/slides/zh-hant/net/manage-media-files/)、[OLE 物件](/slides/zh-hant/net/manage-ole/) 與 [ActiveX 控制項](/slides/zh-hant/net/activex/)|新增嵌入或連結的音訊與視訊框架、嵌入 OLE 物件，並新增、修改或移除 ActiveX 控制項。|
+|[備註](/slides/zh-hant/net/presentation-notes/) 與 [評論](/slides/zh-hant/net/presentation-comments/)|新增、讀取與編輯講者備註與審閱評論。|
+|[動畫](/slides/zh-hant/net/powerpoint-animation/) 與 [轉場](/slides/zh-hant/net/slide-transition/)|對圖形套用動畫效果，設定投影片轉場，並配置投影片播放設定。|
+|[安全性](/slides/zh-hant/net/presentation-security/)|以密碼加密簡報，設定寫入保護，並處理數位簽章。|
+|[VBA 巨集](/slides/zh-hant/net/presentation-via-vba/)|在啟用巨集的簡報中新增、提取與移除 VBA 模組。|
+|[屬性](/slides/zh-hant/net/presentation-properties/)|讀取與編輯文件屬性。|
 
 ## **常見問題**
 
-### 我需要在伺服器或 PC 上安裝 Microsoft PowerPoint 才能使用此函式庫嗎？
+**我是否需要在伺服器或 PC 上安裝 Microsoft PowerPoint 才能使用此函式庫？**
 
-不需要。PowerPoint 並非必要；Aspose.Slides 為獨立的引擎，可用於建立、編輯、轉換與呈現簡報。
+不需要。PowerPoint 並非必備；Aspose.Slides 是一個獨立的引擎，用於建立、編輯、轉換和呈現簡報。
 
-### 多執行緒如何運作？可以平行處理嗎？
+**多執行緒運作方式是什麼？處理可以平行化嗎？**
 
-在不同執行緒中處理不同文件是安全的；同一個[簡報](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/)物件不能同時被[multiple threads](/slides/zh-hant/net/multithreading/)使用。
+在不同執行緒中處理不同文件是安全的；同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 物件不能同時被 [多執行緒](/slides/zh-hant/net/multithreading/) 使用。
 
-### 是否支援檔案密碼與加密？
+**是否支援檔案密碼與加密？**
 
-是的。您可以[開啟受保護的簡報](/slides/zh-hant/net/password-protected-presentation/)，設定或移除開啟與寫入密碼，並檢查保護狀態。
+是的。[您可以](/slides/zh-hant/net/password-protected-presentation/) 開啟受加密的簡報、設定或移除開啟與寫入密碼，並檢查保護狀態。
 
-### 在 Linux 容器中需要關心字型套件嗎？
+**在 Linux 容器中，我需要關注字型嗎？**
 
-是的。建議安裝常見的字型套件，或在應用程式中明確[指定字型目錄](/slides/zh-hant/net/custom-font/)，以避免意外的字型替換。
+是的。簡報中使用的字型或其合適的替代字型必須安裝在系統上，才能正確呈現文字。您也可以在應用程式中[指定字型目錄](/slides/zh-hant/net/custom-font/)。[安裝](/slides/zh-hant/net/installation/) 列出每個套件在 Linux 上的先決條件。
 
-### 評估版有什麼限制？
+**評估版是否有任何限制？**
 
-在[evaluation mode](/slides/zh-hant/net/licensing/)下，輸出會加上浮水印，且會有特定限制；您可以取得[30 天臨時授權](https://purchase.aspose.com/temporary-license/)以完整測試所有功能。
+是的。若未取得 [授權](/slides/zh-hant/net/licensing/)，Aspose.Slides 會在每張儲存的投影片上加上評估水印，並截斷從簡報讀取的文字。可取得[30 天暫時授權](https://purchase.aspose.com/temporary-license/)以進行完整功能測試。
 
-### 是否支援將外部格式匯入簡報（PDF/HTML → PPTX）？
+**是否支援將外部格式匯入至簡報（PDF 或 HTML 轉換為 PPTX）？**
 
-是的。您可以將[PDF 頁面與 HTML 內容](/slides/zh-hant/net/import-presentation/)新增至簡報，並將它們轉換為投影片。
+是的。您可以將[PDF 頁面與 HTML 內容](/slides/zh-hant/net/import-presentation/) 加入簡報，將其轉換為投影片。

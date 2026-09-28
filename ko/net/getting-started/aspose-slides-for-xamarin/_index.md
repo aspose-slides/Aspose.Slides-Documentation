@@ -1,31 +1,34 @@
 ---
-title: Xamarin용 Aspose.Slides
+title: Aspose.Slides for Xamarin (역사적)
+linktitle: Xamarin (역사적)
 type: docs
-weight: 150
+weight: 200
 url: /ko/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
 - 모바일 개발
-- 안드로이드
-- 파워포인트
-- 오픈문서
+- Android
+- PowerPoint
+- OpenDocument
 - 프레젠테이션
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides를 사용하여 Android에서 PPT, PPTX 및 ODP의 풍부한 기능을 지원하는 Xamarin 모바일 앱을 C#로 구축하고, 프레젠테이션을 보고, 편집하고, 변환합니다."
+description: "역사적: Aspose.Slides for .NET 버전 20.2부터 22.10까지 별도의 라이브러리를 통해 Xamarin.Android를 지원한 방식. 현재 버전에는 포함되지 않습니다."
 ---
-## **소개**
-
-Xamarin은 .NET C#를 사용한 모바일 개발에 사용되는 프레임워크입니다. Xamarin은 .NET 플랫폼의 기능을 확장하는 도구와 라이브러리를 제공합니다. 개발자는 **Android** 운영 체제용 애플리케이션을 구축할 수 있습니다. 
-
-{{% alert color="info" %}} 
-
-Xamarin에서 개발할 때 개발자는 일반 개발 환경(C#, Visual Studio 및 서드파티 라이브러리)을 사용할 수 있습니다.
-
+{{% alert color="info" title="Note" %}}
+이 페이지는 과거 문서입니다. Aspose.Slides.NET 패키지 버전 20.2부터 22.10까지는 별도의 Xamarin.Android 라이브러리인 *Aspose.Slides.Droid.dll*를 포함했으며, 이 페이지의 코드가 해당 라이브러리를 사용합니다. 이후 버전에는 포함되지 않으며, 현재 패키지는 .NET Framework 4.6.2, .NET 6 및 .NET Standard 2.0용 빌드만 포함합니다. Microsoft는 2024년 5월 1일에 모든 Xamarin SDK에 대한 지원을 종료했습니다; [Xamarin 지원 정책](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin).
 {{% /alert %}}
 
-Aspose.Slides API는 Xamarin 플랫폼에서 작동합니다. 이를 위해 Aspose.Slides .NET 패키지는 Xamarin용 별도 DLL을 추가합니다. Xamarin용 Aspose.Slides는 .NET 버전에서 제공되는 대부분의 기능을 지원합니다:
+## **소개**
+
+Xamarin은 .NET C#을 사용한 모바일 개발에 사용되는 프레임워크입니다. Xamarin은 .NET 플랫폼의 기능을 확장하는 도구와 라이브러리를 제공합니다. 이를 통해 개발자는 **Android** 운영 체제를 위한 애플리케이션을 만들 수 있습니다.
+
+{{% alert color="info" title="Note" %}}
+Xamarin 개발 시 프로그래머는 기존 개발 환경(C#, Visual Studio 및 서드파티 라이브러리)를 그대로 사용할 수 있습니다.
+{{% /alert %}}
+
+Aspose.Slides API는 Xamarin 플랫폼에서 작동했습니다. 이를 위해 Aspose.Slides.NET 패키지 버전 20.2부터 22.10까지 Xamarin용 별도 DLL을 추가했습니다. Xamarin용 Aspose.Slides는 .NET 버전에서 제공되는 대부분의 기능을 지원했습니다.
 
 - 프레젠테이션 변환 및 보기.
 - 프레젠테이션 내용 편집: 텍스트, 도형, 차트, SmartArt, 오디오/비디오, 글꼴 등.
@@ -33,28 +36,25 @@ Aspose.Slides API는 Xamarin 플랫폼에서 작동합니다. 이를 위해 Aspo
 - 메타데이터 및 문서 속성 처리.
 - 복제, 병합, 비교, 분할 등.
 
-전체 기능 비교는 페이지 하단 근처의 다른 섹션에서 제공됩니다.
+전체 기능 비교는 이 페이지 하단의 별도 섹션에서 확인할 수 있습니다.
 
-Aspose.Slides for Xamarin API에서는 클래스, 네임스페이스, 로직 및 동작이 .NET 버전과 최대한 유사합니다. 최소 비용으로 Aspose.Slides .NET 애플리케이션을 Xamarin으로 마이그레이션할 수 있습니다.
-
+Aspose.Slides for Xamarin API의 클래스, 네임스페이스, 로직 및 동작은 .NET 버전과 가능한 한 유사하도록 설계되었습니다. 최소 비용으로 Aspose.Slides .NET 애플리케이션을 Xamarin으로 마이그레이션할 수 있었습니다.
 
 ## **빠른 예제**
-Aspose.Slides for Xamarin을 사용하여 Android용 Slides를 통해 C# 애플리케이션을 구축하고 활용할 수 있습니다.
+Aspose.Slides for Xamarin을 사용하여 Android용 Slides를 통해 C# 애플리케이션을 빌드하고 활용할 수 있습니다.
 
-우리는 Aspose.Slides를 사용하여 프레젠테이션 슬라이드를 표시하고 터치 시 슬라이드에 새 도형을 추가하는 Android용 Xamarin 애플리케이션 예제를 제공합니다. 예제 전체 소스는 [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin)에서 확인할 수 있습니다.
+Xamarin을 사용한 Android 애플리케이션 예제를 제공하며, 여기서는 Aspose.Slides를 사용해 프레젠테이션 슬라이드를 표시하고 터치 시 새 도형을 추가합니다. 전체 예제 소스는 [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin)에서 확인할 수 있습니다.
 
-먼저 Xamarin Android 앱을 생성해 보겠습니다:
+Xamarin Android App을 만드는 것부터 시작해 보겠습니다:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
+![Xamarin Android 앱 만들기](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-먼저 이미지 뷰와 Prev, Next 버튼을 포함하는 콘텐츠 레이아웃을 생성합니다:
+먼저 이미지 뷰와 Prev, Next 버튼을 포함하는 레이아웃을 생성합니다:
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
+![이미지 뷰와 Prev 및 Next 버튼이 포함된 레이아웃](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-
-
-**XML - content_main.xml - 콘텐츠 레이아웃 생성**
-``` 
+**XML - content_main.xml - 레이아웃 생성**
+```xml
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -97,12 +97,9 @@ Aspose.Slides for Xamarin을 사용하여 Android용 Slides를 통해 C# 애플�
 </LinearLayout>
 ```
 
-
-
-여기에 샘플 프레젠테이션("HelloWorld.pptx")을 포함하는 "Aspose.Slides.Droid.dll" 라이브러리를 Xamarin 애플리케이션 Assets에 참조하고 MainActivity에 초기화를 추가합니다:
+여기서는 "Aspose.Slides.Droid.dll" 라이브러리를 참조하고 샘플 프레젠테이션("HelloWorld.pptx")을 Xamarin 애플리케이션 Assets에 포함한 뒤 MainActivity에 초기화를 추가합니다:
 
 **C# - MainActivity.cs - 초기화**
-
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -140,10 +137,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-버튼을 탭할 때 Prev와 Next 슬라이드를 표시하는 함수를 추가해 보겠습니다:
+버튼 클릭 시 Prev와 Next 슬라이드를 표시하는 함수를 추가해 보겠습니다:
 
 **C# - MainActivity.cs - Prev 및 Next 버튼 클릭 시 슬라이드 표시**
-
 ``` csharp
 using System.Diagnostics;
 using Aspose.Slides.Theme;
@@ -269,7 +265,7 @@ public class MainActivity : AppCompatActivity
         {
             return;
         }
-        
+
         presentation.Dispose();
         presentation = null;
     }
@@ -277,12 +273,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+마지막으로 슬라이드 터치 시 타원형 도형을 추가하는 기능을 구현합니다:
 
-
-마지막으로 슬라이드를 터치하면 타원 도형을 추가하는 함수를 구현해 보겠습니다:
-
-**C# - MainActivity.cs - 슬라이드 클릭으로 타원 추가**
-
+**C# - MainActivity.cs - 슬라이드 클릭 시 타원 추가**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -292,7 +285,7 @@ public class MainActivity : AppCompatActivity
     int y = (int)e.Event.GetY();
     int posX = x - location[0];
     int posY = y - location[0];
-    
+
     Aspose.Slides.Drawing.Xamarin.Size presSize = presentation.SlideSize.Size.ToSize();
 
     float coeffX = (float)presSize.Width / imageView.Width;
@@ -312,89 +305,88 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-프레젠테이션 슬라이드를 클릭할 때마다 무작위 색상의 타원이 추가됩니다:
+프레젠테이션 슬라이드를 클릭할 때마다 무작위 색상의 타원형이 추가됩니다:
 
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
-
+![터치로 추가된 타원형이 있는 슬라이드](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **지원 기능**
 
 |**기능**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**Presentation features**:| | |
+|**프레젠테이션 기능:**| | |
 |새 프레젠테이션 만들기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97 - 2003 형식 열기/저장|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97‑2003 형식 열기/저장|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2007 형식 열기/저장|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2010 확장 지원|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2013 확장 지원|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016 기능 지원|restricted|restricted|
-|PowerPoint 2019 기능 지원|restricted|restricted|
+|PowerPoint 2016 기능 지원|제한됨|제한됨|
+|PowerPoint 2019 기능 지원|제한됨|제한됨|
 |PPT → PPTX 변환|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX → PPT 변환|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPT 내 PPTX|restricted|restricted|
+|PPTX를 PPT에 삽입|제한됨|제한됨|
 |테마 처리|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |매크로 처리|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |문서 속성 처리|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |비밀번호 보호|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |빠른 텍스트 추출|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|폰트 포함|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|글꼴 포함|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |주석 렌더링|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|긴 실행 작업 중단|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Export formats:**| | |
+|장시간 작업 중단|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**내보내기 형식:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restricted|restricted|
-|SWF|restricted|restricted|
+|ODP|제한됨|제한됨|
+|SWF|제한됨|제한됨|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Import formats:**| | |
-|HTML|restricted|restricted|
+|**가져오기 형식:**| | |
+|HTML|제한됨|제한됨|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Master slides features:**| | |
-|기존 모든 마스터 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|마스터 슬라이드 생성/삭제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**마스터 슬라이드 기능:**| | |
+|모든 마스터 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|마스터 슬라이드 생성/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |마스터 슬라이드 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Layout slides features:**| | |
-|기존 모든 레이아웃 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|레이아웃 슬라이드 생성/삭제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**레이아웃 슬라이드 기능:**| | |
+|모든 레이아웃 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|레이아웃 슬라이드 생성/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |레이아웃 슬라이드 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Slide features:**| | |
-|기존 모든 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|슬라이드 생성/삭제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**슬라이드 기능:**| | |
+|모든 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|슬라이드 생성/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |슬라이드 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|슬라이드 이미지로 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|슬라이드 섹션 생성/편집/삭제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Notes slides features**:| | |
-|기존 모든 노트 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Shape features:**| | |
-|슬라이드 모든 도형에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|슬라이드 이미지 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|슬라이드 섹션 생성/편집/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**노트 슬라이드 기능:**| | |
+|모든 노트 슬라이드에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**도형 기능:**| | |
+|모든 슬라이드 도형에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |새 도형 추가|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |도형 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|개별 도형을 이미지로 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Supported shape types:**| | |
-|모든 사전 정의된 도형 종류|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|도형을 이미지로 별도 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**지원되는 도형 종류:**| | |
+|모든 사전 정의 도형 종류|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |그림 프레임|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |표|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |차트|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |레거시 다이어그램|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX 개체|restricted|restricted|
+|OLE, ActiveX 객체|제한됨|제한됨|
 |비디오 프레임|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |오디오 프레임|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |연결선|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Group shape features:**| | |
+|**그룹 도형 기능:**| | |
 |그룹 도형에 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |그룹 도형 생성|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|기존 그룹 도형의 그룹 해제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Shape effects features:**| | |
-|2D 효과|restricted|restricted|
+|기존 그룹 도형 해제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**도형 효과 기능:**| | |
+|2D 효과|제한됨|제한됨|
 |3D 효과|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Text features:**| | |
-|단락 서식|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|구간 서식|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Animation Features:**| | |
-|애니메이션을 SWF로 내보내기|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|애니메이션을 HTML로 내보내기|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|**텍스트 기능:**| | |
+|단락 형식 지정|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|부분 형식 지정|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**애니메이션 기능:**| | |
+|SWF로 애니메이션 내보내기|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|HTML로 애니메이션 내보내기|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

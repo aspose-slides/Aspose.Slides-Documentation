@@ -1,7 +1,7 @@
 ---
 title: چرا خودکارسازی نیست
 type: docs
-weight: 40
+weight: 170
 url: /fa/net/why-not-automation/
 keywords:
 - خودکارسازی
@@ -12,16 +12,16 @@ keywords:
 - مقیاس‌پذیری
 - ویژگی‌ها
 - پاورپوینت
-- سندباز
+- OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "کشف کنید چرا خودکارسازی آفیس برای سرورها و سرویس‌ها خطرناک است و ببینید Aspose.Slides چگونه پردازش ارائه‌های پاورپوینت و سندباز را ایمن‌تر و سریع‌تر می‌کند."
+description: "کشف کنید چرا خودکارسازی Office برای سرورها و سرویس‌ها خطرناک است و ببینید چگونه Aspose.Slides پردازش ارائه‌های پاورپوینت و OpenDocument را ایمن‌تر و سریع‌تر ارائه می‌دهد."
 ---
 ## **مقدمه**
 
-دلایل متعددی وجود دارد که اجزای Aspose گزینه‌ای بهتر نسبت به خودکارسازی (Automation) هستند. برخی از دلایل کلیدی عبارتند از:
+چند دلیل وجود دارد که اجزای Aspose جایگزین بهتری نسبت به اتوماسیون هستند. برخی از دلایل کلیدی عبارتند از:
 
 - امنیت
 - پایداری
@@ -29,100 +29,84 @@ description: "کشف کنید چرا خودکارسازی آفیس برای سر
 - قیمت
 - ویژگی‌ها
 
-در ادامه توضیح مفصل‌تری از هر نکته کلیدی ارائه شده است.
+در ادامه توضیح مفصل‌تری از هر نکته کلیدی آمده است.
 
-## **سوالات مهم**
+## **سؤالات مهم**
 
-دو سوالی که اغلب در Aspose می‌شنویم:
+دو پرسشی که معمولاً در Aspose می‌شنویم:
 
-- آیا محصولات شما برای اجرا نیاز به نصب Microsoft Office دارند؟
+- آیا محصولات شما برای اجرا به نصب Microsoft Office نیاز دارند؟
 
-پاسخ کوتاه و ساده **نه** است.
+پاسخ کوتاه و ساده **NO** است.
 
-اجزای Aspose کاملاً مستقل هستند و با Microsoft Corporation مرتبط، مجاز، حمایت یا تایید نشده‌اند.
+اجزای Aspose کاملاً مستقل هستند و هیچ‌گونه ارتباطی با Microsoft Corporation ندارند، نه تحت مجوز، نه تحت حمایت یا تأیید.
 
 - چرا باید به جای Microsoft Office Automation از محصولات Aspose استفاده کنیم؟
 
-اولاً، مزایای زیادی هنگام استفاده از Aspose.Slides دارید](/slides/fa/net/product-overview/).
+اولاً، بسیاری از [مزایای استفاده از Aspose.Slides](/slides/fa/net/product-overview/) وجود دارد.
 
-ثانئاً، خود مایکروسافت به شدت **در مقابل** استفاده از Office Automation در راه‌حل‌های نرم‌افزاری توصیه می‌کند.
+دوم اینکه خود مایکروسافت به‌شدت **against** استفاده از Office Automation در راه‌حل‌های نرم‌افزاری توصیه می‌کند.
 
 ## **امنیت**
-نقل قول مستقیم از یک مقاله مایکروسافت:
+> "Office Applications هرگز برای استفاده سمت سرور تصور نشده‌اند و بنابراین مشکلات امنیتی مؤلفه‌های توزیع‌شده را در نظر نمی‌گیرند. Office درخواست‌های ورودی را تأیید نمی‌کند و شما را از اجرای ناخواسته ماکروها یا راه‌اندازی سرور دیگری که ممکن است ماکرو اجرا کند، محافظت نمی‌کند. از باز کردن فایل‌هایی که از یک وب‌سایت ناشناس به سرور بارگذاری شده‌اند، خودداری کنید! بر اساس تنظیمات امنیتی آخرین بار تنظیم‌شده، سرور می‌تواند ماکروها را تحت زمینه Administrator یا System با امتیازات کامل اجرا کند و شبکه شما را به خطر اندازد! علاوه بر این، Office از اجزای سمت کلاینت متعدد (مانند Simple MAPI، WinInet، MSDAIPP) استفاده می‌کند که می‌توانند اطلاعات احراز هویت کلاینت را برای سرعت بخشیدن به پردازش ذخیره‌سازی کنند. اگر Office به‌صورت سروری خودکار شود، یک نمونه ممکن است بیش از یک کلاینت را سرویس‌دهی کند و چون اطلاعات احراز هویت برای آن جلسه کش شده است، امکان دارد یک کلاینت از اعتبارهای کش‌شده کلاینت دیگر استفاده کند و بدین ترتیب دسترسی‌های غیرمجاز را از طریق تقلید هویت دیگر کاربران به دست آورد."
 
-> "Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non‑granted access permissions by impersonating other users."
+محصولات Aspose بسیار **امن** هستند. اجزای Aspose در همان زمینه کاربری تمام برنامه‌های ASP.NET اجرا می‌شوند (تحت کاربر ASPNET). بنابراین، اجزای Aspose **خطر امنیتی** ایجاد نمی‌کنند. همچنین منابع سیستمی مهمی مصرف نمی‌کنند. بعلاوه، وقتی یک مؤلفه Aspose یک سند را باز می‌کند، ماکروها به‌صورت خودکار اجرا نمی‌شوند. اجزای Aspose برای ایجاد، دستکاری و ذخیره‌سازی فایل‌های Office ساخته شده‌اند.
 
-محصولات Aspose بسیار **امن** هستند. اجزای Aspose در همان زمینه کاربری تمام برنامه‌های ASP.NET اجرا می‌شوند (زیر کاربر ASPNET). بنابراین، اجزای Aspose **خطر امنیتی** ایجاد نمی‌کنند. آنها همچنین منابع سیستم حساس را مصرف نمی‌کنند. علاوه بر این، هنگامی که یک اجزای Aspose یک سند را باز می‌کند، ماکروها به‌طور خودکار اجرا نمی‌شوند. اجزای Aspose برای ایجاد، دستکاری و ذخیره فایل‌های Office ساخته شده‌اند.
-
-{{% alert color="primary" %}} 
-
-هیچ‌یک از خطرات مرتبط با بسته Microsoft Office برای اجزای Aspose اعمال نمی‌شود.
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+هیچ یک از خطرات مرتبط با بسته Microsoft Office بر اجزای Aspose اعمال نمی‌شود.
+{{% /alert %}}
 
 ## **پایداری**
-این متن یک نقل قول مستقیم از مقاله مایکروسافت اشاره‌شده قبلی است:
+این متن استنادی مستقیم از مقاله مایکروسافت است:
 
-> "Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."
+> "Office 2000، Office XP و Office 2003 از فناوری Microsoft Windows Installer (MSI) برای ساده‌سازی نصب و خودترمیم استفاده می‌کنند. MSI مفهوم «نصب در اولین استفاده» را معرفی می‌کند که امکان نصب یا پیکربندی پویا ویژگی‌ها در زمان اجرا را فراهم می‌کند (برای سیستم یا معمولاً برای کاربر خاص). در محیط سمت سرور این هم عملکرد را کاهش می‌دهد و هم احتمال ظهور کادر گفتگویی که کاربر را ملزم به تأیید نصب یا ارائه دیسک نصب می‌کند، افزایش می‌دهد. اگرچه هدف آن افزایش تاب‌آوری Office به‌عنوان محصول انتها‑ی‑کاربر است، اجرای MSI در محیط سرور معکوس عمل می‌کند. علاوه بر این، استحکام کلی Office در حالت سرور نمی‌تواند تضمین شود زیرا برای این نوع استفاده طراحی یا تست نشده است. استفاده از Office به‌عنوان مؤلفه سرویس در یک سرور شبکه می‌تواند استحکام آن ماشین و در نتیجه کل شبکه را کاهش دهد. اگر قصد خودکارسازی Office در سمت سرور را دارید، برنامه را روی یک کامپیوتر اختصاصی که نمی‌تواند بر عملکردهای حیاتی تأثیر بگذارد، ایزوله کنید و در صورت نیاز آن را دوباره راه‌اندازی کنید."
 
-از آنجایی که اجزای Aspose به صورت یک DLL واحد بسته‌بندی شده‌اند، کاربران هرگز نیازی به نصب بخش‌های اضافی برای عملکرد آنها ندارند. اجزای Aspose فقط توسط برنامه‌های .NET استفاده می‌شوند و هیچ بخشی از کد آنها برای انتظار پاسخ انسانی طراحی نشده است.
+از آنجا که اجزای Aspose در یک DLL واحد بسته‌بندی می‌شوند، کاربران هرگز نیازی به نصب بخش یا قطعهٔ اضافی برای عملکرد ندارند. اجزای Aspose فقط توسط برنامه‌های .NET استفاده می‌شوند و هیچ بخشی از کد مؤلفه برای انتظار برای پاسخ انسانی طراحی نشده است.
 
-{{% alert color="primary" %}} 
-
-اجزای Aspose به‌طور کامل تست شده‌اند و ثابت شده است که بسیار پایدار هستند. اجزای Aspose توسط [شرکت‌ها](http://www.aspose.com/Corporate/Aspose/Customerlist.html) مانند **IBM**، **Hilton**، **Reader's Digest**، **Bank of America** و بسیاری از سازمان‌های پیشرو در صنایع مختلف استفاده می‌شود.
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+اجزای Aspose به‌طور کامل تست شده‌اند و ثابتاً بسیار پایدار هستند. اجزای Aspose توسط [شرکت‌ها](https://about.aspose.com/customers/) مانند **Bank of America** و بسیاری از سازمان‌های پیشرو در صنایع و زمینه‌های مختلف استفاده می‌شود.
+{{% /alert %}}
 
 ## **مقیاس‌پذیری/سرعت**
-نقل قول مستقیم از یک مقاله مایکروسافت:
+این استنادی مستقیم از مقاله مایکروسافت است:
 
-> "Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add‑ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi‑client environment. Developers who plan to run more then one instance of any Office Application at the same time need to consider Pooling or Serializing Access to the Office Application for avoiding potential Deadlocks or Data Corruption”.
+> "مؤلفه‌های سمت سرور باید کامپوننت‌های COM بسیار بازگشتی، چندنخی با حداقل سربار و توان عبور بالا برای چندین کلاینت باشند. برنامه‌های Office در تقریباً تمام جوانب برعکس این هستند. آن‌ها سرورهای Automation غیر‑بازگشتی بر پایه STA هستند که برای یک کلاینت طراحی شده‌اند و عملکردهای متنوع اما پرمنابع ارائه می‌دهند. آن‌ها مقیاس‌پذیری کمی به عنوان راه‌حل سرور‑ی‑طرف دارند و محدودیت‌های ثابت برای عناصر مهمی مانند حافظه دارند که از طریق پیکربندی قابل تغییر نیست. مهم‌تر از آن، آن‌ها از منابع سراسری (مانند فایل‌های مپ‌شده در حافظه، افزودنی‌ها یا الگوهای سراسری و سرورهای Automation مشترک) استفاده می‌کنند که می‌تواند تعداد نمونه‌های همزمان را محدود کند و در محیط چند‑کلاینتی منجر به شرایط رقابتی شود. توسعه‌دهندگانی که قصد دارند بیش از یک نمونه از هر برنامه Office را همزمان اجرا کنند، باید به‌دنبال Pooling یا Serializing Access به برنامه Office باشند تا از بروز Deadlock یا فساد داده جلوگیری کنند."
 
-اجزای Aspose به‌طرز شگفت‌انگیزی مقیاس‌پذیر و با سرعت نور هستند. برنامه‌های Office برای استفاده همزمان توسط صدها یا هزاران کاربر طراحی نشده‌اند، اما اجزای Aspose دقیقاً برای این منظور ساخته شده‌اند. اجزای ما یک راه‌حل واقعی .NET هستند.
+اجزای Aspose به‌طور باورنکردنی مقیاس‌پذیر و به‌سرعت نور هستند. برنامه‌های Office برای استفاده همزمان صدها یا هزاران کاربر طراحی نشده‌اند، اما اجزای Aspose دقیقاً برای این منظور ساخته شده‌اند. مؤلفه‌های ما راه‌حل واقعی .NET هستند.
 
-{{% alert color="primary" %}} 
-
-عملکرد اجزای Aspose در یک سرور واحد (تأمین یک برنامه) یا در یک فرم وب با تعادل بار (تأمین برنامه‌ای در سطح سازمان) بی‌نقص است.
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+عملکرد اجزای Aspose در یک سرور تک (پشتیبانی‌کنندهٔ یک برنامه) یا در یک فرم وب متوازن بار (پشتیبانی‌کنندهٔ یک برنامه سازمانی) بی‌نقص است.
+{{% /alert %}}
 
 ## **قیمت**
-هنگام استفاده از Microsoft Office Automation، باید برای هر ماشینی که برنامه را اجرا می‌کند، یک نسخه از Microsoft Office خریداری شود. بسیاری از مواردی که برنامه ممکن است نیاز به ایجاد یا دستکاری یک فایل Office داشته باشد، اما این فرآیند به Microsoft Office نیاز ندارد.
+هنگامی که یک برنامه از Microsoft Office Automation استفاده می‌کند، باید برای هر دستگاهی که برنامه را اجرا می‌کند، یک نسخهٔ Microsoft Office خریداری شود. موارد زیادی وجود دارد که یک برنامه ممکن است نیاز داشته باشد یک فایل Office را ایجاد یا دستکاری کند، اما این فرآیند به Microsoft Office نیاز ندارد.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Aspose یک مجوز توزیع بسیار [cost-effective](https://purchase.aspose.com/) و بدون حق امتیاز ارائه می‌دهد که اجازه می‌دهد به تعداد نامحدود کاربر بدون نگرانی‌های مجوزی استقرار یابد.
+{{% /alert %}}
 
-Aspose یک مجوز توزیع بسیار [مقرون به صرفه](https://purchase.aspose.com/) و بدون حق امتیاز ارائه می‌دهد که امکان استقرار به تعداد نامحدودی کاربر را بدون نگرانی‌های لایسنس فراهم می‌کند.
-
-{{% /alert %}} 
-
-هنگام ایجاد برنامه‌های وب، باید به خاطر داشته باشید که اجزای Microsoft Office Automation هم برای سرویس‑ساید قیمت‌گذاری شده‌اند و هم تحت‌مجوز برای این نوع راه‌حل‌ها قرار ندارند. بنابراین، راه‌حل مناسبی برای لایسنس‌گذاری برنامه‌های وب مبتنی بر اجزای Microsoft Office وجود ندارد. در مقابل، Aspose یک راه‌حل بسیار [مقرون به صرفه](https://purchase.aspose.com/) برای برنامه‌های مبتنی بر سرور نیز فراهم می‌کند.
+هنگام ایجاد برنامه‌های وب، باید به یاد داشته باشید که مؤلفه‌های Microsoft Office Automation نه قیمت‌گذاری شده‌اند و نه برای راه‌حل‌های سمت سرور مجوز دارند. بنابراین، هیچ راه‌حل مجوزی مناسبی برای استقرار برنامه‌های وبی که از مؤلفه‌های Microsoft Office استفاده می‌کنند وجود ندارد. از سوی دیگر، Aspose یک راه‌حل بسیار [cost-effective](https://purchase.aspose.com/) برای برنامه‌های مبتنی بر سرور نیز فراهم می‌کند.
 
 ## **ویژگی‌ها**
-اجزای Aspose تمام موارد مورد نیاز برای مدیریت فایل‌های Office و حتی بیشتر را فراهم می‌کنند. ما آنها را بر پایه فلسفه کمک به توسعه‌دهندگان برای دستیابی به بهترین نتایج با کمترین تلاش طراحی کرده‌ایم.
+اجزای Aspose تمام چیزهای مورد نیاز برای مدیریت فایل‌های Office و حتی بیش از آن را فراهم می‌کنند. ما آن‌ها را بر پایهٔ فلسفهٔ کمک به توسعه‌دهندگان برای دستیابی به بزرگ‌ترین نتایج ممکن با کم‌ترین تلاش طراحی کرده‌ایم.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+بر خلاف Office Automation، اجزای Aspose توابع قدرتمند و صرفه‌جویی‌کنندهٔ زمان زیادی ارائه می‌دهند.
+{{% /alert %}}
 
-بر خلاف Office Automation، اجزای Aspose امکانات قدرتمند و صرفه‌جویی در زمان بسیاری را ارائه می‌دهند.
+به‌عنوان مثال، [Aspose.Cells](https://products.aspose.com/cells/net/) به توسعه‌دهندگان امکان می‌دهد داده‌ها را مستقیماً از یک **DataTable** یا **DataView** به یک فایل Excel وارد کنند. [Aspose.Words](https://products.aspose.com/words/net/) ویژگی مشابهی دارد که به توسعه‌دهندگان اجازه می‌دهد یک سند Word (یعنی Mail Merge) را مستقیماً از هر شیء دادهٔ .NET پر کنند. هر [مؤلفه](https://products.aspose.com/total/net/) در خانواده Aspose مجموعهٔ خاص و قدرتمند خود را دارد.
 
-{{% /alert %}} 
+بهترین نکتهٔ خرید یک مؤلفه Aspose، دسترسی به تیم‌های توسعهٔ ماست. برای مثال، اگر از اشیای Office Automation استفاده کنید و به ویژگی‌های خاصی نیاز داشته باشید، احتمال افزودن آن ویژگی‌ها بسیار، بسیار کم است. اما با اجزای Aspose اوضاع متفاوت است.
 
-به عنوان مثال، [Aspose.Cells](https://products.aspose.com/cells/net/) به توسعه‌دهندگان امکان وارد کردن داده‌ها از یک **DataTable** یا **DataView** را به‌طور مستقیم به یک فایل Excel می‌دهد. [Aspose.Words](https://products.aspose.com/words/net/) ویژگی مشابهی دارد که به توسعه‌دهندگان اجازه می‌دهد یک سند Word (یعنی Mail Merge) را مستقیم از هر شیء داده‌ای .NET پر کنند. [هر کامپوننت](https://products.aspose.com/total/net/) در خانواده Aspose مجموعه‌ای منحصر به فرد و قدرتمند از ویژگی‌ها را ارائه می‌دهد.
+{{% alert color="info" title="Note" %}}
+تیم‌های توسعهٔ ما می‌دانند که اگر ویژگی‌ای مورد نیاز شرکت شما باشد، احتمال زیادی وجود دارد که شرکت‌های دیگر نیز به همان ویژگی نیاز داشته باشند. اگرچه نمی‌توانیم تمام ویژگی‌های درخواست‌شده را پیاده‌سازی کنیم، سعی می‌کنیم بر اساس بازخورد مشتریان تا حد امکان ویژگی‌های بیشتری اضافه کنیم.
+{{% /alert %}}
 
-بهترین بخش خرید یک کامپوننت Aspose دسترسی به تیم‌های توسعه ماست. به‌عنوان مثال، اگر از اشیای Office Automation استفاده کنید و به ویژگی‌های خاصی نیاز داشته باشید، احتمال اضافه شدن آن ویژگی‌ها بسیار، بسیار کم است. اما وضعیت با اجزای Aspose متفاوت است.
-
-{{% alert color="primary" %}} 
-
-تیم‌های توسعه ما می‌دانند که اگر ویژگی‌ای وجود داشته باشد که شرکت شما نیاز دارد، احتمال زیادی وجود دارد که شرکت‌های دیگر نیز به همان ویژگی نیاز داشته باشند. اگرچه می‌دانیم نمی‌توانیم همه ویژگی‌های درخواست‌شده را پیاده‌سازی کنیم، اما سعی می‌کنیم تا حد امکان بر اساس بازخورد مشتریان، ویژگی‌های بیشتری اضافه کنیم.
-
-{{% /alert %}} 
-
-تیم‌های ما همیشه ذهن‌باز و انعطاف‌پذیر هستند و این دلیل این است که اجزای Aspose به این قدرت رسیده‌اند.
+تیم‌های ما همیشه ذهن باز و انعطاف‌پذیر هستند و این دلیل رشد اجزای Aspose به قدرتی است که امروز دارند.
 
 ## **نتیجه‌گیری**
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+در حالی که این مقاله برخی از نکات کلیدی که چرا اجزای Aspose گزینهٔ بهتری نسبت به Office Automation هستند را پوشش داد، باید بدانید که مزایای بسیار، بسیار بیشتری نیز وجود دارد. ما فقط به برخی از مزایای اصلی اشاره کردیم.
 
-در حالی که این مقاله به برخی از نکات کلیدی که چرا اجزای Aspose انتخاب بهتری نسبت به Office Automation هستند پرداخته است، باید بدانید که مزایای بسیار بیشتری وجود دارد. ما تنها به برخی از مزایای اصلی اشاره کردیم.
-
-علاوه بر این، تمام محصولات و اجزای Aspose یک نسخه ارزیابی بدون ریسک و بدون تعهد [Evaluation Version](https://downloads.aspose.com/slides/fa/net) ارائه می‌دهند. ما شما را تشویق می‌کنیم از این ارزیابی استفاده کنید تا ببینید Aspose چه کاری برای برنامه‌ها یا کسب‌وکار شما می‌تواند انجام دهد.
-
+علاوه بر این، تمام محصولات و مؤلفه‌های Aspose یک [Evaluation Version](https://releases.aspose.com/slides/fa/net/) بدون‌ریسک و بدون تعهد ارائه می‌دهند. ما شما را تشویق می‌کنیم از این نسخهٔ ارزیابی استفاده کنید تا ببینید Aspose چه کاری می‌تواند برای برنامه‌ها یا کسب‌وکار شما انجام دهد.
 {{% /alert %}}

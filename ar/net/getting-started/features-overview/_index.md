@@ -1,117 +1,96 @@
 ---
 title: نظرة عامة على الميزات
 type: docs
-weight: 20
+weight: 94
 url: /ar/net/features-overview/
 keywords:
-- الميزات
-- المنصات المدعومة
-- تنسيق الملف
-- التحويل
-- العرض
-- التنسيق
+- ميزات
+- منصات مدعومة
+- تنسيقات الملفات
+- تحويل
+- عرض
+- محتوى العرض التقديمي
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف Aspose.Slides for .NET: واجهة برمجية قوية لإنشاء وتعديل وأتمتة وتحويل عروض PowerPoint و OpenDocument بكفاءة."
+description: "استعرض ما تغطيه Aspose.Slides for .NET قبل تقييمه: المنصات المدعومة، تنسيقات الملفات، عرض الشرائح، والمحتوى الذي يمكنك إنشاؤه وتحريره."
 ---
-## **المنصات المدعومة**
-يدعم Aspose.Slides for .NET أكثر المنصات شعبية للتطوير والنشر. اطلع على التفاصيل التالية:
+## **نظرة عامة**
 
-|**الميزة**|**الوصف**|
-| :- | :- |
-|تطبيقات الويب ASP.NET|استخدم Aspose.Slides for .NET لإنشاء تطبيقات الويب ASP.NET التي تستهدف إصدارات .NET Framework من 2.0 إلى 4.6.2|
-|خدمات ويب|استخدم Aspose.Slides for .NET لنشر خدمات الويب|
-|تطبيقات WinForms|يمكن أيضًا استخدام Aspose.Slides for .NET لتطوير تطبيقات Windows Forms|
+Aspose.Slides for .NET هي مكتبة فئة لإنشاء وقراءة وتحرير وتحويل وعرض عروض PowerPoint وOpenDocument. لا تمتلك واجهة مستخدم خاصة بها ولا تتطلب Microsoft PowerPoint أو Office، لذا يمكنك استخدامها في تطبيقات سطر الأوامر، وتطبيقات سطح المكتب مثل Windows Forms، وتطبيقات الويب، وخدمات الويب. يلخص هذا المقال ما تغطيه المكتبة ويشير إلى المقالات التي تصف كل مجال.
+
+## **المنصات المدعومة**
+
+Aspose.Slides for .NET موزعة كحزمتين من NuGet لهما نفس واجهة برمجة التطبيقات:
+
+|**الحزمة**|**الإصدارات في الحزمة**|**أنظمة التشغيل**|
+| :- | :- | :- |
+|[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|.NET Framework 4.6.2، .NET Standard 2.0، و.NET 6. استخدمها مع .NET Framework 4.6.2 أو أحدث، أو مع .NET 6 أو أحدث.|Windows. Linux وmacOS مع مكتبة `libgdiplus` ومفتاح `System.Drawing.EnableUnixSupport`.|
+|[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/)|.NET 6. استخدمها مع .NET 6 أو أحدث.|Windows (x86, x64)، Linux (x64 مع glibc 2.23 أو أحدث، ARM64 مع glibc 2.39 أو أحدث)، وmacOS (x64, ARM64).|
+
+[Installation](/slides/ar/net/installation/) يشرح أي حزمة يجب اختيارها وما تحتاجه كل واحدة على Linux. [System Requirements](/slides/ar/net/system-requirements/) يسرد المنصات المدعومة بالتفصيل.
 
 ## **تنسيقات الملفات والتحويلات**
-يدعم Aspose.Slides for .NET معظم تنسيقات مستندات PowerPoint. كما يتيح لك تصديرها إلى التنسيقات الشائعة التي تستخدمها المؤسسات بشكل واسع. اطلع على التفاصيل التالية:
+
+Aspose.Slides يفتح ويحفظ عروض PPT، PPTX، PPS، POT، PPSX، POTX، PPTM، PPSM، POTM، ODP، OTP، FODP، وعروض PowerPoint XML. يستورد محتوى PDF وHTML إلى الشرائح، ويحفظ العروض كـ PDF، XPS، HTML، HTML5، TIFF، GIF متحرك، SWF، Markdown، وXAML. [Supported File Formats](/slides/ar/net/supported-file-formats/) يسرد كل تنسيق مع واجهة برمجة التطبيقات التي تقرأه أو تكتبه.
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/ar/net/ppt-vs-pptx/)|يوفر Aspose.Slides for .NET أسرع معالجة لهذا التنسيق من مستندات العروض التقديمية.|
-|[تحويل PPT إلى PPTX](/slides/ar/net/convert-ppt-to-pptx/)|يدعم Aspose.Slides for .NET تحويل PPT إلى PPTX.|
-|[Portable Document Format (PDF)](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|يمكنك تصدير جميع تنسيقات الملفات المدعومة إلى مستندات Adobe Portable Document Format (PDF) بطريقة واحدة.|
-|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/ar/net/convert-powerpoint-to-xps/)|يمكنك تصدير جميع تنسيقات الملفات المدعومة إلى مستندات XML Parser Specification (XPS) بطريقة واحدة.|
-|[Tagged Image File Format (TIFF)](/slides/ar/net/convert-powerpoint-to-tiff/)|يمكنك تصدير جميع تنسيقات ملفات العروض التقديمية المدعومة إلى Tagged Image File Format (TIFF).|
-|[تحويل PPTX إلى HTML](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-html/)|يدعم Aspose.Slides for .NET تحويل PresentationEx إلى تنسيق HTML.|
+|[PPT and PPTX](/slides/ar/net/ppt-vs-pptx/)|قراءة وكتابة كل من تنسيق PowerPoint الثنائي 97-2003 وتنسيق Office Open XML.|
+|[PPT to PPTX conversion](/slides/ar/net/convert-ppt-to-pptx/)|تحويل عروض PPT القديمة إلى PPTX.|
+|[Portable Document Format (PDF)](/slides/ar/net/convert-powerpoint-to-pdf/)|تصدير العروض إلى PDF، بما في ذلك مستندات PDF/A وPDF/UA.|
+|[XML Paper Specification (XPS)](/slides/ar/net/convert-powerpoint-to-xps/)|تصدير العروض إلى مستندات XPS.|
+|[Tagged Image File Format (TIFF)](/slides/ar/net/convert-powerpoint-to-tiff/)|تصدير العروض إلى صور TIFF.|
+|[HTML](/slides/ar/net/convert-powerpoint-to-html/)|تصدير العروض إلى HTML وHTML5.|
+|[PDF and HTML import](/slides/ar/net/import-presentation/)|إنشاء شرائح من صفحات PDF ومحتوى HTML.|
 
-## **عرض العروض التقديمية**
-يدعم Aspose.Slides for .NET عرض عالي الدقة للشرائح في مستندات العروض إلى تنسيقات رسومية مختلفة. اطلع على التفاصيل التالية:
+## **عرض العرض التقديمي**
 
-|**الميزة**|**الوصف**|
-| :- | :- |
-|تنسيقات الصور المدعومة في .NET|مع Aspose.Slides for .NET، يمكنك تصيير شريحة العرض والصور الموجودة على الشرائح إلى جميع تنسيقات الرسوم المدعومة في .NET مثل TIFF و PNG و BMP و JPEG و GIF و ملفات الميتا.|
-|تنسيق SVG|يوفر Aspose.Slides for .NET أيضًا طرقًا مدمجة تسمح لك بتصدير شرائح العرض إلى تنسيقات Scalable Vector Graphics (SVG).|
+Aspose.Slides يعرض الشرائح والأشكال الفردية كصور PNG، JPEG، BMP، GIF، TIFF، وSVG، والشرائح كملفات تعريفية EMF. راجع [Convert Presentation Slides to Images](/slides/ar/net/convert-slide/)، [Render a Slide as an SVG Image](/slides/ar/net/render-a-slide-as-an-svg-image/)، و[Create Shape Thumbnails](/slides/ar/net/create-shape-thumbnails/).
 
 ## **ميزات المحتوى**
-يتيح Aspose.Slides for .NET الوصول إلى أغلب عناصر محتوى مستندات العرض، تعديلها أو إنشائها. اطلع على التفاصيل التالية:
 
-|**الميزة**|**الوصف**|
+Aspose.Slides يتيح لك إنشاء وقراءة وتعديل تقريبًا كل محتوى العرض التقديمي:
+
+|**المجال**|**ما يمكنك القيام به**|
 | :- | :- |
-|الشرائح الرئيسة|تحدد الشرائح الرئيسة تخطيط الشرائح العادية. يتيح Aspose.Slides for .NET لك الوصول إلى الشرائح الرئيسة وتعديلها في مستندات العرض.|
-|الشرائح العادية|مع Aspose.Slides for .NET، يمكنك إنشاء شرائح جديدة من أنواع مختلفة؛ كما يمكنك الوصول إلى الشرائح الحالية وتعديلها في العروض.|
-|استنساخ / نسخ الشرائح|توفر Aspose.Slides for .NET طرقًا مدمجة تسمح لك باستنساخ أو نسخ الشرائح الحالية داخل العرض. يمكنك أيضًا استخدام الشرائح المنسوخة أو المستنسخة من عرض إلى آخر. بما أن الشريحة ترث تخطيطها من الشريحة الرئيسة، تقوم الطرق المدمجة للنسخ بنسخ الشريحة الرئيسة تلقائيًا عند الاستنساخ.|
-|إدارة أقسام الشرائح|طرق لتنظيم الشرائح في أقسام مختلفة داخل العرض.|
-|العناصر النائبة وعناصر النص|يمكنك الوصول إلى العناصر النائبة وعناصر النص في الشريحة. علاوةً على ذلك، يمكنك إنشاء شريحة بعناصر نص من الصفر باستخدام الطريقة المناسبة.|
-|الترويسات والتذييلات|يسهل Aspose.Slides for .NET التعامل مع الترويسات/التذييلات في الشرائح.|
-|ملاحظات في الشرائح|مع Aspose.Slides for .NET، يمكنك الوصول إلى الملاحظات المرتبطة بشريحة وتعديلها، وكذلك إضافة ملاحظات جديدة.|
-|العثور على شكل|يمكنك أيضًا العثور على شكل معين في شريحة باستخدام النص البديل المرتبط بهذا الشكل.|
-|الخلفيات|يسمح Aspose.Slides for .NET لك بالعمل مع الخلفيات المرتبطة بشريحة رئيسة أو عادية في العرض.|
-|صناديق النص|يمكن إنشاء صناديق النص من الصفر. يمكنك الوصول إلى صناديق النص الموجودة وتعديل نصوصها دون فقدان تنسيق النص الأصلي.|
-|الأشكال المستطيلة|يمكنك إنشاء أو تعديل أشكال مستطيلة باستخدام Aspose.Slides for .NET.|
-|الأشكال متعددة الخطوط|يمكنك إنشاء أو تعديل أشكال متعددة الخطوط باستخدام Aspose.Slides for .NET.|
-|الأشكال الإهليلجية|يمكنك إنشاء أو تعديل أشكال إهليلجية باستخدام Aspose.Slides for .NET.|
-|الأشكال المجموعة|يدعم Aspose.Slides for .NET الأشكال المجموعة|
-|الأشكال التلقائية|يدعم Aspose.Slides for .NET الأشكال التلقائية|
-|SmartArt|يوفر Aspose.Slides for .NET دعمًا لأشكال SmartArt في MS PowerPoint|
-|الرسوم البيانية|يوفر Aspose.Slides for .NET دعمًا للرسوم البيانية MSO في PowerPoint|
-|تسلسل الأشكال|يدعم Aspose.Slides for .NET عددًا كبيرًا من الأشكال. عندما لا يدعم Aspose.Slides for .NET شكلًا معينًا، يمكنك استخدام طريقة تسلسل تسمح لك بتسلسل ذلك الشكل من شريحة موجودة. بهذه الطريقة يمكنك استخدام الشكل لاحقًا وفقًا لاحتياجاتك.|
-|إطارات الصور|يمكنك إدارة الصور في إطارات الصور باستخدام Aspose.Slides for .NET|
-|إطارات الصوت|يمكنك ربط أو تضمين ملفات صوتية في إطارات الصوت على الشرائح باستخدام Aspose.Slides for .NET|
-|إطارات الفيديو|يمكنك التعامل مع ملفات الفيديو في إطارات الفيديو. يوفر Aspose.Slides for .NET أيضًا دعمًا للفيديوهات المرتبطة والمضمنة|
-|إطار OLE|يمكنك إدارة كائنات OLE في إطارات OLE باستخدام Aspose.Slides for .NET|
-|الجداول|يدعم Aspose.Slides for .NET الجداول في الشرائح|
-|عناصر تحكم ActiveX|دعم لعناصر تحكم ActiveX|
-|ماكرو VBA|دعم لإدارة ماكرو VBA داخل العروض.|
-|إطار النص|يمكنك الوصول إلى النص داخل أي شكل عبر إطار النص المرتبط بذلك الشكل|
-|مسح النص|يمكنك مسح النص في عرض تقديمي على مستوى العرض أو الشريحة باستخدام طرق المسح المدمجة.|
-|الرسوم المتحركة|يمكنك تطبيق الرسوم المتحركة على الأشكال|
-|عروض الشرائح|يدعم Aspose.Slides for .NET عروض الشرائح وانتقالات الشرائح|
-
-## **ميزات التنسيق**
-مع Aspose.Slides for .NET، يمكنك تنسيق النصوص والأشكال على الشرائح في العروض. اطلع على التفاصيل التالية:
-
-|**الميزة**|**الوصف**|
-| :- | :- |
-|تنسيق النص|<p>في Aspose.Slides for .NET، يمكنك إدارة النصوص عبر إطارات النص المرتبطة بالأشكال. وبالتالي يمكنك تنسيق النصوص باستخدام الفقرات والأجزاء المرتبطة بإطارات النص. يمكن تنسيق عناصر النص هذه عبر Aspose.Slides for .NET.</p><p>- نوع الخط</p><p>- حجم الخط</p><p>- لون الخط</p><p>- درجات اللون</p><p>- محاذاة الفقرة</p><p>- تعداد الفقرة</p><p>- اتجاه الفقرة</p>|
-|تنسيق الشكل|<p>في Aspose.Slides for .NET، العنصر الأساسي للشفرة هو الشكل. يمكنك تنسيق هذه العناصر الشكلية عبر Aspose.Slides for .NET:</p><p>- الموضع</p><p>- الحجم</p><p>- الخط</p><p>- التعبئة (بما في ذلك النمط، التدرج، الصلب)</p><p>- النص</p><p>- الصورة</p>|
+|[Slides](/slides/ar/net/presentation-slide/)|إضافة، استنساخ، إعادة ترتيب، وإزالة الشرائح؛ تطبيق التخطيطات والرؤوس الأساسية؛ تنظيم الشرائح في أقسام؛ تغيير حجم الشريحة.|
+|[Design](/slides/ar/net/presentation-design/)|ضبط الخلفيات، ألوان السمة، رؤوس وتذييلات، والخطوط.|
+|[Text](/slides/ar/net/manage-text/)|إنشاء وتحرير إطارات النص، الفقرات، والجزء؛ ضبط الخطوط، الألوان، الرموز النقطية، والمحاذاة؛ البحث والاستبدال.|
+|[Shapes](/slides/ar/net/powerpoint-shapes/)|إنشاء AutoShapes، خطوط، موصلات، تجميع أشكال، وإطارات صور؛ ضبط الموضع، الحجم، الخط، والتعبئة الصلبة أو المتدرجة أو النمطية؛ العثور على شكل بالنص البديل الخاص به.|
+|[Tables](/slides/ar/net/powerpoint-table/), [charts](/slides/ar/net/powerpoint-charts/), and [SmartArt](/slides/ar/net/powerpoint-smartart/)|إنشاء وتحرير الجداول، مخططات Microsoft Office، ورسومات SmartArt.|
+|[Media](/slides/ar/net/manage-media-files/), [OLE objects](/slides/ar/net/manage-ole/), and [ActiveX controls](/slides/ar/net/activex/)|إضافة إطارات صوت وفيديو مضمّنة أو مرتبطة، تضمين كائنات OLE، وإضافة أو تعديل أو إزالة عناصر تحكم ActiveX.|
+|[Notes](/slides/ar/net/presentation-notes/) and [comments](/slides/ar/net/presentation-comments/)|إضافة، قراءة، وتحرير ملاحظات المتحدث وتعليقات المراجعة.|
+|[Animation](/slides/ar/net/powerpoint-animation/) and [transitions](/slides/ar/net/slide-transition/)|تطبيق تأثيرات الرسوم المتحركة على الأشكال، ضبط انتقالات الشرائح، وتكوين إعدادات عرض الشرائح.|
+|[Security](/slides/ar/net/presentation-security/)|تشفير العروض بكلمة مرور، ضبط حماية الكتابة، والعمل مع التوقيعات الرقمية.|
+|[VBA macros](/slides/ar/net/presentation-via-vba/)|إضافة، استخراج، وإزالة وحدات VBA في العروض التي تدعم الماكرو.|
+|[Properties](/slides/ar/net/presentation-properties/)|قراءة وتحرير خصائص المستند.|
 
 ## **الأسئلة المتكررة**
 
-### هل أحتاج إلى تثبيت Microsoft PowerPoint على الخادم/الكمبيوتر لتعمل المكتبة؟
+**هل أحتاج إلى تثبيت Microsoft PowerPoint على الخادم أو الجهاز لتعمل المكتبة؟**
 
-لا. لا يلزم وجود PowerPoint؛ Aspose.Slides هو محرك مستقل لإنشاء وتعديل وتحويل وعرض العروض.
+لا. PowerPoint غير مطلوب؛ Aspose.Slides محرك مستقل لإنشاء وتحرير وتحويل وعرض العروض.
 
-### كيف يعمل تعدد الخيوط؟ هل يمكن تنفيذ المعالجة بشكل متوازي؟
+**كيف يعمل تعدد الخيوط؟ هل يمكن تنفيذ المعالجة بالتوازي؟**
 
-من الآمن معالجة مستندات مختلفة في خيوط مختلفة؛ لا يجب استخدام نفس [العرض التقديمي](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) عبر [خيوط متعددة](/slides/ar/net/multithreading/) في نفس الوقت.
+من الآمن معالجة مستندات مختلفة في خيوط مختلفة؛ لا ينبغي استخدام نفس كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) بواسطة [multiple threads](/slides/ar/net/multithreading/) في نفس الوقت.
 
-### هل تدعم كلمات مرور الملفات والتشفير؟
+**هل تدعم كلمات مرور الملفات والتشفير؟**
 
-نعم. يمكنك [فتح](/slides/ar/net/password-protected-presentation/) عروضًا مشفرة، تعيين أو إزالة كلمة مرور للفتح والكتابة، والتحقق من حالة الحماية.
+نعم. يمكنك [/slides/ar/net/password-protected-presentation/] فتح عروض مشفّرة، وضع أو إزالة كلمة مرور للفتح والكتابة، والتحقق من حالة الحماية.
 
-### هل يجب الاهتمام بحزم الخطوط في حاويات Linux؟
+**هل يجب الاهتمام بالخطوط في حاويات Linux؟**
 
-نعم. يُنصح بتثبيت حزم الخطوط الشائعة أو تحديد أدلة الخطوط صراحةً [/slides/ar/net/custom-font/] في تطبيقك لتجنب الاستبدالات غير المتوقعة.
+نعم. يجب تثبيت الخطوط المستخدمة في عروضك، أو بدائل مناسبة، على النظام لتظهر النصوص بشكل صحيح. يمكنك أيضًا [/slides/ar/net/custom-font/] تحديد أدلة الخطوط في تطبيقك. [/slides/ar/net/installation/] يسرد المتطلبات المسبقة لـ Linux لكل حزمة.
 
-### هل هناك قيود في نسخة التقييم؟
+**هل هناك قيود في نسخة التقييم؟**
 
-في [وضع التقييم](/slides/ar/net/licensing/)، يتم إضافة علامة مائية إلى المخرجات وتطبق بعض القيود؛ تتوفر [رخصة مؤقتة لمدة 30 يومًا](https://purchase.aspose.com/temporary-license/) للاختبار الكامل للميزات.
+نعم. بدون [/slides/ar/net/licensing/] ترخيص، يضيف Aspose.Slides علامة مائية تقييمية إلى كل شريحة يحفظها ويقتطع النص المقروء من العروض. ترخيص مؤقت لمدة 30 يومًا متاح للاختبار الكامل.
 
-### هل يدعم استيراد الصيغ الخارجية إلى عرض تقديمي (PDF/HTML → PPTX)؟
+**هل استيراد تنسيقات خارجية إلى عرض تقديمي (PDF أو HTML إلى PPTX) مدعوم؟**
 
-نعم. يمكنك إضافة [صفحات PDF ومحتوى HTML](/slides/ar/net/import-presentation/) إلى عرض تقديمي، وتحويلها إلى شرائح.
+نعم. يمكنك إضافة [/slides/ar/net/import-presentation/] صفحات PDF ومحتوى HTML إلى عرض تقديمي، وتحويلها إلى شرائح.
