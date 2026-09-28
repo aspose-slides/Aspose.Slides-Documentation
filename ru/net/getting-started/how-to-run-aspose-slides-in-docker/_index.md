@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform не работает на Alpine Linux. Для
 </Project>
 ```
 
-*Program.cs* создаёт [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/), добавляет прямоугольник с текстом на первый слайд и сохраняет презентацию дважды через метод [Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/): как PPTX и как PDF. Оба файла помещаются в папку *output* в рабочем каталоге. Затем приложение выводит список шрифтов, которые были заменены при рендеринге PDF, используя [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/), чтобы вы могли увидеть, имеются ли в контейнере шрифты, используемые презентацией.
+*Program.cs* создаёт [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), добавляет прямоугольник с текстом на первый слайд и сохраняет презентацию дважды через метод [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/): как PPTX и как PDF. Оба файла помещаются в папку *output* в рабочем каталоге. Затем приложение выводит список шрифтов, которые были заменены при рендеринге PDF, используя [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), чтобы вы могли увидеть, имеются ли в контейнере шрифты, используемые презентацией.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-
 - `font-dejavu` предоставляет шрифты. Без шрифтов конверсия останавливается с `System.ArgumentException: Font '?' cannot be found`.
 - `icu-libs` и `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` обеспечивают данные о культурах. Образы .NET для Alpine работают в режиме глобализации‑инвариантности по умолчанию, и в этом режиме Aspose.Slides прекращает работу с `CultureNotFoundException` для `en-US`.
 
-Соберите, запустите и скопируйте вывод теми же командами, что выше. В этом образе приложение выводит только строку `Saved`: с Aspose.Slides.NET в Linux fontconfig выбирает замену отсутствующего шрифта, и [GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/) её не перечисляет. Подробнее, как проверить какой шрифт используется, см. [Deploy Fonts](/slides/ru/net/deploy-fonts/).
+Соберите, запустите и скопируйте вывод теми же командами, что выше. В этом образе приложение выводит только строку `Saved`: с Aspose.Slides.NET в Linux fontconfig выбирает замену отсутствующего шрифта, и [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) её не перечисляет. Подробнее, как проверить какой шрифт используется, см. [Deploy Fonts](/slides/ru/net/deploy-fonts/).
 
 ## **FAQ**
 

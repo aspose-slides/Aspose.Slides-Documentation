@@ -56,7 +56,7 @@ Aspose.Slides рисует текст шрифтами, доступными е�
 </Project>
 ```
 
-*Program.cs* добавляет один текстовый блок на каждый шрифт на слайде и задаёт шрифт через свойство [LatinFont](https://reference.aspose.com/slides/ru/net/aspose.slides/baseportionformat/latinfont/). Имена шрифтов берутся из командной строки; без аргументов приложение проверяет Calibri, Arial и Times New Roman. Оно выводит папки, в которых Aspose.Slides ищет шрифты ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsloader/getfontfolders/)), рендерит слайд в *output/fonts.pdf* и выводит замены, сообщённые [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/). Два необязательных шага в начале — загрузка папки *fonts* и чтение переменной `DEFAULT_FONT` — описаны позже в этой статье.
+*Program.cs* добавляет один текстовый блок на каждый шрифт на слайде и задаёт шрифт через свойство [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/). Имена шрифтов берутся из командной строки; без аргументов приложение проверяет Calibri, Arial и Times New Roman. Оно выводит папки, в которых Aspose.Slides ищет шрифты ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), рендерит слайд в *output/fonts.pdf* и выводит замены, сообщённые [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/). Два необязательных шага в начале — загрузка папки *fonts* и чтение переменной `DEFAULT_FONT` — описаны позже в этой статье.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Загрузка шрифтов из папки приложения**
 
-Вместо установки шрифтов в образе их можно разместить вместе с приложением и загрузить с помощью [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsloader/loadexternalfonts/). Шрифты тогда будут доступны только Aspose.Slides и будут развернуты вместе с приложением. *FontCheck* делает именно это: *FontCheck.csproj* копирует папку *fonts* в вывод приложения, а *Program.cs* перед созданием презентации передаёт эту папку в `LoadExternalFonts`. Подробнее о других способах поставки шрифтов, например загрузке из памяти, читайте в разделе [Custom Font](/slides/ru/net/custom-font/).
+Вместо установки шрифтов в образе их можно разместить вместе с приложением и загрузить с помощью [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/). Шрифты тогда будут доступны только Aspose.Slides и будут развернуты вместе с приложением. *FontCheck* делает именно это: *FontCheck.csproj* копирует папку *fonts* в вывод приложения, а *Program.cs* перед созданием презентации передаёт эту папку в `LoadExternalFonts`. Подробнее о других способах поставки шрифтов, например загрузке из памяти, читайте в разделе [Custom Font](/slides/ru/net/custom-font/).
 
 Пересоберите образ, затем проверьте Calibri и Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Установка шрифта по умолчанию для отсутствующих шрифтов**
 
-Когда шрифт отсутствует, Aspose.Slides использует замену, выбранную автоматически. Чтобы задать замену вручную, установите свойство [DefaultRegularFont](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/defaultregularfont/) объекта [LoadOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/) и передайте параметры в конструктор [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/). *FontCheck* считывает имя шрифта из переменной окружения `DEFAULT_FONT`. При загруженном Carlito используйте его для отсутствующих шрифтов:
+Когда шрифт отсутствует, Aspose.Slides использует замену, выбранную автоматически. Чтобы задать замену вручную, установите свойство [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) объекта [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) и передайте параметры в конструктор [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). *FontCheck* считывает имя шрифта из переменной окружения `DEFAULT_FONT`. При загруженном Carlito используйте его для отсутствующих шрифтов:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Шрифт по умолчанию заменяет каждый отсутствующий шрифт. Чтобы сопоставить отдельные шрифты, например Arial → Liberation Sans и Calibri → Carlito, используйте [правила замены шрифтов](/slides/ru/net/font-substitution/). Правила меняют вывод, но `GetSubstitutions` их не отражает, поэтому проверяйте шрифты в результирующем файле. Для азиатского текста также задайте [DefaultAsianFont](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/defaultasianfont/); см. раздел [Default Font](/slides/ru/net/default-font/).
+Шрифт по умолчанию заменяет каждый отсутствующий шрифт. Чтобы сопоставить отдельные шрифты, например Arial → Liberation Sans и Calibri → Carlito, используйте [правила замены шрифтов](/slides/ru/net/font-substitution/). Правила меняют вывод, но `GetSubstitutions` их не отражает, поэтому проверяйте шрифты в результирующем файле. Для азиатского текста также задайте [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); см. раздел [Default Font](/slides/ru/net/default-font/).
 
 ## **Установка шрифтов в Alpine Linux**
 

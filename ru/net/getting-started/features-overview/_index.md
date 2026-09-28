@@ -77,7 +77,7 @@ Aspose.Slides позволяет создавать, читать и измен�
 
 **Как работает многопоточность? Можно ли параллельно обрабатывать документы?**
 
-Безопасно обрабатывать разные документы в разных потоках; один объект [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) не должен использоваться [несколькими потоками](/slides/ru/net/multithreading/) одновременно.
+Безопасно обрабатывать разные документы в разных потоках; один объект [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) не должен использоваться [несколькими потоками](/slides/ru/net/multithreading/) одновременно.
 
 **Поддерживаются ли пароли файлов и шифрование?**
 

@@ -22,7 +22,7 @@ description: "Почему OLE объект, добавленный с Aspose.Sl
 ---
 ## **Введение**
 
-Используя Aspose.Slides для .NET, когда вы добавляете [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe/) на слайд, на выходном слайде отображается сообщение "EMBEDDED OLE OBJECT". Это сообщение является намеренным и НЕ является ошибкой.
+Используя Aspose.Slides для .NET, когда вы добавляете [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) на слайд, на выходном слайде отображается сообщение "EMBEDDED OLE OBJECT". Это сообщение является намеренным и НЕ является ошибкой.
 
 Для получения дополнительной информации о работе с OLE-объектами см. [Manage OLE](/slides/ru/net/manage-ole/).
 
@@ -30,7 +30,7 @@ description: "Почему OLE объект, добавленный с Aspose.Sl
 
 Aspose.Slides отображает сообщение "EMBEDDED OLE OBJECT", чтобы уведомить вас, что OLE-объект был изменён и изображение превью необходимо обновить.
 
-Например, если вы добавляете диаграмму Microsoft Excel в виде [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe/) на слайд (подробнее см. статью "Manage OLE") и затем открываете презентацию в Microsoft PowerPoint, вы увидите на слайде следующее изображение:
+Например, если вы добавляете диаграмму Microsoft Excel в виде [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/) на слайд (подробнее см. статью "Manage OLE") и затем открываете презентацию в Microsoft PowerPoint, вы увидите на слайде следующее изображение:
 
 ![Сообщение OLE-объекта](OLE_object_message.png)
 

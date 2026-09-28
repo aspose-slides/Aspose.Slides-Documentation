@@ -24,7 +24,7 @@ description: "Конвертировать презентации PowerPoint и 
 
 Aspose.Slides for .NET может преобразовывать презентации PowerPoint в формат PowerPoint XML Presentation. Вывод в XML полезен, когда нужен текстовый представление для исследования структуры презентации, устранения неполадок в сгенерированных документах, сравнения вывода в автоматических тестах или интеграции с workflow, который работает с XML вместо пакета презентации.
 
-Используйте метод [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) с значением `Xml` из перечисления [SaveFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.export/saveformat/). Результат можно записать напрямую в файл или в поток.
+Используйте метод [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) с значением `Xml` из перечисления [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/). Результат можно записать напрямую в файл или в поток.
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml` создаёт PowerPoint XML Presentation. Он не извлекает отдельные части Office Open XML, хранящиеся внутри пакета PPTX. Если нужны точные части пакета PPTX, такие как `ppt/presentation.xml` или отдельные XML‑файлы слайдов, изучайте сам пакет PPTX.
@@ -32,7 +32,7 @@ Aspose.Slides for .NET может преобразовывать презент�
 
 ## **Преобразование презентации в XML‑файл**
 
-Загрузите исходную презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) и передайте путь вывода и `SaveFormat.Xml` методу [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/). Источником может быть любой поддерживаемый формат, например PPT, PPTX или ODP.
+Загрузите исходную презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и передайте путь вывода и `SaveFormat.Xml` методу [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Источником может быть любой поддерживаемый формат, например PPT, PPTX или ODP.
 
 Ниже приведён пример, который преобразует презентацию PPTX в XML‑файл:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **Запись XML‑вывода в поток**
 
-Используйте перегрузку метода [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) для потока, когда XML должен оставаться в памяти или передаваться другому компоненту, например веб‑службе, поставщику хранилища или XML‑обработчику. В следующем примере результат записывается в [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) и перематывается для последующего чтения:
+Используйте перегрузку метода [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) для потока, когда XML должен оставаться в памяти или передаваться другому компоненту, например веб‑службе, поставщику хранилища или XML‑обработчику. В следующем примере результат записывается в [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) и перематывается для последующего чтения:
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ xmlStream.Position = 0;
 
 **Можно ли сохранить XML‑вывод, не создавая файл на диске?**
 
-Да. Передайте записываемый поток в [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/). Например, используйте [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) для обработки в памяти.
+Да. Передайте записываемый поток в [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Например, используйте [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0) для обработки в памяти.
 
 **Может ли Aspose.Slides загрузить экспортированный XML‑файл снова?**
 
-Да. Передайте XML‑файл или поток конструктору [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/presentation/). Свойство [Presentation.SourceFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/sourceformat/) вернёт `SourceFormat.Xml`. Метод [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/presentationfactory/getpresentationinfo/) возвращает `LoadFormat.Unknown` для этого формата, поэтому не используйте его для определения возможности открытия XML‑файла.
+Да. Передайте XML‑файл или поток конструктору [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Свойство [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/) вернёт `SourceFormat.Xml`. Метод [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) возвращает `LoadFormat.Unknown` для этого формата, поэтому не используйте его для определения возможности открытия XML‑файла.
 
 **Преобразует ли XML каждый слайд в страницу или изображение?**
 

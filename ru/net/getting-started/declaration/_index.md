@@ -25,7 +25,7 @@ description: "Какой уровень доверия Code Access Security тр
 
 ## **.NET Framework**
 
-Aspose.Slides требует полного доверия в .NET Framework. Она не работает в режиме частичного доверия, например в ASP.NET‑приложении, настроенном на Medium Trust (`<trust level="Medium" />`): создание объекта [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) приводит к `SecurityException`.
+Aspose.Slides требует полного доверия в .NET Framework. Она не работает в режиме частичного доверия, например в ASP.NET‑приложении, настроенном на Medium Trust (`<trust level="Medium" />`): создание объекта [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) приводит к `SecurityException`.
 
 Microsoft больше не рассматривает частичное доверие ASP.NET как способ изоляции приложений друг от друга и рекомендует запускать приложения в отдельных пулах приложений. См. [ASP.NET Partial Trust does not guarantee application isolation](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

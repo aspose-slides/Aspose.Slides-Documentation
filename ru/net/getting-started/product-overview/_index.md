@@ -123,7 +123,7 @@ Aspose.Slides — это API управления Microsoft PowerPoint®, поз
 ## **Техническая поддержка**
 Aspose предоставляет неограниченную бесплатную техническую поддержку для всех своих продуктов. Поддержка доступна всем пользователям (включая пользователей с оценочными пакетами). Если вам нужна помощь с Aspose.Slides for .NET, учитывайте следующее:
 
-- Основной канал поддержки — [Форумы Aspose](https://forum.aspose.com/). Разместите ваш вопрос в [форуме Aspose.Slides](https://forum.aspose.com/c/slides/ru/11) — и он будет отвечен в течение нескольких часов. Команда поддержки Aspose.Slides напрямую отвечает на вопросы, опубликованные на форуме.
+- Основной канал поддержки — [Форумы Aspose](https://forum.aspose.com/). Разместите ваш вопрос в [форуме Aspose.Slides](https://forum.aspose.com/c/slides/11) — и он будет отвечен в течение нескольких часов. Команда поддержки Aspose.Slides напрямую отвечает на вопросы, опубликованные на форуме.
 - Обратите внимание, что Aspose не предоставляет техническую поддержку по телефону. Телефонная поддержка доступна только для вопросов по продажам и покупке.
 - Ожидая ответ на форуме, будьте терпеливы и учитывайте разницу часовых поясов.
 
@@ -145,10 +145,10 @@ Aspose предоставляет неограниченную бесплатн�
 
 |**Ресурс**|**Описание**|
 | :- | :- |
-|[Главная страница Aspose.Slides for .NET](https://products.aspose.com/slides/ru/net/)|Страница продукта.|
-|[Блог Aspose.Slides](https://blog.aspose.com/category/slides/ru/)|Регулярно проверяйте эту страницу для получения информации о новых релизах и полезных советов по Aspose.Slides.|
+|[Главная страница Aspose.Slides for .NET](https://products.aspose.com/slides/net/)|Страница продукта.|
+|[Блог Aspose.Slides](https://blog.aspose.com/category/slides/)|Регулярно проверяйте эту страницу для получения информации о новых релизах и полезных советов по Aspose.Slides.|
 |[Скачать Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Скачайте последнюю версию Aspose.Slides здесь. Мы часто выпускаем новые версии.|
-|[Форум поддержки Aspose.Slides](https://forum.aspose.com/c/slides/ru/11)|Размещайте вопросы и проблемы здесь для быстрого решения.|
+|[Форум поддержки Aspose.Slides](https://forum.aspose.com/c/slides/11)|Размещайте вопросы и проблемы здесь для быстрого решения.|
 |[Документация продукта Aspose.Slides for .NET](/slides/ru/net/)|Полная онлайн‑документация, содержащая данный документ и справочник API Aspose.Slides.|
 
 ## **Требования к уровню доверия**
@@ -159,7 +159,7 @@ Aspose предоставляет неограниченную бесплатн�
 
 ### Поддерживает ли он уровни соответствия PDF для архивирования и доступности (PDF/A и PDF/UA)?
 
-Да. Вы можете сохранять в PDF с PDF/A‑2a/2b/2u, PDF/A‑3a/3b, а также PDF/UA, настроив [параметры экспорта PDF](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/).
+Да. Вы можете сохранять в PDF с PDF/A‑2a/2b/2u, PDF/A‑3a/3b, а также PDF/UA, настроив [параметры экспорта PDF](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/).
 
 ### Есть ли механизм замены шрифтов и поддержка пользовательских шрифтов для гарантии корректного рендеринга?
 
@@ -179,7 +179,7 @@ Aspose предоставляет неограниченную бесплатн�
 
 ### Сохраняются ли макросы и можно ли управлять VBA в файлах PPTM/PPSM?
 
-Да. Презентации с макросами [поддерживаются](/slides/ru/net/presentation-via-vba/), и вы можете [просматривать и управлять проектами VBA](https://reference.aspose.com/slides/ru/net/aspose.slides.vba/) в этих файлах.
+Да. Презентации с макросами [поддерживаются](/slides/ru/net/presentation-via-vba/), и вы можете [просматривать и управлять проектами VBA](https://reference.aspose.com/slides/net/aspose.slides.vba/) в этих файлах.
 
 ### Можно ли конвертировать PDF или HTML обратно в слайды PowerPoint?
 
@@ -187,7 +187,7 @@ Aspose предоставляет неограниченную бесплатн�
 
 ### Поддерживается ли экспорт в XPS и можно ли контролировать качество и содержимое вывода XPS?
 
-Да. [Экспорт в XPS](/slides/ru/net/convert-powerpoint-to-xps/) доступен, а [опции сохранения](https://reference.aspose.com/slides/ru/net/aspose.slides.export/xpsoptions/) позволяют настраивать качество вывода и включаемое содержимое.
+Да. [Экспорт в XPS](/slides/ru/net/convert-powerpoint-to-xps/) доступен, а [опции сохранения](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) позволяют настраивать качество вывода и включаемое содержимое.
 
 ### Можно ли конвертировать слайды в изображения и управлять качеством вывода?
 

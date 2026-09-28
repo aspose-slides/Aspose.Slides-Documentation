@@ -28,7 +28,7 @@ description: "Настройте правила подстановки шриф�
 
 ## **Получить замены шрифтов**
 
-Используйте метод [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/) для определения, какие шрифты будут заменены при рендеринге презентации. Метод возвращает объекты [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsubstitutioninfo/), которые указывают оригинальные и заменённые имена шрифтов.
+Используйте метод [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) для определения, какие шрифты будут заменены при рендеринге презентации. Метод возвращает объекты [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/), которые указывают оригинальные и заменённые имена шрифтов.
 
 Следующий пример на C# выводит все замены шрифтов для презентации:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Получить замены шрифтов для выбранных слайдов**
 
-Используйте перегрузку [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/) с аргументом `int[] slides`, чтобы просматривать только заменяемые шрифты, необходимые для рендеринга определённых слайдов. Это полезно, когда вы рендерите или экспортируете часть презентации, проверяете большую презентацию поэтапно, находите слайды, зависящие от недоступных шрифтов, готовите минимальный пакет шрифтов для сервера или контейнера, либо диагностируете различия в рендеринге без обработки несвязанных слайдов.
+Используйте перегрузку [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) с аргументом `int[] slides`, чтобы просматривать только заменяемые шрифты, необходимые для рендеринга определённых слайдов. Это полезно, когда вы рендерите или экспортируете часть презентации, проверяете большую презентацию поэтапно, находите слайды, зависящие от недоступных шрифтов, готовите минимальный пакет шрифтов для сервера или контейнера, либо диагностируете различия в рендеринге без обработки несвязанных слайдов.
 
-Массив `slides` содержит индексы слайдов, начинающиеся с 1: `1` обозначает первый слайд. В то время как индексатор коллекции [Presentation.Slides](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/slides/ru/) является нулевым, поэтому тот же слайд доступен как `presentation.Slides[0]`. Учтите это различие при построении массива, чтобы избежать ошибок смещения.
+Массив `slides` содержит индексы слайдов, начинающиеся с 1: `1` обозначает первый слайд. В то время как индексатор коллекции [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) является нулевым, поэтому тот же слайд доступен как `presentation.Slides[0]`. Учтите это различие при построении массива, чтобы избежать ошибок смещения.
 
-Вызовите перегрузку через свойство [Presentation.FontsManager](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/fontsmanager/). Оно возвращает только те замены, которые определены при рендеринге выбранных слайдов. Каждый результат представляет объект [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsubstitutioninfo/) с оригинальными и заменёнными именами шрифтов. Результат отражает текущую среду шрифтов и [externally loaded fonts](/slides/ru/net/custom-font/). Правила замены, хранящиеся в [IFontSubstRuleCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsubstrulecollection/), изменяют вывод рендеринга, но не отражаются в результате.
+Вызовите перегрузку через свойство [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/). Оно возвращает только те замены, которые определены при рендеринге выбранных слайдов. Каждый результат представляет объект [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) с оригинальными и заменёнными именами шрифтов. Результат отражает текущую среду шрифтов и [externally loaded fonts](/slides/ru/net/custom-font/). Правила замены, хранящиеся в [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/), изменяют вывод рендеринга, но не отражаются в результате.
 
 Одна и та же замена может потребоваться более чем одному выбранному слайду. Удалите дубликаты из результатов при создании инвентаризации шрифтов или отчёта предрейсов. Следующий пример выводит каждую возвращённую замену, а затем формирует отсортированный список уникальных сопоставлений шрифтов:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Интерфейс [IFontsManager](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/) предоставляет обе перегрузки. Выберите одну в зависимости от объёма операции рендеринга:
+Интерфейс [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) предоставляет обе перегрузки. Выберите одну в зависимости от объёма операции рендеринга:
 
 | Overload | Use it when |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Вам нужны замены для всей презентации. |
-| [GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Вам нужны замены для выбранного диапазона, поэтапной проверки или частного экспорта. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Вам нужны замены для всей презентации. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Вам нужны замены для выбранного диапазона, поэтапной проверки или частного экспорта. |
 
 ## **Установить правила замены шрифтов**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. Загрузите презентацию.
 2. Создайте определения шрифтов для исходного и заменяющего шрифтов.
-3. Создайте объект [FontSubstRule](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsubstrule/) с условием [WhenInaccessible](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsubstcondition/).
-4. Добавьте правило в [FontSubstRuleCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsubstrulecollection/).
-5. Назначьте коллекцию свойству [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+3. Создайте объект [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) с условием [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/).
+4. Добавьте правило в [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/).
+5. Назначьте коллекцию свойству [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/).
 6. Выполните рендеринг или конвертацию презентации.
 
 Следующий пример на C# заменяет `Arial` на `SomeRareFont`, когда `SomeRareFont` недоступен, а затем рендерит первый слайд для проверки результата. Заменяющий шрифт должен быть доступен Aspose.Slides.
@@ -160,4 +160,4 @@ Aspose.Slides выбирает ближайший доступный шрифт 
 
 **Как обеспечить согласованность выбора шрифтов при пакетных конверсиях?**
 
-Используйте одинаковые файлы шрифтов и их версии на каждой машине или в контейнере, [load required external fonts](/slides/ru/net/custom-font/), и [embed fonts](/slides/ru/net/embedded-font/) при наличии соответствующей лицензии. Вы также можете вызвать [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontsmanager/getsubstitutions/) перед экспортом, чтобы выявить неожиданные замены.
+Используйте одинаковые файлы шрифтов и их версии на каждой машине или в контейнере, [load required external fonts](/slides/ru/net/custom-font/), и [embed fonts](/slides/ru/net/embedded-font/) при наличии соответствующей лицензии. Вы также можете вызвать [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) перед экспортом, чтобы выявить неожиданные замены.

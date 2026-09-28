@@ -68,7 +68,7 @@ Linux‑библиотека пакета требует библиотеку `f
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Без неё создание [Презентации](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) завершается `TypeInitializationException`, внутри которого `DllNotFoundException` сообщает, что `libfontconfig.so.1` нельзя открыть.
+Без неё создание [Презентации](https://reference.aspose.com/slides/net/aspose.slides/presentation/) завершается `TypeInitializationException`, внутри которого `DllNotFoundException` сообщает, что `libfontconfig.so.1` нельзя открыть.
 
 Минимальные базовые образы могут не включать `fontconfig`. Например, базовый образ AWS Lambda для .NET 8 не содержит ни `fontconfig`, ни шрифтов. В образе контейнера, построенном на нём, выполните `dnf install -y fontconfig`, что также установит шрифты Noto Sans.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **Поддержка глобализации**
 
-Оба пакета нуждаются в поддержке глобализации .NET, которую .NET в Linux предоставляет через библиотеки ICU. В [globalization‑invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) создание [Презентации](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) завершается `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
+Оба пакета нуждаются в поддержке глобализации .NET, которую .NET в Linux предоставляет через библиотеки ICU. В [globalization‑invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) создание [Презентации](https://reference.aspose.com/slides/net/aspose.slides/presentation/) завершается `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode`.
 
 Некоторые образы контейнеров включают этот режим. Например, образы .NET runtime для Alpine Linux (`runtime-deps`, `runtime` и `aspnet`) задают `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` и не включают ICU. В образе, построенном на них, установите ICU и выключите режим:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Программа добавляет прямоугольник с текстом на первый слайд и сохраняет презентацию как *hello.pptx* методом [Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/). Затем она рендерит слайд с помощью [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage/) и сохраняет результат как *hello.png* методом [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/save/) в формате [ImageFormat.Png](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/). Коэффициент масштабирования 1 отображает один пиксель на пункт, поэтому слайд 720 × 540 пунктов превращается в изображение 720 × 540 пикселей, с видимым текстом внутри прямоугольника. Без лицензии оба файла содержат водяной знак оценки; см. [Licensing](/slides/ru/net/licensing/). Если какое‑либо требование отсутствует, программа завершится одним из исключений, описанных в разделе [Linux](#linux).
+Программа добавляет прямоугольник с текстом на первый слайд и сохраняет презентацию как *hello.pptx* методом [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Затем она рендерит слайд с помощью [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) и сохраняет результат как *hello.png* методом [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) в формате [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/). Коэффициент масштабирования 1 отображает один пиксель на пункт, поэтому слайд 720 × 540 пунктов превращается в изображение 720 × 540 пикселей, с видимым текстом внутри прямоугольника. Без лицензии оба файла содержат водяной знак оценки; см. [Licensing](/slides/ru/net/licensing/). Если какое‑либо требование отсутствует, программа завершится одним из исключений, описанных в разделе [Linux](#linux).
 
 ## **Инструменты разработки**
 
