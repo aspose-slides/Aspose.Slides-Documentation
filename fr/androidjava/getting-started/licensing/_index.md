@@ -39,7 +39,7 @@ Chaque licence Aspose comprend un abonnement d’un an pour des mises à jour gr
 Pour tester Aspose.Slides sans limitations, vous pouvez demander une **licence temporaire de 30 jours**. Consultez la page [How to get a Temporary License](https://purchase.aspose.com/temporary-license) pour plus d’informations.
 {{% /alert %}}
 
-## **Limitations de la version d'évaluation**
+**Limitations de la version d'évaluation**
 
 * La version d'évaluation (sans licence spécifiée) offre toutes les fonctionnalités du produit, mais ajoute une zone de texte de filigrane d'évaluation à chaque diapositive de chaque présentation qu'elle enregistre.
 * Le texte que votre code lit à partir d’une présentation est tronqué aux premiers caractères, suivi d’un avis sur la limitation d’évaluation. Le texte que votre code écrit est sauvegardé en entier.
