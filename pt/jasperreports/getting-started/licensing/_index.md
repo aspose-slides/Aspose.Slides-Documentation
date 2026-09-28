@@ -7,9 +7,9 @@ description: "Aprenda o que a versão de avaliação do Aspose.Slides for Jasper
 ---
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for JasperReports está disponível como uma avaliação gratuita e sem limite de tempo a partir da [página de download](https://releases.aspose.com/slides/pt/jasperreport/). As versões de avaliação e licenciada do produto são o mesmo download.
+Aspose.Slides for JasperReports está disponível como uma avaliação gratuita e sem limite de tempo a partir da [página de download](https://releases.aspose.com/slides/jasperreport/). As versões de avaliação e licenciada do produto são o mesmo download.
 
-Quando estiver satisfeito com a avaliação, [compre uma licença](https://purchase.aspose.com/pricing/slides/pt/jasperreports/). Certifique‑se de compreender e concordar com os termos da assinatura.
+Quando estiver satisfeito com a avaliação, [compre uma licença](https://purchase.aspose.com/pricing/slides/jasperreports/). Certifique‑se de compreender e concordar com os termos da assinatura.
 
 A licença está disponível para download na página de pedido após o pagamento do pedido. A licença é um arquivo XML em texto puro, assinado digitalmente, que contém informações como o nome do cliente, o produto adquirido e o tipo de licença. Não modifique o conteúdo do arquivo de licença de forma alguma: fazer isso invalida a licença.
 

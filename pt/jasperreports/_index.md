@@ -64,12 +64,12 @@ Ele exporta um relatório preenchido para PPT e PPTX, um slide por página de re
 <hr>
 <p>REFERÊNCIA</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/pt/jasperreport/release-notes/">Notas de lançamento</a></li>
-<li><a href="https://releases.aspose.com/slides/pt/jasperreport/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/release-notes/">Notas de lançamento</a></li>
+<li><a href="https://releases.aspose.com/slides/jasperreport/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/pt/11">Fórum de suporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Fórum de suporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk de suporte pago</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Ele exporta um relatório preenchido para PPT e PPTX, um slide por página de re
 
 Esses passos compilam um relatório de uma linha, preenchem‑no e exportam‑no para PPTX com JasperReports 6.16.0 do Maven Central. Você precisa do JDK 11 ou superior e do Apache Maven.
 
-1. Baixe o ZIP da [página de download](https://releases.aspose.com/slides/pt/jasperreport/) e extraia‑o. Sua pasta *lib* contém uma subpasta por intervalo de versões do JasperReports, e cada uma contém o jar correspondente. Para JasperReports 6.16.0, copie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* para uma pasta de projeto vazia.
+1. Baixe o ZIP da [página de download](https://releases.aspose.com/slides/jasperreport/) e extraia‑o. Sua pasta *lib* contém uma subpasta por intervalo de versões do JasperReports, e cada uma contém o jar correspondente. Para JasperReports 6.16.0, copie *lib/JasperReports 6.5.0 - 6.16.0 (JDK 1.6)/aspose.slides.jasperreports.library-26.6.jar* para uma pasta de projeto vazia.
 
 2. O jar vem no ZIP ao invés de um repositório Maven, então instale‑o no seu repositório Maven local. Execute este comando na pasta do projeto:
 

@@ -7,7 +7,7 @@ description: "Escolha os jars do Aspose.Slides for JasperReports que corresponda
 ---
 ## **Escolha os jars para a sua versão do JasperReports**
 
-Aspose.Slides for JasperReports é distribuído como um arquivo ZIP na [página de download](https://releases.aspose.com/slides/pt/jasperreport/). Sua pasta *lib* possui uma subpasta para cada intervalo de versões do JasperReports. Pegue os jars da subpasta que corresponde à versão do JasperReports que você usa:
+Aspose.Slides for JasperReports é distribuído como um arquivo ZIP na [página de download](https://releases.aspose.com/slides/jasperreport/). Sua pasta *lib* possui uma subpasta para cada intervalo de versões do JasperReports. Pegue os jars da subpasta que corresponde à versão do JasperReports que você usa:
 
 | Versão do JasperReports | Subpasta do *lib* |
 | :- | :- |
