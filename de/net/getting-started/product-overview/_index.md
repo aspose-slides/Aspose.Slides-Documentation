@@ -123,7 +123,7 @@ Die Funktionen von Aspose.Slides für .NET lassen sich in folgende Gruppen einte
 ## **Technischer Support**
 Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support steht allen Benutzern zur Verfügung (einschließlich Nutzer mit Evaluierungspaketen). Wenn Sie Hilfe zu Aspose.Slides für .NET benötigen, beachten Sie Folgendes:
 
-- Der Hauptweg für Support ist die [Aspose‑Foren](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides‑Forum](https://forum.aspose.com/c/slides/de/11) — und Sie erhalten innerhalb weniger Stunden eine Antwort. Das Aspose.Slides‑Support‑Team beantwortet direkt im Forum gestellte Fragen.
+- Der Hauptweg für Support ist die [Aspose‑Foren](https://forum.aspose.com/). Stellen Sie Ihre Frage im [Aspose.Slides‑Forum](https://forum.aspose.com/c/slides/11) — und Sie erhalten innerhalb weniger Stunden eine Antwort. Das Aspose.Slides‑Support‑Team beantwortet direkt im Forum gestellte Fragen.
 - Bitte beachten Sie, dass Aspose keinen telefonischen technischen Support anbietet. Telefonischer Support ist ausschließlich für Verkaufs‑ und Kaufanfragen verfügbar.
 - Wenn Sie im Forum auf eine Antwort warten, haben Sie Geduld und berücksichtigen Sie Zeitunterschiede zwischen den Zeitzonen.
 
@@ -145,10 +145,10 @@ Diese Tabelle listet wichtige technische Ressourcen zu Aspose.Slides für .NET a
 
 |**Ressource**|**Beschreibung**|
 | :- | :- |
-|[Aspose.Slides für .NET Startseite](https://products.aspose.com/slides/de/net/)|Produkt‑Startseite.|
-|[Aspose.Slides‑Blog](https://blog.aspose.com/category/slides/de/)|Besuchen Sie diese Seite regelmäßig für Informationen zu neuen Releases und nützlichen Tipps zu Aspose.Slides.|
+|[Aspose.Slides für .NET Startseite](https://products.aspose.com/slides/net/)|Produkt‑Startseite.|
+|[Aspose.Slides‑Blog](https://blog.aspose.com/category/slides/)|Besuchen Sie diese Seite regelmäßig für Informationen zu neuen Releases und nützlichen Tipps zu Aspose.Slides.|
 |[Aspose.Slides für .NET‑Download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Laden Sie hier die neueste Version von Aspose.Slides herunter. Wir veröffentlichen häufig neue Versionen.|
-|[Aspose.Slides‑Support‑Forum](https://forum.aspose.com/c/slides/de/11)|Stellen Sie Ihre Fragen und Probleme hier für eine schnelle Lösung.|
+|[Aspose.Slides‑Support‑Forum](https://forum.aspose.com/c/slides/11)|Stellen Sie Ihre Fragen und Probleme hier für eine schnelle Lösung.|
 |[Aspose.Slides für .NET‑Produktdokumentation](/slides/de/net/)|Vollständige Online‑Dokumentation, die dieses Dokument und die Aspose.Slides‑API‑Referenz enthält.|
 
 ## **Vertrauens‑Level‑Anforderungen**
@@ -159,7 +159,7 @@ Unter .NET Framework erfordert Aspose.Slides volles Vertrauen und läuft nicht u
 
 ### Unterstützt es PDF‑Konformitätsstufen für Archivierung und Barrierefreiheit (PDF/A und PDF/UA)?
 
-Ja. Sie können mit den [PDF‑Export‑Optionen](https://reference.aspose.com/slides/de/net/aspose.slides.export/pdfoptions/) als PDF/A‑2a/2b/2u, PDF/A‑3a/3b sowie PDF/UA speichern.
+Ja. Sie können mit den [PDF‑Export‑Optionen](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) als PDF/A‑2a/2b/2u, PDF/A‑3a/3b sowie PDF/UA speichern.
 
 ### Gibt es einen Mechanismus zum Schriftart‑Ersatz und Unterstützung für benutzerdefinierte Schriften, um korrektes Rendering zu gewährleisten?
 
@@ -179,7 +179,7 @@ Ja, Sie können verschiedene Dokumente parallel in separaten Threads verarbeiten
 
 ### Werden Makros erhalten und kann ich VBA in PPTM/PPSM‑Dateien verwalten?
 
-Ja. Präsentationen mit Makros [werden unterstützt](/slides/de/net/presentation-via-vba/), und Sie können [VBA‑Projekte inspizieren und verwalten](https://reference.aspose.com/slides/de/net/aspose.slides.vba/) in diesen Dateien.
+Ja. Präsentationen mit Makros [werden unterstützt](/slides/de/net/presentation-via-vba/), und Sie können [VBA‑Projekte inspizieren und verwalten](https://reference.aspose.com/slides/net/aspose.slides.vba/) in diesen Dateien.
 
 ### Kann ich PDF‑ oder HTML‑Inhalte zurück in PowerPoint‑Folien konvertieren?
 
@@ -187,7 +187,7 @@ Ja. Sie können [PDF‑Seiten oder HTML‑Inhalte importieren](/slides/de/net/im
 
 ### Wird XPS‑Export unterstützt und kann ich Qualität und Inhalt der XPS‑Ausgabe steuern?
 
-Ja. Der [Export nach XPS](/slides/de/net/convert-powerpoint-to-xps/) ist verfügbar, und die [Speicher‑Optionen](https://reference.aspose.com/slides/de/net/aspose.slides.export/xpsoptions/) ermöglichen das Anpassen von Ausgabequalität und enthaltenem Inhalt.
+Ja. Der [Export nach XPS](/slides/de/net/convert-powerpoint-to-xps/) ist verfügbar, und die [Speicher‑Optionen](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/) ermöglichen das Anpassen von Ausgabequalität und enthaltenem Inhalt.
 
 ### Kann ich Folien in Bilder konvertieren und die Ausgabequalität steuern?
 

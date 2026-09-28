@@ -77,7 +77,7 @@ Nein. PowerPoint ist nicht erforderlich; Aspose.Slides ist eine eigenständige E
 
 **Wie funktioniert Multithreading? Kann die Verarbeitung parallelisiert werden?**
 
-Es ist sicher, verschiedene Dokumente in unterschiedlichen Threads zu verarbeiten; das gleiche [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Objekt darf nicht gleichzeitig von [mehreren Threads](/slides/de/net/multithreading/) verwendet werden.
+Es ist sicher, verschiedene Dokumente in unterschiedlichen Threads zu verarbeiten; das gleiche [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Objekt darf nicht gleichzeitig von [mehreren Threads](/slides/de/net/multithreading/) verwendet werden.
 
 **Werden Dateipasswörter und Verschlüsselung unterstützt?**
 

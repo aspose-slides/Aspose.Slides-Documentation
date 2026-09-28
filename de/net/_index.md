@@ -82,15 +82,15 @@ Sie lädt und speichert PPT, PPTX, PPS, POT und ODP, einschließlich Makro‑unt
 </ul>
 <p>REFERENZ</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/de/net/">API-Referenz</a></li>
-<li><a href="https://releases.aspose.com/slides/de/net/release-notes/">Versionshinweise</a></li>
+<li><a href="https://reference.aspose.com/slides/net/">API-Referenz</a></li>
+<li><a href="https://releases.aspose.com/slides/net/release-notes/">Versionshinweise</a></li>
 <li><a href="/slides/de/net/known-issues/">Bekannte Probleme</a></li>
 <li><a href="/slides/de/net/api-limitations/">Einschränkungen bei Metadaten</a></li>
-<li><a href="https://releases.aspose.com/slides/de/net/">Download</a></li>
+<li><a href="https://releases.aspose.com/slides/net/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/de/11">Kostenloses Support‑Forum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Kostenloses Support‑Forum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Kostenpflichtiger Support‑Helpdesk</a></li>
 </ul>
 </div>

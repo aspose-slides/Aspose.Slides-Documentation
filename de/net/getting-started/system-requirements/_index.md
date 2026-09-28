@@ -68,7 +68,7 @@ The package's Linux library requires the `fontconfig` library:
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-Ohne sie schlägt das Erstellen einer [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) mit einer `TypeInitializationException` fehl, deren innere `DllNotFoundException` meldet, dass `libfontconfig.so.1` nicht geöffnet werden kann.
+Ohne sie schlägt das Erstellen einer [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) mit einer `TypeInitializationException` fehl, deren innere `DllNotFoundException` meldet, dass `libfontconfig.so.1` nicht geöffnet werden kann.
 
 Minimale Basis‑Images enthalten möglicherweise ebenfalls kein `fontconfig`. Das AWS‑Lambda‑Basis‑Image für .NET 8 beispielsweise enthält weder `fontconfig` noch Schriftarten. In einem darauf aufgebauten Container‑Image führen Sie `dnf install -y fontconfig` aus, wodurch auch die Noto‑Sans‑Schriftarten installiert werden.
 
@@ -125,7 +125,7 @@ RUN apk add --no-cache \
 
 ### **Globalization‑Unterstützung**
 
-Beide Pakete benötigen .NET‑Globalisierungssupport, den .NET unter Linux über die ICU‑Bibliotheken bereitstellt. Im [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) schlägt das Erstellen einer [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) mit `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` fehl.
+Beide Pakete benötigen .NET‑Globalisierungssupport, den .NET unter Linux über die ICU‑Bibliotheken bereitstellt. Im [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) schlägt das Erstellen einer [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) mit `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` fehl.
 
 Einige Container‑Images aktivieren diesen Modus. Die .NET‑Runtime‑Images für Alpine Linux (`runtime-deps`, `runtime` und `aspnet`) setzen beispielsweise `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true` und enthalten kein ICU. In einem darauf basierenden Image installieren Sie ICU und deaktivieren den Modus:  
 ```dockerfile
@@ -155,7 +155,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-Das Programm fügt der ersten Folie ein Rechteck mit Text hinzu und speichert die Präsentation als *hello.pptx* mit der [Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/)-Methode. Anschließend rendert es die Folie mit [GetImage](https://reference.aspose.com/slides/de/net/aspose.slides/slide/getimage/) und speichert das Ergebnis als *hello.png* mit [IImage.Save](https://reference.aspose.com/slides/de/net/aspose.slides/iimage/save/) im [ImageFormat.Png](https://reference.aspose.com/slides/de/net/aspose.slides/imageformat/)-Format. Der Skalierungsfaktor 1 rendert einen Pixel pro Punkt, sodass die standardmäßige 720 × 540‑Punkt‑Folie zu einem 720 × 540‑Pixel‑Bild wird, wobei der Text im Rechteck sichtbar ist. Ohne Lizenz tragen beide Dateien ein Evaluations‑Wasserzeichen; siehe [Licensing](/slides/de/net/licensing/). Fehlt eine Voraussetzung, beendet das Programm mit einer der in [Linux](#linux) beschriebenen Ausnahmen.
+Das Programm fügt der ersten Folie ein Rechteck mit Text hinzu und speichert die Präsentation als *hello.pptx* mit der [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)-Methode. Anschließend rendert es die Folie mit [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/) und speichert das Ergebnis als *hello.png* mit [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/) im [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/)-Format. Der Skalierungsfaktor 1 rendert einen Pixel pro Punkt, sodass die standardmäßige 720 × 540‑Punkt‑Folie zu einem 720 × 540‑Pixel‑Bild wird, wobei der Text im Rechteck sichtbar ist. Ohne Lizenz tragen beide Dateien ein Evaluations‑Wasserzeichen; siehe [Licensing](/slides/de/net/licensing/). Fehlt eine Voraussetzung, beendet das Programm mit einer der in [Linux](#linux) beschriebenen Ausnahmen.
 
 ## **Entwicklungswerkzeuge**
 

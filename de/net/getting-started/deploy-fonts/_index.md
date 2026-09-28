@@ -56,7 +56,7 @@ Die folgende Konsolenanwendung gibt die Schriftarten aus, die Aspose.Slides in d
 </Project>
 ```
 
-*Program.cs* fügt pro Schriftartnamen ein Textfeld zu einer Folie hinzu und weist die Schriftart über die [LatinFont](https://reference.aspose.com/slides/de/net/aspose.slides/baseportionformat/latinfont/)-Eigenschaft zu. Die Schriftartnamen werden über die Befehlszeile übergeben; ohne Argumente prüft die Anwendung Calibri, Arial und Times New Roman. Sie gibt die Ordner aus, in denen Aspose.Slides nach Schriftarten sucht ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/de/net/aspose.slides/fontsloader/getfontfolders/)), rendert die Folie nach *output/fonts.pdf* und gibt die von [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) gemeldeten Ersetzungen aus. Die beiden optionalen Schritte zu Beginn, das Laden eines *fonts*-Ordners und das Auslesen einer `DEFAULT_FONT`‑Variablen, werden später in diesem Artikel erläutert.
+*Program.cs* fügt pro Schriftartnamen ein Textfeld zu einer Folie hinzu und weist die Schriftart über die [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/)-Eigenschaft zu. Die Schriftartnamen werden über die Befehlszeile übergeben; ohne Argumente prüft die Anwendung Calibri, Arial und Times New Roman. Sie gibt die Ordner aus, in denen Aspose.Slides nach Schriftarten sucht ([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/)), rendert die Folie nach *output/fonts.pdf* und gibt die von [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) gemeldeten Ersetzungen aus. Die beiden optionalen Schritte zu Beginn, das Laden eines *fonts*-Ordners und das Auslesen einer `DEFAULT_FONT`‑Variablen, werden später in diesem Artikel erläutert.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **Schriftarten aus dem Anwendungsordner laden**
 
-Statt die Schriftarten im Image zu installieren, können Sie sie mit der Anwendung ausliefern und über [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/de/net/aspose.slides/fontsloader/loadexternalfonts/) laden. Die Schriftarten stehen dann nur Aspose.Slides zur Verfügung und werden zusammen mit der Anwendung bereitgestellt. *FontCheck* macht das: *FontCheck.csproj* kopiert den *fonts*-Ordner in die Anwendungs‑Ausgabe, und *Program.cs* übergibt diesen Ordner an `LoadExternalFonts`, bevor die Präsentation erstellt wird. [Custom Font](/slides/de/net/custom-font/) beschreibt weitere Möglichkeiten, Schriftarten bereitzustellen, etwa das Laden aus dem Speicher.
+Statt die Schriftarten im Image zu installieren, können Sie sie mit der Anwendung ausliefern und über [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) laden. Die Schriftarten stehen dann nur Aspose.Slides zur Verfügung und werden zusammen mit der Anwendung bereitgestellt. *FontCheck* macht das: *FontCheck.csproj* kopiert den *fonts*-Ordner in die Anwendungs‑Ausgabe, und *Program.cs* übergibt diesen Ordner an `LoadExternalFonts`, bevor die Präsentation erstellt wird. [Custom Font](/slides/de/net/custom-font/) beschreibt weitere Möglichkeiten, Schriftarten bereitzustellen, etwa das Laden aus dem Speicher.
 
 Re‑bauen Sie das Image und prüfen Sie Calibri und Carlito:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **Standard‑Schriftart für fehlende Schriftarten festlegen**
 
-Fehlt eine Schriftart, verwendet Aspose.Slides eine von ihm gewählte Ersatzschriftart. Um diese selbst zu bestimmen, setzen Sie die [DefaultRegularFont](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/defaultregularfont/)-Eigenschaft von [LoadOptions](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/) und übergeben Sie die Optionen an den [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)-Konstruktor. *FontCheck* liest den Schriftartnamen aus der Umgebungsvariablen `DEFAULT_FONT`. Mit geladenem Carlito verwenden Sie es für fehlende Schriftarten:
+Fehlt eine Schriftart, verwendet Aspose.Slides eine von ihm gewählte Ersatzschriftart. Um diese selbst zu bestimmen, setzen Sie die [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/)-Eigenschaft von [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) und übergeben Sie die Optionen an den [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)-Konstruktor. *FontCheck* liest den Schriftartnamen aus der Umgebungsvariablen `DEFAULT_FONT`. Mit geladenem Carlito verwenden Sie es für fehlende Schriftarten:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-Die Standardschriftart ersetzt jede fehlende Schriftart. Um einzelne Schriftarten zuzuordnen, etwa Arial zu Liberation Sans und Calibri zu Carlito, verwenden Sie [font substitution rules](/slides/de/net/font-substitution/). Regeln ändern die gerenderte Ausgabe, aber `GetSubstitutions` spiegelt sie nicht wider; prüfen Sie daher die Schriftarten in der Ausgabedatei. Für asiatischen Text setzen Sie zusätzlich [DefaultAsianFont](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/defaultasianfont/); siehe [Default Font](/slides/de/net/default-font/).
+Die Standardschriftart ersetzt jede fehlende Schriftart. Um einzelne Schriftarten zuzuordnen, etwa Arial zu Liberation Sans und Calibri zu Carlito, verwenden Sie [font substitution rules](/slides/de/net/font-substitution/). Regeln ändern die gerenderte Ausgabe, aber `GetSubstitutions` spiegelt sie nicht wider; prüfen Sie daher die Schriftarten in der Ausgabedatei. Für asiatischen Text setzen Sie zusätzlich [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/); siehe [Default Font](/slides/de/net/default-font/).
 
 ## **Schriftarten auf Alpine Linux installieren**
 

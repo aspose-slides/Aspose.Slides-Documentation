@@ -62,7 +62,7 @@ Ohne Lizenz läuft Aspose.Slides im Evaluierungsmodus: Es fügt jedem gespeicher
 
 ## **Hilfe erhalten**
 
-[Produktunterstützung](/slides/de/net/product-support/) erklärt, wie man eine Frage im [kostenloses Support‑Forum](https://forum.aspose.com/c/slides/de/11) stellt und welche Informationen man bei der Meldung eines Problems angeben sollte.
+[Produktunterstützung](/slides/de/net/product-support/) erklärt, wie man eine Frage im [kostenloses Support‑Forum](https://forum.aspose.com/c/slides/11) stellt und welche Informationen man bei der Meldung eines Problems angeben sollte.
 
 ## **FAQ**
 

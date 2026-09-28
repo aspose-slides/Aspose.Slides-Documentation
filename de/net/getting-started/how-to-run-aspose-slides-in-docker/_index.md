@@ -59,7 +59,7 @@ Erstellen Sie einen Ordner namens *HelloSlidesDocker* und fügen Sie die folgend
 </Project>
 ```
 
-*Program.cs* erstellt eine [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/), fügt der ersten Folie ein Rechteck mit Text hinzu und speichert die Präsentation zweimal mit der [Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/)-Methode: als PPTX und als PDF. Beide Dateien werden im Ordner *output* unter dem Arbeitsverzeichnis abgelegt. Die Anwendung listet anschließend die Schriften auf, die während der PDF‑Erstellung ersetzt wurden, mithilfe von [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/), sodass Sie sehen können, ob der Container die in der Präsentation verwendeten Schriften enthält.
+*Program.cs* erstellt eine [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), fügt der ersten Folie ein Rechteck mit Text hinzu und speichert die Präsentation zweimal mit der [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)-Methode: als PPTX und als PDF. Beide Dateien werden im Ordner *output* unter dem Arbeitsverzeichnis abgelegt. Die Anwendung listet anschließend die Schriften auf, die während der PDF‑Erstellung ersetzt wurden, mithilfe von [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/), sodass Sie sehen können, ob der Container die in der Präsentation verwendeten Schriften enthält.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Die Alpine‑Stufe installiert drei Pakete und ändert eine Einstellung:
 - `font-dejavu` stellt Schriften bereit. Ohne Schrift bricht die Konvertierung mit `System.ArgumentException: Font '?' cannot be found` ab.
 - `icu-libs` und `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` liefern Kultur‑Daten. Die Alpine‑.NET‑Images laufen standardmäßig im globalisierungs‑invarianten Modus, und in diesem Modus bricht Aspose.Slides mit einer `CultureNotFoundException` für `en-US` ab.
 
-Bauen, führen Sie aus und kopieren Sie die Ausgabe mit denselben Befehlen wie oben. Auf diesem Image gibt die Anwendung nur die `Saved`‑Zeile aus: Mit Aspose.Slides.NET unter Linux wählt fontconfig den Ersatz für eine fehlende Schrift, und [GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) listet ihn nicht auf. [Schriften bereitstellen](/slides/de/net/deploy-fonts/) zeigt, wie Sie prüfen, welche Schrift verwendet wurde.
+Bauen, führen Sie aus und kopieren Sie die Ausgabe mit denselben Befehlen wie oben. Auf diesem Image gibt die Anwendung nur die `Saved`‑Zeile aus: Mit Aspose.Slides.NET unter Linux wählt fontconfig den Ersatz für eine fehlende Schrift, und [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) listet ihn nicht auf. [Schriften bereitstellen](/slides/de/net/deploy-fonts/) zeigt, wie Sie prüfen, welche Schrift verwendet wurde.
 
 ## **FAQ**
 

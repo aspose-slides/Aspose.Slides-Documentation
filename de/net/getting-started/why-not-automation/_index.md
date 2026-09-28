@@ -110,5 +110,5 @@ Unsere Teams sind stets aufgeschlossen und flexibel bei der Unterstützung – u
 {{% alert color="info" title="Hinweis" %}}
 Obwohl dieser Artikel einige der wichtigsten Punkte behandelt hat, warum Aspose‑Komponenten eine bessere Wahl als Office Automation sind, müssen Sie verstehen, dass es noch zahlreiche weitere Vorteile gibt. Wir haben nur einige der Hauptvorteile vorgestellt.
 
-Zudem bieten alle Aspose‑Produkte und -Komponenten eine risikofreie, unverbindliche [Evaluierungsversion](https://releases.aspose.com/slides/de/net/). Wir empfehlen Ihnen, die Evaluation zu nutzen, um zu sehen, was Aspose für Ihre Anwendungen oder Ihr Unternehmen leisten kann.
+Zudem bieten alle Aspose‑Produkte und -Komponenten eine risikofreie, unverbindliche [Evaluierungsversion](https://releases.aspose.com/slides/net/). Wir empfehlen Ihnen, die Evaluation zu nutzen, um zu sehen, was Aspose für Ihre Anwendungen oder Ihr Unternehmen leisten kann.
 {{% /alert %}}

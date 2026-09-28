@@ -28,7 +28,7 @@ Sie können die zu verwendende Schriftart festlegen, wenn eine bestimmte Schrift
 
 ## **Font‑Substitutionen abrufen**
 
-Verwenden Sie die [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) Methode, um zu bestimmen, welche Schriftarten bei der Wiedergabe der Präsentation substituiert werden. Die Methode gibt [FontSubstitutionInfo](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstitutioninfo/) Objekte zurück, die den ursprünglichen und den substituierten Schriftartnamen identifizieren.
+Verwenden Sie die [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) Methode, um zu bestimmen, welche Schriftarten bei der Wiedergabe der Präsentation substituiert werden. Die Methode gibt [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) Objekte zurück, die den ursprünglichen und den substituierten Schriftartnamen identifizieren.
 
 Das folgende C#‑Beispiel listet alle Font‑Substitutionen für eine Präsentation auf:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **Font‑Substitutionen für ausgewählte Folien abrufen**
 
-Verwenden Sie die [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) Überladung mit einem `int[] slides`‑Argument, um nur die Substitutionen zu prüfen, die zum Rendern bestimmter Folien erforderlich sind. Dies ist nützlich, wenn Sie einen Teil einer Präsentation rendern oder exportieren, eine große Präsentation schrittweise prüfen, Folien ermitteln, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftarten‑Paket für einen Server oder Container vorbereiten oder Rendering‑Unterschiede diagnostizieren, ohne nicht relevante Folien zu verarbeiten.
+Verwenden Sie die [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) Überladung mit einem `int[] slides`‑Argument, um nur die Substitutionen zu prüfen, die zum Rendern bestimmter Folien erforderlich sind. Dies ist nützlich, wenn Sie einen Teil einer Präsentation rendern oder exportieren, eine große Präsentation schrittweise prüfen, Folien ermitteln, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftarten‑Paket für einen Server oder Container vorbereiten oder Rendering‑Unterschiede diagnostizieren, ohne nicht relevante Folien zu verarbeiten.
 
-Das `slides`‑Array enthält ein‑basiert indizierte Folienzahlen: `1` bezeichnet die erste Folie. Im Gegensatz dazu ist der Indexer der [Presentation.Slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/) Sammlung nullbasiert, sodass dieselbe Folie als `presentation.Slides[0]` angesprochen wird. Beachten Sie diesen Unterschied beim Erstellen des Arrays, um Off‑by‑One‑Fehler zu vermeiden.
+Das `slides`‑Array enthält ein‑basiert indizierte Folienzahlen: `1` bezeichnet die erste Folie. Im Gegensatz dazu ist der Indexer der [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) Sammlung nullbasiert, sodass dieselbe Folie als `presentation.Slides[0]` angesprochen wird. Beachten Sie diesen Unterschied beim Erstellen des Arrays, um Off‑by‑One‑Fehler zu vermeiden.
 
-Rufen Sie die Überladung über die Eigenschaft [Presentation.FontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/fontsmanager/) auf. Sie gibt nur die während des Renderns der ausgewählten Folien ermittelten Substitutionen zurück. Jeder Eintrag ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstitutioninfo/) Objekt, das die ursprünglichen und substituierten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung und [extern geladene Schriftarten](/slides/de/net/custom-font/) wider. Substitutionsregeln, die in einer [IFontSubstRuleCollection](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsubstrulecollection/) gespeichert sind, ändern die gerenderte Ausgabe, werden jedoch nicht im Ergebnis berücksichtigt.
+Rufen Sie die Überladung über die Eigenschaft [Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) auf. Sie gibt nur die während des Renderns der ausgewählten Folien ermittelten Substitutionen zurück. Jeder Eintrag ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) Objekt, das die ursprünglichen und substituierten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung und [extern geladene Schriftarten](/slides/de/net/custom-font/) wider. Substitutionsregeln, die in einer [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/) gespeichert sind, ändern die gerenderte Ausgabe, werden jedoch nicht im Ergebnis berücksichtigt.
 
 Die gleiche Substitution kann von mehr als einer ausgewählten Folie benötigt werden. Entfernen Sie Duplikate aus den Ergebnissen, wenn Sie ein Schriftarten‑Inventar oder einen Vorabprüf‑Bericht erstellen. Das folgende Beispiel gibt jede zurückgegebene Substitution aus und erstellt anschließend eine sortierte Liste eindeutiger Schriftzuordnungen:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-Das [IFontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/) Interface bietet beide Überladungen. Wählen Sie die passende je nach Umfang der Render‑Operation:
+Das [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) Interface bietet beide Überladungen. Wählen Sie die passende je nach Umfang der Render‑Operation:
 
 | Überladung | Verwenden Sie sie, wenn |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Sie benötigen Substitutionen für die gesamte Präsentation. |
-| [GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Sie benötigen Substitutionen für einen ausgewählten Bereich, schrittweise Prüfung oder teilweisen Export. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | Sie benötigen Substitutionen für die gesamte Präsentation. |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Sie benötigen Substitutionen für einen ausgewählten Bereich, schrittweise Prüfung oder teilweisen Export. |
 
 ## **Font‑Substitutionsregeln festlegen**
 
@@ -94,9 +94,9 @@ Um die Schriftart festzulegen, die Aspose.Slides verwenden soll, wenn die Quells
 
 1. Laden Sie die Präsentation.
 2. Erstellen Sie Schriftartdefinitionen für die Quell- und Ersatzschriftart.
-3. Erstellen Sie eine [FontSubstRule](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstrule/) mit der [WhenInaccessible](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstcondition/) Bedingung.
-4. Fügen Sie die Regel einer [FontSubstRuleCollection](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstrulecollection/) hinzu.
-5. Weisen Sie die Sammlung der Eigenschaft [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/fontsubstrulelist/) zu.
+3. Erstellen Sie eine [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/) mit der [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) Bedingung.
+4. Fügen Sie die Regel einer [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/) hinzu.
+5. Weisen Sie die Sammlung der Eigenschaft [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) zu.
 6. Rendern oder konvertieren Sie die Präsentation.
 
 Das folgende C#‑Beispiel substituiert `Arial` für `SomeRareFont`, wenn `SomeRareFont` nicht verfügbar ist, und rendert anschließend die erste Folie, um das Ergebnis zu überprüfen. Die Ersatzschriftart muss für Aspose.Slides verfügbar sein.
@@ -160,4 +160,4 @@ Ja. Installierte Schriftarten und Suchpfade unterscheiden sich je nach Betriebss
 
 **How can I make font selection consistent in batch conversions?**
 
-Verwenden Sie dieselben Schriftdateien und -versionen auf jedem Rechner oder Container, [laden Sie erforderliche externe Schriftarten](/slides/de/net/custom-font/), und [betten Sie Schriftarten ein](/slides/de/net/embedded-font/), wenn die Lizenz dies zulässt. Sie können außerdem vor dem Export [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) aufrufen, um unerwartete Substitutionen zu identifizieren.
+Verwenden Sie dieselben Schriftdateien und -versionen auf jedem Rechner oder Container, [laden Sie erforderliche externe Schriftarten](/slides/de/net/custom-font/), und [betten Sie Schriftarten ein](/slides/de/net/embedded-font/), wenn die Lizenz dies zulässt. Sie können außerdem vor dem Export [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) aufrufen, um unerwartete Substitutionen zu identifizieren.
