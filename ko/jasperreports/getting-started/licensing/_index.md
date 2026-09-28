@@ -6,8 +6,8 @@ url: /ko/jasperreports/licensing/
 description: "Aspose.Slides for JasperReports 평가 버전이 내보낸 파일에 추가하는 내용과 JasperReports 및 JasperReports Server에서 라이선스를 적용하는 방법을 알아봅니다."
 ---
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for JasperReports는 무료이며 시간 제한 없는 평가판을 [download page](https://releases.aspose.com/slides/ko/jasperreport/)에서 제공됩니다. 평가판과 라이선스 버전은 동일한 다운로드입니다.  
-평가가 만족스러우면 [buy a license](https://purchase.aspose.com/pricing/slides/ko/jasperreports/)를 구매하세요. 구독 약관을 이해하고 동의했는지 확인하십시오.  
+Aspose.Slides for JasperReports는 무료이며 시간 제한 없는 평가판을 [download page](https://releases.aspose.com/slides/jasperreport/)에서 제공됩니다. 평가판과 라이선스 버전은 동일한 다운로드입니다.  
+평가가 만족스러우면 [buy a license](https://purchase.aspose.com/pricing/slides/jasperreports/)를 구매하세요. 구독 약관을 이해하고 동의했는지 확인하십시오.  
 주문이 결제된 후 주문 페이지에서 라이선스를 다운로드할 수 있습니다. 라이선스는 클라이언트 이름, 구매한 제품 및 라이선스 유형과 같은 정보를 포함하는 일반 텍스트이며 디지털 서명된 XML 파일입니다. 라이선스 파일의 내용을 어떤 형태로든 수정하지 마십시오. 수정하면 라이선스가 무효화됩니다.  
 라이선스를 컴퓨터에 다운로드한 후 적절한 폴더(예: 애플리케이션 폴더 또는 **JasperReports\lib**)에 복사하십시오.
 {{% /alert %}}
