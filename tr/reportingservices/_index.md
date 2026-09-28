@@ -63,12 +63,12 @@ Raporları PPT, PPTX, PPS ve PPSX sunumları ve slayt gösterileri, ODP ve XPS f
 <hr>
 <p>REFERANS</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/tr/reportingservices/release-notes/">Sürüm notları</a></li>
-<li><a href="https://releases.aspose.com/slides/tr/reportingservices/">İndir</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Sürüm notları</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">İndir</a></li>
 </ul>
 <p>DESTEK</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/tr/11">Ücretsiz destek forumu</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Ücretsiz destek forumu</a></li>
 <li><a href="https://helpdesk.aspose.com/">Ücretli destek yardım masası</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Raporları PPT, PPTX, PPS ve PPSX sunumları ve slayt gösterileri, ODP ve XPS f
 Yazacak bir kod yoktur: uzantıyı rapor sunucusuna kurarsınız ve formatları, o sunucudaki her sayfalı raporun dışa aktarma listesinde görüntülenir.
 
 1. Rapor sunucusunun .NET Framework 3.5 dahil olmak üzere [sistem gereksinimlerini](/slides/tr/reportingservices/system-requirements/) karşıladığını kontrol edin.
-1. [İndirme sayfasından](https://releases.aspose.com/slides/tr/reportingservices/) MSI yükleyicisini, *Aspose.Slides for Reporting Services* olarak indirin. Bunun yerine el ile kurmak için ZIP paketini, *Aspose.Slides for Reporting Services (DLLs Only)* olarak indirin.
+1. [İndirme sayfasından](https://releases.aspose.com/slides/reportingservices/) MSI yükleyicisini, *Aspose.Slides for Reporting Services* olarak indirin. Bunun yerine el ile kurmak için ZIP paketini, *Aspose.Slides for Reporting Services (DLLs Only)* olarak indirin.
 1. Uzantıyı rapor sunucusuna kurun: MSI'yi yönetici olarak çalıştırın, [MSI yükleyicisi ile kur](/slides/tr/reportingservices/install-with-msi-installer/) bölümünde açıklandığı gibi, ya da ZIP paketi için [Manuel kurulum](/slides/tr/reportingservices/install-manually/) adımlarını izleyin.
 1. Bir tarayıcıda rapor sunucusunun web portalını (SQL Server 2014 ve öncesinde Report Manager) açın. Varsayılan adresi `https://<ComputerName>/reports` şeklindedir.
 1. Bir sayfalı rapor açın. Rapor araç çubuğunda **Export** listesini açın ve **PPTX - PowerPoint 2007 Presentation via Aspose.Slides** seçeneğini seçin. Araç çubuğunda ayrı bir **Export** düğmesi varsa (Report Manager gibi), ona tıklayın.

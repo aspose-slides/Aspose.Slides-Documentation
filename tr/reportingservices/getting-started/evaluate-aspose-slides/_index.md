@@ -13,7 +13,7 @@ description: "Aspose.Slides for Reporting Services'in değerlendirme sürümün�
 ---
 ## **Değerlendirme Sürümü**
 
-Aspose.Slides for Reporting Services'i değerlendirme amaçlı olarak [indirme sayfasından](https://releases.aspose.com/slides/tr/reportingservices/) indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynı dosyadır. Bir lisans dosyasını rapor sunucusuna kopyaladığınızda lisanslı hâle gelir — kod gerektirmez; bakınız [Lisanslama](/slides/tr/reportingservices/license-aspose-slides-for-reporting-services/).
+Aspose.Slides for Reporting Services'i değerlendirme amaçlı olarak [indirme sayfasından](https://releases.aspose.com/slides/reportingservices/) indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynı dosyadır. Bir lisans dosyasını rapor sunucusuna kopyaladığınızda lisanslı hâle gelir — kod gerektirmez; bakınız [Lisanslama](/slides/tr/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Lisanssız değerlendirme sürümü, tam ürün işlevselliği sağlar, ancak dışa aktarılan sunumlara bir değerlendirme filigranı ekler.
 

@@ -14,7 +14,7 @@ description: "Aspose.Slides for Reporting Services'i DLL yalnızca ZIP paketinde
 ---
 ## **Genel Bakış**
 
-MSI yükleyicisi olmadan Aspose.Slides for Reporting Services'i, *Aspose.Slides for Reporting Services XX.XX (Sadece DLL'ler)* ZIP paketinden, [indirme sayfası](https://releases.aspose.com/slides/tr/reportingservices/) üzerinden adımları izleyerek kurun. Bu adımlar, [MSI yükleyicisi](/slides/tr/reportingservices/install-with-msi-installer/) ile aynı uzantıları kaydeder. Her rapor sunucusu örneği için bu adımları tekrarlayın.
+MSI yükleyicisi olmadan Aspose.Slides for Reporting Services'i, *Aspose.Slides for Reporting Services XX.XX (Sadece DLL'ler)* ZIP paketinden, [indirme sayfası](https://releases.aspose.com/slides/reportingservices/) üzerinden adımları izleyerek kurun. Bu adımlar, [MSI yükleyicisi](/slides/tr/reportingservices/install-with-msi-installer/) ile aynı uzantıları kaydeder. Her rapor sunucusu örneği için bu adımları tekrarlayın.
 
 Başlamadan önce, [sistem gereksinimlerini](/slides/tr/reportingservices/system-requirements/) kontrol edin. Rapor sunucusunda yerel yönetici haklarına ihtiyacınız var.
 

@@ -15,7 +15,7 @@ description: "Aspose.Slides for Reporting Services'ı MSI yükleyicisi ile kurun
 
 MSI yükleyicisi, Aspose.Slides for Reporting Services'ı kurmanın en basit yoludur. .NET Framework 3.5 ve rapor sunucusunda yönetici hakları gerektirir; bkz. [System Requirements](/slides/tr/reportingservices/system-requirements/).
 
-1. MSI yükleyicisini, *Aspose.Slides for Reporting Services XX.XX*, [indirme sayfasından](https://releases.aspose.com/slides/tr/reportingservices/) indirin ve rapor sunucusuna kopyalayın.
+1. MSI yükleyicisini, *Aspose.Slides for Reporting Services XX.XX*, [indirme sayfasından](https://releases.aspose.com/slides/reportingservices/) indirin ve rapor sunucusuna kopyalayın.
 1. Yönetici olarak çalıştırın. .NET Framework 3.5 eksikse, yükleyici bir mesajla durur; .NET Framework 3.5 özelliklerini kurun ve yeniden çalıştırın.
 1. Lisans sözleşmesini kabul edin.
 1. **Custom Setup** sayfasında, özellik ağacı, yükleyicinin makinede algıladığı her SQL Server Reporting Services ve Power BI Report Server örneğini listeler. Bir örneği değiştirmeden bırakmak için, simgesine tıklayın ve **Entire feature will be unavailable** seçeneğini işaretleyin. Express sürümleri render uzantılarını desteklemez, bu yüzden bir Express örneği seçmeyin. Yükleyici, SQL Server 2016 ve öncesinin Express örneklerini gizler.

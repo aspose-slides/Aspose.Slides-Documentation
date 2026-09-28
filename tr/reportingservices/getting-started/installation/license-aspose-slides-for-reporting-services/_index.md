@@ -13,11 +13,11 @@ description: "Lisans dosyasını rapor sunucusuna kopyalayarak Aspose.Slides for
 ---
 ## **Lisans Desteği**
 
-Aspose.Slides for Reporting Services değerlendirme sürümü, satın alınan paketle aynı olup, [indirme sayfasından](https://releases.aspose.com/slides/tr/reportingservices/) temin edilir ve aynı işlevselliği sunar. Lisans olmadan, değerlendirme modunda çalışır ve dışa aktarılan sunumlara bir değerlendirme filigranı ekler.
+Aspose.Slides for Reporting Services değerlendirme sürümü, satın alınan paketle aynı olup, [indirme sayfasından](https://releases.aspose.com/slides/reportingservices/) temin edilir ve aynı işlevselliği sunar. Lisans olmadan, değerlendirme modunda çalışır ve dışa aktarılan sunumlara bir değerlendirme filigranı ekler.
 
 Değerlendirme sürümü, bir lisans dosyasını rapor sunucusuna kopyaladığınızda lisanslı hâle gelir. Hiçbir kod gerekmez.
 
-Değerlendirmenizin ardından bir lisans [satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/tr/reporting-services/). Farklı abonelik türlerini incelemenizi öneririz. Sorularınız olursa Aspose satış ekibiyle iletişime geçin.
+Değerlendirmenizin ardından bir lisans [satın alabilirsiniz](https://purchase.aspose.com/pricing/slides/reporting-services/). Farklı abonelik türlerini incelemenizi öneririz. Sorularınız olursa Aspose satış ekibiyle iletişime geçin.
 
 ## **Aspose.Slides for Reporting Services'da Lisanslama**
 

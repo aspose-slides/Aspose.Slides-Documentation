@@ -29,7 +29,7 @@ Aspose.Slides for Reporting Services, rapor sunucusunda bir render uzantısı ol
 
 Hem 32-bit hem de 64-bit rapor sunucuları desteklenir. SQL Server 2005 uzantının kendi derlemesini kullanır; sonraki tüm sürümler ve Power BI Report Server aynı derlemeyi kullanır. [Manuel Olarak Kur](/slides/tr/reportingservices/install-manually/) hangi dosyanın kopyalanacağını gösterir.
 
-Eğer rapor sunucusu sürümünüz bu listede yoksa, dağıtmadan önce [ücretsiz destek forumu](https://forum.aspose.com/c/slides/tr/11) adresinde sorun.
+Eğer rapor sunucusu sürümünüz bu listede yoksa, dağıtmadan önce [ücretsiz destek forumu](https://forum.aspose.com/c/slides/11) adresinde sorun.
 
 ## **Rapor Sunucusu Sürümleri**
 
