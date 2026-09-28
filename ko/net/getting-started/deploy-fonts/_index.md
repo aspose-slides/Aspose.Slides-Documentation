@@ -56,7 +56,7 @@ Aspose.Slides는 프레젠테이션을 렌더링할 때 사용 가능한 글꼴�
 </Project>
 ```
 
-*Program.cs*는 각 글꼴 이름마다 슬라이드에 텍스트 상자를 하나 추가하고 [LatinFont](https://reference.aspose.com/slides/ko/net/aspose.slides/baseportionformat/latinfont/) 속성을 통해 글꼴을 할당합니다. 글꼴 이름은 명령줄에서 가져오며, 인수가 없을 경우 애플리케이션은 Calibri, Arial 및 Times New Roman을 확인합니다. Aspose.Slides가 글꼴을 찾는 폴더([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsloader/getfontfolders/))를 출력하고, 슬라이드를 *output/fonts.pdf* 로 렌더링하며, [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/)에서 보고된 대체 정보를 출력합니다. 시작 부분의 두 선택적 단계인 *fonts* 폴더 로드와 `DEFAULT_FONT` 변수 읽기에 대한 설명은 본 문서 후반에서 다룹니다.
+*Program.cs*는 각 글꼴 이름마다 슬라이드에 텍스트 상자를 하나 추가하고 [LatinFont](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/latinfont/) 속성을 통해 글꼴을 할당합니다. 글꼴 이름은 명령줄에서 가져오며, 인수가 없을 경우 애플리케이션은 Calibri, Arial 및 Times New Roman을 확인합니다. Aspose.Slides가 글꼴을 찾는 폴더([FontsLoader.GetFontFolders](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/getfontfolders/))를 출력하고, 슬라이드를 *output/fonts.pdf* 로 렌더링하며, [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)에서 보고된 대체 정보를 출력합니다. 시작 부분의 두 선택적 단계인 *fonts* 폴더 로드와 `DEFAULT_FONT` 변수 읽기에 대한 설명은 본 문서 후반에서 다룹니다.
 
 ```c#
 using System;
@@ -225,7 +225,7 @@ COPY fonts/ /usr/local/share/fonts/
 
 ### **애플리케이션 폴더에서 글꼴 로드**
 
-이미지에 글꼴을 설치하는 대신, 애플리케이션에 포함시켜 [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsloader/loadexternalfonts/) 로 로드할 수 있습니다. 이렇게 하면 글꼴은 Aspose.Slides에서만 사용 가능하며 애플리케이션과 함께 배포됩니다. *FontCheck*은 다음과 같이 구현됩니다: *FontCheck.csproj*가 *fonts* 폴더를 애플리케이션 출력에 복사하고, *Program.cs*가 프레젠테이션을 생성하기 전에 해당 폴더를 `LoadExternalFonts`에 전달합니다. [Custom Font](/slides/ko/net/custom-font/)에서는 메모리에서 로드하는 등 다른 글꼴 제공 방법을 설명합니다.
+이미지에 글꼴을 설치하는 대신, 애플리케이션에 포함시켜 [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsloader/loadexternalfonts/) 로 로드할 수 있습니다. 이렇게 하면 글꼴은 Aspose.Slides에서만 사용 가능하며 애플리케이션과 함께 배포됩니다. *FontCheck*은 다음과 같이 구현됩니다: *FontCheck.csproj*가 *fonts* 폴더를 애플리케이션 출력에 복사하고, *Program.cs*가 프레젠테이션을 생성하기 전에 해당 폴더를 `LoadExternalFonts`에 전달합니다. [Custom Font](/slides/ko/net/custom-font/)에서는 메모리에서 로드하는 등 다른 글꼴 제공 방법을 설명합니다.
 
 이미지를 다시 빌드하고 Calibri와 Carlito를 확인하십시오:
 
@@ -244,7 +244,7 @@ Font substitutions:
 
 ## **누락된 글꼴에 대한 기본 글꼴 설정**
 
-글꼴이 없을 경우, Aspose.Slides는 자체적으로 선택한 대체 글꼴을 사용합니다. 직접 선택하려면 [LoadOptions](https://reference.aspose.com/slides/ko/net/aspose.slides/loadoptions/)의 [DefaultRegularFont](https://reference.aspose.com/slides/ko/net/aspose.slides/loadoptions/defaultregularfont/) 속성을 설정하고 해당 옵션을 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 생성자에 전달하십시오. *FontCheck*은 `DEFAULT_FONT` 환경 변수에서 글꼴 이름을 읽습니다. Carlito를 로드한 상태에서 누락된 글꼴에 이를 사용합니다:
+글꼴이 없을 경우, Aspose.Slides는 자체적으로 선택한 대체 글꼴을 사용합니다. 직접 선택하려면 [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)의 [DefaultRegularFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultregularfont/) 속성을 설정하고 해당 옵션을 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 생성자에 전달하십시오. *FontCheck*은 `DEFAULT_FONT` 환경 변수에서 글꼴 이름을 읽습니다. Carlito를 로드한 상태에서 누락된 글꼴에 이를 사용합니다:
 
 ```bash
 docker run --rm -e DEFAULT_FONT=Carlito font-check
@@ -258,7 +258,7 @@ Font substitutions:
   Calibri -> Carlito
 ```
 
-기본 글꼴은 모든 누락된 글꼴을 대체합니다. 개별 글꼴을 매핑하려면, 예를 들어 Arial을 Liberation Sans로, Calibri를 Carlito로 매핑하려면 [font substitution rules](/slides/ko/net/font-substitution/)을 사용하십시오. 규칙은 렌더링 결과를 변경하지만 `GetSubstitutions` 에서는 반영되지 않으므로 출력 파일의 글꼴을 확인하십시오. 아시아 문자에 대해서는 [DefaultAsianFont](https://reference.aspose.com/slides/ko/net/aspose.slides/loadoptions/defaultasianfont/)도 설정하십시오; 자세한 내용은 [Default Font](/slides/ko/net/default-font/)를 참고하십시오.
+기본 글꼴은 모든 누락된 글꼴을 대체합니다. 개별 글꼴을 매핑하려면, 예를 들어 Arial을 Liberation Sans로, Calibri를 Carlito로 매핑하려면 [font substitution rules](/slides/ko/net/font-substitution/)을 사용하십시오. 규칙은 렌더링 결과를 변경하지만 `GetSubstitutions` 에서는 반영되지 않으므로 출력 파일의 글꼴을 확인하십시오. 아시아 문자에 대해서는 [DefaultAsianFont](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaultasianfont/)도 설정하십시오; 자세한 내용은 [Default Font](/slides/ko/net/default-font/)를 참고하십시오.
 
 ## **Alpine Linux에 글꼴 설치**
 

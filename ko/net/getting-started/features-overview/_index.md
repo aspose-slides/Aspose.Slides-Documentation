@@ -77,7 +77,7 @@ Aspose.Slides를 사용하면 프레젠테이션의 거의 모든 콘텐츠를 �
 
 **멀티스레딩은 어떻게 작동하나요? 처리를 병렬화할 수 있나요?**
 
-다른 스레드에서 서로 다른 문서를 처리하는 것은 안전합니다. 동일한 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 객체를 [다중 스레드](/slides/ko/net/multithreading/)에서 동시에 사용해서는 안 됩니다.
+다른 스레드에서 서로 다른 문서를 처리하는 것은 안전합니다. 동일한 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 객체를 [다중 스레드](/slides/ko/net/multithreading/)에서 동시에 사용해서는 안 됩니다.
 
 **파일 비밀번호 및 암호화가 지원되나요?**
 

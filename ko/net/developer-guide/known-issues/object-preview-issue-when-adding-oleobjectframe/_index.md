@@ -22,7 +22,7 @@ description: "Aspose.Slides for .NET으로 추가된 OLE 객체가 미리 보기
 ---
 ## **소개**
 
-Aspose.Slides for .NET을 사용하여 슬라이드에 [OleObjectFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/oleobjectframe/)을 추가하면 출력 슬라이드에 "EMBEDDED OLE OBJECT" 메시지가 표시됩니다. 이 메시지는 의도된 것이며 버그가 아닙니다.
+Aspose.Slides for .NET을 사용하여 슬라이드에 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/)을 추가하면 출력 슬라이드에 "EMBEDDED OLE OBJECT" 메시지가 표시됩니다. 이 메시지는 의도된 것이며 버그가 아닙니다.
 
 OLE 객체 작업에 대한 자세한 내용은 [Manage OLE](/slides/ko/net/manage-ole/)를 참조하십시오.
 
@@ -30,7 +30,7 @@ OLE 객체 작업에 대한 자세한 내용은 [Manage OLE](/slides/ko/net/mana
 
 Aspose.Slides는 OLE 객체가 변경되었으며 미리 보기 이미지가 업데이트되어야 함을 알리기 위해 "EMBEDDED OLE OBJECT" 메시지를 표시합니다.
 
-예를 들어, Microsoft Excel 차트를 [OleObjectFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/oleobjectframe/)으로 슬라이드에 추가하고(자세한 내용은 "Manage OLE" 기사 참조) Microsoft PowerPoint에서 프레젠테이션을 열면 슬라이드에 다음 이미지가 표시됩니다:
+예를 들어, Microsoft Excel 차트를 [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/)으로 슬라이드에 추가하고(자세한 내용은 "Manage OLE" 기사 참조) Microsoft PowerPoint에서 프레젠테이션을 열면 슬라이드에 다음 이미지가 표시됩니다:
 
 ![OLE 객체 메시지](OLE_object_message.png)
 

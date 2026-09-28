@@ -62,7 +62,7 @@ Aspose.Slides for .NET은 동일한 클래스를 제공하는 두 개의 NuGet �
 
 ## **도움받기**
 
-[Product Support](/slides/ko/net/product-support/)에서는 [무료 지원 포럼](https://forum.aspose.com/c/slides/ko/11)에서 질문하는 방법과 문제를 보고할 때 포함해야 할 내용을 설명합니다.
+[Product Support](/slides/ko/net/product-support/)에서는 [무료 지원 포럼](https://forum.aspose.com/c/slides/11)에서 질문하는 방법과 문제를 보고할 때 포함해야 할 내용을 설명합니다.
 
 ## **FAQ**
 

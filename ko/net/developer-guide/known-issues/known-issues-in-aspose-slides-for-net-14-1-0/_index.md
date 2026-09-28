@@ -14,7 +14,7 @@ description: "역사적: 2014년에 Aspose.Slides for .NET 14.1.0와 함께 발�
 ---
 {{% alert color="info" title="Note" %}}
 
-이 페이지는 과거 버전 페이지입니다. 2014년에 출시된 Aspose.Slides for .NET 14.1.0에 대해 발표된 알려진 이슈들을 나열하며 현재 버전에 대해서는 설명하지 않습니다. 각 버전의 변경 사항은 [release notes](https://releases.aspose.com/slides/ko/net/release-notes/)를 참조하십시오.
+이 페이지는 과거 버전 페이지입니다. 2014년에 출시된 Aspose.Slides for .NET 14.1.0에 대해 발표된 알려진 이슈들을 나열하며 현재 버전에 대해서는 설명하지 않습니다. 각 버전의 변경 사항은 [release notes](https://releases.aspose.com/slides/net/release-notes/)를 참조하십시오.
 
 {{% /alert %}}
 

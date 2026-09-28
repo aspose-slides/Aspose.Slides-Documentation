@@ -25,7 +25,7 @@ description: "Aspose.Slides for .NET이 필요로 하는 코드 액세스 보안
 
 ## **.NET Framework**
 
-Aspose.Slides는 .NET Framework에서 전체 신뢰가 필요합니다. Medium Trust(`<trust level="Medium" />`)와 같이 부분 신뢰 환경에서는 실행되지 않으며, [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 객체를 생성할 때 `SecurityException`이 발생합니다.
+Aspose.Slides는 .NET Framework에서 전체 신뢰가 필요합니다. Medium Trust(`<trust level="Medium" />`)와 같이 부분 신뢰 환경에서는 실행되지 않으며, [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 객체를 생성할 때 `SecurityException`이 발생합니다.
 
 Microsoft는 더 이상 ASP.NET 부분 신뢰를 애플리케이션 간 격리를 위한 방법으로 취급하지 않으며, 대신 별도의 애플리케이션 풀에서 실행할 것을 권장합니다. 자세히 보기: [ASP.NET Partial Trust는 애플리케이션 격리를 보장하지 않습니다](https://support.microsoft.com/en-us/servicing/dotnetframework/troubleshooting/asp-net-partial-trust-does-not-guarantee-application-isolation).
 

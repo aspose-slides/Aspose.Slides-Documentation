@@ -68,7 +68,7 @@ Windows에서는 Aspose.Slides.NET6.CrossPlatform의 네이티브 라이브러�
 sudo apt-get update && sudo apt-get install -y libfontconfig1
 ```
 
-이 없이 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/)을 만들면 `TypeInitializationException`이 발생하고, 내부 `DllNotFoundException`에서 `libfontconfig.so.1`을 열 수 없다고 보고합니다.
+이 없이 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)을 만들면 `TypeInitializationException`이 발생하고, 내부 `DllNotFoundException`에서 `libfontconfig.so.1`을 열 수 없다고 보고합니다.
 
 최소 베이스 이미지에는 `fontconfig`가 포함되지 않을 수 있습니다. 예를 들어 .NET 8용 AWS Lambda 베이스 이미지에는 `fontconfig`와 글꼴이 전혀 포함되지 않습니다. 이를 기반으로 만든 컨테이너 이미지에서는 `dnf install -y fontconfig`를 실행하면 Noto Sans 글꼴도 함께 설치됩니다.
 
@@ -129,7 +129,7 @@ RUN apk add --no-cache \
 
 ### **글로벌화 지원**
 
-두 패키지 모두 .NET 글로벌화 지원이 필요합니다. Linux에서 .NET은 ICU 라이브러리를 통해 이를 제공합니다. [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)를 사용할 경우, [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 생성 시 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` 예외가 발생합니다.
+두 패키지 모두 .NET 글로벌화 지원이 필요합니다. Linux에서 .NET은 ICU 라이브러리를 통해 이를 제공합니다. [globalization-invariant mode](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization)를 사용할 경우, [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 생성 시 `CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode` 예외가 발생합니다.
 
 일부 컨테이너 이미지에서는 이 모드를 기본으로 켜두기도 합니다. 예를 들어 Alpine Linux용 .NET 런타임 이미지(`runtime-deps`, `runtime`, `aspnet`)는 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true`로 설정하고 ICU를 포함하지 않습니다. 이러한 이미지에서 빌드할 때는 ICU를 설치하고 모드를 끄십시오:
 
@@ -160,7 +160,7 @@ using var image = slide.GetImage(1f, 1f);
 image.Save("hello.png", ImageFormat.Png);
 ```
 
-프로그램은 첫 번째 슬라이드에 텍스트가 포함된 사각형을 추가하고, [Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/) 메서드로 *hello.pptx* 파일로 저장합니다. 그런 다음 [GetImage](https://reference.aspose.com/slides/ko/net/aspose.slides/slide/getimage/)으로 슬라이드를 렌더링하고, [IImage.Save](https://reference.aspose.com/slides/ko/net/aspose.slides/iimage/save/)를 사용해 *hello.png* 파일을 [ImageFormat.Png](https://reference.aspose.com/slides/ko/net/aspose.slides/imageformat/) 형식으로 저장합니다. 배율 1은 포인트당 한 픽셀을 렌더링하므로 기본 720 × 540 포인트 슬라이드가 720 × 540 픽셀 이미지가 됩니다. 텍스트가 사각형 안에 표시됩니다. 라이선스가 없으면 두 파일 모두 평가 워터마크가 포함되며, 자세한 내용은 [Licensing](/slides/ko/net/licensing/)를 참고하십시오. 요구 사항이 누락되면 프로그램은 [Linux](#linux) 섹션에 설명된 예외 중 하나를 발생시킵니다.
+프로그램은 첫 번째 슬라이드에 텍스트가 포함된 사각형을 추가하고, [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 메서드로 *hello.pptx* 파일로 저장합니다. 그런 다음 [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/)으로 슬라이드를 렌더링하고, [IImage.Save](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/)를 사용해 *hello.png* 파일을 [ImageFormat.Png](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) 형식으로 저장합니다. 배율 1은 포인트당 한 픽셀을 렌더링하므로 기본 720 × 540 포인트 슬라이드가 720 × 540 픽셀 이미지가 됩니다. 텍스트가 사각형 안에 표시됩니다. 라이선스가 없으면 두 파일 모두 평가 워터마크가 포함되며, 자세한 내용은 [Licensing](/slides/ko/net/licensing/)를 참고하십시오. 요구 사항이 누락되면 프로그램은 [Linux](#linux) 섹션에 설명된 예외 중 하나를 발생시킵니다.
 
 ## **개발 도구**
 

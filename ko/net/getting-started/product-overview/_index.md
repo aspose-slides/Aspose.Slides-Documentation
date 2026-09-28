@@ -123,7 +123,7 @@ Aspose.Slides for .NET 기능은 다음과 같은 그룹으로 구분됩니다:
 ## **기술 지원**
 Aspose는 모든 제품에 대해 무제한 무료 기술 지원을 제공합니다. 이 지원은 평가 패키지를 포함한 모든 사용자에게 제공됩니다. Aspose.Slides for .NET에 대한 도움이 필요하면 다음을 참고하십시오:
 
-- 지원의 주요 경로는 [Aspose Forums](https://forum.aspose.com/)입니다. [Aspose.Slides forum](https://forum.aspose.com/c/slides/ko/11)에 질문을 게시하면 몇 시간 안에 답변을 받을 수 있습니다. Aspose.Slides 지원팀이 포럼에 게시된 질문에 직접 답변합니다.
+- 지원의 주요 경로는 [Aspose Forums](https://forum.aspose.com/)입니다. [Aspose.Slides forum](https://forum.aspose.com/c/slides/11)에 질문을 게시하면 몇 시간 안에 답변을 받을 수 있습니다. Aspose.Slides 지원팀이 포럼에 게시된 질문에 직접 답변합니다.
 - Aspose는 전화로 기술 지원을 제공하지 않음에 유의하십시오. 전화 지원은 영업 및 구매 질문에만 제공됩니다.
 - 포럼에서 답변을 기다릴 때는 인내심을 가지고 시간대 차이를 고려해 주세요.
 
@@ -145,10 +145,10 @@ Aspose.Slides for .NET에 문제가 있을 경우, 가장 효율적으로 해결
 
 |**리소스**|**설명**|
 | :- | :- |
-|[Aspose.Slides for .NET home page](https://products.aspose.com/slides/ko/net/)|제품 홈페이지.|
-|[Aspose.Slide blog](https://blog.aspose.com/category/slides/ko/)|새 릴리스 정보와 Aspose.Slides에 대한 유용한 팁을 정기적으로 확인하세요.|
+|[Aspose.Slides for .NET home page](https://products.aspose.com/slides/net/)|제품 홈페이지.|
+|[Aspose.Slide blog](https://blog.aspose.com/category/slides/)|새 릴리스 정보와 Aspose.Slides에 대한 유용한 팁을 정기적으로 확인하세요.|
 |[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|여기에서 최신 버전의 Aspose.Slides를 다운로드하십시오. 우리는 자주 새로운 버전을 릴리스합니다.|
-|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/ko/11)|질문과 문제를 여기 게시하면 빠르게 해결됩니다.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/11)|질문과 문제를 여기 게시하면 빠르게 해결됩니다.|
 |[Aspose.Slides for .NET product documentation](/slides/ko/net/)|이 문서와 Aspose.Slides API 레퍼런스를 포함하는 전체 온라인 문서.|
 
 ## **신뢰 수준 요구 사항**
@@ -158,7 +158,7 @@ Aspose.Slides for .NET에 문제가 있을 경우, 가장 효율적으로 해결
 ## **자주 묻는 질문**
 
 ### PDF/A 및 PDF/UA와 같은 보관 및 접근성을 위한 PDF 적합성 레벨을 지원합니까?
-예. [PDF export options](https://reference.aspose.com/slides/ko/net/aspose.slides.export/pdfoptions/)를 구성하면 PDF/A-2a/2b/2u, PDF/A-3a/3b 및 PDF/UA 형식으로 저장할 수 있습니다.
+예. [PDF export options](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/)를 구성하면 PDF/A-2a/2b/2u, PDF/A-3a/3b 및 PDF/UA 형식으로 저장할 수 있습니다.
 
 ### 올바른 렌더링을 위한 글꼴 대체 메커니즘 및 사용자 정의 글꼴 지원이 있습니까?
 예. 라이브러리를 사용하면 [사용자 정의 글꼴을 로드](/slides/ko/net/custom-font/)하고 [대체 규칙을 정의](/slides/ko/net/fallback-font/)할 수 있어 변환 및 렌더링 중에 누락된 글리프가 신뢰성 있게 대체됩니다.
@@ -173,13 +173,13 @@ Aspose.Slides for .NET에 문제가 있을 경우, 가장 효율적으로 해결
 예, 별도의 스레드에서 서로 다른 문서를 병렬로 처리할 수 있습니다. 단, 같은 프레젠테이션 인스턴스를 동시에 사용하지 않도록 주의하십시오 [across threads](/slides/ko/net/multithreading/).
 
 ### 매크로가 보존되며 PPTM/PPSM 파일에서 VBA를 관리할 수 있습니까?
-예. 매크로가 포함된 프레젠테이션은 [지원](/slides/ko/net/presentation-via-vba/)되며, 해당 파일에서 [VBA 프로젝트를 검사하고 관리](https://reference.aspose.com/slides/ko/net/aspose.slides.vba/)할 수 있습니다.
+예. 매크로가 포함된 프레젠테이션은 [지원](/slides/ko/net/presentation-via-vba/)되며, 해당 파일에서 [VBA 프로젝트를 검사하고 관리](https://reference.aspose.com/slides/net/aspose.slides.vba/)할 수 있습니다.
 
 ### PDF 또는 HTML을 다시 PowerPoint 슬라이드로 변환할 수 있습니까?
 예. [PDF 페이지 또는 HTML 콘텐츠를 가져오기](/slides/ko/net/import-presentation/)를 통해 프레젠테이션에 슬라이드를 생성하거나 내용을 채울 수 있습니다.
 
 ### XPS 내보내기가 지원되며 XPS 출력의 품질 및 내용 제어가 가능한가요?
-예. [Export to XPS](/slides/ko/net/convert-powerpoint-to-xps/)를 사용할 수 있으며, [저장 옵션](https://reference.aspose.com/slides/ko/net/aspose.slides.export/xpsoptions/)을 통해 출력 품질과 포함된 내용을 조정할 수 있습니다.
+예. [Export to XPS](/slides/ko/net/convert-powerpoint-to-xps/)를 사용할 수 있으며, [저장 옵션](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/)을 통해 출력 품질과 포함된 내용을 조정할 수 있습니다.
 
 ### 슬라이드를 이미지로 변환하고 출력 품질을 제어할 수 있습니까?
 예. 슬라이드를 [PNG, JPEG, GIF, BMP, TIFF](/slides/ko/net/convert-powerpoint-to-png/) 등 다양한 형식으로 렌더링할 수 있으며, 크기와 품질을 세밀하게 제어할 수 있습니다.

@@ -28,7 +28,7 @@ description: "Aspose.Slides for .NET에서 PowerPoint 및 OpenDocument 프레젠
 
 ## **폰트 대체 가져오기**
 
-[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/) 메서드를 사용하여 프레젠테이션이 렌더링될 때 어떤 폰트가 대체되는지 확인할 수 있습니다. 이 메서드는 원본 폰트와 대체 폰트 이름을 식별하는 [FontSubstitutionInfo](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsubstitutioninfo/) 객체를 반환합니다.
+[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 메서드를 사용하여 프레젠테이션이 렌더링될 때 어떤 폰트가 대체되는지 확인할 수 있습니다. 이 메서드는 원본 폰트와 대체 폰트 이름을 식별하는 [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) 객체를 반환합니다.
 
 다음 C# 예제는 프레젠테이션의 모든 폰트 대체를 나열합니다:
 
@@ -46,11 +46,11 @@ foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 
 ## **선택된 슬라이드에 대한 폰트 대체 가져오기**
 
-`int[] slides` 인수를 사용하는 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/) 오버로드를 호출하면 특정 슬라이드에만 필요한 대체를 검사할 수 있습니다. 이는 프레젠테이션의 일부를 렌더링하거나 내보낼 때, 대규모 프레젠테이션을 점진적으로 확인할 때, 사용 불가능한 폰트에 의존하는 슬라이드를 찾을 때, 서버 또는 컨테이너용 최소 폰트 패키지를 준비할 때, 또는 관련 없는 슬라이드를 처리하지 않고 렌더링 차이를 진단할 때 유용합니다.
+`int[] slides` 인수를 사용하는 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 오버로드를 호출하면 특정 슬라이드에만 필요한 대체를 검사할 수 있습니다. 이는 프레젠테이션의 일부를 렌더링하거나 내보낼 때, 대규모 프레젠테이션을 점진적으로 확인할 때, 사용 불가능한 폰트에 의존하는 슬라이드를 찾을 때, 서버 또는 컨테이너용 최소 폰트 패키지를 준비할 때, 또는 관련 없는 슬라이드를 처리하지 않고 렌더링 차이를 진단할 때 유용합니다.
 
-`slides` 배열은 1부터 시작하는 슬라이드 인덱스를 포함합니다: `1` 은 첫 번째 슬라이드를 나타냅니다. 반면에 [Presentation.Slides](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/slides/ko/) 컬렉션 인덱서는 0부터 시작하므로 동일한 슬라이드는 `presentation.Slides[0]` 로 접근합니다. 배열을 만들 때 이 차이를 염두에 두어 1씩 차이 나는 실수를 방지하십시오.
+`slides` 배열은 1부터 시작하는 슬라이드 인덱스를 포함합니다: `1` 은 첫 번째 슬라이드를 나타냅니다. 반면에 [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 컬렉션 인덱서는 0부터 시작하므로 동일한 슬라이드는 `presentation.Slides[0]` 로 접근합니다. 배열을 만들 때 이 차이를 염두에 두어 1씩 차이 나는 실수를 방지하십시오.
 
-[Presentation.FontsManager](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/fontsmanager/) 속성을 통해 오버로드를 호출합니다. 선택한 슬라이드를 렌더링하는 동안 결정된 대체만 반환합니다. 각 결과는 원본 및 대체 폰트 이름을 포함하는 [FontSubstitutionInfo](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsubstitutioninfo/) 객체이며, 현재 폰트 환경 및 [외부 로드된 폰트](/slides/ko/net/custom-font/)를 반영합니다. [IFontSubstRuleCollection](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsubstrulecollection/)에 저장된 대체 규칙은 렌더링 결과에 영향을 주지만 결과에는 나타나지 않습니다.
+[Presentation.FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/fontsmanager/) 속성을 통해 오버로드를 호출합니다. 선택한 슬라이드를 렌더링하는 동안 결정된 대체만 반환합니다. 각 결과는 원본 및 대체 폰트 이름을 포함하는 [FontSubstitutionInfo](https://reference.aspose.com/slides/net/aspose.slides/fontsubstitutioninfo/) 객체이며, 현재 폰트 환경 및 [외부 로드된 폰트](/slides/ko/net/custom-font/)를 반영합니다. [IFontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontsubstrulecollection/)에 저장된 대체 규칙은 렌더링 결과에 영향을 주지만 결과에는 나타나지 않습니다.
 
 동일한 대체가 여러 선택 슬라이드에서 필요할 수 있습니다. 폰트 인벤토리 또는 프리플라이트 보고서를 만들 때 결과를 중복 제거하십시오. 다음 예제는 반환된 모든 대체를 보고한 뒤 고유한 폰트 매핑의 정렬된 목록을 생성합니다:
 
@@ -81,12 +81,12 @@ foreach (var entry in sortedPreflightEntries)
 }
 ```
 
-[IFontsManager](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/) 인터페이스는 두 오버로드를 모두 제공합니다. 렌더링 작업의 범위에 따라 선택하십시오:
+[IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) 인터페이스는 두 오버로드를 모두 제공합니다. 렌더링 작업의 범위에 따라 선택하십시오:
 
 | 오버로드 | 사용 상황 |
 |---|---|
-| [GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/) (인자 없음) | 전체 프레젠테이션에 대한 대체가 필요할 때 |
-| [GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | 선택된 범위, 점진적 검사 또는 부분 내보내기에 대한 대체가 필요할 때 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) (인자 없음) | 전체 프레젠테이션에 대한 대체가 필요할 때 |
+| [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | 선택된 범위, 점진적 검사 또는 부분 내보내기에 대한 대체가 필요할 때 |
 
 ## **폰트 대체 규칙 설정**
 
@@ -94,9 +94,9 @@ foreach (var entry in sortedPreflightEntries)
 
 1. 프레젠테이션을 로드합니다.
 2. 원본 폰트와 대체 폰트에 대한 정의를 만듭니다.
-3. [WhenInaccessible](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsubstcondition/) 조건을 사용하여 [FontSubstRule](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsubstrule/)을 생성합니다.
-4. 해당 규칙을 [FontSubstRuleCollection](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsubstrulecollection/)에 추가합니다.
-5. 컬렉션을 [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/ko/net/aspose.slides/fontsmanager/fontsubstrulelist/) 속성에 할당합니다.
+3. [WhenInaccessible](https://reference.aspose.com/slides/net/aspose.slides/fontsubstcondition/) 조건을 사용하여 [FontSubstRule](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrule/)을 생성합니다.
+4. 해당 규칙을 [FontSubstRuleCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsubstrulecollection/)에 추가합니다.
+5. 컬렉션을 [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/fontsubstrulelist/) 속성에 할당합니다.
 6. 프레젠테이션을 렌더링하거나 변환합니다.
 
 다음 C# 예제는 `SomeRareFont`를 사용할 수 없을 때 `Arial`을 대신 사용하고, 첫 번째 슬라이드를 렌더링하여 결과를 확인합니다. 대체 폰트는 Aspose.Slides에서 사용할 수 있어야 합니다.
@@ -160,4 +160,4 @@ Aspose.Slides는 폰트 선택 프로세스에 따라 가장 가까운 사용 �
 
 **배치 변환 시 폰트 선택을 일관되게 유지하려면 어떻게 해야 하나요?**
 
-모든 머신 또는 컨테이너에 동일한 폰트 파일 및 버전을 사용하고, [필요한 외부 폰트를 로드](/slides/ko/net/custom-font/)하며, 라이선스가 허용되는 경우 [폰트를 포함](/slides/ko/net/embedded-font/)하십시오. 또한 내보내기 전에 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/)을 호출하여 예상치 못한 대체를 식별할 수 있습니다.
+모든 머신 또는 컨테이너에 동일한 폰트 파일 및 버전을 사용하고, [필요한 외부 폰트를 로드](/slides/ko/net/custom-font/)하며, 라이선스가 허용되는 경우 [폰트를 포함](/slides/ko/net/embedded-font/)하십시오. 또한 내보내기 전에 [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)을 호출하여 예상치 못한 대체를 식별할 수 있습니다.

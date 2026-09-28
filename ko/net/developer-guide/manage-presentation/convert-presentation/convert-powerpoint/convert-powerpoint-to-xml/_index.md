@@ -24,7 +24,7 @@ description: "Aspose.Slides for .NET를 사용해 C#에서 PowerPoint 및 OpenDo
 
 Aspose.Slides for .NET은 PowerPoint 프레젠테이션을 PowerPoint XML Presentation 형식으로 변환할 수 있습니다. XML 출력은 프레젠테이션 구조를 텍스트 기반으로 검토하거나, 생성된 문서를 문제 해결하고, 자동화된 테스트에서 출력물을 비교하거나, 프레젠테이션 패키지가 아닌 XML을 소비하는 워크플로와 통합해야 할 때 유용합니다.
 
-[Presentation.Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/) 메서드를 사용하고, [SaveFormat](https://reference.aspose.com/slides/ko/net/aspose.slides.export/saveformat/) 열거형의 `Xml` 값을 지정하십시오. 결과를 파일에 직접 쓰거나 스트림에 쓸 수 있습니다.
+[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 메서드를 사용하고, [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) 열거형의 `Xml` 값을 지정하십시오. 결과를 파일에 직접 쓰거나 스트림에 쓸 수 있습니다.
 
 {{% alert color="info" title="Note" %}}
 `SaveFormat.Xml`은 PowerPoint XML Presentation을 생성합니다. 이는 PPTX 패키지 내부에 저장된 개별 Office Open XML 파트를 추출하지 않습니다. `ppt/presentation.xml` 같은 정확한 PPTX 패키지 파트나 개별 슬라이드 XML 파일이 필요하면 PPTX 패키지를 직접 검사하십시오.
@@ -32,7 +32,7 @@ Aspose.Slides for .NET은 PowerPoint 프레젠테이션을 PowerPoint XML Presen
 
 ## **프레젠테이션을 XML 파일로 변환**
 
-[Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스로 소스 프레젠테이션을 로드한 다음, 출력 경로와 `SaveFormat.Xml`을 [Presentation.Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/)에 전달하십시오. 소스는 PPT, PPTX 또는 ODP와 같이 로드가 지원되는 모든 프레젠테이션 형식일 수 있습니다.
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 클래스로 소스 프레젠테이션을 로드한 다음, 출력 경로와 `SaveFormat.Xml`을 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)에 전달하십시오. 소스는 PPT, PPTX 또는 ODP와 같이 로드가 지원되는 모든 프레젠테이션 형식일 수 있습니다.
 
 다음 예제는 PPTX 프레젠테이션을 XML 파일로 변환합니다:
 
@@ -46,7 +46,7 @@ presentation.Save("presentation.xml", SaveFormat.Xml);
 
 ## **XML 출력을 스트림에 쓰기**
 
-XML을 메모리에 유지하거나 웹 서비스, 스토리지 제공자, XML 처리 파이프라인과 같은 다른 구성 요소에 전달해야 할 때는 [Presentation.Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/)의 스트림 오버로드를 사용하십시오. 다음 예제는 결과를 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)으로 쓰고 이후 읽기를 위해 다시 위치를 조정합니다:
+XML을 메모리에 유지하거나 웹 서비스, 스토리지 제공자, XML 처리 파이프라인과 같은 다른 구성 요소에 전달해야 할 때는 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)의 스트림 오버로드를 사용하십시오. 다음 예제는 결과를 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)으로 쓰고 이후 읽기를 위해 다시 위치를 조정합니다:
 
 ```csharp
 using System.IO;
@@ -85,11 +85,11 @@ PPT 및 PPTX와 달리 XML 출력은 주로 검사 및 데이터 중심 워크�
 
 **XML 출력을 디스크에 파일을 만들지 않고 저장할 수 있나요?**
 
-네. writable 스트림을 [Presentation.Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/)에 전달하십시오. 예를 들어, 인메모리 처리를 위해 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)을 사용할 수 있습니다.
+네. writable 스트림을 [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/)에 전달하십시오. 예를 들어, 인메모리 처리를 위해 [MemoryStream](https://learn.microsoft.com/en-us/dotnet/api/system.io.memorystream?view=net-10.0)을 사용할 수 있습니다.
 
 **Aspose.Slides가 내보낸 XML 파일을 다시 로드할 수 있나요?**
 
-네. XML 파일이나 스트림을 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/presentation/) 생성자에 전달하십시오. 그런 다음 [Presentation.SourceFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/sourceformat/)이 `SourceFormat.Xml`을 반환합니다. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ko/net/aspose.slides/presentationfactory/getpresentationinfo/)는 이 형식에 대해 `LoadFormat.Unknown`을 보고하므로, XML 파일을 열 수 있는지 판단하는 데 이 값을 사용하지 마십시오.
+네. XML 파일이나 스트림을 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) 생성자에 전달하십시오. 그런 다음 [Presentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/presentation/sourceformat/)이 `SourceFormat.Xml`을 반환합니다. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/)는 이 형식에 대해 `LoadFormat.Unknown`을 보고하므로, XML 파일을 열 수 있는지 판단하는 데 이 값을 사용하지 마십시오.
 
 **XML 변환이 각 슬라이드를 페이지나 이미지로 렌더링하나요?**
 

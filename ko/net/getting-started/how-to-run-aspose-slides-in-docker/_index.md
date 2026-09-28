@@ -59,7 +59,7 @@ Aspose.Slides.NET6.CrossPlatform은 Alpine Linux에서는 실행되지 않습니
 </Project>
 ```
 
-*Program.cs* 파일은 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/)을 생성하고 첫 번째 슬라이드에 텍스트가 포함된 사각형을 추가한 뒤, [Save](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/save/) 메서드로 PPTX와 PDF 두 형식으로 저장합니다. 두 파일 모두 작업 디렉터리 아래 *output* 폴더에 저장됩니다. 이후 애플리케이션은 PDF가 렌더링되는 동안 교체된 폰트를 `[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/)` 로 열거해 컨테이너에 프레젠테이션이 사용하는 폰트가 존재하는지 확인할 수 있게 합니다.
+*Program.cs* 파일은 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)을 생성하고 첫 번째 슬라이드에 텍스트가 포함된 사각형을 추가한 뒤, [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) 메서드로 PPTX와 PDF 두 형식으로 저장합니다. 두 파일 모두 작업 디렉터리 아래 *output* 폴더에 저장됩니다. 이후 애플리케이션은 PDF가 렌더링되는 동안 교체된 폰트를 `[IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/)` 로 열거해 컨테이너에 프레젠테이션이 사용하는 폰트가 존재하는지 확인할 수 있게 합니다.
 
 ```c#
 using System;
@@ -203,7 +203,7 @@ Alpine 단계에서는 세 개의 패키지를 설치하고 하나의 설정을 
 - `font-dejavu` : 폰트를 제공합니다. 폰트가 없으면 `System.ArgumentException: Font '?' cannot be found` 에러가 발생합니다.
 - `icu-libs` 와 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false` : 문화권 데이터를 제공합니다. Alpine .NET 이미지는 기본적으로 글로벌화 비활성화 모드로 실행되며, 이 모드에서는 Aspose.Slides가 `en-US` 에 대해 `CultureNotFoundException` 을 발생시킵니다.
 
-위와 동일한 명령을 사용해 빌드, 실행 및 출력 복사를 수행합니다. 이 이미지에서는 애플리케이션이 `Saved` 라인만 출력합니다. Linux에서 Aspose.Slides.NET을 사용할 경우, fontconfig 가 누락된 폰트의 대체 폰트를 선택하고 [GetSubstitutions](https://reference.aspose.com/slides/ko/net/aspose.slides/ifontsmanager/getsubstitutions/) 은 이를 표시하지 않습니다. 사용된 폰트를 확인하는 방법은 [Deploy Fonts](/slides/ko/net/deploy-fonts/) 에 나와 있습니다.
+위와 동일한 명령을 사용해 빌드, 실행 및 출력 복사를 수행합니다. 이 이미지에서는 애플리케이션이 `Saved` 라인만 출력합니다. Linux에서 Aspose.Slides.NET을 사용할 경우, fontconfig 가 누락된 폰트의 대체 폰트를 선택하고 [GetSubstitutions](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/getsubstitutions/) 은 이를 표시하지 않습니다. 사용된 폰트를 확인하는 방법은 [Deploy Fonts](/slides/ko/net/deploy-fonts/) 에 나와 있습니다.
 
 ## **FAQ**
 
