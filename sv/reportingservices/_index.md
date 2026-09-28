@@ -63,12 +63,12 @@ Den exporterar rapporter till PPT-, PPTX-, PPS- och PPSX-presentationer och bild
 <hr>
 <p>REFERENS</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/sv/reportingservices/release-notes/">Versionsanteckningar</a></li>
-<li><a href="https://releases.aspose.com/slides/sv/reportingservices/">Nedladdning</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">Versionsanteckningar</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">Nedladdning</a></li>
 </ul>
 <p>SUPPORT</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/sv/11">Gratis supportforum</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">Gratis supportforum</a></li>
 <li><a href="https://helpdesk.aspose.com/">Betald supporthelpdesk</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Den exporterar rapporter till PPT-, PPTX-, PPS- och PPSX-presentationer och bild
 Det finns ingen kod att skriva: du installerar utökningen på rapportsservern, och dess format visas i exportlistan för varje paginerad rapport på den servern.
 
 1. Kontrollera att rapportsservern uppfyller [systemkraven](/slides/sv/reportingservices/system-requirements/), inklusive .NET Framework 3.5.
-2. Från [nedladdningssidan](https://releases.aspose.com/slides/sv/reportingservices/), ladda ner MSI‑installationsprogrammet, *Aspose.Slides for Reporting Services*. För att installera manuellt istället, ladda ner ZIP‑paketet, *Aspose.Slides for Reporting Services (DLLs Only)*.
+2. Från [nedladdningssidan](https://releases.aspose.com/slides/reportingservices/), ladda ner MSI‑installationsprogrammet, *Aspose.Slides for Reporting Services*. För att installera manuellt istället, ladda ner ZIP‑paketet, *Aspose.Slides for Reporting Services (DLLs Only)*.
 3. Installera utökningen på rapportsservern: kör MSI:n som administratör, enligt [Installera med MSI‑installationsprogrammet](/slides/sv/reportingservices/install-with-msi-installer/), eller följ [Installera manuellt](/slides/sv/reportingservices/install-manually/) för ZIP‑paketet.
 4. I en webbläsare, öppna rapportsserverns webbportal (Report Manager på SQL Server 2014 och tidigare). Som standard är adressen `https://<ComputerName>/reports`.
 5. Öppna en paginerad rapport. På rapportverktygsfältet, öppna **Export**‑listan och välj **PPTX – PowerPoint 2007 Presentation via Aspose.Slides**. Om verktygsfältet har en separat **Export**‑knapp, som Report Manager har, välj den.

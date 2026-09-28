@@ -14,7 +14,7 @@ description: "Installera Aspose.Slides for Reporting Services för hand från ZI
 ---
 ## **Översikt**
 
-Följ dessa steg för att installera Aspose.Slides for Reporting Services utan MSI‑installationsprogrammet, från ZIP‑paketet *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* på den [nedladdningssidan](https://releases.aspose.com/slides/sv/reportingservices/). De registrerar samma tillägg som [MSI‑installationsprogrammet](/slides/sv/reportingservices/install-with-msi-installer/). Upprepa dem för varje rapportserverinstans.
+Följ dessa steg för att installera Aspose.Slides for Reporting Services utan MSI‑installationsprogrammet, från ZIP‑paketet *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* på den [nedladdningssidan](https://releases.aspose.com/slides/reportingservices/). De registrerar samma tillägg som [MSI‑installationsprogrammet](/slides/sv/reportingservices/install-with-msi-installer/). Upprepa dem för varje rapportserverinstans.
 
 Innan du börjar, kontrollera [systemkraven](/slides/sv/reportingservices/system-requirements/). Du behöver lokala administratörsrättigheter på rapportservern.
 

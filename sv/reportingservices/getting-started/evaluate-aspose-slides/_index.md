@@ -13,7 +13,7 @@ description: "Ta reda på hur utvärderingsversionen av Aspose.Slides for Report
 ---
 ## **Utvärderingsversion**
 
-Du kan ladda ner Aspose.Slides for Reporting Services för utvärdering från [dess nedladdningssida](https://releases.aspose.com/slides/sv/reportingservices/). Utvärderingsnedladdningen är densamma som den köpta nedladdningen. Den blir licensierad när du kopierar en licensfil till rapportservern — ingen kod behövs; se [Licensiering](/slides/sv/reportingservices/license-aspose-slides-for-reporting-services/).
+Du kan ladda ner Aspose.Slides for Reporting Services för utvärdering från [dess nedladdningssida](https://releases.aspose.com/slides/reportingservices/). Utvärderingsnedladdningen är densamma som den köpta nedladdningen. Den blir licensierad när du kopierar en licensfil till rapportservern — ingen kod behövs; se [Licensiering](/slides/sv/reportingservices/license-aspose-slides-for-reporting-services/).
 
 Utvärderingsversionen (utan licens) ger full funktionalitet i produkten, men den infogar ett utvärderingsvattenstämpel i exporterade presentationer.
 
