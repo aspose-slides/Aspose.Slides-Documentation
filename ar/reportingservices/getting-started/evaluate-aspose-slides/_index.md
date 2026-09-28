@@ -13,7 +13,7 @@ description: "اكتشف كيفية تصرف نسخة التقييم من Aspose
 ---
 ## **الإصدار التجريبي**
 
-يمكنك تنزيل Aspose.Slides for Reporting Services للتقييم من [صفحة التنزيل الخاصة به](https://releases.aspose.com/slides/ar/reportingservices/). تنزيل التقييم هو نفسه تنزيل النسخة المشتراة. يصبح مرخصًا عندما تنسخ ملف ترخيص إلى خادم التقارير — لا يلزم كتابة أي كود؛ راجع [التراخيص](/slides/ar/reportingservices/license-aspose-slides-for-reporting-services/).
+يمكنك تنزيل Aspose.Slides for Reporting Services للتقييم من [صفحة التنزيل الخاصة به](https://releases.aspose.com/slides/reportingservices/). تنزيل التقييم هو نفسه تنزيل النسخة المشتراة. يصبح مرخصًا عندما تنسخ ملف ترخيص إلى خادم التقارير — لا يلزم كتابة أي كود؛ راجع [التراخيص](/slides/ar/reportingservices/license-aspose-slides-for-reporting-services/).
 
 الإصدار التجريبي (بدون ترخيص) يوفر جميع وظائف المنتج، ولكنه يضيف علامة مائية تجريبية إلى العروض التي يتم تصديرها.
 

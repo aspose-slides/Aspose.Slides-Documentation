@@ -63,12 +63,12 @@ Aspose.Slides for Reporting Services هو امتداد عرض لبرنامج Mic
 <hr>
 <p>المرجع</p>
 <ul>
-<li><a href="https://releases.aspose.com/slides/ar/reportingservices/release-notes/">ملاحظات الإصدار</a></li>
-<li><a href="https://releases.aspose.com/slides/ar/reportingservices/">تحميل</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/release-notes/">ملاحظات الإصدار</a></li>
+<li><a href="https://releases.aspose.com/slides/reportingservices/">تحميل</a></li>
 </ul>
 <p>الدعم</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/ar/11">منتدى الدعم المجاني</a></li>
+<li><a href="https://forum.aspose.com/c/slides/11">منتدى الدعم المجاني</a></li>
 <li><a href="https://helpdesk.aspose.com/">مكتب المساعدة للدعم المدفوع</a></li>
 </ul>
 </div>
@@ -81,7 +81,7 @@ Aspose.Slides for Reporting Services هو امتداد عرض لبرنامج Mic
 لا تحتاج إلى كتابة أي شفرة: تقوم بتثبيت الامتداد على خادم التقارير، وتظهر تنسيقاتاته في قائمة التصدير لكل تقرير مترقّم على ذلك الخادم.
 
 1. تحقق من أن خادم التقارير يفي بـ [متطلبات النظام](/slides/ar/reportingservices/system-requirements/)، بما في ذلك .NET Framework 3.5.
-1. من [صفحة التحميل](https://releases.aspose.com/slides/ar/reportingservices/)، حمّل مثبت MSI، *Aspose.Slides for Reporting Services*. لتثبيت يدويًا بدلاً من ذلك، حمّل حزمة ZIP، *Aspose.Slides for Reporting Services (DLLs Only)*.
+1. من [صفحة التحميل](https://releases.aspose.com/slides/reportingservices/)، حمّل مثبت MSI، *Aspose.Slides for Reporting Services*. لتثبيت يدويًا بدلاً من ذلك، حمّل حزمة ZIP، *Aspose.Slides for Reporting Services (DLLs Only)*.
 1. ثبّت الامتداد على خادم التقارير: شغّل ملف MSI كمسؤول، كما هو موضح في [التثبيت باستخدام مثبت MSI](/slides/ar/reportingservices/install-with-msi-installer/)، أو اتبع [التثبيت يدويًا](/slides/ar/reportingservices/install-manually/) لحزمة ZIP.
 1. في متصفح، افتح بوابة الويب الخاصة بخادم التقارير (Report Manager على SQL Server 2014 وما قبله). عنوانها الافتراضي هو `https://<ComputerName>/reports`.
 1. افتح تقريرًا مترقّمًا. في شريط أدوات التقرير، افتح قائمة **Export** واختر **PPTX - PowerPoint 2007 Presentation via Aspose.Slides**. إذا كان الشريط يحتوي على زر **Export** منفصل، كما هو الحال في Report Manager، فاختره.

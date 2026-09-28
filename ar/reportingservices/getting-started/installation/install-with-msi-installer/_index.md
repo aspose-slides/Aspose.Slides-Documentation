@@ -15,7 +15,7 @@ description: "قم بتثبيت Aspose.Slides for Reporting Services باستخ�
 
 مثبت MSI هو أبسط طريقة لتثبيت Aspose.Slides for Reporting Services. يحتاج إلى .NET Framework 3.5 وحقوق المسؤول على خادم التقارير؛ راجع [متطلبات النظام](/slides/ar/reportingservices/system-requirements/).
 
-1. قم بتنزيل مثبت MSI، *Aspose.Slides for Reporting Services XX.XX*، من [صفحة التنزيل](https://releases.aspose.com/slides/ar/reportingservices/) وانسخه إلى خادم التقارير.
+1. قم بتنزيل مثبت MSI، *Aspose.Slides for Reporting Services XX.XX*، من [صفحة التنزيل](https://releases.aspose.com/slides/reportingservices/) وانسخه إلى خادم التقارير.
 1. شغّله كمسؤول. إذا كان .NET Framework 3.5 مفقودًا، يتوقف المثبت مع رسالة؛ قم بتثبيت ميزات .NET Framework 3.5 وشغّله مرة أخرى.
 1. قبول اتفاقية الترخيص.
 1. في صفحة **Custom Setup**، تُظهر شجرة الخصائص كل نسخة من SQL Server Reporting Services وPower BI Report Server التي يكتشفها المثبت على الجهاز. لترك نسخة دون تغيير، انقر على أيقونتها واختر **Entire feature will be unavailable**. لا تدعم الإصدارات Express ملحقات العرض، لذا لا تقم باختيار نسخة Express. يخفى المثبت نسخ Express من SQL Server 2016 وما قبله.

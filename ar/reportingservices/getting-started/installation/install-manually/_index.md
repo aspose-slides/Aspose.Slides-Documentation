@@ -14,7 +14,7 @@ description: "تثبيت Aspose.Slides لخدمات التقارير يدويً�
 ---
 ## **نظرة عامة**
 
-اتبع الخطوات التالية لتثبيت Aspose.Slides for Reporting Services دون مثبت MSI، من حزمة ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* على [صفحة التحميل](https://releases.aspose.com/slides/ar/reportingservices/). وهي تسجل نفس الإضافات مثل [مثبت MSI](/slides/ar/reportingservices/install-with-msi-installer/). كررها لكل نسخة من خادم التقارير.
+اتبع الخطوات التالية لتثبيت Aspose.Slides for Reporting Services دون مثبت MSI، من حزمة ZIP *Aspose.Slides for Reporting Services XX.XX (DLLs Only)* على [صفحة التحميل](https://releases.aspose.com/slides/reportingservices/). وهي تسجل نفس الإضافات مثل [مثبت MSI](/slides/ar/reportingservices/install-with-msi-installer/). كررها لكل نسخة من خادم التقارير.
 
 قبل البدء، تحقق من [متطلبات النظام](/slides/ar/reportingservices/system-requirements/). تحتاج إلى صلاحيات المسؤول المحلي على خادم التقارير.
 

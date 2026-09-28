@@ -16,7 +16,7 @@ description: "اختر طريقة تثبيت Aspose.Slides for Reporting Service
 
 يتم تثبيت Aspose.Slides for Reporting Services على خادم التقرير نفسه. قبل البدء، تحقق من [متطلبات النظام](/slides/ar/reportingservices/system-requirements/).
 
-تقدم [صفحة التنزيل](https://releases.aspose.com/slides/ar/reportingservices/) حزمتين لكل إصدار:
+تقدم [صفحة التنزيل](https://releases.aspose.com/slides/reportingservices/) حزمتين لكل إصدار:
 
 - **Aspose.Slides for Reporting Services XX.XX** — مثبت MSI. يكتشف مثيلات خادم التقرير على الجهاز، وينسخ الامتداد إلى تلك التي تختارها، ويحدّث ملفات التكوين الخاصة بها. راجع [التثبيت باستخدام مثبت MSI](/slides/ar/reportingservices/install-with-msi-installer/).
 - **Aspose.Slides for Reporting Services XX.XX (DLLs Only)** — حزمة ZIP للتثبيت يدويًا: تقوم بنسخ تجميع واحد وتحرير ملفي تكوين. راجع [التثبيت يدويًا](/slides/ar/reportingservices/install-manually/).

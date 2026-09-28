@@ -13,11 +13,11 @@ description: "تطبيق ترخيص على Aspose.Slides for Reporting Services 
 ---
 ## **دعم الترخيص**
 
-إصدار التقييم من Aspose.Slides for Reporting Services هو نفس الحزمة التي تم شراؤها، من [صفحة التنزيل الخاصة به](https://releases.aspose.com/slides/ar/reportingservices/)، ويوفر نفس الوظائف. بدون ترخيص، يعمل في وضع التقييم ويضيف علامة مائية للتقييم إلى العروض التقديمية المصدرة.
+إصدار التقييم من Aspose.Slides for Reporting Services هو نفس الحزمة التي تم شراؤها، من [صفحة التنزيل الخاصة به](https://releases.aspose.com/slides/reportingservices/)، ويوفر نفس الوظائف. بدون ترخيص، يعمل في وضع التقييم ويضيف علامة مائية للتقييم إلى العروض التقديمية المصدرة.
 
 يصبح إصدار التقييم مرخصًا عندما تنسخ ملف الترخيص إلى خادم التقارير. لا يتضمن أي شفرة.
 
-عندما تكون راضيًا عن تقييمك، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/ar/reporting-services/). نوصيك بالاطلاع على أنواع الاشتراكات المختلفة. إذا كان لديك أسئلة، تواصل مع فريق مبيعات Aspose.
+عندما تكون راضيًا عن تقييمك، يمكنك [شراء ترخيص](https://purchase.aspose.com/pricing/slides/reporting-services/). نوصيك بالاطلاع على أنواع الاشتراكات المختلفة. إذا كان لديك أسئلة، تواصل مع فريق مبيعات Aspose.
 
 ## **الترخيص في Aspose.Slides for Reporting Services**
 
