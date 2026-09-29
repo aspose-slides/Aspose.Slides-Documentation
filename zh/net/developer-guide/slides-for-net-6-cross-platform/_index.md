@@ -94,7 +94,7 @@ Aspose.Slides 公共 API Slides 使用来自 System.Drawing.Common 的类型（B
 
 **潜在问题**：上述设置有其缺点。例如，如果您在 Windows 中开发并且有使用原始 System.Drawing.Common 的项目，您可能会遇到与 Aspose.Slides 类型的冲突。
 
-**解决方案**：您可以使用 extern alias 来解决该问题。请参见 [**使用 System.Drawing.Common 包和 Slides for .NET6 类（CS0433：类型在 Slides 和 System.Drawing.Common 中都存在的错误**)](https://docs.aspose.com/slides/net/net6/#using-the-systemdrawingcommon-package-and-slides-for-net6-classes-cs0433-the-type-exists-in-both-slides-and-systemdrawingcommon-error)。
+**解决方案**：您可以使用 extern alias 来解决该问题。请参见 [**使用 System.Drawing.Common 包和 Slides for .NET6 类（CS0433：类型在 Slides 和 System.Drawing.Common 中都存在的错误**)](https://docs.aspose.com/slides/net/net6/#using-systemdrawingcommon-in-the-same-project-cs0433)。
 
 Slides 团队正在处理将产生简化和统一公共 API 的任务。
 
