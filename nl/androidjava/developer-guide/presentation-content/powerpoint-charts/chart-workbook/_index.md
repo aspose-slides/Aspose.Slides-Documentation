@@ -1,164 +1,248 @@
 ---
-title: Beheer diagramwerkboeken in presentaties op Android
-linktitle: Diagramwerkboek
+title: Beheer grafiekwerkboeken in presentaties op Android
+linktitle: Grafiekwerkboek
 type: docs
 weight: 70
 url: /nl/androidjava/chart-workbook/
 keywords:
-- diagramwerkboek
-- diagramgegevens
-- werkboekcel
+- grafiekwerkboek
+- grafiekgegevens
+- werkbladcel
 - databelabel
 - werkblad
 - gegevensbron
 - extern werkboek
 - externe gegevens
-- diagramcache
+- grafiekcache
 - werkboekherstel
 - PowerPoint
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor Android via Java: beheer moeiteloos diagramwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor Android via Java: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met chart‑werkboeken in Aspose.Slides kunt werken. Het toont hoe u diagramgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als diagramdatabelabels, werkbladcollecties kunt benaderen en het gegevenstypebron kunt specificeren voor diagramwaarden.
+Dit artikel legt uit hoe u met grafiekwerkbladen in Aspose.Slides kunt werken. Het laat zien hoe u grafiekgegevens kunt lezen en schrijven via werkblad‑streams, werkbladcellen kunt gebruiken als grafiekdatabeetiketten, toegang krijgt tot werkbladenverzamelingen en het gegevenstype voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het werken met externe werkboeken als diagram‑gegevensbronnen. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een diagram is gekoppeld opvraagt en diagramgegevens bewerkt wanneer het werkboek beschikbaar is.
+Het behandelt ook het werken met externe werkbladen als gegevensbron voor grafieken. De voorbeelden tonen hoe u een extern werkblad kunt maken en toewijzen, het pad van een extern werkblad dat aan een grafiek is gekoppeld kunt opvragen, en grafiekgegevens kunt bewerken wanneer het werkblad beschikbaar is.
 
-Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [De weergave van lege cellen regelen](/slides/nl/androidjava/chart-series/) voor het verschil tussen een lege cel en nul, en een lijndiagram‑vergelijking van de beschikbare weergavemodi.
+Voor werkbladcellen die ontbrekende gegevens vertegenwoordigen, zie [Regel de weergave van lege cellen](/slides/nl/androidjava/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiekvergelijking van de beschikbare weergavemodi.
 
-## **Diagramgegevens lezen en schrijven vanuit een werkboek**
-Aspose.Slides biedt de [ReadWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) en [WriteWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methoden die u in staat stellen diagram‑werkboeken (die diagramgegevens bevatten die met Aspose.Cells zijn bewerkt) te lezen en te schrijven. **Opmerking** dat de diagramgegevens op dezelfde manier moeten zijn georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
+## **Gegevens opnemen uit verborgen rijen en kolommen**
 
-Deze Java‑code toont een voorbeeldbewerking:
+Gebruik [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) om te bepalen of een grafiek gegevens plot uit verborgen werkbladrijen en -kolommen. Stel in op `true` om alleen zichtbare cellen te plotten, of op `false` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling regelt het plotten van de grafiek; hij verbergt of toont geen werkbladrijen of -kolommen.
+
+Download [hidden-source-data.pptx](hidden-source-data.pptx) en plaats het in de werkmap. De eerste dia bevat een kolomgrafiek als eerste vorm. Het ingebedde werkblad, `Sheet1`, bevat het volgende bronbereik, `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
+
+| Werkbladrij | A: Maand | B: Detailhandel | C: Groothandel (verborgen kolom) |
+| --- | --- | --- | --- |
+| 2 | januari | 10 | 30 |
+| 3 (verborgen rij) | februari | 40 | 60 |
+| 4 | maart | 20 | 50 |
+
+Toegang tot broncellen via [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) en lees [IChartDataCell.isHidden](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) om hun verborgen status te inspecteren. Deze methode meldt de verborgen status zonder deze te wijzigen. In dit bestand is B2 zichtbaar, B3 behoort tot de verborgen rij, en C2 tot de verborgen kolom; het voorbeeld print respectievelijk `false`, `true` en `true`.
+
+Voor dit voorbeeld, ververst u de grafiekgegevens na het wijzigen van de plotinstelling: behoud het ingebedde werkblad met [readWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) en laad het opnieuw met [writeWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-). Bij het opnemen van alle cellen gebruikt u tevens [setRange](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) om het volledige bereik, inclusief de verborgen februari‑categorie, te herstellen. Alleen de vlag wijzigen is onvoldoende om de in dit voorbeeld gecachete grafiek‑ en categorielabels te vernieuwen.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("hidden-source-data.pptx");
 try {
-    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartData data = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    byte[] stream = data.readWorkbookStream();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        System.out.println("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        System.out.println("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        System.out.println("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
 
-    data.getSeries().clear();
-    data.getCategories().clear();
+        byte[] workbookData = chart.getChartData().readWorkbookStream();
+        for (boolean visibleOnly : new boolean[] { true, false }) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
 
-    data.writeWorkbookStream(stream);
+            // Ververs de grafiekgegevens van het ingebedde werkblad.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Herstel het volledige bronbereik, inclusief verborgen categorieën.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Diagramindeling valideren na wijziging van werkboek**
+Het voorbeeld slaat `hidden_cells_true.pptx` op met alleen de zichtbare detailhandelswaarden (10 en 20), en `hidden_cells_false.pptx` met alle zes waarden. De afbeeldingen hieronder illustreren de twee plotmodi. Rij 3 en kolom C blijven verborgen in beide ingebedde werkbladen.
 
-Wanneer u een ingebed werkboek vervangt door een aangepast werkboek, behoudt het diagram de oorspronkelijke reeks‑ en categorie‑collecties. Deze mismatch kan ertoe leiden dat [IChart.validateChartLayout](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChart#validateChartLayout--) faalt met een index‑out‑of‑range‑fout. Maak de bestaande reeksen en categorieën leeg voordat u het bijgewerkte werkboek terugschrijft naar het diagram.
+| Alleen zichtbare cellen (`true`) | Alle cellen (`false`) |
+| --- | --- |
+| ![Alleen zichtbare cellen: detailhandelswaarden 10 en 20 voor januari en maart.](hidden_cells_True.png) | ![Alle cellen: detailhandels‑ en groothandelswaarden voor januari, februari en maart.](hidden_cells_False.png) |
 
-```java
-// Na het wijzigen van de werkboekstream (bijv. met Aspose.Cells)
-byte[] updatedWorkbook = chartData.readWorkbookStream();
+Een verborgen cel met een waarde verschilt van een lege cel. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) bepaalt hoe ontbrekende waarden worden weergegeven; hij neemt geen verborgen brongegevens op of sluit ze uit. Zie [Regel de weergave van lege cellen](/slides/nl/androidjava/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
 
-// Verwijder bestaande gegevensreferenties.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+## **Grafiekgegevens lezen en schrijven vanuit een werkblad**
 
-chartData.writeWorkbookStream(updatedWorkbook);
+Aspose.Slides for Android via Java biedt de [readWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) methoden waarmee u grafiek‑werkbladen (die grafiekgegevens bevatten bewerkt met Aspose.Cells) kunt lezen en schrijven. **Opmerking**: de grafiekgegevens moeten op dezelfde manier zijn georganiseerd of een structuur hebben die vergelijkbaar is met de bron.
 
-chart.validateChartLayout();
-```
-
-Het legen van de collecties zorgt ervoor dat de diagramgegevensstructuur consistent is met het nieuwe werkboek, zodat `validateChartLayout` zonder fouten kan worden voltooid.
-
-## **Een werkboekcel instellen als diagramdatabelabel**
-
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een Bubbeldiagram toe met enkele gegevens.  
-4. Benader de diagramreeksen.  
-5. Stel de werkboekcel in als databelabel.  
-6. Sla de presentatie op.
-
-Deze Java‑code laat zien hoe u een werkboekcel als diagramdatabelabel instelt:
+Dit voorbeeld opent `chart.pptx`, dat een grafiek moet bevatten als eerste vorm op de eerste dia. Het leest het ingebedde werkblad in een byte‑array, wist de bestaande series en categorieën, en schrijft hetzelfde werkblad terug. De wijzigingen blijven alleen in het geheugen; het voorbeeld slaat de presentatie niet op.
 
 ```java
-// Instantieert een presentatieklasse die een presentatiebestand voorstelt
 import com.aspose.slides.*;
 
-String lbl0 = "Label 0 cell value";
-String lbl1 = "Label 1 cell value";
-String lbl2 = "Label 2 cell value";
-
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation("chart2.pptx");
+Presentation presentation = new Presentation("chart.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
 
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
 
-    pres.save("resultchart.pptx", SaveFormat.Pptx);
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+### **Grafieklay‑out valideren na bewerking van het werkblad**
+
+Wanneer u een ingebed werkblad vervangt door een aangepast werkblad, behoudt de grafiek de oorspronkelijke serie‑ en categorieverzamelingen. Deze mismatch kan ertoe leiden dat [IChart.validateChartLayout](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichart/#validateChartLayout--) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën voordat u het bijgewerkte werkblad terugschrijft naar de grafiek. Dit voorbeeld vereist `chart.pptx` met een grafiek als eerste vorm op de eerste dia. De commentaarregels markeren waar de bewerking van het werkblad zou plaatsvinden; het uitvoerbare voorbeeld schrijft het oorspronkelijke werkblad terug en valideert de lay‑out in het geheugen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
+
+        // Pas hier de werkboekbytes aan, bijvoorbeeld met Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Het wissen van de verzamelingen verwijdert verouderde gegevensreferenties voordat het werkblad wordt teruggeschreven. Bouw eventuele vereiste serie‑ en categorietoewijzingen opnieuw op voor het bijgewerkte werkblad voordat u de grafiek gebruikt.
+
+## **Een werkbladcel instellen als grafiekdatabelabel**
+
+U kunt tekst uit werkbladcellen gebruiken als grafiekdatabelabels. De volgende stappen tonen hoe u de labels in een bubbelsgrafiek koppelt aan cellen in het bijbehorende gegevens‑werkblad.
+
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) klasse.
+2. Open de eerste dia op basis van de nul‑gebaseerde index.
+3. Voeg een bubbelsgrafiek toe met standaardgegevens.
+4. Open de grafiekseries.
+5. Stel de werkbladcel in als databelabel.
+6. Sla de presentatie op.
+
+Dit voorbeeld opent `chart2.pptx`, dat minstens één dia moet bevatten, en voegt een bubbelsgrafiek toe met standaardgegevens. Het gebruikt cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste serie, schakelt labels vanuit cellen in, en slaat het resultaat op als `resultchart.pptx`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart2.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
+
+    presentation.save("resultchart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Werkbladen beheren**
 
-Deze Java‑code demonstreert een bewerking waarbij de [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--)‑methode wordt gebruikt om een werkbladcollectie te benaderen:
+De methode [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) biedt toegang tot de werkbladen in een grafiek‑werkboek. Dit voorbeeld maakt een taartgrafiek met standaardgegevens en drukt elke werkbladnaam af naar de console.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
-    for (int i = 0; i < wb.getWorksheets().size(); i++)
-        System.out.println(wb.getWorksheets().get_Item(i).getName());
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (int i = 0; i < workbook.getWorksheets().size(); i++) {
+        System.out.println(workbook.getWorksheets().get_Item(i).getName());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Gegevenstypebron specificeren**
+## **Gegevenstype van de gegevensbron opgeven**
 
-Deze Java‑code toont hoe u een type voor een gegevensbron kunt specificeren:
+Dit voorbeeld maakt een 3D‑kolomgrafiek met standaardgegevens en stelt twee serienamen in via verschillende gegevensbronnen. De eerste naam wordt ingesteld met een tekenreeks‑literal; de tweede met cel C1 op werkblad 0. De enumeratie [DataSourceType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/datasourcetype/) bepaalt de bron voor elke naam. Het resultaat wordt opgeslagen als `pres.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("LiteralString");
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue literalName = chart.getChartData().getSeries().get_Item(0).getName();
 
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
+    literalName.setDataSourceType(DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IStringChartValue cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    IChartDataCell nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Detecteer niet‑ondersteunde ingesloten werkboekformaten**
+## **Detecteren van niet‑ondersteunde ingebedde werkbladformaten**
 
-Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet, dat in sommige diagrammen kan worden ingebed. U kunt de `getEmbeddedWorkbookType`‑methode op [IChartData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChartData) gebruiken in combinatie met de [WorkbookType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/WorkbookType)‑enumeratie om niet‑ondersteunde formaten te detecteren en die diagrammen over te slaan.
+Aspose.Slides ondersteunt het Excel‑binaire werkbladformaat (.xlsb) niet wanneer het in sommige grafieken is ingebed. U kunt de methode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) op [IChartData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/) gebruiken samen met de enumeratie [WorkbookType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/workbooktype/) om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan. Dit voorbeeld inspecteert de vormen op de eerste dia van `sample.pptx`, slaat niet‑grafiekvormen over en drukt een diagnostisch bericht af voor elke grafiek met een ingebed .xlsb‑werkblad.
 
 ```java
 import com.aspose.slides.*;
@@ -168,177 +252,195 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     for (IShape shape : slide.getShapes()) {
-        if (!(shape instanceof IChart)) continue;
-
-        IChart chart = (IChart)shape;
-        IChartData chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Ingesloten werkboek is in .xlsb-formaat, wat niet wordt ondersteund.
+        if (!(shape instanceof IChart)) {
             continue;
         }
 
-        // Lees of wijzig hier de diagramwerkboekgegevens.
+        IChart chart = (IChart) shape;
+        IChartData chartData = chart.getChartData();
+        boolean isInternalWorkbook = chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook;
+        boolean isBinaryMacro = chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            System.out.println("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Lees of wijzig ondersteunde grafiekwerkboekgegevens hier.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Extern werkboek**
+## **Extern werkblad**
 
-Aspose.Slides ondersteunt het gebruik van externe werkboeken als gegevensbron voor diagrammen.
+Aspose.Slides ondersteunt het gebruik van externe werkbladen als gegevensbron voor grafieken.
 
-### **Extern werkboek maken**
+### **Een extern werkblad aanmaken**
 
-Met de **`readWorkbookStream`**‑ en **`setExternalWorkbook`**‑methoden kunt u ofwel een extern werkboek vanaf nul maken of een intern werkboek extern maken.
+Gebruik [readWorkbookStream](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) en [setExternalWorkbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) om een ingebed grafiek‑werkblad naar een bestand te exporteren en de grafiek aan dat externe werkblad te koppelen.
 
-Deze Java‑code toont het proces voor het maken van een extern werkboek:
+Dit voorbeeld maakt een taartgrafiek met standaardgegevens, schrijft het werkblad naar `externalWorkbook1.xlsx`, en voltooit de bestands­schrijfbewerking voordat het bestand als gegevensbron voor de grafiek wordt toegewezen. Het slaat de gekoppelde presentatie op als `externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileOutputStream;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    final String workbookPath = "externalWorkbook1.xlsx";
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
-    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
+    File workbookFile = new File("externalWorkbook1.xlsx").getAbsoluteFile();
+    byte[] workbookData = chart.getChartData().readWorkbookStream();
     try {
-        byte[] workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) fileStream.close();
+        try (FileOutputStream workbookStream = new FileOutputStream(workbookFile)) {
+            workbookStream.write(workbookData);
+        }
+        chart.getChartData().setExternalWorkbook(workbookFile.getAbsolutePath());
+        presentation.save("externalWorkbook.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("Could not write the external workbook: " + exception.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Extern werkblad instellen**
+
+Met de methode [setExternalWorkbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) kunt u een extern werkblad aan een grafiek toewijzen als diens gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkblad bij te werken (indien het bestand is verplaatst).
+
+Hoewel u de gegevens in werkbladen die op externe locaties of bronnen staan niet kunt bewerken, kunt u dergelijke werkbladen wel gebruiken als externe gegevensbron. Als een relatief pad voor een extern werkblad wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
+
+Dit voorbeeld vereist `externalWorkbook.xlsx` in de werkmap. Het werkblad met de naam `Sheet1` moet een serienaam bevatten in B1, categorienamen in A2:A4, en numerieke waarden in B2:B4. Het voorbeeld maakt een taartgrafiek, koppelt het werkblad, en gebruikt [setRange](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) om A1:B4 naar één serie en drie categorieën te mappen. Het slaat het resultaat op als `Presentation_with_externalWorkbook.pptx`.
+
+```java
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    IChartData chartData = chart.getChartData();
+    File workbookFile = new File("externalWorkbook.xlsx");
+    String workbookPath = workbookFile.getAbsolutePath();
+
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De parameter `updateChartData` van [setExternalWorkbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) bepaalt of het werkblad wordt geladen.
+
+* Wanneer `updateChartData` `false` is, wordt alleen het pad van het werkblad bijgewerkt. De grafiekgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkblad, zodat het werkblad onbeschikbaar kan zijn.
+* Wanneer `updateChartData` `true` is, worden de grafiekgegevens bijgewerkt vanuit het doel‑werkblad.
+
+Het volgende voorbeeld wijst een tijdelijke URL toe met `updateChartData` ingesteld op `false`. Het behoudt de standaardgegevens van de taartgrafiek en slaat de presentatie op zonder het onbeschikbare werkblad te laden.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Het pad van de externe gegevensbron‑werkblad van een grafiek ophalen**
+
+Om het werkblad te identificeren dat aan een grafiek is gekoppeld, controleert u eerst of de grafiek een externe gegevensbron gebruikt. Zo ja, dan kunt u het pad van het werkblad ophalen door de volgende stappen te volgen.
+
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) klasse.
+2. Open de eerste dia op basis van de nul‑gebaseerde index.
+3. Controleer of de eerste vorm een grafiek is.
+4. Lees het type gegevensbron van de grafiek.
+5. Als de bron een extern werkblad is, lees dan het pad.
+
+Dit voorbeeld opent `externalWorkbook.pptx`, aangemaakt in het vorige voorbeeld, en inspecteert de eerste vorm op de eerste dia. Als het een grafiek is die is gekoppeld aan een extern werkblad, print het voorbeeld [getExternalWorkbookPath](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) naar de console. Vervolgens wordt een kopie van de presentatie opgeslagen als `Result.pptx`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("externalWorkbook.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook) {
+            System.out.println(chartData.getExternalWorkbookPath());
+        } else {
+            System.out.println("The chart does not use an external workbook.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
     }
 
-    chart.getChartData().setExternalWorkbook(workbookPath);
-
-    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
-} catch (IOException e) {    
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Extern werkboek instellen**
+### **Grafiekgegevens bewerken**
 
-Met de **`setExternalWorkbook`**‑methode kunt u een extern werkboek aan een diagram toewijzen als diens gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het laatstgenoemde is verplaatst).
+U kunt de gegevens in externe werkbladen bewerken op dezelfde manier als u wijzigingen aanbrengt in de inhoud van interne werkbladen. Wanneer een extern werkblad niet kan worden geladen, wordt een uitzondering gegooid.
 
-Hoewel u de gegevens in werkboeken die op externe locaties of bronnen zijn opgeslagen niet direct kunt bewerken, kunt u dergelijke werkboeken wel als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
-
-Deze Java‑code laat zien hoe u een extern werkboek instelt:
+Dit voorbeeld vereist `presentation.pptx` met een grafiek als eerste vorm op de eerste dia en een toegankelijk extern werkblad. Het stelt de cel‑gebaseerde waarde van het eerste gegevenspunt in de eerste serie in op 100 en slaat de presentatie op als `presentation_out.pptx`. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand bijwerken; gebruik een kopie als u het originele werkblad moet behouden.
 
 ```java
 import com.aspose.slides.*;
 
-// Maakt een instantie van de Presentation-klasse
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
-    IChartData chartData = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    
-    pres.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-De `updateChartData`‑parameter (onder de `setExternalWorkbook`‑methode) wordt gebruikt om op te geven of een Excel‑werkboek wel of niet wordt geladen.
-
-* Wanneer `updateChartData` is ingesteld op `false`, wordt alleen het pad van het werkboek bijgewerkt — de diagramgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek. Gebruik deze instelling wanneer het doel‑werkboek niet bestaat of niet beschikbaar is.  
-* Wanneer `updateChartData` is ingesteld op `true`, worden de diagramgegevens bijgewerkt vanuit het doel‑werkboek.
-
-```java
-import com.aspose.slides.*;
-
-// Maakt een instantie van de Presentation-klasse
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-    IChartData chartData = chart.getChartData();
-
-    ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
-
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Het pad van het externe gegevensbron‑werkboek van een diagram ophalen**
-
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Maak een object voor de diagramvorm.  
-4. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van het diagram vertegenwoordigt.  
-5. Specificeer de relevante voorwaarde op basis van het bron‑type dat gelijk is aan het type van de externe werkboek‑gegevensbron.
-
-Deze Java‑code demonstreert de bewerking:
-
-```java
-import com.aspose.slides.*;
-
-// Maakt een instantie van de Presentation-klasse
-Presentation pres = new Presentation("chart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartSeriesCollection series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            IChartDataCell valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+            } else {
+                System.out.println("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            System.out.println("The chart has no data points to edit.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
     }
-	
-	// Slaat de presentatie op
-    pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Diagramgegevens bewerken**
+### **Een werkblad herstellen vanuit de grafiek‑cache**
 
-U kunt de gegevens in externe werkboeken op dezelfde manier bewerken als wanneer u de inhoud van interne werkboeken wijzigt. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
+Als een grafiek een extern werkblad gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiek‑werkblad reconstrueren vanuit de in de presentatie gecachede gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/loadoptions/) object, roep [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) aan, en stel [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) in op `true` voordat u de presentatie opent.
 
-Deze Java‑code is een implementatie van het beschreven proces:
-
-```java
-import com.aspose.slides.*;
-
-// Maakt een instantie van de Presentation-klasse
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ChartData chartData = (ChartData)chart.getChartData();
-    
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    
-    pres.save("presentation_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Een werkboek herstellen uit de diagram‑cache**
-
-Als een diagram een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het diagram‑werkboek reconstrueren uit de in de presentatie gecachte gegevens. Maak [LoadOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/loadoptions/) aan, configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/spreadsheetoptions/), en roep [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) aan met `true` vóór het openen van de presentatie.
-
-Het volgende Java‑voorbeeld opent een presentatie waarvan het diagram een niet‑beschikbaar extern werkboek verwijst en krijgt de herstelde gegevens via [IChart.getChartData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichart/#getChartData--) en [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Het volgende Java‑voorbeeld opent `presentation.pptx`, waarvan de eerste vorm op de eerste dia een grafiek moet zijn die een niet‑beschikbaar extern werkblad referentiert, en krijgt de herstelde gegevens via [IChart.getChartData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichart/#getChartData--) en [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -351,39 +453,46 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 Presentation presentation = new Presentation("presentation.pptx", loadOptions);
 try {
-    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lees of wijzig hier de herstelde werkboekgegevens.
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Lees of wijzig hier de herstelde werkboekgegevens.
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachte diagramgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die in het externe werkboek zijn aangebracht nadat de presentatie voor het laatst is bijgewerkt.
+Als het externe werkblad niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachede grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste updates van de presentatie in het externe werkblad zijn aangebracht.
 
 ## **FAQ**
 
-**Kan ik bepalen of een specifiek diagram gekoppeld is aan een extern of een ingesloten werkboek?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een extern of een ingebed werkblad?**
 
-Ja. Een diagram heeft een [data source type](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) en een [path to an external workbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); als de bron een extern werkboek is, kunt u het volledige pad uitlezen om er zeker van te zijn dat er een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) en een [path to an external workbook](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); als de bron een extern werkblad is, kunt u het volledige pad lezen om te bevestigen dat een extern bestand wordt gebruikt.
 
-**Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
+**Worden relatieve paden naar externe werkbladen ondersteund en hoe worden ze opgeslagen?**
 
-Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor project‑portabiliteit; echter, wees ervan bewust dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. De presentatie slaat het absolute pad op in het PPTX‑bestand, dus het verplaatsen van het werkblad kan vereisen dat de link wordt bijgewerkt.
 
-**Kan ik werkboeken gebruiken die zich op netwerkbronnen of shares bevinden?**
+**Kan ik werkbladen gebruiken die op netwerk‑resources of gedeelde mappen staan?**
 
-Ja, dergelijke werkboeken kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund — ze kunnen alleen als bron worden gebruikt.
+Ja, dergelijke werkbladen kunnen worden gebruikt als externe gegevensbron. Bewerken van remote werkbladen rechtstreeks vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron dienen.
 
-**Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
+**Schrijft Aspose.Slides het externe XLSX‑bestand overschreven bij het opslaan van de presentatie?**
 
-Nee. De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) op en gebruikt die voor het lezen van gegevens. Het externe bestand zelf wordt niet aangepast wanneer de presentatie wordt opgeslagen.
+De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) op. Het bewerken van cel‑gebaseerde grafiekgegevens kan ook het gekoppelde lokale XLSX‑bestand bijwerken. Gebruik een kopie van het werkblad als het origineel onveranderd moet blijven.
 
-**Wat moet ik doen als het externe bestand met een wachtwoord beveiligd is?**
+**Wat moet ik doen als het externe bestand met een wachtwoord is beschermd?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gebruikelijke aanpak is om de bescherming vooraf te verwijderen of een gedecrypteerde kopie (bijvoorbeeld met [Aspose.Cells](/cells/androidjava/)) voor te bereiden en naar die kopie te linken.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de bescherming vooraf te verwijderen of een gedecrypteerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/java/)) en die kopie te koppelen.
 
-**Kunnen meerdere diagrammen verwijzen naar hetzelfde externe werkboek?**
+**Kunnen meerdere grafieken dezelfde externe werkmap refereren?**
 
-Ja. Elk diagram slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een wijziging van dat bestand bij de volgende keer dat de gegevens worden geladen in elk diagram weerspiegeld.
+Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een wijziging van dat bestand in elke grafiek weerspiegeld bij de volgende gegevenslading.

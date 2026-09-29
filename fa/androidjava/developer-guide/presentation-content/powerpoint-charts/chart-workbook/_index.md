@@ -1,163 +1,248 @@
 ---
-title: مدیریت کتاب‌های کاری نمودار در ارائه‌ها بر روی اندروید
-linktitle: کتاب کاری نمودار
+title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها روی اندروید
+linktitle: کتاب‌کار نمودار
 type: docs
 weight: 70
 url: /fa/androidjava/chart-workbook/
 keywords:
-- کتاب کار نمودار
-- داده نمودار
-- سلول کتاب کار
+- کتاب‌کار نمودار
+- داده‌های نمودار
+- سلول کتاب‌کار
 - برچسب داده
-- کاربرگ
+- ورق‌کار
 - منبع داده
-- کتاب کار خارجی
+- کتاب‌کار خارجی
 - داده خارجی
 - کش نمودار
-- بازیابی کتاب کار
-- پاورپوینت
+- بازیابی کتاب‌کار
+- PowerPoint
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "Aspose.Slides برای اندروید با جاوا را کشف کنید: به راحتی کتاب‌های کاری نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه کنید."
+description: "Aspose.Slides for Android via Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد که چگونه با دفترچه‌های کاری نمودار در Aspose.Slides کار کنید. این مقاله نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های دفترچه کاری بخوانید و بنویسید، از سلول‌های دفترچه کاری به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های کاربرگ دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله توضیح می‌دهد که چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده‌های نمودار استفاده کنید، به مجموعه‌ورق‌های کار دسترسی داشته باشید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
 
-همچنین کار با دفترچه‌های کاری خارجی به عنوان منابع داده برای نمودارها را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک دفترچه کاری خارجی ایجاد و اختصاص دهید، مسیر یک دفترچه کاری خارجی مرتبط با یک نمودار را بازیابی کنید و داده‌های نمودار را زمانی که دفترچه کاری در دسترس است، ویرایش کنید.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. نمونه‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را بازیابی کنید و داده‌های نمودار را زمانی که کتاب‌کار در دسترس است، ویرایش کنید.
 
-برای سلول‌های دفترچه کاری که نمایانگر داده‌های گمشده هستند، مراجعه کنید به [کنترل نمایش سلول‌های خالی](/slides/fa/androidjava/chart-series/) برای تفاوت بین یک سلول خالی و صفر، و مقایسهٔ خطی نمودار برای حالت‌های نمایش موجود.
+برای سلول‌های کتاب‌کار که نمایانگر داده‌های گمشده هستند، به [کنترل نمایش سلول‌های خالی](/slides/fa/androidjava/chart-series/) مراجعه کنید تا تفاوت بین یک سلول خالی و صفر و مقایسهٔ نمودار خطی حالت‌های نمایش موجود را ببینید.
 
-## **خواندن و نوشتن داده‌های نمودار از دفترچه کاری**
-Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) را فراهم می‌کند که به شما امکان می‌دهد دفترچه‌های کاری داده‌های نمودار (شامل داده‌های نمودار ویرایش شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که داده‌های نمودار باید به همان شکل سازمان‌دهی شوند یا ساختاری مشابه منبع داشته باشند.
+## **شامل کردن داده‌ها از ردیف‌ها و ستون‌های مخفی**
 
-این کد جاوا یک عملیات نمونه را نشان می‌دهد:
+از [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) برای کنترل این که آیا یک نمودار داده‌ها را از ردیف‌ها و ستون‌های مخفی ورق‌کار ترسیم می‌کند یا نه، استفاده کنید. آن را به `true` تنظیم کنید تا فقط سلول‌های قابل مشاهده ترسیم شوند، یا به `false` تا هم سلول‌های قابل مشاهده و هم مخفی درنظر گرفته شوند. این تنظیم فقط ترسیم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های ورق کار را مخفی یا نمایان نمی‌کند.
+
+فایل [hidden-source-data.pptx](hidden-source-data.pptx) را دانلود کنید و در کتابخانهٔ کاری‌تان قرار دهید. اسلاید اول آن شامل یک نمودار ستونی به عنوان اولین شکل است. ورق‌کار توکار، `Sheet1`، بازهٔ منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها همچنان مقدار دارند.
+
+| ردیف ورق کار | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
+| --- | --- | --- | --- |
+| 2 | ژانویه | 10 | 30 |
+| 3 (ردیف مخفی) | فوریه | 40 | 60 |
+| 4 | مارس | 20 | 50 |
+
+منابع سلول‌ها را از طریق [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی پیدا کنید و با استفاده از [IChartDataCell.isHidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) وضعیت مخفی بودن آن‌ها را بررسی کنید. این متد فقط وضعیت مخفی بودن را گزارش می‌کند بدون این که آن را تغییر دهد. در این فایل، B2 قابل مشاهده است، B3 به ردیف مخفی تعلق دارد و C2 به ستون مخفی؛ مثال به ترتیب `false`، `true` و `true` را چاپ می‌کند.
+
+در این مثال، پس از تغییر تنظیم ترسیم، داده‌های نمودار را تازه کنید: کتاب‌کار توکار را با [readWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) نگه دارید و با [writeWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) دوباره بارگذاری کنید. هنگام شامل کردن همه سلول‌ها، از [setRange](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) نیز استفاده کنید تا بازهٔ کامل، شامل دستهٔ مخفی فوریه، بازگردانده شود. فقط تغییر پرچم برای تازه‌سازی داده‌های کش‌شدهٔ این نمونه کافی نیست.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("hidden-source-data.pptx");
 try {
-    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartData data = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    byte[] stream = data.readWorkbookStream();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        System.out.println("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        System.out.println("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        System.out.println("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
 
-    data.getSeries().clear();
-    data.getCategories().clear();
+        byte[] workbookData = chart.getChartData().readWorkbookStream();
+        for (boolean visibleOnly : new boolean[] { true, false }) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
 
-    data.writeWorkbookStream(stream);
+            // داده‌های نمودار را از کتاب‌کار توکار تازه کنید.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // بازهٔ منبع کامل را، شامل دسته‌های مخفی، بازگردانید.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **تایید طرح‌بندی نمودار پس از اصلاح دفترچه کاری**
+مثال `hidden_cells_true.pptx` را فقط با مقادیر خرده‌فروشی قابل مشاهده (10 و 20) ذخیره می‌کند و `hidden_cells_false.pptx` را با تمام شش مقدار. تصاویر زیر دو حالت ترسیم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار توکار مخفی می‌مانند.
 
-زمانی که یک دفترچه کاری جاسازی‌شده را با یک دفترچه اصلاح‌شده جایگزین می‌کنید، نمودار مجموعه‌های سری و دسته‌بندی اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شود که [IChart.validateChartLayout](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChart#validateChartLayout--) با خطای out‑of‑range ایندکس شکست بخورد. قبل از نوشتن دفترچه کاری بروزرسانی‌شده به نمودار، مجموعه‌های موجود سری و دسته‌بندی را پاک کنید.
+| فقط سلول‌های قابل مشاهده (`true`) | همه سلول‌ها (`false`) |
+| --- | --- |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-```java
-// پس از اصلاح جریان کتاب کار (مثلاً با استفاده از Aspose.Cells)
-byte[] updatedWorkbook = chartData.readWorkbookStream();
+یک سلول مخفی که دارای مقدار است متفاوت از یک سلول خالی است. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) کنترل می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این مورد شامل یا مستثنی کردن داده‌های منبع مخفی نمی‌شود. برای مثال به [کنترل نمایش سلول‌های خالی](/slides/fa/androidjava/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
 
-// پاک‌سازی مراجع داده‌های موجود.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
 
-chartData.writeWorkbookStream(updatedWorkbook);
+Aspose.Slides برای Android via Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) و [writeWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای داده‌های نمودار (شامل داده‌های ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که داده‌های نمودار باید به همان شیوه سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
-chart.validateChartLayout();
-```
-
-پاک‌سازی مجموعه‌ها تضمین می‌کند که ساختار دادهٔ نمودار با دفترچه کاری جدید سازگار باشد و `validateChartLayout` بدون خطا تکمیل شود.
-
-## **تنظیم سلول دفترچه کاری به عنوان برچسب داده نمودار**
-
-1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) ایجاد کنید.  
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار حبابی با داده‌هایی اضافه کنید.  
-1. به مجموعهٔ سری‌های نمودار دسترسی پیدا کنید.  
-1. سلول دفترچه کاری را به عنوان برچسب داده تنظیم کنید.  
-1. ارائه را ذخیره کنید.
-
-این کد جاوا نشان می‌دهد چگونه سلول دفترچه کاری را به عنوان برچسب دادهٔ نمودار تنظیم کنید:
+این مثال `chart.pptx` را باز می‌کند که باید یک نمودار به عنوان اولین شکل در اسلاید اول داشته باشد. کتاب‌کار توکار را به یک آرایهٔ بایت می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کتاب‌کار را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
 
 ```java
 import com.aspose.slides.*;
 
-String lbl0 = "Label 0 cell value";
-String lbl1 = "Label 1 cell value";
-String lbl2 = "Label 2 cell value";
-
-// یک کلاس ارائه را که نمایانگر فایل ارائه است ایجاد می‌کند
-Presentation pres = new Presentation("chart2.pptx");
+Presentation presentation = new Presentation("chart.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **اعتبارسنجی چیدمان نمودار پس از تغییر کتاب‌کار**
+
+هنگامی که یک کتاب‌کار توکار را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شود [IChart.validateChartLayout](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#validateChartLayout--) با خطای «index-out-of-range» شکست بخورد. قبل از نوشتن کتاب‌کار به‌روز شده به نمودار، سری‌ها و دسته‌های موجود را پاک کنید. این مثال به `chart.pptx` که شامل یک نمودار به عنوان اولین شکل در اسلاید اول است، نیاز دارد. توضیحاتی که نشان می‌دهد ویرایش کتاب‌کار کجا انجام می‌شود قرار داده شده است؛ مثال قابل اجرا کتاب‌کار اصلی را باز می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
+
+        // در اینجا بایت‌های کتاب‌کار را تغییر دهید، برای مثال با استفاده از Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+پاک‌کردن مجموعه‌ها مراجع دادهٔ منسوخ را پیش از نوشتن کتاب‌کار حذف می‌کند. قبل از استفاده از نمودار، سری‌ها و نگاشت‌های دستهٔ موردنیاز برای کتاب‌کار به‌روز شده بازسازی شوند.
+
+## **تنظیم یک سلول کتاب‌کار به عنوان برچسب داده‌ای نمودار**
+
+می‌توانید از متن سلول‌های کتاب‌کار به عنوان برچسب‌های داده‌ای نمودار استفاده کنید. مراحل زیر نشان می‌دهد چگونه برچسب‌ها را در یک نمودار حبابی به سلول‌های کتاب‌کار مرتبط کنید.
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید اول را بر حسب شاخص صفر دسترسی پیدا کنید.
+3. یک نمودار حبابی با داده‌های پیش‌فرض اضافه کنید.
+4. به سری‌های نمودار دسترسی پیدا کنید.
+5. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.
+6. ارائه را ذخیره کنید.
+
+این مثال `chart2.pptx` را باز می‌کند که باید حداقل یک اسلاید داشته باشد و یک نمودار حبابی با داده‌های پیش‌فرض اضافه می‌کند. از سلول‌های A10:A12 در ورق‌کار 0 برای اولین سه برچسب در سری اول استفاده می‌کند، برچسب‌ها از سلول‌ها فعال می‌شوند و نتیجه در `resultchart.pptx` ذخیره می‌شود.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart2.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
 
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-
-    pres.save("resultchart.pptx", SaveFormat.Pptx);
+    presentation.save("resultchart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **مدیریت کاربرگ‌ها**
+## **مدیریت ورق‌های کار**
 
-این کد جاوا عملی را نشان می‌دهد که در آن متد [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) برای دسترسی به مجموعهٔ کاربرگ‌ها استفاده می‌شود:
+متد [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) دسترسی به ورق‌های کار در یک کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر ورق کار را در کنسول چاپ می‌کند.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
-    for (int i = 0; i < wb.getWorksheets().size(); i++)
-        System.out.println(wb.getWorksheets().get_Item(i).getName());
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (int i = 0; i < workbook.getWorksheets().size(); i++) {
+        System.out.println(workbook.getWorksheets().get_Item(i).getName());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **مشخص کردن نوع منبع داده**
 
-این کد جاوا نشان می‌دهد چگونه یک نوع برای منبع داده مشخص کنید:
+این مثال یک نمودار ستونی سه‌بعدی با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با استفاده از منابع داده متفاوت تنظیم می‌کند. نام اول از یک رشتهٔ متنی استفاده می‌کند؛ نام دوم از سلول C1 در ورق‌کار 0 استفاده می‌کند. شمارندهٔ [DataSourceType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. نتیجه در `pres.pptx` ذخیره می‌شود.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("LiteralString");
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue literalName = chart.getChartData().getSeries().get_Item(0).getName();
 
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
+    literalName.setDataSourceType(DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IStringChartValue cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    IChartDataCell nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تشخیص فرمت‌های غیرقابل پشتیبانی دفترچه کاری جاسازی شده**
+## **تشخیص قالب‌های کتاب‌کار توکار پشتیبانی‌نشده**
 
-Aspose.Slides از فرمت دفترچه کاری باینری Excel (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود پشتیبانی نمی‌کند. می‌توانید از متد `getEmbeddedWorkbookType` در [IChartData](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartData) همراه با شمارش‌گر [WorkbookType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/WorkbookType) برای شناسائی فرمت‌های غیرقابل پشتیبانی و گذراندن آن نمودارها استفاده کنید.
+Aspose.Slides قالب کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها توکار شود را پشتیبانی نمی‌کند. می‌توانید از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) روی [IChartData](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/) به همراه شمارندهٔ [WorkbookType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/workbooktype/) برای تشخیص قالب‌های پشتیبانی‌نشده و پرش از آن نمودارها استفاده کنید. این مثال شکل‌های اسلاید اول `sample.pptx` را بازرسی می‌کند، اشکال غیرنمودار را نادیده می‌گیرد و برای هر نموداری که کتاب‌کار .xlsb توکار دارد، پیام تشخیصی چاپ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -167,175 +252,195 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     for (IShape shape : slide.getShapes()) {
-        if (!(shape instanceof IChart)) continue;
-
-        IChart chart = (IChart)shape;
-        IChartData chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // دفترچه کاری جاسازی‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
+        if (!(shape instanceof IChart)) {
             continue;
         }
 
-        // Read or modify the chart workbook data here.
+        IChart chart = (IChart) shape;
+        IChartData chartData = chart.getChartData();
+        boolean isInternalWorkbook = chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook;
+        boolean isBinaryMacro = chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            System.out.println("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // داده‌های کتاب‌کار نمودار پشتیبانی‌شده را در اینجا بخوانید یا اصلاح کنید.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **دفترچه کاری خارجی**
+## **کتاب‌کار خارجی**
 
-Aspose.Slides از استفاده از دفترچه‌های کاری خارجی به عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
+Aspose.Slides از استفادهٔ کتاب‌کارهای خارجی به عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
 
-### **ایجاد دفترچه کاری خارجی**
+### **ایجاد یک کتاب‌کار خارجی**
 
-با استفاده از متدهای **`readWorkbookStream`** و **`setExternalWorkbook`** می‌توانید یک دفترچه کاری خارجی را از ابتدا ایجاد کنید یا یک دفترچه کاری داخلی را به خارجی تبدیل کنید.
+از [readWorkbookStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) و [setExternalWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) برای استخراج یک کتاب‌کار توکار نمودار به یک فایل و لینک کردن نمودار به آن کتاب‌کار خارجی استفاده کنید.
 
-این کد جاوا فرآیند ایجاد دفترچه کاری خارجی را نشان می‌دهد:
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند، کتاب‌کار آن را در `externalWorkbook1.xlsx` می‌نویسد و پس از اتمام نوشتن فایل، آن را به عنوان منبع دادهٔ نمودار انتساب می‌دهد. ارائهٔ لینک‌شده در `externalWorkbook.pptx` ذخیره می‌شود.
 
 ```java
 import com.aspose.slides.*;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileOutputStream;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    final String workbookPath = "externalWorkbook1.xlsx";
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
-    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
+    File workbookFile = new File("externalWorkbook1.xlsx").getAbsoluteFile();
+    byte[] workbookData = chart.getChartData().readWorkbookStream();
     try {
-        byte[] workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) fileStream.close();
+        try (FileOutputStream workbookStream = new FileOutputStream(workbookFile)) {
+            workbookStream.write(workbookData);
+        }
+        chart.getChartData().setExternalWorkbook(workbookFile.getAbsolutePath());
+        presentation.save("externalWorkbook.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("Could not write the external workbook: " + exception.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **تنظیم یک کتاب‌کار خارجی**
+
+با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) می‌توانید یک کتاب‌کار خارجی را به عنوان منبع دادهٔ یک نمودار انتساب دهید. این متد همچنین می‌تواند مسیر کتاب‌کار خارجی را به‌روزرسانی کند (اگر کتاب‌کار به مکان دیگری منتقل شده باشد).
+
+اگرچه نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره‌شده در مکان‌های دوردست یا منابع را مستقیماً ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+
+این مثال به `externalWorkbook.xlsx` در پوشهٔ کاری نیاز دارد. ورق‌کار آن با نام `Sheet1` باید شامل یک نام سری در B1، نام‌های دسته در A2:A4 و مقادیر عددی در B2:B4 باشد. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را لینک می‌کند و با استفاده از [setRange](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) بازهٔ A1:B4 را به یک سری و سه دسته نگاشت می‌کند. نتیجه در `Presentation_with_externalWorkbook.pptx` ذخیره می‌شود.
+
+```java
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    IChartData chartData = chart.getChartData();
+    File workbookFile = new File("externalWorkbook.xlsx");
+    String workbookPath = workbookFile.getAbsolutePath();
+
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+پارامتر `updateChartData` متد [setExternalWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) کنترل می‌کند که آیا کتاب‌کار بارگذاری شود یا نه.
+
+* هنگامی که `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود. داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
+* هنگامی که `updateChartData` برابر `true` باشد، داده‌های نمودار از کتاب‌کار هدف به‌روزرسانی می‌شوند.
+
+مثال زیر یک URL جایگزین را با `updateChartData` برابر `false` تنظیم می‌کند. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شوند و ارائه بدون بارگذاری کتاب‌کار در دسترس ذخیره می‌شود.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
+
+برای شناسایی کتاب‌کاری که به یک نمودار لینک شده است، ابتدا بررسی کنید که آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند یا نه. اگر بله، می‌توانید مسیر کتاب‌کار را با انجام مراحل زیر بخوانید.
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. اسلاید اول را بر حسب شاخص صفر دسترسی پیدا کنید.
+3. اطمینان حاصل کنید که اولین شکل یک نمودار است.
+4. نوع منبع دادهٔ نمودار را بخوانید.
+5. اگر منبع یک کتاب‌کار خارجی بود، مسیر آن را بخوانید.
+
+این مثال `externalWorkbook.pptx` را که در مثال قبلی ایجاد شده است باز می‌کند و اولین شکل در اولین اسلاید را بررسی می‌کند. اگر یک نمودار لینک‌شده به کتاب‌کار خارجی باشد، مثال متد [getExternalWorkbookPath](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه را در `Result.pptx` ذخیره می‌کند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("externalWorkbook.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook) {
+            System.out.println(chartData.getExternalWorkbookPath());
+        } else {
+            System.out.println("The chart does not use an external workbook.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
     }
 
-    chart.getChartData().setExternalWorkbook(workbookPath);
-
-    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
-} catch (IOException e) {    
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **تنظیم دفترچه کاری خارجی**
-
-با استفاده از متد **`setExternalWorkbook`** می‌توانید یک دفترچه کاری خارجی را به یک نمودار به عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر دفترچه کاری خارجی (اگر جابجا شده باشد) استفاده شود.
-
-اگرچه نمی‌توانید داده‌های دفترچه‌های کاری ذخیره‌شده در مکان‌های دور یا منابع را مستقیماً ویرایش کنید، همچنان می‌توانید از چنین دفترچه‌هایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای یک دفترچه کاری خارجی فراهم شود، به‌طور خودکار به مسیر کامل تبدیل می‌شود.
-
-این کد جاوا نشان می‌دهد چگونه یک دفترچه کاری خارجی تنظیم کنید:
-
-```java
-import com.aspose.slides.*;
-
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
-    IChartData chartData = chart.getChartData();
-
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    
-    pres.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-پارامتر `updateChartData` (در زیر متد `setExternalWorkbook`) برای تعیین اینکه آیا یک دفترچه Excel بارگذاری شود یا نه استفاده می‌شود.
-
-* وقتی مقدار `updateChartData` روی `false` تنظیم شود، فقط مسیر دفترچه کاری به‌روزرسانی می‌شود—داده‌های نمودار بارگذاری یا به‌روزرسانی از دفترچه هدف نمی‌شوند. این تنظیم می‌تواند زمانی مفید باشد که دفترچه هدف موجود نباشد یا در دسترس نباشد.  
-* وقتی مقدار `updateChartData` روی `true` تنظیم شود، داده‌های نمودار از دفترچه هدف به‌روزرسانی می‌شوند.
-
-```java
-import com.aspose.slides.*;
-
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-Presentation pres = new Presentation("chart.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-    IChartData chartData = chart.getChartData();
-
-    ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
-
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **دریافت مسیر دفترچه کاری منبع داده خارجی یک نمودار**
-
-1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) ایجاد کنید.  
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک شیء برای شکل نمودار ایجاد کنید.  
-1. یک شیء برای نوع منبع (`ChartDataSourceType`) که نشان‌دهنده منبع دادهٔ نمودار است، ایجاد کنید.  
-1. شرط مربوطه را بر اساس این که نوع منبع همان نوع منبع دادهٔ دفترچه کاری خارجی باشد، مشخص کنید.
-
-این کد جاوا عملیات را نشان می‌دهد:
-
-```java
-import com.aspose.slides.*;
-
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-Presentation pres = new Presentation("chart.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
-    }
-	
-	// ارائه را ذخیره می‌کند
-    pres.save("result.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **ویرایش داده‌های نمودار**
 
-می‌توانید داده‌های دفترچه‌های کاری خارجی را به همان شیوه‌ای که محتویات دفترچه‌های داخلی را تغییر می‌دهید، ویرایش کنید. وقتی یک دفترچه کاری خارجی قابل بارگذاری نباشد، استثنا پرتاب می‌شود.
+می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همان‌گونه که داده‌های کتاب‌کارهای داخلی را ویرایش می‌کنید، تغییر دهید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنایی پرتاب می‌شود.
+
+این مثال به `presentation.pptx` که شامل یک نمودار به عنوان اولین شکل در اسلاید اول است و یک کتاب‌کار خارجی قابل دسترسی نیاز دارد. مقدار پشتیبانی‌شده از سلول اولین نقطه داده در اولین سری را به 100 تنظیم می‌کند و ارائه را در `presentation_out.pptx` ذخیره می‌کند. ویرایش مقادیر سلول می‌تواند فایل XLSX لینک‌شدهٔ خارجی را به‌روزرسانی کند، بنابراین در صورت نیاز به حفظ کتاب‌کار اصلی از یک کپی استفاده کنید.
 
 ```java
 import com.aspose.slides.*;
 
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ChartData chartData = (ChartData)chart.getChartData();
-    
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    
-    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartSeriesCollection series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            IChartDataCell valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+            } else {
+                System.out.println("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            System.out.println("The chart has no data points to edit.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **بازیابی دفترچه کاری از کش نمودار**
+### **بازیابی کتاب‌کار از کش نمودار**
 
-اگر یک نمودار از دفترچه کاری خارجی که مفقود یا در دسترس نیست استفاده کند، Aspose.Slides می‌تواند دفترچه کاری نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/) ایجاد کنید، آن را با [SpreadsheetOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه، متد [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) را با مقدار `true` صدا بزنید.
+اگر یک نمودار از کتاب‌کار خارجی که موجود نیست یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک [LoadOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/) ایجاد کنید، متد [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) را فراخوانی کنید و قبل از باز کردن ارائه، [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) را به `true` تنظیم کنید.
 
-مثال جاوای زیر یک ارائه را که نمودار آن به یک دفترچه کاری خارجی ناموجود ارجاع می‌دهد باز می‌کند و داده‌های بازیابی‌شده را از طریق [IChart.getChartData](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#getChartData--) و [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی می‌یابد:
+نمونهٔ جاوا زیر `presentation.pptx` را باز می‌کند که اولین شکل در اولین اسلاید باید یک نمودار باشد که به کتاب‌کار خارجی غیرقابل دسترس ارجاع می‌دهد، و داده‌های بازیابی‌شده را از طریق [IChart.getChartData](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#getChartData--) و [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی می‌یابد:
 
 ```java
 import com.aspose.slides.*;
@@ -348,33 +453,46 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 Presentation presentation = new Presentation("presentation.pptx", loadOptions);
 try {
-    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // داده‌های بازیابی‌شدهٔ کتاب کار را اینجا بخوانید یا اصلاح کنید.
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // داده‌های کتاب‌کار بازیابی‌شده را در اینجا بخوانید یا اصلاح کنید.
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-اگر دفترچه کاری خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. بازیابی را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شدهٔ نمودار به عنوان راه‌حل پشتیبان قابل قبول باشد، زیرا کش ممکن است شامل تغییرات انجام‌شده بر روی دفترچه کاری خارجی پس از آخرین به‌روزرسانی ارائه نشود.
+اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. فقط زمانی که استفاده از داده‌های کش‌شدهٔ نمودار یک گزینهٔ قابل قبول باشد، بازیابی را فعال کنید، زیرا کش ممکن است شامل تغییراتی که پس از آخرین به‌روزرسانی ارائه در کتاب‌کار خارجی انجام شده باشد، نباشد.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم تعیین کنم که یک نمودار خاص به یک دفترچه کاری خارجی یا جاسازی‌شده مرتبط است؟**  
-بله. یک نمودار دارای [type of data source](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) و [path to an external workbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) است؛ اگر منبع یک دفترچه کاری خارجی باشد، می‌توانید مسیر کامل را خوانده و اطمینان حاصل کنید که یک فایل خارجی استفاده می‌شود.
+**آیا می‌توانم تعیین کنم که یک نمودار خاص به کتاب‌کار خارجی یا توکار لینک شده است؟**
 
-**آیا مسیرهای نسبی به دفترچه‌های کاری خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
-بله. اگر مسیر نسبی را مشخص کنید، به‌طور خودکار به مسیر مطلق تبدیل می‌شود. این برای انتقال‌پذیری پروژه مناسب است؛ اما باید بدانید که مسیر مطلق در فایل PPTX ذخیره می‌شود.
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) و [path to an external workbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا اطمینان حاصل کنید که از یک فایل خارجی استفاده می‌شود.
 
-**آیا می‌توانم از دفترچه‌های کاری موجود در منابع/به‌اشتراک‌گذاری‌های شبکه استفاده کنم؟**  
-بله، چنین دفترچه‌هایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم دفترچه‌های کاری دور از Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به‌عنوان منبع استفاده شوند.
+**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-**آیا Aspose.Slides هنگام ذخیره‌سازی ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**  
-خیر. ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیره‌سازی ارائه تغییر نمی‌کند.
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابجایی کتاب‌کار ممکن است نیاز به به‌روزرسانی لینک داشته باشد.
 
-**اگر فایل خارجی با رمز عبور محافظت شده باشد چه باید کرد؟**  
-Aspose.Slides هنگام لینک کردن رمز عبور قبول نمی‌کند. رویکرد متداول این است که قبل از لینک کردن حفاظت را حذف کنید یا یک نسخهٔ رمزگشائی‌شده (برای مثال با استفاده از [Aspose.Cells](/cells/androidjava/)) آماده کنید و به آن نسخه لینک کنید.
+**آیا می‌توانم از کتاب‌کارهایی که روی منابع شبکه/به‌اشتراک‌گذاری قرار دارند استفاده کنم؟**
 
-**آیا چندین نمودار می‌توانند به یک دفترچه کاری خارجی اشاره کنند؟**  
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر نمودار در بارگذاری بعدی داده‌ها منعکس خواهد شد.
+بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای دوردست از Aspose.Slides پشتیبانی نمی‌شود؛ آن‌ها فقط می‌توانند به عنوان منبع استفاده شوند.
+
+**آیا Aspose.Slides هنگام ذخیرهٔ ارائه فایل XLSX خارجی را بازنویسی می‌کند؟**
+
+ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) را ذخیره می‌کند. ویرایش داده‌های نمودار پشتیبانی‌شده توسط سلول می‌تواند فایل XLSX محلی لینک‌شده را نیز به‌روزرسانی کند. اگر باید کتاب‌کار اصلی دست نخورده بماند، از یک کپی استفاده کنید.
+
+**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کاری باید انجام دهم؟**
+
+Aspose.Slides هنگام لینک کردن رمز عبور را نمی‌پذیرد. یک راه معمول این است که پیش از لینک کردن محافظت را حذف کنید یا یک کپی رمزگشایی‌شده (مثلاً با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/java/)) تهیه کنید و به آن لینک کنید.
+
+**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی ارجاع دهند؟**
+
+بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر نمودار در بارگیری بعدی داده‌ها منعکس می‌شود.

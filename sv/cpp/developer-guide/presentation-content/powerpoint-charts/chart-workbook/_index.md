@@ -1,5 +1,5 @@
 ---
-title: Hantera diagramarbetsböcker i presentationer med C++
+title: Hantera diagramarböcker i presentationer med C++
 linktitle: Diagramarbok
 type: docs
 weight: 70
@@ -8,7 +8,7 @@ keywords:
 - diagramarbok
 - diagramdata
 - arbetsbokscell
-- datamärkning
+- datapunktetikett
 - arbetsblad
 - datakälla
 - extern arbetsbok
@@ -23,76 +23,189 @@ description: "Upptäck Aspose.Slides för C++: hantera enkelt diagramarböcker i
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till kalkylarksamlingar och specificerar datakälltyp för diagramvärden.
+Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata genom arbetsbokströmmar, använder arbetsboksceller som diagramdatapunkter, får åtkomst till arbetsbladsamlingar och anger datakällans typ för diagramvärden.
 
-Den behandlar också hur du arbetar med externa arbetsböcker som diagramdatakällor. Exemplen visar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den behandlar också arbete med externa arbetsböcker som diagramdatakällor. Exemplen visar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram, och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboksceller som representerar saknad data, se [Control the Display of Empty Cells](/slides/sv/cpp/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga displaylägena.
+För arbetsboksceller som representerar saknade data, se [Control the Display of Empty Cells](/slides/sv/cpp/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
 
-## **Läsa och skriva diagramdata från en arbetsbok**
+## **Inkludera data från dolda rader och kolumner**
 
-Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramarbetsböcker (som innehåller diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste vara organiserade på samma sätt eller ha en liknande struktur som källan.
+Använd [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) för att kontrollera om ett diagram plotter data från dolda arbetsbladsrader och -kolumner. Ställ in den på `true` för att bara plotta synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagramplotting; den döljer eller visar inte arbetsbladsrader eller -kolumner.
 
-``` cpp
-#include <DOM/Chart/Chart.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
+Ladda ner [hidden-source-data.pptx](hidden-source-data.pptx) och placera den i arbetskatalogen. Dess första bild innehåller ett stapeldiagram som den första formen. Det inbäddade arbetsbladet, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+
+| Arbetsbladsrad | A: Månad | B: Detaljhandel | C: Partihandel (dolt kolumn) |
+| --- | --- | --- | --- |
+| 2 | januari | 10 | 30 |
+| 3 (dolt rad) | februari | 40 | 60 |
+| 4 | mars | 20 | 50 |
+
+Få åtkomst till källcellerna via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) och läs [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) för att undersöka deras dolda status. Denna egenskap är skrivskyddad. I den här filen är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` respektive.
+
+För detta exempel, uppdatera diagramdata efter att ha ändrat plotinställningen: behåll den inbäddade arbetsboken med [ReadWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och läs in den igen med [WriteWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). När alla celler inkluderas, använd även [SetRange](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/setrange/) för att återställa det kompletta intervallet, inklusive den dolda februari-kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempels cachade diagramdata och kategorietiketter.
+
+```cpp
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
 #include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"chart.pptx");
+auto presentation = MakeObject<Presentation>(u"hidden-source-data.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    Console::WriteLine(u"B2 hidden: {0}", workbook->GetCell(0, u"B2")->get_IsHidden());
+    Console::WriteLine(u"B3 hidden: {0}", workbook->GetCell(0, u"B3")->get_IsHidden());
+    Console::WriteLine(u"C2 hidden: {0}", workbook->GetCell(0, u"C2")->get_IsHidden());
 
-auto chart = System::ExplicitCast<Chart>(pres->get_Slide(0)->get_Shape(0));
-auto data = chart->get_ChartData();
+    auto workbookStream = chart->get_ChartData()->ReadWorkbookStream();
+    for (auto visibleOnly : {true, false})
+    {
+        chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-auto = data->ReadWorkbookStream();
-data->get_Series()->Clear();
-data->get_Categories()->Clear();
+        // Uppdatera diagramdata från den inbäddade arbetsboken.
+        workbookStream->set_Position(0);
+        chart->get_ChartData()->WriteWorkbookStream(workbookStream);
+        if (!visibleOnly)
+        {
+            // Återställ hela källintervallet, inklusive dolda kategorier.
+            chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
+        }
 
-stream->set_Position(0);
-data->WriteWorkbookStream(stream);
+        auto outputPath = visibleOnly ? u"hidden_cells_True.pptx" : u"hidden_cells_False.pptx";
+        presentation->Save(outputPath, Export::SaveFormat::Pptx);
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
+```
+
+Exemplet sparar `hidden_cells_True.pptx` med endast de synliga detaljhandelsvärdena (10 och 20), och `hidden_cells_False.pptx` med alla sex värden. Bilderna nedan illustrerar de två plottningslägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+
+| Endast synliga celler (`true`) | Alla celler (`false`) |
+| --- | --- |
+| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för januari och mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandel- och partihandelsvärden för januari, februari och mars.](hidden_cells_False.png) |
+
+En dold cell som innehåller ett värde är annorlunda än en tom cell. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/get_displayblanksas/) styr hur saknade värden visas; den inkluderar inte eller exkluderar inte dold källdata. Se [Control the Display of Empty Cells](/slides/sv/cpp/chart-series/#control-the-display-of-empty-cells) för ett exempel.
+
+## **Läs och skriv diagramdata från en arbetsbok**
+
+Aspose.Slides for C++ tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste organiseras på samma sätt eller ha en struktur som liknar källan.
+
+Detta exempel öppnar `chart.pptx`, som måste innehålla ett diagram som den första formen på dess första bild. Det läser den inbäddade arbetsboken till ett flöde, rensar befintliga serier och kategorier och skriver tillbaka samma arbetsbok. Ändringarna förblir i minnet; exemplet sparar inte presentationen.
+
+```cpp
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"chart.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto chartData = chart->get_ChartData();
+    auto workbookStream = chartData->ReadWorkbookStream();
+
+    chartData->get_Series()->Clear();
+    chartData->get_Categories()->Clear();
+
+    workbookStream->set_Position(0);
+    chartData->WriteWorkbookStream(workbookStream);
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
 ### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie- och kategorisamlingar. Denna mismatch kan leda till att [IChart::ValidateChartLayout](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/validatechartlayout/) misslyckas med ett index-out-of-range‑fel. Rensa de befintliga serierna och kategorierna innan du skriver den uppdaterade arbetsboken tillbaka till diagrammet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie- och kategori‑samlingar. Detta mismatch kan få [IChart::ValidateChartLayout](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/validatechartlayout/) att misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel kräver `chart.pptx` med ett diagram som den första formen på dess första bild. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
 
 ```cpp
-// Efter att ha modifierat arbetsboksströmmen (t.ex. med Aspose.Cells)
-auto updatedWorkbook = chartData->ReadWorkbookStream();
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
-// Rensa befintliga datareferenser.
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-updatedWorkbook->set_Position(0);
-chartData->WriteWorkbookStream(updatedWorkbook);
+auto presentation = MakeObject<Presentation>(u"chart.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto chartData = chart->get_ChartData();
+    auto workbookStream = chartData->ReadWorkbookStream();
 
-chart->ValidateChartLayout();
+    // Modifiera arbetsboksströmmen här, till exempel med Aspose.Cells.
+
+    chartData->get_Series()->Clear();
+    chartData->get_Categories()->Clear();
+
+    workbookStream->set_Position(0);
+    chartData->WriteWorkbookStream(workbookStream);
+    chart->ValidateChartLayout();
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-Att rensa samlingarna säkerställer att diagramdatans struktur är konsekvent med den nya arbetsboken, vilket gör att `ValidateChartLayout` kan slutföras utan fel.
+Att rensa samlingarna tar bort föråldrade datreferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella serier och kategorimappningar för den uppdaterade arbetsboken innan du använder diagrammet.
 
-## **Ange en arbetsbokscell som diagramdatamärkning**
+## **Ange en arbetsbokscell som diagramdatapunktetikett**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) .
-2. Hämta en referens till en bildruta via dess index.
-3. Lägg till ett bubbeldiagram med viss data.
-4. Kom åt diagramserierna.
-5. Ange arbetsbokscellen som en datamärkning.
+Du kan använda text från arbetsboksceller som diagramdatapunktetiketter. Följande steg visar hur man länkar etiketterna i ett bubbeldiagram till celler i dess datarbetsbok.
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+2. Åtkomst till den första bilden via dess nollbaserade index.
+3. Lägg till ett bubbeldiagram med standarddata.
+4. Åtkomst till diagramserien.
+5. Ange arbetsbokscellen som en datapunktetikett.
 6. Spara presentationen.
 
-Denna C++‑kod visar hur du anger en arbetsbokscell som en diagramdatamärkning:
+Detta exempel öppnar `chart2.pptx`, som måste innehålla minst en bild, och lägger till ett bubbeldiagram med standarddata. Det använder cellerna A10:A12 på arbetsblad 0 för de tre första etiketterna i den första serien, aktiverar etiketter från celler och sparar resultatet till `resultchart.pptx`.
 
-``` cpp
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
@@ -105,43 +218,37 @@ Denna C++‑kod visar hur du anger en arbetsbokscell som en diagramdatamärkning
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-System::String lbl0 = u"Label 0 cell value";
-System::String lbl1 = u"Label 1 cell value";
-System::String lbl2 = u"Label 2 cell value";
+auto presentation = MakeObject<Presentation>(u"chart2.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Instansierar en Presentation-klass som representerar en presentationsfil 
-auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
+auto chart = slide->get_Shapes()->AddChart(ChartType::Bubble, 50, 50, 600, 400, true);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-auto slide = pres->get_Slides()->idx_get(0);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLabelValueFromCell(true);
+auto firstLabelCell = workbook->GetCell(0, u"A10", ObjectExt::Box<String>(u"Label 0 cell value"));
+auto secondLabelCell = workbook->GetCell(0, u"A11", ObjectExt::Box<String>(u"Label 1 cell value"));
+auto thirdLabelCell = workbook->GetCell(0, u"A12", ObjectExt::Box<String>(u"Label 2 cell value"));
+series->get_Labels()->idx_get(0)->set_ValueFromCell(firstLabelCell);
+series->get_Labels()->idx_get(1)->set_ValueFromCell(secondLabelCell);
+series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Bubble, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto series = chart->get_ChartData()->get_Series();
-
-series->idx_get(0)->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLabelValueFromCell(true);
-
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
-
-series->idx_get(0)->get_Labels()->idx_get(0)->set_ValueFromCell(wb->GetCell(0, u"A10", System::ObjectExt::Box<System::String>(lbl0)));
-series->idx_get(0)->get_Labels()->idx_get(1)->set_ValueFromCell(wb->GetCell(0, u"A11", System::ObjectExt::Box<System::String>(lbl1)));
-series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u"A12", System::ObjectExt::Box<System::String>(lbl2)));
-
-pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
+presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Hantera kalkylblad**
+## **Hantera arbetsblad**
 
-Denna C++‑kod demonstrerar en operation där metoden [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) används för att få åtkomst till en kalkylarksamling:
+Metoden [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) ger åtkomst till arbetsbladen i ett diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje arbetsbladsnamn till konsolen.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataWorkbook.h>
@@ -150,312 +257,346 @@ Denna C++‑kod demonstrerar en operation där metoden [IChartDataWorkbook::get_
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
-#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto worksheets = workbook->get_Worksheets();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-for (auto ws : System::IterateOver(worksheets))
-    System::Console::WriteLine(ws->get_Name());
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 500);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
+{
+    Console::WriteLine(workbook->get_Worksheets()->idx_get(i)->get_Name());
+}
 ```
 
-## **Specificera datakälltyp**
+## **Ange datakällans typ**
 
-Denna C++‑kod visar hur du specificerar en typ för en datakälla:
+Detta exempel skapar ett 3D‑stapeldiagram med standarddata och sätter två serienamn med olika datakällor. Det första namnet använder en strängliteral; det andra använder cell C1 på arbetsblad 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/datasourcetype/) väljer källan för varje namn. Resultatet sparas till `pres.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/DataSourceType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IStringChartValue.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto chartData = chart->get_ChartData();
-auto val = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 50, 50, 600, 400, true);
+auto literalName = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
 
-val->set_DataSourceType(DataSourceType::StringLiterals);
-val->set_Data(System::ObjectExt::Box<System::String>(u"LiteralString"));
-val = chartData->get_Series()->idx_get(1)->get_Name();
-val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NewCell")));
+literalName->set_DataSourceType(DataSourceType::StringLiterals);
+literalName->set_Data(ObjectExt::Box<String>(u"LiteralString"));
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto cellName = chart->get_ChartData()->get_Series()->idx_get(1)->get_Name();
+auto nameCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, u"C1", ObjectExt::Box<String>(u"NewCell"));
+cellName->set_DataSourceType(DataSourceType::Worksheet);
+cellName->set_Data(nameCell);
+
+presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Upptäck ej stödda inbäddade arbetsboksformat**
+## **Detektera ej stödda inbäddade arbetsbokformat**
 
-Aspose.Slides stöder inte Excel‑binärarbetsboksformatet (.xlsb) som kan bäddas in i vissa diagram. Du kan använda metoden `get_EmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram.
+Aspose.Slides stödjer inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda metoden [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) på [IChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/workbooktype/) för att detektera ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i `sample.pptx`, hoppar över icke‑diagramformer och skriver ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/WorkbookType.h>
 #include <DOM/IChart.h>
-#include <DOM/ISlide.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/IShape.h>
 #include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
+#include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+for (auto shape : IterateOver(slide->get_Shapes()))
 {
-    if (!System::ObjectExt::Is<IChart>(shape))
+    auto chart = AsCast<IChart>(shape);
+    if (chart == nullptr)
     {
         continue;
     }
 
-    auto chart = System::ExplicitCast<IChart>(shape);
     auto chartData = chart->get_ChartData();
+    auto isInternalWorkbook = chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook;
+    auto isBinaryMacro = chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro;
 
-    if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
-        chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
+    if (isInternalWorkbook && isBinaryMacro)
     {
-        // Inbäddad arbetsbok är i .xlsb-format, vilket inte stöds.
+        Console::WriteLine(u"Skipping a chart with an unsupported .xlsb workbook.");
         continue;
     }
 
-    // Läs eller ändra diagramarbokens data här.
+    // Läs eller ändra stödd diagramarbokdata här.
 }
 ```
 
 ## **Extern arbetsbok**
 
-Aspose.Slides stöder att använda externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
 
 ### **Skapa en extern arbetsbok**
 
-Genom att använda metoderna **`ReadWorkbookStream`** och **`SetExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
+Använd [ReadWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [SetExternalWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
 
-Denna C++‑kod demonstrerar processen för att skapa en extern arbetsbok:
+Detta exempel skapar ett cirkeldiagram med standarddata, skriver dess arbetsbok till `externalWorkbook1.xlsx` och stänger utmatningsströmmen innan filen tilldelas som diagrammets datakälla. Det sparar den länkade presentationen till `externalWorkbook.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/io/file_mode.h>
+#include <system/io/file.h>
 #include <system/io/file_stream.h>
 #include <system/io/memory_stream.h>
 #include <system/io/path.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-const System::String workbookPath = u"externalWorkbook1.xlsx";
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600);
+auto workbookPath = IO::Path::GetFullPath(u"externalWorkbook1.xlsx");
+auto workbookStream = chart->get_ChartData()->ReadWorkbookStream();
+auto fileStream = IO::File::Create(workbookPath);
+workbookStream->CopyTo(fileStream);
+fileStream->Close();
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f);
-auto chartData = chart->get_ChartData();
-
-{
-    System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(workbookPath, System::IO::FileMode::Create);
-
-    System::ArrayPtr<uint8_t> workbookData = chartData->ReadWorkbookStream()->ToArray();
-    fileStream->Write(workbookData, 0, workbookData->get_Length());
-}
-
-chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
-
-pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
+chart->get_ChartData()->SetExternalWorkbook(workbookPath);
+presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
 ### **Ange en extern arbetsbok**
 
-Genom att använda metoden **`IChartData::SetExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden [SetExternalWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok tillhandahålls, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du ändå använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok tillhandahålls, omvandlas den automatiskt till en fullständig sökväg.
 
-Denna C++‑kod visar hur du anger en extern arbetsbok:
+Detta exempel kräver `externalWorkbook.xlsx` i arbetskatalogen. Dess arbetsblad med namn `Sheet1` måste innehålla ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [SetRange](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/setrange/) för att mappa A1:B4 till en serie och tre kategorier. Det sparar resultatet till `Presentation_with_externalWorkbook.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/io/path.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600, true);
 auto chartData = chart->get_ChartData();
+auto workbookPath = IO::Path::GetFullPath(u"externalWorkbook.xlsx");
 
-chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(u"externalWorkbook.xlsx"));
+chartData->SetExternalWorkbook(workbookPath);
+chartData->SetRange(u"Sheet1!$A$1:$B$4");
 
-chartData->get_Series()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1"), ChartType::Pie);
-auto dataPoints = chartData->get_Series()->idx_get(0)->get_DataPoints();
-auto workbook = chartData->get_ChartDataWorkbook();
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B2"));
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B3"));
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B4"));
-
-auto categories = chartData->get_Categories();
-categories->Add(workbook->GetCell(0, u"A2"));
-categories->Add(workbook->GetCell(0, u"A3"));
-categories->Add(workbook->GetCell(0, u"A4"));
-pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-`updateChartData`‑parametern (under metoden `SetExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte. 
+Parametern `updateChartData` i [SetExternalWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) styr om arbetsboken laddas.
 
-* När värdet på `updateChartData` är `false` uppdateras bara arbetsbokens sökväg – diagramdata kommer inte att laddas eller uppdateras från målarboken. Du kan vilja använda denna inställning när målarboken saknas eller är otillgänglig. 
-* När värdet på `updateChartData` är `true` uppdateras diagramdata från målarboken.
+* När `updateChartData` är `false` uppdateras endast arbetsbokssökvägen. Diagramdata laddas inte och uppdateras inte från mål‑arbetsboken, så arbetsboken kan vara otillgänglig.
+* När `updateChartData` är `true` uppdateras diagramdata från mål‑arbetsboken.
 
-```c++
-#include <DOM/Chart/ChartData.h>
+Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `false`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
+
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
-System::SharedPtr<IChartData> chartData = chart->get_ChartData();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-System::SharedPtr<ChartData> concreteChartData = System::AsCast<ChartData>(chartData);
-concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600, true);
 
-pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-workbook.xlsx", false);
+presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Hämta den externa datakällans arbetsbokssökväg för ett diagram**
+### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) .
-2. Hämta en referens till en bildruta via dess index.
-3. Skapa ett objekt för diagramformen.
-4. Skapa ett objekt för källtyp (`ChartDataSourceType`) som representerar diagrammets datakälla.
-5. Specificera det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
+För att identifiera arbetsboken som är länkad till ett diagram, kontrollera först om diagrammet använder en extern datakälla. Om så är fallet kan du hämta arbetsbokens sökväg genom att följa dessa steg.
 
-Denna C++‑kod demonstrerar operationen:
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
+2. Åtkomst till den första bilden via dess nollbaserade index.
+3. Kontrollera att den första formen är ett diagram.
+4. Läs diagrammets datakälltyp.
+5. Om källan är en extern arbetsbok, läs dess sökväg.
 
-```c++
+Detta exempel öppnar `externalWorkbook.pptx`, som skapades i det tidigare exemplet, och inspekterar den första formen på den första bilden. Om det är ett diagram länkat till en extern arbetsbok, skriver exemplet [get_ExternalWorkbookPath](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) till konsolen. Det sparar sedan en kopia av presentationen till `Result.pptx`.
+
+```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/IChart>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-auto slide = pres->get_Slides()->idx_get(1);
-auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
-ChartDataSourceType sourceType = chart->get_ChartData()->get_DataSourceType();
-if (sourceType == ChartDataSourceType::ExternalWorkbook)
+auto presentation = MakeObject<Presentation>(u"externalWorkbook.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
 {
-    System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
+    auto chartData = chart->get_ChartData();
+    if (chartData->get_DataSourceType() == ChartDataSourceType::ExternalWorkbook)
+    {
+        Console::WriteLine(chartData->get_ExternalWorkbookPath());
+    }
+    else
+    {
+        Console::WriteLine(u"The chart does not use an external workbook.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
 }
 
-// Saves the presentation
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 ```
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Denna C++‑kod är en implementation av den beskrivna processen:
+Detta exempel kräver `presentation.pptx` med ett diagram som den första formen på den första bilden och en åtkomlig extern arbetsbok. Det sätter det cell‑bakade värdet för den första datapunkten i den första serien till 100 och sparar presentationen till `presentation_out.pptx`. Redigering av cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara originalarbetsboken.
 
-```c++
-#include <DOM/Chart/Chart.h>
-#include <DOM/Chart/ChartData.h>
+```cpp
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
 #include <DOM/Chart/IChartDataPoint.h>
 #include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IDoubleChartValue.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
 using namespace System;
 
-const String templatePath = u"../templates/presentation.pptx";
-	const String outPath = u"../out/presentation-out.pptx";
-	
-
-	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
-	
-
-	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto series = chart->get_ChartData()->get_Series();
+    if (series->get_Count() > 0 && series->idx_get(0)->get_DataPoints()->get_Count() > 0)
+    {
+        auto valueCell = series->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell();
+        if (valueCell != nullptr)
+        {
+            valueCell->set_Value(ObjectExt::Box<int32_t>(100));
+            presentation->Save(u"presentation_out.pptx", Export::SaveFormat::Pptx);
+        }
+        else
+        {
+            Console::WriteLine(u"The first data point is not linked to a workbook cell.");
+        }
+    }
+    else
+    {
+        Console::WriteLine(u"The chart has no data points to edit.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
 ### **Återskapa en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides återskapa diagramarboken från de data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/), konfigurera den med [set_SpreadsheetOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), och anropa [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) med `true` innan presentationen öppnas.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides återskapa diagramarboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/), konfigurera den med [set_SpreadsheetOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), och anropa [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) med `true` innan du öppnar presentationen.
 
-Följande C++‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till den återställda datan via [IChart::get_ChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/get_chartdata/) och [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Följande C++‑exempel öppnar `presentation.pptx`, vars första form på den första bilden måste vara ett diagram som refererar till en otillgänglig extern arbetsbok, och får åtkomst till den återställda datan via [IChart::get_ChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/get_chartdata/) och [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
 spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
 
@@ -463,41 +604,44 @@ auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
 
 auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-auto chart = System::ExplicitCast<IChart>(shape);
-
-auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
-
-// Read or modify the recovered workbook data here.
-
-presentation->Dispose();
+    // Läs eller modifiera de återställda arbetsboksdata här.
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett `System::InvalidOperationException`. Aktivera återställning endast när det är acceptabelt att använda cachelagrad diagramdata som en reserv, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett [System::InvalidOperationException](https://reference.aspose.com/slides/sv/cpp/system/details_invalidoperationexception/). Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att försäkra dig om att en extern fil används.
+Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); om källan är en extern arbetsbok kan du läsa hela sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är bekvämt för projektportabilitet; dock bör du vara medveten om att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
+Ja. Om du anger en relativ sökväg omvandlas den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytta arbetsboken kan kräva en uppdatering av länken.
 
 **Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Däremot stöds inte direkt redigering av fjärrarbetsböcker från Aspose.Slides – de kan endast användas som källa.
 
-**Skriver Aspose.Slides över den externa XLSX‑filen vid sparande av presentationen?**
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
+Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Redigering av cell‑bakad diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
 
-**Vad bör jag göra om den externa filen är lösenordsskyddad?**
+**Vad ska jag göra om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inget lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/cpp/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig strategi är att i förväg ta bort skyddet eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att reflekteras i varje diagram nästa gång data laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.

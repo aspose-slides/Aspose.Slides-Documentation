@@ -1,65 +1,50 @@
 ---
-title: Mengelola Buku Kerja Diagram dalam Presentasi Menggunakan Python via Java
-linktitle: Buku Kerja Diagram
+title: Kelola Workbook Chart dalam Presentasi Menggunakan Python via Java
+linktitle: Workbook Chart
 type: docs
 weight: 70
 url: /id/python-java/chart-workbook/
 keywords:
-- buku kerja diagram
-- data diagram
-- sel buku kerja
+- workbook chart
+- data chart
+- sel workbook
 - label data
 - lembar kerja
 - sumber data
-- buku kerja eksternal
+- workbook eksternal
 - data eksternal
-- cache diagram
-- pemulihan buku kerja
+- cache chart
+- pemulihan workbook
 - PowerPoint
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk Python via Java: kelola buku kerja diagram dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
+description: "Temukan Aspose.Slides untuk Python via Java: kelola workbook chart secara mudah di format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara bekerja dengan buku kerja diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data diagram, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai diagram.
+Artikel ini menjelaskan cara bekerja dengan workbook chart di Aspose.Slides. Ini menunjukkan cara membaca dan menulis data chart melalui aliran workbook, menggunakan sel workbook sebagai label data chart, mengakses koleksi worksheet, dan menentukan tipe sumber data untuk nilai chart.
 
-Artikel ini juga mencakup penggunaan buku kerja eksternal sebagai sumber data diagram. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke diagram, serta mengedit data diagram ketika buku kerja tersedia.
+Artikel ini juga membahas penggunaan workbook eksternal sebagai sumber data chart. Contoh‑contoh memperlihatkan cara membuat dan menetapkan workbook eksternal, mengambil jalur workbook eksternal yang terhubung ke chart, serta mengedit data chart ketika workbook tersedia.
 
-Untuk sel buku kerja yang mewakili data yang hilang, lihat [Control the Display of Empty Cells](/slides/id/python-java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan diagram garis dari mode tampilan yang tersedia.
+Untuk sel workbook yang mewakili data yang hilang, lihat [Control the Display of Empty Cells](/slides/id/python-java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan diagram garis dari mode tampilan yang tersedia.
 
-## **Baca dan Tulis Data Diagram dari Buku Kerja**
+## **Sertakan Data dari Baris dan Kolom Tersembunyi**
 
-Aspose.Slides menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda membaca dan menulis buku kerja data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
+Gunakan [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) untuk mengontrol apakah chart memplot data dari baris dan kolom worksheet yang tersembunyi. Setel ke `True` untuk memplot hanya sel yang terlihat, atau `False` untuk menyertakan sel yang terlihat dan tersembunyi. Pengaturan ini mengontrol pemetaan chart; tidak menyembunyikan atau menampilkan kembali baris atau kolom worksheet.
 
-Kode Python ini mendemonstrasikan operasi contoh:
+Unduh [hidden-source-data.pptx](hidden-source-data.pptx) dan letakkan di direktori kerja. Slide pertama berisi diagram kolom sebagai bentuk pertama. Worksheet yang tersemat, `Sheet1`, berisi rentang sumber berikut, `A1:C4`. Baris 3 dan kolom C tersembunyi, tetapi sel‑selnya masih berisi nilai.
 
-```python
-import jpype
-import asposeslides
+| Baris Worksheet | A: Bulan | B: Ritel | C: Grosir (kolom tersembunyi) |
+| --- | --- | --- | --- |
+| 2 | Januari | 10 | 30 |
+| 3 (baris tersembunyi) | Februari | 40 | 60 |
+| 4 | Maret | 20 | 50 |
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+Akses sel sumber melalui [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getChartDataWorkbook) dan baca [ChartDataCell.isHidden](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdatacell/#isHidden) untuk memeriksa status tersembunyi mereka. Metode ini melaporkan status tersembunyi tanpa mengubahnya. Pada file ini, B2 terlihat, B3 termasuk dalam baris tersembunyi, dan C2 termasuk dalam kolom tersembunyi; contoh mencetak `False`, `True`, dan `True` secara berurutan.
 
-from asposeslides.api import Presentation
-
-presentation = Presentation("chart.pptx")
-try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
-    workbook_data = chart_data.readWorkbookStream()
-    chart_data.getSeries().clear()
-    chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(workbook_data)
-finally:
-    presentation.dispose()
-```
-
-### **Validasi Tata Letak Diagram Setelah Modifikasi Buku Kerja**
-
-Ketika Anda mengganti buku kerja tertanam dengan yang sudah dimodifikasi, diagram tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart.validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) melempar `ArgumentOutOfRangeException` (parameter: index). Untuk menghindari pengecualian, bersihkan seri dan kategori yang ada **sebelum** menulis kembali buku kerja yang diperbarui ke diagram.
+Untuk contoh ini, segarkan data chart setelah mengubah pengaturan pemetaan: pertahankan workbook tersemat dengan [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan muat ulang dengan [writeWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#writeWorkbookStream). Saat menyertakan semua sel, gunakan juga [setRange](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setRange) untuk memulihkan rentang lengkap, termasuk kategori Februari yang tersembunyi. Mengubah flag saja tidak cukup untuk menyegarkan data chart yang di‑cache dalam contoh ini dan label kategori.
 
 ```python
 import jpype
@@ -68,39 +53,130 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-from pathlib import Path
-
-# Baca buku kerja setelah memodifikasinya (mis., menggunakan Aspose.Cells).
-updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
-
-presentation = Presentation("chart.pptx")
+presentation = Presentation("hidden-source-data.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
+    slide = presentation.getSlides().get_Item(0)
 
-    # Hapus referensi data yang ada.
-    chart_data.getSeries().clear()
-    chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
-    chart.validateChartLayout()
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        workbook = chart.getChartData().getChartDataWorkbook()
+        print("B2 hidden:", workbook.getCell(0, "B2").isHidden())
+        print("B3 hidden:", workbook.getCell(0, "B3").isHidden())
+        print("C2 hidden:", workbook.getCell(0, "C2").isHidden())
+
+        workbook_data = chart.getChartData().readWorkbookStream()
+        for visible_only in (True, False):
+            chart.setPlotVisibleCellsOnly(visible_only)
+
+            # Segarkan data chart dari workbook yang tersemat.
+            chart.getChartData().writeWorkbookStream(workbook_data)
+            if not visible_only:
+                # Pulihkan rentang sumber lengkap, termasuk kategori yang tersembunyi.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4")
+
+            presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Membersihkan koleksi memastikan struktur data diagram selaras dengan buku kerja baru, sehingga [validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) dapat selesai tanpa kesalahan.
+Contoh menyimpan `hidden_cells_True.pptx` hanya dengan nilai Ritel yang terlihat (10 dan 20), dan `hidden_cells_False.pptx` dengan semua enam nilai. Gambar di bawah mengilustrasikan dua mode pemetaan. Baris 3 dan kolom C tetap tersembunyi di kedua workbook tersemat.
 
-## **Atur Sel Buku Kerja sebagai Label Data Diagram**
+| Hanya sel yang terlihat (`True`) | Semua sel (`False`) |
+| --- | --- |
+| ![Hanya sel yang terlihat: nilai Ritel 10 dan 20 untuk Januari dan Maret.](hidden_cells_True.png) | ![Semua sel: nilai Ritel dan Grosir untuk Januari, Februari, dan Maret.](hidden_cells_False.png) |
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan diagram gelembung dengan beberapa data.
-1. Akses seri diagram.
-1. Atur sel buku kerja sebagai label data.
-1. Simpan presentasi.
+Sel tersembunyi yang berisi nilai berbeda dari sel kosong. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#setDisplayBlanksAs) mengontrol cara nilai yang hilang ditampilkan; tidak menyertakan atau mengecualikan data sumber yang tersembunyi. Lihat [Control the Display of Empty Cells](/slides/id/python-java/chart-series/#control-the-display-of-empty-cells) untuk contoh.
 
-Kode Python ini menunjukkan cara mengatur sel buku kerja sebagai label data diagram:
+## **Baca dan Tulis Data Chart dari Workbook**
+
+Aspose.Slides for Python via Java menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda membaca dan menulis workbook data chart (yang berisi data chart yang diedit dengan Aspose.Cells). **Note** bahwa data chart harus diatur dengan cara yang sama atau memiliki struktur serupa dengan sumbernya.
+
+Contoh ini membuka `chart.pptx`, yang harus berisi chart sebagai bentuk pertama pada slide pertama. Ini membaca workbook tersemat ke dalam array byte, menghapus seri dan kategori yang ada, dan menulis kembali workbook yang sama. Perubahan tetap berada di memori; contoh tidak menyimpan presentasi.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Chart, Presentation
+
+presentation = Presentation("chart.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        workbook_data = chart_data.readWorkbookStream()
+
+        chart_data.getSeries().clear()
+        chart_data.getCategories().clear()
+
+        chart_data.writeWorkbookStream(workbook_data)
+    else:
+        print("The first shape is not a chart.")
+finally:
+    presentation.dispose()
+```
+
+### **Validasi Tata Letak Chart Setelah Modifikasi Workbook**
+
+Ketika Anda mengganti workbook tersemat dengan yang dimodifikasi, chart tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart.validateChartLayout](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#validateChartLayout) gagal dengan kesalahan indeks di luar jangkauan. Hapus seri dan kategori yang ada sebelum menulis kembali workbook yang diperbarui ke chart. Contoh ini memerlukan `chart.pptx` dengan chart sebagai bentuk pertama pada slide pertama. Komentar menandai tempat penyuntingan workbook; contoh yang dapat dijalankan menulis kembali workbook asli dan memvalidasi tata letak di memori.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Chart, Presentation
+
+presentation = Presentation("chart.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        workbook_data = chart_data.readWorkbookStream()
+
+        # Modifikasi byte workbook di sini, misalnya dengan menggunakan Aspose.Cells.
+
+        chart_data.getSeries().clear()
+        chart_data.getCategories().clear()
+
+        chart_data.writeWorkbookStream(workbook_data)
+        chart.validateChartLayout()
+    else:
+        print("The first shape is not a chart.")
+finally:
+    presentation.dispose()
+```
+
+Mengosongkan koleksi menghapus referensi data usang sebelum workbook ditulis kembali. Bangun kembali pemetaan seri dan kategori yang diperlukan untuk workbook yang diperbarui sebelum menggunakan chart.
+
+## **Setel Sel Workbook sebagai Label Data Chart**
+
+Anda dapat menggunakan teks dari sel workbook sebagai label data chart. Langkah‑langkah berikut menunjukkan cara menautkan label pada bubble chart ke sel pada workbook datanya.
+
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
+2. Akses slide pertama dengan indeks berbasis nol.
+3. Tambahkan bubble chart dengan data default.
+4. Akses seri chart.
+5. Setel sel workbook sebagai label data.
+6. Simpan presentasi.
+
+Contoh ini membuka `chart2.pptx`, yang harus berisi minimal satu slide, dan menambahkan bubble chart dengan data default. Ini menggunakan sel A10:A12 pada worksheet 0 untuk tiga label pertama pada seri pertama, mengaktifkan label dari sel, dan menyimpan hasilnya ke `resultchart.pptx`.
 
 ```python
 import jpype
@@ -113,8 +189,9 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation("chart2.pptx")
 try:
-    label_values = ["Label 0 cell value", "Label 1 cell value", "Label 2 cell value"]
     slide = presentation.getSlides().get_Item(0)
+    label_values = ["Label 0 cell value", "Label 1 cell value", "Label 2 cell value"]
+    
     chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, True)
     series = chart.getChartData().getSeries()
     data_labels = series.get_Item(0).getLabels()
@@ -123,14 +200,15 @@ try:
     for i in range(3):
         label_cell = workbook.getCell(0, f"A{10 + i}", label_values[i])
         data_labels.get_Item(i).setValueFromCell(label_cell)
+
     presentation.save("resultchart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Kelola Lembar Kerja**
+## **Kelola Worksheet**
 
-Kode Python ini mendemonstrasikan operasi di mana metode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/#getWorksheets) digunakan untuk mengakses koleksi lembar kerja:
+Metode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdataworkbook/#getWorksheets) menyediakan akses ke worksheet dalam workbook chart. Contoh ini membuat pie chart dengan data default dan mencetak setiap nama worksheet ke konsol.
 
 ```python
 import jpype
@@ -143,7 +221,9 @@ from asposeslides.api import ChartType, Presentation
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500)
     workbook = chart.getChartData().getChartDataWorkbook()
     for i in range(workbook.getWorksheets().size()):
         print(workbook.getWorksheets().get_Item(i).getName())
@@ -151,9 +231,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Tentukan Jenis Sumber Data**
+## **Tentukan Tipe Sumber Data**
 
-Kode Python ini menunjukkan cara menentukan jenis untuk sebuah sumber data:
+Contoh ini membuat 3D column chart dengan data default dan menetapkan dua nama seri menggunakan sumber data yang berbeda. Nama pertama menggunakan literal string; yang kedua menggunakan sel C1 pada worksheet 0. Enumerasi [DataSourceType](https://reference.aspose.com/slides/id/python-java/aspose.slides/datasourcetype/) memilih sumber untuk setiap nama. Hasil disimpan ke `pres.pptx`.
 
 ```python
 import jpype
@@ -166,21 +246,25 @@ from asposeslides.api import ChartType, DataSourceType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, True)
-    series_name = chart.getChartData().getSeries().get_Item(0).getName()
-    series_name.setDataSourceType(DataSourceType.StringLiterals)
-    series_name.setData("LiteralString")
-    series_name = chart.getChartData().getSeries().get_Item(1).getName()
-    name_cell = chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell")
-    series_name.setData(name_cell)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, True)
+    literal_name = chart.getChartData().getSeries().get_Item(0).getName()
+    literal_name.setDataSourceType(DataSourceType.StringLiterals)
+    literal_name.setData("LiteralString")
+    cell_name = chart.getChartData().getSeries().get_Item(1).getName()
+    name_cell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell")
+    cell_name.setDataSourceType(DataSourceType.Worksheet)
+    cell_name.setData(name_cell)
+    
     presentation.save("pres.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Deteksi Format Buku Kerja Tertanam yang Tidak Didukung**
+## **Deteksi Format Workbook Tersemat yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format buku kerja biner Excel (.xlsb) yang dapat tertanam di beberapa diagram. Anda dapat menggunakan metode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) pada [ChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram tersebut.
+Aspose.Slides tidak mendukung format workbook Excel biner (.xlsb) yang dapat tersemat di beberapa chart. Anda dapat menggunakan metode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) pada [ChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/python-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewati chart‑chart tersebut. Contoh ini memeriksa bentuk pada slide pertama `sample.pptx`, melewati bentuk non‑chart, dan mencetak pesan diagnostik untuk setiap chart dengan workbook .xlsb yang tersemat.
 
 ```python
 import jpype
@@ -194,27 +278,33 @@ from asposeslides.api import Chart, ChartDataSourceType, Presentation, WorkbookT
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if not isinstance(shape, Chart):
             continue
+
         chart_data = shape.getChartData()
-        if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # Buku kerja tertanam berada dalam format .xlsb, yang tidak didukung.
+
+        is_internal_workbook = chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook
+        is_binary_macro = chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro
+
+        if is_internal_workbook and is_binary_macro:
+            print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Baca atau ubah data buku kerja diagram di sini.
+        # Baca atau ubah data workbook chart yang didukung di sini.
 finally:
     presentation.dispose()
 ```
 
-## **Buku Kerja Eksternal**
+## **Workbook Eksternal**
 
-Aspose.Slides mendukung penggunaan buku kerja eksternal sebagai sumber data untuk diagram.
+Aspose.Slides mendukung penggunaan workbook eksternal sebagai sumber data untuk chart.
 
-### **Buat Buku Kerja Eksternal**
+### **Buat Workbook Eksternal**
 
-Dengan menggunakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat membuat buku kerja eksternal dari awal atau menjadikan buku kerja internal menjadi eksternal.
+Gunakan [readWorkbookStream](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#readWorkbookStream) dan [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook) untuk mengekspor workbook chart tersemat ke file dan menautkan chart ke workbook eksternal tersebut.
 
-Kode Python ini mendemonstrasikan proses pembuatan buku kerja eksternal:
+Contoh ini membuat pie chart dengan data default, menulis workbook‑nya ke `externalWorkbook1.xlsx`, dan menyelesaikan penulisan file sebelum menetapkan file sebagai sumber data chart. Ini menyimpan presentasi yang ditautkan ke `externalWorkbook.pptx`.
 
 ```python
 import jpype
@@ -229,23 +319,26 @@ from pathlib import Path
 
 presentation = Presentation()
 try:
-    workbook_path = "externalWorkbook1.xlsx"
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600)
+    workbook_path = Path("externalWorkbook1.xlsx").resolve()
     workbook_data = chart.getChartData().readWorkbookStream()
     Path(workbook_path).write_bytes(bytes(workbook_data))
-    chart.getChartData().setExternalWorkbook(workbook_path)
+    chart.getChartData().setExternalWorkbook(str(workbook_path))
+
     presentation.save("externalWorkbook.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Atur Buku Kerja Eksternal**
+### **Setel Workbook Eksternal**
 
-Dengan menggunakan metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat menetapkan buku kerja eksternal ke sebuah diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
+Dengan menggunakan metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook), Anda dapat menetapkan workbook eksternal ke chart sebagai sumber datanya. Metode ini juga dapat dipakai untuk memperbarui jalur ke workbook eksternal (jika workbook tersebut dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya jauh, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis dikonversi menjadi jalur lengkap.
+Meskipun Anda tidak dapat menyunting data dalam workbook yang disimpan di lokasi atau sumber daya jaringan, workbook tersebut tetap dapat digunakan sebagai sumber data eksternal. Jika jalur relatif untuk workbook eksternal diberikan, jalur tersebut akan otomatis dikonversi ke jalur penuh.
 
-Kode Python ini menunjukkan cara mengatur buku kerja eksternal:
+Contoh ini membutuhkan `externalWorkbook.xlsx` di direktori kerja. Worksheet‑nya yang bernama `Sheet1` harus berisi nama seri di B1, nama kategori di A2:A4, dan nilai numerik di B2:B4. Contoh membuat pie chart, menautkan workbook, dan menggunakan [setRange](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setRange) untuk memetakan A1:B4 ke satu seri dan tiga kategori. Hasil disimpan ke `Presentation_with_externalWorkbook.pptx`.
 
 ```python
 import jpype
@@ -256,29 +349,29 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+from pathlib import Path
+
+presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, False)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
     chart_data = chart.getChartData()
-    chart_data.setExternalWorkbook("externalWorkbook.xlsx")
-    workbook = chart_data.getChartDataWorkbook()
-    series_name_cell = workbook.getCell(0, "B1")
-    series = chart_data.getSeries().add(series_name_cell, ChartType.Pie)
-    for row in range(2, 5):
-        value_cell = workbook.getCell(0, f"B{row}")
-        series.getDataPoints().addDataPointForPieSeries(value_cell)
-    for row in range(2, 5):
-        category_cell = workbook.getCell(0, f"A{row}")
-        chart_data.getCategories().add(category_cell)
+    workbook_path = str(Path("externalWorkbook.xlsx").resolve())
+    chart_data.setExternalWorkbook(workbook_path)
+    chart_data.setRange("Sheet1!$A$1:$B$4")
+
     presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Parameter (`bool`) kedua dari metode [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook) digunakan untuk menentukan apakah buku kerja Excel akan dimuat atau tidak.
+Parameter `updateChartData` pada [setExternalWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#setExternalWorkbook) mengendalikan apakah workbook dimuat.
 
-* Ketika nilainya disetel ke `False`, hanya jalur buku kerja yang diperbarui — data diagram tidak akan dimuat atau diperbarui dari buku kerja target. Anda mungkin ingin menggunakan pengaturan ini ketika buku kerja target tidak ada atau tidak tersedia.
-* Ketika nilainya disetel ke `True`, data diagram diperbarui dari buku kerja target.
+* Ketika `updateChartData` bernilai `False`, hanya jalur workbook yang diperbarui. Data chart tidak dimuat atau diperbarui dari workbook target, sehingga workbook dapat tidak tersedia.
+* Ketika `updateChartData` bernilai `True`, data chart diperbarui dari workbook target.
+
+Contoh berikut menetapkan URL placeholder dengan `updateChartData` diset ke `False`. Ini mempertahankan data default pie chart dan menyimpan presentasi tanpa memuat workbook yang tidak tersedia.
 
 ```python
 import jpype
@@ -289,25 +382,30 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
     chart_data = chart.getChartData()
-    chart_data.setExternalWorkbook("http://path/doesnt/exists", False)
-    presentation.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx)
+    chart_data.setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", False)
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Diagram**
+### **Dapatkan Path Workbook Sumber Data Eksternal dari Chart**
+
+Untuk mengidentifikasi workbook yang ditautkan ke chart, pertama periksa apakah chart menggunakan sumber data eksternal. Jika ya, Anda dapat mengambil jalur workbook dengan mengikuti langkah‑langkah berikut.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Buat objek untuk bentuk diagram.
-1. Buat objek untuk tipe sumber ([ChartDataSourceType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdatasourcetype/)) yang mewakili sumber data diagram.
-1. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data buku kerja eksternal.
+2. Akses slide pertama dengan indeks berbasis nol.
+3. Periksa bahwa bentuk pertama adalah chart.
+4. Baca tipe sumber data chart.
+5. Jika sumbernya adalah workbook eksternal, baca jalurnya.
 
-Kode Python ini mendemonstrasikan operasi tersebut:
+Contoh ini membuka `externalWorkbook.pptx`, yang dibuat pada contoh sebelumnya, dan memeriksa bentuk pertama pada slide pertama. Jika itu adalah chart yang ditautkan ke workbook eksternal, contoh mencetak [getExternalWorkbookPath](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) ke konsol. Setelah itu menyimpan salinan presentasi ke `Result.pptx`.
 
 ```python
 import jpype
@@ -316,25 +414,33 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartDataSourceType, Presentation, SaveFormat
+from asposeslides.api import Chart, ChartDataSourceType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation("externalWorkbook.pptx")
 try:
-    slide = presentation.getSlides().get_Item(1)
-    chart = slide.getShapes().get_Item(0)
-    source_type = chart.getChartData().getDataSourceType()
-    if source_type == ChartDataSourceType.ExternalWorkbook:
-        path = chart.getChartData().getExternalWorkbookPath()
-    presentation.save("result.pptx", SaveFormat.Pptx)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        if chart_data.getDataSourceType() == ChartDataSourceType.ExternalWorkbook:
+            print(chart_data.getExternalWorkbookPath())
+        else:
+            print("The chart does not use an external workbook.")
+    else:
+        print("The first shape is not a chart.")
+
+    presentation.save("Result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Edit Data Diagram**
+### **Edit Data Chart**
 
-Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
+Anda dapat menyunting data dalam workbook eksternal dengan cara yang sama seperti mengubah isi workbook internal. Ketika workbook eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
 
-Kode Python ini adalah implementasi proses yang dijelaskan:
+Contoh ini membutuhkan `presentation.pptx` dengan chart sebagai bentuk pertama pada slide pertama serta workbook eksternal yang dapat diakses. Ini menetapkan nilai sel pada titik data pertama di seri pertama menjadi 100 dan menyimpan presentasi ke `presentation_out.pptx`. Menyunting nilai sel dapat memperbarui file XLSX eksternal yang ditautkan, jadi gunakan salinan jika Anda perlu mempertahankan workbook asli.
 
 ```python
 import jpype
@@ -343,23 +449,36 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
-    chart_data.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(jpype.JInt(100))
-    presentation.save("presentation_out.pptx", SaveFormat.Pptx)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        series = chart.getChartData().getSeries()
+        if series.size() > 0 and series.get_Item(0).getDataPoints().size() > 0:
+            value_cell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell()
+            if value_cell is not None:
+                value_cell.setValue(jpype.JInt(100))
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx)
+            else:
+                print("The first data point is not linked to a workbook cell.")
+        else:
+            print("The chart has no data points to edit.")
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-### **Pulihkan Buku Kerja dari Cache Diagram**
+### **Pulihkan Workbook dari Cache Chart**
 
-Jika sebuah diagram menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat merekonstruksi buku kerja diagram dari data yang disimpan dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/), konfigurasikan dengan [SpreadsheetOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/), dan panggil [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) dengan `True` sebelum membuka presentasi.
+Jika sebuah chart menggunakan workbook eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat merekonstruksi workbook chart dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/), panggil [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions), dan setel [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) ke `True` sebelum membuka presentasi.
 
-Contoh Python berikut membuka presentasi yang diagramnya merujuk ke buku kerja eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [Chart.getChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#getChartData) dan [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Contoh Python berikut membuka `presentation.pptx`, yang bentuk pertama pada slide pertama harus berupa chart yang merujuk ke workbook eksternal yang tidak tersedia, dan mengakses data yang dipulihkan melalui [Chart.getChartData](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#getChartData) dan [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -368,47 +487,54 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import LoadOptions, Presentation, SpreadsheetOptions
+from asposeslides.api import Chart, LoadOptions, Presentation, SpreadsheetOptions
 
 spreadsheet_options = SpreadsheetOptions()
 spreadsheet_options.setRecoverWorkbookFromChartCache(True)
+
 load_options = LoadOptions()
 load_options.setSpreadsheetOptions(spreadsheet_options)
 
 presentation = Presentation("presentation.pptx", load_options)
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    recovered_workbook = chart.getChartData().getChartDataWorkbook()
+    slide = presentation.getSlides().get_Item(0)
 
-    # Baca atau ubah data buku kerja yang dipulihkan di sini.
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        recovered_workbook = chart.getChartData().getChartDataWorkbook()
+
+        # Baca atau ubah data workbook yang dipulihkan di sini.
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data diagram yang disimpan dalam cache dapat diterima sebagai alternatif, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir kali diperbarui.
+Jika workbook eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data chart yang di‑cache merupakan alternatif yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada workbook eksternal setelah presentasi terakhir diperbarui.
 
 ## **FAQ**
 
-**Apakah saya dapat menentukan apakah diagram tertentu terhubung ke buku kerja eksternal atau tertanam?**
+**Apakah saya dapat menentukan apakah chart tertentu terhubung ke workbook eksternal atau tersemat?**
 
-Ya. Sebuah diagram memiliki [jenis sumber data](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getDataSourceType) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
+Ya. Sebuah chart memiliki [tipe sumber data](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getDataSourceType) dan [jalur ke workbook eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); bila sumbernya adalah workbook eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana mereka disimpan?**
+**Apakah jalur relatif ke workbook eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Hal ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan jalur absolut dalam file PPTX.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut otomatis dikonversi menjadi jalur absolut. Presentasi menyimpan jalur absolut dalam file PPTX, sehingga memindahkan workbook mungkin memerlukan pembaruan tautan.
 
-**Apakah saya dapat menggunakan buku kerja yang berada di sumber daya/jaringan bersama?**
+**Apakah saya dapat menggunakan workbook yang berada di sumber daya jaringan/share?**
 
-Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan buku kerja jauh secara langsung dari Aspose.Slides tidak didukung — mereka hanya dapat digunakan sebagai sumber.
+Ya, workbook tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan workbook remote secara langsung dari Aspose.Slides tidak didukung—hanya dapat digunakan sebagai sumber.
 
 **Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
 
-Tidak. Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak dimodifikasi saat presentasi disimpan.
+Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Menyunting data chart yang didasarkan pada sel juga dapat memperbarui file XLSX lokal yang ditautkan. Gunakan salinan workbook jika yang asli harus tetap tidak berubah.
 
 **Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
 
-Aspose.Slides tidak menerima kata sandi saat membuat tautan. Pendekatan umum adalah menghapus perlindungan sebelumnya atau menyiapkan salinan yang sudah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/python-java/)) dan menautkan ke salinan tersebut.
+Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus perlindungan sebelumnya atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) dan menautkan ke salinan tersebut.
 
-**Dapatkah beberapa diagram merujuk ke buku kerja eksternal yang sama?**
+**Apakah beberapa chart dapat merujuk ke workbook eksternal yang sama?**
 
-Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap diagram pada saat berikutnya data dimuat.
+Ya. Setiap chart menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, pembaruan file tersebut akan tercermin pada setiap chart pada kali berikutnya data dimuat.

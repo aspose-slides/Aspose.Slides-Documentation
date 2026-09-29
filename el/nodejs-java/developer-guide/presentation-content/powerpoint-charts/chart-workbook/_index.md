@@ -1,192 +1,283 @@
 ---
-title: Διαχείριση Βιβλίων Εργασίας Διαγραμμάτων σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
-linktitle: Βιβλίο Εργασίας Διαγράμματος
+title: Διαχείριση Βιβλίων Εργασίας Γραφημάτων σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
+linktitle: Βιβλίο Εργασίας Γραφήματος
 type: docs
 weight: 70
 url: /el/nodejs-java/chart-workbook/
 keywords:
-- βιβλίο εργασίας διαγράμματος
-- δεδομένα διαγράμματος
+- βιβλίο εργασίας γραφήματος
+- δεδομένα γραφήματος
 - κελί βιβλίου εργασίας
 - ετικέτα δεδομένων
 - φύλλο εργασίας
 - πηγή δεδομένων
 - εξωτερικό βιβλίο εργασίας
 - εξωτερικά δεδομένα
-- κρυφή μνήμη διαγράμματος
-- ανάκτηση βιβλίου εργασίας
+- κρυφή μνήμη γραφήματος
+- αποκατάσταση βιβλίου εργασίας
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ανακαλύψτε το Aspose.Slides για Node.js μέσω Java: διαχειριστείτε αβίαστα τα βιβλία εργασίας διαγραμμάτων σε μορφές PowerPoint και OpenDocument για να βελτιστοποιήσετε τα δεδομένα της παρουσίασής σας."
+description: "Ανακαλύψτε το Aspose.Slides για Node.js μέσω Java: διαχειριστείτε εύκολα βιβλία εργασίας γραφημάτων σε μορφές PowerPoint και OpenDocument για να βελτιώσετε τα δεδομένα της παρουσίασής σας."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλία εργασίας διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα διαγράμματος μέσω ροών βιβλίου εργασίας, να χρησιμοποιείτε κελιά βιβλίου εργασίας ως ετικέτες δεδομένων διαγράμματος, να αποκτάτε πρόσβαση σε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλία εργασίας γραφημάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα γραφήματος μέσω ροών βιβλίου εργασίας, να χρησιμοποιείτε κελιά βιβλίου εργασίας ως ετικέτες δεδομένων γραφήματος, να αποκτάτε πρόσβαση στις συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του γραφήματος.
 
-Επίσης καλύπτει τη χρήση εξωτερικών βιβλίων εργασίας ως πηγών δεδομένων διαγράμματος. Τα παραδείγματα επιδεικνύουν πώς να δημιουργήσετε και να αναθέσετε ένα εξωτερικό βιβλίο εργασίας, να ανακτήσετε τη διαδρομή ενός εξωτερικού βιβλίου εργασίας που συνδέεται με ένα διάγραμμα και να επεξεργαστείτε τα δεδομένα του διαγράμματος όταν το βιβλίο εργασίας είναι διαθέσιμο.
+Καλύπτει επίσης την εργασία με εξωτερικά βιβλία εργασίας ως πηγές δεδομένων γραφήματος. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε και να ορίσετε ένα εξωτερικό βιβλίο εργασίας, να ανακτήσετε τη διαδρομή ενός εξωτερικού βιβλίου εργασίας που είναι συνδεδεμένο με ένα γράφημα και να επεξεργαστείτε τα δεδομένα του γραφήματος όταν το βιβλίο εργασίας είναι διαθέσιμο.
 
-Για κελιά βιβλίου εργασίας που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Control the Display of Empty Cells](/slides/el/nodejs-java/chart-series/) για τη διαφορά μεταξύ ενός κενού κελιού και του μηδενός, καθώς και τη σύγκριση γραμμικού διαγράμματος των διαθέσιμων τρόπων εμφάνισης.
+Για κελιά βιβλίου εργασίας που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Control the Display of Empty Cells](/slides/el/nodejs-java/chart-series/) για τη διαφορά μεταξύ κενού κελιού και μηδενική τιμή, καθώς και για σύγκριση γραμμικού γραφήματος των διαθέσιμων τρόπων εμφάνισης.
 
-## **Ανάγνωση και Εγγραφή Δεδομένων Διαγράμματος από Βιβλίο Εργασίας**
+## **Συμπερίληψη Δεδομένων από Κρυφές Γραμμές και Στήλες**
 
-Το Aspose.Slides παρέχει τις μεθόδους [readWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) και [writeWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) που επιτρέπουν την ανάγνωση και εγγραφή βιβλίων εργασίας δεδομένων διαγράμματος (που περιέχουν δεδομένα διαγράμματος επεξεργασμένα με Aspose.Cells). **Note** ότι τα δεδομένα διαγράμματος πρέπει να οργανωθούν με τον ίδιο τρόπο ή να έχουν δομή παρόμοια με την πηγή.
+Χρησιμοποιήστε [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) για να ελέγξετε εάν ένα γράφημα σχεδιάζει δεδομένα από κρυφές γραμμές και στήλες φύλλου εργασίας. Ορίστε το σε `true` για να σχεδιάζονται μόνο ορατά κελιά ή σε `false` για να συμπεριλαμβάνονται τόσο ορατά όσο και κρυφά κελιά. Αυτή η ρύθμιση ελέγχει την απεικόνιση του γραφήματος· δεν κρύβει ή αποκαλύπτει γραμμές ή στήλες του φύλλου εργασίας.
 
-This JavaScript code demonstrates a sample operation:
+Κατεβάστε το [hidden-source-data.pptx](hidden-source-data.pptx) και τοποθετήστε το στον τρέχοντα φάκελο εργασίας. Η πρώτη διαφάνεια του αρχείου περιέχει ένα ραβδικό γράφημα ως το πρώτο σχήμα. Το ενσωματωμένο φύλλο εργασίας, `Sheet1`, περιέχει την ακόλουθη περιοχή προέλευσης, `A1:C4`. Η γραμμή 3 και η στήλη C είναι κρυφές, αλλά τα κελιά τους εξακολουθούν να περιέχουν τιμές.
+
+| Γραμμή φύλλου | A: Μήνας | B: Λιανική | C: Χονδρική (κρυφή στήλη) |
+| --- | --- | --- | --- |
+| 2 | Ιανουάριος | 10 | 30 |
+| 3 (κρυφή γραμμή) | Φεβρουάριος | 40 | 60 |
+| 4 | Μάρτιος | 20 | 50 |
+
+Προβάλετε τα κελιά προέλευσης μέσω του [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) και διαβάστε το [ChartDataCell.isHidden](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdatacell/#isHidden) για να επιθεωρήσετε την κρυφή τους κατάσταση. Αυτή η μέθοδος αναφέρει την κρυφή κατάσταση χωρίς να την αλλάξει. Σε αυτό το αρχείο, το B2 είναι ορατό, το B3 ανήκει στη κρυφή γραμμή και το C2 στην κρυφή στήλη· το παράδειγμα εκτυπώνει `false`, `true` και `true`, αντίστοιχα.
+
+Για αυτό το παράδειγμα, ανανεώστε τα δεδομένα του γραφήματος μετά την αλλαγή της ρύθμισης σχεδίασης: διατηρήστε το ενσωματωμένο βιβλίο εργασίας με το [readWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) και επαναφορτώστε το με το [writeWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream). Όταν συμπεριλαμβάνονται όλα τα κελιά, χρησιμοποιήστε επίσης το [setRange](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#setRange) για να επαναφέρετε την πλήρη περιοχή, συμπεριλαμβανομένης της κρυφής κατηγορίας Φεβρουαρίου. Η απλή αλλαγή της σημαίας δεν είναι επαρκής για να ανανεώσει τα δεδομένα του γραφήματος και τις ετικέτες κατηγορίας που είναι στην κρυφή μνήμη του δείγματος. Το παράδειγμα μετατρέπει το επιστρεφόμενο buffer Node.js σε πίνακα bytes Java πριν το περάσει στη μέθοδο εγγραφής.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("hidden-source-data.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var data = chart.getChartData();
-    var stream = data.readWorkbookStream();
-    data.getSeries().clear();
-    data.getCategories().clear();
-    data.writeWorkbookStream(stream);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const workbook = chart.getChartData().getChartDataWorkbook();
+        console.log("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        console.log("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        console.log("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
+
+        const workbookBuffer = chart.getChartData().readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+        for (const visibleOnly of [true, false]) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
+
+            // Ανανέωση των δεδομένων του γραφήματος από το ενσωματωμένο βιβλίο εργασίας.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Επαναφορά της πλήρους περιοχής προέλευσης, συμπεριλαμβανομένων των κρυφών κατηγοριών.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Επικύρωση Διάταξης Διαγράμματος μετά την Τροποποίηση του Βιβλίου Εργασίας**
+Το παράδειγμα αποθηκεύει το `hidden_cells_true.pptx` μόνο με τις ορατές τιμές Λιανικής (10 και 20) και το `hidden_cells_false.pptx` με όλες τις έξι τιμές. Οι παρακάτω εικόνες απεικονίζουν τις δύο λειτουργίες σχεδίασης. Η γραμμή 3 και η στήλη C παραμένουν κρυφές και στα δύο ενσωματωμένα βιβλία εργασίας.
 
-Όταν αντικαθιστάτε ένα ενσωματωμένο βιβλίο εργασίας με ένα τροποποιημένο, το διάγραμμα διατηρεί τις αρχικές συλλογές σειρών και κατηγοριών. Αυτό το ασυμφωνία μπορεί να προκαλέσει αποτυχία της μεθόδου [Chart.validateChartLayout](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Chart#validateChartLayout--) με σφάλμα εκτός ορίου δείκτη. Εκκαθαρίστε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε το ενημερωμένο βιβλίο εργασίας πίσω στο διάγραμμα.
+| Μόνο ορατά κελιά (`true`) | Όλα τα κελιά (`false`) |
+| --- | --- |
+| ![Μόνο ορατά κελιά: τιμές Λιανικής 10 και 20 για Ιανουάριο και Μάρτιο.](hidden_cells_True.png) | ![Όλα τα κελιά: τιμές Λιανικής και Χονδρικής για Ιανουάριο, Φεβρουάριο και Μάρτιο.](hidden_cells_False.png) |
+
+Ένα κρυφό κελί που περιέχει τιμή διαφέρει από ένα κενό κελί. Το [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) ελέγχει πώς εμφανίζονται οι ελλιπείς τιμές· δεν προσθέτει ή αφαιρεί κρυφά δεδομένα προέλευσης. Δείτε το [Control the Display of Empty Cells](/slides/el/nodejs-java/chart-series/#control-the-display-of-empty-cells) για ένα παράδειγμα.
+
+## **Ανάγνωση και Εγγραφή Δεδομένων Γραφήματος από Βιβλίο Εργασίας**
+
+Το Aspose.Slides for Node.js via Java παρέχει τις μεθόδους [readWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) και [writeWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) που επιτρέπουν την ανάγνωση και εγγραφή βιβλίων εργασίας δεδομένων γραφήματος (περιέχοντας δεδομένα γραφήματος που επεξεργάστηκαν με Aspose.Cells). **Σημείωση** ότι τα δεδομένα του γραφήματος πρέπει να είναι οργανωμένα με τον ίδιο τρόπο ή να έχουν παρόμοια δομή με την πηγή.
+
+Αυτό το παράδειγμα ανοίγει το `chart.pptx`, το οποίο πρέπει να περιέχει ένα γράφημα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Διαβάζει το ενσωματωμένο βιβλίο εργασίας σε έναν πίνακα bytes, καθαρίζει τις υπάρχουσες σειρές και κατηγορίες και γράφει το ίδιο βιβλίο πίσω. Οι αλλαγές παραμένουν στη μνήμη· το παράδειγμα δεν αποθηκεύει την παρουσίαση.
 
 ```javascript
-// Μετά την τροποποίηση της ροής του βιβλίου εργασίας (π.χ., χρησιμοποιώντας Aspose.Cells)
-var updatedWorkbook = chartData.readWorkbookStream();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Καθαρίστε τις υπάρχουσες αναφορές δεδομένων.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+const presentation = new aspose.slides.Presentation("chart.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-chartData.writeWorkbookStream(updatedWorkbook);
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
 
-chart.validateChartLayout();
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        console.log("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Η εκκαθάριση των συλλογών εξασφαλίζει ότι η δομή των δεδομένων του διαγράμματος είναι συνέπεια με το νέο βιβλίο εργασίας, επιτρέποντας στο `validateChartLayout` να ολοκληρωθεί χωρίς σφάλματα.
+### **Επαλήθευση Διάταξης Γραφήματος μετά την Τροποποίηση του Βιβλίου Εργασίας**
 
-## **Ορισμός Κελιού WorkBook ως Ετικέτας Δεδομένων Διαγράμματος**
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://apireference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation) .
-1. Λάβετε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε ένα διάγραμμα Bubble με κάποια δεδομένα.
-1. Πρόσβαση στη σειρά του διαγράμματος.
-1. Ορίστε το κελί του βιβλίου εργασίας ως ετικέτα δεδομένων.
-1. Αποθηκεύστε την παρουσίαση.
-
-This JavaScript code shows you to set a workbook cell as a chart data label:
+Όταν αντικαθιστάτε ένα ενσωματωμένο βιβλίο εργασίας με ένα τροποποιημένο, το γράφημα διατηρεί τις αρχικές συλλογές σειρών και κατηγοριών. Αυτή η ασυμφωνία μπορεί να κάνει το [Chart.validateChartLayout](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/#validateChartLayout) να αποτύχει με σφάλμα εκτός περιοχής ευρετηρίου. Καθαρίστε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε το ενημερωμένο βιβλίο εργασίας πίσω στο γράφημα. Αυτό το παράδειγμα απαιτεί `chart.pptx` με γράφημα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Το σχόλιο δείχνει πού θα γινόταν η επεξεργασία του βιβλίου εργασίας· το εκτελέσιμο παράδειγμα γράφει το αρχικό βιβλίο πίσω και επαληθεύει τη διάταξη στη μνήμη.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var lbl0 = "Label 0 cell value";
-var lbl1 = "Label 1 cell value";
-var lbl2 = "Label 2 cell value";
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-var pres = new aspose.slides.Presentation("chart2.pptx");
+const presentation = new aspose.slides.Presentation("chart.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    var dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-    pres.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+
+        // Τροποποιήστε τα byte του βιβλίου εργασίας εδώ, για παράδειγμα, χρησιμοποιώντας το Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ο καθαρισμός των συλλογών αφαιρεί παλιές αναφορές δεδομένων πριν το βιβλίο εργασίας γραφτεί ξανά. Ξανακτίστε τυχόν απαιτούμενες αντιστοιχίσεις σειρών και κατηγοριών για το ενημερωμένο βιβλίο εργασίας πριν χρησιμοποιήσετε το γράφημα.
+
+## **Ορισμός Κελιού Βιβλίου Εργασίας ως Ετικέτας Δεδομένων Γραφήματος**
+
+Μπορείτε να χρησιμοποιήσετε κείμενο από κελιά βιβλίου εργασίας ως ετικέτες δεδομένων γραφήματος. Τα παρακάτω βήματα δείχνουν πώς να συνδέσετε τις ετικέτες σε ένα γραφικό φούσκας με κελιά στο βιβλίο δεδομένων του.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια με βάση το μηδενικό δείκτη.
+3. Προσθήκη γραφήματος φούσκας με προεπιλεγμένα δεδομένα.
+4. Πρόσβαση στη σειρά γραφήματος.
+5. Ορισμός του κελιού βιβλίου εργασίας ως ετικέτας δεδομένων.
+6. Αποθήκευση της παρουσίασης.
+
+Αυτό το παράδειγμα ανοίγει το `chart2.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια, και προσθέτει ένα γράφημα φούσκας με προεπιλεγμένα δεδομένα. Χρησιμοποιεί τα κελιά A10:A12 στο φύλλο 0 για τις πρώτες τρεις ετικέτες της πρώτης σειράς, ενεργοποιεί τις ετικέτες από κελιά και αποθηκεύει το αποτέλεσμα στο `resultchart.pptx`.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("chart2.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
+
+    presentation.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Διαχείριση Φύλλων Εργασίας**
 
-This JavaScript code demonstrates an operation where the [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+Η μέθοδος [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) παρέχει πρόσβαση στα φύλλα εργασίας ενός βιβλίου εργασίας γραφήματος. Αυτό το παράδειγμα δημιουργεί ένα γράφημα πίτας με προεπιλεγμένα δεδομένα και εκτυπώνει το όνομα κάθε φύλλου εργασίας στην κονσόλα.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    for (var i = 0; i < wb.getWorksheets().size(); i++) {
-        console.log(wb.getWorksheets().get_Item(i).getName());
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (let i = 0; i < workbook.getWorksheets().size(); i++) {
+        console.log(workbook.getWorksheets().get_Item(i).getName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Καθορισμός Τύπου Πηγής Δεδομένων**
 
-This JavaScript code shows you how to specify a type for a data source:
+Αυτό το παράδειγμα δημιουργεί ένα 3D ραβδικό γράφημα με προεπιλεγμένα δεδομένα και ορίζει δύο ονόματα σειρών χρησιμοποιώντας διαφορετικές πηγές δεδομένων. Το πρώτο όνομα χρησιμοποιεί κυριολεκτικό συμβολοσειρά· το δεύτερο χρησιμοποιεί το κελί C1 στο φύλλο 0. Η απαρίθμηση [DataSourceType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datasourcetype/) επιλέγει την πηγή για κάθε όνομα. Το αποτέλεσμα αποθηκεύεται στο `pres.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var val = chart.getChartData().getSeries().get_Item(0).getName();
-    val.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
-    val.setData("LiteralString");
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+    const literalName = chart.getChartData().getSeries().get_Item(0).getName();
+
+    literalName.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
+
+    const cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    const nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(aspose.slides.DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ανίχνευση Μη Υποστηριζόμενων Ενσωματωμένων Μορφών Workbook**
+## **Εντοπισμός Μη Υποστηριζόμενων Μορφών Ενσωματωμένου Βιβλίου Εργασίας**
 
-Το Aspose.Slides δεν υποστηρίζει τη δυαδική μορφή Excel workbook (.xlsb) που μπορεί να ενσωματωθεί σε ορισμένα διαγράμματα. Μπορείτε να χρησιμοποιήσετε τη μέθοδο `getEmbeddedWorkbookType` στο [ChartData](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/) μαζί με την απαρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/workbooktype/) για να εντοπίσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα διαγράμματα.
+Το Aspose.Slides δεν υποστηρίζει τη μορφή δυαδικού βιβλίου εργασίας Excel (.xlsb) που μπορεί να ενσωματώνται σε ορισμένα γραφήματα. Μπορείτε να χρησιμοποιήσετε τη μέθοδο [getEmbeddedWorkbookType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) στο [ChartData](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/) μαζί με την απαρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/workbooktype/) για να εντοπίσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα γραφήματα. Αυτό το παράδειγμα εξετάζει τα σχήματα στην πρώτη διαφάνεια του `sample.pptx`, παραλείπει τα μη-γράφημα σχήματα και εκτυπώνει ένα διαγνωστικό μήνυμα για κάθε γράφημα με ενσωματωμένο βιβλίο εργασίας .xlsb.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapes = slide.getShapes();
+    const slide = presentation.getSlides().get_Item(0);
 
-    for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
-        let shape = shapes.get_Item(shapeIndex);
-
-        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) continue;
-
-        let chart = shape;
-        let chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Το ενσωματωμένο βιβλίο εργασίας είναι σε μορφή .xlsb, η οποία δεν υποστηρίζεται.
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (!(java.instanceOf(shape, "com.aspose.slides.IChart"))) {
             continue;
         }
 
-        // Διαβάστε ή τροποποιήστε τα δεδομένα του βιβλίου εργασίας του διαγράμματος εδώ.
+        const chart = shape;
+        const chartData = chart.getChartData();
+        const isInternalWorkbook = chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook;
+        const isBinaryMacro = chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            console.log("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Διαβάστε ή τροποποιήστε τα υποστηριζόμενα δεδομένα βιβλίου εργασίας γραφήματος εδώ.
     }
 } finally {
     presentation.dispose();
@@ -195,155 +286,174 @@ try {
 
 ## **Εξωτερικό Βιβλίο Εργασίας**
 
-Το Aspose.Slides υποστηρίζει εξωτερικά βιβλία εργασίας ως πηγή δεδομένων για διαγράμματα.
+Το Aspose.Slides υποστηρίζει τη χρήση εξωτερικών βιβλίων εργασίας ως πηγή δεδομένων για γραφήματα.
 
 ### **Δημιουργία Εξωτερικού Βιβλίου Εργασίας**
 
-Χρησιμοποιώντας τις μεθόδους **`readWorkbookStream`** και **`setExternalWorkbook`**, μπορείτε είτε να δημιουργήσετε ένα εξωτερικό βιβλίο εργασίας από το μηδέν είτε να κάνετε ένα εσωτερικό βιβλίο εργασίας εξωτερικό.
+Χρησιμοποιήστε τα [readWorkbookStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) και [setExternalWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) για να εξάγετε ένα ενσωματωμένο βιβλίο εργασίας γραφήματος σε αρχείο και να συνδέσετε το γράφημα με αυτό το εξωτερικό βιβλίο.
 
-This JavaScript code demonstrates the external workbook creation process:
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα πίτας με προεπιλεγμένα δεδομένα, γράφει το βιβλίο εργασίας του στο `externalWorkbook1.xlsx` και ολοκληρώνει τη γραφή του αρχείου πριν ορίσει το αρχείο ως πηγή δεδομένων του γραφήματος. Αποθηκεύει την παρουσίαση με σύνδεση στο `externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 const fileSystem = require("fs");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var workbookPath = "externalWorkbook1.xlsx";
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    // Η μέθοδος readWorkbookStream επιστρέφει τα byte του βιβλίου εργασίας ως Buffer του Node.
-    var workbookData = chart.getChartData().readWorkbookStream();
-    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
-    chart.getChartData().setExternalWorkbook(workbookPath);
-    pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
+    const workbookPath = path.resolve("externalWorkbook1.xlsx");
+    const workbookData = chart.getChartData().readWorkbookStream();
+    try {
+        fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
+        chart.getChartData().setExternalWorkbook(workbookPath);
+        presentation.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    } catch (exception) {
+        console.log("Could not write the external workbook: " + exception.message);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Ορισμός Εξωτερικού Βιβλίου Εργασίας**
 
-Χρησιμοποιώντας τη μέθοδο **`setExternalWorkbook`**, μπορείτε να αντιστοιχίσετε ένα εξωτερικό βιβλίο εργασίας σε ένα διάγραμμα ως πηγή δεδομένων του. Αυτή η μέθοδος μπορεί επίσης να χρησιμοποιηθεί για την ενημέρωση μιας διαδρομής προς το εξωτερικό βιβλίο εργασίας (εάν το τελευταίο έχει μετακινηθεί).
+Με τη μέθοδο [setExternalWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook), μπορείτε να ορίσετε ένα εξωτερικό βιβλίο εργασίας σε ένα γράφημα ως πηγή δεδομένων. Η μέθοδος αυτή μπορεί επίσης να χρησιμοποιηθεί για ενημέρωση της διαδρομής προς το εξωτερικό βιβλίο (εάν έχει μετακινηθεί).
 
-Ενώ δεν μπορείτε να επεξεργαστείτε τα δεδομένα σε βιβλία εργασίας που αποθηκεύονται σε απομακρυσμένες τοποθεσίες ή πόρους, μπορείτε ακόμα να τα χρησιμοποιήσετε ως εξωτερική πηγή δεδομένων. Εάν παρέχεται η σχετική διαδρομή για ένα εξωτερικό βιβλίο εργασίας, μετατρέπεται αυτόματα σε πλήρη διαδρομή.
+Αν και δεν μπορείτε να επεξεργαστείτε τα δεδομένα σε βιβλία εργασίας αποθηκευμένα σε απομακρυσμένες θέσεις ή πόρους, μπορείτε να τα χρησιμοποιήσετε ως εξωτερική πηγή δεδομένων. Εάν παρέχεται σχετική διαδρομή για το εξωτερικό βιβλίο, μετατρέπεται αυτόματα σε απόλυτη διαδρομή.
 
-This JavaScript code shows you how to set an external workbook:
+Αυτό το παράδειγμα απαιτεί το `externalWorkbook.xlsx` στον τρέχοντα φάκελο εργασίας. Το φύλλο του, `Sheet1`, πρέπει να περιέχει ένα όνομα σειράς στο B1, ονόματα κατηγοριών στο A2:A4 και αριθμητικές τιμές στο B2:B4. Το παράδειγμα δημιουργεί ένα γράφημα πίτας, συνδέει το βιβλίο εργασίας και χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#setRange) για τη χαρτογράφηση του A1:B4 σε μία σειρά και τρεις κατηγορίες. Αποθηκεύει το αποτέλεσμα στο `Presentation_with_externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), aspose.slides.ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    pres.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    const chartData = chart.getChartData();
+    const workbookPath = path.resolve("externalWorkbook.xlsx");
+
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Η δεύτερη παράμετρος της μεθόδου `setExternalWorkbook`, `updateChartData`, καθορίζει αν το Excel workbook θα φορτωθεί ή όχι.
+Η παράμετρος `updateChartData` της [setExternalWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) ελέγχει αν το βιβλίο εργασίας θα φορτωθεί.
 
-* Όταν το `updateChartData` είναι `false`, ενημερώνεται μόνο η διαδρομή του βιβλίου εργασίας — τα δεδομένα του διαγράμματος δεν θα φορτωθούν ή ενημερωθούν από το στοχευόμενο βιβλίο εργασίας. Μπορείτε να χρησιμοποιήσετε αυτή τη ρύθμιση όταν το στοχευόμενο βιβλίο εργασίας δεν υπάρχει ή δεν είναι διαθέσιμο.
-* Όταν το `updateChartData` είναι `true`, τα δεδομένα του διαγράμματος ενημερώνονται από το στοχευμένο βιβλίο εργασίας.
+* Όταν `updateChartData` είναι `false`, ενημερώνεται μόνο η διαδρομή του βιβλίου εργασίας. Τα δεδομένα του γραφήματος δεν φορτώνονται ή ενημερώνονται από το βιβλίο προορισμού, οπότε το βιβλίο μπορεί να είναι μη διαθέσιμο.
+* Όταν `updateChartData` είναι `true`, τα δεδομένα του γραφήματος ενημερώνονται από το βιβλίο προορισμού.
+
+Το παρακάτω παράδειγμα ορίζει μια καταχωρημένη URL με `updateChartData` ορισμένο σε `false`. Διατηρεί τα προεπιλεγμένα δεδομένα του πίνακα και αποθηκεύει την παρουσίαση χωρίς να φορτώσει το μη διαθέσιμο βιβλίο εργασίας.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("http://path/doesnt/exists", false);
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Ανάκτηση Διαδρομής Βιβλίου Εργασίας Εξωτερικής Πηγής Διαγράμματος**
+### **Ανάκτηση Διαδρομής Εξωτερικού Βιβλίου Δεδομένων Γραφήματος**
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://apireference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation) κλάσης.
-1. Λάβετε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Δημιουργήστε ένα αντικείμενο για το σχήμα του διαγράμματος.
-1. Δημιουργήστε ένα αντικείμενο για τον τύπο πηγής (`ChartDataSourceType`) που αντιπροσωπεύει την πηγή δεδομένων του διαγράμματος.
-1. Καθορίστε τη σχετική κατάσταση βάσει του τύπου πηγής που είναι ίσος με τον τύπο πηγής εξωτερικού βιβλίου εργασίας.
+Για να εντοπίσετε το βιβλίο εργασίας που συνδέεται με ένα γράφημα, ελέγξτε πρώτα αν το γράφημα χρησιμοποιεί εξωτερική πηγή δεδομένων. Εάν ναι, μπορείτε να ανακτήσετε τη διαδρομή του βιβλίου ακολουθώντας τα παρακάτω βήματα.
 
-This JavaScript code demonstrates the operation:
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια με βάση τον μηδενικό δείκτη.
+3. Ελέγξτε ότι το πρώτο σχήμα είναι γράφημα.
+4. Διαβάστε τον τύπο πηγής δεδομένων του γραφήματος.
+5. Εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, διαβάστε τη διαδρομή του.
+
+Αυτό το παράδειγμα ανοίγει το `externalWorkbook.pptx`, που δημιουργήθηκε στο προηγούμενο παράδειγμα, και εξετάζει το πρώτο σχήμα στην πρώτη διαφάνεια. Εάν είναι γράφημα συνδεδεμένο με εξωτερικό βιβλίο, το παράδειγμα εκτυπώνει το [getExternalWorkbookPath](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) στην κονσόλα. Στη συνέχεια αποθηκεύει αντίγραφο της παρουσίασης στο `Result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("externalWorkbook.pptx");
 try {
-    var slide = pres.getSlides().get_Item(1);
-    var chart = slide.getShapes().get_Item(0);
-    var sourceType = chart.getChartData().getDataSourceType();
-    if (sourceType == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
-        var path = chart.getChartData().getExternalWorkbookPath();
+    const slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
+            console.log(chartData.getExternalWorkbookPath());
+        } else {
+            console.log("The chart does not use an external workbook.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
-    // Αποθηκεύει την παρουσίαση
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Επεξεργασία Δεδομένων Διαγράμματος**
+### **Επεξεργασία Δεδομένων Γραφήματος**
 
-Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικά βιβλία εργασίας με τον ίδιο τρόπο που κάνετε αλλαγές στο περιεχόμενο εσωτερικών βιβλίων εργασίας. Όταν ένα εξωτερικό βιβλίο εργασίας δεν μπορεί να φορτωθεί, ρίχνεται μια εξαίρεση.
+Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικά βιβλία εργασίας με τον ίδιο τρόπο που επεξεργάζεστε τα εσωτερικά. Όταν ένα εξωτερικό βιβλίο δεν μπορεί να φορτωθεί, ρίχνεται εξαίρεση.
+
+Αυτό το παράδειγμα απαιτεί `presentation.pptx` με γράφημα ως το πρώτο σχήμα στην πρώτη διαφάνεια και ένα προσβάσιμο εξωτερικό βιβλίο εργασίας. Ορίζει την τιμή του πρώτου σημείου δεδομένων στην πρώτη σειρά σε 100 και αποθηκεύει την παρουσίαση στο `presentation_out.pptx`. Η επεξεργασία τιμών κελιών μπορεί να ενημερώσει το συνδεδεμένο εξωτερικό αρχείο XLSX· χρησιμοποιήστε ένα αντίγραφο αν χρειάζεται να διατηρήσετε το αρχικό βιβλίο.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var chartData = chart.getChartData();
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    pres.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            const valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+            } else {
+                console.log("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            console.log("The chart has no data points to edit.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Ανάκτηση Βιβλίου Εργασίας από την Κρυφή Μνήμη Διαγράμματος**
+### **Ανάκτηση Βιβλίου Εργασίας από την Κρυφή Μνήμη Γραφήματος**
 
-Εάν ένα διάγραμμα χρησιμοποιεί ένα εξωτερικό βιβλίο εργασίας που λείπει ή δεν είναι διαθέσιμο, το Aspose.Slides μπορεί να ανακατασκευάσει το βιβλίο εργασίας του διαγράμματος από τα δεδομένα που είναι στην κρυφή μνήμη της παρουσίασης. Δημιουργήστε [LoadOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/), ρυθμίστε το με [SpreadsheetOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/spreadsheetoptions/), και καλέστε [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) με `true` πριν ανοίξετε την παρουσίαση.
+Εάν ένα γράφημα χρησιμοποιεί εξωτερικό βιβλίο εργασίας που λείπει ή δεν είναι διαθέσιμο, το Aspose.Slides μπορεί να ανακατασκευάσει το βιβλίο εργασίας του γραφήματος από τα δεδομένα που είναι αποθηκευμένα στην κρυφή μνήμη της παρουσίασης. Δημιουργήστε ένα [LoadOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/), καλέστε το [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) και ορίστε το [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) σε `true` πριν ανοίξετε την παρουσίαση.
 
-Το παρακάτω παράδειγμα JavaScript ανοίγει μια παρουσίαση του οποίου το διάγραμμα αναφέρεται σε μη διαθέσιμο εξωτερικό βιβλίο εργασίας και αποκτά πρόσβαση στα ανακτηθέντα δεδομένα μέσω [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Το παρακάτω παράδειγμα JavaScript ανοίγει το `presentation.pptx`, του οποίου το πρώτο σχήμα στην πρώτη διαφάνεια πρέπει να είναι γράφημα που αναφέρεται σε μη διαθέσιμο εξωτερικό βιβλίο εργασίας, και προσπελάζει τα ανακτημένα δεδομένα μέσω του [Chart.getChartData](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/#getChartData) και του [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
@@ -353,39 +463,46 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
 try {
-    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Διαβάστε ή τροποποιήστε τα δεδομένα του ανακτηθέντος βιβλίου εργασίας εδώ.
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Διαβάστε ή τροποποιήστε τα δεδομένα του ανακτημένου βιβλίου εργασίας εδώ.
+    } else {
+        console.log("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Εάν το εξωτερικό βιβλίο εργασίας δεν είναι διαθέσιμο και η ανάκτηση είναι απενεργοποιημένη, το Aspose.Slides ρίχνει μια εξαίρεση. Ενεργοποιήστε την ανάκτηση μόνο όταν η χρήση των δεδομένων από την κρυφή μνήμη είναι αποδεκτό εναλλακτικό σενάριο, επειδή η κρυφή μνήμη μπορεί να μην περιέχει αλλαγές που έγιναν στο εξωτερικό βιβλίο εργασίας μετά την τελευταία ενημέρωση της παρουσίασης.
+Εάν το εξωτερικό βιβλίο εργασίας δεν είναι διαθέσιμο και η αποκατάσταση είναι απενεργοποιημένη, το Aspose.Slides ρίχνει εξαίρεση. Ενεργοποιήστε την αποκατάσταση μόνο όταν η χρήση των δεδομένων από την κρυφή μνήμη του γραφήματος είναι αποδεκτή εναλλακτική λύση, διότι η κρυφή μνήμη ενδέχεται να μην περιέχει αλλαγές που έγιναν στο εξωτερικό βιβλίο μετά την τελευταία ενημέρωση της παρουσίασης.
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να προσδιορίσω εάν ένα συγκεκριμένο διάγραμμα είναι συνδεδεμένο με ένα εξωτερικό ή ενσωματωμένο βιβλίο εργασίας;**
+**Μπορώ να προσδιορίσω εάν ένα συγκεκριμένο γράφημα είναι συνδεδεμένο με εξωτερικό ή ενσωματωμένο βιβλίο εργασίας;**
 
-Ναι. Ένα διάγραμμα έχει έναν τύπο πηγής δεδομένων και μια διαδρομή προς ένα εξωτερικό βιβλίο εργασίας· εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
+Ναι. Ένα γράφημα διαθέτει έναν [data source type](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getDataSourceType) και μια [path to an external workbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath); εάν η πηγή είναι εξωτερικό βιβλίο, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
 
 **Υποστηρίζονται σχετικές διαδρομές προς εξωτερικά βιβλία εργασίας και πώς αποθηκεύονται;**
 
-Ναι. Εάν καθορίσετε σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απόλυτη διαδρομή. Αυτό είναι βολικό για την φορητότητα του έργου· ωστόσο, να έχετε υπόψη ότι η παρουσίαση θα αποθηκεύσει την απόλυτη διαδρομή στο αρχείο PPTX.
+Ναι. Εάν ορίσετε σχετική διαδρομή, μετατρέπεται αυτόματα σε απόλυτη. Η παρουσίαση αποθηκεύει τη απόλυτη διαδρομή στο αρχείο PPTX, επομένως η μετακίνηση του βιβλίου μπορεί να απαιτεί ενημέρωση του συνδέσμου.
 
 **Μπορώ να χρησιμοποιήσω βιβλία εργασίας που βρίσκονται σε δικτυακούς πόρους/κοινόχρηστους φακέλους;**
 
-Ναι, τέτοια βιβλία εργασίας μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η επεξεργασία απομακρυσμένων βιβλίων εργασίας απευθείας από το Aspose.Slides δεν υποστηρίζεται· μπορούν μόνο να χρησιμοποιηθούν ως πηγή.
+Ναι, τέτοια βιβλία μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η επεξεργασία απομακρυσμένων βιβλίων απευθείας από το Aspose.Slides δεν υποστηρίζεται· μπορούν μόνο να χρησιμοποιηθούν ως πηγή.
 
-**Αντικαθιστά το Aspose.Slides το εξωτερικό XLSX κατά την αποθήκευση της παρουσίασης;**
+**Αντιγράφει το Aspose.Slides το εξωτερικό XLSX κατά την αποθήκευση της παρουσίασης;**
 
-Όχι. Η παρουσίαση αποθηκεύει έναν σύνδεσμο προς το εξωτερικό αρχείο και τον χρησιμοποιεί για την ανάγνωση των δεδομένων. Το εξωτερικό αρχείο δεν τροποποιείται όταν η παρουσίαση αποθηκεύεται.
+Η παρουσίαση αποθηκεύει έναν [link to the external file](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath). Η επεξεργασία δεδομένων γραφήματος που προέρχονται από κελιά μπορεί επίσης να ενημερώσει το τοπικό αρχείο XLSX. Χρησιμοποιήστε αντίγραφο του βιβλίου εάν το πρωτότυπο πρέπει να παραμείνει αμετάβλητο.
 
 **Τι πρέπει να κάνω εάν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό;**
 
-Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης κατά τη σύνδεση. Μια συνήθης προσέγγιση είναι να αφαιρέσετε την προστασία εκ των προτέρων ή να ετοιμάσετε ένα αποκρυπτογραφημένο αντίγραφο (για παράδειγμα, χρησιμοποιώντας [Aspose.Cells](/cells/nodejs-java/)) και να συνδέσετε σε αυτό το αντίγραφο.
+Το Aspose.Slides δεν δέχεται κωδικό όταν δημιουργεί σύνδεσμο. Συνήθης προσέγγιση είναι η αφαίρεση της προστασίας εκ των προτέρων ή η προετοιμασία ενός αποκρυπτογραφημένου αντιγράφου (π.χ. με το [Aspose.Cells](https://reference.aspose.com/cells/java/)) και η σύνδεση σε αυτό το αντίγραφο.
 
-**Μπορούν πολλά διαγράμματα να αναφέρονται στο ίδιο εξωτερικό βιβλίο εργασίας;**
+**Μπορούν πολλαπλά γραφήματα να αναφέρονται στο ίδιο εξωτερικό βιβλίο εργασίας;**
 
-Ναι. Κάθε διάγραμμα αποθηκεύει τον δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντικατοπτρίζεται σε κάθε διάγραμμα την επόμενη φορά που θα φορτωθούν τα δεδομένα.
+Ναι. Κάθε γράφημα αποθηκεύει το δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντικατοπτρίζεται σε κάθε γράφημα την επόμενη φορά που φορτώνονται τα δεδομένα.

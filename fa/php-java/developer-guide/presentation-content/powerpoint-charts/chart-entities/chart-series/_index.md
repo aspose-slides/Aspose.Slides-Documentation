@@ -1,44 +1,44 @@
 ---
-title: مدیریت مجموعه داده‌های نمودار در ارائه‌ها با PHP
-linktitle: مجموعه داده
+title: مدیریت سری‌های داده نمودار در ارائه‌ها با PHP
+linktitle: سری داده
 type: docs
 url: /fa/php-java/chart-series/
 keywords:
-- مجموعه نمودار
-- همپوشانی مجموعه
-- رنگ مجموعه
-- نام مجموعه
+- سری نمودار
+- پوشش سری
+- رنگ سری
+- نام سری
 - نقطه داده
-- سلول کتاب کار
-- فاصله مجموعه
+- سلول کاربرگ
+- فاصله سری
 - مقدار منفی
 - PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه مجموعه‌های نمودار، نقاط داده، سلول‌های کتاب کار، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی را در ارائه‌ها با PHP مدیریت کنید."
+description: "یاد بگیرید چگونه سری‌های نمودار، نقاط داده، سلول‌های کاربرگ، قالب‌بندی، پوشش، عرض فاصله و مقادیر منفی را در ارائه‌ها با PHP مدیریت کنید."
 ---
-## **مرور کلی**
+## **نمای کلی**
 
-یک نمودار داده‌های رسم‌شدهٔ خود را در یک کتاب کار داده‌های نمودار ذخیره می‌کند. یک [ChartSeries](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/) نمایانگر یک مجموعهٔ مقادیر مرتبط است و هر [ChartDataPoint](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/) در این مجموعه به یک یا چند سلول کتاب کار ارجاع می‌دهد. اشیاء [ChartCategory](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartcategory/) برچسب‌ها یا مقادیر گروه‌بندی‌شدهٔ مشترک بین مجموعه‌ها را فراهم می‌کنند. بنابراین نام مجموعه، دسته‌ها و مقادیر نقاط به جای اینکه فقط به‌عنوان متن نمایش داده شوند، به اشیای [ChartDataCell](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatacell/) متصل می‌شوند.
+یک نمودار داده‌های ترسیم‌شده خود را در یک کاربرگ داده‌های نمودار ذخیره می‌کند. یک [ChartSeries](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/) نمایانگر یک مجموعه از مقادیر مرتبط است و هر [ChartDataPoint](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/) در این مجموعه به یک یا چند سلول کاربرگ اشاره می‌کند. اشیاء [ChartCategory](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartcategory/) برچسب‌ها یا مقادیر گروه‌بندی را که توسط مجموعه‌ها به اشتراک گذاشته می‌شوند، فراهم می‌آورند. به همین دلیل نام مجموعه، دسته‌بندی‌ها و مقادیر نقاط به اشیاء [ChartDataCell](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatacell/) متصل هستند نه اینکه فقط به عنوان متن نمایشی ذخیره شوند.
 
-برای یک نمودار دسته‌ای معمولی، کتاب کار پیش‌فرض از ردیف 0 برای نام‌های مجموعه، ستون 0 برای نام‌های دسته و بقیهٔ سلول‌ها برای مقادیر مجموعه استفاده می‌کند. شاخص‌های برگه، ردیف و ستون که به [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/#getCell) پاس داده می‌شوند، صفر‑پایه هستند. این طرح‌بندی زمانی مفید است که یک نمودار را با داده‌های پیش‌فرض ایجاد می‌کنید، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائهٔ بارگذاری‌شده، قبل از تغییر مقادیر کتاب کار، سلول‌های مورد اشارهٔ مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
+برای یک نمودار دسته‌ای معمولی، کاربرگ پیش‌فرض از ردیف 0 برای نام‌های مجموعه، ستون 0 برای نام‌های دسته و سلول‌های باقی مانده برای مقادیر مجموعه استفاده می‌کند. شاخص‌های کاربرگ، ردیف و ستون که به [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/#getCell) پاس می‌شوند، صفر‑مبنا هستند. این قالب‌بندی زمانی مفید است که نمودار را با داده‌های پیش‌فرض ایجاد می‌کنید، اما فرض نکنید هر نمودار موجود از آن استفاده می‌کند. برای ارائه‌ای که بارگذاری شده است، سلول‌های مرجع توسط مجموعه‌ها، دسته‌ها و نقاط داده را پیش از تغییر مقادیر کاربرگ بررسی کنید.
 
-تنظیمات نمودار در سه حوزهٔ متفاوت قرار می‌گیرند:
+تنظیمات نمودار سه حوزه متفاوت دارند:
 
-- تنظیمات سطح مجموعه، مانند [ChartSeries.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getFormat)، ظاهر پیش‌فرض تمام نقاط در یک مجموعه را تعیین می‌کنند.
-- تنظیمات نقطهٔ داده، مانند [ChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getFormat)، ظاهر مجموعه را برای یک نقطه خاص بازنویسی می‌کنند.
-- تنظیمات گروهی به مجموعه‌های سازگاری که به یک [ChartSeriesGroup](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/) تعلق دارند، اعمال می‌شود. برای تنظیم گزینه‌هایی مانند هم‌پوشانی یا عرض فاصله، از [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getParentSeriesGroup) دسترسی پیدا کنید.
+- تنظیمات در سطح مجموعه، مانند [ChartSeries.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getFormat)، ظاهر پیش‌فرض تمام نقاط در یک مجموعه را فراهم می‌کنند.
+- تنظیمات در سطح نقطه داده، مانند [ChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getFormat)، ظاهر مجموعه را برای یک نقطه خاص لغو می‌کند.
+- تنظیمات گروهی برای مجموعه‌های سازگاری که به همان [ChartSeriesGroup](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/) تعلق دارند اعمال می‌شود. برای تنظیم گزینه‌هایی مانند پوشش (overlap) یا عرض فاصله (gap width) از [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getParentSeriesGroup) استفاده کنید.
 
-زمانی که پر رنگ explicit برای نقطه یا مجموعه تنظیم نشده باشد، استایل و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هم تنظیمات مجموعه و هم نقطه موجود باشد، تنظیمات نقطه برای آن نقطه اولویت دارد.
+زمانی که پر کردن صریح نقطه یا مجموعه‌ای تعیین نشده باشد، استایل و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هر دو قالب‌بندی مجموعه و نقطه موجود باشد، قالب‌بندی نقطه برای آن نقطه اولویت دارد.
 
-![نمودار‑سری‑پاورپوینت](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تنظیم همپوشانی مجموعهٔ نمودار**
+## **تنظیم پوشش مجموعه نمودار**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getOverlap) گزارش می‌دهد که نوارها یا ستون‌ها در یک نمودار دو‑بعدی تا چه حد (از ‎‑100‎ تا ‎100‎ درصد) همپوشانی دارند. این یک تصویر فقط‑خواندنی از تنظیمات گروه مجموعه والد است. برای به‌روزرسانی تمام مجموعه‌های سازگار در آن گروه، از [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/#setOverlap) استفاده کنید. این گزینه برای انواع نموداری که نوارها یا ستون‌های گروهی نمایش می‌دهند اعمال می‌شود؛ بر گروه‌های مجموعهٔ نامرتبط در یک نمودار ترکیبی تأثیری ندارد.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getOverlap) گزارش می‌دهد که نوارها یا ستون‌ها در یک نمودار دو بعدی تا چه حد هم‌پوشانی دارند، از ‑۱۰۰ تا ۱۰۰ درصد. این یک پیش‌بینی فقط‑خواندنی از تنظیمات در گروه مجموعه والد است. برای به‌روزرسانی همه مجموعه‌های سازگار در آن گروه از [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/#setOverlap) استفاده کنید. این گزینه برای انواع نمودارهایی که نوارها یا ستون‌های گروهی نمایش می‌دهند اعمال می‌شود؛ بر گروه‌های مجموعه نامرتبط در یک نمودار ترکیبی تاثیری ندارد.
 
-مثال زیر همپوشانی گروه حاوی اولین مجموعه را تنظیم می‌کند:
+مثال زیر پوشش (overlap) را برای گروهی که شامل اولین مجموعه است، تنظیم می‌کند:
 
 ```php
 $firstSlideIndex = 0;
@@ -49,7 +49,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // نمودار جدید شامل مجموعه‌های نمونه، دسته‌ها و مقادیر است.
+    // نمودار جدید شامل سری‌های نمونه، دسته‌ها و مقادیر است.
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -65,13 +65,13 @@ try {
 
 نتیجه:
 
-![همپوشانی مجموعه‌ها](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **تغییر رنگ پر کردن مجموعه**
 
-از [ChartSeries.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getFormat) برای تنظیم پر رنگ پیش‌فرض یک مجموعهٔ کامل استفاده کنید. اگر یک نقطه قبلاً پر رنگ صریح داشته باشد، تنظیم [ChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getFormat) آن، پر رنگ مجموعه را برای آن نقطه بازنویسی می‌کند.
+از [ChartSeries.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getFormat) برای تنظیم پر کردن پیش‌فرض یک مجموعه کامل استفاده کنید. اگر یک نقطه قبلاً پر کردن صریح داشته باشد، تنظیم [ChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getFormat) آن، پر کردن مجموعه را برای آن نقطه لغو می‌کند.
 
-مثال زیر پر رنگ آبی صاف را به اولین مجموعه اعمال می‌کند:
+مثال زیر یک پر کردن آبی صلب را برای اولین مجموعه اعمال می‌کند:
 
 ```php
 $firstSlideIndex = 0;
@@ -98,11 +98,11 @@ try {
 
 نتیجه:
 
-![رنگ مجموعه](series_color.png)
+![The color of the series](series_color.png)
 
 ## **تغییر نام مجموعه**
 
-نام یک مجموعه در کتاب کار داده‌های نمودار ذخیره می‌شود و معمولاً در راهنما نمایش داده می‌شود. در کتاب کار پیش‌فرض ساخته‌شده برای یک نمودار ستونی خوشه‌ای، سلول B1 (ردیف 0، ستون 1) شامل نام اولین مجموعه است. متغیرهای نامگذاری شده در مثال زیر این ساختار را صریح می‌کند:
+نام مجموعه در کاربرگ داده‌های نمودار ذخیره می‌شود و معمولاً در نشان‌گر (legend) نمایش داده می‌شود. در کاربرگ پیش‌فرض ایجاد شده برای یک نمودار ستونی خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین مجموعه را در خود دارد. متغیرهای نام‌گذاری شده در مثال زیر این ساختار را به وضوح نشان می‌دهند:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-همچنین می‌توانید سلولی که توسط [ChartSeries.getName](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getName) ارجاع داده شده است، به‌روز کنید. این روش از فرض یک ردیف و ستون خاص در یک نمودار موجود جلوگیری می‌کند:
+همچنین می‌توانید سلول مرجعی که توسط [ChartSeries.getName](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getName) استفاده می‌شود، به‌روزرسانی کنید. این رویکرد از فرض کردن ردیف و ستون خاصی در یک نمودار موجود جلوگیری می‌کند:
 
 ```php
 $firstSlideIndex = 0;
@@ -155,13 +155,13 @@ try {
 
 نتیجه:
 
-![نام مجموعه](series_name.png)
+![The series name](series_name.png)
 
-## **دریافت رنگ پر خودکار مجموعه**
+## **دریافت رنگ پر کردن خودکار مجموعه**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) رنگی را برمی‌گرداند که از شاخص مجموعه و استایل نمودار محاسبه می‌شود. این همان رنگی است که وقتی پر رنگ مجموعه به‌طور صریح تعریف نشده باشد، استفاده می‌شود. فراخوانی این متد فقط رنگ محاسبه‌شده را می‌خواند؛ پر رنگ جدیدی اختصاص نمی‌دهد.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) رنگی را برمی‌گرداند که از اندیس مجموعه و استایل نمودار محاسبه می‌شود. این همان رنگی است که هنگامی که پر کردن مجموعه صریحاً تعریف نشده باشد، استفاده می‌شود. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ رنگ جدیدی را اختصاص نمی‌دهد.
 
-مثال زیر رنگ خودکار هر مجموعهٔ پیش‌فرض را چاپ می‌کند:
+مثال زیر رنگ خودکار هر مجموعه پیش‌فرض را چاپ می‌کند:
 
 ```php
 $firstSlideIndex = 0;
@@ -196,13 +196,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-رنگ‌های دقیق بسته به استایل و تم نمودار متفاوت هستند.
+رنگ‌های دقیق به استایل و تم نمودار بستگی دارد.
 
-## **تنظیم رنگ پر معکوس برای یک مجموعه نمودار**
+## **تنظیم رنگ پر کردن معکوس برای یک مجموعه نمودار**
 
-برای مجموعه‌های نوار، ستون و حبابی، می‌توان با استفاده از [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#setInvertIfNegative) مقادیر منفی را با پر رنگ متفاوتی نمایش داد. پر رنگ معمولی مجموعه را به حالت صاف تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) اختصاص دهید. اعداد منفی در کتاب کار همان‌طور می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
+برای مجموعه‌های نوار، ستون و حباب، می‌توان با استفاده از [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#setInvertIfNegative) مقادیر منفی را با پر کردن متفاوت نمایش داد. پر کردن معمولی مجموعه را به حالت صلب تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) اختصاص دهید. اعداد منفی در کاربرگ دست نخورده می‌مانند؛ فقط رنگ نمایش آنها تغییر می‌کند.
 
-مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 برگه شامل نام مجموعه، ستون 0 شامل نام‌های دسته و ستون 1 شامل مقادیر است:
+مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 کاربرگ نام مجموعه را دارد، ستون 0 نام دسته‌ها را دارد و ستون 1 مقادیر را شامل می‌شود:
 
 ```php
 $firstSlideIndex = 0;
@@ -260,9 +260,9 @@ try {
 
 نتیجه:
 
-![رنگ پر معکوس صاف](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-می‌توانید برای یک نقطهٔ خاص معکوس‌سازی را از طریق [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) فعال کنید. در مثال زیر معکوس‌سازی برای مجموعه غیرفعال و تنها برای نقطهٔ انتخاب‌شده فعال می‌شود. این نقطه همچنین مقدار منفی دریافت می‌کند تا اثر قابل مشاهده باشد:
+می‌توانید برای یک نقطه خاص معکوس‌سازی را از طریق [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) فعال کنید. در مثال زیر معکوس‌سازی برای مجموعه غیرفعال و فقط برای نقطه انتخاب‌شده فعال شده است. این نقطه نیز مقدار منفی دریافت می‌کند تا اثر قابل مشاهده باشد:
 
 ```php
 $firstSlideIndex = 0;
@@ -296,11 +296,11 @@ try {
 }
 ```
 
-## **پاک کردن مقدار یک نقطهٔ دادهٔ خاص**
+## **پاک کردن مقدار یک نقطه داده خاص**
 
-برای خالی کردن یک نقطه بدون حذف نقاط دیگر، سلول مربوطه در کتاب کار را به `null` تنظیم کنید. برای یک نمودار ستونی، مقدار رسم‌شده از طریق [ChartDataPoint.getValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getValue) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را به‌عنوان خالی طبق تنظیمات مقدار خالی نمودار درنظر می‌گیرد.
+برای خالی کردن یک نقطه بدون حذف دیگر نقاط، سلول کاربرگ پشتیبان آن را به `null` تنظیم کنید. برای نمودار ستونی، مقدار ترسیم‌شده از طریق [ChartDataPoint.getValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getValue) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را به عنوان خالی بر اساس تنظیمات خالی‑مقدار نمودار در نظر می‌گیرد.
 
-مثال زیر فقط نقطهٔ دوم در اولین مجموعه را پاک می‌کند:
+مثال زیر فقط دومین نقطه در اولین مجموعه را پاک می‌کند:
 
 ```php
 $firstSlideIndex = 0;
@@ -325,15 +325,17 @@ try {
 }
 ```
 
-نمودارهای پراکندگی از سلول‌های X و Y جداگانه استفاده می‌کنند و نمودارهای حبابی همچنین از سلول اندازه بهره می‌برند. فقط سلولی را که نمایانگر مقدار موردنظر برای حذف است پاک کنید. هنگام تمایل به حفظ نقاط دیگر، از فراخوانی [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointcollection/#clear) خودداری کنید؛ این متد تمام نقاط داده را از مجموعه حذف می‌کند.
+نمودارهای پراکنده (scatter) از سلول‌های جداگانه X و Y استفاده می‌کنند و نمودارهای حبابی نیز از یک سلول اندازه استفاده می‌کنند. فقط سلولی را که نمایانگر مقداری است که می‌خواهید حذف کنید، پاک کنید. هنگام نیاز به حفظ نقاط دیگر، از فراخوانی [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointcollection/#clear) خودداری کنید، زیرا این متد تمام نقاط داده را از مجموعه حذف می‌کند.
 
 ## **کنترل نمایش سلول‌های خالی**
 
-یک سلول خالی در کتاب کار نمایانگر دادهٔ گم‌شده است؛ یک سلول حاوی `0` نمایانگر مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، [ChartDataCell::setValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatacell/#setValue) را با `null` صدا بزنید. عدد صفر عددی صفر باقی می‌ماند صرف‌نظر از تنظیمات سلول خالی.
+سلول‌های مخفی که حاوی مقادیر هستند، مورد متفاوتی نسبت به سلول‌های خالی محسوب می‌شوند. برای شامل یا حذف داده‌ها از ردیف‌ها و ستون‌های مخفی کاربرگ، به بخش [Include Data from Hidden Rows and Columns](/slides/fa/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns) مراجعه کنید.
 
-از [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/#setDisplayBlanksAs) برای انتخاب نحوهٔ نمایش سلول‌های خالی توسط نمودار استفاده کنید. این تنظیم برای تمام نمودار اعمال می‌شود. این تنظیم نحوهٔ رسم خالی‌ها را تغییر می‌دهد بدون اینکه سلول خالی کتاب کار را با صفر یا مقدار درون‌خطی پر کند.
+یک سلول کاربرگ خالی نمایانگر داده‌های گمشده است؛ یک سلول حاوی `0` نمایانگر مقدار عددی شناخته‌شده‌ای است. برای خالی کردن یک سلول، با `null` به [ChartDataCell::setValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatacell/#setValue) فراخوانی کنید. مقدار عددی صفر بدون در نظر گرفتن تنظیم خالی‑سلول صفر می‌ماند.
 
-مثال خودمحافظ زیر یک نمودار خطی با یک مجموعه ایجاد می‌کند، مقدار روز ۳ را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌کند. نیازی به فایل ورودی نیست. [ChartDataWorkbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/) از برگه 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام مجموعه را نگه می‌دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است.
+از [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/#setDisplayBlanksAs) برای انتخاب نحوه نمایش سلول‌های خالی در نمودار استفاده کنید. این تنظیم برای کل نمودار اعمال می‌شود. این تنظیم نحوه ترسیم خالی‌ها را تغییر می‌دهد، بدون این که سلول کاربرگ خالی را با صفر یا مقدار درون‌خطی پر کند.
+
+مثال خود‑محافظ زیر یک نمودار خطی با یک مجموعه ایجاد می‌کند، مقدار روز ۳ را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌نماید. نیازی به فایل ورودی نیست. [ChartDataWorkbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/) از کاربرگ 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام مجموعه را در خود دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است.
 
 ```php
 use aspose\slides\ChartType;
@@ -363,7 +365,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // روز 3 را به‌صورت واقعی خالی بگذارید، در حالی که دسته و نقطه دادهٔ آن را حفظ می‌کنید.
+    // روز ۳ را واقعاً خالی بگذارید، در حالی که دسته‌بندی و نقطه داده آن را حفظ می‌کنید.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -377,19 +379,19 @@ try {
 }
 ```
 
-هر فایل خروجی حالت تعیین‌شده پیش از ذخیره را ذخیره می‌کند: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ یک نسخه تنها، حالت موردنظر را تنظیم کنید و ارائه را یک بار ذخیره کنید به‌جای تکرار بر روی حالت‌ها.
+هر فایل خروجی حالت تعیین‌شده قبل از ذخیره‌سازی را نشان می‌دهد: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ تنها یک نسخه، حالت دلخواه را تعیین کنید و یک‌بار ارائه را ذخیره کنید به جای تکرار بر روی حالت‌ها.
 
-مقایسهٔ زیر همان داده را در هر سه فایل نشان می‌دهد. روز ۳ در کتاب کار در همهٔ موارد خالی است:
+مقایسهٔ زیر همان داده‌ها را در هر سه فایل نشان می‌دهد. روز ۳ در کاربرگ در تمام موارد خالی است:
 
-![نمودارهای خطی با دادهٔ یکسان: Gap خط را در روز ۳ قطع می‌کند، Zero خط را به صفر می‌کشاند، و Span روز ۲ را به روز ۴ متصل می‌کند.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-اثر قابل مشاهده به نوع نمودار وابسته است. یک نمودار خطی سه حالت را به‌راحتی مقایسه می‌کند. نمودارهای نوار و ستونی خطی برای اتصال بین دستهٔ گم‌شده ندارند، بنابراین `Span` نمی‌تواند قطعهٔ متصل شدهٔ بالا را تولید کند؛ یک ستون گم‌شده و یک ستون با ارتفاع صفر نیز می‌توانند مشابه به نظر برسند. به‌طور مشابه، یک نمودار پراکندگی که فقط نشانگر دارد خطی برای اتصال ندارد. انتظار نتایج سه‌گانهٔ متمایز برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
+اثر قابل مشاهده به نوع نمودار بستگی دارد. یک نمودار خطی سه حالت را به راحتی مقایسه می‌کند. نمودارهای نوار و ستونی خطی برای اتصال بین دسته‌های گمشده ندارند، بنابراین `Span` نمی‌تواند بخش اتصال نشان داده‌شده در بالا را تولید کند؛ یک ستون گمشده و یک ستون با ارتفاع صفر نیز می‌توانند مشابه به نظر برسند. به همان ترتیب، یک نمودار پراکنده فقط با نشانگرها خطی برای اتصال ندارند. انتظار نتایج سه‌گانه متمایز برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
 
-## **تنظیم عرض فاصلهٔ مجموعه**
+## **تنظیم عرض فاصله مجموعه**
 
-عرض فاصله فاصلهٔ بین خوشه‌های نوار یا ستونی مجاور است که به‌صورت درصدی از عرض نوار یا ستون بیان می‌شود. مشابه همپوشانی، این تنظیم متعلق به گروه مجموعهٔ والد است نه به یک مجموعهٔ منفرد. برای گروه یک‌بار [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/#setGapWidth) را صدا بزنید. مقدار بزرگتر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچکتر آن‌ها را متراکم‌تر می‌سازد.
+عرض فاصله (gap width) فضای بین خوشه‌های نوار یا ستون مجاور را نشان می‌دهد و به صورت درصدی از عرض نوار یا ستون بیان می‌شود. همانند پوشش، این تنظیم متعلق به گروه مجموعه والد است نه به یک مجموعه منفرد. یکبار برای گروه، [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/#setGapWidth) را فراخوانی کنید. مقدار بزرگ‌تر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچکتر آنها را متراکم‌تر می‌سازد.
 
-مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائهٔ نهایی را ذخیره می‌کند:
+مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائه نهایی را ذخیره می‌کند:
 
 ```php
 $firstSlideIndex = 0;
@@ -415,46 +417,46 @@ try {
 
 نتیجه:
 
-![عرض فاصله](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **سوالات متداول**
 
-**کدام انواع نمودار از مجموعه داده پشتیبانی می‌کنند؟**
+**کدام انواع نمودار از سری داده پشتیبانی می‌کنند؟**
 
-تمام انواع نمودارهای نمایان‌شده توسط شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/charttype/) از داده‌های نمودار استفاده می‌کنند، اما مجموعه‌های آن‌ها همه دارای ساختار یا تنظیمات مقدار یکسان نیستند. به‌عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی از مقادیر X و Y، و نمودارهای حبابی اندازهٔ حباب را اضافه می‌کنند. از روش ایجاد نقطهٔ داده‌ای استفاده کنید که با نوع مجموعه سازگار باشد. گزینه‌هایی مانند همپوشانی و عرض فاصله فقط برای گروه‌های نوار یا ستونی سازگار اعمال می‌شوند.
+همهٔ انواع نمودارهایی که توسط شمارشگر [ChartType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/charttype/) نمایان می‌شوند، از داده‌های نمودار استفاده می‌کنند، اما سری‌های آنها همه ساختار مقدار یا تنظیمات یکسانی ندارند. برای مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکنده از مقادیر X و Y، و نمودارهای حبابی اندازه حباب را اضافه می‌کنند. از روش ایجاد نقطه داده‌ای استفاده کنید که با نوع سری سازگار باشد. گزینه‌هایی مانند پوشش و عرض فاصله تنها برای گروه‌های نوار یا ستونی سازگار اعمال می‌شوند.
 
-**یک گروه مجموعهٔ نمودار چیست؟**
+**یک گروه سری نمودار چیست؟**
 
-یک [ChartSeriesGroup](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/) شامل مجموعه‌های سازگاری است که تنظیمات رسم سطح‑گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک مجموعه دسترسی پیدا می‌کنید لزوماً تمام مجموعه‌های نمودار را تغییر نخواهد داد.
+یک [ChartSeriesGroup](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/) شامل سری‌های سازگاری است که تنظیمات رسم در سطح گروه را به اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک سری به آن دسترسی پیدا می‌کنید، لزوماً همهٔ سری‌ها را در نمودار تغییر نمی‌دهد.
 
-**آیا یک نمودار تازه‌ساخته داده‌های پیش‌فرض دارد؟**
+**آیا نمودار تازه ساخته‌شده داده‌های پیش‌فرض دارد؟**
 
-بله. به‌صورت پیش‌فرض، [ShapeCollection.addChart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/#addChart) مجموعه‌های نمونه، دسته‌ها و مقادیر را ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن یک مجموعهٔ دادهٔ کاملاً سفارشی، هر دو مجموعه و دسته‌ها را پاک کنید. یک overload نیز می‌تواند نموداری بدون دادهٔ پیش‌فرض ایجاد کند.
+بله. به‌طور پیش‌فرض، [ShapeCollection.addChart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/#addChart) نمونه‌ای از سری‌ها، دسته‌ها و مقادیر ایجاد می‌کند. می‌توانید آن سلول‌ها را ویرایش کنید یا قبل از افزودن یک مجموعه دادهٔ کاملاً سفارشی، هر دو مجموعه سری و دسته را پاک کنید. یک overload نیز می‌تواند نموداری بدون دادهٔ پیش‌فرض ایجاد کند.
 
-**آبجکت‌های نمودار چگونه به سلول‌های کتاب کار متصل می‌شوند؟**
+**اشیای نمودار چگونه به سلول‌های کاربرگ متصل می‌شوند؟**
 
-نام‌های مجموعه، برچسب‌های دسته و مقادیر نقطهٔ داده به سلول‌های یک [ChartDataWorkbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‌شده، عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر مجموعه را طوری هماهنگ کنید که هر نقطه تحت دستهٔ موردنظر رسم شود.
+نام‌های سری، برچسب‌های دسته و مقادیر نقطه داده به سلول‌های یک [ChartDataWorkbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/) ارجاع می‌دهد. تغییر یک سلول مرجع، عنصر مربوط به نمودار را به‌روزرسانی می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر سری را طوری تنظیم کنید که هر نقطه زیر دستهٔ مورد نظر ترسیم شود.
 
-**چگونه یک نقطه را به‌جای تمام مجموعه پاک کنم؟**
+**چگونه یک نقطه را به‌جای پاک کردن کل سری پاک کنم؟**
 
-سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان نقطهٔ خالی حفظ شود. فقط زمانی از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointcollection/#clear) استفاده کنید که قصد حذف تمام نقاط آن مجموعه را داشته باشید. اگر دسته‌ها را نیز حذف می‌کنید، تمام مجموعه‌ها را به‌روز کنید تا مقادیر آن‌ها با مجموعهٔ دسته‌ها هم‌راستا بماند.
+سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به عنوان نقطهٔ خالی حفظ شود. از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointcollection/#clear) فقط زمانی استفاده کنید که قصد حذف تمام نقاط آن سری را داشته باشید. اگر دسته‌ها را نیز حذف می‌کنید، هر سری را به‌روزرسانی کنید تا مقادیر آنها با مجموعهٔ دسته‌ها هم‌خط شوند.
 
 **نقاط خالی چگونه نمایش داده می‌شوند؟**
 
-نتیجه به نوع نمودار و مقدار پیکربندی‌شده از طریق [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/#setDisplayBlanksAs) بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فاصله، به‌عنوان مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنای دادهٔ گم‌شده در ارائهٔ شما سازگار باشد. برای مثال کامل و مقایسهٔ تصویری، به بخش **کنترل نمایش سلول‌های خالی** مراجعه کنید.
+نتیجه به نوع نمودار و مقدار تنظیم‌شده از طریق [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/#setDisplayBlanksAs) بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌عنوان فاصله، به‌عنوان مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که معنای داده‌های گمشده در ارائهٔ شما را بازتاب دهد. برای مثال کامل و مقایسهٔ بصری به بخش [Control the Display of Empty Cells](#control-the-display-of-empty-cells) مراجعه کنید.
 
-**مقادیر منفی چگونه قالب‌بندی می‌شوند؟**
+**مقدارهای منفی چگونه قالب‌بندی می‌شوند؟**
 
-برای مجموعه‌های نوار، ستون و حبابی پشتیبانی‌شده، [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#setInvertIfNegative) را فراخوانی کنید و رنگی که توسط [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) بازگردانده می‌شود را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ منفرد با [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) بازنویسی کنید. این متدها فقط قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
+برای مجموعه‌های نوار، ستون و حباب پشتیبانی‌شده، از [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#setInvertIfNegative) فراخوانی کنید و رنگی که توسط [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) برگردانده می‌شود را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ فردی با [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) بازنویسی کنید. این متدها صرفاً قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
 
-**وقتی هم مجموعه و هم نقطه قالب‌بندی شوند، کدام قالب‌بندی برنده است؟**
+**زمانی که هم مجموعه و هم نقطه قالب‌بندی شوند، کدام یک برتر است؟**
 
-قالب‌بندی صریح نقطهٔ داده برای آن نقطه اولویت دارد. نقاط دیگر همچنان از قالب‌بندی صریح مجموعه یا، زمانی که قالب‌بندی مجموعه تعریف نشده باشد، از استایل و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروهی مانند همپوشانی و عرض فاصله بر چیدمان تأثیر می‌گذارند و بازنویسی قالب‌بندی سطح نقطه نیستند.
+قالب‌بندی صریح نقطه داده برای آن نقطه اولویت دارد. نقاط دیگر به قالب‌بندی صریح مجموعه ادامه می‌دهند یا، اگر قالب‌بندی مجموعه تعریف نشده باشد، از استایل و تم خودکار نمودار استفاده می‌شود. تنظیمات گروهی مانند پوشش و عرض فاصله بر چیدمان کنترل می‌کنند و بازنویسی‌های قالب‌بندی سطح نقطه نیستند.
 
-**آیا محدودیتی برای تعداد مجموعه‌های یک نمودار وجود دارد؟**
+**آیا محدودیتی برای تعداد سری‌های یک نمودار وجود دارد؟**
 
-Aspose.Slides محدودیت ثابت جداگانه‌ای برای تعداد مجموعه‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندر و خوانایی نمودار عوامل محدودکننده‌ای هستند.
+Aspose.Slides محدودیت ثابت جداگانه‌ای برای تعداد سری‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظهٔ موجود، زمان рендеринг و خوانایی نمودار تعیین‌کنندهٔ حد عملی هستند.
 
-**وقتی ستون‌ها خیلی نزدیک یا خیلی دور هستند، چه کاری باید انجام دهم؟**
+**چه کاری باید انجام دهم وقتی ستون‌ها بیش از حد نزدیک یا دور از یکدیگر هستند؟**
 
-بر روی گروه مجموعهٔ والد مناسب [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/#setGapWidth) را صدا بزنید. مقدار را برای افزایش فاصله بین خوشه‌ها افزایش دهید یا برای نزدیک‌تر کردن خوشه‌ها آن را کاهش دهید.
+در گروه مجموعهٔ والد مناسب، [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseriesgroup/#setGapWidth) را فراخوانی کنید. مقدار را برای افزایش فاصله بین خوشه‌ها افزایش دهید یا برای نزدیک‌تر کردن خوشه‌ها کاهش دهید.

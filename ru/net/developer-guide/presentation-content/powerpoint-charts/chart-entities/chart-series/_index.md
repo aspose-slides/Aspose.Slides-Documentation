@@ -1,5 +1,5 @@
 ---
-title: Управление данными серий диаграмм в презентациях на .NET
+title: Управление сериями данных диаграмм в презентациях на .NET
 linktitle: Серии данных
 type: docs
 url: /ru/net/chart-series/
@@ -10,35 +10,35 @@ keywords:
 - цвет категории
 - имя серии
 - точка данных
-- промежуток между сериями
+- промежуток серии
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной промежутка и отрицательными значениями в презентациях с помощью C#."
+description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной промежутка и отрицательными значениями в презентациях с C#."
 ---
 ## **Обзор**
 
-Диаграмма хранит свои построенные данные в рабочей книге данных диаграммы. [IChartSeries](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/) представляет один набор связанных значений, и каждый [IChartDataPoint](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [IChartCategory](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartcategory/) предоставляют метки или группирующие значения, общие для серии. Таким образом, имя серии, категории и значения точек связаны с объектами [IChartDataCell](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatacell/), а не хранятся только как отображаемый текст.
+Диаграмма хранит построенные данные в рабочей книге данных диаграммы. [IChartSeries](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/) представляет один набор связанных значений, а каждый [IChartDataPoint](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [IChartCategory](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartcategory/) предоставляют метки или значения группировки, общие для серии. Поэтому имя серии, категории и значения точек связаны с объектами [IChartDataCell](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatacell/), а не хранятся только как отображаемый текст.
 
-Для типичной диаграммы категорий стандартная рабочая книга использует строку 0 для имен серий, столбец 0 для имен категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/getcell/) являются нулевыми. Такая структура полезна, когда вы создаёте диаграмму с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует её. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем менять значения в рабочей книге.
+Для типичной диаграммы категории рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/getcell/), нумеруются с нуля. Такая раскладка полезна при создании диаграммы с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует её. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем изменять значения в рабочей книге.
 
-Настройки диаграммы имеют три разных уровня области действия:
+Установки диаграммы имеют три разных уровня:
 
-- Настройки на уровне серии, такие как [IChartSeries.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/format/), задают внешний вид по умолчанию для всех точек в одной серии.
-- Настройки точек данных, такие как [IChartDataPoint.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/format/), переопределяют внешний вид серии для отдельной точки.
-- Настройки группы применяются к совместимым сериям, принадлежащим к одному [IChartSeriesGroup](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/). Получить группу можно через [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/parentseriesgroup/), когда необходимо задать параметры, такие как перекрытие или ширина промежутка.
+- Настройки уровня серии, такие как [IChartSeries.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/format/), задают внешний вид по умолчанию для всех точек в одной серии.
+- Настройки отдельной точки данных, такие как [IChartDataPoint.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/format/), переопределяют внешний вид серии для одной точки.
+- Настройки группы применяются к совместимым сериям, входящим в один [IChartSeriesGroup](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/). Доступ к группе осуществляется через [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/parentseriesgroup/), когда необходимо задать параметры, такие как перекрытие или ширина промежутка.
 
-Если явная заливка точки или серии не задана, стиль и тема диаграммы определяют автоматический внешний вид. Если заданы как форматирование серии, так и точек, форматирование точек имеет приоритет для этой точки.
+Когда явная заливка точки или серии не задана, стиль и тема диаграммы определяют автоматический внешний вид. Если заданы как параметры серии, так и точки, параметры заливки точки имеют приоритет для этой точки.
 
-![серия диаграммы PowerPoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Установить перекрытие серии диаграммы**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/overlap/) указывает, насколько столбцы или колонки перекрываются в 2D‑диаграмме, от -100 до 100 процентов. Это только для чтения проекция настройки родительской группы серий. Установите [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/overlap/), чтобы обновить все совместимые серии в этой группе. Эта опция применяется к типам диаграмм, отображающим сгруппированные столбцы или колонки; она не влияет на несвязанные группы серий в комбинированной диаграмме.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/overlap/) сообщает, насколько столбцы или бары перекрываются в 2D‑диаграмме, в диапазоне от ‑100 до 100 процентов. Это только чтение проекции настройки группы родительских серий. Установите [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/overlap/), чтобы обновить каждую совместимую серию в этой группе. Эта опция применяется к типам диаграмм, отображающим сгруппированные бары или столбцы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
 
-Следующий пример устанавливает перекрытие для группы, содержащей первую серию:
+Следующий пример задаёт перекрытие для группы, содержащей первую серию:
 
 ```cs
 using Aspose.Slides;
@@ -63,13 +63,13 @@ presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![Перекрытие серии](series_overlap.png)
+![Перекрытие серий](series_overlap.png)
 
 ## **Изменить цвет заливки серии**
 
-Используйте [IChartSeries.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/format/) , чтобы задать заливку по умолчанию для всей серии. Если точка уже имеет явную заливку, её настройка [IChartDataPoint.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/format/) переопределяет заливку серии для этой точки.
+Используйте [IChartSeries.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/format/) для установки заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [IChartDataPoint.Format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/format/) переопределяет заливку серии для этой точки.
 
-Следующий пример применяет сплошную синюю заливку к первой серии:
+Следующий пример задаёт сплошную синюю заливку первой серии:
 
 ```cs
 using System.Drawing;
@@ -96,9 +96,9 @@ presentation.Save("series_color.pptx", SaveFormat.Pptx);
 
 ![Цвет серии](series_color.png)
 
-## **Изменить имя серии**
+## **Изменить название серии**
 
-Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию, создаваемой для сгруппированной столбчатой диаграммы, ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
+Название серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для группированной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
 
 ```cs
 using Aspose.Slides;
@@ -122,7 +122,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Вы также можете обновить ячейку, уже используемую [IChartSeries.Name](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/name/). Этот подход позволяет не полагаться на конкретные строку и столбец в существующей диаграмме:
+Вы также можете обновить ячейку, уже используемую [IChartSeries.Name](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/name/). Такой подход избегает предположений о конкретных строках и столбцах в существующей диаграмме:
 
 ```cs
 using Aspose.Slides;
@@ -147,11 +147,11 @@ presentation.Save("series_name.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![Имя серии](series_name.png)
+![Название серии](series_name.png)
 
 ## **Получить автоматический цвет заливки серии**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) возвращает цвет, вычисленный на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии явно не задана. Вызов метода только считывает вычисленный цвет; он не назначает новую заливку.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) возвращает цвет, вычисленный из индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не задана явно. Вызов метода только читает вычисленный цвет; он не назначает новую заливку.
 
 Следующий пример выводит автоматический цвет каждой серии по умолчанию:
 
@@ -184,13 +184,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Точные цвета зависят от стиля диаграммы и темы.
+Точные цвета зависят от стиля и темы диаграммы.
 
 ## **Установить инвертированный цвет заливки для серии диаграммы**
 
-Для столбчатых, колонных и пузырьковых серий [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertifnegative/) может отображать отрицательные значения другой заливкой. Установите обычную заливку серии как сплошную, включите инверсию и задайте цвет отрицательных значений через [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Отрицательные числа остаются без изменений в рабочей книге; меняется только их цвет отображения.
+Для серий типа бар, столбец и пузырь [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertifnegative/) позволяет отображать отрицательные значения другим цветом. Задайте обычную заливку серии как сплошную, включите инверсию и задайте цвет отрицательного значения через [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Отрицательные числа остаются без изменений в рабочей книге; меняется только их цвет отображения.
 
-Следующий пример заменяет данные диаграммы по умолчанию одной серией. Строка листа 0 содержит имя серии, столбец 0 — имена категорий, а столбец 1 — значения:
+Следующий пример заменяет данные диаграммы по умолчанию одной серией. Строка 0 листа содержит имя серии, столбец 0 — названия категорий, столбец 1 — значения:
 
 ```cs
 using System.Drawing;
@@ -247,7 +247,7 @@ presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 
 ![Инвертированный сплошной цвет заливки](inverted_solid_fill_color.png)
 
-Инверсию для отдельной точки можно включить через [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присваивается отрицательное значение, чтобы эффект был видим:
+Вы можете включить инверсию для одной точки через [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присвоено отрицательное значение, чтобы эффект был виден:
 
 ```cs
 using System.Drawing;
@@ -279,9 +279,9 @@ dataPoint.InvertIfNegative = true;
 presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Очистить значение конкретной точки данных**
+## **Очистить определённое значение точки данных**
 
-Чтобы сделать одну точку пустой, не удаляя остальные точки, установите её ячейку в рабочей книге в `null`. Для столбчатой диаграммы построенное значение доступно через [IChartDataPoint.YValue](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/yvalue/). Точка остаётся в том же положении категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками пустых значений диаграммы.
+Чтобы сделать одну точку пустой, не удаляя остальные, задайте её ячейке в рабочей книге значение `null`. Для столбчатой диаграммы построенное значение доступно через [IChartDataPoint.YValue](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/yvalue/). Точка остаётся на той же позиции категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками отображения пустых значений.
 
 Следующий пример очищает только вторую точку в первой серии:
 
@@ -306,15 +306,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-Диаграммы разброса используют отдельные ячейки X и Y, а пузырьковые диаграммы также используют ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое вы хотите удалить. Не вызывайте [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapointcollection/clear/) если хотите сохранить остальные точки, потому что этот метод удаляет все точки данных из коллекции.
+Точечные диаграммы используют отдельные ячейки X и Y, а пузырьковые — ещё ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое хотите удалить. Не вызывайте [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapointcollection/clear/), если хотите сохранить остальные точки, так как этот метод удаляет все точки из коллекции.
 
 ## **Управление отображением пустых ячеек**
 
-Пустая ячейка рабочей книги представляет отсутствующие данные; ячейка, содержащая `0`, представляет известное числовое значение. Установите [IChartDataCell.Value](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatacell/value/) в `null`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки пустой ячейки.
+Скрытые ячейки, содержащие значения, — отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Используйте [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/displayblanksas/) , чтобы выбрать, как диаграмма отображает пустые ячейки. Эта настройка применяется ко всей диаграмме. Она меняет способ построения пустых значений, не заполняя пустую ячейку рабочей книги нулём или интерполированным значением.
+Пустая ячейка рабочей книги представляет отсутствующие данные; ячейка, содержащая `0`, представляет известное числовое значение. Установите [IChartDataCell.Value](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatacell/value/) в `null`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки отображения пустых ячеек.
 
-Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для Дня 3 и сохраняет одну и ту же диаграмму в каждом режиме. Входной файл не требуется. [IChartDataWorkbook](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 содержит имя серии. Конечные данные: `10, 20, empty, 30, 40`.
+Используйте [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/displayblanksas/) для выбора способа отображения пустых ячеек. Эта настройка применяется ко всей диаграмме. Она изменяет способ построения пустот, не заполняя пустую ячейку нулём или интерполированным значением.
+
+Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для Дня 3 и сохраняет одну и ту же диаграмму в каждом режиме. Входной файл не требуется. [IChartDataWorkbook](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 хранит имя серии. Итоговые данные: `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -343,7 +345,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// Leave Day 3 genuinely empty, while retaining its category and data point.
+// Оставить третий день действительно пустым, сохранив его категорию и точку данных.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -354,19 +356,19 @@ foreach (var mode in modes)
 }
 ```
 
-Каждый выходной файл сохраняет режим, установленный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз, а не повторяя сохранение для каждого режима.
+Каждый выходной файл сохраняет режим, заданный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте желаемый режим и сохраните презентацию один раз вместо перебора режимов.
 
-Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге во всех случаях:
+Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге в каждом случае:
 
-![Линейные диаграммы с одинаковыми данными: Gap разрывает линию в Дне 3, Zero опускает линию до нуля, а Span соединяет День 2 с Днем 4.](display_blanks_as.png)
+![Линейные диаграммы с одинаковыми данными: Gap разрывает линию в День 3, Zero опускает линию до нуля, а Span соединяет День 2 с Днём 4.](display_blanks_as.png)
 
-Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнить все три режима. Диаграммы столбцов и гистограмм не имеют линии для соединения пропущенной категории, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, диаграмма разброса только с маркерами не имеет соединительной линии. Не ожидайте три разных результата для каждого типа диаграммы; проверьте вывод для используемого типа.
+Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнивать все три режима. Бар и столбчатые диаграммы не имеют линии для соединения пропущенной категории, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, точечная диаграмма только с маркерами не имеет соединительной линии. Не ожидайте трёх различимых результатов для каждого типа диаграммы; проверьте вывод для используемого типа.
 
 ## **Установить ширину промежутка серии**
 
-Ширина промежутка — это пространство между соседними кластерами столбцов или колонок, выраженное в процентах от ширины столбца или колонки. Как и перекрытие, она относится к родительской группе серий, а не к одной серии. Установите [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) один раз для группы. Большое значение создаёт больше пространства между кластерами; меньшее значение делает их плотнее.
+Ширина промежутка — это пространство между соседними кластерами баров или столбцов, выраженное в процентах от ширины бара или столбца. Как и перекрытие, она относится к группе родительских серий, а не к отдельной серии. Установите [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) один раз для группы. Большее значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
 
-Следующий пример меняет ширину промежутка и сохраняет только окончательную презентацию:
+Следующий пример изменяет ширину промежутка и сохраняет только окончательную презентацию:
 
 ```cs
 using Aspose.Slides;
@@ -394,42 +396,32 @@ presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Какие типы диаграмм поддерживают серии данных?**
+**Which chart types support data series?**  
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/charttype/), используют данные диаграммы, но их серии не всегда имеют одинаковую структуру значений или настройки. Например, категорические диаграммы используют категории и значения, точечные — значения X и Y, а пузырьковые добавляют размеры пузыря. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам баров или столбцов.
 
-Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/charttype/) , используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, диаграммы категорий используют категории и значения, диаграммы разброса используют значения X и Y, а пузырьковые диаграммы добавляют размеры пузырьков. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам столбцов или колонок.
+**What is a chart series group?**  
+[IChartSeriesGroup](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/) содержит совместимые серии, которые используют настройки уровня группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы через одну серию не обязательно изменит все серии диаграммы.
 
-**Что такое группа серий диаграммы?**
+**Does a newly created chart contain default data?**  
+Да. По умолчанию [IShapeCollection.AddChart](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addchart/) создаёт примерные серии, категории и значения. Вы можете отредактировать эти ячейки или очистить обе коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Существуют перегрузки, позволяющие создать диаграмму без данных по умолчанию.
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/) содержит совместимые серии, которые разделяют настройки построения уровня группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит все серии в диаграмме.
+**How are chart objects connected to workbook cells?**  
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных поддерживайте выравнивание строк категорий и строк значений серий, чтобы каждая точка отображалась под нужной категорией.
 
-**Содержит ли недавно созданная диаграмма данные по умолчанию?**
+**How do I clear one point instead of the whole series?**  
+Установите соответствующую ячейку значения в `null`, чтобы сохранить позицию категории точки как пустой. Используйте [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapointcollection/clear/) только тогда, когда действительно хотите удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались согласованными с коллекцией категорий.
 
-Да. По умолчанию [IShapeCollection.AddChart](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addchart/) создаёт примерные серии, категории и значения. Вы можете редактировать эти ячейки или очистить как коллекции серий, так и категорий перед добавлением полностью пользовательского набора данных. Перегрузка метода также может создать диаграмму без данных по умолчанию.
+**How are empty points displayed?**  
+Результат зависит от типа диаграммы и [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/displayblanksas/). Поддерживаемые диаграммы могут показывать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел **Управление отображением пустых ячеек** для полного примера и визуального сравнения.
 
-**Как объекты диаграммы связаны с ячейками рабочей книги?**
+**How are negative values formatted?**  
+Для поддерживаемых серий баров, столбцов и пузырей включите [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertifnegative/) и задайте [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Для отдельной точки можно переопределить поведение с помощью [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Эти свойства влияют только на форматирование, а не на хранимые числовые значения.
 
-Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных следите за тем, чтобы строки категорий и строки значений серий были согласованы, чтобы каждая точка отображалась под нужной категорией.
+**Which formatting wins when both a series and a point are formatted?**  
+Явное форматирование отдельной точки имеет приоритет для этой точки. Остальные точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Свойства группы, такие как перекрытие и ширина промежутка, управляют расположением и не переопределяют форматирование точек.
 
-**Как очистить одну точку, а не всю серию?**
+**Is there a limit to how many series a chart can contain?**  
+Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения определяются размером файла презентации, доступной памятью, временем рендеринга и удобочитаемостью диаграммы.
 
-Установите соответствующую ячейку значения в `null`, чтобы сохранить позицию категории точки как пустой точки. Используйте [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapointcollection/clear/) только когда хотите удалить все точки из этой серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались согласованными с коллекцией категорий.
-
-**Как отображаются пустые точки?**
-
-Результат зависит от типа диаграммы и [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/displayblanksas/). Поддерживаемые диаграммы могут отображать пустые значения как пробелы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел [Управление отображением пустых ячеек](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
-
-**Как форматируются отрицательные значения?**
-
-Для поддерживаемых столбцовых, колонных и пузырьковых серий включите [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertifnegative/) и задайте [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Вы можете переопределить поведение для отдельной точки с помощью [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Эти свойства влияют на форматирование, а не на сохранённые числовые значения.
-
-**Какое форматирование имеет приоритет, когда и серия, и точка отформатированы?**
-
-Явное форматирование точки данных имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Свойства группы, такие как перекрытие и ширина промежутка, управляют разметкой и не являются переопределением форматирования уровня точки.
-
-**Есть ли ограничение на количество серий в диаграмме?**
-
-Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения файлов презентаций, доступная память, время рендеринга и читаемость диаграммы определяют практический предел.
-
-**Что изменить, когда столбцы слишком близко друг к другу или слишком далеко?**
-
-Установите [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) в соответствующей родительской группе серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы собрать кластеры ближе друг к другу.
+**What should I change when columns are too close together or too far apart?**  
+Установите [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) для соответствующей группы родительских серий. Увеличьте значение, чтобы увеличить пространство между кластерами, или уменьшите его, чтобы собрать кластеры ближе.

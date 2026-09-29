@@ -5,7 +5,7 @@ type: docs
 url: /pl/net/chart-series/
 keywords:
 - serie wykresu
-- nakładanie serii
+- nachodzenie serii
 - kolor serii
 - kolor kategorii
 - nazwa serii
@@ -16,29 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem, szerokością przerwy i wartościami ujemnymi w prezentacjach przy użyciu C#."
+description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nachodzeniem, szerokością przerwy i wartościami ujemnymi w prezentacjach przy użyciu C#."
 ---
 ## **Przegląd**
 
-Wykres przechowuje swoje dane wykreślone w skoroszycie danych wykresu. IChartSeries reprezentuje jeden zestaw powiązanych wartości, a każdy IChartDataPoint w serii odwołuje się do jednej lub kilku komórek skoroszytu. IChartCategory dostarcza etykiety lub wartości grupujące współdzielone przez serie. Nazwa serii, kategorie i wartości punktów są więc połączone z obiektami IChartDataCell, a nie przechowywane wyłącznie jako tekst wyświetlany.
+Wykres przechowuje swoje dane w skoroszycie danych wykresu. [IChartSeries](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [IChartDataPoint](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/) w serii odnosi się do jednej lub kilku komórek skoroszytu. Obiekty [IChartCategory](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartcategory/) dostarczają etykiet lub wartości grupowania współdzielonych przez serie. Nazwa serii, kategorie i wartości punktów są więc powiązane z obiektami [IChartDataCell](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/), a nie przechowywane wyłącznie jako tekst wyświetlany.
 
-Dla typowego wykresu kategorialnego domyślny skoroszyt używa wiersza 0 do nazw serii, kolumny 0 do nazw kategorii oraz pozostałych komórek do wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do IChartDataWorkbook.GetCell są zerowe. Ten układ jest przydatny, gdy tworzysz wykres z danymi domyślnymi, ale nie zakładaj, że każdy istniejący wykres go używa. W załadowanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
+Dla typowego wykresu kategorialnego domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/getcell/) są zerowo‑indeksowane. Ten układ jest przydatny, gdy tworzysz wykres z domyślnymi danymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla załadowanej prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
 
 Ustawienia wykresu mają trzy różne zakresy:
 
-- Ustawienia na poziomie serii, takie jak IChartSeries.Format, zapewniają domyślny wygląd wszystkich punktów w jednej serii.  
-- Ustawienia punktu danych, takie jak IChartDataPoint.Format, nadpisują wygląd serii dla jednego punktu.  
-- Ustawienia grupy dotyczą zgodnych serii, które należą do tej samej IChartSeriesGroup. Dostęp do grupy uzyskujesz poprzez IChartSeries.ParentSeriesGroup, gdy potrzebujesz ustawić opcje takie jak overlap lub szerokość przerwy.
+- Ustawienia na poziomie serii, takie jak [IChartSeries.Format](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/format/), zapewniają domyślny wygląd wszystkich punktów w jednej serii.
+- Ustawienia punktu danych, takie jak [IChartDataPoint.Format](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/format/), nadpisują wygląd serii dla jednego punktu.
+- Ustawienia grupowe dotyczą zgodnych serii, które należą do tego samego [IChartSeriesGroup](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/). Uzyskaj dostęp do grupy przez [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/parentseriesgroup/), gdy musisz ustawić opcje takie jak nachodzenie lub szerokość luki.
 
-Gdy nie jest ustawione żadne explicite wypełnienie punktu lub serii, styl wykresu i motyw określają automatyczny wygląd. Gdy istnieje zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
+Gdy nie zostanie ustawione wyraźne wypełnienie punktu lub serii, styl wykresu i motyw określają automatyczny wygląd. Gdy jednocześnie istnieje formatowanie serii i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ustaw nakładanie serii wykresu**
+## **Ustawianie nachodzenia serii wykresu**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/overlap/) raportuje, jak bardzo paski lub kolumny nakładają się na siebie w wykresie 2D, w przedziale od -100 do 100 procent. Jest to odczytywalna projekcja ustawienia na grupę serii nadrzędną. Ustaw [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/overlap/), aby zaktualizować każdą zgodną serię w tej grupie. Opcja ta ma zastosowanie do typów wykresów wyświetlających grupowane paski lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/overlap/) określa, jak bardzo słupki lub kolumny nachodzą na siebie w wykresie 2‑D, w przedziale od ‑100 do 100 procent. Jest to odczytywana projekcja ustawienia w grupie serii nadrzędnej. Ustaw [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/overlap/), aby zaktualizować wszystkie zgodne serie w tej grupie. Opcja ta ma zastosowanie do typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
 
-Przykład ustawiający nakładanie dla grupy zawierającej pierwszą serię:
+Poniższy przykład ustawia nachodzenie dla grupy, która zawiera pierwszą serię:
 
 ```cs
 using Aspose.Slides;
@@ -63,13 +63,13 @@ presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The series overlap](series_overlap.png)
+![Nakładanie serii](series_overlap.png)
 
-## **Zmień kolor wypełnienia serii**
+## **Zmienianie koloru wypełnienia serii**
 
-Użyj [IChartSeries.Format](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/format/), aby ustawić domyślne wypełnienie dla całej serii. Jeśli punkt ma już explicite wypełnienie, jego ustawienie [IChartDataPoint.Format](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/format/) nadpisuje wypełnienie serii dla tego punktu.
+Użyj [IChartSeries.Format](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/format/), aby ustawić domyślne wypełnienie całej serii. Jeśli punkt ma już wyraźnie określone wypełnienie, jego ustawienie [IChartDataPoint.Format](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/format/) nadpisuje wypełnienie serii dla tego punktu.
 
-Przykład stosujący jednolite niebieskie wypełnienie do pierwszej serii:
+Poniższy przykład stosuje jednolite niebieskie wypełnienie do pierwszej serii:
 
 ```cs
 using System.Drawing;
@@ -94,11 +94,11 @@ presentation.Save("series_color.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The color of the series](series_color.png)
+![Kolor serii](series_color.png)
 
-## **Zmień nazwę serii**
+## **Zmienianie nazwy serii**
 
-Nazwa serii jest przechowywana w skoroszycie danych wykresu i zwykle wyświetlana w legendzie. W domyślnym skoroszycie utworzonym dla wykresu kolumnowego grupowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Stałe nazwane w poniższym przykładzie wyraźnie opisują tę strukturę:
+Nazwa serii jest przechowywana w skoroszycie danych wykresu i jest zazwyczaj wyświetlana w legendzie. W domyślnym skoroszycie utworzonym dla wykresu kolumnowego skumulowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Stałe nazwane w poniższym przykładzie wyraźnie określają tę strukturę:
 
 ```cs
 using Aspose.Slides;
@@ -122,7 +122,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Możesz także zaktualizować komórkę już odwoływaną przez [IChartSeries.Name](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/name/). To podejście unika zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
+Możesz także zaktualizować komórkę już odwoływaną przez [IChartSeries.Name](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/name/). Takie podejście unika zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
 
 ```cs
 using Aspose.Slides;
@@ -147,13 +147,13 @@ presentation.Save("series_name.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The series name](series_name.png)
+![Nazwa serii](series_name.png)
 
-## **Pobierz automatyczny kolor wypełnienia serii**
+## **Pobieranie automatycznego koloru wypełnienia serii**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało explicite zdefiniowane. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało jawnie określone. Wywołanie tej metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
 
-Przykład wypisujący automatyczny kolor każdej domyślnej serii:
+Poniższy przykład wypisuje automatyczny kolor każdej domyślnej serii:
 
 ```cs
 using System;
@@ -186,11 +186,11 @@ Series 2: ff9bbb59
 
 Dokładne kolory zależą od stylu i motywu wykresu.
 
-## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
+## **Ustawianie odwróconego koloru wypełnienia dla serii wykresu**
 
-Dla serii paskowych, kolumnowych i bąbelkowych [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertifnegative/) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnej za pomocą [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Liczby ujemne pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
+Dla serii słupkowych, kolumnowych i bąbelkowych [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertifnegative/) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw regularne wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnych przez [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się jedynie ich kolor wyświetlania.
 
-Przykład zamieniający domyślne dane wykresu na jedną serię. Wiersz arkusza 0 zawiera nazwę serii, kolumna 0 – nazwy kategorii, a kolumna 1 – wartości:
+Poniższy przykład zastępuje domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 – nazwy kategorii, a kolumna 1 – wartości:
 
 ```cs
 using System.Drawing;
@@ -245,9 +245,9 @@ presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Odwrócony jednolity kolor wypełnienia](inverted_solid_fill_color.png)
 
-Możesz włączyć odwracanie dla jednego punktu poprzez [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punkt otrzymuje także wartość ujemną, aby efekt był widoczny:
+Możesz włączyć odwracanie dla jednego punktu przez [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punkt otrzymuje także wartość ujemną, aby efekt był widoczny:
 
 ```cs
 using System.Drawing;
@@ -279,11 +279,11 @@ dataPoint.InvertIfNegative = true;
 presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Wyczyść konkretną wartość punktu danych**
+## **Czyszczenie konkretnej wartości punktu danych**
 
-Aby uczynić jeden punkt pustym bez usuwania pozostałych punktów, ustaw jego komórkę w skoroszycie na `null`. Dla wykresu kolumnowego wartość wykreślana jest dostępna przez [IChartDataPoint.YValue](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/yvalue/). Punkt danych pozostaje na tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
+Aby uczynić jeden punkt pustym bez usuwania pozostałych punktów, ustaw jego powiązaną komórkę skoroszytu na `null`. Dla wykresu kolumnowego wartość wykreślona jest dostępna przez [IChartDataPoint.YValue](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/yvalue/). Punkt pozostaje w tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
 
-Przykład czyszczący tylko drugi punkt w pierwszej serii:
+Poniższy przykład czyści tylko drugi punkt w pierwszej serii:
 
 ```cs
 using Aspose.Slides;
@@ -306,15 +306,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-Wykresy punktowe używają oddzielnych komórek X i Y, a wykresy bąbelkowe także komórki rozmiaru. Wyczyść tylko tę komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointcollection/clear/), gdy chcesz zachować pozostałe punkty, ponieważ metoda ta usuwa wszystkie punkty danych z kolekcji.
+Wykresy punktowe używają osobnych komórek X i Y, a wykresy bąbelkowe dodatkowo komórki rozmiaru. Czyść tylko tę komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointcollection/clear/), gdy chcesz zachować pozostałe punkty, ponieważ ta metoda usuwa wszystkie punkty danych z kolekcji.
 
-## **Kontroluj wyświetlanie pustych komórek**
+## **Kontrola wyświetlania pustych komórek**
 
-Pusta komórka skoroszytu oznacza brak danych; komórka zawierająca `0` oznacza znaną wartość liczbową. Ustaw [IChartDataCell.Value](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/value/) na `null`, aby uczynić komórkę pustą. Liczba zero pozostaje zerem niezależnie od ustawienia pustej komórki.
+Ukryte komórki zawierające wartości to odrębny przypadek od pustych komórek. Aby uwzględnić lub wykluczyć dane z ukrytych wierszy i kolumn arkusza, zobacz [Include Data from Hidden Rows and Columns](/slides/pl/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Użyj [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/displayblanksas/), aby wybrać, jak wykres wyświetla puste komórki. To ustawienie ma zastosowanie do całego wykresu. Zmienia sposób wykreślania pustych miejsc, nie wypełniając pustej komórki w skoroszycie zerem ani interpolowaną wartością.
+Pusta komórka skoroszytu reprezentuje brakujące dane; komórka zawierająca `0` reprezentuje znaną wartość liczbową. Ustaw [IChartDataCell.Value](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatacell/value/) na `null`, aby uczynić komórkę pustą. Liczbowe zero pozostaje zerem niezależnie od ustawienia pustej komórki.
 
-Samodzielny przykład tworzy wykres liniowy z jedną serią, czyści wartość dla Dnia 3 i zapisuje wykres w każdym trybie. Nie wymaga pliku wejściowego. IChartDataWorkbook używa arkusza 0, kolumny 0 do etykiet kategorii i kolumny 1 do wartości; wiersz 0 przechowuje nazwę serii. Końcowe dane to `10, 20, empty, 30, 40`.
+Użyj [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/displayblanksas/), aby wybrać, jak wykres ma wyświetlać puste komórki. To ustawienie dotyczy całego wykresu. Zmienia sposób rysowania pustek, nie wypełniając pustej komórki zerem ani wartością interpolowaną.
+
+Poniższy, samodzielny przykład tworzy wykres liniowy z jedną serią, czyści wartość dla Dnia 3 i zapisuje ten sam wykres w każdym trybie. Nie jest wymagany plik wejściowy. [IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/) używa arkusza 0, kolumny 0 dla etykiet kategorii oraz kolumny 1 dla wartości; wiersz 0 przechowuje nazwę serii. Końcowe dane to `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -343,7 +345,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// Zostaw dzień 3 naprawdę pusty, zachowując jego kategorię i punkt danych.
+// Leave Day 3 genuinely empty, while retaining its category and data point.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -354,19 +356,19 @@ foreach (var mode in modes)
 }
 ```
 
-Każdy plik wyjściowy przechowuje tryb przypisany przed zapisem: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` i `empty_cells_Span.pptx`. Aby zapisać tylko jedną wersję, ustaw żądany tryb i zapisz prezentację raz, zamiast iterować po trybach.
+Każdy plik wyjściowy przechowuje tryb przypisany przed zapisem: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` i `empty_cells_Span.pptx`. Aby zapisać tylko jedną wersję, przypisz żądany tryb i zapisz prezentację raz, zamiast iterować po trybach.
 
-Porównanie poniżej pokazuje te same dane w trzech plikach. Dzień 3 jest pusty w skoroszycie we wszystkich przypadkach:
+Poniższe porównanie pokazuje te same dane w trzech plikach. Dzień 3 jest pusty w skoroszycie we wszystkich przypadkach:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Wykresy liniowe z identycznymi danymi: Gap przerywa linię w Dzień 3, Zero obniża linię do zera, a Span łączy Dzień 2 z Dniem 4.](display_blanks_as.png)
 
-Widoczny efekt zależy od typu wykresu. Wykres liniowy ułatwia porównanie wszystkich trzech trybów. Wykresy paskowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc `Span` nie może stworzyć segmentu łączącego, jak pokazano powyżej; brakująca kolumna i kolumna o wysokości zero mogą wyglądać podobnie. Podobnie wykres punktowy z jedynie znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź wyjście dla używanego typu.
+Widoczny efekt zależy od typu wykresu. Wykres liniowy pozwala łatwo porównać wszystkie trzy tryby. Wykresy słupkowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc `Span` nie może utworzyć pokazanego segmentu; brakująca kolumna i kolumna o zerowej wysokości mogą wyglądać podobnie. Podobnie wykres punktowy z samymi znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź wyjście dla używanego typu.
 
-## **Ustaw szerokość przerwy serii**
+## **Ustawianie szerokości przerwy serii**
 
-Szerokość przerwy to odstęp między sąsiadującymi grupami pasków lub kolumn, wyrażony jako procent szerokości paska lub kolumny. Podobnie jak nakładanie, należy do grupy serii nadrzędnej, a nie do jednej serii. Ustaw [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) raz dla grupy. Większa wartość tworzy więcej miejsca między grupami; mniejsza wartość powoduje ich większą gęstość.
+Szerokość przerwy to odstęp między sąsiadującymi grupami słupków lub kolumn, wyrażony jako procent szerokości słupka lub kolumny. Podobnie jak nachodzenie, należy ona do grupy serii nadrzędnej, a nie do jednej serii. Ustaw [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) raz dla grupy. Większa wartość tworzy więcej przestrzeni między grupami; mniejsza – są one bardziej zwarte.
 
-Przykład zmieniający szerokość przerwy i zapisujący tylko ostateczną prezentację:
+Poniższy przykład zmienia szerokość przerwy i zapisuje tylko ostateczną prezentację:
 
 ```cs
 using Aspose.Slides;
@@ -390,46 +392,46 @@ presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 
 Wynik:
 
-![The gap width](gap_width.png)
+![Szerokość przerwy](gap_width.png)
 
 ## **FAQ**
 
-**Które typy wykresów obsługują serie danych?**
+**Jakie typy wykresów obsługują serie danych?**
 
-Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/charttype/) używają danych wykresu, ale ich serie nie mają takiej samej struktury wartości ani ustawień. Na przykład wykresy kategorialne używają kategorii i wartości, wykresy punktowe X i Y, a wykresy bąbelkowe dodatkowo rozmiary bąbelka. Używaj metody tworzenia punktu danych odpowiadającej typowi serii. Opcje takie jak nakładanie i szerokość przerwy mają zastosowanie wyłącznie do zgodnych grup pasków lub kolumn.
+Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/charttype/) używają danych wykresu, ale ich serie nie mają takiej samej struktury wartości ani ustawień. Na przykład wykresy kategorialne używają kategorii i wartości, wykresy punktowe – wartości X i Y, a wykresy bąbelkowe dodatkowo rozmiary bąbelków. Użyj metody tworzenia punktu danych odpowiadającej typowi serii. Opcje takie jak nachodzenie i szerokość przerwy mają zastosowanie wyłącznie do zgodnych grup słupków lub kolumn.
 
 **Czym jest grupa serii wykresu?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia poziomu grupy. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy osiągnięta przez jedną serię niekoniecznie zmienia wszystkie serie w wykresie.
+[IChartSeriesGroup](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/) zawiera zgodne serie, które współdzielą ustawienia rysowania na poziomie grupy. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
 
 **Czy nowo utworzony wykres zawiera domyślne dane?**
 
-Tak. Domyślnie [IShapeCollection.AddChart](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addchart/) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem własnego zestawu danych. Przeciążenie może także utworzyć wykres bez domyślnych danych.
+Tak. Domyślnie [IShapeCollection.AddChart](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addchart/) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno serie, jak i kolekcje kategorii przed dodaniem całkowicie własnego zestawu danych. Istnieje także przeciążenie, które tworzy wykres bez domyślnych danych.
 
-**Jak obiekty wykresu są połączone z komórkami skoroszytu?**
+**Jak obiekty wykresu są powiązane z komórkami skoroszytu?**
 
-Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiedni element wykresu. Tworząc własne dane, utrzymuj wiersze kategorii i wiersze wartości serii wyrównane, aby każdy punkt był wykreślony pod właściwą kategorią.
+Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiadający element wykresu. Tworząc własne dane, utrzymuj rzędy kategorii i rzędy wartości serii wyrównane, aby każdy punkt był rysowany pod odpowiednią kategorią.
 
 **Jak wyczyścić jeden punkt zamiast całej serii?**
 
-Ustaw odpowiednią komórkę wartości na `null`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointcollection/clear/) tylko wtedy, gdy chcesz usunąć wszystkie punkty z danej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały wyrównane z kolekcją kategorii.
+Ustaw odpowiednią komórkę wartości na `null`, aby zachować pozycję kategorii punktu jako pusty punkt. Używaj [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointcollection/clear/) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostały wyrównane z kolekcją kategorii.
 
 **Jak wyświetlane są puste punkty?**
 
-Wynik zależy od typu wykresu i [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/displayblanksas/). Obsługiwane wykresy mogą wyświetlać luki, wartości zero lub łączyć sąsiednie punkty. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w prezentacji. Zobacz „Kontroluj wyświetlanie pustych komórek” po kompletny przykład i porównanie wizualne.
+Wynik zależy od typu wykresu i [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/displayblanksas/). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zero lub łącząc sąsiednie punkty. Wybierz ustawienie odpowiadające znaczeniu brakujących danych w prezentacji. Zobacz [Control the Display of Empty Cells](#control-the-display-of-empty-cells) po pełny przykład i porównanie wizualne.
 
 **Jak formatowane są wartości ujemne?**
 
-Dla obsługiwanych serii paskowych, kolumnowych i bąbelkowych włącz [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertifnegative/) i ustaw [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Zachowanie można nadpisać dla pojedynczego punktu za pomocą [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Właściwości te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
+Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych włącz [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertifnegative/) i ustaw [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Możesz nadpisać zachowanie dla poszczególnego punktu przy pomocy [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Właściwości te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
 
-**Które formatowanie wygrywa, gdy zarówno seria, jak i punkt są formatowane?**
+**Które formatowanie ma pierwszeństwo, gdy zarówno seria, jak i punkt są sformatowane?**
 
-Explicite formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty kontynuują używanie explicite formatu serii lub, gdy format serii nie jest zdefiniowany, automatycznego stylu wykresu i motywu. Właściwości grupy, takie jak nakładanie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania poziomu punktu.
+Jawne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal korzystają z wyraźnego formatu serii lub, gdy format serii nie jest określony, z automatycznego stylu i motywu wykresu. Właściwości grupowe, takie jak nachodzenie i szerokość przerwy, kontrolują układ i nie są nadpisaniami formatowania na poziomie punktu.
 
-**Czy istnieje limit liczby serii, które wykres może zawierać?**
+**Czy istnieje limit liczby serii w wykresie?**
 
-Aspose.Slides nie narzuca oddzielnego stałego limitu liczby serii. W praktyce ograniczenia wynikają z rozmiaru pliku prezentacji, dostępnej pamięci, czasu renderowania i czytelności wykresu.
+Aspose.Slides nie narzuca osobnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu określają użyteczny limit.
 
-**Co zmienić, gdy kolumny są za blisko siebie lub zbyt daleko?**
+**Co zmienić, gdy kolumny są za blisko siebie lub za daleko od siebie?**
 
-Ustaw [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć przestrzeń między grupami, lub zmniejsz ją, aby przybliżyć grupy.
+Ustaw [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) w odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstęp między grupami, lub zmniejsz ją, aby przybliżyć grupy do siebie.

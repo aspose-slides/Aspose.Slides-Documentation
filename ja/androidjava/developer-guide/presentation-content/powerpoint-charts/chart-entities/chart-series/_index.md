@@ -1,45 +1,45 @@
 ---
-title: Android のプレゼンテーションでチャート データ シリーズを管理する
-linktitle: データ シリーズ
+title: Android でのプレゼンテーションにおけるチャート データ系列の管理
+linktitle: データ系列
 type: docs
 url: /ja/androidjava/chart-series/
 keywords:
-- チャート シリーズ
-- シリーズ オーバーラップ
-- シリーズ カラー
-- シリーズ 名
+- チャート 系列
+- 系列 オーバーラップ
+- 系列 色
+- 系列 名称
 - データ ポイント
 - ワークブック セル
-- シリーズ ギャップ
-- 負の値
+- 系列 ギャップ
+- 負の 値
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Android のプレゼンテーションでチャート シリーズ、データ ポイント、ワークブック セル、書式設定、オーバーラップ、ギャップ幅、負の値を管理する方法を学びます。"
+description: "Android でのプレゼンテーションにおいて、チャート 系列、データ ポイント、ワークブック セル、書式設定、オーバーラップ、ギャップ幅、負の値の管理方法を学びます。"
 ---
 ## **概要**
 
-チャートはプロットされたデータをチャート データ ワークブックに保存します。[IChartSeries](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/) は関連する値の 1 つのセットを表し、シリーズ内の各[IChartDataPoint](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/) は 1 つ以上のワークブック セルを参照します。[IChartCategory](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartcategory/) オブジェクトは、シリーズ間で共有されるラベルまたはグループ化値を提供します。したがって、シリーズ名、カテゴリ、ポイントの値は、表示テキストとしてだけでなく[IChartDataCell](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatacell/) オブジェクトに接続されています。
+チャートは描画されたデータをチャート データ ワークブックに保存します。[IChartSeries](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/) は関連する値のセットを表し、シリーズ内の各[IChartDataPoint](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/) は 1 つ以上のワークブック セルを参照します。[IChartCategory](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartcategory/) オブジェクトは、シリーズが共有するラベルまたはグループ化値を提供します。そのため、シリーズ名、カテゴリ、ポイント値はすべて[IChartDataCell](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatacell/) オブジェクトに接続され、単なる表示テキストとしてだけは保存されません。
 
-典型的なカテゴリ チャートでは、デフォルトのワークブックは行 0 にシリーズ名、列 0 にカテゴリ名、残りのセルにシリーズ値を使用します。[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) に渡すワークシート、行、列のインデックスは 0 ベースです。このレイアウトはデフォルト データでチャートを作成する場合に便利ですが、既存のすべてのチャートがこのレイアウトを使用していると想定しないでください。ロードされたプレゼンテーションでは、ワークブックの値を変更する前に、シリーズ、カテゴリ、データ ポイントが参照しているセルを確認してください。
+典型的なカテゴリ チャートの場合、デフォルトのワークブックは行 0 をシリーズ名、列 0 をカテゴリ名に使用し、残りのセルにシリーズの値を配置します。[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) に渡すワークシート、行、列のインデックスは 0 ベースです。このレイアウトはデフォルト データでチャートを作成する際に便利ですが、既存のすべてのチャートがこの構成を使用しているとは限りません。プレゼンテーションを読み込む場合は、ワークブックの値を変更する前に、シリーズ、カテゴリ、データ ポイントが参照しているセルを確認してください。
 
-チャート設定には 3 つの異なるスコープがあります。
+チャート設定には次の 3 つのスコープがあります。
 
-- シリーズ レベルの設定は、たとえば[IChartSeries.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getFormat--) のように、1 つのシリーズ内のすべてのポイントのデフォルトの外観を提供します。
-- データ ポイントの設定は、たとえば[IChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) のように、1 つのポイントに対してシリーズの外観を上書きします。
-- グループ設定は、同じ[IChartSeriesGroup](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/) に属する互換性のあるシリーズに適用されます。オーバーラップやギャップ幅などのオプションを設定する必要がある場合は、[IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) を使用してグループにアクセスします。
+- シリーズ レベルの設定。たとえば[IChartSeries.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getFormat--) は、1 つのシリーズ内のすべてのポイントの既定の外観を提供します。
+- データ ポイントの設定。たとえば[IChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) は、1 つのポイントのシリーズ外観を上書きします。
+- グループ設定。互換性のあるシリーズが同じ[IChartSeriesGroup](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/) に属する場合に適用されます。オーバーラップやギャップ幅などのオプションを設定する必要があるときは、[IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) でグループにアクセスします。
 
-明示的なポイントまたはシリーズの塗りつぶしが設定されていない場合、チャート スタイルとテーマが自動的な外観を決定します。シリーズとポイントの書式設定の両方が存在する場合、ポイントの書式設定がそのポイントに対して優先されます。
+明示的なポイントまたはシリーズの塗りつぶしが設定されていない場合は、チャートのスタイルとテーマが自動的な外観を決定します。シリーズとポイントの両方に書式が設定されている場合は、ポイントの書式が優先されます。
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![チャート系列-パワーポイント](chart-series-powerpoint.png)
 
-## **チャート シリーズのオーバーラップを設定する**
+## **チャート系列のオーバーラップを設定する**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getOverlap--) は、2D チャートにおける棒または列の重なり具合を -100 から 100 パーセントで報告します。これは親シリーズ グループ上の設定の読み取り専用の投影です。グループ内のすべての互換シリーズを更新するには、[IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) を使用します。このオプションは、グループ化された棒または列を表示するチャート タイプに適用され、コンビネーション チャートの無関係なシリーズ グループには影響しません。
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getOverlap--) は、2D チャートにおける棒や列のオーバーラップ率を -100% から 100% の範囲で報告します。これは親シリーズ グループに対する設定の読み取り専用投影です。グループ内のすべての互換シリーズを更新するには、[IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) を使用します。このオプションは、グループ化された棒や列を表示するチャート タイプに適用され、組み合わせチャートの無関係なシリーズ グループには影響しません。
 
-以下の例は、最初のシリーズを含むグループのオーバーラップを設定します。
+次の例は、最初のシリーズが含まれるグループのオーバーラップを設定します。
 
 ```java
 import com.aspose.slides.*;
@@ -52,7 +52,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // 新しいチャートにはサンプルのシリーズ、カテゴリ、値が含まれています。
+    // 新しいチャートにはサンプル系列、カテゴリ、値が含まれています。
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -66,13 +66,13 @@ try {
 
 結果:
 
-![The series overlap](series_overlap.png)
+![シリーズのオーバーラップ](series_overlap.png)
 
-## **シリーズの塗りつぶしカラーを変更する**
+## **シリーズの塗りつぶし色を変更する**
 
-[IChartSeries.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getFormat--) を使用して、シリーズ全体のデフォルトの塗りつぶしを設定します。ポイントに明示的な塗りつぶしがある場合、その[IChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) 設定がそのポイントのシリーズ塗りつぶしを上書きします。
+[IChartSeries.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getFormat--) を使用して、シリーズ全体の既定の塗りつぶしを設定します。ポイントに明示的な塗りつぶしが既にある場合は、その[IChartDataPoint.getFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) 設定がシリーズの塗りつぶしを上書きします。
 
-以下の例は、最初のシリーズに純色の青色塗りつぶしを適用します。
+次の例は、最初のシリーズに単色の青塗りつぶしを適用します。
 
 ```java
 import com.aspose.slides.*;
@@ -99,11 +99,11 @@ try {
 
 結果:
 
-![The color of the series](series_color.png)
+![シリーズの色](series_color.png)
 
 ## **シリーズ名を変更する**
 
-シリーズ名はチャート データ ワークブックに保存され、通常は凡例に表示されます。クラスター化列チャート用に作成されたデフォルト ワークブックでは、セル B1 は行 0、列 1 にあり、最初のシリーズ名が格納されています。以下の例の名前付き定数は、その構造を明示的に示しています。
+シリーズ名はチャート データ ワークブックに保存され、通常は凡例に表示されます。クラスター化列チャート用に作成されたデフォルト ワークブックでは、セル B1 が行 0、列 1 にあり、最初のシリーズ名が格納されています。以下の例の名前付き定数は、その構造を明示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-また、[IChartSeries.getName](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getName--) が参照しているセルを直接更新することもできます。このアプローチは、既存チャートで特定の行や列を前提としないようにします。
+また、[IChartSeries.getName](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getName--) が既に参照しているセルを更新することもできます。このアプローチは、既存のチャートで特定の行や列を前提としないようにするためのものです。
 
 ```java
 import com.aspose.slides.*;
@@ -156,13 +156,13 @@ try {
 
 結果:
 
-![The series name](series_name.png)
+![シリーズ名](series_name.png)
 
-## **自動シリーズ塗りつぶしカラーを取得する**
+## **自動シリーズ塗りつぶし色を取得する**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) は、シリーズインデックスとチャート スタイルから計算された Android ARGB カラー整数を返します。これは、シリーズ塗りつぶしが明示的に定義されていない場合に使用される色です。メソッドは計算された色を取得するだけで、新しい塗りつぶしを割り当てるわけではありません。
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) は、シリーズインデックスとチャート スタイルから計算された Android ARGB カラー整数を返します。これは、シリーズの塗りつぶしが明示的に定義されていない場合に使用される色です。メソッドを呼び出すだけで計算された色が取得でき、塗りつぶしが設定されるわけではありません。
 
-以下の例は、デフォルトの各シリーズの自動カラー整数を出力します。
+次の例は、デフォルトの各シリーズの自動カラー整数を出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -186,13 +186,13 @@ try {
 }
 ```
 
-正確な整数値はチャート スタイルとテーマによって異なります。
+正確な整数値はチャート スタイルとテーマに依存します。
 
-## **シリーズの塗りつぶしを反転させるカラーを設定する**
+## **チャート系列の反転塗りつぶし色を設定する**
 
-棒、列、バブルシリーズの場合、[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) を使用して、負の値を別の塗りつぶしで表示できます。通常のシリーズ塗りつぶしを純色に設定し、反転を有効にし、負の値用のカラーを[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) で割り当てます。ワークブック内の負の数自体は変更されず、表示カラーだけが変わります。
+棒、列、バブル系列の場合、[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) を使用すると、負の値を別の塗りつぶしで表示できます。通常の系列塗りつぶしを単色に設定し、反転を有効にして、負の値の色を[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) で指定します。ワークブック内の負の数値は変更されず、表示色だけが変わります。
 
-以下の例は、デフォルトのチャート データを 1 つのシリーズに置き換えます。ワークシートの行 0 にシリーズ名、列 0 にカテゴリ名、列 1 に値が配置されます。
+次の例は、デフォルトのチャート データを 1 系列に置き換えます。ワークシートの行 0 に系列名、列 0 にカテゴリ名、列 1 に値が格納されます。
 
 ```java
 import com.aspose.slides.*;
@@ -249,9 +249,9 @@ try {
 
 結果:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![反転単色塗りつぶし色](inverted_solid_fill_color.png)
 
-1 つのポイントだけに反転を有効にするには[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) を使用します。以下の例では、シリーズ全体の反転を無効にし、選択したポイントだけに有効にしています。そのポイントには負の値も設定され、効果が確認できます。
+1 つのポイントだけ反転させることもできます。次の例では、系列全体の反転を無効にし、選択したポイントのみ反転を有効にし、さらに負の値を割り当てて効果を確認しています。
 
 ```java
 import com.aspose.slides.*;
@@ -285,11 +285,11 @@ try {
 }
 ```
 
-## **特定のデータ ポイントの値をクリアする**
+## **特定のデータポイントの値をクリアする**
 
-ポイントを空にしたいが他のポイントは残したい場合、バックアップしているワークブック セルを `null` に設定します。列チャートの場合、プロットされた値は[IChartDataPoint.getValue](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) で取得できます。データ ポイントは同じカテゴリ位置に残りますが、チャートはブランク値設定に従ってその値を空として扱います。
+ポイントだけを空にしたい場合は、対応するワークブック セルを `null` に設定します。列チャートの場合、描画された値は[IChartDataPoint.getValue](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) で取得できます。データポイントは同じカテゴリ位置に残りますが、チャートはその値を空白として扱います（空白値設定に従う）。
 
-以下の例は、最初のシリーズの 2 番目のポイントだけをクリアします。
+次の例は、最初のシリーズの 2 番目のポイントだけをクリアします。
 
 ```java
 import com.aspose.slides.*;
@@ -314,15 +314,17 @@ try {
 }
 ```
 
-散布図は X と Y のセルが別々にあり、バブル図はサイズセルも使用します。削除したい値に対応するセルだけをクリアしてください。残りのポイントを保持したい場合は[IChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) を呼び出さないでください。このメソッドはコレクション内のすべてのデータ ポイントを削除します。
+散布図は X と Y の別々のセルを使用し、バブル図はサイズセルも使用します。削除したい値に対応するセルだけをクリアしてください。その他のポイントを保持したい場合は、[IChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) を呼び出さないでください。このメソッドはコレクション内のすべてのデータポイントを削除します。
 
-## **空セルの表示を制御する**
+## **空白セルの表示を制御する**
 
-空のワークブック セルはデータが欠落していることを表し、`0` を含むセルは既知の数値を表します。セルを空にするには、`null` を使用して[IChartDataCell.setValue](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) を呼び出します。数値のゼロはブランクセル設定に関係なくゼロのままです。
+値を含む非表示セルは、空白セルとは別のケースです。非表示のワークシート行・列からデータを含めるか除外するかについては、[Include Data from Hidden Rows and Columns](/slides/ja/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) を参照してください。
 
-[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) を使用して、チャートが空セルをどのように表示するかを選択します。この設定はチャート全体に適用され、空白をプロットする方法を変更しますが、空セルにゼロや補間値を埋め込むことはありません。
+空白のワークブックセルはデータが欠落していることを表し、`0` を含むセルは既知の数値を表します。セルを空にしたい場合は、`null` を渡して[IChartDataCell.setValue](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) を呼び出します。数値のゼロは空白設定に関係なくゼロのままです。
 
-以下の自己完結型例は、1 つのシリーズを持つ折れ線グラフを作成し、Day 3 の値をクリアし、各モードで同じチャートを保存します。入力ファイルは不要です。[IChartDataWorkbook](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdataworkbook/) はワークシート 0、列 0 をカテゴリ ラベル、列 1 を値に使用し、行 0 にシリーズ名を保持します。最終データは `10, 20, empty, 30, 40` です。
+[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) を使用して、チャートが空白セルをどのように表示するかを選択できます。この設定はチャート全体に適用され、空白をプロットする方法を変更しますが、ワークブックセル自体をゼロや補間値で埋めることはありません。
+
+次の自己完結型例は、1 系列の折れ線グラフを作成し、Day 3 の値をクリアして、各モードで同じチャートを保存します。入力ファイルは不要です。[IChartDataWorkbook](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdataworkbook/) はワークシート 0、列 0 にカテゴリ ラベル、列 1 に値を使用し、行 0 にシリーズ名を保持します。最終データは `10, 20, empty, 30, 40` です。
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +351,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Day 3 を実際に空にし、カテゴリとデータポイントは保持します。
+    // Day 3 を実際に空のままにし、カテゴリとデータポイントは保持します。
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -363,19 +365,19 @@ try {
 }
 ```
 
-各出力ファイルは保存前に設定されたモードを保持します: `empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。1 つのバージョンだけを保存したい場合は、目的のモードを設定してプレゼンテーションを一度だけ保存してください。
+各出力ファイルは保存前に設定したモードを名前に持ちます: `empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。1 つだけ保存したい場合は、目的のモードを設定してプレゼンテーションを 1 回だけ保存すれば、モードを列挙して保存する必要はありません。
 
-以下の比較は、3 つのファイルすべてで同じデータがどのように表示されるかを示しています。Day 3 はすべてのケースでワークブック上は空です。
+以下の比較は、3 つのファイルすべてで同じデータがどのように表示されるかを示しています。Day 3 はすべてのケースでワークブック上が空白です。
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![同一データの折れ線グラフ: Gap は Day 3 で線を切れ目にし、Zero は線をゼロまで落とし、Span は Day 2 から Day 4 を接続します。](display_blanks_as.png)
 
-可視効果はチャート タイプに依存します。折れ線グラフでは 3 つのモードを簡単に比較できますが、棒や列のチャートでは欠損カテゴリをつなぐラインがないため、`Span` は上記のような接続セグメントを生成できません。欠損列とゼロ高さの列は見た目が似ることがあります。同様に、マーカーのみの散布図でも接続ラインはありません。すべてのチャート タイプで 3 つの異なる結果が得られるとは限らないので、使用するタイプで出力を確認してください。
+見た目の効果はチャートの種類によって異なります。折れ線グラフは 3 つのモードを比較しやすいですが、棒や列のチャートは欠損したカテゴリをつなぐ線がないため、`Span` は上図のような接続セグメントを生成できません。欠損した列とゼロ高さの列は見た目が似ることがあります。散布図のマーカーだけの場合も接続線がありません。すべてのチャート タイプで 3 つの明確な結果が得られるとは限らないので、使用するタイプで出力を確認してください。
 
 ## **シリーズのギャップ幅を設定する**
 
-ギャップ幅は、隣接する棒または列クラスター間のスペースを棒または列幅のパーセンテージで表したものです。オーバーラップと同様に、個々のシリーズではなく親シリーズ グループに属します。グループに対して一度だけ[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) を呼び出します。値を大きくするとクラスター間の間隔が広がり、値を小さくするとクラスターが密になります。
+ギャップ幅は隣接する棒や列クラスター間のスペースを、棒や列の幅のパーセンテージで表したものです。オーバーラップと同様に、個々のシリーズではなく親シリーズ グループに属します。グループに対して 1 回だけ[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) を呼び出してください。値を大きくするとクラスター間のスペースが広がり、値を小さくすると密になります。
 
-以下の例はギャップ幅を変更し、最終プレゼンテーションだけを保存します。
+次の例はギャップ幅を変更し、最終的なプレゼンテーションだけを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -401,46 +403,50 @@ try {
 
 結果:
 
-![The gap width](gap_width.png)
+![ギャップ幅](gap_width.png)
 
 ## **FAQ**
 
-**どのチャート タイプがデータ シリーズをサポートしていますか？**
+**どのチャート タイプがデータ系列をサポートしていますか？**
 
-[ChartType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/charttype/) 列挙体で表されるすべてのチャート タイプはチャート データを使用しますが、シリーズごとに同じ値構造や設定があるわけではありません。たとえば、カテゴリ チャートはカテゴリと値を使用し、散布図は X と Y の値を使用し、バブル チャートはバブルのサイズも加えます。シリーズ タイプに合ったデータ ポイント作成メソッドを使用してください。オーバーラップやギャップ幅などのオプションは、互換性のある棒または列グループにのみ適用されます。
+[ChartType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/charttype/) 列挙体で表されるすべてのチャート タイプはデータを使用しますが、系列の値構造や設定は同じではありません。たとえば、カテゴリ チャートはカテゴリと値、散布図は X と Y の値、バブル チャートはバブルサイズを使用します。系列のタイプに合わせたデータポイント作成メソッドを使用してください。オーバーラップやギャップ幅などのオプションは、互換性のある棒または列のグループにのみ適用されます。
 
-**チャート シリーズ グループとは何ですか？**
+**チャート系列グループとは何ですか？**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/) は、グループレベルのプロット設定を共有する互換性のあるシリーズを含みます。コンビネーション チャートは複数のグループを持つことができるため、あるシリーズを通じて取得したグループを変更しても、チャート内のすべてのシリーズが必ずしも変更されるわけではありません。
+[IChartSeriesGroup](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/) は、グループ レベルのプロット設定を共有する互換系列を保持します。組み合わせチャートは複数のグループを含むことができるため、ある系列を通して取得したグループを変更しても、チャート内のすべての系列が必ずしも変更されるわけではありません。
 
 **新規作成したチャートにはデフォルト データが含まれますか？**
 
-はい。デフォルトでは、[IShapeCollection.addChart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) がサンプルのシリーズ、カテゴリ、値を作成します。これらのセルを編集するか、完全にカスタム データを追加する前にシリーズとカテゴリのコレクションをクリアできます。オーバーロードを使用すれば、デフォルト データなしでチャートを作成することも可能です。
+はい。デフォルトでは、[IShapeCollection.addChart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) がサンプル 系列、カテゴリ、値を作成します。これらのセルを編集するか、系列とカテゴリのコレクションをクリアして完全にカスタム データセットを追加できます。オーバーロードを使用すれば、デフォルト データなしでチャートを作成することも可能です。
 
-**チャート オブジェクトはワークブック セルとどのように接続されていますか？**
+**チャート オブジェクトはワークブック セルとどう結びついていますか？**
 
-シリーズ名、カテゴリ ラベル、データ ポイントの値はすべて[IChartDataWorkbook](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdataworkbook/) のセルを参照しています。参照されたセルを変更すると、対応するチャート要素が更新されます。カスタム データを構築する際は、カテゴリ行とシリーズ値行を揃えて、各ポイントが意図したカテゴリの下にプロットされるようにしてください。
+系列名、カテゴリ ラベル、データポイントの値はすべて[IChartDataWorkbook](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdataworkbook/) のセルを参照します。参照セルを変更すると、対応するチャート要素が更新されます。カスタム データを構築する際は、カテゴリ 行と系列 値 行が整合するように配置し、各ポイントが意図したカテゴリの下に描画されるようにしてください。
 
-**シリーズ全体ではなく 1 つのポイントだけをクリアするにはどうすればよいですか？**
+**系列全体ではなく 1 ポイントだけをクリアするにはどうすればよいですか？**
 
-該当する値セルを `null` に設定し、ポイントのカテゴリ位置は空のポイントとして保持します。[IChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) は、そのシリーズのすべてのポイントを削除したいときだけ使用してください。カテゴリも削除する場合は、すべてのシリーズの値がカテゴリ コレクションと整合するように更新してください。
+該当する値セルを `null` に設定して、ポイントのカテゴリ位置は保持しつつ空のポイントにします。[IChartDataPointCollection.clear](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) は、その系列のすべてのポイントを削除するため、他のポイントを残したい場合は使用しないでください。カテゴリ自体も削除する場合は、すべての系列の値がカテゴリ コレクションと整合するように更新してください。
 
-**空のポイントはどのように表示されますか？**
+**空白ポイントはどのように表示されますか？**
 
-結果はチャート タイプと[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) で設定された値に依存します。サポートされているチャートは、空白をギャップ、ゼロ値、または隣接ポイントを接続する形で表示できます。プレゼンテーションの欠損データの意味に合った設定を選択してください。完全な例と視覚的比較については、[空セルの表示を制御する](#control-the-display-of-empty-cells) を参照してください。
+表示はチャート タイプと[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) の設定に依存します。対応チャートは、空白をギャップ、ゼロ値、または隣接ポイントの接続として表示できます。プレゼンテーションでの欠損データの意味に合う設定を選択してください。完全な例とビジュアル比較は「空白セルの表示を制御する」を参照してください。
 
 **負の値はどのように書式設定されますか？**
 
-サポートされている棒、列、バブル シリーズでは、[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) を呼び出し、[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) で返されるカラーを設定します。個別のポイントについては[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) で動作を上書きできます。これらのメソッドは書式設定に影響し、格納された数値自体は変更しません。
+対応する棒、列、バブル系列では、[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) を呼び出し、[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) が返す色を設定します。個別のポイントについては[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) で上書きできます。これらのメソッドは表示の書式を変更するだけで、数値自体は変更しません。
 
 **シリーズとポイントの両方が書式設定されている場合、どちらが優先されますか？**
 
-明示的なデータ ポイントの書式設定がそのポイントに対して優先されます。他のポイントは、明示的なシリーズ書式設定がある場合はそれを使用し、シリーズ書式設定が未定義の場合は自動的なチャート スタイルとテーマが適用されます。オーバーラップやギャップ幅などのグループ設定はレイアウトを制御し、ポイントレベルの書式設定の上書きにはなりません。
+明示的なデータポイントの書式がそのポイントに対して優先されます。他のポイントは、明示的なシリーズ書式がある場合はそれを使用し、シリーズ書式が未定義の場合は自動的なチャート スタイルとテーマが適用されます。オーバーラップやギャップ幅といったグループ設定はレイアウトに影響し、ポイントレベルの書式上書きではありません。
 
-**チャートに含められるシリーズ数に上限はありますか？**
+**チャートに含められる系列の数に上限はありますか？**
 
-Aspose.Slides には固有の固定シリーズ数上限はありません。実際には、プレゼンテーション ファイルの制約、使用可能なメモリ、レンダリング時間、そしてチャートの可読性が実用的な上限を決定します。
+Aspose.Slides には別途固定された系列数の上限はありません。実際には、プレゼンテーション ファイルの制約、利用可能なメモリ、レンダリング時間、そしてチャートの可読性が実用的な上限を決定します。
 
-**列が近すぎる、または離れすぎる場合は何を変更すべきですか？**
+**列が互いに近すぎる、または遠すぎる場合はどうすればよいですか？**
 
-適切な親シリーズ グループに対して[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) を呼び出します。値を増やすとクラスター間のスペースが広がり、減らすとクラスターが近づきます。
+適切な親シリーズ グループに対して[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) を呼び出してください。値を大きくするとクラスター間のスペースが広がり、値を小さくするとクラスターが近くなります。
+
+## **Control the Display of Empty Cells**
+
+See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.

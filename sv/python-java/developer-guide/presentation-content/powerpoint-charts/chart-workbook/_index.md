@@ -1,39 +1,50 @@
 ---
-title: Hantera diagramarböcker i presentationer med Python via Java
-linktitle: Diagramarbok
+title: Hantera diagramarbetsböcker i presentationer med Python via Java
+linktitle: Diagramarbetsbok
 type: docs
 weight: 70
 url: /sv/python-java/chart-workbook/
 keywords:
-- diagramarbok
+- diagramarbetsbok
 - diagramdata
-- cell i arbetsbok
+- arbetsbokscell
 - datamärkning
-- arbetsblad
+- kalkylblad
 - datakälla
 - extern arbetsbok
 - extern data
 - diagramcache
-- återställning av arbetsbok
+- arbetsboksåterställning
 - PowerPoint
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Python via Java: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
+description: "Upptäck Aspose.Slides för Python via Java: hantera enkelt diagramarbetsböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksfält som diagramdatamärkningar, får åtkomst till kalkylblads samlingar och anger datakällans typ för diagramvärden.
+Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboks‑celler som diagramdatamärken, får åtkomst till kalkylarksamlingar och specificerar datakälltyp för diagramvärden.
 
-Den behandlar också hur man arbetar med externa arbetsböcker som diagramdatakällor. Exemplen visar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den behandlar även arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkat till ett diagram, och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboksfält som representerar saknad data, se [Kontrollera visning av tomma celler](/slides/sv/python-java/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
+För arbetsboks‑celler som representerar saknad data, se [Styr visning av tomma celler](/slides/sv/python-java/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramsjämförelse av de tillgängliga visningslägena.
 
-## **Läsa och skriva diagramdata från en arbetsbok**
-Aspose.Slides tillhandahåller metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#readWorkbookStream) och [writeWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#writeWorkbookStream) som låter dig läsa och skriva diagramarbetsböcker (som innehåller diagramdata redigerade med Aspose.Cells). **Obs** att diagramdata måste organiseras på samma sätt eller ha en struktur som liknar källan.
+## **Inkludera data från dolda rader och kolumner**
 
-Denna Python-kod demonstrerar ett exempel på en operation:
+Använd [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) för att styra om ett diagram plottar data från dolda kalkylarksrader och -kolumner. Ställ in det på `True` för att plotta endast synliga celler, eller `False` för att inkludera både synliga och dolda celler. Denna inställning styr diagramplottning; den döljer eller visar inte kalkylarksrader eller -kolumner.
+
+Ladda ner [hidden-source-data.pptx](hidden-source-data.pptx) och placera den i arbetskatalogen. Dess första bild innehåller ett stapeldiagram som den första formen. Det inbäddade kalkylarket, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+
+| Kalkylarksrad | A: Månad | B: Detaljhandel | C: Partihandel (dold kolumn) |
+| --- | --- | --- | --- |
+| 2 | Januari | 10 | 30 |
+| 3 (dold rad) | Februari | 40 | 60 |
+| 4 | Mars | 20 | 50 |
+
+Få åtkomst till källceller via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getChartDataWorkbook) och läs [ChartDataCell.isHidden](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdatacell/#isHidden) för att inspektera deras dolda status. Denna metod rapporterar den dolda statusen utan att ändra den. I den här filen är B2 synlig, B3 tillhör den dolda raden, och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` respektive.
+
+För detta exempel, uppdatera diagramdata efter att plottningsinställningen har ändrats: behåll den inbäddade arbetsboken med [readWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#readWorkbookStream) och läs in den igen med [writeWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#writeWorkbookStream). När alla celler inkluderas, använd även [setRange](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setRange) för att återställa hela intervallet, inklusive den dolda februari‑kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempelens cachade diagramdata och kategorimärken.
 
 ```python
 import jpype
@@ -42,23 +53,83 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Chart, Presentation, SaveFormat
+
+presentation = Presentation("hidden-source-data.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        workbook = chart.getChartData().getChartDataWorkbook()
+        print("B2 hidden:", workbook.getCell(0, "B2").isHidden())
+        print("B3 hidden:", workbook.getCell(0, "B3").isHidden())
+        print("C2 hidden:", workbook.getCell(0, "C2").isHidden())
+
+        workbook_data = chart.getChartData().readWorkbookStream()
+        for visible_only in (True, False):
+            chart.setPlotVisibleCellsOnly(visible_only)
+
+            # Uppdatera diagramdata från den inbäddade arbetsboken.
+            chart.getChartData().writeWorkbookStream(workbook_data)
+            if not visible_only:
+                # Återställ hela källintervallet, inklusive dolda kategorier.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4")
+
+            presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
+    else:
+        print("The first shape is not a chart.")
+finally:
+    presentation.dispose()
+```
+
+Exemplet sparar `hidden_cells_True.pptx` med endast de synliga detaljhandelsvärdena (10 och 20), och `hidden_cells_False.pptx` med alla sex värden. Bilderna nedan illustrerar de två plottningslägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+
+| Endast synliga celler (`True`) | Alla celler (`False`) |
+| --- | --- |
+| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för Januari och Mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandel‑ och partihandelsvärden för Januari, Februari och Mars.](hidden_cells_False.png) |
+
+En dold cell som innehåller ett värde är annorlunda än en tom cell. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#setDisplayBlanksAs) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Styr visning av tomma celler](/slides/sv/python-java/chart-series/#control-the-display-of-empty-cells) för ett exempel.
+
+## **Läs och skriv diagramdata från en arbetsbok**
+
+Aspose.Slides for Python via Java tillhandahåller metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#readWorkbookStream) och [writeWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#writeWorkbookStream) som låter dig läsa och skriva diagramarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
+
+Detta exempel öppnar `chart.pptx`, som måste innehålla ett diagram som den första formen på sin första bild. Det läser den inbäddade arbetsboken till en byte‑array, rensar befintliga serier och kategorier, och skriver tillbaka samma arbetsbok. Ändringarna finns kvar i minnet; exemplet sparar inte presentationen.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Chart, Presentation
 
 presentation = Presentation("chart.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
-    workbook_data = chart_data.readWorkbookStream()
-    chart_data.getSeries().clear()
-    chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(workbook_data)
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        workbook_data = chart_data.readWorkbookStream()
+
+        chart_data.getSeries().clear()
+        chart_data.getCategories().clear()
+
+        chart_data.writeWorkbookStream(workbook_data)
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
 ### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie- och kategorisamlingar. Denna inkonsekvens kan få [Chart.validateChartLayout](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#validateChartLayout) att kasta ett `ArgumentOutOfRangeException` (parameter: index). För att undvika undantaget, rensa de befintliga serierna och kategorierna **innan** du skriver den uppdaterade arbetsboken tillbaka till diagrammet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Detta missförhållande kan få [Chart.validateChartLayout](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#validateChartLayout) att misslyckas med ett index‑out‑of‑range‑fel. Rensa de befintliga serierna och kategorierna innan du skriver den uppdaterade arbetsboken tillbaka till diagrammet. Detta exempel kräver `chart.pptx` med ett diagram som den första formen på sin första bild. Kommentarerna markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
 
 ```python
 import jpype
@@ -67,39 +138,45 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
-
-from pathlib import Path
-
-# Läs arbetsboken efter att den har modifierats (t.ex. med Aspose.Cells).
-updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
+from asposeslides.api import Chart, Presentation
 
 presentation = Presentation("chart.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
+    slide = presentation.getSlides().get_Item(0)
 
-    # Rensa befintliga datareferenser.
-    chart_data.getSeries().clear()
-    chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
-    chart.validateChartLayout()
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        workbook_data = chart_data.readWorkbookStream()
+
+        # Ändra arbetsbokens byte här, till exempel med Aspose.Cells.
+
+        chart_data.getSeries().clear()
+        chart_data.getCategories().clear()
+
+        chart_data.writeWorkbookStream(workbook_data)
+        chart.validateChartLayout()
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Att rensa samlingarna säkerställer att diagramdatastrukturen stämmer överens med den nya arbetsboken, vilket gör att [validateChartLayout](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#validateChartLayout) kan slutföras utan fel.
+Att rensa samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella nödvändiga serie‑ och kategorimappningar för den uppdaterade arbetsboken innan diagrammet används.
 
-## **Ange en arbetsbokscell som diagramdatamärkning**
+## **Ange en arbetsboks‑cell som diagramdatamärkning**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) .
-1. Hämta en slides referens via dess index.
-1. Lägg till ett bubbeldiagram med någon data.
-1. Åtkomst till diagramserierna.
-1. Ange arbetsbokscellen som en datamärkning.
-1. Spara presentationen.
+Du kan använda text från arbetsboks‑celler som diagramdatamärken. Följande steg visar hur du länkar märkena i ett bubbeldiagram till celler i dess datarbok.
 
-Denna Python-kod visar hur du anger en arbetsbokscell som en diagramdatamärkning:
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+2. Åtkomst den första bilden via dess noll‑baserade index.
+3. Lägg till ett bubbeldiagram med standarddata.
+4. Åtkomst diagramserien.
+5. Ange arbetsboks‑cellen som en datamärkning.
+6. Spara presentationen.
+
+Detta exempel öppnar `chart2.pptx`, som måste innehålla minst en bild, och lägger till ett bubbeldiagram med standarddata. Det använder cellerna A10:A12 i kalkylblad 0 för de första tre märkena i första serien, aktiverar märken från celler, och sparar resultatet till `resultchart.pptx`.
 
 ```python
 import jpype
@@ -112,8 +189,9 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation("chart2.pptx")
 try:
-    label_values = ["Label 0 cell value", "Label 1 cell value", "Label 2 cell value"]
     slide = presentation.getSlides().get_Item(0)
+    label_values = ["Label 0 cell value", "Label 1 cell value", "Label 2 cell value"]
+    
     chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, True)
     series = chart.getChartData().getSeries()
     data_labels = series.get_Item(0).getLabels()
@@ -122,6 +200,7 @@ try:
     for i in range(3):
         label_cell = workbook.getCell(0, f"A{10 + i}", label_values[i])
         data_labels.get_Item(i).setValueFromCell(label_cell)
+
     presentation.save("resultchart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -129,7 +208,7 @@ finally:
 
 ## **Hantera kalkylblad**
 
-Denna Python-kod demonstrerar en operation där metoden [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdataworkbook/#getWorksheets) används för att få åtkomst till en kalkylbladsamling:
+Metoden [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdataworkbook/#getWorksheets) ger åtkomst till kalkylbladen i en diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje kalkylbladsnamn till konsolen.
 
 ```python
 import jpype
@@ -142,7 +221,9 @@ from asposeslides.api import ChartType, Presentation
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500)
     workbook = chart.getChartData().getChartDataWorkbook()
     for i in range(workbook.getWorksheets().size()):
         print(workbook.getWorksheets().get_Item(i).getName())
@@ -150,9 +231,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ange datakällans typ**
+## **Specificera datakälltyp**
 
-Denna Python-kod visar hur du anger en typ för en datakälla:
+Detta exempel skapar ett 3D‑stapeldiagram med standarddata och anger två serienamn med olika datakällor. Det första namnet använder en strängliteral; det andra använder cell C1 i kalkylblad 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/datasourcetype/) väljer källan för varje namn. Resultatet sparas till `pres.pptx`.
 
 ```python
 import jpype
@@ -165,21 +246,25 @@ from asposeslides.api import ChartType, DataSourceType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, True)
-    series_name = chart.getChartData().getSeries().get_Item(0).getName()
-    series_name.setDataSourceType(DataSourceType.StringLiterals)
-    series_name.setData("LiteralString")
-    series_name = chart.getChartData().getSeries().get_Item(1).getName()
-    name_cell = chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell")
-    series_name.setData(name_cell)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, True)
+    literal_name = chart.getChartData().getSeries().get_Item(0).getName()
+    literal_name.setDataSourceType(DataSourceType.StringLiterals)
+    literal_name.setData("LiteralString")
+    cell_name = chart.getChartData().getSeries().get_Item(1).getName()
+    name_cell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell")
+    cell_name.setDataSourceType(DataSourceType.Worksheet)
+    cell_name.setData(name_cell)
+    
     presentation.save("pres.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Upptäck ej stödjade inbäddade arbetsboksformat**
+## **Upptäck osupporterade inbäddade arbetsboksformat**
 
-Aspose.Slides stödjer inte Excel binärarbetsboksformat (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda metoden [getEmbeddedWorkbookType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) på [ChartData](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/workbooktype/) för att upptäcka ej stödjade format och hoppa över dessa diagram.
+Aspose.Slides stöder inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda metoden [getEmbeddedWorkbookType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) på [ChartData](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/workbooktype/) för att upptäcka osupporterade format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden av `sample.pptx`, hoppar över icke‑diagramformer, och skriver ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
 ```python
 import jpype
@@ -193,27 +278,33 @@ from asposeslides.api import Chart, ChartDataSourceType, Presentation, WorkbookT
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if not isinstance(shape, Chart):
             continue
+
         chart_data = shape.getChartData()
-        if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # Inbäddad arbetsbok är i .xlsb-format, vilket inte stöds.
+
+        is_internal_workbook = chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook
+        is_binary_macro = chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro
+
+        if is_internal_workbook and is_binary_macro:
+            print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Läs eller modifiera diagramarbetsbokens data här.
+        # Läs eller modifiera stödd diagramarbetsboksdata här.
 finally:
     presentation.dispose()
 ```
 
 ## **Extern arbetsbok**
 
-Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stöder att använda externa arbetsböcker som datakälla för diagram.
 
 ### **Skapa en extern arbetsbok**
 
-Med metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#readWorkbookStream) och [setExternalWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setExternalWorkbook) kan du antingen skapa en extern arbetsbok från början eller göra en intern arbetsbok extern.
+Använd [readWorkbookStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#readWorkbookStream) och [setExternalWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setExternalWorkbook) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
 
-Denna Python-kod demonstrerar processen för att skapa en extern arbetsbok:
+Detta exempel skapar ett cirkeldiagram med standarddata, skriver dess arbetsbok till `externalWorkbook1.xlsx`, och slutför filskrivningen innan filen tilldelas som diagrammets datakälla. Det sparar den länkade presentationen till `externalWorkbook.pptx`.
 
 ```python
 import jpype
@@ -228,11 +319,14 @@ from pathlib import Path
 
 presentation = Presentation()
 try:
-    workbook_path = "externalWorkbook1.xlsx"
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600)
+    workbook_path = Path("externalWorkbook1.xlsx").resolve()
     workbook_data = chart.getChartData().readWorkbookStream()
     Path(workbook_path).write_bytes(bytes(workbook_data))
-    chart.getChartData().setExternalWorkbook(workbook_path)
+    chart.getChartData().setExternalWorkbook(str(workbook_path))
+
     presentation.save("externalWorkbook.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -240,11 +334,11 @@ finally:
 
 ### **Ange en extern arbetsbok**
 
-Med metoden [setExternalWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setExternalWorkbook) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Med metoden [setExternalWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setExternalWorkbook) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan även användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok tillhandahålls, konverteras den automatiskt till en fullständig sökväg.
+Du kan inte redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, men du kan fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
 
-Denna Python-kod visar hur du anger en extern arbetsbok:
+Detta exempel kräver `externalWorkbook.xlsx` i arbetskatalogen. Dess kalkylblad `Sheet1` måste innehålla ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken, och använder [setRange](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setRange) för att mappa A1:B4 till en serie och tre kategorier. Resultatet sparas till `Presentation_with_externalWorkbook.pptx`.
 
 ```python
 import jpype
@@ -255,29 +349,29 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+from pathlib import Path
+
+presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, False)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
     chart_data = chart.getChartData()
-    chart_data.setExternalWorkbook("externalWorkbook.xlsx")
-    workbook = chart_data.getChartDataWorkbook()
-    series_name_cell = workbook.getCell(0, "B1")
-    series = chart_data.getSeries().add(series_name_cell, ChartType.Pie)
-    for row in range(2, 5):
-        value_cell = workbook.getCell(0, f"B{row}")
-        series.getDataPoints().addDataPointForPieSeries(value_cell)
-    for row in range(2, 5):
-        category_cell = workbook.getCell(0, f"A{row}")
-        chart_data.getCategories().add(category_cell)
+    workbook_path = str(Path("externalWorkbook.xlsx").resolve())
+    chart_data.setExternalWorkbook(workbook_path)
+    chart_data.setRange("Sheet1!$A$1:$B$4")
+
     presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Den andra (`bool`) parametern i metoden [setExternalWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setExternalWorkbook) används för att ange om en Excel-arbetsbok ska laddas eller inte. 
+Parametern `updateChartData` för [setExternalWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#setExternalWorkbook) styr om arbetsboken laddas.
 
-* När dess värde är `False` uppdateras endast arbetsboksökvägen – diagramdata laddas inte och uppdateras inte från målarbetsboken. Du kan vilja använda denna inställning när målarbetsboken saknas eller är otillgänglig. 
-* När dess värde är `True` uppdateras diagramdata från målarbetsboken. 
+* När `updateChartData` är `False` uppdateras endast arbetsbokens sökväg. Diagramdata laddas inte eller uppdateras från mål‑arbetsboken, så arbetsboken kan vara otillgänglig.
+* När `updateChartData` är `True` uppdateras diagramdata från mål‑arbetsboken.
+
+Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `False`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
 
 ```python
 import jpype
@@ -288,25 +382,30 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
     chart_data = chart.getChartData()
-    chart_data.setExternalWorkbook("http://path/doesnt/exists", False)
-    presentation.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx)
+    chart_data.setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", False)
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
+### **Hämta den externa datakällans arbetsbokssökväg för ett diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) .
-2. Hämta en slides referens via dess index.
-3. Skapa ett objekt för diagramformen.
-4. Skapa ett objekt för källtypen ([ChartDataSourceType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdatasourcetype/)) som representerar diagrammets datakälla.
-5. Ange det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
+För att identifiera arbetsboken som är länkad till ett diagram, kontrollera först om diagrammet använder en extern datakälla. Om så är fallet kan du hämta arbetsbokens sökväg genom att följa dessa steg.
 
-Denna Python-kod demonstrerar operationen:
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+2. Åtkomst den första bilden via dess noll‑baserade index.
+3. Kontrollera att den första formen är ett diagram.
+4. Läs diagrammets datakälltyp.
+5. Om källan är en extern arbetsbok, läs dess sökväg.
+
+Detta exempel öppnar `externalWorkbook.pptx`, skapat i det tidigare exemplet, och inspekterar den första formen på den första bilden. Om den är ett diagram länkat till en extern arbetsbok, skriver exemplet ut [getExternalWorkbookPath](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) till konsolen. Därefter sparas en kopia av presentationen till `Result.pptx`.
 
 ```python
 import jpype
@@ -315,25 +414,33 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartDataSourceType, Presentation, SaveFormat
+from asposeslides.api import Chart, ChartDataSourceType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation("externalWorkbook.pptx")
 try:
-    slide = presentation.getSlides().get_Item(1)
-    chart = slide.getShapes().get_Item(0)
-    source_type = chart.getChartData().getDataSourceType()
-    if source_type == ChartDataSourceType.ExternalWorkbook:
-        path = chart.getChartData().getExternalWorkbookPath()
-    presentation.save("result.pptx", SaveFormat.Pptx)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        if chart_data.getDataSourceType() == ChartDataSourceType.ExternalWorkbook:
+            print(chart_data.getExternalWorkbookPath())
+        else:
+            print("The chart does not use an external workbook.")
+    else:
+        print("The first shape is not a chart.")
+
+    presentation.save("Result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du gör förändringar i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Denna Python-kod är en implementering av den beskrivna processen:
+Detta exempel kräver `presentation.pptx` med ett diagram som den första formen på den första bilden och en åtkomlig extern arbetsbok. Det sätter cell‑stödd värde för den första datapunkten i den första serien till 100 och sparar presentationen till `presentation_out.pptx`. Redigering av cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du behöver bevara originalarbetsboken.
 
 ```python
 import jpype
@@ -342,23 +449,36 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
-    chart_data.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(jpype.JInt(100))
-    presentation.save("presentation_out.pptx", SaveFormat.Pptx)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        series = chart.getChartData().getSeries()
+        if series.size() > 0 and series.get_Item(0).getDataPoints().size() > 0:
+            value_cell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell()
+            if value_cell is not None:
+                value_cell.setValue(jpype.JInt(100))
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx)
+            else:
+                print("The first data point is not linked to a workbook cell.")
+        else:
+            print("The chart has no data points to edit.")
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
 ### **Återskapa en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides återskapa diagramarbetsboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/), konfigurera den med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/spreadsheetoptions/), och anropa [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) med `True` innan du öppnar presentationen.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/), anropa [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions), och sätt [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) till `True` innan presentationen öppnas.
 
-Följande Python-exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till den återställda datan via [Chart.getChartData](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#getChartData) och [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Följande Python‑exempel öppnar `presentation.pptx`, vars första form på den första bilden måste vara ett diagram som refererar till en otillgänglig extern arbetsbok, och får åtkomst till den återställda datan via [Chart.getChartData](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#getChartData) och [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -367,47 +487,54 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import LoadOptions, Presentation, SpreadsheetOptions
+from asposeslides.api import Chart, LoadOptions, Presentation, SpreadsheetOptions
 
 spreadsheet_options = SpreadsheetOptions()
 spreadsheet_options.setRecoverWorkbookFromChartCache(True)
+
 load_options = LoadOptions()
 load_options.setSpreadsheetOptions(spreadsheet_options)
 
 presentation = Presentation("presentation.pptx", load_options)
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    recovered_workbook = chart.getChartData().getChartDataWorkbook()
+    slide = presentation.getSlides().get_Item(0)
 
-    # Läs eller ändra den återställda arbetsbokens data här.
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        recovered_workbook = chart.getChartData().getChartDataWorkbook()
+
+        # Läs eller modifiera den återställda arbetsboksdata här.
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när det är acceptabelt att använda den cachade diagramdatan som en reserv, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av den cachade diagramdatan är en acceptabel återfallsplan, eftersom cachen kan sakna förändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getDataSourceType) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
+Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getDataSourceType) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); om källan är en extern arbetsbok kan du läsa hela sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är bekvämt för projektportabilitet; var dock medveten om att presentationen lagrar den absoluta sökvägen i PPTX-filen.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytta arbetsboken kan kräva en uppdatering av länken.
 
-**Kan jag använda arbetsböcker som finns på nätverksresurser eller delade mappar?**
+**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som en källa.
+Ja, sådana arbetsböcker kan användas som extern datakälla. Däremot stöds inte direkt redigering av fjärrarbetsböcker från Aspose.Slides — de kan endast användas som källa.
 
-**Skriver Aspose.Slides över den externa XLSX-filen när presentationen sparas?**
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getExternalWorkbookPath), och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
+Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Redigering av cell‑stödd diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
 
-**Vad ska jag göra om den externa filen är lösenordsskyddad?**
+**Vad gör jag om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/python-java/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig metod är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång datan laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av filen att återspeglas i varje diagram nästa gång data laddas.

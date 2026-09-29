@@ -1,5 +1,5 @@
 ---
-title: Gestion des classeurs de graphiques dans les présentations avec JavaScript
+title: Gérer les classeurs de graphiques dans les présentations avec JavaScript
 linktitle: Classeur de graphique
 type: docs
 weight: 70
@@ -13,180 +13,271 @@ keywords:
 - source de données
 - classeur externe
 - données externes
-- cache de graphique
-- récupération de classeur
+- cache du graphique
+- récupération du classeur
 - PowerPoint
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Découvrez Aspose.Slides pour Node.js via Java: gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument afin d'optimiser les données de votre présentation."
+description: "Découvrez Aspose.Slides pour Node.js via Java : gérez aisément les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour simplifier les données de votre présentation."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire des données de graphique via des flux de classeur, utiliser les cellules du classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
+Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire les données de graphique via des flux de classeur, utiliser les cellules de classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
 
-Il couvre également l’utilisation de classeurs externes comme sources de données pour les graphiques. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
+Il couvre également le travail avec des classeurs externes comme sources de données de graphique. Les exemples montrent comment créer et attribuer un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
 
-Pour les cellules de classeur représentant des données manquantes, consultez [Contrôler l’affichage des cellules vides](/slides/fr/nodejs-java/chart-series/) pour connaître la différence entre une cellule vide et zéro, ainsi qu’une comparaison en graphique linéaire des modes d’affichage disponibles.
+Pour les cellules de classeur représentant des données manquantes, consultez [Control the Display of Empty Cells](/slides/fr/nodejs-java/chart-series/) pour la différence entre une cellule vide et zéro, ainsi qu’une comparaison en graphique linéaire des modes d’affichage disponibles.
 
-## **Lire et écrire des données de graphique à partir d’un classeur**
+## **Inclure les données des lignes et colonnes masquées**
 
-Aspose.Slides fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) et [writeWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) qui permettent de lire et d’écrire des classeurs de données de graphique (contenant des données éditées avec Aspose.Cells). **Note** que les données du graphique doivent être organisées de la même manière ou posséder une structure similaire à la source.
+Utilisez [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) pour contrôler si un graphique trace les données provenant des lignes et colonnes masquées d’une feuille de calcul. Réglez-le sur `true` pour tracer uniquement les cellules visibles, ou sur `false` pour inclure à la fois les cellules visibles et masquées. Ce paramètre contrôle le traçage du graphique ; il ne masque ni ne rend visibles les lignes ou colonnes de la feuille de calcul.
 
-Ce code JavaScript montre une opération d’exemple :
+Téléchargez [hidden-source-data.pptx](hidden-source-data.pptx) et placez-le dans le répertoire de travail. Sa première diapositive contient un graphique en colonnes comme première forme. La feuille de calcul intégrée, `Sheet1`, contient la plage source suivante, `A1:C4`. La ligne 3 et la colonne C sont masquées, mais leurs cellules contiennent toujours des valeurs.
+
+| Ligne de la feuille | A : Mois | B : Vente au détail | C : Vente en gros (colonne masquée) |
+| --- | --- | --- | --- |
+| 2 | Janvier | 10 | 30 |
+| 3 (ligne masquée) | Février | 40 | 60 |
+| 4 | Mars | 20 | 50 |
+
+Accédez aux cellules sources via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook), puis lisez [ChartDataCell.isHidden](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdatacell/#isHidden) pour inspecter leur statut masqué. Cette méthode renvoie le statut masqué sans le modifier. Dans ce fichier, B2 est visible, B3 appartient à la ligne masquée, et C2 appartient à la colonne masquée ; l’exemple affiche `false`, `true` et `true` respectivement.
+
+Dans cet exemple, rafraîchissez les données du graphique après avoir modifié le paramètre de traçage : conservez le classeur intégré avec [readWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) et rechargez‑le avec [writeWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream). Lors de l’inclusion de toutes les cellules, utilisez également [setRange](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#setRange) pour restaurer la plage complète, y compris la catégorie février masquée. Modifier simplement le drapeau ne suffit pas à rafraîchir les données de graphique et les libellés de catégorie mis en cache dans cet exemple. L’exemple convertit le tampon Node.js retourné en tableau d’octets Java avant de le transmettre à la méthode d’écriture.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("hidden-source-data.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var data = chart.getChartData();
-    var stream = data.readWorkbookStream();
-    data.getSeries().clear();
-    data.getCategories().clear();
-    data.writeWorkbookStream(stream);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const workbook = chart.getChartData().getChartDataWorkbook();
+        console.log("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        console.log("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        console.log("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
+
+        const workbookBuffer = chart.getChartData().readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+        for (const visibleOnly of [true, false]) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
+
+            // Actualiser les données du graphique à partir du classeur intégré.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Restaurer la plage source complète, y compris les catégories masquées.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Valider la mise en page du graphique après modification du classeur**
+L’exemple enregistre `hidden_cells_true.pptx` avec uniquement les valeurs de Vente au détail visibles (10 et 20), et `hidden_cells_false.pptx` avec les six valeurs. Les images ci‑dessous illustrent les deux modes de traçage. La ligne 3 et la colonne C restent masquées dans les deux classeurs intégrés.
 
-Lorsque vous remplacez un classeur incorporé par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner l’échec de [Chart.validateChartLayout](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/Chart#validateChartLayout--) avec une erreur d’indice hors plage. Effacez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique.
+| Cellules uniquement visibles (`true`) | Toutes les cellules (`false`) |
+| --- | --- |
+| ![Cellules uniquement visibles : valeurs de Vente au détail 10 et 20 pour Janvier et Mars.](hidden_cells_True.png) | ![Toutes les cellules : valeurs de Vente au détail et Vente en gros pour Janvier, Février et Mars.](hidden_cells_False.png) |
+
+Une cellule masquée contenant une valeur diffère d’une cellule vide. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) contrôle la manière dont les valeurs manquantes sont affichées ; il n’inclut ni n’exclut les données source masquées. Consultez [Control the Display of Empty Cells](/slides/fr/nodejs-java/chart-series/#control-the-display-of-empty-cells) pour un exemple.
+
+## **Lire et écrire des données de graphique depuis un classeur**
+
+Aspose.Slides for Node.js via Java fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) et [writeWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) qui permettent de lire et d’écrire les classeurs de données de graphique (contenant des données de graphique éditées avec Aspose.Cells). **Note** que les données de graphique doivent être organisées de la même manière ou disposer d’une structure similaire à la source.
+
+Cet exemple ouvre `chart.pptx`, qui doit contenir un graphique comme première forme de sa première diapositive. Il lit le classeur intégré en un tableau d’octets, supprime les séries et catégories existantes, puis réécrit le même classeur. Les modifications restent en mémoire ; l’exemple ne sauvegarde pas la présentation.
 
 ```javascript
-// Après avoir modifié le flux du classeur (par exemple, en utilisant Aspose.Cells)
-var updatedWorkbook = chartData.readWorkbookStream();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Effacer les références de données existantes.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+const presentation = new aspose.slides.Presentation("chart.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-chartData.writeWorkbookStream(updatedWorkbook);
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
 
-chart.validateChartLayout();
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        console.log("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Effacer les collections garantit que la structure des données du graphique est cohérente avec le nouveau classeur, ce qui permet à `validateChartLayout` de s’exécuter sans erreurs.
+### **Valider la disposition du graphique après modification du classeur**
 
-## **Définir une cellule de classeur comme libellé de données du graphique**
-
-1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation).
-1. Obtenez la référence d’une diapositive via son indice.
-1. Ajoutez un graphique à bulles avec quelques données.
-1. Accédez aux séries du graphique.
-1. Définissez la cellule du classeur comme libellé de données.
-1. Enregistrez la présentation.
-
-Ce code JavaScript montre comment définir une cellule de classeur comme libellé de données du graphique :
+Lorsque vous remplacez un classeur intégré par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner l’échec de [Chart.validateChartLayout](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chart/#validateChartLayout) avec une erreur d’indice hors limites. Supprimez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique. Cet exemple nécessite `chart.pptx` avec un graphique comme première forme de sa première diapositive. Le commentaire indique où l’édition du classeur aurait lieu ; l’exemple exécutif réécrit le classeur original et valide la disposition en mémoire.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var lbl0 = "Label 0 cell value";
-var lbl1 = "Label 1 cell value";
-var lbl2 = "Label 2 cell value";
-// Instancie une classe de présentation qui représente un fichier de présentation
-var pres = new aspose.slides.Presentation("chart2.pptx");
+const presentation = new aspose.slides.Presentation("chart.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    var dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-    pres.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+
+        // Modifier les octets du classeur ici, par exemple en utilisant Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
+}
+```
+
+Vider les collections supprime les références de données obsolètes avant que le classeur ne soit réécrit. Reconstruisez les mappages de séries et de catégories nécessaires pour le classeur mis à jour avant d’utiliser le graphique.
+
+## **Définir une cellule de classeur comme libellé de données de graphique**
+
+Vous pouvez utiliser le texte des cellules de classeur comme libellés de données de graphique. Les étapes suivantes montrent comment lier les libellés dans un graphique à bulles aux cellules de son classeur de données.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
+2. Accédez à la première diapositive par son indice zéro.
+3. Ajoutez un graphique à bulles avec des données par défaut.
+4. Accédez à la série du graphique.
+5. Définissez la cellule du classeur comme libellé de données.
+6. Enregistrez la présentation.
+
+Cet exemple ouvre `chart2.pptx`, qui doit contenir au moins une diapositive, et ajoute un graphique à bulles avec des données par défaut. Il utilise les cellules A10:A12 de la feuille 0 pour les trois premiers libellés de la première série, active les libellés depuis les cellules, et enregistre le résultat dans `resultchart.pptx`.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("chart2.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
+
+    presentation.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Gérer les feuilles de calcul**
 
-Ce code JavaScript démontre une opération où la méthode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) est utilisée pour accéder à une collection de feuilles de calcul :
+La méthode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) donne accès aux feuilles de calcul d’un classeur de graphique. Cet exemple crée un graphique circulaire avec des données par défaut et affiche le nom de chaque feuille de calcul dans la console.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    for (var i = 0; i < wb.getWorksheets().size(); i++) {
-        console.log(wb.getWorksheets().get_Item(i).getName());
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (let i = 0; i < workbook.getWorksheets().size(); i++) {
+        console.log(workbook.getWorksheets().get_Item(i).getName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Spécifier le type de source de données**
 
-Ce code JavaScript montre comment spécifier un type pour une source de données :
+Cet exemple crée un graphique en colonnes 3D avec des données par défaut et définit deux noms de séries en utilisant différentes sources de données. Le premier nom utilise une chaîne littérale ; le second utilise la cellule C1 de la feuille 0. L’énumération [DataSourceType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/datasourcetype/) sélectionne la source pour chaque nom. Le résultat est enregistré dans `pres.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var val = chart.getChartData().getSeries().get_Item(0).getName();
-    val.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
-    val.setData("LiteralString");
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+    const literalName = chart.getChartData().getSeries().get_Item(0).getName();
+
+    literalName.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
+
+    const cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    const nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(aspose.slides.DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Détecter les formats de classeur incorporé non pris en charge**
+## **Détecter les formats de classeur intégré non pris en charge**
 
-Aspose.Slides ne prend pas en charge le format de classeur binaire Excel (.xlsb) qui peut être incorporé dans certains graphiques. Vous pouvez utiliser la méthode `getEmbeddedWorkbookType` sur [ChartData](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/) conjointement avec l’énumération [WorkbookType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
+Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être intégré à certains graphiques. Vous pouvez utiliser la méthode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) sur [ChartData](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/) conjointement avec l’énumération [WorkbookType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques. Cet exemple examine les formes de la première diapositive de `sample.pptx`, ignore les formes non graphiques et affiche un message de diagnostic pour chaque graphique contenant un classeur .xlsb intégré.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapes = slide.getShapes();
+    const slide = presentation.getSlides().get_Item(0);
 
-    for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
-        let shape = shapes.get_Item(shapeIndex);
-
-        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) continue;
-
-        let chart = shape;
-        let chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Le classeur incorporé est au format .xlsb, qui n'est pas pris en charge.
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (!(java.instanceOf(shape, "com.aspose.slides.IChart"))) {
             continue;
         }
 
-        // Lire ou modifier les données du classeur du graphique ici.
+        const chart = shape;
+        const chartData = chart.getChartData();
+        const isInternalWorkbook = chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook;
+        const isBinaryMacro = chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            console.log("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Lire ou modifier les données du classeur de graphique prises en charge ici.
     }
 } finally {
     presentation.dispose();
@@ -195,157 +286,174 @@ try {
 
 ## **Classeur externe**
 
-Aspose.Slides prend en charge les classeurs externes comme source de données pour les graphiques.
+Aspose.Slides prend en charge l’utilisation de classeurs externes comme source de données pour les graphiques.
 
 ### **Créer un classeur externe**
 
-En utilisant les méthodes **`readWorkbookStream`** et **`setExternalWorkbook`**, vous pouvez soit créer un classeur externe à partir de zéro, soit rendre un classeur interne externe.
+Utilisez [readWorkbookStream](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) et [setExternalWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) pour exporter le classeur de graphique intégré vers un fichier et lier le graphique à ce classeur externe.
 
-Ce code JavaScript illustre le processus de création d’un classeur externe :
+Cet exemple crée un graphique circulaire avec des données par défaut, écrit son classeur dans `externalWorkbook1.xlsx`, attend la fin de l’écriture du fichier avant d’attribuer le fichier comme source de données du graphique. Il enregistre la présentation liée dans `externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 const fileSystem = require("fs");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var workbookPath = "externalWorkbook1.xlsx";
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    // readWorkbookStream renvoie les octets du classeur sous forme de Buffer Node.
-    var workbookData = chart.getChartData().readWorkbookStream();
-    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
-    chart.getChartData().setExternalWorkbook(workbookPath);
-    pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
+    const workbookPath = path.resolve("externalWorkbook1.xlsx");
+    const workbookData = chart.getChartData().readWorkbookStream();
+    try {
+        fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
+        chart.getChartData().setExternalWorkbook(workbookPath);
+        presentation.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    } catch (exception) {
+        console.log("Could not write the external workbook: " + exception.message);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Définir le classeur externe**
+### **Définir un classeur externe**
 
-En utilisant la méthode **`setExternalWorkbook`**, vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
+En utilisant la méthode [setExternalWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook), vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
 
-Bien que vous ne puissiez pas modifier les données des classeurs stockés dans des emplacements distants ou des ressources, vous pouvez toujours les utiliser comme source de données externe. Si le chemin relatif d’un classeur externe est fourni, il est automatiquement converti en chemin complet.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés dans des emplacements ou ressources distants, vous pouvez toujours les utiliser comme source de données externe. Si un chemin relatif pour un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
-Ce code JavaScript montre comment définir un classeur externe :
+Cet exemple nécessite `externalWorkbook.xlsx` dans le répertoire de travail. Sa feuille nommée `Sheet1` doit contenir un nom de série en B1, des noms de catégorie en A2:A4 et des valeurs numériques en B2:B4. L’exemple crée un graphique circulaire, lie le classeur, et utilise [setRange](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#setRange) pour mapper A1:B4 à une série et trois catégories. Il enregistre le résultat dans `Presentation_with_externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 
-// Crée une instance de la classe Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), aspose.slides.ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    pres.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    const chartData = chart.getChartData();
+    const workbookPath = path.resolve("externalWorkbook.xlsx");
+
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Le deuxième paramètre de la méthode `setExternalWorkbook`, `updateChartData`, indique si le classeur Excel sera chargé ou non.
+Le paramètre `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) contrôle si le classeur est chargé.
 
-* Lorsque `updateChartData` est défini sur `false`, seul le chemin du classeur est mis à jour — les données du graphique ne seront pas chargées ou mises à jour à partir du classeur cible. Cette option est utile lorsqu’il n’existe pas ou que le classeur cible est indisponible.
-* Lorsque `updateChartData` est défini sur `true`, les données du graphique sont mises à jour à partir du classeur cible.
+* Lorsque `updateChartData` est `false`, seul le chemin du classeur est mis à jour. Les données du graphique ne sont pas chargées ni mises à jour depuis le classeur cible, de sorte que le classeur peut être indisponible.
+* Lorsque `updateChartData` est `true`, les données du graphique sont mises à jour à partir du classeur cible.
+
+L’exemple suivant attribue une URL factice avec `updateChartData` réglé sur `false`. Il conserve les données par défaut du graphique circulaire et enregistre la présentation sans charger le classeur indisponible.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Crée une instance de la classe Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("http://path/doesnt/exists", false);
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Obtenir le chemin du classeur source de données externe du graphique**
+### **Obtenir le chemin du classeur de source de données externe d’un graphique**
 
-1. Créez une instance de la classe [Presentation](https://apireference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation).
-1. Obtenez la référence d’une diapositive via son indice.
-1. Créez un objet pour la forme du graphique.
-1. Créez un objet pour le type de source (`ChartDataSourceType`) qui représente la source de données du graphique.
-1. Spécifiez la condition pertinente en fonction du type de source qui est le même que le type de source de données du classeur externe.
+Pour identifier le classeur lié à un graphique, vérifiez d’abord si le graphique utilise une source de données externe. S’il en utilise une, vous pouvez récupérer le chemin du classeur en suivant ces étapes.
 
-Ce code JavaScript montre l’opération :
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
+2. Accédez à la première diapositive par son indice zéro.
+3. Vérifiez que la première forme est un graphique.
+4. Lisez le type de source de données du graphique.
+5. Si la source est un classeur externe, lisez son chemin.
+
+Cet exemple ouvre `externalWorkbook.pptx`, créé dans l’exemple précédent, et examine la première forme de la première diapositive. Si c’est un graphique lié à un classeur externe, l’exemple affiche [getExternalWorkbookPath](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) dans la console. Il enregistre ensuite une copie de la présentation dans `Result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Crée une instance de la classe Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("externalWorkbook.pptx");
 try {
-    var slide = pres.getSlides().get_Item(1);
-    var chart = slide.getShapes().get_Item(0);
-    var sourceType = chart.getChartData().getDataSourceType();
-    if (sourceType == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
-        var path = chart.getChartData().getExternalWorkbookPath();
+    const slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
+            console.log(chartData.getExternalWorkbookPath());
+        } else {
+            console.log("The chart does not use an external workbook.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
-    // Enregistre la présentation
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données des classeurs externes de la même façon que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données des classeurs externes de la même façon que vous effectuez des changements dans les classeurs internes. Si un classeur externe ne peut pas être chargé, une exception est levée.
 
-Ce code JavaScript implémente le processus décrit :
+Cet exemple nécessite `presentation.pptx` contenant un graphique comme première forme de la première diapositive et un classeur externe accessible. Il définit la valeur basée sur la cellule du premier point de données de la première série à 100 et enregistre la présentation dans `presentation_out.pptx`. Modifier les valeurs des cellules peut mettre à jour le fichier XLSX externe lié, donc utilisez une copie si vous devez préserver le classeur original.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Crée une instance de la classe Presentation
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var chartData = chart.getChartData();
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    pres.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            const valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+            } else {
+                console.log("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            console.log("The chart has no data points to edit.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Récupérer un classeur depuis le cache du graphique**
 
-Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/loadoptions/), configurez-le avec [SpreadsheetOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/), et appelez [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) avec `true` avant d’ouvrir la présentation.
+Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/loadoptions/), appelez [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), et définissez [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) sur `true` avant d’ouvrir la présentation.
 
-L’exemple JavaScript suivant ouvre une présentation dont le graphique référence un classeur externe indisponible et accède aux données récupérées via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) :
+L’exemple JavaScript suivant ouvre `presentation.pptx`, dont la première forme de la première diapositive doit être un graphique faisant référence à un classeur externe indisponible, et accède aux données récupérées via [Chart.getChartData](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chart/#getChartData) et [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
@@ -355,10 +463,17 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
 try {
-    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Lire ou modifier les données du classeur récupéré ici.
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Lire ou modifier les données du classeur récupéré ici.
+    } else {
+        console.log("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -368,26 +483,20 @@ Si le classeur externe est indisponible et que la récupération est désactivé
 
 ## **FAQ**
 
-**Puis‑je déterminer si un graphique spécifique est lié à un classeur externe ou incorporé ?**
+**Puis-je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**  
+Oui. Un graphique possède un [data source type](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getDataSourceType) et un [path to an external workbook](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vérifier qu’un fichier externe est utilisé.
 
-Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
+**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**  
+Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. La présentation stocke le chemin absolu dans le fichier PPTX, de sorte que le déplacement du classeur peut nécessiter la mise à jour du lien.
 
-**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**
+**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**  
+Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge ; ils ne peuvent être utilisés que comme source.
 
-Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela facilite la portabilité du projet ; cependant, la présentation stockera le chemin absolu dans le fichier PPTX.
+**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**  
+La présentation stocke un [link to the external file](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath). Modifier les données de graphique basées sur des cellules peut également mettre à jour le fichier XLSX local lié. Utilisez une copie du classeur si l’original doit rester inchangé.
 
-**Puis‑je utiliser des classeurs situés sur des ressources/partages réseau ?**
+**Que faire si le fichier externe est protégé par un mot de passe ?**  
+Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à retirer la protection au préalable ou à préparer une copie décryptée (par exemple avec [Aspose.Cells](https://reference.aspose.com/cells/java/)) et à la lier.
 
-Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être qu’une source.
-
-**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
-
-Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) et l’utilise uniquement pour la lecture des données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
-
-**Que faire si le fichier externe est protégé par mot de passe ?**
-
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à retirer la protection au préalable ou à préparer une copie décryptée (par exemple en utilisant [Aspose.Cells](/cells/nodejs-java/)) et à créer le lien vers cette copie.
-
-**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
-
+**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**  
 Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.

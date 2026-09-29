@@ -1,325 +1,471 @@
 ---
-title: Zarządzaj zeszytami wykresów w prezentacjach przy użyciu PHP
-linktitle: Zeszyt wykresu
+title: Zarządzanie skoroszytami wykresów w prezentacjach przy użyciu PHP
+linktitle: Skoroszyt wykresu
 type: docs
 weight: 70
 url: /pl/php-java/chart-workbook/
 keywords:
-- zeszyt wykresu
+- skoroszyt wykresu
 - dane wykresu
-- komórka zeszytu
+- komórka skoroszytu
 - etykieta danych
 - arkusz
 - źródło danych
-- zewnętrzny zeszyt
-- dane zewnętrzne
+- zewnętrzny skoroszyt
+- zewnętrzne dane
 - pamięć podręczna wykresu
-- odzyskiwanie zeszytu
+- odzyskiwanie skoroszytu
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Odkryj Aspose.Slides dla PHP poprzez Java: bezproblemowo zarządzaj zeszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
+description: "Odkryj Aspose.Slides dla PHP via Java: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z zeszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pomocą strumieni zeszytu, używać komórek zeszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni skoroszytów, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
 
-Opisuje również pracę z zewnętrznymi zeszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny zeszyt, pobrać ścieżkę zewnętrznego zeszytu powiązanego z wykresem oraz edytować dane wykresu, gdy zeszyt jest dostępny.
+Omówiono również pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
 
-W przypadku komórek zeszytu, które reprezentują brakujące dane, zobacz [Control the Display of Empty Cells](/slides/pl/php-java/chart-series/) aby poznać różnicę między pustą komórką a zerem oraz porównanie trybów wyświetlania na wykresie liniowym.
+W przypadku komórek skoroszytu, które reprezentują brakujące dane, zobacz [Kontrolowanie wyświetlania pustych komórek](/slides/pl/php-java/chart-series/) aby poznać różnicę między pustą komórką a zerem oraz porównanie linii wykresu dostępnych trybów wyświetlania.
 
-## **Odczyt i zapis danych wykresu z zeszytu**
-Aspose.Slides udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/#readWorkbookStream) i [writeWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/#writeWorkbookStream), które pozwalają odczytywać i zapisywać zeszyty danych wykresu (zawierające dane wykresu edytowane za pomocą Aspose.Cells). **Uwaga**, że dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+## **Dołączanie danych z ukrytych wierszy i kolumn**
 
-Ten kod PHP demonstruje przykładową operację:
+Użyj [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/setplotvisiblecellsonly/) aby kontrolować, czy wykres rysuje dane z ukrytych wierszy i kolumn arkusza. Ustaw na `true`, aby rysować tylko widoczne komórki, lub na `false`, aby uwzględnić zarówno widoczne, jak i ukryte komórki. To ustawienie kontroluje rysowanie wykresu; nie ukrywa ani nie odsłania wierszy lub kolumn arkusza.
+
+Pobierz [hidden-source-data.pptx](hidden-source-data.pptx) i umieść w katalogu roboczym. Na pierwszym slajdzie znajduje się wykres słupkowy jako pierwszy kształt. Osadzony arkusz, `Sheet1`, zawiera zakres źródłowy `A1:C4`. Wiersz 3 i kolumna C są ukryte, ale ich komórki nadal zawierają wartości.
+
+| Wiersz arkusza | A: Miesiąc | B: Detal | C: Hurt (ukryta kolumna) |
+| --- | --- | --- | --- |
+| 2 | Styczeń | 10 | 30 |
+| 3 (ukryty wiersz) | Luty | 40 | 60 |
+| 4 | Marzec | 20 | 50 |
+
+Uzyskaj dostęp do komórek źródłowych przez [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getchartdataworkbook/) i odczytaj [ChartDataCell::isHidden](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdatacell/ishidden/), aby sprawdzić ich status ukrycia. Ta metoda zgłasza status ukrycia bez jego zmiany. W tym pliku B2 jest widoczny, B3 należy do ukrytego wiersza, a C2 do ukrytej kolumny; przykład wypisuje kolejno `false`, `true` i `true`.
+
+Dla tego przykładu odśwież dane wykresu po zmianie ustawienia rysowania: zachowaj osadzony skoroszyt przy użyciu [readWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/readworkbookstream/) i ponownie załaduj go przy pomocy [writeWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/writeworkbookstream/). Przy uwzględnianiu wszystkich komórek użyj także [setRange](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/setrange/), aby przywrócić pełny zakres, w tym ukrytą kategorię luty. Samej zmiany flagi nie wystarczy, aby odświeżyć buforowane dane wykresu i etykiety kategorii w tym przykładzie.
 
 ```php
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $data = $chart->getChartData();
-    $stream = $data->readWorkbookStream();
-    $data->getSeries()->clear();
-    $data->getCategories()->clear();
-    $data->writeWorkbookStream($stream);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("hidden-source-data.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $workbook = $chart->getChartData()->getChartDataWorkbook();
+        echo "B2 hidden: " . (java_values($workbook->getCell(0, "B2")->isHidden()) ? "true" : "false"), PHP_EOL;
+        echo "B3 hidden: " . (java_values($workbook->getCell(0, "B3")->isHidden()) ? "true" : "false"), PHP_EOL;
+        echo "C2 hidden: " . (java_values($workbook->getCell(0, "C2")->isHidden()) ? "true" : "false"), PHP_EOL;
+
+        $workbookData = $chart->getChartData()->readWorkbookStream();
+        foreach ([true, false] as $visibleOnly) {
+            $chart->setPlotVisibleCellsOnly($visibleOnly);
+
+            // Odśwież dane wykresu z osadzonego skoroszytu.
+            $chart->getChartData()->writeWorkbookStream($workbookData);
+            if (!$visibleOnly) {
+                // Przywróć pełny zakres źródłowy, w tym ukryte kategorie.
+                $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
+            }
+
+            $presentation->save("hidden_cells_" . ($visibleOnly ? "true" : "false") . ".pptx", SaveFormat::Pptx);
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Walidacja układu wykresu po modyfikacji zeszytu**
+Przykład zapisuje `hidden_cells_true.pptx` tylko z widocznymi wartościami detalicznymi (10 i 20) oraz `hidden_cells_false.pptx` ze wszystkimi sześcioma wartościami. Poniższe obrazy ilustrują dwa tryby rysowania. Wiersz 3 i kolumna C pozostają ukryte w obu osadzonych skoroszytach.
 
-Gdy zastąpisz osadzony zeszyt zmodyfikowanym, wykres zachowuje oryginalne kolekcje serii i kategorii. To niezgodność może spowodować, że [Chart::validateChartLayout](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/validatechartlayout/) zakończy się błędem indeksu poza zakresem. Wyczyść istniejące serie i kategorie przed zapisem zaktualizowanego zeszytu z powrotem do wykresu.
+| Tylko widoczne komórki (`true`) | Wszystkie komórki (`false`) |
+| --- | --- |
+| ![Tylko widoczne komórki: wartości detaliczne 10 i 20 dla stycznia i marca.](hidden_cells_True.png) | ![Wszystkie komórki: wartości detaliczne i hurtowe dla stycznia, lutego i marca.](hidden_cells_False.png) |
+
+Ukryta komórka zawierająca wartość różni się od pustej komórki. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/setdisplayblanksas/) kontroluje, jak wyświetlane są brakujące wartości; nie obejmuje ani nie wyklucza ukrytych danych źródłowych. Zobacz [Kontrolowanie wyświetlania pustych komórek](/slides/pl/php-java/chart-series/#control-the-display-of-empty-cells) dla przykładu.
+
+## **Odczyt i zapis danych wykresu ze skoroszytu**
+
+Aspose.Slides for PHP via Java udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/readworkbookstream/) i [writeWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/writeworkbookstream/), które umożliwiają odczyt i zapis skoroszytów danych wykresu (zawierających dane wykresu edytowane przy pomocy Aspose.Cells). **Uwaga** dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+
+Ten przykład otwiera `chart.pptx`, który musi zawierać wykres jako pierwszy kształt na pierwszym slajdzie. Odczytuje osadzony skoroszyt do tablicy bajtów, czyści istniejące serie i kategorie, a następnie zapisuje ten sam skoroszyt z powrotem. Zmiany pozostają w pamięci; przykład nie zapisuje prezentacji.
 
 ```php
-// Po modyfikacji strumienia zeszytu (np. przy użyciu Aspose.Cells)
-$updatedWorkbook = $chartData->readWorkbookStream();
+use aspose\slides\Presentation;
 
-// Wyczyść istniejące odwołania danych.
-$chartData->getSeries()->clear();
-$chartData->getCategories()->clear();
+$presentation = new Presentation("chart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-$chartData->writeWorkbookStream($updatedWorkbook);
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        $workbookData = $chartData->readWorkbookStream();
 
-$chart->validateChartLayout();
+        $chartData->getSeries()->clear();
+        $chartData->getCategories()->clear();
+
+        $chartData->writeWorkbookStream($workbookData);
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Czyszczenie kolekcji zapewnia, że struktura danych wykresu jest zgodna z nowym zeszytem, co pozwala `validateChartLayout` zakończyć się bez błędów.
+### **Walidacja układu wykresu po modyfikacji skoroszytu**
 
-## **Ustaw komórkę zeszytu jako etykietę danych wykresu**
+Gdy zastąpisz osadzony skoroszyt zmodyfikowanym, wykres zachowuje pierwotne kolekcje serii i kategorii. To niezgodność może spowodować błąd [Chart::validateChartLayout](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/validatechartlayout/) z komunikatem „index out of range”. Wyczyść istniejące serie i kategorie przed zapisaniem zaktualizowanego skoroszytu z powrotem do wykresu. Ten przykład wymaga `chart.pptx` z wykresem jako pierwszym kształtem na pierwszym slajdzie. Komentarz wskazuje, gdzie mogłaby odbywać się edycja skoroszytu; działający przykład zapisuje oryginalny skoroszyt z powrotem i waliduje układ w pamięci.
 
-1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/php-java/aspose.slides/presentation).
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres bąbelkowy z pewnymi danymi.
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("chart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        $workbookData = $chartData->readWorkbookStream();
+
+        // Modyfikuj bajty skoroszytu tutaj, na przykład przy użyciu Aspose.Cells.
+
+        $chartData->getSeries()->clear();
+        $chartData->getCategories()->clear();
+
+        $chartData->writeWorkbookStream($workbookData);
+        $chart->validateChartLayout();
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Wyczyść kolekcje, aby usunąć przestarzałe referencje danych przed zapisaniem skoroszytu. Przed użyciem wykresu odbuduj wymagane mapowania serii i kategorii dla zaktualizowanego skoroszytu.
+
+## **Ustawienie komórki skoroszytu jako etykiety danych wykresu**
+
+Można używać tekstu z komórek skoroszytu jako etykiet danych wykresu. Poniższe kroki pokazują, jak połączyć etykiety w wykresie bąbelkowym z komórkami w jego skoroszycie danych.
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
+2. Uzyskaj dostęp do pierwszego slajdu, używając indeksu zerowego.
+3. Dodaj wykres bąbelkowy z domyślnymi danymi.
 4. Uzyskaj dostęp do serii wykresu.
-5. Ustaw komórkę zeszytu jako etykietę danych.
+5. Ustaw komórkę skoroszytu jako etykietę danych.
 6. Zapisz prezentację.
 
-Ten kod PHP pokazuje, jak ustawić komórkę zeszytu jako etykietę danych wykresu:
+Ten przykład otwiera `chart2.pptx`, który musi zawierać co najmniej jeden slajd, i dodaje wykres bąbelkowy z domyślnymi danymi. Używa komórek A10:A12 w arkuszu 0 dla pierwszych trzech etykiet w pierwszej serii, włącza etykiety z komórek i zapisuje wynik jako `resultchart.pptx`.
 
 ```php
-  $lbl0 = "Label 0 cell value";
-  $lbl1 = "Label 1 cell value";
-  $lbl2 = "Label 2 cell value";
-  # Tworzy instancję klasy prezentacji, która reprezentuje plik prezentacji
-  $pres = new Presentation("chart2.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart2.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Bubble, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $dataLabelCollection = $series->get_Item(0)->getLabels();
-    $dataLabelCollection->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $dataLabelCollection->get_Item(0)->setValueFromCell($wb->getCell(0, "A10", $lbl0));
-    $dataLabelCollection->get_Item(1)->setValueFromCell($wb->getCell(0, "A11", $lbl1));
-    $dataLabelCollection->get_Item(2)->setValueFromCell($wb->getCell(0, "A12", $lbl2));
-    $pres->save("resultchart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
+    $series->getLabels()->get_Item(0)->setValueFromCell($workbook->getCell(0, "A10", "Label 0 cell value"));
+    $series->getLabels()->get_Item(1)->setValueFromCell($workbook->getCell(0, "A11", "Label 1 cell value"));
+    $series->getLabels()->get_Item(2)->setValueFromCell($workbook->getCell(0, "A12", "Label 2 cell value"));
+
+    $presentation->save("resultchart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Zarządzanie arkuszami**
 
-Ten kod PHP demonstruje operację, w której metoda [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/#getWorksheets) jest używana do uzyskania dostępu do kolekcji arkuszy:
+Metoda [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdataworkbook/getworksheets/) zapewnia dostęp do arkuszy w skoroszycie wykresu. Ten przykład tworzy wykres kołowy z domyślnymi danymi i wypisuje nazwę każdego arkusza na konsolę.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    for($i = 0; $i < java_values($wb->getWorksheets()->size()) ; $i++) {
-      echo($wb->getWorksheets()->get_Item($i)->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
 
-## **Określanie typu źródła danych**
-
-Ten kod PHP pokazuje, jak określić typ dla źródła danych:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $val = $chart->getChartData()->getSeries()->get_Item(0)->getName();
-    $val->setDataSourceType(DataSourceType::StringLiterals);
-    $val->setData("LiteralString");
-    $val = $chart->getChartData()->getSeries()->get_Item(1)->getName();
-    $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Wykrywanie nieobsługiwanych formatów osadzonych zeszytów**
-
-Aspose.Slides nie obsługuje formatu binarnego zeszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/workbooktype/), aby wykryć nieobsługiwane formaty i pominąć te wykresy.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-  $slide = $presentation->getSlides()->get_Item(0);
-  $shapes = $slide->getShapes();
+    $slide = $presentation->getSlides()->get_Item(0);
 
-  for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
-    $shape = $shapes->get_Item($shapeIndex);
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
 
-    if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
-      continue;
+    for ($i = 0; $i < java_values($workbook->getWorksheets()->size()); $i++) {
+        echo $workbook->getWorksheets()->get_Item($i)->getName(), PHP_EOL;
     }
-
-    $chart = $shape;
-    $chartData = $chart->getChartData();
-
-    if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
-        java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Osadzony zeszyt jest w formacie .xlsb, który nie jest obsługiwany.
-      continue;
-    }
-
-    # Odczytaj lub zmodyfikuj dane zeszytu wykresu tutaj.
-  }
 } finally {
-  $presentation->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Zewnętrzny zeszyt**
+## **Określenie typu źródła danych**
 
-Aspose.Slides obsługuje zewnętrzne zeszyty jako źródło danych dla wykresów.
-
-### **Utworzenie zewnętrznego zeszytu**
-
-Używając metod **`readWorkbookStream`** i **`setExternalWorkbook`**, możesz albo utworzyć zewnętrzny zeszyt od zera, albo uczynić wewnętrzny zeszyt zewnętrznym.
-
-Ten kod PHP demonstruje proces tworzenia zewnętrznego zeszytu:
+Ten przykład tworzy wykres słupkowy 3D z domyślnymi danymi i ustawia dwie nazwy serii przy użyciu różnych źródeł danych. Pierwsza nazwa używa literału łańcuchowego; druga korzysta z komórki C1 w arkuszu 0. Enumera­tor [DataSourceType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datasourcetype/) wybiera źródło dla każdej nazwy. Wynik jest zapisywany jako `pres.pptx`.
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    $workbookPath = "externalWorkbook1.xlsx";
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
-    $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
-    $Array = new java_class("java.lang.reflect.Array");
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+use aspose\slides\DataSourceType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
+    $literalName = $chart->getChartData()->getSeries()->get_Item(0)->getName();
+
+    $literalName->setDataSourceType(DataSourceType::StringLiterals);
+    $literalName->setData("LiteralString");
+
+    $cellName = $chart->getChartData()->getSeries()->get_Item(1)->getName();
+    $nameCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, "C1", "NewCell");
+    $cellName->setDataSourceType(DataSourceType::Worksheet);
+    $cellName->setData($nameCell);
+
+    $presentation->save("pres.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Wykrywanie nieobsługiwanych formatów osadzonych skoroszytów**
+
+Aspose.Slides nie obsługuje formatu binarnego skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Można użyć metody `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/) wraz z enumeratorem [WorkbookType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/workbooktype/), aby wykryć nieobsługiwane formaty i pominąć takie wykresy. Ten przykład sprawdza kształty na pierwszym slajdzie `sample.pptx`, pomija kształty nie będące wykresami i wypisuje komunikat diagnostyczny dla każdego wykresu z osadzonym skoroszytem .xlsb.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartDataSourceType;
+use aspose\slides\WorkbookType;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+            continue;
+        }
+
+        $chart = $shape;
+        $chartData = $chart->getChartData();
+        $isInternalWorkbook = java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook;
+        $isBinaryMacro = java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro;
+
+        if ($isInternalWorkbook && $isBinaryMacro) {
+            echo "Skipping a chart with an unsupported .xlsb workbook.", PHP_EOL;
+            continue;
+        }
+
+        // Odczytaj lub zmodyfikuj obsługiwane dane skoroszytu wykresu tutaj.
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Zewnętrzny skoroszyt**
+
+Aspose.Slides obsługuje używanie zewnętrznych skoroszytów jako źródła danych wykresów.
+
+### **Utworzenie zewnętrznego skoroszytu**
+
+Użyj [readWorkbookStream](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/readworkbookstream/) i [setExternalWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/setexternalworkbook/), aby wyeksportować osadzony skoroszyt wykresu do pliku i powiązać wykres z tym zewnętrznym skoroszytem.
+
+Ten przykład tworzy wykres kołowy z domyślnymi danymi, zapisuje jego skoroszyt jako `externalWorkbook1.xlsx` i kończy zapis pliku przed przypisaniem pliku jako źródła danych wykresu. Zapisuje połączoną prezentację jako `externalWorkbook.pptx`.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
+    $workbookPath = new Java("java.io.File", "externalWorkbook1.xlsx");
+    $workbookData = $chart->getChartData()->readWorkbookStream();
     try {
-      $workbookData = $chart->getChartData()->readWorkbookStream();
-      $fileStream->write($workbookData, 0, $Array->getLength($workbookData));
-    } finally {
-      if (!java_is_null($fileStream)) {
-        $fileStream->close();
-      }
+        $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
+        try {
+            $fileStream->write($workbookData);
+        } finally {
+            $fileStream->close();
+        }
+        $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
+    } catch (JavaException $exception) {
+        echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
     }
-    $chart->getChartData()->setExternalWorkbook($workbookPath);
-    $pres->save("externalWorkbook.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Ustawienie zewnętrznego zeszytu**
+### **Ustawienie zewnętrznego skoroszytu**
 
-Używając metody **`setExternalWorkbook`**, możesz przypisać zewnętrzny zeszyt do wykresu jako jego źródło danych. Metoda ta może być również użyta do zaktualizowania ścieżki do zewnętrznego zeszytu (jeśli ten został przeniesiony).
+Korzystając z metody [setExternalWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/setexternalworkbook/), możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może być także użyta do zaktualizowania ścieżki do zewnętrznego skoroszytu (jeśli został przeniesiony).
 
-Choć nie możesz edytować danych w zeszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich zeszytów jako zewnętrznego źródła danych. Jeśli podana zostanie względna ścieżka do zewnętrznego zeszytu, zostanie ona automatycznie przekształcona na pełną ścieżkę.
+Nie można edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, ale można je dalej używać jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona na pełną ścieżkę.
 
-Ten kod PHP pokazuje, jak ustawić zewnętrzny zeszyt:
+Ten przykład wymaga `externalWorkbook.xlsx` w katalogu roboczym. Jego arkusz o nazwie `Sheet1` musi zawierać nazwę serii w B1, nazwy kategorii w A2:A4 oraz wartości liczbowe w B2:B4. Przykład tworzy wykres kołowy, łączy skoroszyt i używa [setRange](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/setrange/), aby mapować A1:B4 na jedną serię i trzy kategorie. Zapisuje wynik jako `Presentation_with_externalWorkbook.pptx`.
 
 ```php
-  # Tworzy instancję klasy Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, false);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
     $chartData = $chart->getChartData();
-    $chartData->setExternalWorkbook("externalWorkbook.xlsx");
-    $chartData->getSeries()->add($chartData->getChartDataWorkbook()->getCell(0, "B1"), ChartType::Pie);
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B2"));
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B3"));
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B4"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A2"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A3"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A4"));
-    $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $workbookFile = new Java("java.io.File", "externalWorkbook.xlsx");
+    $workbookPath = $workbookFile->getAbsolutePath();
+
+    $chartData->setExternalWorkbook($workbookPath);
+    $chartData->setRange('Sheet1!$A$1:$B$4');
+
+    $presentation->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Parametr `ChartData` (w metodzie `setExternalWorkbook`) służy do określenia, czy zeszyt Excel zostanie załadowany.
+Parametr `updateChartData` metody [setExternalWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/setexternalworkbook/) steruje tym, czy skoroszyt zostanie załadowany.
 
-* Gdy wartość `ChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka zeszytu – dane wykresu nie zostaną załadowane ani zaktualizowane z docelowego zeszytu. Użyj tego ustawienia, gdy docelowy zeszyt nie istnieje lub jest niedostępny.
-* Gdy wartość `ChartData` jest ustawiona na `true`, dane wykresu zostaną zaktualizowane z docelowego zeszytu.
+* Gdy `updateChartData` ma wartość `false`, aktualizowana jest jedynie ścieżka do skoroszytu. Dane wykresu nie są ładowane ani aktualizowane z docelowego skoroszytu, więc skoroszyt może być niedostępny.
+* Gdy `updateChartData` ma wartość `true`, dane wykresu są aktualizowane z docelowego skoroszytu.
+
+Poniższy przykład przypisuje przykladowy adres URL z `updateChartData` ustawionym na `false`. Zachowuje domyślne dane wykresu kołowego i zapisuje prezentację bez ładowania niedostępnego skoroszytu.
 
 ```php
-  # Tworzy instancję klasy Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
-    $chartData = $chart->getChartData();
-    $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
-    $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
+    $chart->getChartData()->setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    $presentation->save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Pobranie ścieżki źródła danych zewnętrznego zeszytu wykresu**
+### **Pobranie ścieżki skoroszytu źródła danych zewnętrznych wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/php-java/aspose.slides/presentation).
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Utwórz obiekt dla kształtu wykresu.
-4. Utwórz obiekt dla typu źródła (`ChartDataSourceType`), który reprezentuje źródło danych wykresu.
-5. Określ odpowiedni warunek w zależności od tego, czy typ źródła jest taki sam jak typ źródła danych zewnętrznego zeszytu.
+Aby zidentyfikować skoroszyt powiązany z wykresem, najpierw sprawdź, czy wykres używa zewnętrznego źródła danych. Jeśli tak, możesz pobrać ścieżkę skoroszytu, wykonując następujące kroki.
 
-Ten kod PHP demonstruje operację:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
+2. Uzyskaj dostęp do pierwszego slajdu, używając indeksu zerowego.
+3. Sprawdź, czy pierwszy kształt jest wykresem.
+4. Odczytaj typ źródła danych wykresu.
+5. Jeśli źródłem jest zewnętrzny skoroszyt, odczytaj jego ścieżkę.
+
+Ten przykład otwiera `externalWorkbook.pptx`, utworzony w poprzednim przykładzie, i sprawdza pierwszy kształt na pierwszym slajdzie. Jeśli jest to wykres powiązany z zewnętrznym skoroszytem, przykład wypisuje [getExternalWorkbookPath](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getexternalworkbookpath/) na konsoli. Następnie zapisuje kopię prezentacji jako `Result.pptx`.
 
 ```php
-  # Tworzy instancję klasy Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(1);
-    $chart = $slide->getShapes()->get_Item(0);
-    $sourceType = $chart->getChartData()->getDataSourceType();
-    if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
-      $path = $chart->getChartData()->getExternalWorkbookPath();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ChartDataSourceType;
+
+$presentation = new Presentation("externalWorkbook.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::ExternalWorkbook) {
+            echo $chartData->getExternalWorkbookPath(), PHP_EOL;
+        } else {
+            echo "The chart does not use an external workbook.", PHP_EOL;
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-    # Zapisuje prezentację
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Result.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **Edycja danych wykresu**
 
-Możesz edytować dane w zewnętrznych zeszytach tak samo, jak w wewnętrznych. Gdy zewnętrzny zeszyt nie może zostać załadowany, zostaje zgłoszony wyjątek.
+Można edytować dane w zewnętrznych skoroszytach tak samo, jak zmienia się zawartość wewnętrznych skoroszytów. Gdy zewnętrzny skoroszyt nie może zostać załadowany, zostaje wyrzucony wyjątek.
 
-Ten kod PHP jest implementacją opisanego procesu:
+Ten przykład wymaga `presentation.pptx` z wykresem jako pierwszym kształtem na pierwszym slajdzie oraz dostępnego zewnętrznego skoroszytu. Ustawia wartość wspieraną komórką pierwszego punktu danych w pierwszej serii na 100 i zapisuje prezentację jako `presentation_out.pptx`. Edycja wartości w komórkach może aktualizować połączony zewnętrzny plik XLSX, dlatego użyj kopii, jeśli musisz zachować oryginalny skoroszyt.
 
 ```php
-  # Tworzy instancję klasy Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $chartData = $chart->getChartData();
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell()->setValue(100);
-    $pres->save("presentation_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $series = $chart->getChartData()->getSeries();
+        if (java_values($series->size()) > 0 && java_values($series->get_Item(0)->getDataPoints()->size()) > 0) {
+            $valueCell = $series->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell();
+            if (!java_is_null($valueCell)) {
+                $valueCell->setValue(100);
+                $presentation->save("presentation_out.pptx", SaveFormat::Pptx);
+            } else {
+                echo "The first data point is not linked to a workbook cell.", PHP_EOL;
+            }
+        } else {
+            echo "The chart has no data points to edit.", PHP_EOL;
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Odzyskanie zeszytu z pamięci podręcznej wykresu**
+### **Odzyskiwanie skoroszytu z pamięci podręcznej wykresu**
 
-Jeśli wykres używa zewnętrznego zeszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć zeszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/loadoptions/), skonfiguruj go z [SpreadsheetOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/spreadsheetoptions/), i wywołaj [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) z wartością `true` przed otwarciem prezentacji.
+Jeśli wykres używa zewnętrznego skoroszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć skoroszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/loadoptions/), wywołaj [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) i ustaw [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) na `true` przed otwarciem prezentacji.
 
-Poniższy przykład PHP otwiera prezentację, której wykres odwołuje się do niedostępnego zewnętrznego zeszytu i uzyskuje dostęp do odzyskanych danych za pomocą [Chart::getChartData](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/#getChartData) oraz [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Poniższy przykład PHP otwiera `presentation.pptx`, którego pierwszy kształt na pierwszym slajdzie musi być wykresem odwołującym się do niedostępnego zewnętrznego skoroszytu, i uzyskuje dostęp do odzyskanych danych poprzez [Chart::getChartData](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/getchartdata/) oraz [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+use aspose\slides\LoadOptions;
+
 $spreadsheetOptions = new SpreadsheetOptions();
 $spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
 
@@ -328,39 +474,46 @@ $loadOptions->setSpreadsheetOptions($spreadsheetOptions);
 
 $presentation = new Presentation("presentation.pptx", $loadOptions);
 try {
-    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    # Odczytaj lub zmodyfikuj dane odzyskanego zeszytu tutaj.
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+        // Odczytaj lub zmodyfikuj tutaj odzyskane dane skoroszytu.
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Jeśli zewnętrzny zeszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie danych wykresu z pamięci podręcznej jest akceptowalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian wprowadzonych w zewnętrznym zeszycie po ostatniej aktualizacji prezentacji.
+Jeśli zewnętrzny skoroszyt jest niedostępny, a odzyskiwanie jest wyłączone, Aspose.Slides zgłasza wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie danych z pamięci podręcznej wykresu jest akceptowalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian wprowadzonych w zewnętrznym skoroszycie po ostatniej aktualizacji prezentacji.
 
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym zeszytem?**
+**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**
 
-Tak. Wykres posiada [data source type](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getdatasourcetype/) oraz [path to an external workbook](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getexternalworkbookpath/); jeśli źródłem jest zewnętrzny zeszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
+Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getdatasourcetype/) oraz [ścieżkę do zewnętrznego skoroszytu](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getexternalworkbookpath/); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy obsługiwane są względne ścieżki do zewnętrznych zeszytów i jak są przechowywane?**
+**Czy obsługiwane są względne ścieżki do zewnętrznych skoroszytów i w jaki sposób są przechowywane?**
 
-Tak. Jeśli podasz względną ścieżkę, zostanie ona automatycznie przekształcona na ścieżkę bezwzględną. Jest to wygodne dla przenośności projektu; jednak pamiętaj, że prezentacja zapisze ścieżkę bezwzględną w pliku PPTX.
+Tak. Jeśli podasz względną ścieżkę, zostaje ona automatycznie przekształcona na ścieżkę bezwzględną. Prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX, więc przeniesienie skoroszytu może wymagać aktualizacji linku.
 
-**Czy mogę używać zeszytów znajdujących się na zasobach sieciowych/udziałach?**
+**Czy mogę używać skoroszytów umieszczonych na zasobach sieciowych/udziałach?**
 
-Tak, takie zeszyty mogą być używane jako zewnętrzne źródło danych. Jednak bezpośrednia edycja zdalnych zeszytów z Aspose.Slides nie jest obsługiwana – mogą być używane wyłącznie jako źródło.
+Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak bezpośrednia edycja zdalnych skoroszytów z poziomu Aspose.Slides nie jest obsługiwana — mogą być jedynie źródłem.
 
-**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX podczas zapisu prezentacji?**
+**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX podczas zapisywania prezentacji?**
 
-Nie. Prezentacja przechowuje [link to the external file](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getexternalworkbookpath/) i używa go do odczytu danych. Zewnętrzny plik nie jest modyfikowany podczas zapisu prezentacji.
+Prezentacja przechowuje [link do pliku zewnętrznego](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Edycja danych wykresu oparcie w komórkach może również zaktualizować połączony lokalny plik XLSX. Użyj kopii skoroszytu, jeśli oryginał musi pozostać niezmieniony.
 
-**Co zrobić, gdy zewnętrzny plik jest chroniony hasłem?**
+**Co zrobić, gdy zewnętrzny plik jest zabezpieczony hasłem?**
 
-Aspose.Slides nie przyjmuje hasła przy łączeniu. Typowym rozwiązaniem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (na przykład przy użyciu [Aspose.Cells](/cells/php-java/)) i podlinkowanie do tej kopii.
+Aspose.Slides nie przyjmuje hasła przy tworzeniu linku. Typowym podejściem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](https://reference.aspose.com/cells/java/)) i podlinkowanie tej kopii.
 
-**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego zeszytu?**
+**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
 
-Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują na ten sam plik, jego aktualizacja zostanie odzwierciedlona we wszystkich wykresach przy następnym ładowaniu danych.
+Tak. Każdy wykres przechowuje własny link. Jeśli wszystkie odwołują się do tego samego pliku, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym wczytaniu danych.

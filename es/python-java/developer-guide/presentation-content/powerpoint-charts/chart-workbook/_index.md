@@ -10,7 +10,7 @@ keywords:
 - celda de libro de trabajo
 - etiqueta de datos
 - hoja de cálculo
-- fuente de datos
+- origen de datos
 - libro de trabajo externo
 - datos externos
 - caché de gráfico
@@ -20,18 +20,31 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Descubra Aspose.Slides para Python a través de Java: gestione fácilmente los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
+description: "Descubra Aspose.Slides para Python a través de Java: gestione fácilmente libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
-## **Visión general**
+## **Descripción general**
 
-Este artículo explica cómo trabajar con libros de datos de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos mediante flujos de libro de trabajo, usar celdas de libro de trabajo como etiquetas de datos de gráficos, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores de los gráficos.
+Este artículo explica cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos a través de flujos de libros de trabajo, usar celdas de libro de trabajo como etiquetas de datos de gráfico, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
 
-También trata el trabajo con libros de trabajo externos como fuentes de datos de los gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, obtener la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro de trabajo está disponible.
+También cubre el trabajo con libros de trabajo externos como orígenes de datos de gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, obtener la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro de trabajo está disponible.
 
-Para celdas de libro de trabajo que representan datos ausentes, consulte [Controlar la visualización de celdas vacías](/slides/es/python-java/chart-series/) para conocer la diferencia entre una celda vacía y cero, y una comparación en gráfico de líneas de los modos de visualización disponibles.
+Para celdas de libro de trabajo que representan datos faltantes, consulte [Controlar la visualización de celdas vacías](/slides/es/python-java/chart-series/) para la diferencia entre una celda vacía y cero, y una comparación de gráfico de líneas de los modos de visualización disponibles.
 
-## **Leer y escribir datos de gráficos desde un libro de trabajo**
-Aspose.Slides proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#readWorkbookStream) y [writeWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#writeWorkbookStream) que le permiten leer y escribir libros de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
+## **Incluir datos de filas y columnas ocultas**
+
+Utilice [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) para controlar si un gráfico representa datos de filas y columnas de hoja de cálculo ocultas. Establézcalo en `True` para representar solo celdas visibles, o en `False` para incluir tanto celdas visibles como ocultas. Esta configuración controla la representación del gráfico; no oculta ni muestra filas o columnas de la hoja.
+
+Descargue [hidden-source-data.pptx](hidden-source-data.pptx) y colóquelo en el directorio de trabajo. Su primera diapositiva contiene un gráfico de columnas como la primera forma. La hoja de cálculo incrustada, `Sheet1`, contiene el siguiente rango de origen, `A1:C4`. La fila 3 y la columna C están ocultas, pero sus celdas siguen conteniendo valores.
+
+| Fila de hoja | A: Mes | B: Minorista | C: Mayorista (columna oculta) |
+| --- | --- | --- | --- |
+| 2 | Enero | 10 | 30 |
+| 3 (fila oculta) | Febrero | 40 | 60 |
+| 4 | Marzo | 20 | 50 |
+
+Acceda a las celdas de origen a través de [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getChartDataWorkbook) y lea [ChartDataCell.isHidden](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdatacell/#isHidden) para inspeccionar su estado oculto. Este método informa del estado oculto sin modificarlo. En este archivo, B2 es visible, B3 pertenece a la fila oculta y C2 pertenece a la columna oculta; el ejemplo muestra `False`, `True` y `True`, respectivamente.
+
+Para este ejemplo, actualice los datos del gráfico después de cambiar la configuración de representación: conserve el libro de trabajo incrustado con [readWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#readWorkbookStream) y recárguelo con [writeWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#writeWorkbookStream). Al incluir todas las celdas, también use [setRange](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setRange) para restaurar el rango completo, incluida la categoría de febrero oculta. Cambiar simplemente el indicador no es suficiente para actualizar los datos de gráfico en caché y las etiquetas de categoría de esta muestra.
 
 ```python
 import jpype
@@ -40,23 +53,83 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
+from asposeslides.api import Chart, Presentation, SaveFormat
+
+presentation = Presentation("hidden-source-data.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        workbook = chart.getChartData().getChartDataWorkbook()
+        print("B2 hidden:", workbook.getCell(0, "B2").isHidden())
+        print("B3 hidden:", workbook.getCell(0, "B3").isHidden())
+        print("C2 hidden:", workbook.getCell(0, "C2").isHidden())
+
+        workbook_data = chart.getChartData().readWorkbookStream()
+        for visible_only in (True, False):
+            chart.setPlotVisibleCellsOnly(visible_only)
+
+            # Refrescar los datos del gráfico desde el libro de trabajo incrustado.
+            chart.getChartData().writeWorkbookStream(workbook_data)
+            if not visible_only:
+                # Restaurar el rango de origen completo, incluidas las categorías ocultas.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4")
+
+            presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
+    else:
+        print("The first shape is not a chart.")
+finally:
+    presentation.dispose()
+```
+
+El ejemplo guarda `hidden_cells_True.pptx` solo con los valores minoristas visibles (10 y 20), y `hidden_cells_False.pptx` con los seis valores. Las imágenes a continuación ilustran los dos modos de representación. La fila 3 y la columna C permanecen ocultas en ambos libros de trabajo incrustados.
+
+| Solo celdas visibles (`True`) | Todas las celdas (`False`) |
+| --- | --- |
+| ![Solo celdas visibles: valores minoristas 10 y 20 para enero y marzo.](hidden_cells_True.png) | ![Todas las celdas: valores minorista y mayorista para enero, febrero y marzo.](hidden_cells_False.png) |
+
+Una celda oculta que contiene un valor es diferente de una celda vacía. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#setDisplayBlanksAs) controla cómo se muestran los valores faltantes; no incluye ni excluye datos de origen ocultos. Consulte [Controlar la visualización de celdas vacías](/slides/es/python-java/chart-series/#control-the-display-of-empty-cells) para un ejemplo.
+
+## **Leer y escribir datos de gráfico desde un libro de trabajo**
+
+Aspose.Slides para Python a través de Java proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#readWorkbookStream) y [writeWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#writeWorkbookStream) que le permiten leer y escribir libros de trabajo de datos de gráfico (que contienen datos de gráfico editados con Aspose.Cells). **Nota** que los datos del gráfico deben organizarse de la misma manera o deben tener una estructura similar a la fuente.
+
+Este ejemplo abre `chart.pptx`, que debe contener un gráfico como la primera forma en su primera diapositiva. Lee el libro de trabajo incrustado en una matriz de bytes, borra las series y categorías existentes, y escribe de nuevo el mismo libro de trabajo. Los cambios permanecen en memoria; el ejemplo no guarda la presentación.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Chart, Presentation
 
 presentation = Presentation("chart.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
-    workbook_data = chart_data.readWorkbookStream()
-    chart_data.getSeries().clear()
-    chart_data.getCategories().clear()
-    chart_data.writeWorkbookStream(workbook_data)
+    slide = presentation.getSlides().get_Item(0)
+    
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        workbook_data = chart_data.readWorkbookStream()
+
+        chart_data.getSeries().clear()
+        chart_data.getCategories().clear()
+
+        chart_data.writeWorkbookStream(workbook_data)
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
 ### **Validar el diseño del gráfico después de la modificación del libro de trabajo**
 
-Al sustituir un libro de trabajo incrustado por uno modificado, el gráfico conserva sus colecciones originales de series y categorías. Esta inconsistencia puede hacer que [Chart.validateChartLayout](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#validateChartLayout) lance una `ArgumentOutOfRangeException` (parámetro: index). Para evitar la excepción, borre las series y categorías existentes **antes** de escribir el libro de trabajo actualizado de vuelta al gráfico.
+Cuando reemplaza un libro de trabajo incrustado por uno modificado, el gráfico conserva sus colecciones originales de series y categorías. Esta discordancia puede provocar que [Chart.validateChartLayout](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#validateChartLayout) falle con un error de índice fuera de rango. Borre las series y categorías existentes antes de escribir el libro de trabajo actualizado de nuevo al gráfico. Este ejemplo requiere `chart.pptx` con un gráfico como la primera forma en su primera diapositiva. El comentario indica dónde se produciría la edición del libro de trabajo; el ejemplo ejecutable escribe el libro de trabajo original de nuevo y valida el diseño en memoria.
 
 ```python
 import jpype
@@ -65,39 +138,45 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation
-
-from pathlib import Path
-
-# Leer el libro de trabajo después de modificarlo (p.ej., usando Aspose.Cells).
-updated_workbook = Path("updatedWorkbook.xlsx").read_bytes()
+from asposeslides.api import Chart, Presentation
 
 presentation = Presentation("chart.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
+    slide = presentation.getSlides().get_Item(0)
 
-    # Borrar referencias de datos existentes.
-    chart_data.getSeries().clear()
-    chart_data.getCategories().clear()
-    chart.writeWorkbookStream(jpype.JArray(jpype.JByte)(updated_workbook))
-    chart.validateChartLayout()
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        workbook_data = chart_data.readWorkbookStream()
+
+        # Modificar los bytes del libro de trabajo aquí, por ejemplo, usando Aspose.Cells.
+
+        chart_data.getSeries().clear()
+        chart_data.getCategories().clear()
+
+        chart_data.writeWorkbookStream(workbook_data)
+        chart.validateChartLayout()
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Borrar las colecciones garantiza que la estructura de datos del gráfico coincida con el nuevo libro de trabajo, lo que permite que [validateChartLayout](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#validateChartLayout) se complete sin errores.
+Borrar las colecciones elimina referencias a datos obsoletos antes de que el libro de trabajo se escriba de nuevo. Reconstruya cualquier asignación de series y categorías necesaria para el libro de trabajo actualizado antes de usar el gráfico.
 
-## **Establecer una celda de libro de trabajo como etiqueta de datos del gráfico**
+## **Establecer una celda del libro de trabajo como etiqueta de datos del gráfico**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/).
-1. Obtenga la referencia de una diapositiva mediante su índice.
-1. Añada un gráfico de burbujas con algunos datos.
-1. Acceda a la serie del gráfico.
+Puede usar texto de celdas del libro de trabajo como etiquetas de datos del gráfico. Los pasos siguientes muestran cómo vincular las etiquetas en un gráfico de burbujas a celdas en su libro de datos.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/) .
+1. Acceda a la primera diapositiva mediante su índice basado en cero.
+1. Añada un gráfico de burbujas con datos predeterminados.
+1. Acceda a las series del gráfico.
 1. Establezca la celda del libro de trabajo como etiqueta de datos.
 1. Guarde la presentación.
 
-Este código Python muestra cómo establecer una celda de libro de trabajo como etiqueta de datos del gráfico:
+Este ejemplo abre `chart2.pptx`, que debe contener al menos una diapositiva, y añade un gráfico de burbujas con datos predeterminados. Utiliza las celdas A10:A12 en la hoja de cálculo 0 para las primeras tres etiquetas de la primera serie, habilita las etiquetas desde celdas y guarda el resultado en `resultchart.pptx`.
 
 ```python
 import jpype
@@ -110,8 +189,9 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation("chart2.pptx")
 try:
-    label_values = ["Label 0 cell value", "Label 1 cell value", "Label 2 cell value"]
     slide = presentation.getSlides().get_Item(0)
+    label_values = ["Label 0 cell value", "Label 1 cell value", "Label 2 cell value"]
+    
     chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, True)
     series = chart.getChartData().getSeries()
     data_labels = series.get_Item(0).getLabels()
@@ -120,6 +200,7 @@ try:
     for i in range(3):
         label_cell = workbook.getCell(0, f"A{10 + i}", label_values[i])
         data_labels.get_Item(i).setValueFromCell(label_cell)
+
     presentation.save("resultchart.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -127,7 +208,7 @@ finally:
 
 ## **Gestionar hojas de cálculo**
 
-Este código Python demuestra una operación en la que se utiliza el método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdataworkbook/#getWorksheets) para acceder a una colección de hojas de cálculo:
+El método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdataworkbook/#getWorksheets) proporciona acceso a las hojas de cálculo en un libro de trabajo de gráfico. Este ejemplo crea un gráfico circular con datos predeterminados y muestra el nombre de cada hoja de cálculo en la consola.
 
 ```python
 import jpype
@@ -140,7 +221,9 @@ from asposeslides.api import ChartType, Presentation
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500)
     workbook = chart.getChartData().getChartDataWorkbook()
     for i in range(workbook.getWorksheets().size()):
         print(workbook.getWorksheets().get_Item(i).getName())
@@ -150,7 +233,7 @@ finally:
 
 ## **Especificar el tipo de origen de datos**
 
-Este código Python muestra cómo especificar un tipo para un origen de datos:
+Este ejemplo crea un gráfico de columnas 3D con datos predeterminados y establece dos nombres de series usando diferentes orígenes de datos. El primer nombre usa un literal de cadena; el segundo usa la celda C1 en la hoja de cálculo 0. La enumeración [DataSourceType](https://reference.aspose.com/slides/es/python-java/aspose.slides/datasourcetype/) selecciona el origen para cada nombre. El resultado se guarda en `pres.pptx`.
 
 ```python
 import jpype
@@ -163,13 +246,17 @@ from asposeslides.api import ChartType, DataSourceType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, True)
-    series_name = chart.getChartData().getSeries().get_Item(0).getName()
-    series_name.setDataSourceType(DataSourceType.StringLiterals)
-    series_name.setData("LiteralString")
-    series_name = chart.getChartData().getSeries().get_Item(1).getName()
-    name_cell = chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell")
-    series_name.setData(name_cell)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, True)
+    literal_name = chart.getChartData().getSeries().get_Item(0).getName()
+    literal_name.setDataSourceType(DataSourceType.StringLiterals)
+    literal_name.setData("LiteralString")
+    cell_name = chart.getChartData().getSeries().get_Item(1).getName()
+    name_cell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell")
+    cell_name.setDataSourceType(DataSourceType.Worksheet)
+    cell_name.setData(name_cell)
+    
     presentation.save("pres.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -177,7 +264,7 @@ finally:
 
 ## **Detectar formatos de libro de trabajo incrustado no compatibles**
 
-Aspose.Slides no admite el formato de libro de trabajo binario de Excel (.xlsb) que puede incrustarse en algunos gráficos. Puede usar el método [getEmbeddedWorkbookType](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) en [ChartData](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/es/python-java/aspose.slides/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos.
+Aspose.Slides no admite el formato de libro de trabajo binario de Excel (.xlsb) que puede incrustarse en algunos gráficos. Puede usar el método [getEmbeddedWorkbookType](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) en [ChartData](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/es/python-java/aspose.slides/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos. Este ejemplo inspecciona las formas en la primera diapositiva de `sample.pptx`, omite las formas que no son gráficos y muestra un mensaje de diagnóstico para cada gráfico con un libro de trabajo .xlsb incrustado.
 
 ```python
 import jpype
@@ -191,27 +278,33 @@ from asposeslides.api import Chart, ChartDataSourceType, Presentation, WorkbookT
 presentation = Presentation("sample.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if not isinstance(shape, Chart):
             continue
+
         chart_data = shape.getChartData()
-        if chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook and chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro:
-            # El libro de trabajo incrustado está en formato .xlsb, que no es compatible.
+
+        is_internal_workbook = chart_data.getDataSourceType() == ChartDataSourceType.InternalWorkbook
+        is_binary_macro = chart_data.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro
+
+        if is_internal_workbook and is_binary_macro:
+            print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Lea o modifique los datos del libro de trabajo del gráfico aquí.
+        # Leer o modificar los datos del libro de trabajo de gráfico compatibles aquí.
 finally:
     presentation.dispose()
 ```
 
 ## **Libro de trabajo externo**
 
-Aspose.Slides admite el uso de libros de trabajo externos como fuente de datos para los gráficos.
+Aspose.Slides admite el uso de libros de trabajo externos como origen de datos para los gráficos.
 
 ### **Crear un libro de trabajo externo**
 
-Con los métodos [readWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#readWorkbookStream) y [setExternalWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setExternalWorkbook) puede crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
+Utilice [readWorkbookStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#readWorkbookStream) y [setExternalWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setExternalWorkbook) para exportar un libro de trabajo de gráfico incrustado a un archivo y enlazar el gráfico a ese libro de trabajo externo.
 
-Este código Python demuestra el proceso de creación del libro de trabajo externo:
+Este ejemplo crea un gráfico circular con datos predeterminados, escribe su libro de trabajo en `externalWorkbook1.xlsx` y completa la escritura del archivo antes de asignar el archivo como origen de datos del gráfico. Guarda la presentación enlazada en `externalWorkbook.pptx`.
 
 ```python
 import jpype
@@ -226,11 +319,14 @@ from pathlib import Path
 
 presentation = Presentation()
 try:
-    workbook_path = "externalWorkbook1.xlsx"
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600)
+    workbook_path = Path("externalWorkbook1.xlsx").resolve()
     workbook_data = chart.getChartData().readWorkbookStream()
     Path(workbook_path).write_bytes(bytes(workbook_data))
-    chart.getChartData().setExternalWorkbook(workbook_path)
+    chart.getChartData().setExternalWorkbook(str(workbook_path))
+
     presentation.save("externalWorkbook.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -238,11 +334,11 @@ finally:
 
 ### **Establecer un libro de trabajo externo**
 
-Con el método [setExternalWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setExternalWorkbook) puede asignar un libro de trabajo externo a un gráfico como su fuente de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este se ha movido).
+Utilizando el método [setExternalWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setExternalWorkbook), puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este se ha movido).
 
-Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones remotas o recursos, sigue pudiendo utilizarlos como una fuente de datos externa. Si se proporciona la ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
+Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones o recursos remotos, aún puede usar dichos libros de trabajo como origen de datos externo. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
 
-Este código Python muestra cómo establecer un libro de trabajo externo:
+Este ejemplo requiere `externalWorkbook.xlsx` en el directorio de trabajo. Su hoja de cálculo llamada `Sheet1` debe contener un nombre de serie en B1, nombres de categorías en A2:A4 y valores numéricos en B2:B4. El ejemplo crea un gráfico circular, enlaza el libro de trabajo y usa [setRange](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setRange) para mapear A1:B4 a una serie y tres categorías. Guarda el resultado en `Presentation_with_externalWorkbook.pptx`.
 
 ```python
 import jpype
@@ -253,29 +349,29 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+from pathlib import Path
+
+presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, False)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
     chart_data = chart.getChartData()
-    chart_data.setExternalWorkbook("externalWorkbook.xlsx")
-    workbook = chart_data.getChartDataWorkbook()
-    series_name_cell = workbook.getCell(0, "B1")
-    series = chart_data.getSeries().add(series_name_cell, ChartType.Pie)
-    for row in range(2, 5):
-        value_cell = workbook.getCell(0, f"B{row}")
-        series.getDataPoints().addDataPointForPieSeries(value_cell)
-    for row in range(2, 5):
-        category_cell = workbook.getCell(0, f"A{row}")
-        chart_data.getCategories().add(category_cell)
+    workbook_path = str(Path("externalWorkbook.xlsx").resolve())
+    chart_data.setExternalWorkbook(workbook_path)
+    chart_data.setRange("Sheet1!$A$1:$B$4")
+
     presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-El segundo parámetro (`bool`) del método [setExternalWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setExternalWorkbook) se usa para especificar si se cargará o no un libro de trabajo de Excel.
+El parámetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#setExternalWorkbook) controla si el libro de trabajo se carga.
 
-* Cuando su valor se establece en `False`, solo se actualiza la ruta del libro de trabajo; los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puede usar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible.  
-* Cuando su valor se establece en `True`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
+* Cuando `updateChartData` es `False`, solo se actualiza la ruta del libro de trabajo. Los datos del gráfico no se cargan ni se actualizan desde el libro de trabajo de destino, por lo que el libro de trabajo puede estar no disponible.
+* Cuando `updateChartData` es `True`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
+
+El siguiente ejemplo asigna una URL de marcador de posición con `updateChartData` establecido en `False`. Mantiene los datos predeterminados del gráfico circular y guarda la presentación sin cargar el libro de trabajo no disponible.
 
 ```python
 import jpype
@@ -286,25 +382,30 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, True)
     chart_data = chart.getChartData()
-    chart_data.setExternalWorkbook("http://path/doesnt/exists", False)
-    presentation.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx)
+    chart_data.setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", False)
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Obtener la ruta del libro de trabajo de origen de datos externo de un gráfico**
+### **Obtener la ruta del libro de trabajo del origen de datos externo de un gráfico**
+
+Para identificar el libro de trabajo vinculado a un gráfico, primero verifique si el gráfico utiliza un origen de datos externo. Si es así, puede obtener la ruta del libro de trabajo siguiendo estos pasos.
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/).
-1. Obtenga la referencia de una diapositiva mediante su índice.
-1. Cree un objeto para la forma del gráfico.
-1. Cree un objeto para el tipo de origen ([ChartDataSourceType](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdatasourcetype/)) que representa la fuente de datos del gráfico.
-1. Especifique la condición pertinente basándose en que el tipo de origen sea el mismo que el tipo de origen de datos del libro de trabajo externo.
+1. Acceda a la primera diapositiva mediante su índice basado en cero.
+1. Compruebe que la primera forma sea un gráfico.
+1. Lea el tipo de origen de datos del gráfico.
+1. Si el origen es un libro de trabajo externo, lea su ruta.
 
-Este código Python demuestra la operación:
+Este ejemplo abre `externalWorkbook.pptx`, creado en el ejemplo anterior, e inspecciona la primera forma en la primera diapositiva. Si es un gráfico vinculado a un libro de trabajo externo, el ejemplo muestra [getExternalWorkbookPath](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) en la consola. Luego guarda una copia de la presentación en `Result.pptx`.
 
 ```python
 import jpype
@@ -313,25 +414,33 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartDataSourceType, Presentation, SaveFormat
+from asposeslides.api import Chart, ChartDataSourceType, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation("externalWorkbook.pptx")
 try:
-    slide = presentation.getSlides().get_Item(1)
-    chart = slide.getShapes().get_Item(0)
-    source_type = chart.getChartData().getDataSourceType()
-    if source_type == ChartDataSourceType.ExternalWorkbook:
-        path = chart.getChartData().getExternalWorkbookPath()
-    presentation.save("result.pptx", SaveFormat.Pptx)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        chart_data = chart.getChartData()
+        if chart_data.getDataSourceType() == ChartDataSourceType.ExternalWorkbook:
+            print(chart_data.getExternalWorkbookPath())
+        else:
+            print("The chart does not use an external workbook.")
+    else:
+        print("The first shape is not a chart.")
+
+    presentation.save("Result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ### **Editar datos del gráfico**
 
-Puede editar los datos en libros de trabajo externos del mismo modo que modifica el contenido de libros de trabajo internos. Cuando un libro de trabajo externo no puede cargarse, se lanza una excepción.
+Puede editar los datos en libros de trabajo externos de la misma manera que realiza cambios en el contenido de los libros de trabajo internos. Cuando un libro de trabajo externo no se puede cargar, se lanza una excepción.
 
-Este código Python es una implementación del proceso descrito:
+Este ejemplo requiere `presentation.pptx` con un gráfico como la primera forma en la primera diapositiva y un libro de trabajo externo accesible. Establece el valor respaldado por celda del primer punto de datos de la primera serie en 100 y guarda la presentación en `presentation_out.pptx`. Editar valores de celdas puede actualizar el archivo XLSX externo vinculado, así que use una copia si necesita preservar el libro de trabajo original.
 
 ```python
 import jpype
@@ -340,23 +449,36 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+from asposeslides.api import Chart, Presentation, SaveFormat
 
-presentation = Presentation("chart.pptx")
+presentation = Presentation("presentation.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    chart_data = chart.getChartData()
-    chart_data.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(jpype.JInt(100))
-    presentation.save("presentation_out.pptx", SaveFormat.Pptx)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        series = chart.getChartData().getSeries()
+        if series.size() > 0 and series.get_Item(0).getDataPoints().size() > 0:
+            value_cell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell()
+            if value_cell is not None:
+                value_cell.setValue(jpype.JInt(100))
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx)
+            else:
+                print("The first data point is not linked to a workbook cell.")
+        else:
+            print("The chart has no data points to edit.")
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
 ### **Recuperar un libro de trabajo desde la caché del gráfico**
 
-Si un gráfico utiliza un libro de trabajo externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro de trabajo del gráfico a partir de los datos almacenados en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/es/python-java/aspose.slides/loadoptions/), configúrelo con [SpreadsheetOptions](https://reference.aspose.com/slides/es/python-java/aspose.slides/spreadsheetoptions/) y llame a [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/es/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) con `True` antes de abrir la presentación.
+Si un gráfico usa un libro de trabajo externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro de trabajo del gráfico a partir de los datos almacenados en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/es/python-java/aspose.slides/loadoptions/), llame a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/es/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions), y establezca [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/es/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) en `True` antes de abrir la presentación.
 
-El siguiente ejemplo Python abre una presentación cuyo gráfico hace referencia a un libro de trabajo externo no disponible y accede a los datos recuperados mediante [Chart.getChartData](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#getChartData) y [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+El siguiente ejemplo en Python abre `presentation.pptx`, cuya primera forma en la primera diapositiva debe ser un gráfico que hace referencia a un libro de trabajo externo no disponible, y accede a los datos recuperados mediante [Chart.getChartData](https://reference.aspose.com/slides/es/python-java/aspose.slides/chart/#getChartData) y [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -365,47 +487,54 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import LoadOptions, Presentation, SpreadsheetOptions
+from asposeslides.api import Chart, LoadOptions, Presentation, SpreadsheetOptions
 
 spreadsheet_options = SpreadsheetOptions()
 spreadsheet_options.setRecoverWorkbookFromChartCache(True)
+
 load_options = LoadOptions()
 load_options.setSpreadsheetOptions(spreadsheet_options)
 
 presentation = Presentation("presentation.pptx", load_options)
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    recovered_workbook = chart.getChartData().getChartDataWorkbook()
+    slide = presentation.getSlides().get_Item(0)
 
-    # Leer o modificar los datos del libro de trabajo recuperado aquí.
+    shape_count = slide.getShapes().size()
+    if shape_count > 0 and isinstance(slide.getShapes().get_Item(0), Chart):
+        chart = slide.getShapes().get_Item(0)
+        recovered_workbook = chart.getChartData().getChartDataWorkbook()
+
+        # Leer o modificar los datos del libro de trabajo recuperado aquí.
+    else:
+        print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Si el libro de trabajo externo no está disponible y la recuperación está desactivada, Aspose.Slides lanza una excepción. Active la recuperación solo cuando usar los datos del gráfico en caché sea una solución aceptable, porque la caché puede no contener los cambios realizados en el libro de trabajo externo después de la última actualización de la presentación.
+Si el libro de trabajo externo no está disponible y la recuperación está desactivada, Aspose.Slides lanza una excepción. Active la recuperación solo cuando usar los datos del gráfico en caché sea una alternativa aceptable, ya que la caché puede no contener los cambios realizados en el libro de trabajo externo después de la última actualización de la presentación.
 
 ## **Preguntas frecuentes**
 
 **¿Puedo determinar si un gráfico específico está vinculado a un libro de trabajo externo o incrustado?**
 
-Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getDataSourceType) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); si la fuente es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getDataSourceType) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); si el origen es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
 
 **¿Se admiten rutas relativas a libros de trabajo externos y cómo se almacenan?**
 
-Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es útil para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
+Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. La presentación almacena la ruta absoluta en el archivo PPTX, por lo que mover el libro de trabajo puede requerir actualizar el enlace.
 
 **¿Puedo usar libros de trabajo ubicados en recursos o comparticiones de red?**
 
-Sí, esos libros de trabajo pueden usarse como fuente de datos externa. No obstante, la edición directa de libros de trabajo remotos desde Aspose.Slides no está soportada; solo pueden utilizarse como fuente.
+Sí, esos libros de trabajo pueden usarse como origen de datos externo. Sin embargo, la edición de libros de trabajo remotos directamente desde Aspose.Slides no está soportada; solo pueden usarse como origen.
 
 **¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
 
-No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) y lo usa para leer los datos. El archivo externo en sí no se modifica al guardar la presentación.
+La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/es/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Editar los datos del gráfico respaldados por celdas también puede actualizar el archivo XLSX local vinculado. Use una copia del libro de trabajo si el original debe permanecer sin cambios.
 
 **¿Qué debo hacer si el archivo externo está protegido con contraseña?**
 
-Aspose.Slides no acepta una contraseña al crear el vínculo. Un enfoque habitual es eliminar la protección previamente o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/python-java/)) y enlazar a esa copia.
+Aspose.Slides no acepta una contraseña al crear el enlace. Un método habitual es eliminar la protección previamente o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) y vincular a esa copia.
 
 **¿Pueden varios gráficos hacer referencia al mismo libro de trabajo externo?**
 
-Sí. Cada gráfico almacena su propio vínculo. Si todos apuntan al mismo archivo, la actualización de ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.
+Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

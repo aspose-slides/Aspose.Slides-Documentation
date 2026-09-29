@@ -1,312 +1,471 @@
 ---
-title: Διαχείριση βιβλίων εργασίας διαγράμματος σε παρουσιάσεις χρησιμοποιώντας PHP
-linktitle: Βιβλίο Εργασίας Διαγράμματος
+title: Διαχείριση βιβλιοθηκών γραφημάτων σε παρουσιάσεις με PHP
+linktitle: Βιβλιοθήκη Γραφήματος
 type: docs
 weight: 70
 url: /el/php-java/chart-workbook/
 keywords:
-- βιβλίο εργασίας διαγράμματος
-- δεδομένα διαγράμματος
-- κελί βιβλίου εργασίας
+- βιβλιοθήκη γραφήματος
+- δεδομένα γραφήματος
+- κελί βιβλιοθήκης
 - ετικέτα δεδομένων
 - φύλλο εργασίας
 - πηγή δεδομένων
-- εξωτερικό βιβλίο εργασίας
+- εξωτερική βιβλιοθήκη
 - εξωτερικά δεδομένα
-- κρυφή μνήμη διαγράμματος
-- ανάκτηση βιβλίου εργασίας
+- κρυφή μνήμη γραφήματος
+- ανάκτηση βιβλιοθήκης
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Ανακαλύψτε το Aspose.Slides για PHP μέσω Java: διαχειριστείτε με ευκολία βιβλία εργασίας διαγράμματος σε μορφές PowerPoint και OpenDocument για να βελτιστοποιήσετε τα δεδομένα της παρουσίασής σας."
+description: "Ανακαλύψτε το Aspose.Slides για PHP μέσω Java: διαχειριστείτε με ευκολία τις βιβλιοθήκες γραφημάτων σε μορφές PowerPoint και OpenDocument, ώστε να βελτιστοποιήσετε τα δεδομένα της παρουσίασής σας."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλία εργασίας διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα διαγράμματος μέσω ροών βιβλίου εργασίας, να χρησιμοποιείτε κελιά βιβλίου εργασίας ως ετικέτες δεδομένων διαγράμματος, να έχετε πρόσβαση σε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλιοθήκες γραφημάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα γραφήματος μέσω ροών βιβλιοθηκών, να χρησιμοποιείτε κελιά βιβλιοθήκης ως ετικέτες δεδομένων γραφήματος, να έχετε πρόσβαση σε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του γραφήματος.
 
-Καλύπτει επίσης την εργασία με εξωτερικά βιβλία εργασίας ως πηγές δεδομένων διαγράμματος. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε και να αναθέσετε ένα εξωτερικό βιβλίο εργασίας, να ανακτήσετε τη διαδρομή ενός εξωτερικού βιβλίου εργασίας που είναι συνδεδεμένο με ένα διάγραμμα και να επεξεργαστείτε τα δεδομένα του διαγράμματος όταν το βιβλίο εργασίας είναι διαθέσιμο.
+Επίσης καλύπτει την εργασία με εξωτερικές βιβλιοθήκες ως πηγές δεδομένων γραφήματος. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε και να εκχωρήσετε μια εξωτερική βιβλιοθήκη, να ανακτήσετε τη διαδρομή μιας εξωτερικής βιβλιοθήκης που συνδέεται με ένα γράφημα και να επεξεργαστείτε τα δεδομένα του γραφήματος όταν η βιβλιοθήκη είναι διαθέσιμη.
 
-Για κελιά βιβλίου εργασίας που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε τη [Έλεγχος της εμφάνισης κενών κελιών](/slides/el/php-java/chart-series/) για τη διαφορά μεταξύ ενός κενού κελιού και του μηδενός, καθώς και μια σύγκριση γραμμικού διαγράμματος των διαθέσιμων τρόπων εμφάνισης.
+Για κελιά βιβλιοθήκης που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Έλεγχος της Εμφάνισης Κενού Κελιού](/slides/el/php-java/chart-series/) για τη διαφορά μεταξύ κενού κελιού και μηδενός, καθώς και για σύγκριση σε διάγραμμα γραμμής των διαθέσιμων τρόπων προβολής.
 
-## **Ανάγνωση και εγγραφή δεδομένων διαγράμματος από βιβλίο εργασίας**
+## **Συμπερίληψη Δεδομένων από Κρυμμένες Γραμμές και Στήλες**
 
-Το Aspose.Slides παρέχει τις μεθόδους [readWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/#readWorkbookStream) και [writeWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/#writeWorkbookStream) που επιτρέπουν την ανάγνωση και εγγραφή βιβλίων εργασίας δεδομένων διαγράμματος (που περιέχουν δεδομένα διαγράμματος επεξεργασμένα με το Aspose.Cells). **Σημείωση** ότι τα δεδομένα του διαγράμματος πρέπει να είναι οργανωμένα με τον ίδιο τρόπο ή να έχουν δομή παρόμοια με την πηγή.
+Χρησιμοποιήστε [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/setplotvisiblecellsonly/) για να ελέγξετε αν ένα γράφημα σχεδιάζει δεδομένα από κρυμμένες γραμμές και στήλες φύλλου εργασίας. Ορίστε το σε `true` για να σχεδιάζει μόνο τα ορατά κελιά, ή σε `false` για να περιλαμβάνει τόσο τα ορατά όσο και τα κρυμμένα κελιά. Αυτή η ρύθμιση ελέγχει τη σχεδίαση του γραφήματος· δεν κρύβει ή αποκρύβει γραμμές ή στήλες φύλλου εργασίας.
 
-```php
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $data = $chart->getChartData();
-    $stream = $data->readWorkbookStream();
-    $data->getSeries()->clear();
-    $data->getCategories()->clear();
-    $data->writeWorkbookStream($stream);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+Κατεβάστε [hidden-source-data.pptx](hidden-source-data.pptx) και τοποθετήστε το στον φάκελο εργασίας. Η πρώτη του διαφάνεια περιέχει ένα διάγραμμα στήλης ως το πρώτο σχήμα. Το ενσωματωμένο φύλλο εργασίας, `Sheet1`, περιέχει το εξής εύρος πηγής, `A1:C4`. Η γραμμή 3 και η στήλη C είναι κρυφές, αλλά τα κελιά τους εξακολουθούν να περιέχουν τιμές.
 
-### **Επικύρωση διάταξης διαγράμματος μετά την τροποποίηση βιβλίου εργασίας**
+| Γραμμή φύλλου | A: Μήνας | B: Λιανική | C: Χονδρική (κρυφή στήλη) |
+| --- | --- | --- | --- |
+| 2 | Ιανουάριος | 10 | 30 |
+| 3 (hidden row) | Φεβρουάριος | 40 | 60 |
+| 4 | Μάρτιος | 20 | 50 |
 
-Όταν αντικαθιστάτε ένα ενσωματωμένο βιβλίο εργασίας με ένα τροποποιημένο, το διάγραμμα διατηρεί τις αρχικές του σειρές και συλλογές κατηγοριών. Αυτή η ασυμφωνία μπορεί να κάνει το [Chart::validateChartLayout](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/validatechartlayout/) να αποτύχει με σφάλμα εκτός ορίου ευρετηρίου. Καθαρίστε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε το ενημερωμένο βιβλίο εργασίας πίσω στο διάγραμμα.
+Προσπελάστε τα κελιά πηγής μέσω [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getchartdataworkbook/) και διαβάστε [ChartDataCell::isHidden](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatacell/ishidden/) για να ελέγξετε την κρυφή τους κατάσταση. Αυτή η μέθοδος αναφέρει την κατάσταση χωρίς να την αλλάξει. Στο αρχείο αυτό, το B2 είναι ορατό, το B3 ανήκει στη κρυφή γραμμή και το C2 στην κρυφή στήλη· το παράδειγμα εκτυπώνει `false`, `true` και `true`, αντίστοιχα.
+
+Για αυτό το παράδειγμα, ανανεώστε τα δεδομένα του γραφήματος μετά την αλλαγή της ρύθμισης σχεδίασης: διατηρήστε τη ενσωματωμένη βιβλιοθήκη με [readWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/readworkbookstream/) και επαναφορτώστε την με [writeWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/writeworkbookstream/). Όταν περιλαμβάνονται όλα τα κελιά, χρησιμοποιήστε επίσης το [setRange](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/setrange/) για να επαναφέρετε το πλήρες εύρος, συμπεριλαμβανομένης της κρυφής κατηγορίας Φεβρουάριου. Η απλή αλλαγή της σημαίας δεν αρκεί για την ενημέρωση των δεδομένων και ετικετών κατηγορίας που είναι αποθηκευμένα στην κρυφή μνήμη του δείγματος.
 
 ```php
-// Αφού τροποποιηθεί η ροή του βιβλίου εργασίας (π.χ., χρησιμοποιώντας το Aspose.Cells)
-$updatedWorkbook = $chartData->readWorkbookStream();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-// Καθαρίστε τις υπάρχουσες αναφορές δεδομένων.
-$chartData->getSeries()->clear();
-$chartData->getCategories()->clear();
-
-$chartData->writeWorkbookStream($updatedWorkbook);
-
-$chart->validateChartLayout();
-```
-
-Ο καθαρισμός των συλλογών εξασφαλίζει ότι η δομή των δεδομένων του διαγράμματος είναι συνεπής με το νέο βιβλίο εργασίας, επιτρέποντας στο `validateChartLayout` να ολοκληρωθεί χωρίς σφάλματα.
-
-## **Ορισμός κελιού WorkBook ως ετικέτας δεδομένων διαγράμματος**
-
-1. Δημιουργήστε μια περίπτωση της κλάσης [Presentation](https://apireference.aspose.com/slides/el/php-java/aspose.slides/presentation) .
-1. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-1. Προσθέστε ένα διάγραμμα Bubble με κάποια δεδομένα.
-1. Προσπελάστε τις σειρές του διαγράμματος.
-1. Ορίστε το κελί του βιβλίου εργασίας ως ετικέτα δεδομένων.
-1. Αποθηκεύστε την παρουσίαση.
-
-```php
-  $lbl0 = "Label 0 cell value";
-  $lbl1 = "Label 1 cell value";
-  $lbl2 = "Label 2 cell value";
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-  $pres = new Presentation("chart2.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType::Bubble, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $dataLabelCollection = $series->get_Item(0)->getLabels();
-    $dataLabelCollection->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $dataLabelCollection->get_Item(0)->setValueFromCell($wb->getCell(0, "A10", $lbl0));
-    $dataLabelCollection->get_Item(1)->setValueFromCell($wb->getCell(0, "A11", $lbl1));
-    $dataLabelCollection->get_Item(2)->setValueFromCell($wb->getCell(0, "A12", $lbl2));
-    $pres->save("resultchart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Διαχείριση φύλλων εργασίας**
-
-Αυτός ο κώδικας PHP επιδεικνύει μια λειτουργία όπου η μέθοδος [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/#getWorksheets) χρησιμοποιείται για την πρόσβαση σε μια συλλογή φύλλων εργασίας:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    for($i = 0; $i < java_values($wb->getWorksheets()->size()) ; $i++) {
-      echo($wb->getWorksheets()->get_Item($i)->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Καθορισμός τύπου πηγής δεδομένων**
-
-Αυτός ο κώδικας PHP δείχνει πώς να καθορίσετε έναν τύπο για μια πηγή δεδομένων:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $val = $chart->getChartData()->getSeries()->get_Item(0)->getName();
-    $val->setDataSourceType(DataSourceType::StringLiterals);
-    $val->setData("LiteralString");
-    $val = $chart->getChartData()->getSeries()->get_Item(1)->getName();
-    $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ανίχνευση μη υποστηριζόμενων μορφών ενσωματωμένων βιβλίων εργασίας**
-
-Το Aspose.Slides δεν υποστηρίζει τη μορφή δυαδικού βιβλίου εργασίας Excel (.xlsb) που μπορεί να ενσωματωθεί σε ορισμένα διαγράμματα. Μπορείτε να χρησιμοποιήσετε τη μέθοδο `getEmbeddedWorkbookType` στο [ChartData](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/) μαζί με την απαρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/php-java/aspose.slides/workbooktype/) για να ανιχνεύσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα διαγράμματα.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("hidden-source-data.pptx");
 try {
-  $slide = $presentation->getSlides()->get_Item(0);
-  $shapes = $slide->getShapes();
+    $slide = $presentation->getSlides()->get_Item(0);
 
-  for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
-    $shape = $shapes->get_Item($shapeIndex);
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $workbook = $chart->getChartData()->getChartDataWorkbook();
+        echo "B2 hidden: " . (java_values($workbook->getCell(0, "B2")->isHidden()) ? "true" : "false"), PHP_EOL;
+        echo "B3 hidden: " . (java_values($workbook->getCell(0, "B3")->isHidden()) ? "true" : "false"), PHP_EOL;
+        echo "C2 hidden: " . (java_values($workbook->getCell(0, "C2")->isHidden()) ? "true" : "false"), PHP_EOL;
 
-    if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
-      continue;
+        $workbookData = $chart->getChartData()->readWorkbookStream();
+        foreach ([true, false] as $visibleOnly) {
+            $chart->setPlotVisibleCellsOnly($visibleOnly);
+
+            // Ανανέωση των δεδομένων γραφήματος από την ενσωματωμένη βιβλιοθήκη.
+            $chart->getChartData()->writeWorkbookStream($workbookData);
+            if (!$visibleOnly) {
+                // Επαναφορά του πλήρους εύρους πηγής, συμπεριλαμβανομένων των κρυφών κατηγοριών.
+                $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
+            }
+
+            $presentation->save("hidden_cells_" . ($visibleOnly ? "true" : "false") . ".pptx", SaveFormat::Pptx);
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-
-    $chart = $shape;
-    $chartData = $chart->getChartData();
-
-    if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
-        java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Το ενσωματωμένο βιβλίο εργασίας είναι σε μορφή .xlsb, η οποία δεν υποστηρίζεται.
-      continue;
-    }
-
-    # Διαβάστε ή τροποποιήστε τα δεδομένα του βιβλίου εργασίας διαγράμματος εδώ.
-  }
 } finally {
-  $presentation->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Εξωτερικό βιβλίο εργασίας**
+Το παράδειγμα αποθηκεύει το `hidden_cells_true.pptx` μόνο με τις ορατές τιμές λιανικής (10 και 20), και το `hidden_cells_false.pptx` με όλες τις έξι τιμές. Οι εικόνες παρακάτω απεικονίζουν τις δύο λειτουργίες σχεδίασης. Η γραμμή 3 και η στήλη C παραμένουν κρυφές και στα δύο ενσωματωμένα βιβλιοθήκες.
 
-Το Aspose.Slides υποστηρίζει εξωτερικά βιβλία εργασίας ως πηγή δεδομένων για διαγράμματα.
+| Μόνο τα ορατά κελιά (`true`) | Όλα τα κελιά (`false`) |
+| --- | --- |
+| ![Μόνα τα ορατά κελιά: τιμές λιανικής 10 και 20 για Ιανουάριο και Μάρτιο.](hidden_cells_True.png) | ![Όλα τα κελιά: τιμές λιανικής και χονδρικής για Ιανουάριο, Φεβρουάριο και Μάρτιο.](hidden_cells_False.png) |
 
-### **Δημιουργία εξωτερικού βιβλίου εργασίας**
+Ένα κρυφό κελί που περιέχει τιμή διαφέρει από ένα κενό κελί. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/setdisplayblanksas/) ελέγχει πώς εμφανίζονται οι ελλιπείς τιμές· δεν περιλαμβάνει ή εξαιρεί κρυφά δεδομένα πηγής. Δείτε [Έλεγχος της Εμφάνισης Κενού Κελιού](/slides/el/php-java/chart-series/#control-the-display-of-empty-cells) για ένα παράδειγμα.
 
-Χρησιμοποιώντας τις μεθόδους **`readWorkbookStream`** και **`setExternalWorkbook`**, μπορείτε είτε να δημιουργήσετε από το μηδέν ένα εξωτερικό βιβλίο εργασίας είτε να κάνετε ένα εσωτερικό βιβλίο εργασίας εξωτερικό.
+## **Ανάγνωση και Εγγραφή Δεδομένων Γραφήματος από Βιβλιοθήκη**
+
+Aspose.Slides for PHP via Java παρέχει τις μεθόδους [readWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/readworkbookstream/) και [writeWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/writeworkbookstream/) που επιτρέπουν την ανάγνωση και εγγραφή βιβλιοθηκών δεδομένων γραφήματος (περιέχουσες δεδομένα γραφήματος επεξεργασμένα με Aspose.Cells). **Σημείωση** ότι τα δεδομένα γραφήματος πρέπει να είναι οργανωμένα με τον ίδιο τρόπο ή να έχουν παρόμοια δομή με την πηγή.
+
+Αυτό το παράδειγμα ανοίγει το `chart.pptx`, το οποίο πρέπει να περιέχει ένα γράφημα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Διαβάζει την ενσωματωμένη βιβλιοθήκη σε ένα πίνακα byte, καθαρίζει τις υπάρχουσες σειρές και κατηγορίες, και γράφει την ίδια βιβλιοθήκη πίσω. Οι αλλαγές παραμένουν στη μνήμη· το παράδειγμα δεν αποθηκεύει την παρουσίαση.
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    $workbookPath = "externalWorkbook1.xlsx";
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
-    $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
-    $Array = new java_class("java.lang.reflect.Array");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("chart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        $workbookData = $chartData->readWorkbookStream();
+
+        $chartData->getSeries()->clear();
+        $chartData->getCategories()->clear();
+
+        $chartData->writeWorkbookStream($workbookData);
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Επικύρωση Διάταξης Γραφήματος μετά την Τροποποίηση της Βιβλιοθήκης**
+
+Όταν αντικαθιστάτε μια ενσωματωμένη βιβλιοθήκη με μια τροποποιημένη, το γράφημα διατηρεί τις αρχικές συλλογές σειρών και κατηγοριών. Αυτή η ασυμφωνία μπορεί να προκαλέσει αποτυχία του [Chart::validateChartLayout](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/validatechartlayout/) με σφάλμα «index-out-of-range». Καθαρίστε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε τη ενημερωμένη βιβλιοθήκη πίσω στο γράφημα. Αυτό το παράδειγμα απαιτεί το `chart.pptx` με γράφημα ως το πρώτο σχήμα στην πρώτη διαφάνειά του. Το σχόλιο δείχνει πού θα γινόταν η επεξεργασία της βιβλιοθήκης· το εκτελέσιμο παράδειγμα γράφει την αρχική βιβλιοθήκη πίσω και επικυρώνει τη διάταξη στη μνήμη.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("chart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        $workbookData = $chartData->readWorkbookStream();
+
+        // Τροποποιήστε τα byte της βιβλιοθήκης εδώ, για παράδειγμα, χρησιμοποιώντας το Aspose.Cells.
+
+        $chartData->getSeries()->clear();
+        $chartData->getCategories()->clear();
+
+        $chartData->writeWorkbookStream($workbookData);
+        $chart->validateChartLayout();
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η εκκαθάριση των συλλογών αφαιρεί παλαιές αναφορές δεδομένων πριν τη βιβλιοθήκη γραφεί πίσω. Ανακατασκευάστε τυχόν απαιτούμενες αντιστοιχίες σειρών και κατηγοριών για την ενημερωμένη βιβλιοθήκη πριν χρησιμοποιήσετε το γράφημα.
+
+## **Ορισμός Κελιού Βιβλιοθήκης ως Ετικέτα Δεδομένων Γραφήματος**
+
+Μπορείτε να χρησιμοποιήσετε κείμενο από κελιά βιβλιοθήκης ως ετικέτες δεδομένων γραφήματος. Τα παρακάτω βήματα δείχνουν πώς να συνδέσετε τις ετικέτες σε ένα διάγραμμα φυσαλίδων με κελιά στο βιβλιοθήκη δεδομένων του.
+
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
+2. Προσπελάστε την πρώτη διαφάνεια με βάση το μηδενικό της δείκτη.
+3. Προσθέστε ένα διάγραμμα φυσαλίδων με προεπιλεγμένα δεδομένα.
+4. Προσπελάστε τις σειρές του γραφήματος.
+5. Ορίστε το κελί της βιβλιοθήκης ως ετικέτα δεδομένων.
+6. Αποθηκεύστε την παρουσίαση.
+
+Αυτό το παράδειγμα ανοίγει το `chart2.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια, και προσθέτει ένα διάγραμμα φυσαλίδων με προεπιλεγμένα δεδομένα. Χρησιμοποιεί τα κελιά A10:A12 στο φύλλο 0 για τις τρεις πρώτες ετικέτες στην πρώτη σειρά, ενεργοποιεί ετικέτες από κελιά, και αποθηκεύει το αποτέλεσμα στο `resultchart.pptx`.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart2.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Bubble, 50, 50, 600, 400, true);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
+    $series->getLabels()->get_Item(0)->setValueFromCell($workbook->getCell(0, "A10", "Label 0 cell value"));
+    $series->getLabels()->get_Item(1)->setValueFromCell($workbook->getCell(0, "A11", "Label 1 cell value"));
+    $series->getLabels()->get_Item(2)->setValueFromCell($workbook->getCell(0, "A12", "Label 2 cell value"));
+
+    $presentation->save("resultchart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Διαχείριση Φύλλων Εργασίας**
+
+Η μέθοδος [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/getworksheets/) παρέχει πρόσβαση στα φύλλα εργασίας μιας βιβλιοθήκης γραφήματος. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα πίτας με προεπιλεγμένα δεδομένα και εκτυπώνει το όνομα κάθε φύλλου στην κονσόλα.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    for ($i = 0; $i < java_values($workbook->getWorksheets()->size()); $i++) {
+        echo $workbook->getWorksheets()->get_Item($i)->getName(), PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Καθορισμός Τύπου Πηγής Δεδομένων**
+
+Αυτό το παράδειγμα δημιουργεί ένα τρισδιάστατο διάγραμμα στήλης με προεπιλεγμένα δεδομένα και ορίζει δύο ονόματα σειρών χρησιμοποιώντας διαφορετικές πηγές δεδομένων. Το πρώτο όνομα χρησιμοποιεί αλφαριθμητικό κυρίως· το δεύτερο χρησιμοποιεί το κελί C1 στο φύλλο 0. Η αρίθμηση [DataSourceType](https://reference.aspose.com/slides/el/php-java/aspose.slides/datasourcetype/) επιλέγει την πηγή για κάθε όνομα. Το αποτέλεσμα αποθηκεύεται στο `pres.pptx`.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+use aspose\slides\DataSourceType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
+    $literalName = $chart->getChartData()->getSeries()->get_Item(0)->getName();
+
+    $literalName->setDataSourceType(DataSourceType::StringLiterals);
+    $literalName->setData("LiteralString");
+
+    $cellName = $chart->getChartData()->getSeries()->get_Item(1)->getName();
+    $nameCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, "C1", "NewCell");
+    $cellName->setDataSourceType(DataSourceType::Worksheet);
+    $cellName->setData($nameCell);
+
+    $presentation->save("pres.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Ανίχνευση Μη Υποστηριζόμενων Ενσωματωμένων Μορφών Βιβλιοθήκης**
+
+Το Aspose.Slides δεν υποστηρίζει τη μορφή εργασίας Excel δυαδικού αρχείου (.xlsb) που μπορεί να ενσωματωθεί σε ορισμένα γραφήματα. Μπορείτε να χρησιμοποιήσετε τη μέθοδο `getEmbeddedWorkbookType` στο [ChartData](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/) μαζί με την αρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/php-java/aspose.slides/workbooktype/) για να εντοπίσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα γραφήματα. Αυτό το παράδειγμα εξετάζει τα σχήματα στην πρώτη διαφάνεια του `sample.pptx`, παραλείπει μη‑γράφημα σχήματα, και εκτυπώνει ένα διαγνωστικό μήνυμα για κάθε γράφημα με ενσωματωμένη βιβλιοθήκη .xlsb.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartDataSourceType;
+use aspose\slides\WorkbookType;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+            continue;
+        }
+
+        $chart = $shape;
+        $chartData = $chart->getChartData();
+        $isInternalWorkbook = java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook;
+        $isBinaryMacro = java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro;
+
+        if ($isInternalWorkbook && $isBinaryMacro) {
+            echo "Skipping a chart with an unsupported .xlsb workbook.", PHP_EOL;
+            continue;
+        }
+
+        // Διαβάστε ή τροποποιήστε τα υποστηριζόμενα δεδομένα βιβλιοθήκης γραφήματος εδώ.
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Εξωτερική Βιβλιοθήκη**
+
+Το Aspose.Slides υποστηρίζει τη χρήση εξωτερικών βιβλιοθηκών ως πηγή δεδομένων για γραφήματα.
+
+### **Δημιουργία Εξωτερικής Βιβλιοθήκης**
+
+Χρησιμοποιήστε τα [readWorkbookStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/readworkbookstream/) και [setExternalWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/setexternalworkbook/) για να εξάγετε μια ενσωματωμένη βιβλιοθήκη γραφήματος σε αρχείο και να συνδέσετε το γράφημα με αυτήν την εξωτερική βιβλιοθήκη.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα πίτας με προεπιλεγμένα δεδομένα, γράφει τη βιβλιοθήκη του σε `externalWorkbook1.xlsx`, και ολοκληρώνει την εγγραφή του αρχείου πριν το αντιστοιχίσει ως πηγή δεδομένων γραφήματος. Αποθηκεύει την ενωμένη παρουσίαση στο `externalWorkbook.pptx`.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
+    $workbookPath = new Java("java.io.File", "externalWorkbook1.xlsx");
+    $workbookData = $chart->getChartData()->readWorkbookStream();
     try {
-      $workbookData = $chart->getChartData()->readWorkbookStream();
-      $fileStream->write($workbookData, 0, $Array->getLength($workbookData));
-    } finally {
-      if (!java_is_null($fileStream)) {
-        $fileStream->close();
-      }
+        $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
+        try {
+            $fileStream->write($workbookData);
+        } finally {
+            $fileStream->close();
+        }
+        $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
+    } catch (JavaException $exception) {
+        echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
     }
-    $chart->getChartData()->setExternalWorkbook($workbookPath);
-    $pres->save("externalWorkbook.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Ορισμός εξωτερικού βιβλίου εργασίας**
+### **Ορισμός Εξωτερικής Βιβλιοθήκης**
 
-Χρησιμοποιώντας τη μέθοδο **`setExternalWorkbook`**, μπορείτε να αναθέσετε ένα εξωτερικό βιβλίο εργασίας σε ένα διάγραμμα ως πηγή των δεδομένων του. Αυτή η μέθοδος μπορεί επίσης να χρησιμοποιηθεί για την ενημέρωση μιας διαδρομής προς το εξωτερικό βιβλίο εργασίας (εάν το τελευταίο έχει μετακινηθεί).
+Με τη μέθοδο [setExternalWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/setexternalworkbook/) μπορείτε να εκχωρήσετε μια εξωτερική βιβλιοθήκη σε ένα γράφημα ως πηγή δεδομένων του. Η μέθοδος μπορεί επίσης να χρησιμοποιηθεί για την ενημέρωση της διαδρομής προς την εξωτερική βιβλιοθήκη (αν αυτή έχει μετακινηθεί).
 
-Ενώ δεν μπορείτε να επεξεργαστείτε τα δεδομένα σε βιβλία εργασίας αποθηκευμένα σε απομακρυσμένες τοποθεσίες ή πόρους, μπορείτε ακόμη να τα χρησιμοποιήσετε ως εξωτερική πηγή δεδομένων. Εάν παρέχεται σχετική διαδρομή για ένα εξωτερικό βιβλίο εργασίας, αυτή μετατρέπεται αυτόματα σε πλήρη διαδρομή.
+Αν και δεν μπορείτε να επεξεργαστείτε τα δεδομένα σε βιβλιοθήκες που βρίσκονται σε απομακρυσμένες θέσεις ή πόρους, μπορείτε να τις χρησιμοποιήσετε ως εξωτερική πηγή δεδομένων. Εάν παρέχεται σχετική διαδρομή για εξωτερική βιβλιοθήκη, αυτή μετατρέπεται αυτόματα σε πλήρη διαδρομή.
+
+Αυτό το παράδειγμα απαιτεί το `externalWorkbook.xlsx` στον φάκελο εργασίας. Το φύλλο του με όνομα `Sheet1` πρέπει να περιέχει ένα όνομα σειράς στο B1, ονόματα κατηγοριών στο A2:A4 και αριθμητικές τιμές στο B2:B4. Το παράδειγμα δημιουργεί ένα διάγραμμα πίτας, συνδέει τη βιβλιοθήκη, και χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/setrange/) για να αντιστοιχίσει το A1:B4 σε μία σειρά και τρεις κατηγορίες. Αποθηκεύει το αποτέλεσμα στο `Presentation_with_externalWorkbook.pptx`.
 
 ```php
-  # Δημιουργεί μια εμφάνιση της κλάσης Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, false);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
     $chartData = $chart->getChartData();
-    $chartData->setExternalWorkbook("externalWorkbook.xlsx");
-    $chartData->getSeries()->add($chartData->getChartDataWorkbook()->getCell(0, "B1"), ChartType::Pie);
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B2"));
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B3"));
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B4"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A2"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A3"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A4"));
-    $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $workbookFile = new Java("java.io.File", "externalWorkbook.xlsx");
+    $workbookPath = $workbookFile->getAbsolutePath();
+
+    $chartData->setExternalWorkbook($workbookPath);
+    $chartData->setRange('Sheet1!$A$1:$B$4');
+
+    $presentation->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Η παράμετρος `ChartData` (στο πλαίσιο της μεθόδου `setExternalWorkbook`) χρησιμοποιείται για να καθορίσει εάν θα φορτωθεί ένα βιβλίο εργασίας Excel ή όχι.
+Η παράμετρος `updateChartData` της [setExternalWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/setexternalworkbook/) ελέγχει αν η βιβλιοθήκη θα φορτωθεί.
 
-* Όταν η τιμή του `ChartData` είναι `false`, ενημερώνεται μόνο η διαδρομή του βιβλίου εργασίας — τα δεδομένα του διαγράμματος δεν θα φορτωθούν ή ενημερωθούν από το στοχευόμενο βιβλίο εργασίας. Αυτός ο ορισμός είναι χρήσιμος όταν το στοχευόμενο βιβλίο εργασίας δεν υπάρχει ή δεν είναι διαθέσιμο.  
-* Όταν η τιμή του `ChartData` είναι `true`, τα δεδομένα του διαγράμματος ενημερώνονται από το στοχευόμενο βιβλίο εργασίας.
+* Όταν το `updateChartData` είναι `false`, ενημερώνεται μόνο η διαδρομή της βιβλιοθήκης. Τα δεδομένα του γραφήματος δεν φορτώνονται ούτε ενημερώνονται από τη βιβλιοθήκη προορισμού, ώστε η βιβλιοθήκη να μπορεί να μην είναι διαθέσιμη.
+* Όταν το `updateChartData` είναι `true`, τα δεδομένα του γραφήματος ενημερώνονται από τη βιβλιοθήκη προορισμού.
+
+Το παρακάτω παράδειγμα αντιστοιχίζει μια εικονική διεύθυνση URL με `updateChartData` ορισμένο σε `false`. Διατηρεί τα προεπιλεγμένα δεδομένα του διαγράμματος πίτας και αποθηκεύει την παρουσίαση χωρίς να φορτώσει τη μη διαθέσιμη βιβλιοθήκη.
 
 ```php
-  # Δημιουργεί μια εμφάνιση της κλάσης Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
-    $chartData = $chart->getChartData();
-    $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
-    $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
+    $chart->getChartData()->setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    $presentation->save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Ανάκτηση διαδρομής βιβλίου εργασίας εξωτερικής πηγής δεδομένων ενός διαγράμματος**
+### **Ανάκτηση Διαδρομής Εξωτερικής Βιβλιοθήκης Πηγής Δεδομένων ενός Γραφήματος**
 
-1. Δημιουργήστε μια περίπτωση της κλάσης [Presentation](https://apireference.aspose.com/slides/el/php-java/aspose.slides/presentation) .
-1. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-1. Δημιουργήστε ένα αντικείμενο για το σχήμα του διαγράμματος.
-1. Δημιουργήστε ένα αντικείμενο για τον τύπο πηγής (`ChartDataSourceType`) που αντιπροσωπεύει την πηγή δεδομένων του διαγράμματος.
-1. Καθορίστε την σχετική συνθήκη βάσει του ότι ο τύπος πηγής είναι ο ίδιος με τον τύπο εξωτερικού βιβλίου εργασίας.
+Για να προσδιορίσετε τη βιβλιοθήκη που συνδέεται με ένα γράφημα, πρώτα ελέγξτε αν το γράφημα χρησιμοποιεί εξωτερική πηγή δεδομένων. Εάν ναι, μπορείτε να ανακτήσετε τη διαδρομή της βιβλιοθήκης ακολουθώντας τα παρακάτω βήματα.
+
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
+2. Προσπελάστε την πρώτη διαφάνεια με βάση το μηδενικό της δείκτη.
+3. Ελέγξτε ότι το πρώτο σχήμα είναι γράφημα.
+4. Διαβάστε τον τύπο πηγής δεδομένων του γραφήματος.
+5. Εάν η πηγή είναι εξωτερική βιβλιοθήκη, διαβάστε τη διαδρομή της.
+
+Αυτό το παράδειγμα ανοίγει το `externalWorkbook.pptx`, που δημιουργήθηκε στο προηγούμενο παράδειγμα, και εξετάζει το πρώτο σχήμα στην πρώτη διαφάνεια. Εάν είναι γράφημα συνδεδεμένο σε εξωτερική βιβλιοθήκη, το παράδειγμα εκτυπώνει το [getExternalWorkbookPath](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getexternalworkbookpath/) στην κονσόλα. Στη συνέχεια αποθηκεύει ένα αντίγραφο της παρουσίασης στο `Result.pptx`.
 
 ```php
-  # Δημιουργεί μια εμφάνιση της κλάσης Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(1);
-    $chart = $slide->getShapes()->get_Item(0);
-    $sourceType = $chart->getChartData()->getDataSourceType();
-    if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
-      $path = $chart->getChartData()->getExternalWorkbookPath();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ChartDataSourceType;
+
+$presentation = new Presentation("externalWorkbook.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::ExternalWorkbook) {
+            echo $chartData->getExternalWorkbookPath(), PHP_EOL;
+        } else {
+            echo "The chart does not use an external workbook.", PHP_EOL;
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Result.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Επεξεργασία δεδομένων διαγράμματος**
+### **Επεξεργασία Δεδομένων Γραφήματος**
 
-Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικά βιβλία εργασίας με τον ίδιο τρόπο που κάνετε αλλαγές στα εσωτερικά βιβλία εργασίας. Όταν δεν είναι δυνατή η φόρτωση ενός εξωτερικού βιβλίου εργασίας, προκαλείται εξαίρεση.
+Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικές βιβλιοθήκες με τον ίδιο τρόπο που κάνετε αλλαγές στα εσωτερικά αρχεία βιβλιοθήκης. Όταν μια εξωτερική βιβλιοθήκη δεν μπορεί να φορτωθεί, προκαλείται εξαίρεση.
+
+Αυτό το παράδειγμα απαιτεί το `presentation.pptx` με ένα γράφημα ως το πρώτο σχήμα στην πρώτη διαφάνεια και μια προσβάσιμη εξωτερική βιβλιοθήκη. Ορίζει την τιμή του πρώτου σημείου δεδομένων στην πρώτη σειρά σε 100 και αποθηκεύει την παρουσίαση στο `presentation_out.pptx`. Η επεξεργασία τιμών κελιών μπορεί να ενημερώσει το συνδεδεμένο εξωτερικό αρχείο XLSX· χρησιμοποιήστε ένα αντίγραφο εάν πρέπει να διατηρήσετε την αρχική βιβλιοθήκη.
 
 ```php
-  # Δημιουργεί μια εμφάνιση της κλάσης Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $chartData = $chart->getChartData();
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell()->setValue(100);
-    $pres->save("presentation_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $series = $chart->getChartData()->getSeries();
+        if (java_values($series->size()) > 0 && java_values($series->get_Item(0)->getDataPoints()->size()) > 0) {
+            $valueCell = $series->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell();
+            if (!java_is_null($valueCell)) {
+                $valueCell->setValue(100);
+                $presentation->save("presentation_out.pptx", SaveFormat::Pptx);
+            } else {
+                echo "The first data point is not linked to a workbook cell.", PHP_EOL;
+            }
+        } else {
+            echo "The chart has no data points to edit.", PHP_EOL;
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Ανάκτηση βιβλίου εργασίας από την κρυφή μνήμη διαγράμματος**
+### **Ανάκτηση Βιβλιοθήκης από την Κρυφή Μνήμη Γραφήματος**
 
-Εάν ένα διάγραμμα χρησιμοποιεί ένα εξωτερικό βιβλίο εργασίας που λείπει ή δεν είναι διαθέσιμο, το Aspose.Slides μπορεί να ανακατασκευάσει το βιβλίο εργασίας του διαγράμματος από τα δεδομένα που έχουν αποθηκευτεί στην κρυφή μνήμη της παρουσίασης. Δημιουργήστε [LoadOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/), ρυθμίστε το με [SpreadsheetOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/spreadsheetoptions/), και καλέστε [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/el/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) με `true` πριν ανοίξετε την παρουσίαση.
+Εάν ένα γράφημα χρησιμοποιεί εξωτερική βιβλιοθήκη που λείπει ή δεν είναι διαθέσιμη, το Aspose.Slides μπορεί να ανασυνθέσει τη βιβλιοθήκη γραφήματος από τα δεδομένα που είναι αποθηκευμένα στην κρυφή μνήμη της παρουσίασης. Δημιουργήστε ένα [LoadOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/), καλέστε το [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), και ορίστε το [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/el/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) σε `true` πριν ανοίξετε την παρουσίαση.
+
+Το παρακάτω παράδειγμα PHP ανοίγει το `presentation.pptx`, του οποίου το πρώτο σχήμα στην πρώτη διαφάνεια πρέπει να είναι ένα γράφημα που αναφέρεται σε μη διαθέσιμη εξωτερική βιβλιοθήκη, και προσπελάζει τα ανακτημένα δεδομένα μέσω του [Chart::getChartData](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/getchartdata/) και του [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+use aspose\slides\LoadOptions;
+
 $spreadsheetOptions = new SpreadsheetOptions();
 $spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
 
@@ -315,39 +474,46 @@ $loadOptions->setSpreadsheetOptions($spreadsheetOptions);
 
 $presentation = new Presentation("presentation.pptx", $loadOptions);
 try {
-    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    # Διαβάστε ή τροποποιήστε τα δεδομένα του ανακτημένου βιβλίου εργασίας εδώ.
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+        // Διαβάστε ή τροποποιήστε τα ανακτημένα δεδομένα βιβλιοθήκης εδώ.
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Αν το εξωτερικό βιβλίο εργασίας δεν είναι διαθέσιμο και η ανάκτηση είναι απενεργοποιημένη, το Aspose.Slides προκαλεί εξαίρεση. Ενεργοποιήστε την ανάκτηση μόνο όταν η χρήση των δεδομένων από την κρυφή μνήμη είναι αποδεκτή εναλλακτική λύση, επειδή η κρυφή μνήμη ενδέχεται να μην περιέχει αλλαγές που έγιναν στο εξωτερικό βιβλίο εργασίας μετά το τελευταίο ενημερωμένο της παρουσίασης.
+Εάν η εξωτερική βιβλιοθήκη δεν είναι διαθέσιμη και η ανάκτηση είναι απενεργοποιημένη, το Aspose.Slides προκαλεί εξαίρεση. Ενεργοποιήστε την ανάκτηση μόνο όταν η χρήση των δεδομένων από την κρυφή μνήμη του γραφήματος αποτελεί αποδεκτό εναλλακτικό σενάριο, επειδή η κρυφή μνήμη μπορεί να μην περιέχει αλλαγές που έγιναν στη βιβλιοθήκη μετά την τελευταία ενημέρωση της παρουσίασης.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να προσδιορίσω αν ένα συγκεκριμένο διάγραμμα είναι συνδεδεμένο με εξωτερικό ή ενσωματωμένο βιβλίο εργασίας;**
+**Μπορώ να προσδιορίσω αν ένα συγκεκριμένο γράφημα είναι συνδεδεμένο με εξωτερική ή ενσωματωμένη βιβλιοθήκη;**
 
-Ναι. Ένα διάγραμμα διαθέτει έναν [data source type](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getdatasourcetype/) και μια [path to an external workbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getexternalworkbookpath/); εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
+Ναι. Ένα γράφημα διαθέτει έναν [τύπο πηγής δεδομένων](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getdatasourcetype/) και μια [διαδρομή σε εξωτερική βιβλιοθήκη](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Εάν η πηγή είναι εξωτερική βιβλιοθήκη, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
 
-**Υποστηρίζονται σχετικές διαδρομές σε εξωτερικά βιβλία εργασίας και πώς αποθηκεύονται;**
+**Υποστηρίζονται οι σχετικές διαδρομές προς εξωτερικές βιβλιοθήκες και πώς αποθηκεύονται;**
 
-Ναι. Εάν καθορίσετε μια σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απόλυτη διαδρομή. Αυτό διευκολύνει τη φορητότητα του έργου· ωστόσο, πρέπει να γνωρίζετε ότι η παρουσίαση θα αποθηκεύσει την απόλυτη διαδρομή στο αρχείο PPTX.
+Ναι. Εάν ορίσετε σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απόλυτη. Η παρουσίαση αποθηκεύει την απόλυτη διαδρομή στο αρχείο PPTX, οπότε η μετακίνηση της βιβλιοθήκης μπορεί να απαιτεί ενημέρωση του συνδέσμου.
 
-**Μπορώ να χρησιμοποιήσω βιβλία εργασίας που βρίσκονται σε δικτυακούς πόρους/διαμοιρασμούς;**
+**Μπορώ να χρησιμοποιήσω βιβλιοθήκες που βρίσκονται σε δικτυακούς πόρους/κοινόχρηστους δίσκους;**
 
-Ναι, τέτοια βιβλία εργασίας μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η άμεση επεξεργασία απομακρυσμένων βιβλίων εργασίας από το Aspose.Slides δεν υποστηρίζεται· μπορούν μόνο να λειτουργούν ως πηγή.
+Ναι, τέτοιες βιβλιοθήκες μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η άμεση επεξεργασία απομακρυσμένων βιβλιοθηκών από το Aspose.Slides δεν υποστηρίζεται· μπορούν μόνο να χρησιμοποιηθούν ως πηγή.
 
-**Αντικαθιστά το Aspose.Slides το εξωτερικό XLSX κατά την αποθήκευση της παρουσίασης;**
+**Το Aspose.Slides αντικαθιστά το εξωτερικό XLSX όταν αποθηκεύει την παρουσίαση;**
 
-Όχι. Η παρουσίαση αποθηκεύει έναν [link to the external file](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getexternalworkbookpath/) και τον χρησιμοποιεί για την ανάγνωση δεδομένων. Το εξωτερικό αρχείο δεν τροποποιείται όταν αποθηκεύεται η παρουσίαση.
+Η παρουσίαση αποθηκεύει έναν [σύνδεσμο στο εξωτερικό αρχείο](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Η επεξεργασία δεδομένων γραφήματος που βασίζονται σε κελιά μπορεί επίσης να ενημερώσει το τοπικό αρχείο XLSX. Χρησιμοποιήστε ένα αντίγραφο της βιβλιοθήκης εάν το αρχικό πρέπει να παραμείνει αμετάβλητο.
 
-**Τι πρέπει να κάνω αν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό;**
+**Τι πρέπει να κάνω εάν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό;**
 
-Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης κατά τη σύνδεση. Μια συνήθης προσέγγιση είναι να αφαιρέσετε την προστασία εκ των προτέρων ή να προετοιμάσετε ένα αποκρυπτογραφημένο αντίγραφο (π.χ., χρησιμοποιώντας [Aspose.Cells](/cells/php-java/)) και να συνδέσετε σε αυτό το αντίγραφο.
+Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης όταν γίνεται σύνδεση. Μια κοινή προσέγγιση είναι η αφαίρεση της προστασίας εκ των προτέρων ή η δημιουργία ενός αποκρυπτογραφημένου αντιγράφου (π.χ. με τη χρήση [Aspose.Cells](https://reference.aspose.com/cells/java/)) και η σύνδεση σε αυτό το αντίγραφο.
 
-**Μπορούν πολλά διαγράμματα να αναφέρονται στο ίδιο εξωτερικό βιβλίο εργασίας;**
+**Μπορούν πολλά γραφήματα να αναφέρονται στην ίδια εξωτερική βιβλιοθήκη;**
 
-Ναι. Κάθε διάγραμμα αποθηκεύει το δικό του σύνδεσμο. Αν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντικατοπτρίζεται σε κάθε διάγραμμα την επόμενη φορά που τα δεδομένα φορτωθούν.
+Ναι. Κάθε γράφημα αποθηκεύει τον δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντανακλάται σε κάθε γράφημα την επόμενη φορά που θα φορτωθούν τα δεδομένα.

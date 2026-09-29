@@ -1,45 +1,45 @@
 ---
-title: Quản lý Dữ liệu Chuỗi Biểu đồ trong Bản trình chiếu trên Android
-linktitle: Chuỗi Dữ liệu
+title: Quản lý Series Dữ liệu Biểu đồ trong Bản trình bày trên Android
+linktitle: Series Dữ liệu
 type: docs
 url: /vi/androidjava/chart-series/
 keywords:
-- chuỗi biểu đồ
-- chồng lấn chuỗi
-- màu chuỗi
-- tên chuỗi
+- series biểu đồ
+- độ tràn series
+- màu series
+- tên series
 - điểm dữ liệu
 - ô workbook
-- khoảng cách chuỗi
+- khoảng trống series
 - giá trị âm
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý chuỗi biểu đồ, các điểm dữ liệu, ô workbook, định dạng, chồng lấn, độ rộng khoảng cách và giá trị âm trong bản trình chiếu trên Android."
+description: "Tìm hiểu cách quản lý series biểu đồ, các điểm dữ liệu, ô workbook, định dạng, độ tràn, độ rộng khoảng trống và giá trị âm trong các bản trình bày trên Android."
 ---
 ## **Tổng quan**
 
-Biểu đồ lưu trữ dữ liệu đã vẽ trong một workbook dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/) trong chuỗi tham chiếu tới một hoặc nhiều ô workbook. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các chuỗi. Do đó, tên chuỗi, các danh mục và giá trị điểm đều được kết nối tới các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
+Một biểu đồ lưu trữ dữ liệu đã vẽ trong một workbook dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/) trong series tham chiếu tới một hoặc nhiều ô workbook. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các series. Do đó, tên series, các danh mục và giá trị điểm được kết nối với các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
 
-Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên chuỗi, cột 0 cho tên danh mục và các ô còn lại cho giá trị chuỗi. Các chỉ số worksheet, hàng và cột được truyền vào [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) là chỉ số bắt đầu từ 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên giả định mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản thuyết trình đã tải, hãy kiểm tra các ô được chuỗi, danh mục và điểm dữ liệu tham chiếu trước khi thay đổi giá trị workbook.
+Đối với một biểu đồ loại danh mục tiêu biểu, workbook mặc định sử dụng hàng 0 cho tên series, cột 0 cho tên danh mục và các ô còn lại cho giá trị series. Các chỉ mục worksheet, hàng và cột được truyền cho [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) là dựa trên số 0. Bố cục này hữu ích khi bạn tạo một biểu đồ với dữ liệu mặc định, nhưng đừng giả định rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình bày đã tải, hãy kiểm tra các ô được series, danh mục và các điểm dữ liệu tham chiếu trước khi thay đổi giá trị workbook.
 
 Cài đặt biểu đồ có ba phạm vi khác nhau:
 
-- Cài đặt cấp chuỗi, chẳng hạn như [IChartSeries.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getFormat--), cung cấp giao diện mặc định cho tất cả các điểm trong một chuỗi.
-- Cài đặt điểm dữ liệu, chẳng hạn như [IChartDataPoint.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), ghi đè giao diện chuỗi cho một điểm.
-- Cài đặt nhóm áp dụng cho các chuỗi tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/). Truy cập nhóm thông qua [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) khi bạn cần thiết lập các tùy chọn như chồng lấn hoặc độ rộng khoảng cách.
+- Cài đặt mức series, chẳng hạn như [IChartSeries.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getFormat--), cung cấp giao diện mặc định cho tất cả các điểm trong một series.
+- Cài đặt mức điểm dữ liệu, chẳng hạn như [IChartDataPoint.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), ghi đè giao diện series cho một điểm.
+- Cài đặt nhóm áp dụng cho các series tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/). Truy cập nhóm qua [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) khi bạn cần thiết lập các tùy chọn như độ tràn hoặc độ rộng khoảng trống.
 
-Khi không có màu nền điểm hoặc chuỗi nào được đặt một cách rõ ràng, kiểu biểu đồ và chủ đề sẽ xác định giao diện tự động. Khi cả định dạng chuỗi và điểm đều tồn tại, định dạng điểm sẽ ưu tiên cho điểm đó.
+Khi không có màu nền điểm hoặc series nào được chỉ định rõ ràng, kiểu biểu đồ và theme sẽ quyết định giao diện tự động. Khi cả định dạng series và điểm đều tồn tại, định dạng điểm sẽ có ưu tiên cho điểm đó.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Đặt chồng lấn chuỗi biểu đồ**
+## **Thiết lập Độ Tràn của Series Biểu Đồ**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getOverlap--) báo cáo mức độ chồng lấn của các thanh hoặc cột trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm chuỗi cha. Sử dụng [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) để cập nhật mọi chuỗi tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột được nhóm lại; nó không ảnh hưởng đến các nhóm chuỗi không liên quan trong biểu đồ kết hợp.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getOverlap--) báo cáo mức độ các thanh hoặc cột chồng lên nhau trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm series cha. Sử dụng [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) để cập nhật mọi series tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột nhóm; nó không ảnh hưởng tới các nhóm series không liên quan trong biểu đồ kết hợp.
 
-Ví dụ sau đặt mức chồng lấn cho nhóm chứa chuỗi đầu tiên:
+Ví dụ sau đặt độ tràn cho nhóm chứa series đầu tiên:
 
 ```java
 import com.aspose.slides.*;
@@ -52,7 +52,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Biểu đồ mới chứa các chuỗi mẫu, danh mục và giá trị.
+    // Biểu đồ mới chứa các series mẫu, danh mục và giá trị.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -66,13 +66,13 @@ try {
 
 Kết quả:
 
-![Chồng lấn chuỗi](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Thay đổi màu nền chuỗi**
+## **Thay đổi Màu Nền của Series**
 
-Sử dụng [IChartSeries.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getFormat--) để đặt màu nền mặc định cho toàn bộ một chuỗi. Nếu một điểm đã có màu nền rõ ràng, cài đặt [IChartDataPoint.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) của nó sẽ ghi đè màu nền chuỗi cho điểm đó.
+Sử dụng [IChartSeries.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getFormat--) để đặt màu nền mặc định cho toàn bộ một series. Nếu một điểm đã có màu nền rõ ràng, cài đặt [IChartDataPoint.getFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) sẽ ghi đè màu nền series cho điểm đó.
 
-Ví dụ sau áp dụng màu nền xanh đậm đặc cho chuỗi đầu tiên:
+Ví dụ sau áp dụng màu nền xanh đậm đặc cho series đầu tiên:
 
 ```java
 import com.aspose.slides.*;
@@ -99,11 +99,11 @@ try {
 
 Kết quả:
 
-![Màu của chuỗi](series_color.png)
+![The color of the series](series_color.png)
 
-## **Thay đổi tên chuỗi**
+## **Thay đổi Tên Series**
 
-Tên chuỗi được lưu trong workbook dữ liệu biểu đồ và thường được hiển thị trong chú giải. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của chuỗi đầu tiên. Các hằng số được đặt tên trong ví dụ sau làm rõ cấu trúc đó:
+Tên series được lưu trong workbook dữ liệu biểu đồ và thường hiển thị trong chú giải. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 ở hàng 0, cột 1 chứa tên của series đầu tiên. Các hằng số đặt tên trong ví dụ sau làm cho cấu trúc này rõ ràng:
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-Bạn cũng có thể cập nhật ô đã được tham chiếu bởi [IChartSeries.getName](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getName--). Cách tiếp cận này tránh việc giả định một hàng và cột cụ thể trong một biểu đồ hiện có:
+Bạn cũng có thể cập nhật ô đã được [IChartSeries.getName](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getName--) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong một biểu đồ đã tồn tại:
 
 ```java
 import com.aspose.slides.*;
@@ -156,13 +156,13 @@ try {
 
 Kết quả:
 
-![Tên chuỗi](series_name.png)
+![The series name](series_name.png)
 
-## **Lấy màu nền chuỗi tự động**
+## **Lấy Màu Nền Series Tự Động**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) trả về màu được tính dựa trên chỉ số chuỗi và kiểu biểu đồ dưới dạng một số nguyên màu ARGB của Android. Đây là màu được sử dụng khi màu nền chuỗi chưa được xác định rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu nền mới.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) trả về màu được tính dựa trên chỉ số series và kiểu biểu đồ dưới dạng số nguyên màu ARGB Android. Đây là màu được sử dụng khi màu nền series chưa được định nghĩa rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu mới.
 
-Ví dụ sau in ra số nguyên màu tự động của mỗi chuỗi mặc định:
+Ví dụ sau in ra số nguyên màu tự động của mỗi series mặc định:
 
 ```java
 import com.aspose.slides.*;
@@ -186,13 +186,13 @@ try {
 }
 ```
 
-Các giá trị số nguyên chính xác phụ thuộc vào kiểu biểu đồ và chủ đề.
+Các giá trị số nguyên cụ thể phụ thuộc vào kiểu biểu đồ và theme.
 
-## **Đặt màu nền đảo ngược cho một chuỗi biểu đồ**
+## **Đặt Màu Nền Đảo Ngược cho Series Biểu Đồ**
 
-Đối với các chuỗi thanh, cột và bong bóng, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) có thể hiển thị các giá trị âm bằng một màu nền khác. Đặt màu nền chuỗi thường thành màu đặc, bật chế độ đảo ngược, và gán màu cho giá trị âm qua [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Các số âm vẫn không thay đổi trong workbook; chỉ màu hiển thị của chúng thay đổi.
+Đối với các series thanh, cột và bubble, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) có thể hiển thị các giá trị âm bằng một màu nền khác. Đặt màu nền series thông thường thành đặc, bật chế độ đảo ngược, và chỉ định màu cho giá trị âm qua [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Các số âm vẫn không thay đổi trong workbook; chỉ màu hiển thị thay đổi.
 
-Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một chuỗi. Hàng 0 của worksheet chứa tên chuỗi, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
+Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một series. Hàng worksheet 0 chứa tên series, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
 
 ```java
 import com.aspose.slides.*;
@@ -249,9 +249,9 @@ try {
 
 Kết quả:
 
-![Màu nền đặc đảo ngược](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Bạn có thể bật chế độ đảo ngược cho một điểm thông qua [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Trong ví dụ sau, chế độ đảo ngược bị tắt cho chuỗi và chỉ bật cho điểm được chọn. Điểm này cũng được gán một giá trị âm để hiệu ứng hiển thị:
+Bạn có thể bật đảo ngược cho một điểm thông qua [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Trong ví dụ sau, đảo ngược bị tắt cho series và chỉ bật cho điểm đã chọn. Điểm này cũng được gán giá trị âm để hiệu ứng hiển thị:
 
 ```java
 import com.aspose.slides.*;
@@ -285,11 +285,11 @@ try {
 }
 ```
 
-## **Xóa giá trị của một điểm dữ liệu cụ thể**
+## **Xóa Giá Trị Điểm Dữ Liệu Cụ Thể**
 
-Để làm một điểm trống mà không xóa các điểm khác, đặt ô workbook hỗ trợ của nó thành `null`. Đối với biểu đồ cột, giá trị đã vẽ có thể truy cập thông qua [IChartDataPoint.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Điểm dữ liệu vẫn ở vị trí danh mục giống nhau, nhưng biểu đồ sẽ xem giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
+Để làm trống một điểm mà không xóa các điểm khác, đặt ô workbook tương ứng của nó thành `null`. Đối với biểu đồ cột, giá trị đã vẽ có thể lấy qua [IChartDataPoint.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Điểm dữ liệu vẫn giữ vị trí danh mục, nhưng biểu đồ xem giá trị của nó là trống theo cài đặt trống của biểu đồ.
 
-Ví dụ sau chỉ xóa điểm thứ hai trong chuỗi đầu tiên:
+Ví dụ sau xóa chỉ điểm thứ hai trong series đầu tiên:
 
 ```java
 import com.aspose.slides.*;
@@ -314,15 +314,17 @@ try {
 }
 ```
 
-Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bong bóng cũng sử dụng một ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [IChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) khi bạn muốn giữ lại các điểm khác, vì phương thức đó sẽ xóa mọi điểm dữ liệu khỏi bộ sưu tập.
+Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bubble còn sử dụng ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn xóa. Đừng gọi [IChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) khi bạn muốn giữ lại các điểm khác, vì phương thức đó xóa mọi điểm dữ liệu trong bộ sưu tập.
 
-## **Kiểm soát việc hiển thị các ô trống**
+## **Kiểm Soát Hiển Thị Các Ô Trống**
 
-Một ô workbook trống đại diện cho dữ liệu bị thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [IChartDataCell.setValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) với `null` để làm ô trống. Số 0 vẫn là 0 bất kể cài đặt ô trống là gì.
+Các ô ẩn chứa giá trị là một trường hợp riêng biệt so với các ô trống. Để bao gồm hoặc loại trừ dữ liệu từ các hàng và cột worksheet ẩn, xem [Bao gồm dữ liệu từ các hàng và cột ẩn](/slides/vi/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Sử dụng [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) để chọn cách biểu đồ hiển thị các ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách các ô trống được vẽ, mà không lấp đầy ô workbook trống bằng số 0 hoặc một giá trị nội suy.
+Một ô workbook trống đại diện cho dữ liệu thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [IChartDataCell.setValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) với `null` để làm ô trống. Số không vẫn là không bất kể cài đặt ô trống.
 
-Ví dụ tự chứa sau tạo một biểu đồ đường với một chuỗi, xóa giá trị cho Ngày 3, và lưu cùng một biểu đồ với mỗi chế độ. Không cần tệp đầu vào. [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/) sử dụng worksheet 0, cột 0 cho nhãn danh mục, và cột 1 cho các giá trị; hàng 0 chứa tên chuỗi. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
+Sử dụng [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) để lựa chọn cách biểu đồ hiển thị các ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách vẽ các khoảng trống, mà không điền ô workbook trống bằng số 0 hoặc giá trị nội suy.
+
+Ví dụ tự chứa sau tạo một biểu đồ đường với một series, xóa giá trị cho Ngày 3, và lưu cùng một biểu đồ với mỗi chế độ. Không cần file đầu vào. [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/) sử dụng worksheet 0, cột 0 cho nhãn danh mục, và cột 1 cho giá trị; hàng 0 chứa tên series. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +351,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Để Ngày 3 thực sự trống, đồng thời giữ lại danh mục và điểm dữ liệu của nó.
+    // Để Ngày 3 thực sự trống, trong khi vẫn giữ lại danh mục và điểm dữ liệu của nó.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -363,19 +365,19 @@ try {
 }
 ```
 
-Mỗi tệp đầu ra lưu chế độ được gán trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, gán chế độ mong muốn và lưu bản thuyết trình một lần thay vì lặp lại qua các chế độ.
+Mỗi file đầu ra lưu chế độ được gán trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, gán chế độ mong muốn và lưu bản trình bày một lần thay vì lặp lại các chế độ.
 
-So sánh bên dưới hiển thị cùng một dữ liệu trong cả ba tệp. Ngày 3 là trống trong workbook trong mọi trường hợp:
+So sánh dưới đây cho thấy cùng một dữ liệu trong ba file. Ngày 3 là trống trong workbook trong mọi trường hợp:
 
-![Biểu đồ đường với dữ liệu giống nhau: Gap làm đường bị ngắt tại Ngày 3, Zero làm đường hạ xuống 0, và Span nối Ngày 2 tới Ngày 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Hiệu ứng hiển thị phụ thuộc vào loại biểu đồ. Biểu đồ đường giúp so sánh ba chế độ dễ dàng. Biểu đồ thanh và cột không có đường để nối qua một danh mục thiếu, vì vậy `Span` không thể tạo đoạn nối như trên; một cột thiếu và một cột có chiều cao zero cũng có thể trông giống nhau. Tương tự, một biểu đồ scatter chỉ có các điểm đánh dấu không có đường nối. Đừng mong đợi ba kết quả khác nhau cho mọi loại biểu đồ; hãy kiểm tra kết quả cho loại bạn sử dụng.
+Hiệu ứng hiển thị phụ thuộc vào loại biểu đồ. Biểu đồ đường làm cho ba chế độ dễ so sánh. Biểu đồ thanh và cột không có đường để nối qua một danh mục thiếu, vì vậy `Span` không tạo được đoạn nối như trên; một cột thiếu và một cột có chiều cao 0 cũng có thể trông giống nhau. Tương tự, biểu đồ scatter chỉ có dấu chấm không có đường nối. Đừng mong đợi ba kết quả riêng biệt cho mọi loại biểu đồ; hãy kiểm tra đầu ra cho loại bạn đang dùng.
 
-## **Đặt độ rộng khoảng cách chuỗi**
+## **Thiết lập Độ Rộng Khoảng Trống Giữa Series**
 
-Độ rộng khoảng cách là khoảng không gian giữa các cụm thanh hoặc cột liền kề, được biểu thị dưới dạng phần trăm của độ rộng thanh hoặc cột. Giống như chồng lấn, nó thuộc về nhóm chuỗi cha chứ không phải một chuỗi duy nhất. Gọi [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) một lần cho nhóm. Giá trị lớn hơn tạo nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
+Độ rộng khoảng trống là không gian giữa các cụm thanh hoặc cột liền kề, biểu thị dưới dạng phần trăm chiều rộng thanh hoặc cột. Giống như độ tràn, nó thuộc về nhóm series cha chứ không phải một series riêng. Gọi [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) một lần cho nhóm. Giá trị lớn hơn tạo khoảng cách rộng hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
 
-Ví dụ sau thay đổi độ rộng khoảng cách và chỉ lưu bản thuyết trình cuối cùng:
+Ví dụ sau thay đổi độ rộng khoảng trống và chỉ lưu bản trình bày cuối cùng:
 
 ```java
 import com.aspose.slides.*;
@@ -401,46 +403,46 @@ try {
 
 Kết quả:
 
-![Độ rộng khoảng cách](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **Câu hỏi thường gặp**
 
-**Các loại biểu đồ nào hỗ trợ chuỗi dữ liệu?**
+**Các loại biểu đồ nào hỗ trợ series dữ liệu?**
 
-Tất cả các loại biểu đồ được biểu diễn bởi enumeration [ChartType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng các chuỗi của chúng không đồng nhất về cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục sử dụng danh mục và giá trị, biểu đồ scatter sử dụng giá trị X và Y, và biểu đồ bong bóng thêm kích thước bong bóng. Sử dụng phương pháp tạo điểm dữ liệu phù hợp với loại chuỗi. Các tùy chọn như chồng lấn và độ rộng khoảng cách chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
+Tất cả các loại biểu đồ được đại diện bởi enumeration [ChartType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng series của chúng không phải luôn có cùng cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục dùng danh mục và giá trị, biểu đồ scatter dùng giá trị X và Y, và biểu đồ bubble còn thêm kích thước bong bóng. Sử dụng phương pháp tạo điểm dữ liệu phù hợp với loại series. Các tùy chọn như độ tràn và độ rộng khoảng trống chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
 
-**Nhóm chuỗi biểu đồ là gì?**
+**Series group là gì?**
 
-Một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/) chứa các chuỗi tương thích chia sẻ các cài đặt vẽ ở mức độ nhóm. Một biểu đồ kết hợp có thể chứa hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một chuỗi không nhất thiết thay đổi mọi chuỗi trong biểu đồ.
+Một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/) chứa các series tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một series không nhất thiết thay đổi mọi series trong biểu đồ.
 
 **Biểu đồ mới tạo có chứa dữ liệu mặc định không?**
 
-Có. Mặc định, [IShapeCollection.addChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) tạo các chuỗi mẫu, danh mục và giá trị. Bạn có thể chỉnh sửa các ô này hoặc xóa cả bộ sưu tập chuỗi và danh mục trước khi thêm một bộ dữ liệu hoàn toàn tùy chỉnh. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
+Có. Theo mặc định, [IShapeCollection.addChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) tạo các series, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả hai bộ sưu tập series và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
 
-**Các đối tượng biểu đồ được kết nối với các ô workbook như thế nào?**
+**Các đối tượng biểu đồ được kết nối với ô workbook như thế nào?**
 
-Tên chuỗi, nhãn danh mục và giá trị điểm dữ liệu tham chiếu các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ các hàng danh mục và hàng giá trị chuỗi đồng nhất để mỗi điểm được vẽ dưới danh mục mong muốn.
+Tên series, nhãn danh mục và giá trị điểm dữ liệu tham chiếu các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/). Thay đổi ô được tham chiếu sẽ cập nhật thành phần biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ các hàng danh mục và các hàng giá trị series đồng bộ để mỗi điểm được vẽ dưới danh mục dự định.
 
-**Làm thế nào để xóa một điểm thay vì toàn bộ chuỗi?**
+**Làm sao để xóa một điểm mà không xóa toàn bộ series?**
 
-Đặt ô giá trị tương ứng thành `null` để giữ vị trí danh mục của điểm đó như một điểm trống. Chỉ sử dụng [IChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) khi bạn muốn xóa mọi điểm trong chuỗi đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi chuỗi để các giá trị của chúng vẫn đồng nhất với bộ sưu tập danh mục.
+Đặt ô giá trị liên quan thành `null` để giữ vị trí danh mục của điểm đó dưới dạng điểm trống. Sử dụng [IChartDataPointCollection.clear](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) chỉ khi bạn muốn loại bỏ mọi điểm trong series đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi series để giá trị của chúng vẫn được căn chỉnh với bộ sưu tập danh mục.
 
 **Các điểm trống được hiển thị như thế nào?**
 
-Kết quả phụ thuộc vào loại biểu đồ và giá trị được cấu hình qua [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Các biểu đồ hỗ trợ có thể hiển thị các ô trống dưới dạng khoảng trống, giá trị zero, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu bị thiếu trong bản thuyết trình của bạn. Xem [Control the Display of Empty Cells](#control-the-display-of-empty-cells) để có ví dụ đầy đủ và so sánh trực quan.
+Kết quả phụ thuộc vào loại biểu đồ và giá trị được cấu hình qua [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Các biểu đồ được hỗ trợ có thể hiển thị khoảng trống dưới dạng khe hở, giá trị 0, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình bày của bạn. Xem mục **Kiểm Soát Hiển Thị Các Ô Trống** để xem ví dụ đầy đủ và so sánh trực quan.
 
 **Giá trị âm được định dạng như thế nào?**
 
-Đối với các chuỗi thanh, cột và bong bóng được hỗ trợ, gọi [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) và đặt màu trả về bởi [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Các phương thức này ảnh hưởng đến định dạng, không phải các giá trị số được lưu.
+Đối với các series thanh, cột và bubble được hỗ trợ, gọi [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) và đặt màu trả về bởi [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Các phương pháp này ảnh hưởng đến định dạng, không phải các giá trị số được lưu.
 
-**Định dạng nào được ưu tiên khi cả chuỗi và điểm đều được định dạng?**
+**Khi cả series và điểm đều được định dạng, định dạng nào thắng?**
 
-Định dạng điểm dữ liệu rõ ràng sẽ ưu tiên cho điểm đó. Các điểm khác tiếp tục sử dụng định dạng chuỗi rõ ràng hoặc, khi định dạng chuỗi không được xác định, kiểu và chủ đề biểu đồ tự động. Các cài đặt nhóm như chồng lấn và độ rộng khoảng cách kiểm soát bố cục và không phải là các ghi đè định dạng cấp điểm.
+Định dạng điểm dữ liệu rõ ràng có ưu tiên cho điểm đó. Các điểm khác vẫn sử dụng định dạng series rõ ràng hoặc, khi series không được định nghĩa, kiểu và theme biểu đồ tự động. Các cài đặt nhóm như độ tràn và độ rộng khoảng trống điều khiển bố cục và không phải là ghi đè định dạng mức điểm.
 
-**Có giới hạn số lượng chuỗi mà một biểu đồ có thể chứa không?**
+**Có giới hạn số lượng series một biểu đồ có thể chứa không?**
 
-Aspose.Slides không đặt giới hạn cố định cho số lượng chuỗi. Thực tế, các hạn chế của tệp bản thuyết trình, bộ nhớ khả dụng, thời gian render và khả năng đọc hiểu biểu đồ quyết định giới hạn hữu ích.
+Aspose.Slides không áp đặt một giới hạn cố định riêng cho số series. Trong thực tế, các ràng buộc của tệp trình bày, bộ nhớ khả dụng, thời gian render và khả năng đọc của biểu đồ quyết định giới hạn hữu dụng.
 
-**Tôi nên thay đổi gì khi các cột quá gần nhau hoặc quá xa nhau?**
+**Nên thay đổi gì khi các cột quá gần nhau hoặc quá xa?**
 
-Gọi [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) trên nhóm chuỗi cha phù hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm giá trị để đưa các cụm lại gần nhau hơn.
+Gọi [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) trên nhóm series cha thích hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm để làm các cụm gần nhau hơn.

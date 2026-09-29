@@ -1,43 +1,43 @@
 ---
-title: مدیریت سری‌های داده نمودار در ارائه‌ها با C++
-linktitle: سری‌های داده
+title: مدیریت مجموعه داده‌های نمودار در ارائه‌ها با C++
+linktitle: مجموعه داده‌ها
 type: docs
 url: /fa/cpp/chart-series/
 keywords:
-- سری‌های نمودار
-- هم‌پوشانی سری
-- رنگ سری
+- مجموعه نمودار
+- همپوشانی مجموعه
+- رنگ مجموعه
 - رنگ دسته
-- نام سری
+- نام مجموعه
 - نقطه داده
-- فاصله سری
-- پاورپوینت
+- فاصله مجموعه
+- PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "چگونه می‌توان سری‌های نموداری، نقاط داده، سلول‌های کارکتاب، قالب‌بندی، هم‌پوشانی، عرض فاصله و مقادیر منفی را در ارائه‌ها با C++ مدیریت کرد."
+description: "بیاموزید چگونه مجموعه‌های نمودار، نقاط داده، سلول‌های کتاب‌کار، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی را در ارائه‌ها با C++ مدیریت کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-یک نمودار داده‌های ترسیم‌شده خود را در یک کارکتاب داده‌های نمودار ذخیره می‌کند. یک [IChartSeries](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/) نمایانگر یک مجموعه از مقادیر مرتبط است و هر [IChartDataPoint](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/) در این سری به یک یا چند سلول کارکتاب ارجاع می‌دهد. اشیای [IChartCategory](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartcategory/) برچسب‌ها یا مقادیر گروه‌بندی را که توسط سری‌ها به اشتراک گذاشته می‌شوند فراهم می‌کنند. بنابراین نام سری، دسته‌ها و مقادیر نقاط به اشیای [IChartDataCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/) متصل هستند نه فقط به عنوان متن نمایشی ذخیره می‌شوند.
+یک نمودار داده‌های ترسیم‌شده خود را در یک کتاب‌کار داده نمودار ذخیره می‌کند. یک [IChartSeries](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/) یک مجموعه از مقادیر مرتبط را نمایش می‌دهد و هر [IChartDataPoint](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/) در این مجموعه به یک یا چند سلول کتاب‌کار ارجاع می‌دهد. اشیاء [IChartCategory](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartcategory/) برچسب‌ها یا مقادیر گروه‌بندی مشترک توسط مجموعه‌ها را فراهم می‌کنند. بنابراین نام مجموعه، دسته‌بندی‌ها و مقادیر نقاط به اشیاء [IChartDataCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/) متصل هستند نه اینکه فقط به‌عنوان متن نمایش ذخیره شوند.
 
-برای یک نمودار دسته‌ای معمولی، کارکتاب پیش‌فرض از ردیف 0 برای نام‌های سری، ستون 0 برای نام‌های دسته و سلول‌های باقی‌مانده برای مقادیر سری استفاده می‌کند. شاخص‌های کاربرگ، ردیف و ستون که به [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) پاس داده می‌شوند، صفر‑مبنا هستند. این ساختار زمانی که نمودار را با داده‌های پیش‌فرض ایجاد می‌کنید مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کارکتاب، سلول‌های ارجاع‌داده‌شده توسط سری‌ها، دسته‌ها و نقاط داده را بررسی کنید.
+در یک نمودار دسته‌ای معمولی، کتاب‌کار پیش‌فرض ردیف 0 را برای نام مجموعه‌ها، ستون 0 را برای نام دسته‌ها و بقیه سلول‌ها را برای مقادیر مجموعه‌ها استفاده می‌کند. شاخص‌های کاربرگ، ردیف و ستون که به [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) پاس داده می‌شوند، بر پایه صفر هستند. این چیدمان هنگام ایجاد نمودار با داده‌های پیش‌فرض مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کتاب‌کار، سلول‌های ارجاع‌شده توسط مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
 
-تنظیمات نمودار در سه حوزه متفاوت وجود دارند:
+Chart settings have three different scopes:
 
-- تنظیمات سطح سری، مانند [IChartSeries::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_format/)، ظاهر پیش‌فرض همه نقاط یک سری را فراهم می‌کند.
-- تنظیمات نقطه‑داده، مانند [IChartDataPoint::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/get_format/)، ظاهر سری را برای یک نقطه بازنویسی می‌کند.
-- تنظیمات گروهی برای سری‌های سازگاری که به همان [IChartSeriesGroup](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/) تعلق دارند اعمال می‌شود. برای تنظیم گزینه‌هایی مانند overlap یا gap width، از طریق [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) به گروه دسترسی پیدا کنید.
+- تنظیمات سطح مجموعه، مانند [IChartSeries::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_format/) ظاهر پیش‌فرض را برای تمام نقاط یک مجموعه فراهم می‌کند.
+- تنظیمات نقطه داده، مانند [IChartDataPoint::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/get_format/) ظاهر مجموعه را برای یک نقطه بازنویسی می‌کند.
+- تنظیمات گروهی بر مجموعه‌های سازگار که به همان [IChartSeriesGroup](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/) تعلق دارند اعمال می‌شود. هنگامی که نیاز به تنظیم گزینه‌هایی مانند همپوشانی یا عرض فاصله دارید، گروه را از طریق [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) دسترسی پیدا کنید.
 
-وقتی هیچ پرنگی صریح برای نقطه یا سری تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. هنگامی که هم تنظیمات سری و هم تنظیمات نقطه موجود باشد، تنظیمات نقطه برای آن نقطه در اولویت است.
+وقتی پرشدگی صریح برای نقطه یا مجموعه تنظیم نشده باشد، استایل و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هم فرمت‌بندی مجموعه و هم نقطه وجود داشته باشد، فرمت‌بندی نقطه برای آن نقطه اولویت دارد.
 
-![نمایش سری‌های نمودار در پاورپوینت](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تنظیم هم‑پوشانی سری‌های نمودار**
+## **تنظیم همپوشانی مجموعه نمودار**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_overlap/) گزارش می‌دهد که ستون‌ها یا نوارها در یک نمودار دو‑بعدی تا چه حد هم‌پوشانی دارند، از ‑100 تا 100 درصد. این یک پیش‌بینی فقط‑خواندنی از تنظیمات گروه سری والد است. برای به‌روزرسانی همه سری‌های سازگار در آن گروه، [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) را فراخوانی کنید. این گزینه به نوع نمودارهایی که نوارها یا ستون‌های گروهی نمایش می‌دهند اعمال می‌شود؛ بر گروه‌های سری نامرتبط در یک نمودار ترکیبی اثر نمی‌گذارد.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_overlap/) گزارش می‌دهد که نوارها یا ستون‌ها در یک نمودار دو‌بعدی چقدر همپوشانی دارند، از -100 تا 100 درصد. این یک تصویر فقط-خواندنی از تنظیمات در گروه مجموعه والد است. برای به‌روزرسانی تمام مجموعه‌های سازگار در آن گروه، [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) را فراخوانی کنید. این گزینه برای انواع نمودارهایی که نوارها یا ستون‌های گروه‌بندی‌شده را نمایش می‌دهند اعمال می‌شود؛ اما بر گروه‌های مجموعه نامرتبط در یک نمودار ترکیبی تأثیر نمی‌گذارد.
 
-مثال زیر هم‑پوشانی را برای گروهی که شامل اولین سری است تنظیم می‌کند:
+مثال زیر همپوشانی برای گروهی که اولین مجموعه را شامل می‌شود تنظیم می‌کند:
 
 ```cpp
 #include <cstdint>
@@ -64,7 +64,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// نمودار جدید شامل سری‌های نمونه، دسته‌ها و مقادیر است.
+// نمودار جدید شامل مجموعه‌های نمونه، دسته‌ها و مقادیر است.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -77,13 +77,13 @@ presentation->Dispose();
 
 نتیجه:
 
-![هم‑پوشانی سری‌ها](series_overlap.png)
+![همپوشانی مجموعه](series_overlap.png)
 
-## **تغییر رنگ پرکننده سری**
+## **تغییر رنگ پرشدگی مجموعه**
 
-از [IChartSeries::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_format/) برای تنظیم پرکننده پیش‌فرض یک سری کامل استفاده کنید. اگر برای یک نقطه پرکننده صریحی تنظیم شده باشد، تنظیمات [IChartDataPoint::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/get_format/) آن، پرکننده سری را برای آن نقطه بازنویسی می‌کند.
+از [IChartSeries::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_format/) برای تنظیم پرشدگی پیش‌فرض کل مجموعه استفاده کنید. اگر یک نقطه قبلاً پرشدگی صریح داشته باشد، تنظیم [IChartDataPoint::get_Format](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/get_format/) آن پرشدگی را برای آن نقطه بازنویسی می‌کند.
 
-مثال زیر پرکنندهٔ آبی صلب را به اولین سری اعمال می‌کند:
+مثال زیر یک پرشدگی آبی جامد را به اولین مجموعه اعمال می‌کند:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -128,11 +128,11 @@ presentation->Dispose();
 
 نتیجه:
 
-![رنگ سری](series_color.png)
+![رنگ مجموعه](series_color.png)
 
-## **تغییر نام سری**
+## **تغییر نام مجموعه**
 
-نام یک سری در کارکتاب داده‌های نمودار ذخیره می‌شود و به‌طور معمول در فهرست نمایش داده می‌شود. در کارکتاب پیش‌فرض ساخته‌شده برای یک نمودار ستونی خوشه‌ای، سلول B1 (ردیف 0، ستون 1) شامل نام اولین سری است. ثابت‌های نام‌گذاری شده در مثال زیر این ساختار را صریح می‌سازند:
+نام یک مجموعه در کتاب‌کار داده نمودار ذخیره می‌شود و معمولاً در legend (راهنما) نمایش داده می‌شود. در کتاب‌کار پیش‌فرض ایجاد شده برای یک نمودار ستونی خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین مجموعه را شامل می‌شود. ثابت‌های نام‌گذاری شده در مثال زیر این ساختار را به‌صورت واضح نشان می‌دهند:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +173,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-همچنین می‌توانید سلولی را که توسط [IChartSeries::get_Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_name/) ارجاع شده است به‌روزرسانی کنید. این روش از فرض یک ردیف و ستون خاص در یک نمودار موجود جلوگیری می‌کند:
+همچنین می‌توانید سلولی که توسط [IChartSeries::get_Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_name/) ارجاع شده را به‌روزرسانی کنید. این رویکرد از فرض یک ردیف و ستون خاص در یک نمودار موجود جلوگیری می‌کند:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -220,13 +220,13 @@ presentation->Dispose();
 
 نتیجه:
 
-![نام سری](series_name.png)
+![نام مجموعه](series_name.png)
 
-## **دریافت رنگ پرکنندهٔ خودکار سری**
+## **دریافت رنگ پرشدگی خودکار مجموعه**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) رنگی را برمی‌گرداند که بر اساس اندیس سری و سبک نمودار محاسبه می‌شود. این همان رنگی است که وقتی پرکنندهٔ سری به‌صورت صریح تعریف نشده باشد استفاده می‌شود. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ هیچ پرکننده جدیدی را اختصاص نمی‌دهد.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) رنگی را بر می‌گرداند که از شاخص مجموعه و استایل نمودار محاسبه می‌شود. این رنگ هنگامی که پرشدگی مجموعه صریحاً تعریف نشده باشد استفاده می‌شود. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ یک پرشدگی جدید تخصیص نمی‌دهد.
 
-مثال زیر رنگ خودکار هر سری پیش‌فرض را چاپ می‌کند:
+مثال زیر رنگ خودکار هر مجموعه پیش‌فرض را چاپ می‌کند:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -268,7 +268,7 @@ for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 presentation->Dispose();
 ```
 
-خروجی نمونه برای سبک پیش‌فرض نمودار:
+خروجی مثال برای استایل پیش‌فرض نمودار:
 
 ```text
 Series 0: ff4f81bd
@@ -276,13 +276,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-رنگ‌های دقیق به سبک و تم نمودار وابسته‌اند.
+رنگ‌های دقیق وابسته به استایل و تم نمودار هستند.
 
-## **تنظیم رنگ پرکننده معکوس برای یک سری نمودار**
+## **تنظیم رنگ پرشدگی معکوس برای مجموعه نمودار**
 
-برای سری‌های میله، ستون و حباب، [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) می‌تواند مقادیر منفی را با پرکننده‌ای متفاوت نمایش دهد. پرکنندهٔ معمولی سری را به صلب تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) اختصاص دهید. اعداد منفی در کارکتاب بدون تغییر باقی می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
+برای مجموعه‌های نوار، ستون و حباب، [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) می‌تواند مقادیر منفی را با یک پرشدگی متفاوت نمایش دهد. پرشدگی معمولی مجموعه را به حالت جامد تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) اختصاص دهید. اعداد منفی در کتاب‌کار بدون تغییر می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
 
-مثال زیر داده‌های پیش‌فرض نمودار را با یک سری جایگزین می‌کند. ردیف 0 کاربرگ حاوی نام سری، ستون 0 حاوی نام دسته‌ها و ستون 1 حاوی مقادیر است:
+مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 کاربرگ نام مجموعه را دارد، ستون 0 نام دسته‌ها و ستون 1 مقادیر را شامل می‌شود:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -370,9 +370,9 @@ presentation->Dispose();
 
 نتیجه:
 
-![رنگ پرکنندهٔ صلب معکوس](inverted_solid_fill_color.png)
+![رنگ پرشدگی جامد معکوس](inverted_solid_fill_color.png)
 
-می‌توانید برای یک نقطهٔ خاص معکوس‌سازی را از طریق [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) فعال کنید. در مثال زیر، معکوس‌سازی برای سری غیرفعال و فقط برای نقطهٔ انتخاب‌شده فعال می‌شود. این نقطه همچنین مقدار منفی دریافت می‌کند تا اثر قابل مشاهده باشد:
+می‌توانید برای یک نقطه با استفاده از [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) معکوس‌سازی را فعال کنید. در مثال زیر، معکوس‌سازی برای مجموعه غیرفعال و تنها برای نقطه انتخاب‌شده فعال شده است. همچنین به نقطه یک مقدار منفی اختصاص داده می‌شود تا اثر قابل مشاهده باشد:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -430,11 +430,11 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **پاک کردن مقدار نقطهٔ دادهٔ خاص**
+## **پاک‌سازی مقدار یک نقطه داده خاص**
 
-برای حذف یک نقطه بدون حذف سایر نقاط، سلول پشتیبان کارکتاب آن را به `nullptr` تنظیم کنید. برای یک نمودار ستونی، مقدار ترسیم‌شده از طریق [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) در دسترس است. نقطهٔ داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را به‌عنوان خالی بر اساس تنظیمات مقدار خالی نمودار در نظر می‌گیرد.
+برای خالی کردن یک نقطه بدون حذف نقاط دیگر، سلول پشتیبان کتاب‌کار آن را به `nullptr` تنظیم کنید. برای یک نمودار ستونی، مقدار ترسیم‌شده از طریق [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را طبق تنظیمات مقدار خالی نمودار به‌عنوان خالی در نظر می‌گیرد.
 
-مثال زیر فقط نقطهٔ دوم در اولین سری را پاک می‌کند:
+مثال زیر تنها نقطه دوم در اولین مجموعه را پاک می‌کند:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -473,15 +473,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-نمودارهای پراکندگی از سلول‌های X و Y جداگانه استفاده می‌کنند و نمودارهای حباب نیز از سلول اندازه بهره می‌برند. فقط سلولی را که نمایانگر مقداری است که می‌خواهید حذف کنید، پاک کنید. وقتی می‌خواهید نقاط دیگر را نگه دارید، از فراخوانی [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) خودداری کنید، زیرا این متد تمام نقاط داده را از مجموعه حذف می‌کند.
+نمودارهای پراکندگی از سلول‌های جداگانه X و Y استفاده می‌کنند و نمودارهای حبابی همچنین از یک سلول اندازه استفاده می‌کنند. فقط سلولی را که نمایانگر مقداری است که می‌خواهید حذف کنید پاک کنید. وقتی می‌خواهید نقاط دیگر را نگه دارید، از فراخوانی [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) خودداری کنید، زیرا این متد تمام نقاط داده را از مجموعه حذف می‌کند.
 
 ## **کنترل نمایش سلول‌های خالی**
 
-یک سلول خالی کارکتاب نشان‌دهنده دادهٔ گمشده است؛ یک سلول حاوی `0` نمایانگر یک مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، [IChartDataCell::set_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_value/) را با `nullptr` فراخوانی کنید. رقم صفر عددی همچنان صفر می‌ماند صرف‌نظر از تنظیمات سلول خالی.
+سلول‌های مخفی که حاوی مقادیر هستند مورد متفاوتی نسبت به سلول‌های خالی هستند. برای شامل یا حذف داده‌ها از ردیف‌ها و ستون‌های مخفی کاربرگ، به [Include Data from Hidden Rows and Columns](/slides/fa/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns) مراجعه کنید.
 
-برای انتخاب نحوهٔ نمایش سلول‌های خالی در نمودار، از [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/set_displayblanksas/) استفاده کنید. این تنظیم برای کل نمودار اعمال می‌شود. این گزینه نحوهٔ ترسیم خالی‌ها را تغییر می‌دهد، بدون این‌که سلول خالی کارکتاب را با صفر یا مقدار درون‌خطی پر کند.
+یک سلول خالی در کتاب‌کار نشان‌دهنده داده‌های گمشده است؛ سلولی که حاوی `0` است نمایانگر مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، [IChartDataCell::set_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_value/) را با `nullptr` فراخوانی کنید. صفر عددی صرفاً صفر می‌ماند و تنظیمات سلول خالی بر آن تأثیری ندارد.
 
-مثال خودمختار زیر یک نمودار خطی با یک سری ایجاد می‌کند، مقدار روز 3 را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌نماید. فایل ورودی موردنیاز نیست. [IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/) از کاربرگ 0 استفاده می‌کند؛ ستون 0 برای برچسب‌های دسته، ستون 1 برای مقادیر؛ ردیف 0 نام سری را نگه می‌دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است.
+از [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/set_displayblanksas/) برای انتخاب نحوه نمایش سلول‌های خالی توسط نمودار استفاده کنید. این تنظیم برای کل نمودار اعمال می‌شود. نحوه ترسیم خالی‌ها را تغییر می‌دهد، بدون اینکه سلول خالی کتاب‌کار با صفر یا مقدار برآوردی پر شود.
+
+مثال خودکفا زیر یک نمودار خطی با یک مجموعه ایجاد می‌کند، مقدار روز 3 را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌نماید. هیچ فایل ورودی لازم نیست. [IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/) از کاربرگ 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام مجموعه را نگه می‌دارد. داده نهایی `10, 20, empty, 30, 40` است.
 
 ```cpp
 #include <array>
@@ -535,7 +537,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// روز 3 را به‌طور واقعی خالی بگذارید، در حالی که دسته‌بندی و نقطه دادهٔ آن را نگه دارید.
+// Leave Day 3 genuinely empty, while retaining its category and data point.
 workbook->GetCell(0, 3, 1)->set_Value(nullptr);
 
 auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
@@ -549,19 +551,19 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-هر فایل خروجی حالت انتساب‑شده قبل از ذخیره‌سازی را نشان می‌دهد: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیره تنها یک نسخه، حالت دلخواه را تنظیم کنید و فقط یک بار ارائه را ذخیره کنید به‌جای تکرار بر روی همهٔ حالت‌ها.
+هر فایل خروجی حالت اختصاص داده‌شده پیش از ذخیره‌سازی را ذخیره می‌کند: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیره تنها یک نسخه، حالت موردنظر را اختصاص داده و یکبار ارائه را ذخیره کنید به‌جای مرور حالت‌ها.
 
-مقایسهٔ زیر همان داده‌ها را در سه فایل نشان می‌دهد. روز 3 در کارکتاب در هر حالت خالی است:
+مقایسه زیر همان داده را در هر سه فایل نشان می‌دهد. روز 3 در هر حالت در کتاب‌کار خالی است:
 
-![نمودارهای خطی با دادهٔ یکسان: Gap خط را در روز 3 قطع می‌کند، Zero خط را به صفر می‌برد و Span روز 2 را به روز 4 وصل می‌کند.](display_blanks_as.png)
+![نمودارهای خطی با داده‌های یکسان: Gap خط را در روز 3 قطع می‌کند، Zero خط را به صفر می‌برد و Span روز 2 را به روز 4 وصل می‌کند.](display_blanks_as.png)
 
-اثر قابل مشاهده به نوع نمودار بستگی دارد. یک نمودار خطی سه حالت را به‌راحتی قابل مقایسه می‌کند. نمودارهای میله و ستون خطی برای وصل کردن بین دسته‌های گمشده ندارند، بنابراین `Span` نمی‌تواند بخش وصل‌شدهٔ نمایش‌داده‌شده در بالا را تولید کند؛ یک ستون خالی و یک ستون دارای ارتفاع صفر نیز می‌توانند شبیه هم به‌نظر برسند. به‌طور مشابه، یک نمودار پراکندگی فقط با علامت‌گرها خط وصل‌کننده‌ای ندارد. انتظار نتایج متمایز برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
+اثر قابل مشاهده بستگی به نوع نمودار دارد. یک نمودار خطی مقایسه سه حالت را آسان می‌کند. نمودارهای نوار و ستونی خطی برای اتصال بین دسته‌های گمشده ندارند، بنابراین `Span` نمی‌تواند بخش اتصال نشان داده‌شده را تولید کند؛ یک ستون گمشده و ستون با ارتفاع صفر نیز می‌تواند مشابه به نظر برسد. به همین ترتیب، یک نمودار پراکندگی فقط با نشانگرها خط اتصال ندارد. انتظار نتایج متفاوت برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوع مورد استفاده خود بررسی کنید.
 
-## **تنظیم عرض فاصلهٔ سری‌ها**
+## **تنظیم عرض فاصله مجموعه**
 
-عرض فاصله (Gap width) فاصله بین خوشه‌های میله یا ستون مجاور است که به‌صورت درصدی از عرض میله یا ستون بیان می‌شود. مشابه overlap، این تنظیم متعلق به گروه سری والد است نه به یک سری تک. برای گروه یک بار [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) را فراخوانی کنید. مقدار بزرگتر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچکتر آن‌ها را متراکم‌تر می‌کند.
+عرض فاصله فضای بین خوشه‌های نوار یا ستون مجاور است که به عنوان درصدی از عرض نوار یا ستون بیان می‌شود. مشابه همپوشانی، این تنظیم به گروه مجموعه والد تعلق دارد نه به یک مجموعه. برای گروه یک بار [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) را فراخوانی کنید. مقدار بزرگتر فضای بین خوشه‌ها را بیشتر می‌کند؛ مقدار کوچکتر آن‌ها را فشرده‌تر می‌سازد.
 
-مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائهٔ نهایی را ذخیره می‌کند:
+مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائه نهایی را ذخیره می‌کند:
 
 ```cpp
 #include <cstdint>
@@ -602,44 +604,44 @@ presentation->Dispose();
 
 ![عرض فاصله](gap_width.png)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**کدام انواع نمودار از سری‌های داده پشتیبانی می‌کنند؟**
+**کدام انواع نمودار از مجموعه داده‌ها پشتیبانی می‌کنند؟**
 
-تمام انواع نمودارهای معرفی‌شده توسط перечисление [ChartType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/charttype/) از داده‌های نمودار استفاده می‌کنند، اما سری‌های آن‌ها ساختار یا تنظیمات مقداری یکسانی ندارند. به‌عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی از مقادیر X و Y، و نمودارهای حباب اندازه حباب را اضافه می‌کنند. از روش ایجاد نقطه‑داده‌ای که با نوع سری مطابقت دارد استفاده کنید. گزینه‌هایی مانند overlap و gap width فقط برای گروه‌های میله یا ستون سازگار اعمال می‌شوند.
+تمام انواع نمودارهای نمایان‌شده توسط شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/charttype/) از داده‌های نمودار استفاده می‌کنند، اما ساختار یا تنظیمات مقادیر مجموعه‌های آنها همسان نیست. به‌عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی از مقادیر X و Y استفاده می‌کنند و نمودارهای حبابی اندازه حباب‌ها را اضافه می‌کند. از روش ایجاد نقطه داده‌ای که با نوع مجموعه مطابقت دارد استفاده کنید. گزینه‌هایی مانند همپوشانی و عرض فاصله فقط برای گروه‌های نوار یا ستونی سازگار اعمال می‌شوند.
 
-**گروه سری نمودار چیست؟**
+**یک گروه مجموعه نمودار چیست؟**
 
-یک [IChartSeriesGroup](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/) شامل سری‌های سازگاری است که تنظیمات نموداری سطح‑گروه را به اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک سری دسترسی پیدا می‌کنید لزوماً تمام سری‌های موجود در نمودار را تغییر نمی‌دهد.
+یک [IChartSeriesGroup](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/) شامل مجموعه‌های سازگاری است که تنظیمات رسم سطح گروه را به اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک مجموعه دسترسی می‌شود لزوماً تمام مجموعه‌های نمودار را تغییر نمی‌دهد.
 
-**آیا یک نمودار تازه‌ساخته حاوی داده‌های پیش‌فرض است؟**
+**آیا یک نمودار تازه ایجاد شده شامل داده‌های پیش‌فرض است؟**
 
-بله. به‌صورت پیش‌فرض، [IShapeCollection::AddChart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addchart/) نمونه‌ای از سری‌ها، دسته‌ها و مقادیر ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعه دادهٔ کاملاً سفارشی، هر دو مجموعه سری و دسته را پاک کنید. یک overload نیز می‌تواند نمودار را بدون داده‌های پیش‌فرض ایجاد کند.
+بله. به‌طور پیش‌فرض، [IShapeCollection::AddChart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addchart/) نمونه‌ای از مجموعه‌ها، دسته‌ها و مقادیر را ایجاد می‌کند. می‌توانید آن سلول‌ها را ویرایش کنید یا هم مجموعه‌ها و هم دسته‌ها را قبل از افزودن یک مجموعه داده کاملاً سفارشی پاک کنید. یک overload می‌تواند همچنین نموداری بدون داده پیش‌فرض ایجاد کند.
 
-**چگونه اشیای نمودار به سلول‌های کارکتاب متصل می‌شوند؟**
+**چگونه اشیاء نمودار به سلول‌های کتاب‌کار متصل هستند؟**
 
-نام‌های سری، برچسب‌های دسته و مقادیر نقطه‑داده به سلول‌های یک [IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/) ارجاع می‌دهند. تغییر سلول ارجاع‌داده‌شده عنصر مربوطه در نمودار را به‌روزرسانی می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر سری را طوری هماهنگ نگه دارید که هر نقطه زیر دستهٔ موردنظر ترسیم شود.
+نام‌های مجموعه، برچسب‌های دسته و مقادیر نقطه داده به سلول‌های یک [IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‌شده، عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر مجموعه را هم‌راستا نگه دارید تا هر نقطه زیر دسته موردنظر ترسیم شود.
 
-**چگونه یک نقطه را به‌جای کل سری پاک کنم؟**
+**چگونه یک نقطه را به‌جای کل مجموعه پاک کنم؟**
 
-سلول مقدار مربوطه را به `nullptr` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان نقطهٔ خالی حفظ شود. فقط زمانی که قصد حذف تمام نقاط یک سری را دارید، [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) را فراخوانی کنید. اگر همچنین دسته‌ها را حذف می‌کنید، هر سری را به‌روزرسانی کنید تا مقادیرشان با مجموعه دسته‌ها هم‌راستا بماند.
+سلول مقدار مربوطه را به `nullptr` تنظیم کنید تا موقعیت دسته‌ای نقطه به‌عنوان نقطه خالی حفظ شود. فقط زمانی که می‌خواهید تمام نقاط را از آن مجموعه حذف کنید، [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) را فراخوانی کنید. اگر دسته‌ها را نیز حذف کنید، هر مجموعه را به‌روزرسانی کنید تا مقادیر آنها با مجموعه دسته‌ها هم‌راستا بماند.
 
-**نقاط خالی چگونه نمایش داده می‌شوند؟**
+**چگونه نقاط خالی نمایش داده می‌شوند؟**
 
-نتیجه به نوع نمودار و [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/get_displayblanksas/) بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌عنوان فاصله، به‌عنوان مقدار صفر یا با وصل کردن نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنای دادهٔ گمشده در ارائهٔ شما سازگار باشد. برای مثال کامل و مقایسهٔ تصویری به بخش «کنترل نمایش سلول‌های خالی» مراجعه کنید.
+نتیجه بستگی به نوع نمودار و [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/get_displayblanksas/) دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌عنوان فاصله، به‌عنوان مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنای داده‌های گمشده در ارائه شما مطابقت دارد. برای مثال کامل و مقایسه تصویری به بخش [Control the Display of Empty Cells](#control-the-display-of-empty-cells) مراجعه کنید.
 
-**مقدارهای منفی چگونه قالب‌بندی می‌شوند؟**
+**چگونه مقادیر منفی قالب‌بندی می‌شوند؟**
 
-برای سری‌های میله، ستون و حباب پشتیبانی‌شده، [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) را صدا بزنید و رنگ را از طریق [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ منفرد با [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) بازنویسی کنید. این متدها فقط قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
+برای مجموعه‌های نوار، ستون و حباب پشتیبانی‌شده، [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) را فراخوانی کنید و رنگ را از طریق [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) تنظیم کنید. می‌توانید رفتار را برای یک نقطه با [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) بازنویسی کنید. این متدها فقط قالب‌بندی را تحت‌تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
 
-**زمانی که هم سری و هم نقطه قالب‌بندی شده باشند، کدامیک برنده می‌شود؟**
+**کدام قالب‌بندی برنده است وقتی هم یک مجموعه و هم یک نقطه قالب‌بندی شوند؟**
 
-قالب‌بندی صریح نقطه‑داده برای آن نقطه در اولویت است. سایر نقاط همچنان از قالب صریح سری یا، اگر قالب سری تعریف نشده باشد، از سبک و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروه مانند overlap و gap width برچسب‌های چیدمان را کنترل می‌کنند و بازنویسی قالب‌بندی سطح نقطه نیستند.
+قالب‌بندی صریح نقطه داده برای آن نقطه اولویت دارد. سایر نقاط به قالب‌بندی صریح مجموعه یا، وقتی قالب‌بندی مجموعه تعریف نشده باشد، به استایل و تم خودکار نمودار وابسته می‌شوند. تنظیمات گروهی مانند همپوشانی و عرض فاصله فقط طرح‌بندی را کنترل می‌کنند و بازنویسی قالب‌بندی نقطه‌ای نیستند.
 
-**آیا محدودیتی برای تعداد سری‌های یک نمودار وجود دارد؟**
+**آیا محدودیتی برای تعداد مجموعه‌هایی که یک نمودار می‌تواند داشته باشد وجود دارد؟**
 
-Aspose.Slides محدودیتی ثابت برای تعداد سری‌ها تعیین نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظهٔ موجود، زمان رندر و خوانایی نمودار تعیین‌کنندهٔ حد عملی هستند.
+Aspose.Slides محدودیت شمار سری ثابت جداگانه‌ای اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندر و قابلیت خواندن نمودار محدودیت‌های عملی را تعیین می‌کنند.
 
-**اگر ستون‌ها بیش از حد نزدیک یا دور از هم باشند، چه کاری باید انجام دهم؟**
+**چه کاری باید انجام دهم وقتی ستون‌ها بیش از حد به‌هم نزدیک یا دور هستند؟**
 
-در گروه سری والد مربوطه، [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) را فراخوانی کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها عریض‌تر شود یا کاهش دهید تا خوشه‌ها به‌یکدیگر نزدیک‌تر شوند.
+[IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) را روی گروه مجموعه والد مناسب فراخوانی کنید. مقدار را برای گسترده‌کردن فاصله بین خوشه‌ها افزایش دهید یا برای نزدیک‌تر کردن آن‌ها کاهش دهید.
