@@ -94,7 +94,7 @@ Daher müssen Sie, wenn Sie in einer Linux-Umgebung entwickeln oder arbeiten, As
 
 **Möglicherweise auftretendes Problem**: Die beschriebene Einrichtung hat ihre Nachteile. Beispielsweise können Sie, wenn Sie in Windows entwickeln und Projekte haben, die das Original System.Drawing.Common verwenden, auf Konflikte mit Aspose.Slides-Typen stoßen.
 
-**Lösung**: Sie können externen Alias verwenden, um das Problem zu lösen. Siehe [**Verwendung des System.Drawing.Common-Pakets und Slides für .NET6-Klassen (CS0433: Der Typ existiert sowohl in Slides als auch in System.Drawing.Common-Fehler)**](https://docs.aspose.com/slides/net/net6/#using-the-systemdrawingcommon-package-and-slides-for-net6-classes-cs0433-the-type-exists-in-both-slides-and-systemdrawingcommon-error).
+**Lösung**: Sie können externen Alias verwenden, um das Problem zu lösen. Siehe [**Verwendung des System.Drawing.Common-Pakets und Slides für .NET6-Klassen (CS0433: Der Typ existiert sowohl in Slides als auch in System.Drawing.Common-Fehler)**](https://docs.aspose.com/slides/net/net6/#using-systemdrawingcommon-in-the-same-project-cs0433).
 
 Das Slides-Team arbeitet an Aufgaben, die zu einer vereinfachten und einheitlichen öffentlichen API führen werden.
 
