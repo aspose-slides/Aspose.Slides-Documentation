@@ -1,5 +1,5 @@
 ---
-title: Python में प्रस्तुतियों में चार्ट डेटा श्रृंखलाओं का प्रबंधन
+title: प्रेजेंटेशन में Python के साथ चार्ट डेटा श्रृंखला को प्रबंधित करें
 linktitle: डेटा श्रृंखला
 type: docs
 url: /hi/python-java/chart-series/
@@ -9,37 +9,37 @@ keywords:
 - श्रृंखला रंग
 - श्रृंखला नाम
 - डेटा बिंदु
-- वर्कबुक कोशिका
+- वर्कबुक सेल
 - श्रृंखला गैप
 - नकारात्मक मान
 - PowerPoint
-- प्रस्तुति
+- प्रेजेंटेशन
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java का उपयोग करके प्रस्तुतियों में चार्ट श्रृंखला, डेटा बिंदु, वर्कबुक कोशिकाओं, फॉर्मेटिंग, ओवरलैप, गैप चौड़ाई और नकारात्मक मानों को कैसे प्रबंधित करें, यह जानें।"
+description: "Aspose.Slides for Python via Java के साथ प्रेजेंटेशन में चार्ट श्रृंखला, डेटा बिंदु, वर्कबुक सेल, फ़ॉर्मेटिंग, ओवरलैप, गैप विथ और नकारात्मक मानों को कैसे प्रबंधित करें सीखें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-एक चार्ट अपने प्लॉट किए गए डेटा को चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [ChartSeries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/) संबंधित मानों का एक सेट दर्शाता है, और श्रृंखला में प्रत्येक [ChartDataPoint](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/) एक या अधिक वर्कबुक कोशिकाओं को संदर्भित करता है। [ChartCategory](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartcategory/) ऑब्जेक्ट्स लेबल्स या समूह मान प्रदान करते हैं जो श्रृंखलाओं द्वारा साझा किए जाते हैं। इसलिए श्रृंखला का नाम, श्रेणियां और बिंदु मान [ChartDataCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatacell/) ऑब्जेक्ट्स से जुड़े होते हैं, न कि केवल प्रदर्शन पाठ के रूप में संग्रहीत।
+एक चार्ट अपने प्लॉट किए गए डेटा को एक चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [ChartSeries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/) एक संबंधित मानों के सेट का प्रतिनिधित्व करता है, और श्रृंखला में प्रत्येक [ChartDataPoint](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/) एक या अधिक वर्कबुक सेल्स को संदर्भित करता है। [ChartCategory](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartcategory/) वस्तुएँ लेबल या समूह मान प्रदान करती हैं जो श्रृंखला द्वारा साझा किए जाते हैं। इसलिए श्रृंखला का नाम, श्रेणियाँ और बिंदु मान [ChartDataCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatacell/) वस्तुओं से जुड़े होते हैं, न कि केवल प्रदर्शित पाठ के रूप में संग्रहीत होते हैं।
 
-एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक पंक्ति 0 को श्रृंखला नामों के लिए, कॉलम 0 को श्रेणी नामों के लिए, और शेष कोशिकाओं को श्रृंखला मूल्यों के लिए उपयोग करती है। [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdataworkbook/#getCell) को पास किए गए वर्कशीट, पंक्ति और कॉलम इंडेक्स शून्य-आधारित होते हैं। यह लेआउट तब उपयोगी होता है जब आप डिफ़ॉल्ट डेटा के साथ एक चार्ट बनाते हैं, लेकिन यह मानना नहीं चाहिए कि प्रत्येक मौजूदा चार्ट इसका उपयोग करता है। किसी लोडेड प्रेजेंटेशन के लिए, वर्कबुक मूल्यों को बदलने से पहले श्रृंखला, श्रेणियां और डेटा बिंदुओं द्वारा संदर्भित कोशिकाओं की जाँच करें।
+एक सामान्य श्रेणी चार्ट के लिए, डिफॉल्ट वर्कबुक में पंक्ति 0 श्रृंखला नामों के लिये, स्तंभ 0 श्रेणी नामों के लिये, और शेष सेल्स श्रृंखला मानों के लिये उपयोग होते हैं। [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdataworkbook/#getCell) को पास किए जाने वाले वर्कशीट, पंक्ति और स्तंभ सूचकांक शून्य‑आधारित होते हैं। यह लेआउٹ डिफॉल्ट डेटा के साथ चार्ट बनाने पर उपयोगी है, लेकिन यह मानना सही नहीं है कि प्रत्येक मौजूदा चार्ट इसका उपयोग करता है। लोड किए गए प्रेजेंटेशन के लिये, वर्कबुक मान बदलने से पहले श्रृंखला, श्रेणियों और डेटा बिंदुओं द्वारा संदर्भित सेल्स की जाँच करें।
 
-चार्ट सेटिंग्स के तीन अलग-अलग स्तर होते हैं:
+चार्ट सेटिंग्स के तीन अलग‑अलग दायरे होते हैं:
 
-- श्रृंखला-स्तर की सेटिंग्स, जैसे [ChartSeries.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getFormat), एक श्रृंखला में सभी बिंदुओं के लिए डिफ़ॉल्ट दिखावट प्रदान करती हैं।
-- डेटा-बिंदु सेटिंग्स, जैसे [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#getFormat), एक बिंदु के लिए श्रृंखला की दिखावट को ओवरराइड करती हैं।
-- समूह सेटिंग्स उन संगत श्रृंखलाओं पर लागू होती हैं जो एक ही [ChartSeriesGroup](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/) से संबंधित हैं। जब आपको ओवरलैप या गैप चौड़ाई जैसे विकल्प सेट करने की आवश्यकता हो, तो [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getParentSeriesGroup) के माध्यम से समूह तक पहुंचें।
+- श्रृंखला‑स्तर की सेटिंग्स, जैसे कि [ChartSeries.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getFormat), एक श्रृंखला में सभी बिंदुओं के लिये डिफॉल्ट रूप प्रदान करती हैं।
+- डेटा‑बिंदु सेटिंग्स, जैसे कि [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#getFormat), एक बिंदु के लिये श्रृंखला की रूपरेखा को ओवरराइड करती हैं।
+- समूह सेटिंग्स उन संगत श्रृंखलाओं पर लागू होती हैं जो एक ही [ChartSeriesGroup](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/) से संबंधित होती हैं। जब आपको ओवरलैप या गैप‑विथ जैसी विकल्प सेट करने की आवश्यकता हो तो [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getParentSeriesGroup) के माध्यम से समूह तक पहुँचें।
 
-जब कोई स्पष्ट बिंदु या श्रृंखला फ़िल नहीं सेट किया जाता, तो चार्ट शैली और थीम स्वचालित दिखावट निर्धारित करती है। जब दोनों, श्रृंखला और बिंदु फ़ॉर्मेटिंग मौजूद हों, तो बिंदु फ़ॉर्मेटिंग उस बिंदु के लिए प्राथमिकता प्राप्त करती है।
+जब कोई स्पष्ट बिंदु या श्रृंखला फ़िल नहीं सेट किया गया हो, तो चार्ट शैली और थीम स्वचालित रूप से स्वरूप निर्धारित करती है। जब दोनों—श्रृंखला और बिंदु—फ़ॉर्मेटिंग मौजूद होते हैं, तो बिंदु की फ़ॉर्मेटिंग उस बिंदु के लिये प्राथमिकता लेती है।
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **चार्ट श्रृंखला ओवरलैप सेट करें**
+## **चार्ट श्रृंखला ओवरलैپ सेट करें**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getOverlap) 2D चार्ट में बार या कॉलम के ओवरलैप प्रतिशत को -100 से 100 प्रतिशत तक रिपोर्ट करता है। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल-पढ़ने योग्य प्रोजेक्शन है। उस समूह में प्रत्येक संगत श्रृंखला को अपडेट करने के लिए [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/#setOverlap) का उपयोग करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम दर्शाते हैं; यह संयोजन चार्ट में असंबंधित श्रृंखला समूहों को प्रभावित नहीं करता।
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getOverlap) 2D चार्ट में बार या कॉलम के ओवरलैप को प्रतिशत के रूप में दर्शाता है, -100 से 100 % तक। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल‑पढ़ने‑योग्य प्रतिबिंब है। सभी संगत श्रृंखलाओं को अद्यतन करने के लिये [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/#setOverlap) का उपयोग करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम दिखाते हैं; यह संयोजन चार्ट में असंबद्ध श्रृंखला समूहों को प्रभावित नहीं करता।
 
-निम्न उदाहरण पहले श्रृंखला को शामिल करने वाले समूह के लिए ओवरलैप सेट करता है:
+निम्न उदाहरण पहले श्रृंखला को शामिल करने वाले समूह के लिये ओवरलैप सेट करता है:
 
 ```python
 import jpype
@@ -58,7 +58,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(first_slide_index)
 
-    # नया चार्ट नमूना श्रृंखलाएं, श्रेणियां और मान शामिल करता है।
+        # नया चार्ट नमूना श्रृंखलाएँ, श्रेणियां और मान शामिल करता है।
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200)
 
     series = chart.getChartData().getSeries().get_Item(first_series_index)
@@ -75,9 +75,9 @@ finally:
 
 ## **श्रृंखला फ़िल रंग बदलें**
 
-पूरी श्रृंखला के लिए डिफ़ॉल्ट फ़िल सेट करने के लिए [ChartSeries.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getFormat) का उपयोग करें। यदि किसी बिंदु के पास पहले से ही स्पष्ट फ़िल है, तो उसका [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#getFormat) सेटिंग उस बिंदु के लिए श्रृंखला फ़िल को ओवरराइड करती है।
+पूरी श्रृंखला के लिये डिफॉल्ट फ़िल सेट करने के लिये [ChartSeries.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getFormat) का प्रयोग करें। यदि किसी बिंदु का फ़िल पहले से स्पष्ट रूप से निर्धारित है, तो उसका [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#getFormat) सेटिंग उस बिंदु के लिये श्रृंखला फ़िल को ओवरराइड करती है।
 
-निम्न उदाहरण पहली श्रृंखला पर ठोस नीला फ़िल लागू करता है:
+निम्न उदाहरण पहले श्रृंखला को ठोस नीला फ़िल लागू करता है:
 
 ```python
 import jpype
@@ -112,9 +112,9 @@ finally:
 
 ![The color of the series](series_color.png)
 
-## **श्रृंखला का नाम बदलें**
+## **श्रृंखला नाम बदलें**
 
-एक श्रृंखला का नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लेजेंड में प्रदर्शित होता है। क्लस्टर्ड कॉलम चार्ट के लिए बनाए गए डिफ़ॉल्ट वर्कबुक में, कोशिका B1 पंक्ति 0, कॉलम 1 पर स्थित है और पहली श्रृंखला का नाम रखती है। निम्न उदाहरण में नामित वेरिएबल्स इस संरचना को स्पष्ट बनाते हैं:
+एक श्रृंखला नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लीजेंड में प्रदर्शित होता है। क्लस्टर्ड कॉलम चार्ट के लिये निर्मित डिफॉल्ट वर्कबुक में, सेल B1 पंक्ति 0, स्तंभ 1 पर स्थित है और पहली श्रृंखला का नाम रखता है। नीचे के उदाहरण में नामित चर इस संरचना को स्पष्ट रूप से दर्शाते हैं:
 
 ```python
 import jpype
@@ -145,7 +145,7 @@ finally:
     presentation.dispose()
 ```
 
-आप [ChartSeries.getName](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getName) द्वारा पहले से संदर्भित कोशिका को भी अपडेट कर सकते हैं। यह दृष्टिकोण मौजूदा चार्ट में किसी विशिष्ट पंक्ति और कॉलम को मानने से बचाता है:
+आप [ChartSeries.getName](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getName) द्वारा पहले से संदर्भित सेल को भी अद्यतन कर सकते हैं। यह तरीका यह मानने से बचाता है कि मौजूदा चार्ट में कोई विशेष पंक्ति और स्तंभ मौजूद है:
 
 ```python
 import jpype
@@ -181,9 +181,9 @@ finally:
 
 ## **स्वचालित श्रृंखला फ़िल रंग प्राप्त करें**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) श्रृंखला इंडेक्स और चार्ट शैली से गणना किया गया रंग लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला फ़िल स्पष्ट रूप से परिभाषित नहीं किया गया हो। इस मेथड को कॉल करने से गणना किया गया रंग पढ़ा जाता है; यह नई फ़िल असाइन नहीं करता।
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) श्रृंखला सूचकांक और चार्ट शैली से गणना किया गया रंग लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला फ़िल स्पष्ट रूप से परिभाषित नहीं किया गया हो। यह विधि गणना किया गया रंग पढ़ती है; यह नया फ़िल असाइन नहीं करती।
 
-निम्न उदाहरण प्रत्येक डिफ़ॉल्ट श्रृंखला का स्वचालित रंग प्रिंट करता है:
+निम्न उदाहरण प्रत्येक डिफॉल्ट श्रृंखला का स्वचालित रंग प्रिंट करता है:
 
 ```python
 import jpype
@@ -211,7 +211,7 @@ finally:
     presentation.dispose()
 ```
 
-डिफ़ॉल्ट चार्ट शैली के लिए उदाहरण आउटपुट:
+डिफॉल्ट चार्ट शैली के लिये उदाहरण आउटपुट:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -221,11 +221,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 सटीक रंग चार्ट शैली और थीम पर निर्भर करते हैं।
 
-## **एक चार्ट श्रृंखला के लिए इनवर्ट फ़िल रंग सेट करें**
+## **एक चार्ट श्रृंखला के लिये इनवर्ट फ़िल रंग सेट करें**
 
-बार, कॉलम और बबल श्रृंखलाओं के लिए, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setInvertIfNegative) नकारात्मक मानों को एक अलग फ़िल के साथ प्रदर्शित कर सकता है। नियमित श्रृंखला फ़िल को ठोस सेट करें, इनवर्शन सक्षम करें, और नकारात्मक मान रंग को [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) के माध्यम से असाइन करें। नकारात्मक संख्याएँ वर्कबुक में अपरिवर्तित रहती हैं; केवल उनका प्रदर्शित रंग बदलता है।
+बार, कॉलम और बबल श्रृंखलाओं के लिये, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setInvertIfNegative) नकारात्मक मानों को अलग फ़िल के साथ प्रदर्शित कर सकता है। सामान्य श्रृंखला फ़िल को ठोस सेट करें, इनवर्ज़न सक्षम करें, और नकारात्मक‑मान रंग को [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) के माध्यम से असाइन करें। वर्कबुक में नकारात्मक संख्याएँ अपरिवर्तित रहती हैं; केवल उनका प्रदर्शित रंग बदलता है।
 
-निम्न उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। वर्कशीट पंक्ति 0 में श्रृंखला नाम, कॉलम 0 में श्रेणी नाम, और कॉलम 1 में मान होते हैं:
+निम्न उदाहरण डिफॉल्ट चार्ट डेटा को एक श्रृंखला से बदल देता है। वर्कशीट की पंक्ति 0 में श्रृंखला नाम, स्तंभ 0 में श्रेणी नाम, और स्तंभ 1 में मान होते हैं:
 
 ```python
 import jpype
@@ -289,7 +289,7 @@ finally:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-आप एक बिंदु के लिए इनवर्शन को [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) के माध्यम से सक्षम कर सकते हैं। निम्न उदाहरण में श्रृंखला के लिए इनवर्शन अक्षम है और केवल चयनित बिंदु के लिए सक्षम है। बिंदु को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव स्पष्ट दिखे:
+आप [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) के माध्यम से एक बिंदु के लिये इनवर्ज़न सक्षम कर सकते हैं। नीचे के उदाहरण में श्रृंखला के लिये इनवर्ज़न अक्षम है और केवल चयनित बिंदु के लिये सक्षम किया गया है। प्रभाव को दिखाने के लिये बिंदु को नकारात्मक मान भी दिया गया है:
 
 ```python
 import jpype
@@ -329,11 +329,11 @@ finally:
     presentation.dispose()
 ```
 
-## **एक विशिष्ट डेटा बिंदु मान को साफ़ करें**
+## **एक विशिष्ट डेटा बिंदु मान साफ़ करें**
 
-एक बिंदु को खाली करने के लिए, उसकी बैकिंग वर्कबुक कोशिका को `None` सेट करें, जबकि अन्य बिंदुओं को नहीं हटाएँ। कॉलम चार्ट के लिए, प्लॉटेड मान [ChartDataPoint.getValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#getValue) के माध्यम से उपलब्ध है। डेटा बिंदु समान श्रेणी स्थिति पर रहता है, लेकिन चार्ट उसकी मान को खाली मानता है, जैसा कि चार्ट की खाली-मान सेटिंग्स निर्धारित करती हैं।
+एक बिंदु को अन्य बिंदुओं को हटाए बिना खाली बनाने के लिये, उसके बैकिंग वर्कबुक सेल को `None` सेट करें। कॉलम चार्ट में, प्लॉट किया गया मान [ChartDataPoint.getValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#getValue) के माध्यम से प्राप्त किया जाता है। डेटा बिंदु वही श्रेणी स्थिति बनाए रखता है, लेकिन चार्ट उसकी मान को ब्लैंक मान सेटिंग के अनुसार खाली मान लेता है।
 
-निम्न उदाहरण पहली श्रृंखला में केवल दूसरा बिंदु साफ़ करता है:
+निम्न उदाहरण पहली श्रृंखला के दूसरे बिंदु को ही साफ़ करता है:
 
 ```python
 import jpype
@@ -363,15 +363,17 @@ finally:
     presentation.dispose()
 ```
 
-स्कैटर चार्ट अलग-अलग X और Y कोशिकाओं का उपयोग करते हैं, और बबल चार्ट आकार की कोशिका भी उपयोग करता है। उस कोशिका को साफ़ करें जो आप हटाना चाहते हैं। जब आप अन्य बिंदुओं को रखना चाहते हैं, तो [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapointcollection/#clear) को कॉल न करें, क्योंकि यह मेथड संग्रह से सभी डेटा बिंदु हटा देगा।
+स्कैटर चार्ट अलग‑अलग X और Y सेल्स का उपयोग करते हैं, और बबल चार्ट अतिरिक्त आकार सेल का उपयोग करते हैं। केवल वह सेल साफ़ करें जो आप हटाना चाहते हैं। जब आप अन्य बिंदु बनाए रखना चाहते हैं, तो [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapointcollection/#clear) को न बुलाएँ, क्योंकि यह विधि संग्रह से सभी बिंदु हटाती है।
 
-## **खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें**
+## **खाली सेल्स के प्रदर्शन को नियंत्रित करें**
 
-एक खाली वर्कबुक कोशिका अनुपलब्ध डेटा को दर्शाती है; `0` वाली कोशिका ज्ञात संख्यात्मक मान को दर्शाती है। किसी कोशिका को खाली करने के लिए [ChartDataCell.setValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatacell/#setValue) को `None` के साथ कॉल करें। शून्य मान हमेशा शून्य बना रहता है, भले ही खाली-कोशिका सेटिंग कुछ भी हो।
+छिपे हुए सेल्स जिनमें मान हों, वे खाली सेल्स से अलग होते हैं। छिपी हुई वर्कशीट पंक्तियों और स्तंभों से डेटा को शामिल या बाहर करने के लिये, देखें [Include Data from Hidden Rows and Columns](/slides/hi/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns)।
 
-[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chart/#setDisplayBlanksAs) का उपयोग करके निर्धारित करें कि चार्ट खाली कोशिकाओं को कैसे दिखाएगा। यह सेटिंग पूरे चार्ट पर लागू होती है। यह खाली मानों को प्लॉट करने के तरीके को बदलती है, बिना खाली वर्कबुक कोशिका को शून्य या इंटरपोलेटेड मान से भरने के।
+एक खाली वर्कबुक सेल अनुपस्थित डेटा को दर्शाता है; `0` वाले सेल को ज्ञात संख्यात्मक मान माना जाता है। किसी सेल को खाली करने के लिये [ChartDataCell.setValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatacell/#setValue) को `None` के साथ कॉल करें। एक संख्यात्मक शून्य ब्लैंक‑सेल सेटिंग के बावजूद शून्य ही बना रहता है।
 
-निम्न स्व-निहित उदाहरण एक लाइन चार्ट एक श्रृंखला के साथ बनाता है, दिन 3 के मान को साफ़ करता है, और प्रत्येक मोड के साथ समान चार्ट को सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं है। [ChartDataWorkbook](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdataworkbook/) शीट 0, कॉलम 0 को श्रेणी लेबल और कॉलम 1 को मान के लिए उपयोग करता है; पंक्ति 0 में श्रृंखला नाम रखता है। अंतिम डेटा `10, 20, empty, 30, 40` है।
+खाली सेल्स को चार्ट कैसे दिखाता है, इसे चुनने के लिये [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chart/#setDisplayBlanksAs) का उपयोग करें। यह सेटिंग पूरे चार्ट पर लागू होती है। यह ब्लैंक्स को कैसे प्लॉट किया जाता है, इसे बदलती है, बिना खाली वर्कबुक सेल को शून्य या इंटरपोलेशन मान से भरें।
+
+निम्न स्वयं‑समावेशी उदाहरण एक लाइन चार्ट बनाता है जिसमें एक श्रृंखला है, दिन 3 के लिये मान को साफ़ करता है, और प्रत्येक मोड के साथ वही चार्ट सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं है। [ChartDataWorkbook](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdataworkbook/) वर्कशीट 0, स्तंभ 0 को श्रेणी लेबल के लिये, और स्तंभ 1 को मानों के लिये उपयोग करता है; पंक्ति 0 में श्रृंखला नाम होता है। अंतिम डेटा `10, 20, empty, 30, 40` है।
 
 ```python
 import jpype
@@ -403,7 +405,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Day 3 को वास्तव में खाली छोड़ें, जबकि इसकी श्रेणी और डेटा बिंदु को बनाए रखें।
+    # Day 3 को वास्तव में खाली छोड़ें, जबकि उसकी श्रेणी और डेटा बिंदु को बनाए रखें।
     workbook.getCell(0, 3, 1).setValue(None)
 
     modes = [DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span]
@@ -415,19 +417,19 @@ finally:
     presentation.dispose()
 ```
 
-प्रत्येक आउटपुट फ़ाइल सहेजने से पहले निर्धारित मोड को संग्रहीत करती है: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिए, इच्छित मोड असाइन करें और प्रस्तुति को एक बार सहेजें, मोड पर लूप न करें।
+प्रत्येक आउटपुट फ़ाइल सहेजने से पहले चयनित मोड को दर्शाती है: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिये, इच्छित मोड असाइन करें और प्रेज़ेंटेशन को एक बार सहेजें, सभी मोड पर इटरेट न करें।
 
-नीचे तुलना दिखाती है कि सभी तीन फ़ाइलों में डेटा समान है। प्रत्येक मामले में वर्कबुक में दिन 3 खाली है:
+नीचे तुलना तीन फ़ाइलों में समान डेटा दिखाती है। दिन 3 प्रत्येक केस में वर्कबुक में खाली है:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-दृश्य प्रभाव चार्ट प्रकार पर निर्भर करता है। एक लाइन चार्ट सभी तीन मोड को आसानी से तुलना करने की अनुमति देता है। बार और कॉलम चार्ट में कनेक्ट करने वाली रेखा नहीं होती, इसलिए `Span` ऊपर दिखाए गए कनेक्टिंग सेगमेंट को नहीं बना सकता; एक गायब कॉलम और शून्य-ऊँचाई वाला कॉलम भी समान दिख सकते हैं। इसी तरह, केवल मार्कर वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। यह न मानें कि प्रत्येक चार्ट प्रकार के लिए तीन अलग परिणाम होंगे; अपने उपयोग किए गए प्रकार के लिए आउटपुट जाँचें।
+दिखाया गया प्रभाव चार्ट प्रकार पर निर्भर करता है। लाइन चार्ट सभी तीन मोड को तुलना करना आसान बनाता है। बार और कॉलम चार्ट में कोई लाइन नहीं होती जिससे गायब श्रेणी के ऊपर कनेक्शन बन सके, इसलिए `Span` उपरोक्त कनेक्टिंग सेगमेंट नहीं बना सकता; एक गायब कॉलम और शून्य‑उँचाई वाला कॉलम भी समान दिख सकते हैं। इसी प्रकार, केवल मार्कर्स वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। हर चार्ट प्रकार के लिये तीन अलग‑अलग परिणामों की अपेक्षा न रखें; अपने उपयोग के प्रकार के लिये आउटपुट जाँचें।
 
-## **श्रृंखला गैप चौड़ाई सेट करें**
+## **श्रृंखला गैप‑विथ सेट करें**
 
-गैप चौड़ाई आसन्न बार या कॉलम क्लस्टर के बीच का अंतराल है, जो बार या कॉलम चौड़ाई के प्रतिशत के रूप में व्यक्त किया जाता है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि व्यक्तिगत श्रृंखला से। समूह के लिए एक बार [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/#setGapWidth) कॉल करें। बड़ा मान क्लस्टर के बीच अधिक जगह बनाता है; छोटा मान उन्हें घना बना देता है।
+गैप‑विथ आसन्न बार या कॉलम क्लस्टर के बीच की दूरी है, जो बार या कॉलम की चौड़ाई के प्रतिशत के रूप में व्यक्त होती है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से जुड़ी होती है, न कि व्यक्तिगत श्रृंखला से। समूह के लिये एक बार [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/#setGapWidth) कॉल करें। बड़ा मान क्लस्टर के बीच अधिक जगह बनाता है; छोटा मान उन्हें अधिक घनिष्ठ बनाता है।
 
-निम्न उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रस्तुति को सहेजता है:
+निम्न उदाहरण गैप‑विथ बदलता है और केवल अंतिम प्रेज़ेंटेशन को सहेजता है:
 
 ```python
 import jpype
@@ -462,42 +464,42 @@ finally:
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**कौन से चार्ट प्रकार डेटा श्रृंखलाओं का समर्थन करते हैं?**
+**कौन‑से चार्ट प्रकार डेटा श्रृंखला को सपोर्ट करते हैं?**
 
-[ChartType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/charttype/) एनोमरेशन द्वारा प्रतिनिधित्व किए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं की संरचना या सेटिंग्स समान नहीं होती। उदाहरण के लिए, श्रेणी चार्ट श्रेणियां और मान उपयोग करते हैं, स्कैटर चार्ट X और Y मान उपयोग करते हैं, और बबल चार्ट बबल आकार जोड़ता है। श्रृंखला प्रकार से मेल खाती डेटा-बिंदु निर्माण विधि का उपयोग करें। ओवरलैप और गैप चौड़ाई जैसे विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
+[ChartType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/charttype/) एन्ह्यूमरेशन द्वारा प्रतिनिधित्व किए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं की संरचना या सेटिंग्स समान नहीं होती। उदाहरण के लिये, श्रेणी चार्ट श्रेणियों और मानों का उपयोग करते हैं, स्कैटर चार्ट X और Y मानों का, और बबल चार्ट में बबल आकार भी जोड़ता है। डेटा‑बिंदु निर्माण विधि चुनें जो श्रृंखला प्रकार से मेल खाती हो। ओवरलैप और गैप‑विथ जैसी विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
 
 **चार्ट श्रृंखला समूह क्या है?**
 
-एक [ChartSeriesGroup](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/) संगत श्रृंखलाओं को रखता है जो समूह-स्तरीय प्लॉटिंग सेटिंग्स साझा करते हैं। एक संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला से पहुँचा गया समूह सभी श्रृंखलाओं को आवश्यक नहीं कि बदल दे।
+एक [ChartSeriesGroup](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/) उन संगत श्रृंखलाओं को रखता है जो समूह‑स्तर की प्लॉटिंग सेटिंग्स साझा करती हैं। एक कॉम्बिनेशन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला के माध्यम से पहुँचा गया समूह सभी श्रृंखलाओं को बदल नहीं सकता।
 
-**क्या नया बना चार्ट डिफ़ॉल्ट डेटा रखता है?**
+**क्या नवीन निर्मित चार्ट में डिफॉल्ट डेटा रहता है?**
 
-हां। डिफ़ॉल्ट रूप से, [ShapeCollection.addChart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/#addChart) नमूना श्रृंखलाएं, श्रेणियां और मान बनाता है। आप उन कोशिकाओं को संपादित कर सकते हैं या पूरी तरह कस्टम डेटा सेट जोड़ने से पहले श्रृंखला और श्रेणी संग्रह दोनों को साफ़ कर सकते हैं। एक ओवरलोड भी डिफ़ॉल्ट डेटा के बिना चार्ट बना सकता है।
+हां। डिफॉल्ट रूप से, [ShapeCollection.addChart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/#addChart) नमूना श्रृंखलाएँ, श्रेणियाँ और मान बनाता है। आप उन सेल्स को संपादित कर सकते हैं या पूरी तरह से कस्टम डेटा सेट जोड़ने से पहले दोनों—श्रृंखला और श्रेणी—संग्रह को साफ़ कर सकते हैं। एक ओवरलोड भी डिफॉल्ट डेटा के बिना चार्ट बना सकता है।
 
-**चार्ट ऑब्जेक्ट्स वर्कबुक कोशिकाओं से कैसे जुड़े हैं?**
+**चार्ट ऑब्जेक्ट्स वर्कबुक सेल्स से कैसे जुड़े होते हैं?**
 
-श्रृंखला नाम, श्रेणी लेबल और डेटा-बिंदु मान एक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdataworkbook/) में कोशिकाओं को संदर्भित करते हैं। किसी संदर्भित कोशिका को बदलने से सम्बंधित चार्ट तत्व अपडेट हो जाता है। जब आप कस्टम डेटा बनाते हैं, तो श्रेणी पंक्तियों और श्रृंखला-मान पंक्तियों को संरेखित रखें ताकि प्रत्येक बिंदु इच्छित श्रेणी के नीचे प्लॉट हो।
+श्रृंखला नाम, श्रेणी लेबल और डेटा‑बिंदु मान एक [ChartDataWorkbook](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdataworkbook/) में सेल्स को संदर्भित करते हैं। किसी संदर्भित सेल को बदलने से सम्बंधित चार्ट तत्व अद्यतन हो जाता है। जब आप कस्टम डेटा बनाते हैं, तो श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को इस प्रकार संरेखित रखें कि प्रत्येक बिंदु इच्छित श्रेणी के तहत प्लॉट हो।
 
-**मैं पूरी श्रृंखला के बजाय एक बिंदु कैसे साफ़ करूं?**
+**मैं पूरी श्रृंखला की बजाय एक बिंदु कैसे साफ़ करूँ?**
 
-संबंधित मान कोशिका को `None` सेट करें ताकि बिंदु का श्रेणी स्थान खाली बिंदु के रूप में बनी रहे। केवल पूरी श्रृंखला के सभी बिंदुओं को हटाने के लिए ही [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapointcollection/#clear) का उपयोग करें। यदि आप श्रेणियां भी हटाते हैं, तो सभी श्रृंखलाओं को अपडेट करें ताकि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
+संबंधित मान सेल को `None` सेट करके बिंदु की श्रेणी स्थिति को बनाए रखते हुए उसे खाली बिंदु बना दें। केवल तब [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapointcollection/#clear) का प्रयोग करें जब आप पूरी श्रृंखला के सभी बिंदु हटाना चाहते हों। यदि आप श्रेणियाँ भी हटाते हैं, तो प्रत्येक श्रृंखला को इस प्रकार अपडेट करें कि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
 
 **खाली बिंदु कैसे प्रदर्शित होते हैं?**
 
-परिणाम चार्ट प्रकार और [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chart/#setDisplayBlanksAs) में कॉन्फ़िगर किए गए मान पर निर्भर करता है। समर्थित चार्ट खाली को गैप, शून्य मान या निकटवर्ती बिंदुओं को जोड़कर प्रदर्शित कर सकते हैं। अपनी प्रस्तुति में अनुपस्थित डेटा के अर्थ के अनुसार सेटिंग चुनें। पूर्ण उदाहरण और दृश्य तुलना के लिए देखिए **[खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](#control-the-display-of-empty-cells)**।
+परिणाम चार्ट प्रकार और [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chart/#setDisplayBlanksAs) द्वारा कॉन्फ़िगर किए गए मान पर निर्भर करता है। समर्थित चार्ट ब्लैंक्स को गैप, शून्य मान, या निकटवर्ती बिंदुओं को जोड़कर दिखा सकते हैं। अपनी प्रस्तुति में अनुपस्थित डेटा का अर्थ जो दिखाना चाहते हैं, उसके अनुसार सेटिंग चुनें। विस्तृत उदाहरण और दृश्य तुलना के लिये देखें **[खाली सेल्स के प्रदर्शन को नियंत्रित करें](#control-the-display-of-empty-cells)**।
 
-**नकारात्मक मान कैसे फ़ॉर्मेट होते हैं?**
+**नकारात्मक मानों को कैसे फ़ॉर्मेट किया जाता है?**
 
-समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिए, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setInvertIfNegative) कॉल करें और [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) से प्राप्त रंग असाइन करें। आप एकल बिंदु के लिए व्यवहार को [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) से ओवरराइड कर सकते हैं। ये मेथड फ़ॉर्मेटिंग को प्रभावित करते हैं, न कि संग्रहीत संख्यात्मक मानों को।
+समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिये, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setInvertIfNegative) कॉल करें और [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) द्वारा लौटाए गए रंग को सेट करें। आप [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) के माध्यम से व्यक्तिगत बिंदु के लिये व्यवहार को ओवरराइड कर सकते हैं। ये विधियाँ स्वरूपण को प्रभावित करती हैं, न कि संग्रहीत संख्यात्मक मानों को।
 
-**जब श्रृंखला और बिंदु दोनों फ़ॉर्मेट किए गए हों तो कौन सा फ़ॉर्मेट जीतता है?**
+**जब श्रृंखला और बिंदु दोनों स्वरूपित हों तो कौन‑सा स्वरूप जीतता है?**
 
-स्पष्ट डेटा-बिंदु फ़ॉर्मेटिंग उस बिंदु के लिए प्राथमिकता लेती है। अन्य बिंदु स्पष्ट श्रृंखला फ़ॉर्मेट या, जब श्रृंखला फ़ॉर्मेट परिभाषित नहीं हो, स्वचालित चार्ट शैली और थीम का उपयोग करते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप चौड़ाई लेआउट को नियंत्रित करती हैं और बिंदु-स्तर फ़ॉर्मेटिंग को ओवरराइड नहीं करतीं।
+स्पष्ट डेटा‑बिंदु स्वरूपण उस बिंदु के लिये प्राथमिकता लेता है। अन्य बिंदु स्पष्ट श्रृंखला स्वरूप या, जब श्रृंखला स्वरूप परिभाषित नहीं हो, तो स्वचालित चार्ट शैली और थीम का उपयोग जारी रखते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप‑विथ लेआउट को नियंत्रित करती हैं और बिंदु‑स्तर की स्वरूपण ओवरराइड नहीं हैं।
 
-**एक चार्ट में अधिकतम कितनी श्रृंखलाएं हो सकती हैं?**
+**क्या कोई सीमा है कि चार्ट में कितनी श्रृंखलाएँ हो सकती हैं?**
 
-Aspose.Slides कोई अलग फ़िक्स्ड श्रृंखला-गणना सीमा नहीं लगाता। व्यावहारिक सीमा प्रस्तुति फ़ाइल प्रतिबंधों, उपलब्ध मेमोरी, रेंडरिंग समय और चार्ट पठनीयता पर निर्भर करती है।
+Aspose.Slides कोई अलग‑से स्थिर श्रृंखला‑गणना सीमा नहीं लगाता। व्यावहारिक रूप से, प्रेज़ेंटेशन फ़ाइल सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय और चार्ट की पठनीयता उपयोगी सीमा निर्धारित करती है।
 
-**जब कॉलम बहुत करीब या बहुत दूर हों तो मुझे क्या बदलना चाहिए?**
+**जब कॉलम बहुत निकट या बहुत दूर हों तो क्या करें?**
 
-उचित पैरेंट श्रृंखला समूह पर [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/#setGapWidth) कॉल करें। क्लस्टर के बीच की जगह बढ़ाने के लिए मान बढ़ाएं, या क्लस्टर को करीब लाने के लिए मान घटाएं।
+संबंधित पैरेंट श्रृंखला समूह पर [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseriesgroup/#setGapWidth) कॉल करें। मान बढ़ाएँ ताकि क्लस्टर के बीच की जगह बढ़े, या मान घटाएँ ताकि क्लस्टर एक‑दूसरे के अधिक निकट हों।

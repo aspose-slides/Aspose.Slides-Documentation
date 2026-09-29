@@ -9,36 +9,36 @@ keywords:
 - Serienfarbe
 - Serienname
 - Datenpunkt
-- Arbeitsmappenzelle
-- Serienlücke
+- Arbeitsblattzelle
+- Serienabstand
 - Negativer Wert
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsmappenzellen, Formatierung, Überlappung, Lückenbreite und negative Werte in Präsentationen mit Java verwalten."
+description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsblattzellen, Formatierungen, Überlappungen, Abstandsbreiten und negative Werte in Präsentationen mit Java verwalten."
 ---
 ## **Übersicht**
 
-Ein Diagramm speichert seine geplotteten Daten in einer Diagrammdaten‑Arbeitsmappe. Ein [IChartSeries](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/) repräsentiert einen Satz zusammenhängender Werte, und jeder [IChartDataPoint](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/) in der Serie bezieht sich auf eine oder mehrere Zellen der Arbeitsmappe. [IChartCategory](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartcategory/)‑Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [IChartDataCell](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatacell/)-Objekten verknüpft und werden nicht nur als Anzeigetext gespeichert.
+Ein Diagramm speichert seine geplotteten Daten in einer Diagrammdaten-Arbeitsmappe. Ein [IChartSeries](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/) repräsentiert einen Satz zusammengehöriger Werte, und jeder [IChartDataPoint](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/) in der Serie bezieht sich auf eine oder mehrere Zellen der Arbeitsmappe. [IChartCategory](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartcategory/)‑Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [IChartDataCell](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatacell/)‑Objekten verknüpft und werden nicht nur als Anzeigetext gespeichert.
 
-Für ein typisches Kategorien‑Diagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber Sie sollten nicht davon ausgehen, dass jedes vorhandene Diagramm es verwendet. Bei einer geladenen Präsentation sollten Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen prüfen, bevor Sie Arbeitsmappendaten ändern.
+Bei einem typischen Kategoriediagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber gehen Sie nicht davon aus, dass jedes vorhandene Diagramm es verwendet. Bei einer geladenen Präsentation sollten Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen prüfen, bevor Sie Arbeitsmappenwerte ändern.
 
-Diagrammeinstellungen haben drei verschiedene Ebenen:
+Diagrammeinstellungen haben drei unterschiedliche Geltungsbereiche:
 
-- Einstellungen auf Serien‑Ebene, wie [IChartSeries.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getFormat--), stellen das Standard‑Aussehen aller Punkte einer Serie bereit.
-- Einstellungen auf Datenpunkt‑Ebene, wie [IChartDataPoint.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#getFormat--), überschreiben das Serien‑Aussehen für einen einzelnen Punkt.
-- Gruppeneinstellungen gelten für kompatible Serien, die zur selben [IChartSeriesGroup](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/). Greifen Sie auf die Gruppe über [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) zu, wenn Sie Optionen wie Überlappung oder Lückenbreite festlegen müssen.
+- Einstellungen auf Serienebene, wie [IChartSeries.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getFormat--), geben das Standard‑Erscheinungsbild für alle Punkte einer Serie vor.
+- Datenpunkt‑Einstellungen, wie [IChartDataPoint.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#getFormat--), überschreiben das Serien‑Erscheinungsbild für einen einzelnen Punkt.
+- Gruppeneinstellungen gelten für kompatible Serien, die zu derselben [IChartSeriesGroup](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/) gehören. Greifen Sie über [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) auf die Gruppe zu, wenn Sie Optionen wie Überlappung oder Abstandsbreite festlegen müssen.
 
-Wenn kein expliziter Punkt‑ oder Serien‑Füllwert festgelegt ist, bestimmen der Diagrammstil und das Theme das automatische Erscheinungsbild. Wenn sowohl Serien‑ als auch Punktformatierung vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
+Wenn keine explizite Füllung für Punkt oder Serie festgelegt ist, bestimmen Diagrammstil und -thema das automatische Erscheinungsbild. Wenn sowohl Serien‑ als auch Punktformatierung vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Überlappung der Diagrammserie festlegen**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getOverlap--) berichtet, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von -100 bis 100 Prozent. Es ist eine schreibgeschützte Projektion der Einstellung in der übergeordneten Seriengruppe. Verwenden Sie [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-), um die Überlappung aller kompatiblen Serien in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen anzeigen; sie beeinflusst nicht nicht verwandte Seriengruppen in einem Kombinationsdiagramm.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getOverlap--) gibt an, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von ‑100 bis 100 Prozent. Es handelt sich um eine schreibgeschützte Projektion der Einstellung in der übergeordneten Seriengruppe. Verwenden Sie [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-), um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen anzeigen; sie beeinflusst keine nicht zugehörigen Serienstufen in einem Kombinationsdiagramm.
 
-Das folgende Beispiel legt die Überlappung für die Gruppe fest, die die erste Serie enthält:
+Das folgende Beispiel setzt die Überlappung für die Gruppe, die die erste Serie enthält:
 
 ```java
 import com.aspose.slides.*;
@@ -65,13 +65,13 @@ try {
 
 Das Ergebnis:
 
-![The series overlap](series_overlap.png)
+![Die Überlappung der Serie](series_overlap.png)
 
-## **Serien‑Füllfarbe ändern**
+## **Füllfarbe der Serie ändern**
 
-Verwenden Sie [IChartSeries.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getFormat--) um die Standard‑Füllung für eine gesamte Serie festzulegen. Hat ein Punkt bereits eine explizite Füllung, überschreibt seine [IChartDataPoint.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#getFormat--)‑Einstellung die Serien‑Füllung für diesen Punkt.
+Verwenden Sie [IChartSeries.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getFormat--) , um die Standard‑Füllung für eine gesamte Serie festzulegen. Wenn ein Punkt bereits eine explizite Füllung hat, überschreibt dessen [IChartDataPoint.getFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#getFormat--)‑Einstellung die Serien‑Füllung für diesen Punkt.
 
-Das folgende Beispiel wendet eine einheitliche blaue Füllung auf die erste Serie an:
+Das folgende Beispiel wendet eine solide blaue Füllung auf die erste Serie an:
 
 ```java
 import com.aspose.slides.*;
@@ -98,9 +98,9 @@ try {
 
 Das Ergebnis:
 
-![The color of the series](series_color.png)
+![Die Farbe der Serie](series_color.png)
 
-## **Serienname ändern**
+## **Seriennamen ändern**
 
 Ein Serienname wird in der Diagrammdaten‑Arbeitsmappe gespeichert und normalerweise in der Legende angezeigt. In der Standard‑Arbeitsmappe, die für ein gruppiertes Säulendiagramm erstellt wird, befindet sich Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
 
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-Sie können außerdem die bereits von [IChartSeries.getName](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getName--) referenzierte Zelle aktualisieren. Dieser Ansatz vermeidet Annahmen über eine bestimmte Zeile und Spalte in einem vorhandenen Diagramm:
+Sie können auch die Zelle aktualisieren, die bereits von [IChartSeries.getName](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getName--) referenziert wird. Dieser Ansatz vermeidet Annahmen über bestimmte Zeilen und Spalten in einem bestehenden Diagramm:
 
 ```java
 import com.aspose.slides.*;
@@ -155,13 +155,13 @@ try {
 
 Das Ergebnis:
 
-![The series name](series_name.png)
+![Der Serienname](series_name.png)
 
-## **Automatische Serien‑Füllfarbe abrufen**
+## **Automatische Füllfarbe der Serie abrufen**
 
 [IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) gibt die Farbe zurück, die aus dem Serien‑Index und dem Diagrammstil berechnet wird. Dies ist die Farbe, die verwendet wird, wenn die Serien‑Füllung nicht explizit definiert ist. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
 
-Das folgende Beispiel gibt die automatische Farbe jeder Standard‑Serie aus:
+Das folgende Beispiel gibt die automatische Farbe jeder Standardsereie aus:
 
 ```java
 import com.aspose.slides.*;
@@ -194,13 +194,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Die genauen Farben hängen vom Diagrammstil und Theme ab.
+Die genauen Farben hängen vom Diagrammstil und -thema ab.
 
 ## **Invertierte Füllfarbe für eine Diagrammserie festlegen**
 
-Für Balken‑, Säulen‑ und Blasendiagramm‑Serien kann [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negative Werte mit einer anderen Füllung anzeigen. Setzen Sie die reguläre Serien‑Füllung auf einfarbig, aktivieren Sie die Invertierung und bestimmen Sie die Farbe für negative Werte über [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur ihre Anzeigefarbe ändert sich.
+Für Balken‑, Säulen‑ und Blasensereien kann [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negative Werte mit einer anderen Füllung darstellen. Setzen Sie die reguläre Serien‑Füllung auf solid, aktivieren Sie die Invertierung und weisen Sie die Farbe für negative Werte über [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) zu. Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur ihre Anzeigefarbe ändert sich.
 
-Das folgende Beispiel ersetzt die Standard‑Diagrammdaten durch eine Serie. Arbeitsblatt‑Zeile 0 enthält den Seriennamen, Spalte 0 enthält die Kategorienamen und Spalte 1 enthält die Werte:
+Das folgende Beispiel ersetzt die Standard‑Diagrammdaten durch eine Serie. Zeile 0 des Arbeitsblatts enthält den Seriennamen, Spalte 0 die Kategorienamen und Spalte 1 die Werte:
 
 ```java
 import com.aspose.slides.*;
@@ -257,9 +257,9 @@ try {
 
 Das Ergebnis:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Die invertierte solide Füllfarbe](inverted_solid_fill_color.png)
 
-Sie können die Invertierung für einen Punkt über [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) aktivieren. Im folgenden Beispiel ist die Invertierung für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Dem Punkt wird zudem ein negativer Wert zugewiesen, damit der Effekt sichtbar wird:
+Sie können die Invertierung für einen Punkt über [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) aktivieren. Im folgenden Beispiel ist die Invertierung für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Der Punkt erhält zudem einen negativen Wert, damit der Effekt sichtbar wird:
 
 ```java
 import com.aspose.slides.*;
@@ -293,11 +293,11 @@ try {
 }
 ```
 
-## **Einen bestimmten Datenpunktwert löschen**
+## **Einen bestimmten Datenpunktwert leeren**
 
-Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie die zugehörige Arbeitsmappen‑Zelle auf `null`. Für ein Säulendiagramm ist der geplottete Wert über [IChartDataPoint.getValue](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#getValue--) verfügbar. Der Datenpunkt bleibt an derselben Kategorieposition, aber das Diagramm behandelt seinen Wert als leer gemäß den Leere‑Wert‑Einstellungen des Diagramms.
+Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie die zugrunde liegende Zelle der Arbeitsmappe auf `null`. Bei einem Säulendiagramm ist der geplottete Wert über [IChartDataPoint.getValue](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#getValue--) verfügbar. Der Datenpunkt bleibt an derselben Kategorieposition, aber das Diagramm behandelt seinen Wert gemäß den Einstellungen für leere Werte als leer.
 
-Das folgende Beispiel löscht nur den zweiten Punkt in der ersten Serie:
+Das folgende Beispiel leert nur den zweiten Punkt der ersten Serie:
 
 ```java
 import com.aspose.slides.*;
@@ -322,15 +322,17 @@ try {
 }
 ```
 
-Scatter‑Diagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme benutzen zusätzlich eine Größen‑Zelle. Löschen Sie nur die Zelle, die den zu entfernenden Wert darstellt. Rufen Sie nicht [IChartDataPointCollection.clear](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapointcollection/#clear--) auf, wenn Sie die anderen Punkte behalten möchten, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
+Streudiagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme nutzen zudem eine Größen‑Zelle. Leeren Sie nur die Zelle, die den zu entfernenden Wert enthält. Rufen Sie nicht [IChartDataPointCollection.clear](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapointcollection/#clear--) auf, wenn Sie die anderen Punkte behalten möchten, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
 
 ## **Anzeige leerer Zellen steuern**
 
-Eine leere Arbeitsmappen‑Zelle steht für fehlende Daten; eine Zelle mit `0` steht für einen bekannten numerischen Wert. Rufen Sie [IChartDataCell.setValue](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) mit `null` auf, um eine Zelle leer zu machen. Eine numerische Null bleibt eine Null, unabhängig von der Einstellung für leere Zellen.
+Versteckte Zellen, die Werte enthalten, sind ein anderer Fall als leere Zellen. Um Daten aus versteckten Zeilen und Spalten des Arbeitsblatts ein- oder auszuschließen, siehe [Include Data from Hidden Rows and Columns](/slides/de/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Verwenden Sie [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-), um zu wählen, wie das Diagramm leere Zellen darstellt. Diese Einstellung gilt für das gesamte Diagramm. Sie ändert, wie Leereinträge geplottet werden, ohne die leere Arbeitsmappen‑Zelle mit Null oder einem interpolierten Wert zu füllen.
+Eine leere Arbeitsblattzelle steht für fehlende Daten; eine Zelle mit `0` steht für einen bekannten numerischen Wert. Rufen Sie [IChartDataCell.setValue](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) mit `null` auf, um eine Zelle leer zu machen. Eine numerische Null bleibt eine Null, ungeachtet der Einstellung für leere Zellen.
 
-Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit einer Serie, löscht den Wert für Tag 3 und speichert dasselbe Diagramm in jedem Modus. Keine Eingabedatei ist erforderlich. Der [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) verwendet Arbeitsblatt 0, Spalte 0 für Kategorienamen und Spalte 1 für Werte; Zeile 0 enthält den Seriennamen. Die Enddaten sind `10, 20, empty, 30, 40`.
+Verwenden Sie [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-), um festzulegen, wie das Diagramm leere Zellen darstellt. Diese Einstellung gilt für das gesamte Diagramm. Sie ändert, wie Lücken geplottet werden, ohne die leere Arbeitsblattzelle mit Null oder einem interpolierten Wert zu füllen.
+
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit einer Serie, leert den Wert für Tag 3 und speichert das Diagramm für jede Darstellungsart. Es wird keine Eingabedatei benötigt. Der [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/) verwendet Arbeitsblatt 0, Spalte 0 für Kategorienamen und Spalte 1 für Werte; Zeile 0 enthält den Seriennamen. Die abschließenden Daten lauten `10, 20, leer, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -371,19 +373,19 @@ try {
 }
 ```
 
-Jede Ausgabedatei speichert den vor dem Speichern zugewiesenen Modus: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` und `empty_cells_Span.pptx`. Um nur eine Version zu speichern, weisen Sie den gewünschten Modus zu und speichern die Präsentation einmal, anstatt über die Modi zu iterieren.
+Jede Ausgabedatei speichert die vor dem Speichern zugewiesene Darstellungsart: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` und `empty_cells_Span.pptx`. Um nur eine Version zu speichern, weisen Sie die gewünschte Darstellungsart zu und speichern die Präsentation einmal, anstatt über die Optionen zu iterieren.
 
-Der Vergleich unten zeigt dieselben Daten in allen drei Dateien. Tag 3 ist in der Arbeitsmappe in jedem Fall leer:
+Der Vergleich unten zeigt dieselben Daten in allen drei Dateien. Tag 3 ist in jeder Arbeitsmappe leer:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Liniendiagramme mit identischen Daten: Gap trennt die Linie bei Tag 3, Zero lässt die Linie bis Null sinken, und Span verbindet Tag 2 mit Tag 4.](display_blanks_as.png)
 
-Die sichtbare Wirkung hängt vom Diagrammtyp ab. Ein Liniendiagramm macht alle drei Modi leicht vergleichbar. Balken‑ und Säulendiagramme haben keine Linie, die über eine fehlende Kategorie hinweg verbindet, sodass `Span` nicht das oben gezeigte verbindende Segment erzeugen kann; eine fehlende Säule und eine Säule mit Höhe Null können ebenfalls ähnlich aussehen. Ebenso hat ein Scatter‑Diagramm mit nur Markern keine verbindende Linie. Erwartet nicht drei unterschiedliche Ergebnisse für jeden Diagrammtyp; prüft die Ausgabe für den von euch genutzten Typ.
+Der sichtbare Effekt hängt vom Diagrammtyp ab. Ein Liniendiagramm ermöglicht einen leicht vergleichbaren Überblick über alle drei Modi. Balken‑ und Säulendiagramme besitzen keine Linie, die über eine fehlende Kategorie hinweg verbindet, sodass `Span` das oben gezeigte Verbindungselement nicht erzeugen kann; eine fehlende Säule und eine Säule mit Höhe 0 können ebenfalls ähnlich aussehen. Ähnlich hat ein Streudiagramm ohne Linien nur Marker und daher keine Verbindungslinie. Erwarten Sie nicht für jeden Diagrammtyp drei unterschiedliche Ergebnisse; prüfen Sie die Ausgabe für den von Ihnen verwendeten Typ.
 
-## **Lückenbreite der Serie festlegen**
+## **Abstand zwischen Serien festlegen**
 
-Lückenbreite ist der Abstand zwischen benachbarten Balken‑ oder Säulen‑Clustern, ausgedrückt als Prozentsatz der Balken‑ oder Säulenbreite. Wie die Überlappung gehört sie zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Rufen Sie [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) einmal für die Gruppe auf. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
+Der Abstand ist der Raum zwischen benachbarten Balken‑ oder Säulen‑Clustern, angegeben als Prozentsatz der Balken‑ bzw. Säulenbreite. Wie die Überlappung gehört er zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Rufen Sie [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) einmal für die Gruppe auf. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
 
-Das folgende Beispiel ändert die Lückenbreite und speichert nur die finale Präsentation:
+Das folgende Beispiel ändert den Abstand und speichert nur die finale Präsentation:
 
 ```java
 import com.aspose.slides.*;
@@ -409,46 +411,46 @@ try {
 
 Das Ergebnis:
 
-![The gap width](gap_width.png)
+![Der Abstand](gap_width.png)
 
 ## **FAQ**
 
 **Welche Diagrammtypen unterstützen Datenserien?**
 
-Alle Diagrammtypen, die durch die Aufzählung [ChartType](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/) repräsentiert werden, verwenden Diagrammdaten, jedoch haben ihre Serien nicht alle dieselbe Werte‑Struktur oder Einstellungen. Zum Beispiel verwenden Kategorien‑Diagramme Kategorien und Werte, Streudiagramme X‑ und Y‑Werte, und Blasendiagramme zusätzlich Blasengrößen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die dem Serientyp entspricht. Optionen wie Überlappung und Lückenbreite gelten nur für kompatible Balken‑ oder Säulengruppen.
+Alle Diagrammtypen, die durch die Aufzählung [ChartType](https://reference.aspose.com/slides/de/java/com.aspose.slides/charttype/) repräsentiert werden, verwenden Diagrammdaten, aber ihre Serien besitzen nicht alle die gleiche Werte‑Struktur oder dieselben Einstellungen. Beispielsweise verwenden Kategoriediagramme Kategorien und Werte, Streudiagramme X‑ und Y‑Werte und Blasendiagramme zusätzlich Blasengrößen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die zum Serientyp passt. Optionen wie Überlappung und Abstandsbreite gelten nur für kompatible Balken‑ oder Säulengruppen.
 
-**Was ist eine Diagramm‑Serien‑Gruppe?**
+**Was ist eine Diagrammseriengruppe?**
 
-Eine [IChartSeriesGroup](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/) enthält kompatible Serien, die gruppen‑weite Plot‑Einstellungen teilen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der Gruppe, die über eine Serie erreicht wird, nicht notwendigerweise jede Serie im Diagramm verändert.
+Eine [IChartSeriesGroup](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/) enthält kompatible Serien, die gruppenweite Darstellungseinstellungen teilen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der Gruppe über eine Serie nicht zwangsläufig alle Serien im Diagramm beeinflusst.
 
 **Enthält ein neu erstelltes Diagramm Standarddaten?**
 
-Ja. Standardmäßig erstellt [IShapeCollection.addChart](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) Beispiel‑Serien, Kategorien und Werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategorien‑Sammlungen leeren, bevor Sie einen komplett benutzerdefinierten Datensatz hinzufügen. Eine Überladung kann ebenfalls ein Diagramm ohne Standarddaten erzeugen.
+Ja. Standardmäßig erzeugt [IShapeCollection.addChart](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) Beispielserien, -kategorien und -werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategorien‑Sammlungen löschen, bevor Sie einen komplett eigenen Datensatz hinzufügen. Eine überladene Methode kann zudem ein Diagramm ohne Standarddaten erzeugen.
 
-**Wie sind Diagrammobjekte mit Arbeitsmappenzellen verknüpft?**
+**Wie sind Diagrammobjekte mit Arbeitsblattzellen verknüpft?**
 
-Seriennamen, Kategorien‑Beschriftungen und Datenpunkt‑Werte referenzieren Zellen in einem [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das entsprechende Diagrammelement. Wenn Sie benutzerdefinierte Daten erstellen, halten Sie Kategorie‑Zeilen und Serien‑Wert‑Zeilen ausgerichtet, sodass jeder Punkt unter der vorgesehenen Kategorie geplottet wird.
+Seriennamen, Kategorielabels und Datenpunktwerte verweisen auf Zellen in einer [IChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das zugehörige Diagrammelement. Beim Aufbau benutzerdefinierter Daten sollten Sie Kategorien‑Zeilen und Serien‑Wert‑Zeilen so ausrichten, dass jeder Punkt unter der beabsichtigten Kategorie geplottet wird.
 
-**Wie lösche ich einen einzelnen Punkt anstelle der gesamten Serie?**
+**Wie lösche ich einen Punkt, ohne die gesamte Serie zu entfernen?**
 
-Setzen Sie die betreffende Werte‑Zelle auf `null`, um die Kategorie‑Position des Punktes als leeren Punkt beizubehalten. Verwenden Sie [IChartDataPointCollection.clear](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapointcollection/#clear--) nur, wenn Sie alle Punkte dieser Serie entfernen möchten. Wenn Sie außerdem Kategorien entfernen, aktualisieren Sie jede Serie, damit ihre Werte mit der Kategorien‑Sammlung ausgerichtet bleiben.
+Setzen Sie die betreffende Wertzelle auf `null`, um die Kategorieposition des Punktes als leeren Punkt zu erhalten. Verwenden Sie [IChartDataPointCollection.clear](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapointcollection/#clear--) nur, wenn Sie tatsächlich alle Punkte dieser Serie entfernen möchten. Entfernen Sie zusätzlich Kategorien, passen Sie jede Serie an, damit deren Werte weiterhin mit der Kategorien‑Sammlung ausgerichtet bleiben.
 
 **Wie werden leere Punkte angezeigt?**
 
-Das Ergebnis hängt vom Diagrammtyp und der über [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) konfigurierten Einstellung ab. Unterstützte Diagramme können Leereinträge als Lücken, als Null‑Werte oder durch Verbinden benachbarter Punkte darstellen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht. Siehe „Anzeige leerer Zellen steuern“ für ein vollständiges Beispiel und visuellen Vergleich.
+Das Ergebnis hängt vom Diagrammtyp und von der über [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) konfigurierten Einstellung ab. Unterstützte Diagramme können Lücken als Lücken, als Nullwerte oder durch Verbinden benachbarter Punkte darstellen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht. Siehe [Anzeige leerer Zellen steuern](#control-the-display-of-empty-cells) für ein vollständiges Beispiel und einen visuellen Vergleich.
 
 **Wie werden negative Werte formatiert?**
 
-Für unterstützte Balken‑, Säulen‑ und Blasendiagramm‑Serien rufen Sie [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) auf und setzen die Farbe, die von [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) zurückgegeben wird. Sie können das Verhalten für einen einzelnen Punkt mit [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) überschreiben. Diese Methoden beeinflussen die Formatierung, nicht die gespeicherten numerischen Werte.
+Für unterstützte Balken‑, Säulen‑ und Blasensereien rufen Sie [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) auf und setzen die Farbe, die über [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) zurückgegeben wird. Sie können das Verhalten für einen einzelnen Punkt mit [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) überschreiben. Diese Methoden beeinflussen die Formatierung, nicht die gespeicherten numerischen Werte.
 
 **Welche Formatierung gewinnt, wenn sowohl eine Serie als auch ein Punkt formatiert sind?**
 
-Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin das explizite Serien‑Format oder, wenn das Serien‑Format nicht definiert ist, den automatischen Diagrammstil und das Theme. Gruppeneinstellungen wie Überlappung und Lückenbreite steuern das Layout und sind keine Punkt‑Level‑Formatierungs‑Überschreibungen.
+Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin das explizite Serien‑Format oder, wenn kein Serien‑Format definiert ist, den automatischen Diagrammstil und das Thema. Gruppeneinstellungen wie Überlappung und Abstandsbreite steuern das Layout und stellen keine punktuelle Formatierungsüberschreibung dar.
 
-**Gibt es ein Limit, wie viele Serien ein Diagramm enthalten kann?**
+**Gibt es ein Limit für die Anzahl von Serien in einem Diagramm?**
 
-Aspose.Slides legt kein separates festes Serien‑Zahl‑Limit fest. In der Praxis bestimmen Rahmenbedingungen der Präsentationsdatei, verfügbarer Speicher, Render‑Zeit und Lesbarkeit des Diagramms ein sinnvolles Limit.
+Aspose.Slides legt kein separates festes Serien‑Zähl‑Limit fest. In der Praxis bestimmen Dateigrößen‑Beschränkungen, verfügbarer Arbeitsspeicher, Render‑Zeit und die Lesbarkeit des Diagramms ein sinnvolles Limit.
 
-**Was sollte ich ändern, wenn Säulen zu nahe beieinander oder zu weit auseinander liegen?**
+**Was sollte ich ändern, wenn Spalten zu dicht beieinander oder zu weit auseinander liegen?**
 
-Rufen Sie [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) auf der entsprechenden übergeordneten Seriengruppe auf. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzubringen.
+Rufen Sie [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) für die entsprechende übergeordnete Seriengruppe auf. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzubringen.

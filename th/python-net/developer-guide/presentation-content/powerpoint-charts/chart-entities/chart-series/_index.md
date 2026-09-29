@@ -1,43 +1,43 @@
 ---
-title: จัดการชุดข้อมูลซีรีส์ของแผนภูมิในงานนำเสนอด้วย Python
-linktitle: ชุดซีรีส์ข้อมูล
+title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอด้วย Python
+linktitle: ชุดข้อมูล
 type: docs
 url: /th/python-net/chart-series/
 keywords:
-- ซีรีส์แผนภูมิ
-- การซ้อนทับของซีรีส์
-- สีของซีรีส์
+- ชุดข้อมูลแผนภูมิ
+- การทับซ้อนของชุด
+- สีของชุด
 - สีหมวดหมู่
-- ชื่อซีรีส์
+- ชื่อชุด
 - จุดข้อมูล
-- ช่องว่างของซีรีส์
+- ช่องว่างของชุด
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการซีรีส์ของแผนภูมิ, จุดข้อมูล, เซลล์ workbook, การจัดรูปแบบ, การซ้อนทับ, ความกว้างของช่องว่าง, และค่าติดลบในงานนำเสนอด้วย Python."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์ workbook, การจัดรูปแบบ, การทับซ้อน, ความกว้างของช่องว่าง, และค่าลบในงานนำเสนอด้วย Python."
 ---
 ## **ภาพรวม**
 
-แผนภูมิจัดเก็บข้อมูลที่พล็อตไว้ใน workbook ข้อมูลแผนภูมิหนึ่งชุด [ChartSeries](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/) แสดงชุดค่าที่เกี่ยวข้องหนึ่งชุดและแต่ละ [ChartDataPoint](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/) ในซีรีส์อ้างอิงถึงเซลล์ workbook หนึ่งเซลล์หรือหลายเซลล์ [ChartCategory](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartcategory/) ให้ป้ายกำกับหรือค่ากลุ่มที่ใช้ร่วมกันโดยซีรีส์ ชื่อซีรีส์, หมวดหมู่และค่าจุดจึงเชื่อมต่อกับอ็อบเจ็กต์ [ChartDataCell](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatacell/) แทนที่จะเก็บเป็นข้อความที่แสดงเท่านั้น
+แผนภูมิจะเก็บข้อมูลที่วาดไว้ใน workbook ข้อมูลแผนภูมิ. A [ChartSeries](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/) แทนค่าชุดหนึ่งที่เกี่ยวข้องกัน, และแต่ละ [ChartDataPoint](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/) ในชุดจะอ้างอิงถึงหนึ่งหรือหลายเซลล์ใน workbook. วัตถุ [ChartCategory](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartcategory/) ให้ป้ายหรือค่ากลุ่มที่ใช้ร่วมกันโดยชุด. ดังนั้นชื่อชุด, หมวดหมู่, และค่าจุดจึงเชื่อมต่อกับวัตถุ [ChartDataCell](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatacell/) แทนที่จะเก็บเป็นข้อความแสดงผลเท่านั้น.
 
-สำหรับแผนภูมิกลุ่มประเภททั่วไป workbook เริ่มต้นจะใช้แถว 0 สำหรับชื่อซีรีส์, คอลัมน์ 0 สำหรับชื่อหมวดหมู่และเซลล์ที่เหลือสำหรับค่าซีรีส์ ดัชนี worksheet, แถวและคอลัมน์ที่ส่งให้ [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) เป็นแบบ 0‑based การจัดวางนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสมมติว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้ สำหรับงานนำเสนอที่โหลดมาแล้ว ควรตรวจสอบเซลล์ที่ซีรีส์, หมวดหมู่และจุดข้อมูลอ้างอิงก่อนที่จะเปลี่ยนค่าใน workbook
+สำหรับแผนภูมิประเภทหมวดหมู่ทั่วไป, workbook เริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด. ดัชนี worksheet, แถว, และคอลัมน์ที่ส่งให้ [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) เป็นค่าตั้งต้นที่เริ่มจากศูนย์. การจัดเรียงนี้มีประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น, แต่ไม่ควรถือว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้. สำหรับพรีเซนเทชันที่โหลดเข้ามา, ตรวจสอบเซลล์ที่ชุด, หมวดหมู่, และจุดข้อมูลอ้างอิงก่อนที่จะเปลี่ยนค่าของ workbook.
 
-การตั้งค่าแผนภูมิมีสามระดับแตกต่างกัน:
+การตั้งค่าแผนภูมิมีสามระดับที่แตกต่างกัน:
 
-- การตั้งค่าระดับซีรีส์ เช่น [ChartSeries.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/format/) ให้ลักษณะเริ่มต้นสำหรับทุกจุดในซีรีส์หนึ่ง
-- การตั้งค่าระดับจุดข้อมูล เช่น [ChartDataPoint.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/format/) จะลบล้างลักษณะของซีรีส์สำหรับจุดนั้น
-- การตั้งค่ากลุ่มใช้กับซีรีส์ที่เข้ากันได้ซึ่งอยู่ใน [ChartSeriesGroup](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/) เดียวกัน เข้าถึงกลุ่มผ่าน [ChartSeries.parent_series_group](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/parent_series_group/) เมื่อคุณต้องการกำหนดตัวเลือกเช่น overlap หรือ gap width
+- การตั้งค่าระดับชุด, เช่น [ChartSeries.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/format/), ให้ลักษณะการแสดงผลเริ่มต้นสำหรับทุกจุดในชุดหนึ่ง.
+- การตั้งค่าจุดข้อมูล, เช่น [ChartDataPoint.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/format/), จะเขียนทับลักษณะชุดสำหรับจุดเดียว.
+- การตั้งค่ากลุ่มใช้กับชุดที่เข้ากันได้ซึ่งอยู่ใน [ChartSeriesGroup](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/). เข้าถึงกลุ่มผ่าน [ChartSeries.parent_series_group](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/parent_series_group/) เมื่อคุณต้องการกำหนดตัวเลือกเช่น overlap หรือ gap width.
 
-เมื่อไม่มีการกำหนดการเติมสีจุดหรือซีรีส์โดยชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ เมื่อมีทั้งการจัดรูปแบบของซีรีส์และจุด การจัดรูปแบบของจุดจะมีความสำคัญต่อจุดนั้น
+เมื่อไม่มีการกำหนดการเติมสีจุดหรือชุดอย่างชัดเจน, สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ. หากมีการกำหนดรูปแบบทั้งชุดและจุด, การกำหนดรูปแบบของจุดจะมีลำดับความสำคัญสำหรับจุดนั้น.
 
-![แผนภูมิ‑ซีรีส์‑พาวเวอร์พอยต์](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **กำหนดการซ้อนทับของซีรีส์แผนภูมิ**
+## **ตั้งค่า Overlap ของชุดแผนภูมิ**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/overlap/) รายงานว่าบาร์หรือคอลัมน์ซ้อนทับกันมากแค่ไหนในแผนภูมิ 2‑D โดยมีค่าตั้งแต่ ‑100 ถึง 100 เปอร์เซ็นต์ เป็นการฉายภาพแบบอ่าน‑อย่าง‑เดียวของการตั้งค่าบนกลุ่มซีรีส์แม่ตั้งค่า [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/overlap/) เพื่ออัปเดตทุกซีรีส์ที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์แบบกลุ่ม; ไม่ส่งผลต่อกลุ่มซีรีส์ที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
+[ChartSeries.overlap](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/overlap/) รายงานว่าบาร์หรือคอลัมน์ทับกันมากเพียงใดในแผนภูมิ 2D, ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์. มันเป็นการฉายภาพแบบอ่านอย่างเดียวของการตั้งค่าบนกลุ่มชุดพาเรนท์. ตั้งค่า [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/overlap/) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น. ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; ไม่ส่งผลต่อกลุ่มชุดที่ไม่มีความเกี่ยวข้องในแผนภูมิแบบผสม.
 
-ตัวอย่างต่อไปนี้ตั้งค่าการซ้อนทับสำหรับกลุ่มที่มีซีรีส์แรก:
+ตัวอย่างต่อไปนี้ตั้งค่า overlap สำหรับกลุ่มที่มีชุดแรก:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # แผนภูมิใหม่มีซีรีส์ตัวอย่าง, หมวดหมู่, และค่า.
+    # แผนภูมิใหม่มีชุดตัวอย่าง, หมวดหมู่, และค่า.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -61,13 +61,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![การซ้อนทับซีรีส์](series_overlap.png)
+![การทับซ้อนของชุด](series_overlap.png)
 
-## **เปลี่ยนสีเติมของซีรีส์**
+## **เปลี่ยนสีเติมของชุด**
 
-ใช้ [ChartSeries.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/format/) เพื่อกำหนดการเติมสีเริ่มต้นสำหรับทั้งซีรีส์ หากจุดมีการกำหนดการเติมสีอย่างชัดเจนแล้ว การตั้งค่า [ChartDataPoint.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/format/) ของจุดนั้นจะลบล้างการเติมสีของซีรีส์สำหรับจุดนั้น
+ใช้ [ChartSeries.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/format/) เพื่อกำหนดการเติมสีเริ่มต้นสำหรับชุดทั้งหมด. หากจุดหนึ่งมีการเติมสีอย่างชัดเจน, การตั้งค่า [ChartDataPoint.format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/format/) ของจุดนั้นจะเขียนทับการเติมสีของชุดสำหรับจุดนั้น.
 
-ตัวอย่างต่อไปนี้ใช้การเติมสีเด้งพุ่มสีฟ้าเป็นสีเดียวกับซีรีส์แรก:
+ตัวอย่างต่อไปนี้ใช้การเติมสีฟ้าแบบทึบกับชุดแรก:
 
 ```py
 import aspose.pydrawing as drawing
@@ -91,11 +91,11 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![สีของซีรีส์](series_color.png)
+![สีของชุด](series_color.png)
 
-## **เปลี่ยนชื่อซีรีส์**
+## **เปลี่ยนชื่อชุด**
 
-ชื่อซีรีส์ถูกเก็บใน workbook ข้อมูลแผนภูมิและปกติจะแสดงในคำอธิบายสีใน legend ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบกลุ่ม เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และมีชื่อของซีรีส์แรก ตัวแปรคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้ชัดเจน:
+ชื่อชุดถูกเก็บใน workbook ข้อมูลแผนภูมิและปกติจะแสดงใน legend. ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบ clustered, เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และมีชื่อของชุดแรก. ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนั้นชัดเจน:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-คุณสามารถอัปเดตเซลล์ที่ [ChartSeries.name](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/name/) อ้างอิงอยู่ได้เช่นกัน วิธีนี้หลีกเลี่ยงการสมมติว่ามีแถวและคอลัมน์ที่แน่นอนในแผนภูมิที่มีอยู่แล้ว:
+คุณสามารถอัปเดตเซลล์ที่อ้างอิงโดย [ChartSeries.name](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/name/) ได้เช่นกัน. วิธีนี้หลีกเลี่ยงการสันนิษฐานแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่:
 
 ```py
 import aspose.slides as slides
@@ -142,13 +142,13 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![ชื่อซีรีส์](series_name.png)
+![ชื่อชุด](series_name.png)
 
-## **รับสีเติมอัตโนมัติของซีรีส์**
+## **รับสีเติมอัตโนมัติของชุด**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) คืนค่าสีที่คำนวนจากดัชนีซีรีส์และสไตล์แผนภูมิ นี่คือสีที่ใช้เมื่อการเติมสีของซีรีส์ไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดนี้อ่านค่าสีที่คำนวนแล้ว; ไม่ได้กำหนดการเติมสีใหม่
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) คืนสีที่คำนวณจากดัชนีชุดและสไตล์แผนภูมิ. นี้คือสีที่ใช้เมื่อการเติมสีของชุดไม่ได้กำหนดอย่างชัดเจน. การเรียกเมธอดจะอ่านสีที่คำนวณได้; ไม่ได้กำหนดการเติมสีใหม่.
 
-ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละซีรีส์เริ่มต้น:
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น:
 
 ```py
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเริ่มต้น:
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเ�เริ่มต้น:
 
 ```text
 Series 0: ff4f81bd
@@ -176,13 +176,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-สีที่ได้จะขึ้นอยู่กับสไตล์และธีมของแผนภูมิ
+สีที่ได้ขึ้นอยู่กับสไตล์และธีมของแผนภูมิ.
 
-## **กำหนดสีเติมแบบย้อนกลับสำหรับซีรีส์แผนภูมิ**
+## **ตั้งค่าการเติมสีกลับ (Invert) สำหรับชุดแผนภูมิ**
 
-สำหรับซีรีส์บาร์, คอลัมน์และบับเบิล, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/invert_if_negative/) สามารถแสดงค่าติดลบด้วยสีเติมที่ต่างออกไป กำหนดการเติมสีของซีรีส์เป็นสีทึบ, เปิดการย้อนกลับและกำหนดสีค่าติดลบผ่าน [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) ตัวเลขติดลบจะคงอยู่ใน workbook; เพียงเปลี่ยนสีที่แสดงเท่านั้น
+สำหรับชุดบาร์, คอลัมน์, และบับเบิล, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/invert_if_negative/) สามารถแสดงค่าลบด้วยสีเติมที่แตกต่างกัน. ตั้งค่าการเติมสีของชุดเป็นแบบทึบ, เปิดการกลับค่า, และกำหนดสีค่าลบผ่าน [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). ตัวเลขลบจะยังคงอยู่ใน workbook; เพียงสีการแสดงผลที่เปลี่ยน.
 
-ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยซีรีส์เดียว worksheet แถว 0 มีชื่อซีรีส์, คอลัมน์ 0 มีชื่อหมวดหมู่และคอลัมน์ 1 มีค่าต่าง ๆ:
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยชุดเดียว. แถว worksheet 0 มีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, และคอลัมน์ 1 มีค่า:
 
 ```py
 import aspose.pydrawing as drawing
@@ -235,9 +235,9 @@ with slides.Presentation() as presentation:
 
 ผลลัพธ์:
 
-![สีเติมเด้งกลับแบบทึบ](inverted_solid_fill_color.png)
+![สีเติมแบบกลับของชุด](inverted_solid_fill_color.png)
 
-คุณสามารถเปิดการย้อนกลับสำหรับจุดเดียวผ่าน [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) ในตัวอย่างต่อไปนี้ การย้อนกลับถูกปิดสำหรับซีรีส์และเปิดเฉพาะจุดที่เลือก จุดนั้นยังได้รับค่าติดลบเพื่อให้เห็นผล:
+คุณสามารถเปิดการกลับค่าสำหรับจุดเดียวผ่าน [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). ในตัวอย่างต่อไปนี้ การกลับค่าสำหรับชุดถูกปิดและเปิดเฉพาะจุดที่เลือก. จุดนั้นยังได้รับค่าลบเพื่อให้เอฟเฟกต์ปรากฏ:
 
 ```py
 import aspose.pydrawing as drawing
@@ -268,11 +268,11 @@ with slides.Presentation() as presentation:
     presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ลบค่าจุดข้อมูลเฉพาะ**
+## **ลบค่าข้อมูลจุดเฉพาะ**
 
-เพื่อทำให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ๆ ให้กำหนดเซลล์ workbook ที่เป็นฐานของจุดนั้นเป็น `None` สำหรับแผนภูมิคอลัมน์ ค่าที่พล็อตได้สามารถเข้าถึงผ่าน [ChartDataPoint.value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/value/) จุดข้อมูลจะยังคงอยู่ในตำแหน่งหมวดหมู่เดียวกัน แต่แผนภูมิจะแTreat ค่าดังกล่าวเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
+เพื่อทำให้จุดหนึ่งเป็นค่าว่างโดยไม่ลบจุดอื่น, ตั้งค่าเซลล์ workbook ที่สนับสนุนเป็น `None`. สำหรับแผนภูมิคอลัมน์, ค่าที่แสดงผลสามารถเข้าถึงได้ผ่าน [ChartDataPoint.value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/value/). จุดข้อมูลจะยืดอยู่ในตำแหน่งหมวดหมู่เดียวกัน, แต่แผนภูมิจะถือค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ.
 
-ตัวอย่างต่อไปนี้ลบค่าเฉพาะของจุดที่สองในซีรีส์แรก:
+ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองในชุดแรก:
 
 ```py
 import aspose.slides as slides
@@ -294,15 +294,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน และแผนภูมิบับเบิลยังใช้เซลล์ขนาดด้วย ให้ลบเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ ไม่ควรเรียก [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapointcollection/clear/) เมื่อต้องการเก็บจุดอื่นไว้ เนื่องจากเมธอดนี้จะลบทุกจุดข้อมูลออกจากคอลเลกชัน
+แผนภูมิสเกลอร์ใช้เซลล์ X และ Y แยกกัน, และแผนภูมิบับเบิลยังใช้เซลล์ขนาด. ให้ลบเฉพาะเซลล์ที่เป็นค่าที่คุณต้องการลบ. อย่าเรียก [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapointcollection/clear/) หากต้องการเก็บจุดอื่นไว้, เพราะเมธอดนั้นจะลบทุกจุดจากคอลเลกชัน.
 
-## **ควบคุมการแสดงผลของเซลล์ที่ว่าง**
+## **ควบคุมการแสดงผลของเซลล์ว่าง**
 
-เซลล์ workbook ที่ว่างเปล่าจะแทนข้อมูลที่หายไป; เซลล์ที่มีค่า `0` แทนค่าตัวเลขที่ทราบ กำหนด [ChartDataCell.value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatacell/value/) เป็น `None` เพื่อทำให้เซลล์ว่าง ค่าศูนย์ตัวเลขจะคงเป็นศูนย์ไม่ว่าจะตั้งค่าการแสดงเซลล์ว่างอย่างไร
+เซลล์ที่ซ่อนไว้ซึ่งมีค่าเป็นกรณีที่ต่างจากเซลล์ว่าง. เพื่อรวมหรือไม่รวมข้อมูลจากแถวและคอลัมน์ worksheet ที่ซ่อน, ดูที่ [Include Data from Hidden Rows and Columns](/slides/th/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-ใช้ [Chart.display_blanks_as](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/display_blanks_as/) เพื่อเลือกว่าควรแสดงเซลล์ว่างอย่างไร การตั้งค่านี้ใช้กับแผนภูมิทั้งหมด มันเปลี่ยนวิธีการพล็อตค่าว่างโดยไม่ต้องเติมค่า 0 หรือค่าประมาณลงในเซลล์ workbook ที่ว่าง
+เซลล์ workbook ที่ว่างแสดงถึงข้อมูลที่หายไป; เซลล์ที่มีค่า `0` แสดงถึงค่าตัวเลขที่ทราบ. ตั้งค่า [ChartDataCell.value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatacell/value/) เป็น `None` เพื่อทำให้เซลล์เป็นค่าว่าง. ตัวเลขศูนย์จะยังคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างจะเป็นอย่างไร.
 
-ตัวอย่างต่อไปนี้เป็นตัวอย่างที่ทำงานอิสระซึ่งสร้างแผนภูมิเส้นหนึ่งซีรีส์, ลบค่าในวัน 3 และบันทึกแผนภูมิเดียวกันในแต่ละโหมด ไม่ต้องใช้ไฟล์อินพุต [ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับป้ายหมวดหมู่และคอลัมน์ 1 สำหรับค่า; แถว 0 เก็บชื่อซีรีส์ ค่าข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
+ใช้ [Chart.display_blanks_as](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/display_blanks_as/) เพื่อเลือกวิธีที่แผนภูมิแสดงเซลล์ว่าง. การตั้งค้านี้ใช้กับแผนภูมิทั้งหมด. มันเปลี่ยนวิธีการวาดค่าว่าง, โดยไม่ต้องเติมค่า `0` หรือค่าประมาณในเซลล์ workbook ที่ว่าง.
+
+ตัวอย่างต่อไปนี้เป็นตัวอย่างครบวงจรที่สร้างแผนภูมิเส้นหนึ่งชุด, ลบค่าของ Day 3, และบันทึกแผนภูมิเดียวกันในแต่ละโหมด. ไม่ต้องใช้ไฟล์อินพุต. [ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับป้ายหมวดหมู่, และคอลัมน์ 1 สำหรับค่า; แถว 0 มีชื่อชุด. ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`.
 
 ```py
 import aspose.slides as slides
@@ -328,7 +330,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # ปล่อยให้วัน 3 ว่างจริง ๆ แต่ยังคงเก็บหมวดหมู่และจุดข้อมูลไว้
+    # ทำให้ Day 3 ว่างจริง ๆ ในขณะที่คงหมวดหมู่และจุดข้อมูลไว้
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -337,19 +339,19 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-แต่ละไฟล์ผลลัพธ์บันทึกโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` และ `empty_cells_Span.pptx` หากต้องการบันทึกเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการและบันทึกงานนำเสนอเพียงครั้งเดียวแทนการวนลูปตามโหมด
+แต่ละไฟล์เอาต์พุตจะเก็บโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx`. หากต้องการบันทึกเพียงเวอร์ชันเดียว, ให้กำหนดโหมดที่ต้องการและบันทึกพรีเซนเทชันครั้งเดียวแทนที่จะวนลูปผ่านโหมดทั้งหมด.
 
-การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม ไวัน 3 เป็นเซลล์ว่างใน workbook ทุกกรณี:
+การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม. Day 3 เป็นค่าว่างใน workbook ทุกกรณี:
 
-![แผนภูมิเส้นที่มีข้อมูลเดียวกัน: Gap แตกเส้นที่วัน 3, Zero ทำเส้นลงไปที่ศูนย์, และ Span เชื่อมวัน 2 ไปวัน 4.](display_blanks_as.png)
+![แผนภูมิเส้นที่มีข้อมูลเดียวกัน: Gap ทำให้เส้นหยุดที่ Day 3, Zero ทำให้เส้นลดลงเป็นศูนย์, และ Span เชื่อม Day 2 ไป Day 4.](display_blanks_as.png)
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ แผนภูมิเส้นทำให้สามโหมดเปรียบเทียบได้ง่าย ส่วนแผนภูมิบาร์และคอลัมน์ไม่มีเส้นเชื่อมต่อเมื่อมีหมวดหมู่หายไป ดังนั้น `SPAN` จึงสร้างส่วนเชื่อมต่อไม่ได้; คอลัมน์ที่หายไปและคอลัมน์ที่มีความสูงศูนย์อาจดูคล้ายกันเช่นกัน เช่นเดียวกับแผนภูมิกระจายที่มีเฉพาะมาร์คเกอร์จะไม่มีเส้นเชื่อมต่อ อย่าคาดหวังผลลัพธ์ที่แตกต่างกันสามแบบสำหรับทุกประเภทแผนภูมิ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ. แผนภูมิเส้นทำให้เปรียบเทียบสามโหมดได้ง่าย. แผนภูมิบาร์และคอลัมน์ไม่มีเส้นเชื่อมข้ามหมวดหมู่ที่หายไป, ดังนั้น `SPAN` ไม่สามารถสร้างส่วนเชื่อมที่แสดงข้างต้น; คอลัมน์ที่หายไปและคอลัมน์สูงศูนย์อาจดูคล้ายกัน. เช่นกัน, แผนภูมิสเก็ตเตอร์ที่มีเพียงมาร์กเกอร์ก็ไม่มีเส้นเชื่อม. อย่าสร้างความคาดหวังว่าจะได้ผลลัพธ์ที่แตกต่างสามแบบในทุกประเภทแผนภูมิ; ตรวจสอบเอาต์พุตสำหรับประเภทที่คุณใช้.
 
-## **กำหนดความกว้างของช่องว่างระหว่างซีรีส์**
+## **ตั้งค่าความกว้างของช่องว่างระหว่างชุด (Gap Width)**
 
-ความกว้างของช่องว่างคือระยะห่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์ เช่นเดียวกับ overlap มันเป็นของกลุ่มซีรีส์แม่ ไม่ใช่ของซีรีส์เดียว ตั้งค่า [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) เพียงครั้งเดียวสำหรับกลุ่ม ค่าใหญ่จะทำให้ช่องว่างระหว่างกลุ่มเพิ่มขึ้น ค่าเล็กจะทำให้กลุ่มหนาแน่นขึ้น
+Gap width คือช่องว่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน, แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์. เช่นเดียวกับ overlap, มันเป็นของกลุ่มชุดพาเรนท์ ไม่ได้เป็นของชุดเดียว. ตั้งค่า [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) ครั้งเดียวสำหรับกลุ่ม. ค่ามากจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น; ค่าน้อยจะทำให้กลุ่มใกล้กันขึ้น.
 
-ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกงานนำเสนอขั้นสุดท้ายเท่านั้น:
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกพรีเซนเทชันขั้นสุดท้ายเท่านั้น:
 
 ```py
 import aspose.slides as slides
@@ -374,44 +376,44 @@ with slides.Presentation() as presentation:
 
 ![ความกว้างของช่องว่าง](gap_width.png)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**แผนภูมิประเภทใดสนับสนุนซีรีส์ข้อมูล?**
+**ประเภทแผนภูมิใดบ้างที่รองรับชุดข้อมูล?**
 
-ทุกประเภทแผนภูมิที่ระบุด้วย [ChartType](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/charttype/) ใช้ข้อมูลแผนภูมิ แต่ซีรีส์ของแต่ละประเภทไม่ได้มีโครงสร้างหรือการตั้งค่าเดียวกัน ตัวอย่างเช่น แผนภูมิกลุ่มใช้หมวดหมู่และค่า, แผนภูมิกระจายใช้ค่า X และ Y, แผนภูมิบับเบิลเพิ่มขนาดบับเบิล ใช้วิธีการสร้างจุดข้อมูลที่สอดคล้องกับประเภทซีรีส์ ตัวเลือกเช่น overlap และ gap width ใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้
+ทุกประเภทแผนภูมิที่แสดงโดย enumeration [ChartType](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/charttype/) ใช้ข้อมูลแผนภูมิ, แต่ชุดของพวกมันไม่ได้มีโครงสร้างหรือการตั้งค่าเดียวกัน. ตัวอย่างเช่น แผนภูมิประเภทหมวดหมู่ใช้หมวดหมู่และค่า, แผนภูมิสเก็ตเตอร์ใช้ค่า X และ Y, และแผนภูมิบับเบิลเพิ่มขนาดบับเบิล. ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทชุด. ตัวเลือกเช่น overlap และ gap width ใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้.
 
-**กลุ่มซีรีส์แผนภูมิคืออะไร?**
+**ชุดแผนภูมิกลุ่ม (Chart Series Group) คืออะไร?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/) ประกอบด้วยซีรีส์ที่เข้ากันได้ซึ่งใช้การตั้งค่าการพล็อตระดับกลุ่ม งานแผนภูมิกลุ่มอาจมีมากกว่าหนึ่งกลุ่ม ดังนั้นการเปลี่ยนแปลงกลุ่มที่เข้าถึงผ่านหนึ่งซีรีส์ไม่ได้หมายความว่าจะเปลี่ยนทุกซีรีส์ในแผนภูมิ
+[ChartSeriesGroup](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/) ประกอบด้วยชุดที่เข้ากันได้ซึ่งแบ่งปันการตั้งค่าการพล็อตระดับกลุ่ม. แผนภูมิแบบผสมสามารถมีมากกว่าหนึ่งกลุ่ม, ดังนั้นการเปลี่ยนกลุ่มผ่านชุดหนึ่งไม่จำเป็นต้องเปลี่ยนทุกชุดในแผนภูมิ.
 
-**แผนภูมิที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
+**แผนภูมิใหม่ที่สร้างขึ้นมามีข้อมูลเริ่มต้นหรือไม่?**
 
-ใช่ โดยค่าเริ่มต้น [ShapeCollection.add_chart](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_chart/) จะสร้างซีรีส์, หมวดหมู่และค่าตัวอย่าง คุณสามารถแก้ไขเซลล์เหล่านั้นหรือทำความสะอาดคอลเลกชันซีรีส์และหมวดหมู่ก่อนเพิ่มชุดข้อมูลแบบกำหนดเองได้ ตัวโอเวอร์โหลดบางตัวยังสามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้น
+มี. โดยค่าเริ่มต้น, [ShapeCollection.add_chart](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_chart/) จะสร้างชุดตัวอย่าง, หมวดหมู่, และค่า. คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งชุดและคอลัมน์ก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างเต็มที่. การ overload ยังสามารถสร้างแผนภูมิที่ไม่มีข้อมูลเริ่มต้นได้.
 
-**วัตถุแผนภูมิเชื่อมต่อกับเซลล์ workbook อย่างไร?**
+**วัตถุแผนภูมิเกี่ยวข้องกับเซลล์ workbook อย่างไร?**
 
-ชื่อซีรีส์, ป้ายหมวดหมู่และค่าจุดข้อมูลอ้างอิงเซลล์ใน [ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิที่สอดคล้องกัน เมื่อคุณสร้างข้อมูลแบบกำหนดเอง ให้รักษาแถวหมวดหมู่และแถวค่าซีรีส์ให้สอดคล้องกันเพื่อให้แต่ละจุดพล็อตอยู่ใต้หมวดหมู่ที่ตั้งใจ
+ชื่อชุด, ป้ายหมวดหมู่, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [ChartDataWorkbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/). การเปลี่ยนเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิตรงนั้น. เมื่อคุณสร้างข้อมูลแบบกำหนดเอง, ให้รักษาแถวหมวดหมู่และแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดวางภายใต้หมวดหมู่ที่ตั้งใจ.
 
-**ทำอย่างไรถึงจะลบจุดเดียวแทนซีรีส์ทั้งหมด?**
+**ฉันจะลบจุดเดียวแทนที่จะลบทั้งชุดอย่างไร?**
 
-กำหนดเซลล์ค่าที่เกี่ยวข้องเป็น `None` เพื่อให้จุดนั้นอยู่ตำแหน่งหมวดหมู่เดียวแต่เป็นจุดว่าง ใช้ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapointcollection/clear/) เฉพาะเมื่อคุณต้องการลบจุดทั้งหมดจากซีรีส์นั้น หากคุณลบหมวดหมู่ด้วย ให้ปรับปรุงทุกซีรีส์เพื่อให้ค่าตรงกับคอลเลกชันหมวดหมู่
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `None` เพื่อให้จุดยังคงตำแหน่งหมวดหมู่เป็นจุดว่าง. ใช้ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapointcollection/clear/) เฉพาะเมื่อคุณต้องการลบทุกจุดจากชุดนั้น. หากคุณลบหมวดหมู่อีกด้วย, ให้อัปเดตทุกชุดเพื่อให้ค่าของพวกมันยังคงสอดคล้องกับคอลเลกชันหมวดหมู่.
 
 **จุดว่างจะแสดงอย่างไร?**
 
-ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและ [Chart.display_blanks_as](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/display_blanks_as/) แผนภูมิที่สนับสนุนสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่า 0 หรือโดยการเชื่อมต่อจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ ดู [ควบคุมการแสดงผลของเซลล์ที่ว่าง](#control-the-display-of-empty-cells) สำหรับตัวอย่างเต็มและการเปรียบเทียบภาพ
+ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและ [Chart.display_blanks_as](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/display_blanks_as/). แผนภูมิที่รองรับสามารถแสดงช่องว่างเป็น Gap, เป็นค่า Zero, หรือโดยการเชื่อมจุดใกล้เคียงกัน. เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในพรีเซนเทชันของคุณ. ดูที่ [Control the Display of Empty Cells](#control-the-display-of-empty-cells) สำหรับตัวอย่างครบและการเปรียบเทียบภาพ.
 
-**ค่าติดลบถูกจัดรูปแบบอย่างไร?**
+**ค่าลบถูกจัดรูปแบบอย่างไร?**
 
-สำหรับซีรีส์บาร์, คอลัมน์และบับเบิลที่สนับสนุน ให้เปิด [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/invert_if_negative/) และกำหนด [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) คุณสามารถลบการตั้งค่าสำหรับจุดเดียวด้วย [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) คุณสมบัติเหล่านี้ส่งผลต่อการจัดรูปแบบ ไม่ใช่ค่าตัวเลขที่จัดเก็บ
+สำหรับชุดบาร์, คอลัมน์, และบับเบิลที่รองรับ, เปิด [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/invert_if_negative/) และตั้งค่า [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). คุณสามารถเขียนทับพฤติกรรมสำหรับจุดเดียวโดยใช้ [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). คุณสมบัติเหล่านี้ส่งผลต่อการจัดรูปแบบ, ไม่ใช่ค่าตัวเลขที่จัดเก็บ.
 
-**การจัดรูปแบบใดชนะเมื่อทั้งซีรีส์และจุดถูกจัดรูปแบบ?**
+**การจัดรูปแบบใดชนะเมื่อทั้งชุดและจุดถูกจัดรูปแบบ?**
 
-การจัดรูปแบบจุดข้อมูลอย่างชัดเจนจะมีความสำคัญต่อจุดนั้น จุดอื่น ๆ ยังคงใช้การจัดรูปแบบของซีรีส์ที่กำหนดไว้หรือหากไม่มีการกำหนดก็ใช้สไตล์และธีมของแผนภูมิงานอัตโนมัติ คุณสมบัติกลุ่มเช่น overlap และ gap width ควบคุมการจัดวางและไม่ได้เป็นการลบการจัดรูปแบบระดับจุด
+การจัดรูปแบบจุดข้อมูลอย่างชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น. จุดอื่นๆ จะใช้การจัดรูปแบบชุดที่กำหนดหรือ, หากชุดไม่ได้กำหนด, สไตล์และธีมของแผนภูมิโดยอัตโนมัติ. คุณสมบัติกลุ่มเช่น overlap และ gap width ควบคุมการจัดวางและไม่ใช่การเขียนทับการจัดรูปแบบระดับจุด.
 
-**แผนภูมิสามารถมีซีรีส์ได้สูงสุดเท่าไหร่?**
+**มีขีดจำกัดจำนวนชุดที่แผนภูมิสามารถมีได้หรือไม่?**
 
-Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนซีรีส์แยกจากกัน ในทางปฏิบัติ ข้อจำกัดขึ้นอยู่กับข้อจำกัดของไฟล์งานนำเสนอ, หน่วยความจำที่ใช้งาน, เวลาเรนเดอร์และความอ่านง่ายของแผนภูมิ
+Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดอย่างแยกต่างหาก. อย่างไรก็ตาม ข้อจำกัดของไฟล์พรีเซนเทชัน, หน่วยความจำที่มี, เวลาเรนเดอร์, และความอ่านง่ายของแผนภูมิจะกำหนดขีดจำกัดที่เหมาะสมในทางปฏิบัติ.
 
-**ควรทำอย่างไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
+**ควรเปลี่ยนอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
 
-ตั้งค่า [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) บนกลุ่มแม่ที่เหมาะสม เพิ่มค่าที่ตั้งไว้เพื่อขยายช่องว่างระหว่างกลุ่ม หรือ ลดค่าเพื่อให้กลุ่มเข้าใกล้กันมากขึ้น
+ตั้งค่า [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) บนกลุ่มชุดพาเรนท์ที่เหมาะสม. เพิ่มค่าสำหรับขยายช่องว่างระหว่างกลุ่ม, หรือ ลดค่าเพื่อทำให้กลุ่มใกล้กันมากขึ้น.

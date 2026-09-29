@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση βιβλίων εργασίας διαγραμμάτων σε παρουσιάσεις σε Android
-linktitle: Βιβλίο εργασίας διαγράμματος
+title: Διαχείριση Βιβλίων Εργασίας Διαγραμμάτων σε Παρουσιάσεις στο Android
+linktitle: Βιβλίο Εργασίας Διαγράμματος
 type: docs
 weight: 70
 url: /el/androidjava/chart-workbook/
@@ -14,150 +14,235 @@ keywords:
 - εξωτερικό βιβλίο εργασίας
 - εξωτερικά δεδομένα
 - κρυφή μνήμη διαγράμματος
-- αποκατάσταση βιβλίου εργασίας
+- ανάκτηση βιβλίου εργασίας
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Ανακαλύψτε το Aspose.Slides για Android μέσω Java: διαχειριστείτε με ευκολία βιβλία εργασίας διαγραμμάτων σε μορφές PowerPoint και OpenDocument για να βελτιστοποιήσετε τα δεδομένα της παρουσίασής σας."
+description: "Ανακαλύψτε το Aspose.Slides για Android μέσω Java: διαχειριστείτε με ευκολία τα βιβλία εργασίας διαγραμμάτων στα μορφότυπα PowerPoint και OpenDocument για να βελτιστοποιήσετε τα δεδομένα της παρουσίασής σας."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλία εργασίας διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα διαγράμματος μέσω ροών βιβλίου εργασίας, να χρησιμοποιείτε κελιά βιβλίου εργασίας ως ετικέτες δεδομένων διαγράμματος, να προσπελάζετε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλία εργασίας διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα διαγράμματος μέσω ροών βιβλίου εργασίας, να χρησιμοποιείτε κελιά βιβλίου εργασίας ως ετικέτες δεδομένων διαγράμματος, να έχετε πρόσβαση σε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του διαγράμματος.
 
-Καλύπτει επίσης τη χρήση εξωτερικών βιβλίων εργασίας ως πηγές δεδομένων διαγράμματος. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε και να αναθέσετε ένα εξωτερικό βιβλίο εργασίας, να ανακτήσετε τη διαδρομή ενός εξωτερικού βιβλίου εργασίας που συνδέεται με ένα διάγραμμα και να επεξεργαστείτε τα δεδομένα του διαγράμματος όταν το βιβλίο εργασίας είναι διαθέσιμο.
+Επιπλέον, καλύπτει τη χρήση εξωτερικών βιβλίων εργασίας ως πηγών δεδομένων διαγράμματος. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε και να αντιστοιχίσετε ένα εξωτερικό βιβλίων εργασίας, να ανακτήσετε τη διαδρομή ενός εξωτερικού βιβλίου εργασίας που είναι συνδεδεμένο σε διάγραμμα και να επεξεργαστείτε τα δεδομένα του διαγράμματος όταν το βιβλίο εργασίας είναι διαθέσιμο.
 
-Για κελιά βιβλίου εργασίας που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Έλεγχος της Εμφάνισης Κενού Κελιού](/slides/el/androidjava/chart-series/) για τη διαφορά μεταξύ κενού κελιού και μηδενός, καθώς και μια σύγκριση γραμμικού διαγράμματος των διαθέσιμων τρόπων εμφάνισης.
+Για κελιά βιβλίου εργασίας που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Έλεγχος της Εμφάνισης Κενού Κελιού](/slides/el/androidjava/chart-series/) για τη διαφορά μεταξύ κενού κελιού και μηδενός, και μια σύγκριση διαγράμματος γραμμής των διαθέσιμων τρόπων εμφάνισης.
 
-## **Ανάγνωση και Γραφή Δεδομένων Διαγράμματος από Βιβλίο Εργασίας**
-Το Aspose.Slides παρέχει τις μεθόδους [ReadWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) και [WriteWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) που επιτρέπουν την ανάγνωση και γραφή βιβλίων εργασίας δεδομένων διαγράμματος (που περιέχουν δεδομένα διαγράμματος επεξεργασμένα με το Aspose.Cells). **Σημείωση** ότι τα δεδομένα του διαγράμματος πρέπει να οργανώνονται με τον ίδιο τρόπο ή να έχουν δομή παρόμοια με την πηγή.
+## **Συμπερίληψη Δεδομένων από Κρυμμένες Γραμμές και Στήλες**
 
-Αυτός ο κώδικας Java παρουσιάζει ένα παράδειγμα λειτουργίας:
+Χρησιμοποιήστε [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) για να ελέγξετε αν ένα διάγραμμα σχεδιάζει δεδομένα από κρυμμένες γραμμές και στήλες φύλλου εργασίας. Ορίστε το σε `true` για να σχεδιαζονται μόνο τα ορατά κελιά, ή σε `false` για να συμπεριλαμβάνονται τόσο τα ορατά όσο και τα κρυμμένα κελιά. Αυτή η ρύθμιση ελέγχει την σχεδίαση του διαγράμματος· δεν κρύβει ή αποκρυπτώνει γραμμές ή στήλες του φύλλου εργασίας.
+
+Κατεβάστε το αρχείο [hidden-source-data.pptx](hidden-source-data.pptx) και τοποθετήστε το στον τρέχοντα φάκελο εργασίας. Η πρώτη του διαφάνεια περιέχει ένα γράφημα στήλης ως το πρώτο σχήμα. Το ενσωματωμένο φύλλο εργασίας, `Sheet1`, περιέχει την ακόλουθη περιοχή προέλευσης, `A1:C4`. Η γραμμή 3 και η στήλη C είναι κρυμμένες, αλλά τα κελιά τους εξακολουθούν να περιέχουν τιμές.
+
+| Worksheet row | A: Month | B: Retail | C: Wholesale (hidden column) |
+| --- | --- | --- | --- |
+| 2 | Ιανουάριος | 10 | 30 |
+| 3 (hidden row) | Φεβρουάριος | 40 | 60 |
+| 4 | Μάρτιος | 20 | 50 |
+
+Πρόσβαση στα κελιά προέλευσης μέσω του [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) και ανάγνωση του [IChartDataCell.isHidden](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) για να εξετάσετε την κρυφή τους κατάσταση. Αυτή η μέθοδος αναφέρει την κρυφή κατάσταση χωρίς να την αλλάξει. Σε αυτό το αρχείο, το B2 είναι ορατό, το B3 ανήκει στη κρυφή γραμμή και το C2 ανήκει στη κρυφή στήλη· το παράδειγμα εκτυπώνει `false`, `true` και `true`, αντίστοιχα.
+
+Για αυτό το παράδειγμα, ανανεώστε τα δεδομένα του διαγράμματος μετά την αλλαγή της ρύθμισης σχεδίασης: διατηρήστε το ενσωματωμένο βιβλίο εργασίας με το [readWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) και φορτώστε το ξανά με το [writeWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-). Όταν συμπεριλαμβάνονται όλα τα κελιά, χρησιμοποιήστε επίσης το [setRange](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) για να επαναφέρετε το πλήρες εύρος, συμπεριλαμβανομένης της κρυφής κατηγορίας Φεβρουάριος. Η απλή αλλαγή της σημαίας δεν αρκεί για την ανανέωση των προσωρινα αποθηκευμένων δεδομένων του διαγράμματος και των ετικετών κατηγοριών σε αυτό το δείγμα.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("hidden-source-data.pptx");
 try {
-    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartData data = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    byte[] stream = data.readWorkbookStream();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        System.out.println("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        System.out.println("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        System.out.println("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
 
-    data.getSeries().clear();
-    data.getCategories().clear();
+        byte[] workbookData = chart.getChartData().readWorkbookStream();
+        for (boolean visibleOnly : new boolean[] { true, false }) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
 
-    data.writeWorkbookStream(stream);
+            // Ανανέωση των δεδομένων του διαγράμματος από το ενσωματωμένο βιβλίο εργασίας.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Επαναφορά του πλήρους εύρους προέλευσης, συμπεριλαμβανομένων των κρυμμένων κατηγοριών.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Επικύρωση Διάταξης Διαγράμματος μετά την Τροποποίηση Βιβλίου Εργασίας**
+Το παράδειγμα αποθηκεύει το `hidden_cells_true.pptx` μόνο με τις ορατές τιμές Λιανικής (10 και 20), και το `hidden_cells_false.pptx` με όλες τις έξι τιμές. Οι εικόνες παρακάτω απεικονίζουν τις δύο λειτουργίες σχεδίασης. Η γραμμή 3 και η στήλη C παραμένουν κρυμμένες και στα δύο ενσωματωμένα βιβλία εργασίας.
 
-Όταν αντικαθιστάτε ένα ενσωματωμένο βιβλίο εργασίας με ένα τροποποιημένο, το διάγραμμα διατηρεί τις αρχικές συλλογές σειρών και κατηγοριών. Αυτή η ασυμφωνία μπορεί να προκαλέσει αποτυχία της μεθόδου [IChart.validateChartLayout](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChart#validateChartLayout--) με σφάλμα δείκτη εκτός περιοχής. Διαγράψτε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε το ενημερωμένο βιβλίο εργασίας πίσω στο διάγραμμα.
+| Μόνο ορατά κελιά (`true`) | Όλα τα κελιά (`false`) |
+| --- | --- |
+| ![Μόνο ορατά κελιά: τιμές Λιανικής 10 και 20 για Ιανουάριο και Μάρτιο.](hidden_cells_True.png) | ![Όλα τα κελιά: τιμές Λιανικής και Χονδρικής για Ιανουάριο, Φεβρουάριο και Μάρτιο.](hidden_cells_False.png) |
+
+Ένα κρυφό κελί που περιέχει τιμή διαφέρει από ένα κενό κελί. Το [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) ελέγχει πώς εμφανίζονται οι ελλιπείς τιμές· δεν περιλαμβάνει ή εξαιρεί κρυμμένα δεδομένα προέλευσης. Δείτε [Έλεγχος της Εμφάνισης Κενού Κελιού](/slides/el/androidjava/chart-series/#control-the-display-of-empty-cells) για ένα παράδειγμα.
+
+## **Ανάγνωση και Εγγραφή Δεδομένων Διαγράμματος από Βιβλίο Εργασίας**
+
+Το Aspose.Slides για Android μέσω Java παρέχει τις μεθόδους [readWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) και [writeWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) που σας επιτρέπουν να διαβάζετε και να γράφετε βιβλία εργασίας δεδομένων διαγράμματος (που περιέχουν δεδομένα διαγράμματος επεξεργασμένα με Aspose.Cells). **Σημείωση** ότι τα δεδομένα του διαγράμματος πρέπει να είναι οργανωμένα με τον ίδιο τρόπο ή πρέπει να έχουν δομή παρόμοια με την πηγή.
+
+Αυτό το παράδειγμα ανοίγει το `chart.pptx`, το οποίο πρέπει να περιέχει ένα διάγραμμα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Διαβάζει το ενσωματωμένο βιβλίο εργασίας σε ένα πίνακα byte, διαγράφει τις υπάρχουσες σειρές και κατηγορίες, και γράφει πάλι το ίδιο βιβλίο εργασίας. Οι αλλαγές παραμένουν στη μνήμη· το παράδειγμα δεν αποθηκεύει την παρουσίαση.
 
 ```java
-// Μετά την τροποποίηση της ροής βιβλίου εργασίας (π.χ., χρησιμοποιώντας Aspose.Cells)
-byte[] updatedWorkbook = chartData.readWorkbookStream();
+import com.aspose.slides.*;
 
-// Καθαρίστε τις υπάρχουσες αναφορές δεδομένων.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-chartData.writeWorkbookStream(updatedWorkbook);
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
 
-chart.validateChartLayout();
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Ο καθαρισμός των συλλογών εξασφαλίζει ότι η δομή δεδομένων του διαγράμματος είναι συμβατή με το νέο βιβλίο εργασίας, επιτρέποντας στη `validateChartLayout` να ολοκληρωθεί χωρίς σφάλματα.
+### **Επικύρωση Διάταξης Διαγράμματος μετά την Τροποποίηση του Βιβλίου Εργασίας**
+
+Όταν αντικαθιστάτε ένα ενσωματωμένο βιβλίο εργασίας με ένα τροποποιημένο, το διάγραμμα διατηρεί τις αρχικές συλλογές σειρών και κατηγοριών. Αυτή η ασυμφωνία μπορεί να προκαλέσει αποτυχία του [IChart.validateChartLayout](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/#validateChartLayout--) με σφάλμα index-out-of-range. Διαγράψτε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε το ενημερωμένο βιβλίο εργασίας πίσω στο διάγραμμα. Αυτό το παράδειγμα απαιτεί το `chart.pptx` με ένα διάγραμμα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Το σχόλιο δηλώνει πού θα γίνει η επεξεργασία του βιβλίου εργασίας· το εκτελέσιμο παράδειγμα γράφει το αρχικό βιβλίο εργασίας πίσω και επικυρώνει τη διάταξη στη μνήμη.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
+
+        // Τροποποιήστε τα bytes του βιβλίου εργασίας εδώ, για παράδειγμα, χρησιμοποιώντας το Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η εκκαθάριση των συλλογών αφαιρεί παλαιές αναφορές δεδομένων πριν το βιβλίο εργασίας γραφτεί ξανά. Ανακατασκευάστε τυχόν απαιτούμενες αντιστοιχίσεις σειρών και κατηγοριών για το ενημερωμένο βιβλίο εργασίας πριν χρησιμοποιήσετε το διάγραμμα.
 
 ## **Ορισμός Κελιού Βιβλίου Εργασίας ως Ετικέτας Δεδομένων Διαγράμματος**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://apireference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation).
-2. Ανακτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα Bubble με κάποια δεδομένα.
+Μπορείτε να χρησιμοποιήσετε κείμενο από κελιά βιβλίου εργασίας ως ετικέτες δεδομένων διαγράμματος. Τα παρακάτω βήματα δείχνουν πώς να συνδέσετε τις ετικέτες σε ένα διάγραμμα φυσαλίδων με κελιά του βιβλίου δεδομένων του.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) .
+2. Προσπελάστε την πρώτη διαφάνεια με δείκτη μηδενικής βάσης.
+3. Προσθέστε ένα διάγραμμα φυσαλίδων με προεπιλεγμένα δεδομένα.
 4. Προσπελάστε τις σειρές του διαγράμματος.
 5. Ορίστε το κελί του βιβλίου εργασίας ως ετικέτα δεδομένων.
 6. Αποθηκεύστε την παρουσίαση.
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε ένα κελί βιβλίου εργασίας ως ετικέτα δεδομένων διαγράμματος:
+Αυτό το παράδειγμα ανοίγει το `chart2.pptx`, που πρέπει να περιέχει τουλάχιστον μία διαφάνεια, και προσθέτει ένα διάγραμμα φυσαλίδων με προεπιλεγμένα δεδομένα. Χρησιμοποιεί τα κελιά A10:A12 στο φύλλο εργασίας 0 για τις πρώτες τρεις ετικέτες στην πρώτη σειρά, ενεργοποιεί τις ετικέτες από κελιά, και αποθηκεύει το αποτέλεσμα στο `resultchart.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-String lbl0 = "Label 0 cell value";
-String lbl1 = "Label 1 cell value";
-String lbl2 = "Label 2 cell value";
-
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-Presentation pres = new Presentation("chart2.pptx");
+Presentation presentation = new Presentation("chart2.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
 
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-
-    pres.save("resultchart.pptx", SaveFormat.Pptx);
+    presentation.save("resultchart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Διαχείριση Φύλλων Εργασίας**
 
-Αυτός ο κώδικας Java δείχνει μια λειτουργία όπου η μέθοδος [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) χρησιμοποιείται για πρόσβαση σε μια συλλογή φύλλων εργασίας:
+Η μέθοδος [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) παρέχει πρόσβαση στα φύλλα εργασίας ενός βιβλίου εργασίας διαγράμματος. Αυτό το παράδειγμα δημιουργεί ένα γράφημα πίτας με προεπιλεγμένα δεδομένα και εκτυπώνει το όνομα κάθε φύλλου εργασίας στην κονσόλα.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
-    for (int i = 0; i < wb.getWorksheets().size(); i++)
-        System.out.println(wb.getWorksheets().get_Item(i).getName());
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (int i = 0; i < workbook.getWorksheets().size(); i++) {
+        System.out.println(workbook.getWorksheets().get_Item(i).getName());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Καθορισμός Τύπου Πηγής Δεδομένων**
 
-Αυτός ο κώδικας Java δείχνει πώς να καθορίσετε έναν τύπο για μια πηγή δεδομένων:
+Αυτό το παράδειγμα δημιουργεί ένα 3D γράφημα στήλης με προεπιλεγμένα δεδομένα και ορίζει δύο ονόματα σειρών χρησιμοποιώντας διαφορετικές πηγές δεδομένων. Το πρώτο όνομα χρησιμοποιεί κυριολεκτικό συμβολοσειράς· το δεύτερο χρησιμοποιεί το κελί C1 στο φύλλο εργασίας 0. Η αριθμομηχανή [DataSourceType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/datasourcetype/) επιλέγει την πηγή για κάθε όνομα. Το αποτέλεσμα αποθηκεύεται στο `pres.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("LiteralString");
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue literalName = chart.getChartData().getSeries().get_Item(0).getName();
 
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
+    literalName.setDataSourceType(DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IStringChartValue cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    IChartDataCell nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ανίχνευση Μη Υποστηριζόμενων Ενσωματωμένων Μορφών Βιβλίου Εργασίας**
+## **Εντοπισμός Μη Υποστηριζόμενων Ενσωματωμένων Μορφών Βιβλίου Εργασίας**
 
-Το Aspose.Slides δεν υποστηρίζει τη δυαδική μορφή βιβλίου εργασίας Excel (.xlsb) που μπορεί να ενσωματωθεί σε κάποια διαγράμματα. Μπορείτε να χρησιμοποιήσετε τη μέθοδο `getEmbeddedWorkbookType` στο [IChartData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartData) μαζί με την απαρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/WorkbookType) για να ανιχνεύσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα διαγράμματα.
+Το Aspose.Slides δεν υποστηρίζει τη δυαδική μορφή βιβλίου εργασίας Excel (.xlsb) που μπορεί να ενσωματώνεται σε ορισμένα διαγράμματα. Μπορείτε να χρησιμοποιήσετε τη μέθοδο [getEmbeddedWorkbookType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) στο [IChartData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/) μαζί με την αριθμομηχανή [WorkbookType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/workbooktype/) για να εντοπίσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα διαγράμματα. Αυτό το παράδειγμα ελέγχει τα σχήματα στην πρώτη διαφάνεια του `sample.pptx`, παραλείπει σχήματα που δεν είναι διαγράμματα, και εκτυπώνει μηνύματα διάγνωσης για κάθε διάγραμμα με ενσωματωμένο βιβλίο εργασίας .xlsb.
 
 ```java
 import com.aspose.slides.*;
@@ -167,18 +252,21 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     for (IShape shape : slide.getShapes()) {
-        if (!(shape instanceof IChart)) continue;
-
-        IChart chart = (IChart)shape;
-        IChartData chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Το ενσωματωμένο βιβλίο εργασίας είναι σε μορφή .xlsb, η οποία δεν υποστηρίζεται.
+        if (!(shape instanceof IChart)) {
             continue;
         }
 
-        // Διαβάστε ή τροποποιήστε τα δεδομένα του βιβλίου εργασίας διαγράμματος εδώ.
+        IChart chart = (IChart) shape;
+        IChartData chartData = chart.getChartData();
+        boolean isInternalWorkbook = chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook;
+        boolean isBinaryMacro = chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            System.out.println("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Διαβάστε ή τροποποιήστε τα υποστηριζόμενα δεδομένα βιβλίου εργασίας διαγράμματος εδώ.
     }
 } finally {
     presentation.dispose();
@@ -191,153 +279,168 @@ try {
 
 ### **Δημιουργία Εξωτερικού Βιβλίου Εργασίας**
 
-Χρησιμοποιώντας τις μεθόδους **`readWorkbookStream`** και **`setExternalWorkbook`**, μπορείτε είτε να δημιουργήσετε ένα εξωτερικό βιβλίο εργασίας από το μηδέν είτε να κάνετε ένα εσωτερικό βιβλίο εργασίας εξωτερικό.
+Χρησιμοποιήστε τα [readWorkbookStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) και [setExternalWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) για να εξάγετε ένα ενσωματωμένο βιβλίο εργασίας διαγράμματος σε ένα αρχείο και να συνδέσετε το διάγραμμα με εκείνο το εξωτερικό βιβλίο εργασίας.
 
-Αυτός ο κώδικας Java δείχνει τη διαδικασία δημιουργίας εξωτερικού βιβλίου εργασίας:
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα πίτας με προεπιλεγμένα δεδομένα, γράφει το βιβλιο εργασίας του στο `externalWorkbook1.xlsx`, και ολοκληρώνει τη συγγραφή του αρχείου πριν το αντιστοιχίσει ως πηγή δεδομένων του διαγράμματος. Αποθηκεύει την συνδεδεμένη παρουσίαση στο `externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileOutputStream;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    final String workbookPath = "externalWorkbook1.xlsx";
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
-    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
+    File workbookFile = new File("externalWorkbook1.xlsx").getAbsoluteFile();
+    byte[] workbookData = chart.getChartData().readWorkbookStream();
     try {
-        byte[] workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) fileStream.close();
+        try (FileOutputStream workbookStream = new FileOutputStream(workbookFile)) {
+            workbookStream.write(workbookData);
+        }
+        chart.getChartData().setExternalWorkbook(workbookFile.getAbsolutePath());
+        presentation.save("externalWorkbook.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("Could not write the external workbook: " + exception.getMessage());
     }
-
-    chart.getChartData().setExternalWorkbook(workbookPath);
-
-    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
-} catch (IOException e) {    
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Ορισμός Εξωτερικού Βιβλίου Εργασίας**
 
-Με τη μέθοδο **`setExternalWorkbook`**, μπορείτε να αναθέσετε ένα εξωτερικό βιβλίο εργασίας σε ένα διάγραμμα ως πηγή δεδομένων του. Αυτή η μέθοδος μπορεί επίσης να χρησιμοποιηθεί για την ενημέρωση της διαδρομής προς το εξωτερικό βιβλίο εργασίας (αν αυτό έχει μετακινηθεί).
+Χρησιμοποιώντας τη μέθοδο [setExternalWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), μπορείτε να αντιστοιχίσετε ένα εξωτερικό βιβλίο εργασίας σε ένα διάγραμμα ως την πηγή δεδομένων του. Αυτή η μέθοδος μπορεί επίσης να χρησιμοποιηθεί για να ενημερώσετε τη διαδρομή του εξωτερικού βιβλίου εργασίας (εάν αυτό μετακινήθηκε).
 
-Παρόλο που δε μπορείτε να επεξεργαστείτε τα δεδομένα σε βιβλία εργασίας αποθηκευμένα σε απομακρυσμένες τοποθεσίες ή πόρους, μπορείτε ακόμη να τα χρησιμοποιήσετε ως εξωτερική πηγή δεδομένων. Εάν παρέχεται σχετική διαδρομή για ένα εξωτερικό βιβλίο εργασίας, αυτή μετατρέπεται αυτόματα σε πλήρη διαδρομή.
+Ενώ δεν μπορείτε να επεξεργαστείτε τα δεδομένα σε βιβλία εργασίας αποθηκευμένα σε απομακρυσμένες θέσεις ή πόρους, μπορείτε ακόμη να χρησιμοποιήσετε αυτά τα βιβλία εργασίας ως εξωτερική πηγή δεδομένων. Εάν παρέχεται σχετική διαδρομή για ένα εξωτερικό βιβλίο εργασίας, αυτή μετατρέπεται αυτόματα σε πλήρη διαδρομή.
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε ένα εξωτερικό βιβλίο εργασίας:
+Αυτό το παράδειγμα απαιτεί το `externalWorkbook.xlsx` στον φάκελο εργασίας. Το φύλλο εργασίας του, με όνομα `Sheet1`, πρέπει να περιέχει ένα όνομα σειράς στο B1, ονόματα κατηγοριών στο A2:A4 και αριθμητικές τιμές στο B2:B4. Το παράδειγμα δημιουργεί ένα γράφημα πίτας, συνδέει το βιβλίο εργασίας και χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) για να χαρτογραφήσει το A1:B4 σε μία σειρά και τρεις κατηγορίες. Αποθηκεύει το αποτέλεσμα στο `Presentation_with_externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
+import java.io.File;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
     IChartData chartData = chart.getChartData();
+    File workbookFile = new File("externalWorkbook.xlsx");
+    String workbookPath = workbookFile.getAbsolutePath();
 
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
 
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    
-    pres.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+    presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Η παράμετρος `updateChartData` (στην μέθοδο `setExternalWorkbook`) χρησιμοποιείται για να καθορίσει αν θα φορτωθεί ή όχι ένα βιβλίο εργασίας Excel.
+Η παράμετρος `updateChartData` της [setExternalWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) ελέγχει εάν το βιβλίο εργασίας θα φορτωθεί.
 
-* Όταν η τιμή του `updateChartData` είναι `false`, ενημερώνεται μόνο η διαδρομή του βιβλίου εργασίας — τα δεδομένα του διαγράμματος δεν θα φορτωθούν ή ενημερωθούν από το βιβλίο-στόχο. Μπορείτε να χρησιμοποιήσετε αυτή τη ρύθμιση όταν το βιβλίο-στόχος δεν υπάρχει ή δεν είναι διαθέσιμο. 
-* Όταν η τιμή του `updateChartData` είναι `true`, τα δεδομένα του διαγράμματος ενημερώνονται από το βιβλίο-στόχο. 
+* Όταν η `updateChartData` είναι `false`, μόνο η διαδρομή του βιβλίου εργασίας ενημερώνεται. Τα δεδομένα του διαγράμματος δεν φορτώνονται ή ενημερώνονται από το στόχο βιβλίο εργασίας, έτσι ώστε το βιβλίο εργασίας να μπορεί να είναι μη διαθέσιμο.
+* Όταν η `updateChartData` είναι `true`, τα δεδομένα του διαγράμματος ενημερώνονται από το στόχο βιβλίου εργασίας.
+
+Το ακόλουθο παράδειγμα αντιστοιχεί μια URL placeholder με `updateChartData` ορισμένη σε `false`. Διατηρεί τα προεπιλεγμένα δεδομένα του διαγράμματος πίτας και αποθηκεύει την παρουσίαση χωρίς να φορτώσει το μη διαθέσιμο βιβλίο εργασίας.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-    IChartData chartData = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
 
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Ανάκτηση Διαδρομής Εξωτερικού Βιβλίου Εργασίας Πηγής Δεδομένων ενός Διαγράμματος**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://apireference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation).
-2. Ανακτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Δημιουργήστε ένα αντικείμενο για το σχήμα του διαγράμματος.
-4. Δημιουργήστε ένα αντικείμενο για τον τύπο πηγής (`ChartDataSourceType`) που αντιπροσωπεύει την πηγή δεδομένων του διαγράμματος.
-5. Καθορίστε τη σχετική κατάσταση με βάση το αν ο τύπος πηγής είναι ο ίδιος με τον τύπο εξωτερικού βιβλίου εργασίας.
+Για να εντοπίσετε το βιβλίο εργασίας που συνδέεται με ένα διάγραμμα, πρώτα ελέγξτε εάν το διάγραμμα χρησιμοποιεί εξωτερική πηγή δεδομένων. Εάν ναι, μπορείτε να ανακτήσετε τη διαδρομή του βιβλίου εργασίας ακολουθώντας τα παρακάτω βήματα.
 
-Αυτός ο κώδικας Java δείχνει τη λειτουργία:
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) .
+2. Προσπελάστε την πρώτη διαφάνεια με δείκτη μηδενικής βάσης.
+3. Ελέγξτε ότι το πρώτο σχήμα είναι διάγραμμα.
+4. Διαβάστε τον τύπο πηγής δεδομένων του διαγράμματος.
+5. Εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, διαβάστε τη διαδρομή του.
+
+Αυτό το παράδειγμα ανοίγει το `externalWorkbook.pptx`, που δημιουργήθηκε στο προηγούμενο παράδειγμα, και ελέγχει το πρώτο σχήμα στην πρώτη διαφάνεια. Εάν είναι διάγραμμα συνδεδεμένο σε εξωτερικό βιβλίο εργασίας, το παράδειγμα εκτυπώνει το [getExternalWorkbookPath](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) στην κονσόλα. Στη συνέχεια αποθηκεύει ένα αντίγραφο της παρουσίασης στο `Result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("externalWorkbook.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook) {
+            System.out.println(chartData.getExternalWorkbookPath());
+        } else {
+            System.out.println("The chart does not use an external workbook.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
     }
-	
-	// Αποθηκεύει την παρουσίαση
-    pres.save("result.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Επεξεργασία Δεδομένων Διαγράμματος**
 
-Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικά βιβλία εργασίας με τον ίδιο τρόπο που τροποποιείτε τα περιεχόμενα των εσωτερικών βιβλίων εργασίας. Όταν ένα εξωτερικό βιβλίο εργασίας δεν μπορεί να φορτωθεί, εκδικάζεται μια εξαίρεση.
+Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικά βιβλία εργασίας με τον ίδιο τρόπο που κάνετε αλλαγές στα περιεχόμενα εσωτερικών βιβλίων εργασίας. Όταν ένα εξωτερικό βιβλίο εργασίας δεν μπορεί να φορτωθεί, γίνεται εξαίρεση.
 
-Αυτός ο κώδικας Java δείχνει την υλοποίηση της περιγραφόμενης διαδικασίας:
+Αυτό το παράδειγμα απαιτεί το `presentation.pptx` με ένα διάγραμμα ως το πρώτο σχήμα στην πρώτη διαφάνεια και ένα προσάξιμο εξωτερικό βιβλίο εργασίας. Ορίζει την τιμή του πρώτου σημείου δεδομένων στην πρώτη σειρά σε 100 και αποθηκεύει την παρουσίαση στο `presentation_out.pptx`. Η επεξεργασία τιμών κελιών μπορεί να ενημερώσει το συνδεδεμένο εξωτερικό αρχείο XLSX, γι' αυτό χρησιμοποιήστε ένα αντίγραφο εάν χρειάζεται να διατηρήσετε το αρχικό βιβλίο εργασίας.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ChartData chartData = (ChartData)chart.getChartData();
-    
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    
-    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartSeriesCollection series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            IChartDataCell valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+            } else {
+                System.out.println("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            System.out.println("The chart has no data points to edit.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Ανάκτηση Βιβλίου Εργασίας από την Cache του Διαγράμματος**
+### **Ανάκτηση Βιβλίου Εργασίας από την Κρυφή Μνήμη Διαγράμματος**
 
-Εάν ένα διάγραμμα χρησιμοποιεί ένα εξωτερικό βιβλίο εργασίας που λείπει ή δεν είναι διαθέσιμο, το Aspose.Slides μπορεί να ανακατασκευάσει το βιβλίο εργασίας του διαγράμματος από τα δεδομένα που είναι αποθηκευμένα στην παρουσίαση. Δημιουργήστε [LoadOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/), ρυθμίστε το με [SpreadsheetOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/spreadsheetoptions/), και καλέστε τη μέθοδο [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) με `true` πριν ανοίξετε την παρουσίαση.
+Εάν ένα διάγραμμα χρησιμοποιεί εξωτερικό βιβλίο εργασίας που λείπει ή δεν είναι διαθέσιμο, το Aspose.Slides μπορεί να επαναχτίσει το βιβλίο εργασίας του διαγράμματος από τα δεδομένα που αποθηκεύονται προσωρινά στην παρουσίαση. Δημιουργήστε ένα [LoadOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/), καλέστε το [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), και ορίστε το [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) σε `true` πριν ανοίξετε την παρουσίαση.
 
-Το παρακάτω παράδειγμα Java ανοίγει μια παρουσίαση της οποίας το διάγραμμα παραπέμπει σε ένα μη διαθέσιμο εξωτερικό βιβλίο εργασίας και προσπελάζει τα ανακτημένα δεδομένα μέσω των [IChart.getChartData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/#getChartData--) και [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Το παρακάτω παράδειγμα Java ανοίγει το `presentation.pptx`, του οποίου το πρώτο σχήμα στην πρώτη διαφάνεια πρέπει να είναι ένα διάγραμμα που αναφέρεται σε μη διαθέσιμο εξωτερικό βιβλίο εργασίας, και προσπελάζει τα ανακτημένα δεδομένα μέσω των [IChart.getChartData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/#getChartData--) και [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -350,39 +453,46 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 Presentation presentation = new Presentation("presentation.pptx", loadOptions);
 try {
-    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Διαβάστε ή τροποποιήστε τα δεδομένα του ανακτημένου βιβλίου εργασίας εδώ.
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Διαβάστε ή τροποποιήστε τα ανακτημένα δεδομένα βιβλίου εργασίας εδώ.
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Εάν το εξωτερικό βιβλίο εργασίας δεν είναι διαθέσιμο και η ανάκτηση είναι απενεργοποιημένη, το Aspose.Slides εκδίδει εξαίρεση. Ενεργοποιήστε την ανάκτηση μόνο όταν η χρήση των αποθηκευμένων δεδομένων διαγράμματος αποτελεί αποδεκτό εναλλακτικό, επειδή η cache ενδέχεται να μην περιέχει τις αλλαγές που έγιναν στο εξωτερικό βιβλίο εργασίας μετά την τελευταία ενημέρωση της παρουσίασης.
+Εάν το εξωτερικό βιβλίο εργασίας δεν είναι διαθέσιμο και η ανάκτηση είναι απενεργοποιημένη, το Aspose.Slides ρίχνει μια εξαίρεση. Ενεργοποιήστε την ανάκτηση μόνο όταν η χρήση των δεδομένων από τη κρυφή μνήμη του διαγράμματος είναι αποδεκτό εναλλακτικό, επειδή η κρυφή μνήμη μπορεί να μην περιέχει αλλαγές που έγιναν στο εξωτερικό βιβλίο εργασίας μετά την τελευταία ενημέρωση της παρουσίασης.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να προσδιορίσω αν ένα συγκεκριμένο διάγραμμα είναι συνδεδεμένο με εξωτερικό ή ενσωματωμένο βιβλίο εργασίας;**
+**Μπορώ να προσδιορίσω εάν ένα συγκεκριμένο διάγραμμα είναι συνδεδεμένο με εξωτερικό ή ενσωματωμένο βιβλίο εργασίας;**
 
-Ναι. Ένα διάγραμμα διαθέτει έναν [τύπο πηγής δεδομένων](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) και μια [διαδρομή προς εξωτερικό βιβλίο εργασίας](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, μπορείτε να διαβάζετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
+Ναι. Ένα διάγραμμα διαθέτει έναν [data source type](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) καθώς και μια [path to an external workbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
 
-**Υποστηρίζονται σχετικές διαδρομές σε εξωτερικά βιβλία εργασίας και πώς αποθηκεύονται;**
+**Υποστηρίζονται οι σχετικές διαδρομές προς εξωτερικά βιβλία εργασίας και πώς αποθηκεύονται;**
 
-Ναι. Εάν ορίσετε σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απολύτως διαδρομή. Αυτό είναι βολικό για φορητότητα του έργου· ωστόσο, να γνωρίζετε ότι η παρουσίαση θα αποθηκεύει την απόλυτη διαδρομή στο αρχείο PPTX.
+Ναι. Εάν καθορίσετε μια σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απόλυτη διαδρομή. Η παρουσίαση αποθηκεύει την απόλυτη διαδρομή στο αρχείο PPTX, έτσι ώστε η μετακίνηση του βιβλίου εργασίας να μπορεί να απαιτεί ενημέρωση του συνδέσμου.
 
-**Μπορώ να χρησιμοποιήσω βιβλία εργασίας που βρίσκονται σε δικτυακούς πόρους/κοινόχρηστους καταλόγους;**
+**Μπορώ να χρησιμοποιήσω βιβλία εργασίας που βρίσκονται σε δικτυακούς πόρους/κοινόχρηστους φακέλους;**
 
-Ναι, τέτοια βιβλία εργασίας μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η επεξεργασία απομακρυσμένων βιβλίων εργασίας απευθείας από το Aspose.Slides δεν υποστηρίζεται — μπορούν μόνο να χρησιμοποιηθούν ως πηγή.
+Ναι, τέτοια βιβλία εργασίας μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η άμεση επεξεργασία απομακρυσμένων βιβλίων εργασίας από το Aspose.Slides δεν υποστηρίζεται· μπορούν να χρησιμοποιηθούν μόνο ως πηγή.
 
-**Το Aspose.Slides αντικαθιστά το εξωτερικό XLSX κατά την αποθήκευση της παρουσίασης;**
+**Το Aspose.Slides αντικαθιστά το εξωτερικό αρχείο XLSX όταν αποθηκεύεται η παρουσίαση;**
 
-Όχι. Η παρουσίαση αποθηκεύει έναν [σύνδεσμο προς το εξωτερικό αρχείο](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) και το χρησιμοποιεί για ανάγνωση δεδομένων. Το εξωτερικό αρχείο δεν τροποποιείται όταν η παρουσίαση αποθηκεύεται.
+Η παρουσίαση αποθηκεύει ένα [link to the external file](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Η επεξεργασία των δεδομένων διαγράμματος που προέρχονται από κελιά μπορεί επίσης να ενημερώσει το συνδεδεμένο τοπικό αρχείο XLSX. Χρησιμοποιήστε ένα αντίγραφο του βιβλίου εργασίας εάν το πρωτότυπο πρέπει να παραμείνει αμετάβλητο.
 
-**Τι πρέπει να κάνω εάν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό;**
+**Τι πρέπει να κάνω εάν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό πρόσβασης;**
 
-Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης κατά τη σύνδεση. Μια συνήθης προσέγγιση είναι να αφαιρέσετε την προστασία εκ των προτέρων ή να προετοιμάσετε ένα αποκρυπτογραφημένο αντίγραφο (π.χ., χρησιμοποιώντας το [Aspose.Cells](/cells/androidjava/)) και να συνδέσετε σε αυτό το αντίγραφο.
+Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης κατά τη σύνδεση. Μια συνηθισμένη προσέγγιση είναι να αφαιρέσετε την προστασία εκ των προτέρων ή να ετοιμάσετε ένα αποκρυπτογραφημένο αντίγραφο (π.χ., με το Aspose.Cells) και να συνδέσετε σε αυτό το αντίγραφο.
 
-**Μπορούν πολλαπλά διαγράμματα να παραπέμπουν στο ίδιο εξωτερικό βιβλίο εργασίας;**
+**Μπορούν πολλά διαγράμματα να αναφέρονται στο ίδιο εξωτερικό βιβλίο εργασίας;**
 
-Ναι. Κάθε διάγραμμα αποθηκεύει τον δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντικατοπτρίζεται σε κάθε διάγραμμα την επόμενη φορά που θα φορτωθούν τα δεδομένα.
+Ναι. Κάθε διάγραμμα αποθηκεύει τον δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντικατοπτρίζεται σε κάθε διάγραμμα την επόμενη φορά που τα δεδομένα φορτωθούν.

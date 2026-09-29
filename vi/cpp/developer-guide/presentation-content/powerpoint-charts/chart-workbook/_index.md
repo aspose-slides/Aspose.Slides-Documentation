@@ -1,98 +1,211 @@
 ---
-title: Quản lý Sổ làm việc Biểu đồ trong Bản trình chiếu bằng C++
-linktitle: Sổ làm việc Biểu đồ
+title: Quản lý Workbook biểu đồ trong bản trình chiếu sử dụng C++
+linktitle: Workbook biểu đồ
 type: docs
 weight: 70
 url: /vi/cpp/chart-workbook/
 keywords:
-- sổ làm việc biểu đồ
+- workbook biểu đồ
 - dữ liệu biểu đồ
-- ô sổ làm việc
+- ô workbook
 - nhãn dữ liệu
-- worksheet
+- bảng tính
 - nguồn dữ liệu
-- sổ làm việc ngoại
-- dữ liệu ngoại
+- workbook bên ngoài
+- dữ liệu bên ngoài
 - bộ nhớ đệm biểu đồ
-- khôi phục sổ làm việc
+- khôi phục workbook
 - PowerPoint
 - bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho C++: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho C++: quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument một cách dễ dàng để tối ưu hóa dữ liệu bản trình chiếu của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet và chỉ định kiểu nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết sẽ giải thích cách làm việc với chart workbooks trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng workbook, sử dụng các ô workbook làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng bao phủ việc làm việc với sổ làm việc bên ngoài như là nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
+Bài viết cũng đề cập đến việc làm việc với workbook bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một workbook bên ngoài, lấy đường dẫn của workbook bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi workbook khả dụng.
 
-Đối với các ô sổ làm việc đại diện cho dữ liệu bị thiếu, xem [Control the Display of Empty Cells](/slides/vi/cpp/chart-series/) để hiểu sự khác nhau giữa ô trống và số 0, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
+Đối với các ô workbook đại diện cho dữ liệu thiếu, xem [Control the Display of Empty Cells](/slides/vi/cpp/chart-series/) để biết sự khác nhau giữa ô trống và số 0, và so sánh trong biểu đồ đường các chế độ hiển thị có sẵn.
 
-## **Đọc và Ghi Dữ liệu Biểu đồ Từ Sổ làm việc**
+## **Bao gồm dữ liệu từ các hàng và cột ẩn**
 
-Aspose.Slides cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ được chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự như nguồn.
+Sử dụng [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt thành `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả ô hiển thị và ẩn. Cài đặt này điều khiển việc vẽ biểu đồ; nó không ẩn hoặc hiện lại các hàng hoặc cột worksheet.
 
-``` cpp
-#include <DOM/Chart/Chart.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
+Tải xuống [hidden-source-data.pptx](hidden-source-data.pptx) và đặt nó vào thư mục làm việc. Slide đầu tiên chứa một biểu đồ cột là shape đầu tiên. Worksheet nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn có giá trị.
+
+| Hàng worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
+| --- | --- | --- | --- |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
+
+Truy cập các ô nguồn thông qua [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) và đọc [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) để kiểm tra trạng thái ẩn của chúng. Thuộc tính này chỉ đọc. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `False`, `True`, và `True` tương ứng.
+
+Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại workbook nhúng bằng [ReadWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) và tải lại bằng [WriteWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [SetRange](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/setrange/) để khôi phục lại toàn bộ phạm vi, bao gồm danh mục tháng February bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục được lưu trong bộ nhớ đệm của mẫu này.
+
+```cpp
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
 #include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"chart.pptx");
+auto presentation = MakeObject<Presentation>(u"hidden-source-data.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    Console::WriteLine(u"B2 hidden: {0}", workbook->GetCell(0, u"B2")->get_IsHidden());
+    Console::WriteLine(u"B3 hidden: {0}", workbook->GetCell(0, u"B3")->get_IsHidden());
+    Console::WriteLine(u"C2 hidden: {0}", workbook->GetCell(0, u"C2")->get_IsHidden());
 
-auto chart = System::ExplicitCast<Chart>(pres->get_Slide(0)->get_Shape(0));
-auto data = chart->get_ChartData();
+    auto workbookStream = chart->get_ChartData()->ReadWorkbookStream();
+    for (auto visibleOnly : {true, false})
+    {
+        chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-auto = data->ReadWorkbookStream();
-data->get_Series()->Clear();
-data->get_Categories()->Clear();
+        // Làm mới dữ liệu biểu đồ từ workbook nhúng.
+        workbookStream->set_Position(0);
+        chart->get_ChartData()->WriteWorkbookStream(workbookStream);
+        if (!visibleOnly)
+        {
+            // Khôi phục toàn bộ phạm vi nguồn, bao gồm các danh mục ẩn.
+            chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
+        }
 
-stream->set_Position(0);
-data->WriteWorkbookStream(stream);
+        auto outputPath = visibleOnly ? u"hidden_cells_True.pptx" : u"hidden_cells_False.pptx";
+        presentation->Save(outputPath, Export::SaveFormat::Pptx);
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-### **Xác thực Bố cục Biểu đồ Sau Khi Sửa Đổi Sổ làm việc**
+Ví dụ lưu `hidden_cells_True.pptx` chỉ với các giá trị Bán lẻ hiển thị (10 và 20), và `hidden_cells_False.pptx` với cả sáu giá trị. Các hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn ẩn trong cả hai workbook nhúng.
 
-Khi bạn thay thế một sổ làm việc nhúng bằng một sổ làm việc đã được sửa đổi, biểu đồ sẽ giữ lại các bộ sưu tập series và category ban đầu. Sự không khớp này có thể gây lỗi cho [IChart::ValidateChartLayout](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/validatechartlayout/) với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi lại sổ làm việc đã cập nhật vào biểu đồ.
+| Chỉ các ô hiển thị (`true`) | Tất cả các ô (`false`) |
+| --- | --- |
+| ![Chỉ các ô hiển thị: Giá trị Bán lẻ 10 và 20 cho tháng January và March.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị Bán lẻ và Bán buôn cho tháng January, February và March.](hidden_cells_False.png) |
+
+Một ô ẩn có chứa giá trị khác với một ô trống. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_displayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Control the Display of Empty Cells](/slides/vi/cpp/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
+
+## **Đọc và ghi dữ liệu biểu đồ từ một Workbook**
+
+Aspose.Slides for C++ cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi các workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
+
+Ví dụ này mở `chart.pptx`, phải chứa một biểu đồ là shape đầu tiên trên slide đầu tiên. Nó đọc workbook nhúng vào một luồng, xóa các series và category hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn ở trong bộ nhớ; ví dụ không lưu bản trình bày.
 
 ```cpp
-// Sau khi sửa đổi luồng sổ làm việc (ví dụ, sử dụng Aspose.Cells)
-auto updatedWorkbook = chartData->ReadWorkbookStream();
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
-// Xóa các tham chiếu dữ liệu hiện có.
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-updatedWorkbook->set_Position(0);
-chartData->WriteWorkbookStream(updatedWorkbook);
+auto presentation = MakeObject<Presentation>(u"chart.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto chartData = chart->get_ChartData();
+    auto workbookStream = chartData->ReadWorkbookStream();
 
-chart->ValidateChartLayout();
+    chartData->get_Series()->Clear();
+    chartData->get_Categories()->Clear();
+
+    workbookStream->set_Position(0);
+    chartData->WriteWorkbookStream(workbookStream);
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đồ nhất quán với sổ làm việc mới, cho phép `ValidateChartLayout` hoàn thành mà không có lỗi.
+### **Xác thực bố cục biểu đồ sau khi chỉnh sửa Workbook**
 
-## **Đặt Ô Sổ làm việc làm Nhãn Dữ liệu Biểu đồ**
+Khi bạn thay thế một workbook nhúng bằng một workbook đã sửa đổi, biểu đồ vẫn giữ các bộ sưu tập series và category gốc. Sự không khớp này có thể gây lỗi cho [IChart::ValidateChartLayout](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/validatechartlayout/) với lỗi chỉ mục vượt ra ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi workbook đã cập nhật trở lại biểu đồ. Ví dụ này yêu cầu `chart.pptx` có một biểu đồ là shape đầu tiên trên slide đầu tiên. Bình luận đánh dấu nơi sẽ chỉnh sửa workbook; ví dụ thực thi ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.
+
+```cpp
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"chart.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto chartData = chart->get_ChartData();
+    auto workbookStream = chartData->ReadWorkbookStream();
+
+    // Sửa đổi luồng workbook ở đây, ví dụ, sử dụng Aspose.Cells.
+
+    chartData->get_Series()->Clear();
+    chartData->get_Categories()->Clear();
+
+    workbookStream->set_Position(0);
+    chartData->WriteWorkbookStream(workbookStream);
+    chart->ValidateChartLayout();
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
+```
+
+Việc xóa các bộ sưu tập loại bỏ các tham chiếu dữ liệu lỗi thời trước khi workbook được ghi lại. Hãy xây dựng lại bất kỳ ánh xạ series và category nào cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.
+
+## **Đặt một ô Workbook làm nhãn dữ liệu biểu đồ**
+
+Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu cho biểu đồ. Các bước sau cho thấy cách liên kết các nhãn trong biểu đồ bubble với các ô trong workbook dữ liệu của nó.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-1. Lấy tham chiếu của một slide thông qua chỉ số của nó.
-1. Thêm một biểu đồ Bubble với một số dữ liệu.
-1. Truy cập series của biểu đồ.
-1. Đặt ô sổ làm việc làm nhãn dữ liệu.
-1. Lưu bản trình bày.
+2. Truy cập slide đầu tiên bằng chỉ mục bắt đầu từ 0.
+3. Thêm một biểu đồ bubble với dữ liệu mặc định.
+4. Truy cập series của biểu đồ.
+5. Đặt ô workbook làm nhãn dữ liệu.
+6. Lưu bản trình bày.
 
-Đoạn mã C++ này cho bạn cách đặt ô sổ làm việc làm nhãn dữ liệu biểu đồ:
+Ví dụ này mở `chart2.pptx`, phải chứa ít nhất một slide, và thêm một biểu đồ bubble với dữ liệu mặc định. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu kết quả thành `resultchart.pptx`.
 
-``` cpp
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
@@ -105,43 +218,37 @@ Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đ�
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-System::String lbl0 = u"Label 0 cell value";
-System::String lbl1 = u"Label 1 cell value";
-System::String lbl2 = u"Label 2 cell value";
+auto presentation = MakeObject<Presentation>(u"chart2.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Khởi tạo một lớp Presentation đại diện cho tệp bản trình chiếu 
-auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
+auto chart = slide->get_Shapes()->AddChart(ChartType::Bubble, 50, 50, 600, 400, true);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-auto slide = pres->get_Slides()->idx_get(0);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLabelValueFromCell(true);
+auto firstLabelCell = workbook->GetCell(0, u"A10", ObjectExt::Box<String>(u"Label 0 cell value"));
+auto secondLabelCell = workbook->GetCell(0, u"A11", ObjectExt::Box<String>(u"Label 1 cell value"));
+auto thirdLabelCell = workbook->GetCell(0, u"A12", ObjectExt::Box<String>(u"Label 2 cell value"));
+series->get_Labels()->idx_get(0)->set_ValueFromCell(firstLabelCell);
+series->get_Labels()->idx_get(1)->set_ValueFromCell(secondLabelCell);
+series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Bubble, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto series = chart->get_ChartData()->get_Series();
-
-series->idx_get(0)->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLabelValueFromCell(true);
-
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
-
-series->idx_get(0)->get_Labels()->idx_get(0)->set_ValueFromCell(wb->GetCell(0, u"A10", System::ObjectExt::Box<System::String>(lbl0)));
-series->idx_get(0)->get_Labels()->idx_get(1)->set_ValueFromCell(wb->GetCell(0, u"A11", System::ObjectExt::Box<System::String>(lbl1)));
-series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u"A12", System::ObjectExt::Box<System::String>(lbl2)));
-
-pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
+presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
 ## **Quản lý Worksheets**
 
-Đoạn mã C++ này minh họa một thao tác trong đó phương thức [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) được sử dụng để truy cập một bộ sưu tập worksheet:
+Phương thức [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) cung cấp quyền truy cập vào các worksheet trong một chart workbook. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataWorkbook.h>
@@ -150,312 +257,346 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
-#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto worksheets = workbook->get_Worksheets();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-for (auto ws : System::IterateOver(worksheets))
-    System::Console::WriteLine(ws->get_Name());
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 500);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
+{
+    Console::WriteLine(workbook->get_Worksheets()->idx_get(i)->get_Name());
+}
 ```
 
-## **Xác định Kiểu Nguồn Dữ liệu**
+## **Chỉ định loại nguồn dữ liệu**
 
-Đoạn mã C++ này cho bạn cách chỉ định một kiểu cho nguồn dữ liệu:
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một literal string; tên thứ hai sử dụng ô C1 trên worksheet 0. Kiểu liệt kê [DataSourceType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/datasourcetype/) chọn nguồn cho mỗi tên. Kết quả được lưu thành `pres.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/DataSourceType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IStringChartValue.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto chartData = chart->get_ChartData();
-auto val = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 50, 50, 600, 400, true);
+auto literalName = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
 
-val->set_DataSourceType(DataSourceType::StringLiterals);
-val->set_Data(System::ObjectExt::Box<System::String>(u"LiteralString"));
-val = chartData->get_Series()->idx_get(1)->get_Name();
-val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NewCell")));
+literalName->set_DataSourceType(DataSourceType::StringLiterals);
+literalName->set_Data(ObjectExt::Box<String>(u"LiteralString"));
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto cellName = chart->get_ChartData()->get_Series()->idx_get(1)->get_Name();
+auto nameCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, u"C1", ObjectExt::Box<String>(u"NewCell"));
+cellName->set_DataSourceType(DataSourceType::Worksheet);
+cellName->set_Data(nameCell);
+
+presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Phát hiện Định dạng Sổ làm việc Nhúng Không được Hỗ trợ**
+## **Phát hiện các định dạng Workbook nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ làm việc Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `get_EmbeddedWorkbookType` trên [IChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua những biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) trên [IChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/) cùng với kiểu liệt kê [WorkbookType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các shape trên slide đầu tiên của `sample.pptx`, bỏ qua các shape không phải biểu đồ, và in thông báo chuẩn đoán cho mỗi biểu đồ có workbook .xlsb nhúng.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/WorkbookType.h>
 #include <DOM/IChart.h>
-#include <DOM/ISlide.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/IShape.h>
 #include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
+#include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+for (auto shape : IterateOver(slide->get_Shapes()))
 {
-    if (!System::ObjectExt::Is<IChart>(shape))
+    auto chart = AsCast<IChart>(shape);
+    if (chart == nullptr)
     {
         continue;
     }
 
-    auto chart = System::ExplicitCast<IChart>(shape);
     auto chartData = chart->get_ChartData();
+    auto isInternalWorkbook = chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook;
+    auto isBinaryMacro = chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro;
 
-    if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
-        chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
+    if (isInternalWorkbook && isBinaryMacro)
     {
-        // Sổ làm việc nhúng ở định dạng .xlsb, không được hỗ trợ.
+        Console::WriteLine(u"Skipping a chart with an unsupported .xlsb workbook.");
         continue;
     }
 
-    // Đọc hoặc sửa đổi dữ liệu sổ làm việc biểu đồ ở đây.
+    // Đọc hoặc chỉnh sửa dữ liệu workbook biểu đồ được hỗ trợ ở đây.
 }
 ```
 
-## **Sổ làm việc Ngoại**
+## **Workbook bên ngoài**
 
-Aspose.Slides hỗ trợ sử dụng sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ sử dụng workbook bên ngoài làm nguồn dữ liệu cho các biểu đồ.
 
-### **Tạo một Sổ làm việc Ngoại**
+### **Tạo một Workbook bên ngoài**
 
-Sử dụng các phương thức **`ReadWorkbookStream`** và **`SetExternalWorkbook`**, bạn có thể tạo một sổ làm việc bên ngoài từ đầu hoặc biến một sổ làm việc nội bộ thành ngoại.
+Sử dụng [ReadWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) và [SetExternalWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) để xuất một chart workbook nhúng ra file và liên kết biểu đồ với workbook bên ngoài đó.
 
-Đoạn mã C++ này minh họa quá trình tạo sổ làm việc ngoại:
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, ghi workbook của nó vào `externalWorkbook1.xlsx`, và đóng luồng xuất trước khi gán file làm nguồn dữ liệu cho biểu đồ. Nó lưu bản trình bày đã liên kết thành `externalWorkbook.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/io/file_mode.h>
+#include <system/io/file.h>
 #include <system/io/file_stream.h>
 #include <system/io/memory_stream.h>
 #include <system/io/path.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-const System::String workbookPath = u"externalWorkbook1.xlsx";
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600);
+auto workbookPath = IO::Path::GetFullPath(u"externalWorkbook1.xlsx");
+auto workbookStream = chart->get_ChartData()->ReadWorkbookStream();
+auto fileStream = IO::File::Create(workbookPath);
+workbookStream->CopyTo(fileStream);
+fileStream->Close();
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f);
-auto chartData = chart->get_ChartData();
-
-{
-    System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(workbookPath, System::IO::FileMode::Create);
-
-    System::ArrayPtr<uint8_t> workbookData = chartData->ReadWorkbookStream()->ToArray();
-    fileStream->Write(workbookData, 0, workbookData->get_Length());
-}
-
-chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
-
-pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
+chart->get_ChartData()->SetExternalWorkbook(workbookPath);
+presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Đặt một Sổ làm việc Ngoại**
+### **Gán một Workbook bên ngoài**
 
-Sử dụng phương thức **`IChartData::SetExternalWorkbook`**, bạn có thể gán một sổ làm việc ngoại cho biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc ngoại (nếu sổ làm việc đó đã được di chuyển).
+Sử dụng phương thức [SetExternalWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/), bạn có thể gán một workbook bên ngoài cho biểu đồ như nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu nó đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sổ làm việc như vậy làm nguồn dữ liệu ngoại. Nếu đường dẫn tương đối cho một sổ làm việc ngoại được cung cấp, nó sẽ tự động chuyển thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook lưu trữ ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng các workbook đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp một đường dẫn tương đối cho workbook bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
 
-Đoạn mã C++ này cho bạn cách đặt một sổ làm việc ngoại:
+Ví dụ này yêu cầu `externalWorkbook.xlsx` trong thư mục làm việc. Worksheet có tên `Sheet1` phải chứa một tên series trong B1, các tên danh mục trong A2:A4, và các giá trị số trong B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng [SetRange](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/setrange/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu kết quả thành `Presentation_with_externalWorkbook.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/io/path.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600, true);
 auto chartData = chart->get_ChartData();
+auto workbookPath = IO::Path::GetFullPath(u"externalWorkbook.xlsx");
 
-chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(u"externalWorkbook.xlsx"));
+chartData->SetExternalWorkbook(workbookPath);
+chartData->SetRange(u"Sheet1!$A$1:$B$4");
 
-chartData->get_Series()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1"), ChartType::Pie);
-auto dataPoints = chartData->get_Series()->idx_get(0)->get_DataPoints();
-auto workbook = chartData->get_ChartDataWorkbook();
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B2"));
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B3"));
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B4"));
-
-auto categories = chartData->get_Categories();
-categories->Add(workbook->GetCell(0, u"A2"));
-categories->Add(workbook->GetCell(0, u"A3"));
-categories->Add(workbook->GetCell(0, u"A4"));
-pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-Tham số `updateChartData` (trong phương thức `SetExternalWorkbook`) được dùng để chỉ định việc có tải sổ Excel hay không.
+Tham số `updateChartData` của [SetExternalWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) kiểm soát việc có tải workbook hay không.
 
-* Khi giá trị `updateChartData` được đặt là `false`, chỉ đường dẫn sổ làm việc được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sổ làm việc mục tiêu. Bạn có thể muốn sử dụng thiết lập này khi sổ làm việc mục tiêu không tồn tại hoặc không khả dụng. 
-* Khi giá trị `updateChartData` được đặt là `true`, dữ liệu biểu đồ sẽ được cập nhật từ sổ làm việc mục tiêu.
+* Khi `updateChartData` là `false`, chỉ cập nhật đường dẫn workbook. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook mục tiêu, vì vậy workbook có thể không khả dụng.
+* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ workbook mục tiêu.
 
-```c++
-#include <DOM/Chart/ChartData.h>
+Ví dụ sau gán một URL placeholder với `updateChartData` đặt là `false`. Nó giữ dữ liệu mặc định của biểu đồ tròn và lưu bản trình bày mà không tải workbook không khả dụng.
+
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
-System::SharedPtr<IChartData> chartData = chart->get_ChartData();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-System::SharedPtr<ChartData> concreteChartData = System::AsCast<ChartData>(chartData);
-concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600, true);
 
-pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-workbook.xlsx", false);
+presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Lấy Đường dẫn Sổ làm việc Nguồn Dữ liệu Ngoại của Biểu đồ**
+### **Lấy đường dẫn Workbook nguồn dữ liệu bên ngoài của một biểu đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-1. Lấy tham chiếu của một slide thông qua chỉ số của nó.
-1. Tạo một đối tượng cho shape biểu đồ.
-1. Tạo một đối tượng cho kiểu nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
-1. Chỉ định điều kiện liên quan dựa trên việc kiểu nguồn giống với kiểu nguồn dữ liệu sổ làm việc ngoại.
+Để xác định workbook được liên kết với một biểu đồ, trước tiên kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài hay không. Nếu có, bạn có thể lấy đường dẫn workbook bằng các bước sau.
 
-Đoạn mã C++ này minh họa thao tác:
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
+2. Truy cập slide đầu tiên bằng chỉ mục bắt đầu từ 0.
+3. Kiểm tra shape đầu tiên có phải là một biểu đồ hay không.
+4. Đọc loại nguồn dữ liệu của biểu đồ.
+5. Nếu nguồn là một workbook bên ngoài, đọc đường dẫn của nó.
 
-```c++
+Ví dụ này mở `externalWorkbook.pptx`, được tạo trong ví dụ trước, và kiểm tra shape đầu tiên trên slide đầu tiên. Nếu nó là một biểu đồ được liên kết với một workbook bên ngoài, ví dụ in [get_ExternalWorkbookPath](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) ra console. Sau đó nó lưu một bản sao của bản trình bày thành `Result.pptx`.
+
+```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-auto slide = pres->get_Slides()->idx_get(1);
-auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
-ChartDataSourceType sourceType = chart->get_ChartData()->get_DataSourceType();
-if (sourceType == ChartDataSourceType::ExternalWorkbook)
+auto presentation = MakeObject<Presentation>(u"externalWorkbook.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
 {
-    System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
+    auto chartData = chart->get_ChartData();
+    if (chartData->get_DataSourceType() == ChartDataSourceType::ExternalWorkbook)
+    {
+        Console::WriteLine(chartData->get_ExternalWorkbookPath());
+    }
+    else
+    {
+        Console::WriteLine(u"The chart does not use an external workbook.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
 }
 
-// Lưu bản trình chiếu
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Chỉnh sửa Dữ liệu Biểu đồ**
+### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc ngoại theo cách bạn thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc ngoại không thể tải, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong workbook bên ngoài giống như khi thay đổi nội dung của workbook nội bộ. Khi một workbook bên ngoài không thể được tải, một ngoại lệ sẽ được ném.
 
-Đoạn mã C++ này là triển khai của quá trình đã mô tả:
+Ví dụ này yêu cầu `presentation.pptx` có một biểu đồ là shape đầu tiên trên slide đầu tiên và một workbook bên ngoài có thể truy cập. Nó đặt giá trị ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình bày thành `presentation_out.pptx`. Việc chỉnh sửa giá trị ô có thể cập nhật file XLSX bên ngoài đã liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần giữ nguyên workbook gốc.
 
-```c++
-#include <DOM/Chart/Chart.h>
-#include <DOM/Chart/ChartData.h>
+```cpp
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
 #include <DOM/Chart/IChartDataPoint.h>
 #include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IDoubleChartValue.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
 using namespace System;
 
-const String templatePath = u"../templates/presentation.pptx";
-	const String outPath = u"../out/presentation-out.pptx";
-	
-
-	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
-	
-
-	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto series = chart->get_ChartData()->get_Series();
+    if (series->get_Count() > 0 && series->idx_get(0)->get_DataPoints()->get_Count() > 0)
+    {
+        auto valueCell = series->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell();
+        if (valueCell != nullptr)
+        {
+            valueCell->set_Value(ObjectExt::Box<int32_t>(100));
+            presentation->Save(u"presentation_out.pptx", Export::SaveFormat::Pptx);
+        }
+        else
+        {
+            Console::WriteLine(u"The first data point is not linked to a workbook cell.");
+        }
+    }
+    else
+    {
+        Console::WriteLine(u"The chart has no data points to edit.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-### **Khôi phục Sổ làm việc từ Bộ nhớ Đệm Biểu đồ**
+### **Phục hồi một Workbook từ bộ nhớ đệm của biểu đồ**
 
-Nếu một biểu đồ sử dụng sổ làm việc ngoại bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/), cấu hình nó với [set_SpreadsheetOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), và gọi [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) với `true` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng một workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/), cấu hình nó với [set_SpreadsheetOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), và gọi [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) với `true` trước khi mở bản trình bày.
 
-Ví dụ C++ sau mở một bản trình chiếu mà biểu đồ tham chiếu tới một sổ làm việc ngoại không khả dụng và truy cập dữ liệu đã phục hồi qua [IChart::get_ChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_chartdata/) và [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Ví dụ C++ sau mở `presentation.pptx`, shape đầu tiên trên slide đầu tiên phải là một biểu đồ tham chiếu tới một workbook bên ngoài không khả dụng, và truy cập dữ liệu đã phục hồi thông qua [IChart::get_ChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_chartdata/) và [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
 spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
 
@@ -463,41 +604,44 @@ auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
 
 auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-auto chart = System::ExplicitCast<IChart>(shape);
-
-auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
-
-// Read or modify the recovered workbook data here.
-
-presentation->Dispose();
+    // Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục ở đây.
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-Nếu sổ làm việc ngoại không khả dụng và chế độ phục hồi bị tắt, Aspose.Slides sẽ ném ra một `System::InvalidOperationException`. Chỉ bật phục hồi khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một giải pháp chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên sổ làm việc ngoại sau khi bản trình chiếu được cập nhật lần cuối.
+Nếu workbook bên ngoài không khả dụng và chế độ phục hồi bị tắt, Aspose.Slides ném một [System::InvalidOperationException](https://reference.aspose.com/slides/vi/cpp/system/details_invalidoperationexception/). Hãy bật phục hồi chỉ khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là một giải pháp chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên workbook bên ngoài sau khi bản trình bày được cập nhật lần cuối.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới sổ làm việc ngoại hay sổ làm việc nhúng không?**
+**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới workbook bên ngoài hay workbook nhúng không?**
 
-Có. Một biểu đồ có một [data source type](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) và một [path to an external workbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); nếu nguồn là sổ làm việc ngoại, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại đang được sử dụng.
+Có. Một biểu đồ có [data source type](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) và một [path to an external workbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
-**Các đường dẫn tương đối tới sổ làm việc ngoại có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động chuyển thành đường dẫn tuyệt đối. Điều này tiện lợi cho việc di động dự án; tuy nhiên, hãy lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình bày lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể yêu cầu cập nhật liên kết.
 
-**Tôi có thể sử dụng sổ làm việc nằm trên các tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng workbook nằm trên các nguồn tài nguyên/mạng chia sẻ không?**
 
-Có, các sổ làm việc như vậy có thể được sử dụng làm nguồn dữ liệu ngoại. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa trong Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, các workbook như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX ngoại khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè file XLSX bên ngoài khi lưu bản trình bày không?**
 
-Không. Bản trình chiếu lưu một [link to the external file](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) và sử dụng nó để đọc dữ liệu. Tệp ngoại bản thân không bị thay đổi khi bản trình chiếu được lưu.
+Bản trình bày lưu một [link to the external file](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật file XLSX địa phương đã liên kết. Hãy sử dụng một bản sao của workbook nếu bản gốc phải được giữ nguyên.
 
-**Nếu tệp ngoại được bảo vệ bằng mật khẩu thì tôi nên làm gì?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu, tôi phải làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/cpp/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, dùng [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc ngoại không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ lần tới khi dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một file, việc cập nhật file đó sẽ được phản ánh trong mỗi biểu đồ lần sau khi dữ liệu được tải.

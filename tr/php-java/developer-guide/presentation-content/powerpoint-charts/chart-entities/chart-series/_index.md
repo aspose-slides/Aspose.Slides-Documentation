@@ -1,11 +1,11 @@
 ---
-title: PHP ile Sunumlarda Grafik Veri Serilerini Yönetme
+title: PHP ile Sunuluklarda Grafik Veri Serilerini Yönetme
 linktitle: Veri Serileri
 type: docs
 url: /tr/php-java/chart-series/
 keywords:
-- grafik serileri
-- seri üst üste binmesi
+- grafik serisi
+- seri çakışması
 - seri rengi
 - seri adı
 - veri noktası
@@ -16,29 +16,29 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "PHP ile sunumlarda grafik serileri, veri noktaları, çalışma kitabı hücreleri, biçimlendirme, üst üste binme, boşluk genişliği ve negatif değerlerin nasıl yönetileceğini öğrenin."
+description: "PHP ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, çakışmayı, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında saklar. Bir [ChartSeries](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/) ilgili değerler kümesini temsil eder ve serideki her [ChartDataPoint](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartcategory/) nesneleri, seri tarafından paylaşılan etiketleri veya grup değerlerini sağlar. Bu nedenle seri adı, kategoriler ve nokta değerleri, yalnızca görüntü metni olarak saklanmak yerine [ChartDataCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/) nesnelerine bağlanır.
+Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında saklar. Bir [ChartSeries](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/) ilişkili değerlerin bir kümesini temsil eder ve serideki her bir [ChartDataPoint](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartcategory/) nesneleri seriler arasında paylaşılan etiketleri veya gruplama değerlerini sağlar. Bu nedenle seri adı, kategoriler ve nokta değerleri yalnızca görüntü metni olarak saklanmaz; [ChartDataCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/) nesnelerine bağlanır.
 
-Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve kalan hücreleri seri değerleri için kullanır. [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#getCell) yöntemine geçirilen çalışma sayfası, satır ve sütun dizinleri sıfır tabanlıdır. Bu düzen, varsayılan veriyle bir grafik oluştururken faydalıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, sınıflar ve veri noktaları tarafından başvurulan hücreleri inceleyin.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve kalan hücreler seri değerleri için kullanılır. [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/#getCell) yöntemine geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktalarının başvurduğu hücreleri inceleyin.
 
 Grafik ayarlarının üç farklı kapsamı vardır:
 
-- Bir serideki tüm noktalar için varsayılan görünümü sağlayan, örneğin [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getFormat) gibi seri düzeyindeki ayarlar.
-- Bir nokta için seri görünümünü geçersiz kılan, örneğin [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#getFormat) gibi veri noktası ayarları.
-- UyumlU serilere aynı [ChartSeriesGroup](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/) içinde ait olan grup ayarları. Üst üste binme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde gruba [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getParentSeriesGroup) yöntemiyle erişin.
+- Seriye özgü ayarlar, örneğin [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getFormat), bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri noktası ayarları, örneğin [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#getFormat), bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [ChartSeriesGroup](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/) içinde bulunan uyumlu serilere uygulanır. [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getParentSeriesGroup) üzerinden gruba erişerek örtüşme veya boşluk genişliği gibi seçenekleri ayarlayabilirsiniz.
 
-Herhangi bir açık nokta veya seri dolgu ayarı yapılmadığında, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için öncelikli olur.
+Açıkça bir nokta veya seri doldurması ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcutsa, nokta biçimlendirmesi o nokta için önceliklidir.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![grafik-seri-powerpoint](chart-series-powerpoint.png)
 
-## **Grafik Serisi Üst Üste Binmesini Ayarlama**
+## **Grafik Serisi Çakışmasını Ayarla**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getOverlap) bir 2D grafikte çubukların veya sütunların -%100 ile %100 arasında ne kadar üst üste geldiğini rapor eder. Bu, üst grup ayarının yalnızca okunabilir bir yansımasıdır. Bu gruptaki tüm uyumlu serileri güncellemek için [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/#setOverlap) kullanın. Bu seçenek, gruplanmış çubuk ya da sütun gösteren grafik türlerine uygulanır; bir birleşik grafikte ilişkili olmayan seri gruplarını etkilemez.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getOverlap) bir 2D grafikte çubukların veya sütunların ne kadar çakıştığını -%100 ile %100 arasında raporlar. Bu, üst grup üzerindeki ayarın yalnızca okunabilir bir yansımasıdır. O grup içindeki tüm uyumlu serileri güncellemek için [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/#setOverlap) kullanın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; kombinasyon grafiğindeki ilgili olmayan seri gruplarını etkilemez.
 
-Aşağıdaki örnek, ilk seriyi içeren grup için üst üste binmeyi ayarlar:
+Aşağıdaki örnek, ilk seriyi içeren grup için çakışmayı ayarlar:
 
 ```php
 $firstSlideIndex = 0;
@@ -65,13 +65,13 @@ try {
 
 Sonuç:
 
-![Seri üst üste binmesi](series_overlap.png)
+![Seri çakışması](series_overlap.png)
 
-## **Seri Doldurma Rengini Değiştir**
+## **Seri Dolgu Rengini Değiştir**
 
-Bir bütün seri için varsayılan dolgu ayarlamak üzere [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getFormat) kullanın. Bir noktanın zaten açık bir dolgusu varsa, onun [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#getFormat) ayarı o nokta için seri dolgusunu geçersiz kılar.
+Tüm bir seri için varsayılan doldurmayı ayarlamak üzere [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getFormat) kullanın. Bir noktanın zaten belirlenmiş bir doldurması varsa, onun [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#getFormat) ayarı o nokta için seri doldurmasını geçersiz kılar.
 
-Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
+Aşağıdaki örnek, ilk seriye katı mavi bir doldurma uygular:
 
 ```php
 $firstSlideIndex = 0;
@@ -102,7 +102,7 @@ Sonuç:
 
 ## **Seri Adını Değiştir**
 
-Bir seri adı grafik veri çalışma kitabında saklanır ve genellikle lejende gösterilir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1’de bulunur ve ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış değişkenler bu yapıyı açıkça gösterir:
+Seri adı, grafik veri çalışma kitabında saklanır ve genellikle lejende görüntülenir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında B1 hücresi (satır 0, sütun 1) ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış değişkenler bu yapıyı açıkça ortaya koyar:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +128,7 @@ try {
 }
 ```
 
-Mevcut bir grafikte zaten [ChartSeries.getName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getName) tarafından başvurulan hücreyi de güncelleyebilirsiniz. Bu yaklaşım, belirli bir satır ve sütun varsayımından kaçınır:
+Ayrıca [ChartSeries.getName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getName) tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```php
 $firstSlideIndex = 0;
@@ -157,11 +157,11 @@ Sonuç:
 
 ![Seri adı](series_name.png)
 
-## **Otomatik Seri Doldurma Rengini Al**
+## **Otomatik Seri Dolgu Rengini Al**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) seri indeksinden ve grafik stilinden hesaplanan rengi döndürür. Bu, seri dolgusu açıkça tanımlanmadığında kullanılan renktir. Yöntemi çağırmak hesaplanan rengi okur; yeni bir dolgu atamaz.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) yöntem, seri indeksi ve grafik stilinden hesaplanan rengi döndürür. Bu, seri doldurması açıkça tanımlanmamışken kullanılan renktir. Yöntem, hesaplanan rengi okur; yeni bir doldurma atamaz.
 
-Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
+Aşağıdaki örnek, her varsayılan seri için otomatik rengi yazdırır:
 
 ```php
 $firstSlideIndex = 0;
@@ -196,13 +196,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Tam renkler, grafik stili ve temaya bağlıdır.
+Tam renkler grafik stiline ve temaya bağlıdır.
 
-## **Grafik Serisi İçin Ters Doldurma Rengini Ayarla**
+## **Bir Grafik Serisi İçin Ters Dolgu Rengini Ayarla**
 
-Çubuk, sütun ve balon serileri için, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#setInvertIfNegative) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntü rengi değişir.
+Çubuk, sütun ve balon serileri için, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#setInvertIfNegative) negatif değerleri farklı bir doldurma ile gösterebilir. Düzenli seri doldurmasını katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntü rengi değişir.
 
-Aşağıdaki örnek, varsayılan grafik verisini tek bir seri ile değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```php
 $firstSlideIndex = 0;
@@ -260,9 +260,9 @@ try {
 
 Sonuç:
 
-![Ters katı dolgu rengi](inverted_solid_fill_color.png)
+![Ters çevirilmiş katı dolgu rengi](inverted_solid_fill_color.png)
 
-Bir nokta için terslemeyi [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılmış ve yalnızca seçili nokta için etkinleştirilmiştir. Noktaya da etkisinin görülmesi için negatif bir değer atanmıştır:
+Bir nokta için terslemeyi yalnızca [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılmış ve yalnızca seçili nokta için etkinleştirilmiştir. Etkinliği göstermek için nokta da negatif bir değer alır:
 
 ```php
 $firstSlideIndex = 0;
@@ -296,9 +296,9 @@ try {
 }
 ```
 
-## **Belirli Bir Veri Noktası Değerini Temizle**
+## **Belirli bir Veri Noktası Değerini Temizle**
 
-Diğer noktaları kaldırmadan bir noktayı boş yapmak için, ilgili çalışma kitabı hücresini `null` olarak ayarlayın. Bir sütun grafiğinde, çizilen değer [ChartDataPoint.getValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#getValue) aracılığıyla elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik, boş değer ayarlarına göre değerini boş olarak kabul eder.
+Diğer noktaları kaldırmadan bir noktayı boş bırakmak için ilgili çalışma kitabı hücresini `null` olarak ayarlayın. Bir sütun grafiği için, çizilen değer [ChartDataPoint.getValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#getValue) aracılığıyla elde edilebilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarlarına göre değerini boş olarak işler.
 
 Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
 
@@ -325,15 +325,17 @@ try {
 }
 ```
 
-Saçılım grafiklerinde ayrı X ve Y hücreleri, balon grafiklerinde ise bir boyut hücresi kullanılır. Sadece kaldırmak istediğiniz değeri temsil eden hücreyi temizleyin. Diğer noktaları tutmak istediğinizde [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapointcollection/#clear) çağırmayın; bu yöntem koleksiyondaki tüm veri noktalarını kaldırır.
+Saçılım grafikleri ayrı X ve Y hücreleri kullanır, balon grafikler ayrıca bir boyut hücresi de kullanır. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları tutmak istiyorsanız [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapointcollection/#clear) yöntemini çağırmayın; bu yöntem serideki tüm veri noktalarını siler.
 
 ## **Boş Hücrelerin Görüntülenmesini Kontrol Et**
 
-Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen sayısal bir değeri temsil eder. Bir hücreyi boş yapmak için [ChartDataCell::setValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setValue) yöntemini `null` ile çağırın. Sayısal sıfır, boş hücre ayarına bakılmaksızın sıfır olarak kalır.
+Değer içeren gizli hücreler, tamamen boş hücrelerden farklı bir durumdur. Gizli çalışma sayfası satır ve sütunlarından veri dahil etmek veya hariç tutmak için [Gizli Satır ve Sütunlardan Veri Dahil Et](/slides/tr/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns) bölümüne bakın.
 
-Grafiğin boş hücreleri nasıl görüntüleyeceğini seçmek için [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/#setDisplayBlanksAs) kullanın. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir; boş çalışma kitabı hücresini sıfır ya da aradeğerle doldurmaz.
+Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen sayısal bir değeri temsil eder. Bir hücreyi boş yapmak için `null` ile [ChartDataCell::setValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatacell/#setValue) çağırın. Sayısal sıfır, boş‑hücre ayarından bağımsız olarak sıfır olarak kalır.
 
-Aşağıdaki bağımsız örnek, bir serili bir çizgi grafiği oluşturur, Gün 3 için değeri temizler ve grafiği her modda kaydeder. Giriş dosyası gerektirmez. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0 ve değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40`dır:
+Boş hücrelerin nasıl gösterileceğini seçmek için [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/#setDisplayBlanksAs) kullanın. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir; boş hücreyi sıfır ya da ara bir değerle doldurmaz.
+
+Aşağıdaki bağımsız örnek, bir satır grafiği oluşturur, 3. Gün değerini temizler ve her moda göre aynı grafik dosyasını kaydeder. Giriş dosyasına gerek yoktur. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0 ve değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, boş, 30, 40` şeklindedir.
 
 ```php
 use aspose\slides\ChartType;
@@ -377,19 +379,19 @@ try {
 }
 ```
 
-Her çıktı dosyası, kaydetmeden önce atanmış modu saklar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek için istediğiniz modu atayın ve sunumu yalnızca bir kez kaydedin; modlar arasında döngü yapmayın.
+Her çıktı dosyası, kaydetmeden önce atanan modu içerir: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek isterseniz, istediğiniz modu atayın ve sunumu bir kez kaydedin; modlar arasında döngü yapmayın.
 
-Aşağıdaki karşılaştırma, aynı veriyi üç dosyada da gösterir. Gün 3 her durumda çalışma kitabında boştur:
+Aşağıdaki karşılaştırma, aynı verinin üç dosyada nasıl göründüğünü gösterir. 3. Gün çalışma kitabında her zaman boştur:
 
-![Aynı veriye sahip çizgi grafikler: Boşluk Gün 3'te çizgiyi keser, Sıfır çizgiyi sıfıra düşürür, ve Uzatma Gün 2 ile Gün 4'ü bağlar.](display_blanks_as.png)
+![Satır grafikleri aynı veriyle: Boşluk modu 3. Günde çizgiyi kırar, Sıfır modu çizgiyi sıfıra düşürür, Ve Yay modu 2. Günden 4. Güne bağlar.](display_blanks_as.png)
 
-Görünüm, grafik türüne bağlıdır. Bir çizgi grafik, üç modu da kolayca karşılaştırmayı sağlar. Çubuk ve sütun grafiklerinde eksik bir kategoriye bağlanacak bir çizgi olmadığından `Span` yukarıda gösterilen bağlayıcı segmenti oluşturamaz; eksik bir sütun ve sıfır yüksekliğinde bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretleyicilere sahip bir saçılım grafik de bağlayıcı çizgiye sahip değildir. Her grafik türü için üç ayrı sonuç beklemeyin; kullandığınız tip için çıktıyı kontrol edin.
+Görünür etki grafik türüne bağlıdır. Bir satır grafiği üç modu da karşılaştırmayı kolaylaştırır. Çubuk ve sütun grafiklerinde eksik bir kategori için bağlayacak bir çizgi olmadığından, `Span` bu örnekteki gibi bir bağlantı segmenti üretmez; eksik bir sütun ve sıfır‑yüksekliğinde bir sütun da benzer görünebilir. Benzer şekilde sadece işaretçileri olan bir saçılım grafiğinde de bağlayıcı çizgi yoktur. Her grafik türü için üç ayrı sonuç beklemeyin; kullandığınız tipteki çıktıyı kontrol edin.
 
 ## **Seri Boşluk Genişliğini Ayarla**
 
-Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup, çubuk veya sütun genişliğinin yüzde olarak ifadesidir. Üst üste binme gibi, tek bir seriye değil üst grup serisine aittir. Grup için bir kez [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/#setGapWidth) çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer ise kümeleri daha sıkışık yapar.
+Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup, çubuk veya sütun genişliğinin yüzde olarak ifadesidir. Çakışma gibi, bu da tek bir seriye değil, üst grup seviyesine aittir. Grup için bir kez [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/#setGapWidth) çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıklaştırır.
 
-Aşağıdaki örnek, boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
+Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
 ```php
 $firstSlideIndex = 0;
@@ -419,32 +421,42 @@ Sonuç:
 
 ## **SSS**
 
-**Hangi grafik türleri veri serilerini destekler?**  
-Tüm grafik türleri, [ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/) enum'ı tarafından temsil edilen, grafik verisi kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin, kategori grafikleri kategori ve değerler, saçılım grafikleri X ve Y değerleri, balon grafikleri ise balon boyutları kullanır. Seri tipine uygun veri noktası oluşturma yöntemini kullanın. Üst üste binme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
+**Hangi grafik türleri veri serilerini destekler?**
 
-**Grafik seri grubu nedir?**  
-[ChartSeriesGroup](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/) uyumlu serileri, grup düzeyinde çizim ayarlarını paylaşacak şekilde içerir. Bir kombinasyon grafiği birden fazla grup içerebilir; bu nedenle bir seriden erişilen grupta yapılan değişiklik, grafikteki tüm serileri mutlaka etkilemez.
+[ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/) enum'ı tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serilerinin değer yapısı ve ayarları aynı değildir. Örneğin, kategori grafiklerinde kategoriler ve değerler, saçılım grafiklerinde X ve Y değerleri, balon grafiklerinde ise balon boyutları bulunur. Seri tipine uygun veri‑nokta oluşturma yöntemini kullanın. Çakışma ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
 
-**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**  
-Evet. Varsayılan olarak, [ShapeCollection.addChart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/#addChart) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri seti eklemeden önce seri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme aynı zamanda varsayılan veri olmadan bir grafik oluşturabilir.
+**Grafik serisi grubu nedir?**
 
-**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**  
-Seri adları, kategori etiketleri ve veri noktası değerleri bir [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizilmesi için kategori satırlarını ve seri-değer satırlarını hizalı tutun.
+[ChartSeriesGroup](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Kombinasyon grafiği birden fazla grup içerebilir; bir seri üzerinden ulaşılan grup ayarlarını değiştirmek, grafikteki tüm serileri mutlaka etkilemez.
 
-**Tüm seriyi değil tek bir noktayı nasıl temizlerim?**  
-İlgili değer hücresini `null` olarak ayarlayarak noktanın kategori konumunu boş bir nokta olarak tutun. [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapointcollection/#clear) yöntemini yalnızca o seriden tüm noktaları kaldırmak istediğinizde kullanın. Kategorileri de kaldırırsanız, her serinin değerlerinin kategori koleksiyonuyla hizalı kalmasını sağlamak için serileri güncelleyin.
+**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
 
-**Boş noktalar nasıl görüntülenir?**  
-Sonuç, grafik türüne ve [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/#setDisplayBlanksAs) ile yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları boşluklar (gaps), sıfır değerler (zero) ya da komşu noktaları bağlayarak (span) gösterebilir. Sunumunuzdaki eksik verinin anlamına uygun ayarı seçin. Tam bir örnek ve görsel karşılaştırma için [Boş Hücrelerin Görüntülenmesini Kontrol Et](#control-the-display-of-empty-cells) bölümüne bakın.
+Evet. Varsayılan olarak, [ShapeCollection.addChart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/#addChart) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da grafik oluşturabilir.
 
-**Negatif değerler nasıl biçimlendirilir?**  
-Desteklenen çubuk, sütun ve balon serileri için, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#setInvertIfNegative) çağırın ve [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) tarafından döndürülen rengi ayarlayın. Bireysel bir nokta için davranışı [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değil.
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
 
-**Hem seri hem nokta biçimlendirilmiş olduğunda hangisi kazanır?**  
-Açık veri noktası biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri formatını kullanmaya devam eder veya seri formatı tanımlı değilse otomatik grafik stilini ve temasını kullanır. Üst üste binme ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta düzeyinde biçimlendirme geçersiz kılmaları değildir.
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırlarıyla seri‑değer satırlarını hizalı tutun.
 
-**Bir grafiğin içerebileceği seri sayısında bir limit var mı?**  
-Aspose.Slides ayrı bir sabit seri sayısı limiti uygulamaz. Pratikte, sunum dosyasının kısıtlamaları, kullanılabilir bellek, render süresi ve grafik okunabilirliği faydalı bir sınırlamayı belirler.
+**Bir seriyi tamamen silmek yerine tek bir noktayı nasıl temizlerim?**
 
-**Sütunlar çok yakın ya da çok uzakta olduğunda ne değiştirmeliyim?**  
-Uygun üst seri grubu üzerinde [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/#setGapWidth) çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletebilir, azaltarak kümeleri daha yakın hâle getirebilirsiniz.
+İlgili değer hücresini `null` olarak ayarlayın; böylece noktanın kategori konumu boş bir nokta olarak kalır. [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapointcollection/#clear) yöntemi yalnızca tüm noktaları kaldırmak istediğinizde kullanın. Kategorileri de kaldırıyorsanız, serilerin değerlerini kategori koleksiyonuyla hizalı tutmak için tüm serileri güncelleyin.
+
+**Boş noktalar nasıl görüntülenir?**
+
+Sonuç, grafik türüne ve [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/#setDisplayBlanksAs) aracılığıyla yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları boşluk olarak, sıfır değeri olarak veya komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına en uygun ayarı seçin. Tam örnek ve görsel karşılaştırma için **[Boş Hücrelerin Görüntülenmesini Kontrol Et](#control-the-display-of-empty-cells)** bölümüne bakın.
+
+**Negatif değerler nasıl biçimlendirilir?**
+
+Desteklenen çubuk, sütun ve balon serileri için [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#setInvertIfNegative) çağırın ve [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) tarafından döndürülen rengi atayın. Bireysel bir nokta için davranışı [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile geçersiz kılabilirsiniz. Bu yöntemler yalnızca biçimlendirmeyi etkiler; saklanan sayısal değerleri değiştirmez.
+
+**Seri ve nokta aynı anda biçimlendirilirse hangisi kazanır?**
+
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar, açıkça tanımlı bir seri biçimi bulunmuyorsa otomatik grafik stili ve temasını kullanır. Çakışma ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta‑seviyesi biçimlendirme geçersizliği oluşturmaz.
+
+**Bir grafiğin içerebileceği maksimum seri sayısı var mı?**
+
+Aspose.Slides, ayrı bir sabit seri sayısı sınırı getirmez. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, işleme süresi ve okunabilirlik gibi faktörler kullanılabilecek anlamlı bir üst sınır belirler.
+
+**Sütunlar çok yakın ya da çok uzak olduğunda ne değiştirilmelidir?**
+
+Uygun üst seri grubunda [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartseriesgroup/#setGapWidth) çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletebilir, azaltarak kümeleri birbirine yakınlaştırabilirsiniz.

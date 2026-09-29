@@ -19,145 +19,229 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Descubra Aspose.Slides para Java: gerencie facilmente pastas de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
+description: "Descubra o Aspose.Slides para Java: gerencie pastas de trabalho de gráficos no PowerPoint e nos formatos OpenDocument de forma fácil para simplificar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos através de streams de pastas de trabalho, usar células de pasta de trabalho como rótulos de dados de gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de fluxos de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
 
-Ele também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Ele também aborda o trabalho com pastas de trabalho externas como fontes de dados dos gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
-Para células de pasta de trabalho que representam dados ausentes, veja [Control the Display of Empty Cells](/slides/pt/java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
+Para células da pasta de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
 
-## **Ler e Gravar Dados de Gráfico a partir de uma Pasta de Trabalho**
+## **Incluir Dados de Linhas e Colunas Ocultas**
 
-Aspose.Slides fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IChartData#readWorkbookStream--) e [WriteWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Nota** que os dados do gráfico devem ser organizados da mesma forma ou ter uma estrutura semelhante à origem.
+Use [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) para controlar se um gráfico plota dados de linhas e colunas de planilha ocultas. Defina como `true` para plotar somente células visíveis, ou `false` para incluir tanto células visíveis quanto ocultas. Esta configuração controla a plotagem do gráfico; não oculta ou exibe linhas ou colunas da planilha.
 
-Este código Java demonstra uma operação de exemplo:
+Baixe [hidden-source-data.pptx](hidden-source-data.pptx) e coloque-o no diretório de trabalho. Seu primeiro slide contém um gráfico de colunas como a primeira forma. A planilha incorporada, `Sheet1`, contém o intervalo de origem `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
+
+| Linha da planilha | A: Mês | B: Varejo | C: Atacado (coluna oculta) |
+| --- | --- | --- | --- |
+| 2 | Janeiro | 10 | 30 |
+| 3 (linha oculta) | Fevereiro | 40 | 60 |
+| 4 | Março | 20 | 50 |
+
+Acesse as células de origem através de [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) e leia [IChartDataCell.isHidden](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#isHidden--) para inspecionar seu status de ocultação. Este método reporta o status de ocultação sem alterá‑lo. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `false`, `true` e `true`, respectivamente.
+
+Para este exemplo, atualize os dados do gráfico após mudar a configuração de plotagem: retenha a pasta de trabalho incorporada com [readWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#readWorkbookStream--) e recarregue‑a com [writeWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-). Ao incluir todas as células, use também [setRange](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) para restaurar o intervalo completo, incluindo a categoria de fevereiro ocultada. Apenas mudar a bandeira não é suficiente para atualizar os dados em cache deste exemplo e os rótulos de categoria.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("hidden-source-data.pptx");
 try {
-    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartData data = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    byte[] stream = data.readWorkbookStream();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        System.out.println("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        System.out.println("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        System.out.println("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
 
-    data.getSeries().clear();
-    data.getCategories().clear();
+        byte[] workbookData = chart.getChartData().readWorkbookStream();
+        for (boolean visibleOnly : new boolean[] { true, false }) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
 
-    data.writeWorkbookStream(stream);
+            // Atualizar os dados do gráfico a partir da pasta de trabalho incorporada.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Restaurar o intervalo de origem completo, incluindo as categorias ocultas.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+O exemplo salva `hidden_cells_true.pptx` contendo somente os valores de Varejo visíveis (10 e 20), e `hidden_cells_false.pptx` com todos os seis valores. As imagens abaixo ilustram os dois modos de plotagem. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
+
+| Somente células visíveis (`true`) | Todas as células (`false`) |
+| --- | --- |
+| ![Somente células visíveis: valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
+
+Uma célula oculta que contém um valor é diferente de uma célula vazia. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) controla como valores ausentes são exibidos; não inclui ou exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazias](/slides/pt/java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
+
+## **Ler e Gravar Dados de Gráficos a partir de uma Pasta de Trabalho**
+
+Aspose.Slides for Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráficos editados com Aspose.Cells). **Note** que os dados do gráfico precisam estar organizados da mesma maneira ou ter uma estrutura similar à origem.
+
+Este exemplo abre `chart.pptx`, que deve conter um gráfico como a primeira forma em seu primeiro slide. Ele lê a pasta de trabalho incorporada para um array de bytes, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem na memória; o exemplo não salva a apresentação.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Validar Layout do Gráfico Após Modificação da Pasta de Trabalho**
 
-Quando você substitui uma pasta de trabalho embutida por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa inconsistência pode fazer com que [IChart.validateChartLayout](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichart/#validateChartLayout--) lance uma `ArgumentOutOfRangeException` (parâmetro: index). Para evitar a exceção, limpe as séries e categorias existentes **antes** de gravar a pasta de trabalho atualizada de volta no gráfico.
+Ao substituir uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa divergência pode fazer com que [IChart.validateChartLayout](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichart/#validateChartLayout--) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta no gráfico. Este exemplo requer `chart.pptx` com um gráfico como a primeira forma em seu primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout na memória.
 
 ```java
-// Após modificar o stream da pasta de trabalho (por exemplo, usando Aspose.Cells)
-byte[] updatedWorkbook = baos.toByteArray();
+import com.aspose.slides.*;
 
-// Limpar referências de dados existentes.
-chart.getChartData().getSeries().clear();
-chart.getChartData().getCategories().clear();
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-chart.getChartData().writeWorkbookStream(updatedWorkbook);
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
 
-chart.validateChartLayout();
+        // Modifique os bytes da pasta de trabalho aqui, por exemplo, usando Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Limpar as coleções garante que a estrutura de dados do gráfico esteja alinhada com a nova pasta de trabalho, permitindo que `validateChartLayout` seja concluído sem erros.
+Limpar as coleções remove referências de dados obsoletas antes que a pasta de trabalho seja gravada. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
 
-## **Definir uma Célula de Pasta de Trabalho como Rótulo de Dados do Gráfico**
+## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
 
-1. Crie uma instância da classe [Presentation](https://apireference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
-2. Obtenha a referência de um slide pelo seu índice.
-3. Adicione um gráfico de Bolhas com alguns dados.
+Você pode usar texto de células da pasta de trabalho como rótulos de dados do gráfico. As etapas a seguir mostram como vincular os rótulos em um gráfico de bolhas a células em sua pasta de dados.
+
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) .
+2. Acesse o primeiro slide pelo seu índice baseado em zero.
+3. Adicione um gráfico de bolhas com dados padrão.
 4. Acesse as séries do gráfico.
 5. Defina a célula da pasta de trabalho como um rótulo de dados.
 6. Salve a apresentação.
 
-Este código Java mostra como definir uma célula de pasta de trabalho como rótulo de dados do gráfico:
+Este exemplo abre `chart2.pptx`, que deve conter ao menos um slide, e adiciona um gráfico de bolhas com dados padrão. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva o resultado em `resultchart.pptx`.
 
 ```java
-// Instancia uma classe de apresentação que representa um arquivo de apresentação
 import com.aspose.slides.*;
 
-String lbl0 = "Label 0 cell value";
-String lbl1 = "Label 1 cell value";
-String lbl2 = "Label 2 cell value";
-
-Presentation pres = new Presentation("chart2.pptx");
+Presentation presentation = new Presentation("chart2.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
 
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-
-    pres.save("resultchart.pptx", SaveFormat.Pptx);
+    presentation.save("resultchart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Gerenciar Planilhas**
 
-Este código Java demonstra uma operação onde o método [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) é usado para acessar uma coleção de planilhas:
+O método [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) fornece acesso às planilhas em uma pasta de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime cada nome de planilha no console.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
-    for (int i = 0; i < wb.getWorksheets().size(); i++)
-        System.out.println(wb.getWorksheets().get_Item(i).getName());
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (int i = 0; i < workbook.getWorksheets().size(); i++) {
+        System.out.println(workbook.getWorksheets().get_Item(i).getName());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Especificar o Tipo de Origem de Dados**
+## **Especificar o Tipo de Fonte de Dados**
 
-Este código Java mostra como especificar um tipo para uma origem de dados:
+Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de séries usando diferentes fontes de dados. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/datasourcetype/) seleciona a origem para cada nome. O resultado é salvo em `pres.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("LiteralString");
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue literalName = chart.getChartData().getSeries().get_Item(0).getName();
 
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
+    literalName.setDataSourceType(DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IStringChartValue cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    IChartDataCell nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Detectar Formatos de Pasta de Trabalho Embutida Não Compatíveis**
+## **Detectar Formatos de Pasta de Trabalho Incorporados Não Compatíveis**
 
-Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode ser embutido em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [IChartData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IChartData) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/WorkbookType) para detectar formatos não compatíveis e ignorar esses gráficos.
+Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método [getEmbeddedWorkbookType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) em [IChartData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/workbooktype/) para detectar formatos não suportados e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de `sample.pptx`, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
 
 ```java
 import com.aspose.slides.*;
@@ -167,18 +251,21 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     for (IShape shape : slide.getShapes()) {
-        if (!(shape instanceof IChart)) continue;
-
-        IChart chart = (IChart)shape;
-        IChartData chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // A pasta de trabalho embutida está no formato .xlsb, que não é suportado.
+        if (!(shape instanceof IChart)) {
             continue;
         }
 
-        // Leia ou modifique os dados da pasta de trabalho do gráfico aqui.
+        IChart chart = (IChart) shape;
+        IChartData chartData = chart.getChartData();
+        boolean isInternalWorkbook = chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook;
+        boolean isBinaryMacro = chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            System.out.println("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Leia ou modifique os dados de pasta de trabalho de gráfico suportados aqui.
     }
 } finally {
     presentation.dispose();
@@ -191,122 +278,122 @@ Aspose.Slides suporta o uso de pastas de trabalho externas como fonte de dados p
 
 ### **Criar uma Pasta de Trabalho Externa**
 
-Usando os métodos **`readWorkbookStream`** e **`setExternalWorkbook`**, você pode criar uma pasta de trabalho externa do zero ou tornar uma pasta de trabalho interna externa.
+Use [readWorkbookStream](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#readWorkbookStream--) e [setExternalWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) para exportar uma pasta de trabalho de gráfico incorporada para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
 
-Este código Java demonstra o processo de criação da pasta de trabalho externa:
+Este exemplo cria um gráfico de pizza com dados padrão, grava sua pasta de trabalho em `externalWorkbook1.xlsx` e conclui a gravação do arquivo antes de atribuir o arquivo como a fonte de dados do gráfico. Ele salva a apresentação vinculada em `externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    final String workbookPath = "externalWorkbook1.xlsx";
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
-    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
+    Path workbookPath = Paths.get("externalWorkbook1.xlsx").toAbsolutePath();
+    byte[] workbookData = chart.getChartData().readWorkbookStream();
     try {
-        byte[] workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) fileStream.close();
+        Files.write(workbookPath, workbookData);
+        chart.getChartData().setExternalWorkbook(workbookPath.toString());
+        presentation.save("externalWorkbook.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("Could not write the external workbook: " + exception.getMessage());
     }
-
-    chart.getChartData().setExternalWorkbook(workbookPath);
-
-    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
-} catch (IOException e) {    
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Definir uma Pasta de Trabalho Externa**
 
-Usando o método **`setExternalWorkbook`**, você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho para a pasta de trabalho externa (se esta tiver sido movida).
+Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Este método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se esta tiver sido movida).
 
-Embora você não possa editar os dados em pastas de trabalho armazenadas em locais ou recursos remotos, ainda pode usar essas pastas de trabalho como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente em um caminho completo.
+Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usá‑las como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente em um caminho completo.
 
-Este código Java mostra como definir uma pasta de trabalho externa:
+Este exemplo requer `externalWorkbook.xlsx` no diretório de trabalho. Sua planilha denominada `Sheet1` deve conter um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [setRange](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) para mapear A1:B4 para uma série e três categorias. Ele salva o resultado em `Presentation_with_externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
+import java.nio.file.Paths;
 
-// Cria uma instância da classe Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
     IChartData chartData = chart.getChartData();
+    String workbookPath = Paths.get("externalWorkbook.xlsx").toAbsolutePath().toString();
 
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
 
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    
-    pres.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+    presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-O segundo parâmetro (`boolean`) do método `setExternalWorkbook` é usado para especificar se uma pasta de trabalho Excel será carregada ou não. 
+O parâmetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) controla se a pasta de trabalho é carregada.
 
-* Quando seu valor é definido como `false`, apenas o caminho da pasta de trabalho é atualizado — os dados do gráfico não serão carregados ou atualizados a partir da pasta de trabalho de destino. Você pode usar essa configuração quando a pasta de trabalho de destino não existir ou não estiver disponível. 
-* Quando seu valor é definido como `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
+* Quando `updateChartData` é `false`, somente o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados nem atualizados a partir da pasta de trabalho alvo, de modo que a pasta de trabalho pode estar indisponível.
+* Quando `updateChartData` é `true`, os dados do gráfico são atualizados a partir da pasta de trabalho alvo.
+
+O exemplo a seguir atribui uma URL fictícia com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
 
 ```java
 import com.aspose.slides.*;
 
-// Cria uma instância da classe Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-    IChartData chartData = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
 
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Obter o Caminho da Pasta de Trabalho da Fonte de Dados Externa de um Gráfico**
 
-1. Crie uma instância da classe [Presentation](https://apireference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
-2. Obtenha a referência de um slide pelo seu índice.
-3. Crie um objeto para a forma do gráfico.
-4. Crie um objeto para o tipo de origem (`ChartDataSourceType`) que representa a fonte de dados do gráfico.
-5. Especifique a condição relevante com base no tipo de origem sendo o mesmo que o tipo de fonte de dados da pasta de trabalho externa.
+Para identificar a pasta de trabalho vinculada a um gráfico, primeiro verifique se o gráfico usa uma fonte de dados externa. Se usar, você pode recuperar o caminho da pasta de trabalho seguindo estas etapas.
 
-Este código Java demonstra a operação:
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) .
+2. Acesse o primeiro slide pelo seu índice baseado em zero.
+3. Verifique se a primeira forma é um gráfico.
+4. Leia o tipo de fonte de dados do gráfico.
+5. Se a fonte for uma pasta de trabalho externa, leia seu caminho.
+
+Este exemplo abre `externalWorkbook.pptx`, criado no exemplo anterior, e inspeciona a primeira forma no primeiro slide. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) no console. Em seguida, salva uma cópia da apresentação em `Result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// Cria uma instância da classe Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("externalWorkbook.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook) {
+            System.out.println(chartData.getExternalWorkbookPath());
+        } else {
+            System.out.println("The chart does not use an external workbook.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
     }
-	
-	// Salva a apresentação
-    pres.save("result.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -314,32 +401,47 @@ try {
 
 Você pode editar os dados em pastas de trabalho externas da mesma forma que altera o conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
 
-Este código Java é uma implementação do processo descrito:
+Este exemplo requer `presentation.pptx` com um gráfico como a primeira forma no primeiro slide e uma pasta de trabalho externa acessível. Ele define o valor baseado em célula do primeiro ponto de dados da primeira série como 100 e salva a apresentação em `presentation_out.pptx`. A edição de valores de células pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
 
 ```java
 import com.aspose.slides.*;
 
-// Cria uma instância da classe Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ChartData chartData = (ChartData)chart.getChartData();
-    
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    
-    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartSeriesCollection series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            IChartDataCell valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+            } else {
+                System.out.println("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            System.out.println("The chart has no data points to edit.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Recuperar uma Pasta de Trabalho do Cache do Gráfico**
 
-Se um gráfico usa uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados armazenados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/loadoptions/), configure-o com [SpreadsheetOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/spreadsheetoptions/), e chame [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) com `true` antes de abrir a apresentação.
+Se um gráfico usar uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/loadoptions/), chame [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), e defina [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) como `true` antes de abrir a apresentação.
 
-O exemplo Java a seguir abre uma apresentação cujo gráfico referencia uma pasta de trabalho externa indisponível e acessa os dados recuperados através de [IChart.getChartData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichart/#getChartData--) e [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+O exemplo Java a seguir abre `presentation.pptx`, cuja primeira forma no primeiro slide deve ser um gráfico referenciando uma pasta de trabalho externa indisponível, e acessa os dados recuperados através de [IChart.getChartData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichart/#getChartData--) e [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
+import com.aspose.slides.*;
+
 SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -348,10 +450,17 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 Presentation presentation = new Presentation("presentation.pptx", loadOptions);
 try {
-    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Leia ou modifique os dados da pasta de trabalho recuperada aqui.
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Leia ou modifique os dados da pasta de trabalho recuperada aqui.
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -359,28 +468,28 @@ try {
 
 Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou embutida?**
+**Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico tem um [data source type](https://reference.aspose.com/slides/pt/java/com.aspose.slides/chartdata/#getDataSourceType--) e um [path to an external workbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); se a origem for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico possui um [tipo de fonte de dados](https://reference.aspose.com/slides/pt/java/com.aspose.slides/chartdata/#getDataSourceType--) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/pt/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para pastas de trabalho externas são suportados, e como eles são armazenados?**
+**Os caminhos relativos para pastas de trabalho externas são suportados, e como eles são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. Isso é conveniente para portabilidade de projetos; porém, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
+Sim. Se você especificar um caminho relativo, ele é convertido automaticamente em um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, de modo que mover a pasta de trabalho pode exigir a atualização do vínculo.
 
-**Posso usar pastas de trabalho localizadas em recursos/compartilhamentos de rede?**
+**Posso usar pastas de trabalho localizadas em recursos ou compartilhamentos de rede?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, a edição de pastas de trabalho remotas diretamente pelo Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada – elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-Não. A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/pt/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) e o utiliza para leitura de dados. O próprio arquivo externo não é modificado quando a apresentação é salva.
+A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). A edição de dados de gráfico baseados em célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
 
 **O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita senha ao criar o vínculo. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/java/)) e vincular a essa cópia.
+Aspose.Slides não aceita senha ao vincular. Uma abordagem comum é remover a proteção previamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e vincular a essa cópia.
 
 **Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 
-Sim. Cada gráfico armazena seu próprio vínculo. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.
+Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.

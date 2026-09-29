@@ -15,27 +15,27 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Python ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri yönetmeyi öğrenin."
+description: "Python ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında saklar. Bir [ChartSeries] bir dizi ilişkili değeri temsil eder ve serideki her bir [ChartDataPoint] bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory] nesneleri, seriler tarafından paylaşılan etiketleri veya grup değerlerini sağlar. Seri adı, kategoriler ve nokta değerleri bu nedenle yalnızca görüntü metni olarak depolanmak yerine [ChartDataCell] nesnelerine bağlanır.
+Bir grafik, çizilen verileri bir grafik veri çalışma kitabında saklar. Bir [ChartSeries](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/) bir dizi ilişkili değeri temsil eder ve serideki her [ChartDataPoint](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartcategory/) nesneleri seriler tarafından paylaşılan etiketleri veya gruplama değerlerini sağlar. Serinin adı, kategoriler ve nokta değerleri bu nedenle yalnızca gösterim metni olarak saklanmak yerine [ChartDataCell](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatacell/) nesnelerine bağlanır.
 
-Tipik bir kategori grafiği için, varsayılan çalışma kitabı serilerin adları için satır 0, kategori adları için sütun 0 ve kalan hücreler serilerin değerleri için kullanır. [ChartDataWorkbook.get_cell] yöntemine geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklü bir sunum için, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı satır 0’ı seri adları için, sütun 0’ı kategori adları için ve kalan hücreleri seri değerleri için kullanır. [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) yöntemine geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır‑tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda kullanışlıdır, ancak her mevcut grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
 
-Grafik ayarlarının üç farklı kapsamı vardır:
+Grafik ayarları üç farklı kapsamda bulunur:
 
-- Seri düzeyindeki ayarlar, örneğin [ChartSeries.format], bir serideki tüm noktalar için varsayılan görünümü sağlar.
-- Veri noktası ayarları, örneğin [ChartDataPoint.format], bir nokta için seri görünümünü geçersiz kılar.
-- Grup ayarları, aynı [ChartSeriesGroup]a ait uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde gruba, [ChartSeries.parent_series_group] üzerinden erişin.
+- Seri‑seviye ayarları, örneğin [ChartSeries.format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/format/) bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri‑noktası ayarları, örneğin [ChartDataPoint.format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/format/) bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [ChartSeriesGroup](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseriesgroup/) içinde bulunan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, [ChartSeries.parent_series_group](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/parent_series_group/) üzerinden gruba erişin.
 
-Açıkça bir nokta veya seri dolgusu ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi varsa, nokta biçimlendirmesi o nokta için önceliklidir.
+Açıkça bir nokta veya seri dolgu ayarı belirlenmediğinde, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcutsa, nokta biçimlendirmesi o nokta için önceliklidir.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![grafik-serileri-powerpoint](chart-series-powerpoint.png)
 
-## **Grafik Serisi Örtüşmesini Ayarla**
+## **Grafik Serisi Örtüşmesini Ayarlama**
 
-[ChartSeries.overlap] bir 2B grafikte çubukların veya sütunların ne kadar örtüştüğünü – -100 ile 100 yüzde arasında – bildirir. Bu, üst grup serisinin ayarının yalnızca okunabilir bir izdüşümüdür. Tüm uyumlu serileri güncellemek için [ChartSeriesGroup.overlap] ayarlayın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; birleşik bir grafikteki ilgisiz seri gruplarını etkilemez.
+[ChartSeries.overlap](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/overlap/) 2B bir grafikte çubukların veya sütunların ne kadar örtüştüğünü -%100’den %100’e kadar bildirir. Bu, üst seriler grubundaki ayarın sadece okunabilir bir yansımasıdır. Tüm uyumlu serileri güncellemek için [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseriesgroup/overlap/) ayarlayın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; birleşik bir grafikte ilgili olmayan seri gruplarını etkilemez.
 
 Aşağıdaki örnek, ilk seriyi içeren grup için örtüşmeyi ayarlar:
 
@@ -50,7 +50,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # Yeni grafik örnek seriler, kategoriler ve değerler içerir.
+    # Yeni grafik örnek serileri, kategorileri ve değerleri içerir.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -63,11 +63,11 @@ Sonuç:
 
 ![Seri örtüşmesi](series_overlap.png)
 
-## **Seri Dolgu Rengini Değiştir**
+## **Seri Dolgu Rengini Değiştirme**
 
-[ChartSeries.format] kullanarak bir serinin tamamı için varsayılan dolguyu ayarlayabilirsiniz. Bir nokta zaten açık bir dolguya sahipse, o noktanın [ChartDataPoint.format] ayarı serinin dolgusunu geçersiz kılar.
+Tüm bir seri için varsayılan dolgu ayarlamak üzere [ChartSeries.format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/format/) kullanın. Bir nokta zaten açık bir dolguye sahipse, onun [ChartDataPoint.format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/format/) ayarı o nokta için seri dolgusunu geçersiz kılar.
 
-Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
+Aşağıdaki örnek, ilk seriye katı mavi dolgu uygular:
 
 ```py
 import aspose.pydrawing as drawing
@@ -93,9 +93,9 @@ Sonuç:
 
 ![Seri rengi](series_color.png)
 
-## **Seri Adını Değiştir**
+## **Seri Adını Değiştirme**
 
-Seri adı grafik veri çalışma kitabında saklanır ve genellikle lejende görüntülenir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumunda olup ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıkça gösterir:
+Seri adı grafik veri çalışma kitabında saklanır ve genellikle lejende gösterilir. Kümeleme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumunda bulunur ve ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıkça belirtir:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ayrıca, [ChartSeries.name] tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır veya sütun varsayımından kaçınır:
+Ayrıca [ChartSeries.name](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/name/) tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım mevcut bir grafikte belirli bir satır ve sütun varsayımını önler:
 
 ```py
 import aspose.slides as slides
@@ -144,11 +144,11 @@ Sonuç:
 
 ![Seri adı](series_name.png)
 
-## **Otomatik Seri Dolgu Rengini Al**
+## **Otomatik Seri Dolgu Rengini Alma**
 
-[ChartSeries.get_automatic_series_color] serinin indeksi ve grafik stili temelinde hesaplanan rengi döndürür. Bu, seri dolgu açıkça tanımlanmamışsa kullanılan renktir. Yöntem, hesaplanan rengi okur; yeni bir dolgu atamaz.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) seri indeksine ve grafik stiline göre hesaplanan rengi döndürür. Bu, seri dolgu açıkça tanımlanmadığında kullanılan renktir. Yöntemi çağırmak hesaplanan rengi okur; yeni bir dolgu atamaz.
 
-Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
+Aşağıdaki örnek, her varsayılan seri için otomatik rengi yazdırır:
 
 ```py
 import aspose.slides as slides
@@ -176,13 +176,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Tam renkler grafik stili ve temaya bağlıdır.
+Kesin renkler grafik stili ve temasına bağlıdır.
 
-## **Grafik Serisi için Ters Dolgu Rengini Ayarla**
+## **Bir Grafik Serisi için Ters Doldurma Rengini Ayarlama**
 
-Çubuk, sütun ve balon serileri için, [ChartSeries.invert_if_negative] negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif‑değer rengini [ChartSeries.inverted_solid_fill_color] aracılığıyla atayın. Negatif sayılar çalışma kitabında aynı kalır; yalnızca görüntü rengi değişir.
+Çubuk, sütun ve balon serileri için, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/invert_if_negative/) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, ters çevirmeyi etkinleştirin ve negatif değer rengini [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) ile atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca gösterim renkleri değişir.
 
-Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
+Aşağıdaki örnek, varsayılan grafik verisini bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```py
 import aspose.pydrawing as drawing
@@ -237,7 +237,7 @@ Sonuç:
 
 ![Ters katı dolgu rengi](inverted_solid_fill_color.png)
 
-Belirli bir nokta için terslemeyi, [ChartDataPoint.invert_if_negative] ile etkinleştirebilirsiniz. Aşağıdaki örnekte, tersleme seri için devre dışı bırakılmış ve yalnızca seçili nokta için etkinleştirilmiştir. Etkiyi görmek için nokta negatif bir değer alır:
+Bir nokta için ters çevirme, [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) ile etkinleştirilebilir. Aşağıdaki örnekte, seri için ters çevirme devre dışı bırakılmış ve yalnızca seçilen nokta için etkinleştirilmiştir. Etkinin görünür olması için nokta negatif bir değer almıştır:
 
 ```py
 import aspose.pydrawing as drawing
@@ -268,11 +268,11 @@ with slides.Presentation() as presentation:
     presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Belirli Bir Veri Noktası Değerini Temizle**
+## **Belirli Bir Veri Noktası Değerini Temizleme**
 
-Diğer noktaları kaldırmadan bir noktayı boş bırakmak için ilgili çalışma kitabı hücresini `None` olarak ayarlayın. Sütun grafiğinde, çizilen değer [ChartDataPoint.value] aracılığıyla elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarına göre değerini boş olarak işler.
+Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, onun arka uç çalışma kitabı hücresini `None` olarak ayarlayın. Bir sütun grafiğinde, çizilen değer [ChartDataPoint.value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/value/) üzerinden elde edilebilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarlarına göre değerini boş olarak kabul eder.
 
-Aşağıdaki örnek, ilk seride yalnızca ikinci noktayı temizler:
+Aşağıdaki örnek, ilk serideki sadece ikinci noktayı temizler:
 
 ```py
 import aspose.slides as slides
@@ -294,15 +294,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dağılım grafiklerinde ayrı X ve Y hücreleri, balon grafiklerinde ise bir boyut hücresi bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları korumak istiyorsanız [ChartDataPointCollection.clear] metodunu çağırmayın; bu metod koleksiyondaki tüm veri noktalarını kaldırır.
+Saçılım (scatter) grafikler ayrı X ve Y hücreleri kullanır, balon grafikler ayrıca bir boyut hücresi kullanır. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları korumak istediğinizde [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointcollection/clear/) metodunu çağırmayın; bu metot koleksiyondaki tüm veri noktalarını siler.
 
-## **Boş Hücrelerin Görüntülenmesini Kontrol Et**
+## **Boş Hücrelerin Görüntülenmesini Kontrol Etme**
 
-Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen sayısal bir değeri temsil eder. Bir hücreyi boş yapmak için [ChartDataCell.value] değerini `None` yapın. Sayısal sıfır, boş‑hücre ayarından bağımsız olarak sıfır olarak kalır.
+Değer içeren gizli hücreler, boş hücrelerden ayrı bir durumdur. Gizli çalışma sayfası satır ve sütunlarından veri dahil etme veya dışlama hakkında bilgi için, [Include Data from Hidden Rows and Columns](/slides/tr/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns) bölümüne bakın.
 
-[Chart.display_blanks_as] kullanarak grafiğin boş hücreleri nasıl göstereceğini seçin. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir; boş çalışma kitabı hücresi sıfır veya ara bir değerle doldurulmaz.
+Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen bir sayı değeridir. Bir hücreyi boş yapmak için [ChartDataCell.value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatacell/value/) değerini `None` olarak ayarlayın. Sayısal sıfır, boş hücre ayarından bağımsız olarak sıfır olarak kalır.
 
-Aşağıdaki bağımsız örnek, bir seri içeren bir çizgi grafiği oluşturur, Gün 3 için değeri temizler ve aynı grafiği her modda kaydeder. Girdi dosyasına gerek yoktur. [ChartDataWorkbook] çalışma sayfası 0, kategori etiketleri için sütun 0 ve değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, boş, 30, 40` şeklindedir.
+Boş hücrelerin grafikte nasıl gösterileceğini seçmek için [Chart.display_blanks_as](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/display_blanks_as/) kullanın. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir; boş çalışma kitabı hücresi sıfır ya da ara değerle doldurulmaz.
+
+Aşağıdaki bağımsız örnek, bir satır serili çizgi grafik oluşturur, 3. Gün için değeri temizler ve her moda göre aynı grafiği kaydeder. Giriş dosyasına ihtiyaç yoktur. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0 ve değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40` şeklindedir.
 
 ```py
 import aspose.slides as slides
@@ -328,7 +330,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # 3. günü gerçekten boş bırak, ancak kategorisini ve veri noktasını koru.
+    # Day 3'ü gerçekten boş bırak, ancak kategorisini ve veri noktasını koru.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -337,17 +339,17 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Her çıktı dosyası, kaydetmeden önce atanan modu içerir: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek isterseniz, istediğiniz modu atayın ve sunumu yalnızca bir kez kaydedin.
+Her çıktı dosyası, kaydetmeden önce atanmış modu içerir: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek isterseniz, istenen modu atayın ve sunumu yalnızca bir kez kaydedin; modlar arasında döngü yapmayın.
 
-Aşağıdaki karşılaştırma, aynı verinin üç dosyada nasıl göründüğünü gösterir. Gün 3 her durumda çalışma kitabında boştur:
+Aşağıdaki karşılaştırma, aynı verinin üç dosyada nasıl gösterildiğini gösterir. Gün 3, çalışma kitabında her durumda boştur:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Aynı veriye sahip çizgi grafikler: Gap, Gün 3’te çizgiyi koparır; Zero, çizgiyi sıfıra düşürür; Span, Gün 2’yi Gün 4’e bağlar.](display_blanks_as.png)
 
-Görünür etki, grafik türüne bağlıdır. Çizgi grafiği üç modu da karşılaştırmayı kolaylaştırır. Çubuk ve sütun grafiklerinde eksik bir kategoriye bağlanacak bir çizgi olmadığından, `SPAN` yukarıdaki gibi bir bağlayıcı segment üretemez; eksik bir sütun ve sıfır yüksekliğindeki bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretleyicileri olan bir dağılım grafiği de bağlayıcı çizgi içermez. Her grafik türünde üç ayrı sonuç beklemeyin; kullandığınız tür için çıktıyı kontrol edin.
+Görünür etki grafik türüne bağlıdır. Çizgi grafiği üç modu da karşılaştırmayı kolaylaştırır. Çubuk ve sütun grafiklerinde eksik bir kategori için bağlayıcı bir çizgi olmadığından `SPAN` yukarıdaki bağlayıcı segmenti oluşturamaz; eksik bir sütun ve sıfır‑yükseklikte bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretleyicileri olan bir saçılım grafiği de bağlayıcı çizgi içermez. Her grafik türü için üç ayrı sonuç beklemeyin; kullandığınız tür için çıktıyı kontrol edin.
 
-## **Seri Boşluk Genişliğini Ayarla**
+## **Seri Boşluk Genişliğini Ayarlama**
 
-Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup çubuk veya sütun genişliğinin yüzdesi olarak ifade edilir. Örtüşme gibi, bu da tek bir seri yerine üst grup serisine aittir. Grup için bir kez [ChartSeriesGroup.gap_width] ayarlayın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha yoğun hâle getirir.
+Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup, çubuk veya sütun genişliğinin yüzde cinsinden ifade edilir. Örtüşme gibi, bu da tek bir seriye değil, üst seriler grubuna aittir. Grup için bir kez [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) ayarlayın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıklaştırır.
 
 Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
@@ -378,40 +380,40 @@ Sonuç:
 
 **Hangi grafik türleri veri serilerini destekler?**
 
-[ChartType] enumu tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serilerinin değer yapısı veya ayarları aynı değildir. Örneğin kategori grafiklerinde kategoriler ve değerler, dağılım grafiklerinde X ve Y değerleri, balon grafiklerinde ise balon boyutları bulunur. Seri türüne uygun veri‑nokta oluşturma yöntemini kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
+[ChartType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/charttype/) enum’u tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin, kategori grafiklerinde kategori ve değerler, saçılım grafiklerinde X ve Y değerleri, balon grafiklerinde ise balon boyutları bulunur. Seri türüne uygun veri‑nokta oluşturma yöntemini kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
 
-**Grafik serisi grubu nedir?**
+**Grafik seri grubu nedir?**
 
-[ChartSeriesGroup], aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir birleşik grafik birden fazla grup içerebilir; bu nedenle bir seriden ulaşılan grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak etkilemez.
+[ChartSeriesGroup](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseriesgroup/) grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir birleşik grafik birden fazla grup içerebilir; bir seriden ulaşarak grup değiştirmek, grafikteki tüm serileri zorunlu olarak değiştirmez.
 
 **Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
 
-Evet. Varsayılan olarak, [ShapeCollection.add_chart] örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da grafik oluşturabilir.
+Evet. Varsayılan olarak, [ShapeCollection.add_chart](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_chart/) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özelleştirilmiş bir veri kümesi eklemeden önce seri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yük de varsayılan veri olmadan bir grafik oluşturabilir.
 
 **Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
 
-Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [ChartDataWorkbook] içindeki hücrelere başvurur. Başvurulan bir hücreyi değiştirmek ilgili grafik öğesini günceller. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırları ve seri‑değer satırlarını hizalı tutun.
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [ChartDataWorkbook](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştiğinde ilgili grafik öğesi güncellenir. Özelleştirilmiş veri oluştururken, her noktanın amaçlanan kategori altında çizildiğinden emin olmak için kategori satırları ve seri‑değer satırlarını hizalı tutun.
 
-**Bir serinin tamamı yerine tek bir noktayı nasıl temizlerim?**
+**Bir bütün seriyi değil sadece bir noktayı nasıl temizlerim?**
 
-İlgili değer hücresini `None` yaparak noktanın kategori konumunu boş bir nokta olarak tutun. [ChartDataPointCollection.clear] yalnızca o serideki tüm noktaları kaldırmak istediğinizde kullanın. Kategorileri de kaldırıyorsanız, her seriyi güncelleyerek değerlerin kategori koleksiyonuyla hizalı kalmasını sağlayın.
+İlgili değer hücresini `None` olarak ayarlayın; böylece noktanın kategori konumu boş bir nokta olarak kalır. Bir serideki tüm noktaları kaldırmak istediğinizde yalnızca [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointcollection/clear/) kullanın. Kategorileri de kaldırıyorsanız, her serinin değerleri kategori koleksiyonuyla hizalı kalacak şekilde güncelleyin.
 
-**Boş noktalar nasıl görüntülenir?**
+**Boş noktalar nasıl gösterilir?**
 
-Sonuç, grafik türüne ve [Chart.display_blanks_as] ayarına bağlıdır. Desteklenen grafikler boşlukları boşluk, sıfır değeri veya komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına uygun ayarı seçin. Tam örnek ve görsel karşılaştırma için **Boş Hücrelerin Görüntülenmesini Kontrol Et** bölümüne bakın.
+Sonuç, grafik türüne ve [Chart.display_blanks_as](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/display_blanks_as/) ayarına bağlıdır. Desteklenen grafikler boşlukları, sıfır değerlerini veya komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına uygun ayarı seçin. Tam bir örnek ve görsel karşılaştırma için **Boş Hücrelerin Görüntülenmesini Kontrol Etme** bölümüne bakın.
 
 **Negatif değerler nasıl biçimlendirilir?**
 
-Desteklenen çubuk, sütun ve balon serileri için [ChartSeries.invert_if_negative] etkinleştirildikten sonra [ChartSeries.inverted_solid_fill_color] ile negatif‑değer rengi atanır. Bireysel bir nokta için davranışı [ChartDataPoint.invert_if_negative] ile geçersiz kılabilirsiniz. Bu özellikler sadece biçimlendirmeyi etkiler; saklanan sayısal değerler değişmez.
+Desteklenen çubuk, sütun ve balon serileri için [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/invert_if_negative/) etkinleştirin ve [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) ile negatif değer rengini atayın. Bireysel bir nokta için davranışı [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) ile geçersiz kılabilirsiniz. Bu özellikler biçimlendirmeyi etkiler, saklanan sayısal değeri değiştirmez.
 
-**Seri ve nokta aynı anda biçimlendirilmişse hangi biçimlendirme geçerli olur?**
+**Hem seri hem de nokta biçimlendirilmişse hangisi kazanır?**
 
-Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar, açık seri biçimlendirmesini ya da seri biçimlendirmesi tanımlı değilse otomatik grafik stili ve temasını kullanır. Örtüşme ve boşluk genişliği gibi grup özellikleri yerleşimi kontrol eder ve nokta‑seviyesi biçimlendirme geçersiz kılmaları değildir.
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri biçimi veya seri biçimi tanımlı değilse otomatik grafik stili ve teması kullanır. Örtüşme ve boşluk genişliği gibi grup özellikleri yerleşimi kontrol eder ve nokta‑seviyesi biçimlendirme geçersiz kılmaları değildir.
 
-**Bir grafikte kaç seriye izin verilir?**
+**Bir grafik kaç seri içerebilir?**
 
-Aspose.Slides ayrı bir sabit seri sayısı sınırı koymaz. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, işleme süresi ve grafik okunabilirliği faydalı bir sınır belirler.
+Aspose.Slides ayrı bir sabit seri sayısı sınırı koymaz. Pratikte, dosya boyutu kısıtlamaları, kullanılabilir bellek, render süresi ve grafiğin okunabilirliği kullanılabilir sınırı belirler.
 
-**Sütunlar çok yakın ya da çok uzak olduğunda ne ayarlanmalı?**
+**Sütunlar çok yakın ya da çok uzak olduğunda ne değiştirilmelidir?**
 
-Uygun üst seri grubunda [ChartSeriesGroup.gap_width] ayarlayın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine yaklaştırın.
+Uygun üst seri grubunda [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) ayarlayın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine yaklaştırın.

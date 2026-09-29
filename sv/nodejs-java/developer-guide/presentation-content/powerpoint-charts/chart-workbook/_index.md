@@ -7,186 +7,277 @@ url: /sv/nodejs-java/chart-workbook/
 keywords:
 - diagramarbok
 - diagramdata
-- arbetsboks cell
+- arbetsbokscell
 - datamärkning
-- arbetsblad
+- kalkylblad
 - datakälla
 - extern arbetsbok
 - extern data
 - diagramcache
-- återställning av arbetsbok
+- arbetsboksåterställning
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Node.js via Java: hantera enkelt diagramarbok i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
+description: "Upptäck Aspose.Slides för Node.js via Java: hantera enkelt diagramarbok i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsbok‑strömar, använder arbetsboks‑celler som diagramdatamärkningar, får åtkomst till kalkylblads‑samlingar och anger datakälltyp för diagramvärden.
+Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till kalkylblads­samlingar och specificerar datakälltyp för diagramvärden.
 
-Den behandlar också hur du arbetar med externa arbetsböcker som diagramdatakällor. Exemplen visar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den behandlar också hur man arbetar med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram, och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboks‑celler som representerar saknad data, se [Control the Display of Empty Cells](/slides/sv/nodejs-java/chart-series/) för skillnaden mellan en tom cell och noll samt en linjediagram‑jämförelse av de tillgängliga visningslägena.
+För arbetsboksceller som representerar saknad data, se [Control the Display of Empty Cells](/slides/sv/nodejs-java/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
+
+## **Inkludera data från dolda rader och kolumner**
+
+Använd [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) för att styra om ett diagram ritar data från dolda kalkylbladsrader och -kolumner. Sätt den till `true` för att enbart rita synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagramritning; den döljer eller visar inte kalkylbladsrader eller -kolumner.
+
+Ladda ner [hidden-source-data.pptx](hidden-source-data.pptx) och placera den i arbetskatalogen. Dess första bild innehåller ett stapeldiagram som den första formen. Det inbäddade kalkylbladet, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+
+| Arbetsbladsrad | A: Månad | B: Detaljhandel | C: Partihandel (dolt kolumn) |
+| --- | --- | --- | --- |
+| 2 | Januari | 10 | 30 |
+| 3 (dold rad) | Februari | 40 | 60 |
+| 4 | Mars | 20 | 50 |
+
+Få åtkomst till källceller via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) och läs [ChartDataCell.isHidden](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdatacell/#isHidden) för att inspektera deras dolda status. Denna metod rapporterar den dolda statusen utan att ändra den. I detta fil är B2 synlig, B3 tillhör den dolda raden, och C2 tillhör den dolda kolumnen; exemplet skriver ut `false`, `true` och `true` respektive.
+
+För detta exempel, uppdatera diagramdata efter att plottningsinställningen har förändrats: behåll den inbäddade arbetsboken med [readWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) och läs in den igen med [writeWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream). När alla celler inkluderas, använd även [setRange](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#setRange) för att återställa det kompletta intervallet, inklusive den dolda februari‑kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempels cachade diagramdata och kategorimärkningar. Exemplet konverterar den returnerade Node.js‑bufferten till en Java‑byte‑array innan den skickas till skriv‑metoden.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("hidden-source-data.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const workbook = chart.getChartData().getChartDataWorkbook();
+        console.log("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        console.log("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        console.log("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
+
+        const workbookBuffer = chart.getChartData().readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+        for (const visibleOnly of [true, false]) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
+
+            // Uppdatera diagramdata från den inbäddade arbetsboken.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Återställ det kompletta källintervallet, inklusive dolda kategorier.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    } else {
+        console.log("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Exemplet sparar `hidden_cells_true.pptx` med endast de synliga detaljhandelsvärdena (10 och 20), och `hidden_cells_false.pptx` med alla sex värden. Bilderna nedan illustrerar de två plottningslägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+
+| Endast synliga celler (`true`) | Alla celler (`false`) |
+| --- | --- |
+| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för Januari och Mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandel och Partihandelvärden för Januari, Februari och Mars.](hidden_cells_False.png) |
+
+En dold cell som innehåller ett värde skiljer sig från en tom cell. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Control the Display of Empty Cells](/slides/sv/nodejs-java/chart-series/#control-the-display-of-empty-cells) för ett exempel.
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
 
-Aspose.Slides tillhandahåller metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) och [writeWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) som låter dig läsa och skriva diagramdataböcker (som innehåller diagramdata redigerade med Aspose.Cells). **Observera** att diagramdata måste vara organiserade på samma sätt eller ha en struktur som liknar källan.
+Aspose.Slides för Node.js via Java tillhandahåller metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) och [writeWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) som låter dig läsa och skriva diagramdataböcker (innehållande diagramdata redigerad med Aspose.Cells). **Note** att diagramdata måste organiseras på samma sätt eller ha en struktur som liknar källan.
 
-Denna JavaScript‑kod demonstrerar ett exempel:
+Detta exempel öppnar `chart.pptx`, som måste innehålla ett diagram som den första formen på dess första bild. Det läser den inbäddade arbetsboken till en byte‑array, tömmer befintliga serier och kategorier, och skriver tillbaka samma arbetsbok. Ändringarna kvarstår i minnet; exemplet sparar inte presentationen.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("chart.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var data = chart.getChartData();
-    var stream = data.readWorkbookStream();
-    data.getSeries().clear();
-    data.getCategories().clear();
-    data.writeWorkbookStream(stream);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad behåller diagrammet sina ursprungliga serier och kategorisamlingar. Denna mismatch kan orsaka att [Chart.validateChartLayout](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Chart#validateChartLayout--) misslyckas med ett index‑out‑of‑range‑fel. Rensa de befintliga serierna och kategorierna innan du skriver den uppdaterade arbetsboken tillbaka till diagrammet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Denna inkonsekvens kan leda till att [Chart.validateChartLayout](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/#validateChartLayout) misslyckas med ett index‑out‑of‑range‑fel. Töm befintliga serier och kategorier innan den uppdaterade arbetsboken skrivs tillbaka till diagrammet. Detta exempel kräver `chart.pptx` med ett diagram som den första formen på dess första bild. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka originalarbetsboken och validerar layouten i minnet.
 
 ```javascript
-// Efter att ha modifierat arbetsboksströmmen (t.ex. med Aspose.Cells)
-var updatedWorkbook = chartData.readWorkbookStream();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Rensa befintliga datreferenser.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+const presentation = new aspose.slides.Presentation("chart.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-chartData.writeWorkbookStream(updatedWorkbook);
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
 
-chart.validateChartLayout();
+        // Ändra arbetsboksbytena här, till exempel med Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        console.log("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Att rensa samlingarna säkerställer att diagramdatastrukturen är konsistent med den nya arbetsboken, vilket gör att `validateChartLayout` kan slutföras utan fel.
+Att tömma samlingarna tar bort föråldrade datreferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella nödvändiga serie‑ och kategorimappningar för den uppdaterade arbetsboken innan diagrammet används.
 
-## **Ange arbetsboks‑cell som diagramdatamärkning**
+## **Ange en arbetsbokscell som diagramdatamärkning**
 
-1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation).
-2. Hämta en slides referens via dess index.
-3. Lägg till ett bubbeldiagram med viss data.
-4. Åtkomst till diagramserierna.
-5. Ange arbetsboks‑cellen som en datamärkning.
+Du kan använda text från arbetsboksceller som diagramdatamärkningar. Följande steg visar hur man länkar märkningarna i ett bubbeldiagram till celler i dess datarbok.
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/).
+2. Hämta den första bilden via dess nollbaserade index.
+3. Lägg till ett bubbeldiagram med standarddata.
+4. Få åtkomst till diagramserierna.
+5. Ange arbetsbokscellen som en datamärkning.
 6. Spara presentationen.
 
-Denna JavaScript‑kod visar hur du anger en arbetsboks‑cell som en diagramdatamärkning:
+Detta exempel öppnar `chart2.pptx`, som måste innehålla minst en bild, och lägger till ett bubbeldiagram med standarddata. Det använder cellerna A10:A12 på kalkylblad 0 för de första tre märkningarna i den första serien, aktiverar märkningar från celler, och sparar resultatet till `resultchart.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var lbl0 = "Label 0 cell value";
-var lbl1 = "Label 1 cell value";
-var lbl2 = "Label 2 cell value";
-// Instansierar en presentationsklass som representerar en presentationsfil
-var pres = new aspose.slides.Presentation("chart2.pptx");
+const presentation = new aspose.slides.Presentation("chart2.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    var dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-    pres.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
+
+    presentation.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Hantera kalkylblad**
 
-Denna JavaScript‑kod demonstrerar en operation där metoden [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) används för att få åtkomst till en kalkylblads‑samling:
+Metoden [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) ger åtkomst till kalkylbladen i en diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje kalkylbladsnamn i konsolen.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    for (var i = 0; i < wb.getWorksheets().size(); i++) {
-        console.log(wb.getWorksheets().get_Item(i).getName());
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (let i = 0; i < workbook.getWorksheets().size(); i++) {
+        console.log(workbook.getWorksheets().get_Item(i).getName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange datakälltyp**
+## **Specificera datakälltyp**
 
-Denna JavaScript‑kod visar hur du anger en typ för en datakälla:
+Detta exempel skapar ett 3D‑stapeldiagram med standarddata och anger två serienamn med olika datakällor. Det första namnet använder en strängliteral; det andra använder cell C1 på kalkylblad 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datasourcetype/) väljer källan för varje namn. Resultatet sparas till `pres.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var val = chart.getChartData().getSeries().get_Item(0).getName();
-    val.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
-    val.setData("LiteralString");
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+    const literalName = chart.getChartData().getSeries().get_Item(0).getName();
+
+    literalName.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
+
+    const cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    const nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(aspose.slides.DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Upptäck ej stödda inbäddade arbetsboksformat**
+## **Detektera ej stödda inbäddade arbetsbokformat**
 
-Aspose.Slides stöder inte Excel‑binärarbetsboken (.xlsb) som kan inbäddas i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [ChartData](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram.
+Aspose.Slides stödjer inte Excel‑binärarbetsboksformatet (.xlsb) som kan inbäddas i vissa diagram. Du kan använda metoden [getEmbeddedWorkbookType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) på [ChartData](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i `sample.pptx`, hoppar över icke‑diagramformer, och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapes = slide.getShapes();
+    const slide = presentation.getSlides().get_Item(0);
 
-    for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
-        let shape = shapes.get_Item(shapeIndex);
-
-        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) continue;
-
-        let chart = shape;
-        let chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Inbäddad arbetsbok är i .xlsb-format, vilket inte stöds.
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (!(java.instanceOf(shape, "com.aspose.slides.IChart"))) {
             continue;
         }
 
-        // Läs eller modifiera diagramarbokens data här.
+        const chart = shape;
+        const chartData = chart.getChartData();
+        const isInternalWorkbook = chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook;
+        const isBinaryMacro = chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            console.log("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Läs eller ändra stödjda diagramarboksdata här.
     }
 } finally {
     presentation.dispose();
@@ -195,157 +286,174 @@ try {
 
 ## **Extern arbetsbok**
 
-Aspose.Slides stödjer externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
 
-### **Skapa extern arbetsbok**
+### **Skapa en extern arbetsbok**
 
-Med hjälp av metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
+Använd [readWorkbookStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) och [setExternalWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
 
-Denna JavaScript‑kod demonstrerar processen för att skapa en extern arbetsbok:
+Detta exempel skapar ett cirkeldiagram med standarddata, skriver dess arbetsbok till `externalWorkbook1.xlsx`, och slutför filskrivningen innan filen tilldelas som diagrammets datakälla. Det sparar den länkade presentationen till `externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 const fileSystem = require("fs");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var workbookPath = "externalWorkbook1.xlsx";
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    // readWorkbookStream returnerar arbetsbokens byte som en Node Buffer.
-    var workbookData = chart.getChartData().readWorkbookStream();
-    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
-    chart.getChartData().setExternalWorkbook(workbookPath);
-    pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
+    const workbookPath = path.resolve("externalWorkbook1.xlsx");
+    const workbookData = chart.getChartData().readWorkbookStream();
+    try {
+        fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
+        chart.getChartData().setExternalWorkbook(workbookPath);
+        presentation.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    } catch (exception) {
+        console.log("Could not write the external workbook: " + exception.message);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Ange extern arbetsbok**
+### **Ange en extern arbetsbok**
 
-Med metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan även användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden [setExternalWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan även användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
 
-Denna JavaScript‑kod visar hur du anger en extern arbetsbok:
+Detta exempel kräver `externalWorkbook.xlsx` i arbetskatalogen. Dess kalkylblad med namnet `Sheet1` måste innehålla ett serienamn i B1, kategorinamnen i A2:A4, och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken, och använder [setRange](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#setRange) för att mappa A1:B4 till en serie och tre kategorier. Det sparar resultatet till `Presentation_with_externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), aspose.slides.ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    pres.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    const chartData = chart.getChartData();
+    const workbookPath = path.resolve("externalWorkbook.xlsx");
+
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Den andra parametern för metoden `setExternalWorkbook`, `updateChartData`, anger om Excel‑arbetsboken ska laddas eller inte.
+Parametern `updateChartData` i [setExternalWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) styr om arbetsboken laddas.
 
-* När `updateChartData` är satt till `false` uppdateras endast arbetsbokens sökväg – diagramdata kommer inte att laddas eller uppdateras från målarboken. Du kan vilja använda denna inställning när målarboken saknas eller är otillgänglig.
-* När `updateChartData` är satt till `true` uppdateras diagramdata från målarboken.
+* När `updateChartData` är `false` uppdateras endast arbetsbokens sökväg. Diagramdata laddas inte eller uppdateras från målarbetsboken, så arbetsboken kan vara otillgänglig.
+* När `updateChartData` är `true` uppdateras diagramdata från målarbetsboken.
+
+Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `false`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("http://path/doesnt/exists", false);
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Hämta diagrammets externa datakällas arbetsboksökväg**
+### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
 
-1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation).
-2. Hämta en slides referens via dess index.
-3. Skapa ett objekt för diagramformen.
-4. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
-5. Ange det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
+För att identifiera arbetsboken som är länkad till ett diagram, kontrollera först om diagrammet använder en extern datakälla. Om så är fallet kan du hämta arbetsbokens sökväg genom att följa dessa steg.
 
-Denna JavaScript‑kod demonstrerar operationen:
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/).
+2. Hämta den första bilden via dess nollbaserade index.
+3. Kontrollera att den första formen är ett diagram.
+4. Läs diagrammets datakälltyp.
+5. Om källan är en extern arbetsbok, läs dess sökväg.
+
+Detta exempel öppnar `externalWorkbook.pptx`, skapat i det tidigare exemplet, och inspekterar den första formen på den första bilden. Om den är ett diagram länkat till en extern arbetsbok, skriver exemplet ut [getExternalWorkbookPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) i konsolen. Det sparar sedan en kopia av presentationen till `Result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("externalWorkbook.pptx");
 try {
-    var slide = pres.getSlides().get_Item(1);
-    var chart = slide.getShapes().get_Item(0);
-    var sourceType = chart.getChartData().getDataSourceType();
-    if (sourceType == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
-        var path = chart.getChartData().getExternalWorkbookPath();
+    const slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
+            console.log(chartData.getExternalWorkbookPath());
+        } else {
+            console.log("The chart does not use an external workbook.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
-    // Sparar presentationen
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Denna JavaScript‑kod är en implementation av den beskrivna processen:
+Detta exempel kräver `presentation.pptx` med ett diagram som den första formen på den första bilden och en åtkomlig extern arbetsbok. Det sätter det cellbaserade värdet för den första datapunkten i den första serien till 100 och sparar presentationen till `presentation_out.pptx`. Att redigera cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du behöver bevara originalarbetsboken.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var chartData = chart.getChartData();
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    pres.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            const valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+            } else {
+                console.log("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            console.log("The chart has no data points to edit.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Återställ en arbetsbok från diagramcachen**
+### **Återskapa en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides återskapa diagramarboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/), konfigurera den med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/spreadsheetoptions/), och anropa [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) med `true` innan presentationen öppnas.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarbetsboken från de data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/), anropa [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), och sätt [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) till `true` innan presentationen öppnas.
 
-Följande JavaScript‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till den återställda datan via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Följande JavaScript‑exempel öppnar `presentation.pptx`, vars första form på den första bilden måste vara ett diagram som refererar till en otillgänglig extern arbetsbok, och får åtkomst till de återställda data via [Chart.getChartData](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/#getChartData) och [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
@@ -355,39 +463,46 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
 try {
-    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Läs eller modifiera den återställda arbetsbokens data här.
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Läs eller ändra den återställda arbetsboksdatan här.
+    } else {
+        console.log("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när det är ett acceptabelt alternativ att använda cachad diagramdata, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om den externa arbetsboken är otillgänglig och återhämtning är inaktiverad, kastar Aspose.Slides ett undantag. Aktivera återhämtning endast när det är acceptabelt att använda de cachade diagramdata som en reserv, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
 ## **FAQ**
 
 **Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
+Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getDataSourceType) och en [path to an external workbook](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är praktiskt för projektportabilitet; var dock medveten om att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så om arbetsboken flyttas kan länken behöva uppdateras.
 
-**Kan jag använda arbetsböcker som finns på nätverksresurser/delnade mappar?**
+**Kan jag använda arbetsböcker som ligger på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Däremot stöds inte redigering av fjärrarbetsböcker direkt från Aspose.Slides – de kan endast användas som källa.
 
 **Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
+Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath). Att redigera cellbaserad diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
 
 **Vad bör jag göra om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig metod är att ta bort skyddet i förväg eller skapa en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/nodejs-java/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (till exempel med [Aspose.Cells](https://reference.aspose.com/cells/java/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av filen att återspeglas i varje diagram nästa gång datan laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång datan laddas.

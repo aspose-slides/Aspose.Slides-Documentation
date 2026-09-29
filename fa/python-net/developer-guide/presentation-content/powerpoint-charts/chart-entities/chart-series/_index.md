@@ -1,5 +1,5 @@
 ---
-title: مدیریت سری داده‌های نمودار در ارائه‌ها با پایتون
+title: مدیریت داده‌های سری نمودار در ارائه‌ها با پایتون
 linktitle: سری داده‌ها
 type: docs
 url: /fa/python-net/chart-series/
@@ -11,33 +11,33 @@ keywords:
 - نام سری
 - نقطه داده
 - فاصله سری
-- PowerPoint
+- پاورپوینت
 - ارائه
 - پایتون
 - Aspose.Slides
-description: "آموزش نحوه مدیریت سری‌های نمودار، نقاط داده، سلول‌های کتاب‌کار، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی در ارائه‌ها با پایتون."
+description: "یاد بگیرید چگونه سری‌های نمودار، نقاط داده، سلول‌های کتاب کار، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی را در ارائه‌ها با پایتون مدیریت کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-یک نمودار داده‌های ترسیم‌شده خود را در یک کتاب کار داده‌های نمودار ذخیره می‌کند. یک [ChartSeries](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/) نمایانگر یک مجموعه از مقادیر مرتبط است و هر [ChartDataPoint](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/) در این مجموعه به یک یا چند سلول کتاب کار ارجاع می‌دهد. اشیاء [ChartCategory](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartcategory/) برچسب‌ها یا مقادیر گروه‌بندی مشترک بین مجموعه‌ها را فراهم می‌کنند. بنابراین نام مجموعه، دسته‌ها و مقادیر نقطه‌ها به اشیاء [ChartDataCell](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatacell/) متصل هستند نه اینکه فقط به‌صورت متن نمایش ذخیره شوند.
+یک نمودار داده‌های ترسیم‌شده خود را در یک کتاب کار داده‌های نمودار ذخیره می‌کند. یک [ChartSeries](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/) نمایانگر یک مجموعه از مقادیر مرتبط است و هر [ChartDataPoint](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/) در این سری به یک یا چند سلول کتاب کار ارجاع می‌دهد. اشیاء [ChartCategory](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartcategory/) برچسب‌ها یا مقادیر گروه‌بندی مشترک توسط سری‌ها را فراهم می‌کنند. بنابراین نام سری، دسته‌ها و مقادیر نقاط به اشیاء [ChartDataCell](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatacell/) متصل هستند نه اینکه فقط به‌صورت متن نمایش ذخیره شوند.
 
-برای یک نمودار دسته‌ای معمولی، کتاب کار پیش‌فرض از ردیف 0 برای نام مجموعه‌ها، ستون 0 برای نام دسته‌ها و سلول‌های باقی‌مانده برای مقادیر مجموعه‌ها استفاده می‌کند. اندیس‌های ورق کار، ردیف و ستون که به متد [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) ارسال می‌شوند، از صفر شروع می‌شوند. این طرح‌بندی زمانی مفید است که یک نمودار با داده‌های پیش‌فرض ایجاد می‌کنید، اما نباید فرض کنید که همهٔ نمودارهای موجود از آن استفاده می‌کنند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کتاب کار، سلول‌های ارجاع‌شده توسط مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
+برای یک نمودار دسته‌ای معمولی، کتاب کار پیش‌فرض ردیف ۰ را برای نام‌های سری، ستون ۰ را برای نام‌های دسته و بقیه سلول‌ها را برای مقادیر سری استفاده می‌کند. اندیس‌های کاربرگ، ردیف و ستون که به متد [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) پاس داده می‌شوند، از صفر شروع می‌شوند. این چیدمان هنگام ایجاد نمودار با داده‌های پیش‌فرض مفید است، اما نباید فرض کنید هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کتاب کار، سلول‌هایی را که توسط سری‌ها، دسته‌ها و نقاط داده ارجاع داده می‌شوند، بررسی کنید.
 
-تنظیمات نمودار دارای سه دامنه متفاوت هستند:
+تنظیمات نمودار سه حوزه متفاوت دارند:
 
-- تنظیمات سطح مجموعه‌ (Series)، مانند [ChartSeries.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/format/)، ظاهر پیش‌فرض تمام نقاط در یک مجموعه را فراهم می‌کنند.
-- تنظیمات نقطه داده، مانند [ChartDataPoint.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/format/)، ظاهر مجموعه را برای یک نقطه بازنویسی می‌کند.
-- تنظیمات گروه بر روی مجموعه‌های سازگار که به همان [ChartSeriesGroup](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/) تعلق دارند اعمال می‌شود. برای تنظیم گزینه‌هایی مانند هم‌پوشانی یا عرض فضای خالی، می‌توانید گروه را از طریق [ChartSeries.parent_series_group](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/parent_series_group/) دسترسی پیدا کنید.
+- تنظیمات سطح‑سری، مانند [ChartSeries.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/format/)، ظاهر پیش‌فرض برای تمام نقاط یک سری را فراهم می‌کند.
+- تنظیمات نقطه‑داده، مانند [ChartDataPoint.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/format/)، ظاهر سری را برای یک نقطه نادیده می‌گیرد.
+- تنظیمات گروهی به سری‌های سازگاری که به همان [ChartSeriesGroup](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/) تعلق دارند، اعمال می‌شود. هنگامی که نیاز به تنظیم گزینه‌هایی مانند همپوشانی یا عرض فاصله دارید، از [ChartSeries.parent_series_group](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/parent_series_group/) دسترسی پیدا کنید.
 
-وقتی پرکردن صریح برای نقطه یا مجموعه تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. هنگامی که هم قالب‌بندی مجموعه و هم نقاط موجود باشد، قالب‌بندی نقطه برای آن نقطه اولویت دارد.
+هنگامی که پر شدن صریح برای نقطه یا سری تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هر دو قالب‌بندی سری و نقطه وجود داشته باشد، قالب‌بندی نقطه برای آن نقطه برتری دارد.
 
-![نمودار-سری-پاورپوینت](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تنظیم همپوشانی مجموعه نمودار**
+## **تنظیم همپوشانی سری نمودار**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/overlap/) گزارش می‌دهد که نوارها یا ستون‌ها در یک نمودار دو‌بعدی تا چه اندازه (از -100 تا 100 درصد) همپوشانی دارند. این یک پیش‌نمایش فقط‑خواندنی از تنظیمات در گروه مجموعه والد است. برای به‌روزرسانی تمام مجموعه‌های سازگار در آن گروه، [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/overlap/) را تنظیم کنید. این گزینه برای انواع نموداری که نوارها یا ستون‌های گروهی را نمایش می‌دهند اعمال می‌شود؛ بر گروه‌های مجموعه نامرتبط در یک نمودار ترکیبی تأثیر ندارد.
+[ChartSeries.overlap](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/overlap/) گزارش می‌دهد که نوارها یا ستون‌ها در یک نمودار دو‑بعدی تا چه اندازه همپوشانی دارند؛ مقدار از ‎‑100 تا ۱۰۰ درصد است. این مقدار یک پروجکشن فقط‑خواندنی از تنظیمات گروه سری والد است. برای به‌روزرسانی هر سری سازگار در آن گروه، [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/overlap/) را تنظیم کنید. این گزینه برای انواع نموداری که نوارها یا ستون‌های گروهی را نشان می‌دهند اعمال می‌شود؛ اما بر گروه‌های سری نامرتبط در یک نمودار ترکیبی تأثیری ندارد.
 
-مثال زیر همپوشانی گروهی که شامل اولین مجموعه است را تنظیم می‌کند:
+مثال زیر همپوشانی گروهی که شامل اولین سری است را تنظیم می‌کند:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # نمودار جدید شامل مجموعه‌های نمونه، دسته‌ها و مقادیر است.
+    # نمودار جدید شامل سری‌های نمونه، دسته‌ها و مقادیر است.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -61,13 +61,13 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![همپوشانی مجموعه](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **تغییر رنگ پرکردن مجموعه**
+## **تغییر رنگ پر کردن سری**
 
-از [ChartSeries.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/format/) برای تنظیم پرکردن پیش‌فرض یک مجموعهٔ کامل استفاده کنید. اگر یک نقطه قبلاً پرکردن صریح داشته باشد، تنظیم [ChartDataPoint.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/format/) آن، پرکردن مجموعه را برای آن نقطه بازنویسی می‌کند.
+از [ChartSeries.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/format/) برای تنظیم پر کردن پیش‌فرض یک سری کامل استفاده کنید. اگر یک نقطه قبلاً پر شدن صریح داشته باشد، تنظیم [ChartDataPoint.format](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/format/) آن، پر کردن سری را برای آن نقطه نادیده می‌گیرد.
 
-مثال زیر پرکردن ممتد آبی‌رنگ را به اولین مجموعه اعمال می‌کند:
+مثال زیر یک پر کردن ثابت آبی را برای اولین سری اعمال می‌کند:
 
 ```py
 import aspose.pydrawing as drawing
@@ -91,11 +91,11 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![رنگ مجموعه](series_color.png)
+![The color of the series](series_color.png)
 
-## **تغییر نام مجموعه**
+## **تغییر نام سری**
 
-نام یک مجموعه در کتاب کار داده‌های نمودار ذخیره می‌شود و معمولاً در راهنمای نمودار نمایش داده می‌شود. در کتاب کار پیش‌فرض ایجاد شده برای یک نمودار ستون خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین مجموعه را داراست. ثابت‌های نام‌گذاری شده در مثال زیر این ساختار را به‌وضوح نشان می‌دهند:
+نام سری در کتاب کار داده‌های نمودار ذخیره می‌شود و معمولاً در افسانه (legend) نشان داده می‌شود. در کتاب کار پیش‌فرض ایجاد شده برای یک نمودار ستونی خوشه‌ای، سلول B1 در ردیف ۰ و ستون ۱ قرار دارد و نام اولین سری را شامل می‌شود. ثابت‌های نام‌گذاری در مثال زیر این ساختار را به‌صورت صریح نشان می‌دهند:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-همچنین می‌توانید سلولی را که قبلاً توسط [ChartSeries.name](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/name/) ارجاع شده است، به‌روزرسانی کنید. این روش از فرض ردیف و ستون خاصی در یک نمودار موجود جلوگیری می‌کند:
+همچنین می‌توانید سلول ارجاع‌شده توسط [ChartSeries.name](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/name/) را به‌روزرسانی کنید. این روش از فرض کردن ردیف و ستون خاصی در یک نمودار موجود جلوگیری می‌کند:
 
 ```py
 import aspose.slides as slides
@@ -142,13 +142,13 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![نام مجموعه](series_name.png)
+![The series name](series_name.png)
 
-## **دریافت رنگ پرکردن خودکار مجموعه**
+## **دریافت رنگ پر کردن خودکار سری**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) رنگی را برمی‌گرداند که از شاخص مجموعه و سبک نمودار محاسبه شده است. این همان رنگی است که وقتی پرکردن مجموعه به‌طور صریح تعریف نشده باشد استفاده می‌شود. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ در حالی که پرکردن جدیدی اختصاص نمی‌دهد.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) رنگی را برمی‌گرداند که بر اساس اندیس سری و سبک نمودار محاسبه می‌شود. این رنگ زمانی استفاده می‌شود که پر کردن سری به‌صورت صریح تعریف نشده باشد. فراخوانی این متد تنها رنگ محاسبه‌شده را می‌خواند؛ پر شدن جدیدی را اختصاص نمی‌دهد.
 
-مثال زیر رنگ خودکار هر مجموعه پیش‌فرض را چاپ می‌کند:
+مثال زیر رنگ خودکار هر سری پیش‌فرض را چاپ می‌کند:
 
 ```py
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-خروجی مثال برای سبک پیش‌فرض نمودار:
+خروجی نمونه برای سبک پیش‌فرض نمودار:
 
 ```text
 Series 0: ff4f81bd
@@ -176,13 +176,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-رنگ‌های دقیق بستگی به سبک و تم نمودار دارند.
+رنگ‌های دقیق بستگی به سبک و تم نمودار دارد.
 
-## **تنظیم رنگ پرکردن معکوس برای یک مجموعه نمودار**
+## **تنظیم رنگ پر کردن معکوس برای یک سری نمودار**
 
-برای مجموعه‌های میله‌ای، ستونی و حبابی، [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/invert_if_negative/) می‌تواند مقادیر منفی را با پرکردن متفاوتی نشان دهد. پرکردن معمولی مجموعه را به حالت ممتد تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) اختصاص دهید. اعداد منفی در کتاب کار بدون تغییر باقی می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
+برای سری‌های میله، ستون و حباب، [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/invert_if_negative/) می‌تواند مقادیر منفی را با رنگ پر کردن متفاوتی نشان دهد. پر کردن عادی سری را به حالت ثابت تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) اختصاص دهید. اعداد منفی در کتاب کار بدون تغییر می‌مانند؛ تنها رنگ نمایش آن‌ها تغییر می‌کند.
 
-مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 ورق کار شامل نام مجموعه، ستون 0 شامل نام دسته‌ها و ستون 1 شامل مقادیر است:
+مثال زیر داده‌های پیش‌فرض نمودار را با یک سری جایگزین می‌کند. ردیف ۰ کاربرگ شامل نام سری، ستون ۰ شامل نام دسته‌ها و ستون ۱ شامل مقادیر است:
 
 ```py
 import aspose.pydrawing as drawing
@@ -235,9 +235,9 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![رنگ پرکردن ممتد معکوس](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-می‌توانید معکوس‌سازی را برای یک نقطه از طریق [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) فعال کنید. در مثال زیر، معکوس‌سازی برای مجموعه غیرفعال و فقط برای نقطهٔ انتخاب‌شده فعال است. همچنین به نقطه مقدار منفی اختصاص داده می‌شود تا اثر قابل مشاهده باشد:
+می‌توانید برای یک نقطه خاص از طریق [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) معکوس‌سازی را فعال کنید. در مثال زیر، معکوس‌سازی برای سری غیرفعال و فقط برای نقطه انتخاب‌شده فعال می‌شود. نقطه نیز مقدار منفی دریافت می‌کند تا اثر قابل مشاهده باشد:
 
 ```py
 import aspose.pydrawing as drawing
@@ -268,11 +268,11 @@ with slides.Presentation() as presentation:
     presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **پاک‌سازی مقدار نقطه دادهٔ خاص**
+## **پاک‌سازی مقدار نقطه داده خاص**
 
-برای خالی کردن یک نقطه بدون حذف نقاط دیگر، سلول پشتوانهٔ کتاب کار آن را به `None` تنظیم کنید. برای یک نمودار ستونی، مقدار ترسیم‌شده از طریق [ChartDataPoint.value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/value/) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را بر اساس تنظیمات مقدار خالی نمودار به‌صورت خالی در نظر می‌گیرد.
+برای خالی کردن یک نقطه بدون حذف بقیه نقاط، سلول پشتوانهٔ کتاب کار آن را به `None` تنظیم کنید. برای یک نمودار ستونی، مقدار ترسیم‌شده از طریق [ChartDataPoint.value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/value/) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را بر اساس تنظیمات مقدار خالی نمودار به‌عنوان خالی در نظر می‌گیرد.
 
-مثال زیر فقط نقطهٔ دوم در اولین مجموعه را پاک می‌کند:
+مثال زیر فقط دومین نقطه در اولین سری را پاک می‌کند:
 
 ```py
 import aspose.slides as slides
@@ -294,15 +294,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نمودارهای پراکنده از سلول‌های جداگانه X و Y استفاده می‌کنند و نمودارهای حبابی همچنین از یک سلول سایز استفاده می‌کنند. فقط سلولی را که نمایانگر مقداری است که قصد حذف آن را دارید پاک کنید. هنگام نگه داشتن نقاط دیگر، از فراخوانی [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapointcollection/clear/) خودداری کنید، زیرا این روش تمام نقاط داده را از مجموعه حذف می‌کند.
+نمودارهای پراکندگی از سلول‌های جداگانه X و Y استفاده می‌کنند و نمودارهای حباب نیز یک سلول اندازه دارند. فقط سلولی را که نمایانگر مقدار مورد نظر برای حذف است پاک کنید. وقتی می‌خواهید نقاط دیگر را حفظ کنید، از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapointcollection/clear/) استفاده نکنید؛ این متد تمام نقاط دادهٔ مجموعه را حذف می‌کند.
 
 ## **کنترل نمایش سلول‌های خالی**
 
-یک سلول خالی در کتاب کار نشانگر دادهٔ گمشده است؛ سلولی که مقدار `0` دارد نمایانگر مقدار عددی شناخته‌شده است. برای خالی کردن سلول، [ChartDataCell.value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatacell/value/) را به `None` تنظیم کنید. صفر عددی صرفاً صفر می‌ماند بدون توجه به تنظیم سلول خالی.
+سلول‌های مخفی که مقدار دارند موردی متفاوت نسبت به سلول‌های خالی هستند. برای شامل یا حذف داده‌ها از ردیف‌ها و ستون‌های مخفی کاربرگ، به [Include Data from Hidden Rows and Columns](/slides/fa/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns) مراجعه کنید.
 
-از [Chart.display_blanks_as](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/display_blanks_as/) برای انتخاب نحوهٔ نمایش سلول‌های خالی در نمودار استفاده کنید. این تنظیم برای تمام نمودار اعمال می‌شود. این تنظیم نحوهٔ ترسیم خالی‌ها را تغییر می‌دهد بدون اینکه سلول خالی کتاب کار را با صفر یا مقدار درونی‌سازی شده پر کند.
+یک سلول خالی کتاب کار نشان‌دهنده دادهٔ گمشده است؛ یک سلول حاوی `0` نشان‌دهنده مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، [ChartDataCell.value](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatacell/value/) را به `None` تنظیم کنید. صفر عددی صرفاً صفر می‌ماند، صرف‌نظر از تنظیمات سلول خالی.
 
-مثال خود‌محافظ زیر یک نمودار خطی با یک مجموعه ایجاد می‌کند، مقدار روز 3 را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌کند. فایل ورودی لازم نیست. [ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/) از ورق کار 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام مجموعه را نگه می‌دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است:
+از [Chart.display_blanks_as](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/display_blanks_as/) برای انتخاب نحوهٔ نمایش سلول‌های خالی توسط نمودار استفاده کنید. این تنظیم برای کل نمودار اعمال می‌شود. این تنظیم نحوهٔ ترسیم خالی‌ها را تغییر می‌دهد بدون اینکه سلول خالی کتاب کار را با صفر یا مقدار درونی‌سازی پر کند.
+
+مثال خودمحافظ زیر یک نمودار خطی با یک سری ایجاد می‌کند، مقدار روز ۳ را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌کند. نیازی به فایل ورودی نیست. [ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/) از کاربرگ ۰، ستون ۰ برای برچسب‌های دسته و ستون ۱ برای مقادیر استفاده می‌کند؛ ردیف ۰ نام سری را نگه می‌دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است.
 
 ```py
 import aspose.slides as slides
@@ -328,7 +330,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # روز ۳ را واقعاً خالی بگذارید، در حالی که دسته و نقطه داده آن را حفظ می‌کنید.
+    # روز ۳ را به‌طور واقعی خالی بگذارید، در حالی که دسته و نقطه دادهٔ آن را نگه می‌دارید.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -337,17 +339,17 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-هر فایل خروجی حالت اختصاص‑دهی شده قبل از ذخیره را ذخیره می‌کند: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ یک نسخه تنها، حالت موردنظر را اختصاص دهید و ارائه را یکبار ذخیره کنید به‌جای تکرار بر روی حالت‌ها.
+هر فایل خروجی حالت اختصاص‌یافته قبل از ذخیره‌سازی را نشان می‌دهد: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ تنها یک نسخه، حالت موردنظر را تنظیم کنید و یک بار ارائه را ذخیره کنید به‌جای تکرار بر روی حالت‌ها.
 
-مقایسهٔ زیر همان داده‌ها را در هر سه فایل نشان می‌دهد. روز 3 در هر صورت در کتاب کار خالی است:
+مقایسهٔ زیر همان داده را در هر سه فایل نشان می‌دهد. روز ۳ در کتاب کار در هر حالت خالی است:
 
-![نمودارهای خطی با داده‌های یکسان: Gap خط را در روز 3 قطع می‌کند، Zero خط را به صفر می‌کوبد، و Span روز 2 را به روز 4 متصل می‌کند.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-اثر قابل مشاهده به نوع نمودار بستگی دارد. یک نمودار خطی مقایسهٔ سه حالت را آسان می‌کند. نمودارهای میله‌ای و ستونی خطی برای اتصال بین یک دستهٔ گمشده ندارند، بنابراین `SPAN` نمی‌تواند قطعهٔ اتصال نشان داده‌شده در بالا را تولید کند؛ یک ستون گمشده و یک ستون با ارتفاع صفر نیز می‌توانند مشابه به نظر برسند. به‌طور مشابه، یک نمودار پراکنده فقط با نشانگرها خط اتصال ندارد. انتظار نتایج سه‌گانهٔ متفاوت برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
+اثر قابل‌مشاهده بستگی به نوع نمودار دارد. یک نمودار خطی سه حالت را به‌راحتی مقایسه می‌کند. نمودارهای میله و ستونی خطی برای اتصال بین دسته‌های گمشده ندارند، بنابراین `SPAN` نمی‌تواند بخش اتصال نشان‑داده‌شده را تولید کند؛ یک ستون گمشده و یک ستون با ارتفاع صفر نیز می‌توانند مشابه به‌نظر برسند. به‌طور مشابه، یک نمودار پراکندگی فقط با نشانگرها خط اتصال ندارد. انتظار نتایج متفاوت برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
 
-## **تنظیم عرض فاصلهٔ مجموعه**
+## **تنظیم عرض فاصله سری**
 
-عرض فاصله (Gap width) فضا بین خوشه‌های میله یا ستون مجاور است که به‌صورت درصدی از عرض میله یا ستون بیان می‌شود. مشابه همپوشانی، این تنظیم به گروه مجموعهٔ والد تعلق دارد نه به یک مجموعه. برای گروه، یک‌بار [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) را تنظیم کنید. مقدار بزرگ‌تر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچک‌تر آن‌ها را متراکم‌تر می‌کند.
+عرض فاصله فضا بین خوشه‌های میله یا ستون مجاور است که به‌صورت درصدی از عرض میله یا ستون بیان می‌شود. مشابه همپوشانی، این تنظیم به گروه سری والد تعلق دارد نه به یک سری. یک بار برای گروه [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) تنظیم کنید. مقدار بزرگ‌تر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچک‌تر آن‌ها را متراکم‌تر می‌کند.
 
 مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائهٔ نهایی را ذخیره می‌کند:
 
@@ -372,46 +374,46 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![عرض فاصله](gap_width.png)
+![The gap width](gap_width.png)
 
-## **سؤال‌های متداول**
+## **FAQ**
 
-**کدام انواع نمودار از مجموعه داده‌ها پشتیبانی می‌کنند؟**
+**Which chart types support data series?**
 
-تمام انواع نمودار که توسط شمارش [ChartType](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/charttype/) نمایش داده می‌شوند از داده‌های نمودار استفاده می‌کنند، اما مجموعه‌های آن‌ها همگی ساختار یا تنظیمات یکسانی ندارند. به عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکنده از مقادیر X و Y استفاده می‌کنند و نمودارهای حبابی علاوه بر این اندازه حباب را نیز دارند. از روش ایجاد نقطه داده‌ای که با نوع مجموعه سازگار است استفاده کنید. گزینه‌هایی مانند همپوشانی و عرض فاصله فقط برای گروه‌های میله‌ای یا ستونی سازگار اعمال می‌شوند.
+همهٔ انواع نموداری که توسط شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/charttype/) نمایان می‌شوند از داده‌های نمودار استفاده می‌کنند، اما سری‌های آن‌ها ساختار مقدار یا تنظیمات یکسانی ندارند. به‌عنوان مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی از مقادیر X و Y، و نمودارهای حباب اندازه حباب را اضافه می‌کنند. از روش ایجاد نقطه‑داده‌ای که با نوع سری مطابقت دارد استفاده کنید. گزینه‌هایی مانند همپوشانی و عرض فاصله فقط برای گروه‌های میله یا ستون سازگار اعمال می‌شوند.
 
-**یک گروه مجموعهٔ نمودار چیست؟**
+**What is a chart series group?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/) شامل مجموعه‌های سازگاری است که تنظیمات ترسیم سطح گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروه دسترسی‌یافته از طریق یک مجموعه لزوماً همهٔ مجموعه‌های موجود در نمودار را تغییر نمی‌دهد.
+یک [ChartSeriesGroup](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/) شامل سری‌های سازگاری است که تنظیمات رسم سطح‑گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک سری دسترسی پیدا می‌کنید لزوماً همهٔ سری‌های نمودار را تحت تأثیر قرار نمی‌دهد.
 
-**آیا یک نمودار تازه ایجاد‌شده شامل داده‌های پیش‌فرض است؟**
+**Does a newly created chart contain default data?**
 
-بله. به‌صورت پیش‌فرض، [ShapeCollection.add_chart](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_chart/) مجموعه‌های نمونه، دسته‌ها و مقادیر را ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعه دادهٔ کاملا سفارشی، هر دو مجموعه و دسته‌ها را پاک کنید. یک بارگذاری نیز می‌تواند نموداری بدون دادهٔ پیش‌فرض ایجاد کند.
+بله. به‌صورت پیش‌فرض، متد [ShapeCollection.add_chart](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_chart/) سری‌ها، دسته‌ها و مقادیر نمونه ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعهٔ دادهٔ کاملاً سفارشی، هر دو مجموعهٔ سری و دسته را پاک کنید. یک overload نیز امکان ایجاد نمودار بدون دادهٔ پیش‌فرض را فراهم می‌کند.
 
-**اشیاء نمودار چگونه به سلول‌های کتاب کار متصل هستند؟**
+**How are chart objects connected to workbook cells?**
 
-نام‌های مجموعه، برچسب‌های دسته و مقادیر نقطه داده به سلول‌های یک [ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‌شده، عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت دادهٔ سفارشی، ردیف‌های دسته و ردیف‌های مقدار مجموعه را هم‌راستا نگه دارید تا هر نقطه تحت دستهٔ موردنظر ترسیم شود.
+نام‌های سری، برچسب‌های دسته و مقادیر نقطه‑داده به سلول‌های یک [ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/) ارجاع می‌دهند. تغییر سلول ارجاع‌شده عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت دادهٔ سفارشی، ردیف‌های دسته و ردیف‌های مقادیر سری را طوری تنظیم کنید که هر نقطه زیر دستهٔ موردنظر رسم شود.
 
-**چگونه یک نقطه را به‌جای تمام مجموعه پاک کنم؟**
+**How do I clear one point instead of the whole series?**
 
-سلول مقدار مربوطه را به `None` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان نقطهٔ خالی حفظ شود. فقط زمانی از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapointcollection/clear/) استفاده کنید که می‌خواهید تمام نقاط آن مجموعه حذف شوند. اگر دسته‌ها را نیز حذف می‌کنید، هر مجموعه را به‌روزرسانی کنید تا مقادیر آن‌ها با مجموعه دسته هم‌راستا بماند.
+سلول مقدار مربوطه را به `None` تنظیم کنید تا موقعیت دستهٔ نقطه به عنوان یک نقطهٔ خالی حفظ شود. از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapointcollection/clear/) فقط زمانی استفاده کنید که قصد حذف تمام نقاط از آن سری را داشته باشید. اگر دسته‌ها را نیز حذف می‌کنید، هر سری را به‌روز کنید تا مقادیرشان با مجموعهٔ دسته‌ها هم‌راستا بماند.
 
-**نقاط خالی چگونه نمایش داده می‌شوند؟**
+**How are empty points displayed?**
 
-نتیجه به نوع نمودار و [Chart.display_blanks_as](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/display_blanks_as/) وابسته است. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فاصله‌ها، به‌عنوان مقادیر صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنای دادهٔ گمشده در ارائهٔ شما سازگار باشد. برای مثال کامل و مقایسهٔ بصری به [کنترل نمایش سلول‌های خالی](#control-the-display-of-empty-cells) مراجعه کنید.
+نتیجه وابسته به نوع نمودار و [Chart.display_blanks_as](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/display_blanks_as/) است. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فاصله، مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنی دادهٔ گمشده در ارائهٔ شما مطابقت دارد. برای مثال کامل و مقایسهٔ تصویری به بخش [Control the Display of Empty Cells](#control-the-display-of-empty-cells) مراجعه کنید.
 
-**مقادیر منفی چگونه قالب‌بندی می‌شوند؟**
+**How are negative values formatted?**
 
-برای مجموعه‌های میله‌ای، ستونی و حبابی پشتیبانی‌شده، [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/invert_if_negative/) را فعال کنید و [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ فردی با [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) بازنویسی کنید. این ویژگی‌ها فقط بر قالب‌بندی تأثیر می‌گذارند، نه بر مقادیر عددی ذخیره‌شده.
+برای سری‌های میله، ستون و حباب پشتیبانی‌شده، [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/invert_if_negative/) را فعال کنید و [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ منفرد با [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) بازنویسی کنید. این ویژگی‌ها فقط قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
 
-**زمانی که هم مجموعه و هم نقطه قالب‌بندی شوند، کدام فرمت برتری دارد؟**
+**Which formatting wins when both a series and a point are formatted?**
 
-قالب‌بندی صریح نقطه داده برای آن نقطه اولویت دارد. نقاط دیگر همچنان از قالب صریح مجموعه استفاده می‌کنند یا اگر قالب مجموعه تعریف نشده باشد، از سبک و تم خودکار نمودار استفاده می‌کنند. ویژگی‌های گروه مانند همپوشانی و عرض فاصله فقط رچوب‌بندی را کنترل می‌کنند و بازنویسی قالب‌بندی سطح نقطه نیستند.
+قالب‌بندی صریح نقطه‑داده برای آن نقطه برتری دارد. سایر نقاط به قالب‌بندی صریح سری یا، وقتی قالب‌بندی سری تعریف نشده باشد، به سبک و تم خودکار نمودار ادامه می‌دهند. ویژگی‌های گروهی مانند همپوشانی و عرض فاصله مرتبط با چیدمان هستند و جایگزین‌های سطح نقطه نیستند.
 
-**آیا محدودیتی برای تعداد مجموعه‌هایی که یک نمودار می‌تواند داشته باشد وجود دارد؟**
+**Is there a limit to how many series a chart can contain?**
 
-Aspose.Slides محدودیتی ثابت برای تعداد مجموعه‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظهٔ موجود، زمان رندر و خوانایی نمودار تعیین‌کنندهٔ حد معقولی هستند.
+Aspose.Slides محدودیت شمار ثابت برای تعداد سری‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندر و خوانایی نمودار تعیین‌کنندهٔ حد معقول هستند.
 
-**هنگامی که ستون‌ها خیلی نزدیک یا خیلی دور از یکدیگر هستند، چه باید تغییر دهم؟**
+**What should I change when columns are too close together or too far apart?**
 
-[ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) را در گروه مجموعهٔ والد مناسب تنظیم کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها بیشتر شود یا آن را کاهش دهید تا خوشه‌ها به‌هم نزدیک‌تر شوند.
+[ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) را در گروه سری والد مناسب تنظیم کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها گسترده شود یا کاهش دهید تا خوشه‌ها به‌یکدیگر نزدیک‌تر شوند.

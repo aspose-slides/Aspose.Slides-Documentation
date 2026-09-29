@@ -19,80 +19,193 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Poznaj Aspose.Slides dla C++: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
+description: "Odkryj Aspose.Slides dla C++: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pośrednictwem strumieni skoroszytów, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
 
-Opisuje również pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
+Omówiono także pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu połączonego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
 
-Dla komórek skoroszytu, które reprezentują brakujące dane, zobacz [Kontrolowanie wyświetlania pustych komórek](/slides/pl/cpp/chart-series/) – różnica między pustą komórką a zerem oraz porównanie trybów wyświetlania w wykresie liniowym.
+Aby dowiedzieć się, jak obsługiwać komórki reprezentujące brakujące dane, zobacz [Control the Display of Empty Cells](/slides/pl/cpp/chart-series/) – wyjaśnia różnicę między pustą komórką a zerem oraz porównanie wykresu liniowego dostępnych trybów wyświetlania.
 
-## **Odczyt i zapis danych wykresu z skoroszytu**
+## **Dołączanie danych z ukrytych wierszy i kolumn**
 
-Aspose.Slides udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), które pozwalają odczytywać i zapisywać skoroszyty danych wykresu (zawierające dane wykresu edytowane przy użyciu Aspose.Cells). **Note** że dane wykresu muszą być zorganizowane w ten sam sposób lub muszą mieć strukturę podobną do źródła.
+Użyj [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) aby kontrolować, czy wykres rysuje dane z ukrytych wierszy i kolumn arkusza. Ustaw `true`, aby rysować tylko widoczne komórki, lub `false`, aby uwzględnić zarówno widoczne, jak i ukryte komórki. To ustawienie kontroluje rysowanie wykresu; nie ukrywa ani nie odsłania wierszy lub kolumn arkusza.
 
-``` cpp
-#include <DOM/Chart/Chart.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
+Pobierz [hidden-source-data.pptx](hidden-source-data.pptx) i umieść go w katalogu roboczym. Na pierwszym slajdzie znajduje się wykres kolumnowy jako pierwszy kształt. Osadzony arkusz, `Sheet1`, zawiera zakres źródłowy `A1:C4`. Wiersz 3 i kolumna C są ukryte, ale ich komórki nadal zawierają wartości.
+
+| Wiersz arkusza | A: Month | B: Retail | C: Wholesale (ukryta kolumna) |
+| --- | --- | --- | --- |
+| 2 | January | 10 | 30 |
+| 3 (ukryty wiersz) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
+
+Uzyskaj dostęp do komórek źródłowych przez [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) i odczytaj [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/), aby sprawdzić ich status ukrycia. Ta właściwość jest tylko do odczytu. W tym pliku B2 jest widoczny, B3 należy do ukrytego wiersza, a C2 do ukrytej kolumny; przykład wypisuje kolejno `False`, `True` i `True`.
+
+W tym przykładzie odśwież dane wykresu po zmianie ustawienia rysowania: zachowaj osadzony skoroszyt przy użyciu [ReadWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) i ponownie wczytaj go za pomocą [WriteWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Przy włączaniu wszystkich komórek użyj także [SetRange](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/setrange/), aby przywrócić pełny zakres, w tym ukrytą kategorię February. Same zmiany flagi nie odświeżą pamięci podręcznej danych wykresu i etykiet kategorii w tym przykładzie.
+
+```cpp
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
 #include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"chart.pptx");
+auto presentation = MakeObject<Presentation>(u"hidden-source-data.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    Console::WriteLine(u"B2 hidden: {0}", workbook->GetCell(0, u"B2")->get_IsHidden());
+    Console::WriteLine(u"B3 hidden: {0}", workbook->GetCell(0, u"B3")->get_IsHidden());
+    Console::WriteLine(u"C2 hidden: {0}", workbook->GetCell(0, u"C2")->get_IsHidden());
 
-auto chart = System::ExplicitCast<Chart>(pres->get_Slide(0)->get_Shape(0));
-auto data = chart->get_ChartData();
+    auto workbookStream = chart->get_ChartData()->ReadWorkbookStream();
+    for (auto visibleOnly : {true, false})
+    {
+        chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-auto = data->ReadWorkbookStream();
-data->get_Series()->Clear();
-data->get_Categories()->Clear();
+        // Odśwież dane wykresu z osadzonego skoroszytu.
+        workbookStream->set_Position(0);
+        chart->get_ChartData()->WriteWorkbookStream(workbookStream);
+        if (!visibleOnly)
+        {
+            // Przywróć pełny zakres źródłowy, w tym ukryte kategorie.
+            chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
+        }
 
-stream->set_Position(0);
-data->WriteWorkbookStream(stream);
+        auto outputPath = visibleOnly ? u"hidden_cells_True.pptx" : u"hidden_cells_False.pptx";
+        presentation->Save(outputPath, Export::SaveFormat::Pptx);
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-### **Walidacja układu wykresu po modyfikacji skoroszytu**
+Przykład zapisuje `hidden_cells_True.pptx` z jedynie widocznymi wartościami Retail (10 i 20) oraz `hidden_cells_False.pptx` ze wszystkimi sześcioma wartościami. Poniższe obrazy ilustrują dwa tryby rysowania. Wiersz 3 i kolumna C pozostają ukryte w obu osadzonych skoroszytach.
 
-Kiedy zamieniasz osadzony skoroszyt na zmodyfikowany, wykres zachowuje oryginalne kolekcje serii i kategorii. To niezgodność może spowodować, że [IChart::ValidateChartLayout](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/validatechartlayout/) zakończy się błędem „index-out-of-range”. Wyczyść istniejące serie i kategorie przed zapisaniem zaktualizowanego skoroszytu z powrotem do wykresu.
+| Tylko widoczne komórki (`true`) | Wszystkie komórki (`false`) |
+| --- | --- |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
+
+Ukryta komórka zawierająca wartość różni się od pustej komórki. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/get_displayblanksas/) kontroluje, jak wyświetlane są brakujące wartości; nie obejmuje ani nie wyklucza ukrytych danych źródłowych. Zobacz [Control the Display of Empty Cells](/slides/pl/cpp/chart-series/#control-the-display-of-empty-cells) po przykład.
+
+## **Odczyt i zapis danych wykresu ze skoroszytu**
+
+Aspose.Slides for C++ udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), które umożliwiają odczyt i zapis skoroszytów danych wykresu (zawierających dane wykresu edytowane przy użyciu Aspose.Cells). **Uwaga**: dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+
+Ten przykład otwiera `chart.pptx`, który musi zawierać wykres jako pierwszy kształt na pierwszym slajdzie. Odczytuje osadzony skoroszyt do strumienia, czyści istniejące serie i kategorie oraz zapisuje ten sam skoroszyt z powrotem. Zmiany pozostają w pamięci; przykład nie zapisuje prezentacji.
 
 ```cpp
-// Po zmodyfikowaniu strumienia skoroszytu (np. przy użyciu Aspose.Cells)
-auto updatedWorkbook = chartData->ReadWorkbookStream();
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
-// Wyczyść istniejące odwołania do danych.
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-updatedWorkbook->set_Position(0);
-chartData->WriteWorkbookStream(updatedWorkbook);
+auto presentation = MakeObject<Presentation>(u"chart.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto chartData = chart->get_ChartData();
+    auto workbookStream = chartData->ReadWorkbookStream();
 
-chart->ValidateChartLayout();
+    chartData->get_Series()->Clear();
+    chartData->get_Categories()->Clear();
+
+    workbookStream->set_Position(0);
+    chartData->WriteWorkbookStream(workbookStream);
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-Wyczyszczenie kolekcji zapewnia, że struktura danych wykresu jest zgodna z nowym skoroszytem, co pozwala metodzie `ValidateChartLayout` zakończyć działanie bez błędów.
+### **Weryfikacja układu wykresu po modyfikacji skoroszytu**
 
-## **Ustaw komórkę skoroszytu jako etykietę danych wykresu**
+Gdy zamienisz osadzony skoroszyt na zmodyfikowany, wykres zachowuje pierwotne kolekcje serii i kategorii. To niezgodność może spowodować błąd [IChart::ValidateChartLayout](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/validatechartlayout/) z komunikatem o indeksie poza zakresem. Wyczyść istniejące serie i kategorie przed zapisem zaktualizowanego skoroszytu z powrotem do wykresu. Przykład wymaga `chart.pptx` z wykresem jako pierwszym kształtem na pierwszym slajdzie. Komentarz zaznacza miejsce, w którym miałoby nastąpić edytowanie skoroszytu; działający przykład zapisuje oryginalny skoroszyt z powrotem i weryfikuje układ w pamięci.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).  
-1. Pobierz referencję do slajdu poprzez jego indeks.  
-1. Dodaj wykres bąbelkowy z pewnymi danymi.  
-1. Uzyskaj dostęp do serii wykresu.  
-1. Ustaw komórkę skoroszytu jako etykietę danych.  
-1. Zapisz prezentację.
+```cpp
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
 
-Ten kod C++ pokazuje, jak ustawić komórkę skoroszytu jako etykietę danych wykresu:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-``` cpp
+auto presentation = MakeObject<Presentation>(u"chart.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto chartData = chart->get_ChartData();
+    auto workbookStream = chartData->ReadWorkbookStream();
+
+    // Modyfikuj strumień skoroszytu tutaj, na przykład przy użyciu Aspose.Cells.
+
+    chartData->get_Series()->Clear();
+    chartData->get_Categories()->Clear();
+
+    workbookStream->set_Position(0);
+    chartData->WriteWorkbookStream(workbookStream);
+    chart->ValidateChartLayout();
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
+```
+
+Czyszczenie kolekcji usuwa przestarzałe odniesienia przed zapisem skoroszytu. Przed użyciem wykresu zaktualizuj wymagane mapowania serii i kategorii dla zmienionego skoroszytu.
+
+## **Ustawienie komórki skoroszytu jako etykiety danych wykresu**
+
+Można używać tekstu z komórek skoroszytu jako etykiet danych wykresu. Poniższe kroki pokazują, jak połączyć etykiety w wykresie bąbelkowym z komórkami w jego skoroszycie danych.
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Uzyskaj dostęp do pierwszego slajdu przez indeks zerowy.
+3. Dodaj wykres bąbelkowy z danymi domyślnymi.
+4. Uzyskaj dostęp do serii wykresu.
+5. Ustaw komórkę skoroszytu jako etykietę danych.
+6. Zapisz prezentację.
+
+Ten przykład otwiera `chart2.pptx`, który musi zawierać przynajmniej jeden slajd, i dodaje wykres bąbelkowy z danymi domyślnymi. Używa komórek A10:A12 w arkuszu 0 dla pierwszych trzech etykiet w pierwszej serii, włącza etykiety z komórek i zapisuje wynik jako `resultchart.pptx`.
+
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
@@ -105,43 +218,37 @@ Ten kod C++ pokazuje, jak ustawić komórkę skoroszytu jako etykietę danych wy
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-System::String lbl0 = u"Label 0 cell value";
-System::String lbl1 = u"Label 1 cell value";
-System::String lbl2 = u"Label 2 cell value";
+auto presentation = MakeObject<Presentation>(u"chart2.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Instancjonuje klasę Presentation, która reprezentuje plik prezentacji 
-auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
+auto chart = slide->get_Shapes()->AddChart(ChartType::Bubble, 50, 50, 600, 400, true);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-auto slide = pres->get_Slides()->idx_get(0);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLabelValueFromCell(true);
+auto firstLabelCell = workbook->GetCell(0, u"A10", ObjectExt::Box<String>(u"Label 0 cell value"));
+auto secondLabelCell = workbook->GetCell(0, u"A11", ObjectExt::Box<String>(u"Label 1 cell value"));
+auto thirdLabelCell = workbook->GetCell(0, u"A12", ObjectExt::Box<String>(u"Label 2 cell value"));
+series->get_Labels()->idx_get(0)->set_ValueFromCell(firstLabelCell);
+series->get_Labels()->idx_get(1)->set_ValueFromCell(secondLabelCell);
+series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Bubble, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto series = chart->get_ChartData()->get_Series();
-
-series->idx_get(0)->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLabelValueFromCell(true);
-
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
-
-series->idx_get(0)->get_Labels()->idx_get(0)->set_ValueFromCell(wb->GetCell(0, u"A10", System::ObjectExt::Box<System::String>(lbl0)));
-series->idx_get(0)->get_Labels()->idx_get(1)->set_ValueFromCell(wb->GetCell(0, u"A11", System::ObjectExt::Box<System::String>(lbl1)));
-series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u"A12", System::ObjectExt::Box<System::String>(lbl2)));
-
-pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
+presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
 ## **Zarządzanie arkuszami**
 
-Ten kod C++ demonstruje operację, w której metoda [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) jest używana do uzyskania dostępu do kolekcji arkuszy:
+Metoda [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) zapewnia dostęp do arkuszy w skoroszycie wykresu. Ten przykład tworzy wykres kołowy z danymi domyślnymi i wypisuje nazwę każdego arkusza na konsolę.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataWorkbook.h>
@@ -150,312 +257,346 @@ Ten kod C++ demonstruje operację, w której metoda [IChartDataWorkbook::get_Wor
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
-#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto worksheets = workbook->get_Worksheets();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-for (auto ws : System::IterateOver(worksheets))
-    System::Console::WriteLine(ws->get_Name());
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 500);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
+{
+    Console::WriteLine(workbook->get_Worksheets()->idx_get(i)->get_Name());
+}
 ```
 
 ## **Określenie typu źródła danych**
 
-Ten kod C++ pokazuje, jak określić typ dla źródła danych:
+Ten przykład tworzy wykres kolumnowy 3D z danymi domyślnymi i ustawia dwie nazwy serii przy użyciu różnych źródeł danych. Pierwsza nazwa używa literału ciągu znaków; druga używa komórki C1 w arkuszu 0. Właściwość wyliczeniowa [DataSourceType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/datasourcetype/) wybiera źródło dla każdej nazwy. Wynik jest zapisywany jako `pres.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/DataSourceType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IStringChartValue.h>
-#include <DOM/IChart.h>
+#include <DOM/IChart>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto chartData = chart->get_ChartData();
-auto val = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 50, 50, 600, 400, true);
+auto literalName = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
 
-val->set_DataSourceType(DataSourceType::StringLiterals);
-val->set_Data(System::ObjectExt::Box<System::String>(u"LiteralString"));
-val = chartData->get_Series()->idx_get(1)->get_Name();
-val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::ObjectExt::Box<System::String>(u"NewCell")));
+literalName->set_DataSourceType(DataSourceType::StringLiterals);
+literalName->set_Data(ObjectExt::Box<String>(u"LiteralString"));
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto cellName = chart->get_ChartData()->get_Series()->idx_get(1)->get_Name();
+auto nameCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, u"C1", ObjectExt::Box<String>(u"NewCell"));
+cellName->set_DataSourceType(DataSourceType::Worksheet);
+cellName->set_Data(nameCell);
+
+presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Wykrywanie nieobsługiwanych wbudowanych formatów skoroszytów**
+## **Wykrywanie nieobsługiwanych formatów osadzonych skoroszytów**
 
-Aspose.Slides nie obsługuje formatu binarnego skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `get_EmbeddedWorkbookType` na interfejsie [IChartData](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/workbooktype/) w celu wykrycia nieobsługiwanych formatów i pominięcia takich wykresów.
+Aspose.Slides nie obsługuje binarnego formatu skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Można użyć metody [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) na interfejsie [IChartData](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/) razem z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/workbooktype/), aby wykrywać nieobsługiwane formaty i pomijać takie wykresy. Ten przykład przegląda kształty na pierwszym slajdzie `sample.pptx`, pomija kształty niebędące wykresami i wypisuje komunikat diagnostyczny dla każdego wykresu z osadzonym skoroszytem .xlsb.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/WorkbookType.h>
 #include <DOM/IChart.h>
-#include <DOM/ISlide.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/IShape.h>
 #include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
+#include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
+using namespace System;
 
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+for (auto shape : IterateOver(slide->get_Shapes()))
 {
-    if (!System::ObjectExt::Is<IChart>(shape))
+    auto chart = AsCast<IChart>(shape);
+    if (chart == nullptr)
     {
         continue;
     }
 
-    auto chart = System::ExplicitCast<IChart>(shape);
     auto chartData = chart->get_ChartData();
+    auto isInternalWorkbook = chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook;
+    auto isBinaryMacro = chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro;
 
-    if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
-        chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
+    if (isInternalWorkbook && isBinaryMacro)
     {
-        // Osadzony skoroszyt jest w formacie .xlsb, który nie jest obsługiwany.
+        Console::WriteLine(u"Skipping a chart with an unsupported .xlsb workbook.");
         continue;
     }
 
-    // Odczytaj lub zmodyfikuj dane skoroszytu wykresu tutaj.
+    // Odczytaj lub zmodyfikuj obsługiwane dane skoroszytu wykresu tutaj.
 }
 ```
 
 ## **Zewnętrzny skoroszyt**
 
-Aspose.Slides obsługuje używanie zewnętrznych skoroszytów jako źródła danych dla wykresów.
+Aspose.Slides obsługuje użycie zewnętrznych skoroszytów jako źródła danych dla wykresów.
 
 ### **Utworzenie zewnętrznego skoroszytu**
 
-Korzystając z metod **`ReadWorkbookStream`** i **`SetExternalWorkbook`**, możesz zarówno utworzyć zewnętrzny skoroszyt od podstaw, jak i uczynić istniejący skoroszyt wewnętrzny zewnętrznym.
+Użyj [ReadWorkbookStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) i [SetExternalWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/), aby wyeksportować osadzony skoroszyt wykresu do pliku i powiązać wykres z tym zewnętrznym skoroszytem.
 
-Ten kod C++ demonstruje proces tworzenia zewnętrznego skoroszytu:
+Ten przykład tworzy wykres kołowy z danymi domyślnymi, zapisuje jego skoroszyt jako `externalWorkbook1.xlsx` i zamyka strumień wyjściowy przed przypisaniem pliku jako źródła danych wykresu. Zapisuje połączoną prezentację jako `externalWorkbook.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/io/file_mode.h>
+#include <system/io/file.h>
 #include <system/io/file_stream.h>
 #include <system/io/memory_stream.h>
 #include <system/io/path.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-const System::String workbookPath = u"externalWorkbook1.xlsx";
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600);
+auto workbookPath = IO::Path::GetFullPath(u"externalWorkbook1.xlsx");
+auto workbookStream = chart->get_ChartData()->ReadWorkbookStream();
+auto fileStream = IO::File::Create(workbookPath);
+workbookStream->CopyTo(fileStream);
+fileStream->Close();
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f);
-auto chartData = chart->get_ChartData();
-
-{
-    System::SharedPtr<System::IO::FileStream> fileStream = System::MakeObject<System::IO::FileStream>(workbookPath, System::IO::FileMode::Create);
-
-    System::ArrayPtr<uint8_t> workbookData = chartData->ReadWorkbookStream()->ToArray();
-    fileStream->Write(workbookData, 0, workbookData->get_Length());
-}
-
-chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
-
-pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
+chart->get_ChartData()->SetExternalWorkbook(workbookPath);
+presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
 ### **Ustawienie zewnętrznego skoroszytu**
 
-Korzystając z metody **`IChartData::SetExternalWorkbook`**, możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Ta metoda może być również użyta do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli został on przeniesiony).
+Za pomocą metody [SetExternalWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) można przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może być także użyta do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli został przeniesiony).
 
-Choć nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona w pełną ścieżkę.
+Chociaż nie można edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, można nadal używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona w pełną ścieżkę.
 
-Ten kod C++ pokazuje, jak ustawić zewnętrzny skoroszyt:
+Przykład wymaga pliku `externalWorkbook.xlsx` w katalogu roboczym. Jego arkusz o nazwie `Sheet1` musi zawierać nazwę serii w B1, nazwy kategorii w A2:A4 oraz wartości liczbowe w B2:B4. Przykład tworzy wykres kołowy, łączy skoroszyt i używa [SetRange](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/setrange/) do mapowania A1:B4 na jedną serię i trzy kategorie. Zapisuje wynik jako `Presentation_with_externalWorkbook.pptx`.
 
-```c++
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/io/path.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600, true);
 auto chartData = chart->get_ChartData();
+auto workbookPath = IO::Path::GetFullPath(u"externalWorkbook.xlsx");
 
-chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(u"externalWorkbook.xlsx"));
+chartData->SetExternalWorkbook(workbookPath);
+chartData->SetRange(u"Sheet1!$A$1:$B$4");
 
-chartData->get_Series()->Add(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1"), ChartType::Pie);
-auto dataPoints = chartData->get_Series()->idx_get(0)->get_DataPoints();
-auto workbook = chartData->get_ChartDataWorkbook();
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B2"));
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B3"));
-dataPoints->AddDataPointForPieSeries(workbook->GetCell(0, u"B4"));
-
-auto categories = chartData->get_Categories();
-categories->Add(workbook->GetCell(0, u"A2"));
-categories->Add(workbook->GetCell(0, u"A3"));
-categories->Add(workbook->GetCell(0, u"A4"));
-pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-Parametr `updateChartData` (znajdujący się pod metodą `SetExternalWorkbook`) służy do określenia, czy skoroszyt Excel ma być załadowany.
+Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) kontroluje, czy skoroszyt zostanie załadowany.
 
-* Gdy wartość `updateChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka do skoroszytu – dane wykresu nie zostaną załadowane ani zaktualizowane z docelowego skoroszytu. Użyj tego ustawienia, gdy docelowy skoroszyt jest nieistniejący lub niedostępny.  
-* Gdy wartość `updateChartData` jest ustawiona na `true`, dane wykresu zostaną zaktualizowane z docelowego skoroszytu.
+* Gdy `updateChartData` ma wartość `false`, aktualizowana jest tylko ścieżka do skoroszytu. Dane wykresu nie są ładowane ani aktualizowane z docelowego skoroszytu, więc skoroszyt może być niedostępny.
+* Gdy `updateChartData` ma wartość `true`, dane wykresu są aktualizowane z docelowego skoroszytu.
 
-```c++
-#include <DOM/Chart/ChartData.h>
+Poniższy przykład przypisuje przykładowy URL z `updateChartData` ustawionym na `false`. Zachowuje domyślne dane wykresu kołowego i zapisuje prezentację bez ładowania niedostępnego skoroszytu.
+
+```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
-System::SharedPtr<IChartData> chartData = chart->get_ChartData();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-System::SharedPtr<ChartData> concreteChartData = System::AsCast<ChartData>(chartData);
-concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 400, 600, true);
 
-pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-workbook.xlsx", false);
+presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Pobranie ścieżki skoroszytu źródła danych zewnętrznego wykresu**
+### **Pobranie ścieżki zewnętrznego skoroszytu źródła danych wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).  
-1. Pobierz referencję do slajdu poprzez jego indeks.  
-1. Utwórz obiekt dla kształtu wykresu.  
-1. Utwórz obiekt typu źródła (`ChartDataSourceType`), który reprezentuje źródło danych wykresu.  
-1. Określ odpowiedni warunek w zależności od tego, czy typ źródła jest taki sam jak typ zewnętrznego skoroszytu.
+Aby zidentyfikować skoroszyt powiązany z wykresem, najpierw sprawdź, czy wykres używa zewnętrznego źródła danych. Jeśli tak, możesz pobrać ścieżkę do skoroszytu, wykonując następujące kroki.
 
-Ten kod C++ demonstruje tę operację:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Uzyskaj dostęp do pierwszego slajdu przez indeks zerowy.
+3. Sprawdź, czy pierwszy kształt jest wykresem.
+4. Odczytaj typ źródła danych wykresu.
+5. Jeśli źródłem jest zewnętrzny skoroszyt, odczytaj jego ścieżkę.
 
-```c++
+Ten przykład otwiera `externalWorkbook.pptx`, utworzony w poprzednim przykładzie, i sprawdza pierwszy kształt na pierwszym slajdzie. Jeśli jest to wykres połączony ze zewnętrznym skoroszytem, przykład wypisuje [get_ExternalWorkbookPath](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) na konsolę. Następnie zapisuje kopię prezentacji jako `Result.pptx`.
+
+```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-auto slide = pres->get_Slides()->idx_get(1);
-auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
-ChartDataSourceType sourceType = chart->get_ChartData()->get_DataSourceType();
-if (sourceType == ChartDataSourceType::ExternalWorkbook)
+auto presentation = MakeObject<Presentation>(u"externalWorkbook.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
 {
-    System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
+    auto chartData = chart->get_ChartData();
+    if (chartData->get_DataSourceType() == ChartDataSourceType::ExternalWorkbook)
+    {
+        Console::WriteLine(chartData->get_ExternalWorkbookPath());
+    }
+    else
+    {
+        Console::WriteLine(u"The chart does not use an external workbook.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
 }
 
-// Saves the presentation
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 ```
 
 ### **Edycja danych wykresu**
 
-Możesz edytować dane w zewnętrznych skoroszytach tak samo, jak zmieniasz zawartość wewnętrznych skoroszytów. Gdy zewnętrzny skoroszyt nie może zostać załadowany, zostaje rzucony wyjątek.
+Można edytować dane w zewnętrznych skoroszytach tak samo, jak w wewnętrznych. Gdy zewnętrzny skoroszyt nie może zostać załadowany, zostaje zgłoszony wyjątek.
 
-Ten kod C++ to implementacja opisanej procedury:
+Ten przykład wymaga `presentation.pptx` z wykresem jako pierwszym kształtem na pierwszym slajdzie oraz dostępnego zewnętrznego skoroszytu. Ustawia wartość komórki pierwszego punktu danych w pierwszej serii na 100 i zapisuje prezentację jako `presentation_out.pptx`. Edycja wartości komórek może aktualizować połączony zewnętrzny plik XLSX, więc użyj kopii, jeśli musisz zachować oryginalny skoroszyt.
 
-```c++
-#include <DOM/Chart/Chart.h>
-#include <DOM/Chart/ChartData.h>
+```cpp
+#include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartDataCell.h>
 #include <DOM/Chart/IChartDataPoint.h>
 #include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IDoubleChartValue.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
 using namespace System;
 
-const String templatePath = u"../templates/presentation.pptx";
-	const String outPath = u"../out/presentation-out.pptx";
-	
-
-	System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<Aspose::Slides::Charts::IChart> chart = System::AsCast<Aspose::Slides::Charts::IChart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-	System::SharedPtr<Aspose::Slides::Charts::ChartData> chartData = System::ExplicitCast<Aspose::Slides::Charts::ChartData>(chart->get_ChartData());
-	
-
-	chartData->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell()->set_Value(System::ObjectExt::Box<int32_t>(100));
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto series = chart->get_ChartData()->get_Series();
+    if (series->get_Count() > 0 && series->idx_get(0)->get_DataPoints()->get_Count() > 0)
+    {
+        auto valueCell = series->idx_get(0)->get_DataPoints()->idx_get(0)->get_Value()->get_AsCell();
+        if (valueCell != nullptr)
+        {
+            valueCell->set_Value(ObjectExt::Box<int32_t>(100));
+            presentation->Save(u"presentation_out.pptx", Export::SaveFormat::Pptx);
+        }
+        else
+        {
+            Console::WriteLine(u"The first data point is not linked to a workbook cell.");
+        }
+    }
+    else
+    {
+        Console::WriteLine(u"The chart has no data points to edit.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-### **Odzyskiwanie skoroszytu z pamięci podręcznej wykresu**
+### **Odtworzenie skoroszytu z pamięci podręcznej wykresu**
 
-Jeśli wykres używa zewnętrznego skoroszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć skoroszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz obiekt [LoadOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/), skonfiguruj go przy pomocy [set_SpreadsheetOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), i wywołaj metodę [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) z wartością `true` przed otwarciem prezentacji.
+Jeśli wykres używa zewnętrznego skoroszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć skoroszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/), skonfiguruj go za pomocą [set_SpreadsheetOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), i wywołaj [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) z wartością `true` przed otwarciem prezentacji.
 
-Poniższy przykład C++ otwiera prezentację, której wykres odwołuje się do niedostępnego zewnętrznego skoroszytu, i uzyskuje dostęp do odzyskanych danych przez [IChart::get_ChartData](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/get_chartdata/) oraz [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Poniższy przykład C++ otwiera `presentation.pptx`, którego pierwszy kształt na pierwszym slajdzie musi być wykresem odwołującym się do niedostępnego zewnętrznego skoroszytu, i uzyskuje dostęp do odzyskanych danych przez [IChart::get_ChartData](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/get_chartdata/) oraz [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
 spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
 
@@ -463,41 +604,44 @@ auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
 
 auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->get_Count() > 0 ? AsCast<IChart>(slide->get_Shape(0)) : nullptr;
+if (chart != nullptr)
+{
+    auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-auto chart = System::ExplicitCast<IChart>(shape);
-
-auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
-
-// Odczytaj lub zmodyfikuj tutaj dane odzyskanego skoroszytu.
-
-presentation->Dispose();
+    // Odczytaj lub zmodyfikuj odzyskane dane skoroszytu tutaj.
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a chart.");
+}
 ```
 
-Jeśli zewnętrzny skoroszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza `System::InvalidOperationException`. Włącz odzyskiwanie tylko wtedy, gdy użycie danych wykresu z pamięci podręcznej jest akceptowalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian wprowadzonych w zewnętrznym skoroszycie po ostatniej aktualizacji prezentacji.
+Jeśli zewnętrzny skoroszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza [System::InvalidOperationException](https://reference.aspose.com/slides/pl/cpp/system/details_invalidoperationexception/). Włącz odzyskiwanie tylko wtedy, gdy użycie danych wykresu z pamięci podręcznej jest dopuszczalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian dokonanych w zewnętrznym skoroszycie po ostatniej aktualizacji prezentacji.
 
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**
+**Czy mogę określić, czy konkretny wykres jest powiązany ze zewnętrznym czy osadzonym skoroszytem?**
 
 Tak. Wykres posiada [data source type](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) oraz [path to an external workbook](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy względne ścieżki do zewnętrznych skoroszytów są obsługiwane i w jaki sposób są przechowywane?**
+**Czy obsługiwane są względne ścieżki do zewnętrznych skoroszytów i jak są przechowywane?**
 
-Tak. Jeśli podasz względną ścieżkę, zostaje ona automatycznie przekształcona w ścieżkę bezwzględną. To wygodne przy przenoszeniu projektów; jednak prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX.
+Tak. Jeśli podasz względną ścieżkę, jest ona automatycznie konwertowana na ścieżkę bezwzględną. Prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX, więc przeniesienie skoroszytu może wymagać aktualizacji odnośnika.
 
 **Czy mogę używać skoroszytów znajdujących się na zasobach sieciowych/udziałach?**
 
-Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Edycja zdalnych skoroszytów bezpośrednio z Aspose.Slides nie jest wspierana – mogą być używane wyłącznie jako źródło.
+Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych skoroszytów bezpośrednio z Aspose.Slides nie jest obsługiwana – mogą być używane wyłącznie jako źródło.
 
-**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX podczas zapisu prezentacji?**
+**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**
 
-Nie. Prezentacja przechowuje [link do pliku zewnętrznego](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) i używa go do odczytu danych. Sam plik zewnętrzny nie jest modyfikowany przy zapisie prezentacji.
+Prezentacja przechowuje [link do pliku zewnętrznego](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Edycja danych wykresu powiązanych z komórkami może również zaktualizować połączony lokalny plik XLSX. Użyj kopii skoroszytu, jeśli oryginał musi pozostać niezmieniony.
 
-**Co zrobić, gdy zewnętrzny plik jest zabezpieczony hasłem?**
+**Co zrobić, gdy plik zewnętrzny jest zabezpieczony hasłem?**
 
-Aspose.Slides nie przyjmuje hasła podczas łączenia. Typowe podejście to usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](/cells/cpp/)) i podlinkowanie tej kopii.
+Aspose.Slides nie akceptuje hasła przy łączeniu. Typowym rozwiązaniem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) i powiązanie z tą kopią.
 
 **Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
 
-Tak. Każdy wykres przechowuje własny link. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym wczytaniu danych.
+Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.

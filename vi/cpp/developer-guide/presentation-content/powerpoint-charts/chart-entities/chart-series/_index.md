@@ -1,43 +1,43 @@
 ---
-title: Quản lý chuỗi dữ liệu biểu đồ trong bản thuyết trình bằng C++
-linktitle: Chuỗi Dữ Liệu
+title: Quản lý chuỗi dữ liệu biểu đồ trong bản trình chiếu bằng C++
+linktitle: Chuỗi Dữ liệu
 type: docs
 url: /vi/cpp/chart-series/
 keywords:
 - chuỗi biểu đồ
-- độ chồng chéo chuỗi
-- màu chuỗi
+- độ chồng lấn series
+- màu series
 - màu danh mục
-- tên chuỗi
+- tên series
 - điểm dữ liệu
-- khoảng cách chuỗi
+- khoảng cách series
 - PowerPoint
-- bản thuyết trình
+- bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý chuỗi biểu đồ, các điểm dữ liệu, ô sổ làm việc, định dạng, độ chồng chéo, độ rộng khoảng cách và các giá trị âm trong bản thuyết trình bằng C++."
+description: "Tìm hiểu cách quản lý chuỗi biểu đồ, điểm dữ liệu, ô workbook, định dạng, độ chồng lấn, độ rộng khoảng cách và các giá trị âm trong bản trình chiếu bằng C++."
 ---
 ## **Tổng quan**
 
-Biểu đồ lưu trữ dữ liệu đã vẽ trong một sổ dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/) trong chuỗi tham chiếu tới một hoặc nhiều ô trong sổ làm việc. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartcategory/) cung cấp nhãn hoặc giá trị nhóm được chia sẻ bởi các chuỗi. Vì vậy, tên chuỗi, các danh mục và giá trị điểm được kết nối với các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
+Một biểu đồ lưu trữ dữ liệu đã vẽ trong một workbook dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/) trong series tham chiếu tới một hoặc nhiều ô trong workbook. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các series. Vì vậy tên series, các danh mục và giá trị điểm đều được kết nối với các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
 
-Đối với biểu đồ danh mục điển hình, sổ làm việc mặc định sử dụng hàng 0 cho tên chuỗi, cột 0 cho tên danh mục và các ô còn lại cho giá trị chuỗi. Các chỉ mục bảng tính, hàng và cột được truyền vào [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) là dạng số bắt đầu từ 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình bày đã tải, hãy kiểm tra các ô được chuỗi, danh mục và các điểm dữ liệu tham chiếu trước khi thay đổi giá trị sổ làm việc.
+Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên series, cột 0 cho tên danh mục và các ô còn lại cho giá trị series. Các chỉ mục worksheet, hàng và cột được truyền vào [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) là dạng chỉ số bắt đầu từ 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình chiếu đã tải, hãy kiểm tra các ô được series, danh mục và điểm dữ liệu tham chiếu trước khi thay đổi giá trị workbook.
 
 Cài đặt biểu đồ có ba phạm vi khác nhau:
 
-- Cài đặt cấp chuỗi, chẳng hạn như [IChartSeries::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_format/), cung cấp kiểu hiển thị mặc định cho tất cả các điểm trong một chuỗi.
-- Cài đặt điểm dữ liệu, chẳng hạn như [IChartDataPoint::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_format/), ghi đè kiểu hiển thị của chuỗi cho một điểm.
-- Cài đặt nhóm áp dụng cho các chuỗi tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/). Truy cập nhóm thông qua [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) khi bạn cần đặt các tùy chọn như độ chồng chéo hoặc độ rộng khoảng cách.
+- Cài đặt cấp Series, chẳng hạn [IChartSeries::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_format/), cung cấp diện mạo mặc định cho tất cả các điểm trong một series.
+- Cài đặt cấp Data-point, chẳng hạn [IChartDataPoint::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_format/), ghi đè lên diện mạo series cho một điểm.
+- Cài đặt nhóm áp dụng cho các series tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/). Truy cập nhóm qua [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) khi bạn cần đặt các tùy chọn như overlap hoặc gap width.
 
-Khi không có màu nền điểm hoặc chuỗi nào được chỉ định rõ ràng, kiểu và chủ đề của biểu đồ sẽ quyết định kiểu hiển thị tự động. Khi cả định dạng chuỗi và điểm đều tồn tại, định dạng điểm sẽ có ưu tiên đối với điểm đó.
+Khi không có màu nền point hoặc series nào được đặt rõ ràng, kiểu biểu đồ và chủ đề sẽ quyết định diện mạo tự động. Khi cả định dạng series và point đều tồn tại, định dạng point sẽ có ưu tiên cho point đó.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Đặt Độ Chồng Chéo của Chuỗi Biểu Đồ**
+## **Đặt Overlap cho Series Biểu đồ**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_overlap/) báo cáo mức độ các cột hoặc thanh chồng lên nhau trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm chuỗi cha. Gọi [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) để cập nhật mọi chuỗi tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các cột hoặc thanh được nhóm lại; nó không ảnh hưởng đến các nhóm chuỗi không liên quan trong biểu đồ hỗn hợp.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_overlap/) báo cáo mức độ chồng lấn của các thanh hoặc cột trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm series cha. Gọi [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) để cập nhật mọi series tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột được nhóm lại; nó không ảnh hưởng đến các nhóm series không liên quan trong biểu đồ kết hợp.
 
-Ví dụ sau đặt độ chồng chéo cho nhóm chứa chuỗi đầu tiên:
+Ví dụ dưới đây đặt overlap cho nhóm chứa series đầu tiên:
 
 ```cpp
 #include <cstdint>
@@ -64,7 +64,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Biểu đồ mới chứa các chuỗi mẫu, danh mục và giá trị.
+// Biểu đồ mới chứa các series mẫu, danh mục và giá trị.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -79,11 +79,11 @@ Kết quả:
 
 ![The series overlap](series_overlap.png)
 
-## **Thay Đổi Màu Đầy của Chuỗi**
+## **Thay đổi màu nền Series**
 
-Sử dụng [IChartSeries::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_format/) để đặt màu nền mặc định cho toàn bộ chuỗi. Nếu một điểm đã có màu nền rõ ràng, cài đặt [IChartDataPoint::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_format/) của nó sẽ ghi đè màu nền chuỗi cho điểm đó.
+Sử dụng [IChartSeries::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_format/) để đặt màu nền mặc định cho toàn bộ một series. Nếu một point đã có màu nền cụ thể, cài đặt [IChartDataPoint::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_format/) của nó sẽ ghi đè màu nền series cho point đó.
 
-Ví dụ sau áp dụng màu nền xanh đậm đặc cho chuỗi đầu tiên:
+Ví dụ dưới đây áp dụng màu nền xanh đậm đặc cho series đầu tiên:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -130,9 +130,9 @@ Kết quả:
 
 ![The color of the series](series_color.png)
 
-## **Thay Đổi Tên Chuỗi**
+## **Thay đổi Tên Series**
 
-Tên chuỗi được lưu trong sổ dữ liệu biểu đồ và thường hiển thị trong chú giải. Trong sổ làm việc mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của chuỗi đầu tiên. Các hằng số được đặt tên trong ví dụ sau làm cho cấu trúc này rõ ràng:
+Tên series được lưu trong workbook dữ liệu biểu đồ và thường hiển thị trong chú giải. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của series đầu tiên. Các hằng số được đặt tên trong ví dụ dưới đây làm cho cấu trúc này rõ ràng:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +173,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Bạn cũng có thể cập nhật ô đã được [IChartSeries::get_Name](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_name/) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong biểu đồ hiện có:
+Bạn cũng có thể cập nhật ô đã được [IChartSeries::get_Name](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_name/) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong một biểu đồ hiện có:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -222,11 +222,11 @@ Kết quả:
 
 ![The series name](series_name.png)
 
-## **Lấy Màu Đầy Tự Động của Chuỗi**
+## **Lấy Màu Nền Series Tự Động**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) trả về màu được tính từ chỉ số chuỗi và kiểu biểu đồ. Đây là màu được sử dụng khi màu nền chuỗi chưa được định nghĩa rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu mới.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) trả về màu được tính dựa trên chỉ mục series và kiểu biểu đồ. Đây là màu được dùng khi màu nền series chưa được định nghĩa rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu nền mới.
 
-Ví dụ sau in màu tự động của mỗi chuỗi mặc định:
+Ví dụ dưới đây in màu tự động của mỗi series mặc định:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -276,13 +276,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Màu sắc chính xác phụ thuộc vào kiểu và chủ đề của biểu đồ.
+Màu sắc chính xác phụ thuộc vào kiểu biểu đồ và chủ đề.
 
-## **Đặt Màu Đảo Ngược cho Chuỗi Biểu Đồ**
+## **Đặt Màu Nền Đảo Ngược cho Series Biểu đồ**
 
-Đối với các chuỗi thanh, cột và bong bóng, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) có thể hiển thị các giá trị âm với màu nền khác. Đặt màu nền chuỗi thường thành màu đặc, bật tính năng đảo ngược, và gán màu giá trị âm qua [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Các số âm vẫn giữ nguyên trong sổ làm việc; chỉ màu hiển thị của chúng thay đổi.
+Đối với series thanh, cột và bóng, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) có thể hiển thị các giá trị âm bằng một màu nền khác. Đặt màu nền series thường thành màu đặc, bật chế độ đảo ngược, và gán màu giá trị âm qua [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Các số âm không thay đổi trong workbook; chỉ màu hiển thị của chúng thay đổi.
 
-Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một chuỗi. Hàng 0 của bảng tính chứa tên chuỗi, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
+Ví dụ dưới đây thay thế dữ liệu biểu đồ mặc định bằng một series. Hàng 0 của worksheet chứa tên series, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -372,7 +372,7 @@ Kết quả:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Bạn có thể bật tính năng đảo ngược cho một điểm thông qua [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Trong ví dụ sau, việc đảo ngược bị tắt cho chuỗi và chỉ bật cho điểm được chọn. Điểm này cũng được gán giá trị âm để hiệu ứng hiển thị:
+Bạn có thể bật đảo ngược cho một point thông qua [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Trong ví dụ sau, đảo ngược bị tắt cho series và chỉ bật cho point đã chọn. Point cũng được gán giá trị âm để hiệu ứng hiển thị:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -430,11 +430,11 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **Xóa Giá Trị Điểm Dữ Liệu Cụ Thể**
+## **Xóa Giá Trị Điểm Dữ liệu Cụ Thể**
 
-Để làm cho một điểm trống mà không xóa các điểm khác, đặt ô sổ làm việc hỗ trợ của nó thành `nullptr`. Đối với biểu đồ cột, giá trị đã vẽ có sẵn qua [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Điểm dữ liệu vẫn ở cùng vị trí danh mục, nhưng biểu đồ sẽ coi giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
+Để làm cho một point rỗng mà không xóa các point khác, đặt ô workbook tương ứng thành `nullptr`. Đối với biểu đồ cột, giá trị được vẽ sẵn có thể lấy qua [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Điểm dữ liệu vẫn nằm ở cùng vị trí danh mục, nhưng biểu đồ sẽ coi giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
 
-Ví dụ sau xóa chỉ điểm thứ hai trong chuỗi đầu tiên:
+Ví dụ dưới đây chỉ xóa point thứ hai trong series đầu tiên:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -473,15 +473,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Biểu đồ phân tán sử dụng các ô X và Y riêng biệt, và biểu đồ bong bóng cũng sử dụng ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) khi bạn muốn giữ các điểm khác, vì phương pháp này sẽ xóa mọi điểm dữ liệu trong bộ sưu tập.
+Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bubble còn dùng ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) khi muốn giữ các point còn lại, vì phương thức này sẽ xóa mọi điểm dữ liệu trong bộ sưu tập.
 
 ## **Kiểm Soát Hiển Thị Ô Trống**
 
-Một ô sổ làm việc trống đại diện cho dữ liệu thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [IChartDataCell::set_Value](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatacell/set_value/) với `nullptr` để làm ô trống. Số không vẫn là số không bất kể cài đặt ô trống.
+Các ô ẩn chứa giá trị là một trường hợp riêng so với các ô trống. Để bao gồm hoặc loại trừ dữ liệu từ các hàng và cột worksheet ẩn, xem [Include Data from Hidden Rows and Columns](/slides/vi/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Sử dụng [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/set_displayblanksas/) để chọn cách biểu đồ hiển thị các ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách vẽ các khoảng trống, mà không lấp đầy ô trống bằng số 0 hoặc giá trị nội suy.
+Một ô workbook trống đại diện cho dữ liệu thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [IChartDataCell::set_Value](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatacell/set_value/) với `nullptr` để làm ô trở nên trống. Số không vẫn là số không bất kể cài đặt ô trống.
 
-Ví dụ tự chứa sau tạo một biểu đồ đường với một chuỗi, xóa giá trị cho Ngày 3, và lưu biểu đồ đó với mỗi chế độ. Không cần tệp đầu vào. [IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/) sử dụng bảng tính 0, cột 0 cho nhãn danh mục và cột 1 cho giá trị; hàng 0 giữ tên chuỗi. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
+Sử dụng [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/set_displayblanksas/) để chọn cách biểu đồ hiển thị ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách vẽ các ô trống, mà không điền giá trị 0 hay giá trị nội suy vào ô workbook trống.
+
+Ví dụ tự chứa dưới đây tạo một biểu đồ đường với một series, xóa giá trị cho Ngày 3, và lưu cùng một biểu đồ với mỗi chế độ. Không cần tệp đầu vào. [IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/) sử dụng worksheet 0, cột 0 cho nhãn danh mục, và cột 1 cho giá trị; hàng 0 chứa tên series. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
 
 ```cpp
 #include <array>
@@ -535,7 +537,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// Để lại Ngày 3 thực sự trống, đồng thời giữ lại danh mục và điểm dữ liệu của nó.
+// Leave Day 3 genuinely empty, while retaining its category and data point.
 workbook->GetCell(0, 3, 1)->set_Value(nullptr);
 
 auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
@@ -549,19 +551,19 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Mỗi tệp đầu ra lưu chế độ được chỉ định trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, gán chế độ mong muốn và lưu bản trình bày một lần thay vì lặp qua các chế độ.
+Mỗi tệp đầu ra lưu chế độ được gán trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, gán chế độ mong muốn và lưu bản trình chiếu một lần thay vì lặp qua các chế độ.
 
-Bảng so sánh dưới đây cho thấy cùng một dữ liệu trong cả ba tệp. Ngày 3 là trống trong sổ làm việc ở mọi trường hợp:
+So sánh dưới đây cho thấy cùng một dữ liệu trong cả ba tệp. Ngày 3 là ô trống trong workbook trong mọi trường hợp:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Hiệu ứng hiển thị phụ thuộc vào loại biểu đồ. Biểu đồ đường làm cho cả ba chế độ dễ so sánh. Các biểu đồ thanh và cột không có đường nối qua danh mục bị thiếu, vì vậy `Span` không thể tạo đoạn nối như trên; một cột thiếu và một cột có chiều cao 0 cũng có thể trông giống nhau. Tương tự, biểu đồ phân tán chỉ có dấu chấm không có đường nối. Đừng mong đợi ba kết quả phân biệt cho mọi loại biểu đồ; kiểm tra đầu ra cho kiểu bạn sử dụng.
+Hiệu ứng hiển thị phụ thuộc vào loại biểu đồ. Biểu đồ đường làm cho ba chế độ dễ so sánh. Biểu đồ thanh và cột không có đường nối qua danh mục thiếu, vì vậy `Span` không thể tạo đoạn nối như trên; một cột mất và một cột chiều cao bằng 0 cũng có thể trông giống nhau. Tương tự, biểu đồ scatter chỉ có dấu chấm không có đường nối. Đừng mong đợi ba kết quả riêng biệt cho mọi loại biểu đồ; kiểm tra kết quả đầu ra cho loại bạn sử dụng.
 
-## **Đặt Độ Rộng Khoảng Cách Giữa Các Chuỗi**
+## **Đặt Khoảng Cách Giữa Các Series (Gap Width)**
 
-Độ rộng khoảng cách là khoảng cách giữa các cụm thanh hoặc cột liền kề, biểu thị dưới dạng phần trăm của độ rộng thanh hoặc cột. Giống như độ chồng chéo, nó thuộc về nhóm chuỗi cha chứ không phải một chuỗi duy nhất. Gọi [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) một lần cho nhóm. Giá trị lớn hơn tạo ra nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
+Khoảng cách gap là không gian giữa các cụm thanh hoặc cột kề nhau, tính bằng phần trăm của chiều rộng thanh hoặc cột. Giống như overlap, nó thuộc về nhóm series cha chứ không phải một series riêng. Gọi [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) một lần cho nhóm. Giá trị lớn tạo nhiều không gian hơn giữa các cụm; giá trị nhỏ làm chúng dày đặc hơn.
 
-Ví dụ sau thay đổi độ rộng khoảng cách và lưu chỉ bản trình bày cuối cùng:
+Ví dụ dưới đây thay đổi gap width và chỉ lưu bản trình chiếu cuối cùng:
 
 ```cpp
 #include <cstdint>
@@ -604,42 +606,42 @@ Kết quả:
 
 ## **Câu Hỏi Thường Gặp**
 
-**Các loại biểu đồ nào hỗ trợ chuỗi dữ liệu?**
+**Các loại biểu đồ nào hỗ trợ series dữ liệu?**
 
-Tất cả các loại biểu đồ được biểu diễn bằng liệt kê [ChartType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng các chuỗi của chúng không phải lúc nào cũng có cùng cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục dùng danh mục và giá trị, biểu đồ phân tán dùng giá trị X và Y, và biểu đồ bong bóng thêm kích thước bong bóng. Hãy sử dụng phương pháp tạo điểm dữ liệu phù hợp với loại chuỗi. Các tùy chọn như độ chồng chéo và độ rộng khoảng cách chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
+Tất cả các loại biểu đồ được biểu thị bởi enumeration [ChartType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng series của chúng không cùng một cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục dùng danh mục và giá trị, biểu đồ scatter dùng giá trị X và Y, và biểu đồ bubble còn thêm kích thước bong bóng. Sử dụng phương pháp tạo point dữ liệu phù hợp với loại series. Các tùy chọn như overlap và gap width chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
 
-**Nhóm chuỗi biểu đồ là gì?**
+**Series group là gì?**
 
-Một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/) chứa các chuỗi tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ hỗn hợp có thể chứa hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một chuỗi không nhất thiết thay đổi mọi chuỗi trong biểu đồ.
+[IChartSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/) chứa các series tương thích chia sẻ cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một series không nhất thiết thay đổi mọi series trong biểu đồ.
 
-**Biểu đồ mới tạo có tự động chứa dữ liệu mẫu không?**
+**Biểu đồ mới tạo có dữ liệu mặc định không?**
 
-Có. Theo mặc định, [IShapeCollection::AddChart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addchart/) tạo ra các chuỗi, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả bộ sưu tập chuỗi và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
+Có. Mặc định, [IShapeCollection::AddChart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addchart/) tạo các series, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả bộ sưu tập series và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
 
-**Các đối tượng biểu đồ được kết nối với các ô trong sổ làm việc như thế nào?**
+**Các đối tượng biểu đồ được kết nối với ô workbook như thế nào?**
 
-Tên chuỗi, nhãn danh mục và giá trị điểm dữ liệu tham chiếu các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ các hàng danh mục và các hàng giá trị chuỗi đồng bộ để mỗi điểm được vẽ dưới danh mục mong muốn.
+Tên series, nhãn danh mục và giá trị point dữ liệu tham chiếu tới các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/). Thay đổi ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ các hàng danh mục và hàng giá trị series đồng nhất để mỗi point được vẽ dưới danh mục mong muốn.
 
-**Làm sao để xóa một điểm mà không xóa toàn bộ chuỗi?**
+**Làm sao để xóa một point mà không xóa toàn bộ series?**
 
-Đặt ô giá trị tương ứng thành `nullptr` để giữ vị trí danh mục của điểm đó như một điểm trống. Gọi [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) chỉ khi bạn muốn xóa mọi điểm khỏi chuỗi đó. Nếu bạn đồng thời xóa các danh mục, hãy cập nhật mọi chuỗi để giá trị của chúng vẫn khớp với bộ sưu tập danh mục.
+Đặt ô giá trị liên quan thành `nullptr` để giữ vị trí danh mục của point như một point trống. Gọi [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) chỉ khi bạn muốn xóa mọi point trong series đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi series sao cho giá trị của chúng vẫn căn chỉnh với bộ sưu tập danh mục.
 
-**Các điểm trống được hiển thị ra sao?**
+**Các point trống được hiển thị như thế nào?**
 
-Kết quả phụ thuộc vào loại biểu đồ và [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Các biểu đồ được hỗ trợ có thể hiển thị khoảng trống dưới dạng khoảng cách, giá trị 0, hoặc bằng cách nối các điểm liền kề. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bài thuyết trình của bạn. Xem phần [Kiểm Soát Hiển Thị Ô Trống](#control-the-display-of-empty-cells) để biết ví dụ đầy đủ và so sánh trực quan.
+Kết quả phụ thuộc vào loại biểu đồ và [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Các biểu đồ hỗ trợ có thể hiển thị ô trống dưới dạng khoảng trống, giá trị 0, hoặc bằng cách nối các point lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình chiếu của bạn. Xem [Control the Display of Empty Cells](#control-the-display-of-empty-cells) để biết ví dụ đầy đủ và so sánh hình ảnh.
 
 **Giá trị âm được định dạng như thế nào?**
 
-Đối với các chuỗi thanh, cột và bong bóng được hỗ trợ, gọi [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) và đặt màu qua [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Các phương pháp này ảnh hưởng đến định dạng, không thay đổi giá trị số lưu trữ.
+Đối với các series thanh, cột và bubble được hỗ trợ, gọi [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) và đặt màu qua [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Bạn có thể ghi đè hành vi cho một point riêng lẻ bằng [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Các phương thức này ảnh hưởng tới định dạng, không thay đổi giá trị số lưu trữ.
 
-**Khi cả chuỗi và điểm đều được định dạng, định dạng nào thắng?**
+**Định dạng nào thắng khi cả series và point đều được định dạng?**
 
-Định dạng điểm dữ liệu rõ ràng có ưu tiên đối với điểm đó. Các điểm khác tiếp tục sử dụng định dạng chuỗi rõ ràng hoặc, khi chuỗi không có định dạng, sử dụng kiểu và chủ đề biểu đồ tự động. Các cài đặt nhóm như độ chồng chéo và độ rộng khoảng cách kiểm soát bố cục và không phải là các ghi đè định dạng ở mức điểm.
+Định dạng point cụ thể sẽ có ưu tiên cho point đó. Các point khác vẫn sử dụng định dạng series rõ ràng hoặc, khi series không có định dạng, sẽ dùng kiểu biểu đồ và chủ đề tự động. Cài đặt nhóm như overlap và gap width kiểm soát bố cục và không phải là ghi đè định dạng cấp point.
 
-**Có giới hạn số lượng chuỗi mà một biểu đồ có thể chứa không?**
+**Có giới hạn số lượng series trong một biểu đồ không?**
 
-Aspose.Slides không áp đặt giới hạn cố định riêng cho số chuỗi. Trong thực tế, các ràng buộc của file trình bày, bộ nhớ khả dụng, thời gian render và khả năng đọc của biểu đồ sẽ quyết định giới hạn thích hợp.
+Aspose.Slides không áp đặt một giới hạn cố định riêng cho số series. Trong thực tế, các ràng buộc của tệp trình chiếu, bộ nhớ khả dụng, thời gian render và khả năng đọc biểu đồ quyết định mức giới hạn hữu dụng.
 
-**Nên làm gì khi các cột quá gần nhau hoặc quá xa?**
+**Nên thay đổi gì khi các cột quá gần nhau hoặc quá xa?**
 
-Gọi [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) trên nhóm chuỗi cha thích hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm giá trị để các cụm lại gần nhau hơn.
+Gọi [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) trên nhóm series cha phù hợp. Tăng giá trị để mở rộng khoảng cách giữa các cụm, hoặc giảm giá trị để đưa các cụm lại gần nhau hơn.

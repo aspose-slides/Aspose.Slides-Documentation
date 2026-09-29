@@ -5,7 +5,7 @@ type: docs
 weight: 70
 url: /ru/java/chart-workbook/
 keywords:
-- рабочая книга диаграммы
+- рабочая книга диаграмм
 - данные диаграммы
 - ячейка рабочей книги
 - метка данных
@@ -13,150 +13,235 @@ keywords:
 - источник данных
 - внешняя рабочая книга
 - внешние данные
-- кэш диаграмм
+- кэш диаграммы
 - восстановление рабочей книги
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Откройте для себя Aspose.Slides для Java: без труда управляйте рабочими книгами диаграмм в PowerPoint и OpenDocument форматах, упрощая данные вашей презентации."
+description: "Познакомьтесь с Aspose.Slides для Java: легко управлять рабочими книгами диаграмм в форматах PowerPoint и OpenDocument для упрощения данных вашей презентации."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как работать с рабочими книгами диаграмм в Aspose.Slides. Показано, как читать и записывать данные диаграммы через потоки рабочих книг, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
+Эта статья объясняет, как работать с рабочими книгами диаграмм в Aspose.Slides. Она показывает, как читать и записывать данные диаграммы через потоки рабочей книги, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и задавать тип источника данных для значений диаграммы.
 
-Также рассматривается работа с внешними рабочими книгами в качестве источников данных диаграммы. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
+Также рассматривается работа с внешними рабочими книгами в качестве источников данных диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
 
-Для ячеек рабочей книги, представляющих отсутствующие данные, см. [Control the Display of Empty Cells](/slides/ru/java/chart-series/) для различий между пустой ячейкой и нулём, а также сравнение режимов отображения в линейной диаграмме.
+Для ячеек рабочей книги, представляющих отсутствующие данные, см. [Управление отображением пустых ячеек](/slides/ru/java/chart-series/) для различий между пустой ячейкой и нулём, а также сравнение режимов отображения в линейной диаграмме.
 
-## **Чтение и запись данных диаграммы из рабочей книги**
-Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IChartData#readWorkbookStream--) и [WriteWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) , позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Важно**: данные диаграммы должны быть организованы одинаково или иметь структуру, похожую на исходную.
+## **Включить данные из скрытых строк и столбцов**
 
-Этот Java‑код демонстрирует пример операции:
+Используйте [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) для управления тем, будет ли диаграмма строить данные из скрытых строк и столбцов листа. Установите `true`, чтобы строить только видимые ячейки, или `false`, чтобы включить и видимые, и скрытые ячейки. Эта настройка управляет построением диаграммы; она не скрывает и не отображает строки или столбцы листа.
+
+Скачайте [hidden-source-data.pptx](hidden-source-data.pptx) и разместите его в рабочем каталоге. На первом слайде находится столбчатая диаграмма как первая фигура. Встроенный лист `Sheet1` содержит диапазон `A1:C4`. Строка 3 и столбец C скрыты, но их ячейки всё ещё содержат значения.
+
+| Строка листа | A: Месяц | B: Розница | C: Оптовая (скрытый столбец) |
+| --- | --- | --- | --- |
+| 2 | Январь | 10 | 30 |
+| 3 (скрытая строка) | Февраль | 40 | 60 |
+| 4 | Март | 20 | 50 |
+
+Получайте доступ к ячейкам‑источникам через [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) и проверяйте их скрытый статус с помощью [IChartDataCell.isHidden](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatacell/#isHidden--). Этот метод сообщает статус скрытия без его изменения. В этом файле B2 видима, B3 относится к скрытой строке, а C2 — к скрытому столбцу; пример выводит `false`, `true` и `true` соответственно.
+
+Для этого примера обновите данные диаграммы после изменения настройки построения: сохраните встроенную рабочую книгу с помощью [readWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#readWorkbookStream--) и загрузите её заново с помощью [writeWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-). При включении всех ячеек также используйте [setRange](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) для восстановления полного диапазона, включая скрытую категорию «Февраль». Простая смена флага недостаточна для обновления кэшированных данных диаграммы и меток категорий в этом образце.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("hidden-source-data.pptx");
 try {
-    Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartData data = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    byte[] stream = data.readWorkbookStream();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+        System.out.println("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        System.out.println("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        System.out.println("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
 
-    data.getSeries().clear();
-    data.getCategories().clear();
+        byte[] workbookData = chart.getChartData().readWorkbookStream();
+        for (boolean visibleOnly : new boolean[] { true, false }) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
 
-    data.writeWorkbookStream(stream);
+            // Обновить данные диаграммы из встроенной рабочей книги.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Восстановить полный диапазон источника, включая скрытые категории.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+Пример сохраняет `hidden_cells_true.pptx` только с видимыми значениями розницы (10 и 20) и `hidden_cells_false.pptx` со всеми шестью значениями. Ниже показаны два режима построения. Строка 3 и столбец C остаются скрытыми в обеих встроенных рабочих книгах.
+
+| Только видимые ячейки (`true`) | Все ячейки (`false`) |
+| --- | --- |
+| ![Только видимые ячейки: значения розницы 10 и 20 для января и марта.](hidden_cells_True.png) | ![Все ячейки: значения розницы и оптовой цены для января, февраля и марта.](hidden_cells_False.png) |
+
+Скрытая ячейка, содержащая значение, отличается от пустой ячейки. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) управляет тем, как отображаются отсутствующие значения; он не включает и не исключает скрытые исходные данные. См. [Управление отображением пустых ячеек](/slides/ru/java/chart-series/#control-the-display-of-empty-cells) для примера.
+
+## **Чтение и запись данных диаграммы из рабочей книги**
+
+Aspose.Slides for Java предоставляет методы [readWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#readWorkbookStream--) и [writeWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte:A-), позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы одинаковым способом или иметь структуру, похожую на исходную.
+
+Этот пример открывает `chart.pptx`, в котором первая фигура на первом слайде должна быть диаграммой. Он читает встроенную рабочую книгу в массив байтов, очищает существующие серии и категории и записывает ту же рабочую книгу обратно. Изменения остаются в памяти; пример не сохраняет презентацию.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Проверка макета диаграммы после изменения рабочей книги**
 
-Когда вы заменяете встроенную рабочую книгу изменённой, диаграмма сохраняет свои исходные коллекции серий и категорий. Это несоответствие может вызвать исключение [IChart.validateChartLayout](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#validateChartLayout--) с `ArgumentOutOfRangeException` (параметр: index). Чтобы избежать исключения, очистите существующие серии и категории **до** записи обновлённой рабочей книги обратно в диаграмму.
-
-```java
-// После изменения потока рабочей книги (например, с использованием Aspose.Cells)
-byte[] updatedWorkbook = baos.toByteArray();
-
-// Очистить существующие ссылки на данные.
-chart.getChartData().getSeries().clear();
-chart.getChartData().getCategories().clear();
-
-chart.getChartData().writeWorkbookStream(updatedWorkbook);
-
-chart.validateChartLayout();
-```
-
-Очистка коллекций гарантирует, что структура данных диаграммы соответствует новой рабочей книге, позволяя `validateChartLayout` завершиться без ошибок.
-
-## **Установка ячейки рабочей книги в качестве метки данных диаграммы**
-
-1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/java/com.aspose.slides/presentation) .
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте пузырчатую диаграмму с некоторыми данными.
-1. Получите доступ к серии диаграммы.
-1. Установите ячейку рабочей книги в качестве метки данных.
-1. Сохраните презентацию.
-
-Этот Java‑код показывает, как установить ячейку рабочей книги в качестве метки данных диаграммы:
+Когда вы заменяете встроенную рабочую книгу модифицированной, диаграмма сохраняет исходные коллекции серий и категорий. Это несоответствие может привести к сбою [IChart.validateChartLayout](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#validateChartLayout--) с ошибкой «выход за пределы индекса». Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму. Пример требует `chart.pptx` с диаграммой как первой фигурой на первом слайде. Комментарий отмечает место, где будет происходить редактирование рабочей книги; исполняемый пример записывает оригинальную рабочую книгу обратно и проверяет макет в памяти.
 
 ```java
 import com.aspose.slides.*;
 
-String lbl0 = "Label 0 cell value";
-String lbl1 = "Label 1 cell value";
-String lbl2 = "Label 2 cell value";
-
-// Создает экземпляр класса презентации, представляющего файл презентации
-Presentation pres = new Presentation("chart2.pptx");
+Presentation presentation = new Presentation("chart.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    IDataLabelCollection dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        byte[] workbookData = chartData.readWorkbookStream();
 
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
+        // Измените байты рабочей книги здесь, например, используя Aspose.Cells.
 
-    pres.save("resultchart.pptx", SaveFormat.Pptx);
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+Очистка коллекций удаляет устаревшие ссылки на данные перед записью рабочей книги. Перед использованием диаграммы перестройте необходимые сопоставления серий и категорий для обновлённой рабочей книги.
+
+## **Установить ячейку рабочей книги в качестве метки данных диаграммы**
+
+Можно использовать текст из ячеек рабочей книги в качестве меток данных диаграммы. Ниже представлены шаги, показывающие, как привязать метки в пузырьковой диаграмме к ячейкам её рабочей книги.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) .
+2. Получите первый слайд по нулевому индексу.
+3. Добавьте пузырьковую диаграмму с данными по умолчанию.
+4. Доступ к сериям диаграммы.
+5. Установите ячейку рабочей книги в качестве метки данных.
+6. Сохраните презентацию.
+
+Этот пример открывает `chart2.pptx`, в котором должен быть хотя бы один слайд, и добавляет пузырьковую диаграмму с данными по умолчанию. Он использует ячейки A10:A12 листа 0 для первых трёх меток в первой серии, включает метки из ячеек и сохраняет результат в `resultchart.pptx`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart2.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Bubble, 50, 50, 600, 400, true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
+
+    presentation.save("resultchart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Управление листами**
 
-Этот Java‑код демонстрирует операцию, в которой используется метод [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) для доступа к коллекции листов:
+Метод [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) предоставляет доступ к листам в рабочей книге диаграммы. Этот пример создаёт круговую диаграмму с данными по умолчанию и выводит имена каждого листа в консоль.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
-    for (int i = 0; i < wb.getWorksheets().size(); i++)
-        System.out.println(wb.getWorksheets().get_Item(i).getName());
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (int i = 0; i < workbook.getWorksheets().size(); i++) {
+        System.out.println(workbook.getWorksheets().get_Item(i).getName());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Указание типа источника данных**
 
-Этот Java‑код показывает, как указать тип для источника данных:
+Этот пример создаёт 3‑D столбчатую диаграмму с данными по умолчанию и задаёт два имени серий, используя разные источники данных. Первое имя задаётся строковым литералом; второе — ячейкой C1 листа 0. Перечисление [DataSourceType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/datasourcetype/) выбирает источник для каждого имени. Результат сохраняется в `pres.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.getChartData().getSeries().get_Item(0).getName();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    val.setDataSourceType(DataSourceType.StringLiterals);
-    val.setData("LiteralString");
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    IStringChartValue literalName = chart.getChartData().getSeries().get_Item(0).getName();
 
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
+    literalName.setDataSourceType(DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IStringChartValue cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    IChartDataCell nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Обнаружение неподдерживаемых форматов встроенных рабочих книг**
 
-Aspose.Slides не поддерживает бинарный формат Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете воспользоваться методом `getEmbeddedWorkbookType` интерфейса [IChartData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IChartData) вместе с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/WorkbookType) для обнаружения неподдерживаемых форматов и пропуска соответствующих диаграмм.
+Aspose.Slides не поддерживает формат бинарных рабочих книг Excel (.xlsb), которые могут быть встроены в некоторые диаграммы. Вы можете использовать метод [getEmbeddedWorkbookType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) на интерфейсе [IChartData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/) совместно с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска таких диаграмм. Пример проверяет фигуры на первом слайде `sample.pptx`, пропускает не‑диаграммы и выводит диагностическое сообщение для каждой диаграммы с вложенной рабочей книгой .xlsb.
 
 ```java
 import com.aspose.slides.*;
@@ -166,18 +251,21 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     for (IShape shape : slide.getShapes()) {
-        if (!(shape instanceof IChart)) continue;
-
-        IChart chart = (IChart)shape;
-        IChartData chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Встроенная рабочая книга в формате .xlsb, который не поддерживается.
+        if (!(shape instanceof IChart)) {
             continue;
         }
 
-        // Чтение или изменение данных рабочей книги диаграммы здесь.
+        IChart chart = (IChart) shape;
+        IChartData chartData = chart.getChartData();
+        boolean isInternalWorkbook = chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook;
+        boolean isBinaryMacro = chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            System.out.println("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Читать или изменять поддерживаемые данные рабочей книги диаграммы здесь.
     }
 } finally {
     presentation.dispose();
@@ -190,155 +278,170 @@ Aspose.Slides поддерживает использование внешних
 
 ### **Создание внешней рабочей книги**
 
-С помощью методов **`readWorkbookStream`** и **`setExternalWorkbook`** вы можете либо создать внешнюю рабочую книгу с нуля, либо сделать внутреннюю рабочую книгу внешней.
+Используйте [readWorkbookStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#readWorkbookStream--) и [setExternalWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) для экспорта встроенной рабочей книги диаграммы в файл и привязки диаграммы к этой внешней рабочей книге.
 
-Этот Java‑код демонстрирует процесс создания внешней рабочей книги:
+Этот пример создаёт круговую диаграмму с данными по умолчанию, сохраняет её рабочую книгу в `externalWorkbook1.xlsx` и завершает запись файла перед назначением его в качестве источника данных диаграммы. Он сохраняет связанную презентацию в `externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    final String workbookPath = "externalWorkbook1.xlsx";
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
-    FileOutputStream fileStream = new FileOutputStream(workbookPath);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600);
+    Path workbookPath = Paths.get("externalWorkbook1.xlsx").toAbsolutePath();
+    byte[] workbookData = chart.getChartData().readWorkbookStream();
     try {
-        byte[] workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) fileStream.close();
+        Files.write(workbookPath, workbookData);
+        chart.getChartData().setExternalWorkbook(workbookPath.toString());
+        presentation.save("externalWorkbook.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("Could not write the external workbook: " + exception.getMessage());
     }
-
-    chart.getChartData().setExternalWorkbook(workbookPath);
-
-    pres.save("externalWorkbook.pptx", SaveFormat.Pptx);
-} catch (IOException e) {    
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Назначение внешней рабочей книги**
 
-Метод **`setExternalWorkbook`** позволяет назначить внешнюю рабочую книгу диаграмме в качестве источника данных. Этот же метод можно использовать для обновления пути к внешней рабочей книге (если файл был перемещён).
+С помощью метода [setExternalWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) можно назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот же метод можно использовать для обновления пути к внешней рабочей книге (если файл был перемещён).
 
-Хотя редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, нельзя, такие книги можно использовать в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
+Хотя редактировать данные в рабочих книгах, хранящихся в удалённых ресурсах, нельзя, их всё равно можно использовать как внешний источник данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в абсолютный.
 
-Этот Java‑код показывает, как установить внешнюю рабочую книгу:
+Пример требует `externalWorkbook.xlsx` в рабочем каталоге. На листе `Sheet1` должны быть: имя серии в B1, имена категорий в A2:A4 и числовые значения в B2:B4. Пример создаёт круговую диаграмму, связывает рабочую книгу и с помощью [setRange](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) сопоставляет диапазон A1:B4 с одной серией и тремя категориями. Результат сохраняется в `Presentation_with_externalWorkbook.pptx`.
 
 ```java
 import com.aspose.slides.*;
+import java.nio.file.Paths;
 
-// Создаёт экземпляр класса Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
     IChartData chartData = chart.getChartData();
+    String workbookPath = Paths.get("externalWorkbook.xlsx").toAbsolutePath().toString();
 
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
 
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    
-    pres.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+    presentation.save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Второй (`boolean`) параметр метода `setExternalWorkbook` указывает, будет ли загружена Excel‑книга.
+Параметр `updateChartData` метода [setExternalWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) управляет тем, будет ли загружена рабочая книга.
 
-* Когда его значение `false`, обновляется только путь к книге — данные диаграммы не загружаются и не обновляются из целевой книги. Этот вариант полезен, если целевая книга отсутствует или недоступна.  
-* Когда его значение `true`, данные диаграммы обновляются из целевой книги.
+* Когда `updateChartData` равно `false`, обновляется только путь к рабочей книге. Данные диаграммы не загружаются и не обновляются из целевой книги, поэтому сама книга может быть недоступна.
+* Когда `updateChartData` равно `true`, данные диаграммы обновляются из целевой рабочей книги.
+
+Следующий пример назначает фиктивный URL с `updateChartData`, установленным в `false`. Он сохраняет диаграмму с данными по умолчанию и не пытается загрузить недоступную книгу.
 
 ```java
 import com.aspose.slides.*;
 
-// Создаёт экземпляр класса Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
-    IChartData chartData = chart.getChartData();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ((ChartData)chartData).setExternalWorkbook("http://path/doesnt/exists", false);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
 
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Получение пути к внешнему источнику данных диаграммы**
+### **Получение пути к внешней рабочей книге, используемой диаграммой**
 
-1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/java/com.aspose.slides/presentation) .
-1. Получите ссылку на слайд по его индексу.
-1. Создайте объект для формы диаграммы.
-1. Создайте объект для типа источника (`ChartDataSourceType`), представляющего источник данных диаграммы.
-1. Укажите соответствующее условие, если тип источника совпадает с типом внешнего источника данных рабочей книги.
+Чтобы определить, какая рабочая книга связана с диаграммой, сначала проверьте, использует ли диаграмма внешний источник данных. Если да, вы можете получить путь к книге, выполнив следующие шаги.
 
-Этот Java‑код демонстрирует операцию:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) .
+2. Получите первый слайд по нулевому индексу.
+3. Убедитесь, что первая фигура — это диаграмма.
+4. Прочитайте тип источника данных диаграммы.
+5. Если источник — внешняя рабочая книга, прочитайте её путь.
+
+Этот пример открывает `externalWorkbook.pptx`, созданный в предыдущем примере, и проверяет первую фигуру на первом слайде. Если это диаграмма, связанная с внешней рабочей книгой, пример выводит [getExternalWorkbookPath](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) в консоль. Затем сохраняет копию презентации в `Result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// Создаёт экземпляр класса Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("externalWorkbook.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(1);
-    IChart chart = (IChart)slide.getShapes().get_Item(0);
-    int sourceType = chart.getChartData().getDataSourceType();
-    
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
-    {
-        String path = chart.getChartData().getExternalWorkbookPath();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartData chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == ChartDataSourceType.ExternalWorkbook) {
+            System.out.println(chartData.getExternalWorkbookPath());
+        } else {
+            System.out.println("The chart does not use an external workbook.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
     }
-	
-	// Сохраняет презентацию
-    pres.save("result.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Редактирование данных диаграммы**
 
-Вы можете редактировать данные во внешних рабочих книгах так же, как внутренних. Если внешнюю рабочую книгу нельзя загрузить, будет выброшено исключение.
+Данные во внешних рабочих книгах можно редактировать так же, как и во внутренних. Если внешняя рабочая книга не может быть загружена, будет выброшено исключение.
 
-Этот Java‑код реализует описанный процесс:
+Пример требует `presentation.pptx` с диаграммой как первой фигурой на первом слайде и доступной внешней рабочей книгой. Он устанавливает значение первой точки данных в первой серии равным 100 и сохраняет презентацию в `presentation_out.pptx`. Редактирование значений ячеек может обновлять связанный внешний файл XLSX, поэтому используйте копию, если необходимо сохранить оригинал.
 
 ```java
 import com.aspose.slides.*;
 
-// Создаёт экземпляр класса Presentation
-Presentation pres = new Presentation("chart.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    ChartData chartData = (ChartData)chart.getChartData();
-    
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    
-    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartSeriesCollection series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            IChartDataCell valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+            } else {
+                System.out.println("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            System.out.println("The chart has no data points to edit.");
+        }
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Восстановление рабочей книги из кэша диаграммы**
 
-Если диаграмма использует внешнюю рабочую книгу, которая отсутствует или недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из кэшированных данных презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/), настройте его с помощью [SpreadsheetOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/spreadsheetoptions/) и вызовите [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) со значением `true` перед открытием презентации.
+Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из кэшированных данных презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/), вызовите [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), и установите [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) в `true` перед открытием презентации.
 
-Следующий пример на Java открывает презентацию, в которой диаграмма ссылается на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [IChart.getChartData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#getChartData--) и [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Следующий пример Java открывает `presentation.pptx`, где первая фигура на первом слайде должна быть диаграммой, ссылающейся на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [IChart.getChartData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#getChartData--) и [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
+import com.aspose.slides.*;
+
 SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -347,39 +450,46 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 Presentation presentation = new Presentation("presentation.pptx", loadOptions);
 try {
-    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Чтение или изменение восстановленных данных рабочей книги здесь.
+    int shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && slide.getShapes().get_Item(0) instanceof IChart) {
+        IChart chart = (IChart) slide.getShapes().get_Item(0);
+        IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Читать или изменять восстановленные данные рабочей книги здесь.
+    } else {
+        System.out.println("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides бросит исключение. Включайте восстановление только тогда, когда использование кэшированных данных диаграммы приемлемо, поскольку кэш может не содержать изменения, сделанные во внешней книге после последнего сохранения презентации.
+Если внешняя рабочая книга недоступна, а восстановление отключено, Aspose.Slides бросит исключение. Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемой альтернативой, так как кэш может не содержать изменения, внесённые во внешнюю книгу после последнего обновления презентации.
 
 ## **FAQ**
 
 **Можно ли определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
 
-Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getDataSourceType--) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); если источник — внешняя книга, можно прочитать полный путь, чтобы убедиться, что используется внешний файл.
+Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getDataSourceType--) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); если источник — внешняя рабочая книга, можно считать полный путь, чтобы убедиться, что используется внешний файл.
 
 **Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
 
-Да. При указании относительного пути он автоматически преобразуется в абсолютный. Это удобно для переносимости проекта, однако презентация сохраняет абсолютный путь в файле PPTX.
+Да. При указании относительного пути он автоматически преобразуется в абсолютный. Презентация сохраняет абсолютный путь в файле PPTX, поэтому при перемещении книги может потребоваться обновить ссылку.
 
 **Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**
 
-Да, такие книги могут служить внешним источником данных. Однако прямое редактирование удалённых книг из Aspose.Slides не поддерживается — они могут использоваться только как источник.
+Да, такие книги можно использовать как внешний источник данных. Однако прямое редактирование удалённых книг из Aspose.Slides не поддерживается — они могут использоваться только как источник.
 
-**Перезаписывает ли Aspose.Slides внешнюю XLSX при сохранении презентации?**
+**Перезаписывает ли Aspose.Slides внешний XLSX при сохранении презентации?**
 
-Нет. Презентация сохраняет [ссылку на внешний файл](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) и использует её только для чтения данных. Сам внешний файл при сохранении презентации не изменяется.
+Презентация сохраняет [ссылку на внешний файл](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). При редактировании данных, основанных на ячейках, может также обновляться связанный локальный файл XLSX. Используйте копию рабочей книги, если оригинал должен оставаться неизменным.
 
 **Что делать, если внешний файл защищён паролем?**
 
-Aspose.Slides не принимает пароль при связывании. Обычный способ — снять защиту заранее или подготовить расшифрованную копию (например, с помощью [Aspose.Cells](/cells/java/)) и ссылаться на неё.
+Aspose.Slides не принимает пароль при связывании. Обычный подход — снять защиту заранее или подготовить расшифрованную копию (например, с помощью [Aspose.Cells](https://reference.aspose.com/cells/java/)) и привязать её.
 
 **Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
 
-Да. Каждая диаграмма хранит свою собственную ссылку. Если все они указывают на один и тот же файл, изменение этого файла отразится в каждой диаграмме при следующей загрузке данных.
+Да. Каждая диаграмма хранит свою собственную ссылку. Если все они указывают на один и тот же файл, обновление этого файла будет отражено в каждой диаграмме при следующей загрузке данных.

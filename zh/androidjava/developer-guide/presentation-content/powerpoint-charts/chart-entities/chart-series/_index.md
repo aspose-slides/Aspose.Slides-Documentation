@@ -10,36 +10,36 @@ keywords:
 - 系列名称
 - 数据点
 - 工作簿单元格
-- 系列间隙
+- 系列间隔
 - 负值
 - PowerPoint
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Android 上的演示文稿中管理图表系列、数据点、工作簿单元格、格式设置、重叠、间隙宽度和负值。"
+description: "了解如何在 Android 演示文稿中管理图表系列、数据点、工作簿单元格、格式设置、重叠、间隔宽度和负值。"
 ---
-## **概览**
+## **概述**
 
-图表将其绘制的数据存储在图表数据工作簿中。一个[IChartSeries](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/)表示一组相关值，系列中的每个[IChartDataPoint](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/)对应一个或多个工作簿单元格。[IChartCategory](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartcategory/)对象提供系列共享的标签或分组值。因此，系列名称、类别和点值与[IChartDataCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/)对象相连，而不是仅以显示文本形式存储。
+图表将其绘制的数据存储在图表数据工作簿中。一个[IChartSeries](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/)表示一组相关值，系列中的每个[IChartDataPoint](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/)引用一个或多个工作簿单元格。[IChartCategory](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartcategory/)对象提供系列共享的标签或分组值。因此，系列名称、类别和数据点值连接到[IChartDataCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/)对象，而不是仅仅作为显示文本存储。
 
-对于典型的类别图，默认工作簿使用第 0 行存放系列名称，第 0 列存放类别名称，其余单元格存放系列值。传递给[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-)的工作表、行和列索引是从零开始的。此布局在创建带默认数据的图表时很有用，但不要假设每个已有图表都使用该布局。对于已加载的演示文稿，在更改工作簿值之前，请检查系列、类别和数据点引用的单元格。
+对于典型的类别图表，默认工作簿使用第0行存放系列名称，第0列存放类别名称，其余单元格存放系列数值。传递给[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-)的工作表、行和列索引是从零开始的。当您使用默认数据创建图表时，此布局很有用，但不要假设每个现有图表都采用此布局。对于已加载的演示文稿，请在更改工作簿值之前检查系列、类别和数据点引用的单元格。
 
-图表设置有三种不同的作用域：
+Chart settings have three different scopes:
 
-- 系列级别设置，例如[IChartSeries.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getFormat--)，为同一系列中的所有点提供默认外观。
-- 数据点级别设置，例如[IChartDataPoint.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)，覆盖该点的系列外观。
-- 组设置适用于属于同一[IChartSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/)的兼容系列。当需要设置诸如重叠或间隙宽度等选项时，可通过[IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--)访问该组。
+- 系列级别的设置，例如[IChartSeries.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getFormat--)，为单个系列中的所有数据点提供默认外观。
+- 数据点级别的设置，例如[IChartDataPoint.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)，覆盖系列的外观，仅针对单个数据点。
+- 组设置适用于属于同一[IChartSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/)的兼容系列。当需要设置重叠或间隔宽度等选项时，可通过[IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--)访问该组。
 
-当未显式设置点或系列填充时，图表样式和主题决定自动外观。若系列和点的格式都存在，则点的格式对该点具有优先权。
+如果未设置显式的数据点或系列填充，图表样式和主题将决定自动外观。当系列和数据点的格式均已设置时，数据点的格式对该点优先。
 
 ![图表系列-PowerPoint](chart-series-powerpoint.png)
 
 ## **设置图表系列重叠**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getOverlap--)报告 2D 图表中条形或柱形的重叠程度，范围为 -100 到 100 百分比。它是父系列组设置的只读投影。使用[IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-)可更新该组中所有兼容系列。此选项适用于显示分组条形或柱形的图表类型；对组合图中不相关的系列组没有影响。
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getOverlap--)报告2D图表中条形或柱形的重叠程度，范围为-100%到100%。它是父系列组上设置的只读投影。使用[IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-)可更新该组中所有兼容系列。此选项适用于显示分组条形或柱形的图表类型；对组合图中不相关的系列组没有影响。
 
-以下示例为包含第一个系列的组设置重叠：
+下面的示例为包含第一个系列的组设置重叠：
 
 ```java
 import com.aspose.slides.*;
@@ -70,9 +70,9 @@ try {
 
 ## **更改系列填充颜色**
 
-使用[IChartSeries.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getFormat--)可以为整个系列设置默认填充。如果某个点已显式设置填充，其[IChartDataPoint.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)会覆盖该系列的填充。
+使用[IChartSeries.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getFormat--)为整个系列设置默认填充。如果某个数据点已经具有显式填充，则其[IChartDataPoint.getFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)设置会覆盖该点的系列填充。
 
-以下示例为第一个系列应用实心蓝色填充：
+下面的示例为第一个系列应用纯蓝色填充：
 
 ```java
 import com.aspose.slides.*;
@@ -103,7 +103,7 @@ try {
 
 ## **更改系列名称**
 
-系列名称存储在图表数据工作簿中，通常显示在图例中。对于默认创建的聚类柱形图，单元格 B1 位于第 0 行第 1 列，存放第一个系列的名称。下面示例中的命名常量明确了该结构：
+系列名称存储在图表数据工作簿中，通常显示在图例中。在为聚簇柱形图创建的默认工作簿中，单元格 B1 位于第0行第1列，包含第一个系列的名称。下面示例中的命名常量明确了该结构：
 
 ```java
 import com.aspose.slides.*;
@@ -129,7 +129,7 @@ try {
 }
 ```
 
-您也可以更新[IChartSeries.getName](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getName--)已引用的单元格。此方法避免在已有图表中假设特定的行列位置：
+您也可以更新[IChartSeries.getName](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getName--)已引用的单元格。这种方法避免了假设现有图表中某个特定的行和列：
 
 ```java
 import com.aspose.slides.*;
@@ -160,9 +160,9 @@ try {
 
 ## **获取自动系列填充颜色**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--)返回根据系列索引和图表样式计算的 Android ARGB 颜色整数。当系列填充未显式定义时即使用该颜色。调用此方法只读取计算后的颜色，不会分配新填充。
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--)返回根据系列索引和图表样式计算出的颜色，形式为 Android ARGB 整数。当系列填充未显式定义时使用此颜色。调用该方法仅读取计算得到的颜色，不会分配新的填充。
 
-以下示例打印每个默认系列的自动颜色整数：
+下面的示例打印每个默认系列的自动颜色整数：
 
 ```java
 import com.aspose.slides.*;
@@ -190,9 +190,9 @@ try {
 
 ## **为图表系列设置反转填充颜色**
 
-对于条形、柱形和气泡系列，[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) 可以在负值时使用不同的填充。将常规系列填充设为实心，启用反转，并通过[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) 分配负值颜色。工作簿中的负数保持不变，仅改变其显示颜色。
+对于条形、柱形和气泡系列，[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-)可以使用不同的填充显示负值。将常规系列填充设为实色，启用反转，并通过[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--)分配负值颜色。负数在工作簿中保持不变，仅其显示颜色会改变。
 
-以下示例用一个系列替换默认图表数据。工作表第 0 行存放系列名称，第 0 列存放类别名称，第 1 列存放数值：
+下面的示例用一个系列替换默认的图表数据。工作表第0行包含系列名称，第0列包含类别名称，第1列包含数值：
 
 ```java
 import com.aspose.slides.*;
@@ -249,9 +249,9 @@ try {
 
 结果：
 
-![反转的实心填充颜色](inverted_solid_fill_color.png)
+![反转实色填充颜色](inverted_solid_fill_color.png)
 
-您可以通过[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) 为单个点启用反转。下例中，系列的反转被禁用，仅为选中的点启用，并为该点分配负值以显示效果：
+您可以通过[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-)为单个数据点启用反转。在下面的示例中，系列的反转被禁用，仅为选中的数据点启用。该点还被赋予负值，以便显示效果：
 
 ```java
 import com.aspose.slides.*;
@@ -287,9 +287,9 @@ try {
 
 ## **清除特定数据点的值**
 
-要使某一点为空而不移除其他点，请将其对应的工作簿单元格设为 `null`。对于柱形图，绘制的数值可通过[IChartDataPoint.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) 获取。数据点仍保持在相同的类别位置，但图表会根据空值设置将其视为空白。
+要在不删除其他数据点的情况下使某个点为空，可将其对应的工作簿单元格设为`null`。对于柱形图，绘制的数值可通过[IChartDataPoint.getValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#getValue--)获取。数据点仍保留在相同的类别位置，但图表会根据空值设置将其视为空白。
 
-以下示例仅清除第一系列中的第二个点：
+下面的示例仅清除第一个系列中的第二个数据点：
 
 ```java
 import com.aspose.slides.*;
@@ -314,15 +314,17 @@ try {
 }
 ```
 
-散点图使用单独的 X 和 Y 单元格，气泡图还使用大小单元格。仅清除表示要删除的数值的单元格。不要在想保留其他点时调用[IChartDataPointCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)，因为该方法会移除该系列的所有数据点。
+散点图使用独立的 X 和 Y 单元格，气泡图还使用尺寸单元格。仅清除表示您想要移除的数值的单元格。若想保留其他数据点，请勿调用[IChartDataPointCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)，因为该方法会删除集合中的所有数据点。
 
 ## **控制空单元格的显示**
 
-空工作簿单元格代表缺失数据；包含 `0` 的单元格代表已知的数值。调用[IChartDataCell.setValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) 并传入 `null` 可使单元格为空。数值零始终保持为零，无论空单元格设置为何。
+包含值的隐藏单元格与空单元格是不同的情况。要在隐藏的工作表行和列中包含或排除数据，请参阅[Include Data from Hidden Rows and Columns](/slides/zh/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns)。
 
-使用[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) 选择图表如何显示空单元格。此设置针对整个图表，改变空白的绘制方式，而不会将空单元格填充为零或插值。
+空的工作簿单元格表示缺失的数据；单元格中包含`0`表示已知的数值。使用[IChartDataCell.setValue](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-)并传入`null`可将单元格设为空。无论空单元格设置如何，数值零始终保持为零。
 
-下面的独立示例创建一个包含一个系列的折线图，清除第 3 天的数值，并分别使用每种模式保存同一图表。无需输入文件。[IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/) 使用工作表 0，第 0 列作为类别标签，第 1 列作为数值；第 0 行保存系列名称。最终数据为 `10, 20, empty, 30, 40`。
+使用[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-)选择图表如何显示空单元格。此设置适用于整个图表。它会改变空白的绘制方式，而不会用零或插值填充空的工作簿单元格。
+
+下面的独立示例创建一个包含一个系列的折线图，清除第3天的数值，并以每种模式保存相同的图表。无需输入文件。[IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/)使用工作表 0，第0列作为类别标签，第1列作为数值；第0行保存系列名称。最终数据为`10, 20, empty, 30, 40`。
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +351,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // 让第3天真正为空，同时保留其类别和数据点。
+    // 将第3天真正保持为空，同时保留其类别和数据点。
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -363,19 +365,19 @@ try {
 }
 ```
 
-每个输出文件在保存前会记录相应的模式：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx` 和 `empty_cells_Span.pptx`。若只需一种版本，只需设置所需模式并保存一次，而不是遍历所有模式。
+每个输出文件在保存前存储所分配的模式：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`和`empty_cells_Span.pptx`。若只保存一个版本，请设置所需模式后仅保存一次演示文稿，而不是遍历所有模式。
 
-下图比较了三个文件中相同的数据。第 3 天在工作簿中均为空：
+以下比较展示了三个文件中相同的数据。在所有情况下，第3天在工作簿中都是空的：
 
-![具有相同数据的折线图：Gap 在第3天断开线段，Zero 将线段降至零，Span 将第2天连接到第4天。](display_blanks_as.png)
+![折线图相同数据示例：Gap 在第3天断开线条，Zero 将线降到零，Span 将第2天和第4天连接。](display_blanks_as.png)
 
-可见效果取决于图表类型。折线图能够直观比较三种模式。条形和柱形图没有连线跨越缺失的类别，因此 `Span` 无法产生上述连接段；缺失的柱子和零高柱子也可能看起来相似。类似地，仅有标记的散点图也没有连接线。不要期望每种图表类型都能得到三种不同的结果；请检查所用图表类型的输出。
+可见效果取决于图表类型。折线图可以直观比较三种模式。条形图和柱形图没有跨越缺失类别的连线，因此`Span`无法产生上述连接段；缺失的柱形和高度为零的柱形也可能看起来相似。同样，仅带标记的散点图没有连线。不要期望每种图表类型都有三种不同的结果；请检查所使用图表类型的输出。
 
-## **设置系列间隙宽度**
+## **设置系列间隔宽度**
 
-间隙宽度是相邻条形或柱形簇之间的空间，表示为条形或柱形宽度的百分比。和重叠一样，它属于父系列组而不是单个系列。对组调用一次[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-)即可。数值越大，簇之间的空间越大；数值越小，簇越密集。
+间隔宽度是相邻条形或柱形簇之间的空间，以条形或柱形宽度的百分比表示。与重叠类似，它属于父系列组而不是单个系列。对该组调用一次[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-)即可。较大的数值会在簇之间创建更大的间距，较小的数值则使其更紧密。
 
-以下示例更改间隙宽度并仅保存最终演示文稿：
+下面的示例更改间隔宽度并仅保存最终的演示文稿：
 
 ```java
 import com.aspose.slides.*;
@@ -401,46 +403,46 @@ try {
 
 结果：
 
-![间隙宽度](gap_width.png)
+![间隔宽度](gap_width.png)
 
 ## **常见问题**
 
-**哪种图表类型支持数据系列？**
+**哪些图表类型支持数据系列？**
 
-所有由[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/) 枚举表示的图表类型都使用图表数据，但它们的系列并非全部拥有相同的值结构或设置。例如，类别图使用类别和数值，散点图使用 X 和 Y 值，气泡图额外使用气泡大小。请使用与系列类型匹配的数据点创建方法。重叠和间隙宽度等选项仅适用于兼容的条形或柱形组。
+所有由[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/)枚举表示的图表类型都使用图表数据，但它们的系列在数值结构或设置上并不完全相同。例如，类别图表使用类别和数值，散点图使用 X 和 Y 值，气泡图则额外使用气泡大小。请使用与系列类型匹配的数据点创建方法。重叠和间隔宽度等选项仅适用于兼容的条形或柱形组。
 
 **什么是图表系列组？**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/) 包含共享组级绘图设置的兼容系列。组合图可以包含多个组，因此通过某个系列访问的组设置不一定会影响图表中的所有系列。
+[IChartSeriesGroup](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/)包含共享组级绘图设置的兼容系列。组合图表可以包含多个组，因此通过某个系列访问的组的更改不一定会影响图表中的所有系列。
 
 **新创建的图表是否包含默认数据？**
 
-是的。默认情况下，[IShapeCollection.addChart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 会创建示例系列、类别和数值。您可以编辑这些单元格，或在添加完全自定义的数据集之前清除系列和类别集合。也可以使用重载方法创建不带默认数据的图表。
+是的。默认情况下，[IShapeCollection.addChart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)会创建示例系列、类别和数值。您可以编辑这些单元格，或在添加完全自定义的数据集之前清除系列和类别集合。也可以使用重载创建没有默认数据的图表。
 
 **图表对象如何与工作簿单元格关联？**
 
-系列名称、类别标签和数据点数值引用[IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/) 中的单元格。更改被引用的单元格会更新相应的图表元素。构建自定义数据时，请保持类别行与系列值行对齐，以便每个点绘制在预期的类别下。
+系列名称、类别标签和数据点值引用[IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/)中的单元格。更改被引用的单元格会更新相应的图表元素。构建自定义数据时，请保持类别行和系列值行对齐，以便每个点绘制在预期的类别下。
 
-**如何只清除一个点而不是整个系列？**
+**如何仅清除一个数据点而不是整系列？**
 
-将相关的值单元格设为 `null`，即可保留该点的类别位置作为空点。仅在确实想移除该系列所有点时才使用[IChartDataPointCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)。如果同时删除了类别，请更新所有系列，使其数值仍与类别集合保持对齐。
+将相关的数值单元格设为`null`，即可保留该点的类别位置，使其成为空点。仅在想要删除该系列的所有数据点时才使用[IChartDataPointCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)。如果同时删除了类别，请更新所有系列，使其数值仍与类别集合保持对齐。
 
 **空点如何显示？**
 
-显示结果取决于图表类型以及通过[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) 配置的值。受支持的图表可以将空白显示为间隙、零值或通过连接相邻点来填补。请选择与演示文稿中缺失数据意义相符的设置。请参阅[控制空单元格的显示](#%E6%8E%A7%E5%88%B6%E7%A9%BA%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E6%98%BE%E7%A4%BA)获取完整示例和可视比较。
+结果取决于图表类型以及通过[IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-)配置的值。支持的图表可以将空白显示为间隔、零值或连接相邻点。请选择与演示文稿中缺失数据含义相匹配的设置。完整示例和可视化比较请参见[Control the Display of Empty Cells](#control-the-display-of-empty-cells)。
 
 **负值如何格式化？**
 
-对于受支持的条形、柱形和气泡系列，调用[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) 并设置[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) 返回的颜色。您可以通过[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) 为单个点覆盖此行为。这些方法影响显示格式，而不改变存储的数值。
+对于支持的条形、柱形和气泡系列，调用[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-)并设置[IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--)返回的颜色。您可以使用[IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-)为单个数据点覆盖此行为。这些方法影响的是格式，而不是存储的数值。
 
-**当系列和点都被格式化时，哪种格式优先？**
+**当系列和数据点都进行了格式设置时，哪种格式优先？**
 
-显式的数据点格式在该点上具有最高优先级。其他点继续使用显式的系列格式，若系列格式未定义，则使用自动的图表样式和主题。组设置（如重叠和间隙宽度）控制布局，而不是点级别的格式覆盖。
+显式的数据点格式对该点拥有优先权。其他点继续使用显式的系列格式，若系列格式未定义，则使用自动的图表样式和主题。组设置（如重叠和间隔宽度）控制布局，且不是数据点级别的格式覆盖。
 
-**图表可以包含多少系列？是否有限制？**
+**图表能够包含的系列数量是否有限制？**
 
-Aspose.Slides 并未施加单独的固定系列数量限制。实际上，演示文稿文件的约束、可用内存、渲染时间以及图表的可读性会决定实际可用的上限。
+Aspose.Slides 并未设置单独的系列数量上限。实际使用中，演示文稿文件限制、可用内存、渲染时间以及图表可读性决定了实际可用的上限。
 
-**当柱子之间过于接近或过于分散时该怎么办？**
+**当柱形过于靠近或距离过远时，我应该如何调整？**
 
 对相应的父系列组调用[IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-)。增大数值可扩大簇之间的间距，减小数值则使簇更紧凑。

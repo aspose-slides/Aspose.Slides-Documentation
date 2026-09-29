@@ -1,43 +1,43 @@
 ---
-title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام بايثون
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام Python
 linktitle: سلسلة البيانات
 type: docs
 url: /ar/python-net/chart-series/
 keywords:
-- سلسلة المخطط
+- سلسلة مخطط
 - تداخل السلسلة
 - لون السلسلة
 - لون الفئة
 - اسم السلسلة
-- نقطة البيانات
+- نقطة بيانات
 - فجوة السلسلة
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السالبة في العروض التقديمية باستخدام بايثون."
+description: "تعرف على كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيقات، التداخل، عرض الفجوة، والقيم السالبة في العروض التقديمية باستخدام Python."
 ---
 ## **نظرة عامة**
 
-يخزن المخطط بياناته المرسومة في دفتر بيانات المخطط. تمثل [ChartSeries](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/) مجموعة واحدة من القيم المرتبطة، وكل [ChartDataPoint](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. تُوفر كائنات [ChartCategory](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. وبالتالي يتم ربط اسم السلسلة والفئات وقيم النقاط بـ [ChartDataCell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
+يخزن المخطط بياناته المرسومة في دفتر عمل بيانات المخطط. تمثل [ChartSeries](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/) مجموعة واحدة من القيم المرتبطة، وكل [ChartDataPoint](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [ChartCategory](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. وبالتالي يتم ربط اسم السلسلة، الفئات، وقيم النقاط بكائنات [ChartDataCell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
 
-بالنسبة إلى مخطط فئات نموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وتُملأ الخلايا المتبقية بقيم السلاسل. المؤشرات الخاصة بورقة العمل والصف والعمود التي تُمرَّر إلى [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) هي صفرية. يُفيد هذا التخطيط عندما تُنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. للمُستَند المُحمَّل، تحقق من الخلايا التي تُشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
+في مخطط الفئة النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، العمود 0 لأسماء الفئات، وتُستخدم الخلايا المتبقية لقيم السلاسل. الفهارس للورقة، الصف، والعمود التي تُمرَّر إلى [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) هي صفرية الأساس. هذا التخطيط مفيد عندما تنشئ مخططاً ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة للعرض التقديمي المحمّل، افحص الخلايا التي تشير إليها السلاسل، الفئات، ونقاط البيانات قبل تعديل قيم دفتر العمل.
 
 إعدادات المخطط لها ثلاث نطاقات مختلفة:
 
-- إعدادات على مستوى السلسلة، مثل [ChartSeries.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/format/)، توفّر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
-- إعدادات نقاط البيانات، مثل [ChartDataPoint.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/format/)، تتجاوز مظهر السلسلة لنقطة واحدة.
-- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/). يمكنك الوصول إلى المجموعة عبر [ChartSeries.parent_series_group](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/parent_series_group/) عندما تحتاج إلى تعيين خيارات مثل التداخل أو عرض الفجوة.
+- إعدادات على مستوى السلسلة، مثل [ChartSeries.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/format/)، تُوفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات النقطة، مثل [ChartDataPoint.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/format/)، تتخطى مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تُطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/). احصل على المجموعة عبر [ChartSeries.parent_series_group](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/parent_series_group/) عندما تحتاج إلى ضبط خيارات مثل التداخل أو عرض الفجوة.
 
-عند عدم تعيين تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون هناك تنسيقات لسلسلة ونقطة معاً، تكون تنسيق النقطة هو السائد لتلك النقطة.
+عندما لا يتم تعيين تعبئة صريحة للنقطة أو السلسلة، تحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تكون تنسيق النقطة هو المتفوق لتلك النقطة.
 
 ![سلسلة المخطط في PowerPoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل سلسلة المخطط**
+## **ضبط تداخل سلسلة المخطط**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/overlap/) يوضح مدى تداخل الأعمدة أو الأشرطة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمئة. هو إسقاط للقراءة فقط للإعداد على مجموعة السلاسل الأصلية. اضبط [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/overlap/) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أشرطة أو أعمدة مجمّعة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركّب.
+[ChartSeries.overlap](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/overlap/) يُظهر مقدار تداخل الأعمدة أو الأعمدة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمائة. إنه إسقاط قراءة‑فقط للإعداد في مجموعة السلاسل الأصلية. اضبط [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/overlap/) لتحديث كل السلاسل المتوافقة في تلك المجموعة. يُطبق هذا الخيار على أنواع المخططات التي تعرض أعمدة أو أشرطة مجموعة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركب.
 
-المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
+المثال التالي يحدد التداخل للمجموعة التي تحتوي على السلسلة الأولى:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # المخطط الجديد يحتوي على سلاسل وعينات وفئات وقيم.
+    # المخطط الجديد يحتوي على سلاسل عينة، فئات، وقيم.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -65,9 +65,9 @@ with slides.Presentation() as presentation:
 
 ## **تغيير لون تعبئة السلسلة**
 
-استخدم [ChartSeries.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/format/) لتعيين تعبئة افتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة بالفعل، فإن إعداد [ChartDataPoint.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/format/) يتجاوز تعبئة السلسلة لتلك النقطة.
+استخدم [ChartSeries.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/format/) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة، فإن إعداد [ChartDataPoint.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/format/) يتخطى تعبئة السلسلة لتلك النقطة.
 
-المثال التالي يطبق تعبئة صلبة زرقاء على السلسلة الأولى:
+المثال التالي يطبق تعبئة زرقاء صلبة على السلسلة الأولى:
 
 ```py
 import aspose.pydrawing as drawing
@@ -95,7 +95,7 @@ with slides.Presentation() as presentation:
 
 ## **تغيير اسم السلسلة**
 
-يُخزّن اسم السلسلة في دفتر بيانات المخطط ويُظهر عادةً في وسيلة الإيضاح. في دفتر العمل الافتراضي المُنشأ لمخطط عمود مُجمّع، الخلية B1 هي الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل هذا الهيكل واضحاً:
+يُخزن اسم السلسلة في دفتر عمل بيانات المخطط ويُعرض عادةً في وسيلة الإيضاح. في دفتر العمل الافتراضي المُنشأ لمخطط أعمدة مزدوجة، الخلية B1 هي الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. تُوضح الثوابت المسماة في المثال التالي هذا الهيكل:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +118,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يمكنك أيضاً تعديل الخلية التي يشير إليها [ChartSeries.name](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/name/) بالفعل. يَتجنّب هذا النهج الافتراض بوجود صف أو عمود معين في مخطط موجود:
+يمكنك أيضاً تحديث الخلية التي يشير إليها بالفعل [ChartSeries.name](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/name/). يضمن هذا النهج عدم الافتراض بصف أو عمود معين في مخطط موجود:
 
 ```py
 import aspose.slides as slides
@@ -146,7 +146,7 @@ with slides.Presentation() as presentation:
 
 ## **الحصول على لون تعبئة السلسلة التلقائي**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) يُعيد اللون المحسوب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا يتم تعريف تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المحسوب؛ لا يعيّن تعبئة جديدة.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) يُعيد اللون المُحسب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا يتم تعريف تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المُحسب؛ لا يُنشئ تعبئة جديدة.
 
 المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
 
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-مثال على الإخراج لنمط المخطط الافتراضي:
+مخرجات المثال للنمط الافتراضي للمخطط:
 
 ```text
 Series 0: ff4f81bd
@@ -178,11 +178,11 @@ Series 2: ff9bbb59
 
 الألوان الدقيقة تعتمد على نمط المخطط والموضوع.
 
-## **تعيين لون تعبئة عكسي لسلسلة المخطط**
+## **تعيين لون تعبئة مقلوب لسلسلة المخطط**
 
-بالنسبة لسلاسل الأشرطة، الأعمدة، والفقاعات، يمكن لـ [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/invert_if_negative/) عرض القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية إلى صلبة، وفعل العكس، وعين لون القيمة السالبة عبر [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). تُبقى الأرقام السالبة دون تغيير في دفتر العمل؛ يتغيّر لون عرضها فقط.
+لسلاسل الشريط، العمود، والفقاعة، يمكن أن تُظهر [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/invert_if_negative/) القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية لتكون صلبة، فعّل الانعكاس، وعيّن لون القيمة السالبة عبر [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). تبقى الأرقام السالبة دون تغيير في دفتر العمل؛ يتغير لون العرض فقط.
 
-المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
+المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 في الورقة يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
 
 ```py
 import aspose.pydrawing as drawing
@@ -235,9 +235,9 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![لون التعبئة الصلب العكسي](inverted_solid_fill_color.png)
+![لون التعبئة الصلب المقلوب](inverted_solid_fill_color.png)
 
-يمكنك تفعيل العكس لنقطة واحدة عبر [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). في المثال التالي، يُعطَّل العكس للسلسلة ويُفعَّل فقط للنقطة المحددة. تُعطي النقطة أيضاً قيمة سالبة لتظهر التأثير:
+يمكنك تمكين الانعكاس لنقطة واحدة عبر [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). في المثال التالي، يُعطل الانعكاس للسلسلة ويُفعل فقط للنقطة المحددة. تُعيّن النقطة أيضاً قيمة سالبة لتكون النتيجة مرئية:
 
 ```py
 import aspose.pydrawing as drawing
@@ -270,7 +270,7 @@ with slides.Presentation() as presentation:
 
 ## **مسح قيمة نقطة بيانات محددة**
 
-لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، اضبط خلية دفتر العمل الداعمة لها إلى `None`. بالنسبة إلى مخطط عمودي، القيمة المرسومة متاحة عبر [ChartDataPoint.value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/value/). تبقى نقطة البيانات في نفس موقع الفئة، لكن المخطط يتعامل مع قيمتها كفراغ وفقاً لإعدادات الفراغ في المخطط.
+لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، اضبط خلية دفتر العمل الداعمة لها إلى `None`. في مخطط العمود، القيمة المرسومة متوفرة عبر [ChartDataPoint.value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/value/). تبقى نقطة البيانات في نفس موقع الفئة، لكن المخطط يتعامل مع قيمتها كفراغ وفقاً لإعدادات القيم الفارغة في المخطط.
 
 المثال التالي يمسح فقط النقطة الثانية في السلسلة الأولى:
 
@@ -294,15 +294,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تستخدم المخططات النقطية خلايا X وY منفصلة، وتستخدم المخططات الفقاعية أيضاً خلية حجم. امسح فقط الخلية التي تمثل القيمة التي ترغب في إزالتها. لا تستخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapointcollection/clear/) عندما تريد الإبقاء على بقية النقاط، لأن هذه الطريقة تزيل كل نقاط البيانات من المجموعة.
+تستخدم مخططات التشتت خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضاً خلية حجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapointcollection/clear/) عندما تريد الاحتفاظ بالنقاط الأخرى، لأن هذه الطريقة تُزيل كل نقاط البيانات من المجموعة.
 
 ## **التحكم في عرض الخلايا الفارغة**
 
-تمثل الخلية الفارغة في دفتر العمل بيانات مفقودة؛ الخلية التي تحتوي على `0` تمثل قيمة عددية معروفة. اضبط [ChartDataCell.value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatacell/value/) إلى `None` لجعل الخلية فارغة. الصفر الرقمي يبقى صفرًا بغض النظر عن إعداد الخلية الفارغة.
+الخلايا المخفية التي تحتوي على قيم هي حالة مختلفة عن الخلايا الفارغة. لتضمين أو استبعاد البيانات من الصفوف والأعمدة المخفية في الورقة، راجع [Include Data from Hidden Rows and Columns](/slides/ar/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-استخدم [Chart.display_blanks_as](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/display_blanks_as/) لاختيار طريقة عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على المخطط كاملًا. يغيّر طريقة رسم الفراغات دون ملء الخلية الفارغة بصفر أو قيمة مُقَربة.
+تمثل الخلية الفارغة في دفتر العمل بيانات مفقودة؛ الخلية التي تحتوي على `0` تمثل قيمة عددية معروفة. اضبط [ChartDataCell.value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatacell/value/) إلى `None` لجعل الخلية فارغة. الصفر العددي يظل صفرًا بغض النظر عن إعداد الخلية الفارغة.
 
-المثال التالي المستقل ينشئ مخطط خط يحتوي على سلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط نفسه بكل وضعية. لا تحتاج إلى ملف إدخال. يستخدم [ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/) ورقة العمل 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحوي اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
+استخدم [Chart.display_blanks_as](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/display_blanks_as/) لاختيار كيفية عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على المخطط كله. يغيّر طريقة رسم الفراغات دون ملء الخلية الفارغة بصفر أو قيمة مُقربة.
+
+المثال المستقل التالي ينشئ مخططًا خطيًا بسلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط نفسه بكل وضع. لا يلزم ملف إدخال. يستخدم [ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/) الورقة 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
 
 ```py
 import aspose.slides as slides
@@ -328,7 +330,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # اترك اليوم 3 فارغًا حقًا، مع الحفاظ على فئته ونقطة البيانات.
+    # اترك اليوم 3 فارغًا فعليًا، مع الاحتفاظ بفئته ونقطة البيانات الخاصة به.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -337,19 +339,19 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-كل ملف إخراج يُخزّن الوضع المحدد قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و `empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ المُستَند مرة واحدة بدلاً من التكرار عبر جميع الأوضاع.
+كل ملف إخراج يخزن الوضع المعيّن قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و `empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ العرض التقديمي مرة واحدة بدلًا من التكرار على كل وضع.
 
-المقارنة أدناه تُظهر نفس البيانات في الملفات الثلاثة. اليوم 3 فارغ في دفتر العمل في كل الحالات:
+المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم 3 فارغ في دفتر العمل في كل حالة:
 
-![مخططات الخط مع بيانات متطابقة: “Gap” يقطع الخط عند اليوم 3، “Zero” يخفض الخط إلى الصفر، و“Span” يربط اليوم 2 باليوم 4.](display_blanks_as.png)
+![مخططات خطية ببيانات متطابقة: الفجوة تقطع الخط عند اليوم 3، الصفر يُخفض الخط إلى الصفر، والامتداد (SPAN) يربط اليوم 2 باليوم 4.](display_blanks_as.png)
 
-التأثير المرئي يعتمد على نوع المخطط. يجعل مخطط الخط جميع الأوضاع الثلاثة سهلة المقارنة. المخططات الشريطية والعمودية لا تملك خطًا لتوصيل الفجوة، لذا لا يمكن لـ `SPAN` إنتاج الجزء المتصل الموضح أعلاه؛ يمكن أن يبدو العمود المفقود وعمود الصفر بنفس الشكل. بالمثل، لا يحتوي مخطط التبعثر مع علامات فقط على خط توصيل. لا تتوقع ثلاث نتائج متميزة لكل نوع مخطط؛ تحقق من الإخراج للنوع الذي تستخدمه.
+يعتمد التأثير الظاهر على نوع المخطط. يجعل مخطط الخط جميع الأوضاع الثلاثة سهلة المقارنة. لا تمتلك مخططات الشريط والعمود خطًا لربط الفئات المفقودة، لذا لا يستطيع `SPAN` إنشاء الجزء المتصل كما في الأعلى؛ قد يبدوا العمود المفقود وعمود الصفر بنفس الشكل. بالمثل، مخطط التشتت مع العلامات فقط لا يملك خطًا موصولًا. لا تتوقع ثلاث نتائج مميزة لكل نوع مخطط؛ تحقق من الإخراج للنوع الذي تستخدمه.
 
-## **تعيين عرض الفجوة بين السلسلة**
+## **ضبط عرض الفجوة بين السلاسل**
 
-عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتقاربة، معبرًا عنها بنسبة من عرض الشريط أو العمود. مثل التداخل، تنتمي إلى مجموعة السلسلة الأصلية وليس إلى سلسلة واحدة. اضبط [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ والقيمة الأصغر تجعلها أكثر كثافة.
+عرض الفجوة هو المسافة بين مجموعات الأعمدة أو الأشرطة المتقاربة، يُعبر عنها كنسبة مئوية من عرض العمود أو الشريط. مثل التداخل، ينتمي إلى مجموعة السلاسل الأصلية وليس إلى سلسلة واحدة. اضبط [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ القيمة الأصغر تجعلها أكثر تكتًّ.
 
-المثال التالي يغيّر عرض الفجوة ويحفظ العرض النهائي فقط للمستَند:
+المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
 
 ```py
 import aspose.slides as slides
@@ -376,42 +378,42 @@ with slides.Presentation() as presentation:
 
 ## **الأسئلة المتكررة**
 
-**أي أنواع المخططات تدعم سلاسل البيانات؟**
+**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
 
-جميع أنواع المخططات التي يمثلها تعداد [ChartType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تشترك كلها في نفس بنية القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، وتستخدم مخططات التبعثر قيم X وY، وتضيف المخططات الفقاعية أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. الخيارات مثل التداخل وعرض الفجوة تنطبق فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
+جميع أنواع المخططات الممثلة في تعداد [ChartType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/charttype/) تستخدم بيانات المخطط، لكن السلاسل الخاصة بها لا تشترك جميعًا في هيكل القيم أو الإعدادات نفسها. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، ومخططات التشتت قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأعمدة أو الأشرطة المتوافقة.
 
-**ما هي مجموعة سلاسل المخطط؟**
+**ما هو مجموعة سلاسل المخطط؟**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/) تحتوي على سلاسل متوافقة تشترك في إعدادات رسم على مستوى المجموعة. يمكن أن يحتوي مخطط مركب على أكثر من مجموعة، لذا قد لا يغيّر تعديل المجموعة التي يتم الوصول إليها عبر سلسلة واحدة كل السلاسل في المخطط.
+[ChartSeriesGroup](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/) يحتوي على سلاسل متوافقة تشترك في إعدادات رسم على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا تغيير المجموعة التي تُصل عبر سلسلة واحدة لا يغيّر بالضرورة كل السلاسل في المخطط.
 
-**هل يحتوي المخطط الذي تم إنشاؤه حديثًا على بيانات افتراضية؟**
+**هل يحتوي المخطط المُنشأ حديثًا على بيانات افتراضية؟**
 
-نعم. بشكل افتراضي، [ShapeCollection.add_chart](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_chart/) ينشئ سلاسل وعناصر فئة وقيم نموذجية. يمكنك تحرير تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة تمامًا. يمكن أيضًا استدعاء طريقة ذات وسائط بديلة لإنشاء مخطط دون بيانات افتراضية.
+نعم. بشكل افتراضي، تُنشئ [ShapeCollection.add_chart](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_chart/) سلاسل، فئات، وقيم تجريبية. يمكنك تحرير تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن للتحميل الزائد أيضًا إنشاء مخطط بدون بيانات افتراضية.
 
-**كيف تُربط كائنات المخطط بخلايا دفتر العمل؟**
+**كيف ترتبط كائنات المخطط بخلايا دفتر العمل؟**
 
-تشير أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/). تعديل خلية مُشار إليها يُحدِّث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على أن تكون صفوف الفئات وصفوف قيم السلاسل متراوحة بحيث تُرسَم كل نقطة تحت الفئة المقصودة.
+أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات تشير إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/). تعديل خلية مشار إليها يُحدِّث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
 
-**كيف أمسح نقطة واحدة بدلاً من سلاسل بأكملها؟**
+**كيف يمكن مسح نقطة واحدة بدلاً من السلسلة بأكملها؟**
 
-اضبط خلية القيمة ذات الصلة إلى `None` لتبقى النقطة في موضع الفئة كقيمة فارغة. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapointcollection/clear/) فقط عندما تريد إزالة جميع النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل لضمان بقاء قيمها متطابقة مع مجموعة الفئات.
+عيّن خلية القيمة ذات الصلة إلى `None` للاحتفاظ بموقع الفئة للنقطة كقيمة فارغة. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapointcollection/clear/) فقط عندما ترغب في إزالة جميع النقاط من تلك السلسلة. إذا قمت أيضًا بإزالة الفئات، حدّث كل السلاسل بحيث تبقى قيمها متوافقة مع مجموعة الفئات.
 
-**كيف تُعرض النقاط الفارغة؟**
+**كيف يتم عرض النقاط الفارغة؟**
 
-النتيجة تعتمد على نوع المخطط و [Chart.display_blanks_as](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/display_blanks_as/). تدعم المخططات المتاحة عرض الفراغات كفجوات أو كقيم صفرية أو بربط النقاط المجاورة. اختر الإعداد الذي يتماشى مع معنى البيانات المفقودة في عرضك. راجع [Control the Display of Empty Cells](#control-the-display-of-empty-cells) للحصول على مثال كامل ومقارنة بصرية.
+يعتمد النتيجة على نوع المخطط و[Chart.display_blanks_as](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/display_blanks_as/). يمكن للمخططات المدعومة عرض الفراغات كفجوات، كقيم صفرية، أو بربط النقاط المجاورة. اختر الإعداد الذي يتوافق مع معنى البيانات المفقودة في عرضك. راجع [التحكم في عرض الخلايا الفارغة](#control-the-display-of-empty-cells) للحصول على مثال كامل ومقارنة مرئية.
 
-**كيف تُنسق القيم السالبة؟**
+**كيف يتم تنسيق القيم السالبة؟**
 
-بالنسبة لسلاسل الأشرطة، الأعمدة، والفقاعات المدعومة، فعل [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/invert_if_negative/) وعين [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). يمكنك تجاوز السلوك لنقطة فردية باستخدام [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). هذه الخصائص تؤثر على التنسيق فقط، لا على القيم العددية المخزنة.
+للسلاسل المدعومة من نوع شريط، عمود، أو فقاعة، فعّل [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/invert_if_negative/) وعيّن [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). يمكنك تجاوز السلوك لنقطة فردية عبر [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). تؤثر هذه الخصائص في التنسيق فقط، وليس القيم العددية المخزنة.
 
 **أي تنسيق ينتصر عندما يتم تنسيق كل من السلسلة والنقطة؟**
 
-يتفوّق تنسيق النقطة الصريح لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، عندما لا يُعرَّف تنسيق السلسلة، نمط المخطط والموضوع التلقائي. تتحكم خصائص المجموعة مثل التداخل وعرض الفجوة في التخطيط ولا تُعدّ تجاوزات تنسيق على مستوى النقطة.
+تنسيق النقطة الصريح يتفوق على تلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، عندما لا يُعرَّف تنسيق السلسلة، النمط والموضوع التلقائي للمخطط. تتحكم خصائص المجموعة مثل التداخل وعرض الفجوة في التخطيط ولا تُعدّ تجاوزات تنسيق على مستوى النقطة.
 
-**هل هناك حد لعدد السلاسل التي يمكن للمخطط احتواؤها؟**
+**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها المخطط؟**
 
-لا يفرض Aspose.Slides حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تحدد قيود ملف العرض، الذاكرة المتاحة، زمن التقديم، وقابلية قراءة المخطط حدًا عمليًا.
+Aspose.Slides لا يفرض حداً ثابتاً منفصلاً لعدد السلاسل. في الواقع، تقيّد قيود ملف العرض التقديمي، الذاكرة المتاحة، وقت التقديم، وقابلية قراءة المخطط تحدد الحد المفيد.
 
-**ماذا يجب تعديل عندما تكون الأعمدة قريبة جدًا من بعضها أو متباعدة جدًا؟**
+**ماذا أفعل عندما تكون الأعمدة متقاربة جدًا أو متباعدة جدًا؟**
 
-اضبط [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) على مجموعة السلاسل الأصلية المناسبة. زد القيمة لتوسيع الفجوة بين المجموعات، أو قلّلها لتقريب المجموعات من بعضها.
+اضبط [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) على مجموعة السلاسل الأصلية المناسبة. زد القيمة لتوسيع الفجوة بين المجموعات، أو قللها لجعل المجموعات أقرب إلى بعضها.

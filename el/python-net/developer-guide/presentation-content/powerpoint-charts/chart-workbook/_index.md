@@ -1,114 +1,180 @@
 ---
-title: Διαχείριση βιβλίων εργασίας διαγράμματος σε παρουσιάσεις με Python
-linktitle: Βιβλίο Εργασίας Διαγράμματος
+title: Διαχείριση βιβλιοθηκών γραφημάτων σε παρουσιάσεις με Python
+linktitle: Βιβλιοθήκη Γραφήματος
 type: docs
 weight: 70
 url: /el/python-net/chart-workbook/
 keywords:
-- βιβλίο εργασίας διαγράμματος
-- δεδομένα διαγράμματος
-- κελί βιβλίου εργασίας
+- βιβλιοθήκη γραφήματος
+- δεδομένα γραφήματος
+- κελί βιβλιοθήκης
 - ετικέτα δεδομένων
 - φύλλο εργασίας
 - πηγή δεδομένων
-- εξωτερικό βιβλίο εργασίας
+- εξωτερική βιβλιοθήκη
 - εξωτερικά δεδομένα
-- λανθάνουσα μνήμη διαγράμματος
-- αποκατάσταση βιβλίου εργασίας
+- κρύπτη γραφήματος
+- αποκατάσταση βιβλιοθήκης
 - PowerPoint
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Ανακαλύψτε το Aspose.Slides για Python μέσω .NET: διαχειριστείτε με ευκολία τα βιβλία εργασίας διαγράμματος σε μορφές PowerPoint και OpenDocument για να βελτιστοποιήσετε τα δεδομένα της παρουσίασής σας."
+description: "Ανακαλύψτε το Aspose.Slides για Python μέσω .NET: διαχειριστείτε εύκολα τις βιβλιοθήκες γραφημάτων στο PowerPoint και σε μορφές OpenDocument για να βελτιώσετε τα δεδομένα της παρουσίασής σας."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλία εργασίας διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα διαγράμματος μέσω ροών βιβλίου εργασίας, να χρησιμοποιείτε κελιά βιβλίου εργασίας ως ετικέτες δεδομένων διαγράμματος, να προσπελάζετε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να εργάζεστε με βιβλιοθήκες γραφημάτων (chart workbooks) στο Aspose.Slides. Δείχνει πώς να διαβάζετε και να γράφετε δεδομένα γραφήματος μέσω ροών βιβλιοθήκης (workbook streams), να χρησιμοποιείτε κελιά βιβλιοθήκης ως ετικέτες δεδομένων γραφήματος, να προσπελάζετε συλλογές φύλλων εργασίας και να καθορίζετε τον τύπο πηγής δεδομένων για τις τιμές του γραφήματος.
 
-Καλύπτει επίσης την εργασία με εξωτερικά βιβλία εργασίας ως πηγές δεδομένων διαγράμματος. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε και να εκχωρήσετε ένα εξωτερικό βιβλίο εργασίας, να ανακτήσετε τη διαδρομή ενός εξωτερικού βιβλίου εργασίας συνδεδεμένου με ένα διάγραμμα και να επεξεργαστείτε τα δεδομένα του διαγράμματος όταν το βιβλίο εργασίας είναι διαθέσιμο.
+Επίσης καλύπτει την εργασία με εξωτερικές βιβλιοθήκες ως πηγές δεδομένων για γραφήματα. Τα παραδείγματα επιδεικνύουν πώς να δημιουργήσετε και να αναθέσετε μια εξωτερική βιβλιοθήκη, να ανακτήσετε τη διαδρομή μιας εξωτερικής βιβλιοθήκης που συνδέεται με ένα γράφημα, και να επεξεργαστείτε τα δεδομένα γραφήματος όταν η βιβλιοθήκη είναι διαθέσιμη.
 
-Για κελιά βιβλίου εργασίας που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Έλεγχος της εμφάνισης κενών κελιών](/slides/el/python-net/chart-series/) για τη διαφορά μεταξύ κενών κελιών και μηδενικών, καθώς και μια σύγκριση γραμμικού διαγράμματος των διαθέσιμων τρόπων εμφάνισης.
+Για κελιά βιβλιοθήκης που αντιπροσωπεύουν ελλιπή δεδομένα, δείτε [Control the Display of Empty Cells](/slides/el/python-net/chart-series/) για τη διαφορά μεταξύ κενών κελιών και μηδενός, καθώς και για μια σύγκριση σε διάγραμμα γραμμής των διαθέσιμων τρόπων εμφάνισης.
 
-## **Ανάγνωση και εγγραφή δεδομένων διαγράμματος από βιβλίο εργασίας**
+## **Συμπερίληψη Δεδομένων από Κρυφές Γραμμές και Στήλες**
 
-Το Aspose.Slides παρέχει μεθόδους για ανάγνωση και εγγραφή βιβλίων εργασίας δεδομένων διαγράμματος (που περιέχουν δεδομένα διαγράμματος επεξεργασμένα με Aspose.Cells). **Σημείωση:** Τα δεδομένα του διαγράμματος πρέπει να οργανωθούν με τον ίδιο τρόπο ή να έχουν δομή παρόμοια με την πηγή.
+Χρησιμοποιήστε [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) για να ελέγξετε εάν ένα γράφημα σχεδιάζει δεδομένα από κρυφές γραμμές και στήλες φύλλου εργασίας. Ορίστε το σε `True` για να σχεδιάζονται μόνο τα ορατά κελιά, ή σε `False` για να συμπεριλαμβάνονται τόσο τα ορατά όσο και τα κρυφά κελιά. Αυτή η ρύθμιση ελέγχει τη σχεδίαση του γραφήματος· δεν κρύβει ή αποκαλύπτει γραμμές ή στήλες του φύλλου.
 
-Ο παρακάτω κώδικας Python παρουσιάζει ένα δείγμα λειτουργίας:
+Κατεβάστε το [hidden-source-data.pptx](hidden-source-data.pptx) και τοποθετήστε το στον κατάλογο εργασίας. Η πρώτη διαφάνειά του περιλαμβάνει ένα διάγραμμα στήλης ως το πρώτο σχήμα. Το ενσωματωμένο φύλλο εργασίας, `Sheet1`, περιέχει την ακόλουθη περιοχή πηγής, `A1:C4`. Η γραμμή 3 και η στήλη C είναι κρυφές, αλλά τα κελιά τους εξακολουθούν να περιέχουν τιμές.
 
-```py
-import aspose.slides as slides
+| Γραμμή φύλλου | A: Μήνας | B: Λιανική | C: Χονδρική (κρυστή στήλη) |
+| --- | --- | --- | --- |
+| 2 | Ιανουάριος | 10 | 30 |
+| 3 (κρυφή γραμμή) | Φεβρουάριος | 40 | 60 |
+| 4 | Μάρτιος | 20 | 50 |
 
-with slides.Presentation("chart.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
+Προσπελάστε τα κελιά πηγής μέσω του [ChartData.chart_data_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) και διαβάστε το [ChartDataCell.is_hidden](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatacell/is_hidden/) για να ελέγξετε την κρυφή κατάσταση τους. Αυτή η ιδιότητα είναι μόνο για ανάγνωση. Σε αυτό το αρχείο, το B2 είναι ορατό, το B3 ανήκει στη κρυφή γραμμή, και το C2 ανήκει στη κρυφή στήλη· το παράδειγμα εκτυπώνει `False`, `True` και `True`, αντίστοιχα.
 
-    data_stream = chart.chart_data.read_workbook_stream()
-
-    chart.chart_data.series.clear()
-    chart.chart_data.categories.clear()
-
-    data_stream.seek(0)
-    chart.chart_data.write_workbook_stream(data_stream)
-```
-
-### **Επικύρωση διάταξης διαγράμματος μετά την τροποποίηση του βιβλίου εργασίας**
-
-Όταν αντικαθιστάτε ένα ενσωματωμένο βιβλίο εργασίας με ένα τροποποιημένο, το διάγραμμα διατηρεί τις αρχικές σειρές και τις συλλογές κατηγοριών του. Αυτή η ασυμφωνία μπορεί να προκαλέσει αποτυχία του [IChart.validate_chart_layout](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/ichart/validate_chart_layout/) με σφάλμα «index‑out‑of‑range». Καθαρίστε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε το ενημερωμένο βιβλίο εργασίας πίσω στο διάγραμμα.
+Για αυτό το παράδειγμα, ανανεώστε τα δεδομένα του γραφήματος μετά την αλλαγή της ρύθμισης σχεδίασης: διατηρήστε την ενσωματωμένη βιβλιοθήκη με το [read_workbook_stream](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) και φορτώστε την ξανά με το [write_workbook_stream](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Όταν συμπεριλαμβάνονται όλα τα κελιά, χρησιμοποιήστε επίσης το [set_range](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_range/) για να επαναφέρετε την πλήρη περιοχή, συμπεριλαμβανομένης της κρυφής κατηγορίας Φεβρουάριος. Απλώς η αλλαγή της σημαίας δεν αρκεί για την ανανέωση των προσωρινά αποθηκευμένων δεδομένων και ετικετών κατηγοριών σε αυτό το δείγμα.
 
 ```python
-# Μετά την τροποποίηση της ροής βιβλίου εργασίας (π.χ., χρησιμοποιώντας Aspose.Cells)
-updated_workbook = chart_data.read_workbook_stream()
-
-# Καθαρίστε τις υπάρχουσες αναφορές δεδομένων.
-chart_data.series.clear()
-chart_data.categories.clear()
-
-updated_workbook.seek(0)
-chart_data.write_workbook_stream(updated_workbook)
-
-chart.validate_chart_layout()
-```
-
-Η εκκαθάριση των συλλογών εξασφαλίζει ότι η δομή των δεδομένων του διαγράμματος είναι σύμφωνη με το νέο βιβλίο εργασίας, επιτρέποντας στο `validate_chart_layout` να ολοκληρωθεί χωρίς σφάλματα.
-
-## **Ορισμός κελιού βιβλίου εργασίας ως ετικέτας δεδομένων διαγράμματος**
-
-Μερικές φορές χρειάζεστε ετικέτες διαγράμματος που προέρχονται απευθείας από κελιά του υποκείμενου βιβλίου εργασίας. Το Aspose.Slides σας επιτρέπει να συνδέσετε ετικέτες δεδομένων με συγκεκριμένα κελιά βιβλίου εργασίας ώστε το κείμενο της ετικέτας να αντανακλά πάντα την τιμή του κελιού. Το παρακάτω παράδειγμα δείχνει πώς να ενεργοποιήσετε ετικέτες τιμής‑από‑κελί και να κατευθύνετε επιλεγμένες ετικέτες σε προσαρμοσμένα κελιά στο βιβλίο εργασίας του διαγράμματος.
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://docs.aspose.com/slides/el/python-net/api-reference/aspose.slides/presentation/).
-1. Λάβετε αναφορά στη διαφάνεια με βάση το δείκτη.
-1. Προσθέστε ένα διάγραμμα φυσαλίδων με δείγμα δεδομένων.
-1. Προσπελάστε τις σειρές του διαγράμματος.
-1. Χρησιμοποιήστε ένα κελί βιβλίου εργασίας ως ετικέτα δεδομένων.
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Python δείχνει πώς να ορίσετε ένα κελί βιβλίου εργασίας ως ετικέτα δεδομένων διαγράμματος:
-
-```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-# Δημιουργήστε την κλάση Presentation η οποία αντιπροσωπεύει ένα αρχείο παρουσίασης.
-with slides.Presentation() as presentation:
+with slides.Presentation("hidden-source-data.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) > 0 and isinstance(slide.shapes[0], charts.Chart):
+        chart = slide.shapes[0]
+        workbook = chart.chart_data.chart_data_workbook
+        print(f"B2 hidden: {workbook.get_cell(0, 'B2').is_hidden}")
+        print(f"B3 hidden: {workbook.get_cell(0, 'B3').is_hidden}")
+        print(f"C2 hidden: {workbook.get_cell(0, 'C2').is_hidden}")
+
+        workbook_stream = chart.chart_data.read_workbook_stream()
+        for visible_only in [True, False]:
+            chart.plot_visible_cells_only = visible_only
+
+            # Ανανέωση των δεδομένων του γραφήματος από την ενσωματωμένη βιβλιοθήκη.
+            workbook_stream.seek(0)
+            chart.chart_data.write_workbook_stream(workbook_stream)
+            if not visible_only:
+                # Επαναφορά της πλήρους περιοχής πηγής, συμπεριλαμβανομένων των κρυφών κατηγοριών.
+                chart.chart_data.set_range("Sheet1!$A$1:$C$4")
+
+            presentation.save(f"hidden_cells_{visible_only}.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The first shape is not a chart.")
+```
+
+Το παράδειγμα αποθηκεύει το `hidden_cells_True.pptx` μόνο με τις ορατές τιμές Λιανικής (10 και 20), και το `hidden_cells_False.pptx` με όλες τις έξι τιμές. Οι εικόνες παρακάτω δημιουργήθηκαν από τις αποθηκευμένες παρουσιάσεις μετά το άνοιγμα τους· και τα δύο αρχεία διατηρούν τη δοσμένη ρύθμιση σχεδίασης. Η γραμμή 3 και η στήλη C παραμένουν κρυφές και στις δύο ενσωματωμένες βιβλιοθήκες.
+
+| Μόνο ορατά κελιά (`True`) | Όλα τα κελιά (`False`) |
+| --- | --- |
+| ![Μόνο ορατά κελιά: τιμές λιανικής 10 και 20 για Ιανουάριο και Μάρτιο.](hidden_cells_True.png) | ![Όλα τα κελιά: τιμές λιανικής και χονδρικής για Ιανουάριο, Φεβρουάριο και Μάρτιο.](hidden_cells_False.png) |
+
+Ένα κρυφό κελί που περιέχει τιμή διαφέρει από ένα κενό κελί. Η μέθοδος [Chart.display_blanks_as](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/display_blanks_as/) ελέγχει πώς εμφανίζονται οι ελλιπείς τιμές· δεν περιλαμβάνει ή εξαιρεί κρυφά δεδομένα πηγής. Δείτε [Control the Display of Empty Cells](/slides/el/python-net/chart-series/#control-the-display-of-empty-cells) για παράδειγμα.
+
+## **Ανάγνωση και Εγγραφή Δεδομένων Γραφήματος από Βιβλιοθήκη**
+
+Aspose.Slides for Python μέσω .NET παρέχει τις μεθόδους [read_workbook_stream](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) και [write_workbook_stream](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) που επιτρέπουν την ανάγνωση και εγγραφή βιβλιοθηκών δεδομένων γραφήματος (που περιέχουν δεδομένα γραφήματος επεξεργασμένα με Aspose.Cells). **Σημείωση** ότι τα δεδομένα του γραφήματος πρέπει να είναι οργανωμένα με τον ίδιο τρόπο ή να έχουν δομή παρόμοια με την πηγή.
+
+Αυτό το παράδειγμα ανοίγει το `chart.pptx`, το οποίο πρέπει να περιέχει ένα γράφημα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Διαβάζει την ενσωματωμένη βιβλιοθήκη σε μια ροή, διαγράφει τις υπάρχουσες σειρές και κατηγορίες, και γράφει ξανά την ίδια βιβλιοθήκη. Οι αλλαγές παραμένουν στη μνήμη· το παράδειγμα δεν αποθηκεύει την παρουσία.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("chart.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) > 0 and isinstance(slide.shapes[0], charts.Chart):
+        chart = slide.shapes[0]
+        chart_data = chart.chart_data
+        workbook_stream = chart_data.read_workbook_stream()
+
+        chart_data.series.clear()
+        chart_data.categories.clear()
+
+        workbook_stream.seek(0)
+        chart_data.write_workbook_stream(workbook_stream)
+    else:
+        print("The first shape is not a chart.")
+```
+
+### **Επικύρωση Διάταξης Γραφήματος μετά την Τροποποίηση της Βιβλιοθήκης**
+
+Όταν αντικαθιστάτε μια ενσωματωμένη βιβλιοθήκη με μια τροποποιημένη, το γράφημα διατηρεί τις αρχικές συλλογές σειρών και κατηγοριών. Αυτή η ασυμφωνία μπορεί να προκαλέσει αποτυχία του [Chart.validate_chart_layout](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/validate_chart_layout/) με σφάλμα index-out-of-range. Διαγράψτε τις υπάρχουσες σειρές και κατηγορίες πριν γράψετε την ενημερωμένη βιβλιοθήκη πίσω στο γράφημα. Αυτό το παράδειγμα απαιτεί το `chart.pptx` με ένα γράφημα ως το πρώτο σχήμα στην πρώτη του διαφάνεια. Το σχόλιο υποδεικνύει πού θα γινόταν η επεξεργασία της βιβλιοθήκης· το εκτελέσιμο παράδειγμα γράφει ξανά την αρχική βιβλιοθήκη και επικυρώνει τη διάταξη στη μνήμη.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("chart.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) > 0 and isinstance(slide.shapes[0], charts.Chart):
+        chart = slide.shapes[0]
+        chart_data = chart.chart_data
+        workbook_stream = chart_data.read_workbook_stream()
+
+        # Τροποποιήστε τη ροή βιβλιοθήκης εδώ, για παράδειγμα, χρησιμοποιώντας το Aspose.Cells.
+
+        chart_data.series.clear()
+        chart_data.categories.clear()
+
+        workbook_stream.seek(0)
+        chart_data.write_workbook_stream(workbook_stream)
+        chart.validate_chart_layout()
+    else:
+        print("The first shape is not a chart.")
+```
+
+Η εκκαθάριση των συλλογών αφαιρεί παλαιές αναφορές δεδομένων πριν η βιβλιοθήκη γραφεί ξανά. Ανακατασκευάστε τυχόν απαραίτητες αντιστοιχίες σειρών και κατηγοριών για την ενημερωμένη βιβλιοθήκη πριν χρησιμοποιήσετε το γράφημα.
+
+## **Ορισμός Κελιού Βιβλιοθήκης ως Ετικέτα Δεδομένων Γραφήματος**
+
+Μπορείτε να χρησιμοποιήσετε κείμενο από κελιά βιβλιοθήκης ως ετικέτες δεδομένων γραφήματος. Τα παρακάτω βήματα δείχνουν πώς να συνδέσετε τις ετικέτες σε ένα διάγραμμα φυσαλίδων με κελιά του βιβλιοθήκης δεδομένων του.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Προσπελάστε την πρώτη διαφάνεια με το μηδενικό δείκτη της.
+3. Προσθέστε ένα διάγραμμα φυσαλίδων με προεπιλεγμένα δεδομένα.
+4. Προσπελάστε τις σειρές του γραφήματος.
+5. Ορίστε το κελί βιβλιοθήκης ως ετικέτα δεδομένων.
+6. Αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα ανοίγει το `chart2.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια, και προσθέτει ένα διάγραμμα φυσαλίδων με προεπιλεγμένα δεδομένα. Χρησιμοποιεί τα κελιά A10:A12 στο φύλλο 0 για τις πρώτες τρεις ετικέτες στην πρώτη σειρά, ενεργοποιεί ετικέτες από κελιά, και αποθηκεύει το αποτέλεσμα στο `resultchart.pptx`.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("chart2.pptx") as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.BUBBLE, 50, 50, 600, 400, True)
-
     series = chart.chart_data.series[0]
-
-    series.labels.default_data_label_format.show_label_value_from_cell = True
-
     workbook = chart.chart_data.chart_data_workbook
 
-    series.labels[0].value_from_cell = workbook.get_cell(0, "A10", "Label 0")
-    series.labels[1].value_from_cell = workbook.get_cell(0, "A11", "Label 1")
-    series.labels[2].value_from_cell = workbook.get_cell(0, "A12", "Label 2")
+    series.labels.default_data_label_format.show_label_value_from_cell = True
+    series.labels[0].value_from_cell = workbook.get_cell(0, "A10", "Label 0 cell value")
+    series.labels[1].value_from_cell = workbook.get_cell(0, "A11", "Label 1 cell value")
+    series.labels[2].value_from_cell = workbook.get_cell(0, "A12", "Label 2 cell value")
 
-    presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Διαχείριση φύλλων εργασίας**
+## **Διαχείριση Φύλλων Εργασίας**
 
-Ο παρακάτω κώδικας Python δείχνει πώς να χρησιμοποιήσετε την ιδιότητα `worksheets` για πρόσβαση στη συλλογή φύλλων εργασίας:
+Η ιδιότητα [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) παρέχει πρόσβαση στα φύλλα εργασίας σε μια βιβλιοθήκη γραφήματος. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα πίτας με προεπιλεγμένα δεδομένα και εκτυπώνει το όνομα κάθε φύλλου στην κονσόλα.
 
 ```python
 import aspose.slides as slides
@@ -118,15 +184,15 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 500)
-
     workbook = chart.chart_data.chart_data_workbook
-    for i in range(len(workbook.worksheets)):
-        print(workbook.worksheets[i].name)
+
+    for worksheet in workbook.worksheets:
+        print(worksheet.name)
 ```
 
-## **Καθορισμός τύπου πηγής δεδομένων**
+## **Καθορισμός Τύπου Πηγής Δεδομένων**
 
-Ο παρακάτω κώδικας Python δείχνει πώς να καθορίσετε έναν τύπο πηγής δεδομένων:
+Αυτό το παράδειγμα δημιουργεί ένα 3D διάγραμμα στήλης με προεπιλεγμένα δεδομένα και ορίζει δύο ονόματα σειρών χρησιμοποιώντας διαφορετικές πηγές δεδομένων. Το πρώτο όνομα χρησιμοποιεί κυριολεκτικό συμβολοσειρά· το δεύτερο χρησιμοποιεί το κελί C1 στο φύλλο 0. Η απαρίθμηση [DataSourceType](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/datasourcetype/) επιλέγει την πηγή για κάθε όνομα. Το αποτέλεσμα αποθηκεύεται στο `pres.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -136,22 +202,24 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
+    literal_name = chart.chart_data.series[0].name
 
-    series_name = chart.chart_data.series[0].name
-    series_name.data_source_type = slides.charts.DataSourceType.STRING_LITERALS
-    series_name.data = "LiteralString"
+    literal_name.data_source_type = charts.DataSourceType.STRING_LITERALS
+    literal_name.data = "LiteralString"
 
-    series_name = chart.chart_data.series[1].name
-    series_name.data = chart.chart_data.chart_data_workbook.get_cell(0, "B1", "NewCell")
+    cell_name = chart.chart_data.series[1].name
+    name_cell = chart.chart_data.chart_data_workbook.get_cell(0, "C1", "NewCell")
+    cell_name.data_source_type = charts.DataSourceType.WORKSHEET
+    cell_name.data = name_cell
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ανίχνευση μη υποστηριζόμενων ενσωματωμένων μορφών βιβλίου εργασίας**
+## **Ανίχνευση Μη Υποστηριζόμενων Ενσωματωμένων Μορφών Βιβλιοθήκης**
 
-Το Aspose.Slides δεν υποστηρίζει τη μορφή βιβλίου εργασίας Excel δυαδικό (.xlsb) που μπορεί να ενσωματωθεί σε κάποια διαγράμματα. Μπορείτε να χρησιμοποιήσετε την ιδιότητα `embedded_workbook_type` στο [ChartData](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/) μαζί με την απαρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/workbooktype/) για να ανιχνεύσετε μη υποστηριζόμενες μορφές και να παραλείψετε αυτά τα διαγράμματα.
+Το Aspose.Slides δεν υποστηρίζει τη δυαδική μορφή βιβλιοθήκης Excel (.xlsb) που μπορεί να ενσωματωθεί σε ορισμένα γραφήματα. Μπορείτε να χρησιμοποιήσετε την ιδιότητα [embedded_workbook_type](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) στην [ChartData](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/) μαζί με την απαρίθμηση [WorkbookType](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/workbooktype/) για να ανιχνεύσετε μη υποστηριζόμενες μορφές και να παραλείψετε εκείνα τα γραφήματα. Αυτό το παράδειγμα ελέγχει τα σχήματα στην πρώτη διαφάνεια του `sample.pptx`, παραλείπει μη-γράφημα σχήματα, και εκτυπώνει μήνυμα διαγνώσεως για κάθε γράφημα με ενσωματωμένη βιβλιοθήκη .xlsb.
 
-```py
+```python
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
@@ -162,156 +230,203 @@ with slides.Presentation("sample.pptx") as presentation:
         if not isinstance(shape, charts.Chart):
             continue
 
-        chart = shape
-        chart_data = chart.chart_data
+        chart_data = shape.chart_data
+        is_internal_workbook = chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK
+        is_binary_macro = chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO
 
-        if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
-                chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
-            # Το ενσωματωμένο βιβλίο εργασίας είναι σε μορφή .xlsb, η οποία δεν υποστηρίζεται.
+        if is_internal_workbook and is_binary_macro:
+            print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # Διαβάστε ή τροποποιήστε τα δεδομένα του βιβλίου εργασίας του διαγράμματος εδώ.
+        # Διαβάστε ή τροποποιήστε εδώ τα υποστηριζόμενα δεδομένα βιβλιοθήκης γραφήματος.
 ```
 
-## **Εξωτερικά βιβλία εργασίας**
+## **Εξωτερική Βιβλιοθήκη**
 
-Το Aspose.Slides υποστηρίζει τη χρήση εξωτερικών βιβλίων εργασίας ως πηγή δεδομένων για διαγράμματα.
+Το Aspose.Slides υποστηρίζει τη χρήση εξωτερικών βιβλιοθηκών ως πηγή δεδομένων για γραφήματα.
 
-### **Ορισμός εξωτερικών βιβλίων εργασίας**
+### **Δημιουργία Εξωτερικής Βιβλιοθήκης**
 
-Χρησιμοποιώντας τη μέθοδο [ChartData.set_external_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_external_workbook/), μπορείτε να εκχωρήσετε ένα εξωτερικό βιβλίο εργασίας σε ένα διάγραμμα ως πηγή του. Η μέθοδος αυτή μπορεί επίσης να ενημερώσει τη διαδρομή σε ένα εξωτερικό βιβλίο εργασίας εάν έχει μετακινηθεί.
+Χρησιμοποιήστε το [read_workbook_stream](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) και το [set_external_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_external_workbook/) για να εξάγετε μια ενσωματωμένη βιβλιοθήκη γραφήματος σε αρχείο και να συνδέσετε το γράφημα με αυτήν την εξωτερική βιβλιοθήκη.
 
-Αν και δεν μπορείτε να επεξεργαστείτε δεδομένα σε βιβλία εργασίας αποθηκευμένα σε απομακρυσμένες θέσεις ή πόρους, μπορείτε να τα χρησιμοποιήσετε ως εξωτερικές πηγές δεδομένων. Εάν παρέχετε σχετική διαδρομή για ένα εξωτερικό βιβλίο εργασίας, μετατρέπεται αυτόματα σε πλήρη διαδρομή.
-
-Ο παρακάτω κώδικας Python δείχνει πώς να ορίσετε ένα εξωτερικό βιβλίο εργασίας:
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα πίτας με προεπιλεγμένα δεδομένα, γράφει τη βιβλιοθήκη του σε `externalWorkbook1.xlsx`, και κλείνει τη ροή εξόδου πριν αναθέσει το αρχείο ως πηγή δεδομένων του γραφήματος. Αποθηκεύει την συνδεδεμένη παρουσία στο `externalWorkbook.pptx`.
 
 ```python
+from pathlib import Path
 import aspose.slides as slides
 import aspose.slides.charts as charts
-
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    # Περάστε False ώστε να αποθηκεύεται μόνο η διαδρομή: το βιβλίο εργασίας προορισμού δεν χρειάζεται ακόμη να υπάρχει.
-    chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
-
-    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Η παράμετρος `update_chart_data` της μεθόδου [set_external_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_external_workbook/) καθορίζει εάν θα φορτωθεί το Excel βιβλίο εργασίας.
-
-- Όταν `update_chart_data` ορίζεται σε `False`, ενημερώνεται μόνο η διαδρομή του βιβλίου εργασίας· δεν φορτώνονται ή ανανεώνονται τα δεδομένα του διαγράμματος από το αρχείο προορισμού. Χρησιμοποιήστε αυτή τη ρύθμιση όταν το βιβλίο εργασίας προορισμού δεν υπάρχει ή δεν είναι διαθέσιμο.
-- Όταν `update_chart_data` ορίζεται σε `True` (η προεπιλογή), τα δεδομένα του διαγράμματος φορτώνονται και ενημερώνονται από το βιβλίο εργασίας προορισμού. Εάν αυτό το βιβλίο εργασίας δεν μπορεί να ανοιχθεί, εγείρεται εξαίρεση με το μήνυμα «External workbook is not available».
-
-### **Δημιουργία εξωτερικών βιβλίων εργασίας**
-
-Χρησιμοποιώντας τις μεθόδους [read_workbook_stream](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) και [set_external_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_external_workbook/), μπορείτε είτε να δημιουργήσετε ένα εξωτερικό βιβλίο εργασίας από το μηδέν είτε να μετατρέψετε ένα εσωτερικό βιβλίο εργασίας σε εξωτερικό.
-
-Αυτός ο κώδικας Python δείχνει τη διαδικασία δημιουργίας εξωτερικού βιβλίου εργασίας:
-
-```python
-import pathlib
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-workbook_path = "external_workbook.xlsx"
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600)
+    workbook_path = str(Path("externalWorkbook1.xlsx").resolve())
 
-    workbook_data = chart.chart_data.read_workbook_stream().read()
-
+    workbook_stream = chart.chart_data.read_workbook_stream()
+    workbook_data = workbook_stream.read()
     with open(workbook_path, "wb") as file_stream:
         file_stream.write(workbook_data)
 
-    full_path = str(pathlib.Path(workbook_path).resolve())
-    chart.chart_data.set_external_workbook(full_path)
-
-    presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
+    chart.chart_data.set_external_workbook(workbook_path)
+    presentation.save("externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ανάκτηση διαδρομής εξωτερικού βιβλίου εργασίας πηγής δεδομένων για ένα διάγραμμα**
+### **Ορισμός Εξωτερικής Βιβλιοθήκης**
 
-Μερικές φορές τα δεδομένα ενός διαγράμματος συνδέονται με εξωτερικό βιβλίο εργασίας Excel αντί για τα ενσωματωμένα δεδομένα της παρουσίασης. Με το Aspose.Slides, μπορείτε να εξετάσετε την πηγή δεδομένων του διαγράμματος και, εάν είναι εξωτερικό βιβλίο εργασίας, να διαβάσετε τη πλήρη διαδρομή του.
+Με τη μέθοδο [set_external_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_external_workbook/) μπορείτε να αναθέσετε μια εξωτερική βιβλιοθήκη σε ένα γράφημα ως πηγή δεδομένων του. Αυτή η μέθοδος μπορεί επίσης να χρησιμοποιηθεί για την ενημέρωση της διαδρομής προς την εξωτερική βιβλιοθήκη (αν αυτή μετακινήθηκε).
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://docs.aspose.com/slides/el/python-net/api-reference/aspose.slides/presentation/).
-1. Λάβετε αναφορά στη διαφάνεια με βάση το δείκτη της.
-1. Λάβετε αναφορά στο σχήμα του διαγράμματος.
-1. Αποκτήστε την πηγή ([ChartDataSourceType](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdatasourcetype/)) που αντιπροσωπεύει την πηγή δεδομένων του διαγράμματος.
-1. Ελέγξτε εάν ο τύπος πηγής ταιριάζει με τον τύπο εξωτερικού βιβλίου εργασίας.
+Αν και δεν μπορείτε να επεξεργαστείτε τα δεδομένα στις βιβλιοθήκες που αποθηκεύονται σε απομακρυσμένες θέσεις ή πόρους, μπορείτε ακόμη να τις χρησιμοποιήσετε ως εξωτερική πηγή δεδομένων. Εάν παρέχεται σχετική διαδρομή για μια εξωτερική βιβλιοθήκη, αυτή μετατρέπεται αυτόματα σε πλήρη διαδρομή.
 
-Ο παρακάτω κώδικας Python επιδεικνύει τη λειτουργία:
+Αυτό το παράδειγμα απαιτεί το `externalWorkbook.xlsx` στον κατάλογο εργασίας. Το φύλλο του, με όνομα `Sheet1`, πρέπει να περιέχει ένα όνομα σειράς στο B1, ονόματα κατηγοριών στο A2:A4, και αριθμητικές τιμές στο B2:B4. Το παράδειγμα δημιουργεί ένα διάγραμμα πίτας, συνδέει τη βιβλιοθήκη, και χρησιμοποιεί το [set_range](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_range/) για να αντιστοιχίσει το A1:B4 σε μία σειρά και τρεις κατηγορίες. Αποθηκεύει το αποτέλεσμα στο `Presentation_with_externalWorkbook.pptx`.
+
+```python
+from pathlib import Path
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, True)
+    chart_data = chart.chart_data
+    workbook_path = str(Path("externalWorkbook.xlsx").resolve())
+
+    chart_data.set_external_workbook(workbook_path)
+    chart_data.set_range("Sheet1!$A$1:$B$4")
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Η παράμετρος `update_chart_data` της [set_external_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/set_external_workbook/) ελέγχει εάν η βιβλιοθήκη θα φορτωθεί.
+
+* Όταν `update_chart_data` είναι `False`, ενημερώνεται μόνο η διαδρομή της βιβλιοθήκης. Τα δεδομένα του γραφήματος δεν φορτώνονται ή ενημερώνονται από τη στοχευμένη βιβλιοθήκη, ώστε η βιβλιοθήκη να μπορεί να είναι μη διαθέσιμη.
+* Όταν `update_chart_data` είναι `True`, τα δεδομένα του γραφήματος ενημερώνονται από τη στοχευμένη βιβλιοθήκη.
+
+Το παρακάτω παράδειγμα αναθέτει μια εικονική URL με `update_chart_data` ορισμένο σε `False`. Διατηρεί τα προεπιλεγμένα δεδομένα του διαγράμματος πίτας και αποθηκεύει την παρουσία χωρίς να φορτώσει τη μη διαθέσιμη βιβλιοθήκη.
 
 ```python
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
-    source_type = chart.chart_data.data_source_type
-    if source_type == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
-        print(chart.chart_data.external_workbook_path)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, True)
+
+    chart.chart_data.set_external_workbook("https://example.com/unavailable-workbook.xlsx", False)
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Επεξεργασία δεδομένων διαγράμματος**
+### **Λήψη Διαδρομής Βιβλιοθήκης Πηγής Δεδομένων Εξωτερικού Γραφήματος**
 
-Μπορείτε να επεξεργαστείτε δεδομένα σε εξωτερικά βιβλία εργασίας με τον ίδιο τρόπο που επεξεργάζεστε δεδομένα σε εσωτερικά βιβλία εργασίας. Εάν ένα εξωτερικό βιβλίο εργασίας δεν μπορεί να φορτωθεί, εγείρεται εξαίρεση.
+Για να εντοπίσετε τη βιβλιοθήκη που συνδέεται με ένα γράφημα, πρώτα ελέγξτε αν το γράφημα χρησιμοποιεί εξωτερική πηγή δεδομένων. Αν ναι, μπορείτε να ανακτήσετε τη διαδρομή της βιβλιοθήκης ακολουθώντας τα παρακάτω βήματα.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Προσπελάστε την πρώτη διαφάνεια με το μηδενικό δείκτη.
+3. Ελέγξτε ότι το πρώτο σχήμα είναι γράφημα.
+4. Διαβάστε τον τύπο πηγής δεδομένων του γραφήματος.
+5. Αν η πηγή είναι εξωτερική βιβλιοθήκη, διαβάστε τη διαδρομή της.
+
+Αυτό το παράδειγμα ανοίγει το `externalWorkbook.pptx`, που δημιουργήθηκε στο προηγούμενο παράδειγμα, και εξετάζει το πρώτο σχήμα στην πρώτη διαφάνεια. Αν είναι γράφημα συνδεδεμένο με εξωτερική βιβλιοθήκη, το παράδειγμα εκτυπώνει το [external_workbook_path](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/external_workbook_path/) στην κονσόλα. Στη συνέχεια αποθηκεύει ένα αντίγραφο της παρουσίασης στο `Result.pptx`.
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation("sample.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
-    chart.chart_data.series[0].data_points[0].value.as_cell.value = 100
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("externalWorkbook.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) > 0 and isinstance(slide.shapes[0], charts.Chart):
+        chart = slide.shapes[0]
+        chart_data = chart.chart_data
+        if chart_data.data_source_type == charts.ChartDataSourceType.EXTERNAL_WORKBOOK:
+            print(chart_data.external_workbook_path)
+        else:
+            print("The chart does not use an external workbook.")
+    else:
+        print("The first shape is not a chart.")
+
+    presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ανάκτηση βιβλίου εργασίας από τη λανθάνουσα μνήμη διαγράμματος**
+### **Επεξεργασία Δεδομένων Γραφήματος**
 
-Εάν ένα διάγραμμα χρησιμοποιεί ένα εξωτερικό βιβλίο εργασίας που λείπει ή δεν είναι διαθέσιμο, το Aspose.Slides μπορεί να ανασυνθέσει το βιβλίο εργασίας του διαγράμματος από τα δεδομένα που είναι αποθηκευμένα στη λανθάνουσα μνήμη της παρουσίασης. Δημιουργήστε ένα αντικείμενο [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/), στη συνέχεια ενεργοποιήστε το [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/el/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) μέσω του [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/spreadsheet_options/) πριν ανοίξετε την παρουσίαση.
+Μπορείτε να επεξεργαστείτε τα δεδομένα σε εξωτερικές βιβλιοθήκες με τον ίδιο τρόπο που επεξεργάζεστε τα περιεχόμενα των εσωτερικών βιβλιοθηκών. Όταν μια εξωτερική βιβλιοθήκη δεν μπορεί να φορτωθεί, γίνεται εξαίρεση.
 
-Το παρακάτω παράδειγμα Python ανοίγει μια παρουσίαση της οποίας το διάγραμμα αναφέρεται σε μη διαθέσιμο εξωτερικό βιβλίο εργασίας και προσπελάζει τα δεδομένα που ανακτήθηκαν μέσω του [Chart.chart_data](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/chart_data/) και του [ChartData.chart_data_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+Αυτό το παράδειγμα απαιτεί το `presentation.pptx` με ένα γράφημα ως το πρώτο σχήμα στην πρώτη διαφάνεια και μια προσβάσιμη εξωτερική βιβλιοθήκη. Ορίζει την τιμή του πρώτου σημείου δεδομένων στην πρώτη σειρά σε 100 και αποθηκεύει την παρουσία στο `presentation_out.pptx`. Η επεξεργασία των τιμών κελιών μπορεί να ενημερώσει το συνδεδεμένο εξωτερικό αρχείο XLSX, οπότε χρησιμοποιήστε ένα αντίγραφο εάν πρέπει να διατηρήσετε την αρχική βιβλιοθήκη.
 
 ```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("presentation.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) > 0 and isinstance(slide.shapes[0], charts.Chart):
+        chart = slide.shapes[0]
+        series = chart.chart_data.series
+        if len(series) > 0 and len(series[0].data_points) > 0:
+            value_cell = series[0].data_points[0].value.as_cell
+            if value_cell is not None:
+                value_cell.value = 100
+                presentation.save("presentation_out.pptx", slides.export.SaveFormat.PPTX)
+            else:
+                print("The first data point is not linked to a workbook cell.")
+        else:
+            print("The chart has no data points to edit.")
+    else:
+        print("The first shape is not a chart.")
+```
+
+### **Αποκατάσταση Βιβλιοθήκης από την Κρυφή Μνήμη Γραφήματος**
+
+Αν ένα γράφημα χρησιμοποιεί εξωτερική βιβλιοθήκη που λείπει ή δεν είναι διαθέσιμη, το Aspose.Slides μπορεί να ανακατασκευάσει τη βιβλιοθήκη του γραφήματος από τα δεδομένα που είναι κρυμμένα στην παρουσία. Δημιουργήστε ένα [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/), διαμορφώστε το [spreadsheet_options](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/spreadsheet_options/), και ορίστε το [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/el/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) σε `True` πριν ανοίξετε την παρουσία.
+
+Το παρακάτω παράδειγμα Python ανοίγει το `presentation.pptx`, του οποίου το πρώτο σχήμα στην πρώτη διαφάνεια πρέπει να είναι ένα γράφημα που παραπέμπει σε μη διαθέσιμη εξωτερική βιβλιοθήκη, και προσπελαύνει τα αποκατεστημένα δεδομένα μέσω του [Chart.chart_data](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/chart_data/) και του [ChartData.chart_data_workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
 load_options = slides.LoadOptions()
 load_options.spreadsheet_options.recover_workbook_from_chart_cache = True
 
 with slides.Presentation("presentation.pptx", load_options) as presentation:
-    chart = presentation.slides[0].shapes[0]
-    recovered_workbook = chart.chart_data.chart_data_workbook
+    slide = presentation.slides[0]
 
-    # Διαβάστε ή τροποποιήστε τα δεδομένα του ανακτημένου βιβλίου εργασίας εδώ.
+    if len(slide.shapes) > 0 and isinstance(slide.shapes[0], charts.Chart):
+        chart = slide.shapes[0]
+        recovered_workbook = chart.chart_data.chart_data_workbook
+
+        # Διαβάστε ή τροποποιήστε τα δεδομένα της αποκατεστημένης βιβλιοθήκης εδώ.
+    else:
+        print("The first shape is not a chart.")
 ```
 
-Εάν το εξωτερικό βιβλίο εργασίας δεν είναι διαθέσιμο και η ανάκτηση είναι απενεργοποιημένη, το Aspose.Slides εγείρει εξαίρεση. Ενεργοποιήστε την ανάκτηση μόνο όταν η χρήση των δεδομένων λανθάνουσας μνήμης είναι αποδεκτό εναλλακτικό σενάριο, επειδή η λανθάνουσα μνήμη μπορεί να μην περιέχει αλλαγές που έγιναν στο εξωτερικό βιβλίο εργασίας μετά την τελευταία ενημέρωση της παρουσίασης.
+Αν η εξωτερική βιβλιοθήκη δεν είναι διαθέσιμη και η αποκατάσταση είναι απενεργοποιημένη, το Aspose.Slides ρίχνει εξαίρεση. Ενεργοποιήστε την αποκατάσταση μόνο όταν η χρήση των κρυφών δεδομένων του γραφήματος είναι αποδεκτή εναλλακτική λύση, επειδή η κρύπτη μπορεί να μην περιέχει αλλαγές που έγιναν στην εξωτερική βιβλιοθήκη μετά την τελευταία ενημέρωση της παρουσίασης.
 
-## **Συχνές ερωτήσεις**
+## **FAQ**
 
-**Μπορώ να καθορίσω εάν ένα συγκεκριμένο διάγραμμα είναι συνδεδεμένο με εξωτερικό ή ενσωματωμένο βιβλίο εργασίας;**
+**Μπορώ να προσδιορίσω εάν ένα συγκεκριμένο γράφημα συνδέεται με εξωτερική ή ενσωματωμένη βιβλιοθήκη;**
 
-Ναι. Ένα διάγραμμα διαθέτει έναν [data source type](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/data_source_type/) και μια [path to an external workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/external_workbook_path/); εάν η πηγή είναι εξωτερικό βιβλίο εργασίας, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
+Ναι. Ένα γράφημα έχει έναν [data source type](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/data_source_type/) και μια [path to an external workbook](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Εάν η πηγή είναι εξωτερική βιβλιοθήκη, μπορείτε να διαβάσετε τη πλήρη διαδρομή για να βεβαιωθείτε ότι χρησιμοποιείται εξωτερικό αρχείο.
 
-**Υποστηρίζονται σχετικές διαδρομές σε εξωτερικά βιβλία εργασίας και πώς αποθηκεύονται;**
+**Υποστηρίζονται οι σχετικές διαδρομές σε εξωτερικές βιβλιοθήκες και πώς αποθηκεύονται;**
 
-Ναι. Εάν καθορίσετε σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απόλυτη. Αυτό είναι βολικό για φορητότητα έργου· ωστόσο, η παρουσίαση θα αποθηκεύσει την απόλυτη διαδρομή στο αρχείο PPTX.
+Ναι. Εάν ορίσετε σχετική διαδρομή, αυτή μετατρέπεται αυτόματα σε απόλυτη διαδρομή. Η παρουσία αποθηκεύει την απόλυτη διαδρομή στο αρχείο PPTX, έτσι η μετακίνηση της βιβλιοθήκης μπορεί να απαιτεί ενημέρωση του συνδέσμου.
 
-**Μπορώ να χρησιμοποιήσω βιβλία εργασίας που βρίσκονται σε δικτυακούς πόρους/κοινόχρηστους φακέλους;**
+**Μπορώ να χρησιμοποιήσω βιβλιοθήκες που βρίσκονται σε δικτυακούς πόρους/κοινόχρηστους φακέλους;**
 
-Ναι, τέτοια βιβλία μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η άμεση επεξεργασία απομακρυσμένων βιβλίων εργασίας από το Aspose.Slides δεν υποστηρίζεται· μπορούν μόνο να χρησιμοποιηθούν ως πηγή.
+Ναι, τέτοιες βιβλιοθήκες μπορούν να χρησιμοποιηθούν ως εξωτερική πηγή δεδομένων. Ωστόσο, η επεξεργασία απομακρυσμένων βιβλιοθηκών απευθείας από το Aspose.Slides δεν υποστηρίζεται· μπορούν μόνο να χρησιμοποιηθούν ως πηγή.
 
-**Αντικαθιστά το Aspose.Slides το εξωτερικό XLSX κατά την αποθήκευση της παρουσίασης;**
+**Το Aspose.Slides αντικαθιστά το εξωτερικό αρχείο XLSX κατά την αποθήκευση της παρουσίασης;**
 
-Μόνο εάν επεξεργαστήκατε τα δεδομένα του διαγράμματος. Η παρουσίαση αποθηκεύει έναν [link to the external file](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/external_workbook_path/) και τον χρησιμοποιεί για ανάγνωση δεδομένων, έτσι το άνοιγμα και η αποθήκευση μιας παρουσίασης δεν τροποποιούν το βιβλίο εργασίας. Ωστόσο, οι τιμές που αλλάζετε μέσω των δεδομένων του διαγράμματος (δείτε **Edit Chart Data** παραπάνω) γράφονται πίσω στο εξωτερικό βιβλίο εργασίας όταν η παρουσίαση αποθηκεύεται· εργαστείτε σε αντίγραφο εάν πρέπει να διατηρηθεί ανέπαφο το αρχικό.
+Η παρουσία αποθηκεύει έναν [link to the external file](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Η επεξεργασία των δεδομένων γραφήματος που προέρχονται από κελιά μπορεί επίσης να ενημερώσει το συνδεδεμένο τοπικό αρχείο XLSX. Χρησιμοποιήστε ένα αντίγραφο της βιβλιοθήκης εάν το αρχικό πρέπει να παραμείνει αμετάβλητο.
 
-**Τι να κάνω εάν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό;**
+**Τι πρέπει να κάνω εάν το εξωτερικό αρχείο είναι προστατευμένο με κωδικό πρόσβασης;**
 
-Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης κατά τη σύνδεση. Συνήθης προσέγγιση είναι να αφαιρέσετε την προστασία εκ των προτέρων ή να προετοιμάσετε ένα αποκρυπτογραφημένο αντίγραφο (π.χ., χρησιμοποιώντας [Aspose.Cells](/cells/python-net/)) και να συνδέσετε σε αυτό το αντίγραφο.
+Το Aspose.Slides δεν δέχεται κωδικό πρόσβασης κατά τη σύνδεση. Μία κοινή προσέγγιση είναι να αφαιρέσετε την προστασία εκ των προτέρων ή να προετοιμάσετε ένα αποκρυπτογραφημένο αντίγραφο (για παράδειγμα, χρησιμοποιώντας το [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) και να συνδέσετε σε αυτό το αντίγραφο.
 
-**Μπορείσαν πολλά διαγράμματα να αναφέρονται στο ίδιο εξωτερικό βιβλίο εργασίας;**
+**Μπορούν πολλαπλά γραφήματα να αναφέρονται στην ίδια εξωτερική βιβλιοθήκη;**
 
-Ναι. Κάθε διάγραμμα αποθηκεύει τον δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντανακλάται σε κάθε διάγραμμα την επόμενη φορά που θα φορτωθούν τα δεδομένα.
+Ναι. Κάθε γράφημα αποθηκεύει τον δικό του σύνδεσμο. Εάν όλα δείχνουν στο ίδιο αρχείο, η ενημέρωση του αρχείου θα αντικατοπτρίζεται σε κάθε γράφημα την επόμενη φορά που θα φορτωθούν τα δεδομένα.

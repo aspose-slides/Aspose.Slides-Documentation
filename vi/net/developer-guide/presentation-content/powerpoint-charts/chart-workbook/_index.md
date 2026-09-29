@@ -1,378 +1,503 @@
 ---
-title: Quản lý Sổ làm việc Biểu đồ trong Bản trình chiếu bằng .NET
-linktitle: Sổ làm việc Biểu đồ
+title: Quản lý workbook biểu đồ trong bản trình chiếu bằng .NET
+linktitle: Workbook biểu đồ
 type: docs
 weight: 70
 url: /vi/net/chart-workbook/
 keywords:
-- sổ làm việc biểu đồ
+- workbook biểu đồ
 - dữ liệu biểu đồ
-- ô sổ làm việc
+- ô workbook
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- sổ làm việc ngoại
-- dữ liệu ngoại
+- workbook bên ngoài
+- dữ liệu bên ngoài
 - bộ nhớ đệm biểu đồ
-- phục hồi sổ làm việc
+- khôi phục workbook
 - PowerPoint
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho .NET: dễ dàng quản lý sổ làm việc biểu đồ trong định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho .NET: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu bản trình chiếu của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó chỉ ra cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô trong sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet, và chỉ định kiểu nguồn dữ liệu cho giá trị biểu đồ.
 
-Nó cũng bao gồm việc làm việc với sổ làm việc bên ngoài như nguồn dữ liệu biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
+Nó cũng bao phủ việc làm việc với các sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
 
-Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, hãy xem [Kiểm soát việc hiển thị các ô trống](/slides/vi/net/chart-series/) để biết sự khác biệt giữa ô trống và giá trị zero, và so sánh biểu đồ đường của các chế độ hiển thị khả dụng.
+Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, xem [Kiểm soát Hiển thị các Ô Trống](/slides/vi/net/chart-series/) để biết sự khác biệt giữa ô trống và số 0, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Sổ làm việc**
-Aspose.Slides cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc có cấu trúc tương tự như nguồn.
+## **Bao gồm Dữ liệu từ Các Hàng và Cột Ẩn**
 
-Mã C# này minh họa một thao tác mẫu:
+Sử dụng [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) để kiểm soát xem biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt nó thành `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả ô hiển thị và ẩn. Cài đặt này kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiện lại các hàng hoặc cột worksheet.
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
+Tải xuống [hidden-source-data.pptx](hidden-source-data.pptx) và đặt nó vào thư mục làm việc. Slide đầu tiên của nó chứa một biểu đồ cột là hình dạng đầu tiên. Worksheet được nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
 
-using (Presentation pres = new Presentation("chart.pptx"))
-{
-    Chart chart = (Chart) pres.Slides[0].Shapes[0];
-    IChartData data = chart.ChartData;
+| Hàng Worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
+| --- | --- | --- | --- |
+| 2 | Tháng 1 | 10 | 30 |
+| 3 (hàng ẩn) | Tháng 2 | 40 | 60 |
+| 4 | Tháng 3 | 20 | 50 |
 
-    MemoryStream stream = data.ReadWorkbookStream();
+Truy cập các ô nguồn qua [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/chartdataworkbook/) và đọc [IChartDataCell.IsHidden](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Thuộc tính này chỉ đọc. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `False`, `True`, và `True` tương ứng.
 
-    data.Series.Clear();
-    data.Categories.Clear();
-
-    stream.Position = 0;
-    data.WriteWorkbookStream(stream);
-}
-```
-
-### **Xác thực Bố cục Biểu đồ Sau khi Sửa đổi Sổ làm việc**
-
-Khi bạn thay thế một sổ làm việc nhúng bằng một sổ làm việc đã chỉnh sửa, biểu đồ sẽ giữ lại các bộ sưu tập series và category gốc. Sự không khớp này có thể khiến [IChart.ValidateChartLayout](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/validatechartlayout/) thất bại với lỗi chỉ mục vượt quá phạm vi. Hãy xóa các series và category hiện có trước khi ghi sổ làm việc đã cập nhật trở lại biểu đồ.
+Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại workbook được nhúng bằng [ReadWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/readworkbookstream/) và tải lại bằng [WriteWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [SetRange](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/setrange/) để khôi phục toàn bộ phạm vi, bao gồm danh mục tháng 2 bị ẩn. Chỉ thay đổi flag không đủ để làm mới dữ liệu biểu đồ được lưu trong bộ nhớ đệm và nhãn danh mục của mẫu này.
 
 ```csharp
-// Sau khi sửa đổi luồng workbook (ví dụ, sử dụng Aspose.Cells)
-using var updatedWorkbook = chartData.ReadWorkbookStream();
-
-// Xóa các tham chiếu dữ liệu hiện có.
-chartData.Series.Clear();
-chartData.Categories.Clear();
-
-updatedWorkbook.Position = 0;
-chartData.WriteWorkbookStream(updatedWorkbook);
-
-chart.ValidateChartLayout();
-```
-
-Việc xóa các bộ sưu tập đảm bảo cấu trúc dữ liệu biểu đồ đồng nhất với sổ làm việc mới, cho phép `ValidateChartLayout` hoàn thành mà không gặp lỗi.
-
-## **Đặt một ô WorkBook làm Nhãn Dữ liệu Biểu đồ**
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide thông qua chỉ số của nó.
-1. Thêm một biểu đồ Bubble với một số dữ liệu.
-1. Truy cập series của biểu đồ.
-1. Đặt ô workbook làm nhãn dữ liệu.
-1. Lưu bản trình chiếu.
-
-Mã C# này cho thấy cách đặt một ô workbook làm nhãn dữ liệu biểu đồ:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-
-string lbl0 = "Label 0 cell value";
-string lbl1 = "Label 1 cell value";
-string lbl2 = "Label 2 cell value";
-// Khởi tạo một lớp Presentation đại diện cho tệp bản trình chiếu
-
-using (Presentation pres = new Presentation("chart2.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-
-
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
-
-    IChartSeriesCollection series = chart.ChartData.Series;
-
-    series[0].Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
-
-    IChartDataWorkbook wb = chart.ChartData.ChartDataWorkbook;
-
-    series[0].Labels[0].ValueFromCell = wb.GetCell(0, "A10", lbl0);
-    series[0].Labels[1].ValueFromCell = wb.GetCell(0, "A11", lbl1);
-    series[0].Labels[2].ValueFromCell = wb.GetCell(0, "A12", lbl2);
-
-    pres.Save("resultchart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Quản lý các Worksheet**
-
-Mã C# này minh họa một thao tác trong đó thuộc tính [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) được sử dụng để truy cập bộ sưu tập worksheet:
-
-``` csharp
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-
-using (Presentation pres = new Presentation())
-{
-   IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
-   IChartDataWorkbook wb =  chart.ChartData.ChartDataWorkbook;
-   for (int i = 0; i < wb.Worksheets.Count; i++)
-      Console.WriteLine(wb.Worksheets[i].Name);
-}
-```
-
-## **Chỉ định Loại Nguồn Dữ liệu**
-
-Mã C# này cho thấy cách chỉ định một loại cho nguồn dữ liệu:
-
-```c#
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("hidden-source-data.pptx");
+var slide = presentation.Slides[0];
+
+if (slide.Shapes[0] is IChart chart)
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IStringChartValue val = chart.ChartData.Series[0].Name;
-    
-    val.DataSourceType = DataSourceType.StringLiterals;
-    val.Data = "LiteralString";
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    Console.WriteLine($"B2 hidden: {workbook.GetCell(0, "B2").IsHidden}");
+    Console.WriteLine($"B3 hidden: {workbook.GetCell(0, "B3").IsHidden}");
+    Console.WriteLine($"C2 hidden: {workbook.GetCell(0, "C2").IsHidden}");
 
-    val = chart.ChartData.Series[1].Name;
-    val.Data = chart.ChartData.ChartDataWorkbook.GetCell(0, "B1", "NewCell");
-
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Phát hiện Định dạng Sổ làm việc Nhúng Không được Hỗ trợ**
-
-Aspose.Slides không hỗ trợ định dạng sổ làm việc Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng thuộc tính `EmbeddedWorkbookType` trên [IChartData](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua những biểu đồ đó.
-
-```csharp
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-
-    foreach (var shape in slide.Shapes)
+    using var workbookStream = chart.ChartData.ReadWorkbookStream();
+    foreach (var visibleOnly in new[] { true, false })
     {
-        if (shape is not IChart chart) continue;
+        chart.PlotVisibleCellsOnly = visibleOnly;
 
-        var chartData = chart.ChartData;
-
-        if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
-            chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
+        // Làm mới dữ liệu biểu đồ từ workbook được nhúng.
+        workbookStream.Position = 0;
+        chart.ChartData.WriteWorkbookStream(workbookStream);
+        if (!visibleOnly)
         {
-            // Workbook nhúng ở định dạng .xlsb, không được hỗ trợ.
-            continue;
+            // Khôi phục toàn bộ phạm vi nguồn, bao gồm các danh mục ẩn.
+            chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
-        // Đọc hoặc chỉnh sửa dữ liệu workbook của biểu đồ ở đây.
+        presentation.Save($"hidden_cells_{visibleOnly}.pptx", SaveFormat.Pptx);
     }
+}
+else
+{
+    Console.WriteLine("The first shape is not a chart.");
 }
 ```
 
-## **Workbook Ngoại**
+Ví dụ lưu `hidden_cells_True.pptx` chỉ với các giá trị Bán lẻ hiển thị (10 và 20), và `hidden_cells_False.pptx` với tất cả sáu giá trị. Các hình ảnh dưới đây được tạo từ các bản trình chiếu đã lưu sau khi mở lại; cả hai tệp đều giữ cài đặt vẽ đã được chỉ định. Hàng 3 và cột C vẫn ẩn trong cả hai workbook được nhúng.
 
-Aspose.Slides hỗ trợ việc sử dụng workbook ngoại làm nguồn dữ liệu cho các biểu đồ.
+| Chỉ các ô hiển thị (`true`) | Tất cả các ô (`false`) |
+| --- | --- |
+| ![Chỉ các ô hiển thị: Giá trị Bán lẻ 10 và 20 cho Tháng 1 và Tháng 3.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị Bán lẻ và Bán buôn cho Tháng 1, Tháng 2 và Tháng 3.](hidden_cells_False.png) |
 
-### **Tạo một Workbook Ngoại**
+Một ô ẩn chứa giá trị khác với một ô trống. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/displayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hay loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát Hiển thị các Ô Trống](/slides/vi/net/chart-series/#control-the-display-of-empty-cells) để xem ví dụ.
 
-Sử dụng các phương thức **`ReadWorkbookStream`** và **`SetExternalWorkbook`**, bạn có thể tạo một workbook ngoại từ đầu hoặc biến một workbook nội thành ngoại.
+## **Đọc và Ghi Dữ liệu Biểu đồ từ Workbook**
 
-Mã C# này minh họa quy trình tạo workbook ngoại:
+Aspose.Slides cho .NET cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi các workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
 
-```c#
+Ví dụ này mở `chart.pptx`, tệp này phải chứa một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc workbook được nhúng vào một luồng, xóa các series và category hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn ở trong bộ nhớ; ví dụ không lưu bản trình chiếu.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("chart.pptx");
+var slide = presentation.Slides[0];
+
+var shapeCount = slide.Shapes.Count;
+if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
+{
+    var chartData = chart.ChartData;
+    using var workbookStream = chartData.ReadWorkbookStream();
+
+    chartData.Series.Clear();
+    chartData.Categories.Clear();
+
+    workbookStream.Position = 0;
+    chartData.WriteWorkbookStream(workbookStream);
+}
+else
+{
+    Console.WriteLine("The first shape is not a chart.");
+}
+```
+
+### **Xác thực Bố cục Biểu đồ Sau Khi Sửa Workbook**
+
+Khi bạn thay thế một workbook được nhúng bằng một workbook đã sửa, biểu đồ vẫn giữ các bộ sưu tập series và category ban đầu. Sự không khớp này có thể khiến [IChart.ValidateChartLayout](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/validatechartlayout/) thất bại với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi lại workbook đã cập nhật vào biểu đồ. Ví dụ này yêu cầu `chart.pptx` có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Các chú thích đánh dấu vị trí sẽ thực hiện chỉnh sửa workbook; ví dụ có thể chạy sẽ ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("chart.pptx");
+var slide = presentation.Slides[0];
+
+var shapeCount = slide.Shapes.Count;
+if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
+{
+    var chartData = chart.ChartData;
+    using var workbookStream = chartData.ReadWorkbookStream();
+
+    // Sửa đổi luồng workbook ở đây, ví dụ, sử dụng Aspose.Cells.
+
+    chartData.Series.Clear();
+    chartData.Categories.Clear();
+
+    workbookStream.Position = 0;
+    chartData.WriteWorkbookStream(workbookStream);
+    chart.ValidateChartLayout();
+}
+else
+{
+    Console.WriteLine("The first shape is not a chart.");
+}
+```
+
+Việc xóa các bộ sưu tập loại bỏ các tham chiếu dữ liệu lỗi thời trước khi workbook được ghi lại. Hãy xây dựng lại bất kỳ ánh xạ series và category cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.
+
+## **Đặt Ô Workbook làm Nhãn Dữ liệu Biểu đồ**
+
+Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu cho biểu đồ. Các bước sau cho thấy cách liên kết các nhãn trong biểu đồ bong bóng với các ô trong workbook dữ liệu của nó.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên bằng chỉ mục bắt đầu từ 0.
+3. Thêm một biểu đồ bong bóng với dữ liệu mặc định.
+4. Truy cập series của biểu đồ.
+5. Đặt ô workbook làm nhãn dữ liệu.
+6. Lưu bản trình chiếu.
+
+Ví dụ này mở `chart2.pptx`, tệp này phải chứa ít nhất một slide, và thêm một biểu đồ bong bóng với dữ liệu mặc định. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu kết quả vào `resultchart.pptx`.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    const string workbookPath = "externalWorkbook1.xlsx";
+using var presentation = new Presentation("chart2.pptx");
+var slide = presentation.Slides[0];
 
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600);
-    using (FileStream fileStream = new FileStream(workbookPath, FileMode.Create))
+var chart = slide.Shapes.AddChart(ChartType.Bubble, 50, 50, 600, 400, true);
+var series = chart.ChartData.Series[0];
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+series.Labels.DefaultDataLabelFormat.ShowLabelValueFromCell = true;
+series.Labels[0].ValueFromCell = workbook.GetCell(0, "A10", "Label 0 cell value");
+series.Labels[1].ValueFromCell = workbook.GetCell(0, "A11", "Label 1 cell value");
+series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value");
+
+presentation.Save("resultchart.pptx", SaveFormat.Pptx);
+```
+
+## **Quản lý Worksheets**
+
+Thuộc tính [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdataworkbook/worksheets/) cung cấp quyền truy cập vào các worksheet trong một chart workbook. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+for (var i = 0; i < workbook.Worksheets.Count; i++)
+{
+    Console.WriteLine(workbook.Worksheets[i].Name);
+}
+```
+
+## **Chỉ định Kiểu Nguồn Dữ liệu**
+
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng cách sử dụng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một chuỗi literal; tên thứ hai sử dụng ô C1 trên worksheet 0. Kiểu liệt kê [DataSourceType](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/datasourcetype/) chọn nguồn cho mỗi tên. Kết quả được lưu vào `pres.pptx`.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
+var literalName = chart.ChartData.Series[0].Name;
+
+literalName.DataSourceType = DataSourceType.StringLiterals;
+literalName.Data = "LiteralString";
+
+var cellName = chart.ChartData.Series[1].Name;
+var nameCell = chart.ChartData.ChartDataWorkbook.GetCell(0, "C1", "NewCell");
+cellName.DataSourceType = DataSourceType.Worksheet;
+cellName.Data = nameCell;
+
+presentation.Save("pres.pptx", SaveFormat.Pptx);
+```
+
+## **Phát hiện Định dạng Workbook Nhúng Không được Hỗ trợ**
+
+Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng thuộc tính [EmbeddedWorkbookType](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) trên [IChartData](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/) cùng với kiểu liệt kê [WorkbookType](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các shape trên slide đầu tiên của `sample.pptx`, bỏ qua các shape không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có workbook .xlsb được nhúng.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IChart chart)
     {
-        byte[] workbookData = chart.ChartData.ReadWorkbookStream().ToArray();
-        fileStream.Write(workbookData, 0, workbookData.Length);
+        continue;
     }
-    
-    chart.ChartData.SetExternalWorkbook(Path.GetFullPath(workbookPath));
 
-    pres.Save("externalWorkbook.pptx", SaveFormat.Pptx);
-}
-```
+    var chartData = chart.ChartData;
+    var isInternalWorkbook = chartData.DataSourceType == ChartDataSourceType.InternalWorkbook;
+    var isBinaryMacro = chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro;
 
-### **Đặt một Workbook Ngoại**
-Sử dụng phương thức **`SetExternalWorkbook`**, bạn có thể gán một workbook ngoại cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook ngoại (nếu workbook đã được di chuyển).
-
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí từ xa hoặc trên tài nguyên, bạn vẫn có thể dùng các workbook đó làm nguồn dữ liệu ngoại. Nếu cung cấp đường dẫn tương đối cho một workbook ngoại, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối.
-
-Mã C# này cho thấy cách đặt một workbook ngoại:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
-
-// Đường dẫn tới thư mục tài liệu.
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
-    IChartData chartData = chart.ChartData;
-                    
-    chartData.SetExternalWorkbook(Path.GetFullPath("externalWorkbook.xlsx"));
-                  
-
-    chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
-    chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
-    chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B3"));
-    chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B4"));
-
-    chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A2"));
-    chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A3"));
-    chartData.Categories.Add(chartData.ChartDataWorkbook.GetCell(0, "A4"));
-    pres.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
-}
-```
-
-Tham số `ChartData` (trong phương thức `SetExternalWorkbook`) được dùng để chỉ định việc có nạp workbook Excel hay không.
-
-* Khi giá trị `ChartData` được đặt là `false`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được nạp hoặc cập nhật từ workbook mục tiêu. Bạn có thể dùng thiết lập này khi workbook mục tiêu không tồn tại hoặc không khả dụng.
-* Khi giá trị `ChartData` được đặt là `true`, dữ liệu biểu đồ sẽ được cập nhật từ workbook mục tiêu.
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
-	IChartData chartData = chart.ChartData;
-
-	(chartData as ChartData).SetExternalWorkbook("http://path/doesnt/exists", false);
-
-	pres.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
-}
-```
-
-### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Ngoại của Biểu đồ**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide thông qua chỉ số của nó.
-1. Tạo một đối tượng cho shape biểu đồ.
-1. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
-1. Chỉ định điều kiện phù hợp dựa trên việc loại nguồn giống với loại nguồn dữ liệu workbook ngoại.
-
-Mã C# này minh họa thao tác:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ISlide slide = pres.Slides[1];
-    IChart chart = (IChart)slide.Shapes[0];
-    ChartDataSourceType sourceType = chart.ChartData.DataSourceType;
-    if (sourceType == ChartDataSourceType.ExternalWorkbook)
+    if (isInternalWorkbook && isBinaryMacro)
     {
-        string path = chart.ChartData.ExternalWorkbookPath;
+        Console.WriteLine("Skipping a chart with an unsupported .xlsb workbook.");
+        continue;
     }
-    
-    // Lưu bản trình chiếu
-    pres.Save("Result.pptx", SaveFormat.Pptx);
+
+    // Đọc hoặc chỉnh sửa dữ liệu workbook biểu đồ được hỗ trợ tại đây.
 }
+```
+
+## **Workbook Ngoài**
+
+Aspose.Slides hỗ trợ sử dụng workbook bên ngoài làm nguồn dữ liệu cho các biểu đồ.
+
+### **Tạo Workbook Ngoài**
+
+Sử dụng [ReadWorkbookStream](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [SetExternalWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/setexternalworkbook/) để xuất workbook biểu đồ được nhúng ra một tệp và liên kết biểu đồ với workbook bên ngoài đó.
+
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, ghi workbook của nó vào `externalWorkbook1.xlsx`, và đóng luồng xuất trước khi gán tệp làm nguồn dữ liệu cho biểu đồ. Nó lưu bản trình chiếu đã liên kết vào `externalWorkbook.pptx`.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600);
+var workbookPath = Path.GetFullPath("externalWorkbook1.xlsx");
+
+using (var workbookStream = chart.ChartData.ReadWorkbookStream())
+using (var fileStream = File.Create(workbookPath))
+{
+    workbookStream.CopyTo(fileStream);
+}
+
+chart.ChartData.SetExternalWorkbook(workbookPath);
+presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
+```
+
+### **Đặt Workbook Ngoài**
+
+Bằng cách sử dụng phương thức [SetExternalWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/setexternalworkbook/), bạn có thể gán một workbook bên ngoài cho biểu đồ làm nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đã được di chuyển).
+
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook lưu trữ ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng các workbook đó như một nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho workbook bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+
+Ví dụ này yêu cầu `externalWorkbook.xlsx` trong thư mục làm việc. Worksheet có tên `Sheet1` phải chứa một tên series ở B1, các tên category ở A2:A4, và các giá trị số tại B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng [SetRange](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/setrange/) để ánh xạ A1:B4 thành một series và ba category. Nó lưu kết quả vào `Presentation_with_externalWorkbook.pptx`.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
+var chartData = chart.ChartData;
+var workbookPath = Path.GetFullPath("externalWorkbook.xlsx");
+
+chartData.SetExternalWorkbook(workbookPath);
+chartData.SetRange("Sheet1!$A$1:$B$4");
+
+presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
+```
+
+Tham số `updateChartData` của [SetExternalWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kiểm soát việc có tải workbook hay không.
+
+* Khi `updateChartData` là `false`, chỉ đường dẫn workbook được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook mục tiêu, vì vậy workbook có thể không khả dụng.
+* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ workbook mục tiêu.
+
+Ví dụ sau gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ lại dữ liệu mặc định của biểu đồ tròn và lưu bản trình chiếu mà không tải workbook không khả dụng.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
+
+chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
+```
+
+### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Ngoài của Biểu đồ**
+
+Để xác định workbook được liên kết với một biểu đồ, trước tiên kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài không. Nếu có, bạn có thể lấy đường dẫn workbook bằng các bước sau.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên bằng chỉ mục bắt đầu từ 0.
+3. Kiểm tra rằng hình dạng đầu tiên là biểu đồ.
+4. Đọc kiểu nguồn dữ liệu của biểu đồ.
+5. Nếu nguồn là một workbook bên ngoài, đọc đường dẫn của nó.
+
+Ví dụ này mở `externalWorkbook.pptx`, được tạo trong ví dụ trước, và kiểm tra hình dạng đầu tiên trên slide đầu tiên. Nếu đó là một biểu đồ được liên kết với một workbook bên ngoài, ví dụ in [ExternalWorkbookPath](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/externalworkbookpath/) ra console. Sau đó nó lưu một bản sao của bản trình chiếu vào `Result.pptx`.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("externalWorkbook.pptx");
+var slide = presentation.Slides[0];
+
+var shapeCount = slide.Shapes.Count;
+if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
+{
+    var chartData = chart.ChartData;
+    if (chartData.DataSourceType == ChartDataSourceType.ExternalWorkbook)
+    {
+        Console.WriteLine(chartData.ExternalWorkbookPath);
+    }
+    else
+    {
+        Console.WriteLine("The chart does not use an external workbook.");
+    }
+}
+else
+{
+    Console.WriteLine("The first shape is not a chart.");
+}
+
+presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
 ### **Chỉnh sửa Dữ liệu Biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong workbook ngoại tương tự như khi thay đổi nội dung của workbook nội. Khi một workbook ngoại không thể được nạp, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong workbook bên ngoài theo cùng cách bạn thay đổi nội dung của workbook nội bộ. Khi một workbook ngoại không thể được tải, một ngoại lệ sẽ được ném.
 
-Mã C# này là một triển khai của quy trình đã mô tả:
+Ví dụ này yêu cầu `presentation.pptx` có một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và một workbook bên ngoài có thể truy cập được. Nó đặt giá trị được hỗ trợ bởi ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình chiếu vào `presentation_out.pptx`. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài được liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần giữ nguyên workbook gốc.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("presentation.pptx"))
-{
-    IChart chart = pres.Slides[0].Shapes[0] as IChart;
-    ChartData chartData = (ChartData)chart.ChartData;
-                   
+using var presentation = new Presentation("presentation.pptx");
+var slide = presentation.Slides[0];
 
-    chartData.Series[0].DataPoints[0].Value.AsCell.Value = 100;
-    pres.Save("presentation_out.pptx", SaveFormat.Pptx);
+var shapeCount = slide.Shapes.Count;
+if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
+{
+    var series = chart.ChartData.Series;
+    if (series.Count > 0 && series[0].DataPoints.Count > 0)
+    {
+        var valueCell = series[0].DataPoints[0].Value.AsCell;
+        if (valueCell != null)
+        {
+            valueCell.Value = 100;
+            presentation.Save("presentation_out.pptx", SaveFormat.Pptx);
+        }
+        else
+        {
+            Console.WriteLine("The first data point is not linked to a workbook cell.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("The chart has no data points to edit.");
+    }
+}
+else
+{
+    Console.WriteLine("The first shape is not a chart.");
 }
 ```
 
-### **Phục hồi Workbook từ Bộ nhớ Đệm Biểu đồ**
+### **Khôi phục Workbook từ Bộ nhớ Đệm Biểu đồ**
 
-Nếu một biểu đồ sử dụng một workbook ngoại bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu đã được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/), cấu hình [SpreadsheetOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/spreadsheetoptions/), và đặt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) thành `true` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/), cấu hình [SpreadsheetOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/spreadsheetoptions/) của nó, và đặt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) thành `true` trước khi mở bản trình chiếu.
 
-Ví dụ C# sau mở một bản trình chiếu mà biểu đồ của nó tham chiếu tới một workbook ngoại không khả dụng và truy cập dữ liệu đã phục hồi qua [IChart.ChartData](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/chartdata/) và [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Ví dụ C# sau mở `presentation.pptx`, trong đó hình dạng đầu tiên trên slide đầu tiên phải là một biểu đồ tham chiếu tới một workbook bên ngoài không khả dụng, và truy cập dữ liệu đã khôi phục thông qua [IChart.ChartData](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/chartdata/) và [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 
+var spreadsheetOptions = new SpreadsheetOptions
+{
+    RecoverWorkbookFromChartCache = true
+};
 var loadOptions = new LoadOptions
 {
-    SpreadsheetOptions = new SpreadsheetOptions
-    {
-        RecoverWorkbookFromChartCache = true
-    }
+    SpreadsheetOptions = spreadsheetOptions
 };
 
 using var presentation = new Presentation("presentation.pptx", loadOptions);
+var slide = presentation.Slides[0];
 
-var chart = (IChart)presentation.Slides[0].Shapes[0];
-var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+var shapeCount = slide.Shapes.Count;
+if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
+{
+    var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-// Read or modify the recovered workbook data here.
+    // Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục tại đây.
+}
+else
+{
+    Console.WriteLine("The first shape is not a chart.");
+}
 ```
 
-Nếu workbook ngoại không khả dụng và tính năng phục hồi bị tắt, Aspose.Slides sẽ ném ra một `InvalidOperationException`. Chỉ bật phục hồi khi việc sử dụng dữ liệu biểu đồ đã được lưu trong bộ nhớ đệm là một phương án dự phòng chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã được thực hiện trên workbook ngoại sau khi bản trình chiếu được cập nhật lần cuối.
+Nếu workbook bên ngoài không khả dụng và việc khôi phục bị tắt, Aspose.Slides sẽ ném ra một [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ được lưu trong bộ nhớ đệm là một phương án chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên workbook bên ngoài sau lần cập nhật cuối cùng của bản trình chiếu.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới workbook ngoại hay nhúng không?**
+**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới workbook bên ngoài hay workbook nhúng không?**
 
-Có. Một biểu đồ có một [data source type](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartdata/datasourcetype/) và một [path to an external workbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartdata/externalworkbookpath/); nếu nguồn là một workbook ngoại, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại đang được sử dụng.
+Có. Một biểu đồ có [kiểu nguồn dữ liệu](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartdata/datasourcetype/) và một [đường dẫn tới workbook bên ngoài](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartdata/externalworkbookpath/); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn một tệp bên ngoài đang được sử dụng.
 
-**Có hỗ trợ đường dẫn tương đối tới workbook ngoại không, và chúng được lưu như thế nào?**
+**Đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Khi bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này thuận lợi cho việc di động dự án; tuy nhiên, hãy lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình chiếu lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể yêu cầu cập nhật liên kết.
 
-**Tôi có thể sử dụng workbook nằm trên các tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, các workbook như vậy có thể được dùng làm nguồn dữ liệu ngoại. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, các workbook như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX ngoại khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình chiếu không?**
 
-Không. Bản trình chiếu lưu một [link to the external file](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartdata/externalworkbookpath/) và dùng nó để đọc dữ liệu. Tệp ngoại bản thân không bị sửa đổi khi bản trình chiếu được lưu.
+Bản trình chiếu lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartdata/externalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật tệp XLSX địa phương được liên kết. Hãy sử dụng một bản sao của workbook nếu bạn cần giữ nguyên workbook gốc.
 
-**Nếu tệp ngoại được bảo vệ bằng mật khẩu, tôi nên làm gì?**
+**Tôi nên làm gì nếu tệp bên ngoài được bảo mật bằng mật khẩu?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bỏ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng cách sử dụng [Aspose.Cells](/cells/net/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bỏ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](https://reference.aspose.com/cells/net/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một workbook ngoại không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của nó. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của nó. Nếu tất cả chúng trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.

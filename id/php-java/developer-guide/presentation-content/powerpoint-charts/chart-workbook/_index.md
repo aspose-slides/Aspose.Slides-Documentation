@@ -23,304 +23,449 @@ description: "Temukan Aspose.Slides untuk PHP via Java: kelola buku kerja grafik
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan buku kerja grafik di Aspose.Slides. Ini menunjukkan cara membaca dan menulis data grafik melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data grafik, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai grafik.
+Artikel ini menjelaskan cara bekerja dengan buku kerja grafik di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data grafik melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data grafik, mengakses koleksi lembar kerja, dan menentukan tipe sumber data untuk nilai grafik.
 
-Ini juga mencakup bekerja dengan buku kerja eksternal sebagai sumber data grafik. Contoh-contoh memperlihatkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke sebuah grafik, dan mengedit data grafik ketika buku kerja tersedia.
+Artikel ini juga mencakup kerja dengan buku kerja eksternal sebagai sumber data grafik. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mendapatkan jalur buku kerja eksternal yang terhubung ke sebuah grafik, dan mengedit data grafik ketika buku kerja tersedia.
 
-Untuk sel buku kerja yang mewakili data yang hilang, lihat [Kontrol Tampilan Sel Kosong](/slides/id/php-java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan grafik garis dari mode tampilan yang tersedia.
+Untuk sel buku kerja yang mewakili data yang hilang, lihat [Kontrol Penampilan Sel Kosong](/slides/id/php-java/chart-series/) untuk perbedaan antara sel kosong dan nol, serta perbandingan grafik garis dari mode tampilan yang tersedia.
+
+## **Sertakan Data dari Baris dan Kolom Tersembunyi**
+
+Gunakan [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/setplotvisiblecellsonly/) untuk mengontrol apakah sebuah grafik memplot data dari baris dan kolom lembar kerja yang tersembunyi. Atur ke `true` untuk memplot hanya sel yang terlihat, atau `false` untuk menyertakan sel yang terlihat dan tersembunyi. Pengaturan ini mengontrol pemplotan grafik; tidak menyembunyikan atau menampilkan kembali baris atau kolom lembar kerja.
+
+Unduh [hidden-source-data.pptx](hidden-source-data.pptx) dan letakkan di direktori kerja. Slide pertama berisi grafik kolom sebagai bentuk pertama. Lembar kerja yang tertanam, `Sheet1`, berisi rentang sumber berikut, `A1:C4`. Baris 3 dan kolom C tersembunyi, tetapi selnya masih berisi nilai.
+
+| Baris lembar kerja | A: Bulan | B: Retail | C: Wholesale (kolom tersembunyi) |
+| --- | --- | --- | --- |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
+
+Akses sel sumber melalui [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getchartdataworkbook/) dan baca [ChartDataCell::isHidden](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/ishidden/) untuk memeriksa status tersembunyi mereka. Metode ini melaporkan status tersembunyi tanpa mengubahnya. Dalam file ini, B2 terlihat, B3 berada di baris tersembunyi, dan C2 berada di kolom tersembunyi; contoh mencetak `false`, `true`, dan `true` secara berurutan.
+
+Untuk contoh ini, segarkan data grafik setelah mengubah pengaturan pemplotan: pertahankan buku kerja tertanam dengan [readWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/readworkbookstream/) dan muat ulang dengan [writeWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/writeworkbookstream/). Saat menyertakan semua sel, juga gunakan [setRange](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/setrange/) untuk memulihkan rentang lengkap, termasuk kategori Februari yang tersembunyi. Mengubah flag saja tidak cukup untuk menyegarkan data grafik yang di‑cache serta label kategori pada contoh ini.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("hidden-source-data.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $workbook = $chart->getChartData()->getChartDataWorkbook();
+        echo "B2 hidden: " . (java_values($workbook->getCell(0, "B2")->isHidden()) ? "true" : "false"), PHP_EOL;
+        echo "B3 hidden: " . (java_values($workbook->getCell(0, "B3")->isHidden()) ? "true" : "false"), PHP_EOL;
+        echo "C2 hidden: " . (java_values($workbook->getCell(0, "C2")->isHidden()) ? "true" : "false"), PHP_EOL;
+
+        $workbookData = $chart->getChartData()->readWorkbookStream();
+        foreach ([true, false] as $visibleOnly) {
+            $chart->setPlotVisibleCellsOnly($visibleOnly);
+
+            // Segarkan data grafik dari buku kerja yang tertanam.
+            $chart->getChartData()->writeWorkbookStream($workbookData);
+            if (!$visibleOnly) {
+                // Pulihkan rentang sumber lengkap, termasuk kategori tersembunyi.
+                $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
+            }
+
+            $presentation->save("hidden_cells_" . ($visibleOnly ? "true" : "false") . ".pptx", SaveFormat::Pptx);
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Contoh menyimpan `hidden_cells_true.pptx` dengan hanya nilai Retail yang terlihat (10 dan 20), dan `hidden_cells_false.pptx` dengan semua enam nilai. Gambar di bawah mengilustrasikan dua mode pemplotan. Baris 3 dan kolom C tetap tersembunyi di kedua buku kerja yang tertanam.
+
+| Hanya sel yang terlihat (`true`) | Semua sel (`false`) |
+| --- | --- |
+| ![Hanya sel yang terlihat: nilai Retail 10 dan 20 untuk Januari dan Maret.](hidden_cells_True.png) | ![Semua sel: nilai Retail dan Wholesale untuk Januari, Februari, dan Maret.](hidden_cells_False.png) |
+
+Sebuah sel tersembunyi yang berisi nilai berbeda dari sel kosong. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/setdisplayblanksas/) mengontrol cara nilai yang hilang ditampilkan; tidak menyertakan atau mengecualikan data sumber yang tersembunyi. Lihat [Kontrol Penampilan Sel Kosong](/slides/id/php-java/chart-series/#control-the-display-of-empty-cells) untuk contoh.
 
 ## **Baca dan Tulis Data Grafik dari Buku Kerja**
 
-Aspose.Slides menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda membaca dan menulis buku kerja data grafik (yang berisi data grafik yang diedit dengan Aspose.Cells). **Catatan** bahwa data grafik harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumber.
+Aspose.Slides for PHP via Java menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/readworkbookstream/) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/writeworkbookstream/) yang memungkinkan Anda membaca dan menulis buku kerja data grafik (yang berisi data grafik yang diedit dengan Aspose.Cells). **Catatan** bahwa data grafik harus diatur dengan cara yang sama atau harus memiliki struktur serupa dengan sumbernya.
 
-Kode PHP ini menunjukkan operasi contoh:
+Contoh ini membuka `chart.pptx`, yang harus berisi sebuah grafik sebagai bentuk pertama pada slide pertama. Ia membaca buku kerja tertanam ke dalam array byte, menghapus seri dan kategori yang ada, dan menulis kembali buku kerja yang sama. Perubahan tetap di memori; contoh tidak menyimpan presentasi.
 
 ```php
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $data = $chart->getChartData();
-    $stream = $data->readWorkbookStream();
-    $data->getSeries()->clear();
-    $data->getCategories()->clear();
-    $data->writeWorkbookStream($stream);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("chart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        $workbookData = $chartData->readWorkbookStream();
+
+        $chartData->getSeries()->clear();
+        $chartData->getCategories()->clear();
+
+        $chartData->writeWorkbookStream($workbookData);
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **Validasi Tata Letak Grafik Setelah Modifikasi Buku Kerja**
 
-Ketika Anda mengganti buku kerja yang tersemat dengan yang telah dimodifikasi, grafik tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart::validateChartLayout](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/validatechartlayout/) gagal dengan kesalahan indeks keluar jangkauan. Bersihkan seri dan kategori yang ada sebelum menulis buku kerja yang diperbarui kembali ke grafik.
+Ketika Anda mengganti buku kerja tertanam dengan buku kerja yang telah dimodifikasi, grafik tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [Chart::validateChartLayout](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/validatechartlayout/) gagal dengan kesalahan indeks di luar jangkauan. Hapus seri dan kategori yang ada sebelum menulis kembali buku kerja yang diperbarui ke grafik. Contoh ini memerlukan `chart.pptx` dengan grafik sebagai bentuk pertama pada slide pertama. Komentar menandai tempat pengeditan buku kerja; contoh yang dapat dijalankan menulis kembali buku kerja asli dan memvalidasi tata letak di memori.
 
 ```php
-// Setelah memodifikasi aliran buku kerja (misalnya, menggunakan Aspose.Cells)
-$updatedWorkbook = $chartData->readWorkbookStream();
+use aspose\slides\Presentation;
 
-// Hapus referensi data yang ada.
-$chartData->getSeries()->clear();
-$chartData->getCategories()->clear();
+$presentation = new Presentation("chart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-$chartData->writeWorkbookStream($updatedWorkbook);
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        $workbookData = $chartData->readWorkbookStream();
 
-$chart->validateChartLayout();
+        // Ubah byte buku kerja di sini, misalnya, menggunakan Aspose.Cells.
+
+        $chartData->getSeries()->clear();
+        $chartData->getCategories()->clear();
+
+        $chartData->writeWorkbookStream($workbookData);
+        $chart->validateChartLayout();
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Menghapus koleksi memastikan struktur data grafik konsisten dengan buku kerja baru, memungkinkan `validateChartLayout` selesai tanpa error.
+Menghapus koleksi menghilangkan referensi data usang sebelum buku kerja ditulis kembali. Bangun kembali mapping seri dan kategori yang diperlukan untuk buku kerja yang diperbarui sebelum menggunakan grafik.
 
-## **Tetapkan Sel WorkBook sebagai Label Data Grafik**
+## **Setel Sel Buku Kerja sebagai Label Data Grafik**
 
-1. Buat sebuah instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/php-java/aspose.slides/presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan grafik Bubble dengan beberapa data.
-1. Akses seri grafik.
-1. Tetapkan sel buku kerja sebagai label data.
-1. Simpan presentasi.
+Anda dapat menggunakan teks dari sel buku kerja sebagai label data grafik. Langkah‑langkah berikut menunjukkan cara menautkan label pada grafik gelembung ke sel dalam buku kerja datanya.
 
-Kode PHP ini menunjukkan cara menetapkan sel buku kerja sebagai label data grafik:
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Akses slide pertama berdasarkan indeks berbasis nol.
+3. Tambahkan grafik gelembung dengan data default.
+4. Akses seri grafik.
+5. Setel sel buku kerja sebagai label data.
+6. Simpan presentasi.
+
+Contoh ini membuka `chart2.pptx`, yang harus berisi setidaknya satu slide, dan menambahkan grafik gelembung dengan data default. Ia menggunakan sel A10:A12 pada lembar kerja 0 untuk tiga label pertama dalam seri pertama, mengaktifkan label dari sel, dan menyimpan hasil ke `resultchart.pptx`.
 
 ```php
-  $lbl0 = "Label 0 cell value";
-  $lbl1 = "Label 1 cell value";
-  $lbl2 = "Label 2 cell value";
-  # Membuat instance kelas presentasi yang mewakili file presentasi
-  $pres = new Presentation("chart2.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart2.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Bubble, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $dataLabelCollection = $series->get_Item(0)->getLabels();
-    $dataLabelCollection->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $dataLabelCollection->get_Item(0)->setValueFromCell($wb->getCell(0, "A10", $lbl0));
-    $dataLabelCollection->get_Item(1)->setValueFromCell($wb->getCell(0, "A11", $lbl1));
-    $dataLabelCollection->get_Item(2)->setValueFromCell($wb->getCell(0, "A12", $lbl2));
-    $pres->save("resultchart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
+    $series->getLabels()->get_Item(0)->setValueFromCell($workbook->getCell(0, "A10", "Label 0 cell value"));
+    $series->getLabels()->get_Item(1)->setValueFromCell($workbook->getCell(0, "A11", "Label 1 cell value"));
+    $series->getLabels()->get_Item(2)->setValueFromCell($workbook->getCell(0, "A12", "Label 2 cell value"));
+
+    $presentation->save("resultchart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Kelola Lembar Kerja**
 
-Kode PHP ini menunjukkan operasi di mana metode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#getWorksheets) digunakan untuk mengakses koleksi lembar kerja:
+Metode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/getworksheets/) menyediakan akses ke lembar kerja dalam sebuah buku kerja grafik. Contoh ini membuat grafik pai dengan data default dan mencetak setiap nama lembar kerja ke konsol.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    for($i = 0; $i < java_values($wb->getWorksheets()->size()) ; $i++) {
-      echo($wb->getWorksheets()->get_Item($i)->getName());
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    for ($i = 0; $i < java_values($workbook->getWorksheets()->size()); $i++) {
+        echo $workbook->getWorksheets()->get_Item($i)->getName(), PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Tentukan Jenis Sumber Data**
+## **Tentukan Tipe Sumber Data**
 
-Kode PHP ini menunjukkan cara menentukan jenis untuk sumber data:
+Contoh ini membuat grafik kolom 3D dengan data default dan menetapkan dua nama seri menggunakan sumber data yang berbeda. Nama pertama menggunakan literal string; nama kedua menggunakan sel C1 pada lembar kerja 0. Enumerasi [DataSourceType](https://reference.aspose.com/slides/id/php-java/aspose.slides/datasourcetype/) memilih sumber untuk setiap nama. Hasil disimpan ke `pres.pptx`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $val = $chart->getChartData()->getSeries()->get_Item(0)->getName();
-    $val->setDataSourceType(DataSourceType::StringLiterals);
-    $val->setData("LiteralString");
-    $val = $chart->getChartData()->getSeries()->get_Item(1)->getName();
-    $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+use aspose\slides\DataSourceType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
+    $literalName = $chart->getChartData()->getSeries()->get_Item(0)->getName();
+
+    $literalName->setDataSourceType(DataSourceType::StringLiterals);
+    $literalName->setData("LiteralString");
+
+    $cellName = $chart->getChartData()->getSeries()->get_Item(1)->getName();
+    $nameCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, "C1", "NewCell");
+    $cellName->setDataSourceType(DataSourceType::Worksheet);
+    $cellName->setData($nameCell);
+
+    $presentation->save("pres.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Deteksi Format Buku Kerja Tertanam yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat disematkan dalam beberapa grafik. Anda dapat menggunakan metode `getEmbeddedWorkbookType` pada [ChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/php-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan grafik tersebut.
+Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat tertanam dalam beberapa grafik. Anda dapat menggunakan metode `getEmbeddedWorkbookType` pada [ChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/) bersama enumerasi [WorkbookType](https://reference.aspose.com/slides/id/php-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan grafik tersebut. Contoh ini memeriksa bentuk pada slide pertama `sample.pptx`, melewatkan bentuk yang bukan grafik, dan mencetak pesan diagnostik untuk setiap grafik dengan buku kerja .xlsb yang tertanam.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartDataSourceType;
+use aspose\slides\WorkbookType;
+
 $presentation = new Presentation("sample.pptx");
 try {
-  $slide = $presentation->getSlides()->get_Item(0);
-  $shapes = $slide->getShapes();
+    $slide = $presentation->getSlides()->get_Item(0);
 
-  for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
-    $shape = $shapes->get_Item($shapeIndex);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
+            continue;
+        }
 
-    if (!java_instanceof($shape, new JavaClass("com.aspose.slides.IChart"))) {
-      continue;
+        $chart = $shape;
+        $chartData = $chart->getChartData();
+        $isInternalWorkbook = java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook;
+        $isBinaryMacro = java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro;
+
+        if ($isInternalWorkbook && $isBinaryMacro) {
+            echo "Skipping a chart with an unsupported .xlsb workbook.", PHP_EOL;
+            continue;
+        }
+
+        // Baca atau ubah data buku kerja grafik yang didukung di sini.
     }
-
-    $chart = $shape;
-    $chartData = $chart->getChartData();
-
-    if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
-        java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Buku kerja tertanam berada dalam format .xlsb, yang tidak didukung.
-      continue;
-    }
-
-    # Baca atau ubah data buku kerja grafik di sini.
-  }
 } finally {
-  $presentation->dispose();
+    $presentation->dispose();
 }
 ```
 
 ## **Buku Kerja Eksternal**
 
-Aspose.Slides mendukung buku kerja eksternal sebagai sumber data untuk grafik.
+Aspose.Slides mendukung penggunaan buku kerja eksternal sebagai sumber data untuk grafik.
 
 ### **Buat Buku Kerja Eksternal**
 
-Dengan menggunakan metode **`readWorkbookStream`** dan **`setExternalWorkbook`**, Anda dapat membuat buku kerja eksternal dari awal atau menjadikan buku kerja internal menjadi eksternal.
+Gunakan [readWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/readworkbookstream/) dan [setExternalWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/setexternalworkbook/) untuk mengekspor buku kerja grafik yang tertanam ke sebuah file dan menautkan grafik ke buku kerja eksternal tersebut.
 
-Kode PHP ini menunjukkan proses pembuatan buku kerja eksternal:
+Contoh ini membuat grafik pai dengan data default, menulis buku kerjanya ke `externalWorkbook1.xlsx`, dan menyelesaikan penulisan file sebelum menetapkan file tersebut sebagai sumber data grafik. Ia menyimpan presentasi yang ditautkan ke `externalWorkbook.pptx`.
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    $workbookPath = "externalWorkbook1.xlsx";
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
-    $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
-    $Array = new java_class("java.lang.reflect.Array");
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
+    $workbookPath = new Java("java.io.File", "externalWorkbook1.xlsx");
+    $workbookData = $chart->getChartData()->readWorkbookStream();
     try {
-      $workbookData = $chart->getChartData()->readWorkbookStream();
-      $fileStream->write($workbookData, 0, $Array->getLength($workbookData));
-    } finally {
-      if (!java_is_null($fileStream)) {
-        $fileStream->close();
-      }
+        $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
+        try {
+            $fileStream->write($workbookData);
+        } finally {
+            $fileStream->close();
+        }
+        $chart->getChartData()->setExternalWorkbook($workbookPath->getAbsolutePath());
+        $presentation->save("externalWorkbook.pptx", SaveFormat::Pptx);
+    } catch (JavaException $exception) {
+        echo "Could not write the external workbook: " . $exception->getMessage(), PHP_EOL;
     }
-    $chart->getChartData()->setExternalWorkbook($workbookPath);
-    $pres->save("externalWorkbook.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **Tetapkan Buku Kerja Eksternal**
 
-Dengan menggunakan metode **`setExternalWorkbook`**, Anda dapat menetapkan buku kerja eksternal ke sebuah grafik sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
+Dengan menggunakan metode [setExternalWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/setexternalworkbook/), Anda dapat menetapkan buku kerja eksternal ke sebuah grafik sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya remote, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis dikonversi menjadi jalur penuh.
+Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya remote, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis diubah menjadi jalur lengkap.
 
-Kode PHP ini menunjukkan cara menetapkan buku kerja eksternal:
+Contoh ini memerlukan `externalWorkbook.xlsx` di direktori kerja. Lembar kerja bernama `Sheet1` harus berisi nama seri di B1, nama kategori di A2:A4, dan nilai numerik di B2:B4. Contoh membuat grafik pai, menautkan buku kerja, dan menggunakan [setRange](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/setrange/) untuk memetakan A1:B4 ke satu seri dan tiga kategori. Hasil disimpan ke `Presentation_with_externalWorkbook.pptx`.
 
 ```php
-  # Membuat instance dari kelas Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, false);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
     $chartData = $chart->getChartData();
-    $chartData->setExternalWorkbook("externalWorkbook.xlsx");
-    $chartData->getSeries()->add($chartData->getChartDataWorkbook()->getCell(0, "B1"), ChartType::Pie);
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B2"));
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B3"));
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B4"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A2"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A3"));
-    $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A4"));
-    $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $workbookFile = new Java("java.io.File", "externalWorkbook.xlsx");
+    $workbookPath = $workbookFile->getAbsolutePath();
+
+    $chartData->setExternalWorkbook($workbookPath);
+    $chartData->setRange('Sheet1!$A$1:$B$4');
+
+    $presentation->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Parameter `ChartData` (di bawah metode `setExternalWorkbook`) digunakan untuk menentukan apakah buku kerja excel akan dimuat atau tidak. 
+Parameter `updateChartData` pada metode [setExternalWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/setexternalworkbook/) mengontrol apakah buku kerja dimuat.
 
-* Saat nilai `ChartData` disetel ke `false`, hanya jalur buku kerja yang diperbarui—data grafik tidak akan dimuat atau diperbarui dari buku kerja target. Anda mungkin ingin menggunakan pengaturan ini ketika buku kerja target tidak ada atau tidak tersedia. 
-* Saat nilai `ChartData` disetel ke `true`, data grafik diperbarui dari buku kerja target.
+* Ketika `updateChartData` bernilai `false`, hanya jalur buku kerja yang diperbarui. Data grafik tidak dimuat atau diperbarui dari buku kerja target, sehingga buku kerja dapat tidak tersedia.
+* Ketika `updateChartData` bernilai `true`, data grafik diperbarui dari buku kerja target.
+
+Contoh berikut menetapkan URL placeholder dengan `updateChartData` diset ke `false`. Ia mempertahankan data default grafik pai dan menyimpan presentasi tanpa memuat buku kerja yang tidak tersedia.
 
 ```php
-  # Membuat instance dari kelas Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
-    $chartData = $chart->getChartData();
-    $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
-    $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
+    $chart->getChartData()->setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    $presentation->save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Grafik**
+### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Sebuah Grafik**
 
-1. Buat sebuah instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/php-java/aspose.slides/presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Buat objek untuk bentuk grafik.
-1. Buat objek untuk tipe sumber (`ChartDataSourceType`) yang mewakili sumber data grafik.
-1. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data buku kerja eksternal.
+Untuk mengidentifikasi buku kerja yang ditautkan ke sebuah grafik, pertama periksa apakah grafik menggunakan sumber data eksternal. Jika ya, Anda dapat mengambil jalur buku kerja dengan mengikuti langkah‑langkah berikut.
 
-Kode PHP ini menunjukkan operasi tersebut:
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Akses slide pertama berdasarkan indeks berbasis nol.
+3. Periksa bahwa bentuk pertama adalah grafik.
+4. Baca tipe sumber data grafik.
+5. Jika sumbernya adalah buku kerja eksternal, baca jalurnya.
+
+Contoh ini membuka `externalWorkbook.pptx`, yang dibuat pada contoh sebelumnya, dan memeriksa bentuk pertama pada slide pertama. Jika itu adalah grafik yang ditautkan ke buku kerja eksternal, contoh mencetak [getExternalWorkbookPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ke konsol. Kemudian ia menyimpan salinan presentasi ke `Result.pptx`.
 
 ```php
-  # Membuat instance dari kelas Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(1);
-    $chart = $slide->getShapes()->get_Item(0);
-    $sourceType = $chart->getChartData()->getDataSourceType();
-    if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
-      $path = $chart->getChartData()->getExternalWorkbookPath();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ChartDataSourceType;
+
+$presentation = new Presentation("externalWorkbook.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $chartData = $chart->getChartData();
+        if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::ExternalWorkbook) {
+            echo $chartData->getExternalWorkbookPath(), PHP_EOL;
+        } else {
+            echo "The chart does not use an external workbook.", PHP_EOL;
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-    # Menyimpan presentasi
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Result.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **Edit Data Grafik**
 
-Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
+Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika sebuah buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
 
-Kode PHP ini merupakan implementasi dari proses yang dijelaskan:
+Contoh ini memerlukan `presentation.pptx` dengan sebuah grafik sebagai bentuk pertama pada slide pertama dan buku kerja eksternal yang dapat diakses. Ia menetapkan nilai sel‑berbasis untuk titik data pertama dalam seri pertama menjadi 100 dan menyimpan presentasi ke `presentation_out.pptx`. Mengedit nilai sel dapat memperbarui file XLSX eksternal yang ditautkan, jadi gunakan salinan jika Anda perlu mempertahankan buku kerja asli.
 
 ```php
-  # Membuat sebuah instance dari kelas Presentation
-  $pres = new Presentation("chart.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $chartData = $chart->getChartData();
-    $chartData->getSeries()->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell()->setValue(100);
-    $pres->save("presentation_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $series = $chart->getChartData()->getSeries();
+        if (java_values($series->size()) > 0 && java_values($series->get_Item(0)->getDataPoints()->size()) > 0) {
+            $valueCell = $series->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell();
+            if (!java_is_null($valueCell)) {
+                $valueCell->setValue(100);
+                $presentation->save("presentation_out.pptx", SaveFormat::Pptx);
+            } else {
+                echo "The first data point is not linked to a workbook cell.", PHP_EOL;
+            }
+        } else {
+            echo "The chart has no data points to edit.", PHP_EOL;
+        }
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ### **Pulihkan Buku Kerja dari Cache Grafik**
 
-Jika sebuah grafik menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali buku kerja grafik dari data yang disimpan dalam cache presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/), konfigurasikan dengan [SpreadsheetOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/spreadsheetoptions/), dan panggil [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) dengan `true` sebelum membuka presentasi.
+Jika sebuah grafik menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat merekonstruksi buku kerja grafik dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/), panggil [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), dan setel [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) ke `true` sebelum membuka presentasi.
 
-Contoh PHP berikut membuka sebuah presentasi yang grafiknya merujuk ke buku kerja eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [Chart::getChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/#getChartData) dan [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Contoh PHP berikut membuka `presentation.pptx`, yang bentuk pertama pada slide pertamanya harus berupa grafik yang merujuk ke buku kerja eksternal yang tidak tersedia, dan mengakses data yang dipulihkan melalui [Chart::getChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/getchartdata/) dan [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getchartdataworkbook/) :
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+use aspose\slides\LoadOptions;
+
 $spreadsheetOptions = new SpreadsheetOptions();
 $spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
 
@@ -329,39 +474,46 @@ $loadOptions->setSpreadsheetOptions($spreadsheetOptions);
 
 $presentation = new Presentation("presentation.pptx", $loadOptions);
 try {
-    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    # Baca atau ubah data buku kerja yang dipulihkan di sini.
+    $shapeCount = java_values($slide->getShapes()->size());
+    if ($shapeCount > 0 && java_instanceof($slide->getShapes()->get_Item(0), new JavaClass("com.aspose.slides.IChart"))) {
+        $chart = $slide->getShapes()->get_Item(0);
+        $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+        // Baca atau ubah data buku kerja yang dipulihkan di sini.
+    } else {
+        echo "The first shape is not a chart.", PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika menggunakan data grafik yang di-cache merupakan alternatif yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir diperbarui.
+Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar pengecualian. Aktifkan pemulihan hanya ketika penggunaan data grafik yang di‑cache merupakan alternatif yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir diperbarui.
 
 ## **FAQ**
 
-**Apakah saya dapat menentukan apakah sebuah grafik tertentu terhubung ke buku kerja eksternal atau tertanam?**
+**Apakah saya dapat menentukan apakah sebuah grafik tertentu ditautkan ke buku kerja eksternal atau tertanam?**
 
-Ya. Sebuah grafik memiliki [jenis sumber data](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getdatasourcetype/) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
+Ya. Grafik memiliki [tipe sumber data](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getdatasourcetype/) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana mereka disimpan?**
+**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan jalur absolut di dalam file PPTX.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis diubah menjadi jalur absolut. Presentasi menyimpan jalur absolut dalam file PPTX, sehingga memindahkan buku kerja mungkin memerlukan pembaruan tautan.
 
-**Apakah saya dapat menggunakan buku kerja yang terletak pada sumber daya/jaringan bersama?**
+**Bisakah saya menggunakan buku kerja yang berada di sumber daya/jaringan bersama?**
 
 Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, mengedit buku kerja remote secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
 
 **Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
 
-Tidak. Presentasi menyimpan sebuah [tautan ke file eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak dimodifikasi saat presentasi disimpan.
+Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Mengedit data grafik yang didasarkan pada sel juga dapat memperbarui file XLSX lokal yang ditautkan. Gunakan salinan buku kerja jika yang asli harus tetap tidak berubah.
 
-**Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
+**Bagaimana jika file eksternal dilindungi sandi?**
 
-Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang sudah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/php-java/)) dan menautkan ke salinan tersebut.
+Aspose.Slides tidak menerima sandi saat menautkan. Pendekatan umum adalah menghapus proteksi terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](https://reference.aspose.com/cells/java/)) dan menautkan ke salinan tersebut.
 
-**Apakah beberapa grafik dapat merujuk ke buku kerja eksternal yang sama?**
+**Dapatkah beberapa grafik merujuk ke buku kerja eksternal yang sama?**
 
-Ya. Setiap grafik menyimpan tautannya masing‑masing. Jika semuanya mengarah ke file yang sama, memperbarui file tersebut akan tercermin di setiap grafik pada kali berikutnya data dimuat.
+Ya. Setiap grafik menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap grafik saat data dimuat berikutnya.
