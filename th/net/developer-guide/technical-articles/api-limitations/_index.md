@@ -31,7 +31,7 @@ description: "Aspose.Slides for .NET จะเขียนเมตาดาต�
 
 **Producer** ระบุ engine การเรนเดอร์ที่สร้างไฟล์ขั้นสุดท้ายระหว่างการส่งออก ในการส่งออก **PDF**, เมต้าใช้ฟิลด์ **Creator** และ **Producer** ด้วย Aspose.Slides for .NET ทั้งสองฟิลด์นี้เป็นค่าคงที่และแสดงไลบรารีและเวอร์ชันของมัน
 
-## **สิ่งที่จำกัด**
+**สิ่งที่จำกัด**
 
 คุณไม่สามารถเขียนทับฟิลด์เหล่านี้ผ่าน API สำหรับฟอร์แมตที่กล่าวมาข้างต้น สำหรับ **PPTX**, คุณสมบัติ Application จะถูกเขียนเป็น "Aspose.Slides for .NET" สำหรับ **PDF**, คุณสมบัติ Creator และ Producer จะถูกเขียนเป็น "Aspose.Slides for .NET" ตามด้วยเวอร์ชันของไลบรารี สำหรับ **ODP**, ฟิลด์ generator จะถูกเขียนเป็น "Aspose.Slides for .NET" ตามด้วยเวอร์ชันของไลบรารี พฤติกรรมนี้เป็นการออกแบบและจะใช้ไม่ว่าไฟล์จะถูกโหลดหรือบันทึกอย่างไร และไม่ว่าอะไรจะถูกกำหนดให้กับ [DocumentProperties.NameOfApplication](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/nameofapplication/)
 
