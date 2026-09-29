@@ -94,7 +94,7 @@ Aspose.Slidesの公開APIは、System.Drawing.Commonからの型（Bitmap、Meta
 
 **潜在的な問題**: 記述されたセットアップには欠点があります。例えば、Windowsで開発を行い、元のSystem.Drawing.Commonを使用するプロジェクトがある場合、Aspose.Slidesの型との競合が発生する可能性があります。
 
-**解決策**: extern aliasを使用して問題を解決できます。[**System.Drawing.CommonパッケージとSlides for .NET6クラスの使用（CS0433: 型がSlidesとSystem.Drawing.Commonの両方に存在しますエラー）**](https://docs.aspose.com/slides/net/net6/#using-the-systemdrawingcommon-package-and-slides-for-net6-classes-cs0433-the-type-exists-in-both-slides-and-systemdrawingcommon-error)を参照してください。
+**解決策**: extern aliasを使用して問題を解決できます。[**System.Drawing.CommonパッケージとSlides for .NET6クラスの使用（CS0433: 型がSlidesとSystem.Drawing.Commonの両方に存在しますエラー）**](https://docs.aspose.com/slides/net/net6/#using-systemdrawingcommon-in-the-same-project-cs0433)を参照してください。
 
 Slidesチームは、簡素化された統一公開APIに至るタスクを進行中です。
 
