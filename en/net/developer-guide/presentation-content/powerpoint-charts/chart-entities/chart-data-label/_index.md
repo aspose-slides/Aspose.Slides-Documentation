@@ -20,7 +20,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 ## **Introduction**
 
-Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, adjust category axis label spacing, and position pie chart labels.
+Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
 ## **Set Data Precision in Chart Data Labels**
 
@@ -56,6 +56,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
 var categoryTotals = new double[chart.ChartData.Categories.Count];
@@ -120,6 +121,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
@@ -176,6 +178,7 @@ using Aspose.Slides.Charts;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
 chart.ChartData.Series.Clear();
@@ -222,6 +225,71 @@ foreach (var series in chart.ChartData.Series)
 
 The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) returns the resulting label string in either case. Check [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
 
+## **Control Data Labels Beyond the Axis Maximum**
+
+When you limit an axis range manually, some data points may exceed its maximum. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) to `false` and [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+
+Enable value labels with [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) to place labels at the outside end of each column.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var firstCategory = workbook.GetCell(0, 1, 0, "Within range");
+var secondCategory = workbook.GetCell(0, 2, 0, "Above maximum");
+
+chart.ChartData.Categories.Add(firstCategory);
+chart.ChartData.Categories.Add(secondCategory);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+
+var firstValue = workbook.GetCell(0, 1, 1, 60);
+var secondValue = workbook.GetCell(0, 2, 1, 120);
+
+series.DataPoints.AddDataPointForBarSeries(firstValue);
+series.DataPoints.AddDataPointForBarSeries(secondValue);
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 100;
+chart.ShowDataLabelsOverMaximum = true;
+
+var secondSlide = presentation.Slides.AddClone(slide);
+var secondChart = (IChart)secondSlide.Shapes[0];
+secondChart.ShowDataLabelsOverMaximum = false;
+
+presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+```
+
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
+
 ## **Set Label Distance from an Axis**
 
 Use [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
@@ -253,6 +321,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
 var series = chart.ChartData.Series;
 

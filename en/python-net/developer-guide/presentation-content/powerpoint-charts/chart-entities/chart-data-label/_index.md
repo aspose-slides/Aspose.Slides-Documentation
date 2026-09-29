@@ -19,7 +19,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 ## **Introduction**
 
-Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, adjust category axis label spacing, and position pie chart labels.
+Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
 ## **Set Data Precision in Chart Data Labels**
 
@@ -52,6 +52,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
 
     category_totals = [0.0] * len(chart.chart_data.categories)
@@ -103,6 +104,7 @@ import aspose.pydrawing as drawing
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
 
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
@@ -152,6 +154,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     chart.chart_data.series.clear()
@@ -196,6 +199,70 @@ with slides.Presentation() as presentation:
 
 The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returns the resulting label string in either case. Check [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separately, as shown above, when you want to extract only visible labels.
 
+## **Control Data Labels Beyond the Axis Maximum**
+
+When you limit an axis range manually, some data points may exceed its maximum. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) to `False` and [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+
+Enable value labels with [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) to place labels at the outside end of each column.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = False
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    first_category = workbook.get_cell(0, 1, 0, "Within range")
+    second_category = workbook.get_cell(0, 2, 0, "Above maximum")
+
+    chart.chart_data.categories.add(first_category)
+    chart.chart_data.categories.add(second_category)
+
+    series_name = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_name, chart.type)
+
+    first_value = workbook.get_cell(0, 1, 1, 60)
+    second_value = workbook.get_cell(0, 2, 1, 120)
+
+    series.data_points.add_data_point_for_bar_series(first_value)
+    series.data_points.add_data_point_for_bar_series(second_value)
+
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 100
+    chart.show_data_labels_over_maximum = True
+
+    second_slide = presentation.slides.add_clone(slide)
+    second_chart = second_slide.shapes[0]
+    second_chart.show_data_labels_over_maximum = False
+
+    presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The following images show the saved slides rendered by Microsoft PowerPoint. With `True`, the label **120** is visible at the upper boundary; with `False`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+
+| show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
+
 ## **Set Label Distance from an Axis**
 
 Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
@@ -225,6 +292,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
     series = chart.chart_data.series
 

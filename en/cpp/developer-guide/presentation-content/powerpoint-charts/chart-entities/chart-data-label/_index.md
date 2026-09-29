@@ -19,7 +19,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 ## **Introduction**
 
-Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, adjust category axis label spacing, and position pie chart labels.
+Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
 ## **Set Data Precision in Chart Data Labels**
 
@@ -97,6 +97,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -190,6 +191,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -269,6 +271,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -325,6 +328,95 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 ```
 
 The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) returns the resulting label string in either case. Check [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separately, as shown above, when you want to extract only visible labels.
+
+## **Control Data Labels Beyond the Axis Maximum**
+
+When you limit an axis range manually, some data points may exceed its maximum. Use [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) to `false` and [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+
+Enable value labels with [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) to place labels at the outside end of each column.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
 
 ## **Set Label Distance from an Axis**
 
@@ -385,6 +477,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 

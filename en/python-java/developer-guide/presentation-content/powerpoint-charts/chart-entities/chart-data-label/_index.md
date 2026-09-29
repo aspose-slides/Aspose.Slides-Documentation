@@ -20,7 +20,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 ## **Introduction**
 
-Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, adjust category axis label spacing, and position pie chart labels.
+Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
 ## **Set Data Precision in Chart Data Labels**
 
@@ -67,6 +67,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -128,6 +129,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -186,6 +188,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -234,6 +237,79 @@ finally:
 
 The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) separately, as shown above, when you want to extract only visible labels.
 
+## **Control Data Labels Beyond the Axis Maximum**
+
+When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+
+The example below creates a 2D clustered column chart with values of 60 and 120. It passes `False` to [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+
+Enable value labels with [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) to place labels at the outside end of each column.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+```
+
+The following images show the saved slides rendered by Microsoft PowerPoint. With `True`, the label **120** is visible at the upper boundary; with `False`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
+
 ## **Set Label Distance from an Axis**
 
 Use [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
@@ -277,6 +353,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     

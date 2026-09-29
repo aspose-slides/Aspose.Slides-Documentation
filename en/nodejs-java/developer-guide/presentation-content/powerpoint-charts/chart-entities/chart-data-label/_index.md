@@ -20,7 +20,7 @@ description: "Learn to add and format chart data labels in PowerPoint presentati
 
 ## **Introduction**
 
-Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, adjust category axis label spacing, and position pie chart labels.
+Data labels display information about chart series and individual data points, helping readers identify values and understand the chart. This article explains how to format values, display percentages, read label text, control labels beyond the axis maximum, adjust category axis label spacing, and position pie chart labels.
 
 ## **Set Data Precision in Chart Data Labels**
 
@@ -32,6 +32,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -55,6 +56,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
 
     const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
@@ -115,6 +117,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -171,6 +174,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -227,6 +231,73 @@ try {
 
 The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
 
+## **Control Data Labels Beyond the Axis Maximum**
+
+When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+
+The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+
+Enable value labels with [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) to place labels at the outside end of each column.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    const firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    const secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    const seriesName = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    const firstValue = workbook.getCell(0, 1, 1, 60);
+    const secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    const secondSlide = presentation.getSlides().addClone(slide);
+    const secondChart = secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
+
 ## **Set Label Distance from an Axis**
 
 Use [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
@@ -237,6 +308,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -259,6 +331,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
     const series = chart.getChartData().getSeries();
 
