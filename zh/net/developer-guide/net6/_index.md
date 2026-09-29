@@ -24,7 +24,9 @@ description: "了解何时使用 Aspose.Slides.NET6.CrossPlatform 包：它存�
 
 Aspose.Slides for .NET 以两个 NuGet 包的形式发布。[Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) 通过 Microsoft 的 System.Drawing.Common 库绘制幻灯片。[Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform/) 则使用其自己的图形引擎进行绘制。本文说明第二个包存在的原因、它可以运行的环境、在 Linux 上的需求，以及它如何与 System.Drawing.Common 在同一项目中共存。
 
-从 .NET 6 开始，Microsoft 仅在 Windows 上支持 System.Drawing.Common [only on Windows](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)。因此，在 Linux 上 Aspose.Slides.NET 除了需要 `libgdiplus` 库外，还需要 `System.Drawing.EnableUnixSupport` 开关；如果项目引用了 7 版或更高版的 System.Drawing.Common，则会失败。[System Requirements](/slides/zh/net/system-requirements/) 描述了这些条件。
+## **为什么需要单独的包**
+
+从 .NET 6 开始，Microsoft [仅在 Windows 上](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)支持 System.Drawing.Common。因此，在 Linux 上 Aspose.Slides.NET 除了需要 `libgdiplus` 库外，还需要 `System.Drawing.EnableUnixSupport` 开关；如果项目引用了 7 版或更高版的 System.Drawing.Common，则会失败。[System Requirements](/slides/zh/net/system-requirements/) 描述了这些条件。
 
 Aspose.Slides.NET6.CrossPlatform 不使用 System.Drawing.Common 或 `libgdiplus`。它的图形引擎是一个原生库，包中为每个受支持平台都包含一个构建。两个包提供相同的 Aspose.Slides 命名空间和类，因此从一个切换到另一个只需更改包引用，而无需修改代码。
 
