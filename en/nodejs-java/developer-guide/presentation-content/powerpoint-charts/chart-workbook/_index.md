@@ -31,163 +31,254 @@ It also covers working with external workbooks as chart data sources. The exampl
 
 For workbook cells that represent missing data, see [Control the Display of Empty Cells](/slides/nodejs-java/chart-series/) for the difference between an empty cell and zero, and a line-chart comparison of the available display modes.
 
-## **Read and Write Chart Data from a Workbook**
+## **Include Data from Hidden Rows and Columns**
 
-Aspose.Slides provides the [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) and [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Use [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) to control whether a chart plots data from hidden worksheet rows and columns. Set it to `true` to plot only visible cells, or `false` to include both visible and hidden cells. This setting controls chart plotting; it does not hide or unhide worksheet rows or columns.
 
-This JavaScript code demonstrates a sample operation:
+Download [hidden-source-data.pptx](hidden-source-data.pptx) and place it in the working directory. Its first slide contains a column chart as the first shape. The embedded worksheet, `Sheet1`, contains the following source range, `A1:C4`. Row 3 and column C are hidden, but their cells still contain values.
+
+| Worksheet row | A: Month | B: Retail | C: Wholesale (hidden column) |
+| --- | --- | --- | --- |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
+
+Access source cells through [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) and read [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#isHidden) to inspect their hidden status. This method reports the hidden status without changing it. In this file, B2 is visible, B3 belongs to the hidden row, and C2 belongs to the hidden column; the example prints `false`, `true`, and `true`, respectively.
+
+For this example, refresh the chart data after changing the plotting setting: retain the embedded workbook with [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) and reload it with [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream). When including all cells, also use [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) to restore the complete range, including the hidden February category. Simply changing the flag is insufficient to refresh this sample's cached chart data and category labels. The example converts the returned Node.js buffer to a Java byte array before passing it to the write method.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("hidden-source-data.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var data = chart.getChartData();
-    var stream = data.readWorkbookStream();
-    data.getSeries().clear();
-    data.getCategories().clear();
-    data.writeWorkbookStream(stream);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const workbook = chart.getChartData().getChartDataWorkbook();
+        console.log("B2 hidden: " + workbook.getCell(0, "B2").isHidden());
+        console.log("B3 hidden: " + workbook.getCell(0, "B3").isHidden());
+        console.log("C2 hidden: " + workbook.getCell(0, "C2").isHidden());
+
+        const workbookBuffer = chart.getChartData().readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+        for (const visibleOnly of [true, false]) {
+            chart.setPlotVisibleCellsOnly(visibleOnly);
+
+            // Refresh the chart data from the embedded workbook.
+            chart.getChartData().writeWorkbookStream(workbookData);
+            if (!visibleOnly) {
+                // Restore the complete source range, including hidden categories.
+                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+            }
+
+            presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
+}
+```
+
+The example saves `hidden_cells_true.pptx` with only the visible Retail values (10 and 20), and `hidden_cells_false.pptx` with all six values. The images below illustrate the two plotting modes. Row 3 and column C remain hidden in both embedded workbooks.
+
+| Only visible cells (`true`) | All cells (`false`) |
+| --- | --- |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
+
+A hidden cell containing a value is different from an empty cell. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) controls how missing values are displayed; it does not include or exclude hidden source data. See [Control the Display of Empty Cells](/slides/nodejs-java/chart-series/#control-the-display-of-empty-cells) for an example.
+
+## **Read and Write Chart Data from a Workbook**
+
+Aspose.Slides for Node.js via Java provides the [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) and [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+
+This example opens `chart.pptx`, which must contain a chart as the first shape on its first slide. It reads the embedded workbook into a byte array, clears the existing series and categories, and writes the same workbook back. The changes remain in memory; the example does not save the presentation.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("chart.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+    } else {
+        console.log("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Validate Chart Layout After Workbook Modification**
 
-When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart.
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#validateChartLayout) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart. This example requires `chart.pptx` with a chart as the first shape on its first slide. The comment marks where workbook editing would occur; the runnable example writes the original workbook back and validates the layout in memory.
 
 ```javascript
-// After modifying the workbook stream (e.g., using Aspose.Cells)
-var updatedWorkbook = chartData.readWorkbookStream();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Clear existing data references.
-chartData.getSeries().clear();
-chartData.getCategories().clear();
+const presentation = new aspose.slides.Presentation("chart.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-chartData.writeWorkbookStream(updatedWorkbook);
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        const workbookBuffer = chartData.readWorkbookStream();
+        const workbookBytes = Array.from(workbookBuffer);
+        const workbookData = java.newArray("byte", workbookBytes);
 
-chart.validateChartLayout();
+        // Modify the workbook bytes here, for example, using Aspose.Cells.
+
+        chartData.getSeries().clear();
+        chartData.getCategories().clear();
+
+        chartData.writeWorkbookStream(workbookData);
+        chart.validateChartLayout();
+    } else {
+        console.log("The first shape is not a chart.");
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Clearing the collections ensures that the chart data structure is consistent with the new workbook, allowing `validateChartLayout` to complete without errors.
+Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
-## **Set WorkBook Cell as Chart DataLabel**
+## **Set a Workbook Cell as a Chart Data Label**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
-1. Get a slide's reference through its index.
-1. Add a Bubble chart with some data.
+You can use text from workbook cells as chart data labels. The following steps show how to link the labels in a bubble chart to cells in its data workbook.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
+1. Access the first slide by its zero-based index.
+1. Add a bubble chart with default data.
 1. Access the chart series.
 1. Set the workbook cell as a data label.
 1. Save the presentation.
 
-This JavaScript code shows you to set a workbook cell as a chart data label:
+This example opens `chart2.pptx`, which must contain at least one slide, and adds a bubble chart with default data. It uses cells A10:A12 on worksheet 0 for the first three labels in the first series, enables labels from cells, and saves the result to `resultchart.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var lbl0 = "Label 0 cell value";
-var lbl1 = "Label 1 cell value";
-var lbl2 = "Label 2 cell value";
-// Instantiates a presentation class that represents a presentation file
-var pres = new aspose.slides.Presentation("chart2.pptx");
+const presentation = new aspose.slides.Presentation("chart2.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    var dataLabelCollection = series.get_Item(0).getLabels();
-    dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
-    dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
-    dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-    pres.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    series.getLabels().getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
+    series.getLabels().get_Item(0).setValueFromCell(workbook.getCell(0, "A10", "Label 0 cell value"));
+    series.getLabels().get_Item(1).setValueFromCell(workbook.getCell(0, "A11", "Label 1 cell value"));
+    series.getLabels().get_Item(2).setValueFromCell(workbook.getCell(0, "A12", "Label 2 cell value"));
+
+    presentation.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Manage Worksheets**
 
-This JavaScript code demonstrates an operation where the [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+The [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) method provides access to the worksheets in a chart workbook. This example creates a pie chart with default data and prints each worksheet name to the console.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    for (var i = 0; i < wb.getWorksheets().size(); i++) {
-        console.log(wb.getWorksheets().get_Item(i).getName());
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    for (let i = 0; i < workbook.getWorksheets().size(); i++) {
+        console.log(workbook.getWorksheets().get_Item(i).getName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Specify Data Source Type**
+## **Specify the Data Source Type**
 
-This JavaScript code shows you how to specify a type for a data source:
+This example creates a 3D column chart with default data and sets two series names using different data sources. The first name uses a string literal; the second uses cell C1 on worksheet 0. The [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) enumeration selects the source for each name. The result is saved to `pres.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var val = chart.getChartData().getSeries().get_Item(0).getName();
-    val.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
-    val.setData("LiteralString");
-    val = chart.getChartData().getSeries().get_Item(1).getName();
-    val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+    const literalName = chart.getChartData().getSeries().get_Item(0).getName();
+
+    literalName.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
+    literalName.setData("LiteralString");
+
+    const cellName = chart.getChartData().getSeries().get_Item(1).getName();
+    const nameCell = chart.getChartData().getChartDataWorkbook().getCell(0, "C1", "NewCell");
+    cellName.setDataSourceType(aspose.slides.DataSourceType.Worksheet);
+    cellName.setData(nameCell);
+
+    presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Detect Unsupported Embedded Workbook Formats**
 
-Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `getEmbeddedWorkbookType` method on [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) enumeration to detect unsupported formats and skip those charts.
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) method on [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) enumeration to detect unsupported formats and skip those charts. This example inspects the shapes on the first slide of `sample.pptx`, skips non-chart shapes, and prints a diagnostic message for each chart with an embedded .xlsb workbook.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapes = slide.getShapes();
+    const slide = presentation.getSlides().get_Item(0);
 
-    for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
-        let shape = shapes.get_Item(shapeIndex);
-
-        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) continue;
-
-        let chart = shape;
-        let chartData = chart.getChartData();
-
-        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
-                chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Embedded workbook is in .xlsb format, which is not supported.
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (!(java.instanceOf(shape, "com.aspose.slides.IChart"))) {
             continue;
         }
 
-        // Read or modify the chart workbook data here.
+        const chart = shape;
+        const chartData = chart.getChartData();
+        const isInternalWorkbook = chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook;
+        const isBinaryMacro = chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro;
+
+        if (isInternalWorkbook && isBinaryMacro) {
+            console.log("Skipping a chart with an unsupported .xlsb workbook.");
+            continue;
+        }
+
+        // Read or modify supported chart workbook data here.
     }
 } finally {
     presentation.dispose();
@@ -196,121 +287,126 @@ try {
 
 ## **External Workbook**
 
-Aspose.Slides supports external workbooks as a data source for charts.
+Aspose.Slides supports using external workbooks as a data source for charts.
 
-### **Create External Workbook**
+### **Create an External Workbook**
 
-Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you can either create an external workbook from scratch or make an internal workbook external.
+Use [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) and [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) to export an embedded chart workbook to a file and link the chart to that external workbook.
 
-This JavaScript code demonstrates the external workbook creation process:
+This example creates a pie chart with default data, writes its workbook to `externalWorkbook1.xlsx`, and completes the file write before assigning the file as the chart data source. It saves the linked presentation to `externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 const fileSystem = require("fs");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var workbookPath = "externalWorkbook1.xlsx";
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    // readWorkbookStream returns the workbook bytes as a Node Buffer.
-    var workbookData = chart.getChartData().readWorkbookStream();
-    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
-    chart.getChartData().setExternalWorkbook(workbookPath);
-    pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
+    const workbookPath = path.resolve("externalWorkbook1.xlsx");
+    const workbookData = chart.getChartData().readWorkbookStream();
+    try {
+        fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
+        chart.getChartData().setExternalWorkbook(workbookPath);
+        presentation.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    } catch (exception) {
+        console.log("Could not write the external workbook: " + exception.message);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-### **Set External Workbook**
 
-Using the **`setExternalWorkbook`** method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
+### **Set an External Workbook**
+
+Using the [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
 While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-This JavaScript code shows you how to set an external workbook:
+This example requires `externalWorkbook.xlsx` in the working directory. Its worksheet named `Sheet1` must contain a series name in B1, category names in A2:A4, and numeric values in B2:B4. The example creates a pie chart, links the workbook, and uses [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) to map A1:B4 to one series and three categories. It saves the result to `Presentation_with_externalWorkbook.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const path = require("path");
 
-// Creates an instance of the Presentation class
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("externalWorkbook.xlsx");
-    chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), aspose.slides.ChartType.Pie);
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
-    chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
-    chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-    pres.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    const chartData = chart.getChartData();
+    const workbookPath = path.resolve("externalWorkbook.xlsx");
+
+    chartData.setExternalWorkbook(workbookPath);
+    chartData.setRange("Sheet1!$A$1:$B$4");
+
+    presentation.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-The second parameter of the `setExternalWorkbook` method, `updateChartData`, specifies whether the Excel workbook will be loaded or not.
+The `updateChartData` parameter of [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) controls whether the workbook is loaded.
 
-* When `updateChartData` is set to `false`, only the workbook path gets updated—the chart data will not be loaded or updated from the target workbook. You may want to use this setting when in a situation where the target workbook is nonexistent or unavailable.
-* When `updateChartData` is set to `true`, the chart data gets updated from the target workbook.
+* When `updateChartData` is `false`, only the workbook path is updated. The chart data is not loaded or updated from the target workbook, so the workbook can be unavailable.
+* When `updateChartData` is `true`, the chart data is updated from the target workbook.
+
+The following example assigns a placeholder URL with `updateChartData` set to `false`. It retains the pie chart's default data and saves the presentation without loading the unavailable workbook.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Creates an instance of the Presentation class
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
-    var chartData = chart.getChartData();
-    chartData.setExternalWorkbook("http://path/doesnt/exists", false);
-    pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+    chart.getChartData().setExternalWorkbook("https://example.com/unavailable-workbook.xlsx", false);
+
+    presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Get Chart External Data Source Workbook Path**
+### **Get the External Data Source Workbook Path of a Chart**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
-1. Get a slide's reference through its index.
-1. Create an object for the chart shape.
-1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.
-1. Specify the relevant condition based on the source type being the same as the external workbook data source type.
+To identify the workbook linked to a chart, first check whether the chart uses an external data source. If it does, you can retrieve the workbook path by following these steps.
 
-This JavaScript code demonstrates the operation:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
+1. Access the first slide by its zero-based index.
+1. Check that the first shape is a chart.
+1. Read the chart data source type.
+1. If the source is an external workbook, read its path.
+
+This example opens `externalWorkbook.pptx`, created in the earlier example, and inspects the first shape on the first slide. If it is a chart linked to an external workbook, the example prints [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) to the console. It then saves a copy of the presentation to `Result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Creates an instance of the Presentation class
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("externalWorkbook.pptx");
 try {
-    var slide = pres.getSlides().get_Item(1);
-    var chart = slide.getShapes().get_Item(0);
-    var sourceType = chart.getChartData().getDataSourceType();
-    if (sourceType == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
-        var path = chart.getChartData().getExternalWorkbookPath();
+    const slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const chartData = chart.getChartData();
+        if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
+            console.log(chartData.getExternalWorkbookPath());
+        } else {
+            console.log("The chart does not use an external workbook.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
-    // Saves the presentation
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
@@ -318,35 +414,48 @@ try {
 
 You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
 
-This JavaScript code is an implementation of the described process:
+This example requires `presentation.pptx` with a chart as the first shape on the first slide and an accessible external workbook. It sets the cell-backed value of the first data point in the first series to 100 and saves the presentation to `presentation_out.pptx`. Editing cell values can update the linked external XLSX file, so use a copy if you need to preserve the original workbook.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-// Creates an instance of tthe Presentation class
-var pres = new aspose.slides.Presentation("chart.pptx");
+const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var chartData = chart.getChartData();
-    chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-    pres.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const series = chart.getChartData().getSeries();
+        if (series.size() > 0 && series.get_Item(0).getDataPoints().size() > 0) {
+            const valueCell = series.get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell();
+            if (valueCell != null) {
+                valueCell.setValue(100);
+                presentation.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
+            } else {
+                console.log("The first data point is not linked to a workbook cell.");
+            }
+        } else {
+            console.log("The chart has no data points to edit.");
+        }
+    } else {
+        console.log("The first shape is not a chart.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ### **Recover a Workbook from the Chart Cache**
 
-If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), configure it with [SpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/), and call [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) with `true` before opening the presentation.
+If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), call [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), and set [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) to `true` before opening the presentation.
 
-The following JavaScript example opens a presentation whose chart references an unavailable external workbook and accesses the recovered data through [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+The following JavaScript example opens `presentation.pptx`, whose first shape on the first slide must be a chart referencing an unavailable external workbook, and accesses the recovered data through [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getChartData) and [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
@@ -356,10 +465,17 @@ loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
 const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
 try {
-    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Read or modify the recovered workbook data here.
+    const shapeCount = slide.getShapes().size();
+    if (shapeCount > 0 && java.instanceOf(slide.getShapes().get_Item(0), "com.aspose.slides.IChart")) {
+        const chart = slide.getShapes().get_Item(0);
+        const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+        // Read or modify the recovered workbook data here.
+    } else {
+        console.log("The first shape is not a chart.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -371,11 +487,11 @@ If the external workbook is unavailable and recovery is disabled, Aspose.Slides 
 
 **Can I determine whether a specific chart is linked to an external or an embedded workbook?**
 
-Yes. A chart has a [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) and a [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); if the source is an external workbook, you can read the full path to make sure an external file is being used.
+Yes. A chart has a [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getDataSourceType) and a [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath); if the source is an external workbook, you can read the full path to make sure an external file is being used.
 
 **Are relative paths to external workbooks supported, and how are they stored?**
 
-Yes. If you specify a relative path, it is automatically converted to an absolute path. This is convenient for project portability; however, be aware that the presentation will store the absolute path in the PPTX file.
+Yes. If you specify a relative path, it is automatically converted to an absolute path. The presentation stores the absolute path in the PPTX file, so moving the workbook may require updating the link.
 
 **Can I use workbooks located on network resources/shares?**
 
@@ -383,11 +499,11 @@ Yes, such workbooks can be used as an external data source. However, editing rem
 
 **Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
 
-No. The presentation stores a [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) and uses it for reading data. The external file itself is not modified when the presentation is saved.
+The presentation stores a [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath). Editing cell-backed chart data can also update the linked local XLSX file. Use a copy of the workbook if the original must remain unchanged.
 
 **What should I do if the external file is password-protected?**
 
-Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](/cells/nodejs-java/)) and link to that copy.
+Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](https://reference.aspose.com/cells/java/)) and link to that copy.
 
 **Can multiple charts reference the same external workbook?**
 

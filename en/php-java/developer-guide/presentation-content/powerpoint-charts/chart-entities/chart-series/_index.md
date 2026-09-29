@@ -330,6 +330,8 @@ Scatter charts use separate X and Y cells, and bubble charts also use a size cel
 
 ## **Control the Display of Empty Cells**
 
+Hidden cells that contain values are a separate case from empty cells. To include or exclude data from hidden worksheet rows and columns, see [Include Data from Hidden Rows and Columns](/slides/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+
 An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Call [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) with `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
 
 Use [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
