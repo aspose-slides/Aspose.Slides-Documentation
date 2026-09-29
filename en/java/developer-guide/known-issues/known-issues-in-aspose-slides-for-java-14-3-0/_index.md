@@ -1,17 +1,25 @@
 ---
-title: Known Issues in Aspose.Slides for Java 14.3.0
+title: Known Issues in Aspose.Slides for Java 14.3.0 (Historical)
 type: docs
 weight: 20
 url: /java/known-issues-in-aspose-slides-for-java-14-3-0/
 keywords:
 - known issue
+- historical
+- version 14.3.0
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Review known issues in Aspose.Slides for Java 14.3.0 to ensure accurate work with PowerPoint and OpenDocument files and avoid surprises in your presentations."
+description: "Historical: the known issues published with Aspose.Slides for Java 14.3.0, kept for reference. It is not a list of issues in the current version."
 ---
+
+{{% alert color="info" title="Note" %}}
+
+This is a historical page. It lists the known issues published with Aspose.Slides for Java 14.3.0 and does not describe the current version. For the changes in each version, see the [release notes](https://releases.aspose.com/slides/java/release-notes/).
+
+{{% /alert %}}
 
 Aspose.Slides for Java 14.3.0 (14.4.0) provides completely new implementation of PPT processing. There are a lot of improvements, PPTX to PPT partial conversion. But there are some unimplemented features:
 

@@ -1,114 +1,95 @@
 ---
 title: Features Overview
 type: docs
-weight: 10
+weight: 104
 url: /java/features-overview/
 keywords:
 - features
 - supported platforms
-- file format
+- file formats
 - conversion
 - rendering
-- formatting
+- presentation content
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Discover Aspose.Slides for Java: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
+description: "Review what Aspose.Slides for Java covers before you evaluate it: supported platforms, file formats, slide rendering, and the content you can create and edit."
 ---
 
+## **Overview**
+
+Aspose.Slides for Java is a class library for creating, reading, editing, converting, and rendering PowerPoint and OpenDocument presentations. It has no user interface of its own and does not require Microsoft PowerPoint or Microsoft Office. This article summarizes what the library covers and links to the articles that describe each area.
+
 ## **Supported Platforms**
-Aspose.Slides for Java supports the most popular development and deployment platforms.
 
-|**Feature**|**Description**|
-| :- | :- |
-|Desktop Applications|Aspose.Slides for Java can be used to develop Windows Forms applications|
-|Enterprise Web Applications|Using Aspose.Slides for Java helps to build Web applications targeting. Support for using Aspose.Slides for Java with PHP is also provided.|
-|Linux/Unix|Aspose.Slides for Java is a platform independent API and can work in a Linux and Unix environment.|
+Aspose.Slides for Java is a single JAR file, published in Aspose's Maven repository with the `jdk16` classifier. It is written in pure Java: the JAR contains no native libraries, and it does not depend on other packages.
+
+- **Java:** Java 8 or later. Aspose.Slides for Java 26.9 and earlier versions also run on Java 6 and 7, which version 26.10 no longer supports; see the [26.9 release notes](https://releases.aspose.com/slides/java/release-notes/2026/aspose-slides-for-java-26-9-release-notes/).
+- **Operating systems:** any operating system with a Java runtime, such as Windows, Linux, and macOS. On Linux, the fontconfig library and at least one font must be installed.
+
+[Installation](/slides/java/installation/) shows how to add the library to a project and lists the Linux prerequisites. [System Requirements](/slides/java/system-requirements/) lists the supported platforms in detail.
+
 ## **File Formats and Conversions**
-Aspose.Slides for Java supports most of the Microsoft PowerPoint document formats and exports them to popular formats used widely by organizations.
+
+Aspose.Slides opens and saves PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP, and PowerPoint XML presentations. It imports PDF and HTML content into slides, and it saves presentations as PDF, XPS, HTML, HTML5, TIFF, animated GIF, SWF, Markdown, and XAML. [Supported File Formats](/slides/java/supported-file-formats/) lists every format with the API that reads or writes it.
 
 |**Feature**|**Description**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Java provides the fastest processing for this presentation document format.|
-|[PresentationML (PPTX, XML)](/slides/java/presentationml-pptx-xml/)|Aspose.Slides for Java supports processing OOXML presentation format (also known as PresentationML or PPTX).|
-|[PPT to PPTX conversion](/slides/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java supports conversion from PPT to PPTX.|
-|[Portable Document Format (PDF)](/slides/java/developer-guide/)|The supported file formats can be exported to Adobe Portable Document Format (PDF) documents with a single method.|
-|[XML Parser Specification (XPS)](/slides/java/xml-parser-specification-xps/)|All of the supported file formats can be exported to XML Parser Specification (XPS) documents with a single method.|
-|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/java/convert-powerpoint-to-tiff/)|The presentation file formats supported by Aspose.Slides for Java can also be exported to Tagged Image File Format (TIFF).|
-|[ODP to PPTX Conversion](https://docs.aspose.com/slides/java/convert-odp-to-pptx/)|Aspose.Slides for Java supports loading Accessing OpenDocument Presentation (ODP) and converting then to PPTX.|
-|[Presentation To HTML Conversion](https://docs.aspose.com/slides/java/convert-powerpoint-to-html/)|Aspose.Slides for Java supports the conversion of PresentationEx to HTML format.|
+|[PPT and PPTX](/slides/java/ppt-vs-pptx/)|Read and write both the binary PowerPoint 97-2003 format and the Office Open XML format.|
+|[PPT to PPTX conversion](/slides/java/convert-ppt-to-pptx/)|Convert legacy PPT presentations to PPTX.|
+|[ODP to PPTX conversion](/slides/java/convert-odp-to-pptx/)|Open and save ODP, OTP, and FODP presentations, and convert ODP presentations to PPTX.|
+|[Portable Document Format (PDF)](/slides/java/convert-powerpoint-to-pdf/)|Export presentations to PDF, including PDF/A and PDF/UA documents.|
+|[XML Paper Specification (XPS)](/slides/java/convert-powerpoint-to-xps/)|Export presentations to XPS documents.|
+|[Tagged Image File Format (TIFF)](/slides/java/convert-powerpoint-to-tiff/)|Export presentations to multi-page TIFF images, one page per slide.|
+|[HTML](/slides/java/convert-powerpoint-to-html/)|Export presentations to HTML and HTML5.|
+|[PDF and HTML import](/slides/java/import-presentation/)|Create slides from PDF pages and HTML content.|
+
 ## **Presentation Rendering**
-Aspose .Slides for Java supports high fidelity rendering of slides in the presentations to various graphics formats:
 
-|**Feature**|**Description**|
-| :- | :- |
-|Supported Image Formats|Using Aspose.Slides for Java, you will be able to render not only presentation slides, but also images on slides, to popular supported graphics formats like TIFF, PNG, BMP, JPEG, GIF and metafiles.|
-|SVG Format|Aspose.Slides for Java provides a built-in method to export presentation slides to Scalable Vector Graphics (SVG) format.|
+Aspose.Slides renders slides and individual shapes as PNG, JPEG, BMP, GIF, TIFF, and SVG images, and slides as EMF metafiles. See [Convert Presentation Slides to Images](/slides/java/convert-slide/), [Render Presentation Slides as SVG Images](/slides/java/render-a-slide-as-an-svg-image/), and [Create Thumbnails of Presentation Shapes](/slides/java/create-shape-thumbnails/).
+
 ## **Content Features**
-Aspose.Slides for Java enables you to access, modify or create almost all the possible contents of presentations.
 
-|**Feature**|**Description**|
-| :- | :- |
-|Master Slides|The master slides define the layout of the normal slides. Aspose.Slides for Java enables you to access and modify a presentation's master slides.|
-|Normal Slides|Using Aspose.Slides for Java, you can not only create new slides of different types, but also access and modify existing slides.|
-|Cloning / Copying Slides|Aspose.Slides for Java provides methods for cloning or copying existing slides not only within a presentation, but also from one presentation to the other. Since a slide inherits its layout from master slide, the built-in cloning methods automatically copy the master on cloning.|
-|Managing Slides sections|Provision to organize slides in different sections inside presentation|
-|Place Holders and Text Holders|Access place holders and text holders in a slide. Moreover, you can create a slide with text holders from scratch using the appropriate method.|
-|Header and Footers|Aspose.Slides for Java also facilitates to handle headers / footers in the slides.|
-|Notes in Slides|With Aspose.Slides for Java, you can not only access and modify notes associated with a slide, but also add notes.|
-|Finding a Shape|You can find a particular shape on a slide using the alternative text associated with the shape.|
-|Backgrounds|Aspose.Slides for Java enables you to work with the background associated with a master or normal slide.|
-|Text Boxes|Text boxes can be created from scratch. Existing text boxes can be accessed and their text can be modified without losing the original text format.|
-|Rectangle Shapes|Rectangle shapes can be created or modified by Aspose.Slides for Java.|
-|Poly Line Shapes|Poly line shapes can also be created or modified by Aspose.Slides for Java.|
-|Ellipse Shapes|Ellipse shapes are also created or modified by Aspose.Slides for Java.|
-|Group Shapes|Aspose.Slides for Java supports group shapes.|
-|Auto Shapes|Auto shapes are also supported by Aspose.Slides for Java|
-|SmartArt|Support for SmartArt shapes available in MS PowerPoint|
-|Charts|Support for MSO Charts supported by PowerPoint|
-|Picture Frames|Pictures are managed in picture frames using Aspose.Slides for Java.|
-|Audio Frames|Audio files can be linked or embedded on slides in audio frames by Aspose.Slides for Java.|
-|Video Frames|Video files are handled in video frames through Aspose.Slides for Java. Support for linked as well as embedded videos is available.|
-|OLE Frame|OLE Objects are managed in OLE frames by Aspose.Slides for Java.|
-|ActiveX Controls|Support for ActiveX controls is available.|
-|VBA Macros|Support for managing VBA macros inside presentation.|
-|Tables|Tables on slides are also supported by Aspose.Slides for Java.|
-|Text Frame|The text associated with any shape can be accessed through text frame associated with that shape.|
-|Text Scanning|Text in a presentation can be scanned at the presentation or slide level through the built-in scanning methods.|
-|Animations|Animations can be applied to shapes.|
-|Slide Shows|Slide shows and slide transitions are supported.|
-## **Formatting Features**
-It is possible to format text and shapes on slides in a presentation document using Aspose.Slides for Java.
+Aspose.Slides lets you create, read, and modify almost all the content of a presentation:
 
-|**Feature**|**Description**|
+|**Area**|**What you can do**|
 | :- | :- |
-|Text Formatting|<p>In Aspose.Slides for Java, text is managed through text frames associated with shapes. Hence, text is formatted using paragraphs and portions associated with the text frames. The following text elements can be formatted.</p><p>- Font type.</p><p>- Font size.</p><p>- Font color.</p><p>- Font shades.</p><p>- Paragraph alignment.</p><p>- Paragraph bulleting.</p><p>- Paragraph orientation.</p>|
-|Shape Formatting|<p>In Aspose.Slides for Java, the basic element of a slide is shape. The following Shape elements can be formatted using Aspose.Slides for Java:</p><p>- Position</p><p>- Size</p><p>- Line</p><p>- Fill (including pattern, gradient, and solid).</p><p>- Text</p><p>- Image</p>|
+|[Slides](/slides/java/presentation-slide/)|Add, clone, reorder, and remove slides; apply layouts and masters; organize slides into sections; change the slide size.|
+|[Design](/slides/java/presentation-design/)|Set backgrounds, theme colors, headers and footers, and fonts.|
+|[Text](/slides/java/manage-text/)|Create and edit text frames, paragraphs, and portions; set fonts, colors, bullets, and alignment; find and replace text.|
+|[Shapes](/slides/java/powerpoint-shapes/)|Create AutoShapes, lines, connectors, group shapes, and picture frames; set position, size, line, and solid, gradient, or pattern fill; find a shape by its alternative text.|
+|[Tables](/slides/java/powerpoint-table/), [charts](/slides/java/powerpoint-charts/), and [SmartArt](/slides/java/powerpoint-smartart/)|Create and edit tables, Microsoft Office charts, and SmartArt diagrams.|
+|[Media](/slides/java/manage-media-files/), [OLE objects](/slides/java/manage-ole/), and [ActiveX controls](/slides/java/activex/)|Add embedded or linked audio and video frames, embed OLE objects, and add, modify, or remove ActiveX controls.|
+|[Notes](/slides/java/presentation-notes/) and [comments](/slides/java/presentation-comments/)|Add, read, and edit speaker notes and review comments.|
+|[Animation](/slides/java/powerpoint-animation/) and [transitions](/slides/java/slide-transition/)|Apply animation effects to shapes, set slide transitions, and configure slide show settings.|
+|[Security](/slides/java/presentation-security/)|Encrypt presentations with a password, set write protection, and work with [digital signatures](/slides/java/digital-signature-in-powerpoint/).|
+|[VBA macros](/slides/java/presentation-via-vba/)|Add, extract, and remove VBA modules in macro-enabled presentations.|
+|[Properties](/slides/java/presentation-properties/)|Read and edit document properties.|
 
 ## **FAQ**
 
-### Do I need to install Microsoft PowerPoint on the server/PC for the library to work?
+**Do I need to install Microsoft PowerPoint on the server or PC for the library to work?**
 
 No. PowerPoint is not required; Aspose.Slides is a standalone engine for creating, editing, converting, and rendering presentations.
 
-### How does multithreading work? Can processing be parallelized?
+**How does multithreading work? Can processing be parallelized?**
 
-It is safe to process different documents in different threads; the same [presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) object must not be used by [multiple threads](/slides/java/multithreading/) at the same time.
+It is safe to process different documents in different threads; the same [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) object must not be used by [multiple threads](/slides/java/multithreading/) at the same time.
 
-### Are file passwords and encryption supported?
+**Are file passwords and encryption supported?**
 
 Yes. [You can](/slides/java/password-protected-presentation/) open encrypted presentations, set or remove an open and write password, and check the protection status.
 
-### Do I need to care about font packages in Linux containers?
+**Do I need to care about fonts in Linux containers?**
 
-Yes. It is recommended to install common font packages and/or explicitly [specify font directories](/slides/java/custom-font/) in your application to avoid unexpected substitutions.
+Yes. On Linux, the fontconfig library and at least one font must be installed, and the fonts used in your presentations, or suitable substitutes, must be installed for text to render correctly. You can also [specify font directories](/slides/java/custom-font/) in your application. See [Installation](/slides/java/installation/#linux).
 
-### Are there limitations in the evaluation version?
+**Are there limitations in the evaluation version?**
 
-In [evaluation mode](/slides/java/licensing/), a watermark is added to the output and certain limitations apply; a [30-day temporary license](https://purchase.aspose.com/temporary-license/) is available for full-feature testing.
+Yes. Without a [license](/slides/java/licensing/), Aspose.Slides adds an evaluation watermark to every slide it saves and truncates text that your code reads through the API. A [30-day temporary license](https://purchase.aspose.com/temporary-license/) is available for full-feature testing.
 
-### Is importing external formats into a presentation (PDF/HTML → PPTX) supported?
+**Is importing external formats into a presentation (PDF or HTML to PPTX) supported?**
 
 Yes. You can add [PDF pages and HTML content](/slides/java/import-presentation/) to a presentation, turning them into slides.

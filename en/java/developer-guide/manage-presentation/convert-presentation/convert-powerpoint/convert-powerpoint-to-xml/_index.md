@@ -83,7 +83,7 @@ Choose the output format according to how the result will be used:
 | PNG, JPEG, or SVG | A rendered representation of an individual slide | Thumbnails, previews, and image assets |
 | HTML or HTML5 | Web-oriented presentation output | Browser viewing and web publishing |
 
-Unlike PPT and PPTX, XML output is primarily intended for inspection and data-oriented workflows. Unlike PDF, TIFF, HTML, and slide image formats, it represents presentation data rather than rendering slides as pages or visual assets. The [supported file formats](/slides/java/supported-file-formats/) table lists PowerPoint XML Presentation as a save-only format, so do not use it when a workflow must load the exported file back into Aspose.Slides for continued editing.
+Unlike PPT and PPTX, XML output is primarily intended for inspection and data-oriented workflows. Unlike PDF, TIFF, HTML, and slide image formats, it represents presentation data rather than rendering slides as pages or visual assets. The [supported file formats](/slides/java/supported-file-formats/) table lists every format that Aspose.Slides can load, import, save, or render.
 
 ## **FAQ**
 
@@ -97,7 +97,7 @@ Yes. Pass a writable stream to [Presentation.save](https://reference.aspose.com/
 
 **Can Aspose.Slides load the exported XML file again?**
 
-No. PowerPoint XML Presentation is currently supported for saving but not for loading. Use PPTX or another supported presentation format when round-trip editing is required.
+Yes. Pass the XML file or a stream to the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-) constructor. [Presentation.getSourceFormat](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSourceFormat--) then returns `SourceFormat.Xml`. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) reports `LoadFormat.Unknown` for this format, so do not use it to decide whether an XML file can be opened.
 
 **Does XML conversion render each slide as a page or image?**
 

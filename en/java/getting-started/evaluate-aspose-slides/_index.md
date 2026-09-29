@@ -1,7 +1,7 @@
 ---
 title: Evaluate Aspose.Slides
 type: docs
-weight: 130
+weight: 85
 url: /java/evaluate-aspose-slides/
 keywords:
 - evaluate Aspose.Slides

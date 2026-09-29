@@ -46,7 +46,7 @@ Aspose.Slides allows you to load fonts used in a presentation without installing
 1. Specify one or more folders that contain the font files.
 2. Call the static [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) method to load fonts from those folders.
 3. Load and render/export the presentation.
-4. Call [FontsLoader.clearCache](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader#clearCache--) to clear the font cache.
+4. Call [FontsLoader.clearCache](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#clearCache--) to clear the font cache.
 
 The following code example demonstrates the font loading process:
 
@@ -97,7 +97,7 @@ String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
 ## **Specify Custom Fonts Used with a Presentation**
-Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property to allow you to specify external fonts that will be used with the presentation. 
+Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property to allow you to specify external fonts that will be used with the presentation.
 
 This Java code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property:
 
@@ -168,7 +168,7 @@ Yes. Configure [font substitution](/slides/java/font-substitution/), [replacemen
 
 ### Can I use fonts in Linux/Docker containers without installing them system-wide?
 
-Yes. Point to your own font folders or load fonts from byte arrays. This removes any dependency on system font directories in the container image.
+Partly. Aspose.Slides can use fonts from your own folders or from byte arrays without installing them, but Java's font support still needs at least one installed font in the image. Without one, loading fails with the error "Fontconfig head is null, check your fonts or fonts configuration". See [Deploy Fonts](/slides/java/deploy-fonts/).
 
 ### What about licensing—can I embed any custom font without restrictions?
 

@@ -12,7 +12,7 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Start here: install Aspose.Slides for Java, create a first presentation, and find the guides for common tasks, the API reference and support."
+description: "Start here: install Aspose.Slides for Java, create a first presentation, and find the guides for common tasks, deployment and the API reference."
 is_root: true
 ---
 
@@ -34,11 +34,13 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 <ul>
 <li><a href="/slides/java/installation/">Installation</a></li>
 <li><a href="/slides/java/create-presentation/">Create your first presentation</a></li>
+<li><a href="/slides/java/system-requirements/">System requirements</a></li>
 <li><a href="/slides/java/getting-started/">Getting started guide</a></li>
 </ul>
 <p>EVALUATE</p>
 <ul>
 <li><a href="/slides/java/supported-file-formats/">Supported file formats</a></li>
+<li><a href="/slides/java/features-overview/">Features overview</a></li>
 <li><a href="/slides/java/evaluate-aspose-slides/">Trial limitations</a></li>
 <li><a href="/slides/java/licensing/">Licensing</a></li>
 </ul>
@@ -69,13 +71,21 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Reference &amp; Support</b></p>
+<p><b>Deploy &amp; Support</b></p>
 <hr>
+<p>DEPLOY</p>
+<ul>
+<li><a href="/slides/java/system-requirements/#linux">Linux prerequisites</a></li>
+<li><a href="/slides/java/how-to-run-aspose-slides-in-docker/">Run in Docker</a></li>
+<li><a href="/slides/java/deploy-fonts/">Fonts</a></li>
+<li><a href="/slides/java/security/">Security</a></li>
+</ul>
 <p>REFERENCE</p>
 <ul>
 <li><a href="https://reference.aspose.com/slides/java/">API reference</a></li>
 <li><a href="https://releases.aspose.com/slides/java/release-notes/">Release notes</a></li>
 <li><a href="/slides/java/known-issues/">Known issues</a></li>
+<li><a href="/slides/java/api-limitations/">Output metadata limitations</a></li>
 <li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
 </ul>
 <p>SUPPORT</p>
@@ -87,6 +97,8 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 </div>
 
 ------
+
+<a name="your-first-presentation"></a>
 
 ## **Your first presentation**
 

@@ -1,5 +1,5 @@
 ---
-title: API Limitations
+title: Output Metadata Limitations
 type: docs
 weight: 320
 url: /java/api-limitations/
@@ -10,26 +10,29 @@ keywords:
 - producer
 - document properties
 - metadata
+- generator
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Know Aspose.Slides for Java limits: exports set fixed Application/Producer metadata in PPT, PPTX, ODP, and PDF—helping you plan integrations without surprises."
+description: "Aspose.Slides for Java writes fixed application, creator, and producer metadata to saved PPTX, PDF, and ODP files, whatever application name you set."
 ---
 
 ## **Overview**
 
-When presentations are created or exported with Aspose.Slides, certain technical metadata is written to the output file. This article explains the limitations related to the `Application`, `Creator`, and `Producer` metadata fields in PPTX and PDF files.
+When presentations are created or exported with Aspose.Slides, certain technical metadata is written to the output file. This article explains the limitations related to the `Application`, `Creator`, `Producer`, and generator metadata fields in PPTX, PDF, and ODP files.
 
 ## **Application and Producer**
 
 When you create or export presentations with Aspose.Slides for Java, some technical metadata is written into the file. Two fields often raise questions:
 
-**Application** identifies the program that created or last saved a **PPTX** presentation. In Aspose.Slides for Java, this value is fixed and shows the library vendor rather than your app name, even if you use [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-).
+**Application** identifies the program that created or last saved a **PPTX** presentation. In Aspose.Slides for Java, this value is fixed and shows the library name rather than your app name, even if you use [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-).
 
 **Producer** identifies the rendering engine that generated the final file during export. In **PDF** exports, metadata uses **Creator** and **Producer** fields. With Aspose.Slides for Java, both of these are fixed and reflect the library and its version.
 
 **What’s restricted**
 
-You cannot override these fields through the API for the formats above. For **PPTX**, the Application property is written as "Aspose.Slides for Java". For **PDF**, the Creator and Producer properties are written as "Aspose.Slides for Java x.x.x." This behavior is by design and applies regardless of how you load or save the file, and regardless of values assigned using [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-).
+You cannot override these fields through the API for the formats above. For **PPTX**, the Application property is written as "Aspose.Slides for Java". For **PDF**, the Creator and Producer properties are written as "Aspose.Slides for Java" followed by the library version. For **ODP**, the generator field is written as "Aspose.Slides for Java" followed by the library version. This behavior is by design and applies regardless of how you load or save the file, and regardless of values assigned using [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-).
+
+This restriction does not apply to **PPT** files: in a PPT file, the application name that you set with [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) is saved.

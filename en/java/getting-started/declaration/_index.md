@@ -1,39 +1,46 @@
 ---
-title: Declaration
+title: Security Manager Requirements
 type: docs
-weight: 60
+weight: 190
 url: /java/declaration/
 keywords:
-- declaration
-- components
-- Full Trust permission
-- registry settings
-- system files
+- Security Manager
+- security policy
+- AllPermission
+- permissions
+- sandbox
+- JDK 24
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Learn about Aspose.Slides for Java trust requirements, permissions, and hosting limitations so you can safely deploy apps that process PPT, PPTX and ODP on servers."
+description: "Which Security Manager permissions Aspose.Slides for Java and the code that calls it need on Java 23 and earlier, and why there is nothing to configure on Java 24 and later."
 ---
 
-{{% alert color="info" %}} 
+## **Overview**
 
-All Aspose Java components require Full Trust permission set. The reason is, Aspose Java components need to access registry settings, system files other than virtual directory for certain operations like parsing fonts etc. Moreover, Aspose Java Components are based on core Java system classes that also require Full Trust permission set in many cases. 
+The Java Security Manager limits what code can do according to a security policy. Java 17 deprecated it for removal ([JEP 411](https://openjdk.org/jeps/411)), and Java 24 disabled it permanently ([JEP 486](https://openjdk.org/jeps/486)). This article explains what Aspose.Slides for Java needs when an application still runs with a Security Manager. If your application does not enable one, which is the default, there is nothing to configure.
 
-{{% /alert %}} 
+## **Java 23 and Earlier**
 
-Internet Service Providers hosting multiple applications from different companies mostly enforce Medium Trust security level: 
+When a Security Manager is enabled, the security policy must grant these permissions to the Aspose.Slides JAR file and to the application code that calls it:
 
-- OleDbPermission is not available. This means you cannot use the ADO.NET managed OLE DB data provider to access databases.
-- EventLogPermission is not available. This means you cannot access the Windows event log.
-- ReflectionPermission is not available. This means you cannot use reflection.
-- RegistryPermission is not available. This means you cannot access the registry.
-- WebPermission is restricted. This means your application can only communicate with an address or range of addresses that you define in the <trust> element.
-- FileIOPermission is restricted. This means you can only access files in your application's virtual directory hierarchy.
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides reads system properties.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides reads font files and other files.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides starts operating-system programs, for example `reg` on Windows and `fc-match` on Linux.
+- `java.io.FilePermission` with the `write` action for the folders where your application saves files.
 
-{{% alert color="info" %}} 
+Granting the permissions to the JAR file alone is not enough: the code that calls Aspose.Slides needs them too. Granting `java.security.AllPermission` to both also works.
 
-Due to the reasons specified above, Aspose Java components cannot be used on servers granting permission set other than Full Trust. 
+Without the permission to read system properties or to start programs, Aspose.Slides fails on first use: creating a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) object throws an `ExceptionInInitializerError`. Without read access to the font files, saving a presentation as PDF fails with the error "Cannot find any fonts installed on the system".
 
-{{% /alert %}}
+## **Java 24 and Later**
+
+The Security Manager cannot be enabled on Java 24 and later, so there are no permissions to grant. Aspose.Slides runs with the permissions of the account that runs your application. To restrict what an application can access, the OpenJDK project recommends technologies outside the JDK, such as containers, hypervisors, and operating-system sandboxing features. See [JEP 486](https://openjdk.org/jeps/486).
+
+## **FAQ**
+
+**Can I use Aspose.Slides in an environment that runs applications under a restrictive Security Manager policy?**
+
+Only if the policy grants the permissions listed above both to Aspose.Slides and to the code that calls it. They include reading all files and starting any program.

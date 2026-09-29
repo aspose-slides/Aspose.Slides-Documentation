@@ -1,12 +1,14 @@
 ---
-title: Object Preview Issue When Adding OleObjectFrame
-linktitle: OLE Object Issue
+title: Object Preview Placeholder When Adding OleObjectFrame
+linktitle: OLE Preview Placeholder
 type: docs
 weight: 10
 url: /java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - preview issue
+- preview placeholder
+- by design
 - embed object
 - embed file
 - object changed
@@ -15,20 +17,20 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Learn why EMBEDDED OLE OBJECT appears when adding OleObjectFrame in Aspose.Slides for Java and how to fix preview issues in PPT, PPTX and ODP presentations."
+description: "Why an OLE object added with Aspose.Slides for Java shows an EMBEDDED OLE OBJECT placeholder until its preview is updated, and how to set your own preview image."
 ---
 
 ## **Introduction**
 
 Using Aspose.Slides for Java, when you add [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
 
-For more information on working with OLE objects, see [Manage OLE](/slides/java/manage-ole/). 
+For more information on working with OLE objects, see [Manage OLE](/slides/java/manage-ole/).
 
 ## **Explanation and Solution**
 
-Aspose.Slides displays the "EMBEDDED OLE OBJECT" message to notify you that the OLE object has been changed and the preview image has to be updated. 
+Aspose.Slides displays the "EMBEDDED OLE OBJECT" message to notify you that the OLE object has been changed and the preview image has to be updated.
 
-For example, if you add a Microsoft Excel сhart as an [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) to a slide (for more details, see the "Manage OLE" article) and then open the presentation in the Microsoft PowerPoint, you will see this image on the slide:
+For example, if you add a Microsoft Excel chart as an [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) to a slide (for more details, see the "Manage OLE" article) and then open the presentation in the Microsoft PowerPoint, you will see this image on the slide:
 
 ![OLE object message](OLE_object_message.png)
 
@@ -40,15 +42,15 @@ PowerPoint then opens the embedded OLE object.
 
 ![OLE object data](OLE_object_data.png)
 
-The slide may retain the "EMBEDDED OLE OBJECT" message. Once you click the OLE object, the slide preview gets updated and the "EMBEDDED OLE OBJECT" message is replaced by the actual image for the OLE object. 
+The slide may retain the "EMBEDDED OLE OBJECT" message. Once you click the OLE object, the slide preview gets updated and the "EMBEDDED OLE OBJECT" message is replaced by the actual image for the OLE object.
 
 ![OLE object preview](OLE_object_preview.png)
 
-Now, you may want to save your presentation to ensure the image for the OLE Object gets updated correctly. This way, after saving the presentation, when you open the presentation again, you will NOT see the "EMBEDDED OLE OBJECT" message. 
+Now, you may want to save your presentation to ensure the image for the OLE Object gets updated correctly. This way, after saving the presentation, when you open the presentation again, you will NOT see the "EMBEDDED OLE OBJECT" message.
 
 ## **Other Solution**
 
-If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process:
+If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process. They assume that the first shape on the first slide of *embeddedOLE.pptx* is the OLE object frame and that *myImage.png* holds the image to show, and they save the result as *embeddedOLE-newImage.pptx*:
 
 ```java
 import com.aspose.slides.*;
@@ -61,15 +63,15 @@ try {
     // Add an image to presentation resources.
     IImage image = Images.fromFile("myImage.png");
     IPPImage oleImage = presentation.getImages().addImage(image);
+    image.dispose();
 
-    // Set a title and the image for the OLE object preview.
-    oleFrame.setSubstitutePictureTitle("My title");
+    // Set the image for the OLE object preview.
     oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
     oleFrame.setObjectIcon(false);
 
     presentation.save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();    
+    presentation.dispose();
 }
 ```
 
