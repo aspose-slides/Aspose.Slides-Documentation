@@ -11,19 +11,19 @@ keywords:
 - लेबल दूरी
 - लेबल स्थान
 - PowerPoint
-- प्रस्तुति
+- प्रेजेंटेशन
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "जावास्क्रिप्ट और Node.js के लिए Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और फ़ॉर्मेट करने के बारे में जानें, जिससे अधिक आकर्षक स्लाइड्स बनें।"
+description: "जावास्क्रिप्ट और Aspose.Slides for Node.js का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और स्वरूपित करने के तरीके सीखें, जिससे अधिक आकर्षक स्लाइड्स बनें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। इस लेख में बताया गया है कि मानों को कैसे फ़ॉर्मेट करें, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट को कैसे पढ़ें, श्रेणी अक्ष लेबल के अंतराल को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
+डेटा लेबल चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं की जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों का स्वरूप कैसे सेट करें, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट को कैसे पढ़ें, अक्ष अधिकतम से परे लेबल कैसे नियंत्रित करें, श्रेणी अक्ष लेबल की दूरी कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
 
-## **चार्ट डेटा लेबल में डेटा प्रिसीजन सेट करें**
+## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
 
-सीरीज़ मानों को फ़ॉर्मेट करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसकी डेटा टेबल प्रदर्शित करता है, और पहली सीरीज़ के लिए वैल्यू लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हज़ार विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मान बदले।
+[setNumberFormatOfValues](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) को उपयोग करके श्रृंखला मानों का स्वरूप सेट करें। यह उदाहरण डिफॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसकी डेटा तालिका दिखाता है, और पहली श्रृंखला के लिए मान लेबल सक्रिय करता है। `#,##0.00` स्वरूप हज़ारों विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -31,6 +31,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **लेबल के रूप में प्रतिशत दिखाएँ**
 
-एक स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल के प्रतिशत के रूप में गणना करें और टेक्स्ट फ्रेम को असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8 पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+एक स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी के कुल का प्रतिशत गणना करें और टेक्स्ट फ्रेम को असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) द्वारा दिया जाता है। यह उदाहरण डिफॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,6 +55,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
 
     const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **चार्ट डेटा लेबल में प्रतिशत संकेत सेट करें**
+## **चार्ट डेटा लेबल में प्रतिशत चिह्न सेट करें**
 
-जब मान भागों (फ्रैक्शन) के रूप में संग्रहीत होते हैं, तो प्रतिशत दिखाने के लिए [setNumberFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) को `false` पास करें।
+जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत दिखाने के लिए [setNumberFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) को `false` पास करें।
 
-यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि वर्टिकल अक्ष दो दशमलव स्थान का उपयोग करता है। दोनों सीरीज़ सफ़ेद, 10-पॉइंट लेबल टेक्स्ट का उपयोग करती हैं।
+यह उदाहरण चार श्रेणियों में लाल और नीली श्रृंखला के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान का उपयोग करता है। दोनों श्रृंखलाएँ सफेद, 10‑पॉइंट लेबल टेक्स्ट प्रयोग करती हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -114,6 +116,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -162,7 +165,7 @@ try {
 
 ## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
 
-डेटा लेबल सेटिंग्स द्वारा उत्पन्न टेक्स्ट को प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालते समय, प्रस्तुतीकरण सामग्री खोजते समय, या उत्पन्न चार्ट को वैधता देते समय उपयोगी होता है। नीचे के उदाहरण में, डिफ़ॉल्ट [डेटा लेबल फ़ॉर्मेट](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम और मान को संयोजित करता है। एक बिंदु अपने मान को प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) से कस्टम टेक्स्ट का उपयोग करता है।
+[data label] सेटिंग्स द्वारा उत्पन्न टेक्स्ट को प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या उत्पन्न चार्ट को सत्यापित करते समय उपयोगी है। नीचे के उदाहरण में, डिफॉल्ट [data label format](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम, और मान को मिलाता है। एक बिंदु अपना मान प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) से कस्टम टेक्स्ट उपयोग करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,6 +173,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -224,11 +228,15 @@ try {
 }
 ```
 
-डेटा पॉइंट में संग्रहित संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` श्रेणी और सीरीज़ नामों के साथ दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [getActualLabelText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। जैसा कि ऊपर दिखाया गया है, केवल दृश्यमान लेबल निकालना चाहते हैं तो अलग से [isVisible](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/isvisible/) जांचें।
+डेटा बिंदु में संग्रहीत संख्या `0.75` ही रहती है, भले ही उसका लेबल `75%` श्रेणी और श्रृंखला नामों के साथ दिखाता हो। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [getActualLabelText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। जब आप केवल दृश्यमान लेबल निकालना चाहते हैं, तब ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/isvisible/) को अलग से जांचें।
 
-## **अक्ष से लेबल की दूरी सेट करें**
+## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करें**
 
-[setLabelOffset](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/axis/setlabeloffset/) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी को नियंत्रित करें। मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा पॉइंट्स से जुड़े लेबल के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+जब आप मैन्युअल रूप से किसी अक्ष की सीमा सीमित करते हैं, तो कुछ डेटा बिंदु उसकी अधिकतम सीमा से अधिक हो सकते हैं। यह नियंत्रित करने के लिए कि उनके डेटा लेबल दिखाए जाएँ या नहीं, [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) का उपयोग करें। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष की सीमा या मूल डेटा मानों को नहीं बदलती।
+
+नीचे का उदाहरण 60 और 120 मूल्यों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) को `false` पास करता है और लंबवत अक्ष पर [setMaxValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/axis/setmaxvalue/) से अधिकतम को 100 सेट करता है। पहला स्लाइड अधिकतम से परे लेबल की अनुमति देती है; उस स्लाइड की एक प्रति उन्हें अक्षम करती है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सेव की जाती हैं।
+
+[setShowValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) से मान लेबल सक्षम करें। चार्ट-स्तर की सेटिंग अकेले मान प्रदर्शन को सक्षम नहीं करती या व्यक्तिगत लेबल के अक्षम मान प्रदर्शन को ओवरराइड नहीं करती। यह उदाहरण पूरी श्रृंखला के लिए मान सक्षम करता है और [setPosition](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabelformat/setposition/) का उपयोग करके प्रत्येक कॉलम के बाहरी सिरे पर लेबल रखता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -236,6 +244,68 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    const firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    const secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    const seriesName = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    const firstValue = workbook.getCell(0, 1, 1, 60);
+    const secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    const secondSlide = presentation.getSlides().addClone(slide);
+    const secondChart = secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+निम्नलिखित चित्र Microsoft PowerPoint द्वारा रेंडर किए गए सहेजे गए स्लाइड्स को दिखाते हैं। `true` होने पर लेबल **120** ऊपरी सीमा पर दिखाई देता है; `false` होने पर यह छिपा रहता है। लेबल **60** दृश्यमान रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दोनों मामलों में दूसरा डेटा बिंदु **120** बना रहता है।
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint चार्ट जो अक्ष अधिकतम 100 के साथ मान लेबल 120 दिखा रहा है](data-labels-over-maximum-true.png) | ![PowerPoint चार्ट जो अक्ष अधिकतम 100 के साथ मान लेबल 120 को छिपा रहा है](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+यह उदाहरण मान अक्ष वाले 2D कॉलम चार्ट का उपयोग करता है। मान अक्ष के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार अक्ष अधिकतम को सीमित नहीं करते।
+{{% /alert %}}
+
+## **अक्ष से लेबल दूरी सेट करें**
+
+[setLabelOffset](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/axis/setlabeloffset/) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी नियंत्रित करें। मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफसेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबल के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -247,9 +317,9 @@ try {
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट में डेटा लेबल की स्थिति को समायोजित करके अंतराल में सुधार करें और लीडर लाइनों के लिए जगह बनाएं।
+पाई चार्ट पर, डेटा लेबल की स्थिति समायोजित करके अंतराल सुधारा जा सकता है और लीडर लाइन के लिए स्थान बनाया जा सकता है।
 
-यह उदाहरण पहले डेटा पॉइंट का मान प्रदर्शित करता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/setx/) और [setY](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/sety/) का उपयोग करके उसके क्षैतिज और लम्बवत ऑफ़सेट समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+यह उदाहरण पहले डेटा बिंदु का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और क्षैतिज तथा लंबवत ऑफसेट को [setX](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/setx/) और [setY](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/datalabel/sety/) का उपयोग करके समायोजित करता है। ये ऑफसेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -258,6 +328,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
     const series = chart.getChartData().getSeries();
 
@@ -277,11 +348,14 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**डेटा लेबल को घने चार्ट में ओवरलैप होने से कैसे रोकें?**  
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों, और छोटे फ़ॉन्ट आकार को संयोजित करें; यदि आवश्यक हो तो कुछ फ़ील्ड (उदाहरण के लिए, श्रेणी) को छुपाएँ या केवल चरम मानों या मुख्य बिंदुओं के लिए ही लेबल दिखाएँ।
+**मैं घने चार्ट पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**
 
-**केवल शून्य, नकारात्मक या खाली मानों के लिए लेबल कैसे अक्षम करूँ?**  
-लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए प्रदर्शन को बंद करें।
+स्वचालित लेबल प्लेसमेंट, लीडर लाइनों और छोटा फ़ॉन्ट आकार मिलाएँ; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छुपाएँ या केवल चरम मानों या मुख्य बिंदुओं के लिए लेबल दिखाएँ।
 
-**PDF/छवियों में निर्यात करते समय लेबल शैली को स्थिर कैसे सुनिश्चित करें?**  
-फ़ॉन्ट फ़ैमिली और आकार को स्पष्ट रूप से सेट करें तथा रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध है या नहीं, यह सत्यापित करें ताकि फ़ॉलबैक न हो।
+**मैं शून्य, नकारात्मक या खाली मानों के लिए केवल लेबल कैसे अक्षम कर सकता हूँ?**
+
+लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए प्रदर्शन बंद करें।
+
+**PDF/छवियों में निर्यात करते समय मैं लेबल शैली को सुसंगत कैसे रख सकता हूँ?**
+
+फ़ॉन्ट फ़ैमिली और आकार स्पष्ट रूप से सेट करें और सुनिश्चित करें कि रेंडरिंग वातावरण में वह फ़ॉन्ट उपलब्ध हो, ताकि फ़ॉन्ट प्रतिस्थापन न हो।

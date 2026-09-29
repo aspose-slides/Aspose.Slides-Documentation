@@ -11,19 +11,19 @@ keywords:
 - مسافة التسمية
 - موضع التسمية
 - PowerPoint
-- عرض تقديمي
+- عرض
 - Python
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للبايثون عبر جافا لشرائح أكثر جذبًا."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للبايثون عبر جافا للحصول على شرائح أكثر جاذبية."
 ---
-## **المقدمة**
+## **مقدمة**
 
-تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القارئ على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، وضبط تباعد تسميات محور الفئة، وتحديد موضع تسميات مخطط الفطيرة.
+تظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القراء على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، عرض النسب المئوية، قراءة نص التسمية، التحكم في التسميات خارج الحد الأقصى للمحور، ضبط تباعد تسميات محور الفئة، وتحديد موضع تسميات المخطط الدائري.
 
-## **ضبط دقة البيانات في تسميات بيانات المخطط**
+## **تعيين دقة البيانات في تسميات بيانات المخطط**
 
-استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) لتنسيق قيم السلسلة. ينشئ هذا المثال مخطط خط مع بيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يعرض فاصل الآلاف ومكانين عشريين دون تغيير القيم الأصلية.
+استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) لتنسيق قيم السلسلة. يُنشئ هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. يُظهر التنسيق `#,##0.00` فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
 
 ```python
 import jpype
@@ -50,9 +50,9 @@ finally:
     presentation.dispose()
 ```
 
-## **عرض النسبة المئوية كملصقات**
+## **عرض النسبة المئوية كتسميات**
 
-في مخطط عمود مكدس، احسب كل قيمة كنسبة مئوية من إجمالي فئتها وعيّن النص إلى إطار النص الذي تعيده الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي إجماليها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
+في مخطط عمودي مكدس، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعيّن النص إلى إطار النص الذي يُرجعه [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقط. يتم تخطي الفئات التي إجماليها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيّرت بيانات المخطط.
 
 ```python
 import jpype
@@ -66,6 +66,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -107,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **ضبط علامة النسبة المئوية مع تسميات بيانات المخطط**
+## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-عندما تُخزن القيم ككسر، استخدم [setNumberFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setNumberFormat). مرّر `False` إلى الدالة [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
+عند تخزين القيم ككسور، استخدم [setNumberFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setNumberFormat) لعرض النسب المئوية. مرّر `False` إلى [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) لتطبيق تنسيق التسمية بشكل مستقل عن الخلايا المصدر.
 
-هذا المثال ينشئ مخطط عمود مكدس بنسبة 100% يحتوي على سلسلتين باللونين الأحمر والأزرق عبر أربع فئات. كل زوج من القيم يضيف إلى 1. تنسيق التسمية `0.0%` يعرض 0.30 كـ 30.0%، بينما يستخدم المحور الرأسي مكانين عشريين. تستخدم السلسلتان نص تسمية أبيض بحجم 10 نقاط.
+يُنشئ هذا المثال مخطط عمودي مكدس بنسبة 100% مع سلاسل حمراء وزرقاء عبر أربع فئات. كل زوج من القيم يساوي 1. يُظهر تنسيق التسمية `0.0%` القيمة 0.30 كـ 30.0%، بينما يستخدم المحور العمودي مكانين عشريين. كلتا السلسلتين تستخدم نص تسمية أبيض بحجم 10 نقاط.
 
 ```python
 import jpype
@@ -127,6 +128,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -171,7 +173,7 @@ finally:
 
 ## **قراءة النص الفعلي لتسميات البيانات**
 
-استخدم [getActualLabelText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getActualLabelText) لاسترداد النص الناتج عن إعدادات تسمية البيانات. هذا مفيد عند استخراج التسميات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات المُنشأة. في المثال أدناه، يجمع تنسيق تسمية البيانات الافتراضي [data label format](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/) كل اسم فئة، اسم السلسلة، والقيمة. ينسق أحد النقاط قيمته كنسبة مئوية، وآخر يستخدم نصًا مخصصًا من الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+استخدم [getActualLabelText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getActualLabelText) لاسترجاع النص الناتج عن إعدادات تسمية البيانات. هذا مفيد عندما يتم استخراج التسميات للتقارير، البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات المُنشأة. في المثال أدناه، يجمع تنسيق [تسمية البيانات الافتراضي](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/) كل اسم فئة، اسم سلسلة، والقيمة. يُنسق نقطة واحدة قيمتها كنسبة مئوية، وأخرى تستخدم نصًا مخصصًا من [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -185,6 +187,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -231,11 +234,81 @@ finally:
     presentation.dispose()
 ```
 
-العدد المخزن في نقطة البيانات يبقى `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. يستبدل النص المخصص النص المُولد للتسمية. تُعيد الدالة [getActualLabelText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getActualLabelText) سلسلة التسمية الناتجة في كلتا الحالتين. تحقق من الدالة [isVisible](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#isVisible) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
+العدد المخزن في نقطة البيانات يبقى `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل نص التسمية المُنشأ. تُرجع [getActualLabelText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getActualLabelText) سلسلة التسمية الناتجة في كلتا الحالتين. تحقق من [isVisible](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#isVisible) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات المرئية فقط.
 
-## **ضبط مسافة التسمية من المحور**
+## **التحكم في تسميات البيانات خارج الحد الأقصى للمحور**
 
-استخدم [setLabelOffset](https://reference.aspose.com/slides/ar/python-java/aspose.slides/axis/#setLabelOffset) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم خط تسميات المحور. ينشئ هذا المثال مخطط عمود متجمع ويضبط إزاحة تسمية المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرفقة بنقاط البيانات الفردية.
+عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات قيمته القصوى. استخدم [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) للتحكم فيما إذا كانت تسميات بياناتها تُعرض. هذا الإعداد يغيّر رؤية التسمية؛ لا يغيّر نطاق المحور أو قيم البيانات الأساسية.
+
+ينشئ المثال أدناه مخطط عمودي مجموعة ثنائي الأبعاد بقيم 60 و120. يمرّر `False` إلى [setAutomaticMaxValue](https://reference.aspose.com/slides/ar/python-java/aspose.slides/axis/#setAutomaticMaxValue) ويضبط الحد الأقصى إلى 100 باستخدام [setMaxValue](https://reference.aspose.com/slides/ar/python-java/aspose.slides/axis/#setMaxValue) على المحور العمودي. الشريحة الأولى تسمح بالتسميات خارج الحد الأقصى؛ نسخة تلك الشريحة تعطلها. تُحفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`.
+
+فعّل تسميات القيم باستخدام [setShowValue](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setShowValue). لا يُفعّل إعداد مستوى المخطط عرض القيمة بمفرده ولا يتجاوز إلغاء تمكين عرض القيمة لتسمية فردية. يفعّل هذا المثال القيم للسلسلة بأكملها ويستخدم [setPosition](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setPosition) لتضع التسميات عند الطرف الخارجي لكل عمود.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+تظهر الصور التالية الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. عند `True`، تكون التسمية **120** مرئية عند الحد العلوي؛ وعند `False` تكون مخفية. تظل التسمية **60** مرئية، يبقى الحد الأقصى للمحور **100**، وتظل نقطة البيانات الثانية **120** في كلتا الحالتين.
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![مخطط PowerPoint يُظهر تسمية القيمة 120 مع حد محوري أقصى قدره 100](data-labels-over-maximum-true.png) | ![مخطط PowerPoint يخفي تسمية القيمة 120 مع حد محوري أقصى قدره 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+يستخدم هذا المثال مخطط عمودي ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل المخططات الدائرية ومخططات الدونات، لا تملك حدًا أقصى للمحور لتقييده بهذه الطريقة.
+{{% /alert %}}
+
+## **تعيين مسافة التسمية من المحور**
+
+استخدم [setLabelOffset](https://reference.aspose.com/slides/ar/python-java/aspose.slides/axis/#setLabelOffset) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم الخط لتسميات المحور. يُنشئ هذا المثال مخطط عمودي مجموعة ويضبط إزاحة تسمية المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
 
 ```python
 import jpype
@@ -258,11 +331,11 @@ finally:
     presentation.dispose()
 ```
 
-## **ضبط موقع التسمية**
+## **ضبط موضع التسمية**
 
-في مخطط الفطيرة، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط.
+في مخطط دائري، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط القادة.
 
-يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحتها الأفقية والرأسية باستخدام الدالتين [setX](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#setX) و[setY](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#setY). هذه الإزاحات نسبية لعرض وارتفاع المخطط على التوالي.
+يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحتها الأفقية والرأسية باستخدام [setX](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#setX) و[setY](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#setY). هذه الإزاحات نسبة إلى عرض وارتفاع المخطط على التوالي.
 
 ```python
 import jpype
@@ -276,6 +349,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     
@@ -290,18 +364,18 @@ finally:
     presentation.dispose()
 ```
 
-![مخطط فطيرة مع موضع تسمية البيانات المعدل](pie-chart-adjusted-label.png)
+![مخطط دائري مع موضع تسمية بيانات معدل](pie-chart-adjusted-label.png)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
 
-استخدم وضعية التسميات التلقائية، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
+اجمع بين وضع التسمية التلقائي، خطوط القادة، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسة.
 
 **كيف يمكنني إيقاف تشغيل التسميات للقيم الصفرية أو السالبة أو الفارغة فقط؟**
 
-قم بتصفية نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السالبة أو القيم المفقودة وفق قاعدة محددة.
+قم بتصفية نقاط البيانات قبل تمكين التسميات وأوقف عرض القيم التي تساوي 0 أو القيم السالبة أو القيم المفقودة وفقًا لقاعدة محددة.
 
-**كيف يمكنني ضمان نمط تسميات متسق عند التصدير إلى PDF/صور؟**
+**كيف يمكنني ضمان نمط تسمية متسق عند التصدير إلى PDF/صور؟**
 
-حدّد عائلة الخط وحجمه صراحةً وتأكد من توفر الخط في بيئة العرض لتجنب التحويل الافتراضي.
+حدد عائلة الخط وحجمه صراحةً وتأكد من توفر الخط في بيئة العرض لتجنب الاستخدام الاحتياطي.

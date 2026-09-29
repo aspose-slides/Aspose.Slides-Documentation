@@ -1,5 +1,5 @@
 ---
-title: Android'ta Sunumlarda Grafik Veri Etiketlerini Yönetme
+title: Android'de Sunumlarda Grafik Veri Etiketlerini Yönetme
 linktitle: Veri Etiketi
 type: docs
 url: /tr/androidjava/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android'i Java ile kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, böylece slaytlarınız daha etkileyici olur."
+description: "PowerPoint sunumlarına Aspose.Slides for Android ve Java kullanarak grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, böylece daha etkileyici slaytlar oluşturun."
 ---
 ## **Giriş**
 
-Veri etiketleri, çizelge serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve çizelgeyi anlamasına yardımcı olur. Bu makale, değerlerin biçimlendirilmesini, yüzdelerin gösterilmesini, etiket metninin okunmasını, kategori ekseni etiketi aralığının ayarlanmasını ve pasta grafiği etiketlerinin konumlandırılmasını açıklar.
+Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterme, etiket metnini okuma, eksen maksimumunun ötesindeki etiketleri kontrol etme, kategori eksen etiketi aralığını ayarlama ve pasta grafik etiketlerini konumlandırma konularını açıklar.
 
-## **Çizelge Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
+## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) metodunu kullanın. Bu örnek, varsayılan verilerle bir çizgi grafiği oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerleri değiştirmez.
+Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir ve temel değerleri değiştirmez.
 
 ```java
 import com.aspose.slides.*;
@@ -31,6 +31,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **Yüzdeleri Etiket Olarak Görüntüleme**
 
-Yığılmış sütun grafiği için, her değeri kategori toplamının yüzde olarak hesaplayın ve metni [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) tarafından döndürülen metin çerçevesine atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzdeyi 8 puanlık bir yazı tipinde iki ondalık basamakla gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
+Yığılmış bir sütun grafik için, her değeri kendi kategori toplamının yüzdesi olarak hesaplayın ve metni, [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) tarafından döndürülen metin çerçevesine atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzdeyi iki ondalık basamakla, 8 puan yazı tipiyle gösterir. Toplamı sıfır olan kategoriler, bölme hatasını önlemek için atlanır. Grafik verileri değişirse, özel etiket metnini yeniden hesaplayın.
 
 ```java
 import com.aspose.slides.*;
@@ -55,6 +56,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **Çizelge Veri Etiketlerinde Yüzde İşaretini Ayarlama**
+## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
 
-Değerler kesir olarak depolandığında, yüzdeleri göstermek için [setNumberFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) metodunu kullanın. Etiket biçimini kaynak hücrelerden bağımsız uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) metoduna `false` aktarın.
+Değerler kesir olarak saklandığında, yüzde göstermek için [setNumberFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) kullanın. Etiket biçimini kaynak hücrelerden bağımsız uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) metodına `false` geçirin.
 
-Bu örnek, dört kategori boyunca kırmızı ve mavi serilerle %100 yığılmış bir sütun grafiği oluşturur. Her değer çifti 1'e eşittir. `0.0%` etiket biçimi 0.30'u 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
+Bu örnek, dört kategori boyunca kırmızı ve mavi seriler içeren %100 yığılmış bir sütun grafik oluşturur. Her değer çifti 1'e toplar. `0.0%` etiket biçimi, 0.30'ı 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puan etiket metni kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -115,6 +117,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -162,7 +165,7 @@ try {
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-Bir veri etiketinin ayarları tarafından üretilen metni almak için [getActualLabelText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) metodunu kullanın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak istediğinizde faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimlendirir, diğer ise [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) üzerinden özel metin kullanır.
+Veri etiketinin ayarları tarafından oluşturulan metni almak için [getActualLabelText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) kullanın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak istediğinizde yararlıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimlendirir, diğeri ise [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) metodundan gelen özel metni kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -170,6 +173,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -221,11 +225,15 @@ try {
 }
 ```
 
-Bir veri noktasında depolanan sayı `0.75` olarak kalır, etiketinde kategori ve seri adlarıyla birlikte `75%` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [getActualLabelText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) her iki durumda da sonuç etiket dizesini döndürür. Yalnızca görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [isVisible](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabel/#isVisible--) metodunu ayrı ayrı kontrol edin.
+Bir veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde ise `75%` ve kategori ve seri adları gösterilir. Özel metin, oluşturulan etiket metninin yerini alır. [getActualLabelText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) her iki durumda da elde edilen etiket dizesini döndürür. Yalnızca görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [isVisible](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabel/#isVisible--) metodunu ayrı olarak kontrol edin.
 
-## **Etiketleri Eksenden Uzaklığa Ayarlama**
+## **Eksen Maksimumunun Ötesindeki Veri Etiketlerini Kontrol Etme**
 
-[setLabelOffset](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) metodunu, kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol etmek için kullanın. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, bir gruplanmış sütun grafiği oluşturur ve yatay eksen etiket ofsetini 500 olarak ayarlar. Bu ayar, tek tek veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
+Eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimum değeri aşabilir. Bunun veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) kullanın. Bu ayar, etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
+
+Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D küme sütun grafiği oluşturur. Dikey eksende maksimumu 100 olarak ayarlamak için [setAutomaticMaxValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) metoduna `false` verir ve ardından [setMaxValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) ile maksimumu 100 olarak belirler. İlk slayt, maksimumun ötesindeki etiketlere izin verir; bu slaydın bir kopyası ise bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` içinde kaydedilir.
+
+Değer etiketlerini [setShowValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) ile etkinleştirin. Grafik düzeyindeki bu ayar, tek başına değer gösterimini etkinleştirmez ve bireysel bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve [setPosition](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) ile etiketleri her sütunun dış ucuna yerleştirir.
 
 ```java
 import com.aspose.slides.*;
@@ -233,6 +241,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki görseller, Microsoft PowerPoint tarafından render edilen kaydedilmiş slaytları gösterir. `true` ile etiket **120** üst sınırda görünür; `false` ile gizlenir. Etiket **60** hâlâ görünür, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olur.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint grafiği, eksen maksimumu 100 iken değer etiketi 120'yi gösteriyor](data-labels-over-maximum-true.png) | ![PowerPoint grafiği, eksen maksimumu 100 iken değer etiketi 120'yi gizliyor](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Bu örnek, değer ekseni olan 2D sütun grafiği kullanır. Pie ve donut gibi değer ekseni olmayan grafiklerde bu şekilde bir eksen maksimumu sınırlama bulunmaz.
+{{% /alert %}}
+
+## **Etiketlerin Eksenle Mesafesini Ayarlama**
+
+[setLabelOffset](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) kullanarak kategori eksen etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, bir küme sütun grafiği oluşturur ve yatay eksen etiket offsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketler yerine kategori eksen etiketlerini etkiler.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -246,7 +316,7 @@ try {
 
 Bir pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve lider çizgileri için yer açın.
 
-Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve yatay ile dikey ofsetlerini [setX](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutable/#setX-float-) ve [setY](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutable/#setY-float-) metodlarıyla ayarlar. Bu ofsetler, sırasıyla grafiğin genişliğine ve yüksekliğine göre oranlanır.
+Bu örnek, ilk veri noktasının değerini görüntüler, etiketini dilimin dışına yerleştirir ve [setX](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutable/#setX-float-) ve [setY](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutable/#setY-float-) metodlarıyla yatay ve düşey offsetleri ayarlar. Bu offsetler, sırasıyla grafiğin genişliği ve yüksekliğine göre orantılıdır.
 
 ```java
 import com.aspose.slides.*;
@@ -254,6 +324,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -269,18 +340,15 @@ try {
 }
 ```
 
-![Ayarlanmış veri etiketi konumlu pasta grafiği](pie-chart-adjusted-label.png)
+![Ayarlanmış veri etiketi konumlu pasta grafik](pie-chart-adjusted-label.png)
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**
+**Yoğun grafiklerde veri etiketlerinin üst üste gelmesini nasıl önleyebilirim?**  
+Otomatik etiket yerleştirme, lider çizgileri ve daha küçük yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler veya önemli noktalar için etiket gösterin.
 
-Otomatik etiket yerleştirme, lider çizgileri ve daha küçük yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin, kategoriyi) gizleyin veya yalnızca uç değerler veya ana noktalar için etiketleri gösterin.
-
-**Sıfır, negatif veya boş değerler için yalnızca etiketleri nasıl devre dışı bırakabilirim?**
-
+**Sıfır, negatif veya boş değerler için yalnızca etiketleri nasıl devre dışı bırakabilirim?**  
 Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için gösterimi kapatın.
 
-**PDF/görüntülere dışa aktarırken tutarlı bir etiket stilini nasıl sağlayabilirim?**
-
-Yazı tipi ailesini ve boyutunu açıkça belirleyin ve yedekleme (fallback) olmaması için fontun render ortamında mevcut olduğunu doğrulayın.
+**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**  
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve yedekleme olmaması için yazı tipinin render ortamında mevcut olduğunu doğrulayın.

@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET, aby uzyskać bardziej atrakcyjne slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET, aby tworzyć bardziej angażujące slajdy."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom rozpoznawać wartości i rozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
+Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. W tym artykule wyjaśniono, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, kontrolować etykiety poza maksymalną wartością osi, dostosować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
 
 ## **Ustaw precyzję danych w etykietach wykresu**
 
-Użyj [NumberFormatOfValues](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/numberformatofvalues/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca po przecinku, nie zmieniając przy tym wartości podstawowych.
+Użyj [NumberFormatOfValues](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/numberformatofvalues/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy oraz dwa miejsca po przecinku, nie zmieniając przy tym wartości podstawowych.
 
 ```csharp
 using Aspose.Slides;
@@ -45,7 +45,7 @@ presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 
 ## **Wyświetl procent jako etykiety**
 
-W przypadku wykresu kolumnowego skumulowanego, oblicz każdą wartość jako procent sumy w swojej kategorii i przypisz tekst do [TextFrameForOverriding](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz tekst etykiety niestandardowej, jeśli dane wykresu ulegną zmianie.
+Dla wykresu kolumnowego skumulowanego oblicz każdą wartość jako procent sumy w jej kategorii i przypisz tekst do [TextFrameForOverriding](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce 8‑punktowej. Kategorie o łącznej wartości zero są pomijane, aby uniknąć dzielenia przez zero. Ponownie oblicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```csharp
 using System;
@@ -55,6 +55,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
 var categoryTotals = new double[chart.ChartData.Categories.Count];
@@ -109,7 +110,7 @@ presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 
 Gdy wartości są przechowywane jako ułamki, użyj [NumberFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/numberformat/), aby wyświetlać procenty. Ustaw [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) na `false`, aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-Ten przykład tworzy wykres kolumnowy skumulowany 100% z serią czerwoną i niebieską w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
+Ten przykład tworzy wykres kolumnowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0 %, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego, 10‑punktowego tekstu etykiety.
 
 ```csharp
 using System.Drawing;
@@ -119,6 +120,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
@@ -166,7 +168,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **Odczytaj rzeczywisty tekst etykiet danych**
 
-Użyj [GetActualLabelText](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/getactuallabeltext/), aby pobrać tekst generowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa tekstu niestandardowego z [TextFrameForOverriding](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Użyj [GetActualLabelText](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/getactuallabeltext/), aby pobrać tekst wygenerowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu zawartości prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa własnego tekstu z [TextFrameForOverriding](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -175,6 +177,7 @@ using Aspose.Slides.Charts;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
 chart.ChartData.Series.Clear();
@@ -219,11 +222,74 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Tekst niestandardowy zastępuje wygenerowany tekst etykiety. [GetActualLabelText](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/getactuallabeltext/) zwraca powstały ciąg etykiety w obu przypadkach. Sprawdzaj [IsVisible](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Tekst własny zastępuje wygenerowany tekst etykiety. [GetActualLabelText](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/getactuallabeltext/) zwraca powstały ciąg etykiety w obu przypadkach. Sprawdzaj [IsVisible](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+
+## **Kontroluj etykiety danych poza maksymalnym zakresem osi**
+
+Gdy ręcznie ograniczysz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalny limit. Użyj [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/), aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani wartości podstawowych danych.
+
+Poniższy przykład tworzy dwuwymiarowy wykres kolumnowy grupowany z wartościami 60 i 120. Ustawia [IsAutomaticMaxValue](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) na `false` oraz [MaxValue](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/iaxis/maxvalue/) na 100 na osi pionowej. Na pierwszym slajdzie etykiety poza maksymalnym limitem są dozwolone; kopia tego slajdu wyłącza je. Oba slajdy są zapisywane w pliku `DataLabelsOverMaximum.pptx`.
+
+Włącz etykiety wartości za pomocą [ShowValue](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/showvalue/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości w pojedynczej etykiecie. Ten przykład włącza wartości dla całej serii i używa [Position](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/position/), aby umieścić etykiety na zewnętrznym końcu każdej kolumny.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var firstCategory = workbook.GetCell(0, 1, 0, "Within range");
+var secondCategory = workbook.GetCell(0, 2, 0, "Above maximum");
+
+chart.ChartData.Categories.Add(firstCategory);
+chart.ChartData.Categories.Add(secondCategory);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+
+var firstValue = workbook.GetCell(0, 1, 1, 60);
+var secondValue = workbook.GetCell(0, 2, 1, 120);
+
+series.DataPoints.AddDataPointForBarSeries(firstValue);
+series.DataPoints.AddDataPointForBarSeries(secondValue);
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 100;
+chart.ShowDataLabelsOverMaximum = true;
+
+var secondSlide = presentation.Slides.AddClone(slide);
+var secondChart = (IChart)secondSlide.Shapes[0];
+secondChart.ShowDataLabelsOverMaximum = false;
+
+presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+```
+
+Poniższe obrazy przedstawiają zapisane slajdy renderowane w programie Microsoft PowerPoint. Przy `true` etykieta **120** jest widoczna przy górnym ograniczeniu; przy `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksymalna wartość osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![Wykres PowerPoint pokazujący etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-true.png) | ![Wykres PowerPoint ukrywający etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Typ wykresu" %}}
+Ten przykład używa dwuwymiarowego wykresu kolumnowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnej wartości osi, którą można by ograniczyć w ten sposób.
+{{% /alert %}}
 
 ## **Ustaw odległość etykiety od osi**
 
-Użyj [LabelOffset](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/iaxis/labeloffset/), aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres kolumnowy grupowany i ustawia przesunięcie etykiety osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
+Użyj [LabelOffset](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/iaxis/labeloffset/), aby kontrolować odległość między etykietami osi kategorii a osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres kolumnowy grupowany i ustawia odstęp etykiety osi poziomej na 500. To ustawienie dotyczy etykiet osi kategorii, a nie etykiet przypisanych do poszczególnych punktów danych.
 
 ```csharp
 using Aspose.Slides;
@@ -241,9 +307,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Dostosuj położenie etykiety**
 
-W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce na linie prowadzące.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce na linie prowadzące.
 
-Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinkiem i dostosowuje przesunięcia w [X](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ilayoutable/x/) i [Y](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ilayoutable/y/). Te przesunięcia są względne względem szerokości i wysokości wykresu.
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza fragmentem i dostosowuje jej przesunięcia [X](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ilayoutable/x/) i [Y](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ilayoutable/y/). Te przesunięcia są względne względem szerokości i wysokości wykresu, odpowiednio.
 
 ```csharp
 using Aspose.Slides;
@@ -252,6 +318,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
 var series = chart.ChartData.Series;
 
@@ -270,12 +337,12 @@ presentation.Save("presentation.pptx", SaveFormat.Pptx);
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące oraz zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
 **Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
 
-Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących, zgodnie z określoną regułą.
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości 0, wartości ujemnych lub brakujących, zgodnie z określoną regułą.
 
-**Jak mogę zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
+**Jak zapewnić spójny styl etykiet przy eksporcie do PDF/obrazów?**
 
-Ustaw explicite rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderowania, aby uniknąć jej zastąpienia.
+Wyraźnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderującym, aby uniknąć substytucji.

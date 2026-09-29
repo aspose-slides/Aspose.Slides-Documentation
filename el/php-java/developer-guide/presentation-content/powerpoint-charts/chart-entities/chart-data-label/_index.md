@@ -1,26 +1,26 @@
 ---
-title: Διαχείριση ετικετών δεδομένων διαγραμμάτων σε παρουσιάσεις με τη χρήση PHP
-linktitle: Ετικέτα Δεδομένων
+title: Διαχείριση ετικετών δεδομένων διαγράμματος σε παρουσιάσεις χρησιμοποιώντας PHP
+linktitle: Ετικέτα δεδομένων
 type: docs
 url: /el/php-java/chart-data-label/
 keywords:
-  - διάγραμμα
-  - ετικέτα δεδομένων
-  - ακρίβεια δεδομένων
-  - ποσοστό
-  - απόσταση ετικέτας
-  - τοποθεσία ετικέτας
-  - PowerPoint
-  - παρουσίαση
-  - PHP
-  - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγραμμάτων σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java για πιο ελκυστικές διαφάνειες."
+- διάγραμμα
+- ετικέτα δεδομένων
+- ακρίβεια δεδομένων
+- ποσοστό
+- απόσταση ετικέτας
+- τοποθεσία ετικέτας
+- PowerPoint
+- παρουσίαση
+- PHP
+- Aspose.Slides
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για PHP μέσω Java, για πιο ελκυστικές διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές του διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τις τιμές, να εμφανίσετε ποσοστά, να διαβάσετε το κείμενο της ετικέτας, να προσαρμόσετε το διάστημα ετικετών του άξονα κατηγορίας και να τοποθετήσετε τις ετικέτες του κυκλικού διαγράμματος.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές του διαγράμματος και μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να εντοπίζουν τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τις τιμές, να εμφανίζετε ποσοστά, να διαβάζετε το κείμενο της ετικέτας, να ελέγχετε τις ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόζετε την απόσταση ετικετών του άξονα κατηγοριών και να τοποθετείτε τις ετικέτες του διαγράμματος πίτας.
 
-## **Ορισμός Ακρίβειας Δεδομένων στις Ετικέτες Διαγράμματος**
+## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων του διαγράμματος**
 
 Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα γράφημα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -45,9 +46,9 @@ try {
 }
 ```
 
-## **Εμφάνιση Ποσοστών ως Ετικέτες**
+## **Εμφάνιση ποσοστών ως ετικέτες**
 
-Για ένα στοίβαγμα στήλης γραφήματος, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού της κατηγορίας της και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα του γραφήματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Υπολογίστε ξανά το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του γραφήματος αλλάξουν.
+Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού της κατηγορίας και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Υπολογίστε ξανά το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -106,11 +108,11 @@ try {
 }
 ```
 
-## **Ορισμός Σήματος Ποσοστού με Ετικέτες Δεδομένων Διαγράμματος**
+## **Ορισμός συμβόλου ποσοστού στις ετικέτες δεδομένων του διαγράμματος**
 
-Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε το [setNumberFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/#setNumberFormat) για να εμφανίσετε ποσοστά. Μεταβιβάστε `false` στο [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) για να εφαρμόσετε τη μορφή της ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [setNumberFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/#setNumberFormat) για να εμφανίζετε ποσοστά. Περνάτε `false` στο [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) για να εφαρμόσετε τη μορφή ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
 
-Αυτό το παράδειγμα δημιουργεί ένα στοίβαγμα στήλης 100% με κόκκινες και μπλε σειρές σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει σε 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στοίβαξης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζεται στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κάθετος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -167,9 +170,9 @@ try {
 }
 ```
 
-## **Ανάγνωση του Πραγματικού Κειμένου των Ετικετών Δεδομένων**
+## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Χρησιμοποιήστε το [getActualLabelText](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getActualLabelText) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε τα παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Χρησιμοποιήστε [getActualLabelText](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getActualLabelText) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε παράγονται γραφήματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [data label format](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, ενώ ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [getTextFrameForOverriding](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,34 +236,15 @@ try {
 }
 ```
 
-Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα της κατηγορίας και της σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getActualLabelText) επιστρέφει τη δημιουργημένη συμβολοσειρά ετικέτας σε κάθε περίπτωση. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#isVisible) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
+Ο αριθμός αποθηκευμένος σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#getActualLabelText) επιστρέφει τη δημιουργημένη αλφαριθμητική ετικέτα και στις δύο περιπτώσεις. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#isVisible) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
-## **Ορισμός Απόστασης Ετικέτας από Άξονα**
+## **Έλεγχος ετικετών δεδομένων πέρα από το μέγιστο του άξονα**
 
-Χρησιμοποιήστε το [setLabelOffset](https://reference.aspose.com/slides/el/php-java/aspose.slides/axis/#setLabelOffset) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ένα ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα διαχωρισμένο γράφημα στήλης και ορίζει την απόσταση ετικέτας του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας αντί για τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
+Όταν ορίζετε χειροκίνητα την εμβέλεια ενός άξονα, κάποια σημεία δεδομένων μπορεί να υπερβούν το μέγιστό του. Χρησιμοποιήστε [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) για να ελέγξετε εάν οι ετικέτες τους θα εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα της ετικέτας· δεν αλλάζει την εμβέλεια του άξονα ή τις υποκείμενες τιμές δεδομένων.
 
-```php
-use aspose\slides\Presentation;
-use aspose\slides\ChartType;
-use aspose\slides\SaveFormat;
+Το παρακάτω παράδειγμα δημιουργεί ένα 2D διάγραμμα στήλης σε ομάδες με τιμές 60 και 120. Περνά `false` στο [setAutomaticMaxValue](https://reference.aspose.com/slides/el/php-java/aspose.slides/axis/#setAutomaticMaxValue) και ορίζει το μέγιστο σε 100 με το [setMaxValue](https://reference.aspose.com/slides/el/php-java/aspose.slides/axis/#setMaxValue) στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
 
-$presentation = new Presentation();
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-
-    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-## **Ρύθμιση Τοποθεσίας Ετικέτας**
-
-Σε ένα κυκλικό διάγραμμα, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε το διάστημα και να δημιουργήσετε χώρο για τις γραμμές οδηγούς.
-
-Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το κομμάτι και ρυθμίζει τις οριζόντιες και κατακόρυφες μετατοπίσεις του χρησιμοποιώντας τα [setX](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#setX) και [setY](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#setY). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+Ενεργοποιήστε τις ετικέτες τιμών με το [setShowValue](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/#setShowValue). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνιμης ή δεν παρακάμπτει την απενεργοποίηση εμφάνισης τιμής σε μεμονωμένη ετικέτα. Αυτό το παράδειγμα ενεργοποιεί τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [setPosition](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/#setPosition) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +255,97 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδίδονται από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![Διάγραμμα PowerPoint που εμφανίζει την ετικέτα τιμής 120 με μέγιστο του άξονα 100](data-labels-over-maximum-true.png) | ![Διάγραμμα PowerPoint που κρύβει την ετικέτα τιμής 120 με μέγιστο του άξονα 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
+
+## **Ορισμός απόστασης ετικέτας από άξονα**
+
+Χρησιμοποιήστε [setLabelOffset](https://reference.aspose.com/slides/el/php-java/aspose.slides/axis/#setLabelOffset) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγοριών και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης σε ομάδες και ορίζει το οριζόντιο offset ετικέτας άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγοριών αντί για τις ετικέτες που προσαρτώνται σε μεμονωμένα σημεία δεδομένων.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Ρύθμιση θέσης ετικέτας**
+
+Σε ένα διάγραμμα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για γραμμές οδηγού.
+
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το κομμάτι και προσαρμόζει τις οριζόντιες και κάθετες μετατοπίσεις του χρησιμοποιώντας [setX](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#setX) και [setY](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/#setY). Οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -285,18 +361,18 @@ try {
 }
 ```
 
-![Κυκλικό διάγραμμα με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
+![Διάγραμμα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Πώς μπορώ να αποτρέψω την επικάλυψη ετικετών δεδομένων σε πυκνά διαγράμματα;**
+**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
 
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγούς και μειωμένο μέγεθος γραμματοσειράς· εάν χρειάζεται, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
+Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
 
 **Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
 
-Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν ορισμένο κανόνα.
+Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
 
-**Πώς μπορώ να εξασφαλίσω συνεπές στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να διασφαλίσω μια συνεπή μορφή ετικέτας κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική επιλογή.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και επαληθεύστε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης ώστε να αποτρέψετε την εναλλακτική χρήση.

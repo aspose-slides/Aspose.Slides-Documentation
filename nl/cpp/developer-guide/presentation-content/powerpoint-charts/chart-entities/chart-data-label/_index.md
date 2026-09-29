@@ -1,12 +1,12 @@
 ---
-title: Beheer grafiekgegevenslabels in presentaties met C++
-linktitle: Gegevenslabel
+title: Beheer grafiek-data-labels in presentaties met C++
+linktitle: Data-label
 type: docs
 url: /nl/cpp/chart-data-label/
 keywords:
 - grafiek
-- gegevenslabel
-- gegevensprecisie
+- data-label
+- dataprecisie
 - percentage
 - labelafstand
 - labellocatie
@@ -14,15 +14,15 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe u grafiekgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor C++ voor meer boeiende dia's."
+description: "Leer hoe u grafiek-data-labels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor C++ voor meer boeiende dia's."
 ---
 ## **Inleiding**
 
-Gegevenslabels tonen informatie over diagramreeksen en individuele datapunten, zodat lezers waarden kunnen herkennen en het diagram kunnen begrijpen. Dit artikel legt uit hoe u waarden opmaakt, percentages weergeeft, labeltekst leest, de tussenruimte van labels op de categorie‑as aanpast en labels op een taartdiagram positioneert.
+Data‑labels tonen informatie over grafiek‑series en individuele datapoints, waardoor lezers waarden kunnen identificeren en de grafiek kunnen begrijpen. Dit artikel legt uit hoe je waarden formatteert, percentages weergeeft, labeltekst leest, labels buiten de as‑maximale waarde beheert, de afstand van categorie‑as‑labels aanpast en taartgrafiek‑labels positioneert.
 
-## **Gegevensprecisie instellen in diagramgegevenslabels**
+## **Nauwkeurigheid van gegevens instellen in grafiek‑data‑labels**
 
-Gebruik [set_NumberFormatOfValues](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) om reeksenwaarden op te maken. Dit voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste reeks. Het formaat `#,##0.00` toont een duizendtalscheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
+Gebruik [set_NumberFormatOfValues](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) om de waarden van een serie te formatteren. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de datatabel en schakelt waardelabels in voor de eerste serie. Het formaat `#,##0.00` toont een duizendtallenscheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,9 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Percentage weergeven als labels**
+## **Percentages weergeven als labels**
 
-Voor een gestapeld kolomdiagram berekent u elke waarde als een percentage van het totale aantal in de categorie en kent u de tekst toe aan het tekstframe dat wordt geretourneerd door [get_TextFrameForOverriding](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Dit voorbeeld gebruikt de standaard diagramgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de diagramgegevens veranderen.
+Voor een gestapelde kolomgrafiek bereken je elke waarde als een percentage van het totale van die categorie en wijs je de tekst toe aan het tekstkader dat wordt geretourneerd door [get_TextFrameForOverriding](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 pt. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -96,6 +96,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -146,11 +147,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Percentage‑teken instellen met diagramgegevenslabels**
+## **Percentage‑teken instellen met grafiek‑data‑labels**
 
-Wanneer waarden zijn opgeslagen als breuken, gebruikt u [set_NumberFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) om percentages weer te geven. Geef `false` door aan [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) om het labelopmaak onafhankelijk van de broncellen toe te passen.
+Wanneer waarden als breuken zijn opgeslagen, gebruik je [set_NumberFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) om percentages weer te geven. Geef `false` door aan [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) om het label‑formaat onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100 % gestapeld kolomdiagram met rode en blauwe reeksen over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 punten.
+Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe series over vier categorieën. Elk waardenpaar telt op tot 1. Het label‑formaat `0.0%` toont 0.30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide series gebruiken witte labeltekst van 10 pt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -189,6 +190,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -234,9 +236,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **De daadwerkelijke tekst van gegevenslabels lezen**
+## **De daadwerkelijke tekst van data‑labels lezen**
 
-Gebruik [GetActualLabelText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) om de tekst op te halen die door de instellingen van een gegevenslabel wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde diagrammen. In het onderstaande voorbeeld combineert de standaard [data label format](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/) elke categorienaam, reeksennaam en waarde. Eén punt formatteert zijn waarde als een percentage, en een ander gebruikt aangepaste tekst van [get_TextFrameForOverriding](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Gebruik [GetActualLabelText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) om de door een data‑label gegenereerde tekst op te halen. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud, of het valideren van gegenereerde grafieken. In het onderstaande voorbeeld combineert het standaard [data‑label‑formaat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/) elke categorienaam, serienaam en waarde. Eén punt formatteert de waarde als een percentage, en een ander gebruikt aangepaste tekst van [get_TextFrameForOverriding](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -268,6 +270,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -323,11 +326,98 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Het getal dat in een datapunten is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` weergeeft samen met de categorie‑ en reeksennamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [GetActualLabelText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) retourneert de resulterende labelreeks in beide gevallen. Controleer [get_IsVisible](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/get_isvisible/) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
+Het getal dat in een datapunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` toont samen met de categorie‑ en serienamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [GetActualLabelText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) retourneert de resulterende label‑string in beide gevallen. Controleer [get_IsVisible](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/get_isvisible/) apart, zoals hierboven getoond, wanneer je alleen zichtbare labels wilt extraheren.
 
-## **Labelafstand tot een as instellen**
+## **Data‑labels buiten de as‑maximumwaarde beheersen**
 
-Gebruik [set_LabelOffset](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/iaxis/set_labeloffset/) om de afstand tussen de aslabels van de categorie‑as en de as zelf te regelen. De waarde is een percentage van de maximale tekengrootte van de aslabels. Dit voorbeeld maakt een gegroepeerd kolomdiagram en stelt de horizontale aslabeloffset in op 500. Deze instelling beïnvloedt de aslabels van de categorie‑as en niet de labels die aan individuele datapunten zijn gekoppeld.
+Wanneer je een as‑bereik handmatig beperkt, kunnen sommige datapoints het maximum overschrijden. Gebruik [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) om te bepalen of hun data‑labels worden weergegeven. Deze instelling wijzigt alleen de zichtbaarheid van labels; het wijzigt niet het as‑bereik of de onderliggende gegevenswaarden.
+
+Het voorbeeld hieronder maakt een 2D gegroepeerde kolomgrafiek met waarden 60 en 120. Het stelt [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) in op `false` en [set_MaxValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/iaxis/set_maxvalue/) op 100 voor de verticale as. De eerste dia staat labels toe die het maximum overschrijden; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+
+Schakel waardelabels in met [set_ShowValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). De instelling op grafiekniveau activeert de weergave van waarden niet op zichzelf en negeert geen één label dat uitgeschakelde waarden heeft. Dit voorbeeld activeert waarden voor de volledige serie en gebruikt [set_Position](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_position/) om labels aan het buitenste einde van elke kolom te plaatsen.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+De volgende afbeeldingen tonen de opgeslagen dia's zoals weergegeven door Microsoft PowerPoint. Met `true` is het label **120** zichtbaar bij de bovenkant; met `false` is het verborgen. Het label **60** blijft zichtbaar, de as‑maximum blijft **100**, en het tweede datapunt blijft **120** in beide gevallen.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Dit voorbeeld gebruikt een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en ringgrafieken, hebben geen as‑maximum dat op deze manier kan worden beperkt.
+{{% /alert %}}
+
+## **Labelafstand vanaf een as instellen**
+
+Gebruik [set_LabelOffset](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/iaxis/set_labeloffset/) om de afstand tussen de labels van de categorie‑as en de as zelf te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑label‑offset in op 500. Deze instelling beïnvloedt de categorie‑as‑labels in plaats van de labels die aan individuele datapoints zijn gekoppeld.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -357,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Labelpositie aanpassen**
 
-Pas op een taartdiagram de posities van gegevenslabels aan om de tussenruimte te verbeteren en plaats te maken voor verbindingslijnen.
+Op een taartgrafiek pas je de positie van data‑labels aan om de afstand te verbeteren en plaats te maken voor verbindingslijnen.
 
-Dit voorbeeld toont de waarde van het eerste datapunten, plaatst het label buiten het partje en gebruikt [set_X](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ilayoutable/set_x/) en [set_Y](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ilayoutable/set_y/) om de offset aan te passen. Deze offsets zijn respectievelijk relatief ten opzichte van de diagrambreedte en -hoogte.
+Dit voorbeeld toont de waarde van het eerste datapunt, plaatst het label buiten de sector, en gebruikt [set_X](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ilayoutable/set_x/) en [set_Y](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ilayoutable/set_y/) om de offset aan te passen. Deze offsets zijn respectievelijk relatief ten opzichte van de breedte en hoogte van de grafiek.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -384,6 +474,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 
@@ -396,18 +487,18 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Taartdiagram met een aangepaste labelpositie](pie-chart-adjusted-label.png)
+![Taartgrafiek met een aangepaste labelpositie](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichte diagrammen?**
+**Hoe kan ik voorkomen dat data‑labels overlappen in dichte grafieken?**
 
-Combineer automatische labelplaatsing, verbindingslijnen en een kleinere tekengrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon labels alleen voor uiterste waarden of belangrijke punten.
+Combine automatische labelplaatsing, verbindingslijnen en een kleinere lettergrootte; indien nodig, verberg enkele velden (bijvoorbeeld de categorie) of toon labels alleen voor extreme waarden of belangrijke punten.
 
-**Hoe kan ik labels uitschakelen alleen voor nul-, negatieve of lege waarden?**
+**Hoe kan ik labels alleen uitschakelen voor nul‑, negatieve of lege waarden?**
 
-Filter datapunten voordat u labels inschakelt en schakel weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter datapoints vóór het inschakelen van labels en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe kan ik een consistente labelstijl garanderen bij export naar PDF/afbeeldingen?**
+**Hoe kan ik een consistente labelstijl garanderen bij exporteren naar PDF/afbeeldingen?**
 
-Stel expliciet het lettertype en de grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om een fallback te voorkomen.
+Stel expliciet het lettertype en de grootte in en controleer dat het lettertype beschikbaar is in de renderomgeving om terugval te voorkomen.

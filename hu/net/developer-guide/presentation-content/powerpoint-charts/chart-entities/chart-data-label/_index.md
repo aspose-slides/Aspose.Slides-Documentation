@@ -1,12 +1,12 @@
 ---
-title: Diagram adatcímkék kezelése PowerPoint előadásokban .NET környezetben
+title: Diagram adatcímkék kezelése .NET prezentációkban
 linktitle: Adatcímke
 type: docs
 url: /hu/net/chart-data-label/
 keywords:
 - diagram
 - adatcímke
-- adat pontosság
+- adatpont pontosság
 - százalék
 - címke távolság
 - címke helye
@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tanulja meg, hogyan adjon hozzá és formázzon diagram adatcímkéket PowerPoint előadásokhoz az Aspose.Slides for .NET használatával, hogy vonzóbb diák legyenek."
+description: "Tanulja meg, hogyan adjon hozzá és formázzon diagram adatcímkéket PowerPoint-prezentációkban az Aspose.Slides for .NET segítségével, hogy a diák még vonzóbbak legyenek."
 ---
 ## **Bevezetés**
 
-Az adatcímkék a diagram soraira és egyes adatpontokra vonatkozó információkat jelenítik meg, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk bemutatja, hogyan formázhatja az értékeket, jelenítheti meg a százalékokat, olvashatja el a címkeszöveget, állíthatja be a kategória tengely címkéinek távolságát, és helyezheti el a kördiagram címkéit.
+Az adatcímkék információkat jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk elmagyarázza, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható a címke szövege, hogyan szabályozhatók a címkék a tengely maximumán túl, hogyan állítható be a kategóriatengely címkék távolsága, és hogyan helyezhetők el a kördiagram címkéi.
 
-## **Az adatcímkék pontosságának beállítása a diagramon**
+## **Adatcímkék pontosságának beállítása a diagram adatcímkéiben**
 
-Használja a [NumberFormatOfValues](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/numberformatofvalues/) függvényt a sorozatok értékeinek formázásához. Ez a példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozatra. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
+Használja a [NumberFormatOfValues](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartseries/numberformatofvalues/) metódust a sorozatértékek formázásához. Ez a példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, megjeleníti az adatátlapját, és engedélyezi az értékcímkéket az első sorozathoz. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
 
 ```csharp
 using Aspose.Slides;
@@ -45,7 +45,7 @@ presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 
 ## **Százalék megjelenítése címkeként**
 
-Halmozott oszlopdiagram esetén számolja ki az egyes értékeket a kategória összegének százalékaként, és rendelje hozzá a szöveget a [TextFrameForOverriding](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) elemhez. Ez a példa az alapértelmezett diagramadatokat használja, és a százalékokat két tizedesjeggyel, 8 pontos betűmérettel jeleníti meg. A nulla összegű kategóriákat kihagyja a nullával való osztás elkerülése érdekében. Ha a diagram adatai megváltoznak, számolja újra az egyedi címkeszöveget.
+Halmozott oszlopdiagram esetén számítsa ki az egyes értékeket a kategóriájuk összegének százalékaként, és rendelje a szöveget a [TextFrameForOverriding](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) objektumhoz. Ez a példa az alapértelmezett diagramadatokat használja, és a százalékokat két tizedesjeggyel, 8 pontos betűmérettel jeleníti meg. A nulla összegű kategóriákat kihagyja, hogy elkerülje a nullával való osztást. Számolja újra az egyedi címkeszöveget, ha a diagram adatai megváltoznak.
 
 ```csharp
 using System;
@@ -55,6 +55,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
 var categoryTotals = new double[chart.ChartData.Categories.Count];
@@ -105,11 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Százalékjel beállítása diagram adatcímkékkel**
+## **Százalékjel beállítása a diagram adatcímkékkel**
 
-Ha az értékek törtként vannak tárolva, használja a [NumberFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/numberformat/) függvényt a százalékok megjelenítéséhez. Állítsa az [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) értékét `false`-ra, hogy a címkeformátum függetlenül alkalmazható legyen a forráscelláktól.
+Ha az értékek törtként vannak tárolva, használja a [NumberFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/numberformat/) metódust a százalékok megjelenítéséhez. Állítsa az [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) értékét `false`-ra, hogy a címke formátuma független legyen a forráscelláktól.
 
-Ez a példa egy 100%-os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum 0.30-at 30.0%-ként jelenít meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
+Ez a példa egy 100%-os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategórián keresztül. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30-at 30.0%-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
 
 ```csharp
 using System.Drawing;
@@ -119,6 +120,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
@@ -164,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Az adatcímkék tényleges szövegének lekérdezése**
+## **Az adatcímkék tényleges szövegének beolvasása**
 
-Használja a [GetActualLabelText](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabel/getactuallabeltext/) függvényt az adatcímke beállításai által előállított szöveg lekérésére. Ez akkor hasznos, ha címkéket von ki jelentésekhez, a bemutató tartalmát keresik, vagy a generált diagramokat ellenőrzik. Az alábbi példában az alapértelmezett [adatcímke-formátum](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/) egyesíti a kategórianév, a sorozatnév és az érték minden egyes elemét. Egy pont az értékét százalékként formázza, egy másik a [TextFrameForOverriding](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) egyéni szövegét használja.
+Használja a [GetActualLabelText](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabel/getactuallabeltext/) metódust az adatcímke beállításai által előállított szöveg lekéréséhez. Ez hasznos jelentésekhez címkék kinyerésekor, a prezentáció tartalmának keresésekor vagy a generált diagramok validálásakor. Az alábbi példában az alapértelmezett [adatcímke formátum](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/) minden kategória nevét, sorozat nevét és az értéket egyesíti. Az egyik pont értékét százalékaként formázza, a másik egyedi szöveget használ a [TextFrameForOverriding](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) objektumból.
 
 ```csharp
 using System;
@@ -175,6 +177,7 @@ using Aspose.Slides.Charts;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
 chart.ChartData.Series.Clear();
@@ -219,11 +222,74 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-A adatpontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75%`-ot jelenít a kategória és a sorozat nevével együtt. Az egyéni szöveg felülírja a generált címkét. A [GetActualLabelText](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabel/getactuallabeltext/) mindkét esetben visszaadja a kapott címkeszöveget. Ellenőrizze külön az [IsVisible](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabel/isvisible/) állapotot, ahogy fentebb látható, ha csak a látható címkéket szeretné kinyerni.
+Az adatpontban tárolt szám `0.75` marad, még akkor is, ha a címkéje a `75%`-ot jeleníti meg a kategória és sorozat nevével együtt. Az egyedi szöveg felülírja a generált címkeszöveget. A [GetActualLabelText](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabel/getactuallabeltext/) mindkét esetben a kapott címke karakterláncot adja vissza. Ellenőrizze külön az [IsVisible](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabel/isvisible/) beállítást, ahogy fent is látható, ha csak a látható címkéket kívánja kinyerni.
 
-## **Címke távolságának beállítása a tengelytől**
+## **Adatcímkék szabályozása a tengely maximumán túl**
 
-A [LabelOffset](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/iaxis/labeloffset/) használatával szabályozhatja a kategória tengely címkéi és a tengely közti távolságot. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória tengely címkéire hat, nem pedig az egyes adatpontokhoz tartozó címkékre.
+Ha manuálisan korlátozza egy tengely tartományát, néhány adatpont meghaladhatja a maximumot. Használja a [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) metódust annak meghatározására, hogy megjelenjenek-e az adatcímkék. Ez a beállítás a címkék láthatóságát módosítja; nem változtatja meg a tengelytartományt vagy a mögöttes adatértékeket.
+
+Az alábbi példa egy 2D csoportosított oszlopdiagramot hoz létre 60 és 120 értékekkel. A függőleges tengelyen az [IsAutomaticMaxValue](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) értékét `false`-ra állítja, és a [MaxValue](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/iaxis/maxvalue/) értékét 100-ra. Az első dia megengedi a címkék megjelenését a maximumon túl; egy másolat letiltja őket. Mindkét dia a `DataLabelsOverMaximum.pptx` fájlba van mentve.
+
+Engedélyezze az értékcímkéket a [ShowValue](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/showvalue/) metódussal. A diagram szintű beállítás önmagában nem kapcsolja be az érték megjelenítését, és nem felülírja egyes címkék letiltott értékmegjelenítését. Ez a példa az egész sorozatra engedélyezi az értékeket, és a [Position](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/idatalabelformat/position/) segítségével a címkéket az oszlopok külső végére helyezi.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var firstCategory = workbook.GetCell(0, 1, 0, "Within range");
+var secondCategory = workbook.GetCell(0, 2, 0, "Above maximum");
+
+chart.ChartData.Categories.Add(firstCategory);
+chart.ChartData.Categories.Add(secondCategory);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+
+var firstValue = workbook.GetCell(0, 1, 1, 60);
+var secondValue = workbook.GetCell(0, 2, 1, 120);
+
+series.DataPoints.AddDataPointForBarSeries(firstValue);
+series.DataPoints.AddDataPointForBarSeries(secondValue);
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 100;
+chart.ShowDataLabelsOverMaximum = true;
+
+var secondSlide = presentation.Slides.AddClone(slide);
+var secondChart = (IChart)secondSlide.Shapes[0];
+secondChart.ShowDataLabelsOverMaximum = false;
+
+presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+```
+
+Az alábbi képek a Microsoft PowerPoint által renderelt mentett diákat mutatják. `true` esetén a **120** címke látható a felső határon; `false` esetén rejtve van. A **60** címke továbbra is látható, a tengely maximum **100** marad, és a második adatpont mindkét esetben **120**.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint diagram, amely a 120 értékcímkét mutatja 100 tengelymaximum esetén](data-labels-over-maximum-true.png) | ![PowerPoint diagram, amely elrejti a 120 értékcímkét 100 tengelymaximum esetén](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Ez a példa egy 2D oszlopdiagramot használ értéktengellyel. Az olyan diagramok, amelyek nem rendelkeznek értéktengellyel, mint a kör- és gyűrűdiagramok, nem rendelkeznek ilyen módon korlátozható tengelymaximumtal.
+{{% /alert %}}
+
+## **Címke távolságának beállítása egy tengelytől**
+
+Használja a [LabelOffset](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/iaxis/labeloffset/) metódust a kategóriatengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százalékában van megadva. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategóriatengely címkéit érinti, nem pedig az egyes adatpontokhoz csatolt címkéket.
 
 ```csharp
 using Aspose.Slides;
@@ -241,9 +307,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Címke helyének módosítása**
 
-Egy kördiagramon módosítsa az adatcímkék pozícióját a térköz javítása és a vezető vonalak számára hely biztosítása érdekében.
+Kördiagram esetén állítsa be az adatcímkék pozícióját a térköz javítása és a vezetővonalak számára hely biztosítása érdekében.
 
-Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és beállítja az [X](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ilayoutable/x/) és [Y](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ilayoutable/y/) eltolásait. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva vannak.
+Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és a [X](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ilayoutable/x/) és [Y](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ilayoutable/y/) eltolásait állítja be. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva vannak.
 
 ```csharp
 using Aspose.Slides;
@@ -252,6 +318,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
 var series = chart.ChartData.Series;
 
@@ -264,18 +331,15 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Kördiagram az igazított adatcímke helyzettel](pie-chart-adjusted-label.png)
+![Kördiagram a módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
 
 ## **GYIK**
 
-**Hogyan előzhetem meg az adatcímkék átfedését sűrű diagramokon?**
+**Hogyan lehet megakadályozni az adatcímkék átfedését sűrű diagramokon?**  
+Kombinálja az automatikus címkeelhelyezést, a vezetővonalakat és a csökkentett betűméretet; szükség esetén rejtse el bizonyos mezőket (például a kategóriát), vagy csak a szélső értékekhez vagy kulcspontokhoz jelenítse meg a címkéket.
 
-Használjon automatikus címkeelhelyezést, vezető vonalakat és kisebb betűméretet; szükség esetén rejtsen el egyes mezőket (például a kategóriát), vagy csak extrém értékekhez vagy kulcspontokhoz jelenítsen meg címkéket.
+**Hogyan lehet letiltani a címkéket csak a nulla, negatív vagy üres értékek esetén?**  
+Szűrje ki az adatpontokat a címkék engedélyezése előtt, és a definiált szabály szerint kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékek esetén.
 
-**Hogyan tilthatom le a címkéket csak a nulla, negatív vagy üres értékeknél?**
-
-Szűrje ki az adatpontokat a címkék engedélyezése előtt, és a meghatározott szabály alapján kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékeknél.
-
-**Hogyan biztosíthatom, hogy a címkék stílusa következetes legyen PDF/ képek exportálásakor?**
-
-Állítsa be kifejezetten a betűcsaládot és a méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje a helyettesítő betűtípust.
+**Hogyan biztosítható a címkék egységes stílusa PDF/ képek exportálásakor?**  
+Állítsa be kifeexplicit módon a betűcsaládot és a méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje a helyettesítést.

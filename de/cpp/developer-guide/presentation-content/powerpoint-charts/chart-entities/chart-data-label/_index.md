@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Diagrammdatenbeschriftungen in Präsentationen mit C++
+title: Diagrammdatenbeschriftungen in Präsentationen mit C++ verwalten
 linktitle: Datenbeschriftung
 type: docs
 url: /de/cpp/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für C++ hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint‑Präsentationen mit Aspose.Slides für C++ hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 ## **Einleitung**
 
-Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Beschriftungstexte gelesen, der Abstand der Kategorienachsenbeschriftungen angepasst und Beschriftungen von Tortendiagrammen positioniert werden.
+Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, Beschriftungstext ausliest, Beschriftungen über dem Achsenmaximum steuert, den Abstand von Kategorienachsen‑Beschriftungen anpasst und Beschriftungen von Kreisdiagrammen positioniert.
 
-## **Datenpräzision in Diagrammbeschriftungen festlegen**
+## **Daten‑Präzision in Diagramm‑Datenbeschriftungen festlegen**
 
-Verwenden Sie [set_NumberFormatOfValues](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standardsdaten, zeigt dessen Datentabelle an und aktiviert Wertbeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
+Verwenden Sie [set_NumberFormatOfValues](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **Prozentsatz als Beschriftungen anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz der Gesamtsumme seiner Kategorie und weisen den Text dem Textfeld zu, das von [get_TextFrameForOverriding](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz des Gesamtsummenwerts seiner Kategorie und weisen den Text dem Textfeld zu, das von [get_TextFrameForOverriding](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -96,6 +96,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -146,11 +147,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Prozentzeichen mit Diagrammbeschriftungen festlegen**
+## **Prozentzeichen mit Diagramm‑Datenbeschriftungen festlegen**
 
 Wenn Werte als Brüche gespeichert sind, verwenden Sie [set_NumberFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/), um Prozentsätze anzuzeigen. Übergeben Sie `false` an [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/), um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
 
-Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jedes Wertepaar ergibt 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkten.
+Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Werte‑Paar summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30.0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -189,6 +190,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -236,7 +238,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Den tatsächlichen Text von Datenbeschriftungen auslesen**
 
-Verwenden Sie [GetActualLabelText](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/), um den Text abzurufen, der durch die Einstellungen einer Datenbeschriftung erzeugt wird. Dies ist nützlich, wenn Sie Beschriftungen für Berichte extrahieren, Präsentationsinhalte durchsuchen oder erzeugte Diagramme validieren möchten. Im nachfolgenden Beispiel kombiniert das Standard‑[data label format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, und ein anderer verwendet benutzerdefinierten Text aus [get_TextFrameForOverriding](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Verwenden Sie [GetActualLabelText](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/), um den von den Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Dies ist nützlich, wenn Sie Beschriftungen für Berichte extrahieren, Präsentationsinhalte durchsuchen oder erzeugte Diagramme validieren. Im folgenden Beispiel kombiniert das Standard‑[Datenbeschriftungsformat](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/) den Kategorienamen, den Seriennamen und den Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [get_TextFrameForOverriding](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -268,6 +270,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -323,11 +326,100 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75%` zusammen mit den Kategorien- und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [GetActualLabelText](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) gibt in beiden Fällen den resultierenden Beschriftungsstring zurück. Prüfen Sie [get_IsVisible](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75%` zusammen mit den Kategorien‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den erzeugten Beschriftungstext. [GetActualLabelText](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) gibt in beiden Fällen die resultierende Beschriftungszeichenkette zurück. Prüfen Sie [get_IsVisible](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+
+## **Datenbeschriftungen über dem Achsenmaximum steuern**
+
+Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte dessen Maximum überschreiten. Verwenden Sie [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert weder den Achsenbereich noch die zugrunde liegenden Datenwerte.
+
+Das Beispiel unten erstellt ein 2D‑Gruppiertes Säulendiagramm mit den Werten 60 und 120. Es setzt [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) auf `false` und [set_MaxValue](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/iaxis/set_maxvalue/) auf 100 auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+
+Aktivieren Sie Wertebeschriftungen mit [set_ShowValue](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Die Einstellung auf Diagrammebene aktiviert die Anzeige von Werten nicht von selbst und überschreibt nicht die deaktivierte Werteanzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [set_Position](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/set_position/), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+Die folgenden Bilder zeigen die gespeicherten Folien, wie sie von Microsoft PowerPoint gerendert werden. Bei `true` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `false` ist sie ausgeblendet. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100** und der zweite Datenpunkt bleibt in beiden Fällen **120**.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
 
 ## **Abstand der Beschriftung von einer Achse festlegen**
 
-Verwenden Sie [set_LabelOffset](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/iaxis/set_labeloffset/), um den Abstand zwischen Kategorienachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf Kategorienachsenbeschriftungen aus, nicht auf an einzelne Datenpunkte angehängte Beschriftungen.
+Verwenden Sie [set_LabelOffset](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/iaxis/set_labeloffset/), um den Abstand zwischen den Kategorienachsen‑Beschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsen‑Beschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf Kategorienachsen‑Beschriftungen aus, nicht auf Beschriftungen, die an einzelnen Datenpunkten hängen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -357,9 +449,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Beschriftungsposition anpassen**
 
-Bei einem Tortendiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungslinien zu schaffen.
+Bei einem Kreisdiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungslinien zu schaffen.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und verwendet [set_X](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ilayoutable/set_x/) und [set_Y](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ilayoutable/set_y/), um seine Offsets anzupassen. Diese Offsets beziehen sich jeweils relativ zur Diagrammbreite und -höhe.
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segmentes und verwendet [set_X](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ilayoutable/set_x/) und [set_Y](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ilayoutable/set_y/), um seine Offsets anzupassen. Diese Offsets beziehen sich jeweils auf die Diagrammbreite und -höhe.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -384,6 +476,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 
@@ -400,14 +493,14 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
+**Wie kann ich verhindern, dass Datenbeschriftungen bei dichten Diagrammen überlappen?**
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Führungslinien und eine reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüsselwerte anzeigen.
+Kombinieren Sie automatische Beschriftungsplatzierung, Führungslinien und kleinere Schriftgröße; bei Bedarf einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüsselpunkte anzeigen.
 
 **Wie kann ich Beschriftungen nur für Null‑, negative oder leere Werte deaktivieren?**
 
-Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer festgelegten Regel aus.
+Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie kann ich einen einheitlichen Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
+**Wie stelle ich einen konsistenten Beschriftungsstil beim Export in PDF/Bilder sicher?**
 
-Legen Sie Schriftfamilie und Schriftgröße explizit fest und prüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Ausweichen zu vermeiden.
+Setzen Sie exakt Schriftfamilie und Schriftgröße und vergewissern Sie sich, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Fallback zu vermeiden.

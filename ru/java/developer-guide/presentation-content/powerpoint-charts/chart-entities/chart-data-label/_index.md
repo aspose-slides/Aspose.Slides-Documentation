@@ -1,28 +1,28 @@
 ---
-title: Управление подписями данных диаграмм в презентациях на Java
-linktitle: Подпись данных
+title: Управление метками данных диаграммы в презентациях с использованием Java
+linktitle: Метка данных
 type: docs
 url: /ru/java/chart-data-label/
 keywords:
 - диаграмма
-- подпись данных
+- метка данных
 - точность данных
 - процент
-- расстояние подписи
-- расположение подписи
+- расстояние метки
+- расположение метки
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Java, чтобы сделать слайды более привлекательными."
+description: "Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Java для более увлекательных слайдов."
 ---
 ## **Введение**
 
-Подписи данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. Эта статья объясняет, как форматировать значения, отображать проценты, считывать текст подписи, регулировать интервал подписей оси категорий и позиционировать подписи круговой диаграммы.
+Метки данных отображают информацию о рядах диаграммы и отдельных точках данных, помогая читателям определить значения и понять диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, читать текст метки, управлять метками за пределами максимума оси, регулировать расстояние между метками оси категорий и размещать метки круговой диаграммы.
 
-## **Set Data Precision in Chart Data Labels**
+## **Установить точность данных в метках данных диаграммы**
 
-Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) для форматирования значений серии. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя исходные значения.
+Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) для форматирования значений рядов. Этот пример создает линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает метки значений для первого ряда. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя исходные значения.
 
 ```java
 import com.aspose.slides.*;
@@ -30,6 +30,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -43,9 +44,9 @@ try {
 }
 ```
 
-## **Display Percentage as Labels**
+## **Отображать процент как метки**
 
-Для стековой колоннчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст фрейму текста, возвращённому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы необходимо пересчитать пользовательский текст подписи.
+Для составной столбчатой диаграммы вычислите каждый показатель как процент от общей суммы категории и присвойте полученный текст фрейму текста, возвращаемому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). В этом примере используется набор данных диаграммы по умолчанию, и проценты выводятся с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы необходимо пересчитать пользовательский текст метки.
 
 ```java
 import com.aspose.slides.*;
@@ -54,6 +55,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **Set Percentage Sign with Chart Data Labels**
+## **Установить знак процента в метках данных диаграммы**
 
-Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) для отображения процентов. Передайте `false` в метод [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), чтобы применить формат подписи независимо от исходных ячеек.
+Когда значения хранятся как дроби, используйте [setNumberFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) для применения формата метки независимо от исходных ячеек.
 
-Этот пример создаёт 100 % стековую колоннчатую диаграмму с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` отображает 0.30 как 30.0 %, в то время как вертикальная ось использует два знака после запятой. Обе серии используют белый текст подписи размером 10 пунктов.
+В этом примере создаётся 100% составная столбчатая диаграмма с красными и синими рядами по четырём категориям. Каждая пара значений в сумме дает 1. Формат метки `0.0%` выводит 0.30 как 30.0%, тогда как вертикальная ось использует два знака после запятой. Оба ряда используют белый текст метки размером 10 пунктов.
 
 ```java
 import com.aspose.slides.*;
@@ -114,6 +116,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -159,9 +162,9 @@ try {
 }
 ```
 
-## **Read the Actual Text of Data Labels**
+## **Прочитать фактический текст меток данных**
 
-Используйте [getActualLabelText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabel/#getActualLabelText--) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчётов, поиске содержимого презентаций или проверке сгенерированных диаграмм. В примере ниже формат подписи по умолчанию ([data label format](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/)) сочетает имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Используйте [getActualLabelText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabel/#getActualLabelText--) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчётов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже формат метки данных по умолчанию комбинирует имя категории, имя ряда и значение. Одна точка выводит значение в виде процента, другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -169,6 +172,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -220,11 +224,15 @@ try {
 }
 ```
 
-Число, хранимое в точке данных, остаётся `0.75`, даже если её подпись показывает `75%` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [getActualLabelText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabel/#getActualLabelText--) возвращает полученную строку подписи в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabel/#isVisible--) отдельно, как показано выше, когда нужно извлекать только видимые подписи.
+Число, хранящееся в точке данных, остаётся `0.75`, даже если её метка показывает `75%` вместе с именами категории и ряда. Пользовательский текст заменяет сгенерированный текст метки. [getActualLabelText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabel/#getActualLabelText--) возвращает полученную строку метки в обоих случаях. Проверяйте [isVisible](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabel/#isVisible--) отдельно, как показано выше, если требуется извлекать только видимые метки.
 
-## **Set Label Distance from an Axis**
+## **Управлять метками данных за пределами максимума оси**
 
-Используйте [setLabelOffset](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaxis/#setLabelOffset-int-) для управления расстоянием между подписями оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта подписей оси. Этот пример создаёт сгруппированную колоннчатую диаграмму и задаёт смещение подписи горизонтальной оси равным 500. Эта настройка влияет на подписи оси категорий, а не на подписи, привязанные к отдельным точкам данных.
+Когда диапазон оси задаётся вручную, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) для контроля отображения их меток. Эта настройка изменяет видимость меток; она не меняет диапазон оси и не изменяет исходные значения данных.
+
+В примере ниже создаётся 2D кластерная столбчатая диаграмма со значениями 60 и 120. Метод [setAutomaticMaxValue](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) получает `false`, а максимальное значение оси устанавливается в 100 с помощью [setMaxValue](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaxis/#setMaxValue-double-). На первом слайде метки отображаются за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+
+Включите метки значений с помощью [setShowValue](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Настройка на уровне диаграммы сама по себе не включает отображение значений и не переопределяет отключённое отображение отдельной метки. Этот пример включает значения для всего ряда и использует [setPosition](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/#setPosition-int-) для размещения меток на внешнем конце каждого столбца.
 
 ```java
 import com.aspose.slides.*;
@@ -232,6 +240,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+На следующих изображениях показаны сохранённые слайды, отрисованные Microsoft PowerPoint. При `true` метка **120** видна у верхней границы; при `false` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![Диаграмма PowerPoint, показывающая метку значения 120 при максимальном значении оси 100](data-labels-over-maximum-true.png) | ![Диаграмма PowerPoint, скрывающая метку значения 120 при максимальном значении оси 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Этот пример использует 2D столбчатую диаграмму с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые, не имеют максимума оси, который можно было бы ограничить таким способом.
+{{% /alert %}}
+
+## **Установить расстояние метки от оси**
+
+Используйте [setLabelOffset](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaxis/#setLabelOffset-int-) для контроля расстояния между метками оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта меток оси. В этом примере создаётся кластерная столбчатая диаграмма, и смещение меток горизонтальной оси устанавливается в 500. Эта настройка влияет на метки оси категорий, а не на метки, привязанные к отдельным точкам данных.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -241,11 +311,11 @@ try {
 }
 ```
 
-## **Adjust Label Location**
+## **Регулировать расположение меток**
 
-На круговой диаграмме отрегулируйте позиции подписей данных, чтобы улучшить распределение и освободить место для выноски.
+На круговой диаграмме отрегулируйте позиции меток данных, чтобы улучшить интервалы и освободить место для линий‑указателей.
 
-Этот пример отображает значение первой точки данных, размещает её подпись за пределами сектора и регулирует горизонтальное и вертикальное смещение с помощью методов [setX](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ilayoutable/#setY-float-). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
+В этом примере отображается значение первой точки данных, её метка размещается за пределами сектора, а горизонтальное и вертикальное смещения регулируются с помощью [setX](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ilayoutable/#setY-float-). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
 
 ```java
 import com.aspose.slides.*;
@@ -253,6 +323,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -268,18 +339,18 @@ try {
 }
 ```
 
-![Круговая диаграмма с отрегулированным расположением подписи данных](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением метки данных](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Как предотвратить наложение подписей данных на плотных диаграммах?**
+**Как предотвратить наложение меток данных на плотных диаграммах?**
 
-Сочетайте автоматическое размещение подписей, выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте подписи только для экстремальных значений или ключевых точек.
+Комбинируйте автоматическое размещение меток, линии‑указатели и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте метки только для экстремальных значений или ключевых точек.
 
-**Как отключить подписи только для нулевых, отрицательных или пустых значений?**
+**Как отключить метки только для нулевых, отрицательных или пустых значений?**
 
-Отфильтруйте точки данных до включения подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих значений в соответствии с заданным правилом.
+Фильтруйте точки данных перед включением меток и отключайте их отображение для значений 0, отрицательных или отсутствующих согласно заданному правилу.
 
-**Как обеспечить единый стиль подписей при экспорте в PDF/изображения?**
+**Как обеспечить согласованный стиль меток при экспорте в PDF/изображения?**
 
-Явно задайте семейство шрифта и размер, а также убедитесь, что шрифт доступен в среде рендеринга, чтобы избежать его замены.
+Явно задавайте семейство шрифта и размер, а также проверяйте наличие шрифта в среде рендеринга, чтобы избежать подстановки.

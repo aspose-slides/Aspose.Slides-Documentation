@@ -1,5 +1,5 @@
 ---
-title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอโดยใช้ PHP
+title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอด้วย PHP
 linktitle: ป้ายข้อมูล
 type: docs
 url: /th/php-java/chart-data-label/
@@ -9,20 +9,20 @@ keywords:
 - ความแม่นยำของข้อมูล
 - เปอร์เซ็นต์
 - ระยะห่างของป้าย
-- ตำแหน่งป้าย
+- ตำแหน่งของป้าย
 - PowerPoint
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อทำให้สไลด์น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อสไลด์ที่น่าสนใจยิ่งขึ้น."
 ---
-## **คำนำ**
+## **บทนำ**
 
-ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิพาย
+ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีการจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายที่อยู่นอกค่าสูงสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิวงกลม
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
+## **ตั้งค่าความละเอียดของข้อมูลในป้ายแผนภูมิ**
 
-ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของมันและเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นพันและสองตำแหน่งทศนิยมโดยไม่เปลี่ยนค่าพื้นฐาน
+ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูล และเปิดใช้งานป้ายค่าให้กับชุดแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าพื้นฐาน
 
 ```php
 use aspose\slides\Presentation;
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -47,7 +48,7 @@ try {
 
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-สำหรับแผนภูมิคอลัมน์ซองกัน ให้คำนวณค่าทุกค่าเป็นเปอร์เซ็นต์ของผลรวมในหมวดนั้นและกำหนดข้อความไปยังกรอบข้อความที่ส่งกลับจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเบื้องต้นและแสดงเปอร์เซ็นต์ด้วยสองตำแหน่งทศนิยมในฟอนต์ขนาด 8 จุด หมวดที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายกำหนดเองใหม่หากข้อมูลแผนภูมิมีการเปลี่ยนแปลง
+สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน คำนวณแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมประเภทแล้วกำหนดข้อความให้กับกรอบข้อความที่คืนค่าจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิมาตรฐานและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในแบบอักษรขนาด 8 จุด ประเภทที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิเปลี่ยน ให้คำนวณข้อความป้ายแบบกำหนดเองใหม่
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -106,11 +108,11 @@ try {
 }
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลแผนภูมิ**
+## **กำหนดเครื่องหมายเปอร์เซ็นต์ในป้ายแผนภูมิ**
 
-เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setNumberFormat) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) เพื่อให้รูปแบบป้ายทำงานโดยอิสระจากเซลล์ต้นฉบับ
+เมื่อค่าถูกจัดเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setNumberFormat) เพื่อแสดงเป็นเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นทาง
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซอง 100% ด้วยชุดข้อมูลสีแดงและสีน้ำเงินในสี่หมวด หมู่ละค่าคู่จะรวมกันได้เป็น 1 รูปแบบป้าย `0.0%` จะแสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้สองตำแหน่งทศนิยม ทั้งสองชุดข้อมูลใช้ข้อความป้ายสีขาว ขนาดฟอนต์ 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบซ้อนกัน 100% ที่มีชุดสีแดงและสีน้ำเงินในสี่ประเภท แต่ละคู่ค่ารวมกันเป็น 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ส่วนแกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาวขนาด 10 จุด
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -169,7 +172,7 @@ try {
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [getActualLabelText](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getActualLabelText) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล ซึ่งมีประโยชน์เมื่อต้องสกัดป้ายเพื่อรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบ [data label format](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/) เริ่มต้นจะรวมชื่อหมวด, ชื่อชุดข้อมูลและค่า จุดหนึ่งจะแสดงค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งจะใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getTextFrameForOverriding)
+ใช้ [getActualLabelText](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getActualLabelText) เพื่อดึงข้อความที่สร้างจากการตั้งค่าป้ายข้อมูล ซึ่งมีประโยชน์เมื่อต้องสกัดป้ายสำหรับรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้าง ในตัวอย่างด้านล่าง รูปแบบป้ายข้อมูลเริ่มต้น ([data label format](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/)) รวมชื่อประเภท ชื่อชุดข้อมูล และค่า ชุดแรกจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกชุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getTextFrameForOverriding)
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,11 +236,79 @@ try {
 }
 ```
 
-ตัวเลขที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมกับชื่อหมวดและชื่อชุดข้อมูล ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getActualLabelText) จะคืนสตริงป้ายที่ได้ไม่ว่าจะเป็นแบบใดก็ตาม ตรวจสอบ [isVisible](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#isVisible) แยกต่างหากดังที่แสดงข้างต้นเมื่อคุณต้องการสกัดเฉพาะป้ายที่มองเห็นได้
+ค่าที่เก็บไว้ในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดงเป็น `75%` พร้อมชื่อประเภทและชุดข้อมูล ข้อความกำหนดเองจะทับข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getActualLabelText) จะคืนสตริงป้ายที่ได้ในทั้งสองกรณี ตรวจสอบ [isVisible](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#isVisible) แยกต่างหากตามที่แสดงข้างต้น เมื่อคุณต้องการสกัดเฉพาะป้ายที่มองเห็นได้
 
-## **ตั้งระยะห่างของป้ายจากแกน**
+## **ควบคุมป้ายข้อมูลที่อยู่นอกค่าสูงสุดของแกน**
 
-ใช้ [setLabelOffset](https://reference.aspose.com/slides/th/php-java/aspose.slides/axis/#setLabelOffset) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกนค่า ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบคลัสเตอร์และตั้งค่า offset ของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภทมากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่าสูงสุด ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/th/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) เพื่อควบคุมว่าจะให้แสดงป้ายข้อมูลเหล่านั้นหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย ไม่ได้เปลี่ยนช่วงแกนหรือค่าพื้นฐาน
+
+ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบกลุ่ม 2 มิติที่มีค่า 60 และ 120 ส่งค่า `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/axis/#setAutomaticMaxValue) แล้วกำหนดค่าสูงสุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/axis/#setMaxValue) บนแกนแนวตั้ง สไลด์แรกเปิดให้แสดงป้ายเหนือค่าสูงสุด; สไลด์สำเนา จะปิดการแสดงนี้ ทั้งสองสไลด์บันทึกเป็น `DataLabelsOverMaximum.pptx`
+
+เปิดใช้งานป้ายค่าโดยใช้ [setShowValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setShowValue) การตั้งค่าที่ระดับแผนภูมิไม่ทำให้ค่าป้ายแสดงโดยอัตโนมัติหรือเขียนทับการปิดการแสดงค่าของป้ายเดี่ยว ตัวอย่างนี้เปิดค่าให้กับชุดทั้งหมดและใช้ [setPosition](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setPosition) เพื่อวางป้ายที่ขอบนอกของแต่ละคอลัมน์
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+ภาพต่อไปแสดงสไลด์ที่บันทึกแล้วโดย Microsoft PowerPoint เมื่อ `true` ป้าย **120** จะเห็นที่ขอบบน; เมื่อตั้งค่าเป็น `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ แกนสูงสุดคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![แผนภูมิ PowerPoint แสดงป้ายค่าที่ 120 พร้อมค่ามากที่สุดของแกนที่ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ซ่อนป้ายค่าที่ 120 พร้อมค่ามากที่สุดของแกนที่ 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2 มิติที่มีแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิวงกลมและโดนัท จะไม่มีค่าสูงสุดของแกนให้จำกัดในลักษณะนี้
+{{% /alert %}}
+
+## **ตั้งค่าระยะห่างของป้ายจากแกน**
+
+ใช้ [setLabelOffset](https://reference.aspose.com/slides/th/php-java/aspose.slides/axis/#setLabelOffset) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและตั้งค่าระยะออฟเซ็ตของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท มากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
 
 ```php
 use aspose\slides\Presentation;
@@ -246,6 +318,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
     $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
 
@@ -257,9 +330,9 @@ try {
 
 ## **ปรับตำแหน่งป้าย**
 
-บนแผนภูมิพาย ปรับตำแหน่งป้ายข้อมูลเพื่อให้ช่องว่างดีขึ้นและให้พื้นที่สำหรับเส้นนำ
+บนแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและทำให้มีพื้นที่สำหรับเส้นนำ
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายไว้ด้านนอกชั้นและปรับ offset แนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#setX) และ [setY](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#setY) offset เหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายให้อยู่ด้านนอกส่วนของแผนภูมิ และปรับออฟเซ็ตแนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#setX) และ [setY](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#setY) ออฟเซ็ตเหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +343,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -285,18 +359,18 @@ try {
 }
 ```
 
-![แผนภูมิปายพร้อมตำแหน่งป้ายข้อมูลที่ปรับแล้ว](pie-chart-adjusted-label.png)
+![แผนภูมิวงกลมที่มีตำแหน่งป้ายข้อมูลปรับแล้ว](pie-chart-adjusted-label.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลซ้อนทับกันในแผนภูมิที่แน่นหนาได้อย่างไร?**
+**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนบนแผนภูมิที่หนาแน่นได้อย่างไร?**
 
-ผสานการวางป้ายอัตโนมัติ, เส้นนำ, และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะค่าสูงสุดหรือต่ำสุดหรือจุดสำคัญเท่านั้น
+ผสานการจัดตำแหน่งอัตโนมัติของป้าย เส้นนำ และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าที่สุดขีดหรือจุดสำคัญ
 
-**ฉันจะปิดการใช้งานป้ายเฉพาะสำหรับค่าศูนย์, ค่าลบ หรือค่าว่างได้อย่างไร?**
+**ฉันจะปิดการแสดงป้ายสำหรับค่าเป็นศูนย์, ลบ, หรือค่าว่างได้อย่างไร?**
 
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าลบ หรือค่าที่หายไปตามกฎที่กำหนด
+กรองจุดข้อมูลก่อนเปิดใช้ป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าลบ หรือค่าที่ขาดหายตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายสม่ำเสมอเมื่อส่งออกเป็น PDF/ภาพได้อย่างไร?**
+**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**
 
-กำหนดฟอนต์และขนาดฟอนต์อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+กำหนดแบบอักษรและขนาดอย่างชัดเจน และตรวจสอบว่าแบบอักษรนั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

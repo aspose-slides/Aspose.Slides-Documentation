@@ -1,5 +1,5 @@
 ---
-title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอบน Android
+title: จัดการป้ายข้อมูลแผนภูมิในการนำเสนอบน Android
 linktitle: ป้ายข้อมูล
 type: docs
 url: /th/androidjava/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java เพื่อทำให้สไลด์น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในการพรีเซนเทชัน PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าต่าง ๆ และเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่าต่าง ๆ การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ปรับระยะห่างของป้ายแกนประเภท และตำแหน่งของป้ายบนแผนภูมิวงกลม
+ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลในแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าต่าง ๆและเข้าใจแผนภูมิ บทความนี้อธิบายวิธีการจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ควบคุมป้ายข้อมูลที่อยู่นอกค่ามากที่สุดของแกน ปรับระยะห่างของป้ายแกนประเภท และกำหนดตำแหน่งของป้ายบนแผนภูมิวงกลม
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
+## **กำหนดความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
 
-ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของแผนภูมิและเปิดใช้งานป้ายค่าของชุดแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าต้นฉบับ
+ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของมัน และเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรก รูปแบบ `#,##0.00` แสดงตัวคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าพื้นฐาน
 
 ```java
 import com.aspose.slides.*;
@@ -31,6 +31,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-สำหรับแผนภูมิคอลัมน์ซ้อนกัน ให้คำนวณแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมของแต่ละประเภทและกำหนดข้อความให้กับกรอบข้อความที่ส่งกลับโดย [getTextFrameForOverriding](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิดังเดิมและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด ประเภทที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายแบบกำหนดเองใหม่หากข้อมูลแผนภูมมีการเปลี่ยนแปลง
+สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน ให้คำนวนแต่ละค่าที่เป็นเปอร์เซ็นต์ของผลรวมประเภทนั้นและกำหนดข้อความไปยังกรอบข้อความที่คืนค่าจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) ตัวอย่างนี้ใช้ข้อมูลเริ่มต้นของแผนภูมิและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในแบบอักษรขนาด 8 จุด ประเภทที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิมีการเปลี่ยนแปลงให้คำนวนข้อความป้ายแบบกำหนดใหม่
 
 ```java
 import com.aspose.slides.*;
@@ -55,6 +56,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์ในป้ายข้อมูลของแผนภูมิ**
+## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลแผนภูมิ**
 
-เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) เพื่อแสดงเป็นเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นฉบับ
+เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) เพื่อใช้รูปแบบป้ายโดยอิสระจากเซลล์ต้นทาง
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% ที่มีชุดสีแดงและสีน้ำเงินครอบคลุมสี่ประเภท แต่ละคู่ค่าจะบวกกันเป็น 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาว ขนาด 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบซ้อน 100% โดยมีชุดสีแดงและสีน้ำเงิน 4 ประเภท แต่ละคู่ค่ารวมกันได้ค่า 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ส่วนแกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาวขนาด 10 จุด
 
 ```java
 import com.aspose.slides.*;
@@ -115,6 +117,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -162,7 +165,7 @@ try {
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [getActualLabelText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล วิธีนี้มีประโยชน์เมื่อดึงป้ายเพื่อสร้างรายงาน ค้นหาเนื้อหาการนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้าง ตัวอย่างด้านล่างใช้รูปแบบป้ายข้อมูลเริ่มต้น [data label format](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/) ที่รวมชื่อประเภท, ชื่อชุดข้อมูลและค่าไว้ด้วยกัน จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)
+ใช้ [getActualLabelText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล ซึ่งเป็นประโยชน์เมื่อนำป้ายไปใช้ในรายงาน ค้นหาเนื้อหาการพรีเซนต์ชัน หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่างรูปแบบป้ายข้อมูลเริ่มต้น [data label format](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/) รวมชื่อประเภท ชื่อชุดข้อมูล และค่า จุดหนึ่งจัดรูปแบบค่าเป็นเปอร์เซ็นต์ อีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)
 
 ```java
 import com.aspose.slides.*;
@@ -170,6 +173,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -221,11 +225,15 @@ try {
 }
 ```
 
-ค่าที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายของมันจะแสดง `75%` พร้อมกับชื่อประเภทและชุดข้อมูล ข้อความกำหนดเองจะทดแทนข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) จะคืนสตริงป้ายที่ได้ในกรณีใดกรณีหนึ่ง ตรวจสอบ [isVisible](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabel/#isVisible--) แยกต่างหาก ตามที่แสดงด้านบนเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
+ตัวเลขที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมชื่อประเภทและชื่อชุดข้อมูล ข้อความกำหนดเองจะทับข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) จะคืนสตริงป้ายที่ได้ไม่ว่าจะเป็นแบบใด ตรวจสอบ [isVisible](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabel/#isVisible--) แยกต่างหากตามตัวอย่างข้างบน เมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
 
-## **ตั้งระยะห่างของป้ายจากแกน**
+## **ควบคุมป้ายข้อมูลที่อยู่นอกค่ามากที่สุดของแกน**
 
-ใช้ [setLabelOffset](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและตั้งค่า offset ของป้ายแกนนอนเป็น 500 การตั้งค่านี้มีผลต่อป้ายแกนประเภท ไม่ใช่ป้ายที่เชื่อมกับจุดข้อมูลแต่ละจุด
+เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่ามากที่สุดของแกน ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) เพื่อควบคุมว่าจะให้แสดงป้ายข้อมูลเหล่านั้นหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้ายเท่านั้น ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่ม 2D โดยมีค่า 60 และ 120 โดยส่งค่า `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) และตั้งค่ามากที่สุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) บนแกนแนวตั้ง สไลด์แรกอนุญาตให้แสดงป้ายที่เกินค่ามากที่สุด; สำเนาของสไลด์นั้นปิดการแสดงผล ทั้งสองสไลด์ถูกบันทึกเป็น `DataLabelsOverMaximum.pptx`
+
+เปิดใช้ป้ายค่าโดยใช้ [setShowValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) การตั้งค่าระดับแผนภูมิไม่ทำให้แสดงค่าตามตัวเองหรือเขียนทับการปิดแสดงค่าของป้ายเดียวกัน ตัวอย่างนี้เปิดใช้ค่าให้กับชุดข้อมูลทั้งหมดและใช้ [setPosition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) เพื่อนำป้ายไปวางที่ด้านนอกของแต่ละคอลัมน์
 
 ```java
 import com.aspose.slides.*;
@@ -233,6 +241,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ภาพต่อไปนี้แสดงสไลด์ที่บันทึกแล้วโดย Microsoft PowerPoint เมื่อใช้ `true` ป้าย **120** จะมองเห็นได้ที่ขอบบนสุด; เมื่อใช้ `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ค่าแกนสูงสุดคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![แผนภูมิ PowerPoint แสดงป้ายค่าที่ 120 กับค่าสูงสุดของแกนคือ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ซ่อนป้ายค่าที่ 120 กับค่าสูงสุดของแกนคือ 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมแกนค่าที่เป็นตัวเลข แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิวงกลมและโดนัท จะไม่มีค่ามากที่สุดของแกนให้กำหนดแบบนี้
+{{% /alert %}}
+
+## **ตั้งระยะห่างของป้ายจากแกน**
+
+ใช้ [setLabelOffset](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าจะเป็นเปอร์เซ็นต์ของขนาดฟอนท์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มและตั้งค่า offset ของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้มีผลต่อป้ายแกนประเภท มากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -244,9 +314,9 @@ try {
 
 ## **ปรับตำแหน่งป้าย**
 
-ในแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อปรับระยะห่างและทำให้มีพื้นที่สำหรับเส้นนำ
+บนแผนภูมิวงกลม ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มช่องว่างและให้มีพื้นที่สำหรับเส้นนำ
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายของมันนอกส่วนของวงกลม และปรับ offset แนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutable/#setX-float-) และ [setY](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutable/#setY-float-) offset เหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายไว้ด้านนอกส่วนของพาย และปรับค่า offset แนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutable/#setX-float-) และ [setY](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutable/#setY-float-) ค่า offset เหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ
 
 ```java
 import com.aspose.slides.*;
@@ -254,6 +324,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -269,15 +340,15 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![แผนภูมิวงกลมที่ปรับตำแหน่งป้ายข้อมูล](pie-chart-adjusted-label.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่แน่นมากได้อย่างไร?**  
-ผสานการวางป้ายอัตโนมัติ, เส้นนำ, และขนาดฟอนต์ที่ลดลง; หากจำเป็นให้ซ่อนข้อมูลบางส่วน (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าที่สุดขีดหรือจุดสำคัญเท่านั้น
+**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่แน่นหนาได้อย่างไร?**  
+ผสานการจัดวางป้ายโดยอัตโนมัติ เส้นนำ และขนาดฟอนท์ที่ลดลง; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่ามากที่สุดหรือจุดสำคัญ
 
-**ฉันจะปิดการใช้งานป้ายสำหรับค่าเป็นศูนย์, ลบ, หรือว่างได้อย่างไร?**  
+**ฉันจะปิดการใช้งานป้ายเฉพาะค่าศูนย์ ค่าลบ หรือค่าที่ว่างเปล่าได้อย่างไร?**  
 กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าลบ หรือค่าที่ขาดหายตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**  
-กำหนดครอบครัวฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นพร้อมใช้งานในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**  
+กำหนดฟอนท์และขนาดฟอนท์อย่างชัดเจนและตรวจสอบว่าฟอนท์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการเปลี่ยนฟอนท์โดยอัตโนมัติ

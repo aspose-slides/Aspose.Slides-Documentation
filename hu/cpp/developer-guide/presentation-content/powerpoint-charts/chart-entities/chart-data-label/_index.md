@@ -1,28 +1,28 @@
 ---
-title: Diagram adatcímkék kezelése a prezentációkban C++ használatával
-linktitle: Adatcímke
+title: "Diagram adatcímkék kezelése prezentációkban C++-vel"
+linktitle: "Adatcímke"
 type: docs
 url: /hu/cpp/chart-data-label/
 keywords:
-- diagram
-- adatcímke
-- adatpontosság
-- százalék
-- címke távolság
-- címke helye
-- PowerPoint
-- prezentáció
-- C++
-- Aspose.Slides
-description: "Tanulja meg, hogyan adjon hozzá és formázzon diagram adatcímkéket PowerPoint-prezentációkban az Aspose.Slides for C++ segítségével, hogy vonzóbb diák jöjjenek létre."
+- "diagram"
+- "adatcímke"
+- "adat pontosság"
+- "százalék"
+- "címke távolság"
+- "címke helyzete"
+- "PowerPoint"
+- "prezentáció"
+- "C++"
+- "Aspose.Slides"
+description: "Tanulja meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for C++ segítségével a vonzóbb diák érdekében."
 ---
 ## **Bevezetés**
 
-Az adatcímkék információt jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk azt magyarázza el, hogyan formázzuk az értékeket, hogyan jelenítsünk meg százalékokat, hogyan olvassuk a címkeszöveget, hogyan állítsuk be a kategória tengely címkéinek távolságát, és hogyan helyezzük el a kördiagram címkéit.
+Az adatcímkék információt jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ebben a cikkben bemutatjuk, hogyan formázhatja az értékeket, jelenítheti meg a százalékokat, olvashatja a címkeszöveget, irányíthatja a címkéket a tengely maximuma felett, állíthatja a kategóriatengely címke távolságát, és pozicionálhatja a kördiagram címkéit.
 
-## **Adatpontosság beállítása a diagram adatcímkéknél**
+## **Állítsa be az adatpontok pontosságát a diagram adatcímkéiben**
 
-Használja a [set_NumberFormatOfValues](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) függvényt a sorozatértékek formázásához. Ez a példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozat számára. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy a tényleges értékeket megváltoztatná.
+Használja a [set_NumberFormatOfValues](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) a sorozatértékek formázásához. Ez a példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozathoz. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **Százalék megjelenítése címkeként**
 
-Egy réteges oszlopdiagram esetén számítsa ki minden értéket a kategória összegéhez képest százalékos arányban, és rendelje a szöveget a [get_TextFrameForOverriding](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) által visszaadott szövegkerethez. Ez a példa az alapértelmezett diagram adatokat használja, és két tizedesjegyet megjelenítő százalékokat 8 pontos betűmérettel jelenít meg. A nulla összeget tartalmazó kategóriák ki vannak hagyva a nullával való osztás elkerülése érdekében. A testreszabott címkeszöveget újraszámolja, ha a diagram adatai megváltoznak.
+Halmozott oszlopdiagram esetén számítsa ki minden értéket a kategória összegének százalékaként, és rendelje a szöveget a [get_TextFrameForOverriding](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) által visszaadott szövegdobozhoz. Ez a példa az alapértelmezett diagramadatokat használja, és két tizedesjegy pontossággal, 8 pontos betűmérettel jeleníti meg a százalékokat. A nulla összegű kategóriák ki vannak hagyva a nullával való osztás elkerülése érdekében. Ha a diagramadatok megváltoznak, számolja újra a saját címkeszöveget.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -96,6 +96,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -148,9 +149,9 @@ presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 
 ## **Százalékjel beállítása a diagram adatcímkékkel**
 
-Ha az értékek törtként vannak tárolva, használja a [set_NumberFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) függvényt a százalékok megjelenítéséhez. Adja át a `false` értéket a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) metódusnak, hogy a címkeformátumot a forráscelláktól függetlenül alkalmazza.
+Ha az értékek törtként vannak tárolva, használja a [set_NumberFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) függvényt a százalékok megjelenítéséhez. A [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) paraméteréhez adjon meg `false` értéket, így a címkeformátum függetlenül alkalmazható a forráscelláktól.
 
-Ez a példa egy 100%-os réteges oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30-at 30.0%-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkét használ.
+Ez a példa egy 100 % –os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum a 0,30‑at 30,0 %-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -189,6 +190,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -234,9 +236,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Az adatcímkék tényleges szövegének olvasása**
+## **Az adatcímkék tényleges szövegének lekérdezése**
 
-Használja a [GetActualLabelText](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) metódust a adatcímke beállításai által előállított szöveg lekérésére. Ez hasznos jelentésekhez címkék kinyerésekor, a prezentáció tartalmának keresésekor vagy a generált diagramok ellenőrzésekor. Az alábbi példában az alapértelmezett [adatcímke formátum](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/) a kategórianév, sorozatnév és az érték kombinációját jeleníti meg. Az egyik pont az értékét százalékos formában formázza, a másik pedig egyedi szöveget használ a [get_TextFrameForOverriding](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) által visszaadott szövegkeretből.
+Használja a [GetActualLabelText](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) függvényt a adatcímke beállításai által előállított szöveg lekéréséhez. Ez akkor hasznos, ha címkéket kell kinyerni jelentésekhez, keresni a prezentáció tartalmában, vagy a generált diagramokat validálni. Az alábbi példában az alapértelmezett [data label format](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/) minden kategórianév, sorozatnév és érték kombinációját jeleníti meg. Egy pont az értékét százalékos formátumban, egy másik pedig egyéni szöveget használ a [get_TextFrameForOverriding](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) segítségével.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -268,6 +270,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -323,11 +326,98 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-A data pontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75%`-ot jelenít meg a kategória és sorozat neveivel együtt. Az egyedi szöveg felváltja a generált címkét. A [GetActualLabelText](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) mindkét esetben a kapott címkesztringet adja vissza. Ellenőrizze külön a [get_IsVisible](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabel/get_isvisible/) metódust, ahogy fent is látható, ha csak a látható címkéket szeretné kinyerni.
+A datapontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75 %`‑t mutat a kategória és a sorozat neveivel együtt. Az egyéni szöveg felülírja a generált címkeszöveget. A [GetActualLabelText](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) mindkét esetben a kapott címke karakterláncot adja vissza. A [get_IsVisible](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabel/get_isvisible/) ellenőrzését külön kell elvégezni, ahogy a fenti példában látható, ha csak a látható címkéket szeretné kinyerni.
 
-## **Címke távolságának beállítása egy tengelytől**
+## **Adatcímkék vezérlése a tengely maximuma felett**
 
-Használja a [set_LabelOffset](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/iaxis/set_labeloffset/) metódust a kategória tengelycímkék és a tengely közötti távolság vezérléséhez. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória tengelycímkékre vonatkozik, nem pedig az egyes adatpontokhoz csatolt címkékre.
+Ha manuálisan korlátozza a tengely tartományát, egyes adatpontok meghaladhatják a maximális értéket. Használja a [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) függvényt annak meghatározásához, hogy a címkék megjelenjenek-e. Ez a beállítás a címke láthatóságát változtatja meg; nem módosítja a tengely tartományát vagy a mögöttes adatértékeket.
+
+Az alábbi példa egy 2D‑es csoportosított oszlopdiagramot hoz létre 60 és 120 értékekkel. A függőleges tengelyen a [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) értékét `false`‑ra, a [set_MaxValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/iaxis/set_maxvalue/) értékét pedig 100‑ra állítja. Az első dia engedélyezi a maximumnál nagyobb címkéket; egy másolat letiltja őket. Mindkét dia a `DataLabelsOverMaximum.pptx`‑ben kerül mentésre.
+
+A [set_ShowValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) segítségével engedélyezze az értékcímkéket. A diagramszintű beállítás önmagában nem jeleníti meg az értékeket, és nem felülbírálja egy adott címke letiltott értékmegjelenítését. Ez a példa a teljes sorozatra engedélyezi az értékeket, és a [set_Position](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/idatalabelformat/set_position/) segítségével a címkéket minden oszlop külső végére helyezi.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+Az alábbi képek a Microsoft PowerPoint által renderelt, mentett diákot mutatják. `true` esetén a **120** címke a felső határnál látható; `false` esetén rejtett. A **60** címke látható marad, a tengely maximális értéke **100**, és a második adatpont **120** marad mindkét esetben.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Diagramtípus" %}}
+Ez a példa egy 2D‑es oszlopdiagramot használ értéktengellyel. Az értéktengellyel nem rendelkező diagramok, például a kör- és fánkdiagramok, nem rendelkeznek ilyen módon korlátozható tengelymaximumsal.
+{{% /alert %}}
+
+## **Címke távolságának beállítása a tengelytől**
+
+Használja a [set_LabelOffset](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/iaxis/set_labeloffset/) függvényt a kategóriatengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500‑ra állítja. Ez a beállítás a kategóriatengely címkéire vonatkozik, nem pedig az egyes adatpontokhoz tartozó címkékre.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -357,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Címke helyének módosítása**
 
-Kördiagramon állítsa be az adatcímkék pozícióját a térköz javítása és a vezető vonalak számára hely biztosítása érdekében.
+Kördiagramon állítsa be az adatcímkék pozícióját a távolság javításához és a vezetővonalak számára hely biztosításához.
 
-Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülére helyezi, és a [set_X](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ilayoutable/set_x/) és [set_Y](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ilayoutable/set_y/) metódusokkal állítja be az eltolásokat. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva vannak.
+Ez a példa megjeleníti az első adatpont értékét, a címkét a szelet külső részén helyezi el, és a [set_X](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ilayoutable/set_x/) valamint a [set_Y](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ilayoutable/set_y/) segítségével állítja be az eltolásokat. Ezek az eltolások a diagram szélességére és magasságára vonatkoznak.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -384,6 +474,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 
@@ -396,18 +487,15 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Kördiagram a módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
+![Kördiagram módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
 
 ## **GYIK**
 
-**Hogyan akadályozhatom meg az adatcímkék átfedését sűrű diagramokon?**
+**Hogyan akadályozhatom meg az adatcímkék átfedését sűrű diagramokon?**  
+Kombináljon automatikus címkeelhelyezést, vezetővonalakat és kisebb betűméretet; szükség esetén rejtsen el bizonyos mezőket (például a kategóriát), vagy csak a szélső értékek vagy kulcspontok esetén jelenítse meg a címkéket.
 
-Használjon automatikus címkeelhelyezést, vezető vonalakat és kisebb betűméretet; ha szükséges, rejtse el bizonyos mezőket (például a kategóriát), vagy csak a szélső értékek vagy kulcspontok esetén jelenítse meg a címkéket.
+**Hogyan tilthatom le a címkéket kizárólag nulla, negatív vagy üres értékeknél?**  
+Szűrje meg a adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést 0, negatív vagy hiányzó értékeknél egy meghatározott szabály szerint.
 
-**Hogyan kapcsolhatom ki a címkéket csak a nullás, negatív vagy üres értékeknél?**
-
-Szűrje ki az adatpontokat a címkék engedélyezése előtt, és a definiált szabály szerint tiltsa le a nullás, negatív vagy hiányzó értékek megjelenítését.
-
-**Hogyan biztosíthatom a konzisztens címkestílust PDF/képek exportálásakor?**
-
-Állítsa be kifejezetten a betűcsaládot és a méretet, valamint ellenőrizze, hogy a betűtípus elérhető-e a megjelenítő környezetben, hogy elkerülje a helyettesítést.
+**Hogyan biztosíthatom a következetes címkestílust PDF‑ vagy képexportáláskor?**  
+Állítsa be explicit módon a betűcsaládot és a méretet, és ellenőrizze, hogy a betűkészlet elérhető‑e a renderelési környezetben, hogy elkerülje a tartalék betűk használatát.

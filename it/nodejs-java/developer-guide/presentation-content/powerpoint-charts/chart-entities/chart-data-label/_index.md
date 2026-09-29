@@ -1,6 +1,6 @@
 ---
-title: Gestire le etichette dati dei grafici nelle presentazioni usando JavaScript
-linktitle: Etichetta dati
+title: Gestire le etichette dati del grafico nelle presentazioni con JavaScript
+linktitle: Etichetta Dati
 type: docs
 url: /it/nodejs-java/chart-data-label/
 keywords:
@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Impara ad aggiungere e formattare le etichette dati dei grafici nelle presentazioni PowerPoint usando JavaScript e Aspose.Slides per Node.js via Java per creare diapositive più coinvolgenti."
+description: "Impara ad aggiungere e formattare le etichette dati del grafico nelle presentazioni PowerPoint usando JavaScript e Aspose.Slides per Node.js via Java per creare diapositive più coinvolgenti."
 ---
 ## **Introduzione**
 
-Le etichette dati mostrano informazioni sulle serie del grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo delle etichette, regolare la spaziatura delle etichette dell'asse delle categorie e posizionare le etichette del grafico a torta.
+Le etichette dati visualizzano informazioni sulle serie del grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo delle etichette, controllare le etichette al di sopra del massimo dell'asse, regolare la spaziatura delle etichette dell'asse delle categorie e posizionare le etichette nei grafici a torta.
 
-## **Imposta la precisione dei dati nelle etichette del grafico**
+## **Imposta la Precisione dei Dati nelle Etichette del Grafico**
 
-Utilizza [setNumberFormatOfValues](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) per formattare i valori delle serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` mostra un separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
+Usa [setNumberFormatOfValues](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) per formattare i valori delle serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` mostra il separatore delle migliaia e due cifre decimali senza modificare i valori di base.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -31,6 +31,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -44,9 +45,9 @@ try {
 }
 ```
 
-## **Visualizza la percentuale come etichette**
+## **Visualizza la Percentuale Come Etichette**
 
-Per un grafico a colonne impilate, calcola ogni valore come percentuale del totale della sua categoria e assegna il testo al riquadro di testo restituito da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono omesse per evitare divisioni per zero. Ricalcola il testo personalizzato dell'etichetta se i dati del grafico cambiano.
+Per un grafico a colonne impilate, calcola ogni valore come percentuale del totale della sua categoria e assegna il testo al frame di testo restituito da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono ignorate per evitare la divisione per zero. Ricalcola il testo personalizzato dell'etichetta se i dati del grafico cambiano.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,6 +55,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
 
     const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **Imposta il simbolo percentuale con le etichette dei dati del grafico**
+## **Imposta il Segno Percentuale con le Etichette dei Dati del Grafico**
 
-Quando i valori sono memorizzati come frazioni, utilizza [setNumberFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) per visualizzare le percentuali. Passa `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) per applicare il formato dell'etichetta in modo indipendente dalle celle di origine.
+Quando i valori sono memorizzati come frazioni, usa [setNumberFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) per visualizzare le percentuali. Passa `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) per applicare il formato dell'etichetta indipendentemente dalle celle di origine.
 
-Questo esempio crea un grafico a colonne impilate al 100% con serie rosse e blu in quattro categorie. Ogni coppia di valori somma 1. Il formato dell'etichetta `0.0%` visualizza 0,30 come 30,0%, mentre l'asse verticale utilizza due cifre decimali. Entrambe le serie usano testo dell'etichetta bianco, con dimensione 10 punti.
+Questo esempio crea un grafico a colonne impilate al 100% con serie rossa e blu in quattro categorie. Ogni coppia di valori somma a 1. Il formato dell'etichetta `0.0%` visualizza 0.30 come 30.0%, mentre l'asse verticale utilizza due cifre decimali. Entrambe le serie usano testo dell'etichetta bianco, da 10 punti.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -114,6 +116,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -160,9 +163,9 @@ try {
 }
 ```
 
-## **Leggi il testo reale delle etichette dati**
+## **Leggi il Testo Effettivo delle Etichette Dati**
 
-Utilizza [getActualLabelText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) per recuperare il testo generato dalle impostazioni di un'etichetta dati. È utile quando si estraggono etichette per report, si cerca contenuto nella presentazione o si convalidano i grafici generati. Nell'esempio seguente, il [formato predefinito delle etichette dati](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/) combina il nome di ciascuna categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro utilizza testo personalizzato da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Usa [getActualLabelText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) per recuperare il testo prodotto dalle impostazioni di un'etichetta dati. Questo è utile quando si estraggono le etichette per report, si cerca il contenuto della presentazione o si convalidano i grafici generati. Nell'esempio seguente, il [formato predefinito delle etichette dati](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/) combina il nome di ogni categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro usa testo personalizzato da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,6 +173,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -226,9 +230,13 @@ try {
 
 Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75%` insieme ai nomi della categoria e della serie. Il testo personalizzato sostituisce il testo dell'etichetta generato. [getActualLabelText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) restituisce la stringa dell'etichetta risultante in entrambi i casi. Controlla [isVisible](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/isvisible/) separatamente, come mostrato sopra, quando desideri estrarre solo le etichette visibili.
 
-## **Imposta la distanza dell'etichetta da un asse**
+## **Controlla le Etichette Dati Oltre il Massimo dell'Asse**
 
-Utilizza [setLabelOffset](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/axis/setlabeloffset/) per controllare la distanza tra le etichette dell'asse delle categorie e l'asse stesso. Il valore è una percentuale della dimensione massima del carattere delle etichette dell'asse. Questo esempio crea un grafico a colonne raggruppate e imposta lo spostamento dell'etichetta dell'asse orizzontale a 500. Questa impostazione influisce sulle etichette dell'asse delle categorie piuttosto che sulle etichette associate ai singoli punti dati.
+Quando limiti manualmente un intervallo dell'asse, alcuni punti dati possono superare il suo massimo. Usa [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) per controllare se le loro etichette dati vengono visualizzate. Questa impostazione modifica la visibilità dell'etichetta; non cambia l'intervallo dell'asse né i valori dei dati sottostanti.
+
+L'esempio di seguito crea un grafico a colonne raggruppate 2D con valori 60 e 120. Passa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) e imposta il massimo a 100 con [setMaxValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/axis/setmaxvalue/) sull'asse verticale. La prima diapositiva consente etichette oltre il massimo; una copia di quella diapositiva le disabilita. Entrambe le diapositive vengono salvate in `DataLabelsOverMaximum.pptx`.
+
+Abilita le etichette dei valori con [setShowValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). L'impostazione a livello di grafico non abilita la visualizzazione dei valori da sola né sovrascrive la visualizzazione dei valori disabilitata di un'etichetta individuale. Questo esempio abilita i valori per l'intera serie e usa [setPosition](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabelformat/setposition/) per posizionare le etichette all'estremità esterna di ogni colonna.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -236,6 +244,68 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    const firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    const secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    const seriesName = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    const firstValue = workbook.getCell(0, 1, 1, 60);
+    const secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    const secondSlide = presentation.getSlides().addClone(slide);
+    const secondChart = secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Le immagini seguenti mostrano le diapositive salvate renderizzate da Microsoft PowerPoint. Con `true`, l'etichetta **120** è visibile al limite superiore; con `false`, è nascosta. L'etichetta **60** rimane visibile, il massimo dell'asse rimane a **100** e il secondo punto dati rimane **120** in entrambi i casi.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Questo esempio utilizza un grafico a colonne 2D con un asse dei valori. I grafici senza asse dei valori, come i grafici a torta e ciambella, non hanno un massimo dell'asse da limitare in questo modo.
+{{% /alert %}}
+
+## **Imposta la Distanza dell'Etichetta dall'Asse**
+
+Usa [setLabelOffset](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/axis/setlabeloffset/) per controllare la distanza tra le etichette dell'asse delle categorie e l'asse. Il valore è una percentuale della dimensione massima del carattere delle etichette dell'asse. Questo esempio crea un grafico a colonne raggruppate e imposta l'offset dell'etichetta dell'asse orizzontale a 500. Questa impostazione influisce sulle etichette dell'asse delle categorie piuttosto che sulle etichette collegate ai singoli punti dati.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -245,11 +315,11 @@ try {
 }
 ```
 
-## **Regola la posizione dell'etichetta**
+## **Regola la Posizione dell'Etichetta**
 
-Su un grafico a torta, regola le posizioni delle etichette dati per migliorare la spaziatura e fare spazio alle linee guida.
+Su un grafico a torta, regola le posizioni delle etichette dei dati per migliorare la spaziatura e fare spazio alle linee guida.
 
-Questo esempio visualizza il valore del primo punto dati, posiziona la sua etichetta al di fuori della fetta e regola gli offset orizzontali e verticali usando [setX](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/setx/) e [setY](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/sety/). Questi offset sono relativi rispettivamente alla larghezza e all'altezza del grafico.
+Questo esempio visualizza il valore del primo punto dati, posiziona la sua etichetta all'esterno della fetta e regola gli offset orizzontali e verticali usando [setX](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/setx/) e [setY](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/datalabel/sety/). Questi offset sono relativi alla larghezza e all'altezza del grafico, rispettivamente.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -258,6 +328,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
     const series = chart.getChartData().getSeries();
 
@@ -273,18 +344,15 @@ try {
 }
 ```
 
-![Grafico a torta con la posizione dell'etichetta dati regolata](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Come posso evitare che le etichette dei dati si sovrappongano su grafici densamente popolati?**
+**Come posso evitare che le etichette dei dati si sovrappongano su grafici densi?**  
+Combina il posizionamento automatico delle etichette, le linee guida e la riduzione della dimensione del carattere; se necessario, nascondi alcuni campi (ad esempio la categoria) o mostra le etichette solo per valori estremi o punti chiave.
 
-Combina il posizionamento automatico delle etichette, le linee guida e una dimensione del carattere ridotta; se necessario, nascondi alcuni campi (ad esempio la categoria) o mostra le etichette solo per valori estremi o punti chiave.
-
-**Come posso disabilitare le etichette solo per valori zero, negativi o vuoti?**
-
+**Come posso disabilitare le etichette solo per valori zero, negativi o vuoti?**  
 Filtra i punti dati prima di abilitare le etichette e disattiva la visualizzazione per valori pari a 0, valori negativi o valori mancanti secondo una regola definita.
 
-**Come posso garantire uno stile coerente delle etichette durante l'esportazione in PDF/immagini?**
-
-Imposta esplicitamente la famiglia e la dimensione del carattere e verifica che il font sia disponibile nell'ambiente di rendering per evitare il fallback.
+**Come posso garantire uno stile di etichetta coerente durante l'esportazione in PDF/immagini?**  
+Imposta esplicitamente la famiglia e la dimensione del carattere e verifica che il carattere sia disponibile nell'ambiente di rendering per evitare fallback.

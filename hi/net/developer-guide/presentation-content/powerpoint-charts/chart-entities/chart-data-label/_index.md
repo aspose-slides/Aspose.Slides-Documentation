@@ -1,5 +1,5 @@
 ---
-title: .NET में प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
+title: .NET में प्रस्तुतियों में चार्ट डेटा लेबल्स प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/net/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ना और फ़ॉर्मेट करना सीखें ताकि स्लाइड्स अधिक आकर्षक हों।"
+description: "Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल्स जोड़ना और स्वरूपित करना सीखें, जिससे अधिक आकर्षक स्लाइड्स बनें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मानों की पहचान करने और चार्ट को समझने में मदद मिलती है। यह लेख मानों को फ़ॉर्मेट करने, प्रतिशत प्रदर्शित करने, लेबल टेक्स्ट पढ़ने, श्रेणी अक्ष लेबल स्पेसिंग समायोजित करने, और पाई चार्ट लेबल की स्थिति निर्धारित करने के तरीकों को समझाता है।
+डेटा लेबल्स चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं की जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे फ़ॉर्मेट किया जाए, प्रतिशत कैसे दिखाए जाएँ, लेबल टेक्स्ट को कैसे पढ़ा जाए, अक्ष अधिकतम से परे लेबल्स को कैसे नियंत्रित किया जाए, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित किया जाए, और पाई चार्ट लेबल्स को कैसे स्थित किया जाए।
 
-## **चार्ट डेटा लेबल में डेटा प्रेसिशन सेट करें**
+## **चार्ट डेटा लेबल्स में डेटा की सटीकता निर्धारित करें**
 
-सीरीज़ मानों को फ़ॉर्मेट करने के लिए [NumberFormatOfValues](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/numberformatofvalues/) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, इसकी डेटा टेबल प्रदर्शित करता है, और पहली सीरीज़ के लिए वैल्यू लेबल सक्रिय करता है। फ़ॉर्मेट `#,##0.00` हज़ार विभाजक और दो दशमलव स्थान प्रदर्शित करता है बिना मूल मानों को बदले।
+Use [NumberFormatOfValues](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartseries/numberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,9 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **लेबल के रूप में प्रतिशत दिखाएँ**
+## **लेबल्स के रूप में प्रतिशत प्रदर्शित करें**
 
-स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल का प्रतिशत गणना करें और टेक्स्ट को [TextFrameForOverriding](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) को असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8 पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [TextFrameForOverriding](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```csharp
 using System;
@@ -55,6 +55,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
 var categoryTotals = new double[chart.ChartData.Categories.Count];
@@ -105,9 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **चार्ट डेटा लेबल के साथ प्रतिशत चिन्ह सेट करें**
+## **चार्ट डेटा लेबल्स के साथ प्रतिशत संकेत सेट करें**
 
-जब मान अंश के रूप में संग्रहित होते हैं, तो प्रतिशत दिखाने के लिए [NumberFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/numberformat/) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) को `false` सेट करें। यह उदाहरण चार श्रेणियों में लाल और नीली सीरीज़ के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि ऊर्ध्वाधर अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफेद, 10 पॉइंट लेबल टेक्स्ट उपयोग करती हैं।
+When values are stored as fractions, use [NumberFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/numberformat/) to display percentages. Set [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) to `false` to apply the label format independently of the source cells.
+
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```csharp
 using System.Drawing;
@@ -117,6 +120,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
@@ -162,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **डेटा लेबल के वास्तविक टेक्स्ट को पढ़ें**
+## **डेटा लेबल्स का वास्तविक टेक्स्ट पढ़ें**
 
-डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट को प्राप्त करने के लिए [GetActualLabelText](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabel/getactuallabeltext/) का उपयोग करें। यह रिपोर्टों के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या उत्पन्न चार्ट की वैधता जांचते समय उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को जोड़ता है। एक बिंदु अपना मान प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा [TextFrameForOverriding](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/) से कस्टम टेक्स्ट उपयोग करता है।
+Use [GetActualLabelText](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [TextFrameForOverriding](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -173,6 +177,7 @@ using Aspose.Slides.Charts;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
 chart.ChartData.Series.Clear();
@@ -217,11 +222,76 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-डेटा बिंदु में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` को श्रेणी और सीरीज़ नामों के साथ दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [GetActualLabelText](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabel/getactuallabeltext/) दोनों स्थितियों में परिणामस्वरूप लेबल स्ट्रिंग लौटाता है। जब आप केवल दृश्यमान लेबल निकालना चाहते हैं, तो ऊपर दिखाए अनुसार [IsVisible](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabel/isvisible/) को अलग से जांचें।
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [GetActualLabelText](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabel/getactuallabeltext/) returns the resulting label string in either case. Check [IsVisible](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
+
+## **अक्ष अधिकतम से परे डेटा लेबल्स को नियंत्रण में रखें**
+
+When you limit an axis range manually, some data points may exceed its maximum. Use [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [IsAutomaticMaxValue](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) to `false` and [MaxValue](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/iaxis/maxvalue/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+
+Enable value labels with [ShowValue](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/showvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [Position](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/idatalabelformat/position/) to place labels at the outside end of each column.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var firstCategory = workbook.GetCell(0, 1, 0, "Within range");
+var secondCategory = workbook.GetCell(0, 2, 0, "Above maximum");
+
+chart.ChartData.Categories.Add(firstCategory);
+chart.ChartData.Categories.Add(secondCategory);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+
+var firstValue = workbook.GetCell(0, 1, 1, 60);
+var secondValue = workbook.GetCell(0, 2, 1, 120);
+
+series.DataPoints.AddDataPointForBarSeries(firstValue);
+series.DataPoints.AddDataPointForBarSeries(secondValue);
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 100;
+chart.ShowDataLabelsOverMaximum = true;
+
+var secondSlide = presentation.Slides.AddClone(slide);
+var secondChart = (IChart)secondSlide.Shapes[0];
+secondChart.ShowDataLabelsOverMaximum = false;
+
+presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+```
+
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint चार्ट जो मान लेबल 120 को दिखा रहा है, जहाँ अक्ष अधिकतम 100 है](data-labels-over-maximum-true.png) | ![PowerPoint चार्ट जो मान लेबल 120 को छुपा रहा है, जहाँ अक्ष अधिकतम 100 है](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="चार्ट प्रकार" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
 
 ## **अक्ष से लेबल दूरी सेट करें**
 
-[LabelOffset](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/iaxis/labeloffset/) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी नियंत्रित करें। यह मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबलों के बजाय श्रेणी अक्ष लेबलों को प्रभावित करती है।
+Use [LabelOffset](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/iaxis/labeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```csharp
 using Aspose.Slides;
@@ -239,9 +309,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट पर, डेटा लेबल की स्थितियों को समायोजित करके स्पेसिंग में सुधार करें और लीडर लाइनों के लिए जगह बनाएं।
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-यह उदाहरण पहले डेटा बिंदु का मान प्रदर्शित करता है, उसका लेबल स्लाइस के बाहर रखता है, और उसके [X](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ilayoutable/x/) और [Y](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ilayoutable/y/) ऑफ़सेट को समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के अनुपात में होते हैं।
+This example displays the value of the first data point, places its label outside the slice, and adjusts its [X](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ilayoutable/y/) offsets. These offsets are relative to the chart width and height, respectively.
 
 ```csharp
 using Aspose.Slides;
@@ -250,6 +320,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
 var series = chart.ChartData.Series;
 
@@ -266,11 +337,14 @@ presentation.Save("presentation.pptx", SaveFormat.Pptx);
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**डेंस चार्ट्स पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**  
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट आकार को मिलाएं; यदि आवश्यक हो तो कुछ फ़ील्ड छिपाएँ (उदाहरण के लिए, श्रेणी) या केवल तीव्र मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
+**मैं घने चार्ट्स में डेटा लेबल्स के ओवरलैप को कैसे रोक सकता हूँ?**
 
-**शून्य, नकारात्मक, या खाली मानों के लिए लेबल केवल कैसे अक्षम करूँ?**  
-लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद कर दें।
+स्वचालित लेबल प्लेसमेंट, लीडर लाइन्स, और छोटे फ़ॉन्ट आकार को मिलाकर उपयोग करें; यदि आवश्यक हो तो कुछ फ़ील्ड्स (जैसे श्रेणी) को छुपाएँ या केवल चरम मानों या प्रमुख बिंदुओं के लिए लेबल्स दिखाएँ।
 
-**PDF/इमेज में एक्सपोर्ट करते समय स्थायी लेबल शैली कैसे सुनिश्चित करूँ?**  
-फ़ॉन्ट फ़ैमिली और आकार को स्पष्ट रूप से सेट करें और फ़ॉन्ट रेंडरिंग पर्यावरण में उपलब्ध है यह सत्यापित करें ताकि फ़ॉलबैक न हो।
+**मैं शून्य, नकारात्मक या खाली मानों के लिए केवल लेबल्स को कैसे निष्क्रिय कर सकता हूँ?**
+
+लेबल्स सक्रिय करने से पहले डेटा बिंदुओं को फ़िल्टर करें और 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले को बंद करें, जैसा कि परिभाषित नियम में निर्धारित हो।
+
+**PDF/छवियों में निर्यात करते समय मैं लेबल शैली की स्थिरता कैसे सुनिश्चित करूँ?**
+
+फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें और फ़ॉन्ट रेंडरिंग पर्यावरण में उपलब्ध होने की पुष्टि करें ताकि फ़ॉलबैक से बचा जा सके।

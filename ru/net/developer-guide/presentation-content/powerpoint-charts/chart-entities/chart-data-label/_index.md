@@ -1,29 +1,29 @@
 ---
-title: Управление подписями данных диаграмм в презентациях на .NET
-linktitle: Подпись данных
+title: Управление метками данных диаграмм в презентациях на .NET
+linktitle: Метка данных
 type: docs
 url: /ru/net/chart-data-label/
 keywords:
 - диаграмма
-- подпись данных
+- метка данных
 - точность данных
 - процент
-- расстояние подписи
-- расположение подписи
+- расстояние метки
+- расположение метки
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для .NET, чтобы сделать слайды более увлекательными."
+description: "Узнайте, как добавить и форматировать метки данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для .NET, чтобы сделать слайды более привлекательными."
 ---
 ## **Введение**
 
-Подписи данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям определять значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст подписи, регулировать интервал подписей оси категорий и позиционировать подписи на круговой диаграмме.
+Метк​ы данных отображают информацию о рядах диаграммы и отдельных точках данных, помогая читателям определить значения и понять диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, считывать текст меток, управлять метками за пределами максимального значения оси, настраивать интервал меток категориальной оси и позиционировать метки круговой диаграммы.
 
-## **Установка точности данных в подписи диаграммы**
+## **Установка точности данных в метках диаграммы**
 
-Используйте [NumberFormatOfValues](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/numberformatofvalues/) для форматирования значений серии. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первой серии. Формат `#,##0.00` показывает разделитель тысяч и две десятичные дроби без изменения базовых значений.
+Используйте [NumberFormatOfValues](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/numberformatofvalues/) для форматирования значений рядов. Этот пример создает линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает метки значений для первого ряда. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой без изменения исходных значений.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,9 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Отображение процента в виде подписей**
+## **Отображение процентов в виде меток**
 
-Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст [TextFrameForOverriding](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя десятичными знаками шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пересчитайте пользовательский текст подписи.
+Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст [TextFrameForOverriding](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пересчитайте пользовательский текст метки.
 
 ```csharp
 using System;
@@ -55,6 +55,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
 var categoryTotals = new double[chart.ChartData.Categories.Count];
@@ -105,11 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Установка знака процента в подписях данных диаграммы**
+## **Установка знака процента в метках диаграммы**
 
-Когда значения хранятся в виде дробей, используйте [NumberFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/numberformat/) для отображения процентов. Установите [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) в `false`, чтобы формат подписи применялся независимо от исходных ячеек.
+Когда значения хранятся в виде дробей, используйте [NumberFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/numberformat/) для отображения процентов. Установите [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) в `false`, чтобы применить формат метки независимо от исходных ячеек.
 
-Этот пример создаёт 100 % сложенную столбчатую диаграмму с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` выводит 0.30 как 30.0 %, а вертикальная ось использует два десятичных знака. Обе серии используют белый текст подписи размером 10 пунктов.
+Этот пример создает 100% сложенную столбчатую диаграмму с красными и синими рядами в четырёх категориях. Каждая пара значений в сумме дает 1. Формат метки `0.0%` отображает 0.30 как 30.0%, тогда как вертикальная ось использует два знака после запятой. Оба ряда используют белый текст меток размером 10 пунктов.
 
 ```csharp
 using System.Drawing;
@@ -119,6 +120,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
@@ -164,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Чтение фактического текста подписи данных**
+## **Чтение фактического текста меток данных**
 
-Используйте [GetActualLabelText](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabel/getactuallabeltext/) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчётов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже формат подписи данных по умолчанию [data label format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/) объединяет название каждой категории, название серии и значение. Одна точка форматирует своё значение как процент, другая использует пользовательский текст из [TextFrameForOverriding](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Используйте [GetActualLabelText](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabel/getactuallabeltext/) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчетов, поиске содержимого презентаций или проверке сгенерированных диаграмм. В примере ниже формат метки данных по умолчанию [data label format](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/) объединяет название категории, название ряда и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [TextFrameForOverriding](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -175,6 +177,7 @@ using Aspose.Slides.Charts;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
 chart.ChartData.Series.Clear();
@@ -219,11 +222,74 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже если её подпись отображает `75%` вместе с названиями категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [GetActualLabelText](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabel/getactuallabeltext/) возвращает полученную строку подписи в любом случае. Проверяйте [IsVisible](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabel/isvisible/) отдельно, как показано выше, когда нужно извлекать только видимые подписи.
+Число, хранящееся в точке данных, остаётся `0.75`, даже если её метка отображает `75%` вместе с названиями категории и ряда. Пользовательский текст заменяет сгенерированный текст метки. [GetActualLabelText](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabel/getactuallabeltext/) возвращает полученную строку метки в обоих случаях. Проверяйте [IsVisible](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabel/isvisible/) отдельно, как показано выше, когда нужно извлечь только видимые метки.
 
-## **Установка расстояния подписи от оси**
+## **Управление метками данных за пределами максимального значения оси**
 
-Используйте [LabelOffset](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/iaxis/labeloffset/) для управления расстоянием между подписями оси категорий и самой осью. Значение представляет собой процент от максимального размера шрифта подписей оси. Этот пример создаёт сгруппированную столбчатую диаграмму и задаёт смещение подписей горизонтальной оси равным 500. Эта настройка влияет на подписи оси категорий, а не на подписи, привязанные к отдельным точкам данных.
+Когда диапазон оси задаётся вручную, некоторые точки данных могут превышать её максимум. Используйте [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) для управления отображением их меток данных. Эта настройка меняет видимость меток; она не меняет диапазон оси или исходные значения данных.
+
+В примере ниже создаётся 2D сгруппированная столбчатая диаграмма со значениями 60 и 120. Для вертикальной оси устанавливается [IsAutomaticMaxValue](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) в `false` и [MaxValue](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/iaxis/maxvalue/) в 100. На первом слайде разрешены метки за пределами максимума; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+
+Включите метки значений с помощью [ShowValue](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/showvalue/). Настройка уровня диаграммы не включает отображение значений сама по себе и не переопределяет отключённое отображение значений отдельной метки. В этом примере включаются значения для всего ряда и используется [Position](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/position/) для размещения меток на внешнем конце каждого столбца.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var firstCategory = workbook.GetCell(0, 1, 0, "Within range");
+var secondCategory = workbook.GetCell(0, 2, 0, "Above maximum");
+
+chart.ChartData.Categories.Add(firstCategory);
+chart.ChartData.Categories.Add(secondCategory);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+
+var firstValue = workbook.GetCell(0, 1, 1, 60);
+var secondValue = workbook.GetCell(0, 2, 1, 120);
+
+series.DataPoints.AddDataPointForBarSeries(firstValue);
+series.DataPoints.AddDataPointForBarSeries(secondValue);
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 100;
+chart.ShowDataLabelsOverMaximum = true;
+
+var secondSlide = presentation.Slides.AddClone(slide);
+var secondChart = (IChart)secondSlide.Shapes[0];
+secondChart.ShowDataLabelsOverMaximum = false;
+
+presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+```
+
+Ниже показаны сохранённые слайды, отрисованные в Microsoft PowerPoint. При `true` метка **120** видна у верхней границы; при `false` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+В этом примере используется 2D столбчатая диаграмма со значительной осью. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимального значения оси, которое можно ограничить этим способом.
+{{% /alert %}}
+
+## **Установка расстояния метки от оси**
+
+Используйте [LabelOffset](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/iaxis/labeloffset/) для управления расстоянием между метками категориальной оси и осью. Значение представляет собой процент от максимального размера шрифта меток оси. Этот пример создаёт сгруппированную столбчатую диаграмму и устанавливает смещение меток горизонтальной оси на 500. Эта настройка влияет на метки категориальной оси, а не на метки, прикреплённые к отдельным точкам данных.
 
 ```csharp
 using Aspose.Slides;
@@ -239,11 +305,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Регулировка положения подписи**
+## **Регулирование положения метки**
 
-На круговой диаграмме скорректируйте позиции подписей данных, чтобы улучшить интервалы и освободить место для выносных линий.
+На круговой диаграмме отрегулируйте положения меток данных, чтобы улучшить распределение и освободить место для линий‑выноски.
 
-Этот пример отображает значение первой точки данных, размещает её подпись за пределами сектора и корректирует смещения [X](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ilayoutable/x/) и [Y](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ilayoutable/y/). Эти смещения указаны относительно ширины и высоты диаграммы соответственно.
+В этом примере отображается значение первой точки данных, её метка размещается за пределом сектора, а смещения [X](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ilayoutable/x/) и [Y](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ilayoutable/y/) настраиваются. Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
 
 ```csharp
 using Aspose.Slides;
@@ -252,6 +318,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
 var series = chart.ChartData.Series;
 
@@ -264,18 +331,15 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Круговая диаграмма с отрегулированным положением подписи данных](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением метки данных](pie-chart-adjusted-label.png)
 
-## **Часто задаваемые вопросы**
+## **Вопросы и ответы**
 
-**Как предотвратить наложение подписей данных на перегруженных диаграммах?**
+**Как предотвратить наложение меток данных на плотных диаграммах?**  
+Сочетайте автоматическое размещение меток, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте метки только для экстремальных значений или ключевых точек.
 
-Комбинируйте автоматическое размещение подписей, выносные линии и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте подписи лишь для экстремальных значений или ключевых точек.
+**Как отключить метки только для нулевых, отрицательных или пустых значений?**  
+Отфильтруйте точки данных перед включением меток и отключите отображение для значений 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
 
-**Как отключить подписи только для нулевых, отрицательных или пустых значений?**
-
-Отфильтруйте точки данных перед включением подписей и отключите отображение для значений, равных 0, отрицательных значений или отсутствующих значений согласно заданному правилу.
-
-**Как обеспечить единообразный стиль подписи при экспорте в PDF/изображения?**
-
-Явно задайте семейство шрифта и размер и проверьте, что шрифт доступен в среде рендеринга, чтобы избежать автоматического подбора альтернатив.
+**Как обеспечить согласованный стиль меток при экспорте в PDF/изображения?**  
+Явно задайте семейство шрифта и размер, а также убедитесь, что шрифт доступен в среде рендеринга, чтобы избежать подстановки.

@@ -1,13 +1,13 @@
 ---
-title: Hantera diagramdatamärken i presentationer i .NET
-linktitle: Datamärkning
+title: Hantera diagramdatapetiketter i presentationer i .NET
+linktitle: Datapetikett
 type: docs
 url: /sv/net/chart-data-label/
 keywords:
 - diagram
-- datamärkning
+- datapetikett
 - dataprecision
-- procentsats
+- procent
 - etikettavstånd
 - etikettposition
 - PowerPoint
@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdatamärken i PowerPoint-presentationer med Aspose.Slides för .NET för mer engagerande bilder."
+description: "Lär dig att lägga till och formatera diagramdatapetiketter i PowerPoint-presentationer med Aspose.Slides för .NET för mer engagerande bilder."
 ---
 ## **Introduktion**
 
-Datamärkningar visar information om diagramserier och enskilda datapunkter, vilket hjälper läsarna att identifiera värden och förstå diagrammet. Den här artikeln förklarar hur man formaterar värden, visar procentsatser, läser etiketttext, justerar avstånd för kategoriaxelns etiketter och placerar etiketter i cirkeldiagram.
+Datapetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, styr etiketter utanför axelns maximum, justerar avståndet för kategorialeetiketter och placerar etiketter i pajdiagram.
 
-## **Ställ in dataprecision i diagrammets datamärkningsetiketter**
+## **Ange dataprecision i diagrammets datapetiketter**
 
-Använd [NumberFormatOfValues](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartseries/numberformatofvalues/) för att formatera serievärden. Det här exemplet skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdemärkningar för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
+Använd [NumberFormatOfValues](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartseries/numberformatofvalues/) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar en tusentalsseparator och två decimaler utan att ändra de underliggande värdena.
 
 ```csharp
 using Aspose.Slides;
@@ -45,7 +45,7 @@ presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 
 ## **Visa procent som etiketter**
 
-För ett staplat stapeldiagram beräknas varje värde som en procentandel av dess kategori‑total och texten tilldelas [TextFrameForOverriding](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Detta exempel använder standarddiagramdata och visar procentsatser med två decimaler i en 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram beräknas varje värde som en procentandel av kategori‑summan och texten tilldelas [TextFrameForOverriding](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Detta exempel använder standarddiagramdata och visar procent med två decimaler i en teckenstorlek på 8 punkter. Kategorier med en total på noll hoppas över för att undvika division med noll. Återskapa den anpassade etiketttexten om diagramdata ändras.
 
 ```csharp
 using System;
@@ -55,6 +55,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
 var categoryTotals = new double[chart.ChartData.Categories.Count];
@@ -105,11 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ställ in procenttecken med diagrammets datamärkningar**
+## **Ställ in procenttecken med diagrammets datapetiketter**
 
-När värden lagras som bråk, använd [NumberFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/numberformat/) för att visa procentsatser. Ställ in [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) till `false` för att tillämpa etikettformatet oberoende av källcellerna.
+När värden lagras som bråktal, använd [NumberFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/numberformat/) för att visa procent. Ställ in [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) till `false` för att tillämpa etikettformatet oberoende av källcellerna.
 
-Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje värdepar summerar till 1. Etikettformatet `0.0%` visar 0,30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje värdepar summeras till 1. Etikettformatet `0.0%` visar 0,30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit etiketttext i storlek 10 punkter.
 
 ```csharp
 using System.Drawing;
@@ -119,6 +120,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
@@ -164,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Läs den faktiska texten i datamärkningar**
+## **Läs den faktiska texten för datapetiketter**
 
-Använd [GetActualLabelText](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabel/getactuallabeltext/) för att hämta texten som produceras av en datamärknings inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard [data label format](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som en procentsats, och en annan använder anpassad text från [TextFrameForOverriding](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Använd [GetActualLabelText](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabel/getactuallabeltext/) för att hämta den text som genereras av en datapetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard [data label format](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [TextFrameForOverriding](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -175,6 +177,7 @@ using Aspose.Slides.Charts;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
 chart.ChartData.Series.Clear();
@@ -219,11 +222,74 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75 %` tillsammans med kategori‑ och serienamnen. Anpassad text ersätter den genererade etiketttexten. [GetActualLabelText](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabel/getactuallabeltext/) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [IsVisible](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabel/isvisible/) separat, som visas ovan, när du vill extrahera endast synliga etiketter.
+Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75 %` tillsammans med kategori‑ och serienamn. Anpassad text ersätter den genererade etiketttexten. [GetActualLabelText](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabel/getactuallabeltext/) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [IsVisible](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabel/isvisible/) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
+
+## **Styr datapetiketter utanför axelns maximum**
+
+När du manuellt begränsar ett axelintervall kan vissa datapunkter överstiga dess maximum. Använd [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) för att styra om deras datapetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+
+Exemplet nedan skapar ett 2D klustrat stapeldiagram med värdena 60 och 120. Det ställer in [IsAutomaticMaxValue](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) till `false` och [MaxValue](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/iaxis/maxvalue/) till 100 på den vertikala axeln. Det första bilden tillåter etiketter utanför maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+
+Aktivera värdeetiketter med [ShowValue](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/showvalue/). Diagramnivåinställningen aktiverar inte värdevisning på egen hand och överskrider inte en enskild etiketts inaktiverade värdevisning. Detta exempel aktiverar värden för hela serien och använder [Position](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/idatalabelformat/position/) för att placera etiketter vid den yttre änden av varje stapel.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+var firstCategory = workbook.GetCell(0, 1, 0, "Within range");
+var secondCategory = workbook.GetCell(0, 2, 0, "Above maximum");
+
+chart.ChartData.Categories.Add(firstCategory);
+chart.ChartData.Categories.Add(secondCategory);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Values");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+
+var firstValue = workbook.GetCell(0, 1, 1, 60);
+var secondValue = workbook.GetCell(0, 2, 1, 120);
+
+series.DataPoints.AddDataPointForBarSeries(firstValue);
+series.DataPoints.AddDataPointForBarSeries(secondValue);
+
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+series.Labels.DefaultDataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 100;
+chart.ShowDataLabelsOverMaximum = true;
+
+var secondSlide = presentation.Slides.AddClone(slide);
+var secondChart = (IChart)secondSlide.Shapes[0];
+secondChart.ShowDataLabelsOverMaximum = false;
+
+presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+```
+
+Följande bilder visar de sparade bilderna renderade av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelmaximalt förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Detta exempel använder ett 2D stapeldiagram med en värdeaxel. Diagram utan värdeaxel, såsom paj‑ och donut‑diagram, har inget axelmaximum att begränsa på detta sätt.
+{{% /alert %}}
 
 ## **Ställ in etikettavstånd från en axel**
 
-Använd [LabelOffset](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/iaxis/labeloffset/) för att styra avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentandel av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och sätter den horisontella axelns etikettavstånd till 500. Denna inställning påverkar kategoriaxelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+Använd [LabelOffset](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/iaxis/labeloffset/) för att kontrollera avståndet mellan kategorialeetiketter och axeln. Värdet är en procentandel av den maximala teckenstorleken för axel‑etiketterna. Detta exempel skapar ett klustrat stapeldiagram och sätter den horisontella axel‑etikettens offset till 500. Denna inställning påverkar kategorialeetiketter snarare än etiketter som är kopplade till enskilda datapunkter.
 
 ```csharp
 using Aspose.Slides;
@@ -241,9 +307,9 @@ presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 
 ## **Justera etikettposition**
 
-I ett cirkeldiagram, justera datapunktsetiketternas positioner för att förbättra avståndet och ge plats åt förbindelselänkar.
+I ett pajdiagram justeras datapetikettpositioner för att förbättra avståndet och skapa plats för ledlinjer.
 
-Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och justerar dess [X](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ilayoutable/x/) och [Y](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ilayoutable/y/) förskjutningar. Dessa förskjutningar är relativa till diagrammets bredd respektive höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför delarna och justerar dess [X](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ilayoutable/x/)‑ och [Y](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ilayoutable/y/)‑offsets. Dessa offset är relativa till diagrammets bredd respektive höjd.
 
 ```csharp
 using Aspose.Slides;
@@ -252,6 +318,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
 var series = chart.ChartData.Series;
 
@@ -264,18 +331,18 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Cirkeldiagram med en justerad datapunktsetikettposition](pie-chart-adjusted-label.png)
+![Pajdiagram med justerad datapetikettposition](pie-chart-adjusted-label.png)
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Hur kan jag förhindra att datamärkningar överlappar i täta diagram?**
+**Hur kan jag förhindra att datapetiketter överlappar i täta diagram?**
 
-Kombinera automatisk etikettplacering, förbindelselänkar och minskad teckenstorlek; vid behov, dölj vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Kombinera automatisk etikettplacering, ledlinjer och minskad teckenstorlek; om nödvändigt, dölj vissa fält (t.ex. kategori) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
-**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
+**Hur kan jag inaktivera etiketter endast för noll, negativa eller tomma värden?**
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
+Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa eller saknade enligt en definierad regel.
 
-**Hur kan jag säkerställa en enhetlig etikettstil vid export till PDF/bilder?**
+**Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
 
-Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet finns tillgängligt i renderingsmiljön för att undvika reservteckensnitt.
+Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet finns i renderingsmiljön för att undvika att en reservfont används.

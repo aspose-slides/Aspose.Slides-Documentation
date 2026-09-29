@@ -7,7 +7,7 @@ keywords:
 - gráfico
 - rótulo de dados
 - precisão de dados
-- porcentagem
+- percentual
 - distância do rótulo
 - localização do rótulo
 - PowerPoint
@@ -18,11 +18,11 @@ description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em a
 ---
 ## **Introdução**
 
-Os rótulos de dados exibem informações sobre as séries de gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar os rótulos de gráficos de pizza.
+Os rótulos de dados exibem informações sobre séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos de gráficos de pizza.
 
-## **Definir a Precisão dos Dados nos Rótulos de Dados do Gráfico**
+## **Definir Precisão de Dados nos Rótulos de Dados do Gráfico**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita os rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valores para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
 
 ```php
 use aspose\slides\Presentation;
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -45,9 +46,9 @@ try {
 }
 ```
 
-## **Exibir Porcentagem como Rótulos**
+## **Exibir Percentual como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como uma porcentagem do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pt. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico forem alterados.
+Para um gráfico de colunas empilhadas, calcule cada valor como percentual do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em fonte de 8 pt. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -106,11 +108,11 @@ try {
 }
 ```
 
-## **Definir Símbolo de Porcentagem nos Rótulos de Dados do Gráfico**
+## **Definir Símbolo de Percentual nos Rótulos de Dados do Gráfico**
 
-Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/#setNumberFormat) para exibir porcentagens. Passe `false` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) para aplicar o formato do rótulo independentemente das células de origem.
+Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/#setNumberFormat) para exibir percentuais. Passe `false` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) para aplicar o formato do rótulo independentemente das células de origem.
 
-Este exemplo cria um gráfico de colunas empilhadas de 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, 10 pt.
+Este exemplo cria um gráfico de colunas empilhadas a 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, 10 pt.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -169,7 +172,7 @@ try {
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getActualLabelText) para recuperar o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem, e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Use [getActualLabelText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getActualLabelText) para obter o texto produzido pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como percentual, e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,34 +236,15 @@ try {
 }
 ```
 
-O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo exibe `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto do rótulo gerado. [getActualLabelText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getActualLabelText) devolve a string do rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#isVisible) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+O número armazenado em um ponto de dado permanece `0.75`, mesmo quando seu rótulo mostra `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto de rótulo gerado. [getActualLabelText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#getActualLabelText) devolve a string resultante do rótulo em qualquer caso. Verifique [isVisible](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#isVisible) separadamente, como mostrado acima, quando desejar extrair apenas rótulos visíveis.
 
-## **Definir a Distância do Rótulo a partir de um Eixo**
+## **Controlar Rótulos de Dados Além do Máximo do Eixo**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/pt/php-java/aspose.slides/axis/#setLabelOffset) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias em vez dos rótulos anexados a pontos de dados individuais.
+Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes.
 
-```php
-use aspose\slides\Presentation;
-use aspose\slides\ChartType;
-use aspose\slides\SaveFormat;
+O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Ele passa `false` para [setAutomaticMaxValue](https://reference.aspose.com/slides/pt/php-java/aspose.slides/axis/#setAutomaticMaxValue) e define o máximo em 100 com [setMaxValue](https://reference.aspose.com/slides/pt/php-java/aspose.slides/axis/#setMaxValue) no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
 
-$presentation = new Presentation();
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-
-    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-## **Ajustar a Localização do Rótulo**
-
-Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e deixar espaço para as linhas de chamada.
-
-Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#setX) e [setY](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#setY). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+Habilite rótulos de valor com [setShowValue](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/#setShowValue). A configuração a nível de gráfico não habilita a exibição de valores por si só nem sobrescreve a exibição desabilitada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [setPosition](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/#setPosition) para posicionar os rótulos na extremidade externa de cada coluna.
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +255,95 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `true`, o rótulo **120** fica visível no limite superior; com `false`, ele fica oculto. O rótulo **60** permanece visível, o máximo do eixo continua **100** e o segundo ponto de dado permanece **120** em ambos os casos.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Tipo de Gráfico" %}}
+Este exemplo usa um gráfico de colunas 2D com eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo para limitar dessa forma.
+{{% /alert %}}
+
+## **Definir Distância do Rótulo a partir de um Eixo**
+
+Use [setLabelOffset](https://reference.aspose.com/slides/pt/php-java/aspose.slides/axis/#setLabelOffset) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento dos rótulos do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, não os rótulos vinculados a pontos de dados individuais.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Ajustar Localização do Rótulo**
+
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e criar espaço para as linhas de ligação.
+
+Este exemplo exibe o valor do primeiro ponto de dado, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#setX) e [setY](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/#setY). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -285,15 +359,18 @@ try {
 }
 ```
 
-![Gráfico de pizza com posição de rótulo de dados ajustada](pie-chart-adjusted-label.png)
+![Gráfico de pizza com rótulo de dados ajustado](pie-chart-adjusted-label.png)
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Como posso evitar que os rótulos de dados se sobreponham em gráficos densos?**  
-Combine posicionamento automático de rótulos, linhas de chamada e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos somente para valores extremos ou pontos chave.
+**Como impedir que os rótulos de dados se sobreponham em gráficos densos?**
 
-**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**  
-Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos-chave.
 
-**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**  
-Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar fallback.
+**Como desabilitar rótulos apenas para valores zero, negativos ou vazios?**
+
+Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores iguais a 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituição.

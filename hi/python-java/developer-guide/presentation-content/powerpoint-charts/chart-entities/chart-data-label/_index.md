@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint प्रस्तुतियों में अधिक आकर्षक स्लाइड्स के लिए Aspose.Slides for Python via Java का उपयोग करके चार्ट डेटा लेबल जोड़ना और स्वरूपित करना सीखें।"
+description: "PowerPoint प्रस्तुतियों में अधिक आकर्षक स्लाइड्स के लिए Aspose.Slides for Python via Java का उपयोग करके चार्ट डेटा लेबल जोड़ना और फ़ॉर्मेट करना सीखें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे स्वरूपित करें, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट कैसे पढ़ें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
+डेटा लेबल चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स के बारे में जानकारी दर्शाते हैं, जिससे पाठकों को मानों को पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख मानों को फॉर्मेट करने, प्रतिशत दिखाने, लेबल टेक्स्ट पढ़ने, अक्ष अधिकतम से परे लेबल नियंत्रित करने, श्रेणी अक्ष लेबल स्पेसिंग समायोजित करने, और पाई चार्ट लेबल की स्थिति निर्धारित करने के तरीकों को समझाता है।
 
-## **डेटा लेबल में डेटा सटीकता सेट करें**
+## **चार्ट डेटा लेबल में डेटा सटीकता निर्धारित करें**
 
-सीरीज़ मानों को स्वरूपित करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसकी डेटा टेबल दिखाता है, और पहली सीरीज़ के लिए मान लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हजार विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
+[setNumberFormatOfValues](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) का उपयोग करके सीरीज़ के मानों को फॉर्मेट करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल दिखाता है, और पहले सीरीज़ के लिए मान लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` एक हजार विभाजक और दो दशमलव स्थान प्रदर्शित करता है बिना मूल मानों को बदले।
 
 ```python
 import jpype
@@ -52,7 +52,7 @@ finally:
 
 ## **लेबल के रूप में प्रतिशत दिखाएँ**
 
-स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल का प्रतिशत गणना करें और टेक्स्ट को उस टेक्स्ट फ्रेम में असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल के प्रतिशत के रूप में गणना करें और टेक्स्ट को [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) द्वारा लौटाए गए टेक्स्ट फ्रेम में असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को विभाजन शून्य से बचने के लिए छोड़ा जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः‑गणना करें।
 
 ```python
 import jpype
@@ -66,6 +66,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -107,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **चार्ट डेटा लेबल के साथ प्रतिशत संकेत सेट करें**
+## **चार्ट डेटा लेबल के साथ प्रतिशत संकेत निर्धारित करें**
 
-जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत दिखाने के लिए [setNumberFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setNumberFormat) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत सेल्स से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) को `False` पास करें।
+यदि मान अंश के रूप में संग्रहीत हों, तो [setNumberFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setNumberFormat) का उपयोग करके प्रतिशत दिखाएँ। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) में `False` पास करें।
 
-यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि लम्बवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफेद, 10‑पॉइंट लेबल टेक्स्ट प्रयोग करते हैं।
+यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` `0.30` को 30.0 % के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान का उपयोग करता है। दोनों सीरीज़ में सफेद, 10‑पॉइंट लेबल टेक्स्ट होता है।
 
 ```python
 import jpype
@@ -127,6 +128,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -171,7 +173,7 @@ finally:
 
 ## **डेटा लेबल के वास्तविक टेक्स्ट को पढ़ें**
 
-डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट को प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getActualLabelText) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालते समय, प्रस्तुतिकरण सामग्री खोजते समय, या जेनरेटेड चार्ट्स को वैध करते समय उपयोगी है। नीचे दिए गए उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को संयोजित करता है। एक पॉइंट अपना मान प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) से कस्टम टेक्स्ट उपयोग करता है।
+[getActualLabelText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getActualLabelText) का उपयोग करके डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त करें। यह रिपोर्ट के लिए लेबल निकालने, प्रस्तुति सामग्री खोजने, या उत्पन्न चार्ट की वैधता जांचने में उपयोगी है। नीचे के उदाहरण में डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को जोड़ता है। एक पॉइंट अपना मान प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) से कस्टम टेक्स्ट उपयोग करता है।
 
 ```python
 import jpype
@@ -185,6 +187,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -231,11 +234,81 @@ finally:
     presentation.dispose()
 ```
 
-डेटा पॉइंट में संग्रहीत संख्या `0.75` ही रहती है, भले ही उसका लेबल `75%` के साथ श्रेणी और सीरीज़ नाम दिखाए। कस्टम टेक्स्ट जेनरेटेड लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getActualLabelText) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। जब आप केवल दृश्य लेबल निकालना चाहते हैं, तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#isVisible) को अलग से जांचें।
+डेटा पॉइंट में संग्रहीत संख्या `0.75` रहती है, जबकि उसका लेबल `75%` के साथ श्रेणी और सीरीज़ नाम दिखा सकता है। कस्टम टेक्स्ट जेनरेटेड लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getActualLabelText) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। जैसा कि ऊपर दिखाया गया है, केवल दृश्यमान लेबल निकालने के लिए [isVisible](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#isVisible) को अलग से जांचें।
 
-## **एक अक्ष से लेबल दूरी सेट करें**
+## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करें**
 
-[setLabelOffset](https://reference.aspose.com/slides/hi/python-java/aspose.slides/axis/#setLabelOffset) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच दूरी नियंत्रित करें। यह मूल्य अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा पॉइंट के साथ जुड़े लेबल के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+जब आप मैन्युअल रूप से अक्ष रेंज सीमित करते हैं, तो कुछ डेटा पॉइंट्स उसका अधिकतम पार कर सकते हैं। [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) का उपयोग करके तय करें कि उनके डेटा लेबल दिखाए जाएँ या नहीं। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष रेंज या मूल डेटा मानों को नहीं बदलती।
+
+नीचे का उदाहरण 60 और 120 के मानों के साथ 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/axis/#setAutomaticMaxValue) में `False` पास करता है और लंबवत अक्ष पर [setMaxValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/axis/#setMaxValue) के साथ अधिकतम 100 सेट करता है। पहली स्लाइड में अधिकतम से परे लेबल सक्षम होते हैं; उसी स्लाइड की एक कॉपी में इन्हें निष्क्रिय किया गया है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सहेजी गई हैं।
+
+[setShowValue](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setShowValue) के साथ मान लेबल सक्षम करें। चार्ट‑स्तर की यह सेटिंग स्वयं मान प्रदर्शित नहीं करती और न ही व्यक्तिगत लेबल की डिसेबल्ड वैल्यू डिस्प्ले को ओवरराइड करती है। यह उदाहरण पूरी सीरीज़ के लिए मान सक्षम करता है और [setPosition](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setPosition) का प्रयोग करके प्रत्येक कॉलम के बाहरी सिरे पर लेबल रखता है।
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+निम्नलिखित चित्र Microsoft PowerPoint द्वारा रेंडर की गई सहेजी गई स्लाइड्स को दर्शाते हैं। `True` होने पर लेबल **120** ऊपर की सीमा पर दृश्यमान रहता है; `False` होने पर वह छिप जाता है। लेबल **60** दृश्यमान रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा पॉइंट दोनों स्थितियों में **120** बना रहता है।
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+यह उदाहरण 2D कॉलम चार्ट को मान अक्ष के साथ उपयोग करता है। मान अक्ष के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार की अक्ष अधिकतम सीमा नहीं रखते।
+{{% /alert %}}
+
+## **अक्ष से लेबल की दूरी निर्धारित करें**
+
+[setLabelOffset](https://reference.aspose.com/slides/hi/python-java/aspose.slides/axis/#setLabelOffset) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी नियंत्रित करें। यह मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार के प्रतिशत के रूप में होता है। यह उदाहरण क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफसेट को 500 सेट करता है। यह सेटिंग श्रेणी अक्ष लेबल को प्रभावित करती है, न कि व्यक्तिगत डेटा पॉइंट्स से जुड़े लेबल को।
 
 ```python
 import jpype
@@ -260,9 +333,9 @@ finally:
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट पर, स्पेसिंग बेहतर करने और लीडर लाइनों के लिए जगह बनाने हेतु डेटा लेबल स्थितियों को समायोजित करें।
+पाई चार्ट पर, डेटा लेबल की स्थिति को समायोजित करके स्पेसिंग सुधारें और लीडर लाइनों के लिए जगह बनायें।
 
-यह उदाहरण पहले डेटा पॉइंट का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#setX) और [setY](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#setY) का उपयोग करके उसके क्षैतिज और ऊर्ध्वाधर ऑफ़सेट को समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+यह उदाहरण पहले डेटा पॉइंट का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#setX) एवं [setY](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#setY) के माध्यम से क्षैतिज व लंबवत ऑफसेट समायोजित करता है। ये ऑफसेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```python
 import jpype
@@ -276,6 +349,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     
@@ -290,15 +364,18 @@ finally:
     presentation.dispose()
 ```
 
-![समायोजित डेटा लेबल स्थिति वाला पाई चार्ट](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**भरे हुए चार्ट्स में डेटा लेबल के ओवरलैप को कैसे रोकें?**  
-स्वचालित लेबल प्लेसमेंट, लीडर लाइन्स और फ़ॉन्ट आकार घटाकर संयोजन करें; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छिपाएँ या केवल अत्यधिक मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
+**घने चार्ट्स में डेटा लेबल ओवरलैप को कैसे रोकूँ?**
 
-**शून्य, नकारात्मक या खाली मानों के लिए केवल लेबल को कैसे अक्षम करें?**  
-लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद कर दें।
+स्वचालित लेबल प्लेसमेंट, लीडर लाइनों, और छोटे फ़ॉन्ट आकार का मिश्रण करें; यदि आवश्यक हो, तो कुछ फ़ील्ड्स (जैसे श्रेणी) को छिपाएँ या केवल अत्यधिक या प्रमुख मानों के लिए लेबल दिखाएँ।
 
-**PDF/चित्रों में निर्यात करते समय एकसमान लेबल शैली कैसे सुनिश्चित करें?**  
-फ़ॉन्ट फैAMILY और आकार स्पष्ट रूप से सेट करें और रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध है यह पुष्टि करें ताकि फ़ॉलबैक न हो।
+**शून्य, नकारात्मक या खाली मानों के लिए लेबल केवल कैसे निष्क्रिय करूँ?**
+
+लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और 0, नकारात्मक या अनुपस्थित मानों के लिए डिस्प्ले को बंद करें, जैसा कि परिभाषित नियम में बताया गया है।
+
+**PDF/इमेज एक्सपोर्ट पर लेबल शैली सुसंगत कैसे रखें?**
+
+फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें तथा यह सुनिश्चित करें कि रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध हो, ताकि फ़ॉन्ट फॉलबैक न हो।

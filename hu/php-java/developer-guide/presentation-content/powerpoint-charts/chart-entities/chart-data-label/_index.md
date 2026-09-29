@@ -1,5 +1,5 @@
 ---
-title: Diagram adatcímkék kezelése bemutatókban PHP használatával
+title: Diagram adatcímkék kezelése prezentációkban PHP használatával
 linktitle: Adatcímke
 type: docs
 url: /hu/php-java/chart-data-label/
@@ -9,20 +9,20 @@ keywords:
 - adatpont pontosság
 - százalék
 - címke távolság
-- címke helyzet
+- címke elhelyezés
 - PowerPoint
-- bemutató
+- prezentáció
 - PHP
 - Aspose.Slides
-description: "Tanulja meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint bemutatókban az Aspose.Slides for PHP via Java segítségével, hogy vonzóbb diák legyenek."
+description: "Tanulja meg, hogyan adjon hozzá és formázzon diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for PHP via Java használatával, hogy érdekfeszítőbb diák készüljenek."
 ---
 ## **Bevezetés**
 
-Az adatcímkék információkat jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk bemutatja, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható ki a címkeszöveg, hogyan állítható be a kategória tengely címkéinek távolsága, valamint hogyan helyezhetők el a kördiagram címkéi.
+Az adatcímkék információt jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk elmagyarázza, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható ki a címke szövege, hogyan vezérelhetők a címkék a tengely maximális értéke fölött, hogyan állítható be a kategória tengely címke távolsága, és hogyan helyezhetők el a tortadiagram címkék.
 
-## **Az adatcímkék pontosságának beállítása a diagram adatcímkéiben**
+## **Adatpontok pontosságának beállítása a diagram adatcímkéiben**
 
-Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) metódust a sorozatértékek formázásához. Ez a példa alapértelmezett adatokkal hoz létre egy vonaldiagramot, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozathoz. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
+Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) metódust a sorozatértékek formázásához. Ez a példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozathoz. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
 
 ```php
 use aspose\slides\Presentation;
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -47,7 +48,7 @@ try {
 
 ## **Százalék megjelenítése címkeként**
 
-Halmozott oszlopdiagram esetén számítsa ki az egyes értékeket a kategória összegének százalékaként, és rendelje a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) által visszaadott szövegdobozhoz. Ez a példa az alapértelmezett diagramadatokat használja, és két tizedesjegy pontosságú százalékot jelenít meg 8 pontos betűmérettel. A null összegű kategóriákat kihagyja a nullával való osztás elkerülése érdekében. Számítsa újra az egyedi címkeszöveget, ha a diagram adatai megváltoznak.
+Egymásra rakott oszlopdiagram esetén számolja ki minden értéket a kategória összegéhez viszonyított százalékban, és rendelje hozzá a szövegdobozhoz, amelyet a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) ad vissza. Ez a példa az alapértelmezett diagramadatokat használja, és két tizedesjegy pontossággal jeleníti meg a százalékokat 8 pontos betűmérettel. A nulla összegű kategóriákat kihagyja a nullával való osztás elkerülése érdekében. A diagramadatok változása esetén újraszámolja az egyéni címke szöveget.
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -106,11 +108,11 @@ try {
 }
 ```
 
-## **Százalék jel beállítása a diagram adatcímkéiben**
+## **Százalékjel beállítása diagram adatcímkékkel**
 
-Ha az értékek törtként vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/#setNumberFormat) metódust a százalékok megjelenítéséhez. Adja át a `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) metódusnak, hogy a címke formátuma független legyen a forráscelláktól.
+Ha az értékek tört formájában vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/#setNumberFormat) metódust a százalékok megjelenítéséhez. Adjon át `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) metódusnak, hogy a címke formátumát a forráscelláktól függetlenül alkalmazza.
 
-Ez a példa 100%-os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategórián keresztül. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30-at 30.0%-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
+Ez a példa egy 100%-os egymásra rakott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategórián keresztül. Minden értékpár összege 1. A címke formátuma `0.0%` 0,30-at 30,0%-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -167,9 +170,9 @@ try {
 }
 ```
 
-## **Az adatcímkék tényleges szövegének kiolvasása**
+## **Az adatcímkék tényleges szövegének lekérdezése**
 
-Használja a [getActualLabelText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getActualLabelText) metódust a címke beállításai által generált szöveg lekérdezéséhez. Ez hasznos a címkék jelentésekbe való kinyerésekor, a bemutató tartalmának keresésekor vagy a generált diagramok ellenőrzésekor. Az alábbi példában az alapértelmezett [adatcímke formátum](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/) egyesíti a kategória nevét, a sorozat nevét és az értéket. Egy pont a értékét százalékosan formázza, egy másik pedig egyedi szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) által visszaadott szövegdobozból.
+Használja a [getActualLabelText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getActualLabelText) metódust a data címke beállításai által előállított szöveg lekéréséhez. Ez hasznos jelentésekhez címkék kinyerésekor, prezentációs tartalom keresésekor vagy a generált diagramok validálásakor. Az alábbi példában az alapértelmezett [adatcímke formátum](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/) kombinálja minden kategória nevét, sorozat nevét és értékét. Egy pont értékét százalékban formázza, a másik egyedi szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) által.
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,34 +236,15 @@ try {
 }
 ```
 
-A data pontban tárolt szám továbbra is `0.75`, még akkor is, ha a címke `75%`‑ként jelenik meg a kategória és a sorozat neveivel együtt. Az egyedi szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getActualLabelText) mindkét esetben a kapott címkesztringet adja vissza. A [isVisible](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#isVisible) állapotot külön ellenőrizze, ahogy fent is látható, ha csak a látható címkéket szeretné kinyerni.
+Az adatpontban tárolt szám továbbra is `0.75`, még akkor is, ha a címke `75%`-ot jelenít meg a kategória és sorozat neveivel együtt. Az egyedi szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#getActualLabelText) mindkét esetben a kapott címkesztringet adja vissza. Ellenőrizze külön a [isVisible](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#isVisible) állapotát, ahogy fent is látható, ha csak a látható címkéket szeretné kinyerni.
 
-## **Címke távolságának beállítása egy tengelytől**
+## **Adatcímkék vezérlése a tengely maximális értéke fölött**
 
-Használja a [setLabelOffset](https://reference.aspose.com/slides/hu/php-java/aspose.slides/axis/#setLabelOffset) metódust a kategória tengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória tengely címkéire hat, nem pedig a egyedi adatpontokhoz csatolt címkékre.
+Ha manuálisan korlátozza egy tengely tartományát, egyes adatpontok meghaladhatják a maximális értéket. Használja a [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) metódust annak vezérlésére, hogy a címkék megjelenjenek-e. Ez a beállítás a címke láthatóságát változtatja; nem módosítja a tengely tartományát vagy a mögöttes adatértékeket.
 
-```php
-use aspose\slides\Presentation;
-use aspose\slides\ChartType;
-use aspose\slides\SaveFormat;
+Az alábbi példa egy 2D csoportosított oszlopdiagramot hoz létre 60 és 120 értékekkel. `false` értéket ad a [setAutomaticMaxValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/axis/#setAutomaticMaxValue) metódusnak, és a függőleges tengelyen a [setMaxValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/axis/#setMaxValue) metódussal 100-ra állítja a maximumot. Az első dia engedélyezi a maximumnál nagyobb címkéket; egy másolat letiltja őket. Mindkét dia a `DataLabelsOverMaximum.pptx` fájlban van mentve.
 
-$presentation = new Presentation();
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-
-    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-## **Címkehelyzet módosítása**
-
-Kördiagram esetén állítsa be az adatcímkék pozícióját a távolság javítása és a vezetővonalak számára megfelelő hely biztosítása érdekében.
-
-Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és a vízszintes és függőleges eltolásokat a [setX](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#setX) és a [setY](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#setY) metódusokkal állítja be. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva értendők.
+Az értékcímkéket a [setShowValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/#setShowValue) metódussal engedélyezheti. A diagram szintű beállítás önmagában nem jeleníti meg az értékeket, és nem írja felül egy egyedi címke letiltott értékkijelzését. Ez a példa az egész sorozatra engedélyezi az értékek megjelenítését, és a [setPosition](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabelformat/#setPosition) metódust használja a címkék oszlopok külső végére helyezéséhez.
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +255,95 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az alábbi képek a Microsoft PowerPoint által renderelt mentett diákot mutatják. `true` értéknél a **120** címke látható a felső határnál; `false` esetén rejtve van. A **60** címke továbbra is látható, a tengely maximális értéke **100** marad, és a második adatpont **120** marad mindkét esetben.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint-diagram, amely a 120 értékcímkét mutatja 100-as tengelymaximummal](data-labels-over-maximum-true.png) | ![PowerPoint-diagram, amely elrejti a 120 értékcímkét 100-as tengelymaximummal](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Ez a példa egy 2D oszlopdiagramot használ értéktengellyel. Az olyan diagramok, amelyeknek nincs értéktengelyük, például a kör- és a fánkdiagramok, nem rendelkeznek tengely maximummal, amelyet így korlátozni lehetne.
+{{% /alert %}}
+
+## **Címke távolságának beállítása egy tengelytől**
+
+Használja a [setLabelOffset](https://reference.aspose.com/slides/hu/php-java/aspose.slides/axis/#setLabelOffset) metódust a kategória tengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória tengely címkékre vonatkozik, nem pedig az egyes adatpontokhoz csatolt címkékre.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Címkehelyzet állítása**
+
+Kördiagram esetén állítsa be az adatcímkék helyzetét a térköz javítása és a vezetővonalak számára hely biztosítása érdekében.
+
+Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülére helyezi, és a horizontális és vertikális eltolásokat a [setX](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#setX) és [setY](https://reference.aspose.com/slides/hu/php-java/aspose.slides/datalabel/#setY) metódusokkal állítja be. Ezek az eltolások a diagram szélességére és magasságára vonatkoznak.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -285,18 +359,18 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Kördiagram a módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
 
 ## **GYIK**
 
-**Hogyan előzhetem meg, hogy az adatcímkék átfedjék egymást sűrű diagramokon?**
+**Hogyan előzhetem meg az adatcímkék átfedését sűrű diagramokon?**
 
-Kombinálja az automatikus címke elhelyezést, a vezetővonalakat és a kisebb betűméretet; szükség esetén rejtse el egyes mezőket (például a kategóriát), vagy csak a szélső értékeknél vagy kulcspontoknál jelenítse meg a címkéket.
+Kombinálja az automatikus címkeelhelyezést, a vezetővonalakat és a csökkentett betűméretet; szükség esetén rejtse el bizonyos mezőket (például a kategóriát), vagy csak a szélső értékek vagy kulcspontok esetén jelenítse meg a címkéket.
 
-**Hogyan tilthatom le a címkéket csak a nulla, negatív vagy üres értékeknél?**
+**Hogyan tilthatom le a címkéket csak a nulla, negatív vagy üres értékek esetén?**
 
-Szűrje le az adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékek esetén egy meghatározott szabály szerint.
+Szűrje le az adatpontokat a címkék engedélyezése előtt, és egy meghatározott szabály szerint tiltsa le a 0, negatív vagy hiányzó értékek megjelenítését.
 
-**Hogyan biztosítható a következetes címkestílus PDF/képek exportálásakor?**
+**Hogyan biztosíthatom a címkestílus egységességét PDF-/képek exportálásakor?**
 
-Állítsa be explicit módon a betűtípust és méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje a tartalék betűtípus használatát.
+Állítsa be kifeexplicit módon a betűcsaládot és méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelő környezetben, hogy elkerülje a helyettesítést.

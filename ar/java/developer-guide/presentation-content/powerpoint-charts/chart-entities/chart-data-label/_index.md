@@ -9,20 +9,20 @@ keywords:
 - دقة البيانات
 - نسبة مئوية
 - مسافة التسمية
-- موضع التسمية
+- مكان التسمية
 - PowerPoint
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Java للحصول على شرائح أكثر جذبًا."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Java للحصول على شرائح أكثر جاذبية."
 ---
-## **مقدمة**
+## **المقدمة**
 
-تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القارئ على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، عرض النسب المئوية، قراءة نص التسمية، ضبط تباعد تسميات محور الفئات، وتحديد موضع تسميات مخطط الفطيرة.
+تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القراء على التعرف على القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات خارج الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئات، وتحديد موضع تسميات مخطط الفطيرة.
 
-## **ضبط دقة البيانات في تسميات مخطط البيانات**
+## **تحديد دقة البيانات في تسميات بيانات المخطط**
 
-استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) لتنسيق قيم السلسلة. يُنشئ هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. يَظهر التنسيق `#,##0.00` فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
+استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) لتنسيق قيم السلسلة. يخلق هذا المثال مخطط خط مع البيانات الافتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يُظهر فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
 
 ```java
 import com.aspose.slides.*;
@@ -30,6 +30,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -43,9 +44,9 @@ try {
 }
 ```
 
-## **عرض النسبة المئوية كتسميات**
+## **عرض النسبة المئوية كعناوين**
 
-للمخطط العمودي المتراكم، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعيّن النص إلى الإطار النصي الذي تُعيده الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط حجم 8 نقاط. يتم تخطي الفئات التي مجموعها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيّرت بيانات المخطط.
+للمخطط العمودي المتراكم، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعين النص إلى إطار النص الذي تُعيده [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بحجم خط 8 نقاط. يتم تخطي الفئات التي مجموعها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
 
 ```java
 import com.aspose.slides.*;
@@ -54,6 +55,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **تعيين علامة النسبة المئوية مع تسميات مخطط البيانات**
+## **تحديد علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-عند حفظ القيم على شكل كسور، استخدم [setNumberFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) لعرض النسب المئوية. مرّر `false` إلى الدالة [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) لتطبيق تنسيق التسمية بشكل مستقل عن الخلايا المصدر.
+عندما تُخزن القيم ككسر، استخدم [setNumberFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) لعرض النسب المئوية. مرّر `false` إلى [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) لتطبيق تنسيق التسمية بشكل مستقل عن الخلايا المصدر.
 
-هذا المثال يُنشئ مخططًا عموديًا متراكمًا بنسبة 100٪ بسلسلتين (حمراء وزرقاء) عبر أربع فئات. كل زوج من القيم يساوي 1. يُظهر تنسيق التسمية `0.0%` القيمة 0.30 كـ30.0٪، بينما يستخدم المحور العمودي منزلتين عشريتين. كلا السلسلتين تستخدم نص تسميات أبيض بحجم 10 نقاط.
+هذا المثال يُنشئ مخطط عمودي متراكم بنسبة 100% مع سلسلة حمراء وسلسلة زرقاء عبر أربع فئات. كل زوج من القيم يساوي 1. تنسيق التسمية `0.0%` يُظهر 0.30 كـ 30.0%، بينما يستخدم المحور العمودي مكانين عشريين. كلا السلسلتين تستخدم نصًا أبيض بحجم 10 نقاط.
 
 ```java
 import com.aspose.slides.*;
@@ -114,6 +116,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -161,7 +164,7 @@ try {
 
 ## **قراءة النص الفعلي لتسميات البيانات**
 
-استخدم [getActualLabelText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabel/#getActualLabelText--) لاسترجاع النص الذي تنتجه إعدادات تسمية البيانات. يكون ذلك مفيدًا عند استخراج التسميات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات المُولَّدة. في المثال أدناه، يجمع [تنسيق تسمية البيانات](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/) الافتراضي كلًا من اسم الفئة، اسم السلسلة، والقيمة. يَظهر أحد النقاط قيمته كنسبة مئوية، وآخر يستخدم نصًا مخصصًا من الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+استخدم [getActualLabelText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabel/#getActualLabelText--) لاسترجاع النص الناتج عن إعدادات تسمية البيانات. يكون هذا مفيدًا عند استخراج التسميات للتقارير، أو البحث في محتوى العروض التقديمية، أو التحقق من صحة المخططات المُولدة. في المثال أدناه، يجمع تنسيق [تسمية البيانات](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/) الافتراضي كلًا من اسم الفئة واسم السلسلة والقيمة. نقطة واحدة تُنسق قيمتها كنسبة مئوية، وأخرى تستخدم نصًا مخصصًا من [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -169,6 +172,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -220,11 +224,15 @@ try {
 }
 ```
 
-الرقم المخزن في نقطة البيانات يبقى `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل النص المُولَّد للتسمية. تُعيد الدالة [getActualLabelText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabel/#getActualLabelText--) سلسلة التسمية الناتجة في الحالتين. تحقق من الدالة [isVisible](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabel/#isVisible--) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات المرئية فقط.
+العدد المخزن في نقطة البيانات يظل `0.75`، حتى عندما تُظهر التسمية `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل النص المُولد للتسمية. تُعيد [getActualLabelText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabel/#getActualLabelText--) سلسلة التسمية الناتجة في الحالتين. تحقق من [isVisible](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabel/#isVisible--) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
 
-## **تعيين مسافة التسمية عن المحور**
+## **التحكم في تسميات البيانات خارج الحد الأقصى للمحور**
 
-استخدم [setLabelOffset](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaxis/#setLabelOffset-int-) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من أقصى حجم للخط لتسميات المحور. يُنشئ هذا المثال مخططًا عموديًا مجمعًا ويضبط إزاحة تسميات المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
+عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات الحد الأقصى. استخدم [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) للتحكم فيما إذا كانت تسميات بياناتها تُعرض. هذا الإعداد يغيّر رؤية التسمية؛ لا يغيّر نطاق المحور أو القيم الأساسية للبيانات.
+
+يخلق المثال أدناه مخطط عمودي مُجَمَّع ثنائي الأبعاد بقيم 60 و120. يمرّر `false` إلى [setAutomaticMaxValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) ويضبط الحد الأقصى إلى 100 باستخدام [setMaxValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaxis/#setMaxValue-double-) على المحور العمودي. الشريحة الأولى تسمح بالتسميات خارج الحد الأقصى؛ نسخة من تلك الشريحة تُعطِّلها. تُحفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`.
+
+فعّل تسميات القيم باستخدام [setShowValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). إعداد مستوى المخطط لا يُفعِّل عرض القيم بحد ذاته ولا يتجاوز إيقاف عرض قيمة تسمية فردية. يُفعِّل هذا المثال القيم للسلسلة بالكامل ويستخدم [setPosition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idatalabelformat/#setPosition-int-) لوضع التسميات في الطرف الخارجي لكل عمود.
 
 ```java
 import com.aspose.slides.*;
@@ -232,6 +240,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+الصورة التالية تُظهر الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. مع `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ مع `false`، تكون مخفية. تظل التسمية **60** مرئية، يبقى الحد الأقصى للمحور **100**، وتظل نقطة البيانات الثانية **120** في الحالتين.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![مخطط PowerPoint يُظهر تسمية القيمة 120 مع حد أقصى للمحور 100](data-labels-over-maximum-true.png) | ![مخطط PowerPoint يخفي تسمية القيمة 120 مع حد أقصى للمحور 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+يستخدم هذا المثال مخطط عمودي ثلاثي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل مخططات الفطيرة والدونات، لا تمتلك حدًا أقصى للمحور لتقييده بهذه الطريقة.
+{{% /alert %}}
+
+## **تعيين مسافة التسمية من المحور**
+
+استخدم [setLabelOffset](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaxis/#setLabelOffset-int-) للتحكم في المسافة بين تسميات محور الفئات والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم الخط لتسميات المحور. هذا المثال يُنشئ مخطط عمودي مجمّع ويضبط إزاحة تسمية المحور الأفقي إلى 500. هذا الإعداد يؤثر على تسميات محور الفئات بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -241,11 +311,11 @@ try {
 }
 ```
 
-## **ضبط موقع التسمية**
+## **ضبط موضع التسمية**
 
 في مخطط الفطيرة، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط.
 
-يعرض هذا المثال قيمة أول نقطة بيانات، يضع تسميتها خارج الشريحة، ويضبط إزاحاتها الأفقية والرئيسية باستخدام [setX](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ilayoutable/#setX-float-) و[setY](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ilayoutable/#setY-float-). هذه الإزاحات نسبية إلى عرض المخطط وارتفاعه على التوالي.
+يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويُعدِّل إزاحتها الأفقية والعمودية باستخدام [setX](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ilayoutable/#setX-float-) و[setY](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ilayoutable/#setY-float-). هذه الإزاحات نسبية إلى عرض المخطط وارتفاعه على التوالي.
 
 ```java
 import com.aspose.slides.*;
@@ -253,6 +323,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -268,18 +339,15 @@ try {
 }
 ```
 
-![مخطط فطيرة مع موقع تسمية بيانات مُعدَّل](pie-chart-adjusted-label.png)
+![مخطط فطيرة مع موضع تعديل لتسمية البيانات](pie-chart-adjusted-label.png)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني منع تداخل تسميات البيانات في المخططات المكتظة؟**
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**  
+اجمع بين وضع التسمية التلقائي، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو أظهر التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
 
-استخدم توزيع تلقائي للتسمية، وربط الخطوط، وتقليل حجم الخط؛ إذا لزم الأمر، اخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
+**كيف يمكنني إيقاف تشغيل التسميات فقط للقيم الصفرية أو السلبية أو الفارغة؟**  
+صفِّ نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تكون 0 أو سلبية أو مفقودة وفقًا لقاعدة محددة.
 
-**كيف يمكنني إلغاء تفعيل التسميات للقيم الصفرية أو السلبية أو الفارغة؟**
-
-قم بترشيح نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السلبية أو القيم المفقودة وفقًا لقاعدة محددة.
-
-**كيف أضمن تناسق نمط التسمية عند التصدير إلى PDF/صور؟**
-
-حدد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة العرض لتجنب الانتقال إلى خط بديل.
+**كيف يمكنني ضمان نمط تسمية ثابت عند التصدير إلى PDF/صور؟**  
+حدد عائلة الخط وحجمه صراحةً وتأكد من توفر الخط في بيئة العرض لتجنب الاستخدام الاحتياطي.

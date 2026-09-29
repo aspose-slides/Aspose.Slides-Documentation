@@ -14,15 +14,15 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat popisky dat v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro PHP přes Java pro poutavější snímky."
+description: "Naučte se přidávat a formátovat popisky dat v grafech v PowerPoint prezentacích pomocí Aspose.Slides pro PHP přes Java pro poutavější snímky."
 ---
 ## **Úvod**
 
-Popisky dat zobrazují informace o sériích grafu a jednotlivých bodech dat, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisků, upravovat rozestupy popisků osy kategorií a umisťovat popisky v koláčových grafech.
+Popisky dat zobrazují informace o sériích grafu a jednotlivých datových bodech, pomáhají čtenářům rozpoznat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, ovládat popisky nad maximem osy, upravovat rozestup popisků na kategoriální ose a umisťovat popisky v koláčových grafech.
 
-## **Nastavení přesnosti dat v popiscích grafu**
+## **Nastavení přesnosti dat v popiscích dat v grafu**
 
-Pro formátování hodnot sérií použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartseries/#setNumberFormatOfValues). Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první sérii. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
+Použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) k formátování hodnot sérií. Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první sérii. Formát `#,##0.00` zobrazí oddělovač tisíců a dvě desetinná místa, aniž by změnil podkladové hodnoty.
 
 ```php
 use aspose\slides\Presentation;
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -45,9 +46,9 @@ try {
 }
 ```
 
-## **Zobrazení procent jako popisků**
+## **Zobrazit procenta jako popisky**
 
-Pro sloupcový graf se zobrazením vypočítejte každou hodnotu jako procento celkového součtu kategorie a přiřaďte text do textového rámce vráceného metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy v písmeni o velikosti 8 bodů. Kategorie s nulovým součtem jsou přeskočeny, aby se zabránilo dělení nulou. Přepočítejte vlastní text popisku, pokud se data grafu změní.
+U sloupcového grafu s kumulativním uspořádáním vypočítejte každou hodnotu jako procento celkové hodnoty své kategorie a přiřaďte text rámci textu vrácenému metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy ve fontu o velikosti 8 bodů. Kategorie s nulovým součtem jsou přeskočeny, aby nedošlo k dělení nulou. Přepočtěte vlastní text popisku, pokud se změní data grafu.
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -106,11 +108,11 @@ try {
 }
 ```
 
-## **Nastavení znaku procenta v popiscích grafu**
+## **Nastavit znak procenta v popiscích dat v grafu**
 
-Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setNumberFormat), aby se zobrazily jako procenta. Předávejte `false` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), aby se formát popisku použil nezávisle na zdrojových buňkách.
+Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setNumberFormat) k zobrazení procent. Přečtěte `false` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), aby se formát popisku použil nezávisle na zdrojových buňkách.
 
-Tento příklad vytvoří 100 % sloupcový graf se zásobníkem s červenou a modrou sérií napříč čtyřmi kategoriemi. Každý pár hodnot dohromady dává 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco svislá osa používá dvě desetinná místa. Obě série používají bílý popisek o velikosti 10 bodů.
+Tento příklad vytvoří 100 % kumulativní sloupcový graf s červenou a modrou sérií ve čtyřech kategoriích. Každý pár hodnot sečte na 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco svislá osa používá dvě desetinná místa. Obě série používají bílý text popisku o velikosti 10 bodů.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -167,9 +170,9 @@ try {
 }
 ```
 
-## **Čtení skutečného textu popisků dat**
+## **Přečíst skutečný text popisků dat**
 
-Pro získání textu vytvořeného nastavením popisku dat použijte [getActualLabelText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getActualLabelText). To je užitečné při extrahování popisků pro zprávy, prohledávání obsahu prezentace nebo při validaci vygenerovaných grafů. V níže uvedeném příkladu výchozí [formát popisků dat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/) kombinuje název každé kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text z [getTextFrameForOverriding](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Použijte [getActualLabelText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getActualLabelText) k získání textu vytvořeného nastavením popisku dat. To je užitečné při extrahování popisků pro zprávy, vyhledávání obsahu prezentace nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [formát popisku dat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/) kombinuje název kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text získaný metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,34 +236,15 @@ try {
 }
 ```
 
-Číslo uložené v datovém bodu zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvy kategorie a série. Vlastní text nahrazuje generovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getActualLabelText) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#isVisible) samostatně, jak je ukázáno výše, pokud chcete extrahovat pouze viditelné popisky.
+Číslo uložené v datovém bodě zůstává `0.75`, i když jeho popisek ukazuje `75 %` společně s názvy kategorie a série. Vlastní text nahradí vygenerovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getActualLabelText) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#isVisible) samostatně, jak je ukázáno výše, pokud chcete extrahovat pouze viditelné popisky.
 
-## **Nastavení vzdálenosti popisku od osy**
+## **Ovládání popisků dat nad maximem osy**
 
-Pro řízení vzdálenosti mezi popisky osy kategorií a samotnou osou použijte [setLabelOffset](https://reference.aspose.com/slides/cs/php-java/aspose.slides/axis/#setLabelOffset). Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví offset popisku vodorovné osy na 500. Toto nastavení ovlivňuje popisky osy kategorií, nikoli popisky připojené k jednotlivým datovým bodům.
+Když ručně omezíte rozsah osy, některé datové body mohou přesáhnout její maximum. Použijte [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) k určení, zda se jejich popisky zobrazí. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové hodnoty dat.
 
-```php
-use aspose\slides\Presentation;
-use aspose\slides\ChartType;
-use aspose\slides\SaveFormat;
+Níže uvedený příklad vytvoří 2D seskupený sloupcový graf s hodnotami 60 a 120. Přečte `false` metodě [setAutomaticMaxValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/axis/#setAutomaticMaxValue) a nastaví maximum na 100 pomocí [setMaxValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/axis/#setMaxValue) na svislé ose. První snímek umožňuje popisky nad maximem; kopie tohoto snímku je zakáže. Obě snímky jsou uloženy v souboru `DataLabelsOverMaximum.pptx`.
 
-$presentation = new Presentation();
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-
-    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-## **Úprava umístění popisku**
-
-V koláčovém grafu upravte umístění popisků dat, aby se zlepšily mezery a vytvořil se prostor pro vodící čáry.
-
-Tento příklad zobrazí hodnotu prvního datového bodu, umístí jeho popisek mimo výseč a upraví jeho vodorovný a svislý offset pomocí [setX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#setY). Tyto offsety jsou relativní k šířce a výšce grafu, respektive.
+Povolit popisky hodnot pomocí [setShowValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setShowValue). Nastavení na úrovni grafu samo o sobě nezpřístupní zobrazení hodnot ani nepřepíše zakázané zobrazení hodnot u jednotlivého popisku. Tento příklad povolí hodnoty pro celou sérii a použije [setPosition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setPosition) k umístění popisků na vnější konec každého sloupce.
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +255,95 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Následující obrázky ukazují uložené snímky vykreslené v Microsoft PowerPoint. S `true` je popisek **120** viditelný na horní hranici; s `false` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![Graf PowerPoint zobrazující popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-true.png) | ![Graf PowerPoint skrývající popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Typ grafu" %}}
+Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako jsou koláčové a prstencové grafy, nemají maximum osy, které by se touto cestou omezovalo.
+{{% /alert %}}
+
+## **Nastavit vzdálenost popisku od osy**
+
+Použijte [setLabelOffset](https://reference.aspose.com/slides/cs/php-java/aspose.slides/axis/#setLabelOffset) k ovládání vzdálenosti mezi popisky kategoriální osy a samotnou osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví posun popisku horizontální osy na 500. Toto nastavení ovlivňuje popisky kategoriální osy spíše než popisky připojené k jednotlivým datovým bodům.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Upravit umístění popisku**
+
+U koláčového grafu upravte umístění popisků dat tak, aby se zlepšila mezera a vytvořil prostor pro čáry ukazatele.
+
+Tento příklad zobrazí hodnotu prvního datového bodu, umístí jeho popisek mimo výseč a upraví jeho horizontální a vertikální posuny pomocí [setX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#setY). Tyto posuny jsou relativní k šířce a výšce grafu.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -285,18 +359,18 @@ try {
 }
 ```
 
-![Koláčový graf s upraveným umístěním popisku dat](pie-chart-adjusted-label.png)
+![Koláčový graf s upravenou polohou popisku dat](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Jak mohu zabránit překrývání popisků dat v hustých grafech?**
 
-Kombinujte automatické umístění popisků, vodící čáry a sníženou velikost písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro extrémní hodnoty či klíčové body.
+Kombinujte automatické umístění popisků, čáry ukazatele a zmenšení velikosti písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazujte popisky jen pro extrémní hodnoty či klíčové body.
 
 **Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**
 
-Filtrování datových bodů před povolením popisků a vypnutí zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+Filtrujte datové body před povolením popisků a vypněte zobrazování pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
 
-**Jak zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
+**Jak zajistit jednotný styl popisků při exportu do PDF/obrázků?**
 
-Explicitně nastavte rodinu písma a velikost a ověřte, že je písmo dostupné v prostředí vykreslování, aby nedošlo k náhradě.
+Explicitně nastavte rodinu písma a velikost a ověřte, že písmo je dostupné v prostředí vykreslování, aby se předešlo náhradě fontu.

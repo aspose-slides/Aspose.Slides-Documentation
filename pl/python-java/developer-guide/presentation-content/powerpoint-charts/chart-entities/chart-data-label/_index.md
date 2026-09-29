@@ -1,5 +1,5 @@
 ---
-title: Zarządzaj etykietami danych wykresu w prezentacjach przy użyciu Pythona
+title: Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu Pythona
 linktitle: Etykieta danych
 type: docs
 url: /pl/python-java/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona poprzez Java, aby tworzyć bardziej angażujące slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona poprzez Javę, aby uzyskać bardziej atrakcyjne slajdy."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
+Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom identyfikować wartości i rozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, sterować etykietami poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
 
-## **Ustaw precyzję danych w etykietach danych wykresu**
+## **Ustaw precyzję danych w etykietach wykresu**
 
-Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#setNumberFormatOfValues), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z danymi domyślnymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie cyfry po przecinku, nie zmieniając wartości podstawowych.
+Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chartseries/#setNumberFormatOfValues), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca po przecinku bez zmiany wartości bazowych.
 
 ```python
 import jpype
@@ -50,9 +50,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Wyświetl procenty jako etykiety**
+## **Wyświetl procent jako etykiety**
 
-Dla wykresu słupkowego skumulowanego oblicz każdą wartość jako procent sumy kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce o rozmiarze 8 punktów. Kategorie o sumie zero są pomijane, aby uniknąć dzielenia przez zero. Przelicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
+Dla skumulowanego wykresu słupkowego oblicz każdą wartość jako procent sumy w swojej kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce o rozmiarze 8 punktów. Kategorie o łącznej sumie zero są pomijane, aby uniknąć dzielenia przez zero. Przelicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```python
 import jpype
@@ -66,6 +66,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -111,7 +112,7 @@ finally:
 
 Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabelformat/#setNumberFormat), aby wyświetlać procenty. Przekaż `False` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-Ten przykład tworzy wykres słupkowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
+Ten przykład tworzy 100% skumulowany wykres słupkowy z czerwoną i niebieską serią w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30.0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
 
 ```python
 import jpype
@@ -127,6 +128,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -171,7 +173,7 @@ finally:
 
 ## **Odczytaj rzeczywisty tekst etykiet danych**
 
-Użyj [getActualLabelText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getActualLabelText), aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabelformat/) łączy nazwę kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Użyj [getActualLabelText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getActualLabelText), aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -185,6 +187,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -231,11 +234,81 @@ finally:
     presentation.dispose()
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getActualLabelText) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#isVisible) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` razem z nazwą kategorii i serii. Tekst niestandardowy zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#getActualLabelText) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#isVisible) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+
+## **Steruj etykietami danych poza maksymalnym zakresem osi**
+
+Gdy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksimum. Użyj [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum), aby kontrolować, czy ich etykiety danych będą wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani wartości bazowych danych.
+
+Poniższy przykład tworzy dwuwymiarowy wykres słupkowy grupowany z wartościami 60 i 120. Przekazuje `False` do [setAutomaticMaxValue](https://reference.aspose.com/slides/pl/python-java/aspose.slides/axis/#setAutomaticMaxValue) i ustawia maksimum na 100 przy użyciu [setMaxValue](https://reference.aspose.com/slides/pl/python-java/aspose.slides/axis/#setMaxValue) na osi pionowej. Pierwszy slajd zezwala na etykiety poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
+
+Włącz etykiety wartości za pomocą [setShowValue](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabelformat/#setShowValue). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie zastępuje wyłączonego wyświetlania wartości w pojedynczej etykiecie. Ten przykład włącza wartości dla całej serii i używa [setPosition](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabelformat/#setPosition), aby umieścić etykiety na zewnętrznym końcu każdego słupka.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Poniższe obrazy przedstawiają zapisane slajdy wyrenderowane w Microsoft PowerPoint. Przy `True` etykieta **120** jest widoczna przy górnej granicy; przy `False` jest ukryta. Etykieta **60** pozostaje widoczna, maksimum osi pozostaje na poziomie **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnego zakresu osi, który można w ten sposób ograniczyć.
+{{% /alert %}}
 
 ## **Ustaw odległość etykiety od osi**
 
-Użyj [setLabelOffset](https://reference.aspose.com/slides/pl/python-java/aspose.slides/axis/#setLabelOffset), aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest wyrażona w procentach maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do pojedynczych punktów danych.
+Użyj [setLabelOffset](https://reference.aspose.com/slides/pl/python-java/aspose.slides/axis/#setLabelOffset), aby kontrolować odległość między etykietami osi kategorii a osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia przesunięcie etykiety osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
 
 ```python
 import jpype
@@ -260,9 +333,9 @@ finally:
 
 ## **Dostosuj położenie etykiety**
 
-Na wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce dla linii prowadzących.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce dla linii prowadzących.
 
-Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinkiem i reguluje jego przesunięcia poziome i pionowe za pomocą [setX](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#setX) i [setY](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#setY). Te przesunięcia są względne względem szerokości i wysokości wykresu.
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę na zewnątrz wycinka i reguluje poziome oraz pionowe przesunięcia za pomocą [setX](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#setX) i [setY](https://reference.aspose.com/slides/pl/python-java/aspose.slides/datalabel/#setY). Te przesunięcia są względem szerokości i wysokości wykresu, odpowiednio.
 
 ```python
 import jpype
@@ -276,6 +349,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     
@@ -290,18 +364,18 @@ finally:
     presentation.dispose()
 ```
 
-![Wykres kołowy z dostosowaną pozycją etykiety danych](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejsz rozmiar czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
 **Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
 
-Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących, zgodnie z określoną regułą.
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących zgodnie z określoną regułą.
 
 **Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
 
-Jawnie ustaw rodzinę i rozmiar czcionki oraz sprawdź, czy czcionka jest dostępna w środowisku renderującym, aby uniknąć domyślnego zastąpienia.
+Jawnie ustaw rodzinę czcionki i rozmiar oraz zweryfikuj, czy czcionka jest dostępna w środowisku renderowania, aby uniknąć podstawienia.

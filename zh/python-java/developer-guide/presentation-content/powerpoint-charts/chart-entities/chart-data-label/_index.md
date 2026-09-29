@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python via Java 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
+description: "学习如何使用 Aspose.Slides for Python via Java 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
-## **介绍**
+## **Introduction**
 
-数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明如何格式化数值、显示百分比、读取标签文本、调整类目轴标签间距以及定位饼图标签。
+数据标签显示有关图表系列和各个数据点的信息，帮助读者识别数值并理解图表。本文说明了如何格式化数值、显示百分比、读取标签文本、控制超出轴最大值的标签、调整类别轴标签间距以及设置饼图标签的位置。
 
 ## **在图表数据标签中设置数据精度**
 
-使用[setNumberFormatOfValues](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartseries/#setNumberFormatOfValues)来格式化系列数值。此示例创建一个带默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式`#,##0.00`会显示千位分隔符和两位小数，但不会更改底层数值。
+使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) 来格式化系列数值。此示例创建一个具有默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不会更改底层数值。
 
 ```python
 import jpype
@@ -52,7 +52,7 @@ finally:
 
 ## **将百分比显示为标签**
 
-对于堆叠柱形图，计算每个数值在其类别总和中的百分比，并将文本分配给[getTextFrameForOverriding](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getTextFrameForOverriding)返回的文本框。此示例使用默认图表数据，并以8磅字体显示保留两位小数的百分比。总和为零的类别将被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
+对于堆积柱形图，计算每个数值占其类别总和的百分比，并将文本分配给 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) 返回的文本框。此示例使用默认图表数据，并在 8 磅字体下显示两位小数的百分比。总和为零的类别会被跳过，以避免除以零。如果图表数据发生变化，需要重新计算自定义标签文本。
 
 ```python
 import jpype
@@ -66,6 +66,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -107,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **在图表数据标签中设置百分号**
+## **使用图表数据标签设置百分号**
 
-当数值以分数形式存储时，使用[setNumberFormat](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/#setNumberFormat)显示百分比。将`False`传递给[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource)可使标签格式独立于源单元格。
+当数值以分数形式存储时，使用 [setNumberFormat](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/#setNumberFormat) 来显示百分比。向 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) 传入 `False`，以使标签格式独立于源单元格。
 
-此示例创建一个 100% 堆叠柱形图，包含四个类别的红色和蓝色系列。每对数值加起来等于 1。标签格式`0.0%`会将 0.30 显示为 30.0%，而纵轴使用两位小数。两个系列的标签文字均为白色、10 磅。
+此示例创建一个 100% 堆积柱形图，包含跨四个类别的红色和蓝色系列。每对数值加总为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列的标签文字均为白色、10 磅。
 
 ```python
 import jpype
@@ -127,6 +128,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -169,9 +171,9 @@ finally:
     presentation.dispose()
 ```
 
-## **读取数据标签的实际文字**
+## **读取数据标签的实际文本**
 
-使用[getActualLabelText](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getActualLabelText)获取由数据标签设置生成的文字。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的[data label format](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/)将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个则使用[getTextFrameForOverriding](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getTextFrameForOverriding)提供的自定义文字。
+使用 [getActualLabelText](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getActualLabelText) 来获取数据标签设置生成的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/) 将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个则使用来自 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) 的自定义文本。
 
 ```python
 import jpype
@@ -185,6 +187,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -231,11 +234,82 @@ finally:
     presentation.dispose()
 ```
 
-存储在数据点中的数值仍为`0.75`，即使其标签显示为`75%`并附带类别和系列名称。自定义文字会替换生成的标签文字。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getActualLabelText)都会返回最终的标签字符串。如上所示，若只想提取可见标签，需要单独检查[isVisible](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#isVisible)。
+数据点中存储的数值仍为 `0.75`，即使其标签显示为 `75%` 并附带类别和系列名称。自定义文本会替代生成的标签文本。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#getActualLabelText) 都会返回结果标签字符串。当您只想提取可见标签时，请单独检查 [isVisible](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#isVisible)，如上所示。
 
-## **设置标签与坐标轴的距离**
+## **控制超出轴最大值的数据标签**
 
-使用[setLabelOffset](https://reference.aspose.com/slides/zh/python-java/aspose.slides/axis/#setLabelOffset)控制类目轴标签与坐标轴之间的距离。该值以轴标签最大字体大小的百分比表示。此示例创建一个聚簇柱形图，并将水平轴标签偏移设为 500。此设置影响类目轴标签，而不是附加在单个数据点上的标签。
+当您手动限制轴范围时，某些数据点可能超过其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/zh/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) 来控制是否显示这些数据标签。此设置更改标签可见性，但不修改轴范围或底层数据值。
+
+下面的示例创建一个 2D 群集柱形图，数值为 60 和 120。它向 [setAutomaticMaxValue](https://reference.aspose.com/slides/zh/python-java/aspose.slides/axis/#setAutomaticMaxValue) 传入 `False`，并在垂直轴上使用 [setMaxValue](https://reference.aspose.com/slides/zh/python-java/aspose.slides/axis/#setMaxValue) 将最大值设为 100。第一张幻灯片允许标签超出最大值；该幻灯片的复制版则禁用这些标签。两张幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
+
+使用 [setShowValue](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/#setShowValue) 启用数值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签已禁用的数值显示。此示例为整个系列启用数值，并使用 [setPosition](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabelformat/#setPosition) 将标签放置在每根柱形的外侧端点。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+```
+
+以下图像展示了 Microsoft PowerPoint 渲染的已保存幻灯片。设置为 `True` 时，标签 **120** 在上边界可见；设置为 `False` 时，它被隐藏。标签 **60** 保持可见，轴最大值仍为 **100**，且第二个数据点在两种情况下均为 **120**。
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![PowerPoint 图表显示轴最大值为 100 时的数值标签 120](data-labels-over-maximum-true.png) | ![PowerPoint 图表在轴最大值为 100 时隐藏数值标签 120](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+此示例使用带值轴的 2D 柱形图。没有值轴的图表，如饼图和环形图，没有可这样限制的轴最大值。
+{{% /alert %}}
+
+## **设置标签距离轴的距离**
+
+使用 [setLabelOffset](https://reference.aspose.com/slides/zh/python-java/aspose.slides/axis/#setLabelOffset) 来控制类别轴标签与轴之间的距离。该值是轴标签最大字体大小的百分比。此示例创建一个群集柱形图，并将水平轴标签偏移设置为 500。此设置影响类别轴标签，而非附加在单个数据点上的标签。
 
 ```python
 import jpype
@@ -262,7 +336,7 @@ finally:
 
 在饼图上，调整数据标签位置以改善间距并为引线留出空间。
 
-此示例显示第一个数据点的数值，将其标签放置在扇形外部，并使用[setX](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#setX)和[setY](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#setY)调整水平和垂直偏移。这些偏移分别相对于图表宽度和高度。
+此示例显示第一个数据点的数值，将其标签放置在扇形之外，并使用 [setX](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#setX) 和 [setY](https://reference.aspose.com/slides/zh/python-java/aspose.slides/datalabel/#setY) 调整其水平和垂直偏移。这些偏移分别相对于图表的宽度和高度。
 
 ```python
 import jpype
@@ -276,6 +350,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     
@@ -290,18 +365,18 @@ finally:
     presentation.dispose()
 ```
 
-![饼图的调整后数据标签位置](pie-chart-adjusted-label.png)
+![饼图（已调整数据标签位置）](pie-chart-adjusted-label.png)
 
 ## **常见问题**
 
-**如何防止在密集图表上出现标签重叠？**
+**如何防止密集图表中的数据标签重叠？**
 
 结合自动标签布局、引线以及减小字体大小；如有必要，可隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
 
-**如何仅对零值、负值或空值禁用标签？**
+**如何仅对零、负数或空值禁用标签？**
 
-在启用标签之前筛选数据点，并根据定义的规则关闭对值为 0、负值或缺失值的显示。
+在启用标签前筛选数据点，并根据定义的规则关闭对数值为 0、负数或缺失值的显示。
 
 **如何在导出为 PDF/图片时确保标签样式一致？**
 
-显式设置字体族和大小，并确认渲染环境中已安装该字体，以避免回退。
+显式设置字体族和大小，并确认渲染环境中存在该字体以避免回退。

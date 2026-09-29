@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ve Aspose.Slides for Node.js aracılığıyla Java ile PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar oluşturun."
+description: "JavaScript ve Aspose.Slides for Node.js kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi, daha etkileyici slaytlar oluşturmak için öğrenin."
 ---
 ## **Giriş**
 
-Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir; okuyucuların değerleri tanımasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterme, etiket metnini okuma, kategori ekseni etiketi aralığını ayarlama ve pasta grafik etiketlerini konumlandırma konularını açıklar.
+Veri etiketleri, grafik serileri ve bireysel veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerlerin biçimlendirilmesi, yüzde gösterimi, etiket metninin okunması, eksen maksimumunun ötesindeki etiketlerin kontrolü, kategori ekseni etiket aralığının ayarlanması ve pasta grafik etiketlerinin konumlandırılması konularını açıklar.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
+Seri değerlerini biçimlendirmek için [setNumberFormatOfValues](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir, temel değerleri değiştirmez.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -31,6 +31,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -44,9 +45,9 @@ try {
 }
 ```
 
-## **Yüzdeyi Etiket Olarak Gösterme**
+## **Yüzdeyi Etiket Olarak Görüntüleme**
 
-For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
+Yığılmış sütun grafik için, her değeri kategori toplamının yüzdesi olarak hesaplayın ve metni, [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) tarafından döndürülen metin çerçevesine atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzdeyi iki ondalık basamakla, 8 puan yazı tipiyle gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,6 +55,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
 
     const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
@@ -101,11 +103,9 @@ try {
 }
 ```
 
-## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
+## **Grafik Veri Etiketlerinde Yüzde İşareti Ayarlama**
 
-When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) to apply the label format independently of the source cells.
-
-This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
+Değerler kesir olarak depolandığında, yüzde göstermek için [setNumberFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) yöntemine `false` geçirin. Bu örnek, dört kategori boyunca kırmızı ve mavi serilere sahip %100 yığılmış sütun grafik oluşturur. Her değer çifti 1'e toplanır. `0.0%` etiket biçimi 0.30'u 30.0% olarak gösterir, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puan etiket metni kullanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -114,6 +114,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -162,7 +163,7 @@ try {
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+[getActualLabelText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) kullanarak bir veri etiketinin ayarlarıyla üretilen metni alın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak için yararlıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimlendirir, diğeri ise [getTextFrameForOverriding](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) üzerinden özel metin kullanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,6 +171,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -224,11 +226,15 @@ try {
 }
 ```
 
-The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
+Bir veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde kategori ve seri adlarıyla birlikte `75%` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [getActualLabelText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) her iki durumda da sonuç etiket dizesini döndürür. Yalnızca görünür etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [isVisible](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/isvisible/) metodunu ayrı ayrı kontrol edin.
 
-## **Bir Eksenden Etiket Mesafesini Ayarlama**
+## **Ekseni Maximize Aşan Veri Etiketlerini Kontrol Etme**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/axis/setlabeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
+Bir eksen aralığını elle sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
+
+Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D kümelenmiş sütun grafik oluşturur. Dikey eksende [setAutomaticMaxValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) yöntemine `false` geçirir ve [setMaxValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/axis/setmaxvalue/) ile maksimumu 100 olarak ayarlar. İlk slayt, maksimumun ötesindeki etiketlere izin verir; bu slaydın bir kopyası ise bunları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` dosyasına kaydedilir.
+
+[setShowValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) ile değer etiketlerini etkinleştirin. Grafik düzeyindeki bu ayar, tek başına değer gösterimini etkinleştirmez ya da bireysel bir etiketteki devre dışı değer gösterimini geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve [setPosition](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/setposition/) kullanarak etiketleri her sütunun dış ucuna yerleştirir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -236,6 +242,68 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    const firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    const secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    const seriesName = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    const firstValue = workbook.getCell(0, 1, 1, 60);
+    const secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    const secondSlide = presentation.getSlides().addClone(slide);
+    const secondChart = secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki görseller, Microsoft PowerPoint tarafından render edilen kaydedilmiş slaytları gösterir. `true` ile **120** etiketi üst sınırda görünür; `false` ile gizlenir. **60** etiketi görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olarak kalır.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Bu örnek, değer ekseni olan 2D sütun grafik kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde bir eksen maksimumuna sahip değildir.
+{{% /alert %}}
+
+## **Etiketlerin Eksene Olan Mesafesini Ayarlama**
+
+[setLabelOffset](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/axis/setlabeloffset/) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun yüzde olarak ifadesidir. Bu örnek, kümelenmiş sütun grafik oluşturur ve yatay eksen etiketi ofsetini 500 olarak ayarlar. Bu ayar, tek tek veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -247,9 +315,7 @@ try {
 
 ## **Etiket Konumunu Ayarlama**
 
-On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
-
-This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/sety/). These offsets are relative to the chart width and height, respectively.
+Pasta grafik üzerinde, veri etiketi konumlarını ayarlayarak boşlukları artırın ve lider çizgileri için yer açın. Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve yatay ve dikey ofsetlerini [setX](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/setx/) ve [setY](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/sety/) kullanarak ayarlar. Bu ofsetler, sırasıyla grafik genişliğine ve yüksekliğine göre oranlanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -258,6 +324,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
     const series = chart.getChartData().getSeries();
 
@@ -273,18 +340,15 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Ayarlanmış veri etiketi konumuna sahip pasta grafik](pie-chart-adjusted-label.png)
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin üst üste gelmesini nasıl önleyebilirim?**
+**Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**  
+Otomatik etiket yerleşimini, lider çizgilerini ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya sadece uç değerler veya ana noktalar için etiket gösterin.
 
-Otomatik etiket yerleştirme, lider çizgileri ve düşük font boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ya da ana noktalar için etiket gösterin.
+**Sıfır, negatif veya boş değerler için etiketleri sadece nasıl devre dışı bırakabilirim?**  
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için görüntümeyi kapatın.
 
-**Sıfır, negatif veya boş değerler için etiketleri nasıl devre dışı bırakabilirim?**
-
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için gösterimi kapatın.
-
-**PDF/görüntü olarak dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**
-
-Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve render ortamında yazı tipinin mevcut olduğundan emin olun, böylece yedekleme sorunları önlenir.
+**PDF/görsellere dışa aktarırken tutarlı bir etiket stilini nasıl garanti edebilirim?**  
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve geriye dönüşü önlemek için yazı tipinin render ortamında mevcut olduğunu doğrulayın.

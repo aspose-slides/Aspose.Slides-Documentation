@@ -14,15 +14,15 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "PowerPoint sunumlarına Aspose.Slides for C++ kullanarak grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar için."
+description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, böylece daha etkileyici slaytlar oluşturun."
 ---
 ## **Giriş**
 
-Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri nasıl biçimlendireceğinizi, yüzdeleri nasıl göstereceğinizi, etiket metnini nasıl okuyacağınızı, kategori ekseni etiket aralığını nasıl ayarlayacağınızı ve pasta grafik etiketlerini nasıl konumlandıracağınızı açıklar.
+Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerlerin biçimlendirilmesini, yüzde gösterimini, etiket metninin okunmasını, eksen maksimumunun ötesindeki etiketlerin kontrol edilmesini, kategori ekseni etiketi aralığının ayarlanmasını ve pasta grafiği etiketlerinin konumlandırılmasını açıklar.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-[set_NumberFormatOfValues](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) kullanarak seri değerlerini biçimlendirin. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerler değişmez.
+Seri değerlerini biçimlendirmek için [set_NumberFormatOfValues](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafiği oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi binlik ayırıcı ve iki ondalık basamak gösterir, temel değerleri değiştirmez.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **Yüzdeleri Etiket Olarak Görüntüleme**
 
-Yığılmış sütun grafik için, her değeri kategori toplamına göre yüzde olarak hesaplayın ve metni [get_TextFrameForOverriding](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) tarafından döndürülen metin çerçevesine atayın. Bu örnek varsayılan grafik verilerini kullanır ve yüzde değerlerini 8 puanlık bir yazı tipiyle iki ondalık basamakta gösterir. Toplamı sıfır olan kategoriler sıfır bölme hatasından kaçınmak için atlanır. Grafik verileri değiştiğinde özel etiket metnini yeniden hesaplayın.
+Yığılmış sütun grafik için, her değeri kategori toplamının yüzdesi olarak hesaplayın ve metni [get_TextFrameForOverriding](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) tarafından döndürülen metin çerçevesine atayın. Bu örnek varsayılan grafik verilerini kullanır ve yüzde değerlerini 8 punto büyüklüğünde iki ondalık basamakla gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -96,6 +96,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -148,9 +149,7 @@ presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 
 ## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
 
-Değerler kesir olarak saklanıyorsa, yüzde olarak göstermek için [set_NumberFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız uygulamak için [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) metoduna `false` geçirin.
-
-Bu örnek, dört kategori boyunca kırmızı ve mavi seriler içeren %100 yığılmış bir sütun grafik oluşturur. Her değer çifti 1'e toplar. `0.0%` etiketi biçimi 0.30 değerini 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
+Değerler kesir olarak saklandığında, yüzde göstermek için [set_NumberFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) öğesine `false` geçirin. Bu örnek, dört kategori boyunca kırmızı ve mavi serilere sahip %100 yığılmış bir sütun grafik oluşturur. Her değer çifti 1’e toplamaktadır. Etiket biçimi `0.0%`, 0.30’u 30.0% olarak gösterir, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 punto etiket metni kullanır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -189,6 +188,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -236,7 +236,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-[GetActualLabelText](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) kullanarak bir veri etiketinin ayarlarıyla üretilen metni alın. Bu, raporlar için etiketler çıkartılırken, sunum içeriği aranırken veya oluşturulan grafiklerin doğrulanırken faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, diğeri ise [get_TextFrameForOverriding](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) üzerinden özel metin kullanır.
+Bir veri etiketinin ayarları tarafından oluşturulan metni almak için [GetActualLabelText](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) kullanın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğinde arama yapmak veya oluşturulan grafikleri doğrulamak istediğinizde faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, diğeri ise [get_TextFrameForOverriding](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) üzerinden özel metin kullanır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -268,6 +268,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -323,11 +324,94 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Bir veri noktasında depolanan sayı `0.75` olarak kalır, etiketinde ise kategori ve seri adlarıyla birlikte `75%` gösterilir. Özel metin, oluşturulan etiket metninin yerini alır. [GetActualLabelText](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) her iki durumda da sonuç etiket dizesini döndürür. Sadece görünür etiketleri çıkarmak istediğinizde, yukarıdaki gibi [get_IsVisible](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabel/get_isvisible/) metodunu ayrı ayrı kontrol edin.
+Bir veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde kategori ve seri adlarıyla birlikte `75%` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [GetActualLabelText](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) her iki durumda da sonuç etiket dizesini döndürür. Yukarıda gösterildiği gibi yalnızca görünür etiketleri çıkarmak istediğinizde, [get_IsVisible](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabel/get_isvisible/) kontrolünü ayrı ayrı yapın.
 
-## **Eksenden Etiket Mesafesini Ayarlama**
+## **Eksen Maksimumunun Ötesindeki Veri Etiketlerini Kontrol Etme**
 
-[set_LabelOffset](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/iaxis/set_labeloffset/) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzde olarak ifade eder. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiket ofsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenen etiketler yerine kategori ekseni etiketlerini etkiler.
+Eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez. Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D kümelenmiş bir sütun grafik oluşturur. Dikey eksende [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) `false` ve [set_MaxValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/iaxis/set_maxvalue/) 100 olarak ayarlanır. İlk slayt, maksimumun ötesindeki etiketlere izin verir; bu slaytın bir kopyası ise onları devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` olarak kaydedilir. [set_ShowValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) ile değer etiketlerini etkinleştirin. Grafik düzeyindeki ayar, yalnızca değer görüntülemeyi etkinleştirmez ve bireysel bir etiketin devre dışı bırakılmış değer görüntüsünü geçersiz kılmaz. Bu örnek, tüm seri için değerleri etkinleştirir ve etiketleri her sütunun dış ucuna yerleştirmek için [set_Position](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/idatalabelformat/set_position/) kullanır.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+Aşağıdaki görseller, Microsoft PowerPoint tarafından render edilen kaydedilmiş slaytları gösterir. `true` ile **120** etiketi üst sınırda görünür; `false` ile gizlenir. **60** etiketi görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olarak kalır.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Grafik Türü" %}}
+Bu örnek, değer ekseni olan 2D sütun grafik kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde sınırlanacak bir eksen maksimumuna sahip değildir.
+{{% /alert %}}
+
+## **Etiketi Eksenlerden Uzaklık Olarak Ayarlama**
+
+[set_LabelOffset](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/iaxis/set_labeloffset/) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun yüzdesidir. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiketi offsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -357,9 +441,7 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Etiket Konumunu Ayarlama**
 
-Bir pasta grafikte, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve lider çizgileri için yer açın.
-
-Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve ofsetlerini ayarlamak için [set_X](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ilayoutable/set_x/) ve [set_Y](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ilayoutable/set_y/) metodlarını kullanır. Bu ofsetler, sırasıyla grafiğin genişliği ve yüksekliğine göre görecelidir.
+Bir pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşluğu iyileştirin ve lider çizgileri için yer açın. Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına yerleştirir ve offsetlerini ayarlamak için [set_X](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ilayoutable/set_x/) ve [set_Y](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ilayoutable/set_y/) kullanır. Bu offsetler sırasıyla grafiğin genişliği ve yüksekliğine göre görecelidir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -384,6 +466,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 
@@ -396,18 +479,15 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Ayarlanmış veri etiketi konumuna sahip pasta grafik](pie-chart-adjusted-label.png)
+![Ayarlanmış veri etiketi konumlu pasta grafiği](pie-chart-adjusted-label.png)
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin üst üste gelmesini nasıl önleyebilirim?**
+**Yoğun grafiklerde veri etiketlerinin üst üste gelmesini nasıl önleyebilirim?**  
+Otomatik etiket yerleştirmeyi, lider çizgileri ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ya da ana noktalar için etiket gösterin.
 
-Otomatik etiket yerleştirme, lider çizgileri ve daha küçük yazı tipini birleştirin; gerekirse bazı alanları (örneğin, kategori) gizleyin veya yalnızca aşırı değerler ya da ana noktalar için etiket gösterin.
+**Sıfır, negatif veya boş değerler için etiketleri yalnızca nasıl devre dışı bırakabilirim?**  
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için gösterimi kapatın.
 
-**Sıfır, negatif ya da boş değerler için etiketleri yalnızca nasıl devre dışı bırakabilirim?**
-
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif ya da eksik değerler için görüntülemeyi kapatın.
-
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**
-
-Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve geri dönüşü önlemek için yazı tipinin render ortamında mevcut olduğunu doğrulayın.
+**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**  
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve yedekleme olmaması için yazı tipinin render ortamında mevcut olduğunu doğrulayın.
