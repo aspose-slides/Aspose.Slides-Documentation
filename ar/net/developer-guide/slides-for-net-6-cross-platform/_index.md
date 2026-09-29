@@ -94,7 +94,7 @@ Aspose.Slides عبر المنصات هو مجموعة من المكتبات:
 
 **مشكلة محتملة**: الإعداد الموصوف له عيوبه. على سبيل المثال، إذا كنت تطور في Windows ولديك مشاريع تستخدم System.Drawing.Common الأصلية، قد تواجه تعارضات مع أنواع Aspose.Slides.
 
-**حل**: يمكنك استخدام extern alias لحل المشكلة. انظر [**استخدام حزمة System.Drawing.Common وطبقات Slides لـ .NET6 (CS0433: النوع موجود في كل من Slides و System.Drawing.Common خطأ)**](https://docs.aspose.com/slides/net/net6/#using-the-systemdrawingcommon-package-and-slides-for-net6-classes-cs0433-the-type-exists-in-both-slides-and-systemdrawingcommon-error).
+**حل**: يمكنك استخدام extern alias لحل المشكلة. انظر [**استخدام حزمة System.Drawing.Common وطبقات Slides لـ .NET6 (CS0433: النوع موجود في كل من Slides و System.Drawing.Common خطأ)**](https://docs.aspose.com/slides/net/net6/#using-systemdrawingcommon-in-the-same-project-cs0433).
 
 يعمل فريق Slides على مهام ستؤدي إلى تبسيط وتوحيد واجهة برمجة التطبيقات العامة.
 
