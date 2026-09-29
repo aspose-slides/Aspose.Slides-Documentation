@@ -94,7 +94,7 @@ Aspose.Slides.dll использует библиотеку, которая тр
 
 **Потенциальная проблема**: Описанная настройка имеет свои недостатки. Например, если вы разрабатываете в Windows и у вас есть проекты, которые используют оригинальный System.Drawing.Common, вы можете столкнуться с конфликтами с типами Aspose.Slides.
 
-**Решение**: Вы можете использовать extern alias для решения проблемы. См. [**Использование пакета System.Drawing.Common и классы Slides для .NET 6 (CS0433: Тип существует как в Slides, так и в System.Drawing.Common)**](https://docs.aspose.com/slides/net/net6/#using-the-systemdrawingcommon-package-and-slides-for-net6-classes-cs0433-the-type-exists-in-both-slides-and-systemdrawingcommon-error).
+**Решение**: Вы можете использовать extern alias для решения проблемы. См. [**Использование пакета System.Drawing.Common и классы Slides для .NET 6 (CS0433: Тип существует как в Slides, так и в System.Drawing.Common)**](https://docs.aspose.com/slides/net/net6/#using-systemdrawingcommon-in-the-same-project-cs0433).
 
 Команда Slides работает над задачами, которые приведут к упрощению и унификации публичного API.
 
