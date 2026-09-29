@@ -1,6 +1,6 @@
 ---
-title: Java で PowerPoint フォントをカスタマイズ
-linktitle: カスタムフォント
+title: Java で PowerPoint のフォントをカスタマイズする
+linktitle: カスタム フォント
 type: docs
 weight: 20
 url: /ja/java/custom-font/
@@ -8,94 +8,89 @@ keywords:
 - フォント
 - カスタムフォント
 - 外部フォント
-- フォントの読み込み
+- フォントのロード
 - フォントの管理
-- フォントフォルダー
+- フォント フォルダー
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して PowerPoint スライドのフォントをカスタマイズし、どのデバイスでもプレゼンテーションを鮮明で一貫性のあるものに保ちます。"
+description: "Aspose.Slides for Java を使用して PowerPoint スライドのフォントをカスタマイズし、プレゼンテーションをあらゆるデバイスで鮮明かつ一貫性のあるものに保ちます。"
 ---
 ## **概要**
 
-Aspose.Slides を使用すると、オペレーティング システムにインストールせずにプレゼンテーションでカスタム フォントを使用できます。カスタム フォルダーからフォントを読み込むことも、ドキュメント レベルのフォント ソースを介して特定のプレゼンテーションにフォントを提供することも、バイナリ データから外部フォントを直接読み込むこともできます。
+Aspose.Slides は、オペレーティングシステムにインストールせずにプレゼンテーションでカスタムフォントを使用できるようにします。カスタムフォルダーからフォントをロードしたり、ドキュメントレベルのフォントソースを通じて特定のプレゼンテーションにフォントを提供したり、バイナリ データから直接外部フォントをロードしたりできます。
 
-読み込まれたフォントは、プレゼンテーションがレンダリングまたはエクスポートされる際に使用されます（例: PDF、画像、その他のサポートされている形式）。これにより、異なる環境間でプレゼンテーションの出力を一貫させることができます。本記事では、Aspose.Slides が使用するフォント フォルダーの確認方法と、外部フォントの使用後にフォント キャッシュをクリアする方法も説明しています。
+ロードされたフォントは、プレゼンテーションがレンダリングまたはエクスポートされるときに使用されます。たとえば PDF、画像、その他のサポートされている形式へのエクスポートです。これにより、異なる環境間でプレゼンテーションの出力が一貫します。また、この記事では Aspose.Slides が使用するフォントフォルダーの確認方法と、外部フォントの使用後にフォントキャッシュをクリアする方法についても説明します。
 
-レンダリング用にカスタム フォントを登録することは、フォントを PPTX ファイルに埋め込むこととは別です。フォントをプレゼンテーション自体に格納する必要がある場合は、フォント埋め込み機能を明示的に使用してください。
+レンダリング用にカスタムフォントを登録することは、フォントを PPTX ファイルに埋め込むこととは別です。フォントをプレゼンテーション自体に格納する必要がある場合は、フォント埋め込み機能を明示的に使用してください。
 
-プレゼンテーションのテーマは、個々の文字体系ごとに異なるフォント ファミリーを参照できます。これらのマッピングはフォント名を保持しますが、フォント ファイルをインストールしたり読み込んだりはしません。マッピングを管理するには[Script-Specific Theme Fonts](/slides/ja/java/script-specific-font-mappings/)をご覧ください。また、以下の読み込みオプションを使用して、参照されたフォントを一貫したレンダリングのために利用できるようにします。
+プレゼンテーションのテーマは、個々の文字体系ごとに異なるフォント ファミリを参照できます。これらのマッピングはフォント名を保存しますが、フォントファイルをインストールまたはロードするわけではありません。マッピングの管理については [Script-Specific Theme Fonts](/slides/ja/java/script-specific-font-mappings/) を参照し、以下のロード オプションを使用して参照されたフォントを一貫したレンダリングのために利用可能にしてください。
 
 {{% alert color="info" title="Note" %}}
-Aspose Slides は、これらのフォントを [loadExternalFonts](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを使用して読み込むことができます:
+Aspose Slides は、これらのフォントを [loadExternalFonts](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを使用してロードできます:
 
-* TrueType（.ttf）および TrueType Collection（.ttc）フォント。詳しくは[TrueType](https://en.wikipedia.org/wiki/TrueType)をご覧ください。
-* OpenType（.otf）フォント。詳しくは[OpenType](https://en.wikipedia.org/wiki/OpenType)をご覧ください。
+* TrueType (.ttf) および TrueType Collection (.ttc) フォント。詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照してください。
+
+* OpenType (.otf) フォント。詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照してください。
 {{% /alert %}}
 
-## **カスタムフォントの読み込み**
+## **カスタムフォントのロード**
 
-Aspose.Slides を使用すると、システムにインストールせずにプレゼンテーションで使用されるフォントを読み込むことができます。これにより、PDF、画像、その他のサポートされている形式などのエクスポート出力が環境間で一貫した外観になります。フォントはカスタム ディレクトリから読み込まれます。
+Aspose.Slides は、システムにインストールせずにプレゼンテーションで使用されるフォントをロードできます。これにより、PDF、画像、その他のサポート形式へのエクスポート出力が環境間で一貫した外観になります。フォントはカスタムディレクトリからロードされます。
 
-1. フォント ファイルが含まれるフォルダーを1つ以上指定します。
-2. 静的な [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを呼び出して、これらのフォルダーからフォントを読み込みます。
-3. プレゼンテーションを読み込み、レンダリング/エクスポートします。
-4. [FontsLoader.clearCache](https://reference.aspose.com/slides/ja/java/com.aspose.slides/FontsLoader#clearCache--) を呼び出して、フォント キャッシュをクリアします。
-
-以下のコード例はフォント読み込みプロセスを示しています:
+1. フォント ファイルが格納されているフォルダーを 1 つ以上指定します。
+2. 静的な [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) メソッドを呼び出して、これらのフォルダーからフォントをロードします。
+3. プレゼンテーションをロードし、レンダリング/エクスポートします。
+4. [FontsLoader.clearCache](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#clearCache--) を呼び出してフォントキャッシュをクリアします。
 
 ```java
 import com.aspose.slides.*;
 
-// カスタムフォントファイルが含まれるフォルダーを定義します。
+// カスタムフォント ファイルが含まれるフォルダーを定義します。
 String[] fontFolders = new String[] { "assets/fonts", "global/fonts" };
 
-// 指定されたフォルダーからカスタムフォントを読み込みます。
+// Load custom fonts from the specified folders.
 FontsLoader.loadExternalFonts(fontFolders);
 
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
 
-    // 読み込んだフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、その他の形式）。
+    // ロードされたフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、その他の形式）。
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // 作業が完了したらフォントキャッシュをクリアします。
+    // 作業が完了した後にフォントキャッシュをクリアします。
     FontsLoader.clearCache();
 }
 ```
 
 {{% alert color="info" title="Note" %}}
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) はフォント検索パスに追加のフォルダーを加えますが、フォントの初期化順序は変更しません。  
-フォントは以下の順序で初期化されます:
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) はフォント検索パスにフォルダーを追加しますが、フォントの初期化順序は変更しません。
+フォントは次の順序で初期化されます：
 
-1. デフォルトのオペレーティング システムのフォントパス。
-1. [FontsLoader](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/) を介して読み込まれたパス。
+1. デフォルトのオペレーティングシステムのフォント パス。
+1. [FontsLoader](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/) を通じてロードされたパス。
 {{%/alert %}}
 
-## **カスタムフォントフォルダーの取得**
+## **カスタムフォント フォルダーの取得**
 
-Aspose.Slides は、フォントフォルダーを検索できるように [getFontFolders](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#getFontFolders--) メソッドを提供します。このメソッドは、`LoadExternalFonts` メソッドで追加されたフォルダーとシステムのフォントフォルダーを返します。
-
-以下の Java コードは、[getFontFolders](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#getFontFolders--) の使用方法を示しています:
+Aspose.Slides は、フォント フォルダーを検索できるようにするために [getFontFolders](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#getFontFolders--) メソッドを提供しています。このメソッドは `LoadExternalFonts` メソッドで追加されたフォルダーとシステムのフォント フォルダーを返します。
 
 ```java
 import com.aspose.slides.*;
 
-// この行はフォントファイルが検索されるフォルダーを出力します。
-// それらは LoadExternalFonts メソッドで追加されたフォルダーとシステムフォントフォルダーです。
+// この行はフォント ファイルが検索されるフォルダーを出力します。
+// それらは LoadExternalFonts メソッドで追加されたフォルダーとシステムのフォント フォルダーです。
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
 ## **プレゼンテーションで使用するカスタムフォントの指定**
 
-Aspose.Slides は、プレゼンテーションで使用する外部フォントを指定できるように、[setDocumentLevelFontSources](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) プロパティを提供します。  
-
-以下の Java コードは、[setDocumentLevelFontSources](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) プロパティの使用方法を示しています:
+Aspose.Slides は、プレゼンテーションで使用される外部フォントを指定できるようにするために [setDocumentLevelFontSources](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) プロパティを提供しています。
 
 ```java
 import com.aspose.slides.*;
@@ -111,8 +106,8 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // プレゼンテーションを操作します
-    // CustomFont1、CustomFont2、そして assets\fonts と global\fonts フォルダーおよびそのサブフォルダーのフォントがプレゼンテーションで使用可能です
+    // プレゼンテーションで作業する
+    // CustomFont1、CustomFont2、および assets\fonts と global\fonts フォルダーおよびそれらのサブフォルダーのフォントはプレゼンテーションで使用可能です
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -120,9 +115,7 @@ try {
 
 ## **フォントの外部管理**
 
-Aspose.Slides は、バイナリ データから外部フォントを読み込むために [loadExternalFont](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) メソッドを提供します。
-
-以下の Java コードは、バイト配列によるフォント読み込みプロセスを示しています:
+Aspose.Slides は、バイナリ データから外部フォントをロードできるようにするために [loadExternalFont](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) メソッドを提供しています。
 
 ```java
 import com.aspose.slides.*;
@@ -133,39 +126,39 @@ FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
 
-try
-{
-    Presentation pres = new Presentation("");
-    try {
-        // プレゼンテーションのライフタイム中に外部フォントがロードされます
-    } finally {
-        
+    try
+    {
+        Presentation pres = new Presentation("");
+        try {
+            // プレゼンテーションのライフタイム中に外部フォントがロードされました
+        } finally {
+            
+        }
     }
-}
-finally
-{
-    FontsLoader.clearCache();
-}
+    finally
+    {
+        FontsLoader.clearCache();
+    }
 ```
 
-## **よくある質問**
+## **FAQ**
 
-### カスタムフォントはすべての形式（PDF、PNG、SVG、HTML）へのエクスポートに影響しますか？
+### カスタムフォントはすべての形式 (PDF、PNG、SVG、HTML) へのエクスポートに影響しますか？
 
-はい。接続されたフォントは、すべてのエクスポート形式でレンダラによって使用されます。
+はい。接続されたフォントは、すべてのエクスポート形式でレンダラーによって使用されます。
 
-### カスタムフォントは生成された PPTX に自動的に埋め込まれますか？
+### カスタムフォントは結果の PPTX に自動的に埋め込まれますか？
 
-いいえ。レンダリング用にフォントを登録することは、PPTX に埋め込むこととは異なります。フォントをプレゼンテーションファイル内に含める必要がある場合は、明示的な[埋め込み機能](/slides/ja/java/embedded-font/)を使用してください。
+いいえ。レンダリング用にフォントを登録することは、PPTX に埋め込むこととは同じではありません。プレゼンテーション ファイル内にフォントを保持する必要がある場合は、明示的な [embedding features](/slides/ja/java/embedded-font/) を使用する必要があります。
 
-### カスタムフォントに特定のグリフが欠如している場合、フォールバック動作を制御できますか？
+### カスタムフォントに特定のグリフがない場合のフォールバック動作を制御できますか？
 
-はい。[font substitution](/slides/ja/java/font-substitution/)、[replacement rules](/slides/ja/java/font-replacement/)、[fallback sets](/slides/ja/java/fallback-font/) を設定して、要求されたグリフが存在しない場合に使用するフォントを正確に定義できます。
+はい。[font substitution](/slides/ja/java/font-substitution/)、[replacement rules](/slides/ja/java/font-replacement/)、および [fallback sets](/slides/ja/java/fallback-font/) を構成して、要求されたグリフが存在しない場合に使用するフォントを正確に定義できます。
 
 ### Linux/Docker コンテナでシステム全体にインストールせずにフォントを使用できますか？
 
-はい。独自のフォントフォルダーを指定するか、バイト配列からフォントを読み込むことで可能です。これにより、コンテナイメージ内のシステムフォントディレクトリへの依存がなくなります。
+部分的に可能です。Aspose.Slides は、独自のフォルダーやバイト配列からフォントを使用でき、システム全体にインストールする必要はありませんが、Java のフォントサポートにはイメージ内に少なくとも 1 つのインストールされたフォントが必要です。これがない場合、フォントのロードは "Fontconfig head is null, check your fonts or fonts configuration" というエラーで失敗します。詳細は [Deploy Fonts](/slides/ja/java/deploy-fonts/) を参照してください。
 
 ### ライセンスについて—制限なく任意のカスタムフォントを埋め込めますか？
 
-フォントのライセンス遵守はご自身の責任です。条件はフォントごとに異なり、埋め込みや商用使用を禁止するライセンスもあります。出力を配布する前に、必ずフォントの EULA を確認してください。
+フォントのライセンス遵守は利用者の責任です。条件はフォントごとに異なり、埋め込みや商用利用を禁止するライセンスもあります。出力物を配布する前に必ずフォントの EULA を確認してください。

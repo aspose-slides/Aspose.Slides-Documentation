@@ -1,38 +1,45 @@
 ---
-title: 선언
+title: 보안 관리자 요구 사항
 type: docs
-weight: 60
+weight: 190
 url: /ko/java/declaration/
 keywords:
-- 선언
-- 구성 요소
-- Full Trust 권한
-- 레지스트리 설정
-- 시스템 파일
+- 보안 관리자
+- 보안 정책
+- AllPermission
+- 권한
+- 샌드박스
+- JDK 24
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java의 신뢰 요구 사항, 권한 및 호스팅 제한 사항에 대해 학습하여 PPT, PPTX 및 ODP를 처리하는 애플리케이션을 서버에 안전하게 배포할 수 있습니다."
+description: "Java 23 및 이전 버전에서 Aspose.Slides for Java와 이를 호출하는 코드에 필요한 Security Manager 권한은 무엇이며, Java 24 및 이후 버전에서는 구성할 것이 없는 이유를 설명합니다."
 ---
-{{% alert color="primary" %}} 
+## **개요**
 
-모든 Aspose Java 구성 요소는 Full Trust 권한 세트가 필요합니다. 그 이유는 Aspose Java 구성 요소가 레지스트리 설정, 가상 디렉터리를 제외한 시스템 파일 등에 접근해야 폰트 파싱 등 특정 작업을 수행할 수 있기 때문입니다. 또한 Aspose Java 구성 요소는 핵심 Java 시스템 클래스를 기반으로 하며, 이러한 클래스도 많은 경우 Full Trust 권한 세트를 요구합니다. 
+Java 보안 관리자는 보안 정책에 따라 코드가 할 수 있는 작업을 제한합니다. Java 17에서 제거를 위해 폐기되었으며([JEP 411](https://openjdk.org/jeps/411)), Java 24에서는 영구적으로 비활성화되었습니다([JEP 486](https://openjdk.org/jeps/486)). 이 문서는 애플리케이션이 여전히 보안 관리자를 사용하여 실행되는 경우 Aspose.Slides for Java에 필요한 사항을 설명합니다. 기본값으로 보안 관리자를 사용하지 않는 경우 구성할 것이 없습니다.
 
-{{% /alert %}} 
+## **Java 23 및 이전 버전**
 
-여러 회사의 애플리케이션을 다수 호스팅하는 인터넷 서비스 제공업체는 대부분 Medium Trust 보안 수준을 적용합니다: 
+보안 관리자가 활성화된 경우, 보안 정책은 Aspose.Slides JAR 파일과 이를 호출하는 애플리케이션 코드에 다음 권한을 부여해야 합니다:
 
-- OleDbPermission이 제공되지 않습니다. 이는 ADO.NET 관리형 OLE DB 데이터 제공자를 사용해 데이터베이스에 접근할 수 없음을 의미합니다.
-- EventLogPermission이 제공되지 않습니다. 이는 Windows 이벤트 로그에 접근할 수 없음을 의미합니다.
-- ReflectionPermission이 제공되지 않습니다. 이는 리플렉션을 사용할 수 없음을 의미합니다.
-- RegistryPermission이 제공되지 않습니다. 이는 레지스트리에 접근할 수 없음을 의미합니다.
-- WebPermission이 제한됩니다. 이는 애플리케이션이 <trust> 요소에 정의한 주소 또는 주소 범위와만 통신할 수 있음을 의미합니다.
-- FileIOPermission이 제한됩니다. 이는 애플리케이션의 가상 디렉터리 계층 구조에 있는 파일만 접근할 수 있음을 의미합니다.
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides는 시스템 속성을 읽습니다.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides는 글꼴 파일 및 기타 파일을 읽습니다.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides는 운영 체제 프로그램을 시작합니다. 예를 들어 Windows에서는 `reg`, Linux에서는 `fc-match`가 있습니다.
+- `java.io.FilePermission`에 `write` 작업을 추가하여 애플리케이션이 파일을 저장하는 폴더에 대한 권한을 부여합니다.
 
-{{% alert color="primary" %}} 
+JAR 파일에만 권한을 부여하는 것으로는 충분하지 않으며, Aspose.Slides를 호출하는 코드에도 동일한 권한이 필요합니다. 두 대상 모두에 `java.security.AllPermission`을 부여해도 작동합니다.
 
-위에서 언급한 이유들로 인해 Full Trust가 아닌 권한 세트를 부여하는 서버에서는 Aspose Java 구성 요소를 사용할 수 없습니다. 
+시스템 속성을 읽거나 프로그램을 시작할 권한이 없으면, Aspose.Slides는 첫 사용 시 실패합니다: [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 객체를 생성하면 `ExceptionInInitializerError`가 발생합니다. 글꼴 파일에 대한 읽기 권한이 없으면 프레젠테이션을 PDF로 저장할 때 "Cannot find any fonts installed on the system" 오류가 발생합니다.
 
-{{% /alert %}}
+## **Java 24 및 이후 버전**
+
+Java 24 및 이후 버전에서는 보안 관리자를 활성화할 수 없으므로 부여할 권한이 없습니다. Aspose.Slides는 애플리케이션을 실행하는 계정의 권한으로 실행됩니다. 애플리케이션이 접근할 수 있는 범위를 제한하려면 OpenJDK 프로젝트에서는 컨테이너, 하이퍼바이저, 운영 체제 샌드박스 기능 등 JDK 외부 기술을 사용할 것을 권장합니다. 자세히 보려면 [JEP 486](https://openjdk.org/jeps/486)을 참조하십시오.
+
+## **FAQ**
+
+**제한적인 Security Manager 정책 하에서 애플리케이션을 실행하는 환경에서도 Aspose.Slides를 사용할 수 있나요?**
+
+위에 나열된 권한이 Aspose.Slides와 이를 호출하는 코드 모두에게 부여되는 경우에만 가능합니다. 여기에는 모든 파일을 읽고 모든 프로그램을 시작하는 권한이 포함됩니다.

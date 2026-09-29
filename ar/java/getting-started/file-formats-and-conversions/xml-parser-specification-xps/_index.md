@@ -1,24 +1,30 @@
 ---
-title: مواصفات محلل XML (XPS)
+title: مواصفة ورق XML (XPS) (تاريخية)
 type: docs
 weight: 50
 url: /ar/java/xml-parser-specification-xps/
+keywords:
+- XPS
+- مواصفة ورق XML
+- تاريخية
+- جافا
+- Aspose.Slides
+description: "تاريخي: نظرة عامة أقدم لتصدير XPS في Aspose.Slides for Java، تم الاحتفاظ بها للروابط الحالية. الدليل الحالي هو Convert PowerPoint Presentations to XPS."
 ---
+{{% alert color="info" title="Note" %}}
+هذه صفحة تاريخية، تم الاحتفاظ بها للروابط الحالية. لا تصف الإصدار الحالي من Aspose.Slides for Java. للأنساق التي يقوم Aspose.Slides for Java بتحميلها واستيرادها وحفظها وعرضها، ولـ API لكل منها، راجع [Supported File Formats](/slides/ar/java/supported-file-formats/). للدليل الحالي لتحويل XPS، راجع [Convert PowerPoint Presentations to XPS](/slides/ar/java/convert-powerpoint-to-xps/).
+{{% /alert %}}
+{{% alert color="info" title="Note" %}}
+إن [XML Paper Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) هي لغة وصف صفحات وتنسيق مستند ثابت تم تطويره أصلاً بواسطة مايكروسوفت. مثل PDF، تم تصميم XPS للحفاظ على دقة المستند وتوفير مظهر مستند لا يعتمد على الجهاز.
+{{% /alert %}}
+## **XPS في Aspose.Slides for Java**
+يمكن تحويل أي مستند عرض تقديمي يمكن تحميله بواسطة Aspose.Slides for Java إلى تنسيق XPS. يستخدم Aspose.Slides for Java محرك تخطيط الصفحات عالي الدقة وعرضه لإنتاج مخرجات بتنسيق مستند XPS ثابت التخطيط.
+يمكنك التعرف على تصدير مستندات العرض التقديمي إلى مستندات XPS من خلال Aspose.Slides for Java في [Convert PowerPoint Presentations to XPS](/slides/ar/java/convert-powerpoint-to-xps/).
 
-{{% alert color="primary" %}} 
+**العرض التقديمي الأصلي**
 
-تعد [مواصفات محلل XML](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) لغة وصف صفحة وصيغة مستند ثابت تم تطويرها في الأصل بواسطة Microsoft. مثل PDF، تم تصميم XPS للحفاظ على دقة المستند وتوفير مظهر مستقل عن الجهاز. 
+![العرض التقديمي الأصلي](xml-parser-specification-xps_1.png)
 
-{{% /alert %}} 
+**عرض تقديمي محول إلى XPS**
 
-## **XPS في Aspose.Slides لجافا**
-يمكن تحويل أي مستند عرض يمكن تحميله بواسطة Aspose.Slides لجافا إلى تنسيق XPS. يستخدم Aspose.Slides لجافا محرك تخطيط الصفحات عالي الدقة وإنتاج المخرجات بتنسيق مستند XPS ثابت التخطيط.
-يمكنك معرفة كيفية تصدير مستندات العرض إلى مستندات XPS من خلال Aspose.Slides لجافا في [التحويل إلى XPS](https://docs.aspose.com/slides/java/convert-powerpoint-to-xps/).
-
-**مستند العرض المدخل** 
-
-![todo:image_alt_text](xml-parser-specification-xps_1.png)
-
-**مستند عرض تم تحويله إلى XPS** 
-
-![todo:image_alt_text](xml-parser-specification-xps_2.png)
+![عرض تقديمي محول إلى XPS](xml-parser-specification-xps_2.png)

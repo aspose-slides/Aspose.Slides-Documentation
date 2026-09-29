@@ -1,53 +1,55 @@
 ---
-title: مشکل پیش‌نمایش شیء هنگام افزودن OleObjectFrame
-linktitle: مشکل شیء OLE
+title: نماد جایگزین پیش‌نمایش شیء هنگام افزودن OleObjectFrame
+linktitle: نماد پیش‌نمایش OLE
 type: docs
 weight: 10
 url: /fa/java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
-- مشکل پیش‌نمایش
-- شیء جاسازی‌شده
-- فایل جاسازی‌شده
-- شیء تغییر یافته
+- مسئله پیش‌نمایش
+- محل‌نگهدار پیش‌نمایش
+- طراحی شده
+- جاسازی شیء
+- جاسازی فایل
+- شیء تغییر کرده
 - پیش‌نمایش شیء
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "دلیل ظاهر شدن پیام EMBEDDED OLE OBJECT هنگام افزودن OleObjectFrame در Aspose.Slides برای Java و نحوه رفع مشکلات پیش‌نمایش در ارائه‌های PPT، PPTX و ODP را بیاموزید."
+description: "دلیل نمایش یک شی OLE که با Aspose.Slides برای Java اضافه شده است، به‌صورت نگهدارنده EMBEDDED OLE OBJECT تا زمانی که پیش‌نمایش آن به‌روز شود، و چگونگی تنظیم تصویر پیش‌نمایش خودتان."
 ---
 ## **مقدمه**
 
-با استفاده از Aspose.Slides برای Java، وقتی یک [OleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/oleobjectframe/) را به یک اسلاید اضافه می‌کنید، پیام «EMBEDDED OLE OBJECT» بر روی اسلاید خروجی نمایش داده می‌شود. این پیام عمداً نمایش داده می‌شود و خطایی نیست.
+با استفاده از Aspose.Slides برای Java، زمانی که یک [OleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/oleobjectframe/) را به یک اسلاید اضافه می‌کنید، پیام «EMBEDDED OLE OBJECT» روی اسلاید خروجی نمایش داده می‌شود. این پیام به‌طور عمدی است و خطا نیست.
 
-برای اطلاعات بیشتر در مورد کار با اشیاء OLE، به [Manage OLE](/slides/fa/java/manage-ole/) مراجعه کنید. 
+برای اطلاعات بیشتر در مورد کار با اشیاء OLE، به [Manage OLE](/slides/fa/java/manage-ole/) مراجعه کنید.
 
 ## **توضیح و راه‌حل**
 
-Aspose.Slides پیام «EMBEDDED OLE OBJECT» را برای این که به شما اطلاع دهد شیء OLE تغییر کرده و تصویر پیش‌نمایش باید به‌روز شود، نمایش می‌دهد. 
+Aspose.Slides پیام «EMBEDDED OLE OBJECT» را نمایش می‌دهد تا به شما اطلاع دهد که شی OLE تغییر کرده و تصویر پیش‌نمایش باید به‌روز شود.
 
-به عنوان مثال، اگر یک نمودار Microsoft Excel را به عنوان یک [OleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/oleobjectframe/) به اسلاید اضافه کنید (برای جزئیات بیشتر مقاله «Manage OLE» را ببینید) و سپس ارائه را در Microsoft PowerPoint باز کنید، این تصویر را در اسلاید خواهید دید:
+به‌عنوان مثال، اگر یک نمودار Microsoft Excel را به‌عنوان یک [OleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/oleobjectframe/) به یک اسلاید اضافه کنید (برای جزئیات بیشتر، مقاله «Manage OLE» را ببینید) و سپس ارائه را در Microsoft PowerPoint باز کنید، این تصویر را بر روی اسلاید مشاهده خواهید کرد:
 
-![OLE object message](OLE_object_message.png)
+![پیام شی OLE](OLE_object_message.png)
 
-اگر می‌خواهید بررسی و تأیید کنید که شیء OLE شما به اسلاید اضافه شده است، باید روی پیام «EMBEDDED OLE OBJECT» دوبار کلیک کنید، یا می‌توانید روی آن کلیک راست کنید و گزینه **Object > Edit** را انتخاب کنید.
+اگر می‌خواهید بررسی کنید و تأیید کنید که شی OLE شما به اسلاید اضافه شده است، باید روی پیام «EMBEDDED OLE OBJECT» دوبار کلیک کنید، یا می‌توانید روی آن کلیک راست کنید و گزینه **Object > Edit** را انتخاب کنید.
 
-![OLE object > Edit](OLE_object_edit.png)
+![شی OLE > Edit](OLE_object_edit.png)
 
-PowerPoint سپس شیء OLE تعبیه‌شده را باز می‌کند.
+PowerPoint سپس شی OLE تعبیه‌شده را باز می‌کند.
 
-![OLE object data](OLE_object_data.png)
+![داده‌های شی OLE](OLE_object_data.png)
 
-ممکن است اسلاید پیام «EMBEDDED OLE OBJECT» را نگه دارد. وقتی روی شیء OLE کلیک می‌کنید، پیش‌نمایش اسلاید به‌روز می‌شود و پیام «EMBEDDED OLE OBJECT» با تصویر واقعی شیء OLE جایگزین می‌شود. 
+ممکن است اسلاید پیام «EMBEDDED OLE OBJECT» را حفظ کند. زمانی که روی شی OLE کلیک کنید، پیش‌نمایش اسلاید به‌روز شده و پیام «EMBEDDED OLE OBJECT» با تصویر واقعی شی OLE جایگزین می‌شود.
 
-![OLE object preview](OLE_object_preview.png)
+![پیش‌نمایش شی OLE](OLE_object_preview.png)
 
-حالا ممکن است بخواهید ارائه خود را ذخیره کنید تا اطمینان حاصل شود تصویر شیء OLE به‌درستی به‌روز شده است. به این ترتیب، پس از ذخیره‌سازی ارائه، وقتی دوباره آن را باز می‌کنید، پیام «EMBEDDED OLE OBJECT» را نخواهید دید. 
+اکنون ممکن است بخواهید ارائه خود را ذخیره کنید تا اطمینان حاصل کنید تصویر شی OLE به‌درستی به‌روز شده است. به این ترتیب، پس از ذخیره ارائه، وقتی دوباره آن را باز کنید، پیام «EMBEDDED OLE OBJECT» را نخواهید دید.
 
 ## **راه‌حل دیگر**
 
-اگر نمی‌خواهید با باز کردن ارائه در PowerPoint و سپس ذخیره‌سازی، پیام «EMBEDDED OLE OBJECT» را حذف کنید، می‌توانید این پیام را با تصویر پیش‌نمایش دلخواه خود جایگزین کنید. خطوط کد زیر این فرآیند را نشان می‌دهند:
+اگر نمی‌خواهید با باز کردن ارائه در PowerPoint و سپس ذخیره آن، پیام «EMBEDDED OLE OBJECT» را حذف کنید، می‌توانید این پیام را با تصویر پیش‌نمایش دلخواه خود جایگزین کنید. خطوط کد زیر این فرآیند را نشان می‌دهند. فرض می‌شود اولین شکل در اولین اسلاید *embeddedOLE.pptx*، فریم شی OLE است و *myImage.png* حاوی تصویری است که می‌خواهید نمایش دهید؛ نتیجه نیز به عنوان *embeddedOLE-newImage.pptx* ذخیره می‌شود:
 
 ```java
 import com.aspose.slides.*;
@@ -60,18 +62,18 @@ try {
     // یک تصویر به منابع ارائه اضافه کنید.
     IImage image = Images.fromFile("myImage.png");
     IPPImage oleImage = presentation.getImages().addImage(image);
+    image.dispose();
 
-    // یک عنوان و تصویر برای پیش‌نمایش شیء OLE تنظیم کنید.
-    oleFrame.setSubstitutePictureTitle("My title");
+    // تصویر پیش‌نمایش شی OLE را تنظیم کنید.
     oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
     oleFrame.setObjectIcon(false);
 
     presentation.save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();    
+    presentation.dispose();
 }
 ```
 
 اسلاید حاوی `OleObjectFrame` سپس به این شکل تغییر می‌کند:
 
-![New OLE object image](OLE_object_new_image.png)
+![تصویر جدید شی OLE](OLE_object_new_image.png)

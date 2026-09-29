@@ -1,41 +1,55 @@
 ---
-title: PresentationML (PPTX, XML)
+title: PresentationML (PPTX, XML) (Historisch)
 type: docs
 weight: 20
 url: /nl/java/presentationml-pptx-xml/
+keywords:
+- PresentationML
+- PPTX
+- Office Open XML
+- historisch
+- Java
+- Aspose.Slides
+description: "Historisch: een oudere beschrijving van het PresentationML (PPTX)-formaat in Aspose.Slides for Java, bewaard voor bestaande koppelingen. De huidige lijst met ondersteunde formaten vindt u in Ondersteunde bestandsformaten."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Opmerking" %}}
 
-PresentationML is een benaming voor een familie van XML‑gebaseerde formaten voor presentatiedocumenten. Office OpenXML (OOXML) is het XML‑gebaseerde formaat dat werd geïntroduceerd in de Microsoft Office‑toepassingen van 2007. Office OpenXML is een containerformaat voor verschillende gespecialiseerde XML‑gebaseerde opmaaktaal‑schema’s. PresentationML is de opmaaktaal die Microsoft Office PowerPoint 2007 gebruikt om documenten op te slaan.
+Dit is een historische pagina, bewaard voor bestaande koppelingen. Het beschrijft niet de huidige versie van Aspose.Slides for Java. Voor de formaten die Aspose.Slides for Java laadt, importeert, opslaat en rendert, en de API voor elk van hen, zie [Ondersteunde bestandsformaten](/slides/nl/java/supported-file-formats/). Om PPTX met PPT te vergelijken, zie [Begrijpen van het verschil: PPT vs PPTX](/slides/nl/java/ppt-vs-pptx/).
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **PresentationML in Aspose.Slides for Java**
-OOXML PresentationML‑documenten worden geleverd als PPTX‑bestanden, gezipte XML‑pakketten die voldoen aan de [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)specificatie. Aspose.Slides for Java ondersteunt uitgebreid het maken, lezen, manipuleren en schrijven van PresentationML‑documenten. Bovendien kan Aspose.Slides for Java PresentationML‑documenten exporteren naar een veelgebruikt documentformaat zoals PDF. Dit is mogelijk omdat Aspose.Slides for Java is ontworpen met als doel presentatie‑documenten volledig te verwerken en PresentationML in feite de interne presentatie van documenten bevat als een gezipt XML‑pakket.
+{{% alert color="info" title="Opmerking" %}}
 
-**Een PPTX‑document gegenereerd door Aspose.Slides for Java en geopend in Microsoft PowerPoint** 
+PresentationML is een naam voor een familie van op XML gebaseerde formaten voor presentatie‑documenten. Office OpenXML (OOXML) is het op XML‑gebaseerde formaat dat werd geïntroduceerd in Microsoft Office‑toepassingen vanaf 2007. Office OpenXML is een containerformaat voor verschillende gespecialiseerde op XML gebaseerde opmaak‑talen. PresentationML is de opmaaktaal die Microsoft Office PowerPoint 2007 gebruikt om documenten op te slaan.
 
-![todo:image_alt_text](presentationml-pptx-xml_1.png)
+{{% /alert %}}
+
+## **PresentationML in Aspose.Slides voor Java**
+OOXML PresentationML‑documenten komen voor als PPTX‑bestanden, gezipte XML‑pakketten die voldoen aan de [OOXML ECMA-376](https://ecma-international.org/publications-and-standards/standards/ecma-376/) specificatie. Aspose.Slides for Java ondersteunt uitgebreid het maken, lezen, manipuleren en schrijven van PresentationML‑documenten. Bovendien kan Aspose.Slides for Java PresentationML‑documenten exporteren naar een veelgebruikt documentformaat zoals PDF. Dit is mogelijk omdat Aspose.Slides for Java is ontworpen met als doel Presentation‑documenten volledig te kunnen verwerken en PresentationML in wezen de interne weergave van documenten bevat als een gezipt XML‑pakket.
+
+**Een PPTX‑document gegenereerd door Aspose.Slides for Java en geopend in Microsoft PowerPoint**
+
+![Een PPTX‑document gegenereerd door Aspose.Slides for Java en geopend in Microsoft PowerPoint](presentationml-pptx-xml_1.png)
 
 
-**Hetzelfde PPTX‑document gegenereerd door Aspose.Slides for Java bekijken in een ZIP** 
+**Hetzelfde PPTX‑document bekeken als een ZIP‑pakket**
 
-![todo:image_alt_text](presentationml-pptx-xml_2.jpg)
+![Hetzelfde PPTX‑document bekeken als een ZIP‑pakket](presentationml-pptx-xml_2.jpg)
 
 
-## **PresentationML is Open, waarom Aspose.Slides for Java gebruiken?**
-Aangezien PresentationML XML‑gebaseerd is, is het zeker mogelijk om applicaties te bouwen die PresentationML‑documenten verwerken en genereren met XML‑klassen, zonder afhankelijk te zijn van een externe klasse‑bibliotheek zoals Aspose.Slides for Java. Er zijn echter verschillende voordelen aan het gebruik van Aspose.Slides for Java ten opzichte van XML‑klassen bij het werken met PresentationML‑documenten.
+## **PresentationML is open, waarom Aspose.Slides voor Java gebruiken?**
+Omdat PresentationML op XML is gebaseerd, is het zeker mogelijk om applicaties te bouwen die PresentationML‑documenten verwerken en genereren met XML‑klassen zonder een externe bibliotheek zoals Aspose.Slides for Java te gebruiken. Er zijn echter verschillende voordelen aan het gebruik van Aspose.Slides for Java ten opzichte van XML‑klassen bij het werken met PresentationML‑documenten.
 
-De OOXML‑specificatie beslaat enkele duizenden pagina’s, dus om PresentationML‑documenten correct te verwerken moet je veel tijd en moeite investeren om het formaat te begrijpen. Met Aspose.Slides for Java gebruik je simpelweg klassen en hun methoden en eigenschappen om bewerkingen uit te voeren die via XML‑klassen complex lijken.
+De OOXML‑specificatie telt duizenden pagina’s, dus om PresentationML‑documenten correct te verwerken moet je veel tijd en moeite investeren om het formaat te begrijpen. Met Aspose.Slides for Java gebruik je simpelweg klassen en hun methoden en eigenschappen om bewerkingen uit te voeren die complex lijken als ze via XML‑klassen worden gedaan.
 
-Sommige functies die Aspose.Slides biedt, zijn zelfs niet beschikbaar wanneer je met PresentationML‑documenten werkt via XML‑klassen:
+Enkele functies die Aspose.Slides biedt en die niet beschikbaar zijn wanneer je met PresentationML‑documenten via XML‑klassen werkt:
 
-- Exporteer PPT‑documenten naar PDF‑formaat.
-- Render een dia naar elk beeldformaat dat door het Java‑framework wordt ondersteund.
-- Kopieer automatisch masters van een bronpresentatie met de kloon‑functie.
-- Pas bescherming toe op vormen.
+- Exporteren van PPT‑documenten naar PDF‑formaat.
+- Een dia renderen naar elk beeldformaat dat door het Java‑framework wordt ondersteund.
+- Automatisch masters kopiëren uit een bronpresentatie met de kloonfunctie.
+- Bescherming toepassen op vormen.
 
-Hieronder staat een voorbeeld van een PresentationML‑document met één dia die een tekstvak bevat met de tekst “Hello World”. Om de tekst te lezen met XML‑klassen moet je een programma schrijven dat deze eenvoudige tekst uit het volgende fragment kan parseren. Aspose.Slides doet dat voor jou.
+Hieronder staat een voorbeeld van een PresentationML‑document met één dia met een tekstvak met de tekst “Hello World”. Om de tekst met XML‑klassen te lezen, moet je een programma schrijven dat deze eenvoudige tekst kan parsen uit het volgende fragment. Aspose.Slides doet dat voor je.
 
 **XML**
 

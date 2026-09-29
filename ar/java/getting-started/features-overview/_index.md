@@ -1,117 +1,94 @@
 ---
 title: نظرة عامة على الميزات
 type: docs
-weight: 10
+weight: 104
 url: /ar/java/features-overview/
 keywords:
 - ميزات
-- المنصات المدعومة
-- تنسيق الملف
-- التحويل
-- العرض
-- التنسيق
+- منصات مدعومة
+- صيغ الملفات
+- تحويل
+- عرض
+- محتوى العرض
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - Java
 - Aspose.Slides
-description: "اكتشف Aspose.Slides for Java: واجهة برمجة تطبيقات قوية لإنشاء وتحرير وأتمتة وتحويل عروض PowerPoint وOpenDocument بكفاءة."
+description: "راجع ما تغطيه Aspose.Slides for Java قبل تقييمها: المنصات المدعومة، صيغ الملفات، عرض الشرائح، والمحتوى الذي يمكنك إنشاؤه وتعديله."
 ---
-## **المنصات المدعومة**
-يدعم Aspose.Slides for Java أكثر منصات التطوير والنشر شيوعًا.
+## **نظرة عامة**
 
-|**الميزة**|**الوصف**|
-| :- | :- |
-|تطبيقات سطح المكتب|يمكن استخدام Aspose.Slides for Java لتطوير تطبيقات Windows Forms|
-|تطبيقات ويب للمؤسسات|يساعد Aspose.Slides for Java في بناء تطبيقات ويب مستهدفة. كما يتم توفير الدعم لاستخدام Aspose.Slides for Java مع PHP.|
-|Linux/Unix|Aspose.Slides for Java هو API مستقل عن المنصة ويمكنه العمل في بيئة Linux وUnix.|
+Aspose.Slides for Java هي مكتبة فئات لإنشاء وقراءة وتحرير وتحويل وعرض عروض PowerPoint وعروض OpenDocument. لا تمتلك واجهة مستخدم خاصة ولا تتطلب وجود Microsoft PowerPoint أو Microsoft Office. يلخص هذا المقال ما تغطيه المكتبة ويشير إلى المقالات التي تصف كل مجال.
+
+## **المنصات المدعومة**
+
+Aspose.Slides for Java ملف JAR واحد يُنشر في مستودع Maven الخاص بـ Aspose مع مُصنِّف `jdk16`. مكتوبة بلغة Java الصافية: لا يحتوي الـ JAR على مكتبات أصلية ولا يعتمد على حزم أخرى.
+
+- **Java:** Java 8 أو أحدث. إصدارات Aspose.Slides for Java 26.9 والإصدارات الأقدم تعمل أيضاً على Java 6 و7، وهو ما لا تدعمه النسخة 26.10؛ راجع [ملاحظات إصدار 26.9](https://releases.aspose.com/slides/ar/java/release-notes/2026/aspose-slides-for-java-26-9-release-notes/).
+- **أنظمة التشغيل:** أي نظام تشغيل يحتوي على بيئة تشغيل Java، مثل Windows وLinux وmacOS. على Linux يجب تثبيت مكتبة fontconfig وعلى الأقل خط واحد.
+
+[التثبيت](/slides/ar/java/installation/) يوضح كيفية إضافة المكتبة إلى مشروع ويُ列列 المتطلبات المسبقة لـ Linux. [متطلبات النظام](/slides/ar/java/system-requirements/) تُدرج المنصات المدعومة بالتفصيل.
 
 ## **تنسيقات الملفات والتحويلات**
-يدعم Aspose.Slides for Java معظم تنسيقات مستندات Microsoft PowerPoint ويصدّرها إلى تنسيقات شائعة تُستخدم على نطاق واسع من قبل المؤسسات.
+
+Aspose.Slides يفتح ويحفظ عروض PPT وPPTX وPPS وPOT وPPSX وPOTX وPPTM وPPSM وPOTM وODP وOTP وFODP وعروض PowerPoint XML. يستورد محتوى PDF وHTML إلى الشرائح، ويحفظ العروض كملفات PDF وXPS وHTML وHTML5 وTIFF وGIF متحرك وSWF وMarkdown وXAML. [تنسيقات الملفات المدعومة](/slides/ar/java/supported-file-formats/) تُدرج كل تنسيق مع واجهة برمجة التطبيقات التي تقرأه أو تكتبه.
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/ar/java/microsoft-powerpoint-ppt/)|يوفر Aspose.Slides for Java أسرع معالجة لهذا تنسيق مستند العروض التقديمية.|
-|[PresentationML (PPTX, XML)](/slides/ar/java/presentationml-pptx-xml/)|يدعم Aspose.Slides for Java معالجة تنسيق العروض التقديمية OOXML (المعروف أيضًا باسم PresentationML أو PPTX).|
-|[PPT to PPTX conversion](/slides/ar/java/ppt-to-pptx-conversion/)|يدعم Aspose.Slides for Java التحويل من PPT إلى PPTX.|
-|[Portable Document Format (PDF)](/slides/ar/java/developer-guide/)|يمكن تصدير التنسيقات المدعومة إلى مستندات Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
-|[XML Parser Specification (XPS)](/slides/ar/java/xml-parser-specification-xps/)|جميع التنسيقات المدعومة يمكن تصديرها إلى مستندات XML Parser Specification (XPS) باستخدام طريقة واحدة.|
-|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/ar/java/convert-powerpoint-to-tiff/)|يمكن أيضًا تصدير تنسيقات ملفات العرض المدعومة إلى Tagged Image File Format (TIFF).|
-|[ODP to PPTX Conversion](https://docs.aspose.com/slides/ar/java/convert-odp-to-pptx/)|يدعم Aspose.Slides for Java تحميل العروض التقديمية بتنسيق OpenDocument Presentation (ODP) وتحويلها إلى PPTX.|
-|[Presentation To HTML Conversion](https://docs.aspose.com/slides/ar/java/convert-powerpoint-to-html/)|يدعم Aspose.Slides for Java تحويل PresentationEx إلى تنسيق HTML.|
+|[PPT وPPTX](/slides/ar/java/ppt-vs-pptx/)|قراءة وكتابة كل من تنسيق PowerPoint الثنائي 97‑2003 وتنسيق Office Open XML.|
+|[تحويل PPT إلى PPTX](/slides/ar/java/convert-ppt-to-pptx/)|تحويل عروض PPT القديمة إلى PPTX.|
+|[تحويل ODP إلى PPTX](/slides/ar/java/convert-odp-to-pptx/)|فتح وحفظ عروض ODP وOTP وFODP، وتحويل عروض ODP إلى PPTX.|
+|[تنسيق المستندات القابل للتوزيع (PDF)](/slides/ar/java/convert-powerpoint-to-pdf/)|تصدير العروض إلى PDF، بما في ذلك مستندات PDF/A وPDF/UA.|
+|[مواصفات ورق XML (XPS)](/slides/ar/java/convert-powerpoint-to-xps/)|تصدير العروض إلى مستندات XPS.|
+|[تنسيق ملف الصورة ذات الوسوم (TIFF)](/slides/ar/java/convert-powerpoint-to-tiff/)|تصدير العروض إلى صور TIFF متعددة الصفحات، صفحة واحدة لكل شريحة.|
+|[HTML](/slides/ar/java/convert-powerpoint-to-html/)|تصدير العروض إلى HTML وHTML5.|
+|[استيراد PDF وHTML](/slides/ar/java/import-presentation/)|إنشاء شرائح من صفحات PDF ومحتوى HTML.|
 
 ## **عرض العروض التقديمية**
-يدعم Aspose.Slides for Java عرضًا عالي الدقة للشرائح في العروض التقديمية إلى تنسيقات رسومية متنوعة:
 
-|**الميزة**|**الوصف**|
-| :- | :- |
-|تنسيقات الصور المدعومة|باستخدام Aspose.Slides for Java، يمكنك عرض ليس فقط شرائح العرض بل أيضًا الصور داخل الشرائح، إلى تنسيقات رسومية مدعومة وشائعة مثل TIFF وPNG وBMP وJPEG وGIF والملفات الوصيفة.|
-|تنسيق SVG|يوفر Aspose.Slides for Java طريقة مدمجة لتصدير شرائح العرض إلى تنسيق Scalable Vector Graphics (SVG).|
+Aspose.Slides يعرض الشرائح والأشكال الفردية كصور PNG وJPEG وBMP وGIF وTIFF وSVG، والشرائح كملفات ميتا EMF. راجع [تحويل شرائح العرض إلى صور](/slides/ar/java/convert-slide/)، [عرض شرائح العرض كصور SVG](/slides/ar/java/render-a-slide-as-an-svg-image/)، و[إنشاء صور مصغرة لأشكال العرض](/slides/ar/java/create-shape-thumbnails/).
 
 ## **ميزات المحتوى**
-يتيح Aspose.Slides for Java الوصول إلى محتويات العروض التقديمية تقريبًا وتعديلها أو إنشاؤها.
 
-|**الميزة**|**الوصف**|
+Aspose.Slides يتيح لك إنشاء وقراءة وتعديل تقريباً كل محتوى عرض تقديمي:
+
+|**المجال**|**ما يمكنك القيام به**|
 | :- | :- |
-|الشرائح الرئيسية|تحدد الشرائح الرئيسية تخطيط الشرائح العادية. يتيح Aspose.Slides for Java الوصول إلى الشرائح الرئيسية للعرض وتعديلها.|
-|الشرائح العادية|باستخدام Aspose.Slides for Java، يمكنك ليس فقط إنشاء شرائح جديدة من أنواع مختلفة، بل أيضًا الوصول إلى الشرائح الموجودة وتعديلها.|
-|استنساخ / نسخ الشرائح|يوفر Aspose.Slides for Java طرقًا لاستنساخ أو نسخ الشرائح الحالية ليس فقط داخل عرض تقديمي واحد، بل أيضًا من عرض إلى آخر. بما أن الشريحة ترث تخطيطها من الشريحة الرئيسية، فإن طرق الاستنساخ المدمجة تنسخ الشريحة الرئيسية تلقائيًا.|
-|إدارة أقسام الشرائح|يوفر إمكانية تنظيم الشرائح في أقسام مختلفة داخل العرض.|
-|المحافظات النائبة وحوامل النص|الوصول إلى المحافظات النائبة وحوامل النص في الشريحة. علاوة على ذلك، يمكنك إنشاء شريحة بحوامل نص من الصفر باستخدام الطريقة المناسبة.|
-|الرؤوس وتذييلات الصفحات|يسهل Aspose.Slides for Java أيضًا التعامل مع الرؤوس / التذييلات في الشرائح.|
-|الملاحظات في الشرائح|مع Aspose.Slides for Java، يمكنك ليس فقط الوصول إلى الملاحظات المرتبطة بالشريحة وتعديلها، بل أيضًا إضافة ملاحظات.|
-|العثور على شكل|يمكنك العثور على شكل معين في شريحة باستخدام النص البديل المرتبط به.|
-|الخلفيات|يتيح Aspose.Slides for Java العمل مع الخلفية المرتبطة بشريحة رئيسية أو عادية.|
-|صناديق النص|يمكن إنشاء صناديق نص من الصفر. يمكن الوصول إلى صناديق النص الموجودة وتعديل نصها دون فقدان تنسيق النص الأصلي.|
-|الأشكال المستطيلة|يمكن إنشاء أو تعديل الأشكال المستطيلة باستخدام Aspose.Slides for Java.|
-|الأشكال متعددة الخطوط|يمكن أيضًا إنشاء أو تعديل الأشكال متعددة الخطوط باستخدام Aspose.Slides for Java.|
-|الأشكال البيضاوية|يتم إنشاء أو تعديل الأشكال البيضاوية باستخدام Aspose.Slides for Java.|
-|الأشكال الجماعية|يدعم Aspose.Slides for Java الأشكال الجماعية.|
-|الأشكال التلقائية|تدعم Aspose.Slides for Java الأشكال التلقائية.|
-|SmartArt|دعم أشكال SmartArt المتوفرة في MS PowerPoint.|
-|الرسوم البيانية|دعم الرسوم البيانية MSO التي يدعمها PowerPoint.|
-|إطارات الصور|يتم إدارة الصور في إطارات الصور باستخدام Aspose.Slides for Java.|
-|إطارات الصوت|يمكن ربط أو تضمين ملفات الصوت في الشرائح ضمن إطارات الصوت بواسطة Aspose.Slides for Java.|
-|إطارات الفيديو|تُعالج ملفات الفيديو في إطارات الفيديو عبر Aspose.Slides for Java. يتوفر دعم للفيديوهات المربوطة والمضمنة.|
-|إطار OLE|يتم إدارة كائنات OLE في إطارات OLE بواسطة Aspose.Slides for Java.|
-|عناصر تحكم ActiveX|يتوفر دعم لعناصر تحكم ActiveX.|
-|ماكرو VBA|يتوفر دعم لإدارة ماكرو VBA داخل العرض.|
-|الجداول|تُدعم الجداول على الشرائح أيضًا بواسطة Aspose.Slides for Java.|
-|إطار النص|يمكن الوصول إلى النص المرتبط بأي شكل من خلال إطار النص المرتبط بذلك الشكل.|
-|مسح النص|يمكن مسح النص في عرض تقديمي على مستوى العرض أو الشريحة عبر طرق المسح المدمجة.|
-|الرسوم المتحركة|يمكن تطبيق الرسوم المتحركة على الأشكال.|
-|عروض الشرائح|تُدعم عروض الشرائح والانتقالات بين الشرائح.|
+|[الشرائح](/slides/ar/java/presentation-slide/)|إضافة، استنساخ، إعادة ترتيب، وإزالة الشرائح؛ تطبيق القوالب والأسس؛ تنظيم الشرائح في أقسام؛ تغيير حجم الشريحة.|
+|[التصميم](/slides/ar/java/presentation-design/)|تعيين الخلفيات، ألوان السمة، رؤوس وتذييلات، والخطوط.|
+|[النص](/slides/ar/java/manage-text/)|إنشاء وتحرير إطارات النص، الفقرات، والجزء؛ تعيين الخطوط، الألوان، العلامات النقطية، والمحاذاة؛ البحث والاستبدال في النص.|
+|[الأشكال](/slides/ar/java/powerpoint-shapes/)|إنشاء أشكال AutoShapes، خطوط، موصلات، تجميع أشكال، وإطارات صور؛ تعيين الموقع، الحجم، الخط، وتعبئة صلبة أو متدرجة أو بنقشة؛ البحث عن شكل عبر النص البديل الخاص به.|
+|[الجداول](/slides/ar/java/powerpoint-table/)، [المخططات](/slides/ar/java/powerpoint-charts/)، و[SmartArt](/slides/ar/java/powerpoint-smartart/)|إنشاء وتحرير الجداول، مخططات Microsoft Office، ومخططات SmartArt.|
+|[الوسائط](/slides/ar/java/manage-media-files/)، [كائنات OLE](/slides/ar/java/manage-ole/)، و[عناصر تحكم ActiveX](/slides/ar/java/activex/)|إضافة إطارات صوت وفيديو مضمنة أو مرتبطة، تضمين كائنات OLE، وإضافة أو تعديل أو إزالة عناصر تحكم ActiveX.|
+|[الملاحظات](/slides/ar/java/presentation-notes/) و[التعليقات](/slides/ar/java/presentation-comments/)|إضافة، قراءة، وتحرير ملاحظات المتحدث وتعليقات المراجعة.|
+|[الرسوم المتحركة](/slides/ar/java/powerpoint-animation/) و[الانتقالات](/slides/ar/java/slide-transition/)|تطبيق تأثيرات الرسوم المتحركة على الأشكال، تعيين انتقالات الشرائح، وتكوين إعدادات عرض الشرائح.|
+|[الأمان](/slides/ar/java/presentation-security/)|تشفير العروض بكلمة مرور، تعيين حماية كتابة، والعمل مع [التوقيعات الرقمية](/slides/ar/java/digital-signature-in-powerpoint/).|
+|[ماكرو VBA](/slides/ar/java/presentation-via-vba/)|إضافة، استخراج، وإزالة وحدات VBA في العروض المدعومة بالماكرو.|
+|[الخصائص](/slides/ar/java/presentation-properties/)|قراءة وتعديل خصائص المستند.|
 
-## **ميزات التنسيق**
-يمكن تنسيق النص والأشكال على الشرائح في مستند عرض تقديمي باستخدام Aspose.Slides for Java.
+## **الأسئلة المتكررة**
 
-|**الميزة**|**الوصف**|
-| :- | :- |
-|تنسيق النص|<p>في Aspose.Slides for Java، يُدار النص من خلال إطارات النص المرتبطة بالأشكال. وبالتالي، يُنسق النص باستخدام الفقرات والأجزاء المرتبطة بإطارات النص. يمكن تنسيق العناصر النصية التالية.</p><p>- نوع الخط.</p><p>- حجم الخط.</p><p>- لون الخط.</p><p>- ظلال الخط.</p><p>- محاذاة الفقرة.</p><p>- تعداد الفقرة.</p><p>- اتجاه الفقرة.</p>|
-|تنسيق الشكل|<p>في Aspose.Slides for Java، العنصر الأساسي للشفرة هو الشكل. يمكن تنسيق عناصر الشكل التالية باستخدام Aspose.Slides for Java:</p><p>- الموقع</p><p>- الحجم</p><p>- الخط</p><p>- التعبئة (بما في ذلك النمط، التدرج، واللون الصلب).</p><p>- النص</p><p>- الصورة</p>|
+**هل يجب تثبيت Microsoft PowerPoint على الخادم أو الحاسوب لتعمل المكتبة؟**
 
-## **الأسئلة الشائعة**
+لا. لا يلزم وجود PowerPoint؛ Aspose.Slides محرك مستقل لإنشاء وتحرير وتحويل وعرض العروض التقديمية.
 
-### هل أحتاج إلى تثبيت Microsoft PowerPoint على الخادم/الكمبيوتر لتعمل المكتبة؟
+**كيف يعمل تعدد الخيوط؟ هل يمكن تنفيذ المعالجة بشكل متوازي؟**
 
-لا. لا تحتاج إلى PowerPoint؛ Aspose.Slides هو محرك مستقل لإنشاء وتحرير وتحويل وعرض العروض التقديمية.
+من الآمن معالجة مستندات مختلفة في خيوط مختلفة؛ لا يجب استخدام نفس كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) بواسطة [عدة خيوط](/slides/ar/java/multithreading/) في الوقت نفسه.
 
-### كيف يعمل المعالجة المتعددة الخيوط؟ هل يمكن تنفيذ المعالجة بشكل متوازي؟
+**هل تدعم كلمات مرور الملفات والتشفير؟**
 
-من الآمن معالجة مستندات مختلفة في خيوط مختلفة؛ لا يجب استخدام نفس [presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) object بواسطة [multiple threads](/slides/ar/java/multithreading/) في نفس الوقت.
+نعم. يمكنك [فتح عروض مشفرة](/slides/ar/java/password-protected-presentation/)، تعيين أو إزالة كلمة مرور للفتح والكتابة، والتحقق من حالة الحماية.
 
-### هل تدعم كلمات مرور الملفات والتشفير؟
+**هل يجب القلق بشأن الخطوط في حاويات Linux؟**
 
-نعم. يمكنك [/slides/ar/java/password-protected-presentation/] فتح العروض المشفرة، تعيين أو إزالة كلمة مرور للفتح والكتابة، والتحقق من حالة الحماية.
+نعم. على Linux يجب تثبيت مكتبة fontconfig وعلى الأقل خط واحد، ويجب تثبيت الخطوط المستخدمة في عروضك أو بدائل مناسبة ليتم عرض النص بشكل صحيح. يمكنك أيضاً [تحديد أدلة الخطوط](/slides/ar/java/custom-font/) في تطبيقك. راجع [التثبيت](/slides/ar/java/installation/#linux).
 
-### هل يجب أن أهتم بحزم الخطوط في حاويات Linux؟
+**هل هناك قيود في نسخة التقييم؟**
 
-نعم. يُنصح بتثبيت حزم الخطوط الشائعة و/أو تحديد أدلة الخطوط صراحةً [/slides/ar/java/custom-font/] في تطبيقك لتجنب الاستبدالات غير المتوقعة.
+نعم. بدون [ترخيص](/slides/ar/java/licensing/)، يضيف Aspose.Slides علامة مائية تقييمية إلى كل شريحة يتم حفظها ويقتطع النص الذي يقرؤه الكود عبر API. يتوفر [ترخيص مؤقت لمدة 30 يوماً](https://purchase.aspose.com/temporary-license/) للاختبار الكامل للميزات.
 
-### هل هناك قيود في نسخة التقييم؟
+**هل يدعم استيراد تنسيقات خارجية إلى عرض تقديمي (PDF أو HTML إلى PPTX)؟**
 
-في [evaluation mode](/slides/ar/java/licensing/)، يتم إضافة علامة مائية إلى الناتج وتطبق بعض القيود؛ تتوفر [رخصة مؤقتة لمدة 30 يومًا](https://purchase.aspose.com/temporary-license/) لاختبار جميع الميزات.
-
-### هل يدعم الاستيراد من صيغ خارجية إلى عرض تقديمي (PDF/HTML → PPTX)؟
-
-نعم. يمكنك إضافة [PDF pages and HTML content](/slides/ar/java/import-presentation/) إلى عرض تقديمي، وتحويلها إلى شرائح.
+نعم. يمكنك إضافة [صفحات PDF ومحتوى HTML](/slides/ar/java/import-presentation/) إلى عرض تقديمي، وتحويلها إلى شرائح.

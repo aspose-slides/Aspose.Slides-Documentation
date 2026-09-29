@@ -1,38 +1,45 @@
 ---
-title: Dichiarazione
+title: Requisiti del Security Manager
 type: docs
-weight: 60
+weight: 190
 url: /it/java/declaration/
 keywords:
-- dichiarazione
-- componenti
-- autorizzazione Full Trust
-- impostazioni del registro
-- file di sistema
+- Gestore di sicurezza
+- politica di sicurezza
+- AllPermission
+- permessi
+- sandbox
+- JDK 24
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri i requisiti di fiducia, le autorizzazioni e le limitazioni di hosting di Aspose.Slides per Java, così da poter distribuire in sicurezza le applicazioni che elaborano PPT, PPTX e ODP sui server."
+description: "Quali permessi del Security Manager richiedono Aspose.Slides per Java e il codice che lo chiama su Java 23 e versioni precedenti, e perché non c'è nulla da configurare su Java 24 e versioni successive."
 ---
-{{% alert color="primary" %}} 
+## **Panoramica**
 
-Tutti i componenti Aspose Java richiedono l'impostazione di autorizzazione Full Trust. Il motivo è che i componenti Aspose Java devono accedere alle impostazioni del registro, ai file di sistema al di fuori della directory virtuale per alcune operazioni come l'analisi dei font ecc. Inoltre, i componenti Aspose Java si basano su classi di sistema Java di base che in molti casi richiedono l'impostazione di autorizzazione Full Trust. 
+Il Java Security Manager limita ciò che il codice può fare in base a una politica di sicurezza. Java 17 lo ha deprecato per la rimozione ([JEP 411](https://openjdk.org/jeps/411)), e Java 24 lo ha disabilitato permanentemente ([JEP 486](https://openjdk.org/jeps/486)). Questo articolo spiega cosa richiede Aspose.Slides per Java quando un'applicazione continua a funzionare con un Security Manager. Se la tua applicazione non ne abilita uno, che è l'impostazione predefinita, non c'è nulla da configurare.
 
-{{% /alert %}} 
+## **Java 23 e versioni precedenti**
 
-I provider di servizi Internet che ospitano più applicazioni di diverse aziende applicano principalmente il livello di sicurezza Medium Trust: 
+Quando un Security Manager è abilitato, la politica di sicurezza deve concedere questi permessi al file JAR di Aspose.Slides e al codice dell'applicazione che lo chiama:
 
-- OleDbPermission non è disponibile. Ciò significa che non è possibile utilizzare il provider di dati OLE DB gestito da ADO.NET per accedere ai database.
-- EventLogPermission non è disponibile. Ciò significa che non è possibile accedere al registro eventi di Windows.
-- ReflectionPermission non è disponibile. Ciò significa che non è possibile utilizzare la reflection.
-- RegistryPermission non è disponibile. Ciò significa che non è possibile accedere al registro.
-- WebPermission è limitato. Ciò significa che l'applicazione può comunicare solo con un indirizzo o un intervallo di indirizzi che si definisce nell'elemento <trust>.
-- FileIOPermission è limitato. Ciò significa che è possibile accedere solo ai file nella gerarchia della directory virtuale dell'applicazione.
+- `java.util.PropertyPermission "*", "read"`: Aspose.Slides legge le proprietà di sistema.
+- `java.io.FilePermission "<<ALL FILES>>", "read"`: Aspose.Slides legge i file dei font e altri file.
+- `java.io.FilePermission "<<ALL FILES>>", "execute"`: Aspose.Slides avvia programmi del sistema operativo, ad esempio `reg` su Windows e `fc-match` su Linux.
+- `java.io.FilePermission` con l'azione `write` per le cartelle in cui la tua applicazione salva i file.
 
-{{% alert color="primary" %}} 
+Concedere i permessi solo al file JAR non è sufficiente: anche il codice che chiama Aspose.Slides ha bisogno di questi permessi. Concedere `java.security.AllPermission` a entrambi funziona comunque.
 
-Per i motivi specificati sopra, i componenti Aspose Java non possono essere utilizzati su server che concedono un'impostazione di autorizzazione diversa da Full Trust. 
+Senza il permesso di leggere le proprietà di sistema o di avviare programmi, Aspose.Slides fallisce al primo utilizzo: la creazione di un [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) genera un `ExceptionInInitializerError`. Senza accesso in lettura ai file dei font, il salvataggio di una presentazione in PDF fallisce con l'errore "Cannot find any fonts installed on the system".
 
-{{% /alert %}}
+## **Java 24 e versioni successive**
+
+Il Security Manager non può essere abilitato su Java 24 e versioni successive, quindi non ci sono permessi da concedere. Aspose.Slides viene eseguito con i permessi dell'account che esegue la tua applicazione. Per limitare ciò a cui un'applicazione può accedere, il progetto OpenJDK raccomanda tecnologie al di fuori del JDK, come container, hypervisor e funzionalità di sandbox del sistema operativo. Vedi [JEP 486](https://openjdk.org/jeps/486).
+
+## **FAQ**
+
+**Posso usare Aspose.Slides in un ambiente che esegue applicazioni con una politica restrittiva di Security Manager?**
+
+Solo se la politica concede i permessi elencati sopra sia ad Aspose.Slides sia al codice che lo chiama. Questi includono la lettura di tutti i file e l'avvio di qualsiasi programma.

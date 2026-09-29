@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-prezentációk konvertálása XML formátumba Java-ban
+title: PowerPoint prezentációk konvertálása XML-be Java-ban
 linktitle: PowerPoint XML-re
 type: docs
 weight: 145
@@ -13,27 +13,27 @@ keywords:
 - PowerPoint XML prezentáció
 - SaveFormat.Xml
 - prezentáció mentése XML-ként
-- prezentáció exportálása XML-be
+- prezentáció exportálása XML-re
 - XML adatfolyam
 - Java
 - Aspose.Slides
-description: "PowerPoint és OpenDocument prezentációk konvertálása PowerPoint XML fájlokra vagy adatfolyamokra Java-ban az Aspose.Slides for Java segítségével."
+description: "PowerPoint és OpenDocument prezentációk konvertálása PowerPoint XML fájlokká vagy adatfolyamokká Java-ban az Aspose.Slides for Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Java képes a PowerPoint‑prezentációkat a PowerPoint XML Presentation formátumba konvertálni. Az XML‑kimenet hasznos, ha szöveges ábrázolásra van szükség a prezentáció szerkezetének vizsgálatához, a generált dokumentumok hibaelhárításához, a kimenet automatizált tesztekben történő összehasonlításához, vagy egy olyan munkafolyamathoz való integráláshoz, amely XML‑t fogyaszt a prezentációcsomag helyett.
+Az Aspose.Slides for Java képes PowerPoint előadásokat átalakítani a PowerPoint XML előformátumba. Az XML kimenet akkor hasznos, ha szöveges ábrázolásra van szükség a prezentáció szerkezetének ellenőrzéséhez, a létrehozott dokumentumok hibakereséséhez, a kimenet automatizált tesztekben történő összehasonlításához, vagy egy olyan munkafolyammal való integráláshoz, amely XML-t használ a prezentációcsomag helyett.
 
-Használja a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódust a [SaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/) osztály `Xml` értékével. Az eredményt közvetlenül fájlba vagy adatfolyamba írhatja.
+Használja a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódust a [SaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/) osztály `Xml` értékével. Az eredményt közvetlenül fájlba vagy adatfolyamba is írhatja.
 
-{{% alert color="info" title="Megjegyzés" %}}
-`SaveFormat.Xml` egy PowerPoint XML Presentation‑t hoz létre. Nem bontja ki a PPTX csomagban tárolt egyes Office Open XML részeket. Ha a pontos PPTX‑csomagrészekre van szüksége, például a `ppt/presentation.xml` vagy az egyes diák XML‑fájlaira, vizsgálja meg közvetlenül a PPTX csomagot.
+{{% alert color="info" title="Note" %}}
+`SaveFormat.Xml` egy PowerPoint XML előformátumot hoz létre. Nem bontja ki a PPTX csomagban tárolt egyedi Office Open XML részeket. Ha a PPTX csomag pontos részeire van szüksége, például a `ppt/presentation.xml` vagy az egyes dia XML állományokra, vizsgálja meg közvetlenül a PPTX csomagot.
 {{% /alert %}}
 
-## **Prezentáció konvertálása XML‑fájlba**
+## **Prezentáció átalakítása XML fájlba**
 
-Töltsön be egy forrás‑prezentációt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztállyal, majd adja meg a kimeneti útvonalat és a `SaveFormat.Xml` értéket a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódusnak. A forrás lehet bármely betöltésre támogatott prezentációformátum, például PPT, PPTX vagy ODP.
+Töltsön be egy forrás előadást a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztállyal, majd adja át a kimeneti útvonalat és a `SaveFormat.Xml` értéket a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódusnak. A forrás lehet bármely betöltésre támogatott előformátum, például PPT, PPTX vagy ODP.
 
-Az alábbi példa egy PPTX prezentációt XML‑fájllá konvertál:
+A következő példa egy PPTX előadást alakít át XML fájlra:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -47,9 +47,9 @@ try {
 }
 ```
 
-## **XML kimenet írása adatfolyamba**
+## **XML kimenet írása adatfolyamra**
 
-Használja a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) adatfolyam‑túlterhelést, ha az XML‑nek memóriában kell maradnia, vagy egy másik komponensnek kell átadni, például egy webszolgáltatásnak, tárolási szolgáltatónak vagy XML‑feldolgozó csővezetéknek. Az alábbi példa az eredményt egy [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html)‑ba írja, és a kapott XML‑t bájt‑tömbként kapja meg:
+Használja a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) adatfolyam‑túlterhelését, amikor az XML-nek memóriában kell maradnia vagy egy másik komponensnek kell továbbítania, például egy webszolgáltatásnak, tárolási szolgáltatónak vagy XML-feldolgozó csővezetéknek. A következő példa az eredményt egy [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) objektumba írja, és a kapott XML-t bájt tömbként állítja elő:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -61,41 +61,41 @@ try (ByteArrayOutputStream xmlStream = new ByteArrayOutputStream()) {
     presentation.save(xmlStream, SaveFormat.Xml);
     byte[] xmlData = xmlStream.toByteArray();
 
-    // Az xmlData-t átadja a munkafolyamat következő komponensének.
+    // Az xmlData átadása a munkafolyamat következő komponensének.
 } finally {
     presentation.dispose();
 }
 ```
 
-## **XML összehasonlítása a prezentáció‑ és exportformátumokkal**
+## **XML összehasonlítása a prezentációs és export formátumokkal**
 
-Válassza ki a kimeneti formátumot attól függően, hogy hogyan lesz felhasználva az eredmény:
+Válassza ki a kimeneti formátumot a végeredmény felhasználásának módja szerint:
 
-| Formátum | Kimenet | Tipikus használat |
+| Formátum | Kimenet | Tipikus felhasználás |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | PowerPoint XML prezentáció | Strukturális vizsgálat, hibaelhárítás, generált kimenet összehasonlítása és XML‑alapú integráció |
-| PPT (`.ppt`) | Örökölt bináris prezentációfájl | Kompatibilitás a régebbi PowerPoint munkafolyamatokkal |
-| PPTX (`.pptx`) | Office Open XML csomag több részzel | Szokásos PowerPoint szerkesztés és prezentációcseré |
+| PowerPoint XML (`.xml`) | PowerPoint XML előformátum | Szerkezet ellenőrzése, hibakeresés, a generált kimenet összehasonlítása és XML-alapú integráció |
+| PPT (`.ppt`) | Régi bináris prezentációs fájl | Kompatibilitás a régi PowerPoint munkafolyamatokkal |
+| PPTX (`.pptx`) | Office Open XML csomag több részel | Szokásos PowerPoint szerkesztés és prezentációcsere |
 | PDF vagy TIFF | Rögzített elrendezésű oldalak vagy többoldalas kép | Megtekintés, nyomtatás és archiválás |
-| PNG, JPEG vagy SVG | Egyedi dia renderelt ábrázolása | Miniatűrök, előnézetek és képeszközök |
-| HTML vagy HTML5 | Web‑orientált prezentációkimenet | Böngészőben megtekintés és webes közzététel |
+| PNG, JPEG vagy SVG | Egyedi dia leképzett ábrázolása | Miniatűrök, előnézetek és kép‑eszközök |
+| HTML vagy HTML5 | Web‑orientált prezentációs kimenet | Böngészőben való megjelenítés és webes közzététel |
 
-A PPT‑ és PPTX‑formátumoktól eltérően az XML‑kimenet elsősorban vizsgálatra és adat‑központú munkafolyamatokra szolgál. A PDF, TIFF, HTML és dia‑kép formátumoktól eltérően az XML a prezentáció adatait reprezentálja, nem rendereli a diákat oldal‑ vagy vizuális elemekként. A [támogatott fájlformátumok](/slides/hu/java/supported-file-formats/) táblázatban a PowerPoint XML Presentation csak mentési formátumként szerepel, ezért ne használja, ha a munkafolyamatnak vissza kell töltenie a kiexportált fájlt az Aspose.Slides‑be a további szerkesztéshez.
+A PPT és PPTX formátumokkal szemben az XML kimenet elsősorban ellenőrzésre és adat‑orientált munkafolyamatokra szolgál. A PDF, TIFF, HTML és dia‑képek formátumaival ellentétben a prezentáció adatait ábrázolja, nem pedig a diák oldal‑ vagy vizuális megjelenítését. A [támogatott fájlformátumok](/slides/hu/java/supported-file-formats/) táblázat felsorolja az összes formátumot, amelyet az Aspose.Slides be tud tölteni, importálni, menteni vagy renderelni.
 
 ## **GYIK**
 
-**Ugyanaz‑e a `SaveFormat.Xml`, mint egy PPTX fájl mentése?**
+**Ugyanaz-e a `SaveFormat.Xml`, mint egy PPTX fájl mentése?**
 
-Nem. A PPTX egy több Office Open XML részt tartalmazó csomag, míg a `SaveFormat.Xml` egy PowerPoint XML prezentáció‑fájlt hoz létre.
+Nem. A PPTX egy több Office Open XML részt tartalmazó csomag, míg a `SaveFormat.Xml` egy PowerPoint XML előformátumú fájlt hoz létre.
 
-**Menthetem az XML kimenetet anélkül, hogy fájlt hoznék létre a lemezen?**
+**Menthetem az XML kimenetet anélkül, hogy a lemezen fájlt hoznék létre?**
 
-Igen. Adj át egy írható adatfolyamot a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metódusnak. Például egy [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) használható memória‑beli feldolgozáshoz.
+Igen. Adjon át egy írható adatfolyamot a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metódusnak. Például használjon egy [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) objektumot a memóriában történő feldolgozáshoz.
 
-**Betöltheti az Aspose.Slides a exportált XML fájlt újra?**
+**Betöltheti az Aspose.Slides a korábban exportált XML fájlt?**
 
-Nem. A PowerPoint XML Presentation jelenleg csak mentésre támogatott, betöltésre nem. Használjon PPTX‑et vagy más támogatott prezentációformátumot, ha körkörös szerkesztésre van szükség.
+Igen. Adja át az XML fájlt vagy egy adatfolyamot a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#Presentation-java.lang.String-) konstruktorának. A [Presentation.getSourceFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getSourceFormat--) ezután `SourceFormat.Xml` értéket ad vissza. A [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) `LoadFormat.Unknown`‑t jelent ezen formátumra, ezért ne használja ennek meghatározására, hogy megnyitható‑e az XML fájl.
 
-**A XML‑konverzió megjeleníti‑e minden diát oldalként vagy képként?**
+**Az XML konverzió minden diát oldal‑ vagy képként renderel?**
 
-Nem. Az XML‑konverzió strukturált prezentációs adatokat ír. Használjon PDF‑et vagy TIFF‑et oldal‑orientált kimenethez, illetve PNG‑t, JPEG‑t és SVG‑t egyedi dia‑képekhez.
+Nem. Az XML konverzió strukturált prezentációs adatot ír. Használjon PDF‑et vagy TIFF‑et oldal‑orientált kimenethez, illetve PNG‑t, JPEG‑t és SVG‑t egyedi diaképekhez.

@@ -1,245 +1,269 @@
 ---
-title: Docker'da Aspose.Slides for Java Nasıl Çalıştırılır
+title: Docker'da Aspose.Slides for Java Çalıştırma
+linktitle: Docker
 type: docs
-weight: 75
+weight: 150
 url: /tr/java/how-to-run-aspose-slides-in-docker/
 keywords:
-- Aspose.Slides'ı indir
-- Aspose.Slides'ı kur
-- Aspose.Slides kurulumu
 - Docker
-- Windows
-- macOS
+- Dockerfile
+- Docker konteyneri
+- çok aşamalı yapı
+- konteyner imajı
+- Eclipse Temurin
+- Maven
 - Linux
-- çapraz platform uyumluluğu
-- bağımlılık izolasyonu
-- basitleştirilmiş dağıtım
-- proje kurulumu
+- Ubuntu
+- Alpine
+- Debian
+- fontconfig
+- yazı tipleri
+- PDF dönüşümü
 - PowerPoint
-- OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Docker konteynerlerinde Aspose.Slides'ı çalıştırın: görüntüleri, bağımlılıkları, yazı tiplerini ve lisanslamayı yapılandırarak PowerPoint ve OpenDocument işleyen ölçeklenebilir hizmetler oluşturun."
+description: "Docker'da bir Aspose.Slides for Java uygulaması oluşturun ve çalıştırın: resmi Maven ve Eclipse Temurin görüntülerinde çok aşamalı bir Dockerfile, Aspose.Slides'ın ihtiyaç duyduğu Linux kütüphaneleri ve yazı tipleri ve oluşturulan dosyaları makinenize nasıl kopyalayacağınız."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bu kılavuz, Aspose Slides kullanarak bir Java uygulamasını Docker ile konteynerleştirmenin yolunu açıklar. Ana faydalar şunlardır:
+Bu makale, Aspose.Slides for Java'ı bir Docker konteynerinde nasıl çalıştıracağınızı gösterir. Metin kutulu bir sunum oluşturan ve PDF'ye dönüştüren küçük bir Maven projesi oluşturur, resmi Maven ve Eclipse Temurin görüntüleri üzerinde çok aşamalı bir Dockerfile ile paketlersiniz, çalıştırırsınız ve oluşturulan dosyaları makinenize kopyalarsınız. Makale ayrıca Aspose.Slides'ın Linux görüntüsünde Java dışında neye ihtiyacı olduğunu açıklar ve Alpine Linux ile dağıtım paketlerinden Java kuran görüntüler için varyantlarla sona erer.
 
-- **Çapraz platform uyumluluğu** - Windows, macOS ve Linux'ta çalışır
-- **Bağımlılık izolasyonu** - Sistem genelinde kurulum gerektirmez
-- **Basitleştirilmiş dağıtım** - Kolay paylaşım ve yürütme
+Makinenizde yalnızca Docker gerekir. JDK ve Maven, oluşturma görüntüsünün bir parçasıdır, bu yüzden onları kurmanıza gerek yoktur. Docker kurmak için, [Docker'ı Edinin](https://docs.docker.com/get-started/get-docker/) sayfasına bakın.
 
-## **1. Docker Kurulumu**
+## **Temel Görüntüleri Seçin**
 
-### **Windows**
+Bu makaledeki Dockerfile, Docker Hub'dan iki resmi görüntü kullanır:
 
-**Gereksinimler:**
+- [maven](https://hub.docker.com/_/maven) `3.9-eclipse-temurin-21` etiketiyle uygulamayı derler. Apache Maven 3.9 ve Eclipse Temurin JDK 21 içerir.
+- [eclipse-temurin](https://hub.docker.com/_/eclipse-temurin) `21-jre` etiketiyle çalıştırır. JDK ve Maven olmadan Ubuntu üzerinde Eclipse Temurin Java 21 çalışma zamanı içerir.
 
-- Windows 10/11 Pro/Enterprise/Education (64-bit) WSL 2 etkinleştirilmiş
-- Home sürümü için: Manuel WSL 2 kurulumu gerekir
+Aspose.Slides for Java, Java'nın yazı tipi desteğiyle metin çizer; Linux'ta bunun için fontconfig ve FreeType kütüphaneleri ve en az bir yüklü yazı tipi gerekir. Eclipse Temurin görüntüleri zaten fontconfig, FreeType ve DejaVu yazı tiplerini içerdiğinden, bu makaledeki Dockerfile hiçbir paket kurmaz. Yazı tipi olmayan bir görüntüde sunumu kaydetmek "Fontconfig head is null, check your fonts or fonts configuration" hatasıyla durur. Başka bir temel görüntüde inşa ederseniz, [Başka Bir Temel Görüntü Kullan](#use-another-base-image) bölümüne bakın.
 
-**Adımlar:**
+## **Projeyi Oluşturun**
 
-1. [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/) indirin
-2. Yükleyiciyi çalıştırın ve kurulum sihirbazını izleyin
-3. İstendiğinde bilgisayarınızı yeniden başlatın
-4. Kurulumu doğrulayın:
-   ```powershell
-   docker --version
-   ```
+*hello-slides-docker* adlı bir klasör oluşturun ve aşağıdaki dosyaları ekleyin.
 
-### **macOS**
+* pom.xml Aspose'un Maven deposunu ve Aspose.Slides for Java bağımlılığını tanımlar; bu, [Kurulum](/slides/tr/java/installation/) bölümünde açıklandığı gibi yapılır. Aspose.Slides for Java Maven Central'da yayımlanmadığı için depo kaydı gereklidir. `finalName` öğesi uygulama JAR dosyasını *hello-slides.jar* olarak adlandırır ve [maven-dependency-plugin](https://maven.apache.org/plugins/maven-dependency-plugin/) Maven paketi oluşturduğunda uygulamanın bağımlılıklarını *target/lib* dizinine kopyalar. Aspose.Slides sürümünü, [depo](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) sayfasında listelenen en yeni sürümle ayarlayın.
 
-**Gereksinimler:**
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>hello-slides</artifactId>
+    <version>1.0</version>
 
-- macOS 10.15 (Catalina) veya daha yeni
-- Apple Silicon veya Intel işlemci
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-**Adımlar:**
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://releases.aspose.com/java/repo/</url>
+        </repository>
+    </repositories>
 
-1. [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/) indirin
-2. Uygulamayı `Applications` klasörünüze sürükleyin
-3. Docker'ı başlatın ve başlatılmasını bekleyin
-4. Kurulumu doğrulayın:
-   ```bash
-   docker --version
-   ```
+    <dependencies>
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-slides</artifactId>
+            <version>26.9</version>
+            <classifier>jdk16</classifier>
+        </dependency>
+    </dependencies>
 
-### **Linux (Ubuntu/Debian)**
-
-**Kurulum:**
-
-```bash
-# Paket listelerini güncelle
-sudo apt update && sudo apt upgrade -y
-
-# Gereksinimleri kur
-sudo apt install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
-
-# Docker'ın resmi GPG anahtarını ekle
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Kararlı bir depoyu ekle
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Docker Engine'i kur
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Mevcut kullanıcının Docker komutlarını çalıştırmasına izin ver
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Kurulumu doğrula
-docker --version
+    <build>
+        <finalName>hello-slides</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.11.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
 ```
 
-## **2. Dockerfile Yapılandırması**
+*src/main/java/HelloSlides.java* bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) oluşturur, ilk slaytına metin içeren bir dikdörtgen ekler ve sunumu iki kez kaydeder: bir kez PPTX, bir kez PDF olarak. Her iki dosya da çalışma dizininin altındaki *output* klasörüne konur. Program daha sonra Aspose.Slides'ın sunumu işlerken değiştirdiği yazı tiplerini, [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) kullanarak listeler; böylece konteynerin sunumun kullandığı yazı tiplerine sahip olup olmadığını görebilirsiniz.
 
-### **Temel Görüntü**
-
-```dockerfile
-FROM ubuntu:24.04
-```
-> **Not**: Docker Hub'dan resmi Ubuntu görüntüsünü kullanır.
-
-### **Bağımlılıklar**
-
-```dockerfile
-RUN apt-get install -y openjdk-11-jdk wget fontconfig ttf-mscorefonts-installer
-```
-- **OpenJDK 11**: Java çalışma zamanı ortamı
-- **Font paketleri**: Microsoft Core Fonts içerir
-
-### **Aspose.Slides Kurulumu**
-
-```dockerfile
-ENV ASPOSE_VERSION=25.3
-
-ENV ASPOSE_JAR=aspose-slides-${ASPOSE_VERSION}-jdk16.jar
-ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${ASPOSE_VERSION}/${ASPOSE_JAR}
-```
-- Aspose Slides kütüphanesinin sürüm kilitli indirmesi
-
-## **3. Proje Kurulumu**
-
-### **Dosya Yapısı**
-
-```
-aspose-docker/
-├── Dockerfile          # Konteyner yapılandırması
-├── TestAspose.java     # Uygulama kodu
-└── output/             # Oluşturulan PDF'lerin bulunduğu klasör (otomatik oluşturulur)
-```
-
-### **Dockerfile**
-
-‘Dockerfile’ adlı bir dosya oluşturun:
-```dockerfile
-FROM ubuntu:24.04
-
-# Ortam değişkenlerini ayarla
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
-ENV APP_DIR=/tmp
-ENV ASPOSE_VERSION=25.3
-ENV ASPOSE_JAR=aspose-slides-${ASPOSE_VERSION}-jdk16.jar
-ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${ASPOSE_VERSION}/${ASPOSE_JAR}
-
-# Çalışma dizini oluştur
-RUN mkdir -p ${APP_DIR}
-WORKDIR ${APP_DIR}
-
-# Bağımlılıkları kur
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    openjdk-11-jdk \
-    wget \
-    fontconfig \
-    ttf-mscorefonts-installer && \
-    rm -rf /var/lib/apt/lists/*
-
-# Yazı tiplerini yapılandır
-RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends ttf-mscorefonts-installer && \
-    fc-cache -f -v
-
-# Aspose.Slides'ı /tmp dizinine indir
-RUN wget ${ASPOSE_URL} -O ${APP_DIR}/${ASPOSE_JAR}
-
-# Kaynak kodunu kopyala
-COPY TestAspose.java ${APP_DIR}/
-
-# Çalıştırma betiğini oluştur
-RUN echo '#!/bin/bash' > ${APP_DIR}/run.sh && \
-    echo 'java --add-opens=java.desktop/sun.java2d=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
-    echo '     --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
-    echo '     --add-opens=java.desktop/sun.font=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
-    echo '     -cp ".:'"${ASPOSE_JAR}"'" TestAspose' >> ${APP_DIR}/run.sh && \
-    chmod +x ${APP_DIR}/run.sh
-
-# Betiğe yürütme izni ver
-RUN chmod 755 ${APP_DIR}/run.sh
-
-# Java kodunu derle
-RUN javac -cp "${APP_DIR}/${ASPOSE_JAR}" ${APP_DIR}/TestAspose.java
-
-# Çalışma dizinini ayarla
-WORKDIR /tmp
-
-CMD ["sh", "-c", "/tmp/run.sh && cp /tmp/output/output.pdf /output"]
-```
-
-### **Java Uygulaması**
-
-`TestAspose.java` dosyasını şu içerikle oluşturun:
 ```java
 import com.aspose.slides.*;
+import java.io.File;
 
-public class TestAspose {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Creating presentation...");
-        
+public class HelloSlides {
+    public static void main(String[] args) {
+        File outputFolder = new File("output");
+        outputFolder.mkdirs();
+
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
-            
-            IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 190, 300, 25);
-            autoShape.getTextFrame().setText("Greetings from Docker!");
-            
-            presentation.save("/tmp/output/output.pdf", SaveFormat.Pdf);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+            shape.getTextFrame().setText("Hello from a Docker container!");
+
+            String pptxPath = new File(outputFolder, "hello.pptx").getPath();
+            String pdfPath = new File(outputFolder, "hello.pdf").getPath();
+            presentation.save(pptxPath, SaveFormat.Pptx);
+            presentation.save(pdfPath, SaveFormat.Pdf);
+
+            for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+                System.out.println("Font substitution: " + substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+            }
+
+            System.out.println("Saved " + pptxPath + " and " + pdfPath);
         } finally {
-            if (presentation != null) presentation.dispose();
+            presentation.dispose();
         }
-        System.out.println("Presentation saved as output.pdf");
     }
 }
 ```
 
-## **4. Oluşturma ve Çalıştırma**
+*.dockerignore* dosyası, yerel bir derlemenin *target* klasörünü ve önceki çalıştırmaların çıktılarını Docker derleme bağlamından hariç tutar; böylece görüntü yalnızca kaynak dosyalardan oluşturulur.
 
-### **Görüntüyü Oluşturma**
+```text
+target/
+output/
+```
 
-‘Dockerfile’inizin bulunduğu dizinde aşağıdaki komutu çalıştırarak Docker görüntüsünü oluşturun:
-```powershell
-   docker build -t aspose-test .
-   ```
+## **Dockerfile'ı Yazın**
 
-- `-t` görüntüyü "aspose-test" olarak adlandırır
-- `.` mevcut dizinin Dockerfile'ını kullanır
+*hello-slides-docker* klasörüne *Dockerfile* adlı bir dosya ekleyin:
 
-### **Konteyneri Çalıştırma**
+```dockerfile
+FROM maven:3.9-eclipse-temurin-21 AS build
+WORKDIR /src
+COPY pom.xml .
+RUN mvn -B dependency:go-offline
+COPY src ./src
+RUN mvn -B package
 
-‘Dockerfile’inizin bulunduğu dizinde aşağıdaki komutu çalıştırarak Docker konteynerini başlatın:
-```powershell
-   docker run -v "$(pwd)/output:/output" aspose-test
-   ```
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /src/target/hello-slides.jar .
+COPY --from=build /src/target/lib ./lib
+RUN mkdir output && chown ubuntu output
+USER ubuntu
+ENTRYPOINT ["java", "-cp", "hello-slides.jar:lib/*", "HelloSlides"]
+```
 
-- `-v` çıktı dizinini bağlar
-- Yerel `output` klasörünüzde `output.pdf` oluşturur
+Dosyanın iki aşaması vardır:
+
+- **Derleme aşaması** Maven görüntüsünden başlar. İlk olarak *pom.xml* dosyasını kopyalar ve `mvn dependency:go-offline` çalıştırır; bu, Aspose.Slides for Java ve Maven eklentilerini indirir, böylece *pom.xml* değişmediği sürece Docker bu katmanı yeniden kullanır. Ardından kaynak kodunu kopyalar ve `mvn package` çalıştırır; bu, programı *target/hello-slides.jar* dosyasına derler ve Aspose.Slides JAR dosyasını *target/lib* içine kopyalar. `-B` seçeneği Maven'i etkileşimsiz (batch) modda çalıştırır.
+- **Çalışma zamanı aşaması** daha küçük bir Java çalışma zamanı görüntüsünden başlar ve yalnızca uygulama JAR dosyasını ve *lib* klasörünü kopyalar. *output* klasörünü oluşturur, onu Ubuntu tabanlı görüntünün tanımladığı kök olmayan `ubuntu` kullanıcısına verir ve uygulamayı bu kullanıcı olarak çalıştırır. `hello-slides.jar:lib/*` sınıf yolu, uygulamayı ve *lib* içindeki her JAR dosyasını içerir; `*` karakterini Java kendisi genişletir.
+
+Proje Java 11 için derlenmiştir (`maven.compiler.release` özelliği); bu yüzden çalışma zamanı aşaması daha yeni bir Java sürümüyle kullanılabilir. Örneğin, uygulamayı Java 25 üzerinde çalıştırmak için çalışma zamanı aşamasının görüntüsünü `eclipse-temurin:25-jre` olarak değiştirin.
+
+## **Konteyneri Oluşturun ve Çalıştırın**
+
+*hello-slides-docker* klasöründe bir terminal açın. Görüntüyü oluşturun, ardından bir konteyner çalıştırın:
+
+```bash
+docker build -t hello-slides .
+docker run --name hello-slides-run hello-slides
+```
+
+İlk oluşturma temel görüntüleri, Maven eklentilerini ve Aspose.Slides for Java'ı indirir; bu yüzden birkaç dakika sürer; sonraki oluşturmalarda bunlar yeniden kullanılır. Konteyner uygulamayı çalıştırır ve durur. Aşağıdaki çıktıyı verir:
+
+```text
+Font substitution: Calibri -> DejaVu Sans
+Saved output/hello.pptx and output/hello.pdf
+```
+
+İlk satır, metnin yeni bir sunumun varsayılan yazı tipi olan Calibri'yi kullandığını ve Calibri'nin görüntüde yüklü olmadığını gösterir; bu yüzden Aspose.Slides metni DejaVu Sans ile çizer. PDF'deki metin gerçek, seçilebilir bir metindir ve o yazı tipinde gösterilir. Lisans olmadığında Aspose.Slides, kaydettiği her slayta bir değerlendirme filigranı ekler; bkz. [Lisanslama](/slides/tr/java/licensing/).
+
+## **Çıktıyı Makinenize Kopyalayın**
+
+Dosyalar, durdurulmuş konteynerin */app/output* klasöründedir. Bunları makinenizdeki bir *output* klasörüne kopyalayın, ardından konteyneri silin:
+
+```bash
+docker cp hello-slides-run:/app/output/. ./output
+docker rm hello-slides-run
+```
+
+Bu iki komut Bash, PowerShell ve Windows Komut İstemi'nde aynı şekilde çalışır.
+
+Linux'ta, bir klasörü konteyner içine bağlayarak uygulamanın dosyaları doğrudan oraya yazmasını sağlayabilirsiniz:
+
+```bash
+mkdir -p output
+docker run --rm --user "$(id -u):$(id -g)" -v "$(pwd)/output:/app/output" hello-slides
+```
+
+`--user` seçeneği, uygulamayı kendi kullanıcı ve grup kimliklerinizle çalıştırır; böylece oluşturduğunuz klasöre yazabilir ve dosyalar size ait olur. `--rm` seçeneği konteyner durduğunda onu kaldırır.
+
+## **Alpine Linux'ta Çalıştırın**
+
+Eclipse Temurin, daha küçük bir Alpine Linux tabanlı görüntü olarak da mevcuttur. Bu görüntü de fontconfig, FreeType ve DejaVu yazı tiplerini içerir; bu yüzden uygulamanın burada ekstra paketlere ihtiyacı yoktur. Kullanmak için, *Dockerfile* içindeki çalışma zamanı aşamasını (ikinci `FROM` satırından itibaren) aşağıdaki ile değiştirin:
+
+```dockerfile
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+COPY --from=build /src/target/hello-slides.jar .
+COPY --from=build /src/target/lib ./lib
+RUN adduser -D app && mkdir output && chown app output
+USER app
+ENTRYPOINT ["java", "-cp", "hello-slides.jar:lib/*", "HelloSlides"]
+```
+
+Alpine görüntüsünde `ubuntu` kullanıcısı bulunmadığından, bu aşama `adduser` ile `app` adlı bir kullanıcı oluşturur ve uygulamayı bu kullanıcı olarak çalıştırır. Yukarıdaki aynı komutlarla oluşturun, çalıştırın ve çıktıyı kopyalayın. Uygulama aynı iki satırı yazdırır.
+
+## **Başka Bir Temel Görüntü Kullanın**
+
+Görüntünüz Linux dağıtımının paketlerinden Java kuruyorsa, Java'nın yazı tipi kütüphanelerini ve bir yazı tipini birlikte kurun. Debian ve Ubuntu'da `openjdk-21-jre-headless` paketi yalnızca tavsiye edilen paketler olarak fontconfig, FreeType ve HarfBuzz listesini içerir; bu yüzden `apt-get install --no-install-recommends` bunları dışarı bırakır ve uygulama `libfontmanager.so` için bir `UnsatisfiedLinkError` ile durur. Bu çalışma zamanı aşaması, Debian 13'te Java 21, gerekli kütüphaneler ve DejaVu yazı tiplerini kurar ve `app` adlı bir kök olmayan kullanıcı oluşturur:
+
+```dockerfile
+FROM debian:trixie
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openjdk-21-jre-headless libfontconfig1 libfreetype6 libharfbuzz0b fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY --from=build /src/target/hello-slides.jar .
+COPY --from=build /src/target/lib ./lib
+RUN useradd --create-home app && mkdir output && chown app output
+USER app
+ENTRYPOINT ["java", "-cp", "hello-slides.jar:lib/*", "HelloSlides"]
+```
+
+Aynı aşama `FROM ubuntu:26.04` ile Ubuntu 26.04'te de çalışır.
+
+## **SSS**
+
+**Sunumu kaydederken "Fontconfig head is null, check your fonts or fonts configuration" hatası alıyorum. Ne eksik?**
+
+Bir yazı tipi. Java'nın yazı tipi desteği görüntüde yüklü bir yazı tipi bulamadı. Örneğin Debian ve Ubuntu'da `fonts-dejavu-core` paketini kurun; bkz. [Başka Bir Temel Görüntü Kullan](#use-another-base-image). [Yazı Tipi Dağıtımı](/slides/tr/java/deploy-fonts/) diğer yazı tipi paketlerini listeler.
+
+**Uygulama `libfontmanager.so` için UnsatisfiedLinkError ile duruyor. Ne eksik?**
+
+Java'nın yazı tipi desteğinin yerel kütüphanesi; mesaj, yüklenemeyen dosyayı (`libharfbuzz.so.0` gibi) gösterir. Bu, Java dağıtım paketlerinden kurulduğunda tavsiye edilen paketler yüklenmediğinde olur. [Başka Bir Temel Görüntü Kullan](#use-another-base-image) bölümünde listelenen kütüphaneleri kurun.
+
+**PDF'deki metin PowerPoint'teki metinden farklı bir yazı tipinde neden?**
+
+Sunumun kullandığı yazı tipleri görüntüde yüklü değildir; bu yüzden Aspose.Slides metni bir yedek yazı tipiyle çizer. Uygulamanın çıktısı, her değiştirilen yazı tipini adlandırır. [Yazı Tipi Dağıtımı](/slides/tr/java/deploy-fonts/) yazı tiplerini görüntüye nasıl kuracağınızı veya uygulama klasöründen nasıl yükleyeceğinizi açıklar.
+
+**Uygulama konteynerde ne kadar bellek kullanabilir?**
+
+Varsayılan olarak Java, heap'ini konteynerdeki mevcut belleğin dörtte birine sınırlar; örneğin `docker run -m 1g` ile konteyneri başlatırsanız yaklaşık 250 MB olur. Büyük sunumları işlemek için `MaxRAMPercentage` seçeneğiyle payı artırabilirsiniz; örneğin `docker run --rm -m 1g -e JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75 hello-slides`. Java, uygulama çıktısından önce bir "Picked up JAVA_TOOL_OPTIONS" satırı yazdırır.
+
+**Makinemde JDK veya Maven olmadan çalıştırabilir miyim?**
+
+Hayır. Derleme aşaması, uygulamayı Maven görüntüsü içinde derler. JDK ve Maven yalnızca uygulamayı Docker dışındaki bir ortamda derlemek ve çalıştırmak isterseniz gereklidir; bkz. [Kurulum](/slides/tr/java/installation/).

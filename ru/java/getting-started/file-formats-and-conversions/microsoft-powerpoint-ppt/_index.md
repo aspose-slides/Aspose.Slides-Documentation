@@ -1,43 +1,55 @@
 ---
-title: Microsoft PowerPoint (PPT)
+title: Microsoft PowerPoint (PPT) (Исторический)
 type: docs
 weight: 10
 url: /ru/java/microsoft-powerpoint-ppt/
+keywords:
+- PPT
+- PowerPoint 97-2003
+- исторический
+- Java
+- Aspose.Slides
+description: "Исторический: более старый обзор формата PPT в Aspose.Slides for Java, оставленный для существующих ссылок. Текущий список поддерживаемых форматов находится в разделе Поддерживаемые форматы файлов."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Это историческая страница, оставленная для существующих ссылок. Она не описывает текущую версию Aspose.Slides for Java. Для форматов, которые Aspose.Slides for Java загружает, импортирует, сохраняет и рендерит, а также для API каждого из них, см. [Поддерживаемые форматы файлов](/slides/ru/java/supported-file-formats/). Чтобы сравнить PPT и PPTX, см. [Понимание различий: PPT vs PPTX](/slides/ru/java/ppt-vs-pptx/).
 
-[PPT](https://ru.wikipedia.org/wiki/Microsoft_PowerPoint) — это формат файла для презентационных документов, который можно создавать, читать, изменять и записывать с помощью различных версий Microsoft PowerPoint. Это бинарный формат для презентационных документов, разработанный Microsoft.
+{{% /alert %}}
 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
 
-## **PPT в Aspose.Slides для Java**
-Aspose.Slides для Java может читать файлы PPT, созданные программным обеспечением, перечисленным ниже.
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) — это файловый формат презентаций, который может создаваться, читаться, изменяться и записываться различными версиями Microsoft PowerPoint. Это бинарный формат для презентационных документов, разработанный Microsoft.
+
+{{% /alert %}}
+
+## **PPT в Aspose.Slides for Java**
+Aspose.Slides for Java может читать файлы PPT, созданные следующими программами.
 
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
 - Microsoft PowerPoint 2003
 
-Аналогично, файлы PPT, созданные с помощью Aspose.Slides для Java, могут быть прочитаны вышеуказанным набором программного обеспечения.
+Аналогично, файлы PPT, созданные Aspose.Slides for Java, могут быть прочитаны перечисленными выше программами.
 
 ## **Полная поддержка PPT**
-Aspose.Slides для Java предоставляет поддержку почти всех функций, поддерживаемых форматом файла документа PPT. Он охватывает не только основные и продвинутые функции, предоставляемые различными версиями Microsoft PowerPoint для манипуляций с документами PPT, но также и функции, которые даже не поддерживаются Microsoft PowerPoint. Главное преимущество использования библиотеки API Aspose.Slides для Java — это простота работы с такими функциями.
+Aspose.Slides for Java обеспечивает поддержку практически всех функций формата файлов PPT. Он охватывает как базовые, так и расширенные возможности, предоставляемые различными версиями Microsoft PowerPoint для работы с документами PPT, а также функции, которые не поддерживаются самим Microsoft PowerPoint. Главное преимущество использования библиотеки Aspose.Slides for Java API — простота работы с такими функциями.
 
-Помимо основных задач, связанных с созданием, чтением и записью файлов документов PPT, Aspose.Slides для Java предоставляет несколько дополнительных функций:
+Помимо базовых задач по созданию, чтению и записи файлов PPT, Aspose.Slides for Java предоставляет следующие возможности:
 
-- Импорт других форматов файлов Microsoft Office в качестве [OLE-объектов в документы PPT]().
-- [Экспорт документов PPT в PDF](/slides/ru/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
-- Экспорт слайдов в документы PPT в форматы SVG.
-- Отображение слайдов в любом формате изображений, поддерживаемом Java Framework.
-- Установка размера слайдов в документах PPT.
-- Управление анимациями на фигурах.
-- Управление слайд-шоу.
-- [Форматирование текста на слайдах]().
-- Извлечение текста из документов PPT.
-- [Работа с таблицами на слайдах]().
-- Автоматическое копирование мастеров с помощью [функции клонирования]().
+- Импортировать другие форматы файлов Microsoft Office в виде [OLE‑объектов в документы PPT](/slides/ru/java/manage-ole/).
+- [Экспортировать документы PPT в PDF](/slides/ru/java/convert-powerpoint-to-pdf/).
+- Экспортировать слайды из документов PPT в форматы SVG.
+- Рендерить слайды в любой графический формат, поддерживаемый Java‑фреймворком.
+- Устанавливать размер слайдов в документах PPT.
+- Управлять анимацией фигур.
+- Управлять показами слайдов.
+- [Форматировать текст на слайдах](/slides/ru/java/text-formatting/).
+- Извлекать текст из документов PPT.
+- [Работать с таблицами на слайдах](/slides/ru/java/powerpoint-table/).
+- Автоматически копировать шаблоны с помощью [функции клонирования](/slides/ru/java/clone-slides/).
 
-**Файл PPT, созданный с помощью Aspose.Slides для Java и открытый в Microsoft PowerPoint** 
+**Файл PPT, сгенерированный Aspose.Slides for Java и открытый в Microsoft PowerPoint**
 
-![todo:image_alt_text](microsoft-powerpoint-ppt_1.png)
+![A PPT file generated by Aspose.Slides for Java and opened in Microsoft PowerPoint](microsoft-powerpoint-ppt_1.png)

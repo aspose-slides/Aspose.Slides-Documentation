@@ -1,5 +1,5 @@
 ---
-title: Převod prezentací PowerPoint do XML v Javě
+title: Převést prezentace PowerPoint do XML v Javě
 linktitle: PowerPoint do XML
 type: docs
 weight: 145
@@ -17,23 +17,23 @@ keywords:
 - XML proud
 - Java
 - Aspose.Slides
-description: "Převádějte prezentace PowerPoint a OpenDocument na soubory nebo proudy PowerPoint XML v Javě s Aspose.Slides pro Java."
+description: "Převést prezentace PowerPoint a OpenDocument do souborů nebo proudu PowerPoint XML v Javě pomocí Aspose.Slides pro Java."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Java může převádět prezentace PowerPoint do formátu PowerPoint XML Presentation. Výstup XML je užitečný, když potřebujete textovou reprezentaci pro kontrolu struktury prezentace, odlaďování vygenerovaných dokumentů, porovnávání výstupů v automatizovaných testech nebo integraci s pracovním postupem, který konzumuje XML místo balíčku prezentace.
+Aspose.Slides for Java může převádět prezentace PowerPoint do formátu PowerPoint XML Presentation. Výstup XML je užitečný, když potřebujete textovou reprezentaci pro inspekci struktury prezentace, odstraňování problémů generovaných dokumentů, porovnávání výstupu v automatizovaných testech nebo integraci s pracovním tokem, který spotřebovává XML místo balíčku prezentace.
 
-Použijte metodu [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) s hodnotou `Xml` ze třídy [SaveFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/saveformat/) . Můžete výsledek zapsat přímo do souboru nebo do proudu.
+Použijte metodu [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) s hodnotou `Xml` ze třídy [SaveFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/saveformat/) . Výsledek můžete zapsat přímo do souboru nebo do proudu.
 
 {{% alert color="info" title="Note" %}}
-`SaveFormat.Xml` vytváří prezentaci PowerPoint XML. Neextrahuje jednotlivé části Office Open XML uložené uvnitř balíčku PPTX. Pokud potřebujete přesné části balíčku PPTX, například `ppt/presentation.xml` nebo jednotlivé XML soubory snímků, zkontrolujte samotný balíček PPTX.
+`SaveFormat.Xml` creates a PowerPoint XML Presentation. It does not extract the individual Office Open XML parts stored inside a PPTX package. If you need the exact PPTX package parts, such as `ppt/presentation.xml` or individual slide XML files, inspect the PPTX package itself.
 {{% /alert %}}
 
-## **Převod prezentace do XML souboru**
+## **Převést prezentaci na XML soubor**
 
-Načtěte zdrojovou prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) a poté předávejte výstupní cestu a `SaveFormat.Xml` metodě [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Zdroj může být libovolný formát prezentace podporovaný pro načítání, jako PPT, PPTX nebo ODP.
+Load a source presentation with the [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) class, and then pass the output path and `SaveFormat.Xml` to [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-). The source can be any presentation format supported for loading, such as PPT, PPTX, or ODP.
 
-Následující příklad převádí prezentaci PPTX do XML souboru:
+The following example converts a PPTX presentation to an XML file:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -47,9 +47,9 @@ try {
 }
 ```
 
-## **Zápis XML výstupu do proudu**
+## **Zapsat výstup XML do proudu**
 
-Použijte přetížení proudu metody [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) , když musí XML zůstat v paměti nebo být předáno jinému komponentu, například webové službě, poskytovateli úložiště nebo zpracovatelskému řetězci XML. Následující příklad zapíše výsledek do [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) a získá výsledné XML jako pole bajtů:
+Use the stream overload of [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) when the XML must remain in memory or be passed to another component, such as a web service, storage provider, or XML processing pipeline. The following example writes the result to a [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) and obtains the resulting XML as a byte array:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -61,40 +61,40 @@ try (ByteArrayOutputStream xmlStream = new ByteArrayOutputStream()) {
     presentation.save(xmlStream, SaveFormat.Xml);
     byte[] xmlData = xmlStream.toByteArray();
 
-    // Předat xmlData dalšímu komponentu v pracovním postupu.
+    // Předat xmlData dalšímu komponentu v pracovním toku.
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Porovnání XML s formáty prezentací a exportu**
+## **Porovnat XML s formáty prezentace a exportu**
 
-Vyberte výstupní formát podle toho, jak bude výsledek použit:
+Zvolte výstupní formát podle toho, jak bude výsledek použit:
 
 | Formát | Výstup | Typické použití |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | Prezentace PowerPoint XML | Kontrola struktury, odlaďování, porovnávání vygenerovaného výstupu a integrace založená na XML |
-| PPT (`.ppt`) | Starý binární soubor prezentace | Kompatibilita se staršími pracovními postupy PowerPoint |
-| PPTX (`.pptx`) | Balíček Office Open XML obsahující více částí | Běžné editování PowerPoint a výměna prezentací |
-| PDF nebo TIFF | Stránky s pevnou rozvržením nebo více‑stránkový obrázek | Prohlížení, tisk a archivace |
+| PowerPoint XML (`.xml`) | PowerPoint XML prezentace | Kontrola struktury, odstraňování problémů, porovnávání generovaného výstupu a integrace založené na XML |
+| PPT (`.ppt`) | Starý binární soubor prezentace | Kompatibilita se staršími workflow PowerPointu |
+| PPTX (`.pptx`) | Balíček Office Open XML obsahující více částí | Běžná editace PowerPointu a výměna prezentací |
+| PDF nebo TIFF | Stránky s pevnou rozložením nebo vícestránkový obrázek | Prohlížení, tisk a archivace |
 | PNG, JPEG nebo SVG | Vykreslená reprezentace jednotlivého snímku | Náhledy, ukázky a obrazové zdroje |
 | HTML nebo HTML5 | Webově orientovaný výstup prezentace | Prohlížení v prohlížeči a publikování na webu |
 
-Na rozdíl od PPT a PPTX je výstup XML primárně určen pro kontrolu a datově orientované pracovní postupy. Na rozdíl od PDF, TIFF, HTML a formátů obrázků snímků představuje data prezentace místo vykreslování snímků jako stránek nebo vizuálních zdrojů. Tabulka [supported file formats](/slides/cs/java/supported-file-formats/) uvádí PowerPoint XML Presentation jako formát pouze pro ukládání, takže jej nepoužívejte, pokud pracovní postup musí načíst exportovaný soubor zpět do Aspose.Slides pro další úpravy.
+Na rozdíl od PPT a PPTX je výstup XML určen především pro kontrolu a datově orientované pracovní toky. Na rozdíl od PDF, TIFF, HTML a formátů obrázků snímků představuje data prezentace místo vykreslování snímků jako stránek nebo vizuálních aktiv. Tabulka [supported file formats](/slides/cs/java/supported-file-formats/) uvádí všechny formáty, které Aspose.Slides může načíst, importovat, uložit nebo vykreslit.
 
 ## **Často kladené otázky**
 
 **Je `SaveFormat.Xml` stejné jako ukládání souboru PPTX?**
 
-Ne. PPTX je balíček obsahující více částí Office Open XML, zatímco `SaveFormat.Xml` vytváří soubor PowerPoint XML Presentation.
+Ne. PPTX je balíček obsahující více částí Office Open XML, zatímco `SaveFormat.Xml` vytvoří soubor PowerPoint XML Presentation.
 
-**Mohu uložit XML výstup bez vytvoření souboru na disku?**
+**Mohu uložit výstup XML bez vytvoření souboru na disku?**
 
 Ano. Předávejte zapisovatelný proud metodě [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Například použijte [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) pro zpracování v paměti.
 
-**Dokáže Aspose.Slides znovu načíst exportovaný XML soubor?**
+**Může Aspose.Slides znovu načíst exportovaný soubor XML?**
 
-Ne. PowerPoint XML Presentation je aktuálně podporována pouze pro ukládání, ne pro načítání. Použijte PPTX nebo jiný podporovaný formát prezentace, pokud je potřeba obousměrná úprava.
+Ano. Předávejte soubor XML nebo proud konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#Presentation-java.lang.String-). [Presentation.getSourceFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getSourceFormat--) pak vrací `SourceFormat.Xml`. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) hlásí `LoadFormat.Unknown` pro tento formát, takže jej nepoužívejte k rozhodování, zda lze XML soubor otevřít.
 
 **Převádí XML konverze každý snímek jako stránku nebo obrázek?**
 

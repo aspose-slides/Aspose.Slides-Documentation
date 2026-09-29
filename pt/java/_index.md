@@ -6,18 +6,18 @@ weight: 20
 url: /pt/java/
 keywords:
 - documentação
-- processamento de apresentações
-- conversão de apresentações
+- processamento de apresentação
+- conversão de apresentação
 - PowerPoint
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Comece aqui: instale o Aspose.Slides for Java, crie sua primeira apresentação e encontre os guias para tarefas comuns, a referência da API e o suporte."
+description: "Comece aqui: instale o Aspose.Slides for Java, crie uma primeira apresentação e encontre os guias para tarefas comuns, implantação e a referência da API."
 is_root: true
 ---
 <img src="home_1.png" alt="Aspose.Slides for Java" align="left" style="width:110px; margin: 0 30px 20px 0"/>
 
-Aspose.Slides for Java é uma biblioteca de classes para criar, ler, editar e converter apresentações PowerPoint e OpenDocument em aplicações Java, sem Microsoft PowerPoint.
+Aspose.Slides for Java é uma biblioteca de classes para criar, ler, editar e converter apresentações PowerPoint e OpenDocument em aplicações Java, sem o Microsoft PowerPoint.
 
 Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e modelos, e exporta para PDF, XPS, HTML, SVG, TIFF, Markdown e imagens.
 
@@ -29,21 +29,23 @@ Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 <div class="col-md-4">
 <p><b>Começar</b></p>
 <hr>
-<p>INICIANDO</p>
+<p>COMEÇANDO</p>
 <ul>
 <li><a href="/slides/pt/java/installation/">Instalação</a></li>
 <li><a href="/slides/pt/java/create-presentation/">Crie sua primeira apresentação</a></li>
+<li><a href="/slides/pt/java/system-requirements/">Requisitos de sistema</a></li>
 <li><a href="/slides/pt/java/getting-started/">Guia de início rápido</a></li>
 </ul>
 <p>AVALIAR</p>
 <ul>
 <li><a href="/slides/pt/java/supported-file-formats/">Formatos de arquivo suportados</a></li>
+<li><a href="/slides/pt/java/features-overview/">Visão geral dos recursos</a></li>
 <li><a href="/slides/pt/java/evaluate-aspose-slides/">Limitações da avaliação</a></li>
 <li><a href="/slides/pt/java/licensing/">Licenciamento</a></li>
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Desenvolva com Slides</b></p>
+<p><b>Desenvolver com Slides</b></p>
 <hr>
 <p>TAREFAS COMUNS</p>
 <ul>
@@ -68,24 +70,34 @@ Ele carrega e salva PPT, PPTX, PPS, POT e ODP, incluindo variantes com macros e 
 </ul>
 </div>
 <div class="col-md-4">
-<p><b>Referência &amp; Suporte</b></p>
+<p><b>Implantar &amp; Suporte</b></p>
 <hr>
+<p>IMPLANTAR</p>
+<ul>
+<li><a href="/slides/pt/java/system-requirements/#linux">Pré-requisitos Linux</a></li>
+<li><a href="/slides/pt/java/how-to-run-aspose-slides-in-docker/">Executar no Docker</a></li>
+<li><a href="/slides/pt/java/deploy-fonts/">Fontes</a></li>
+<li><a href="/slides/pt/java/security/">Segurança</a></li>
+</ul>
 <p>REFERÊNCIA</p>
 <ul>
-<li><a href="https://reference.aspose.com/slides/java/">Referência da API</a></li>
-<li><a href="https://releases.aspose.com/slides/java/release-notes/">Notas de versão</a></li>
+<li><a href="https://reference.aspose.com/slides/pt/java/">Referência da API</a></li>
+<li><a href="https://releases.aspose.com/slides/pt/java/release-notes/">Notas de versão</a></li>
 <li><a href="/slides/pt/java/known-issues/">Problemas conhecidos</a></li>
-<li><a href="https://releases.aspose.com/slides/java/">Download</a></li>
+<li><a href="/slides/pt/java/api-limitations/">Limitações de metadados de saída</a></li>
+<li><a href="https://releases.aspose.com/slides/pt/java/">Download</a></li>
 </ul>
 <p>SUPORTE</p>
 <ul>
-<li><a href="https://forum.aspose.com/c/slides/11">Fórum de suporte gratuito</a></li>
+<li><a href="https://forum.aspose.com/c/slides/pt/11">Fórum de suporte gratuito</a></li>
 <li><a href="https://helpdesk.aspose.com/">Helpdesk de suporte pago</a></li>
 </ul>
 </div>
 </div>
 
 ------
+
+<a name="your-first-presentation"></a>
 
 ## **Sua primeira apresentação**
 
@@ -146,7 +158,7 @@ public class HelloSlides {
             // Obtenha o primeiro slide.
             ISlide slide = presentation.getSlides().get_Item(0);
 
-            // Adicione uma forma de nuvem e insira texto nela.
+            // Adicione uma forma de nuvem e coloque texto nela.
             IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80);
             autoShape.getTextFrame().setText("Hello, Aspose!");
 
@@ -159,10 +171,10 @@ public class HelloSlides {
 }
 ```
 
-Em seguida, com JDK 11 ou superior e Apache Maven instalados, execute este comando na pasta do projeto:
+Então, com o JDK 11 ou superior e o Apache Maven instalados, execute este comando na pasta do projeto:
 
 ```bash
 mvn compile exec:java
 ```
 
-O programa salva *new_presentation.pptx* na pasta do projeto, contendo um slide com uma forma de nuvem e texto. No Linux, fontconfig e ao menos uma fonte devem estar instalados; veja [Instalação](/slides/pt/java/installation/#linux). Sem uma licença, o arquivo salvo contém uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/java/licensing/). Para mais formas de criar e preencher uma apresentação, veja [Criar apresentações](/slides/pt/java/create-presentation/).
+O programa salva *new_presentation.pptx* na pasta do projeto, com um slide contendo uma forma de nuvem com texto. No Linux, fontconfig e pelo menos uma fonte devem estar instalados; veja [Instalação](/slides/pt/java/installation/#linux). Sem licença, o arquivo salvo contém uma marca d'água de avaliação — veja [Licenciamento](/slides/pt/java/licensing/). Para mais formas de criar e preencher uma apresentação, veja [Criar Apresentações](/slides/pt/java/create-presentation/).

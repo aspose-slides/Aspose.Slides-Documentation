@@ -1,24 +1,30 @@
 ---
-title: Az Aspose.Slides for Java 14.4.0 ismert hibái
+title: Ismert problémák az Aspose.Slides for Java 14.4.0 (Történeti)
 type: docs
 weight: 30
 url: /hu/java/known-issues-in-aspose-slides-for-java-14-4-0/
 keywords:
-- ismert hiba
+- ismert probléma
+- történeti
+- verzió 14.4.0
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java 14.4.0 ismert hibáit, hogy pontosan dolgozhasson a PowerPoint és OpenDocument fájlokkal, és elkerülje a meglepetéseket a prezentációiban."
+description: "Történeti: az Aspose.Slides for Java 14.4.0 verzióval közzétett korlátozások és ismert problémák, referenciaként megtartva. Nem a jelenlegi verzió problémáinak listája."
 ---
-{{% alert color="primary" %}} 
-Az Aspose.Slides for Java 14.4.0 új megoldást kínál a PowerPoint dokumentumok feldolgozásához. Vannak bizonyos korlátozások és ismert hibák, amelyek a következő kiadásokban el lesznek távolítva:
+{{% alert color="info" title="Megjegyzés" %}}
 
-- Néhány alakzat hibás geometriával rendelkezik a sorosított PPT-dokumentumokban (ív, kör alakú nyíl, feliratok).
-- Nem minden PPTX szövegformázási funkció támogatott a PPT-sorosításban (tabulálás, behúzás és bekezdésformázási korlátozások).
-- A szöveg nyelvét és helyesírási beállításait tartalmazó információk nincsenek a sorosított PPT-dokumentumokban.
-- Nem minden PPTX témafunkció támogatott a PPT-sorosításban (csak a kitöltési formátumok, vonalformátumok és betűtípus sorosítása).
-- Ismert problémák vannak az OLE/ActiveX PPT-sorosításból PPT-be.
-- A WordArt sorosítása és megjelenítése nem támogatott.
+Ez egy történeti oldal. Ez felsorolja az Aspose.Slides for Java 14.4.0-hoz közzétett korlátozásokat és ismert problémákat, és nem írja le a jelenlegi verziót. Az egyes verziók változásaiért lásd a [release notes](https://releases.aspose.com/slides/hu/java/release-notes/).
+
 {{% /alert %}}
+
+Az Aspose.Slides for Java 14.4.0 új megoldást nyújt a PowerPoint dokumentumok feldolgozásához. Vannak bizonyos korlátozások és ismert problémák, amelyeket a közeljövőben kiadott verziók eltávolítanak:
+
+- Néhány alakzat hibás geometriával rendelkezik a sorosított PPT dokumentumokban (ív, köríves nyíl, feliratok).
+- Nem minden PPTX szövegformázási funkció támogatott a PPT sorosításban (tabulálás, behúzás és bekezdésformázási korlátozások).
+- A szöveg nyelvére és helyesírási beállításaira vonatkozó információ nem jelenik meg a sorosított PPT dokumentumokban.
+- Nem minden PPTX sablonfunkció támogatott a PPT sorosításban (csak a kitöltési formátumok, vonalformátumok és betűtípus sorosítása).
+- Ismert problémák vannak az OLE/ActiveX PPT sorosításban PPT-be.
+- A WordArt sorosítása és megjelenítése nem támogatott.

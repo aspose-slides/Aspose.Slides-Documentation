@@ -1,117 +1,94 @@
 ---
-title: Overzicht van functies
+title: Functieoverzicht
 type: docs
-weight: 10
+weight: 104
 url: /nl/java/features-overview/
 keywords:
 - functies
-- ondersteunde platforms
-- bestandsformaat
+- ondersteunde platformen
+- bestandsformaten
 - conversie
-- weergave
-- opmaak
+- renderen
+- presentatie‑inhoud
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek Aspose.Slides for Java: een krachtige API om PowerPoint- en OpenDocument-presentaties efficiënt te maken, bewerken, automatiseren en converteren."
+description: "Bekijk wat Aspose.Slides for Java biedt voordat u het evalueert: ondersteunde platformen, bestandsformaten, dia‑renderen, en de inhoud die u kunt maken en bewerken."
 ---
-## **Ondersteunde platforms**
-Aspose.Slides for Java ondersteunt de meest populaire ontwikkelings- en implementatieplatformen.
+## **Overzicht**
 
-|**Functie**|**Beschrijving**|
-| :- | :- |
-|Desktoptoepassingen|Aspose.Slides for Java kan worden gebruikt om Windows Forms-toepassingen te ontwikkelen|
-|Enterprise Webtoepassingen|Met Aspose.Slides for Java kunt u webapplicaties bouwen. Ondersteuning voor het gebruik van Aspose.Slides for Java met PHP wordt eveneens geleverd.|
-|Linux/Unix|Aspose.Slides for Java is een platformonafhankelijke API en kan werken in een Linux- en Unix-omgeving.|
+Aspose.Slides for Java is een class library voor het maken, lezen, bewerken, converteren en renderen van PowerPoint- en OpenDocument‑presentaties. Het heeft geen eigen gebruikersinterface en vereist geen Microsoft PowerPoint of Microsoft Office. Dit artikel geeft een overzicht van wat de bibliotheek biedt en linkt naar de artikelen die elk gebied beschrijven.
+
+## **Ondersteunde platformen**
+
+Aspose.Slides for Java is één JAR‑bestand, gepubliceerd in de Maven‑repository van Aspose met de `jdk16` classifier. Het is geschreven in pure Java: de JAR bevat geen native libraries en hangt niet af van andere pakketten.
+
+- **Java:** Java 8 of hoger. Aspose.Slides for Java 26.9 en eerdere versies draaien ook op Java 6 en 7, wat versie 26.10 niet langer ondersteunt; zie de [26.9 release notes](https://releases.aspose.com/slides/nl/java/release-notes/2026/aspose-slides-for-java-26-9-release-notes/).
+- **Operating systems:** elk besturingssysteem met een Java‑runtime, zoals Windows, Linux en macOS. Op Linux moet de fontconfig‑library en ten minste één lettertype geïnstalleerd zijn.
+
+[Installatie](/slides/nl/java/installation/) laat zien hoe de bibliotheek aan een project wordt toegevoegd en somt de Linux‑voorschriften op. [Systeemvereisten](/slides/nl/java/system-requirements/) geeft de ondersteunde platformen in detail weer.
 
 ## **Bestandsformaten en conversies**
-Aspose.Slides for Java ondersteunt de meeste Microsoft PowerPoint‑documentformaten en exporteert ze naar populaire formaten die veelvuldig door organisaties worden gebruikt.
+
+Aspose.Slides opent en slaat PPT, PPTX, PPS, POT, PPSX, POTX, PPTM, PPSM, POTM, ODP, OTP, FODP en PowerPoint‑XML‑presentaties. Het importeert PDF‑ en HTML‑inhoud in dia’s, en slaat presentaties op als PDF, XPS, HTML, HTML5, TIFF, geanimeerde GIF, SWF, Markdown en XAML. [Supported File Formats](/slides/nl/java/supported-file-formats/) somt elk formaat op met de API die het leest of schrijft.
 
 |**Functie**|**Beschrijving**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/nl/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Java biedt de snelste verwerking voor dit presentatiedocumentformaat.|
-|[PresentationML (PPTX, XML)](/slides/nl/java/presentationml-pptx-xml/)|Aspose.Slides for Java ondersteunt het verwerken van het OOXML‑presentatieformaat (ook bekend als PresentationML of PPTX).|
-|[PPT naar PPTX-conversie](/slides/nl/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java ondersteunt conversie van PPT naar PPTX.|
-|[Portable Document Format (PDF)](/slides/nl/java/developer-guide/)|De ondersteunde bestandsformaten kunnen met één methode worden geëxporteerd naar Adobe Portable Document Format (PDF)-documenten.|
-|[XML Parser Specification (XPS)](/slides/nl/java/xml-parser-specification-xps/)|Alle ondersteunde bestandsformaten kunnen met één methode worden geëxporteerd naar XML Parser Specification (XPS)-documenten.|
-|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/nl/java/convert-powerpoint-to-tiff/)|De door Aspose.Slides for Java ondersteunde presentatiedocumentformaten kunnen ook worden geëxporteerd naar Tagged Image File Format (TIFF).|
-|[ODP naar PPTX-conversie](https://docs.aspose.com/slides/nl/java/convert-odp-to-pptx/)|Aspose.Slides for Java ondersteunt het laden van OpenDocument Presentation (ODP) en het vervolgens converteren naar PPTX.|
-|[Presentation To HTML Conversion](https://docs.aspose.com/slides/nl/java/convert-powerpoint-to-html/)|Aspose.Slides for Java ondersteunt de conversie van presentaties naar HTML-formaat.|
+|[PPT en PPTX](/slides/nl/java/ppt-vs-pptx/)|Lees en schrijf zowel het binaire PowerPoint 97‑2003‑formaat als het Office Open XML‑formaat.|
+|[PPT‑naar‑PPTX‑conversie](/slides/nl/java/convert-ppt-to-pptx/)|Converteer legacy PPT‑presentaties naar PPTX.|
+|[ODP‑naar‑PPTX‑conversie](/slides/nl/java/convert-odp-to-pptx/)|Open en sla ODP, OTP en FODP‑presentaties op, en converteer ODP‑presentaties naar PPTX.|
+|[Portable Document Format (PDF)](/slides/nl/java/convert-powerpoint-to-pdf/)|Exporteer presentaties naar PDF, inclusief PDF/A‑ en PDF/UA‑documenten.|
+|[XML Paper Specification (XPS)](/slides/nl/java/convert-powerpoint-to-xps/)|Exporteer presentaties naar XPS‑documenten.|
+|[Tagged Image File Format (TIFF)](/slides/nl/java/convert-powerpoint-to-tiff/)|Exporteer presentaties naar meer‑pagina‑TIFF‑afbeeldingen, één pagina per dia.|
+|[HTML](/slides/nl/java/convert-powerpoint-to-html/)|Exporteer presentaties naar HTML en HTML5.|
+|[PDF‑ en HTML‑import](/slides/nl/java/import-presentation/)|Maak dia’s van PDF‑pagina’s en HTML‑inhoud.|
 
-## **Presentatieweergave**
-Aspose.Slides for Java ondersteunt rendering met hoge nauwkeurigheid van dia's in presentaties naar verschillende grafische formaten:
+## **Presentatie‑rendering**
 
-|**Functie**|**Beschrijving**|
-| :- | :- |
-|Ondersteunde afbeeldingsformaten|Met Aspose.Slides for Java kunt u niet alleen presentatiedia's renderen, maar ook afbeeldingen op dia's, naar populaire ondersteunde grafische formaten zoals TIFF, PNG, BMP, JPEG, GIF en metafiles.|
-|SVG‑formaat|Aspose.Slides for Java biedt een ingebouwde methode om presentatiedia's te exporteren naar Scalable Vector Graphics (SVG)-formaat.|
+Aspose.Slides rendert dia’s en individuele vormen als PNG, JPEG, BMP, GIF, TIFF en SVG‑afbeeldingen, en dia’s als EMF‑metabestanden. Zie [Convert Presentation Slides to Images](/slides/nl/java/convert-slide/), [Render Presentation Slides as SVG Images](/slides/nl/java/render-a-slide-as-an-svg-image/) en [Create Thumbnails of Presentation Shapes](/slides/nl/java/create-shape-thumbnails/).
 
 ## **Inhoudsfuncties**
-Aspose.Slides for Java stelt u in staat bijna alle mogelijke inhoud van presentaties te benaderen, te wijzigen of te creëren.
 
-|**Functie**|**Beschrijving**|
+Aspose.Slides stelt je in staat om bijna alle inhoud van een presentatie te maken, lezen en aanpassen:
+
+|**Gebied**|**Wat je kunt doen**|
 | :- | :- |
-|Masterdia's|De masterdia's bepalen de lay-out van de normale dia's. Aspose.Slides for Java stelt u in staat masterdia's van een presentatie te openen en te bewerken.|
-|Normale dia's|Met Aspose.Slides for Java kunt u niet alleen nieuwe dia's van verschillende types maken, maar ook bestaande dia's openen en bewerken.|
-|Klonen / Kopiëren van dia's|Aspose.Slides for Java biedt methoden voor het klonen of kopiëren van bestaande dia's, zowel binnen een presentatie als van de ene presentatie naar de andere. Omdat een dia zijn lay-out van de masterdia erft, kopiëren de ingebouwde kloonmethoden automatisch de master bij het klonen.|
-|Beheren van diasecties|Mogelijkheid om dia's in verschillende secties binnen een presentatie te organiseren.|
-|Placeholders en Tekstplaceholders|Toegang tot placeholders en tekstplaceholders op een dia. Bovendien kunt u een dia met tekstplaceholders vanaf nul maken met de juiste methode.|
-|Kopteksten en voetteksten|Aspose.Slides for Java vergemakkelijkt ook het behandelen van kop- en voetteksten op de dia's.|
-|Notities op dia's|Met Aspose.Slides for Java kunt u niet alleen notities die aan een dia zijn gekoppeld openen en bewerken, maar ook notities toevoegen.|
-|Zoeken naar een vorm|U kunt een bepaalde vorm op een dia vinden met behulp van de alternatieve tekst die aan de vorm is gekoppeld.|
-|Achtergronden|Aspose.Slides for Java stelt u in staat om te werken met de achtergrond die bij een master- of normale dia hoort.|
-|Tekstvakken|Tekstvakken kunnen vanaf nul worden gemaakt. Bestaande tekstvakken kunnen worden geopend en hun tekst kan worden aangepast zonder de oorspronkelijke opmaak te verliezen.|
-|Rechthoekige vormen|Rechthoekige vormen kunnen worden gemaakt of aangepast door Aspose.Slides for Java.|
-|Polylijnvormen|Polylijnvormen kunnen ook worden gemaakt of aangepast door Aspose.Slides for Java.|
-|Ellipsvormen|Ellipsvormen kunnen ook worden gemaakt of aangepast door Aspose.Slides for Java.|
-|Groepvormen|Aspose.Slides for Java ondersteunt groepvormen.|
-|AutoVormen|AutoVormen worden ook ondersteund door Aspose.Slides for Java|
-|SmartArt|Ondersteuning voor SmartArt‑vormen die beschikbaar zijn in MS PowerPoint|
-|Grafieken|Ondersteuning voor MSO‑grafieken die door PowerPoint worden ondersteund|
-|Afbeeldingsframes|Afbeeldingen worden beheerd in afbeeldingsframes met behulp van Aspose.Slides for Java.|
-|Audio Frames|Audiobestanden kunnen via Aspose.Slides for Java gelinkt of ingesloten worden op dia's in audioframes.|
-|Video Frames|Videobestanden worden beheerd in videoframes via Aspose.Slides for Java. Ondersteuning voor zowel gelinkte als ingesloten video’s is beschikbaar.|
-|OLE Frame|OLE‑objecten worden beheerd in OLE‑frames door Aspose.Slides for Java.|
-|ActiveX Controls|Ondersteuning voor ActiveX‑besturingselementen is beschikbaar.|
-|VBA Macros|Ondersteuning voor het beheren van VBA‑macro’s binnen een presentatie.|
-|Tabellen|Tabellen op dia's worden ook ondersteund door Aspose.Slides for Java.|
-|Tekstframe|De tekst die bij een vorm hoort kan worden geopend via het tekstframe dat bij die vorm is gekoppeld.|
-|Tekstscannen|Tekst in een presentatie kan op presentatie‑ of dia‑niveau gescand worden via de ingebouwde scanmethoden.|
-|Animaties|Animaties kunnen op vormen worden toegepast.|
-|Diavoorstellingen|Diavoorstellingen en diaovergangen worden ondersteund.|
+|[Dia's](/slides/nl/java/presentation-slide/)|Dia’s toevoegen, klonen, herschikken en verwijderen; lay‑outs en masters toepassen; dia’s in secties organiseren; dia‑grootte wijzigen.|
+|[Design](/slides/nl/java/presentation-design/)|Achtergronden, themakleuren, kop‑ en voetteksten en lettertypen instellen.|
+|[Tekst](/slides/nl/java/manage-text/)|Tekstframes, alinea’s en segmenten maken en bewerken; lettertypen, kleuren, opsommingstekens en uitlijning instellen; tekst zoeken en vervangen.|
+|[Vormen](/slides/nl/java/powerpoint-shapes/)|AutoShapes, lijnen, connectors, groepsvormen en picture frames maken; positie, grootte, lijn en effen, verloop‑ of patroonvulling instellen; een vorm vinden via alternatieve tekst.|
+|[Tabellen](/slides/nl/java/powerpoint-table/), [grafieken](/slides/nl/java/powerpoint-charts/), en [SmartArt](/slides/nl/java/powerpoint-smartart/)|Tabellen, Microsoft Office‑grafieken en SmartArt‑diagrammen maken en bewerken.|
+|[Media](/slides/nl/java/manage-media-files/), [OLE‑objecten](/slides/nl/java/manage-ole/), en [ActiveX‑besturingselementen](/slides/nl/java/activex/)|Ingesloten of gekoppelde audio‑ en videoframes toevoegen, OLE‑objecten insluiten, en ActiveX‑besturingselementen toevoegen, wijzigen of verwijderen.|
+|[Aantekeningen](/slides/nl/java/presentation-notes/) en [opmerkingen](/slides/nl/java/presentation-comments/)|Sprekersnotities en beoordelingsopmerkingen toevoegen, lezen en bewerken.|
+|[Animatie](/slides/nl/java/powerpoint-animation/) en [overgangen](/slides/nl/java/slide-transition/)|Animatie‑effecten op vormen toepassen, dia‑overgangen instellen en diavoorstelling‑instellingen configureren.|
+|[Beveiliging](/slides/nl/java/presentation-security/)|Presentaties versleutelen met een wachtwoord, schrijfbeveiliging instellen, en werken met [digital signatures](/slides/nl/java/digital-signature-in-powerpoint/).|
+|[VBA‑macro's](/slides/nl/java/presentation-via-vba/)|VBA‑modules in macro‑geactiveerde presentaties toevoegen, extraheren en verwijderen.|
+|[Eigenschappen](/slides/nl/java/presentation-properties/)|Documenteigenschappen lezen en bewerken.|
 
-## **Opmaakfuncties**
-Het is mogelijk om tekst en vormen op dia's in een presentatiedocument te formatteren met Aspose.Slides for Java.
+## **Veelgestelde vragen**
 
-|**Functie**|**Beschrijving**|
-| :- | :- |
-|Tekstopmaak|<p>In Aspose.Slides for Java wordt tekst beheerd via tekstframes die aan vormen zijn gekoppeld. Daarom wordt tekst opgemaakt met behulp van alinea's en delen die bij de tekstframes horen. De volgende textelementen kunnen worden opgemaakt.</p><p>- Lettertype.</p><p>- Lettergrootte.</p><p>- Letterkleur.</p><p>- Lettertinten.</p><p>- Uitlijning van alinea.</p><p>- Alinea opsomming.</p><p>- Oriëntatie van alinea.</p>|
-|Vormopmaak|<p>In Aspose.Slides for Java is het basiselement van een dia een vorm. De volgende vormelementen kunnen met Aspose.Slides for Java worden opgemaakt:</p><p>- Positie</p><p>- Grootte</p><p>- Lijn</p><p>- Opvulling (inclusief patroon, verloop en effen).</p><p>- Tekst</p><p>- Afbeelding</p>|
-
-## **FAQ**
-
-### Moet ik Microsoft PowerPoint op de server/PC installeren om de bibliotheek te laten werken?
+**Moet ik Microsoft PowerPoint op de server of pc installeren om de bibliotheek te laten werken?**
 
 Nee. PowerPoint is niet vereist; Aspose.Slides is een zelfstandige engine voor het maken, bewerken, converteren en renderen van presentaties.
 
-### Hoe werkt multithreading? Kan verwerking parallel worden uitgevoerd?
+**Hoe werkt multithreading? Kan de verwerking geparalleliseerd worden?**
 
-It is safe to process different documents in different threads; the same [presentatie](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) object must not be used by [multiple threads](/slides/nl/java/multithreading/) at the same time.
+Het is veilig om verschillende documenten in verschillende threads te verwerken; hetzelfde [Presentation](/reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑object mag niet door [multiple threads](/slides/nl/java/multithreading/) tegelijk worden gebruikt.
 
-### Worden bestandwachtwoorden en encryptie ondersteund?
+**Worden bestandswachtwoorden en encryptie ondersteund?**
 
-Ja. [U kunt](/slides/nl/java/password-protected-presentation/) versleutelde presentaties openen, een open- en schrijfwachtwoord instellen of verwijderen, en de beschermingsstatus controleren.
+Ja. [Je kunt](/slides/nl/java/password-protected-presentation/) versleutelde presentaties openen, een open‑ en schrijfwachtwoord instellen of verwijderen, en de beveiligingsstatus controleren.
 
-### Moet ik rekening houden met lettertypepakketten in Linux-containers?
+**Moet ik rekening houden met lettertypen in Linux‑containers?**
 
-Ja. Het wordt aanbevolen om gemeenschappelijke lettertypepakketten te installeren en/of expliciet [lettertype‑mappen opgeven](/slides/nl/java/custom-font/) in uw applicatie om onverwachte vervangingen te voorkomen.
+Ja. Op Linux moet de fontconfig‑library en ten minste één lettertype geïnstalleerd zijn, en de lettertypen die in je presentaties worden gebruikt (of geschikte vervangers) moeten aanwezig zijn zodat tekst correct wordt gerenderd. Je kunt ook [font‑directories specificeren](/slides/nl/java/custom-font/) in je toepassing. Zie [Installatie](/slides/nl/java/installation/#linux).
 
-### Zijn er beperkingen in de evaluatieversie?
+**Zijn er beperkingen in de evaluatieversie?**
 
-In [evaluatiemodus](/slides/nl/java/licensing/), wordt een watermerk aan de uitvoer toegevoegd en gelden bepaalde beperkingen; een [30-dagen tijdelijke licentie](https://purchase.aspose.com/temporary-license/) is beschikbaar voor volledige functionaliteitstesten.
+Ja. Zonder een [license](/slides/nl/java/licensing/) voegt Aspose.Slides een evaluatiewatermerk toe aan elke dia die het opslaat en wordt tekst die je via de API leest afgekapt. Een [30‑daagse tijdelijke licentie](https://purchase.aspose.com/temporary-license/) is beschikbaar voor volledige functietesten.
 
-### Wordt het importeren van externe formaten in een presentatie (PDF/HTML → PPTX) ondersteund?
+**Is het importeren van externe formaten in een presentatie (PDF of HTML naar PPTX) ondersteund?**
 
-Ja. U kunt [PDF-pagina’s en HTML‑inhoud](/slides/nl/java/import-presentation/) aan een presentatie toevoegen, waardoor ze in dia’s worden omgezet.
+Ja. Je kunt [PDF‑pagina’s en HTML‑inhoud](/slides/nl/java/import-presentation/) aan een presentatie toevoegen, waardoor ze in dia’s worden omgezet.

@@ -1,44 +1,41 @@
 ---
-title: PresentationML (PPTX, XML)
+title: PresentationML (PPTX, XML) (Történeti)
 type: docs
 weight: 20
 url: /hu/java/presentationml-pptx-xml/
+keywords:
+- PresentationML
+- PPTX
+- Office Open XML
+- történeti
+- Java
+- Aspose.Slides
+description: "Történeti: egy régebbi áttekintés a PresentationML (PPTX) formátumról az Aspose.Slides for Java-ban, a meglévő hivatkozások miatt megőrizve. A támogatott formátumok aktuális listája a Supported File Formats oldalon."
 ---
-{{% alert color="primary" %}} 
-
-A PresentationML egy név a prezentációs dokumentumok XML-alapú formátumcsaládjára. Az Office OpenXML (OOXML) a Microsoft Office 2007 alkalmazásokban bevezetett XML-alapú formátum. Az Office OpenXML egy konténerformátum több speciális XML-alapú jelölőnyelvhez. A PresentationML az a jelölőnyelv, amelyet a Microsoft Office PowerPoint 2007 a dokumentumok tárolására használ.
-
-{{% /alert %}} 
-
+{{% alert color="info" title="Note" %}}
+Ez egy történeti oldal, amely a meglévő hivatkozások miatt megmaradt. Nem írja le az Aspose.Slides for Java jelenlegi verzióját. Az Aspose.Slides for Java által betöltött, importált, mentett és megjelenített formátumok, valamint azok API-ja megtalálható a [Supported File Formats](/slides/hu/java/supported-file-formats/) oldalon. A PPTX és a PPT összehasonlításához lásd a [Understanding the Difference: PPT vs PPTX](/slides/hu/java/ppt-vs-pptx/) oldalt.
+{{% /alert %}}
+{{% alert color="info" title="Note" %}}
+A PresentationML egy név a prezentációs dokumentumok XML-alapú formátumcsaládjára. Az Office OpenXML (OOXML) a Microsoft Office 2007 alkalmazásokban bevezetett XML-alapú formátum. Az Office OpenXML egy tárolóformátum több specializált XML-alapú leírónyelvhez. A PresentationML az a leírónyelv, amelyet a Microsoft Office PowerPoint 2007 használ a dokumentumok tárolására.
+{{% /alert %}}
 ## **PresentationML az Aspose.Slides for Java-ban**
-Az OOXML PresentationML dokumentumok PPTX fájlokként jelennek meg, tömörített XML csomagokként, amelyek az [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/) specifikációt követik. Az Aspose.Slides for Java kiterjedten támogatja a PresentationML dokumentumok létrehozását, olvasását, módosítását és írását. Emellett az Aspose.Slides for Java képes a PresentationML dokumentumokat széles körben használt formátumba, például PDF‑be exportálni. Ez azért lehetséges, mert az Aspose.Slides for Java-t úgy tervezték, hogy átfogóan kezelje a prezentációs dokumentumokat, és a PresentationML lényegében egy tömörített XML csomagban tárolja a dokumentumok belső szerkezetét.
+Az OOXML PresentationML dokumentumok PPTX fájlként érkeznek, tömörített XML csomagokként, amelyek követik a [OOXML ECMA-376](https://ecma-international.org/publications-and-standards/standards/ecma-376/) specifikációt. Az Aspose.Slides for Java kiterjedten támogatja a PresentationML dokumentumok létrehozását, olvasását, manipulálását és írását. Ezen felül az Aspose.Slides for Java képes a PresentationML dokumentumokat széles körben használt dokumentumformátumba, például PDF-be exportálni. Ez lehetséges, mert az Aspose.Slides for Java úgy lett tervezve, hogy átfogóan kezelje a prezentációs dokumentumokat, és a PresentationML alapvetően a dokumentumok belső strukturáját egy tömörített XML csomagként tárolja.
+**Az Aspose.Slides for Java által generált PPTX dokumentum, amely Microsoft PowerPointban nyílik meg**
+![Az Aspose.Slides for Java által generált PPTX dokumentum, amely Microsoft PowerPointban nyílik meg](presentationml-pptx-xml_1.png)
 
-**Egy PPTX dokumentum, amelyet az Aspose.Slides for Java generált, és a Microsoft PowerPointben megnyitott** 
+**Az ugyanazon, Aspose.Slides for Java által generált PPTX dokumentum megtekintése ZIP formátumban**
+![Azonos PPTX dokumentum ZIP csomagként megtekintve](presentationml-pptx-xml_2.jpg)
 
-![todo:image_alt_text](presentationml-pptx-xml_1.png)
-
-
-**Az ugyanazon Aspose.Slides for Java által generált PPTX dokumentum megtekintése ZIP‑ben** 
-
-![todo:image_alt_text](presentationml-pptx-xml_2.jpg)
-
-
-## **PresentationML nyílt, miért használjuk az Aspose.Slides for Java‑t?**
-Mivel a PresentationML XML‑alapú, lehetséges olyan alkalmazásokat építeni, amelyek PresentationML dokumentumokat dolgoznak fel és generálnak XML osztályokkal, anélkül, hogy harmadik fél könyvtárára, például az Aspose.Slides for Java‑ra támaszkodnának. Ugyanakkor több előnye is van az Aspose.Slides for Java használatának az XML osztályokhoz képest a PresentationML dokumentumok kezelésekor.
-
-Az OOXML specifikáció több ezer oldalon terjed, ezért a PresentationML dokumentumok megfelelő kezelése jelentős időt és erőfeszítést igényel a formátum megértéséhez. Ezzel szemben az Aspose.Slides for Java esetén csak osztályokat, azok metódusait és tulajdonságait használja, hogy olyan műveleteket hajtson végre, amelyek XML osztályokkal bonyolultabbak lennének.
-
-Néhány funkció, amelyet az Aspose.Slides kínál, XML osztályokkal a PresentationML dokumentumok kezelése során nem érhető el:
-
+## **A PresentationML nyílt, miért használjuk az Aspose.Slides for Java-t?**
+Mivel a PresentationML XML-alapú, teljesen lehetséges olyan alkalmazásokat építeni, amelyek XML osztályokkal dolgozzák fel és generálják a PresentationML dokumentumokat anélkül, hogy harmadik féltől származó osztálykönyvtárra, például az Aspose.Slides for Java-ra támaszkodnának. Mindazonáltal számos előnye van az Aspose.Slides for Java használatának az XML osztályokkal szemben a PresentationML dokumentumokkal való munka során.
+Az OOXML specifikáció több ezer oldalból áll, ezért a PresentationML dokumentumok megfelelő kezelése érdekében sok időt és erőfeszítést kell szánni a formátum megértésére. Ezzel szemben az Aspose.Slides for Java esetében egyszerűen osztályokat, metódusokat és tulajdonságokat használunk a műveletek elvégzéséhez, amelyek XML osztályokkal való megvalósítás esetén összetettnek tűnnek.
+Néhány, az Aspose.Slides által kínált funkció még akkor sem érhető el, ha XML osztályokkal dolgozol a PresentationML dokumentumokon:
 - PPT dokumentumok exportálása PDF formátumba.
-- Dia renderelése a Java keretrendszer által támogatott bármely képformátumba.
-- Mester diák automatikus másolása forrásprezentációkból a klónozási funkcióval.
-- Védelem alkalmazása alakzatokra.
-
-Az alábbiakban egy PresentationML dokumentum látható, amely egyetlen diát tartalmaz, azon egy szövegdobozban a “Hello World” felirat. A szöveg XML osztályokkal történő kiolvasásához egy programot kell írni, amely képes ezt az egyszerű szöveget a következő részletből kinyerni. Az Aspose.Slides ezt Ön helyett megteszi.
-
+- Dia renderelése bármely, a Java keretrendszer által támogatott képf formátumba.
+- Mesterek automatikus másolása egy forrásprezentációból a klónozási funkció használatával.
+- Alakzatokra védelem alkalmazása.
+Az alábbiakban egy PresentationML dokumentum példát láthatunk, amely egyetlen diát tartalmaz, benne egy szövegdoboz a “Hello World” szöveggel. A szöveg XML osztályokkal történő kiolvasásához egy olyan programot kell írni, amely képes feldolgozni ezt az egyszerű szöveget az alábbi töredékből. Az Aspose.Slides ezt helyetted elvégzi.
 **XML**
-
 ``` xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">

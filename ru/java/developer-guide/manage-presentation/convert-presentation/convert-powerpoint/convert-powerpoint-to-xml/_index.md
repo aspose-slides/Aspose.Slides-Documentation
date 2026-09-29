@@ -1,5 +1,5 @@
 ---
-title: Конвертация презентаций PowerPoint в XML на Java
+title: Преобразовать презентации PowerPoint в XML на Java
 linktitle: PowerPoint в XML
 type: docs
 weight: 145
@@ -10,30 +10,32 @@ keywords:
 - PPT в XML
 - PPTX в XML
 - ODP в XML
-- Презентация PowerPoint XML
+- презентация PowerPoint XML
 - SaveFormat.Xml
 - сохранить презентацию как XML
 - экспортировать презентацию в XML
 - XML поток
 - Java
 - Aspose.Slides
-description: "Конвертируйте презентации PowerPoint и OpenDocument в файлы PowerPoint XML или потоки на Java с помощью Aspose.Slides for Java."
+description: "Преобразуйте презентации PowerPoint и OpenDocument в файлы PowerPoint XML или потоки на Java с помощью Aspose.Slides для Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Java может конвертировать презентации PowerPoint в формат PowerPoint XML Presentation. XML‑вывод полезен, когда вам нужен текстовый представление для инспекции структуры презентации, отладки сгенерированных документов, сравнения вывода в автоматических тестах или интеграции с рабочим процессом, который потребляет XML вместо пакета презентаций.
+Aspose.Slides for Java может конвертировать презентации PowerPoint в формат PowerPoint XML Presentation. XML‑вывод полезен, когда требуется текстовое представление для проверки структуры презентации, устранения неполадок сгенерированных документов, сравнения вывода в автоматических тестах или интеграции с процессом, который использует XML вместо пакета презентации.
 
-Используйте метод [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.lang.String-int-) с параметром `Xml` из класса [SaveFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/saveformat/). Вы можете записать результат напрямую в файл или в поток.
+Используйте метод [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.lang.String-int-) с значением `Xml` из класса [SaveFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/saveformat/). Вы можете записать результат непосредственно в файл или в поток.
 
 {{% alert color="info" title="Note" %}}
-`SaveFormat.Xml` создаёт PowerPoint XML Presentation. Он не извлекает отдельные части Office Open XML, хранящиеся внутри пакета PPTX. Если вам нужны точные части пакета PPTX, такие как `ppt/presentation.xml` или отдельные XML‑файлы слайдов, изучите сам пакет PPTX.
+
+`SaveFormat.Xml` создает PowerPoint XML Presentation. Он не извлекает отдельные части Office Open XML, хранящиеся внутри пакета PPTX. Если вам нужны точные части пакета PPTX, такие как `ppt/presentation.xml` или отдельные XML‑файлы слайда, исследуйте сам пакет PPTX.
+
 {{% /alert %}}
 
-## **Преобразовать презентацию в XML‑файл**
+## **Конвертировать презентацию в XML‑файл**
 
-Загрузите исходную презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) , а затем передайте путь вывода и `SaveFormat.Xml` методу [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Источник может быть в любом поддерживаемом формате загрузки, таком как PPT, PPTX или ODP.
+Загрузите исходную презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и затем передайте путь вывода и `SaveFormat.Xml` методу [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Источник может быть в любом формате презентации, поддерживаемом для загрузки, например PPT, PPTX или ODP.
 
-В следующем примере PPTX‑презентация конвертируется в XML‑файл:
+Следующий пример конвертирует презентацию PPTX в XML‑файл:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -49,7 +51,7 @@ try {
 
 ## **Записать XML‑вывод в поток**
 
-Используйте перегрузку метода [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-), принимающую поток, когда XML должен оставаться в памяти или передаваться другому компоненту, например веб‑сервису, поставщику хранилища или XML‑конвейеру обработки. В следующем примере результат записывается в [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) и полученный XML возвращается в виде массива байтов:
+Используйте перегрузку метода [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) с параметром потока, когда XML должен оставаться в памяти или передаваться другому компоненту, такому как веб‑служба, поставщик хранилища или конвейер обработки XML. Следующий пример записывает результат в [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) и получает полученный XML в виде массива байтов:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -71,31 +73,31 @@ try (ByteArrayOutputStream xmlStream = new ByteArrayOutputStream()) {
 
 Выберите формат вывода в зависимости от того, как будет использоваться результат:
 
-| Формат | Вывод | Типичное применение |
+| Формат | Вывод | Типичное использование |
 | --- | --- | --- |
-| PowerPoint XML (`.xml`) | Презентация PowerPoint XML | Инспекция структуры, отладка, сравнение сгенерированного вывода и интеграция на основе XML |
-| PPT (`.ppt`) | Файл презентации в старом двоичном формате | Совместимость со старыми рабочими процессами PowerPoint |
-| PPTX (`.pptx`) | Пакет Office Open XML, содержащий несколько частей | Обычное редактирование PowerPoint и обмен презентациями |
-| PDF или TIFF | Страницы фиксированного макета или многостраничное изображение | Просмотр, печать и архивация |
-| PNG, JPEG или SVG | Отображаемое представление отдельного слайда | Эскизы, превью и графические ресурсы |
-| HTML или HTML5 | Web‑ориентированный вывод презентации | Просмотр в браузере и публикация в вебе |
+| PowerPoint XML (`.xml`) | PowerPoint XML Presentation | Проверка структуры, устранение неполадок, сравнение сгенерированного вывода и интеграция на основе XML |
+| PPT (`.ppt`) | Унаследованный бинарный файл презентации | Совместимость со старыми рабочими процессами PowerPoint |
+| PPTX (`.pptx`) | Пакет Office Open XML, содержащий несколько частей | Обычное редактирование и обмен презентациями PowerPoint |
+| PDF or TIFF | Страницы фиксированного макета или многостраничное изображение | Просмотр, печать и архивирование |
+| PNG, JPEG, or SVG | Визуальное представление отдельного слайда | Миниатюры, предварительные просмотры и графические ресурсы |
+| HTML or HTML5 | Веб‑ориентированный вывод презентации | Просмотр в браузере и публикация в интернете |
 
-В отличие от PPT и PPTX, XML‑вывод в первую очередь предназначен для инспекции и работы с данными. В отличие от PDF, TIFF, HTML и форматов изображений слайдов, он представляет данные презентации, а не рендерит слайды в виде страниц или визуальных ресурсов. В таблице [supported file formats](/slides/ru/java/supported-file-formats/) указано, что PowerPoint XML Presentation поддерживается только для сохранения, поэтому не используйте его, если рабочий процесс требует загрузки экспортированного файла обратно в Aspose.Slides для дальнейшего редактирования.
+В отличие от PPT и PPTX, XML‑вывод предназначен в первую очередь для инспекции и рабочих процессов, ориентированных на данные. В отличие от PDF, TIFF, HTML и форматов изображений слайдов, он представляет данные презентации, а не рендерит слайды в виде страниц или визуальных ресурсов. Таблица [supported file formats](/slides/ru/java/supported-file-formats/) перечисляет все форматы, которые Aspose.Slides может загружать, импортировать, сохранять или рендерить.
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**`SaveFormat.Xml` то же самое, что сохранение файла PPTX?**
+**Это `SaveFormat.Xml` то же самое, что сохранение файла PPTX?**
 
-Нет. PPTX — это пакет, содержащий несколько частей Office Open XML, тогда как `SaveFormat.Xml` создает файл PowerPoint XML Presentation.
+Нет. PPTX — это пакет, содержащий несколько частей Office Open XML, тогда как `SaveFormat.Xml` создаёт файл PowerPoint XML Presentation.
 
-**Можно ли сохранить XML‑вывод без создания файла на диске?**
+**Могу ли я сохранить XML‑вывод, не создавая файл на диске?**
 
-Да. Передайте поток для записи в метод [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Например, используйте [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) для обработки в памяти.
+Да. Передайте записываемый поток в метод [Presentation.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Например, используйте [ByteArrayOutputStream](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/ByteArrayOutputStream.html) для обработки в памяти.
 
-**Может ли Aspose.Slides загрузить экспортированный XML‑файл снова?**
+**Может ли Aspose.Slides загрузить экспортированный XML‑файл повторно?**
 
-Нет. PowerPoint XML Presentation в текущей версии поддерживается только для сохранения, а не для загрузки. Используйте PPTX или другой поддерживаемый формат презентации, когда требуется круговая обработка (загрузка‑сохранение) редактирования.
+Да. Передайте XML‑файл или поток в конструктор [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#Presentation-java.lang.String-). Затем [Presentation.getSourceFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSourceFormat--) возвращает `SourceFormat.Xml`. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) сообщает `LoadFormat.Unknown` для этого формата, поэтому не используйте его для решения, можно ли открыть XML‑файл.
 
-**Преобразует ли XML каждый слайд в страницу или изображение?**
+**Приводит ли преобразование в XML каждый слайд к странице или изображению?**
 
-Нет. Конвертация в XML записывает структурированные данные презентации. Для вывода, ориентированного на страницы, используйте PDF или TIFF, а для отдельных изображений слайдов — PNG, JPEG и SVG.
+Нет. Преобразование в XML записывает структурированные данные презентации. Используйте PDF или TIFF для вывода, ориентированного на страницы, либо PNG, JPEG и SVG для изображений отдельных слайдов.

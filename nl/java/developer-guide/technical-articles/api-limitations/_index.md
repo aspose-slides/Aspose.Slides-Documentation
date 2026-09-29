@@ -1,5 +1,5 @@
 ---
-title: API-beperkingen
+title: Beperkingen van uitvoer‑metadata
 type: docs
 weight: 320
 url: /nl/java/api-limitations/
@@ -7,28 +7,31 @@ keywords:
 - API-beperkingen
 - exportformaat
 - applicatie
-- producer
+- producent
 - documenteigenschappen
 - metadata
+- generator
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek de beperkingen van Aspose.Slides for Java: exporten stellen vaste Application/Producer-metadata in PPT, PPTX, ODP en PDF—zodat u integraties kunt plannen zonder verrassingen."
+description: "Aspose.Slides voor Java schrijft vaste applicatie‑, creator‑ en producent‑metadata naar opgeslagen PPTX‑, PDF‑ en ODP‑bestanden, ongeacht de applicatienaam die je instelt."
 ---
 ## **Overzicht**
 
-Wanneer presentaties worden gemaakt of geëxporteerd met Aspose.Slides, wordt bepaalde technische metadata weggeschreven naar het uitvoerbestand. Dit artikel legt de beperkingen uit die betrekking hebben op de metadata‑velden `Application`, `Creator` en `Producer` in PPTX‑ en PDF‑bestanden.
+Wanneer presentaties worden gemaakt of geëxporteerd met Aspose.Slides, wordt bepaalde technische metadata in het uitvoerbestand geschreven. Dit artikel legt de beperkingen uit met betrekking tot de metadata‑velden `Application`, `Creator`, `Producer` en generator in PPTX‑, PDF‑ en ODP‑bestanden.
 
-## **Application en Producer**
+## **Applicatie en Producent**
 
-Wanneer je presentaties maakt of exporteert met Aspose.Slides for Java, wordt er wat technische metadata in het bestand geschreven. Twee velden roepen vaak vragen op:
+Wanneer je presentaties maakt of exporteert met Aspose.Slides voor Java, wordt er wat technische metadata in het bestand geschreven. Twee velden roepen vaak vragen op:
 
-**Application** identificeert het programma dat een **PPTX**‑presentatie heeft gemaakt of voor het laatst heeft opgeslagen. In Aspose.Slides for Java is deze waarde vast en toont de bibliotheekleverancier in plaats van de naam van je eigen applicatie, zelfs als je [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) gebruikt.
+**Application** identificeert het programma dat een **PPTX**‑presentatie heeft aangemaakt of voor het laatst heeft opgeslagen. In Aspose.Slides voor Java is deze waarde vast en toont de bibliotheeknaam in plaats van de naam van jouw applicatie, zelfs wanneer je [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) gebruikt.
 
-**Producer** identificeert de renderengine die het uiteindelijke bestand heeft gegenereerd tijdens het exporteren. Bij **PDF**‑exports wordt metadata gebruikt via de velden **Creator** en **Producer**. Met Aspose.Slides for Java zijn beide velden vast en geven ze de bibliotheek en de versie weer.
+**Producer** identificeert de rendering‑engine die het uiteindelijke bestand heeft gegenereerd tijdens het exporteren. Bij **PDF**‑exporten wordt metadata opgeslagen in de velden **Creator** en **Producer**. Met Aspose.Slides voor Java zijn beide velden vast en geven ze de bibliotheek en haar versie weer.
 
 **Wat is beperkt**
 
-Je kunt deze velden niet overschrijven via de API voor de bovengenoemde formaten. Voor **PPTX** wordt de Application‑eigenschap weggeschreven als “Aspose.Slides for Java”. Voor **PDF** worden de Creator‑ en Producer‑eigenschappen weggeschreven als “Aspose.Slides for Java x.x.x.” Dit gedrag is opzettelijk en geldt ongeacht hoe je het bestand laadt of opslaat, en ongeacht de waarden die zijn toegewezen met [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-).
+Je kunt deze velden niet overschrijven via de API voor de bovengenoemde indelingen. Voor **PPTX** wordt de eigenschap Application geschreven als “Aspose.Slides for Java”. Voor **PDF** worden de eigenschappen Creator en Producer geschreven als “Aspose.Slides for Java” gevolgd door de bibliotheekversie. Voor **ODP** wordt het generator‑veld geschreven als “Aspose.Slides for Java” gevolgd door de bibliotheekversie. Dit gedrag is bewust zo geïmplementeerd en geldt ongeacht hoe je het bestand laadt of opslaat, en ongeacht de waarden die je toekent via [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-).
+
+Deze beperking geldt niet voor **PPT**‑bestanden: in een PPT‑bestand wordt de applicatienaam die je instelt met [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/#setNameOfApplication-java.lang.String-) opgeslagen.

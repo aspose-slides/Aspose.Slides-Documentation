@@ -1,26 +1,30 @@
 ---
-title: Znane problemy w Aspose.Slides for Java 14.4.0
+title: Znane problemy w Aspose.Slides for Java 14.4.0 (Historyczne)
 type: docs
 weight: 30
 url: /pl/java/known-issues-in-aspose-slides-for-java-14-4-0/
 keywords:
 - znany problem
+- historyczne
+- wersja 14.4.0
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przejrzyj znane problemy w Aspose.Slides for Java 14.4.0, aby zapewnić prawidłową pracę z plikami PowerPoint i OpenDocument oraz uniknąć nieprzyjemnych niespodzianek w swoich prezentacjach."
+description: "Historyczne: ograniczenia i znane problemy opublikowane razem z Aspose.Slides for Java 14.4.0, zachowane jako odniesienie. To nie jest lista problemów w bieżącej wersji."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Uwaga" %}}
 
-Aspose.Slides for Java 14.4.0 wprowadza nowe możliwości przetwarzania dokumentów PowerPoint. Istnieją pewne ograniczenia i znane problemy, które zostaną usunięte w kolejnych wersjach:
-
-- Niektóre kształty mają nieprawidłową geometrię w serializowanych dokumentach PPT (łuk, okrągła strzałka, dymki).
-- Nie wszystkie funkcje formatowania tekstu w PPTX są obsługiwane przy serializacji do PPT (ograniczenia tabulacji, wcięć i formatowania akapitu).
-- Informacje o języku tekstu i ustawieniach sprawdzania pisowni nie są obecne w serializowanych dokumentach PPT.
-- Nie wszystkie funkcje motywu PPTX są obsługiwane przy serializacji do PPT (tylko serializacja formatów wypełnień, linii i czcionek).
-- Istnieją znane problemy przy serializacji OLE/ActiveX z PPT do PPT.
-- Serializacja i renderowanie WordArt nie są obsługiwane.
+To jest strona historyczna. Zawiera ograniczenia i znane problemy opublikowane wraz z Aspose.Slides for Java 14.4.0 i nie opisuje bieżącej wersji. Zmiany w każdej wersji można zobaczyć w [release notes](https://releases.aspose.com/slides/pl/java/release-notes/).
 
 {{% /alert %}}
+
+Aspose.Slides for Java 14.4.0 wprowadza nowe możliwości przetwarzania dokumentów PowerPoint. Istnieją pewne ograniczenia i znane problemy, które zostaną usunięte w przyszłych wydaniach:
+
+- Niektóre kształty mają nieprawidłową geometrię w serializowanych dokumentach PPT (łuk, strzałka okrężna, dymki).
+- Nie wszystkie funkcje formatowania tekstu w PPTX są obsługiwane przy serializacji do PPT (ograniczenia tabulacji, wcięć i formatowania akapitów).
+- Informacje o języku tekstu i ustawieniach sprawdzania pisowni nie są obecne w serializowanych dokumentach PPT.
+- Nie wszystkie funkcje tematu PPTX są obsługiwane przy serializacji do PPT (tylko serializacja formatów wypełnień, formatów linii i czcionki).
+- Znane problemy w serializacji OLE/ActiveX z PPT do PPT.
+- Serializacja i renderowanie WordArt nie są obsługiwane.
