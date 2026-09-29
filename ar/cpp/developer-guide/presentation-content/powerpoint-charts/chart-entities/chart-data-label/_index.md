@@ -1,28 +1,28 @@
 ---
-title: "إدارة ملصقات بيانات المخطط في العروض التقديمية باستخدام C++"
-linktitle: "ملصق البيانات"
+title: إدارة تسميات بيانات المخطط في العروض التقديمية باستخدام C++
+linktitle: تسمية البيانات
 type: docs
 url: /ar/cpp/chart-data-label/
 keywords:
 - مخطط
-- ملصق بيانات
+- تسمية البيانات
 - دقة البيانات
 - نسبة مئوية
-- مسافة الملصق
-- موضع الملصق
+- مسافة التسمية
+- موقع التسمية
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق ملصقات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للغة C++ لإنشاء شرائح أكثر جاذبية."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخططات في عروض PowerPoint باستخدام Aspose.Slides للغة C++ للحصول على شرائح أكثر جاذبية."
 ---
 ## **المقدمة**
 
-تُظهر ملصقات البيانات معلومات حول سلاسل المخططات ونقاط البيانات الفردية، مما يساعد القراء على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص الملصق، وضبط تباعد ملصقات محور الفئة، وتحديد موضع ملصقات مخطط الفطيرة.
+تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القارئ على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، والتحكم في التسميات خارج الحد الأقصى للمحور، وضبط تباعد تسميات محور الفئات، وتحديد موضع تسميات مخطط الفطيرة.
 
-## **تعيين دقة البيانات في ملصقات بيانات المخطط**
+## **تعيين دقة البيانات في تسميات مخطط البيانات**
 
-استخدم [set_NumberFormatOfValues](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) لتنسيق قيم السلسلة. يوضح هذا المثال إنشاء مخطط خطي ببيانات افتراضية، وعرض جدول البيانات الخاص به، وتمكين ملصقات القيم للسلسلة الأولى. التنسيق `#,##0.00` يُظهر فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
+استخدم [set_NumberFormatOfValues](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) لتنسيق قيم السلسلة. يُنشئ هذا المثال مخططًا خطيًا ببيانات افتراضية، يعرض جدول البيانات الخاص به، ويمكّن تسميات القيم للسلسلة الأولى. يُظهر التنسيق `#,##0.00` فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,9 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **عرض النسبة المئوية كملصقات**
+## **عرض النسبة المئوية كتسميات**
 
-في مخطط عمود مكدس، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعيّن النص إلى إطار النص الذي تم إرجاعه بواسطة [get_TextFrameForOverriding](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي مجموعها صفر لتجنب القسمة على الصفر. أعد حساب نص الملصق المخصص إذا تغيرت بيانات المخطط.
+بالنسبة إلى مخطط عمود مكدس، احسب كل قيمة كنسبة مئوية من إجمالي فئتها وعيّن النص في إطار النص الذي يُرجعه [get_TextFrameForOverriding](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي يكون مجموعها صفرًا لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -96,6 +96,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -146,11 +147,9 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **تعيين علامة النسبة المئوية مع ملصقات بيانات المخطط**
+## **ضبط علامة النسبة المئوية مع تسميات مخطط البيانات**
 
-عند تخزين القيم ككسور، استخدم [set_NumberFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) لعرض النسب المئوية. مرّر `false` إلى [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) لتطبيق تنسيق الملصق بشكل مستقل عن خلايا المصدر.
-
-هذا المثال ينشئ مخطط عمود مكدس 100٪ بسلسلتين (أحمر وأزرق) عبر أربع فئات. كل زوج من القيم يضيف إلى 1. تنسيق الملصق `0.0%` يعرض 0.30 كـ 30.0٪، بينما يستخدم المحور العمودي مكانين عشريين. كلا السلسلتين يستخدمان نص ملصق أبيض بحجم 10 نقاط.
+عند تخزين القيم ككسور، استخدم [set_NumberFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) لعرض النسب المئوية. مرّر `false` إلى [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر. ينشئ هذا المثال مخطط عمود مكدس 100٪ مع سلسلتين (أحمر وأزرق) عبر أربع فئات. كل زوج من القيم يضيف إلى 1. يُظهر تنسيق التسمية `0.0%` القيمة 0.30 كـ 30.0٪، بينما يستخدم المحور العمودي مكانين عشريين. كلا السلسلتين يستخدمان نص تسمية بيضاء بحجم 10 نقاط.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -189,6 +188,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -234,9 +234,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **قراءة النص الفعلي لملصقات البيانات**
+## **قراءة النص الفعلي لتسميات البيانات**
 
-استخدم [GetActualLabelText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) لاسترداد النص الناتج عن إعدادات ملصق البيانات. هذا مفيد عند استخراج الملصقات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات التي تم إنشاؤها. في المثال أدناه، يجمع [تنسيق ملصق البيانات](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/) الافتراضي كل اسم فئة، واسم سلسلة، والقيمة. نقطة واحدة تُنسيق قيمتها كنسبة مئوية، وأخرى تستخدم نصًا مخصصًا من [get_TextFrameForOverriding](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+استخدم [GetActualLabelText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) لاسترجاع النص الناتج عن إعدادات تسمية البيانات. يكون ذلك مفيدًا عند استخراج التسميات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة الرسوم البيانية المُنشأة. في المثال أدناه، يجمع [تنسيق تسمية البيانات](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/) الافتراضي كلًا من اسم الفئة، اسم السلسلة، والقيمة. يُنسق أحد النقاط قيمته كنسبة مئوية، والآخر يستخدم نصًا مخصصًا من [get_TextFrameForOverriding](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -268,6 +268,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -323,11 +324,94 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-يظل الرقم المخزن في نقطة البيانات `0.75`، حتى عندما يُظهر ملصقه `75%` مع أسماء الفئة والسلسلة. النص المخصص يحل محل النص المُولد للملصق. [GetActualLabelText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) تُعيد سلسلة الملصق الناتجة في كلتا الحالتين. تحقق من [get_IsVisible](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabel/get_isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج الملصقات الظاهرة فقط.
+تظل القيمة المخزنة في نقطة البيانات `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل نص التسمية المُنشأ. تُعيد [GetActualLabelText](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) سلسلة التسمية الناتجة في كلتا الحالتين. تحقّق من [get_IsVisible](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabel/get_isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات المرئية فقط.
 
-## **تعيين مسافة الملصق من المحور**
+## **التحكم في تسميات البيانات خارج الحد الأقصى للمحور**
 
-استخدم [set_LabelOffset](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/iaxis/set_labeloffset/) للتحكم في المسافة بين ملصقات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم خط ملصقات المحور. يخلق هذا المثال مخطط عمود مجمع ويضبط إزاحة ملصق محور الأفقي إلى 500. يؤثر هذا الإعداد على ملصقات محور الفئة بدلاً من الملصقات المرتبطة بنقاط البيانات الفردية.
+عند تحديد نطاق المحور يدويًا، قد تتجاوز بعض نقاط البيانات الحد الأقصى له. استخدم [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) للتحكم فيما إذا كانت تسميات البيانات الخاصة بها تُظهر. يغيّر هذا الإعداد رؤية التسمية؛ لكنه لا يغيّر نطاق المحور أو القيم الأساسية للبيانات. ينشئ المثال أدناه مخطط عمود متجمع ثنائي الأبعاد بقيم 60 و120. يضبط [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) على `false` و[set_MaxValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/iaxis/set_maxvalue/) إلى 100 على المحور العمودي. الشريحة الأولى تسمح بالتسميات التي تتجاوز الحد الأقصى؛ نسخة تلك الشريحة تعطّلها. تُحفظ كلتا الشريحتين في `DataLabelsOverMaximum.pptx`. فعّل تسميات القيم باستخدام [set_ShowValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). لا يُفعّل إعداد مستوى المخطط عرض القيم بنفسه ولا يتجاوز إعداد إلغاء عرض القيمة لتسمية فردية. يُفعّل هذا المثال القيم لكامل السلسلة ويستخدم [set_Position](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/idatalabelformat/set_position/) لتحديد موضع التسميات عند الطرف الخارجي لكل عمود.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+تُظهر الصور التالية الشرائح المحفوظة التي تم عرضها بواسطة Microsoft PowerPoint. عند `true`، تكون التسمية **120** مرئية عند الحد العلوي؛ وعند `false`، تكون مخفية. تظل التسمية **60** مرئية، ويظل الحد الأقصى للمحور عند **100**، وتبقى نقطة البيانات الثانية **120** في كلتا الحالتين.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+يستخدم هذا المثال مخطط عمود ثنائي الأبعاد مع محور قيم. المخططات التي لا تحتوي على محور قيم، مثل المخططات الدائرية ومخططات الدونات، لا تمتلك حدًا أقصى للمحور لتقييده بهذه الطريقة.
+{{% /alert %}}
+
+## **تعيين مسافة التسمية من المحور**
+
+استخدم [set_LabelOffset](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/iaxis/set_labeloffset/) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من أقصى حجم خط لتسميات المحور. ينشئ هذا المثال مخطط عمود متجمع ويضبط إزاحة تسمية محور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرتبطة بنقاط البيانات الفردية.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -355,11 +439,11 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **ضبط موقع الملصق**
+## **ضبط موقع التسمية**
 
-في مخطط الفطيرة، اضبط مواضع ملصقات البيانات لتحسين التباعد وإتاحة مساحة لخطوط التجميع.
+في مخطط الفطيرة، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط القادة.
 
-يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع ملصقها خارج الشريحة، ويستخدم [set_X](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ilayoutable/set_x/) و[set_Y](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ilayoutable/set_y/) لضبط إزاحاتهما. هذه الإزاحات نسبية إلى عرض وارتفاع المخطط على التوالي.
+هذا المثال يعرض قيمة نقطة البيانات الأولى، يضع تسميتها خارج القطعة، ويستخدم [set_X](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ilayoutable/set_x/) و[set_Y](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ilayoutable/set_y/) لضبط إزاحتهما. هذه الإزاحات نسبية إلى عرض وارتفاع المخطط على التوالي.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -384,6 +468,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 
@@ -396,18 +481,18 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![مخطط فطيرة مع موضع ملصق بيانات معدل](pie-chart-adjusted-label.png)
+![مخطط فطيرة مع موضع تسمية بيانات معدل](pie-chart-adjusted-label.png)
 
-## **الأسئلة المتداولة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني منع تداخل ملصقات البيانات في المخططات الكثيفة؟**
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات المكتظة؟**
 
-اجمع بين وضع الملصقات التلقائي، وخطوط التجميع، وتصغير حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض الملصقات فقط للقيم المتطرفة أو النقاط الرئيسية.
+اجمع بين وضع التسميات التلقائي، خطوط القادة، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو أعرض التسميات فقط للقيم المتطرفة أو النقاط المهمة.
 
-**كيف يمكنني تعطيل الملصقات للقيم الصفرية أو السالبة أو الفارغة فقط؟**
+**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
 
-صفِ نقاط البيانات قبل تمكين الملصقات وأوقف العرض للقيم التي تساوي 0 أو القيم السالبة أو القيم المفقودة وفق قاعدة محددة.
+قُم بتصفية نقاط البيانات قبل تفعيل التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السلبية أو القيم المفقودة وفق قاعدة محددة.
 
-**كيف يمكنني ضمان نمط ملصق متسق عند تصديره إلى PDF/صور؟**
+**كيف أضمن نمط تسمية موحد عند التصدير إلى PDF/صور؟**
 
-حدد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة التجسيد لتجنب الاستعاضة.
+حدد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة العرض لتجنب الاعتماد على الخطوط البديلة.

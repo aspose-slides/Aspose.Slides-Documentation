@@ -14,15 +14,15 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe u grafiekgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Java voor aantrekkelijkere dia's."
+description: "Leer hoe u grafiekgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor Java voor meer boeiende dia's."
 ---
 ## **Inleiding**
 
-Gegevenslabels tonen informatie over grafiekreeksen en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en de grafiek begrijpen. Dit artikel legt uit hoe u waarden kunt opmaken, percentages kunt weergeven, labeltekst kunt lezen, de afstand tussen categorie‑aslabels kunt aanpassen en labels op een cirkeldiagram kunt positioneren.
+Gegevenslabels tonen informatie over grafiekreeksen en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en de grafiek kunnen begrijpen. Dit artikel legt uit hoe u waarden kunt opmaken, percentages kunt weergeven, labeltekst kunt lezen, labels buiten het asmaximum kunt beheren, de afstand tussen categorie‑aslabels kunt aanpassen en taartgrafieklabels kunt positioneren.
 
-## **Nauwkeurigheid van gegevens instellen in grafieklabels**
+## **Gegevensprecisie instellen in grafiekgegevenslabels**
 
-Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) om reeksenwaarden op te maken. Dit voorbeeld maakt een lijngrafiek met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste reeks. Het formaat `#,##0.00` toont een duizendtalseparator en twee decimalen zonder de onderliggende waarden te wijzigen.
+Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) om reekswerte op te maken. Deze voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste reeks. Het formaat `#,##0.00` toont een duizendtallenscheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
 ```java
 import com.aspose.slides.*;
@@ -30,6 +30,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -45,7 +46,7 @@ try {
 
 ## **Percentage weergeven als labels**
 
-Voor een gestapelde kolomgrafiek berekent u elke waarde als percentage van het totalsom van de categorie en kent u de tekst toe aan het tekstframe dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens veranderen.
+Voor een stacked kolomgrafiek, bereken elke waarde als een percentage van het totale aantal van die categorie en ken de tekst toe aan het tekstkader dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst indien de grafiekgegevens wijzigen.
 
 ```java
 import com.aspose.slides.*;
@@ -54,6 +55,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **Percentage‑teken instellen met grafieklabels**
+## **Percentage‑teken instellen met grafiekgegevenslabels**
 
-Wanneer waarden als breuken zijn opgeslagen, gebruikt u [setNumberFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) om percentages weer te geven. Geef `false` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) om het label‑formaat onafhankelijk van de broncellen toe te passen.
+Wanneer waarden als breuken zijn opgeslagen, gebruik [setNumberFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) om percentages weer te geven. Geef `false` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) om het labelformaat onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100 % gestapelde kolomgrafiek met rode en blauwe reeksen over vier categorieën. Elk paar waarden telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 punten.
+Dit voorbeeld maakt een 100 % stacked kolomgrafiek met rode en blauwe reeksen over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0.30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labels met een grootte van 10 punten.
 
 ```java
 import com.aspose.slides.*;
@@ -114,6 +116,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -159,9 +162,9 @@ try {
 }
 ```
 
-## **De feitelijke tekst van gegevenslabels lezen**
+## **De werkelijke tekst van gegevenslabels lezen**
 
-Gebruik [getActualLabelText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabel/#getActualLabelText--) om de tekst op te halen die door de instellingen van een gegevenslabel wordt gegenereerd. Dit is nuttig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde grafieken. In het onderstaande voorbeeld combineert de standaard [data label format](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/) elke categorienaam, reeksnaam en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst van [getTextFrameForOverriding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Gebruik [getActualLabelText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabel/#getActualLabelText--) om de tekst op te halen die door de instellingen van een gegevenslabel wordt gegenereerd. Dit is nuttig bij het extraheren van labels voor rapporten, het doorzoeken van presentaties, of het valideren van gegenereerde grafieken. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/) elke categorienaam, reeksennaam en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst van [getTextFrameForOverriding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -169,6 +172,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -220,11 +224,15 @@ try {
 }
 ```
 
-Het in een gegevenspunt opgeslagen getal blijft `0.75`, ook al toont het label `75%` samen met de categorie‑ en reeksnamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabel/#getActualLabelText--) retourneert de resulterende label‑string in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabel/#isVisible--) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
+Het getal dat in een gegevenspunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` toont samen met de categorie‑ en reeksennamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabel/#getActualLabelText--) retourneert de resulterende labelreeks in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabel/#isVisible--) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
 
-## **Labelafstand van een as instellen**
+## **Gegevenslabels beheren buiten het asmaximum**
 
-Gebruik [setLabelOffset](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iaxis/#setLabelOffset-int-) om de afstand tussen de labels van de categorieas en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de aslabels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt de categorieas‑labels in plaats van de labels die aan individuele gegevenspunten zijn gekoppeld.
+Wanneer u een asbereik handmatig beperkt, kunnen sommige gegevenspunten de maximumwaarde overschrijden. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) om te bepalen of hun gegevenslabels worden weergegeven. Deze instelling wijzigt de zichtbaarheid van labels; ze wijzigt niet het asbereik of de onderliggende gegevenswaarden.
+
+Het onderstaande voorbeeld maakt een 2D gegroepeerde kolomgrafiek met waarden van 60 en 120. Het geeft `false` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iaxis/#setMaxValue-double-) op de verticale as. De eerste dia staat labels toe die het maximum overschrijden; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+
+Schakel waardelabels in met [setShowValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). De instelling op diagramniveau activeert de weergave van waarden niet op zichzelf en overschrijft geen individuele labelinstelling die de weergave van waarden uitschakelt. Dit voorbeeld schakelt waarden in voor de gehele reeks en gebruikt [setPosition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idatalabelformat/#setPosition-int-) om labels aan het buitenuiteinde van elke kolom te plaatsen.
 
 ```java
 import com.aspose.slides.*;
@@ -232,6 +240,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De volgende afbeeldingen tonen de opgeslagen dia's weergegeven door Microsoft PowerPoint. Met `true` is het label **120** zichtbaar aan de bovenkant; met `false` is het verborgen. Het label **60** blijft zichtbaar, het asmaximum blijft op **100**, en het tweede gegevenspunt blijft **120** in beide gevallen.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Dit voorbeeld gebruikt een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donutsgrafieken, hebben geen asmaximum dat op deze manier kan worden beperkt.
+{{% /alert %}}
+
+## **Labelafstand vanaf een as instellen**
+
+Gebruik [setLabelOffset](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iaxis/#setLabelOffset-int-) om de afstand tussen categorie‑aslabels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de aslabels. Dit voorbeeld maakt een gegroepeerde kolomgrafiek en stelt de horizontale as‑labeloffset in op 500. Deze instelling beïnvloedt categorie‑aslabels in plaats van labels die aan individuele gegevenspunten zijn gekoppeld.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -241,11 +311,11 @@ try {
 }
 ```
 
-## **Labellocatie aanpassen**
+## **Labelpositie aanpassen**
 
-Bij een cirkeldiagram past u de positie van gegevenslabels aan om de spatiëring te verbeteren en plaats te maken voor verbindingslijnen.
+Bij een taartgrafiek, pas de posities van gegevenslabels aan om de ruimte te verbeteren en plaats te maken voor pijllijnen.
 
-Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten de partitie en past de horizontale en verticale offset aan met [setX](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutable/#setX-float-) en [setY](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutable/#setY-float-). Deze offsets zijn respectievelijk relatief ten opzichte van de breedte en hoogte van de grafiek.
+Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten het segment, en past de horizontale en verticale offset aan met behulp van [setX](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutable/#setX-float-) en [setY](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutable/#setY-float-). Deze offsets zijn respectievelijk relatief ten opzichte van de breedte en hoogte van de grafiek.
 
 ```java
 import com.aspose.slides.*;
@@ -253,6 +323,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -268,18 +339,18 @@ try {
 }
 ```
 
-![Cirkeldiagram met een aangepaste labelpositie](pie-chart-adjusted-label.png)
+![Taartgrafiek met een aangepaste gegevenslabelpositie](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Hoe kan ik voorkomen dat gegevenslabels overlappen in dichte grafieken?**
 
-Combine automatische labelplaatsing, verbindingslijnen en een kleinere lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme waarden of belangrijke punten.
+Combineer automatische labelplaatsing, pijllijnen en een verkleinde lettergrootte; indien nodig, verberg enkele velden (bijvoorbeeld de categorie) of toon alleen labels voor extreme waarden of belangrijke punten.
 
-**Hoe kan ik labels uitschakelen alleen voor nul-, negatieve of lege waarden?**
+**Hoe kan ik labels alleen uitschakelen voor nul-, negatieve of lege waarden?**
 
 Filter gegevenspunten voordat u labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe kan ik een consistente labelstijl garanderen bij het exporteren naar PDF/afbeeldingen?**
+**Hoe kan ik een consistente labelstijlen behouden bij exporteren naar PDF/afbeeldingen?**
 
-Stel expliciet de lettertypefamilie en -grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om terugval te voorkomen.
+Stel expliciet het lettertype en de grootte in en controleer dat het lettertype beschikbaar is in de renderomgeving om terugval te voorkomen.

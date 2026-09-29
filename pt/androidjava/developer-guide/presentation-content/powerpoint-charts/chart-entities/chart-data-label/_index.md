@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Rótulos de Dados de Gráficos em Apresentações no Android
+title: Gerenciar Rótulos de Dados em Gráficos em Apresentações no Android
 linktitle: Rótulo de Dados
 type: docs
 url: /pt/androidjava/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações PowerPoint usando Aspose.Slides para Android via Java para slides mais envolventes."
+description: "Aprenda a adicionar e formatar rótulos de dados em gráficos em apresentações PowerPoint usando Aspose.Slides para Android via Java para slides mais envolventes."
 ---
 ## **Introdução**
 
-Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar os rótulos em gráficos de pizza.
+Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos de gráficos de pizza.
 
-## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
+## **Definir Precisão dos Dados nos Rótulos do Gráfico**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita os rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
 
 ```java
 import com.aspose.slides.*;
@@ -31,6 +31,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **Exibir Percentuais como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como percentual de seu total de categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em uma fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico mudarem.
+Para um gráfico de colunas empilhadas, calcule cada valor como percentual do total da sua categoria e atribua o texto ao frame de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico forem alterados.
 
 ```java
 import com.aspose.slides.*;
@@ -55,6 +56,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -106,7 +108,7 @@ try {
 
 Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) para exibir percentuais. Passe `false` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) para aplicar o formato do rótulo independentemente das células de origem.
 
-Este exemplo cria um gráfico de colunas empilhadas 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0,30 como 30,0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10.
+Este exemplo cria um gráfico de colunas empilhadas a 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries utilizam texto de rótulo branco, tamanho 10 pt.
 
 ```java
 import com.aspose.slides.*;
@@ -115,6 +117,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -162,7 +165,7 @@ try {
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) para obter o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo da apresentação ou validar gráficos gerados. No exemplo abaixo, o [formato de rótulo de dados](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/) padrão combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como percentual, e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Use [getActualLabelText](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) para obter o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato de rótulo de dados](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/) padrão combina o nome da categoria, o nome da série e o valor. Um ponto formata seu valor como percentual, e outro usa texto personalizado obtido de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -170,6 +173,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -221,11 +225,15 @@ try {
 }
 ```
 
-O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75%` junto com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [getActualLabelText](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) retorna a string de rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabel/#isVisible--) separadamente, como mostrado acima, quando desejar extrair apenas os rótulos visíveis.
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto de rótulo gerado. [getActualLabelText](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) devolve a string de rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabel/#isVisible--) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
 
-## **Definir a Distância do Rótulo em Relação a um Eixo**
+## **Controlar Rótulos de Dados Além do Máximo do Eixo**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, e não os rótulos associados a pontos de dados individuais.
+Quando você define manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade do rótulo; não altera o intervalo do eixo nem os valores subjacentes.
+
+O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Ele passa `false` para [setAutomaticMaxValue](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) e define o máximo em 100 com [setMaxValue](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
+
+Habilite rótulos de valor com [setShowValue](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). A configuração a nível de gráfico não ativa a exibição de valores por si só nem sobrescreve a desativação de exibição de valor de um rótulo individual. Este exemplo habilita valores para toda a série e usa [setPosition](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) para posicionar os rótulos na extremidade externa de cada coluna.
 
 ```java
 import com.aspose.slides.*;
@@ -233,6 +241,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `true`, o rótulo **120** está visível no limite superior; com `false`, ele está oculto. O rótulo **60** permanece visível, o máximo do eixo fica em **100** e o segundo ponto de dados continua **120** em ambos os casos.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Este exemplo usa um gráfico de colunas 2D com um eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo a ser limitado dessa forma.
+{{% /alert %}}
+
+## **Definir Distância do Rótulo a partir de um Eixo**
+
+Use [setLabelOffset](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) para controlar a distância entre os rótulos do eixo de categorias e o próprio eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, não os rótulos vinculados a pontos de dados individuais.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -242,11 +312,11 @@ try {
 }
 ```
 
-## **Ajustar a Posicionamento dos Rótulos**
+## **Ajustar a Localização do Rótulo**
 
-Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e criar espaço para as linhas de chamada.
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e abrir espaço para linhas guias.
 
-Este exemplo exibe o valor do primeiro ponto de dados, posiciona seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilayoutable/#setX-float-) e [setY](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilayoutable/#setX-float-) e [setY](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
 
 ```java
 import com.aspose.slides.*;
@@ -254,6 +324,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -269,18 +340,18 @@ try {
 }
 ```
 
-![Gráfico de pizza com posição de rótulo de dados ajustada](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
 
-Combine posicionamento automático de rótulos, linhas de chamada e tamanho de fonte reduzido; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos somente para valores extremos ou pontos‑chave.
+Combine posicionamento automático de rótulos, linhas guias e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos-chave.
 
 **Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**
 
-Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes conforme uma regra definida.
+Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores igual a 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
 **Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
 
-Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar o fallback.
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituição.

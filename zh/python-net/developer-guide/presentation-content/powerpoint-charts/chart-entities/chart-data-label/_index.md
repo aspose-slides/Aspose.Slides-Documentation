@@ -14,15 +14,15 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
+description: "学习使用 Aspose.Slides for Python via .NET 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
-## **介绍**
+## **简介**
 
-数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文介绍如何格式化数值、显示百分比、读取标签文本、调整类目轴标签间距以及定位饼图标签。
+数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并了解图表。本文解释了如何格式化数值、显示百分比、读取标签文本、控制超出坐标轴最大值的标签、调整类目坐标轴标签间距以及定位饼图标签。
 
 ## **在图表数据标签中设置数据精度**
 
-使用[number_format_of_values](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartseries/number_format_of_values/)来格式化系列值。此示例创建一个带默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式`#,##0.00`显示千位分隔符和两位小数，而不更改底层数值。
+使用[number_format_of_values](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chartseries/number_format_of_values/)来格式化系列值。此示例创建一个带默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不改变底层数值。
 
 ```python
 import aspose.slides as slides
@@ -41,9 +41,9 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **显示百分比为标签**
+## **将百分比显示为标签**
 
-对于堆积柱形图，计算每个值相对于其类别总计的百分比，并将文本分配给[text_frame_for_overriding](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)。此示例使用默认图表数据，并以8磅字体显示两位小数的百分比。总计为零的类别将被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
+对于堆积柱形图，计算每个数值占其类别总和的百分比，并将文本分配给[text_frame_for_overriding](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)。本示例使用默认图表数据，并以 8 磅字体显示两位小数的百分比。总和为零的类别会被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
 
 ```python
 import aspose.slides as slides
@@ -51,6 +51,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
 
     category_totals = [0.0] * len(chart.chart_data.categories)
@@ -91,9 +92,9 @@ with slides.Presentation() as presentation:
 
 ## **使用图表数据标签设置百分号**
 
-当数值以分数形式存储时，使用[number_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/number_format/)显示百分比。将[is_number_format_linked_to_source](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/)设置为`False`，以使标签格式独立于源单元格。
+当数值以分数形式存储时，使用[number_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/number_format/)来显示百分比。将[is_number_format_linked_to_source](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/)设置为 `False`，以独立于源单元格应用标签格式。
 
-此示例创建一个100%堆积柱形图，包含红色和蓝色系列，跨越四个类别。每对数值相加为1。标签格式`0.0%`将0.30显示为30.0%，而垂直轴使用两位小数。两个系列的标签文本均为白色、10磅。
+此示例创建一个 100% 堆积柱形图，包含红色和蓝色系列，跨越四个类别。每对数值相加为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而纵坐标轴使用两位小数。两个系列的标签文字均为白色、10 磅。
 
 ```python
 import aspose.slides as slides
@@ -102,6 +103,7 @@ import aspose.pydrawing as drawing
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
 
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
@@ -143,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **读取数据标签的实际文本**
 
-使用[get_actual_label_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)检索数据标签设置产生的文本。这在提取报告标签、搜索演示内容或验证生成的图表时非常有用。在下面的示例中，默认[data label format](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/)将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个使用来自[text_frame_for_overriding](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)的自定义文本。
+使用[get_actual_label_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)来获取数据标签设置产生的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的[data label format](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/)将每个类别名称、系列名称和数值组合在一起。一个数据点将其数值格式化为百分比，另一个使用来自[text_frame_for_overriding](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)的自定义文本。
 
 ```python
 import aspose.slides as slides
@@ -151,6 +153,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     chart.chart_data.series.clear()
@@ -193,11 +196,73 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-数据点中存储的数值仍为`0.75`，即使其标签显示`75%`并附带类别和系列名称。自定义文本会替换生成的标签文本。[get_actual_label_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)在两种情况下都会返回相应的标签字符串。正如上文所示，当只想提取可见标签时，需要单独检查[is_visible](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/is_visible/)。
+数据点中存储的数值仍为 `0.75`，即使其标签显示 `75%` 且包括类别和系列名称。自定义文本会替代生成的标签文本。[get_actual_label_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) 在两种情况下均返回结果标签字符串。当您只想提取可见标签时，请如上所示单独检查[is_visible](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/is_visible/)。
 
-## **设置标签相对于坐标轴的距离**
+## **控制超出坐标轴最大值的数据标签**
 
-使用[label_offset](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/axis/label_offset/)控制类目轴标签与坐标轴之间的距离。该值是轴标签最大字体大小的百分比。此示例创建一个簇状柱形图，并将水平轴标签偏移设置为500。此设置影响类目轴标签，而不是附加到单个数据点的标签。
+手动限制坐标轴范围时，某些数据点可能超过其最大值。使用[show_data_labels_over_maximum](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/)来控制是否显示它们的数据标签。此设置仅更改标签可见性，不会改变坐标轴范围或底层数据值。
+
+下面的示例创建一个 2D 分组柱形图，数值为 60 和 120。它在纵坐标轴上将[is_automatic_max_value](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/axis/is_automatic_max_value/)设置为 `False`，并将[max_value](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/axis/max_value/)设为 100。第一张幻灯片允许标签超出最大值；该幻灯片的副本则禁用该功能。两个幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
+
+使用[show_value](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/show_value/)启用数值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签的禁用数值显示。此示例为整系列启用数值，并使用[position](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabelformat/position/)将标签放置在每根柱子的外端。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = False
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    first_category = workbook.get_cell(0, 1, 0, "Within range")
+    second_category = workbook.get_cell(0, 2, 0, "Above maximum")
+
+    chart.chart_data.categories.add(first_category)
+    chart.chart_data.categories.add(second_category)
+
+    series_name = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_name, chart.type)
+
+    first_value = workbook.get_cell(0, 1, 1, 60)
+    second_value = workbook.get_cell(0, 2, 1, 120)
+
+    series.data_points.add_data_point_for_bar_series(first_value)
+    series.data_points.add_data_point_for_bar_series(second_value)
+
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 100
+    chart.show_data_labels_over_maximum = True
+
+    second_slide = presentation.slides.add_clone(slide)
+    second_chart = second_slide.shapes[0]
+    second_chart.show_data_labels_over_maximum = False
+
+    presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
+```
+
+以下图像显示了 Microsoft PowerPoint 渲染的保存幻灯片。设为 `True` 时，标签 **120** 在上边界可见；设为 `False` 时则隐藏。标签 **60** 始终可见，坐标轴最大值保持为 **100**，且第二个数据点在两种情况下均为 **120**。
+
+| show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+此示例使用带数值轴的 2D 柱形图。没有数值轴的图表，如饼图和环形图，无法以此方式设置坐标轴最大值限制。
+{{% /alert %}}
+
+## **设置标签与坐标轴的距离**
+
+使用[label_offset](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/axis/label_offset/)来控制类目坐标轴标签与坐标轴之间的距离。该值是坐标轴标签最大字体大小的百分比。此示例创建一个分组柱形图，并将水平轴标签偏移设置为 500。此设置影响类目坐标轴标签，而不是附加到单个数据点的标签。
 
 ```python
 import aspose.slides as slides
@@ -214,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **调整标签位置**
 
-在饼图中，调整数据标签位置以改善间距并为引线留出空间。
+在饼图上，调整数据标签位置以改善间距并为引线留出空间。
 
-此示例显示第一个数据点的数值，将其标签置于切片外部，并调整其[x](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/x/)和[y](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/y/)偏移。这些偏移分别相对于图表的宽度和高度。
+此示例显示第一个数据点的数值，将其标签放置在扇形外部，并调整其[x](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/x/)和[y](https://reference.aspose.com/slides/zh/python-net/aspose.slides.charts/datalabel/y/)偏移量。这些偏移量分别相对于图表的宽度和高度。
 
 ```python
 import aspose.slides as slides
@@ -224,6 +289,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
     series = chart.chart_data.series
 
@@ -236,15 +302,15 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![调整数据标签位置的饼图](pie-chart-adjusted-label.png)
+![调整后数据标签位置的饼图](pie-chart-adjusted-label.png)
 
 ## **常见问题**
 
-**如何防止在密集图表上数据标签重叠？**  
-结合自动标签布局、引线和减小字体大小；必要时隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
+**如何防止在密集图表中数据标签重叠？**  
+结合自动标签放置、引线和减小字体大小；必要时隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
 
 **如何仅对零、负数或空值禁用标签？**  
-在启用标签前过滤数据点，并根据定义的规则关闭对值为0、负数或缺失值的显示。
+在启用标签前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失值的显示。
 
-**在导出为 PDF/图像时，如何确保标签样式一致？**  
-明确设置字体族和字号，并确认渲染环境中存在该字体，以避免回退。
+**如何在导出为 PDF/图片时确保标签样式一致？**  
+显式设置字体族和大小，并确认渲染环境中已安装该字体，以避免回退。

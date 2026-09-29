@@ -1,6 +1,6 @@
 ---
-title: "Diagram adatcímkék kezelése bemutatókban Java használatával"
-linktitle: "Adatcímke"
+title: Diagram adatcímkék kezelése prezentációkban Java-val
+linktitle: Adatcímke
 type: docs
 url: /hu/java/chart-data-label/
 keywords:
@@ -11,18 +11,18 @@ keywords:
 - címke távolság
 - címke helye
 - PowerPoint
-- bemutató
+- prezentáció
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan adjon hozzá és formázzon diagram adatcímkéket PowerPoint bemutatókban az Aspose.Slides for Java segítségével, hogy a diák még lebilincselőbbek legyenek."
+description: "Tanulja meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for Java használatával, a még hatásosabb diák érdekében."
 ---
 ## **Bevezetés**
 
-Az adatcímkék információt jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk bemutatja, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható a címke szövege, hogyan állítható be a kategória‑tengely címkéinek távolsága, valamint hogyan helyezhetők el a kördiagram címkéi.
+Az adatcímkék információt jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk bemutatja, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható ki a címke szövege, hogyan lehet a címkéket a tengely maximumán túl is vezérelni, hogyan állítható be a kategóriatengely címkéinek távolsága, valamint hogyan helyezhetők el a kördiagram címkéi.
 
-## **Adatpontok pontosságának beállítása a diagram adatcímkéiben**
+## **Az adatcímkék pontosságának beállítása a diagram adatcímkéiben**
 
-Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) metódust a sorozatértékek formázásához. Ez a példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozat számára. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná az alapról tárolt értékeket.
+Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) metódust a sorozat értékeinek formázásához. Ez a példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, megjeleníti az adat táblázatot, és engedélyezi az értékcímkéket az első sorozat számára. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a tényleges értékeket.
 
 ```java
 import com.aspose.slides.*;
@@ -30,6 +30,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -43,9 +44,9 @@ try {
 }
 ```
 
-## **Százalék megjelenítése címkeként**
+## **Százalék megjelenítése címkékként**
 
-Halmozott oszlopdiagram esetén számítsa ki az egyes értékeket a kategória összegének százalékában, és rendelje hozzá a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) metódus által visszaadott szövegdobozhoz. Ez a példa az alapértelmezett diagramadatokat használja, és két tizedesjegy pontossággal, 8 pontos betűmérettel jeleníti meg a százalékot. A nulla összegű kategóriákat kihagyja a nullával való osztás elkerülése érdekében. Ha a diagramadatok változnak, újraszámítja az egyéni címkeszöveget.
+Halmozott oszlopdiagram esetén számítsa ki az egyes értékeket a kategória összegének százalékában, majd adja hozzá a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) által visszaadott szövegkerethez. Ez a példa az alapértelmezett diagram adatokat használja, és a százalékos értékeket két tizedesjeggyel, 8 pontos betűmérettel jeleníti meg. A nulla összegű kategóriákat kihagyja, hogy elkerülje a nullával való osztást. Ha a diagram adatai megváltoznak, számolja újra az egyéni címkeszöveget.
 
 ```java
 import com.aspose.slides.*;
@@ -54,6 +55,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **Százalékjel beállítása diagram adatcímkékkel**
+## **Százalékjel beállítása a diagram adatcímkéiben**
 
-Ha az értékek törtként vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) metódust a százalékos megjelenítéshez. Adja át a `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) metódusnak, hogy a címkeformátum független legyen a forráscelláktól.
+Ha az értékek tört formában vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) metódust a százalékok megjelenítéséhez. Adjon át `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) metódusnak, hogy a címkeformátumot függetlenül alkalmazza a forráscelláktól.
 
-Ez a példa egy 100 %‑os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30‑at 30,0 %-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget alkalmaz.
+Ez a példa egy 100%-os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum 0,30-at 30,0%-ként jelenít meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
 
 ```java
 import com.aspose.slides.*;
@@ -114,6 +116,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -159,9 +162,9 @@ try {
 }
 ```
 
-## **Az adatcímkék tényleges szövegének olvasása**
+## **Az adatcímkék tényleges szövegének kiolvasása**
 
-Használja a [getActualLabelText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#getActualLabelText--) metódust az adatcímke beállításai által előállított szöveg lekérdezéséhez. Ez akkor hasznos, ha címkéket kell kinyerni jelentésekhez, keresni kell a bemutató tartalmában, vagy ellenőrizni kell a generált diagramokat. Az alábbi példában az alapértelmezett [adata címke formátum](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/) minden kategórianév, sorozatnév és érték kombinációját jeleníti meg. Az egyik pont az értékét százalékként formázza, a másik egy egyéni szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) metódus által biztosított szövegdobozból.
+Használja a [getActualLabelText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#getActualLabelText--) metódust az adatcímke beállításai által előállított szöveg lekéréséhez. Ez hasznos jelentésekhez címkék kinyerésekor, a bemutató tartalmának keresésekor vagy a generált diagramok ellenőrzésekor. Az alábbi példában az alapértelmezett [adatcímke-formátum](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/) egyesíti a kategórianév, a sorozatnév és az érték minden elemet. Az egyik pont értékét százalékként formázza, egy másik a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) által biztosított egyedi szöveget használja.
 
 ```java
 import com.aspose.slides.*;
@@ -169,6 +172,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -220,11 +224,15 @@ try {
 }
 ```
 
-A adatpontban tárolt szám `0.75` marad, még akkor is, ha a címke `75 %`‑et mutat a kategória‑ és sorozatnevekkel együtt. Az egyéni szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#getActualLabelText--) mindkét esetben a kapott címke karakterláncot adja vissza. A [isVisible](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#isVisible--) metódust külön kell ellenőrizni, ahogy fent látható, ha csak a látható címkéket szeretné kinyerni.
+Az adatpontban tárolt szám továbbra is `0.75` marad, még akkor is, ha a címkéje a `75%`-ot jeleníti meg a kategória- és sorozatnevekkel együtt. Az egyedi szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#getActualLabelText--) mindkét esetben a kapott címke karakterláncot adja vissza. Az [isVisible](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#isVisible--) metódust külön ellenőrizze, ahogy fent mutattuk, ha csak a látható címkéket szeretné kinyerni.
 
-## **Címke távolságának beállítása tengelytől**
+## **Adatcímkék vezérlése a tengely maximumán túl**
 
-Használja a [setLabelOffset](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iaxis/#setLabelOffset-int-) metódust a kategória‑tengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportos oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória‑tengely címkéire vonatkozik, nem az egyes adatpontokhoz csatolt címkékre.
+Ha manuálisan korlátozza a tengely tartományát, egyes adatpontok meghaladhatják annak maximumát. Használja a [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) metódust annak szabályozására, hogy a címkék megjelenjenek-e. Ez a beállítás a címke láthatóságát módosítja; nem változtatja meg a tengely tartományát vagy a mögöttes adatértékeket.
+
+Az alábbi példa egy 2D csoportosított oszlopdiagramot hoz létre 60 és 120 értékekkel. `false` értéket ad a [setAutomaticMaxValue](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) metódusnak, és a függőleges tengelyen a [setMaxValue](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iaxis/#setMaxValue-double-) segítségével 100-ra állítja a maximumot. Az első dia megengedi a maximumon túli címkéket; a másolat letiltja azokat. Mindkét dia a `DataLabelsOverMaximum.pptx` fájlba kerül mentésre.
+
+Az értékcímkéket a [setShowValue](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) metódussal engedélyezheti. A diagram szintű beállítás önmagában nem engedélyezi az értékek megjelenítését, és nem írja felül egy adott címke letiltott értékmegjelenítését. Ez a példa az egész sorozatra engedélyezi az értékeket, és a [setPosition](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setPosition-int-) metódust használja a címkék elhelyezésére az egyes oszlopok külső végén.
 
 ```java
 import com.aspose.slides.*;
@@ -232,6 +240,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az alábbi képek a Microsoft PowerPoint által renderelt mentett diát mutatják. `true` esetén a **120** címke látható a felső határon; `false` esetén el van rejtve. A **60** címke továbbra is látható, a tengely maximum **100** marad, és a második adatpont **120** mindkét esetben.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Ez a példa egy 2D oszlopdiagramot használ érték tengellyel. Az olyan diagramok, amelyeknek nincs érték tengelye, például kör és gyűrű diagramok, nem rendelkeznek tengelymaximumszinttel, amelyet így lehetne korlátozni.
+{{% /alert %}}
+
+## **A címkék távolságának beállítása a tengelytől**
+
+Használja a [setLabelOffset](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iaxis/#setLabelOffset-int-) metódust a kategóriatengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategóriatengely címkéire vonatkozik, nem az egyes adatpontokhoz rendelt címkékre.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -241,11 +311,11 @@ try {
 }
 ```
 
-## **Címke helyének módosítása**
+## **Címke helyzetének módosítása**
 
-Kördiagram esetén módosítsa az adatcímkék pozícióját a térköz javítása és a vezetővonalak számára szükséges hely biztosítása érdekében.
+Kördiagram esetén módosítsa az adatcímkék helyzetét a távolság javítása és a vezetővonalak számára hely biztosítása érdekében.
 
-Ez a példa megjeleníti az első adatpont értékét, a címkét a szelet kívülre helyezi, és a [setX](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ilayoutable/#setX-float-) és [setY](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ilayoutable/#setY-float-) metódusokkal állítja be a vízszintes és függőleges eltolást. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva relatívak.
+Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és a vízszintes és függőleges eltolásokat a [setX](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ilayoutable/#setX-float-) és [setY](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ilayoutable/#setY-float-) metódusokkal állítja be. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva vannak.
 
 ```java
 import com.aspose.slides.*;
@@ -253,6 +323,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -268,18 +339,18 @@ try {
 }
 ```
 
-![Kördiagram az állított adatcímke pozícióval](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **GYIK**
 
-**Hogyan akadályozhatom meg az adatcímkék átfedését sűrű diagramok esetén?**
+**Hogyan akadályozhatom meg az adatcímkék átfedését sűrű diagramokon?**
 
-Használjon automatikus címkehelyezést, vezetővonalakat és kisebb betűméretet; szükség esetén rejtsen el néhány mezőt (például a kategóriát), vagy csak a szélső vagy kulcsfontosságú értékekhez jelenítse meg a címkéket.
+Kombinálja az automatikus címkeelhelyezést, a vezetővonalakat és a csökkentett betűméretet; szükség esetén rejtse el bizonyos mezőket (például a kategóriát), vagy csak a szélső értékek vagy kulcspontok esetén jelenítse meg a címkéket.
 
 **Hogyan tilthatom le a címkéket csak a nulla, negatív vagy üres értékeknél?**
 
-Szűrje le az adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékekre egy meghatározott szabály szerint.
+Szűrje a adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést a 0, a negatív vagy hiányzó értékekre egy meghatározott szabály szerint.
 
-**Hogyan biztosíthatom a címkestílus egységességét PDF‑ vagy képexportáláskor?**
+**Hogyan biztosíthatom a címkék egységes stílusát PDF-/képfájlok exportálásakor?**
 
-Állítsa be kifejezetten a betűcsaládot és a méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje a helyettesítést.
+Közvetlenül állítsa be a betűcsaládot és a méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelő környezetben, hogy elkerülje a helyettesítő betűtípus használatát.

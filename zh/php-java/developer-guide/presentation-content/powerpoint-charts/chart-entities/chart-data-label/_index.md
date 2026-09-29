@@ -14,15 +14,15 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
+description: "学习使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
 ## **简介**
 
-数据标签显示有关图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明如何格式化数值、显示百分比、读取标签文本、调整类别轴标签间距以及定位饼图标签。
+数据标签显示有关图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明如何格式化数值、显示百分比、读取标签文本、控制超出坐标轴最大值的标签、调整类目坐标轴标签间距以及定位饼图标签。
 
-## **设置图表数据标签中的数据精度**
+## **在图表数据标签中设置数据精度**
 
-使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) 来格式化系列值。此示例创建了一个带有默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层值。
+使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) 来格式化系列值。此示例创建一个默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层数值。
 
 ```php
 use aspose\slides\Presentation;
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -45,9 +46,9 @@ try {
 }
 ```
 
-## **以标签显示百分比**
+## **将百分比显示为标签**
 
-对于堆积柱形图，计算每个数值占其类别总计的百分比，并将文本分配给 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) 返回的文本框。此示例使用默认的图表数据，并在 8 磅字号下显示带有两位小数的百分比。具有零总计的类别会被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
+对于堆积柱形图，计算每个数值相对于其类目总和的百分比，并将文本分配给 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) 返回的文本框。此示例使用默认图表数据，并以 8 磅字体显示保留两位小数的百分比。总和为零的类目会被跳过，以避免除以零。如果图表数据更改，需要重新计算自定义标签文本。
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -106,11 +108,11 @@ try {
 }
 ```
 
-## **使用图表数据标签设置百分号**
+## **在图表数据标签中设置百分号**
 
-当数值存储为分数时，使用 [setNumberFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/#setNumberFormat) 来显示百分比。将 `false` 传递给 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource)，以使标签格式独立于源单元格。
+当数值以分数形式存储时，使用 [setNumberFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/#setNumberFormat) 来显示百分比。向 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) 传入 `false`，可以使标签格式独立于源单元格。
 
-此示例创建了一个 100% 堆积柱形图，包含红色和蓝色系列，跨四个类别。每对数值相加为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列均使用白色、10 磅的标签文本。
+此示例创建一个 100% 堆积柱形图，包含四个类目中的红色和蓝色系列。每对数值之和为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而纵坐标轴使用两位小数。两个系列均使用白色、10 磅的标签文字。
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -169,7 +172,7 @@ try {
 
 ## **读取数据标签的实际文本**
 
-使用 [getActualLabelText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getActualLabelText) 来获取数据标签设置产生的文本。这在为报告提取标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/) 将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个使用来自 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) 的自定义文本。
+使用 [getActualLabelText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getActualLabelText) 获取数据标签设置产生的文本。当需要为报告提取标签、搜索演示文稿内容或验证生成的图表时，这非常有用。下例中，默认的 [data label format](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/) 将每个类目名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个点使用来自 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) 的自定义文本。
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,11 +236,79 @@ try {
 }
 ```
 
-数据点中存储的数值仍为 `0.75`，即使其标签显示了包括类别和系列名称的 `75%`。自定义文本会替换生成的标签文本。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getActualLabelText) 都返回结果标签字符串。当您只想提取可见标签时，如上所示，请单独检查 [isVisible](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#isVisible)。
+数据点中存储的数值仍为 `0.75`，即使其标签显示为 `75%` 并附带类目和系列名称。自定义文本会替换生成的标签文本。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#getActualLabelText) 都返回最终的标签字符串。需要仅提取可见标签时，请单独检查 [isVisible](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#isVisible)，如上例所示。
 
-## **设置标签与坐标轴的距离**
+## **控制坐标轴最大值之外的数据标签**
 
-使用 [setLabelOffset](https://reference.aspose.com/slides/zh/php-java/aspose.slides/axis/#setLabelOffset) 来控制类别轴标签与坐标轴之间的距离。该值是轴标签最大字体大小的百分比。此示例创建了一个簇状柱形图，并将水平轴标签偏移设置为 500。此设置影响类别轴标签，而不是附加在单个数据点上的标签。
+手动限制坐标轴范围时，某些数据点可能超出其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) 来控制是否显示这些数据标签。此设置仅改变标签可见性，不会改变坐标轴范围或底层数据值。
+
+下面的示例创建一个 2D 群集柱形图，数值为 60 和 120。它向 [setAutomaticMaxValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/axis/#setAutomaticMaxValue) 传入 `false`，并在纵坐标轴上使用 [setMaxValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/axis/#setMaxValue) 将最大值设为 100。第一张幻灯片允许标签超出最大值；其复制版禁用了此功能。两张幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
+
+使用 [setShowValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/#setShowValue) 启用数值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签被禁用的数值显示。此示例为整个系列启用数值，并使用 [setPosition](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabelformat/#setPosition) 将标签放置在每根柱子的外端。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+下图展示了 Microsoft PowerPoint 渲染的保存后幻灯片。`true` 时，标签 **120** 在上边界可见；`false` 时，它被隐藏。标签 **60** 始终可见，坐标轴最大值保持 **100**，第二个数据点在两种情况下均为 **120**。
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+此示例使用带值轴的 2D 柱形图。没有值轴的图表，如饼图和环形图，无法通过这种方式设置坐标轴最大值限制。
+{{% /alert %}}
+
+## **设置标签距离坐标轴的距离**
+
+使用 [setLabelOffset](https://reference.aspose.com/slides/zh/php-java/aspose.slides/axis/#setLabelOffset) 控制类目坐标轴标签与坐标轴之间的距离。该值为坐标轴标签最大字体大小的百分比。此示例创建一个群集柱形图，并将横坐标轴标签偏移设置为 500。此设置影响类目坐标轴标签，而不是附加在单个数据点上的标签。
 
 ```php
 use aspose\slides\Presentation;
@@ -246,6 +318,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
     $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
 
@@ -257,9 +330,9 @@ try {
 
 ## **调整标签位置**
 
-在饼图上，调整数据标签的位置以改善间距并为引导线留出空间。
+在饼图上，调整数据标签位置以改善间距并为指引线留出空间。
 
-此示例显示第一个数据点的值，将其标签放置在切片外部，并使用 [setX](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#setX) 和 [setY](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#setY) 调整水平和垂直偏移。这些偏移量分别相对于图表的宽度和高度。
+此示例显示第一个数据点的数值，将其标签放置在切片外部，并使用 [setX](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#setX) 和 [setY](https://reference.aspose.com/slides/zh/php-java/aspose.slides/datalabel/#setY) 调整水平和垂直偏移。这些偏移量分别相对于图表的宽度和高度。
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +343,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -289,14 +363,11 @@ try {
 
 ## **常见问题**
 
-**如何防止在密集图表上数据标签重叠？**
+**如何防止数据标签在密集图表上重叠？**  
+结合自动标签布局、指引线和减小字体大小；必要时隐藏某些字段（例如类目），或仅为极值或关键点显示标签。
 
-结合自动标签布局、引导线和减小字体大小；如果必要，可隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
+**如何仅对零、负数或空值禁用标签？**  
+在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失值的显示。
 
-**如何仅对零、负数或空值禁用标签？**
-
-在启用标签之前过滤数据点，并根据定义的规则关闭对 0、负值或缺失值的显示。
-
-**在导出为 PDF/图像时，如何确保标签样式一致？**
-
-显式设置字体族和大小，并确认渲染环境中提供了该字体，以避免回退。
+**如何在导出为 PDF/图片时确保标签样式一致？**  
+显式设置字体族和大小，并确认渲染环境中存在该字体，以避免回退。

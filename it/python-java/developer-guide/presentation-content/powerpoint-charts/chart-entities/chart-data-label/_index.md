@@ -1,5 +1,5 @@
 ---
-title: Gestire le etichette dei dati del grafico nelle presentazioni con Python
+title: Gestire le etichette dei dati del grafico nelle presentazioni usando Python
 linktitle: Etichetta dati
 type: docs
 url: /it/python-java/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Scopri come aggiungere e formattare le etichette dei dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per Python tramite Java per slide più coinvolgenti."
+description: "Impara ad aggiungere e formattare le etichette dei dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per Python via Java per diapositive più coinvolgenti."
 ---
 ## **Introduzione**
 
-Le etichette dei dati mostrano informazioni sulle serie del grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo dell'etichetta, regolare la spaziatura delle etichette dell'asse delle categorie e posizionare le etichette dei grafici a torta.
+Le etichette dei dati mostrano informazioni sulle serie del grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo delle etichette, controllare le etichette oltre il valore massimo dell'asse, regolare la spaziatura delle etichette dell'asse di categoria e posizionare le etichette dei grafici a torta.
 
-## **Imposta la precisione dei dati nelle etichette del grafico**
+## **Impostare la precisione dei dati nelle etichette del grafico**
 
-Utilizza [setNumberFormatOfValues](https://reference.aspose.com/slides/it/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) per formattare i valori delle serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` mostra un separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
+Usa [setNumberFormatOfValues](https://reference.aspose.com/slides/it/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) per formattare i valori delle serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` visualizza un separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
 
 ```python
 import jpype
@@ -50,9 +50,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Visualizza la percentuale come etichette**
+## **Visualizzare la percentuale come etichette**
 
-Per un grafico a colonne impilate, calcola ogni valore come percentuale del totale della sua categoria e assegna il testo al frame di testo restituito da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono omesse per evitare divisioni per zero. Ricalcola il testo personalizzato dell'etichetta se i dati del grafico cambiano.
+Per un grafico a colonne impilate, calcola ciascun valore come percentuale del totale della sua categoria e assegna il testo al frame di testo restituito da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero sono saltate per evitare divisioni per zero. Ricalcola il testo personalizzato dell'etichetta se i dati del grafico cambiano.
 
 ```python
 import jpype
@@ -66,6 +66,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -107,9 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Imposta il simbolo percentuale con le etichette dei dati del grafico**
+## **Impostare il simbolo percentuale con le etichette dei dati del grafico**
 
-Quando i valori sono memorizzati come frazioni, utilizza [setNumberFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/#setNumberFormat) per visualizzare le percentuali. Passa `False` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) per applicare il formato dell'etichetta indipendentemente dalle celle di origine. Questo esempio crea un grafico a colonne impilate al 100% con serie rosse e blu su quattro categorie. Ogni coppia di valori somma a 1. Il formato dell'etichetta `0.0%` mostra 0.30 come 30.0%, mentre l'asse verticale utilizza due cifre decimali. Entrambe le serie usano testo dell'etichetta bianco, da 10 punti.
+Quando i valori sono memorizzati come frazioni, usa [setNumberFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/#setNumberFormat) per visualizzare le percentuali. Passa `False` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) per applicare il formato dell'etichetta indipendentemente dalle celle di origine.
+
+Questo esempio crea un grafico a colonne impilate al 100% con serie rosse e blu su quattro categorie. Ogni coppia di valori somma 1. Il formato dell'etichetta `0.0%` visualizza 0,30 come 30,0%, mentre l'asse verticale utilizza due cifre decimali. Entrambe le serie usano testo etichetta bianco, da 10 punti.
 
 ```python
 import jpype
@@ -125,6 +128,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -167,9 +171,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Leggi il testo reale delle etichette dei dati**
+## **Leggere il testo effettivo delle etichette dei dati**
 
-Utilizza [getActualLabelText](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getActualLabelText) per recuperare il testo prodotto dalle impostazioni di un'etichetta dati. Questo è utile quando si estraggono le etichette per report, si ricerca il contenuto della presentazione o si convalidano i grafici generati. Nell'esempio seguente, il [formato predefinito delle etichette dati](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/) combina il nome di ciascuna categoria, il nome della serie e il valore. Un punto formatta il valore come percentuale, e un altro utilizza testo personalizzato da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Usa [getActualLabelText](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getActualLabelText) per recuperare il testo generato dalle impostazioni di un'etichetta di dati. Ciò è utile quando si estraggono le etichette per i report, si cerca il contenuto della presentazione o si convalidano i grafici generati. Nell'esempio seguente, il [formato di etichetta dati](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/) predefinito combina il nome di ciascuna categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro utilizza testo personalizzato da [getTextFrameForOverriding](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -183,6 +187,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -229,11 +234,81 @@ finally:
     presentation.dispose()
 ```
 
-Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75%` insieme ai nomi della categoria e della serie. Il testo personalizzato sostituisce il testo generato dell'etichetta. [getActualLabelText](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getActualLabelText) restituisce la stringa dell'etichetta risultante in entrambi i casi. Verifica [isVisible](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#isVisible) separatamente, come mostrato sopra, quando desideri estrarre solo le etichette visibili.
+Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75%` insieme ai nomi di categoria e di serie. Il testo personalizzato sostituisce il testo generato dell'etichetta. [getActualLabelText](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#getActualLabelText) restituisce la stringa dell'etichetta risultante in entrambi i casi. Verifica [isVisible](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#isVisible) separatamente, come mostrato sopra, quando desideri estrarre solo le etichette visibili.
 
-## **Imposta la distanza dell'etichetta da un asse**
+## **Controllare le etichette dei dati oltre il valore massimo dell'asse**
 
-Utilizza [setLabelOffset](https://reference.aspose.com/slides/it/python-java/aspose.slides/axis/#setLabelOffset) per controllare la distanza tra le etichette dell'asse delle categorie e l'asse stesso. Il valore è una percentuale della dimensione massima del carattere delle etichette dell'asse. Questo esempio crea un grafico a colonne raggruppate e imposta lo scostamento dell'etichetta dell'asse orizzontale a 500. Questa impostazione influenza le etichette dell'asse delle categorie piuttosto che le etichette collegate ai singoli punti dati.
+Quando limiti manualmente l'intervallo di un asse, alcuni punti dati possono superare il valore massimo. Usa [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/it/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) per controllare se le loro etichette dei dati vengono visualizzate. Questa impostazione modifica la visibilità dell'etichetta; non modifica l'intervallo dell'asse né i valori sottostanti.
+
+L'esempio seguente crea un grafico a colonne raggruppate 2D con valori 60 e 120. Passa `False` a [setAutomaticMaxValue](https://reference.aspose.com/slides/it/python-java/aspose.slides/axis/#setAutomaticMaxValue) e imposta il massimo a 100 con [setMaxValue](https://reference.aspose.com/slides/it/python-java/aspose.slides/axis/#setMaxValue) sull'asse verticale. La prima diapositiva permette etichette oltre il massimo; una copia di quella diapositiva le disabilita. Entrambe le diapositive sono salvate in `DataLabelsOverMaximum.pptx`.
+
+Abilita le etichette dei valori con [setShowValue](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/#setShowValue). L'impostazione a livello di grafico non abilita la visualizzazione dei valori di per sé né sovrascrive la visualizzazione dei valori disabilitata per un'etichetta individuale. Questo esempio abilita i valori per l'intera serie e utilizza [setPosition](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabelformat/#setPosition) per posizionare le etichette all'estremità esterna di ogni colonna.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Le immagini seguenti mostrano le diapositive salvate renderizzate da Microsoft PowerPoint. Con `True`, l'etichetta **120** è visibile al limite superiore; con `False`, è nascosta. L'etichetta **60** rimane visibile, il valore massimo dell'asse resta a **100**, e il secondo punto dati rimane **120** in entrambi i casi.
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![Grafico PowerPoint che mostra l'etichetta di valore 120 con un valore massimo dell'asse di 100](data-labels-over-maximum-true.png) | ![Grafico PowerPoint che nasconde l'etichetta di valore 120 con un valore massimo dell'asse di 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Questo esempio utilizza un grafico a colonne 2D con un asse dei valori. I grafici senza un asse dei valori, come i grafici a torta e a ciambella, non hanno un valore massimo dell'asse da limitare in questo modo.
+{{% /alert %}}
+
+## **Impostare la distanza dell'etichetta dall'asse**
+
+Usa [setLabelOffset](https://reference.aspose.com/slides/it/python-java/aspose.slides/axis/#setLabelOffset) per controllare la distanza tra le etichette dell'asse di categoria e l'asse. Il valore è una percentuale della dimensione massima del carattere delle etichette dell'asse. Questo esempio crea un grafico a colonne raggruppate e imposta lo scostamento dell'etichetta dell'asse orizzontale a 500. Questa impostazione influisce sulle etichette dell'asse di categoria piuttosto che sulle etichette associate a singoli punti dati.
 
 ```python
 import jpype
@@ -256,9 +331,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Regola la posizione dell'etichetta**
+## **Regolare la posizione dell'etichetta**
 
-Su un grafico a torta, regola le posizioni delle etichette dei dati per migliorare la spaziatura e fare spazio alle linee guida. Questo esempio visualizza il valore del primo punto dati, posiziona la sua etichetta all'esterno della fetta e regola gli scostamenti orizzontali e verticali usando [setX](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#setX) e [setY](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#setY). Questi scostamenti sono relativi alla larghezza e all'altezza del grafico, rispettivamente.
+Su un grafico a torta, regola le posizioni delle etichette dei dati per migliorare la spaziatura e fare spazio alle linee guida.
+
+Questo esempio visualizza il valore del primo punto dati, posiziona la sua etichetta all'esterno della fetta e regola gli offset orizzontali e verticali usando [setX](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#setX) e [setY](https://reference.aspose.com/slides/it/python-java/aspose.slides/datalabel/#setY). Questi offset sono relativi alla larghezza e all'altezza del grafico, rispettivamente.
 
 ```python
 import jpype
@@ -272,6 +349,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     
@@ -286,13 +364,13 @@ finally:
     presentation.dispose()
 ```
 
-![Grafico a torta con posizione dell'etichetta dati regolata](pie-chart-adjusted-label.png)
+![Grafico a torta con posizione dell'etichetta dei dati regolata](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Come posso impedire che le etichette dei dati si sovrappongano nei grafici densi?**
+**Come posso impedire la sovrapposizione delle etichette dei dati su grafici densi?**
 
-Combina il posizionamento automatico delle etichette, le linee guida e una dimensione del carattere ridotta; se necessario, nascondi alcuni campi (ad esempio la categoria) o visualizza le etichette solo per i valori estremi o i punti chiave.
+Combina il posizionamento automatico delle etichette, le linee guida e una dimensione del carattere ridotta; se necessario, nascondi alcuni campi (ad esempio, la categoria) o mostra le etichette solo per i valori estremi o i punti chiave.
 
 **Come posso disabilitare le etichette solo per valori zero, negativi o vuoti?**
 

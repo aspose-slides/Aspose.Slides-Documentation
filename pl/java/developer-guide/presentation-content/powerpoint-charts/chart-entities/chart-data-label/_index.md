@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie etykietami danych wykresu w prezentacjach za pomocą Javy
+title: Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu Java
 linktitle: Etykieta danych
 type: docs
 url: /pl/java/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Javy, aby uzyskać bardziej angażujące slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Java, aby uzyskać bardziej angażujące slajdy."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
+Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, kontrolować etykiety poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
 
 ## **Ustaw precyzję danych w etykietach wykresu**
 
-Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy oraz dwie miejsca dziesiętne bez zmiany wartości podstawowych.
+Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca dziesiętne bez zmiany podstawowych wartości.
 
 ```java
 import com.aspose.slides.*;
@@ -30,6 +30,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -45,7 +46,7 @@ try {
 
 ## **Wyświetl procenty jako etykiety**
 
-Dla wykresu słupkowego skumulowanego, oblicz każdą wartość jako procent całkowitej sumy kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami dziesiętnymi w czcionce 8 punktów. Kategorie o sumie zero są pomijane, aby uniknąć dzielenia przez zero. Przelicz ponownie niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
+Dla skumulowanego wykresu słupkowego oblicz każdą wartość jako procent całkowitej sumy kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami dziesiętnymi w czcionce 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz ponownie tekst własnej etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```java
 import com.aspose.slides.*;
@@ -54,6 +55,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -103,7 +105,9 @@ try {
 
 ## **Ustaw znak procenta w etykietach danych wykresu**
 
-Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) aby wyświetlić procenty. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), aby zastosować format etykiety niezależnie od komórek źródłowych. Ten przykład tworzy wykres słupkowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc dziesiętnych. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
+Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-), aby wyświetlać procenty. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), aby zastosować format etykiety niezależnie od komórek źródłowych.
+
+Ten przykład tworzy wykres słupkowy skumulowany 100% z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0,30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc dziesiętnych. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
 
 ```java
 import com.aspose.slides.*;
@@ -112,6 +116,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -159,7 +164,7 @@ try {
 
 ## **Odczytaj rzeczywisty tekst etykiet danych**
 
-Użyj [getActualLabelText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabel/#getActualLabelText--) aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Użyj [getActualLabelText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabel/#getActualLabelText--) aby pobrać tekst wygenerowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub walidacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa własnego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -167,6 +172,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -218,11 +224,15 @@ try {
 }
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jej etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabel/#getActualLabelText--) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdzaj [isVisible](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabel/#isVisible--) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` razem z nazwą kategorii i serii. Własny tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabel/#getActualLabelText--) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabel/#isVisible--) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
 
-## **Ustaw odległość etykiety od osi**
+## **Kontroluj etykiety danych poza maksymalnym zakresem osi**
 
-Użyj [setLabelOffset](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaxis/#setLabelOffset-int-) aby kontrolować odległość pomiędzy etykietami osi kategorii a samą osią. Wartość jest wyrażona w procentach maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia odstęp etykiety osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do pojedynczych punktów danych.
+Gdy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalną wartość. Użyj [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani podstawowych wartości danych.
+
+Poniższy przykład tworzy dwuwymiarowy wykres słupkowy skumulowany z wartościami 60 i 120. Przekazuje `false` do [setAutomaticMaxValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) i ustawia maksymalną wartość na 100 przy użyciu [setMaxValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaxis/#setMaxValue-double-) na osi pionowej. Pierwszy slajd zezwala na etykiety poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w `DataLabelsOverMaximum.pptx`.
+
+Włącz etykiety wartości przy użyciu [setShowValue](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości w pojedynczej etykiecie. Ten przykład włącza wartości dla całej serii i używa [setPosition](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/#setPosition-int-), aby umieścić etykiety na zewnętrznym końcu każdego słupka.
 
 ```java
 import com.aspose.slides.*;
@@ -230,6 +240,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Poniższe obrazy pokazują zapisane slajdy renderowane w Microsoft PowerPoint. Przy `true` etykieta **120** jest widoczna przy górnej granicy; przy `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksymalna wartość osi pozostaje **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![Wykres PowerPoint pokazujący etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-true.png) | ![Wykres PowerPoint ukrywający etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Ten przykład używa dwuwymiarowego wykresu słupkowego z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnej wartości osi, którą można by w ten sposób ograniczyć.
+{{% /alert %}}
+
+## **Ustaw odległość etykiety od osi**
+
+Użyj [setLabelOffset](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaxis/#setLabelOffset-int-) aby kontrolować odległość między etykietami osi kategorii a osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy skumulowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do pojedynczych punktów danych.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -241,7 +313,9 @@ try {
 
 ## **Dostosuj położenie etykiety**
 
-W wykresie kołowym, dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce na linie pomocnicze. Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza kawałkiem i dostosowuje poziome oraz pionowe przesunięcia przy użyciu [setX](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ilayoutable/#setX-float-) oraz [setY](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ilayoutable/#setY-float-). Te przesunięcia są względne względem szerokości i wysokości wykresu, odpowiednio.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce dla linii prowadzących.
+
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza kawałkiem i dostosowuje poziomy oraz pionowy offset przy użyciu [setX](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ilayoutable/#setX-float-) i [setY](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ilayoutable/#setY-float-). Te offsety są odpowiednio względne do szerokości i wysokości wykresu.
 
 ```java
 import com.aspose.slides.*;
@@ -249,6 +323,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -264,18 +339,15 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Wykres kołowy z dostosowaną pozycją etykiety danych](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
+**Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**  
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
-Połącz automatyczne rozmieszczanie etykiet, linie pomocnicze i zmniejszenie rozmiaru czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla skrajnych wartości lub kluczowych punktów.
-
-**Jak mogę wyłączyć etykiety tylko dla zerowych, ujemnych lub pustych wartości?**
-
+**Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**  
 Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących zgodnie z określoną regułą.
 
-**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
-
-Jawnie ustaw rodzinę i rozmiar czcionki oraz sprawdź, czy czcionka jest dostępna w środowisku renderującym, aby uniknąć zastępczego fontu.
+**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**  
+Jawnie ustaw rodzinę i rozmiar czcionki oraz upewnij się, że czcionka jest dostępna w środowisku renderującym, aby uniknąć domyślnego zastępowania.

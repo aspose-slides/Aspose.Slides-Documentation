@@ -1,28 +1,28 @@
 ---
-title: Gestion des étiquettes de données de graphique dans les présentations à l'aide de C++
-linktitle: Étiquette de donnée
+title: Gérer les étiquettes de données de graphique dans les présentations en C++
+linktitle: Étiquette de données
 type: docs
 url: /fr/cpp/chart-data-label/
 keywords:
 - graphique
-- étiquette de donnée
+- étiquette de données
 - précision des données
 - pourcentage
-- distance de l’étiquette
-- position de l’étiquette
+- distance d'étiquette
+- position d'étiquette
 - PowerPoint
 - présentation
 - C++
 - Aspose.Slides
-description: "Apprenez à ajouter et à formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour C++ pour des diapositives plus attrayantes."
+description: "Apprenez à ajouter et à formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour C++ afin de créer des diapositives plus attrayantes."
 ---
 ## **Introduction**
 
-Les étiquettes de données affichent des informations sur les séries du graphique et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, ajuster l’espacement des étiquettes de l’axe des catégories et positionner les étiquettes d’un graphique en secteurs.
+Les étiquettes de données affichent des informations sur les séries de graphiques et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, contrôler les étiquettes au-delà du maximum de l'axe, ajuster l'espacement des étiquettes de l'axe des catégories et positionner les étiquettes des graphiques circulaires.
 
 ## **Définir la précision des données dans les étiquettes de graphique**
 
-Utilisez [set_NumberFormatOfValues](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) pour formater les valeurs des séries. Cet exemple crée un graphique linéaire avec des données par défaut, affiche son tableau de données et active les étiquettes de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacentes.
+Utilisez [set_NumberFormatOfValues](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les étiquettes de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous-jacentes.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **Afficher le pourcentage comme étiquettes**
 
-Pour un graphique à colonnes empilées, calculez chaque valeur comme un pourcentage du total de sa catégorie et affectez le texte au cadre de texte renvoyé par [get_TextFrameForOverriding](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est nul sont ignorées afin d’éviter une division par zéro. Recalculez le texte de l’étiquette personnalisée si les données du graphique changent.
+Pour un histogramme empilé, calculez chaque valeur comme un pourcentage du total de sa catégorie et affectez le texte au cadre de texte renvoyé par [get_TextFrameForOverriding](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées pour éviter une division par zéro. Recalculez le texte personnalisé de l'étiquette si les données du graphique changent.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -96,6 +96,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
 auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
@@ -148,9 +149,9 @@ presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 
 ## **Définir le signe de pourcentage avec les étiquettes de graphique**
 
-Lorsque les valeurs sont stockées sous forme de fractions, utilisez [set_NumberFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) pour afficher les pourcentages. Passez `false` à [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) pour appliquer le format de l’étiquette indépendamment des cellules source.
+Lorsque les valeurs sont stockées sous forme de fractions, utilisez [set_NumberFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) pour afficher les pourcentages. Passez `false` à [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) pour appliquer le format de l’étiquette indépendamment des cellules sources.
 
-Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs totalise 1. Le format d’étiquette `0.0%` affiche 0.30 comme 30.0 %, tandis que l’axe vertical utilise deux décimales. Les deux séries utilisent du texte blanc de 10 points pour les étiquettes.
+Cet exemple crée un histogramme empilé à 100% avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs totalise 1. Le format d’étiquette `0.0%` affiche 0.30 comme 30.0%, tandis que l'axe vertical utilise deux décimales. Les deux séries utilisent du texte d'étiquette blanc de 10 points.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -189,6 +190,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
 chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
@@ -236,7 +238,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Lire le texte réel des étiquettes de données**
 
-Utilisez [GetActualLabelText](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) pour récupérer le texte produit par les paramètres d’une étiquette de données. Cela est utile lors de l’extraction d’étiquettes pour des rapports, la recherche dans le contenu d’une présentation ou la validation de graphiques générés. Dans l’exemple ci‑dessous, le [format d’étiquette de données](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [get_TextFrameForOverriding](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Utilisez [GetActualLabelText](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) pour récupérer le texte généré par les paramètres d'une étiquette de données. Ceci est utile lors de l'extraction des étiquettes pour des rapports, de la recherche de contenu dans une présentation ou de la validation des graphiques générés. Dans l'exemple ci-dessous, le [format d'étiquette de données](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise un texte personnalisé provenant de [get_TextFrameForOverriding](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -268,6 +270,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
 chart->get_ChartData()->get_Series()->Clear();
@@ -323,11 +326,98 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Le nombre stocké dans un point de données reste `0.75`, même lorsque son étiquette montre `75%` ainsi que les noms de catégorie et de série. Le texte personnalisé remplace le texte d’étiquette généré. [GetActualLabelText](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) renvoie la chaîne d’étiquette résultante dans les deux cas. Vérifiez [get_IsVisible](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabel/get_isvisible/) séparément, comme indiqué ci‑dessus, lorsque vous ne souhaitez extraire que les étiquettes visibles.
+Le nombre stocké dans un point de données reste `0.75`, même si son étiquette affiche `75%` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte d'étiquette généré. [GetActualLabelText](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) renvoie la chaîne d'étiquette résultante dans les deux cas. Vérifiez [get_IsVisible](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabel/get_isvisible/) séparément, comme indiqué ci-dessus, lorsque vous souhaitez extraire uniquement les étiquettes visibles.
+
+## **Contrôler les étiquettes de données au-delà du maximum de l'axe**
+
+Lorsque vous limitez manuellement la plage d'un axe, certains points de données peuvent dépasser son maximum. Utilisez [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) pour contrôler si leurs étiquettes de données sont affichées. Ce paramètre modifie la visibilité des étiquettes; il ne modifie pas la plage de l'axe ni les valeurs sous-jacentes des données.
+
+L'exemple ci-dessous crée un histogramme groupé 2D avec des valeurs de 60 et 120. Il définit [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) à `false` et [set_MaxValue](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/iaxis/set_maxvalue/) à 100 sur l'axe vertical. La première diapositive autorise les étiquettes au-delà du maximum; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
+
+Activez les étiquettes de valeur avec [set_ShowValue](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Le paramètre au niveau du graphique n'active pas l'affichage des valeurs par lui-même et ne remplace pas la désactivation de l'affichage de la valeur d'une étiquette individuelle. Cet exemple active les valeurs pour toute la série et utilise [set_Position](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/idatalabelformat/set_position/) pour placer les étiquettes à l'extrémité extérieure de chaque colonne.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+chart->set_HasLegend(false);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+auto firstCategory = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Within range"));
+auto secondCategory = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Above maximum"));
+
+chart->get_ChartData()->get_Categories()->Add(firstCategory);
+chart->get_ChartData()->get_Categories()->Add(secondCategory);
+
+auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Values"));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+
+auto firstValue = workbook->GetCell(0, 1, 1, ObjectExt::Box(60));
+auto secondValue = workbook->GetCell(0, 2, 1, ObjectExt::Box(120));
+
+series->get_DataPoints()->AddDataPointForBarSeries(firstValue);
+series->get_DataPoints()->AddDataPointForBarSeries(secondValue);
+
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+series->get_Labels()->get_DefaultDataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMaxValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MaxValue(100);
+chart->set_ShowDataLabelsOverMaximum(true);
+
+auto secondSlide = presentation->get_Slides()->AddClone(slide);
+auto secondChart = ExplicitCast<IChart>(secondSlide->get_Shape(0));
+secondChart->set_ShowDataLabelsOverMaximum(false);
+
+presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+```
+
+Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, l'étiquette **120** est visible à la frontière supérieure; avec `false`, elle est masquée. L'étiquette **60** reste visible, le maximum de l'axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
+
+| ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Cet exemple utilise un histogramme à colonnes 2D avec un axe de valeurs. Les graphiques sans axe de valeurs, comme les graphiques circulaires et en anneau, n'ont pas de maximum d'axe à limiter de cette manière.
+{{% /alert %}}
 
 ## **Définir la distance de l’étiquette par rapport à un axe**
 
-Utilisez [set_LabelOffset](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/iaxis/set_labeloffset/) pour contrôler la distance entre les étiquettes de l’axe des catégories et l’axe lui‑même. La valeur est un pourcentage de la taille maximale de police des étiquettes d’axe. Cet exemple crée un graphique à colonnes groupées et définit le décalage des étiquettes de l’axe horizontal à 500. Ce réglage affecte les étiquettes de l’axe des catégories plutôt que les étiquettes attachées aux points de données individuels.
+Utilisez [set_LabelOffset](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/iaxis/set_labeloffset/) pour contrôler la distance entre les étiquettes de l'axe des catégories et l'axe. La valeur est un pourcentage de la taille maximale de police des étiquettes d'axe. Cet exemple crée un histogramme groupé et définit le décalage des étiquettes de l'axe horizontal à 500. Ce paramètre affecte les étiquettes de l'axe des catégories plutôt que les étiquettes attachées aux points de données individuels.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -357,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Ajuster la position de l’étiquette**
 
-Sur un graphique en secteurs, ajustez les positions des étiquettes de données pour améliorer l’espacement et laisser de la place aux lignes de repère.
+Sur un graphique circulaire, ajustez les positions des étiquettes de données pour améliorer l'espacement et laisser de la place aux lignes de guidage.
 
-Cet exemple affiche la valeur du premier point de données, place son étiquette à l’extérieur du secteur et utilise [set_X](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ilayoutable/set_x/) et [set_Y](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ilayoutable/set_y/) pour ajuster leurs décalages. Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
+Cet exemple affiche la valeur du premier point de données, place son étiquette à l'extérieur de la part, et utilise [set_X](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ilayoutable/set_x/) et [set_Y](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ilayoutable/set_y/) pour ajuster ses décalages. Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -384,6 +474,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
 auto series = chart->get_ChartData()->get_Series();
 
@@ -396,18 +487,18 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Graphique circulaire avec une position d’étiquette de données ajustée](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Comment éviter que les étiquettes de données se chevauchent sur des graphiques denses ?**
+**Comment puis-je empêcher les étiquettes de données de se chevaucher sur des graphiques denses ?**
 
-Combinez le placement automatique des étiquettes, les lignes de repère et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
+Combinez le placement automatique des étiquettes, les lignes de guidage et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple la catégorie) ou n'affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
 
-**Comment désactiver les étiquettes uniquement pour les valeurs nulles, négatives ou manquantes ?**
+**Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
 
-Filtrez les points de données avant d’activer les étiquettes et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+Filtrez les points de données avant d'activer les étiquettes et désactivez l'affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
-**Comment garantir un style d’étiquette cohérent lors de l’exportation en PDF/images ?**
+**Comment garantir un style d’étiquette cohérent lors de l'exportation en PDF/images ?**
 
-Définissez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l’environnement de rendu afin d’éviter le recours à une police de remplacement.
+Définissez explicitement la famille et la taille de la police et vérifiez que la police est disponible dans l'environnement de rendu pour éviter le recours à une police de secours.

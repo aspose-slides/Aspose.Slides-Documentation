@@ -1,11 +1,11 @@
 ---
-title: Hantera diagramdatapunktsetiketter i presentationer med JavaScript
-linktitle: Datapunktsetikett
+title: Hantera diagramdatapetiketter i presentationer med JavaScript
+linktitle: Dataetikett
 type: docs
 url: /sv/nodejs-java/chart-data-label/
 keywords:
 - diagram
-- datapunktsetikett
+- datapetikett
 - dataprecision
 - procent
 - etikettavstånd
@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdatapunktsetiketter i PowerPoint-presentationer med JavaScript och Aspose.Slides för Node.js via Java för mer engagerande bilder."
+description: "Lär dig att lägga till och formatera diagramdatapetiketter i PowerPoint-presentationer med JavaScript och Aspose.Slides för Node.js via Java för mer engagerande bilder."
 ---
 ## **Introduktion**
 
-Datapunktsetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, justerar avståndet mellan kategoriaxelns etiketter och placerar sektordiagrametiketter.
+Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsarna att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, styr etiketter utanför axelns maximum, justerar avståndet för kategorialetiketter och placerar etiketter i pajdiagram.
 
-## **Ställ in dataprocessens precision i diagrammets datapunktsetiketter**
+## **Ange dataprecision i diagrammets datapetiketter**
 
-Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) för att formatera serien värden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
+Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -31,6 +31,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **Visa procent som etiketter**
 
-För ett staplat stapeldiagram, beräkna varje värde som en procentandel av dess kategori totalsumma och tilldela texten till den textram som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Detta exempel använder standarddiagramdata och visar procentandelar med två decimaler i en 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Räkna om den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram beräknas varje värde som en procentandel av sin kategorisumma och texten tilldelas till textramen som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Detta exempel använder standarddiagramdata och visar procenttal med två decimaler i ett 8‑punkts typsnitt. Kategorier med en totalsumma på noll hoppas över för att undvika division med noll. Omsätt den anpassade etiketttexten igen om diagramdata ändras.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,6 +55,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
 
     const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
@@ -101,11 +103,11 @@ try {
 }
 ```
 
-## **Ställ in procenttecken med diagrammets datapunktsetiketter**
+## **Ställ in procenttecken med diagrammets datapetiketter**
 
-När värden lagras som bråktal, använd [setNumberFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) för att visa procenttal. Skicka `false` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) för att tillämpa etikettformatet oberoende av källcellerna.
+När värden lagras som bråk, använd [setNumberFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) för att visa procenttal. Skicka `false` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) för att tillämpa etiketformatet oberoende av källcellerna.
 
-Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje värdepar summerar till 1. Etikettformatet `0.0%` visar 0.30 som 30.0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summeras till 1. Etiketformatet `0.0%` visar 0.30 som 30.0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etikettext.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -114,6 +116,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -160,9 +163,9 @@ try {
 }
 ```
 
-## **Läs den faktiska texten för datapunktsetiketter**
+## **Läs den faktiska texten för datapetiketter**
 
-Använd [getActualLabelText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) för att hämta den text som genereras av en datapunkts etikettinställningar. Detta är användbart när du extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exempel nedan kombinerar standard [data label format](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Använd [getActualLabelText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) för att hämta texten som genereras av en datapetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standardformatet för [datapetiketter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,6 +173,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -224,11 +228,15 @@ try {
 }
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori- och serienamnen. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/isvisible/) separat, som visas ovan, när du vill extrahera endast synliga etiketter.
+Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori- och serienamnen. Anpassad text ersätter den genererade etikettexten. [getActualLabelText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/isvisible/) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
 
-## **Ställ in etikettavstånd från en axel**
+## **Styr datapetiketter utanför axelns maximum**
 
-Använd [setLabelOffset](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/axis/setlabeloffset/) för att kontrollera avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentandel av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och sätter den horisontella axelns etikettoffset till 500. Denna inställning påverkar kategoriaxelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+När du begränsar ett axelintervall manuellt kan vissa datapunkter överskrida dess maximum. Använd [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) för att kontrollera om deras datapetiketter visas. Denna inställning ändrar etiketters synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+
+Exemplet nedan skapar ett 2D grupprad i stapeldiagram med värdena 60 och 120. Det skickar `false` till [setAutomaticMaxValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) och sätter maximum till 100 med [setMaxValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/axis/setmaxvalue/) på den vertikala axeln. Den första bilden tillåter etiketter utöver maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+
+Aktivera värdeetiketter med [setShowValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). Diagramnivåinställningen aktiverar inte värdevisning i sig själv eller åsidosätter en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [setPosition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabelformat/setposition/) för att placera etiketter vid varje kolumns yttre ända.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -236,6 +244,70 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    const firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    const secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    const seriesName = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    const firstValue = workbook.getCell(0, 1, 1, 60);
+    const secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    const secondSlide = presentation.getSlides().addClone(slide);
+    const secondChart = secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Följande bilder visar de sparade bilderna renderade av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelmaximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
+{{% /alert %}}
+
+## **Ange etikettavstånd från en axel**
+
+Använd [setLabelOffset](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/axis/setlabeloffset/) för att kontrollera avståndet mellan kategorialetiketter och axeln. Värdet är en procentandel av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupprad i stapeldiagram och sätter den horisontella axelns etikettavstånd till 500. Denna inställning påverkar kategorialetiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -245,11 +317,11 @@ try {
 }
 ```
 
-## **Justera etikettposition**
+## **Justera etikettens position**
 
-I ett sektordiagram justeras datapunktetiketternas position för att förbättra avståndet och ge plats för förbindelselänkar.
+I ett pajdiagram justeras datapetikettpositionerna för att förbättra avståndet och skapa utrymme för ledningslinjer.
 
-Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och justerar dess horisontella och vertikala offset med [setX](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/setx/) och [setY](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/sety/). Dessa offset är relativa till diagrammets bredd respektive höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför segmentet och justerar dess horisontella och vertikala förskjutning med [setX](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/setx/) och [setY](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/datalabel/sety/). Dessa förskjutningar är relativa till diagrammets bredd respektive höjd.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -258,6 +330,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
     const series = chart.getChartData().getSeries();
 
@@ -273,18 +346,18 @@ try {
 }
 ```
 
-![Sektordiagram med justerad datapunktetikettposition](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Hur kan jag förhindra att datapunktsetiketter överlappar i täta diagram?**
+**Hur kan jag förhindra att datapetiketter överlappar i täta diagram?**
 
-Kombinera automatisk etiketts placering, förbindelselänkar och minskad teckenstorlek; om nödvändigt, göm vissa fält (till exempel kategori) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Kombinera automatisk etikettplacering, ledningslinjer och minskad teckenstorlek; vid behov dölja vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
-**Hur kan jag inaktivera etiketter enbart för noll-, negativa eller tomma värden?**
+**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa eller saknas enligt en definierad regel.
+Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
 
 **Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
 
-Ange explicit teckensnittsfamilj och storlek och kontrollera att teckensnittet finns tillgängligt i renderingsmiljön för att undvika ersättning.
+Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet är tillgängligt i renderingsmiljön för att undvika ersättning.

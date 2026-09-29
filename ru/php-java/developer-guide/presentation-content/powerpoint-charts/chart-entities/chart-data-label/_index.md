@@ -1,28 +1,28 @@
 ---
-title: Управление метками данных диаграмм в презентациях с использованием PHP
+title: Управление метками данных диаграммы в презентациях с использованием PHP
 linktitle: Метка данных
 type: docs
 url: /ru/php-java/chart-data-label/
 keywords:
-  - диаграмма
-  - метка данных
-  - точность данных
-  - процент
-  - расстояние метки
-  - позиция метки
-  - PowerPoint
-  - презентация
-  - PHP
-  - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с использованием Aspose.Slides для PHP через Java, чтобы сделать слайды более привлекательными."
+- диаграмма
+- метка данных
+- точность данных
+- процент
+- расстояние метки
+- расположение метки
+- PowerPoint
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как добавлять и форматировать метки данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для PHP через Java, чтобы сделать слайды более привлекательными."
 ---
 ## **Введение**
 
-Метки данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, читать текст меток, регулировать интервалы меток оси категорий и позиционировать метки круговой диаграммы.
+Метки данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям определять значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, читать текст метки, управлять метками за пределами максимума оси, настраивать расстояние между метками оси категорий и позиционировать метки на круговой диаграмме.
 
 ## **Установка точности данных в метках диаграммы**
 
-Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) для форматирования значений серии. Этот пример создает линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает метки значений для первой серии. Формат `#,##0.00` выводит разделитель тысяч и два десятичных знака, не изменяя исходные значения.
+Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) для форматирования значений серии. В этом примере создаётся линейная диаграмма с данными по умолчанию, отображается её таблица данных и включаются метки значений для первой серии. Формат `#,##0.00` отображает разделитель тысяч и два знака после запятой, не изменяя исходные значения.
 
 ```php
 use aspose\slides\Presentation;
@@ -32,6 +32,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
 
@@ -47,7 +48,7 @@ try {
 
 ## **Отображение процентов в виде меток**
 
-Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст текстовому фрейму, возвращаемому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя десятичными знаками шрифтом размером 8 пунктов. Категории с общей суммой, равной нулю, пропускаются, чтобы избежать деления на ноль. Пересчитайте пользовательский текст метки, если данные диаграммы изменятся.
+Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и присвойте текст кадру текста, возвращаемому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пересчитайте пользовательский текст метки.
 
 ```php
 use aspose\slides\Presentation;
@@ -58,6 +59,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
     $categoryCount = java_values($chart->getChartData()->getCategories()->size());
@@ -108,9 +110,9 @@ try {
 
 ## **Установка знака процента в метках данных диаграммы**
 
-Если значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/#setNumberFormat) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), чтобы применить формат метки независимо от исходных ячеек.
+Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/#setNumberFormat) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), чтобы применить формат метки независимо от ячеек‑источников.
 
-Этот пример создает 100% сложенную столбчатую диаграмму с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме дает 1. Формат метки `0.0%` выводит 0.30 как 30.0%, в то время как вертикальная ось использует два десятичных знака. Обе серии используют белый текст метки размером 10 пунктов.
+В этом примере создаётся 100 % сложенная столбчатая диаграмма с красными и синими сериями в четырёх категориях. Каждая пара значений в сумме даёт 1. Формат метки `0.0%` отображает 0.30 как 30.0 %, в то время как вертикальная ось использует два знака после запятой. Обе серии используют белый текст метки размером 10 пунктов.
 
 ```php
 use aspose\slides\Presentation;
@@ -121,6 +123,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
@@ -167,9 +170,9 @@ try {
 }
 ```
 
-## **Чтение фактического текста меток данных**
+## **Получение фактического текста меток данных**
 
-Используйте [getActualLabelText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getActualLabelText) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчетов, поиске содержимого презентаций или проверке сгенерированных диаграмм. В примере ниже стандартный [формат метки данных](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/) объединяет название категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Используйте [getActualLabelText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getActualLabelText) для получения текста, сформированного настройками метки данных. Это полезно при извлечении меток для отчётов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже стандартный [data label format](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/) объединяет имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```php
 use aspose\slides\Presentation;
@@ -178,6 +181,7 @@ use aspose\slides\ChartType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
     $chart->getChartData()->getSeries()->clear();
@@ -232,11 +236,79 @@ try {
 }
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже если её метка отображает `75%` вместе с названиями категории и серии. Пользовательский текст заменяет сгенерированный текст метки. [getActualLabelText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getActualLabelText) возвращает полученную строку метки в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#isVisible) отдельно, как показано выше, когда нужно извлекать только видимые метки.
+Число, хранящееся в точке данных, остаётся `0.75`, даже если её метка показывает `75%` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст метки. [getActualLabelText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#getActualLabelText) возвращает полученную строку метки в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#isVisible) отдельно, как показано выше, когда нужно извлекать только видимые метки.
+
+## **Управление метками данных за пределами максимума оси**
+
+Когда вы ограничиваете диапазон оси вручную, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum), чтобы контролировать, отображаются ли их метки данных. Эта настройка меняет видимость меток; она не меняет диапазон оси и не изменяет исходные значения данных.
+
+В примере ниже создаётся двумерная сгруппированная столбчатая диаграмма со значениями 60 и 120. Метод `false` передаётся в [setAutomaticMaxValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/axis/#setAutomaticMaxValue), а максимальное значение оси устанавливается в 100 с помощью [setMaxValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/axis/#setMaxValue) на вертикальной оси. На первом слайде метки допускаются за пределами максимума; копия этого слайда отключает их. Оба слайда сохранены в `DataLabelsOverMaximum.pptx`.
+
+Включите метки значений с помощью [setShowValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/#setShowValue). Настройка уровня диаграммы не включает отображение значений сама по себе и не переопределяет отключённое отображение значения отдельной метки. В этом примере значения включаются для всей серии, а [setPosition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabelformat/#setPosition) помещает метки в конец каждой колонки наружу.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $firstCategory = $workbook->getCell(0, 1, 0, "Within range");
+    $secondCategory = $workbook->getCell(0, 2, 0, "Above maximum");
+
+    $chart->getChartData()->getCategories()->add($firstCategory);
+    $chart->getChartData()->getCategories()->add($secondCategory);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Values");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+
+    $firstValue = $workbook->getCell(0, 1, 1, 60);
+    $secondValue = $workbook->getCell(0, 2, 1, 120);
+
+    $series->getDataPoints()->addDataPointForBarSeries($firstValue);
+    $series->getDataPoints()->addDataPointForBarSeries($secondValue);
+
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+    $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(100);
+    $chart->setShowDataLabelsOverMaximum(true);
+
+    $secondSlide = $presentation->getSlides()->addClone($slide);
+    $secondChart = $secondSlide->getShapes()->get_Item(0);
+    $secondChart->setShowDataLabelsOverMaximum(false);
+
+    $presentation->save("DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Следующие изображения показывают сохранённые слайды, отрендеренные Microsoft PowerPoint. При `true` метка **120** видна у верхней границы; при `false` она скрыта. Метка **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+В этом примере используется двумерная столбчатая диаграмма с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимума оси, который можно было бы ограничивать таким образом.
+{{% /alert %}}
 
 ## **Установка расстояния метки от оси**
 
-Используйте [setLabelOffset](https://reference.aspose.com/slides/ru/php-java/aspose.slides/axis/#setLabelOffset) для управления расстоянием между метками оси категорий и самой осью. Значение задаётся в процентах от максимального размера шрифта меток оси. Этот пример создаёт сгруппированную столбчатую диаграмму и устанавливает смещение меток горизонтальной оси равным 500. Эта настройка влияет на метки оси категорий, а не на метки, прикреплённые к отдельным точкам данных.
+Используйте [setLabelOffset](https://reference.aspose.com/slides/ru/php-java/aspose.slides/axis/#setLabelOffset) для контроля расстояния между метками оси категорий и самой осью. Значение представляет собой процент от максимального размера шрифта меток оси. В этом примере создаётся сгруппированная столбчатая диаграмма и задаётся смещение меток горизонтальной оси равно 500. Эта настройка влияет на метки оси категорий, а не на метки, привязанные к отдельным точкам данных.
 
 ```php
 use aspose\slides\Presentation;
@@ -246,6 +318,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
     $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
 
@@ -257,9 +330,9 @@ try {
 
 ## **Регулировка расположения меток**
 
-На круговой диаграмме регулируйте положения меток данных, чтобы улучшить интервалы и освободить место для выноски.
+На круговой диаграмме отрегулируйте позиции меток данных, чтобы улучшить интервалы и освободить место для линий‑выноски.
 
-В этом примере отображается значение первой точки данных, её метка размещается за пределами сектора, а горизонтальное и вертикальное смещения настраиваются с помощью [setX](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#setX) и [setY](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#setY). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
+Этот пример отображает значение первой точки данных, помещает её метку за пределы сектора и регулирует горизонтальное и вертикальное смещения с помощью [setX](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#setX) и [setY](https://reference.aspose.com/slides/ru/php-java/aspose.slides/datalabel/#setY). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
 
 ```php
 use aspose\slides\Presentation;
@@ -270,6 +343,7 @@ use aspose\slides\SaveFormat;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+    
     $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
 
@@ -285,18 +359,18 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Круговая диаграмма с отрегулированным положением метки данных](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Как предотвратить наложение меток данных на плотных диаграммах?**
 
-Сочетайте автоматическое размещение меток, выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или отображайте метки только для экстремальных значений или ключевых точек.
+Сочетайте автоматическое размещение меток, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте метки только для экстремальных значений или ключевых точек.
 
 **Как отключить метки только для нулевых, отрицательных или пустых значений?**
 
-Фильтруйте точки данных перед включением меток и отключайте отображение для значений 0, отрицательных значений или отсутствующих данных согласно заданному правилу.
+Отфильтруйте точки данных перед включением меток и отключите отображение для значений 0, отрицательных значений или отсутствующих значений в соответствии с заданным правилом.
 
-**Как обеспечить единый стиль меток при экспорте в PDF/изображения?**
+**Как обеспечить единообразный стиль меток при экспорте в PDF/изображения?**
 
-Явно задавайте семейство шрифта и размер, а также проверяйте, что шрифт доступен в среде рендеринга, чтобы избежать замены.
+Явно задайте семейство шрифта и размер и проверьте, что шрифт доступен в среде рендеринга, чтобы избежать использования резервного шрифта.

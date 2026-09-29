@@ -1,11 +1,11 @@
 ---
-title: Diagramm-Datenetiketten in Präsentationen auf Android verwalten
-linktitle: Datenetikett
+title: Diagrammdateneetiketten in Präsentationen auf Android verwalten
+linktitle: Dateneetikett
 type: docs
 url: /de/androidjava/chart-data-label/
 keywords:
 - Diagramm
-- Datenetikett
+- Dateneetikett
 - Datenpräzision
 - Prozentsatz
 - Etikettenabstand
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramm-Datenetiketten in PowerPoint-Präsentationen mit Aspose.Slides für Android via Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdateneetiketten in PowerPoint-Präsentationen mithilfe von Aspose.Slides für Android über Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
-## **Einleitung**
+## **Einführung**
 
-Datenetiketten zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, den Etikettentext ausliest, den Abstand der Kategorienachsen‑Etiketten anpasst und die Position von Kreisdiagramm‑Etiketten festlegt.
+Dateneetiketten zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Etikettentext gelesen, Etiketten jenseits des Achsenmaximums gesteuert, der Abstand von Kategorienachsenetiketten angepasst und Etiketten in Kreisdiagrammen positioniert werden.
 
-## **Datenpräzision in Diagramm‑Datenetiketten festlegen**
+## **Datenpräzision in Diagrammdateneetiketten festlegen**
 
-Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertetiketten für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen, ohne die zugrunde liegenden Werte zu ändern.
+Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) , um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertetiketten für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
 
 ```java
 import com.aspose.slides.*;
@@ -31,6 +31,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **Prozentsätze als Etiketten anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz des Gesamtsummedits seiner Kategorie und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer Schriftgröße von 8 pt an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Etikettentext neu, wenn sich die Diagrammdaten ändern.
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz des Gesamtsumme seiner Kategorie und weisen den Text dem von [getTextFrameForOverriding](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) zurückgegebenen Textfeld zu. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8-Punkt-Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Etikettentext neu, wenn sich die Diagrammdaten ändern.
 
 ```java
 import com.aspose.slides.*;
@@ -55,6 +56,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **Prozentzeichen mit Diagramm‑Datenetiketten festlegen**
+## **Prozentzeichen bei Diagrammdateneetiketten festlegen**
 
-Wenn Werte als Brüche gespeichert sind, verwenden Sie [setNumberFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-), um Prozentsätze anzuzeigen. Übergeben Sie `false` an [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), um das Etikettenformat unabhängig von den Quellzellen anzuwenden.
+Wenn Werte als Brüche gespeichert sind, verwenden Sie [setNumberFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) , um Prozentsätze anzuzeigen. Übergeben Sie `false` an [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) , um das Etikettenformat unabhängig von den Quellzellen anzuwenden.
 
-Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Werte‑Paar addiert sich zu 1. Das Etikettenformat `0.0%` zeigt 0.30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien nutzen weiße Etiketten mit 10 pt Schriftgröße.
+Dieses Beispiel erstellt ein 100% gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jedes Wertepaar summiert sich zu 1. Das Etikettenformat `0.0%` zeigt 0.30 als 30.0% an, während die senkrechte Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Etikettentexte mit 10-Punkt.
 
 ```java
 import com.aspose.slides.*;
@@ -115,6 +117,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -160,9 +163,9 @@ try {
 }
 ```
 
-## **Den tatsächlichen Text von Datenetiketten auslesen**
+## **Den tatsächlichen Text von Dateneetiketten lesen**
 
-Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--), um den durch die Einstellungen eines Datenetiketts erzeugten Text abzurufen. Dies ist nützlich, wenn Etiketten für Berichte extrahiert, Präsentationsinhalte durchsucht oder erzeugte Diagramme validiert werden sollen. Im folgenden Beispiel kombiniert das Standard‑[data label format](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/) den Namen jeder Kategorie, den Namen der Serie und den Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [getTextFrameForOverriding](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) , um den von den Einstellungen eines Dateneetiketts erzeugten Text abzurufen. Dies ist nützlich beim Extrahieren von Etiketten für Berichte, Durchsuchen von Präsentationsinhalten oder Validieren erzeugter Diagramme. Im folgenden Beispiel kombiniert das standardmaessige [data label format](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/) den Namen jeder Kategorie, den Namen der Serie und den Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, und ein anderer verwendet benutzerdefinierten Text aus [getTextFrameForOverriding](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -170,6 +173,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -221,11 +225,15 @@ try {
 }
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn ihr Etikett `75 %` zusammen mit den Kategorien‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Etikettentext. [getActualLabelText](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) liefert in beiden Fällen den resultierenden Etiketten‑String. Prüfen Sie [isVisible](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabel/#isVisible--) separat, wie oben gezeigt, wenn Sie nur sichtbare Etiketten extrahieren möchten.
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, auch wenn ihr Etikett `75%` zusammen mit den Kategorien- und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den erzeugten Etikettentext. [getActualLabelText](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) gibt den resultierenden Etikettenstring in jedem Fall zurueck. Pruefen Sie [isVisible](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabel/#isVisible--) separat, wie oben gezeigt, wenn Sie nur sichtbare Etiketten extrahieren moechten.
 
-## **Abstand von Etiketten zu einer Achse festlegen**
+## **Dateneetiketten jenseits des Achsenmaximums steuern**
 
-Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-), um den Abstand zwischen den Kategorienachsen‑Etiketten und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenetiketten. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsen‑Etiketten‑Versatz auf 500. Diese Einstellung wirkt sich auf Kategorienachsen‑Etiketten aus, nicht auf Etiketten, die einzelnen Datenpunkten zugeordnet sind.
+Wenn Sie einen Achsenbereich manuell begrenzen, koennen einige Datenpunkte das Maximum ueberschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) , um zu steuern, ob deren Dateneetiketten angezeigt werden. Diese Einstellung aendert die Sichtbarkeit der Etiketten; sie aendert weder den Achsenbereich noch die zugrunde liegenden Datenwerte.
+
+Das folgende Beispiel erstellt ein 2D gruppiertes Saeulendiagramm mit den Werten 60 und 120. Es uebergibt `false` an [setAutomaticMaxValue](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) auf der senkrechten Achse. Die erste Folie erlaubt Etiketten jenseits des Maximums; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+
+Aktivieren Sie Wertetiketten mit [setShowValue](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Die Diagrammebene-Einstellung aktiviert die Wertanzeige nicht von allein und ueberschreibt nicht die deaktivierte Wertanzeige eines einzelnen Etiketts. Dieses Beispiel aktiviert Werte fuer die gesamte Serie und verwendet [setPosition](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) , um Etiketten am aeusseren Ende jeder Spalte zu platzieren.
 
 ```java
 import com.aspose.slides.*;
@@ -233,6 +241,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Die folgenden Bilder zeigen die in Microsoft PowerPoint gerenderten gespeicherten Folien. Bei `true` ist das Etikett **120** an der oberen Grenze sichtbar; bei `false` ist es ausgeblendet. Das Etikett **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Faellen **120**.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Dieses Beispiel verwendet ein 2D-Saeulendiagramm mit einer Werteachse. Diagramme ohne Werteachse, wie Kreis- und Donut-Diagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden kann.
+{{% /alert %}}
+
+## **Etikettenabstand von einer Achse festlegen**
+
+Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) , um den Abstand zwischen den Kategorienachsen-Etiketten und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgroesse der Achsenetiketten. Dieses Beispiel erstellt ein gruppiertes Saeulendiagramm und setzt den horizontalen Achsenetiketten-Versatz auf 500. Diese Einstellung wirkt sich auf die Kategorienachsen-Etiketten aus, nicht auf Etiketten, die einzelnen Datenpunkten zugeordnet sind.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -244,9 +314,9 @@ try {
 
 ## **Etikettenposition anpassen**
 
-Bei einem Kreisdiagramm passen Sie die Position der Datenetiketten an, um den Abstand zu verbessern und Platz für Führungslinien zu schaffen.
+Bei einem Kreisdiagramm passen Sie die Positionen der Dateneetiketten an, um den Abstand zu optimieren und Platz fuer Fuehrungslinien zu schaffen.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert sein Etikett außerhalb des Segments und passt die horizontalen und vertikalen Versätze mit [setX](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ilayoutable/#setY-float-) an. Diese Versätze sind relativ zur Diagrammbreite bzw. -höhe.
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert dessen Etikett ausserhalb des Segmentes und passt die horizontalen und vertikalen Versaeze mit [setX](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ilayoutable/#setY-float-) an. Diese Versaeze beziehen sich jeweils auf die Diagrammbreite bzw. -hoehe.
 
 ```java
 import com.aspose.slides.*;
@@ -254,6 +324,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -269,18 +340,18 @@ try {
 }
 ```
 
-![Kreisdiagramm mit angepasster Datenetikettenposition](pie-chart-adjusted-label.png)
+![Kreisdiagramm mit angepasster Dateneetikettenposition](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datenetiketten bei dichten Diagrammen überlappen?**
+**How can I prevent data labels from overlapping on dense charts?**
 
-Kombinieren Sie automatische Etikettenplatzierung, Führungslinien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Etiketten nur für Extremwerte bzw. Schlüsselpunkte anzeigen.
+Kombinieren Sie automatische Etikettenplatzierung, Fuehrungslinien und eine kleinere Schriftgroesse; falls nötig, blenden Sie einige Felder (z.B. die Kategorie) aus oder zeigen Sie Etiketten nur fuer extreme Werte oder wichtige Punkte an.
 
-**Wie kann ich Etiketten nur für Null‑, Negative‑ oder Leerewerte deaktivieren?**
+**How can I disable labels only for zero, negative, or empty values?**
 
-Filtern Sie Datenpunkte, bevor Sie Etiketten aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
+Filtern Sie Datenpunkte, bevor Sie Etiketten aktivieren, und deaktivieren Sie die Anzeige fuer Werte von 0, negative Werte oder fehlende Werte gemaess einer definierten Regel.
 
-**Wie stelle ich einen einheitlichen Etikettenstil beim Export in PDF/Bilder sicher?**
+**How can I ensure a consistent label style when exporting to PDF/images?**
 
-Setzen Sie explizit Schriftfamilie und -größe und überprüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Fallback zu vermeiden.
+Setzen Sie explizit die Schriftfamilie und -groesse und pruefen Sie, dass die Schrift im Rendering-Umfeld verfuegbar ist, um ein Zurueckgreifen auf Ersatzschriften zu vermeiden.

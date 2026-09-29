@@ -1,29 +1,29 @@
 ---
-title: Hantera diagrammets datamärkningar i presentationer på Android
-linktitle: Datamärkning
+title: Hantera diagramdataetiketter i presentationer på Android
+linktitle: Dataetikett
 type: docs
 url: /sv/androidjava/chart-data-label/
 keywords:
 - diagram
-- datamärkning
+- dataetikett
 - dataprecision
 - procent
 - etikettavstånd
-- etikettposition
+- etikettplacering
 - PowerPoint
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagrammets datamärkningar i PowerPoint-presentationer med Aspose.Slides för Android via Java för mer engagerande bilder."
+description: "Lär dig lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för Android via Java för mer engagerande bilder."
 ---
 ## **Introduktion**
 
-Datamärkning visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Den här artikeln förklarar hur man formaterar värden, visar procenttal, läser etiketttext, justerar avstånd för kategoriaxelns etiketter och placerar cirkeldiagrametiketter.
+Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsarna att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, styr etiketter bortom axelns maximum, justerar avståndet mellan kategoriliknande axeletiketter och placerar cirkeldiagrametiketter.
 
-## **Ange dataprecision i diagrammets datamärkningar**
+## **Ställ in dataprecision i diagramdataetiketter**
 
-Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdetiketter för den första serien. Formatet `#,##0.00` visar tusentalsseparator och två decimaler utan att ändra de underliggande värdena.
+Använd [setNumberFormatOfValues](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
 
 ```java
 import com.aspose.slides.*;
@@ -31,6 +31,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **Visa procenttal som etiketter**
 
-För ett staplat stapeldiagram beräknas varje värde som en procentandel av sin kategoris total och texten tilldelas den textram som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Detta exempel använder standarddiagramdata och visar procenttal med två decimaler i en 8‑punkts teckensnitt. Kategorier med totalen noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram, beräkna varje värde som en procentandel av dess kategorisumma och tilldela texten till den textramen som returneras av [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Detta exempel använder standarddiagramdata och visar procenttal med två decimaler i en 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
 
 ```java
 import com.aspose.slides.*;
@@ -55,6 +56,7 @@ import java.util.Locale;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
 
     double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
@@ -102,11 +104,9 @@ try {
 }
 ```
 
-## **Ange procenttecken med diagrammets datamärkningar**
+## **Ställ in procenttecknet med diagramdataetiketter**
 
-När värden lagras som bråk, använd [setNumberFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) för att visa procenttal. Skicka `false` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) för att tillämpa etikettformatet oberoende av källcellerna.
-
-Detta exempel skapar ett 100 % staplat stapeldiagram med röd och blå serie över fyra kategorier. Varje par av värden summeras till 1. Etikettformatet `0.0%` visar 0.30 som 30.0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
+När värden lagras som bråktal, använd [setNumberFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) för att visa procenttal. Skicka `false` till [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) för att tillämpa etikettformatet oberoende av källcellerna. Detta exempel skapar ett 100% staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summeras till 1. Etikettformatet `0.0%` visar 0.30 som 30.0%, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etiketttext.
 
 ```java
 import com.aspose.slides.*;
@@ -115,6 +115,7 @@ import android.graphics.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -160,9 +161,9 @@ try {
 }
 ```
 
-## **Läs den faktiska texten för datamärkningar**
+## **Läs den faktiska texten för dataetiketter**
 
-Använd [getActualLabelText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) för att hämta den text som genereras av en datamärknings inställningar. Detta är användbart när du extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard‑[datamärkningsformat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/) varje kategorinam, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Använd [getActualLabelText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) för att hämta texten som genereras av en dataetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard-[data label format](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/) varje kategorinamn, serienamn och värde. En punkt formatterar sitt värde som procent, och en annan använder anpassad text från [getTextFrameForOverriding](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -170,6 +171,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -221,11 +223,15 @@ try {
 }
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori‑ och serienamnen. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabel/#isVisible--) separat, som visas ovan, när du vill extrahera endast synliga etiketter.
+Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori- och serienamnen. Anpassad text ersätter den genererade etiketttexten. [getActualLabelText](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [isVisible](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabel/#isVisible--) separat, som visas ovan, när du vill extrahera endast synliga etiketter.
 
-## **Ange etikettavstånd från en axel**
+## **Styr dataetiketter bortom axelns maximum**
 
-Använd [setLabelOffset](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) för att kontrollera avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentsats av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och anger den horisontella axelns etikettavstånd till 500. Denna inställning påverkar kategoriaxelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+När du manuellt begränsar ett axelintervall kan vissa datapunkter överstiga dess maximum. Använd [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) för att styra om deras dataetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+
+Exemplet nedan skapar ett 2D‑klustrat stapeldiagram med värdena 60 och 120. Det skickar `false` till [setAutomaticMaxValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) och sätter maximum till 100 med [setMaxValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) på den vertikala axeln. Den första bilden tillåter etiketter bortom maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+
+Aktivera värdeetiketter med [setShowValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Diagramnivåinställningen aktiverar inte värdevisning i sig själv eller åsidosätter en enskild etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [setPosition](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) för att placera etiketter vid varje kolumns yttre ände.
 
 ```java
 import com.aspose.slides.*;
@@ -233,6 +239,68 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    IChartDataCell firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    IChartDataCell secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Values");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    IChartDataCell firstValue = workbook.getCell(0, 1, 1, 60);
+    IChartDataCell secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    ISlide secondSlide = presentation.getSlides().addClone(slide);
+    IChart secondChart = (IChart) secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Följande bilder visar de sparade bilderna som renderats av Microsoft PowerPoint. Med `true` är etiketten **120** synlig vid den övre gränsen; med `false` är den dold. Etiketten **60** förblir synlig, axelmaximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint-diagram som visar värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram som döljer värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Detta exempel använder ett 2D‑stapeldiagram med en värdeaxel. Diagram utan en värdeaxel, såsom paj- och donutdiagram, har inget axelmaximum att begränsa på detta sätt.
+{{% /alert %}}
+
+## **Ställ in etikettavstånd från en axel**
+
+Använd [setLabelOffset](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) för att styra avståndet mellan kategoriaxelens etiketter och axeln. Värdet är en procentandel av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett klustrat stapeldiagram och sätter den horisontella axelns etikettoffset till 500. Denna inställning påverkar kategoriaxelens etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -242,11 +310,11 @@ try {
 }
 ```
 
-## **Justera etikettposition**
+## **Justera etikettplacering**
 
-På ett cirkeldiagram justeras datamärkningarnas positioner för att förbättra avståndet och skapa plats för pilstreck.
+På ett pajdiagram, justera dataetikettens positioner för att förbättra avståndet och ge plats för ledarelinjer.
 
-Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför segmentet och justerar dess horisontella och vertikala förskjutning med [setX](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutable/#setX-float-) och [setY](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Dessa förskjutningar är relativa till diagrammets bredd respektive höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför segmentet och justerar dess horisontella och vertikala förskjutningar med [setX](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutable/#setX-float-) och [setY](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Dessa förskjutningar är relativa till diagrammets bredd respektive höjd.
 
 ```java
 import com.aspose.slides.*;
@@ -254,6 +322,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
 
@@ -269,18 +338,18 @@ try {
 }
 ```
 
-![Cirkeldiagram med en justerad datamärkningsposition](pie-chart-adjusted-label.png)
+![Pajdiagram med justerad dataetikettposition](pie-chart-adjusted-label.png)
 
 ## **Vanliga frågor**
 
-**Hur kan jag förhindra att datamärkningar överlappar i täta diagram?**
+**Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
 
-Kombinera automatisk placering av etiketter, pilstreck och minskad teckenstorlek; om nödvändigt, dölj vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Kombinera automatisk etikettplacering, ledarelinjer och minskad teckenstorlek; om nödvändigt, göm vissa fält (till exempel kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
 **Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa eller saknas enligt en definierad regel.
+Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden på 0, negativa värden eller saknade värden enligt en definierad regel.
 
 **Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
 
-Ange explicit teckensnittsfamilj och storlek och verifiera att teckensnittet finns tillgängligt i renderingsmiljön för att undvika fallback.
+Ange explicit teckensnittsfamilj och storlek och kontrollera att teckensnittet är tillgängligt i renderingsmiljön för att undvika ersättning.

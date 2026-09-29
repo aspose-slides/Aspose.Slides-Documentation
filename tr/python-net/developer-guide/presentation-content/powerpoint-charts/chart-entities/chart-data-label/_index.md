@@ -14,15 +14,15 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "PowerPoint sunumlarına Aspose.Slides for Python via .NET kullanarak grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar için."
+description: "Aspose.Slides for Python via .NET kullanarak PowerPoint sunumlarında grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar için."
 ---
 ## **Giriş**
 
-Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir ve okuyucuların değerleri tanımasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterme, etiket metnini okuma, kategori ekseni etiketi aralığını ayarlama ve pasta grafiği etiketlerini konumlandırma konularını açıklar.
+Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir, okuyucuların değerleri tanımlamasına ve grafiği anlamasına yardımcı olur. Bu makale, değerlerin biçimlendirilmesi, yüzde gösterimi, etiket metninin okunması, eksen maksimumunun ötesindeki etiketlerin kontrolü, kategori eksen etiket aralığının ayarlanması ve pasta grafiği etiketlerinin konumlandırılması konularını açıklar.
 
 ## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Seri değerlerini biçimlendirmek için [number_format_of_values](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/number_format_of_values/) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafiği oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir ve temel değerleri değiştirmez.
+[ number_format_of_values](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/number_format_of_values/) kullanarak seri değerlerini biçimlendirin. Bu örnek, varsayılan verilerle bir çizgi grafik oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir; temel değerleri değiştirmez.
 
 ```python
 import aspose.slides as slides
@@ -43,7 +43,7 @@ with slides.Presentation() as presentation:
 
 ## **Yüzdeyi Etiket Olarak Görüntüleme**
 
-Yığınlı bir sütun grafik için, her değeri kategori toplamının yüzdesi olarak hesaplayın ve metni [text_frame_for_overriding](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) aracılığıyla atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzdeyi 8 puanlık bir yazı tipinde iki ondalık basamakla gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
+Yığılmış sütun grafik için, her değeri kategori toplamının yüzde olarak hesaplayıp [text_frame_for_overriding](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) üzerine metin atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzde değerlerini iki ondalık basamakla 8 punto yazı tipinde gösterir. Toplamı sıfır olan kategoriler bölme hatasından kaçınmak için atlanır. Grafik verileri değiştiğinde özel etiket metnini yeniden hesaplayın.
 
 ```python
 import aspose.slides as slides
@@ -51,6 +51,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
 
     category_totals = [0.0] * len(chart.chart_data.categories)
@@ -91,9 +92,9 @@ with slides.Presentation() as presentation:
 
 ## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
 
-Değerler kesir olarak depolandığında, yüzde göstermek için [number_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/number_format/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [is_number_format_linked_to_source](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) özelliğini `False` olarak ayarlayın.
+Değerler kesir olarak saklanıyorsa, yüzde göstermek için [number_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/number_format/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız uygulamak için [is_number_format_linked_to_source](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) özelliğini `False` yapın.
 
-Bu örnek, dört kategori boyunca kırmızı ve mavi serilerle %100 yığınlı bir sütun grafik oluşturur. Her değer çifti toplamı 1'dir. `0.0%` etiket biçimi, 0.30 değerini %30.0 olarak gösterir; dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
+Bu örnek, dört kategori üzerinde kırmızı ve mavi serilere sahip %100 yığılmış sütun grafik oluşturur. Her değer çifti 1’e eşittir. `0.0%` biçimi, 0.30 sayısını 30.0% olarak gösterirken, dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 punto etiket metni kullanır.
 
 ```python
 import aspose.slides as slides
@@ -102,6 +103,7 @@ import aspose.pydrawing as drawing
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
 
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
@@ -143,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **Veri Etiketlerinin Gerçek Metnini Okuma**
 
-[get_actual_label_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) kullanarak bir veri etiketinin ayarları tarafından üretilen metni alabilirsiniz. Bu, raporlar için etiketleri çıkarmak, sunum içeriğinde arama yapmak veya oluşturulan grafikleri doğrulamak için faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, bir diğeri ise [text_frame_for_overriding](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) üzerinden özel metin kullanır.
+[get_actual_label_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) kullanarak bir veri etiketinin ayarlarından oluşturulan metni alın. Bu, raporlar için etiketleri çıkarmak, sunum içeriğini aramak veya oluşturulan grafikleri doğrulamak istediğinizde yararlıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değeri yüzde olarak, bir diğeri ise [text_frame_for_overriding](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) üzerinden özel metin olarak biçimlendirir.
 
 ```python
 import aspose.slides as slides
@@ -151,6 +153,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     chart.chart_data.series.clear()
@@ -193,11 +196,73 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Bir veri noktasında depolanan sayı `0.75` olarak kalır, etiketinde kategori ve seri adlarıyla birlikte `75%` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [get_actual_label_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) her iki durumda da sonuç etiket dizesini döndürür. Sadece görünen etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [is_visible](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/is_visible/) ayrı ayrı kontrol edin.
+Veri noktasında saklanan sayı `0.75` olarak kalır, etiketinde ise kategori ve seri adlarıyla birlikte `75%` gösterilir. Özel metin, oluşturulan etiket metninin yerine geçer. [get_actual_label_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) her iki durumda da sonuç etiket dizesini döndürür. Yalnızca görünen etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi [is_visible](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/is_visible/) ayrı ayrı kontrol edin.
 
-## **Etiketi Eksen’den Uzaklık Olarak Ayarlama**
+## **Eksen Maksimumunun Ötesindeki Veri Etiketlerini Kontrol Etme**
 
-[label_offset](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/axis/label_offset/) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edebilirsiniz. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiketi ofsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
+Bir eksen aralığını manuel olarak sınırladığınızda, bazı veri noktaları maksimumu aşabilir. Bu veri etiketlerinin gösterilip gösterilmeyeceğini kontrol etmek için [show_data_labels_over_maximum](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) özelliğini kullanın. Bu ayar etiket görünürlüğünü değiştirir; eksen aralığını veya temel veri değerlerini değiştirmez.
+
+Aşağıdaki örnek, 60 ve 120 değerlerine sahip 2D kümelenmiş sütun grafik oluşturur. Dikey eksende [is_automatic_max_value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/axis/is_automatic_max_value/) `False` ve [max_value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/axis/max_value/) 100 olarak ayarlanır. İlk slayt, maksimumun ötesindeki etiketlere izin verir; bu slaydın bir kopyası ise etiketleri devre dışı bırakır. Her iki slayt da `DataLabelsOverMaximum.pptx` dosyasına kaydedilir.
+
+[show_value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/show_value/) ile değer etiketlerini etkinleştirin. Grafik düzeyindeki bu ayar, tek bir etiketin devre dışı bırakılmış değer gösterimini geçersiz kılmaz; tek başına değer gösterimini sağlamaz. Bu örnek, tüm seri için değerleri etkinleştirir ve [position](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/position/) kullanarak etiketleri her sütunun dış ucuna yerleştirir.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = False
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    first_category = workbook.get_cell(0, 1, 0, "Within range")
+    second_category = workbook.get_cell(0, 2, 0, "Above maximum")
+
+    chart.chart_data.categories.add(first_category)
+    chart.chart_data.categories.add(second_category)
+
+    series_name = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_name, chart.type)
+
+    first_value = workbook.get_cell(0, 1, 1, 60)
+    second_value = workbook.get_cell(0, 2, 1, 120)
+
+    series.data_points.add_data_point_for_bar_series(first_value)
+    series.data_points.add_data_point_for_bar_series(second_value)
+
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 100
+    chart.show_data_labels_over_maximum = True
+
+    second_slide = presentation.slides.add_clone(slide)
+    second_chart = second_slide.shapes[0]
+    second_chart.show_data_labels_over_maximum = False
+
+    presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Aşağıdaki görseller, Microsoft PowerPoint tarafından render edilen kaydedilmiş slaytları gösterir. `True` ile etiket **120** üst sınırda görünür; `False` ile gizlenir. Etiket **60** görünür kalır, eksen maksimumu **100** olarak kalır ve ikinci veri noktası her iki durumda da **120** olarak kalır.
+
+| show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Bu örnek, bir değer ekseni içeren 2D sütun grafik kullanır. Değer ekseni olmayan grafikler, örneğin pasta ve halka grafikler, bu şekilde sınırlanacak bir eksen maksimumuna sahip değildir.
+{{% /alert %}}
+
+## **Eksenden Etiket Mesafesini Ayarlama**
+
+[label_offset](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/axis/label_offset/) kullanarak kategori eksen etiketleri ile eksen arasındaki mesafeyi kontrol edin. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiket ofsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına ekli etiketler yerine kategori eksen etiketlerini etkiler.
 
 ```python
 import aspose.slides as slides
@@ -214,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **Etiket Konumunu Ayarlama**
 
-Bir pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve gösterge çizgileri için yer açın.
+Bir pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve yönlendirme çizgileri için yer açın.
 
-Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına konumlandırır ve [x](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/x/) ve [y](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/y/) ofsetlerini ayarlar. Bu ofsetler, sırasıyla grafik genişliği ve yüksekliğine göre relatifdir.
+Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına koyar ve [x](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/x/) ve [y](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/y/) ofsetlerini ayarlar. Bu ofsetler, sırasıyla grafik genişliği ve yüksekliğine göre görecelidir.
 
 ```python
 import aspose.slides as slides
@@ -224,6 +289,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
     series = chart.chart_data.series
 
@@ -236,15 +302,15 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Ayarlanmış veri etiketi konumu](pie-chart-adjusted-label.png)
+![Ayarlanmış veri etiketi konumuna sahip pasta grafiği](pie-chart-adjusted-label.png)
 
 ## **SSS**
 
 **Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**  
-Otomatik etiket konumlandırma, gösterge çizgileri ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler veya ana noktalar için etiketleri gösterin.
+Otomatik etiket yerleştirmeyi, yönlendirme çizgilerini ve daha küçük yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler ya da ana noktalar için etiket gösterin.
 
 **Sıfır, negatif veya boş değerler için yalnızca etiketleri nasıl devre dışı bırakabilirim?**  
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerlerin gösterimini kapatın.
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerler için gösterimi kapatın.
 
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**  
-Yazı tipi ailesi ve boyutunu açıkça ayarlayın ve yedekleme (fallback) oluşmaması için yazı tipinin oluşturma ortamında mevcut olduğundan emin olun.
+**PDF/görsellere dışa aktarırken tutarlı bir etiket stilini nasıl sağlayabilirim?**  
+Yazı tipi ailesini ve boyutunu açıkça ayarlayın ve render ortamında yazı tipinin mevcut olduğundan emin olun.

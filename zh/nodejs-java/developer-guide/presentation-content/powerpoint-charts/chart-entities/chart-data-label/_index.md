@@ -1,5 +1,5 @@
 ---
-title: 使用 JavaScript 管理演示文稿中的图表数据标签
+title: 使用 JavaScript 在演示文稿中管理图表数据标签
 linktitle: 数据标签
 type: docs
 url: /zh/nodejs-java/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "学习如何使用 JavaScript 和 Aspose.Slides for Node.js 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
+description: "了解如何使用 JavaScript 和 Aspose.Slides for Node.js（通过 Java）在 PowerPoint 演示文稿中添加和格式化图表数据标签，以制作更具吸引力的幻灯片。"
 ---
-## **简介**
+## **介绍**
 
-数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明如何格式化数值、显示百分比、读取标签文本、调整类目轴标签间距以及定位饼图标签。
+数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文解释了如何格式化数值、显示百分比、读取标签文本、在轴最大值之外控制标签、调整类目轴标签间距以及定位饼图标签。
 
 ## **在图表数据标签中设置数据精度**
 
-使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) 来格式化系列值。此示例创建一个带默认数据的折线图，显示其数据表，并为第一个系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层数值。
+使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) 来格式化系列值。此示例创建一个带默认数据的折线图，显示其数据表，并为第一个系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，但不更改底层数值。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -31,6 +31,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
 
@@ -46,7 +47,7 @@ try {
 
 ## **将百分比显示为标签**
 
-对于堆积柱形图，计算每个数值占其类目总和的百分比，并将文本分配给由 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) 返回的文本框。本例使用默认图表数据，并以 8 磅字体显示两位小数的百分比。总计为零的类目将被跳过，以避免除以零。若图表数据更改，需要重新计算自定义标签文本。
+对于堆叠柱形图，计算每个值在其类别总计中的百分比，并将文本分配给 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) 返回的文本框。本例使用默认图表数据，并以 8 磅字体显示两位小数的百分比。总计为零的类别将被跳过，以避免除以零。若图表数据更改，请重新计算自定义标签文本。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,6 +55,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
 
     const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
@@ -103,9 +105,9 @@ try {
 
 ## **使用图表数据标签设置百分号**
 
-当数值以分数形式存储时，使用 [setNumberFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) 显示百分比。将 `false` 传递给 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) 可使标签格式独立于源单元格。
+当数值以分数形式存储时，使用 [setNumberFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) 来显示百分比。将 `false` 传递给 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) 可使标签格式独立于源单元格。
 
-此示例创建一个 100% 堆积柱形图，四个类目中包含红色和蓝色系列。每对数值相加为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而竖直坐标轴使用两位小数。两个系列的标签文字均为白色、10 磅。
+此示例创建一个 100% 堆叠柱形图，包含四个类别的红色和蓝色系列。每对数值之和为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列的标签文字均为白色、10 磅。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -114,6 +116,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
@@ -160,9 +163,9 @@ try {
 }
 ```
 
-## **读取数据标签的实际文字**
+## **读取数据标签的实际文本**
 
-使用 [getActualLabelText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) 获取由数据标签设置生成的文字。这在提取报告标签、搜索演示文稿内容或验证生成的图表时很有用。下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/) 组合了每个类目名称、系列名称和数值。一个点将其数值格式化为百分比，另一个使用来自 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) 的自定义文字。
+使用 [getActualLabelText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) 获取数据标签设置产生的文本。这在提取标签用于报告、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/) 将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个使用来自 [getTextFrameForOverriding](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) 的自定义文本。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,6 +173,7 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     chart.getChartData().getSeries().clear();
@@ -224,11 +228,15 @@ try {
 }
 ```
 
-存储在数据点中的数值仍为 `0.75`，即使其标签显示 `75%` 并附带类目和系列名称。自定义文字会替换生成的标签文字。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) 都返回最终的标签字符串。若只想提取可见标签，请如上所示单独检查 [isVisible](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/isvisible/)。
+数据点中存储的数字仍为 `0.75`，即使其标签显示为 `75%` 并附带类别和系列名称。自定义文本会替换生成的标签文本。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) 都返回最终的标签字符串。如上所示，在仅想提取可见标签时，请单独检查 [isVisible](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/isvisible/)。
 
-## **设置标签相对于坐标轴的距离**
+## **在轴最大值之外控制数据标签**
 
-使用 [setLabelOffset](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/axis/setlabeloffset/) 控制类目轴标签与坐标轴之间的距离。该值是轴标签最大字体大小的百分比。此示例创建一个簇状柱形图，并将水平轴标签偏移设置为 500。此设置影响类目轴标签，而不是附加到单个数据点的标签。
+当手动限制轴范围时，某些数据点可能超过其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) 来控制是否显示这些数据点的标签。此设置仅改变标签可见性；它不更改轴范围或底层数据值。
+
+下面的示例创建一个 2D 簇状柱形图，数值为 60 和 120。它将 `false` 传递给 [setAutomaticMaxValue](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) 并使用 [setMaxValue](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/axis/setmaxvalue/) 将垂直轴的最大值设为 100。第一张幻灯片允许标签超出最大值；该幻灯片的副本则禁用该功能。两张幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
+
+使用 [setShowValue](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) 启用数值标签。图表级别的设置本身不会启用数值显示，也不会覆盖单个标签被禁用的数值显示。此示例为整个系列启用数值，并使用 [setPosition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabelformat/setposition/) 将标签放置在每根柱形的外部端点。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -236,6 +244,70 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    const firstCategory = workbook.getCell(0, 1, 0, "Within range");
+    const secondCategory = workbook.getCell(0, 2, 0, "Above maximum");
+
+    chart.getChartData().getCategories().add(firstCategory);
+    chart.getChartData().getCategories().add(secondCategory);
+
+    const seriesName = workbook.getCell(0, 0, 1, "Values");
+    const series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+
+    const firstValue = workbook.getCell(0, 1, 1, 60);
+    const secondValue = workbook.getCell(0, 2, 1, 120);
+
+    series.getDataPoints().addDataPointForBarSeries(firstValue);
+    series.getDataPoints().addDataPointForBarSeries(secondValue);
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(100);
+    chart.setShowDataLabelsOverMaximum(true);
+
+    const secondSlide = presentation.getSlides().addClone(slide);
+    const secondChart = secondSlide.getShapes().get_Item(0);
+    secondChart.setShowDataLabelsOverMaximum(false);
+
+    presentation.save("DataLabelsOverMaximum.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+下图展示了 Microsoft PowerPoint 渲染的保存幻灯片。`true` 时，标签 **120** 在上边界可见；`false` 时，该标签被隐藏。标签 **60** 保持可见，轴最大值仍为 **100**，第二个数据点在两种情况下均为 **120**。
+
+| setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
+| --- | --- |
+| ![PowerPoint 图表显示数值标签 120，轴最大值为 100](data-labels-over-maximum-true.png) | ![PowerPoint 图表隐藏数值标签 120，轴最大值为 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+
+此示例使用带数值轴的 2D 柱形图。没有数值轴的图表（如饼图和环形图）没有可限制的轴最大值。
+
+{{% /alert %}}
+
+## **设置标签距离轴的距离**
+
+使用 [setLabelOffset](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/axis/setlabeloffset/) 控制类目轴标签与轴之间的距离。该值是轴标签最大字体大小的百分比。本例创建一个簇状柱形图，并将水平轴标签偏移设为 500。此设置影响类目轴标签，而不是附加到单个数据点的标签。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.getAxes().getHorizontalAxis().setLabelOffset(500);
 
@@ -249,7 +321,7 @@ try {
 
 在饼图上，调整数据标签位置以改善间距并为引导线留出空间。
 
-本示例显示第一个数据点的数值，将其标签放置在切片外部，并使用 [setX](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/setx/) 和 [setY](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/sety/) 调整水平和垂直偏移。这些偏移分别相对于图表的宽度和高度。
+本示例显示第一个数据点的数值，将其标签放置在切片外部，并使用 [setX](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/setx/) 和 [setY](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/datalabel/sety/) 调整水平和垂直偏移。这些偏移相对于图表的宽度和高度。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -258,6 +330,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
     const series = chart.getChartData().getSeries();
 
@@ -273,18 +346,18 @@ try {
 }
 ```
 
-![饼图的调整后数据标签位置](pie-chart-adjusted-label.png)
+![已调整数据标签位置的饼图](pie-chart-adjusted-label.png)
 
 ## **常见问题**
 
-**如何防止在密集图表中标签重叠？**
+**如何防止在密集图表中出现数据标签重叠？**
 
-结合自动标签布局、引导线和减小字体大小；如有必要，可隐藏某些字段（例如类目），或仅对极值或关键点显示标签。
+结合自动标签布局、引导线和减小字体大小；必要时隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
 
-**如何仅对零、负数或空值禁用标签？**
+**如何仅对零、负或空值禁用标签？**
 
-在启用标签前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失值的显示。
+在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负值或缺失值的显示。
 
-**如何确保导出为 PDF/图片时标签样式一致？**
+**如何在导出为 PDF/图片时确保标签样式一致？**
 
-显式设置字体族和大小，并确认渲染环境中已安装该字体，以避免回退。
+显式设置字体族和大小，并确认渲染环境中提供该字体，以避免回退。

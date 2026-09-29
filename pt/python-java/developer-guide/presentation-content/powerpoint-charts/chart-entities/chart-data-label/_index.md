@@ -19,11 +19,11 @@ description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em a
 ---
 ## **Introdução**
 
-Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar os rótulos de gráficos de pizza.
+Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categoria e posicionar rótulos em gráficos de pizza.
 
 ## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valores para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) para formatar os valores das séries. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
 
 ```python
 import jpype
@@ -52,7 +52,7 @@ finally:
 
 ## **Exibir Porcentagem como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como porcentagem do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
+Para um gráfico de colunas empilhadas, calcule cada valor como uma porcentagem do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico forem alterados.
 
 ```python
 import jpype
@@ -66,6 +66,7 @@ from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
 
     chart_series = chart.getChartData().getSeries()
@@ -107,11 +108,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Definir Símbolo de Percentual nos Rótulos de Dados do Gráfico**
+## **Definir Sinal de Porcentagem nos Rótulos de Dados do Gráfico**
 
 Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabelformat/#setNumberFormat) para exibir porcentagens. Passe `False` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) para aplicar o formato do rótulo independentemente das células de origem.
 
-Este exemplo cria um gráfico de colunas empilhadas 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10 pt.
+Este exemplo cria um gráfico de colunas empilhadas a 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0,30 como 30,0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries utilizam texto de rótulo branco, tamanho 10.
 
 ```python
 import jpype
@@ -127,6 +128,7 @@ Color = jpype.JClass("java.awt.Color")
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
 
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
@@ -171,7 +173,7 @@ finally:
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getActualLabelText) para obter o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo da apresentação ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem, e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Use [getActualLabelText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getActualLabelText) para recuperar o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo da apresentação ou validar gráficos gerados. No exemplo abaixo, o padrão [data label format](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabelformat/) combina cada nome de categoria, nome da série e valor. Um ponto formata seu valor como porcentagem, e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -185,6 +187,7 @@ from asposeslides.api import ChartType, Presentation
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
 
     chart.getChartData().getSeries().clear()
@@ -231,11 +234,81 @@ finally:
     presentation.dispose()
 ```
 
-O número armazenado em um ponto de dados continua `0.75`, mesmo quando seu rótulo mostra `75%` junto com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [getActualLabelText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getActualLabelText) devolve a string do rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#isVisible) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo exibe `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [getActualLabelText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#getActualLabelText) devolve a string de rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#isVisible) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+
+## **Controlar Rótulos de Dados Além do Máximo do Eixo**
+
+Quando você define manualmente um intervalo de eixo, alguns pontos de dados podem exceder seu máximo. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes dos dados.
+
+O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Ele passa `False` para [setAutomaticMaxValue](https://reference.aspose.com/slides/pt/python-java/aspose.slides/axis/#setAutomaticMaxValue) e define o máximo como 100 com [setMaxValue](https://reference.aspose.com/slides/pt/python-java/aspose.slides/axis/#setMaxValue) no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
+
+Habilite rótulos de valor com [setShowValue](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabelformat/#setShowValue). A configuração no nível do gráfico não habilita a exibição de valores por si só nem sobrescreve a exibição de valor desativada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [setPosition](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabelformat/#setPosition) para posicionar os rótulos na extremidade externa de cada coluna.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    first_category = workbook.getCell(0, 1, 0, "Within range")
+    second_category = workbook.getCell(0, 2, 0, "Above maximum")
+
+    chart.getChartData().getCategories().add(first_category)
+    chart.getChartData().getCategories().add(second_category)
+
+    series_name = workbook.getCell(0, 0, 1, "Values")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+
+    first_value = workbook.getCell(0, 1, 1, jpype.JDouble(60))
+    second_value = workbook.getCell(0, 2, 1, jpype.JDouble(120))
+
+    series.getDataPoints().addDataPointForBarSeries(first_value)
+    series.getDataPoints().addDataPointForBarSeries(second_value)
+
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+    series.getLabels().getDefaultDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(100)
+    chart.setShowDataLabelsOverMaximum(True)
+
+    second_slide = presentation.getSlides().addClone(slide)
+    second_chart = second_slide.getShapes().get_Item(0)
+    second_chart.setShowDataLabelsOverMaximum(False)
+
+    presentation.save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `True`, o rótulo **120** fica visível no limite superior; com `False`, ele fica oculto. O rótulo **60** permanece visível, o máximo do eixo permanece em **100**, e o segundo ponto de dados continua **120** em ambos os casos.
+
+| setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
+| --- | --- |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Este exemplo usa um gráfico de colunas 2D com um eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo para limitar dessa maneira.
+{{% /alert %}}
 
 ## **Definir Distância do Rótulo a partir de um Eixo**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/pt/python-java/aspose.slides/axis/#setLabelOffset) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento dos rótulos do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, não os rótulos vinculados a pontos de dados individuais.
+Use [setLabelOffset](https://reference.aspose.com/slides/pt/python-java/aspose.slides/axis/#setLabelOffset) para controlar a distância entre os rótulos do eixo de categoria e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categoria em vez dos rótulos anexados a pontos de dados individuais.
 
 ```python
 import jpype
@@ -258,11 +331,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Ajustar Localização do Rótulo**
+## **Ajustar Posição do Rótulo**
 
-Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e criar espaço para linhas de ligação.
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e liberar espaço para linhas de ligação.
 
-Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#setX) e [setY](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#setY). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#setX) e [setY](https://reference.aspose.com/slides/pt/python-java/aspose.slides/datalabel/#setY). Esses deslocamentos são relativos à largura e altura do gráfico, respectivamente.
 
 ```python
 import jpype
@@ -276,6 +349,7 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
     
@@ -294,14 +368,11 @@ finally:
 
 ## **Perguntas Frequentes**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
+**Como posso evitar que os rótulos de dados se sobreponham em gráficos densos?**  
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos‑chave.
 
-Combine posicionamento automático de rótulos, linhas de ligação e tamanho de fonte reduzido; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos‑chave.
+**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**  
+Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
-**Como posso desabilitar rótulos apenas para valores zero, negativos ou vazios?**
-
-Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes conforme uma regra definida.
-
-**Como posso garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
-
+**Como posso garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**  
 Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituição.

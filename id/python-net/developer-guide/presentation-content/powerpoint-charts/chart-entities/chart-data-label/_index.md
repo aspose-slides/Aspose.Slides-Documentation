@@ -1,10 +1,10 @@
 ---
-title: Kelola Label Data Grafik dalam Presentasi dengan Python
+title: Mengelola Label Data Diagram dalam Presentasi dengan Python
 linktitle: Label Data
 type: docs
 url: /id/python-net/chart-data-label/
 keywords:
-- grafik
+- diagram
 - label data
 - presisi data
 - persentase
@@ -14,15 +14,15 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via .NET untuk slide yang lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via .NET untuk slide yang lebih menarik."
 ---
 ## **Pendahuluan**
 
-Label data menampilkan informasi tentang seri grafik dan titik data individual, membantu pembaca mengidentifikasi nilai dan memahami grafik. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, menyesuaikan jarak label sumbu kategori, dan memposisikan label pada grafik pai.
+Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram lingkaran.
 
-## **Atur Presisi Data pada Label Data Grafik**
+## **Atur Presisi Data pada Label Data Diagram**
 
-Gunakan [number_format_of_values](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/number_format_of_values/) untuk memformat nilai seri. Contoh ini membuat grafik garis dengan data default, menampilkan tabel data, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasarnya.
+Gunakan [number_format_of_values](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartseries/number_format_of_values/) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel data, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai yang mendasarinya.
 
 ```python
 import aspose.slides as slides
@@ -43,7 +43,7 @@ with slides.Presentation() as presentation:
 
 ## **Tampilkan Persentase sebagai Label**
 
-Untuk grafik kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke [text_frame_for_overriding](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Contoh ini menggunakan data grafik default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data grafik berubah.
+Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teksnya ke [text_frame_for_overriding](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font ukuran 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
 
 ```python
 import aspose.slides as slides
@@ -51,6 +51,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
 
     category_totals = [0.0] * len(chart.chart_data.categories)
@@ -89,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Atur Tanda Persentase dengan Label Data Grafik**
+## **Atur Tanda Persentase dengan Label Data Diagram**
 
-Ketika nilai disimpan sebagai pecahan, gunakan [number_format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/number_format/) untuk menampilkan persentase. Atur [is_number_format_linked_to_source](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) ke `False` untuk menerapkan format label secara independen dari sel sumber.
+Ketika nilai disimpan sebagai pecahan, gunakan [number_format](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/number_format/) untuk menampilkan persentase. Atur [is_number_format_linked_to_source](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) menjadi `False` untuk menerapkan format label secara independen dari sel sumber.
 
-Contoh ini membuat grafik kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
+Contoh ini membuat diagram kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
 
 ```python
 import aspose.slides as slides
@@ -102,6 +103,7 @@ import aspose.pydrawing as drawing
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
 
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
@@ -141,9 +143,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Baca Teks Aktual dari Label Data**
+## **Baca Teks Sebenarnya dari Label Data**
 
-Gunakan [get_actual_label_text](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi grafik yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan titik lain menggunakan teks khusus dari [text_frame_for_overriding](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Gunakan [get_actual_label_text](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [text_frame_for_overriding](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -151,6 +153,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     chart.chart_data.series.clear()
@@ -193,11 +196,73 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Angka yang disimpan dalam titik data tetap `0.75`, bahkan ketika labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [get_actual_label_text](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [is_visible](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/is_visible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
+Angka yang disimpan dalam titik data tetap `0.75`, bahkan ketika labelnya menunjukkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [get_actual_label_text](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [is_visible](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/is_visible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
+
+## **Kontrol Label Data di Luar Maksimum Sumbu**
+
+Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data dapat melampaui maksimum sumbu. Gunakan [show_data_labels_over_maximum](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data yang mendasarinya.
+
+Contoh di bawah membuat diagram kolom berkumpulan 2D dengan nilai 60 dan 120. Ini mengatur [is_automatic_max_value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/axis/is_automatic_max_value/) menjadi `False` dan [max_value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/axis/max_value/) menjadi 100 pada sumbu vertikal. Slide pertama memungkinkan label melampaui maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
+
+Aktifkan label nilai dengan [show_value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/show_value/). Pengaturan tingkat diagram tidak mengaktifkan tampilan nilai secara sendiri atau mengganti tampilan nilai yang dinonaktifkan pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [position](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabelformat/position/) untuk menempatkan label di ujung luar setiap kolom.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = False
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+
+    first_category = workbook.get_cell(0, 1, 0, "Within range")
+    second_category = workbook.get_cell(0, 2, 0, "Above maximum")
+
+    chart.chart_data.categories.add(first_category)
+    chart.chart_data.categories.add(second_category)
+
+    series_name = workbook.get_cell(0, 0, 1, "Values")
+    series = chart.chart_data.series.add(series_name, chart.type)
+
+    first_value = workbook.get_cell(0, 1, 1, 60)
+    second_value = workbook.get_cell(0, 2, 1, 120)
+
+    series.data_points.add_data_point_for_bar_series(first_value)
+    series.data_points.add_data_point_for_bar_series(second_value)
+
+    series.labels.default_data_label_format.show_value = True
+    series.labels.default_data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 100
+    chart.show_data_labels_over_maximum = True
+
+    second_slide = presentation.slides.add_clone(slide)
+    second_chart = second_slide.shapes[0]
+    second_chart.show_data_labels_over_maximum = False
+
+    presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Gambar berikut menunjukkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `True`, label **120** terlihat pada batas atas; dengan `False`, label tersebut disembunyikan. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
+
+| show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
+| --- | --- |
+| ![Diagram PowerPoint yang menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint yang menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
+
+{{% alert color="info" title="Chart Type" %}}
+Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram lingkaran dan donat, tidak memiliki maksimum sumbu untuk dibatasi dengan cara ini.
+{{% /alert %}}
 
 ## **Atur Jarak Label dari Sumbu**
 
-Gunakan [label_offset](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/axis/label_offset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat grafik kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individual.
+Gunakan [label_offset](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/axis/label_offset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkumpulan dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individu.
 
 ```python
 import aspose.slides as slides
@@ -214,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **Sesuaikan Lokasi Label**
 
-Pada grafik pai, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis penunjuk.
+Pada diagram lingkaran, sesuaikan posisi label data untuk meningkatkan jarak dan memberi ruang bagi garis penunjuk.
 
-Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset [x](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/x/) dan [y](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/y/). Offset ini relatif terhadap lebar dan tinggi grafik, masing-masing.
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset [x](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/x/) dan [y](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/datalabel/y/). Offset ini relatif terhadap lebar dan tinggi diagram, masing‑masing.
 
 ```python
 import aspose.slides as slides
@@ -224,6 +289,7 @@ import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
     series = chart.chart_data.series
 
@@ -236,18 +302,18 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Grafik pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
+![Diagram lingkaran dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Bagaimana saya dapat mencegah label data tumpang tindih pada grafik yang padat?**
+**Bagaimana saya dapat mencegah label data saling tumpang tindih pada diagram yang padat?**
 
-Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika diperlukan, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau poin kunci.
+Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau poin kunci.
 
 **Bagaimana saya dapat menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Saring titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai kosong sesuai dengan aturan yang ditentukan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
 **Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan secara eksplisit keluarga font dan ukuran, serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.
+Tetapkan secara eksplisit keluarga font dan ukuran serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.
