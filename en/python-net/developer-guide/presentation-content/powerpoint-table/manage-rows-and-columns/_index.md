@@ -22,128 +22,138 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Manage table rows and columns in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET and speed up presentation editing and data updates."
+description: "Manage table rows and columns in PowerPoint with Aspose.Slides for Python via .NET and speed up presentation editing and data updates."
 ---
 
-## **Overview**
+## **Introduction**
 
-This article shows how to manage table rows and columns in PowerPoint and OpenDocument presentations using Aspose.Slides for Python. You’ll learn how to add, insert, clone, and delete rows or columns, mark the first row as a header, adjust sizing and layout, and apply text and style formatting at the row or column level. Each task is demonstrated with compact, self-contained code snippets based on the [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) API, so you can quickly find a table on a slide and reshape its structure to match your design.
+Aspose.Slides for Python via .NET lets you manage table structure and formatting in PowerPoint presentations through the [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) class. You can designate a header row, clone or remove rows and columns, and apply text formatting to an entire row or column.
 
-## **Set the First Row as a Header**
+This article explains these operations with Python examples. It also shows how to retrieve a table's style preset so you can reuse it. Table row and column indices are zero-based.
 
-Mark the table’s first row as a header to clearly distinguish column titles from data. In Aspose.Slides for Python, simply enable the table’s *First Row* option to apply the header formatting defined by the selected table style.
+## **Control Row Height**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
-1. Access the slide by its index.
-1. Iterate through all [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) objects to find the relevant table.
-1. Set the table’s first row as the header.
+Use [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) to set a row's minimum height in points. It is a lower bound, not a fixed height. [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) returns the actual height and is read-only. Access the row through [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/).
 
-This Python code shows how to set a table’s first row as its header:
+The example loads [row-height-input.pptx](row-height-input.pptx), which has a table as the first shape on the first slide. Its first row starts at 70 points. The cells use 18-point Arial text, wrapping, and 6-point top and bottom margins; the longer text in the second column wraps onto multiple lines. The example increases the minimum to 100 points, then decreases it to 20 points, prints the actual height after each change, and saves both results.
 
 ```python
 import aspose.slides as slides
 
-# Instantiate the Presentation class.
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
+
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
+
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
+```
+
+With the supplied presentation, increasing the minimum adds space to the row. Decreasing it removes that extra space, but the actual height remains greater than 20 points because the text and cell margins need more room. Reducing the minimum alone cannot force the row below the space required by its content.
+
+Several factors affect the actual height:
+
+- **Text and font size:** longer text, explicit line breaks, or a larger font can require more vertical space.
+- **Wrapping and column width:** with wrapping enabled, a narrower [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) can produce more lines. A wider column can reduce the space required vertically.
+- **Cell margins:** [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) and [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) add vertical space. [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) and [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) reduce the width available for text and can cause additional wrapping.
+
+For this table without merged cells, the cell that needs the most vertical space determines the content-driven lower limit for the entire row. To make the row shorter, you may also need to shorten the text, reduce the font size or margins, or widen a column.
+
+The images below show the same table at the same scale. In this run, the actual heights were 70, 100, and 55.2 points: the final row remained taller than its 20-point minimum. Exact text measurements can vary with the fonts available in your environment. Download the saved results: [increased minimum](row-height-increased.pptx) and [decreased minimum](row-height-decreased.pptx).
+
+| Original: minimum 70 pt, actual 70 pt | Increased: minimum 100 pt, actual 100 pt | Decreased: minimum 20 pt, actual 55.2 pt |
+| --- | --- | --- |
+| ![Original table with a 70-point first row.](row-height-before.png) | ![Table after increasing the first row minimum to 100 points.](row-height-increased.png) | ![Table after decreasing the first row minimum to 20 points; wrapped text keeps the row taller than the minimum.](row-height-decreased.png) |
+
+## **Set the First Row as a Header**
+
+Use the [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) property to mark the first row for header formatting. Its appearance depends on the table style applied to the table.
+
+1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Access the first slide.
+3. Access the table stored as the first shape on the slide.
+4. Enable header formatting for its first row.
+5. Save the modified presentation.
+
+The example requires `table.pptx` with a table as the first shape on the first slide. It enables header formatting for the first row and saves `First_row_header.pptx`.
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("table.pptx") as presentation:
-    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Iterate through the shapes and get a reference to the table.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
-
-    # Set the first row of the table as its header.
+    table = slide.shapes[0]
     table.first_row = True
-    
-    # Save the presentation to disk.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Clone a Table Row or Column**
 
-Clone any table row or column and insert the copy at the desired position in the table. The duplicate preserves cell content, formatting, and sizes, so you can extend layouts quickly and consistently.
+Clone rows or columns to reuse their content and formatting. You can append a copy to the end of the table or insert it at a specific position.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
-1. Access the slide by its index.
-1. Define an array of column widths.
-1. Define an array of row heights.
-1. Add a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) to the slide using `add_table(x, y, column_widths, row_heights)`.
-1. Clone a table row.
-1. Clone a table column.
-1. Save the modified presentation.
+1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Access the first slide.
+3. Define the column widths and row heights.
+4. Add a table with the [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) method.
+5. Clone the required rows.
+6. Clone the required columns.
+7. Save the modified presentation.
 
-This Python code shows how to clone a row and column of a PowerPoint table:
+The example requires `Test.pptx` with at least one slide. It creates a table with three columns and five rows, with dimensions specified in points. It appends copies of the first row and column, then inserts copies of the second row and column at index 3 (the fourth position). The resulting table has seven rows and five columns. The `False` argument disables cloning into adjacent merged rows or columns; this table has no merged cells.
 
 ```python
 import aspose.slides as slides
 
-# Instantiate the Presentation class.
-with slides.Presentation() as presentation:
-    # Access the first slide.
+with slides.Presentation("Test.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Define column widths and row heights.
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Add a table to the slide.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Add text to row 1, column 1.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Add text to row 2, column 1.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Clone row 1 at the end of the table.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Add text to row 1, column 2.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Add text to row 2, column 2.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Clone row 2 as the 4th row of the table.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Clone the first column at the end.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Clone the second column at index 3 (the 4th position).
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Save the presentation to disk.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Remove a Row or Column from a Table**
 
-Streamline a table by removing any row or column by index using Aspose.Slides for Python—the layout readjusts automatically while preserving the formatting of remaining cells. This is handy for simplifying data grids or deleting placeholders without rebuilding the table.
+Remove rows or columns that are no longer needed in a table. Removing an item shifts the indices of the rows or columns that follow it.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
-1. Access the slide by its index.
-1. Define an array of column widths.
-1. Define an array of row heights.
-1. Add an ITable to the slide using `add_table(x, y, column_widths, row_heights)`.
-1. Remove the table row.
-1. Remove the table column.
-1. Save the modified presentation.
+1. Create a presentation with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Access the first slide.
+3. Define the column widths and row heights.
+4. Add a table with the [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) method.
+5. Remove the second row and second column.
+6. Save the modified presentation.
 
-The following Python code shows how to remove a row and column from a table:
+This example creates a three-by-three table and removes the row and column at index 1, leaving a two-by-two table in `TestTable_out.pptx`. The dimensions are in points. The `False` argument disables removal of adjacent merged rows or columns; this table has no merged cells.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
@@ -152,93 +162,83 @@ with slides.Presentation() as presentation:
 
 ## **Set Text Formatting at the Table Row Level**
 
-Apply consistent text styling to an entire table row in one step. With Aspose.Slides for Python, you can set font family, size, weight, color, and alignment for all cells in the row at once to keep headings or data bands uniform.
+Apply text formatting to an entire row to keep its cells consistent. You can set font properties, paragraph formatting, and text direction without formatting each cell individually.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
-1. Access the slide by its index.
-1. Access the relevant [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object on the slide.
-1. Set the font height for the first-row cells.
-1. Set the alignment and right margin for the first-row cells.
-1. Set the text vertical type for the second-row cells.
-1. Save the modified presentation.
+1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Access the table on the first slide.
+3. Set [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) for the first row.
+4. Set [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) and [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) for the first row.
+5. Set [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) for the second row.
+6. Save the modified presentation.
 
-This Python code demonstrates the operation.
+The example requires `table.pptx` with a table as the first shape on the first slide and at least two rows. It applies 25-point text, right alignment, and a 20-point right paragraph margin to the first row, then sets vertical text in the second row.
 
 ```python
 import aspose.slides as slides
 
-# Create an instance of the Presentation class.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Set the font height for the first-row cells.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Set the first-row cells' text alignment and right margin.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Set the second-row cells' text vertical type.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Save the presentation to disk.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Set Text Formatting at the Table Column Level**
 
-Apply consistent text styling to an entire table column at once. With Aspose.Slides for Python, you can set font family, size, weight, color, and alignment for all cells in a column to create uniform vertical bands for headings or data.
+Apply text formatting to an entire column to keep its cells consistent. You can set font properties, paragraph formatting, and text direction without formatting each cell individually.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
-1. Access the slide by its index.
-1. Access the relevant [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object on the slide.
-1. Set the font height for the first-column cells.
-1. Set the alignment and right margin for the first-column cells.
-1. Set the text vertical type for the second-column cells.
-1. Save the modified presentation.
+1. Load the presentation with the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+2. Access the table on the first slide.
+3. Set [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) for the first column.
+4. Set [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) and [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) for the first column.
+5. Set [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) for the second column.
+6. Save the modified presentation.
 
-The following Python code demonstrates the operation:
+The example requires `table.pptx` with a table as the first shape on the first slide and at least two columns. It applies 25-point text, right alignment, and a 20-point right paragraph margin to the first column, then sets vertical text in the second column.
 
 ```python
 import aspose.slides as slides
 
-# Create an instance of the Presentation class.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Set the first-column cells' font height.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Set the first-column cells' text alignment and right margin.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Set the second-column cells' text vertical type.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Save the presentation to disk.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Get Table Style Properties**
 
-Aspose.Slides lets you retrieve a table’s style properties so you can reuse them for another table or elsewhere. The following Python code shows how to get the style properties from a preset table style:
+Use the [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) property to retrieve the preset applied to a table and reuse it on another table. This identifies the preset rather than individual cell formatting overrides.
+
+The example creates a table, applies [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/), and reads the preset back. It prints `True` when the retrieved preset matches the applied preset and saves the table in `table.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -246,26 +246,27 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
-    table.style_preset = slides.TableStylePreset.DARK_STYLE1  # change the default style preset
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
+    table.style_preset = slides.TableStylePreset.DARK_STYLE1
 
-    # Get the style preset applied to the table, so it can be reused elsewhere.
     style_preset = table.style_preset
-    print(style_preset == slides.TableStylePreset.DARK_STYLE1)  # True
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-### Can I apply PowerPoint themes/styles to a table that’s already created?
+**Can I apply PowerPoint themes/styles to a table that's already created?**
 
 Yes. The table inherits the slide/layout/master theme, and you can still override fills, borders, and text colors on top of that theme.
 
-### Can I sort table rows like in Excel?
+**Can I sort table rows like in Excel?**
 
-No, Aspose.Slides tables don’t have built-in sorting or filters. Sort your data in memory first, then repopulate the table rows in that order.
+No, Aspose.Slides tables don't have built-in sorting or filters. Sort your data in memory first, then repopulate the table rows in that order.
 
-### Can I have banded (striped) columns while keeping custom colors on specific cells?
+**Can I have banded (striped) columns while keeping custom colors on specific cells?**
 
 Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.
