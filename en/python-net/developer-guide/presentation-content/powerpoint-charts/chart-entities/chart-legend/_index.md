@@ -8,114 +8,135 @@ keywords:
 - legend position
 - font size
 - PowerPoint
-- OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Customize chart legends with Aspose.Slides for Python via .NET to optimize PowerPoint and OpenDocument presentations with tailored legend formatting."
+description: "Customize chart legends with Aspose.Slides for Python via .NET to optimize PowerPoint presentations with tailored legend formatting."
 ---
 
 ## **Overview**
 
-Aspose.Slides for Python provides full control over chart legends so you can make data labels clear and presentation-ready. You can show or hide the legend, choose its position on the slide, and adjust layout to prevent overlap with the plot area. The API lets you style text and markers, fine-tune padding and background, and format borders and fills to match your theme. Developers can also access individual legend entries to rename or filter them, ensuring only the most relevant series are displayed. With these capabilities, your charts remain readable, consistent, and aligned with your presentation’s design standards.
+Aspose.Slides for Python via .NET provides options for customizing chart legends in PowerPoint presentations. This article shows how to position and size a legend, set the font size for the whole legend, format an individual legend entry, and hide or restore selected entries.
+
+The FAQ covers related behaviors, including reserving space for the legend, displaying multiline labels, and inheriting formatting from the presentation theme.
 
 ## **Legend Positioning**
 
-Using Aspose.Slides, you can quickly control where the chart legend appears and how it fits your slide layout. Learn how to place the legend precisely.
+Use the legend's [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/x/), [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/y/), [width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/width/), and [height](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/height/) properties to specify its position and size as fractions of the chart's dimensions.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get a reference to the slide.
-1. Add a chart to the slide.
-1. Set the legend properties.
-1. Save the presentation as a PPTX file.
+This example creates a presentation and adds a clustered column chart with default data to the first slide. Dividing the desired legend offsets and dimensions by the chart's width and height converts them to relative values: the legend is offset by 50 points from the chart's top-left corner and sized to 100 by 100 points.
 
-In the example below, we set the position and size of the chart legend:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Create an instance of the Presentation class.
 with slides.Presentation() as presentation:
-
-    # Get a reference to the slide.
     slide = presentation.slides[0]
 
-    # Add a clustered column chart to the slide.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # Set the legend properties.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # Express the legend's position and size relative to the chart.
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Save the presentation to disk.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_position.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set the Legend Font Size**
+## **Set the Font Size of a Legend**
 
-A chart’s legend should be as readable as the data it explains. This section shows how to adjust the legend’s font size so you can match your presentation’s typography and improve accessibility.
+Use the legend's [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) to access its text formatting and set [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) in points.
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Create a chart.
-1. Set the font size.
-1. Save the presentation to disk.
+This example creates a chart with default data and sets the legend text to 20 points. It also disables automatic bounds for the vertical axis and sets its range to -5 through 10.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+    chart.legend.text_format.portion_format.font_height = 20
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = -5
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 10
+
+    presentation.save("legend_font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set the Font Size for a Legend Entry**
+## **Set the Font Size of an Individual Legend Entry**
 
-Aspose.Slides lets you fine-tune the appearance of chart legends by formatting individual entries. The example below shows how to target a specific legend item and set its properties without changing the rest of the legend.
+Use the legend's [entries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/entries/) collection to access formatting for a specific entry. Entry indices are zero-based, so index `1` refers to the second entry.
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Create a chart.
-1. Access a legend entry.
-1. Set the entry properties.
-1. Save the presentation to disk.
+This example creates a clustered column chart whose default data includes at least two series. It formats the second legend entry with bold, italic, and 20-point blue text.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
 
+    text_format = chart.legend.entries[1].text_format
     text_format.portion_format.font_bold = slides.NullableBool.TRUE
     text_format.portion_format.font_height = 20
     text_format.portion_format.font_italic = slides.NullableBool.TRUE
     text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_entry_format.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Hide Individual Legend Entries**
+
+To exclude an auxiliary series from the legend while keeping its data visible, set [ILegendEntryProperties.hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) to `True` through [IChartSeries.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/related_legend_entry/). This hides only the selected legend entry; it does not remove the series or its data points. Setting [IChart.has_legend](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/has_legend/) to `False`, in contrast, hides the entire legend.
+
+The example below creates a clustered column chart with multiple series using default data. It hides the second series' legend entry (index `1`) and saves the presentation. It then restores the entry by setting [hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) to `False` and saves a second copy. The columns remain visible in both files.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = True
+
+    legend_entry = chart.chart_data.series[1].related_legend_entry
+    legend_entry.hide = True
+
+    presentation.save("hidden_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+
+    # Restore the same entry without changing the chart data.
+    legend_entry.hide = False
+
+    presentation.save("restored_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The comparison below shows the same chart with all entries visible and with the second entry hidden. The second series' columns remain unchanged.
+
+![Comparison of a chart with all legend entries visible and with Series 2 hidden from the legend; all columns remain visible.](hide-legend-entry.png)
+
+In column, bar, and line charts, legend entries identify series. For pie charts, they identify individual data points (slices), so use [IChartDataPoint.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/related_legend_entry/) on the selected slice instead. The API documents this data-point property for the `PIE`, `PIE3D`, `EXPLODED_PIE`, `EXPLODED_PIE3D`, `PIE_OF_PIE`, and `BAR_OF_PIE` chart types. Do not assume it applies to doughnut charts, which are not included in that list.
 
 ## **FAQ**
 
-### Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?
+**Can I make the chart allocate space for the legend instead of overlaying it?**
 
-Yes. Use the non-overlay mode ([overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) = `false`); in this case, the plot area will shrink to accommodate the legend.
+Yes. Set [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) to `False` to reserve space for the legend instead of allowing it to overlap the plot area.
 
-### Can I make multi-line legend labels?
+**Can I make multiline legend labels?**
 
-Yes. Long labels wrap automatically when space is insufficient; forced line breaks are supported via newline characters in the series name.
+Yes. Long labels can wrap when the available width is insufficient. You can also use newline characters in series names to request line breaks.
 
-### How do I make the legend follow the presentation theme’s color scheme?
+**How do I make the legend follow the presentation theme's color scheme?**
 
-Do not set explicit colors/fills/fonts for the legend or its text. They will then inherit from the theme and update correctly when the design changes.
+Leave the legend's colors, fills, and fonts unset so that it can inherit theme formatting. Explicit formatting overrides the corresponding theme settings.
