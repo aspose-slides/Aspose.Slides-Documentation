@@ -1,110 +1,142 @@
 ---
-title: تخصيص وسائط إيضاح المخططات في العروض التقديمية باستخدام .NET
-linktitle: وسيلة إيضاح المخطط
+title: تخصيص وسوم المخطط في العروض التقديمية باستخدام .NET
+linktitle: وسمة المخطط
 type: docs
 url: /ar/net/chart-legend/
 keywords:
-- وسيلة إيضاح المخطط
-- موضع وسيلة الإيضاح
+- وسمة المخطط
+- موضع الوسمة
 - حجم الخط
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "قم بتخصيص وسائط إيضاح المخططات باستخدام Aspose.Slides for .NET لتحسين عروض PowerPoint التقديمية مع تنسيق وسيلة إيضاح مخصص."
+description: "تخصيص وسوم المخطط باستخدام Aspose.Slides for .NET لتحسين عروض PowerPoint التقديمية عبر تنسيق وسوم مخصص."
 ---
+## **نظرة عامة**
 
-## **تموضع وسيلة الإيضاح**
-لتعيين خصائص وسيلة الإيضاح. يرجى اتباع الخطوات أدناه:
+توفر Aspose.Slides for .NET خيارات لتخصيص وسوم المخطط في عروض PowerPoint التقديمية. توضح هذه المقالة كيفية تحديد موضع وحجم الوسم، وضبط حجم الخط للوسم بالكامل، وتنسيق مدخل وسمة فردي، وإخفاء أو استعادة المدخلات المحددة.
 
-- إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-- الحصول على مرجع الشريحة.
-- إضافة مخطط إلى الشريحة.
-- تعيين خصائص وسيلة الإيضاح.
-- كتابة العرض التقديمي كملف PPTX.
+تغطي الأسئلة المتكررة السلوكيات ذات الصلة، بما في ذلك تخصيص مساحة للوسم، وعرض تسميات متعددة الأسطر، وراثة التنسيق من سمة العرض التقديمي.
 
-في المثال المرفق أدناه، قمنا بتعيين الموضع والحجم لوسيلة إيضاح المخطط.
-```c#
-// إنشاء كائن من فئة Presentation
-Presentation presentation = new Presentation();
+## **تحديد موضع الوسم**
 
-// الحصول على مرجع الشريحة
-ISlide slide = presentation.Slides[0];
+استخدم خصائص [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/) و [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) للوسم لتحديد موقعه وحجمه كنسب من أبعاد المخطط.
 
-// إضافة مخطط عمودي مجمع إلى الشريحة
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+ينشئ هذا المثال عرضًا تقديميًا ويضيف مخطط أعمدة متجمّع مع بيانات افتراضية إلى الشريحة الأولى. تقسيم إزاحات وأبعاد الوسم المطلوبة على عرض وارتفاع المخطط يحولها إلى قيم نسبية: يتم إزاحة الوسم 50 نقطة من الزاوية العليا اليسرى للمخطط ويصبح حجمه 100 × 100 نقطة.
 
-// تعيين خصائص وسيلة الإيضاح
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+
+// Express the legend's position and size relative to the chart.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// حفظ العرض التقديمي إلى القرص
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
+## **ضبط حجم خط وسمة**
 
-## **تعيين حجم الخط لوسيلة الإيضاح**
-تتيح مكتبة Aspose.Slides للـ .NET للمطورين إمكانية تعيين حجم الخط لوسيلة الإيضاح. يرجى اتباع الخطوات أدناه:
+استخدم [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) للوسم للوصول إلى تنسيق النص الخاص به واضبط [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) بالنقاط.
 
-- إنشاء نسخة من الفئة `Presentation` .
-- إنشاء المخطط الافتراضي.
-- تعيين حجم الخط.
-- تعيين قيمة المحور الدنيا.
-- تعيين قيمة المحور القصوى.
-- حفظ العرض التقديمي على القرص.
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+ينشئ هذا المثال مخططًا ببيانات افتراضية ويضبط نص الوسم إلى 20 نقطة. كما يقوم بتعطيل الحدود التلقائية للمحور الرأسي ويضبط نطاقه من -5 إلى 10.
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
+## **ضبط حجم خط مدخل وسمة فردي**
 
-## **تعيين حجم الخط لوسيلة إيضاح فردية**
-تتيح مكتبة Aspose.Slides للـ .NET للمطورين إمكانية تعيين حجم الخط لمدخلات وسيلة الإيضاح الفردية. يرجى اتباع الخطوات أدناه:
+استخدم مجموعة [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) للوسم للوصول إلى تنسيق مدخل محدد. مؤشرات المدخلات تبدأ من الصفر، لذا فالمؤشر `1` يشير إلى المدخل الثاني.
 
-- إنشاء نسخة من الفئة `Presentation` .
-- إنشاء المخطط الافتراضي.
-- الوصول إلى مدخل وسيلة الإيضاح.
-- تعيين حجم الخط.
-- تعيين قيمة المحور الدنيا.
-- تعيين قيمة المحور القصوى.
-- حفظ العرض التقديمي على القرص.
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+ينشئ هذا المثال مخطط أعمدة متجمّع حيث تشمل البيانات الافتراضية على الأقل سلسلتين. يقوم بتنسيق المدخل الثاني للوسم بنص عريض، مائل، ولون أزرق بحجم 20 نقطة.
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
+## **إخفاء مدخلات وسمة فردية**
 
-## **الأسئلة الشائعة**
+لإزالة سلسلة مساعدة من الوسم مع إبقاء بياناتها مرئية، اضبط [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) إلى `true` عبر [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/). هذا يخفي فقط مدخل الوسم المحدد؛ ولا يزيل السلسلة أو نقاط بياناتها. بينما ضبط [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) إلى `false` يخفي الوسم بأكمله.
 
-**هل يمكنني تمكين وسيلة الإيضاح بحيث يخصص المخطط مساحة لها تلقائيًا بدلاً من تغطيتها؟**
-نعم. استخدم وضع عدم التراكب ([Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) = `false`); في هذه الحالة، سيصغر مساحة الرسم لتستوعب وسيلة الإيضاح.
+ينشئ المثال أدناه مخطط أعمدة متجمّع مع عدة سلاسل باستخدام بيانات افتراضية. يخفي مدخل الوسم للسلسلة الثانية (المؤشر `1`) ويحفظ العرض التقديمي. ثم يستعيد المدخل بضبط `Hide` إلى `false` ويحفظ نسخة ثانية. تظل الأعمدة مرئية في كلا الملفين.
 
-**هل يمكنني إنشاء تسميات وسيلة إيضاح متعددة الأسطر؟**
-نعم. تُلف التسميات الطويلة تلقائيًا عندما تكون المساحة غير كافية؛ كما يتم دعم الفواصل الإلزامية عبر أحرف السطر الجديد في اسم السلسلة.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-**كيف أجعل وسيلة الإيضاح تتبع نظام ألوان سمة العرض التقديمي؟**
-لا تقم بتعيين ألوان/ملء/خطوط صريحة لوسيلة الإيضاح أو نصها. ستُستمد هذه القيم من السمة وتُحدث بشكل صحيح عند تغيير التصميم.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
+
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// استعادة نفس المدخل دون تغيير بيانات المخطط.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+تظهر المقارنة أدناه نفس المخطط مع جميع مدخلات الوسم مرئية ومع إخفاء المدخل الثاني. تظل أعمدة السلسلة الثانية دون تغيير.
+
+![مقارنة مخطط مع جميع مدخلات الوسم مرئية ومع إخفاء السلسلة 2 من الوسم؛ تظل جميع الأعمدة مرئية.](hide-legend-entry.png)
+
+في مخططات الأعمدة والشرائح والخطوط، تحدد مدخلات الوسم السلاسل. بالنسبة لمخططات الفطيرة، تحدد النقاط البيانات الفردية (القطاعات)، لذا استخدم [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) على القطاع المحدد بدلاً من ذلك. توثّق واجهة برمجة التطبيقات هذه الخاصية للبيانات للنقاط لأنواع المخططات `Pie`، `Pie3D`، `ExplodedPie`، `ExplodedPie3D`، `PieOfPie`، و `BarOfPie`. لا تفترض أنها تنطبق على مخططات الدونات، التي لا تُدرج في تلك القائمة.
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني جعل المخطط يحجز مساحة للوسم بدلاً من تغطيته؟**  
+نعم. اضبط [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) إلى `false` لحجز مساحة للوسم بدلاً من السماح له بتغطية منطقة الرسم.
+
+**هل يمكنني إنشاء تسميات وسمة متعددة الأسطر؟**  
+نعم. يمكن أن تُلتف التسميات الطويلة عندما يكون العرض المتاح غير كافٍ. يمكنك أيضًا استخدام أحرف السطر الجديد في أسماء السلاسل لطلب فواصل أسطر.
+
+**كيف أجعل الوسم يتبع نظام ألوان سمة العرض التقديمي؟**  
+اترك ألوان، تعبئات، وخطوط الوسم غير محددة حتى يتمكن من وراثة تنسيق السمة. التنسيق الصريح يتجاوز إعدادات السمة المقابلة.

@@ -1,36 +1,30 @@
 ---
-title: Diagramlegendák testreszabása prezentációkban Python használatával
-linktitle: Diagram legenda
+title: Diagram jelmagyarázatának testreszabása prezentációkban Python használatával
+linktitle: Diagram jelmagyarázat
 type: docs
 url: /hu/python-java/chart-legend/
 keywords:
-- diagramlegenda
-- legenda pozíció
+- diagram jelmagyarázat
+- jelmagyarázat pozíció
 - betűméret
 - PowerPoint
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Testreszabhatja a diagramlegendákat az Aspose.Slides for Python via Java segítségével, hogy a PowerPoint prezentációk a legendák egyedi formázásával optimalizálhatók legyenek."
+description: "Testreszabja a diagram jelmagyarázatát az Aspose.Slides for Python via Java segítségével, hogy a PowerPoint prezentációkat a legendák egyedi formázásával optimalizálja."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetőségeket biztosít a diagramlegendák testreszabásához a PowerPoint prezentációkban. Ez a cikk bemutatja, hogyan lehet elhelyezni és méretezni egy legendát, beállítani a teljes legendához a betűméretet, és formázást alkalmazni egy egyedi legendabejegyzésre.
+Az Aspose.Slides for Python via Java lehetőséget biztosít a diagram jelmagyarázatának testreszabására a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet elhelyezni és méretezni egy jelmagyarázatot, beállítani a teljes jelmagyarázat betűméretét, egy adott jelmagyarázati bejegyzést formázni, valamint elrejteni vagy visszaállítani a kiválasztott bejegyzéseket.
 
-A GYIK-ban továbbá több kapcsolódó viselkedést is tárgyal, többek között a nem átfedés mód használatát, amely lehetővé teszi, hogy a grafikon terület helyet biztosítson a legendának, a hosszú legendacímkék automatikus vagy sortöréses megtörését, valamint a legendaformázás öröklődését a prezentáció témájából, ha nincs megadva explicit szöveg- vagy kitöltésbeállítás.
+Az FAQ kapcsolódó viselkedéseket fed le, beleértve a jelmagyarázat számára fenntartott helyet, a több soros címkék megjelenítését és a formázás öröklését a prezentáció témájától.
 
-## **Legenda elhelyezése**
+## **Jelmagyarázat pozicionálása**
 
-A legenda tulajdonságainak beállításához kövesse az alábbi lépéseket:
+Használja a jelmagyarázat [setX](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setX), [setY](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setY), [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setWidth) és [setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setHeight) metódusait a pozíció és a méret megadásához a diagram dimenzióinak tört részében.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.  
-1. Szerezze be a diára való hivatkozást.  
-1. Adjon hozzá egy diagramot a diára.  
-1. Állítsa be a legenda tulajdonságait.  
-1. Mentse a prezentációt PPTX fájlként.
-
-A következő példa beállítja egy diagramlegenda pozícióját és méretét.
+Ez a példa létrehoz egy prezentációt, és az első diára egy csoportosított oszlopdiagramot ad hozzá alapértelmezett adatokkal. A kívánt jelmagyarázati eltolásokat és méreteket a diagram szélességével és magasságával osztva relatív értékekké konvertálja: a jelmagyarázat 50 ponttal van eltolva a diagram bal felső sarkától, és 100 × 100 pont méretű.
 
 ```python
 import jpype
@@ -41,38 +35,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Üres prezentáció létrehozása.
 presentation = Presentation()
 try:
-    # Referenciát szerez a diára.
     slide = presentation.getSlides().get_Item(0)
 
-    # Csoportos oszlopdiagram hozzáadása a diára.
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500)
 
-    # A legenda tulajdonságainak beállítása.
-    legend = chart.getLegend()
-    legend.setX(50 / chart.getWidth())
-    legend.setY(50 / chart.getHeight())
-    legend.setWidth(100 / chart.getWidth())
-    legend.setHeight(100 / chart.getHeight())
+    # A legend pozíciójának és méretének kifejezése a diagramhoz képest.
+    chart.getLegend().setX(50 / chart.getWidth())
+    chart.getLegend().setY(50 / chart.getHeight())
+    chart.getLegend().setWidth(100 / chart.getWidth())
+    chart.getLegend().setHeight(100 / chart.getHeight())
 
-    # A prezentáció mentése a lemezre.
-    presentation.save("Legend_out.pptx", SaveFormat.Pptx)
+    presentation.save("legend_position.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **A legenda betűméretének beállítása**
+## **A jelmagyarázat betűméretének beállítása**
 
-Az Aspose.Slides for Python via Java lehetővé teszi a legenda betűméretének beállítását. Kövesse az alábbi lépéseket:
+Használja a jelmagyarázat [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) metódusát a szövegformázás eléréséhez, és a [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) metódust a betűméret pontban történő beállításához.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.  
-1. Hozzon létre egy alapértelmezett diagramot.  
-1. Állítsa be a betűméretet.  
-1. Állítsa be a minimum tengelyértéket.  
-1. Állítsa be a maximum tengelyértéket.  
-1. Mentse a prezentációt a lemezre.
+Ez a példa létrehoz egy diagramot alapértelmezett adatokkal, és a jelmagyarázat szövegét 20 pontra állítja. Emellett letiltja a függőleges tengely automatikus határait, és a tartományt -5‑tól 10‑ig állítja be.
 
 ```python
 import jpype
@@ -83,33 +67,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Üres prezentáció létrehozása.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20)
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(False)
+    chart.getAxes().getVerticalAxis().setMinValue(-5)
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(10)
 
-    vertical_axis = chart.getAxes().getVerticalAxis()
-    vertical_axis.setAutomaticMinValue(False)
-    vertical_axis.setMinValue(-5)
-    vertical_axis.setAutomaticMaxValue(False)
-    vertical_axis.setMaxValue(10)
-
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Egyedi legendabejegyzés betűméretének beállítása**
+## **Egyéni jelmagyarázati bejegyzés betűméretének beállítása**
 
-Az Aspose.Slides for Python via Java lehetővé teszi egyedi legendabejegyzések betűméretének beállítását. Kövesse az alábbi lépéseket:
+Használja a jelmagyarázat [getEntries](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getEntries) metódusa által visszaadott gyűjteményt egy adott bejegyzés formázásához. A bejegyzés indexelése nullától indul, így az `1` index a második bejegyzést jelöli.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.  
-1. Hozzon létre egy alapértelmezett diagramot.  
-1. Szerezze meg egy legendabejegyzést.  
-1. Állítsa be a betűméretet.  
-1. Mentse a prezentációt a lemezre.
+Ez a példa létrehoz egy csoportosított oszlopdiagramot, amelynek alapértelmezett adatai legalább két sorozatot tartalmaznak. Formázza a második jelmagyarázati bejegyzést félkövér, dőlt, 20 pontos kék szöveggel.
 
 ```python
 import jpype
@@ -122,35 +101,74 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Üres prezentáció létrehozása.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     text_format = chart.getLegend().getEntries().get_Item(1).getTextFormat()
-    portion_format = text_format.getPortionFormat()
 
-    portion_format.setFontBold(NullableBool.True_)
-    portion_format.setFontHeight(20)
-    portion_format.setFontItalic(NullableBool.True_)
-    portion_format.getFillFormat().setFillType(FillType.Solid)
-    portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    text_format.getPortionFormat().setFontBold(NullableBool.True_)
+    text_format.getPortionFormat().setFontHeight(20)
+    text_format.getPortionFormat().setFontItalic(NullableBool.True_)
+    text_format.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    text_format.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **GYIK**
+## **Egyéni jelmagyarázati bejegyzések elrejtése**
 
-**Engedélyezhetem a legendát úgy, hogy a diagram automatikusan helyet biztosítson számára, ahelyett, hogy átfedne?**
+Egy segédsorozat kizárásához a jelmagyarázatból, miközben az adatokat láthatóan megtartja, hívja meg a [LegendEntryProperties.setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) metódust `True` értékkel a [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getRelatedLegendEntry) segítségével. Ez csak a kiválasztott jelmagyarázati bejegyzést rejti el; a sorozatot vagy az adatpontokat nem távolítja el. Ezzel szemben a [Chart.setLegend](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setLegend) `False` értékkel történő hívása az egész jelmagyarázatot elrejti.
 
-Igen. Használja a [setOverlay](https://reference.aspose.com/slides/hu/python-java/aspose.slides/legend/#setOverlay) metódust `False` értékkel a nem átfedés mód engedélyezéséhez; ebben az esetben a grafikon terület összezsugorodik, hogy helyet biztosítson a legendának.
+Az alábbi példa egy csoportosított oszlopdiagramot hoz létre több sorozattal alapértelmezett adatokkal. Elrejti a második sorozat jelmagyarázati bejegyzését (index `1`), majd elmenti a prezentációt. Ezután a [setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) `False` értékkel való meghívásával visszaállítja a bejegyzést, és egy második másolatot ment el. Az oszlopok mindkét fájlban láthatóak maradnak.
 
-**Létrehozhatok több soros legenda címkéket?**
+```python
+import jpype
+import asposeslides
 
-Igen. A hosszú címkék automatikusan sortörnek, ha a hely nem elegendő; kényszerített sortörések a sorozat nevében lévő új sor karakterekkel támogatottak.
+if not jpype.isJVMStarted():
+    jpage.startJVM()
 
-**Hogyan biztosíthatom, hogy a legenda kövesse a prezentáció téma színsémáját?**
+from asposeslides.api import ChartType, Presentation, SaveFormat
 
-Ne állítson be explicit színeket, kitöltéseket vagy betűtípusokat a legendához vagy annak szövegéhez. Így azok a témából öröklődnek, és a tervezés változtatásakor megfelelően frissülnek.
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(True)
+
+    legend_entry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry()
+
+    legend_entry.setHide(True)
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx)
+
+    # A bejegyzés visszaállítása a diagram adatait módosítás nélkül.
+    legend_entry.setHide(False)
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Az alábbi összehasonlítás ugyanazt a diagramot mutatja, egyszer az összes bejegyzés látható, egyszer a második bejegyzés rejtve. A második sorozat oszlopai változatlanok maradnak.
+
+![Comparison of a chart with all legend entries visible and with Series 2 hidden from the legend; all columns remain visible.](hide-legend-entry.png)
+
+Oszlop-, sáv‑ és vonaldiagramok esetén a jelmagyarázati bejegyzések a sorozatokat azonosítják. Kördiagramoknál egyedi adatelempontokat (szeleteket) jelölnek, ezért a kiválasztott szeletre a [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getRelatedLegendEntry) metódust kell használni. Az API ezt a metódust dokumentálja a `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` és `BarOfPie` diagramtípusoknál. Ne tételezze, hogy ez a fánkkör diagramokra is vonatkozik, amelyek nincsenek a listában.
+
+## **FAQ**
+
+**Készíthetek úgy a diagramot, hogy helyet foglaljon a jelmagyarázatnak a felülírás helyett?**
+
+Igen. Hívja meg a [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) metódust `False` értékkel, hogy a jelmagyarázat számára helyet foglaljon a felület átfedése helyett.
+
+**Készíthetek több soros jelmagyarázati címkéket?**
+
+Igen. A hosszú címkék megtörhetnek, ha a rendelkezésre álló szélesség nem elegendő. Új sor karaktereket is beilleszthet a sorozatnevekbe a sortörés kéréséhez.
+
+**Hogyan tehetem a jelmagyarázatot a prezentáció téma színsémájához igazítottá?**
+
+Hagyja a jelmagyarázat színeit, kitöltéseit és betűtípusait beállítatlanul, hogy örökölje a téma formázását. A kifejezett formázás felülbírálja a megfelelő téma beállításokat.

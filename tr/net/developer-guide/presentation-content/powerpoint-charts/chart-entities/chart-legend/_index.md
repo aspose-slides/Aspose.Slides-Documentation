@@ -1,122 +1,145 @@
 ---
-title: .NET'te Sunumlarda Grafik Açıklama Satırlarını Özelleştirme
-linktitle: Grafik Açıklama Satırı
+title: .NET'te Sunumlarda Grafik Lejantlarını Özelleştirme
+linktitle: Grafik Lejantı
 type: docs
 url: /tr/net/chart-legend/
 keywords:
-- grafik açıklama satırı
-- açıklama satırı konumu
+- grafik lejantı
+- lejant konumu
 - yazı tipi boyutu
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile grafik açıklama satırlarını özelleştirerek, PowerPoint sunumlarını özel açıklama satırı biçimlendirmesiyle optimize edin."
+description: "Aspose.Slides for .NET ile grafik lejantlarını özelleştirerek, PowerPoint sunumlarını özel lejant biçimlendirmesiyle optimize edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarında grafik açıklama satırlarını özelleştirme seçenekleri sunar. Bu makale, bir açıklama satırının konumlandırılması ve boyutlandırılması, tüm açıklama satırı için yazı tipi boyutunun ayarlanması ve tek bir açıklama satırı girişine biçimlendirme uygulanmasını gösterir.
+Aspose.Slides for .NET, PowerPoint sunumlarındaki grafik lejantlarını özelleştirmek için seçenekler sunar. Bu makale, bir lejantı konumlandırma ve boyutlandırma, tüm lejant için yazı tipi boyutunu ayarlama, tekil bir lejant girdisini biçimlendirme ve seçili girdileri gizleme ya da geri getirme yollarını gösterir.
 
-Ayrıca SSS bölümünde, çizim alanının açıklama satırına yer açması için örtüşme dışı modun kullanılması, uzun açıklama satırı etiketlerinin otomatik olarak satır sonuna kaydırılması veya satır sonu karakterleriyle kullanılabilmesi ve açıklama satırı biçimlendirmesinin, açık metin ve doldurma ayarları uygulanmadığında sunum temasından miras alınması gibi ilgili davranışları ele alır.
+SSS, lejant için alan ayırma, çok satırlı etiket gösterimi ve sunum temasından biçimlendirme miras alma gibi ilgili davranışları kapsar.
 
-## **Açıklama Satırı Konumlandırması**
-Açıklama satırı özelliklerini ayarlamak için aşağıdaki adımları izleyin:
+## **Lejant Konumlandırma**
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-- Slayt referansını alın.
-- Slayta bir grafik ekleyin.
-- Açıklama satırı özelliklerini ayarlayın.
-- Sunumu bir PPTX dosyası olarak kaydedin.
+Lejantın [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/) ve [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) özelliklerini kullanarak konumunu ve boyutunu, grafiğin boyutlarının kesirleri olarak belirtebilirsiniz.
 
-Aşağıdaki örnekte, Grafik açıklama satırı için konum ve boyut ayarladık.
+Bu örnek bir sunum oluşturur ve ilk slayta varsayılan verilerle bir kümelenmiş sütun grafiği ekler. İstenen lejant kaydırma ve boyutlarını grafiğin genişlik ve yüksekliğine bölerek göreli değerler elde edilir: lejant, grafiğin sol üst köşesinden 50 puan kaydırılır ve 100 x 100 puan olarak boyutlandırılır.
 
-```c#
- // Create an instance of Presentation class
- // Get reference of the slide
- // Add a clustered column chart on the slide
- // Set Legend Properties
- // Write presentation to disk
- Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- // Get reference of the slide
- ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
- // Add a clustered column chart on the slide
- IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
- // Set Legend Properties
- chart.Legend.X = 50 / chart.Width;
- chart.Legend.Y = 50 / chart.Height;
- chart.Legend.Width = 100 / chart.Width;
- chart.Legend.Height = 100 / chart.Height;
+// Grafiğe göre lejantın konumunu ve boyutunu ifade edin.
+chart.Legend.X = 50 / chart.Width;
+chart.Legend.Y = 50 / chart.Height;
+chart.Legend.Width = 100 / chart.Width;
+chart.Legend.Height = 100 / chart.Height;
 
- // Write presentation to disk
- presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
-## **Açıklama Satırının Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for .NET, geliştiricilerin açıklama satırının yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Lejantın Yazı Tipi Boyutunu Ayarlama**
 
-- `Presentation` sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske kaydedin.
+Lejantın [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) özelliğini kullanarak metin biçimlendirmesine erişebilir ve [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) değerini puan olarak ayarlayabilirsiniz.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+Bu örnek, varsayılan verilerle bir grafik oluşturur ve lejant metnini 20 puan olarak ayarlar. Ayrıca dikey eksen için otomatik sınırları devre dışı bırakır ve aralığını -5 ile 10 arasında ayarlar.
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
-## **Bireysel Açıklama Satırının Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for .NET, geliştiricilerin bireysel açıklama satırı girişlerinin yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Bireysel Lejant Girdisinin Yazı Tipi Boyutunu Ayarlama**
 
-- `Presentation` sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Açıklama satırı girişine erişin.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske kaydedin.
+Lejantın [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) koleksiyonunu kullanarak belirli bir girdinin biçimlendirmesine erişebilirsiniz. Girdi dizinleri sıfır bazlıdır, bu yüzden `1` dizini ikinci girdiyi ifade eder.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+Bu örnek, varsayılan verilerinde en az iki seri bulunan bir kümelenmiş sütun grafiği oluşturur. İkinci lejant girdisini kalın, italik ve 20 puan mavi metin olarak biçimlendirir.
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Bireysel Lejant Girdilerini Gizle**
 
-**Grafiğin açıklama satırını etkinleştirerek, otomatik olarak yer ayırmasını ve üst üste bindirilmemesini sağlayabilir miyim?**
+Ek bir seriyi lejanttan hariç tutup verilerini görünür tutmak için, [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/) aracılığıyla [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) özelliğini `true` olarak ayarlayın. Bu, yalnızca seçilen lejant girdisini gizler; seriyi veya veri noktalarını kaldırmaz. Bunun aksine, [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) değerini `false` olarak ayarlamak tüm lejantı gizler.
 
-Evet. Örtüşme dışı modu kullanın ([Overlay](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/legend/overlay/) = `false`); bu durumda, çizim alanı açıklama satırına yer açmak için küçülür.
+Aşağıdaki örnek, varsayılan veriyle birden çok seri içeren bir kümelenmiş sütun grafiği oluşturur. İkinci serinin lejant girdisini (dizin `1`) gizler ve sunumu kaydeder. Ardından `Hide` değerini `false` olarak ayarlayarak girdiyi geri getirir ve ikinci bir kopya kaydeder. Sütunlar her iki dosyada da görünür kalır.
 
-**Çok satırlı açıklama satırı etiketleri oluşturabilir miyim?**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Evet. Uzun etiketler, alan yetersiz olduğunda otomatik olarak satır sonuna kaydırılır; zorunlu satır sonları, seri adındaki yeni satır karakterleriyle desteklenir.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**Açıklama satırının sunum temasının renk şemasını izlemesini nasıl sağlarsınız?**
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
 
-Açıklama satırı veya metni için açık renkler/doldurmalar/yazı tipleri ayarlamayın. Böylece tema tarafından devralınır ve tasarım değiştiğinde doğru şekilde güncellenir.
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// Aynı girişi grafik verisini değiştirmeden geri yükle.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+Aşağıdaki karşılaştırma, tüm girdilerin görünür olduğu ve ikinci girdinin gizlendiği aynı grafiği gösterir. İkinci serinin sütunları değişmeden kalır.
+
+![Tüm lejant girdileri görünür ve Seri 2 lejanttan gizli olduğu bir grafiğin karşılaştırması; tüm sütunlar görünür kalır.](hide-legend-entry.png)
+
+Sütun, çubuk ve çizgi grafiklerde lejant girdileri serileri tanımlar. Pasta grafiklerde ise tek tek veri noktalarını (dilimleri) tanımlar, bu yüzden seçilen dilimde [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) kullanılmalıdır. API, bu veri noktası özelliğini `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` ve `BarOfPie` grafik tipleri için belgeler. Bu özelliğin, listede yer almayan halka grafiklerine (doughnut) uygulanacağını varsaymayın.
+
+## **SSS**
+
+**Grafik, lejantın üzerine binmek yerine lejant için alan ayırabilir mi?**
+
+Evet. [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) özelliğini `false` olarak ayarlayarak lejantın çizim alanı üzerine binmesine izin vermek yerine lejant için yer ayırırsınız.
+
+**Çok satırlı lejant etiketleri oluşturabilir miyim?**
+
+Evet. Uzun etiketler, mevcut genişlik yetersiz olduğunda satır başına bölünebilir. Ayrıca seri adlarında satır sonu karakterleri kullanarak satır sonları isteyebilirsiniz.
+
+**Lejantın sunum temasının renk şemasını izlemesini nasıl sağlayabilirim?**
+
+Lejantın renklerini, doldurmalarını ve yazı tiplerini ayarlamadan bırakın; böylece tema biçimlendirmesini miras alır. Açıkça belirlenen biçimlendirme, ilgili tema ayarlarını geçersiz kılar.

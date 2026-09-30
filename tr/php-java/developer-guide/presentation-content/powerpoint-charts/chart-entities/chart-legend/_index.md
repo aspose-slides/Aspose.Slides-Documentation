@@ -1,125 +1,164 @@
 ---
-title: PHP Kullanarak Sunumlarda Grafik Açıklamalarını Özelleştirme
-linktitle: Grafik Açıklaması
+title: Sunumlarda PHP Kullanarak Grafik Lejantlarını Özelleştirme
+linktitle: Grafik Lejantı
 type: docs
 url: /tr/php-java/chart-legend/
 keywords:
-- grafik açıklaması
-- açıklama konumu
+- grafik lejantı
+- lejant konumu
 - yazı tipi boyutu
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile grafik açıklamalarını özelleştirerek, PowerPoint sunumlarını özel açıklama biçimlendirmesiyle optimize edin."
+description: "Aspose.Slides for PHP via Java ile grafik lejantlarını özelleştirerek PowerPoint sunumlarını özel lejant biçimlendirmesiyle optimize edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarındaki grafik açıklamalarını özelleştirmek için seçenekler sunar. Bu makale, bir açıklamanın konumunu ve boyutunu nasıl ayarlayacağınızı, tüm açıklama için yazı tipi boyutunu nasıl belirleyeceğinizi ve tek bir açıklama girişine nasıl biçimlendirme uygulayacağınızı gösterir.
+Aspose.Slides for PHP via Java, PowerPoint sunumlarındaki grafik lejantlarını özelleştirme seçenekleri sunar. Bu makale, bir lejantın konumunu ve boyutunu ayarlamayı, tüm lejant için yazı tipi boyutunu belirlemeyi, tek bir lejant girişini biçimlendirmeyi ve seçilen girişleri gizlemeyi veya geri getirmeyi gösterir.
 
-Ayrıca SSS bölümünde, çizim alanının açıklamaya yer açması için örtüşme dışı modu kullanma, uzun açıklama etiketlerinin satır içi kaydırılmasına veya satır sonu karakteri kullanmasına izin verme ve açıklama biçimlendirmesinin, açık metin ve dolgu ayarları uygulanmadığında sunum temasından devralınmasını kapsayan birkaç ilgili davranışı ele alır.
+SSS, lejant için alan ayırma, çok satırlı etiket gösterimi ve lejantın sunum temasından formatı devralması gibi ilgili davranışları kapsar.
 
-## **Açıklama Konumlandırma**
-Açıklama özelliklerini ayarlamak için aşağıdaki adımları izleyin:
+## **Lejant Konumlandırması**
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Slaytın referansını alın.
-- Slayta bir grafik ekleyin.
-- Açıklama özelliklerini ayarlayın.
-- Sunumu bir PPTX dosyası olarak yazın.
+Lejantın [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/) ve [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) yöntemlerini kullanarak konumunu ve boyutunu grafiğin boyutlarının kesirleri olarak belirtebilirsiniz.
 
-Aşağıda verilen örnekte, Grafik açıklamasının konumunu ve boyutunu ayarladık.
+Bu örnek bir sunum oluşturur ve ilk slayta varsayılan verilerle bir kümeleme sütun grafiği ekler. İstenen lejant ofsetleri ve boyutları grafiğin genişliği ve yüksekliğiyle bölünerek göreli değerlere dönüştürülür: lejant, grafiğin sol üst köşesinden 50 puan uzakta ve 100 × 100 puan boyutundadır. Örnek, PHP/Java Bridge tarafından döndürülen grafik boyutlarını bölmeden önce PHP sayısına dönüştürmek için java_values kullanır.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    # Slaytın referansını al
-    $slide = $pres->getSlides()->get_Item(0);
-    # Slayta bir gruplanmış sütun grafiği ekle
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Açıklama Özelliklerini Ayarla
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Sunumu diske kaydet
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Lejantın konumunu ve boyutunu grafiğe göre ifade edin.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Açıklamanın Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for PHP via Java, geliştiricilerin açıklama yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Lejantın Yazı Tipi Boyutunu Ayarlama**
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske yazın.
+Lejantın [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) yöntemiyle metin biçimlendirmesine erişin ve [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) ile yazı tipi boyutunu puan cinsinden ayarlayın.
+
+Bu örnek, varsayılan verilerle bir grafik oluşturur ve lejant metnini 20 puana ayarlar. Ayrıca dikey eksen için otomatik sınırları devre dışı bırakır ve aralığı -5 ile 10 arasında belirler.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Bireysel Açıklamanın Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for PHP via Java, geliştiricilerin bireysel açıklama girişlerinin yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Bireysel Lejant Girişinin Yazı Tipi Boyutunu Ayarlama**
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Açıklama girişine erişin.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske yazın.
+Lejantın [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) yöntemiyle döndürülen koleksiyonu kullanarak belirli bir girişin biçimlendirmesine erişin. Giriş indeksleri sıfır tabanlıdır; `1` indeksi ikinci girişi ifade eder.
+
+Bu örnek, varsayılan verileri içinde en az iki seriye sahip bir kümeleme sütun grafiği oluşturur. İkinci lejant girişini kalın, italik ve 20 puan mavi metin olarak biçimlendirir.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Bireysel Lejant Girişlerini Gizleme**
+
+Bir yardımcı seriyi verileri görünür tutarken lejanttan çıkarmak için, [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/) üzerinden [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) metodunu `true` olarak çağırın. Bu, yalnızca seçilen lejant girişini gizler; seriyi veya veri noktalarını kaldırmaz. Buna karşılık, [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) metodunu `false` ile çağırmak tüm lejantı gizler.
+
+Aşağıdaki örnek, varsayılan verilerle birden çok seri içeren bir kümeleme sütun grafiği oluşturur. İkinci serinin lejant girişini (indeks `1`) gizler ve sunumu kaydeder. Ardından, [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) metodunu `false` olarak çağırarak girişi geri getirir ve ikinci bir kopya kaydeder. Sütunlar her iki dosyada da görünür kalır.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // aynı girişi grafik verisini değiştirmeden geri yükle.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, tüm lejant girişlerinin görünür olduğu ve ikinci girişin gizlendiği aynı grafiği gösterir. İkinci serinin sütunları değişmeden kalır.
+
+![Lejantın tüm girişleri görünürken ve Seri 2 lejanttan gizlenirken bir grafiğin karşılaştırması; tüm sütunlar görünür kalır.](hide-legend-entry.png)
+
+Sütun, çubuk ve çizgi grafiklerinde lejant girişleri serileri tanımlar. Pasta grafiklerinde ise bireysel veri noktalarını (dilimleri) tanımlar; bu yüzden seçili dilim için [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) kullanılmalıdır. API, bu veri noktası metodunu `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` ve `BarOfPie` grafik tipleri için dökümante eder. Donut grafikleri için geçerli olduğunu varsayılamaz.
 
 ## **SSS**
 
-**Grafiğin açıklamayı otomatik olarak yer ayıracak şekilde, üzerine bindirmek yerine etkinleştirebilir miyim?**
+**Grafiğin lejant için üzerine bindirmek yerine alan ayırmasını sağlayabilir miyim?**
 
-Evet. Örtüşme dışı modu ([setOverlay(false)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/legend/setoverlay/)) kullanın; bu durumda, çizim alanı açıklamaya yer açmak için küçülecektir.
+Evet. Lejantın grafik alanıyla çakışmasını önlemek için `false` ile [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) metodunu çağırın.
 
-**Birden çok satırdan oluşan açıklama etiketleri oluşturabilir miyim?**
+**Çok satırlı lejant etiketleri oluşturabilir miyim?**
 
-Evet. Uzun etiketler, alan yetersiz olduğunda otomatik olarak kaydırılır; zorunlu satır sonları, serinin adındaki yeni satır karakterleriyle desteklenir.
+Evet. Genişlik yetersiz olduğunda uzun etiketler satır başı alabilir. Ayrıca satır sonu karakterlerini seri adlarında kullanarak satır kırılması isteyebilirsiniz.
 
-**Açıklamanın sunum temasının renk şemasını izlemesini nasıl sağlarım?**
+**Lejantın sunum temasının renk şemasını takip etmesini nasıl sağlarım?**
 
-Açıklama veya metni için açık renkler/dolgular/yazı tipleri ayarlamayın. Böylece tema üzerinden devralınır ve tasarım değiştiğinde doğru şekilde güncellenir.
+Lejantın renklerini, doldurmalarını ve yazı tiplerini ayarlamadan bırakın; böylece tema formatını devralır. Açıkça yapılan biçimlendirme, ilgili tema ayarlarını geçersiz kılar.

@@ -1,5 +1,5 @@
 ---
-title: Python を使用したプレゼンテーションでのチャート凡例のカスタマイズ
+title: Python でプレゼンテーションのチャート凡例をカスタマイズ
 linktitle: チャート凡例
 type: docs
 url: /ja/python-net/chart-legend/
@@ -8,115 +8,134 @@ keywords:
 - 凡例の位置
 - フォントサイズ
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用し、.NET 経由でチャート凡例をカスタマイズし、PowerPoint および OpenDocument のプレゼンテーションを最適化して凡例の書式設定を調整します。"
+description: "Aspose.Slides for Python via .NET を使用してチャート凡例をカスタマイズし、カスタマイズされた凡例の書式設定で PowerPoint プレゼンテーションを最適化します。"
 ---
+## **概要**
 
-## **Overview**
+Aspose.Slides for Python via .NET は、PowerPoint プレゼンテーション内のチャート凡例をカスタマイズするオプションを提供します。この記事では、凡例の位置とサイズの設定、凡例全体のフォントサイズの設定、個々の凡例項目の書式設定、選択した項目の非表示または復元方法を示します。
 
-Aspose.Slides for Python は、チャートの凡例をフルコントロールでき、データ ラベルを明確かつプレゼンテーション向けにします。凡例の表示/非表示、スライド上での位置選択、プロット領域との重なりを防止するレイアウト調整が可能です。API を使用すると、テキストやマーカーのスタイル設定、余白や背景の微調整、テーマに合わせた枠線や塗りの書式設定が行えます。開発者は個々の凡例エントリにアクセスし、名前の変更やフィルタリングができ、最も関連性の高いシリーズのみを表示できます。これらの機能により、チャートは読みやすく、一貫性があり、プレゼンテーションのデザイン基準に合わせて整合します。
+FAQ では、凡例の領域確保、複数行ラベルの表示、プレゼンテーションテーマからの書式継承など、関連する動作について説明しています。
 
-## **Legend Positioning**
+## **凡例の位置設定**
 
-Aspose.Slides を使用すると、チャート凡例の表示位置とスライドレイアウトへのフィット感を迅速に制御できます。凡例を正確に配置する方法をご紹介します。
+凡例の [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/x/), [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/y/), [width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/width/), [height](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/height/) プロパティを使用して、チャートのサイズに対する比率で位置とサイズを指定します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. スライドへの参照を取得します。
-1. スライドにチャートを追加します。
-1. 凡例のプロパティを設定します。
-1. プレゼンテーションを PPTX ファイルとして保存します。
+この例では、プレゼンテーションを作成し、デフォルトデータのクラスター化された縦棒グラフを最初のスライドに追加します。凡例のオフセットとサイズをチャートの幅と高さで割ることで、相対値に変換します。凡例はチャートの左上隅から 50 ポイントオフセットされ、サイズは 100 x 100 ポイントになります。
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Presentation クラスのインスタンスを作成します。
 with slides.Presentation() as presentation:
-
-    # スライドへの参照を取得します。
     slide = presentation.slides[0]
 
-    # スライドにクラスター化された縦棒グラフを追加します。
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # 凡例のプロパティを設定します。
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # チャートに対して凡例の位置とサイズを相対的に指定します。
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # プレゼンテーションをディスクに保存します。
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_position.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **凡例のフォントサイズの設定**
 
-## **Set the Legend Font Size**
+凡例の [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) を使用してテキスト書式にアクセスし、[font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) をポイント単位で設定します。
 
-チャートの凡例は、説明するデータと同等に読みやすくあるべきです。このセクションでは、プレゼンテーションのタイポグラフィに合わせ、アクセシビリティを向上させるために凡例のフォントサイズを調整する方法を示します。
+この例では、デフォルトデータのチャートを作成し、凡例テキストを 20 ポイントに設定します。また、縦軸の自動範囲設定を無効にし、範囲を -5 から 10 に設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. チャートを作成します。
-1. フォントサイズを設定します。
-1. プレゼンテーションをディスクに保存します。
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+    chart.legend.text_format.portion_format.font_height = 20
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = -5
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 10
+
+    presentation.save("legend_font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **個別の凡例項目のフォントサイズの設定**
 
-## **Set the Font Size for a Legend Entry**
+凡例の [entries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/entries/) コレクションを使用して特定の項目の書式にアクセスします。エントリのインデックスはゼロベースで、インデックス `1` は2番目の項目を指します。
 
-Aspose.Slides を使用すると、個々のエントリをフォーマットしてチャート凡例の外観を細かく調整できます。以下の例では、特定の凡例項目を対象にし、他の凡例を変更せずにそのプロパティを設定する方法を示します。
+この例では、デフォルトデータに少なくとも2系列が含まれるクラスター化縦棒グラフを作成します。2番目の凡例項目を太字・斜体・20ポイントの青色テキストで書式設定します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. チャートを作成します。
-1. 凡例エントリにアクセスします。
-1. エントリのプロパティを設定します。
-1. プレゼンテーションをディスクに保存します。
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
 
+    text_format = chart.legend.entries[1].text_format
     text_format.portion_format.font_bold = slides.NullableBool.TRUE
     text_format.portion_format.font_height = 20
     text_format.portion_format.font_italic = slides.NullableBool.TRUE
     text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_entry_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **個別の凡例項目を非表示にする**
+
+データは表示したまま補助系列を凡例から除外するには、[ILegendEntryProperties.hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) を `True` に設定し、[IChartSeries.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/related_legend_entry/) を通じて行います。これにより選択した凡例項目のみが非表示になり、系列やデータポイントは削除されません。対照的に、[IChart.has_legend](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/has_legend/) を `False` に設定すると、凡例全体が非表示になります。
+
+以下の例では、デフォルトデータを使用して複数系列のクラスター化縦棒グラフを作成します。2番目の系列の凡例項目（インデックス `1`）を非表示にしてプレゼンテーションを保存します。その後、[hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) を `False` に設定して項目を復元し、2つ目のコピーを保存します。両方のファイルで列は引き続き表示されます。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = True
+
+    legend_entry = chart.chart_data.series[1].related_legend_entry
+    legend_entry.hide = True
+
+    presentation.save("hidden_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+
+    # データを変更せずに同じ項目を復元します。
+    legend_entry.hide = False
+
+    presentation.save("restored_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+```
+
+下の比較では、すべての項目が表示されたチャートと、凡例からシリーズ2が非表示になったチャートの比較を示しています。2番目の系列の列は変わりません。
+
+![全ての凡例項目が表示されたチャートと、凡例からシリーズ2が非表示になったチャートの比較。すべての列は表示されたままです。](hide-legend-entry.png)
+
+縦棒・横棒・折れ線チャートでは、凡例項目は系列を識別します。円グラフの場合、凡例項目は個々のデータポイント（スライス）を識別するため、選択したスライスに対して [IChartDataPoint.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/related_legend_entry/) を使用します。API はこのデータポイントプロパティを `PIE`、`PIE3D`、`EXPLODED_PIE`、`EXPLODED_PIE3D`、`PIE_OF_PIE`、`BAR_OF_PIE` のチャートタイプに対して文書化しています。ドーナツチャートには適用されないことに注意してください。
 
 ## **FAQ**
 
-**凡例を有効にして、チャートが自動的に凡例用のスペースを確保し、重ね合わせないようにできますか？**
+**チャートが凡例の上に重ねるのではなく、凡例用の領域を確保するようにできますか？**
 
-はい。非オーバーレイモード（[overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) = `false`）を使用します。この場合、プロット領域が縮小して凡例を収めます。
+はい。[overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) を `False` に設定すると、プロット領域と重なるのを防ぎ、凡例用の領域を確保します。
 
-**複数行の凡例ラベルを作成できますか？**
+**凡例ラベルを複数行にできますか？**
 
-はい。スペースが不足すると長いラベルは自動的に折り返されます。シリーズ名に改行文字を入れることで強制改行もサポートされます。
+はい。利用可能な幅が不足している場合、長いラベルは自動的に折り返されます。また、系列名に改行文字を入れることで改行を指示することも可能です。
 
 **凡例をプレゼンテーションテーマのカラースキームに合わせるにはどうすればよいですか？**
 
-凡例やテキストに明示的な色・塗り・フォントを設定しないでください。これらはテーマから継承され、デザインが変更された際に正しく更新されます。
+凡例の色、塗りつぶし、フォントを設定しないままにしておくと、テーマの書式設定を継承します。明示的に書式設定した場合は、対応するテーマ設定を上書きします。

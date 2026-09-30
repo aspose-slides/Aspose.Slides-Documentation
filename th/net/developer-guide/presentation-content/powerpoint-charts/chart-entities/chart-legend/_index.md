@@ -1,118 +1,145 @@
 ---
-title: ปรับแต่ง Legend ของแผนภูมิในงานนำเสนอด้วย .NET
-linktitle: Legend ของแผนภูมิ
+title: ปรับแต่งคำอธิบายภาพแผนภูมิในงานนำเสนอด้วย .NET
+linktitle: คำอธิบายภาพแผนภูมิ
 type: docs
 url: /th/net/chart-legend/
 keywords:
-- legend ของแผนภูมิ
-- ตำแหน่ง legend
+- คำอธิบายภาพแผนภูมิ
+- ตำแหน่งคำอธิบายภาพ
 - ขนาดฟอนต์
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ปรับแต่ง legend ของแผนภูมิด้วย Aspose.Slides สำหรับ .NET เพื่อเพิ่มประสิทธิภาพงานนำเสนอ PowerPoint ด้วยการจัดรูปแบบ legend ที่กำหนดเอง."
+description: "ปรับแต่งคำอธิบายภาพแผนภูมิด้วย Aspose.Slides สำหรับ .NET เพื่อเพิ่มประสิทธิภาพงานนำเสนอ PowerPoint ด้วยการจัดรูปแบบคำอธิบายภาพที่กำหนดเอง."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides มีตัวเลือกสำหรับการปรับแต่ง legend ของแผนภูมิในงานนำเสนอ PowerPoint บทความนี้แสดงวิธีการกำหนดตำแหน่งและขนาดของ legend, ตั้งค่าขนาดฟอนต์สำหรับ legend ทั้งหมด, และใช้การจัดรูปแบบกับรายการ legend แยกแต่ละรายการ
+Aspose.Slides สำหรับ .NET มีตัวเลือกสำหรับการปรับแต่งคำอธิบายภาพแผนภูมิในงานนำเสนอ PowerPoint บทความนี้จะแสดงวิธีการกำหนดตำแหน่งและขนาดของคำอธิบายภาพ, ตั้งค่าขนาดฟอนต์สำหรับคำอธิบายภาพทั้งหมด, จัดรูปแบบรายการคำอธิบายภาพรายบุคคล, และซ่อนหรือกู้คืนรายการที่เลือก
 
-นอกจากนี้ยังครอบคลุมพฤติกรรมที่เกี่ยวข้องหลายอย่างใน FAQ รวมถึงการใช้โหมด non‑overlay เพื่อให้พื้นที่ plot มีที่ว่างสำหรับ legend, การทำให้ป้าย legend ยาวห่อหุ้มอัตโนมัติหรือใช้การขึ้นบรรทัดใหม่, และการให้การจัดรูปแบบ legend สืบทอดจากธีมของงานนำเสนอเมื่อไม่ได้กำหนดข้อความและการเติมสีอย่างชัดเจน
+FAQ ครอบคลุมพฤติกรรมที่เกี่ยวข้อง รวมถึงการสำรองพื้นที่สำหรับคำอธิบายภาพ, การแสดงป้ายหลายบรรทัด, และการสืบทอดการจัดรูปแบบจากธีมของงานนำเสนอ
 
-## **การจัดตำแหน่ง Legend**
-เพื่อกำหนดคุณสมบัติของ legend โปรดทำตามขั้นตอนด้านล่าง:
+## **การกำหนดตำแหน่งคำอธิบายภาพ**
 
-- สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) 
-- รับอ้างอิงของสไลด์
-- เพิ่มแผนภูมิลงในสไลด์
-- ตั้งค่าคุณสมบัติของ legend
-- บันทึกการพรีเซนเทชันเป็นไฟล์ PPTX
+ใช้คุณสมบัติ [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/), และ [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) ของคำอธิบายภาพเพื่อระบุตำแหน่งและขนาดของมันเป็นส่วนสัดส่วนของมิติของแผนภูมิ
 
-ในตัวอย่างที่ให้ด้านล่าง เราได้กำหนดตำแหน่งและขนาดสำหรับ Chart legend
+ตัวอย่างนี้สร้างงานนำเสนอและเพิ่มแผนภูมิคอลัมน์แบบกลุ่มที่มีข้อมูลเริ่มต้นลงในสไลด์แรก การหารค่าออฟเซตและขนาดของคำอธิบายภาพที่ต้องการด้วยความกว้างและความสูงของแผนภูมิจะทำให้เป็นค่าสัมพัทธ์: คำอธิบายภาพถูกย่อออฟเซต 50 จุดจากมุมบนซ้ายของแผนภูมิและมีขนาด 100 x 100 จุด
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// รับอ้างอิงของสไลด์
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// เพิ่มแผนภูมิกลัสเตอร์คอลัมน์บนสไลด์
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
-// ตั้งค่าคุณสมบัติของ Legend
+// Express the legend's position and size relative to the chart.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// บันทึกการพรีเซนเทชันลงดิสก์
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งขนาดฟอนต์ของ Legend**
-Aspose.Slides for .NET ให้ผู้พัฒนาสามารถตั้งค่าขนาดฟอนต์ของ legend ได้ โปรดทำตามขั้นตอนด้านล่าง:
+## **ตั้งค่าขนาดฟอนต์ของคำอธิบายภาพ**
 
-- สร้างอินสแตนซ์ของคลาส `Presentation`
-- สร้างแผนภูมิเริ่มต้น
-- ตั้งค่าขนาดฟอนต์
-- ตั้งค่าค่าต่ำสุดของแกน
-- ตั้งค่าสูงสุดของแกน
-- บันทึกการพรีเซนเทชันลงดิสก์
+ใช้ [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) ของคำอธิบายภาพเพื่อเข้าถึงการจัดรูปแบบข้อความและตั้งค่า [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) เป็นจุด
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+ตัวอย่างนี้สร้างแผนภูมิที่มีข้อมูลเริ่มต้นและตั้งข้อความคำอธิบายภาพเป็น 20 จุด นอกจากนี้ยังปิดการกำหนดขอบอัตโนมัติสำหรับแกนแนวตั้งและตั้งช่วงจาก -5 ถึง 10
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งขนาดฟอนต์ของ Legend รายการเดี่ยว**
-Aspose.Slides for .NET ให้ผู้พัฒนาสามารถตั้งค่าขนาดฟอนต์ของรายการ legend แยกแต่ละรายการได้ โปรดทำตามขั้นตอนด้านล่าง:
+## **ตั้งค่าขนาดฟอนต์ของรายการคำอธิบายภาพรายบุคคล**
 
-- สร้างอินสแตนซ์ของคลาส `Presentation`
-- สร้างแผนภูมิเริ่มต้น
-- เข้าถึงรายการ legend
-- ตั้งค่าขนาดฟอนต์
-- ตั้งค่าค่าต่ำสุดของแกน
-- ตั้งค่าสูงสุดของแกน
-- บันทึกการพรีเซนเทชันลงดิสก์
+ใช้คอลเล็กชัน [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) ของคำอธิบายภาพเพื่อเข้าถึงการจัดรูปแบบของรายการเฉพาะ ดัชนีของรายการเริ่มจากศูนย์ ดังนั้นดัชนี `1` หมายถึงรายการที่สอง
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่ข้อมูลเริ่มต้นมีอย่างน้อยสองซีรีส์ โดยจัดรูปแบบรายการคำอธิบายภาพที่สองให้เป็นตัวหนา, ตัวเอียง, และข้อความสีน้ำเงินขนาด 20 จุด
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **ซ่อนรายการคำอธิบายภาพรายบุคคล**
 
-**ฉันสามารถเปิดใช้งาน legend เพื่อให้แผนภูมิจัดสรรพื้นที่โดยอัตโนมัติแทนการซ้อนทับได้หรือไม่?**
+เพื่อยกเลิกการแสดงซีรีส์เสริมจากคำอธิบายภาพในขณะที่ข้อมูลของมันยังคงมองเห็นได้ ให้ตั้งค่า [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) เป็น `true` ผ่าน [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/) การทำเช่นนี้จะซ่อนเฉพาะรายการคำอธิบายภาพที่เลือก; ไม่ได้ลบซีรีส์หรือจุดข้อมูลของมัน การตั้งค่า [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) เป็น `false` ในทางกลับกัน จะซ่อนคำอธิบายภาพทั้งหมด
 
-ใช่ ใช้โหมด non‑overlay ([Overlay](https://reference.aspose.com/slides/th/net/aspose.slides.charts/legend/overlay/) = `false`); ในกรณีนี้พื้นที่ plot จะหดลงเพื่อให้ที่ว่างสำหรับ legend
+ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีหลายซีรีส์โดยใช้ข้อมูลเริ่มต้น มันซ่อนรายการคำอธิบายภาพของซีรีส์ที่สอง (ดัชนี `1`) และบันทึกงานนำเสนอ จากนั้นกู้คืนรายการโดยตั้งค่า `Hide` เป็น `false` และบันทึกสำเนาที่สอง คอลัมน์ยังคงมองเห็นได้ในทั้งสองไฟล์
 
-**ฉันสามารถทำให้ป้าย legend มีหลายบรรทัดได้หรือไม่?**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-ได้ ป้ายยาวจะห่ออัตโนมัติเมื่อพื้นที่ไม่เพียงพอ; การบังคับขึ้นบรรทัดใหม่สามารถทำได้ด้วยอักขระ newline ในชื่อ series
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**ฉันจะทำให้ legend ปฏิบัติตามโทนสีของธีมการพรีเซนเทชันได้อย่างไร?**
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
 
-หากไม่ได้กำหนดสี/การเติม/ฟอนต์โดยตรงสำหรับ legend หรือข้อความของมัน พวกมันจะสืบทอดจากธีมและจะอัปเดตอย่างถูกต้องเมื่อการออกแบบเปลี่ยนแปลง
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// กู้คืนรายการเดียวกันโดยไม่เปลี่ยนแปลงข้อมูลแผนภูมิ
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+การเปรียบเทียบด้านล่างแสดงแผนภูมิเดียวกันที่มีรายการทั้งหมดมองเห็นและรายการที่สองถูกซ่อน คอลัมน์ของซีรีส์ที่สองยังคงไม่เปลี่ยนแปลง
+
+![การเปรียบเทียบแผนภูมิที่มีคำอธิบายภาพทั้งหมดมองเห็นและซีรีส์ 2 ถูกซ่อนจากคำอธิบายภาพ; คอลัมน์ทั้งหมดยังคงมองเห็นได้.](hide-legend-entry.png)
+
+ในแผนภูมิคอลัมน์, แถบ, และเส้น รายการคำอธิบายภาพระบุซีรีส์ สำหรับแผนภูมิพาย พวกมันระบุจุดข้อมูลแต่ละจุด (ส่วนของพาย) ดังนั้นให้ใช้ [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) กับส่วนที่เลือกแทน API บันทึกคุณสมบัติจุดข้อมูลนี้สำหรับประเภทแผนภูมิ `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` และ `BarOfPie` อย่ากล่าวว่ามันใช้ได้กับแผนภูมิโดนัท ซึ่งไม่ได้รวมอยู่ในรายการนั้น
+
+## **คำถามที่พบบ่อย**
+
+**ฉันสามารถทำให้แผนภูมิสำรองพื้นที่สำหรับคำอธิบายภาพแทนการซ้อนทับได้หรือไม่?**
+
+ใช่. ตั้งค่า [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) เป็น `false` เพื่อสำรองพื้นที่สำหรับคำอธิบายภาพแทนการให้มันซ้อนทับกับพื้นที่แสดง
+
+**ฉันสามารถทำให้ป้ายคำอธิบายภาพหลายบรรทัดได้อย่างไร?**
+
+ใช่. ป้ายที่ยาวสามารถตัดบรรทัดเมื่อความกว้างที่มีไม่เพียงพอ คุณยังสามารถใช้ตัวอักษรขึ้นบรรทัดใหม่ในชื่อซีรีส์เพื่อขอให้ขึ้นบรรทัดใหม่
+
+**ฉันจะทำให้คำอธิบายภาพใช้ชุดสีของธีมงานนำเสนอได้อย่างไร?**
+
+ปล่อยให้สี, การเติมและฟอนต์ของคำอธิบายภาพไม่ได้ตั้งค่า เพื่อให้มันสามารถสืบทอดการจัดรูปแบบของธีม การจัดรูปแบบอย่างชัดเจนจะทับการตั้งค่าธีมที่สอดคล้อง

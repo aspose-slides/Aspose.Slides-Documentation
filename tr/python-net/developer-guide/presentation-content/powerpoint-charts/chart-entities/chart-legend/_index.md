@@ -1,120 +1,141 @@
 ---
-title: Python ile Sunumlarda Grafik Lejantlarını Özelleştirin
-linktitle: Grafik Lejantı
+title: Python ile Sunumlarda Grafik Açıklama Kutularını Özelleştirin
+linktitle: Grafik Açıklama Kutusu
 type: docs
 url: /tr/python-net/chart-legend/
 keywords:
-- grafik lejanti
-- lejant konumu
+- grafik açıklama kutusu
+- açıklama kutusu konumu
 - yazı tipi boyutu
 - PowerPoint
-- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python ile .NET üzerinden grafik lejantlarını özelleştirerek, PowerPoint ve OpenDocument sunumlarını özel lejant biçimlendirmesi ile optimize edin."
+description: "Aspose.Slides for Python via .NET ile grafik açıklama kutularını özelleştirerek PowerPoint sunumlarını hedef odaklı açıklama kutusu biçimlendirmesiyle optimize edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python, grafik lejantları üzerinde tam kontrol sağlayarak veri etiketlerini net ve sunuma hazır hâle getirmenizi sağlar. Lejantı gösterip gizleyebilir, slayt üzerindeki konumunu seçebilir ve grafik alanıyla çakışmayı önlemek için yerleşimini ayarlayabilirsiniz. API, metin ve işaretçileri stillendirme, dolgu ve arka planı ince ayar yapma, kenarlık ve doldurmayı temanızla eşleştirme imkanı sunar. Geliştiriciler ayrıca tek tek lejant girişlerine erişerek adlarını değiştirebilir veya filtreleyebilir, böylece yalnızca en ilgili seriler görüntülenir. Bu özelliklerle grafikleriniz okunabilir, tutarlı ve sunum tasarım standartlarınızla uyumlu kalır.
+Aspose.Slides for Python via .NET, PowerPoint sunumlarındaki grafik açıklama kutularını özelleştirme seçenekleri sunar. Bu makale, bir açıklama kutusunun konumunu ve boyutunu ayarlamayı, tüm açıklama kutusunun yazı tipi boyutunu belirlemeyi, tek bir açıklama girdisini biçimlendirmeyi ve seçilen girdileri gizlemeyi veya geri getirmeyi gösterir.
 
-## **Lejant Konumlandırma**
+SSS, açıklama kutusu için alan ayırma, çok satırlı etiket gösterme ve biçimlendirmeyi sunum temasından devralma gibi ilgili davranışları kapsar.
 
-Aspose.Slides kullanarak grafik lejantının slayt düzeninizde nerede görüneceğini ve nasıl yerleştirileceğini hızlıca kontrol edebilirsiniz. Lejantı tam olarak nasıl konumlandıracağınızı öğrenin.
+## **Açıklama Kutusu Konumlandırma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Slayta referans alın.
-1. Slayta bir grafik ekleyin.
-1. Lejant özelliklerini ayarlayın.
-1. Sunumu PPTX dosyası olarak kaydedin.
+Açıklama kutusunun [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/x/), [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/y/), [width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/width/), ve [height](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/height/) özelliklerini kullanarak konumunu ve boyutunu grafiğin boyutlarının kesirleri olarak belirleyin.
 
-Aşağıdaki örnekte grafik lejantının konumu ve boyutu ayarlanmıştır:
+Bu örnek bir sunum oluşturur ve ilk slayta varsayılan veriyle bir küme sütun grafiği ekler. İstenen açıklama kutusu ofsetleri ve boyutları grafiğin genişliği ve yüksekliğiyle bölerek göreli değerlere dönüştürülür: açıklama kutusu grafiğin sol üst köşesinden 50 puan uzaklıkta ve 100×100 puan boyutundadır.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Presentation sınıfının bir örneğini oluştur.
 with slides.Presentation() as presentation:
-
-    # Slayta referans alın.
     slide = presentation.slides[0]
 
-    # Slayta bir kümeleme sütun grafiği ekleyin.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # Lejant özelliklerini ayarlayın.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # Açıklama kutusunun konumunu ve boyutunu grafiğe göre ifade edin.
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Sunumu diske kaydedin.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_position.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lejant Yazı Tipi Boyutunu Ayarlama**
+## **Açıklama Kutusunun Yazı Tipi Boyutunu Ayarlama**
 
-Bir grafiğin lejanti, açıkladığı veriler kadar okunaklı olmalıdır. Bu bölüm, lejantın yazı tipi boyutunu nasıl ayarlayarak sunumunuzun tipografisiyle eşleşeceğini ve erişilebilirliği artıracağını gösterir.
+Açıklama kutusunun [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) özelliğini kullanarak metin biçimlendirmesine erişin ve [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) değerini puan olarak ayarlayın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Bir grafik oluşturun.
-1. Yazı tipi boyutunu ayarlayın.
-1. Sunumu diske kaydedin.
+Bu örnek varsayılan veriyle bir grafik oluşturur ve açıklama kutusu metnini 20 puan olarak ayarlar. Ayrıca dikey eksen için otomatik sınırları devre dışı bırakır ve aralığını -5 ile 10 arasında belirler.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+    chart.legend.text_format.portion_format.font_height = 20
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = -5
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 10
+
+    presentation.save("legend_font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bir Lejant Girdisinin Yazı Tipi Boyutunu Ayarlama**
+## **Tek Bir Açıklama Kutusu Girdisinin Yazı Tipi Boyutunu Ayarlama**
 
-Aspose.Slides, grafik lejantının görünümünü bireysel girişleri biçimlendirerek ince ayar yapmanıza olanak tanır. Aşağıdaki örnek, belirli bir lejant öğesini hedefleyip diğer lejant öğelerini etkilemeden özelliklerini nasıl ayarlayacağınızı gösterir.
+Belirli bir girdi için biçimlendirmeye erişmek üzere açıklama kutusunun [entries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/entries/) koleksiyonunu kullanın. Girdi dizinleri sıfır tabanlıdır, bu yüzden `1` indeksi ikinci girdiyi ifade eder.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Bir grafik oluşturun.
-1. Bir lejant girişine erişin.
-1. Giriş özelliklerini ayarlayın.
-1. Sunumu diske kaydedin.
+Bu örnek, varsayılan verisi en az iki seriyi içeren bir küme sütun grafiği oluşturur. İkinci açıklama kutusu girdisini kalın, italik ve 20 puan mavi metinle biçimlendirir.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
 
+    text_format = chart.legend.entries[1].text_format
     text_format.portion_format.font_bold = slides.NullableBool.TRUE
     text_format.portion_format.font_height = 20
     text_format.portion_format.font_italic = slides.NullableBool.TRUE
     text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_entry_format.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Tek Tek Açıklama Kutusu Girdilerini Gizleme**
+
+Bir yardımcı seriyi açıklama kutusundan dışlamak ancak verisini görünür tutmak için, [ILegendEntryProperties.hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) özelliğini `True` olarak, [IChartSeries.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/related_legend_entry/) aracılığıyla ayarlayın. Bu, yalnızca seçilen açıklama kutusu girdisini gizler; seriyi veya veri noktalarını kaldırmaz. Bunun aksine, [IChart.has_legend](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/has_legend/) özelliğini `False` olarak ayarlamak, tüm açıklama kutusunu gizler.
+
+Aşağıdaki örnek, varsayılan veriyle birden çok seri içeren bir küme sütun grafiği oluşturur. İkinci serinin açıklama kutusu girdisini (indeks `1`) gizler ve sunumu kaydeder. Daha sonra [hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) özelliğini `False` olarak ayarlayarak girdiyi geri getirir ve ikinci bir kopya kaydeder. Sütunlar her iki dosyada da görünür kalır.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = True
+
+    legend_entry = chart.chart_data.series[1].related_legend_entry
+    legend_entry.hide = True
+
+    presentation.save("hidden_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+
+    # Aynı girdiyi grafik verisini değiştirmeden geri yükleyin.
+    legend_entry.hide = False
+
+    presentation.save("restored_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Aşağıdaki karşılaştırma, tüm girdileri görünür ve ikinci girdi gizli olan aynı grafiği gösterir. İkinci serinin sütunları değişmeden kalır.
+
+![Tüm açıklama kutusu girdileri görünür ve Seri 2 açıklama kutusundan gizli olan bir grafiğin karşılaştırması; tüm sütunlar görünür kalır.](hide-legend-entry.png)
+
+Sütun, çubuk ve çizgi grafiklerde, açıklama kutusu girdileri serileri tanımlar. Pasta grafiklerde ise tek tek veri noktalarını (dilimleri) tanımlar, bu yüzden seçilen dilim üzerinde [IChartDataPoint.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/related_legend_entry/) kullanın. API, bu veri noktası özelliğini `PIE`, `PIE3D`, `EXPLODED_PIE`, `EXPLODED_PIE3D`, `PIE_OF_PIE` ve `BAR_OF_PIE` grafik türleri için belgeler. Bu özelliğin, listede yer almayan halka grafiklerine uygulanacağını varsaymayın.
 
 ## **SSS**
 
-**Lejantı etkinleştirerek grafiğin onu örtmek yerine otomatik olarak alan tahsis etmesini sağlayabilir miyim?**
+**Grafiğin açıklama kutusu için alan ayırmasını, üzerine bindirmesini önleyebilir miyim?**
 
-Evet. Üst üste bindirme modunu devre dışı bırakın ([overlay](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/legend/overlay/) = `false`); bu durumda grafik alanı lejantı karşılayacak şekilde küçülür.
+Evet. [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) özelliğini `False` olarak ayarlayarak açıklama kutusu için alan ayırır ve grafik alanının üzerine binmesini engellersiniz.
 
-**Çok satırlı lejant etiketleri oluşturabilir miyim?**
+**Çok satırlı açıklama kutusu etiketleri oluşturabilir miyim?**
 
-Evet. Uzun etiketler, alan yetersiz olduğunda otomatik olarak satır sonuna girer; serinin adındaki yeni satır karakterleriyle zorunlu satır sonları da desteklenir.
+Evet. Genişlik yetersiz olduğunda uzun etiketler otomatik olarak satır başına geçer. Ayrıca seri adlarında yeni satır karakterleri kullanarak satır sonu isteyebilirsiniz.
 
-**Lejant, sunum temasının renk şemasını nasıl takip eder?**
+**Açıklama kutusunun sunum temasının renk şemasını takip etmesini nasıl sağlayabilirim?**
 
-Lejant veya metni için açık renk/dolgu/yazı tipi ayarlamayın. Böylece tema tarafından devralınır ve tasarım değiştiğinde doğru şekilde güncellenir.
+Açıklama kutusunun renklerini, dolgu ve yazı tiplerini ayarlamadan bırakın; böylece tema biçimlendirmesini devralır. Açıkça yapılan biçimlendirme, ilgili tema ayarlarını geçersiz kılar.

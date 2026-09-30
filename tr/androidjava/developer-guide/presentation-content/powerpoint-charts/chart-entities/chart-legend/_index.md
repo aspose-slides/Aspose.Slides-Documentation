@@ -1,129 +1,153 @@
 ---
-title: Android'de Sunumlarda Grafik Açıklamalarını Özelleştir
-linktitle: Grafik Açıklaması
+title: Android'de Sunumlarda Grafik Açıklama Kutularını Özelleştirin
+linktitle: Grafik Açıklama Kutusu
 type: docs
 url: /tr/androidjava/chart-legend/
 keywords:
-- grafik açıklaması
-- açıklama konumu
+- grafik açıklama kutusu
+- açıklama kutusu konumu
 - yazı tipi boyutu
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile grafik açıklama bölümlerini özelleştirerek, PowerPoint sunumlarını özel açıklama biçimlendirmesiyle optimize edin."
+description: "Aspose.Slides for Android via Java ile grafik açıklama kutularını özelleştirerek, PowerPoint sunumlarını özelleştirilmiş açıklama kutusu biçimlendirmesiyle optimize edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarında grafik açıklama bölümlerini özelleştirme seçenekleri sunar. Bu makale, bir açıklamanın konumunu ve boyutunu nasıl ayarlayacağınızı, tüm açıklamanın yazı tipi boyutunu nasıl belirleyeceğinizi ve tek bir açıklama girişine nasıl biçimlendirme uygulayacağınızı gösterir.
+Aspose.Slides for Android via Java, PowerPoint sunumlarında grafik açıklama kutularını özelleştirme seçenekleri sunar. Bu makale, bir açıklama kutusunun konumlandırılması ve boyutlandırılması, tüm açıklama kutusunun yazı tipi boyutunun ayarlanması, tek bir açıklama girdisinin biçimlendirilmesi ve seçili girdilerin gizlenmesi veya geri getirilmesi nasıl yapılır gösterir.
 
-Ayrıca SSS bölümünde, açıklamanın yer alması için grafik alanının yer açması amacıyla örtüşme dışı (non‑overlay) modunun kullanılması, uzun açıklama etiketlerinin satır sonu ile kaydırılması veya satır sonu karakteriyle bölünebilmesi ve açıklama biçimlendirmesinin, açıkça metin ve dolgu ayarları uygulanmadığında sunum temasından devralınması gibi ilgili davranışlar ele alınmaktadır.
+SSS, açıklama kutusu için alan ayırma, çok satırlı etiketlerin görüntülenmesi ve sunum temasından biçimlendirmeyi devralma gibi ilgili davranışları kapsar.
 
-## **Açıklama Konumlandırma**
-Açıklama özelliklerini ayarlamak için aşağıdaki adımları izleyin:
+## **Açıklama Kutusu Konumlandırma**
 
-- [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Slaytın referansını alın.
-- Slayta bir grafik ekleyin.
-- Açıklama özelliklerini ayarlayın.
-- Sunumu PPTX dosyası olarak kaydedin.
+Grafiğin boyutlarının kesirleri olarak konum ve boyutunu belirtmek için açıklama kutusunun [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-) ve [setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-) metodlarını kullanın.
 
-Aşağıda verilen örnekte, Grafik açıklamasının konumunu ve boyutunu ayarladık.
+Bu örnek bir sunum oluşturur ve ilk slayta varsayılan verilerle bir küme sütun grafiği ekler. İstenen açıklama kutusu kaydırma ve boyutlarını grafiğin genişliği ve yüksekliğiyle bölmek, bunları göreli değerlere dönüştürür: açıklama kutusu, grafiğin sol üst köşesinden 50 puan kaydırılır ve 100x100 puan boyutlandırılır.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Slayın referansını al
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Slayta bir kümeleme sütun grafiği ekle
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Açıklama Özelliklerini Ayarla
+
+    // Grafiğe göre açıklama kutusunun konum ve boyutunu ifade eder.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Sunumu diske kaydet
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Açıklamanın Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for Android via Java, geliştiricilerin açıklamanın yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Açıklama Kutusunun Yazı Tipi Boyutunu Ayarlama**
 
-- [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske kaydedin.
+Açıklama kutusunun metin biçimlendirmesine erişmek için [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) metodunu kullanın ve puan cinsinden yazı tipi boyutunu ayarlamak için [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metodunu kullanın.
+
+Bu örnek varsayılan verilerle bir grafik oluşturur ve açıklama kutusu metnini 20 puana ayarlar. Ayrıca dikey eksen için otomatik sınırlamaları devre dışı bırakır ve aralığını -5 ile 10 arasında belirler.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tek Bir Açıklamanın Yazı Tipi Boyutunu Ayarlama**
-Aspose.Slides for Android via Java, geliştiricilerin tek tek açıklama girişlerinin yazı tipi boyutunu ayarlamasına olanak tanır. Lütfen aşağıdaki adımları izleyin:
+## **Tek Bir Açıklama Kutusu Girdisinin Yazı Tipi Boyutunu Ayarlama**
 
-- [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Açıklama girişine erişin.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske kaydedin.
+Açıklama kutusunun [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--) metodunun döndürdüğü koleksiyonu, belirli bir girdinin biçimlendirmesine erişmek için kullanın. Girdi indeksleri sıfır tabanlıdır, bu yüzden `1` indeksi ikinci girdiyi ifade eder.
+
+Bu örnek, varsayılan verileri en az iki seriyi içeren bir küme sütun grafiği oluşturur. İkinci açıklama kutusu girdisini kalın, italik ve 20 puan mavi metin olarak biçimlendirir.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Tek Tek Açıklama Kutusu Girdilerini Gizleme**
+
+Verileri görünür tutarken yardımcı bir seriyi açıklama kutusundan çıkarmak için, [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) metodunu `true` ile ve [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--) üzerinden çağırın. Bu, yalnızca seçili açıklama girdisini gizler; seriyi ya da veri noktalarını kaldırmaz. Buna karşılık, [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) metodunu `false` ile çağırmak, tüm açıklama kutusunu gizler.
+
+Aşağıdaki örnek, varsayılan verileri kullanan birden fazla seriyle bir küme sütun grafiği oluşturur. İkinci serinin açıklama girdisini (indeks `1`) gizler ve sunumu kaydeder. Ardından, [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) metodunu `false` ile çağırarak girdiyi geri yükler ve ikinci bir kopya kaydeder. Sütunlar her iki dosyada da görünür kalır.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // Grafik verisini değiştirmeden aynı girişi geri yükle.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, tüm girdileri görünür ve ikinci girdi gizli olarak aynı grafiği gösterir. İkinci serinin sütunları değişmeden kalır.
+
+![Tüm açıklama girdileri görünür ve 2. Seri açıklamadan gizli olduğunda grafik karşılaştırması; tüm sütunlar görünür.](hide-legend-entry.png)
+
+Sütun, çubuk ve çizgi grafiklerinde, açıklama girdileri serileri tanımlar. Pasta grafiklerinde ise bireysel veri noktalarını (dilimleri) tanımlar, bu nedenle seçili dilimde [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) metodunu kullanın. API, bu veri noktası metodunu `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` ve `BarOfPie` grafik türleri için belgelendirir. Listede yer almayan halka (doughnut) grafiklerinde geçerli olduğunu varsımayın.
 
 ## **SSS**
 
-**Grafiğin açıklamayı otomatik olarak yer ayırmasını, üzerine bindirmek yerine etkinleştirebilir miyim?**
+**Grafik, açıklama kutusu için alan ayırıp üzerine bindirmesini önleyebilir miyim?**
 
-Evet. Örtüşme dışı modu kullanın ([setOverlay(false)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); bu durumda, grafik alanı açıklamayı barındıracak şekilde küçülür.
+Evet. Açıklama kutusu için alan ayırmak ve çizim alanının üzerine bindirmesini önlemek için [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) metodunu `false` ile çağırın.
 
 **Çok satırlı açıklama etiketleri oluşturabilir miyim?**
 
-Evet. Uzun etiketler, alan yetersiz olduğunda otomatik olarak kaydırılır; zorunlu satır sonları, seri adındaki yeni satır karakterleriyle desteklenir.
+Evet. Mevcut genişlik yetersiz olduğunda uzun etiketler satır başına kaydırılabilir. Ayrıca seri adlarında satır sonu karakterleri kullanarak satır sonları isteyebilirsiniz.
 
-**Açıklamanın sunum temasının renk şemasını izlemesini nasıl sağlayabilirim?**
+**Açıklama kutusunun sunum temasının renk şemasını izlemesini nasıl sağlayabilirim?**
 
-Açıklama veya metni için açık renkler/dolgular/yazı tipleri ayarlamayın. Böylece tema tarafından devralınır ve tasarım değiştiğinde doğru şekilde güncellenir.
+Açıklama kutusunun renklerini, doldurmalarını ve yazı tiplerini ayarlamadan bırakın; böylece tema biçimlendirmesini devralır. Açıkça belirlenen biçimlendirme, ilgili tema ayarlarını geçersiz kılar.

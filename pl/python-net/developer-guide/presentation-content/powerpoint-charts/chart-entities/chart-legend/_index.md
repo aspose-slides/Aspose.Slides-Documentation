@@ -1,5 +1,5 @@
 ---
-title: Dostosuj legendy wykresów w prezentacjach przy użyciu Pythona
+title: Dostosowywanie legend wykresów w prezentacjach przy użyciu Pythona
 linktitle: Legenda wykresu
 type: docs
 url: /pl/python-net/chart-legend/
@@ -8,113 +8,132 @@ keywords:
 - pozycja legendy
 - rozmiar czcionki
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dostosuj legendy wykresów za pomocą Aspose.Slides for Python via .NET, aby zoptymalizować prezentacje PowerPoint i OpenDocument dzięki spersonalizowanemu formatowaniu legend."
+description: "Dostosuj legendy wykresów za pomocą Aspose.Slides for Python via .NET, aby zoptymalizować prezentacje PowerPoint poprzez dopasowane formatowanie legend."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python zapewnia pełną kontrolę nad legendami wykresów, dzięki czemu możesz uczynić etykiety danych czytelne i gotowe do prezentacji. Możesz pokazać lub ukryć legendę, wybrać jej pozycję na slajdzie oraz dostosować układ, aby zapobiec nakładaniu się na obszar rysunku. API umożliwia stylizowanie tekstu i znaczników, precyzyjne dostosowanie odstępów i tła oraz formatowanie krawędzi i wypełnień, aby pasowały do Twojego motywu. Programiści mogą także uzyskać dostęp do poszczególnych pozycji legendy, aby zmienić ich nazwę lub przefiltrować je, zapewniając wyświetlanie tylko najważniejszych serii. Dzięki tym możliwościom wykresy pozostają czytelne, spójne i zgodne ze standardami projektu prezentacji.
+Aspose.Slides for Python via .NET oferuje opcje dostosowywania legend wykresów w prezentacjach PowerPoint. Ten artykuł pokazuje, jak ustawić położenie i rozmiar legendy, określić rozmiar czcionki dla całej legendy, sformatować pojedynczy wpis legendy oraz ukryć lub przywrócić wybrane pozycje.
+
+FAQ opisuje powiązane zachowania, w tym rezerwowanie miejsca dla legendy, wyświetlanie etykiet wieloliniowych oraz dziedziczenie formatowania z motywu prezentacji.
 
 ## **Pozycjonowanie legendy**
 
-Korzystając z Aspose.Slides, możesz szybko kontrolować, gdzie pojawia się legenda wykresu i jak pasuje do układu slajdu. Dowiedz się, jak precyzyjnie umieścić legendę.
+Użyj właściwości legendy [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/x/), [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/y/), [szerokość](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/width/), i [wysokość](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/height/), aby określić jej położenie i rozmiar jako ułamki wymiarów wykresu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do slajdu.
-3. Dodaj wykres do slajdu.
-4. Ustaw właściwości legendy.
-5. Zapisz prezentację jako plik PPTX.
+Ten przykład tworzy prezentację i dodaje wykres słupkowy skumulowany z domyślnymi danymi do pierwszego slajdu. Podzielenie żądanych przesunięć i wymiarów legendy przez szerokość i wysokość wykresu konwertuje je na wartości względne: legenda jest przesunięta o 50 punktów od lewego górnego rogu wykresu i ma rozmiar 100 na 100 punktów.
 
-W poniższym przykładzie ustawiamy pozycję i rozmiar legendy wykresu:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Utwórz instancję klasy Presentation.
 with slides.Presentation() as presentation:
-
-    # Uzyskaj odniesienie do slajdu.
     slide = presentation.slides[0]
 
-    # Dodaj wykres kolumnowy grupowany do slajdu.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # Ustaw właściwości legendy.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # Wyraź pozycję i rozmiar legendy względem wykresu.
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Zapisz prezentację na dysku.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_position.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ustaw rozmiar czcionki legendy**
+## **Ustawienie rozmiaru czcionki legendy**
 
-Legenda wykresu powinna być tak czytelna, jak dane, które wyjaśnia. Ta sekcja pokazuje, jak dostosować rozmiar czcionki legendy, aby dopasować go do typografii prezentacji i zwiększyć dostępność.
+Użyj właściwości legendy [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) , aby uzyskać dostęp do formatowania tekstu i ustaw [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) w punktach.
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Utwórz wykres.
-3. Ustaw rozmiar czcionki.
-4. Zapisz prezentację na dysku.
+Ten przykład tworzy wykres z domyślnymi danymi i ustawia tekst legendy na 20 punktów. Wyłącza także automatyczne granice dla osi pionowej i ustawia jej zakres od -5 do 10.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+    chart.legend.text_format.portion_format.font_height = 20
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = -5
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 10
+
+    presentation.save("legend_font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ustaw rozmiar czcionki dla pozycji legendy**
+## **Ustawienie rozmiaru czcionki pojedynczego wpisu legendy**
 
-Aspose.Slides umożliwia precyzyjne dostosowanie wyglądu legend wykresów poprzez formatowanie poszczególnych pozycji. Poniższy przykład pokazuje, jak wybrać konkretną pozycję legendy i ustawić jej właściwości, nie zmieniając reszty legendy.
+Użyj kolekcji [entries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/entries/) , aby uzyskać dostęp do formatowania konkretnego wpisu legendy. Indeksy wpisów są zerowe, więc indeks `1` odnosi się do drugiego wpisu.
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Utwórz wykres.
-3. Uzyskaj dostęp do pozycji legendy.
-4. Ustaw właściwości pozycji.
-5. Zapisz prezentację na dysku.
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
 
+    text_format = chart.legend.entries[1].text_format
     text_format.portion_format.font_bold = slides.NullableBool.TRUE
     text_format.portion_format.font_height = 20
     text_format.portion_format.font_italic = slides.NullableBool.TRUE
     text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_entry_format.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Ukrywanie pojedynczych wpisów legendy**
+
+Aby wykluczyć dodatkową serię z legendy, zachowując jednocześnie widoczność jej danych, ustaw [ILegendEntryProperties.hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) na `True` poprzez [IChartSeries.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/related_legend_entry/). To ukrywa tylko wybrany wpis legendy; nie usuwa serii ani jej punktów danych. Natomiast ustawienie [IChart.has_legend](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/has_legend/) na `False` ukrywa całą legendę.
+
+Poniższy przykład tworzy wykres słupkowy skumulowany z wieloma seriami przy użyciu domyślnych danych. Ukrywa wpis legendy drugiej serii (indeks `1`) i zapisuje prezentację. Następnie przywraca ten wpis, ustawiając [hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) na `False` i zapisuje drugą kopię. Kolumny pozostają widoczne w obu plikach.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = True
+
+    legend_entry = chart.chart_data.series[1].related_legend_entry
+    legend_entry.hide = True
+
+    presentation.save("hidden_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+
+    # Przywróć ten sam wpis bez zmiany danych wykresu.
+    legend_entry.hide = False
+
+    presentation.save("restored_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Poniższe porównanie pokazuje ten sam wykres ze wszystkimi widocznymi wpisami legendy oraz z ukrytym serią 2 w legendzie; wszystkie kolumny pozostają widoczne.
+
+![Porównanie wykresu ze wszystkimi widocznymi wpisami legendy oraz z ukrytym serią 2 w legendzie; wszystkie kolumny pozostają widoczne.](hide-legend-entry.png)
+
+W wykresach kolumnowych, słupkowych i liniowych wpisy legendy identyfikują serie. W wykresach kołowych identyfikują one pojedyncze punkty danych (segmenty), więc zamiast tego użyj [IChartDataPoint.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/related_legend_entry/) na wybranym segmencie. API dokumentuje tę właściwość punktu danych dla typów wykresów `PIE`, `PIE3D`, `EXPLODED_PIE`, `EXPLODED_PIE3D`, `PIE_OF_PIE` oraz `BAR_OF_PIE`. Nie zakładaj, że ma zastosowanie do wykresów pierścieniowych, które nie są wymienione na tej liście.
 
 ## **FAQ**
 
-**Czy mogę włączyć legendę, aby wykres automatycznie przydzielał dla niej miejsce zamiast nakładać ją?**
+**Czy mogę sprawić, że wykres przydzieli miejsce dla legendy zamiast nakładać ją?**
 
-Tak. Użyj trybu bez nakładania ([overlay](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/legend/overlay/) = `false`); w tym przypadku obszar rysunku zostanie zmniejszony, aby pomieścić legendę.
+Tak. Ustaw [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) na `False`, aby zarezerwować miejsce dla legendy zamiast pozwalać jej nakładać się na obszar wykresu.
 
 **Czy mogę tworzyć wieloliniowe etykiety legendy?**
 
-Tak. Długie etykiety zawijają się automatycznie, gdy brakuje miejsca; wymuszone podziały linii są obsługiwane poprzez znaki nowej linii w nazwie serii.
+Tak. Długie etykiety mogą się zawijać, gdy dostępna szerokość jest niewystarczająca. Możesz także używać znaków nowej linii w nazwach serii, aby wymusić podziały linii.
 
-**Jak sprawić, aby legenda dostosowywała się do schematu kolorów motywu prezentacji?**
+**Jak sprawić, aby legenda korzystała ze schematu kolorów motywu prezentacji?**
 
-Nie ustawiaj explicite kolorów/wypełnień/czcionek dla legendy ani jej tekstu. Wówczas zostaną one odziedziczone z motywu i będą się prawidłowo aktualizować przy zmianie projektu.
+Pozostaw kolory, wypełnienia i czcionki legendy nieustawione, aby mogła dziedziczyć formatowanie motywu. Jawne formatowanie zastępuje odpowiadające ustawienia motywu.

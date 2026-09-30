@@ -1,118 +1,142 @@
 ---
-title: سفارشی‌سازی لگن‌های نمودار در ارائه‌ها با .NET
-linktitle: لگن نمودار
+title: سفارشی‌سازی اسطوره‌های نمودار در ارائه‌ها در .NET
+linktitle: اسطوره نمودار
 type: docs
 url: /fa/net/chart-legend/
 keywords:
-- لگن نمودار
-- موقعیت لگن
-- اندازه قلم
-- پاورپوینت
+- اسطوره نمودار
+- موقعیت اسطوره
+- اندازه فونت
+- PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "لگن‌های نمودار را با Aspose.Slides برای .NET سفارشی کنید تا ارائه‌های پاورپوینت را با قالب‌بندی ویژه لگن بهینه‌سازی کنید."
+description: "اسطوره‌های نمودار را با Aspose.Slides برای .NET سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی اختصاصی اسطوره بهینه‌سازی کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-Aspose.Slides گزینه‌هایی برای سفارشی‌سازی لگن نمودارها در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه لگن را موقعیت‌دهی و اندازه‌گیری کنید، اندازه قلم کل لگن را تنظیم کنید و قالب‌بندی را برای یک ورودی منفرد لگن اعمال کنید.
+Aspose.Slides for .NET گزینه‌هایی برای سفارشی‌سازی اسطوره‌های نمودار در ارائه‌های PowerPoint ارائه می‌دهد. این مقاله نشان می‌دهد چگونه یک اسطوره را مکان‌یابی و اندازه‌گذاری کرد، اندازه فونت کل اسطوره را تنظیم کرد، یک ورودی اسطوره را به‌صورت جداگانه قالب‌بندی کرد و ورودی‌های انتخابی را مخفی یا بازیابی کرد.
 
-همچنین در بخش سوالات متداول به چند رفتار مرتبط پرداخته می‌شود، از جمله استفاده از حالت غیر‑پوششی (non‑overlay) تا ناحیه رسم برای لگن فضا ایجاد کند، اجازه به بسته شدن خودکار برچسب‌های طولانی یا استفاده از شکست خط، و امکان ارث‌بری قالب‌بندی لگن از تم ارائه هنگامی‌که تنظیمات صریح متن و پر کردن اعمال نشده باشد.
+سؤالات متداول رفتارهای مرتبط را پوشش می‌دهد، از جمله رزرو فضای اسطوره، نمایش برچسب‌های چندخطی، و ارث‌بری قالب‌بندی از تم ارائه.
 
-## **موقعیت لگن**
-برای تنظیم ویژگی‌های لگن، مراحل زیر را دنبال کنید:
+## **موقعیت‌یابی اسطوره**
 
-- ایجاد یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation).
-- دریافت مرجع اسلاید.
-- افزودن یک نمودار به اسلاید.
-- تنظیم ویژگی‌های لگن.
-- نوشتن ارائه به‌صورت فایل PPTX.
+از ویژگی‌های [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/), و [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) اسطوره استفاده کنید تا موقعیت و اندازه آن را به عنوان کسری از ابعاد نمودار مشخص کنید.
 
-در مثال زیر، موقعیت و اندازه لگن نمودار را تنظیم کرده‌ایم.
+این مثال یک ارائه ایجاد می‌کند و یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض را به اولین اسلاید اضافه می‌کند. تقسیم افست‌ها و ابعاد مورد نظر اسطوره بر عرض و ارتفاع نمودار، آن‌ها را به مقادیر نسبی تبدیل می‌کند: اسطوره ۵۰ نقطه از گوشه بالایی‑چپ نمودار فاصله دارد و به اندازه ۱۰۰ در ۱۰۰ نقطه تنظیم می‌شود.
 
-```c#
- // Create an instance of Presentation class
- // Get reference of the slide
- // Add a clustered column chart on the slide
- // Set Legend Properties
- // Write presentation to disk
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
+// Express the legend's position and size relative to the chart.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم اندازه قلم لگن**
-Aspose.Slides برای .NET به توسعه‌دهندگان امکان تنظیم اندازه قلم لگن را می‌دهد. لطفاً مراحل زیر را دنبال کنید:
+## **تنظیم اندازه فونت اسطوره**
 
-- نمونه‌سازی کلاس `Presentation`.
-- ایجاد نمودار پیش‌فرض.
-- تنظیم اندازه قلم.
-- تنظیم مقدار حداقل محور.
-- تنظیم مقدار بیشینه محور.
-- نوشتن ارائه روی دیسک.
+از [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) اسطوره برای دسترسی به قالب‌بندی متن آن استفاده کنید و [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) را بر حسب نقطه تنظیم کنید.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+این مثال یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند و متن اسطوره را به ۲۰ نقطه تنظیم می‌کند. همچنین حدهای خودکار برای محور عمودی را غیرفعال می‌کند و دامنه آن را از -5 تا ۱۰ تنظیم می‌نماید.
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم اندازه قلم یک ورودی لگن**
-Aspose.Slides برای .NET به توسعه‌دهندگان امکان تنظیم اندازه قلم ورودی‌های منفرد لگن را می‌دهد. لطفاً مراحل زیر را دنبال کنید:
+## **تنظیم اندازه فونت یک ورودی اسطوره به‌صورت فردی**
 
-- نمونه‌سازی کلاس `Presentation`.
-- ایجاد نمودار پیش‌فرض.
-- دسترسی به ورودی لگن.
-- تنظیم اندازه قلم.
-- تنظیم مقدار حداقل محور.
-- تنظیم مقدار بیشینه محور.
-- نوشتن ارائه روی دیسک.
+از مجموعه [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) اسطوره برای دسترسی به قالب‌بندی یک ورودی خاص استفاده کنید. شاخص‌های ورودی از صفر شروع می‌شوند، بنابراین شاخص `1` به ورودی دوم اشاره دارد.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند که داده‌های پیش‌فرض آن حداقل شامل دو سری است. این ورودی دوم اسطوره را با متن ضخیم، ایتالیک و به اندازه ۲۰ نقطه با رنگ آبی قالب‌بندی می‌کند.
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
-## **سوالات متداول**
+## **مخفی کردن ورودی‌های فردی اسطوره**
 
-**آیا می‌توانم لگن را فعال کنم تا نمودار به‌صورت خودکار برای آن فضا اختصاص دهد به‌جای اینکه آن را روی‌هم قرار دهد؟**
+برای حذف یک سری کمکی از اسطوره در حالی که داده‌های آن قابل مشاهده می‌مانند، [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) را از طریق [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/) به `true` تنظیم کنید. این کار تنها ورودی انتخاب‌شده اسطوره را مخفی می‌کند؛ سری یا نقاط داده آن حذف نمی‌شود. در مقابل، تنظیم [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) به `false` تمام اسطوره را مخفی می‌کند.
 
-بله. از حالت غیر‑پوششی استفاده کنید ([Overlay](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/legend/overlay/) = `false`); در این صورت ناحیه رسم برای جا دادن به لگن کوچک می‌شود.
+مثال زیر یک نمودار ستونی خوشه‌ای با چندین سری با استفاده از داده‌های پیش‌فرض ایجاد می‌کند. ورودی اسطوره سری دوم (شاخص `1`) را مخفی می‌کند و ارائه را ذخیره می‌نماید. سپس با تنظیم `Hide` به `false` ورودی را بازمی‌گرداند و یک نسخه دوم ذخیره می‌کند. ستون‌ها در هر دو فایل قابل مشاهده باقی می‌مانند.
 
-**آیا می‌توانم برچسب‌های لگن چندخطی داشته باشم؟**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-بله. برچسب‌های طولانی به‌صورت خودکار در صورت عدم کافی بودن فضا به خطوط بعدی می‌رسند؛ شکست خط اجباری نیز از طریق کاراکترهای newline در نام سری پشتیبانی می‌شود.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**چگونه می‌توانم لگن را طوری تنظیم کنم که رنگ‌های آن از طرح رنگ تم ارائه ارث‌بری شود؟**
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
 
-به‌جای تعیین صریح رنگ‌ها/پرکردن‌ها/قلم‌ها برای لگن یا متن آن، این ویژگی‌ها را تنظیم نکنید. در این صورت رنگ‌ها از تم ارث‌بری می‌شوند و هنگام تغییر طراحی به‌درستی به‌روز می‌شوند.
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// ورودی یکسان را بدون تغییر داده‌های نمودار بازیابی کنید.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+مقایسه زیر همان نمودار را با همه ورودی‌های قابل مشاهده و با ورودی دوم مخفی نشان می‌دهد. ستون‌های سری دوم بدون تغییر باقی می‌مانند.
+
+![مقایسه نموداری که همه ورودی‌های اسطوره قابل مشاهده هستند و سری ۲ از اسطوره مخفی شده است؛ همه ستون‌ها قابل مشاهده باقی می‌مانند.](hide-legend-entry.png)
+
+در نمودارهای ستونی، نوار و خطی، ورودی‌های اسطوره سری‌ها را شناسایی می‌کنند. برای نمودارهای دایره‌ای، آن‌ها نقاط دادهٔ فردی (برش‌ها) را شناسایی می‌کنند، بنابراین به‌جای آن از [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) روی برش انتخابی استفاده کنید. API این ویژگی نقطه‑داده را برای انواع نمودارهای `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` و `BarOfPie` مستند کرده است. فرض نکنید این ویژگی برای نمودارهای دونات نیز اعمال می‌شود، که در این فهرست گنجانده نشده‌اند.
+
+## **سؤالات متداول**
+
+**آیا می‌توانم نمودار فضای مورد نیاز اسطوره را رزرو کند به‌جای پوشاندن آن؟**  
+بله. مقدار [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) را به `false` تنظیم کنید تا به‌جای اجازهٔ هم‌پوشانی با ناحیهٔ نمودار، فضای اسطوره رزرو شود.
+
+**آیا می‌توانم برچسب‌های اسطوره چندخطی ایجاد کنم؟**  
+بله. برچسب‌های طولانی می‌توانند در صورتی که عرض موجود کافی نباشد، به‌صورت خودکار به‌خط بعدی بروند. همچنین می‌توانید در نام‌های سری از نویسه‌های جدید خط استفاده کنید تا شکسته‌خط درخواست شود.
+
+**چگونه می‌توانم اسطوره را مطابق با طرح رنگی تم ارائه تنظیم کنم؟**  
+رنگ‌ها، پرکردگی‌ها و قلم‌های اسطوره را تنظیم نکنید تا بتواند قالب‌بندی تم را به ارث ببرد. قالب‌بندی صریح تنظیمات تم مربوطه را بازنویسی می‌کند.

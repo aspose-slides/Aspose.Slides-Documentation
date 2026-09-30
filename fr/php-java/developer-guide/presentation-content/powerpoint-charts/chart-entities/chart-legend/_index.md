@@ -11,110 +11,154 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Personnalisez les légendes de graphiques avec Aspose.Slides for PHP via Java pour optimiser les présentations PowerPoint avec un formatage de légende adapté."
+description: "Personnalisez les légendes de graphiques avec Aspose.Slides for PHP via Java afin d'optimiser les présentations PowerPoint avec un formatage de légende adapté."
 ---
+## **Vue d'ensemble**
 
-## **Position de la légende**
-Afin de définir les propriétés de la légende, suivez les étapes ci-dessous :
+Aspose.Slides for PHP via Java offre des options pour personnaliser les légendes de graphiques dans les présentations PowerPoint. Cet article montre comment positionner et dimensionner une légende, définir la taille de police pour l'ensemble de la légende, formater une entrée de légende individuelle, et masquer ou restaurer des entrées sélectionnées.
 
-- Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Obtenir une référence de la diapositive.
-- Ajouter un graphique sur la diapositive.
-- Définir les propriétés de la légende.
-- Enregistrer la présentation au format PPTX.
+La FAQ couvre les comportements associés, notamment la réservation d'espace pour la légende, l'affichage d'étiquettes multilignes et l'héritage du formatage du thème de la présentation.
 
-Dans l'exemple ci-dessous, nous avons défini la position et la taille de la légende du graphique.
+## **Positionnement de la légende**
+
+Utilisez les méthodes [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/), et [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) de la légende pour spécifier sa position et sa taille en fractions des dimensions du graphique.
+
+Cet exemple crée une présentation et ajoute un graphique à colonnes groupées avec des données par défaut à la première diapositive. En divisant les décalages et dimensions souhaités de la légende par la largeur et la hauteur du graphique, on les convertit en valeurs relatives : la légende est décalée de 50 points du coin supérieur gauche du graphique et dimensionnée à 100 par 100 points. L'exemple utilise java_values pour convertir les dimensions du graphique renvoyées par le pont PHP/Java en nombres PHP avant la division.
+
 ```php
-  # Créer une instance de la classe Presentation
-  $pres = new Presentation();
-  try {
-    # Obtenir une référence de la diapositive
-    $slide = $pres->getSlides()->get_Item(0);
-    # Ajouter un graphique à colonnes groupées sur la diapositive
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Définir les propriétés de la légende
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Enregistrer la présentation sur le disque
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Exprimez la position et la taille de la légende par rapport au graphique.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Définir la taille de police d’une légende**
 
-## **Définir la taille de police d'une légende**
-Aspose.Slides for PHP via Java permet aux développeurs de définir la taille de police de la légende. Veuillez suivre les étapes ci-dessous :
+Utilisez la méthode [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) de la légende pour accéder à son formatage de texte et utilisez [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) pour définir la taille de police en points.
 
-- Instancier la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Créer le graphique par défaut.
-- Définir la taille de police.
-- Définir la valeur minimale de l'axe.
-- Définir la valeur maximale de l'axe.
-- Enregistrer la présentation sur le disque.
+Cet exemple crée un graphique avec des données par défaut et définit le texte de la légende à 20 points. Il désactive également les limites automatiques pour l'axe vertical et fixe son intervalle de -5 à 10.
+
 ```php
-  # Créer une instance de la classe Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Définir la taille de police d’une entrée de légende individuelle**
 
-## **Définir la taille de police d'une légende individuelle**
-Aspose.Slides for PHP via Java permet aux développeurs de définir la taille de police des entrées individuelles de la légende. Veuillez suivre les étapes ci-dessous :
+Utilisez la collection renvoyée par la méthode [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) de la légende pour accéder au formatage d'une entrée spécifique. Les indices des entrées sont basés sur zéro, ainsi l'indice `1` correspond à la deuxième entrée.
 
-- Instancier la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Créer le graphique par défaut.
-- Accéder à l'entrée de la légende.
-- Définir la taille de police.
-- Définir la valeur minimale de l'axe.
-- Définir la valeur maximale de l'axe.
-- Enregistrer la présentation sur le disque.
+Cet exemple crée un graphique à colonnes groupées dont les données par défaut comprennent au moins deux séries. Il formate la deuxième entrée de légende avec du texte gras, italique et bleu de 20 points.
+
 ```php
-  # Créer une instance de la classe Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Masquer les entrées de légende individuelles**
+
+Pour exclure une série auxiliaire de la légende tout en conservant ses données visibles, appelez [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) avec `true` via [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). Cela masque uniquement l'entrée de légende sélectionnée ; cela ne supprime pas la série ni ses points de données. En revanche, appeler [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) avec `false` masque la légende entière.
+
+L'exemple ci‑dessous crée un graphique à colonnes groupées avec plusieurs séries en utilisant des données par défaut. Il masque l'entrée de légende de la deuxième série (indice `1`) et enregistre la présentation. Il restaure ensuite l'entrée en appelant [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) avec `false` et enregistre une seconde copie. Les colonnes restent visibles dans les deux fichiers.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // Restaurer la même entrée sans modifier les données du graphique.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+La comparaison ci‑dessous montre le même graphique avec toutes les entrées visibles et avec la deuxième entrée masquée. Les colonnes de la deuxième série restent inchangées.
+
+![Comparaison d'un graphique avec toutes les entrées de légende visibles et avec la série 2 masquée de la légende ; toutes les colonnes restent visibles.](hide-legend-entry.png)
+
+Dans les graphiques à colonnes, à barres et en courbes, les entrées de légende identifient les séries. Pour les graphiques circulaires, elles identifient les points de données individuels (tranches), il faut donc utiliser [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) sur la tranche sélectionnée. L'API documente cette méthode de point de données pour les types de graphiques `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` et `BarOfPie`. Ne supposez pas qu'elle s'applique aux graphiques en anneau, qui ne sont pas inclus dans cette liste.
 
 ## **FAQ**
 
-**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+**Can I make the chart allocate space for the legend instead of overlaying it?**
 
-Oui. Utilisez le mode non-superposition ([setOverlay(false)](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/)); dans ce cas, la zone de tracé se réduira pour accueillir la légende.
+Oui. Appelez [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) avec `false` pour réserver de l'espace à la légende au lieu de lui permettre de recouvrir la zone du graphique.
 
-**Can I make multi-line legend labels?**
+**Can I make multiline legend labels?**
 
-Oui. Les libellés longs se renvoient automatiquement lorsqu'il n'y a pas assez d'espace; les retours à la ligne forcés sont pris en charge via des caractères de nouvelle ligne dans le nom de la série.
+Oui. Les étiquettes longues peuvent se renvoyer à la ligne lorsque la largeur disponible est insuffisante. Vous pouvez également utiliser des caractères de nouvelle ligne dans les noms de séries pour demander des retours à la ligne.
 
-**How do I make the legend follow the presentation theme’s color scheme?**
+**How do I make the legend follow the presentation theme's color scheme?**
 
-Ne définissez pas de couleurs, remplissages ou polices explicites pour la légende ou son texte. Ils hériteront alors du thème et seront mis à jour correctement lorsque le design changera.
+Laissez les couleurs, remplissages et polices de la légende non définis afin qu'elle puisse hériter du formatage du thème. Un formatage explicite écrase les paramètres du thème correspondants.

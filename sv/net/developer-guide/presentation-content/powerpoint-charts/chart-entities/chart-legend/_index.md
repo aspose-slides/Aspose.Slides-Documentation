@@ -1,118 +1,145 @@
 ---
-title: Anpassa diagramlegender i presentationer i .NET
-linktitle: Diagramlegend
+title: Anpassa diagramförklaringar i presentationer i .NET
+linktitle: Diagramförklaring
 type: docs
 url: /sv/net/chart-legend/
 keywords:
-- diagramlegend
-- legendposition
+- diagramförklaring
+- förklaringens position
 - teckenstorlek
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Anpassa diagramlegender med Aspose.Slides för .NET för att optimera PowerPoint-presentationer med skräddarsydd legendformatering."
+description: "Anpassa diagramförklaringar med Aspose.Slides för .NET för att optimera PowerPoint-presentationer med skräddarsydd förklaringsformatering."
 ---
 ## **Översikt**
 
-Aspose.Slides erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Den här artikeln visar hur man placerar och storlekar en förklaring, anger teckenstorlek för hela förklaringen och tillämpar formatering på ett enskilt förklaringspost.
+Aspose.Slides för .NET erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Denna artikel visar hur man placerar och ändrar storlek på en förklaring, ställer in teckenstorlek för hela förklaringen, formaterar en enskild förklaringspost och döljer eller återställer valda poster.
 
-Den täcker också flera relaterade beteenden i FAQ, inklusive att använda icke‑överlappningsläge så att diagramområdet ger plats för förklaringen, tillåter långa förklaringsetiketter att radbrytas eller använda radbrytningar, och låter förklaringsformatering ärva från presentationens tema när explicita text‑ och fyllningsinställningar inte har angetts.
+FAQ:n täcker relaterade beteenden, inklusive att reservera utrymme för förklaringen, visa flerradiga etiketter och ärva formatering från presentationstemat.
 
-## **Placering av legenden**
-För att ställa in egenskaperna för legenden. Följ stegen nedan:
+## **Placering av förklaring**
 
-- Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
-- Hämta referens till bilden.
-- Lägg till ett diagram på bilden.
-- Ställ in egenskaperna för legenden.
-- Skriv presentationen som en PPTX‑fil.
+Använd förklaringens [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/), och [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) egenskaper för att ange dess position och storlek som bråkdelar av diagrammets dimensioner.
 
-I exemplet nedan har vi angivit position och storlek för diagramlegenden.
+Detta exempel skapar en presentation och lägger till ett grupperat stapeldiagram med standarddata på den första bilden. Genom att dela de önskade förklaringsoffseten och dimensionerna med diagrammets bredd och höjd konverteras de till relativa värden: förklaringen är förskjuten 50 punkter från diagrammets övre vänstra hörn och har storleken 100 × 100 punkter.
 
-```c#
-// Skapa en instans av Presentation-klassen
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Hämta referens till bilden
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Lägg till ett grupperat stapeldiagram på bilden
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
-// Ställ in legendegenskaper
+// Express the legend's position and size relative to the chart.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// Skriv presentationen till disk
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
-## **Ange teckenstorlek för en legend**
-Aspose.Slides för .NET låter utvecklare ange teckenstorlek för legenden. Följ stegen nedan:
+## **Ställ in teckenstorlek för en förklaring**
 
-- Instansiera klassen `Presentation`.
-- Skapa standarddiagrammet.
-- Ange teckenstorleken.
-- Ange minimumvärde för axeln.
-- Ange maximumvärde för axeln.
-- Skriv presentationen till disk.
+Använd förklaringens [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) för att komma åt dess textformatering och sätt [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) i punkter.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+Detta exempel skapar ett diagram med standarddata och sätter förklaringstexten till 20 punkter. Det inaktiverar även automatiska gränser för den vertikala axeln och sätter dess område till -5 till 10.
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
-## **Ange teckenstorlek för en enskild legend**
-Aspose.Slides för .NET låter utvecklare ange teckenstorlek för enskilda legendposteringar. Följ stegen nedan:
+## **Ställ in teckenstorlek för en enskild förklaringspost**
 
-- Instansiera klassen `Presentation`.
-- Skapa standarddiagrammet.
-- Åtkomst till legendpost.
-- Ange teckenstorleken.
-- Ange minimumvärde för axeln.
-- Ange maximumvärde för axeln.
-- Skriv presentationen till disk.
+Använd förklaringens [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) samling för att komma åt formatering för en specifik post. Postindex är nollbaserade, så index `1` avser den andra posten.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+Detta exempel skapar ett grupperat stapeldiagram vars standarddata innehåller minst två serier. Det formaterar den andra förklaringsposten med fet, kursiv och 20‑punkts blå text.
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
+
+## **Dölj enskilda förklaringsposter**
+
+För att utesluta en hjälpseries från förklaringen samtidigt som dess data förblir synlig, sätt [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) till `true` via [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/). Detta döljer endast den valda förklaringsposten; den tar inte bort serien eller dess datapunkter. Att sätta [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) till `false` döljer däremot hela förklaringen.
+
+Exemplet nedan skapar ett grupperat stapeldiagram med flera serier med standarddata. Det döljer den andra seriens förklaringspost (index `1`) och sparar presentationen. Det återställer sedan posten genom att sätta `Hide` till `false` och sparar en andra kopia. Kolumnerna förblir synliga i båda filerna.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
+
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// Återställ samma post utan att ändra diagramdata.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+Jämförelsen nedan visar samma diagram med alla poster synliga och med den andra posten dold. Den andra seriens kolumner förblir oförändrade.
+
+![Jämförelse av ett diagram med alla förklaringsposter synliga och med serie 2 dold från förklaringen; alla kolumner förblir synliga.](hide-legend-entry.png)
+
+I stapel-, stång- och linjediagram identifierar förklaringsposter serier. I cirkeldiagram identifierar de enskilda datapunkter (skivor), så använd [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) på den valda skivan istället. API:n dokumenterar denna datapunkt-egenskap för diagramtyperna `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` och `BarOfPie`. Anta inte att den gäller för donutsdiagram, som inte ingår i listan.
 
 ## **FAQ**
 
-**Kan jag aktivera legenden så att diagrammet automatiskt avsätter utrymme för den istället för att överlappa den?**
+**Kan jag låta diagrammet reservera utrymme för förklaringen istället för att överlappa den?**
 
-Ja. Använd icke‑överlappningsläget ([Overlay](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/legend/overlay/) = `false`); i så fall kommer diagramområdet att krympa för att rymma legenden.
+Ja. Sätt [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) till `false` för att reservera utrymme för förklaringen istället för att låta den överlappa plotområdet.
 
-**Kan jag skapa flerradiga legendetiketter?**
+**Kan jag skapa flerradiga förklaringsetiketter?**
 
-Ja. Långa etiketter radbryts automatiskt när utrymmet är otillräckligt; tvingade radbrytningar stödjs via nyrads­tecken i seriens namn.
+Ja. Långa etiketter kan radbrytas när den tillgängliga bredden är otillräcklig. Du kan också använda nyradstecken i serienamn för att begära radbrytningar.
 
-**Hur får jag legenden att följa presentationens temas färgschema?**
+**Hur får jag förklaringen att följa presentationens färgschema?**
 
-Ange inte explicita färger/fyllningar/teckensnitt för legenden eller dess text. De kommer då att ärva från temat och uppdateras korrekt när designen ändras.
+Lämna förklaringens färger, fyllningar och typsnitt odefinierade så att den kan ärva temats formatering. Explicit formatering åsidosätter motsvarande temainställningar.

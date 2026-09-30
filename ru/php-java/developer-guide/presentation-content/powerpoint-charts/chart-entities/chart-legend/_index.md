@@ -5,116 +5,157 @@ type: docs
 url: /ru/php-java/chart-legend/
 keywords:
 - легенда диаграммы
-- положение легенды
+- позиция легенды
 - размер шрифта
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Настройте легенды диаграмм с помощью Aspose.Slides for PHP via Java, чтобы оптимизировать презентации PowerPoint с индивидуальным форматированием легенд."
+description: "Настройте легенды диаграмм с помощью Aspose.Slides для PHP через Java, чтобы оптимизировать презентации PowerPoint с индивидуальным форматированием легенд."
 ---
+## **Обзор**
+
+Aspose.Slides for PHP via Java предоставляет возможности настройки легенд диаграмм в презентациях PowerPoint. В этой статье показано, как задать позицию и размер легенды, установить размер шрифта для всей легенды, отформатировать отдельный элемент легенды и скрыть или восстановить выбранные элементы.
+
+Раздел FAQ охватывает связанные поведения, включая резервирование места для легенды, отображение многострочных подписей и наследование форматирования из темы презентации.
 
 ## **Расположение легенды**
-Чтобы задать свойства легенды, выполните следующие шаги:
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Получите ссылку на слайд.
-- Добавьте диаграмму на слайд.
-- Установите свойства легенды.
-- Сохраните презентацию в файл PPTX.
+Используйте методы легенды [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/), и [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/), чтобы задать её позицию и размер в виде долей от размеров диаграммы.
 
-В приведённом ниже примере мы задали положение и размер легенды диаграммы.
+В этом примере создаётся презентация и на первый слайд добавляется сгруппированная столбчатая диаграмма с данными по умолчанию. Делением требуемых смещений и размеров легенды на ширину и высоту диаграммы они преобразуются в относительные значения: легенда смещена на 50 пунктов от верхнего левого угла диаграммы и имеет размер 100 × 100 пунктов. Пример использует java_values для преобразования размеров диаграммы, возвращаемых PHP/Java Bridge, в числа PHP перед делением.
+
 ```php
-  # Создайте экземпляр класса Presentation
-  $pres = new Presentation();
-  try {
-    # Получите ссылку на слайд
-    $slide = $pres->getSlides()->get_Item(0);
-    # Добавьте на слайд группированную столбчатую диаграмму
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Установите свойства легенды
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Сохраните презентацию на диск
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Задайте позицию и размер легенды относительно диаграммы.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Установка размера шрифта легенды**
 
-## **Установить размер шрифта легенды**
-Aspose.Slides for PHP via Java позволяет разработчикам задавать размер шрифта легенды. Выполните следующие шаги:
+Используйте [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/), чтобы получить доступ к форматированию текста легенды, и [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight), чтобы задать размер шрифта в пунктах.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Создайте диаграмму по умолчанию.
-- Установите размер шрифта.
-- Задайте минимальное значение оси.
-- Задайте максимальное значение оси.
-- Сохраните презентацию на диск.
+В этом примере создаётся диаграмма с данными по умолчанию и задаётся размер текста легенды 20 пунктов. Также отключаются автоматические границы вертикальной оси и задаётся диапазон от -5 до 10.
+
 ```php
-  # Создайте экземпляр класса Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Установка размера шрифта отдельного элемента легенды**
 
-## **Установить размер шрифта отдельной записи легенды**
-Aspose.Slides for PHP via Java позволяет разработчикам задавать размер шрифта отдельных записей легенды. Выполните следующие шаги:
+Используйте коллекцию, возвращаемую методом легенды [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/), чтобы получить форматирование конкретного элемента. Индексы элементов нумеруются с нуля, поэтому индекс `1` относится ко второму элементу.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Создайте диаграмму по умолчанию.
-- Получите доступ к записи легенды.
-- Установите размер шрифта.
-- Задайте минимальное значение оси.
-- Задайте максимальное значение оси.
-- Сохраните презентацию на диск.
+В этом примере создаётся сгруппированная столбчатая диаграмма, в данных которой по умолчанию присутствует как минимум две серии. Второй элемент легенды форматируется полужирным, курсивом и синим текстом размером 20 пунктов.
+
 ```php
-  # Создайте экземпляр класса Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Скрытие отдельных элементов легенды**
+
+Чтобы исключить вспомогательную серию из легенды, оставив её данные видимыми, вызовите [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) с параметром `true` через [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). Это скрывает только выбранный элемент легенды; серия и её точки данных не удаляются. В отличие от этого, вызов [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) с параметром `false` скрывает всю легенду.
+
+В приведённом ниже примере создаётся сгруппированная столбчатая диаграмма с несколькими сериями на основе данных по умолчанию. Он скрывает элемент легенды второй серии (индекс `1`) и сохраняет презентацию. Затем элемент восстанавливается вызовом [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) с параметром `false` и сохраняется вторая копия. Столбцы остаются видимыми в обоих файлах.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // Восстановить тот же элемент без изменения данных диаграммы.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Сравнение ниже демонстрирует одну и ту же диаграмму с видимыми всеми элементами и со скрытым вторым элементом. Столбцы второй серии остаются без изменения.
+
+![Сравнение диаграммы с видимыми всеми элементами легенды и со скрытой второй серией в легенде; все столбцы остаются видимыми.](hide-legend-entry.png)
+
+В столбчатых, линейных и гистограммных диаграммах элементы легенды обозначают серии. Для круговых диаграмм они обозначают отдельные точки данных (секторы), поэтому вместо этого используйте [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) для выбранного сектора. API документирует этот метод точки данных для типов диаграмм `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` и `BarOfPie`. Не следует полагать, что он применим к кольцевым диаграммам, которые не включены в этот список.
 
 ## **FAQ**
 
-**Могу ли я включить легенду, чтобы диаграмма автоматически выделяла для неё место вместо наложения?**
+**Могу ли я заставить диаграмму выделять место для легенды вместо наложения её?**  
+Да. Вызовите [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) с параметром `false`, чтобы зарезервировать место для легенды вместо её наложения на область построения.
 
-Да. Используйте режим без наложения ([setOverlay(false)](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/)); в этом случае область построения уменьшится, чтобы разместить легенду.
+**Могу ли я сделать многострочные подписи легенды?**  
+Да. Длинные подписи могут переноситься, когда доступной ширины недостаточно. Вы также можете использовать символы переноса строки в названиях серий, чтобы задать разрывы.
 
-**Могу ли я сделать многострочные подписи легенды?**
-
-Да. Длинные подписи автоматически переносятся, если места недостаточно; принудительные разрывы строки поддерживаются символами новой строки в названии серии.
-
-**Как сделать так, чтобы легенда следовала цветовой схеме темы презентации?**
-
-Не задавайте явные цвета/заливки/шрифты для легенды или её текста. Они будут наследоваться из темы и корректно обновляться при изменении дизайна.
+**Как заставить легенду следовать цветовой схеме темы презентации?**  
+Оставьте цвета, заливки и шрифты легенды не заданными, чтобы они наследовали форматирование темы. Явное форматирование переопределяет соответствующие настройки темы.

@@ -1,129 +1,161 @@
 ---
-title: سفارشی‌سازی افسانه‌های نمودار در ارائه‌ها با استفاده از JavaScript
-linktitle: افسانه نمودار
+title: سفارشی‌سازی legendهای نمودار در ارائه‌ها با استفاده از JavaScript
+linktitle: legend نمودار
 type: docs
 url: /fa/nodejs-java/chart-legend/
 keywords:
-- افسانه نمودار
-- موقعیت افسانه
-- اندازه قلم
+- legend نمودار
+- موقعیت legend
+- اندازه فونت
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "افسانه‌های نمودار را با استفاده از JavaScript و Aspose.Slides برای Node.js سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی ویژهٔ افسانه بهینه‌سازی کنید."
+description: "legendهای نمودار را با Aspose.Slides برای Node.js از طریق Java سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی اختصاصی legend بهینه کنید."
 ---
-## **بررسی اجمالی**
+## **بررسی کلی**
 
-Aspose.Slides گزینه‌هایی برای سفارشی‌سازی افسانه‌های نمودار در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه یک افسانه را موقعیت‌دهی و اندازه‌دهی کرد، اندازهٔ قلم برای کل افسانه را تنظیم کرد، و قالب‌بندی را برای یک ورودی افسانهٔ منفرد اعمال کرد.
+Aspose.Slides for Node.js via Java گزینه‌هایی برای سفارشی‌سازی legendهای نمودار در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه legend را موقعیت‌دهی و اندازه‌گذاری کنید، اندازه فونت کل legend را تنظیم کنید، یک ورودی legend فردی را قالب‌بندی کنید، و ورودی‌های انتخابی را مخفی یا بازیابی کنید.
 
-همچنین چند رفتار مرتبط در بخش سوالات متداول پوشش داده شده است، از جمله استفاده از حالت غیرپوشانشی تا ناحیهٔ نمودار برای افسانه فضا ایجاد کند، اجازه دادن به برچسب‌های طولانی افسانه برای بسته شدن یا استفاده از خطوط جدید، و اجازه دادن به ارث‌برداری قالب افسانه از تم ارائه زمانی که تنظیمات صریح متن و پرکننده اعمال نشده باشد.
+سوالات متداول رفتارهای مرتبط را شامل می‌شود، از جمله رزرو فضای legend، نمایش برچسب‌های چندخطی، و ارث‌بری قالب‌بندی از تم ارائه.
 
-## **موقعیت‌دهی افسانه**
+## **موقعیت‌گذاری legend**
 
-برای تنظیم ویژگی‌های افسانه. لطفاً مراحل زیر را دنبال کنید:
+از متدهای [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/), و [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) legend برای تعیین موقعیت و اندازهٔ آن به عنوان کسری از ابعاد نمودار استفاده کنید.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-- مرجع اسلاید را دریافت کنید.
-- افزودن یک نمودار به اسلاید.
-- تنظیم ویژگی‌های افسانه.
-- نوشتن ارائه به صورت فایل PPTX.
-
-در مثال زیر، ما موقعیت و اندازهٔ افسانهٔ نمودار را تنظیم کرده‌ایم.
+این مثال یک ارائه ایجاد می‌کند و یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض را به اسلاید اول اضافه می‌کند. تقسیم مقدارهای دلخواه جابجایی و ابعاد legend بر عرض و ارتفاع نمودار، آنها را به مقادیر نسبی تبدیل می‌کند: legend ۵۰ پوینت از گوشهٔ بالایی‑چپ نمودار جابجا شده و به اندازهٔ ۱۰۰ در ۱۰۰ پوینت تنظیم می‌شود.
 
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // مرجع اسلاید را دریافت کنید
-    var slide = pres.getSlides().get_Item(0);
-    // یک نمودار ستونی خوشه‌ای به اسلاید اضافه کنید
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // تنظیم ویژگی‌های افسانه
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // نوشتن ارائه بر روی دیسک
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // موقعیت و اندازهٔ legend را نسبت به نمودار بیان کنید.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **تنظیم اندازهٔ قلم افسانه**
+## **تنظیم اندازه فونت legend**
 
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان امکان تنظیم اندازهٔ قلم افسانه را می‌دهد. لطفاً مراحل زیر را دنبال کنید:
+از [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) legend برای دسترسی به قالب‌بندی متن آن استفاده کنید و با استفاده از [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) اندازه فونت را بر حسب پوینت تنظیم کنید.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-- نمودار پیش‌فرض را ایجاد کنید.
-- اندازهٔ قلم را تنظیم کنید.
-- مقدار حداقل محور را تنظیم کنید.
-- مقدار حداکثر محور را تنظیم کنید.
-- ارائه را روی دیسک بنویسید.
+این مثال یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند و متن legend را به ۲۰ پوینت تنظیم می‌کند. همچنین محدودهٔ خودکار محور عمودی را غیرفعال می‌کند و محدودهٔ آن را از -۵ تا ۱۰ تنظیم می‌نماید.
 
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **تنظیم اندازهٔ قلم افسانهٔ منفرد**
+## **تنظیم اندازه فونت یک ورودی legend فردی**
 
-Aspose.Slides for Node.js via Java به توسعه‌دهندگان امکان تنظیم اندازهٔ قلم ورودی‌های منفرد افسانه را می‌دهد. لطفاً مراحل زیر را دنبال کنید:
+از مجموعه‌ای که توسط متد [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) legend برگردانده می‌شود برای دسترسی به قالب‌بندی یک ورودی خاص استفاده کنید. ایندیس‌های ورودی از صفر شروع می‌شوند، بنابراین ایندیس `1` به ورودی دوم اشاره دارد.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-- نمودار پیش‌فرض را ایجاد کنید.
-- به ورودی افسانه دسترسی پیدا کنید.
-- اندازهٔ قلم را تنظیم کنید.
-- مقدار حداقل محور را تنظیم کنید.
-- مقدار حداکثر محور را تنظیم کنید.
-- ارائه را روی دیسک بنویسید.
+این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند که داده‌های پیش‌فرض آن حداقل شامل دو سری است. ورودی دوم legend را با متن بولد، ایتالیک و رنگ آبی به اندازهٔ ۲۰ پوینت قالب‌بندی می‌کند.
 
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **مخفی‌کردن ورودی‌های legend فردی**
+
+برای حذف یک سری کمکی از legend در حالی که داده‌های آن قابل مشاهده می‌مانند، با استفاده از [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) مقدار `true` را از طریق [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/) فراخوانی کنید. این کار فقط ورودی legend انتخاب‌شده را مخفی می‌کند؛ سری یا نقاط دادهٔ آن حذف نمی‌شوند. در contrast، فراخوانی [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) با مقدار `false` کل legend را مخفی می‌کند.
+
+مثال زیر یک نمودار ستونی خوشه‌ای با چندین سری با استفاده از داده‌های پیش‌فرض ایجاد می‌کند. ورودی legend سری دوم (ایندیس `1`) را مخفی می‌کند و ارائه را ذخیره می‌نماید. سپس با فراخوانی [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) مقدار `false` ورودی را بازیابی می‌کند و یک نسخهٔ دوم را ذخیره می‌نماید. ستون‌ها در هر دو فایل قابل مشاهده باقی می‌مانند.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // بازیابی همان ورودی بدون تغییر داده‌های نمودار.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مقایسهٔ زیر همان نمودار را با تمام ورودی‌های قابل مشاهده و با ورودی دوم مخفی نشان می‌دهد. ستون‌های سری دوم بدون تغییر می‌مانند.
+
+![مقایسهٔ نمودار با تمام ورودی‌های legend قابل مشاهده و با مخفی شدن سری ۲ از legend؛ همه ستون‌ها قابل مشاهده باقی می‌مانند.](hide-legend-entry.png)
+
+در نمودارهای ستونی، میله‌ای و خطی، ورودی‌های legend سری‌ها را شناسایی می‌کنند. برای نمودارهای دایره‌ای، آنها نقاط دادهٔ فردی (برش‌ها) را شناسایی می‌کنند، بنابراین به‌جای آن از [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) بر روی برش انتخابی استفاده کنید. API این متد نقطه‌داده را برای انواع نمودار `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie`, و `BarOfPie` مستند کرده است. فرض نکنید که این متد برای نمودارهای دونات که در آن فهرست گنجانده نشده‌اند، نیز اعمال می‌شود.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم افسانه را فعال کنم تا نمودار به‌طور خودکار برای آن فضا اختصاص دهد به‌جای پوشاندن آن؟**
+**آیا می‌توانم نمودار را طوری تنظیم کنم که برای legend فضای اختصاصی صرف کند و آن را روی نمودار ننهند؟**
 
-بله. از حالت غیرپوشانشی ([setOverlay(false)](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/legend/setoverlay/)) استفاده کنید؛ در این حالت، ناحیهٔ نمودار برای جا دادن افسانه کوچک می‌شود.
+بله. با فراخوانی [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) مقدار `false` را تنظیم کنید تا به‌جای اجازهٔ هم‌پوشانی با ناحیهٔ نمودار، فضای legend را رزرو کند.
 
-**آیا می‌توانم برچسب‌های افسانه چندخطی ایجاد کنم؟**
+**آیا می‌توانم برچسب‌های legend چندخطی داشته باشم؟**
 
-بله. برچسب‌های طولانی به‌صورت خودکار زمانی که فضا کافی نباشد بسته می‌شوند؛ شکستن خط اجباری نیز از طریق کاراکترهای خط جدید در نام سری پشتیبانی می‌شود.
+بله. برچسب‌های طولانی می‌توانند در صورت نرسیدن عرض موجود به‌صورت خودکار شکسته شوند. همچنین می‌توانید از کاراکترهای خط جدید در نام‌های سری برای درخواست شکست خط استفاده کنید.
 
-**چگونه می‌توانم افسانه را طوری تنظیم کنم که از طرح رنگی تم ارائه پیروی کند؟**
+**چگونه می‌توانم legend را مطابق با طرح رنگی تم ارائه تنظیم کنم؟**
 
-رنگ‌ها/پرکننده‌ها/قلم‌های صریح برای افسانه یا متن آن را تنظیم نکنید. سپس آن‌ها از تم ارث‌برداری می‌کنند و هنگام تغییر طرح به‌درستی به‌روزرسانی می‌شوند.
+رنگ‌ها، پرکننده‌ها و قلم‌های legend را تنظیم نکنید تا بتواند قالب‌بندی تم را به ارث بگیرد. قالب‌بندی صریح تنظیمات مربوط به تم را بازنویسی می‌کند.

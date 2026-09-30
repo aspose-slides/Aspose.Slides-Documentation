@@ -1,125 +1,159 @@
 ---
-title: Προσαρμογή υπομνημάτων διαγραμμάτων σε παρουσιάσεις χρησιμοποιώντας PHP
-linktitle: Υπόμνημα Διαγράμματος
+title: Προσαρμογή υπομνημάτων γραφημάτων σε παρουσιάσεις χρησιμοποιώντας PHP
+linktitle: Υπόμνημα γραφήματος
 type: docs
 url: /el/php-java/chart-legend/
 keywords:
-- υπόμνημα διαγράμματος
+- υπόμνημα γραφήματος
 - θέση υπομνήματος
 - μέγεθος γραμματοσειράς
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Προσαρμόστε τα υπόμνηματα διαγραμμάτων με το Aspose.Slides για PHP μέσω Java για βελτιστοποίηση των παρουσιάσεων PowerPoint με προσαρμοσμένη μορφοποίηση υπομνήματος."
+description: "Προσαρμόστε τα υπομνήματα γραφημάτων με Aspose.Slides για PHP μέσω Java ώστε να βελτιστοποιήσετε τις παρουσιάσεις PowerPoint με προσαρμοσμένη μορφοποίηση υπομνήματος."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides παρέχει επιλογές για προσαρμογή των υπομνημάτων διαγραμμάτων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο δείχνει πώς να τοποθετήσετε και να ορίσετε το μέγεθος ενός υπομνήματος, να θέσετε το μέγεθος γραμματοσειράς για ολόκληρο το υπόμνημα και να εφαρμόσετε μορφοποίηση σε μια μεμονωμένη καταχώριση του υπομνήματος.
+Το Aspose.Slides για PHP μέσω Java παρέχει επιλογές για προσαρμογή των υπομνημάτων γραφημάτων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο δείχνει πώς να τοποθετήσετε και να ορίσετε το μέγεθος ενός υπομνήματος, να ρυθμίσετε το μέγεθος γραμματοσειράς για ολόκληρο το υπόμνημα, να μορφοποιήσετε μια μεμονωμένη εγγραφή υπομνήματος και να κρύψετε ή να επαναφέρετε επιλεγμένες εγγραφές.
 
-Επίσης καλύπτει διάφορες σχετικές συμπεριφορές στη Συχνές Ερωτήσεις, συμπεριλαμβανομένης της χρήσης μη‑επικάλυψης ώστε η περιοχή σχεδίασης να κάνει χώρο για το υπόμνημα, της δυνατότητας τα μακριά ετικέτες υπομνήματος να αναδιπλώνονται ή να χρησιμοποιούν αλλαγές γραμμής, και του να αφήνεται η μορφοποίηση του υπομνήματος να κληρονομείται από το θέμα της παρουσίασης όταν δεν έχουν οριστεί ρητά ρυθμίσεις κειμένου και γεμίσματος.
+Το FAQ καλύπτει σχετικές συμπεριφορές, συμπεριλαμβανομένου του διατήρησης χώρου για το υπόμνημα, της εμφάνισης ετικετών πολλαπλών γραμμών και της κληρονομιάς μορφοποίησης από το θέμα της παρουσίασης.
 
-## **Τοποθέτηση Υπόμνηματος**
-Για να ορίσετε τις ιδιότητες του υπόμνηματος. Ακολουθήστε τα παρακάτω βήματα:
+## **Τοποθέτηση Υπομνήματος**
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) .
-- Λάβετε αναφορά στη διαφάνεια.
-- Προσθήκη διαγράμματος στη διαφάνεια.
-- Ορισμός των ιδιοτήτων του υπόμνηματος.
-- Αποθήκευση της παρουσίασης ως αρχείο PPTX.
+Χρησιμοποιήστε τις μεθόδους [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/), και [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) του υπομνήματος για να καθορίσετε τη θέση και το μέγεθός του ως κλάσματα των διαστάσεων του γραφήματος.
 
-Στο παρακάτω παράδειγμα, έχουμε ορίσει τη θέση και το μέγεθος του υπομνήματος διαγράμματος.
+Αυτό το παράδειγμα δημιουργεί μια παρουσίαση και προσθέτει ένα σύμπλεγμα στηλών σε στήλες με προεπιλεγμένα δεδομένα στη πρώτη διαφάνεια. Η διαίρεση των επιθυμητών μετατοπίσεων και διαστάσεων του υπομνήματος με το πλάτος και το ύψος του γραφήματος τα μετατρέπει σε σχετικές τιμές: το υπόμνημα μετατοπίζεται κατά 50 σημεία από την πάνω‑αριστερή γωνία του γραφήματος και έχει μέγεθος 100 × 100 σημεία. Το παράδειγμα χρησιμοποιεί java_values για να μετατρέψει τις διαστάσεις του γραφήματος που επιστρέφει το PHP/Java Bridge σε αριθμούς PHP πριν τη διαίρεση.
 
 ```php
-  # Δημιουργία μιας στιγμής της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    # Λήψη αναφοράς στη διαφάνεια
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθήκη συγκροτημένου στηλοδιαγράμματος στη διαφάνεια
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Ορισμός ιδιοτήτων υπομνήματος
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Αποθήκευση παρουσίασης στο δίσκο
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Εκφράστε τη θέση και το μέγεθος του υπομνήματος σε σχέση με το γράφημα.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ορισμός Μεγέθους Γραμματοσειράς Υπόμνηματος**
-Το Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να ορίσουν το μέγεθος γραμματοσειράς του υπομνήματος. Ακολουθήστε τα παρακάτω βήματα:
+## **Ορισμός Μεγέθους Γραμματοσειράς Υπομνήματος**
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) .
-- Δημιουργία προεπιλεγμένου διαγράμματος.
-- Ορισμός του μεγέθους γραμματοσειράς.
-- Ορισμός ελάχιστης τιμής άξονα.
-- Ορισμός μέγιστης τιμής άξονα.
-- Αποθήκευση παρουσίασης στο δίσκο.
+Χρησιμοποιήστε το [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) του υπομνήματος για να αποκτήσετε πρόσβαση στη μορφοποίηση κειμένου του και χρησιμοποιήστε το [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) για να ορίσετε το μέγεθος γραμματοσειράς σε πόντους.
+
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα με προεπιλεγμένα δεδομένα και ορίζει το κείμενο του υπομνήματος σε 20 πόντους. Επίσης απενεργοποιεί τα αυτόματα όρια για τον κατακόρυφο άξονα και ορίζει το εύρος του από -5 έως 10.
 
 ```php
-  # Δημιουργία μιας στιγμής της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ορισμός Μεγέθους Γραμματοσειράς Μεμονωμένου Υπόμνηματος**
-Το Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να ορίσουν το μέγεθος γραμματοσειράς μεμονωμένων καταχωρίσεων υπομνήματος. Ακολουθήστε τα παρακάτω βήματα:
+## **Ορισμός Μεγέθους Γραμματοσειράς Μιας Μεμονωμένης Εγγραφής Υπομνήματος**
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) .
-- Δημιουργία προεπιλεγμένου διαγράμματος.
-- Πρόσβαση στην καταχώριση του υπομνήματος.
-- Ορισμός του μεγέθους γραμματοσειράς.
-- Ορισμός ελάχιστης τιμής άξονα.
-- Ορισμός μέγιστης τιμής άξονα.
-- Αποθήκευση παρουσίασης στο δίσκο.
+Χρησιμοποιήστε τη συλλογή που επιστρέφεται από τη μέθοδο [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) του υπομνήματος για να αποκτήσετε πρόσβαση στη μορφοποίηση μιας συγκεκριμένης εγγραφής. Οι δείκτες εγγραφών είναι μηδενικής βάσης, έτσι ο δείκτης `1` αναφέρεται στη δεύτερη εγγραφή.
 
 ```php
-  # Δημιουργία μιας στιγμής της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Απόκρυψη Ατομικών Εγγραφών Υπομνήματος**
+
+Για να εξαιρέσετε μια δευτερεύουσα σειρά από το υπόμνημα ενώ διατηρείτε τα δεδομένα της ορατά, καλέστε το [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) με `true` μέσω του [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). Αυτό κρύβει μόνο την επιλεγμένη εγγραφή υπομνήματος· δεν αφαιρεί τη σειρά ή τα σημεία δεδομένων της. Η κλήση του [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) με `false`, αντίθετα, κρύβει ολόκληρο το υπόμνημα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα σύμπλεγμα στηλών σε στήλες με πολλαπλές σειρές χρησιμοποιώντας προεπιλεγμένα δεδομένα. Κρύβει τη δεύτερη σειρά του υπομνήματος (δείκτης `1`) και αποθηκεύει την παρουσίαση. Στη συνέχεια επαναφέρει την εγγραφή καλώντας το [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) με `false` και αποθηκεύει ένα δεύτερο αντίγραφο. Οι στήλες παραμένουν ορατές και στα δύο αρχεία.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // Αποκαταστήστε την ίδια εγγραφή χωρίς να αλλάξετε τα δεδομένα του γραφήματος.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η σύγκριση παρακάτω δείχνει το ίδιο γράφημα με όλες τις εγγραφές υπομνήματος ορατές και με τη δεύτερη εγγραφή κρυμμένη. Οι στήλες της δεύτερης σειράς παραμένουν αμετάβλητες.
+
+![Σύγκριση γραφήματος με όλες τις εγγραφές υπομνήματος ορατές και με τη Σειρά 2 κρυμμένη από το υπόμνημα· όλες οι στήλες παραμένουν ορατές.](hide-legend-entry.png)
+
+Σε γραφήματα στήλης, μπάρας και γραμμής, οι εγγραφές υπομνήματος προσδιορίζουν σειρές. Για διαγράμματα πίτας, προσδιορίζουν μεμονωμένα σημεία δεδομένων (κομμάτια), οπότε χρησιμοποιήστε το [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) στο επιλεγμένο κομμάτι. Το API τεκμηριώνεται για τις μεθόδους σημείου δεδομένων στους τύπους γραφημάτων `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` και `BarOfPie`. Μην υποθέτετε ότι εφαρμόζεται σε διαγράμματα δακτυλίου, που δεν περιλαμβάνονται σε αυτή τη λίστα.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ενεργοποιήσω το υπόμνημα ώστε το γράφημα να κατανείμει αυτόματα χώρο για αυτό αντί να το επικαλύπτει;**
+**Μπορώ να κάνω το γράφημα να διατηρεί χώρο για το υπόμνημα αντί να το επικαλύπτει;**  
+Ναι. Καλέστε το [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) με `false` για να διατηρήσετε χώρο για το υπόμνημα αντί να το επιτρέψετε να επικαλύπτει την περιοχή γραφήματος.
 
-Ναι. Χρησιμοποιήστε τη λειτουργία μη‑επικάλυψης ([setOverlay(false)](https://reference.aspose.com/slides/el/php-java/aspose.slides/legend/setoverlay/)); σε αυτήν την περίπτωση η περιοχή σχεδίασης θα μειωθεί για να φιλοξενήσει το υπόμνημα.
+**Μπορώ να δημιουργήσω ετικέτες υπομνήματος πολλαπλών γραμμών;**  
+Ναι. Μερικές ετικέτες μπορούν να σενάρουν όταν το διαθέσιμο πλάτος είναι ανεπαρκές. Μπορείτε επίσης να χρησιμοποιήσετε χαρακτήρες αλλαγής γραμμής σε ονόματα σειρών για να ζητήσετε αλλαγές γραμμής.
 
-**Μπορώ να δημιουργήσω ετικέτες υπομνήματος με πολλές γραμμές;**
-
-Ναι. Οι μακρές ετικέτες αναδιπλώνονται αυτόματα όταν δεν υπάρχει αρκετός χώρος· υποστηρίζονται υποχρεωτικές αλλαγές γραμμής μέσω χαρακτήρων νέας γραμμής στο όνομα σειράς.
-
-**Πώς μπορώ να κάνω το υπόμνημα να ακολουθεί το χρωματικό σχήμα του θέματος της παρουσίασης;**
-
-Μην ορίζετε ρητά χρώματα/γεμίσματα/γραμματοσειρές για το υπόμνημα ή το κείμενό του. Θα κληρονομήσουν το χρώμα από το θέμα και θα ενημερώνονται σωστά όταν αλλάξει ο σχεδιασμός.
+**Πώς μπορώ να κάνω το υπόμνημα να ακολουθεί το χρωματολόγιο του θέματος της παρουσίασης;**  
+Αφήστε τα χρώματα, τα γεμίσματα και τις γραμματοσειρές του υπομνήματος ακαθορισμένα ώστε να κληρονομεί τη μορφοποίηση του θέματος. Η ρητή μορφοποίηση υπερισχύει των αντίστοιχων ρυθμίσεων του θέματος.

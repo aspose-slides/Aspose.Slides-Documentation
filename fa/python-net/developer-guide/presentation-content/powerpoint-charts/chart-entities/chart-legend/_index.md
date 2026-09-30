@@ -1,120 +1,139 @@
 ---
-title: سفارشی‌سازی افسانه‌های نمودار در ارائه‌ها با پایتون
-linktitle: افسانه نمودار
+title: "سفارشی‌سازی راهنمای نمودار در ارائه‌ها با پایتون"
+linktitle: "راهنمای نمودار"
 type: docs
 url: /fa/python-net/chart-legend/
 keywords:
-- افسانه نمودار
-- موقعیت افسانه
-- اندازه قلم
-- PowerPoint
-- OpenDocument
-- ارائه
-- Python
-- Aspose.Slides
-description: "با Aspose.Slides برای Python از طریق .NET، افسانه‌های نمودار را سفارشی کنید تا ارائه‌های PowerPoint و OpenDocument را با قالب‌بندی مخصوص به افسانه بهینه کنید."
+- "راهنمای نمودار"
+- "موقعیت راهنما"
+- "اندازه قلم"
+- "پاورپوینت"
+- "ارائه"
+- "پایتون"
+- "Aspose.Slides"
+description: "راهنمای نمودارها را با Aspose.Slides برای پایتون از طریق .NET سفارشی کنید تا ارائه‌های پاورپوینت را با قالب‌بندی راهنمای متناسب بهینه کنید."
 ---
-## **Overview**
+## **نمای کلی**
 
-Aspose.Slides for Python کنترل کامل روی افسانه‌های نمودار را فراهم می‌کند تا برچسب‌های داده‌ای واضح و آماده ارائه باشند. می‌توانید افسانه را نمایش یا مخفی کنید، موقعیت آن را در اسلاید انتخاب کنید و چیدمان را طوری تنظیم کنید که با ناحیه‌نمودار تداخل نداشته باشد. API به شما امکان می‌دهد متن و نشانگرها را سبک‌دهی کنید، حاشیه‌ها و پس‌زمینه را به‌دقت تنظیم کنید و حاشیه‌ها و پر کردن‌ها را مطابق تم خود فرمت‌بندی کنید. توسعه‌دهندگان همچنین می‌توانند به ورودی‌های منفرد افسانه دسترسی پیدا کنند تا آن‌ها را تغییر نام یا فیلتر کنند و اطمینان حاصل کنند که فقط سری‌های مرتبط نمایش داده شوند. با این قابلیت‌ها، نمودارهای شما خوانا، سازگار و مطابق با استانداردهای طراحی ارائه خواهند بود.
+Aspose.Slides for Python via .NET گزینه‌هایی برای سفارشی‌سازی راهنماهای نمودار در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه موقعیت و اندازه یک راهنما را تنظیم کنید، اندازه قلم کل راهنما را تعیین کنید، یک ورودی تک‌تک راهنما را قالب‌بندی کنید و ورودی‌های انتخابی را مخفی یا بازگردانید.
 
-## **Legend Positioning**
+سؤالات متداول شامل رفتارهای مرتبط می‌شود، از جمله رزرو کردن فضا برای راهنما، نمایش برچسب‌های چندخطی و ارث‌بری قالب‌بندی از تم ارائه.
 
-با استفاده از Aspose.Slides می‌توانید به‌سرعت مکان نمایش افسانه نمودار را کنترل کنید و آن را با طرح اسلاید خود هماهنگ کنید. یاد بگیرید چگونه افسانه را دقیقاً قرار دهید.
+## **موقعیت‌یابی راهنما**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع اسلاید را دریافت کنید.
-1. یک نمودار به اسلاید اضافه کنید.
-1. ویژگی‌های افسانه را تنظیم کنید.
-1. ارائه را به‌عنوان فایل PPTX ذخیره کنید.
+از ویژگی‌های [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/x/)، [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/y/)، [width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/width/) و [height](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/height/) راهنما برای تعیین موقعیت و اندازه آن به صورت کسرهای ابعاد نمودار استفاده کنید.
 
-در مثال زیر، موقعیت و اندازه افسانه نمودار را تنظیم می‌کنیم:
+این مثال یک ارائه ایجاد می‌کند و یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض به اسلاید اول اضافه می‌نماید. تقسیم مقادیر مورد نیاز جابجایی و ابعاد راهنما بر عرض و ارتفاع نمودار، آن را به مقادیر نسبی تبدیل می‌کند: راهنما ۵۰ نقطه از گوشه بالا‑چپ نمودار جابجا شده و به اندازه ۱۰۰ در ۱۰۰ نقطه تنظیم می‌شود.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# یک نمونه از کلاس Presentation ایجاد کنید.
 with slides.Presentation() as presentation:
-
-    # مرجع اسلاید را دریافت کنید.
     slide = presentation.slides[0]
 
-    # یک نمودار ستونی خوشه‌ای به اسلاید اضافه کنید.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # ویژگی‌های افسانه را تنظیم کنید.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # موقعیت و اندازه راهنما را نسبت به نمودار بیان کنید.
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # ارائه را بر روی دیسک ذخیره کنید.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_position.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set the Legend Font Size**
+## **تنظیم اندازه فونت راهنما**
 
-افسانه یک نمودار باید به‌اندازه داده‌های توضیحی‌اش قابل خواندن باشد. این بخش نشان می‌دهد چگونه اندازه قلم افسانه را تنظیم کنید تا با تایپوگرافی ارائه شما مطابقت داشته باشد و دسترسی‌پذیری بهبود یابد.
+از [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) راهنما برای دسترسی به قالب‌بندی متن آن و تنظیم [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) به واحد نقاط استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. یک نمودار ایجاد کنید.
-1. اندازه قلم را تنظیم کنید.
-1. ارائه را بر روی دیسک ذخیره کنید.
+این مثال یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند و متن راهنما را به ۲۰ نقطه تنظیم می‌کند. همچنین محدودیت‌های خودکار برای محور عمودی را غیرفعال کرده و دامنه آن را از ‎‑۵ تا ۱۰ تنظیم می‌نماید.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+    chart.legend.text_format.portion_format.font_height = 20
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = -5
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 10
+
+    presentation.save("legend_font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set the Font Size for a Legend Entry**
+## **تنظیم اندازه فونت یک ورودی راهنما**
 
-Aspose.Slides به شما امکان می‌دهد ظاهر افسانه‌های نمودار را با فرمت‌بندی ورودی‌های منفرد دقیقاً تنظیم کنید. مثال زیر نشان می‌دهد چگونه یک آیتم افسانه خاص را هدف بگیرید و ویژگی‌های آن را بدون تغییر بقیه افسانه تنظیم کنید.
+از مجموعه [entries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/entries/) راهنما برای دسترسی به قالب‌بندی یک ورودی خاص استفاده کنید. ایندکس‌های ورودی صفر‑پایه هستند، لذا ایندکس `1` به ورودی دوم اشاره دارد.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. یک نمودار ایجاد کنید.
-1. به یک ورودی افسانه دسترسی پیدا کنید.
-1. ویژگی‌های ورودی را تنظیم کنید.
-1. ارائه را بر روی دیسک ذخیره کنید.
+این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند که داده‌های پیش‌فرض آن شامل حداقل دو سری است. ورودی دوم راهنما را با متن بولد، ایتالیک و با اندازه ۲۰ نقطه و رنگ آبی قالب‌بندی می‌کند.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
 
+    text_format = chart.legend.entries[1].text_format
     text_format.portion_format.font_bold = slides.NullableBool.TRUE
     text_format.portion_format.font_height = 20
     text_format.portion_format.font_italic = slides.NullableBool.TRUE
     text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_entry_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **مخفی‌سازی ورودی‌های تک‌تک راهنما**
 
-**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+برای حذف یک سری کمکی از راهنما در حالی که داده‌های آن دیده می‌شوند، [ILegendEntryProperties.hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) را از طریق [IChartSeries.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/related_legend_entry/) بر `True` تنظیم کنید. این کار تنها ورودی انتخابی راهنما را مخفی می‌کند؛ سری یا نقاط داده آن حذف نمی‌شود. تنظیم [IChart.has_legend](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/has_legend/) بر `False`، در مقابل، تمام راهنما را مخفی می‌کند.
 
-Yes. Use the non-overlay mode ([overlay](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/legend/overlay/) = `false`); in this case, the plot area will shrink to accommodate the legend.
+مثال زیر یک نمودار ستونی خوشه‌ای با چندین سری با داده‌های پیش‌فرض ایجاد می‌کند. ورودی راهنمای سری دوم (ایندکس `1`) را مخفی می‌کند و ارائه را ذخیره می‌نماید. سپس با تنظیم [hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) بر `False`، ورودی را باز می‌گرداند و یک نسخه دوم ذخیره می‌کند. ستون‌ها در هر دو فایل قابل مشاهده باقی می‌مانند.
 
-**Can I make multi-line legend labels?**
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-Yes. Long labels wrap automatically when space is insufficient; forced line breaks are supported via newline characters in the series name.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-**How do I make the legend follow the presentation theme’s color scheme?**
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = True
 
-Do not set explicit colors/fills/fonts for the legend or its text. They will then inherit from the theme and update correctly when the design changes.
+    legend_entry = chart.chart_data.series[1].related_legend_entry
+    legend_entry.hide = True
+
+    presentation.save("hidden_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+
+    # ورودی همان را بدون تغییر داده‌های نمودار بازگردانید.
+    legend_entry.hide = False
+
+    presentation.save("restored_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![مقایسه نموداری که تمام ورودی‌های راهنما قابل مشاهده‌اند و ورودی دوم مخفی است؛ همه ستون‌ها قابل مشاهده می‌مانند.](hide-legend-entry.png)
+
+در نمودارهای ستونی، میله‌ای و خطی، ورودی‌های راهنما سری‌ها را شناسایی می‌کنند. در نمودارهای دایره‌ای، این ورودی‌ها نقاط داده فردی (قطعات) را شناسایی می‌کنند، بنابراین باید از [IChartDataPoint.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/related_legend_entry/) برای قطعه منتخب استفاده کنید. API این ویژگی را برای انواع نمودار `PIE`، `PIE3D`، `EXPLODED_PIE`، `EXPLODED_PIE3D`، `PIE_OF_PIE` و `BAR_OF_PIE` مستند می‌کند. فرض نکنید که برای نمودارهای دونات نیز اعمال می‌شود، چراکه آن‌ها در این فهرست نیستند.
+
+## **سؤالات متداول**
+
+**آیا می‌توانم نمودار را طوری تنظیم کنم که برای راهنما فضای اختصاص دهد به جای اینکه آن را روی ناحیه نمودار قرار دهد؟**
+
+بله. با تنظیم [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) بر `False` می‌توانید برای راهنما فضا رزرو کنید به جای اینکه اجازه دهید بر روی ناحیه‌نمودار پوشش دهد.
+
+**آیا می‌توانم برچسب‌های چندخطی برای راهنما داشته باشم؟**
+
+بله. برچسب‌های طولانی می‌توانند وقتی عرض موجود کافی نیست، به خطوط بعدی شکسته شوند. همچنین می‌توانید در نام‌های سری از کاراکترهای خط جدید استفاده کنید تا شکاف خط درخواست کنید.
+
+**چگونه می‌توانم راهنما را طوری تنظیم کنم که پیروی از طرح رنگی تم ارائه باشد؟**
+
+رنگ‌ها، پرکردن‌ها و قلم‌های راهنما را تنظیم نکنید تا بتواند قالب‌بندی تم را به ارث ببرد. قالب‌بندی صریح تنظیمات مربوط به تم را بازنویسی می‌کند.

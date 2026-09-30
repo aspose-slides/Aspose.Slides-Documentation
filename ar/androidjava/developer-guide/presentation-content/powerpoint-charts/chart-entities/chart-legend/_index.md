@@ -1,124 +1,150 @@
 ---
-title: تخصيص أساطير المخططات في العروض التقديمية على Android
-linktitle: أسطورة المخطط
+title: تخصيص وسائط إيضاح المخططات في العروض التقديمية على Android
+linktitle: وسيلة إيضاح المخطط
 type: docs
 url: /ar/androidjava/chart-legend/
 keywords:
-- أسطورة المخطط
-- موضع الأسطورة
+- وسيلة إيضاح المخطط
+- موقع الوسيلة
 - حجم الخط
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "خصّص أساطير المخططات باستخدام Aspose.Slides for Android via Java لتحسين عروض PowerPoint بتنسيق أسطورة مخصص."
+description: "تخصيص وسائط إيضاح المخططات باستخدام Aspose.Slides for Android عبر Java لتحسين عروض PowerPoint التقديمية من خلال تنسيق وسيلة إيضاح مخصص."
 ---
+## **نظرة عامة**
 
-## **موضع الأسطورة**
-من أجل ضبط خصائص الأسطورة. يرجى اتباع الخطوات أدناه:
+توفر مكتبة Aspose.Slides for Android via Java خيارات لتخصيص وسيلة إيضاح المخطط في عروض PowerPoint. يوضح هذا المقال كيفية تحديد موضع وسيلة الإيضاح وحجمها، وتعيين حجم الخط لكامل وسيلة الإيضاح، وتنسيق مدخل وسيلة إيضاح فردي، وإخفاء أو استعادة المدخلات المحددة.
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- الحصول على مرجع الشريحة.
-- إضافة مخطط إلى الشريحة.
-- ضبط خصائص الأسطورة.
-- كتابة العرض التقديمي كملف PPTX.
+يغطي قسم الأسئلة الشائعة السلوكيات المتعلقة، بما في ذلك حجز مساحة لوسيلة الإيضاح، وعرض تسميات متعددة الأسطر، ووراثة التنسيق من سمة العرض التقديمي.
 
-في المثال أدناه، قمنا بتعيين الموضع والحجم لأسطورة المخطط.
+## **تحديد موضع وسيلة الإيضاح**
+
+استخدم أساليب وسيلة الإيضاح [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-), و[setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-) لتحديد موضعها وحجمها كنسب من أبعاد المخطط.
+
+يوضح المثال التالي إنشاء عرض تقديمي وإضافة مخطط أعمدة مجمّع ببيانات افتراضية إلى الشريحة الأولى. تحويل إزاحات وسعة وسيلة الإيضاح المطلوبة إلى قيم نسبية يتم بقسمة الإزاحات والأبعاد على عرض وارتفاع المخطط: يتم إزاحة وسيلة الإيضاح 50 نقطة من الزاوية العلوية اليسرى للمخطط وتحديد حجمها بـ 100 × 100 نقطة.
+
 ```java
-// إنشاء نسخة من فئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // الحصول على مرجع الشريحة
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // إضافة مخطط عمود متجمع على الشريحة
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // ضبط خصائص الأسطورة
+
+    // عبّر عن موضع وحجم وسيلة الإيضاح بالنسبة للمخطط.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // كتابة العرض التقديمي إلى القرص
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **تعيين حجم الخط لوسيلة الإيضاح**
 
-## **تعيين حجم الخط لأسطورة**
-يسمح Aspose.Slides for Android via Java للمطورين بتعيين حجم خط الأسطورة. يرجى اتباع الخطوات أدناه:
+استخدم [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) للوصول إلى تنسيق النص في وسيلة الإيضاح، ثم [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) لتعيين حجم الخط بالنقاط.
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- إنشاء المخطط الافتراضي.
-- تعيين حجم الخط.
-- تعيين الحد الأدنى لقيمة المحور.
-- تعيين الحد الأقصى لقيمة المحور.
-- كتابة العرض التقديمي إلى القرص.
+يُظهر المثال إنشاء مخطط ببيانات افتراضية وتعيين نص وسيلة الإيضاح إلى 20 نقطة. كما يتم إلغاء التحديد التلقائي للحدود للمحور الرأسي وتحديد نطاقه من -5 إلى 10.
+
 ```java
-// إنشاء نسخة من فئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **تعيين حجم الخط لمدخل وسيلة إيضاح فردي**
 
-## **تعيين حجم الخط لأسطورة فردية**
-يسمح Aspose.Slides for Android via Java للمطورين بتعيين حجم خط إدخالات الأسطورة الفردية. يرجى اتباع الخطوات أدناه:
+استخدم المجموعة التي تُرجعها طريقة [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--) في وسيلة الإيضاح للوصول إلى تنسيق مدخل معين. الفهارس تبدأ من الصفر، لذا يُشير الفهرس `1` إلى المدخل الثاني.
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- إنشاء المخطط الافتراضي.
-- الوصول إلى إدخال الأسطورة.
-- تعيين حجم الخط.
-- تعيين الحد الأدنى لقيمة المحور.
-- تعيين الحد الأقصى لقيمة المحور.
-- كتابة العرض التقديمي إلى القرص.
+يُظهر المثال إنشاء مخطط أعمدة مجمّع يحتوي على بيانات افتراضية تشمل سلسلتين على الأقل. يتم تنسيق المدخل الثاني لوسيلة الإيضاح بخط غامق، مائل، ونص أزرق بحجم 20 نقطة.
+
 ```java
-// إنشاء نسخة من فئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **إخفاء مدخلات وسيلة الإيضاح الفردية**
+
+لإستبعاد سلسلة مساعدة من وسيلة الإيضاح مع إبقاء بياناتها مرئية، استدعِ [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) بالقيمة `true` عبر [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). سيؤدي هذا إلى إخفاء المدخل المحدد فقط؛ لن يتم إزالة السلسلة أو نقاط بياناتها. بالمقابل، استدعاء [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) بـ `false` يُخفي وسيلة الإيضاح بأكملها.
+
+يُنشئ المثال أدناه مخطط أعمدة مجمّع متعدد السلاسل باستخدام البيانات الافتراضية. يُخفِي مدخل وسيلة الإيضاح للسلسلة الثانية (الفهرس `1`) ويحفظ العرض التقديمي. ثم يتم استعادة المدخل عبر استدعاء [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) بـ `false` وحفظ نسخة ثانية. تظل الأعمدة مرئية في كلا الملفين.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // استعادة نفس المدخل دون تغيير بيانات المخطط.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+المقارنة أدناه تُظهر نفس المخطط مع جميع المدخلات مرئية ومع إخفاء المدخل الثاني. تظل أعمدة السلسلة الثانية دون تغيير.
+
+![مقارنة مخطط مع جميع مدخلات وسيلة الإيضاح مرئية ومع إخفاء السلسلة 2 من وسيلة الإيضاح؛ جميع الأعمدة تظل مرئية.](hide-legend-entry.png)
+
+في مخططات الأعمدة، الشرائط، والخطوط، تُعرّف مدخلات وسيلة الإيضاح السلاسل. في مخططات الفطيرة، تُعرّف المدخلات نقاط البيانات الفردية (القطاعات)، لذا استخدم [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) على الشريحة المحددة بدلاً من ذلك. توثّق الواجهة هذه الطريقة لنقاط البيانات لأنواع المخططات `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie`, و`BarOfPie`. لا تفترض أنها تنطبق على مخططات الدونات، حيث لا تُدرج في تلك القائمة.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تمكين الأسطورة بحيث يخصص المخطط مساحة لها تلقائيًا بدلاً من تغطيتها؟**
+**هل يمكنني جعل المخطط يحجز مساحة لوسيلة الإيضاح بدلاً من تغطيتها؟**  
+نعم. استدعِ [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) بـ `false` لحجز مساحة لوسيلة الإيضاح بدلاً من السماح لها بتغطية مساحة الرسم.
 
-نعم. استخدم وضع عدم التراكب ([setOverlay(false)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); في هذه الحالة سيتقلص مساحة الرسم لتتناسب مع الأسطورة.
+**هل يمكنني جعل تسميات وسيلة الإيضاح متعددة الأسطر؟**  
+نعم. يمكن أن تُلتف التسميات الطويلة عندما يكون العرض المتاح غير كافٍ. يمكنك أيضًا استخدام أحرف السطر الجديد في أسماء السلاسل لطلب فواصل سطر.
 
-**هل يمكنني جعل تسميات الأسطورة متعددة الأسطر؟**
-
-نعم. يتم لف التسميات الطويلة تلقائيًا عندما تكون المساحة غير كافية؛ كما يتم دعم فواصل السطر القسرية عبر أحرف السطر الجديد في اسم السلسلة.
-
-**كيف أجعل الأسطورة تتبع مخطط ألوان سمة العرض التقديمي؟**
-
-لا تقم بتعيين ألوان/ملء/خطوط صريحة للأسطورة أو نصها. سيتوارثون هذه القيم من السمة وسيتم تحديثها بشكل صحيح عند تغير التصميم.
+**كيف أجعل وسيلة الإيضاح تتبع نظام الألوان في سمة العرض التقديمي؟**  
+اترك ألوان وسيلة الإيضاح، والملئ، والخطوط غير مُحددة حتى تتمكن من وراثة تنسيق السمة. أي تنسيق صريح سيتجاوز إعدادات السمة المقابلة.

@@ -1,129 +1,161 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Grafik Lejantlarını Özelleştirme
-linktitle: Grafik Lejantı
+title: Sunumlarda Grafik Açıklamalarını JavaScript ile Özelleştirme
+linktitle: Grafik Açıklaması
 type: docs
 url: /tr/nodejs-java/chart-legend/
 keywords:
-- grafik lejantı
-- lejant konumu
+- grafik açıklaması
+- açıklama konumu
 - yazı tipi boyutu
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ve Aspose.Slides for Node.js kullanarak grafik lejantlarını özelleştirerek, PowerPoint sunumlarını özel lejant biçimlendirmesiyle optimize edin."
+description: "Aspose.Slides for Node.js via Java ile grafik açıklamalarını özelleştirerek, PowerPoint sunumlarını özel açıklama biçimlendirmesiyle optimize edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides PowerPoint sunumlarında grafik lejantlarını özelleştirmek için seçenekler sunar. Bu makale, bir lejantın konumunu ve boyutunu nasıl ayarlayacağınızı, tüm lejant için yazı tipi boyutunu nasıl belirleyeceğinizi ve tek bir lejant girdisine nasıl biçimlendirme uygulayacağınızı gösterir.
+Aspose.Slides for Node.js via Java, PowerPoint sunumlarındaki grafik açıklamalarını özelleştirmek için seçenekler sunar. Bu makale, bir açıklamayı konumlandırma ve boyutlandırma, tüm açıklamanın yazı tipi boyutunu ayarlama, tek bir açıklama girişini biçimlendirme ve seçili girişleri gizleme veya geri yükleme konularını gösterir.
 
-Ayrıca SSS bölümünde ilgili birkaç davranışı da kapsar; lejant için alan bırakmak amacıyla örtüşme dışı modu kullanmak, uzun lejant etiketlerinin satır sonuna sarmasını veya satır sonları eklemesini sağlamak ve lejant biçimlendirmesinin, açıkça metin ve dolgu ayarları uygulanmadığında sunum temasından devralınmasını sağlamak.
+SSS, açıklama için alan ayırma, çok satırlı etiketleri gösterme ve sunum temasından biçimlendirmeyi devralma gibi ilgili davranışları kapsar.
 
-## **Lejant Konumlandırma**
+## **Açıklama Konumlandırması**
 
-Lejant özelliklerini ayarlamak için aşağıdaki adımları izleyin:
+Açıklamanın [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/) ve [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) yöntemlerini kullanarak konum ve boyutunu grafiğin boyutlarının kesirleri olarak belirtebilirsiniz.
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Slaytın referansını alın.
-- Slayta bir grafik ekleyin.
-- Lejantın özelliklerini ayarlayın.
-- Sunumu PPTX dosyası olarak yazın.
-
-Aşağıda verilen örnekte, grafik lejantının konumunu ve boyutunu ayarladık.
+Bu örnek bir sunum oluşturur ve ilk slayta varsayılan verilerle bir kümelenmiş sütun grafiği ekler. İstenen açıklama kaydırmalarını ve boyutlarını grafiğin genişliği ve yüksekliği ile bölmek, bunları göreli değerlere dönüştürür: açıklama, grafiğin sol üst köşesinden 50 puan uzaklıkta ve 100 x 100 puan boyutundadır.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Slaydın referansını al
-    var slide = pres.getSlides().get_Item(0);
-    // Slayda bir küme sütun grafiği ekle
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Lejant özelliklerini ayarla
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Sunumu diske kaydet
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Grafiğe göre açıklamanın konum ve boyutunu ifade eder.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Lejantın Yazı Tipi Boyutunu Ayarlama**
+## **Açıklamanın Yazı Tipi Boyutunu Ayarlama**
 
-Aspose.Slides for Node.js via Java, geliştiricilerin lejantın yazı tipi boyutunu ayarlamasına izin verir. Aşağıdaki adımları izleyin:
+Açıklamanın metin biçimlendirmesine erişmek için [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) metodunu kullanın ve noktalarla yazı tipi boyutunu ayarlamak için [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) metodunu kullanın.
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske yazın.
+Bu örnek, varsayılan verilerle bir grafik oluşturur ve açıklama metnini 20 puana ayarlar. Ayrıca dikey eksen için otomatik sınırları devre dışı bırakır ve aralığını -5 ile 10 arasında belirler.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tek Tek Lejant Girdisinin Yazı Tipi Boyutunu Ayarlama**
+## **Tek Bir Açıklama Girişinin Yazı Tipi Boyutunu Ayarlama**
 
-Aspose.Slides for Node.js via Java, geliştiricilerin tek tek lejant girdilerinin yazı tipi boyutunu ayarlamasına izin verir. Aşağıdaki adımları izleyin:
+Açıklamanın [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) metodundan dönen koleksiyonu kullanarak belirli bir girişin biçimlendirmesine erişin. Giriş indeksleri sıfır tabanlıdır, bu nedenle `1` indeksi ikinci girdiyi ifade eder.
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Varsayılan grafiği oluşturun.
-- Lejant girdisine erişin.
-- Yazı tipi boyutunu ayarlayın.
-- Minimum eksen değerini ayarlayın.
-- Maksimum eksen değerini ayarlayın.
-- Sunumu diske yazın.
+Bu örnek, varsayılan verileri en az iki seriyi içeren bir kümelenmiş sütun grafiği oluşturur. İkinci açıklama girdisini kalın, italik ve 20 puan mavi metin olarak biçimlendirir.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Tek Tek Açıklama Girdilerini Gizleme**
+
+Verileri görünür tutarken yardımcı bir seriyi açıklamadan çıkarmak için, [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/) aracılığıyla `true` ile [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) metodunu çağırın. Bu, yalnızca seçilen açıklama girdisini gizler; seriyi veya veri noktalarını kaldırmaz. Buna karşılık, `false` ile [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) metodunu çağırmak tüm açıklamayı gizler.
+
+Aşağıdaki örnek, varsayılan verilerle birden çok seri içeren bir kümelenmiş sütun grafiği oluşturur. İkinci serinin açıklama girdisini (indeks `1`) gizler ve sunumu kaydeder. Ardından, `false` ile [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) metodunu çağırarak girdiyi geri yükler ve ikinci bir kopya kaydeder. Sütunlar her iki dosyada da görünür kalır.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Grafik verisini değiştirmeden aynı girdiyi geri yükle.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, tüm girdileri görünür ve ikinci girdi gizli olan aynı grafiği gösterir. İkinci serinin sütunları değişmeden kalır.
+
+![Tüm açıklama girdileri görünür ve Seri 2 açıklamadan gizli olduğunda bir grafiğin karşılaştırması; tüm sütunlar görünür kalır.](hide-legend-entry.png)
+
+Sütun, çubuk ve çizgi grafiklerinde açıklama girdileri serileri tanımlar. Pasta grafiklerinde ise tek tek veri noktalarını (dilimleri) tanımlar, bu yüzden seçili dilimde [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) metodunu kullanın. API, bu veri noktası metodunu `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` ve `BarOfPie` grafik türleri için belgelendirir. Listedeki gibi donut grafiklerine uygulanacağını varsaymayın.
 
 ## **SSS**
 
-**Lejantı etkinleştirerek grafiğin onu otomatik olarak yer ayırmasını, üzerine binmek yerine sağlayabilir miyim?**
+**Grafiğin açıklama için alan ayırmasını, üst üste binmesini önleyebilir miyim?**
 
-Evet. Örtüşme dışı modu ([setOverlay(false)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/legend/setoverlay/)) kullanın; bu durumda, çizim alanı lejantı içerecek şekilde küçülecektir.
+Evet. Açıklamanın çizim alanı üzerine binmesine izin vermek yerine alan ayırmak için [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) metodunu `false` ile çağırın.
 
-**Çok satırlı lejant etiketleri oluşturabilir miyim?**
+**Çok satırlı açıklama etiketleri oluşturabilir miyim?**
 
-Evet. Uzun etiketler, alan yetersiz olduğunda otomatik olarak satır sonuna sarılır; zorunlu satır sonları, seri adındaki yeni satır karakterleriyle desteklenir.
+Evet. Kullanılabilir genişlik yetersiz olduğunda uzun etiketler satır başına kaydırılabilir. Ayrıca seri adlarında yeni satır karakterleri ekleyerek satır sonu isteyebilirsiniz.
 
-**Lejantın, sunum temasının renk şemasını takip etmesini nasıl sağlarım?**
+**Açıklamanın sunum temasının renk şemasını izlemesini nasıl sağlarım?**
 
-Lejant veya metni için açık renkler/dolgular/yazı tipleri ayarlamayın. Böylece tema üzerinden devralınır ve tasarım değiştiğinde doğru şekilde güncellenir.
+Açıklamanın renklerini, doldurmalarını ve yazı tiplerini ayarlamadan bırakın; böylece tema biçimlendirmesini devralır. Açıkça belirlenmiş biçimlendirme, ilgili tema ayarlarının üzerine yazar.

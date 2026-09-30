@@ -1,131 +1,152 @@
 ---
-title: سفارشی‌سازی افسانه‌های نمودار در ارائه‌ها با استفاده از Java
-linktitle: افسانه نمودار
+title: سفارشی‌سازی راهنمای نمودارها در ارائه‌ها با استفاده از جاوا
+linktitle: راهنمای نمودار
 type: docs
 url: /fa/java/chart-legend/
 keywords:
-- افسانه نمودار
-- موقعیت افسانه
+- راهنمای نمودار
+- موقعیت راهنما
 - اندازه قلم
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "افسانه‌های نمودار را با Aspose.Slides برای Java سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی مخصوص افسانه بهینه کنید."
+description: "راهنمای نمودارها را با Aspose.Slides برای جاوا سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی متناسب راهنما بهینه کنید."
 ---
-## **مرور کلی**
+## **نمای کلی**
 
-Aspose.Slides گزینه‌هایی برای سفارشی‌سازی افسانه‌های نمودار در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه یک افسانه را موقعیت و اندازه‌گذاری کنید، اندازه قلم را برای کل افسانه تنظیم کنید و قالب‌بندی را برای یک ورودی افسانهٔ منفرد اعمال کنید.
+Aspose.Slides for Java گزینه‌هایی برای سفارشی‌سازی راهنمای نمودارها در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه موقعیت و اندازهٔ یک راهنما را تعیین کنید، اندازهٔ قلم را برای کل راهنما تنظیم کنید، یک ورودی راهنمای منفرد را قالب‌بندی کنید، و ورودی‌های انتخابی را پنهان یا بازیابی کنید.
 
-همچنین رفتارهای مرتبطی در بخش سؤالات متداول پوشش داده می‌شود، از جمله استفاده از حالت بدون پوشش (non‑overlay) تا ناحیه نمودار برای افسانه جای باز کند، امکان بسته‌بندی یا استفاده از شکست خط برای برچسب‌های طولانی افسانه، و اجازهٔ ارث‌بری قالب افسانه از تم ارائه زمانی که تنظیمات صریح متن و پرکننده اعمال نشده باشند.
+سؤالات متداول رفتارهای مرتبط را شامل می‌شود، از جمله رزرو فضا برای راهنما، نمایش برچسب‌های چندخطی، و ارث‌بری قالب‌بندی از تم ارائه.
 
-## **موقعیت افسانه**
+## **موقعیت‌گذاری راهنما**
 
-برای تنظیم ویژگی‌های افسانه، مراحل زیر را دنبال کنید:
+از متدهای [setX](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setX-float-)، [setY](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setY-float-)، [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setWidth-float-)، و [setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setHeight-float-) راهنما برای مشخص کردن موقعیت و اندازهٔ آن به عنوان کسرهای ابعاد نمودار استفاده کنید.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-- مرجع اسلاید را دریافت کنید.
-- افزودن یک نمودار به اسلاید.
-- تنظیم ویژگی‌های افسانه.
-- نوشتن ارائه به‌عنوان فایل PPTX.
-
-در مثال زیر، موقعیت و اندازه افسانهٔ نمودار را تنظیم کرده‌ایم.
+این مثال یک ارائه ایجاد می‌کند و یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض به اسلاید اول اضافه می‌‎کند. تقسیم مقادیر آفست و ابعاد دلخواه راهنما بر عرض و ارتفاع نمودار، آنها را به مقادیر نسبی تبدیل می‌کند: راهنما ۵۰ نقطه از گوشهٔ بالا‑چپ نمودار فاصله دارد و به اندازهٔ ۱۰۰ در ۱۰۰ نقطه تنظیم شده است.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // مرجع اسلاید را دریافت کنید
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // یک نمودار ستونی خوشه‌ای به اسلاید اضافه کنید
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // تنظیم ویژگی‌های افسانه
+
+    // موقعیت و اندازهٔ راهنما را نسبت به نمودار بیان می‌کند.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // ارائه را بر روی دیسک ذخیره کنید
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم اندازه قلم افسانه**
+## **تنظیم اندازه فونت راهنما**
 
-Aspose.Slides for Java به توسعه‌دهندگان اجازه می‌دهد اندازه قلم افسانه را تنظیم کنند. لطفاً مراحل زیر را دنبال کنید:
+از [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getTextFormat--) راهنما برای دسترسی به قالب‌بندی متن آن استفاده کنید و با [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) اندازهٔ قلم را بر حسب نقطه تنظیم کنید.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-- نمودار پیش‌فرض را ایجاد کنید.
-- اندازه قلم را تنظیم کنید.
-- مقدار حداقل محور را تنظیم کنید.
-- مقدار حداکثر محور را تنظیم کنید.
-- ارائه را بر روی دیسک بنویسید.
+این مثال یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند و متن راهنما را به ۲۰ نقطه تنظیم می‌‎کند. همچنین مرزهای خودکار محور عمودی را غیرفعال کرده و محدودهٔ آن را از ‎‑۵ تا ۱۰ تنظیم می‌‎کند.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم اندازه قلم افسانهٔ منفرد**
+## **تنظیم اندازه فونت ورودی راهنمای منفرد**
 
-Aspose.Slides for Java به توسعه‌دهندگان اجازه می‌دهد اندازه قلم ورودی‌های منفرد افسانه را تنظیم کنند. لطفاً مراحل زیر را دنبال کنید:
+از مجموعهٔ بازگشتی توسط متد [getEntries](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getEntries--) راهنما برای دسترسی به قالب‌بندی یک ورودی خاص استفاده کنید. ایندکس‌های ورودی صفر‑پایه‌اند، بنابراین ایندکس `1` به ورودی دوم اشاره دارد.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-- نمودار پیش‌فرض را ایجاد کنید.
-- به ورودی افسانه دسترسی پیدا کنید.
-- اندازه قلم را تنظیم کنید.
-- مقدار حداقل محور را تنظیم کنید.
-- مقدار حداکثر محور را تنظیم کنید.
-- ارائه را بر روی دیسک بنویسید.
+این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند که داده‌های پیش‌فرض آن شامل حداقل دو سری است. ورودی دوم راهنما را با قلم بولد، ایتالیک و متن آبی ۲۰‑نقطه‌ای قالب‌بندی می‌کند.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **پنهان کردن ورودی‌های راهنمای منفرد**
 
-**آیا می‌توانم افسانه را طوری فعال کنم که نمودار به‌صورت خودکار برای آن فضایی اختصاص دهد به‌جای اینکه روی هم قرار گیرد؟**
+برای حذف یک سری کمکی از راهنما در حالی که داده‌های آن قابل مشاهده می‌مانند، [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) را با مقدار `true` از طریق [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getRelatedLegendEntry--) صدا بزنید. این کار تنها ورودی انتخابی راهنما را پنهان می‌کند؛ سری یا نقاط دادهٔ آن حذف نمی‌شود. در مقابل، صدا زدن [IChart.setLegend](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setLegend-boolean-) با مقدار `false` کل راهنما را مخفی می‌کند.
 
-بله. از حالت بدون پوشش ([setOverlay(false)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/legend/#setOverlay-boolean-)) استفاده کنید؛ در این صورت ناحیه نمودار کوچک می‌شود تا جایی برای افسانه ایجاد شود.
+مثال زیر یک نمودار ستونی خوشه‌ای با چندین سری با داده‌های پیش‌فرض ایجاد می‌کند. ورودی راهنمای سری دوم (ایندکس `1`) را پنهان می‌کند و ارائه را ذخیره می‌‎کند. سپس با صدا زدن [setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) با مقدار `false` ورودی را بازیابی می‌کند و یک نسخهٔ دوم ذخیره می‌‎نماید. ستون‌ها در هر دو فایل قابل مشاهده می‌مانند.
 
-**آیا می‌توانم برچسب‌های افسانه چند خطی داشته باشم؟**
+```java
+import com.aspose.slides.*;
 
-بله. برچسب‌های طولانی به‌صورت خودکار بسته‌بندی می‌شوند وقتی فضا کافی نیست؛ شکست‌های خطی اجباری نیز از طریق کاراکترهای newline در نام سری پشتیبانی می‌شود.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**چگونه می‌توانم افسانه را برای پیروی از طرح رنگی تم ارائه تنظیم کنم؟**
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-رنگ‌ها/پرکننده‌ها/قلم‌های صریح را برای افسانه یا متن آن تنظیم نکنید. در این صورت آن‌ها از تم ارث می‌برند و هنگام تغییر طراحی به‌درستی به‌روز می‌شوند.
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // ورودی همان را بدون تغییر داده‌های نمودار بازیابی کنید.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مقایسهٔ زیر همان نمودار را نشان می‌دهد که در یک حالت تمام ورودی‌های راهنما قابل مشاهده‌اند و در حالت دیگر ورودی دوم مخفی است. ستون‌های سری دوم تغییر نمی‌کند.
+
+![مقایسه یک نمودار با تمام ورودی‌های راهنما قابل مشاهده و با مخفی شدن‌سری ۲ از راهنما؛ تمام ستون‌ها قابل مشاهده باقی می‌مانند.](hide-legend-entry.png)
+
+در نمودارهای ستونی، ستونی و خطی، ورودی‌های راهنما به شناسایی سری‌ها می‌پردازند. برای نمودارهای دایره‌ای، آنها به نقاط دادهٔ منفرد (قطعات) اشاره می‌کنند، بنابراین به جای آن از [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) روی قطعهٔ انتخابی استفاده کنید. این روش نقطه‌داده‌ای برای نوع نمودارهای `Pie`، `Pie3D`، `ExplodedPie`، `ExplodedPie3D`، `PieOfPie` و `BarOfPie` مستند شده است. فرض نکنید که برای نمودارهای دونات نیز اعمال می‌شود؛ این نوع نمودارها در لیست مذکور گنجانده نشده‌اند.
+
+## **سوالات متداول**
+
+**آیا می‌توانم به جای پوشاندن، برای راهنما فضای جداگانه‌ای اختصاص دهم؟**
+
+بله. با صدا زدن [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-) با مقدار `false` برای رزرو فضای راهنما به جای اجازهٔ همپوشانی آن با ناحیهٔ نمودار.
+
+**آیا می‌توانم برچسب‌های راهنما را به صورت چند خطی داشته باشم؟**
+
+بله. برچسب‌های طولانی زمانی که عرض موجود کافی نباشد می‌توانند به خط بعدی منتقل شوند. همچنین می‌توانید از کاراکترهای خط جدید در نام‌های سری برای درخواست شکست خط استفاده کنید.
+
+**چگونه می‌توانم راهنما را طوری تنظیم کنم که از طرح رنگی تم ارائه پیروی کند؟**
+
+رنگ‌ها، پرکننده‌ها و قلم‌های راهنما را تنظیم نکنید تا بتواند قالب‌بندی تم را به ارث ببرد. قالب‌بندی صریح تنظیمات تم مربوطه را نادیده می‌گیرد.

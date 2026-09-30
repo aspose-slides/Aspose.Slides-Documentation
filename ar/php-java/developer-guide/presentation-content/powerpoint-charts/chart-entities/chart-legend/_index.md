@@ -1,120 +1,164 @@
 ---
-title: تخصيص وسائط إيضاح المخطط في العروض التقديمية باستخدام PHP
+title: تخصيص وسائط مخططات الرسم في العروض التقديمية باستخدام PHP
 linktitle: وسيلة إيضاح المخطط
 type: docs
 url: /ar/php-java/chart-legend/
 keywords:
 - وسيلة إيضاح المخطط
-- موضع وسيلة الإيضاح
+- موضع الوسيلة
 - حجم الخط
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تخصيص وسائط إيضاح المخطط باستخدام Aspose.Slides for PHP عبر Java لتحسين عروض PowerPoint التقديمية مع تنسيق مخصص للوسائط."
+description: "قم بتخصيص وسائط المخططات باستخدام Aspose.Slides for PHP عبر Java لتحسين عروض PowerPoint بتنسيق وسيلة إيضاح مخصص."
 ---
+## **نظرة عامة**
 
-## **تموضع وسيلة الإيضاح**
-لضبط خصائص وسيلة الإيضاح. يرجى اتباع الخطوات التالية:
+يوفر Aspose.Slides for PHP via Java خيارات لتخصيص وسائط مخطط الرسم البياني في عروض PowerPoint. يوضح هذا المقال كيفية تحديد موضع وحجم وسيلة الإيضاح، وتعيين حجم الخط للوسيلة بأكملها، وتنسيق مدخل وسيلة إيضاح فردي، وإخفاء أو استعادة المدخلات المحددة.
 
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- الحصول على مرجع الشريحة.
-- إضافة مخطط إلى الشريحة.
-- ضبط خصائص وسيلة الإيضاح.
-- حفظ العرض التقديمي كملف PPTX.
+يتضمن قسم الأسئلة الشائعة سلوكيات ذات صلة، بما في ذلك حجز مساحة لوسيلة الإيضاح، وعرض تسميات متعددة الأسطر، ووراثة التنسيق من سمة العرض التقديمي.
 
-في المثال أدناه، قمنا بتعيين الموضع والحجم لوسيلة إيضاح المخطط.
+## **تحديد موضع وسيلة الإيضاح**
+
+استخدم أساليب وسيلة الإيضاح [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/)، [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/)، [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/)، و[setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) لتحديد موضعها وحجمها كنسب من أبعاد المخطط.
+
+ينشئ هذا المثال عرضًا تقديميًا ويضيف مخطط عمود مكدس مع بيانات افتراضية إلى الشريحة الأولى. تحويل الإزاحات والأبعاد المطلوبة لوسيلة الإيضاح إلى قيم نسبية يتم بقسمة هذه القيم على عرض وارتفاع المخطط: يتم إزاحة وسيلة الإيضاح بمقدار 50 نقطة من الزاوية العليا اليسرى للمخطط وتصبح بحجم 100 × 100 نقطة. يستخدم المثال java_values لتحويل أبعاد المخطط المعادة من جسر PHP/Java إلى أرقام PHP قبل القسمة.
+
 ```php
-  # إنشاء كائن من فئة Presentation
-  $pres = new Presentation();
-  try {
-    # الحصول على مرجع الشريحة
-    $slide = $pres->getSlides()->get_Item(0);
-    # إضافة مخطط عمودي مجمع إلى الشريحة
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # تعيين خصائص وسيلة الإيضاح
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # حفظ العرض التقديمي إلى القرص
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // عبّر عن موضع وحجم وسيلة الإيضاح بالنسبة إلى المخطط.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **تعيين حجم خط وسيلة الإيضاح**
 
-## **تحديد حجم الخط لوسيلة الإيضاح**
-يتيح Aspose.Slides for PHP via Java للمطورين ضبط حجم الخط لوسيلة الإيضاح. يرجى اتباع الخطوات التالية:
+استخدم [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) الخاص بوسيلة الإيضاح للوصول إلى تنسيق النص، واستخدم [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) لتعيين حجم الخط بالنقاط.
 
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- إنشاء المخطط الافتراضي.
-- ضبط حجم الخط.
-- تعيين الحد الأدنى لقيمة المحور.
-- تعيين الحد الأقصى لقيمة المحور.
-- حفظ العرض التقديمي على القرص.
+ينشئ هذا المثال مخططًا ببيانات افتراضية ويضبط نص وسيلة الإيضاح إلى 20 نقطة. كما يقوم بتعطيل الحدود التلقائية للمحور الرأسي ويحدد نطاقه من -5 إلى 10.
+
 ```php
-  # إنشاء كائن من فئة Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **تعيين حجم خط مدخل وسيلة إيضاح فردي**
 
-## **تحديد حجم الخط لوسيلة إيضاح فردية**
-يتيح Aspose.Slides for PHP via Java للمطورين ضبط حجم الخط لعنصر وسيلة إيضاح منفرد. يرجى اتباع الخطوات التالية:
+استخدم المجموعة التي تُرجعها طريقة [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) الخاصة بوسيلة الإيضاح للوصول إلى تنسيق مدخل محدد. المؤشرات تبدأ من الصفر، لذا فالمؤشر `1` يشير إلى المدخل الثاني.
 
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- إنشاء المخطط الافتراضي.
-- الوصول إلى عنصر وسيلة الإيضاح.
-- ضبط حجم الخط.
-- تعيين الحد الأدنى لقيمة المحور.
-- تعيين الحد الأقصى لقيمة المحور.
-- حفظ العرض التقديمي على القرص.
+ينشئ هذا المثال مخطط عمود مكدس يحتوي على بيانات افتراضية تشمل سلسلتين على الأقل. يقوم بتنسيق المدخل الثاني لوسيلة الإيضاح بخط عريض ومائل ونص أزرق بحجم 20 نقطة.
+
 ```php
-  # إنشاء مثيل من فئة Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **إخفاء مدخلات وسيلة إيضاح فردية**
 
-## **الأسئلة المتكررة**
+لاستبعاد سلسلة مساعدة من وسيلة الإيضاح مع الحفاظ على ظهور بياناتها، استدعِ [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) مع `true` عبر [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). هذا يخفي مدخل وسيلة الإيضاح المحدد فقط؛ ولا يزيل السلسلة أو نقاط بياناتها. بالمقابل، استدعاء [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) مع `false` يخفى وسيلة الإيضاح بأكملها.
 
-**هل يمكن تمكين وسيلة الإيضاح بحيث يخصص المخطط مساحة لها تلقائيًا بدلاً من تغطيتها؟**
+يُنشئ المثال أدناه مخطط عمود مكدس مع عدة سلاسل باستخدام البيانات الافتراضية. يخفى مدخل وسيلة إيضاح السلسلة الثانية (المؤشر `1`) ويحفظ العرض التقديمي. ثم يستعيد المدخل باستدعاء [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) مع `false` ويحفظ نسخة ثانية. تظل الأعمدة مرئية في كلا الملفين.
 
-نعم. استخدم وضع عدم التراكب ([setOverlay(false)](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/)); في هذه الحالة سيصغر منطقة الرسم لتستوعب وسيلة الإيضاح.
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**هل يمكن إنشاء تسميات وسيلة إيضاح متعددة الأسطر؟**
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-نعم. تسميات طويلة تُكسر تلقائيًا عندما تكون المساحة غير كافية؛ كما تدعم فواصل الأسطر القسرية عبر أحرف السطر الجديد في اسم السلسلة.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
 
-**كيف أجعل وسيلة الإيضاح تتبع مخطط ألوان ثيم العرض التقديمي؟**
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
 
-لا تقم بتعيين ألوان/تعبئات/خطوط صريحة لوسيلة الإيضاح أو نصها. سيتوارث ذلك من الثيم وسيتم تحديثه بشكل صحيح عند تغيير التصميم.
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // استعادة نفس المدخل دون تغيير بيانات المخطط.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+المقارنة أدناه تُظهر نفس المخطط مع جميع المدخلات مرئية ومع إخفاء المدخل الثاني. تظل أعمدة السلسلة الثانية دون تغيير.
+
+![Comparison of a chart with all legend entries visible and with Series 2 hidden from the legend; all columns remain visible.](hide-legend-entry.png)
+
+في المخططات العمودية والشريطية والخطية، تُعرّف مدخلات وسيلة الإيضاح السلاسل. بالنسبة لمخططات الفطيرة، تُعرّف المدخلات نقاط البيانات الفردية (الشرائح)، لذا استخدم [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) على الشريحة المختارة بدلاً من ذلك. تُوثق الوثائق البرمجية هذه الطريقة الخاصة بنقطة البيانات لأنواع المخطط `Pie`، `Pie3D`، `ExplodedPie`، `ExplodedPie3D`، `PieOfPie`، و`BarOfPie`. لا تفترض أنها تنطبق على مخططات الدونات، التي لا تُدرج في تلك القائمة.
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني جعل المخطط يحجز مساحة لوسيلة الإيضاح بدلاً من تراكبها؟**
+
+نعم. استدعِ [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) مع `false` لحجز مساحة لوسيلة الإيضاح بدلاً من السماح لها بالتراكب على منطقة الرسم.
+
+**هل يمكنني إنشاء تسميات وسيلة إيضاح متعددة الأسطر؟**
+
+نعم. يمكن أن تُكّسر التسميات الطويلة عندما يكون العرض المتاح غير كافٍ. يمكنك أيضًا استخدام أحرف السطر الجديد في أسماء السلاسل لطلب فواصل سطرية.
+
+**كيف أجعل وسيلة الإيضاح تتبع نظام ألوان سمة العرض التقديمي؟**
+
+اترك ألوان وسيلة الإيضاح، وتعبئاتها، وخطوطها غير محددة بحيث يمكنها وراثة تنسيق السمة. أي تنسيق صريح سيتجاوز الإعدادات الخاصة بالسمة.

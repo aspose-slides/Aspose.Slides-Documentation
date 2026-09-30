@@ -1,125 +1,164 @@
 ---
-title: "Sesuaikan Legenda Grafik dalam Presentasi Menggunakan PHP"
-linktitle: "Legenda Grafik"
+title: Sesuaikan Legenda Diagram dalam Presentasi Menggunakan PHP
+linktitle: Legenda Diagram
 type: docs
 url: /id/php-java/chart-legend/
 keywords:
-- legenda grafik
+- legenda diagram
 - posisi legenda
 - ukuran font
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Sesuaikan legenda grafik dengan Aspose.Slides untuk PHP via Java guna mengoptimalkan presentasi PowerPoint dengan format legenda yang disesuaikan."
+description: "Sesuaikan legenda diagram dengan Aspose.Slides for PHP via Java untuk mengoptimalkan presentasi PowerPoint dengan pemformatan legenda yang disesuaikan."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides menyediakan pilihan untuk menyesuaikan legenda grafik dalam presentasi PowerPoint. Artikel ini menunjukkan cara memposisikan dan mengubah ukuran legenda, mengatur ukuran font untuk seluruh legenda, dan menerapkan pemformatan pada entri legenda individual.
+Aspose.Slides for PHP via Java menyediakan opsi untuk menyesuaikan legenda diagram dalam presentasi PowerPoint. Artikel ini menunjukkan cara memposisikan dan mengubah ukuran legenda, mengatur ukuran font untuk seluruh legenda, memformat entri legenda tertentu, serta menyembunyikan atau mengembalikan entri yang dipilih.
 
-Ini juga mencakup beberapa perilaku terkait dalam FAQ, termasuk menggunakan mode non-overlay sehingga area plot memberikan ruang untuk legenda, memungkinkan label legenda yang panjang membungkus atau menggunakan jeda baris, dan membiarkan format legenda mewarisi dari tema presentasi ketika pengaturan teks dan isi yang eksplisit tidak diterapkan.
+FAQ mencakup perilaku terkait, termasuk memesan ruang untuk legenda, menampilkan label multiline, dan mewarisi pemformatan dari tema presentasi.
 
 ## **Penempatan Legenda**
-Untuk mengatur properti legenda, ikuti langkah-langkah berikut:
 
-- Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-- Dapatkan referensi slide.
-- Menambahkan grafik pada slide.
-- Mengatur properti legenda.
-- Tulis presentasi sebagai file PPTX.
+Gunakan metode legend [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/), dan [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) untuk menentukan posisi dan ukuran legenda sebagai pecahan dimensi diagram.
 
-Pada contoh di bawah ini, kami telah mengatur posisi dan ukuran untuk legenda Chart.
+Contoh ini membuat sebuah presentasi dan menambahkan diagram kolom berkelompok dengan data default ke slide pertama. Membagi offset dan dimensi legenda yang diinginkan dengan lebar dan tinggi diagram mengubahnya menjadi nilai relatif: legenda bergeser 50 poin dari sudut kiri‑atas diagram dan berukuran 100 × 100 poin. Contoh ini menggunakan java_values untuk mengonversi dimensi diagram yang dikembalikan oleh PHP/Java Bridge menjadi angka PHP sebelum pembagian.
 
 ```php
-  # Buat instance kelas Presentation
-  $pres = new Presentation();
-  try {
-    # Dapatkan referensi slide
-    $slide = $pres->getSlides()->get_Item(0);
-    # Tambah diagram kolom terkelompok pada slide
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Atur properti Legenda
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Tulis presentasi ke disk
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Ekspresikan posisi dan ukuran legenda relatif terhadap diagram.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Atur Ukuran Font Legenda**
-The Aspose.Slides for PHP via Java memungkinkan pengembang untuk mengatur ukuran font legenda. Ikuti langkah-langkah berikut:
 
-- Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-- Membuat grafik default.
-- Atur Ukuran Font.
-- Atur nilai minimum sumbu.
-- Atur nilai maksimum sumbu.
-- Tulis presentasi ke disk.
+Gunakan legend [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) untuk mengakses pemformatan teksnya dan gunakan [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) untuk mengatur ukuran font dalam poin.
+
+Contoh ini membuat diagram dengan data default dan mengatur teks legenda menjadi 20 poin. Ia juga menonaktifkan batas otomatis untuk sumbu vertikal dan mengatur rentangnya dari –5 hingga 10.
 
 ```php
-  # Buat instance kelas Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Atur Ukuran Font Legenda Individual**
-The Aspose.Slides for PHP via Java memungkinkan pengembang untuk mengatur ukuran font entri legenda individual. Ikuti langkah-langkah berikut:
+## **Atur Ukuran Font Entri Legenda Individu**
 
-- Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-- Membuat grafik default.
-- Akses entri legenda.
-- Atur Ukuran Font.
-- Atur nilai minimum sumbu.
-- Atur nilai maksimum sumbu.
-- Tulis presentasi ke disk.
+Gunakan koleksi yang dikembalikan oleh metode legend [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) untuk mengakses pemformatan entri tertentu. Indeks entri dihitung dari nol, sehingga indeks `1` mengacu pada entri kedua.
+
+Contoh ini membuat diagram kolom berkelompok yang data defaultnya mencakup setidaknya dua seri. Ia memformat entri legenda kedua dengan teks tebal, miring, berwarna biru, dan ukuran 20 poin.
 
 ```php
-  # Buat instance kelas Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Sembunyikan Entri Legenda Individu**
+
+Untuk mengecualikan serinya tambahan dari legenda sementara tetap menampilkan datanya, panggil [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) dengan `true` melalui [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). Ini menyembunyikan hanya entri legenda yang dipilih; tidak menghapus seri atau titik datanya. Memanggil [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) dengan `false`, sebaliknya, menyembunyikan seluruh legenda.
+
+Contoh di bawah membuat diagram kolom berkelompok dengan beberapa seri menggunakan data default. Ia menyembunyikan entri legenda seri kedua (indeks `1`) dan menyimpan presentasi. Kemudian entri tersebut dipulihkan dengan memanggil [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) dengan `false` dan menyimpan salinan kedua. Kolom tetap terlihat di kedua file.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // Pulihkan entri yang sama tanpa mengubah data diagram.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Perbandingan di bawah memperlihatkan diagram yang sama dengan semua entri terlihat dan dengan entri kedua disembunyikan. Kolom seri kedua tetap tidak berubah.
+
+![Perbandingan diagram dengan semua entri legenda terlihat dan dengan Seri 2 disembunyikan dari legenda; semua kolom tetap terlihat.](hide-legend-entry.png)
+
+Pada diagram kolom, batang, dan garis, entri legenda mengidentifikasi seri. Pada diagram pai, mereka mengidentifikasi titik data individu (iris), jadi gunakan [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) pada iris yang dipilih. API mendokumentasikan metode titik‑data ini untuk tipe diagram `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie`, dan `BarOfPie`. Jangan menganggap metode ini berlaku untuk diagram donat, yang tidak termasuk dalam daftar tersebut.
 
 ## **FAQ**
 
-**Apakah saya dapat mengaktifkan legenda sehingga grafik secara otomatis menyediakan ruang untuknya alih-alih menimpanya?**
+**Apakah saya dapat membuat diagram memesan ruang untuk legenda alih‑alih menimpanya?**
 
-Ya. Gunakan mode non-overlay ([setOverlay(false)](https://reference.aspose.com/slides/id/php-java/aspose.slides/legend/setoverlay/)); dalam kasus ini, area plot akan menyusut untuk menampung legenda.
+Ya. Panggil [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) dengan `false` untuk memesan ruang bagi legenda alih‑alih membiarkannya menimpit area plot.
 
-**Apakah saya dapat membuat label legenda multi-baris?**
+**Apakah saya dapat membuat label legenda multiline?**
 
-Ya. Label yang panjang akan otomatis membungkus ketika ruang tidak cukup; jeda baris paksa didukung melalui karakter newline dalam nama seri.
+Ya. Label panjang dapat membungkus ketika lebar yang tersedia tidak cukup. Anda juga dapat menggunakan karakter baris baru dalam nama seri untuk meminta pemisahan baris.
 
 **Bagaimana cara membuat legenda mengikuti skema warna tema presentasi?**
 
-Jangan mengatur warna/isi/font secara eksplisit untuk legenda atau teksnya. Mereka akan mewarisi dari tema dan memperbarui dengan benar ketika desain berubah.
+Biarkan warna, isian, dan font legenda tidak diatur sehingga dapat mewarisi pemformatan tema. Pemformatan eksplisit akan menimpa pengaturan tema yang bersangkutan.

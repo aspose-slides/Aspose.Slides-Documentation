@@ -1,110 +1,158 @@
 ---
-title: Légende du graphique
+title: Personnaliser les légendes de graphiques dans les présentations avec JavaScript
+linktitle: Légende du graphique
 type: docs
 url: /fr/nodejs-java/chart-legend/
+keywords:
+- légende de graphique
+- position de la légende
+- taille de police
+- PowerPoint
+- présentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Personnalisez les légendes de graphiques avec Aspose.Slides pour Node.js via Java afin d'optimiser les présentations PowerPoint avec un formatage de légende sur mesure."
 ---
+## **Vue d'ensemble**
+
+Aspose.Slides for Node.js via Java offre des options pour personnaliser les légendes de graphiques dans les présentations PowerPoint. Cet article montre comment positionner et dimensionner une légende, définir la taille de police pour l'ensemble de la légende, formater une entrée de légende individuelle, et masquer ou restaurer des entrées sélectionnées.
+
+La FAQ couvre les comportements associés, notamment la réservation d'espace pour la légende, l'affichage d'étiquettes multilignes et l'héritage du formatage à partir du thème de la présentation.
 
 ## **Positionnement de la légende**
 
-Pour définir les propriétés de la légende, suivez les étapes ci-dessous :
+Utilisez les méthodes [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/) et [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) de la légende pour spécifier sa position et sa taille en fractions des dimensions du graphique.
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Obtenez la référence de la diapositive.
-- Ajoutez un graphique sur la diapositive.
-- Définissez les propriétés de la légende.
-- Enregistrez la présentation au format PPTX.
+Cet exemple crée une présentation et ajoute un graphique à colonnes groupées avec des données par défaut à la première diapositive. Diviser les décalages et dimensions souhaités de la légende par la largeur et la hauteur du graphique les convertit en valeurs relatives : la légende est décalée de 50 points du coin supérieur gauche du graphique et dimensionnée à 100 × 100 points.
 
-Dans l'exemple ci-dessous, nous avons défini la position et la taille de la légende du graphique.
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Obtenir la référence de la diapositive
-    var slide = pres.getSlides().get_Item(0);
-    // Ajouter un graphique à colonnes groupées sur la diapositive
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Définir les propriétés de la légende
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Enregistrer la présentation sur le disque
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Exprimez la position et la taille de la légende par rapport au graphique.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Définir la taille de police d'une légende**
 
-## **Définir la taille de police de la légende**
+Utilisez la méthode [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) de la légende pour accéder à son formatage de texte et utilisez [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) pour définir la taille de la police en points.
 
-Aspose.Slides pour Node.js via Java permet aux développeurs de définir la taille de police de la légende. Veuillez suivre les étapes ci-dessous :
+Cet exemple crée un graphique avec des données par défaut et définit le texte de la légende à 20 points. Il désactive également les limites automatiques pour l'axe vertical et fixe sa plage de -5 à 10.
 
-- Instanciez la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Créez le graphique par défaut.
-- Définissez la taille de la police.
-- Définissez la valeur minimale de l'axe.
-- Définissez la valeur maximale de l'axe.
-- Enregistrez la présentation sur le disque.
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Définir la taille de police d'une entrée de légende individuelle**
 
-## **Définir la taille de police de la légende individuelle**
+Utilisez la collection renvoyée par la méthode [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) de la légende pour accéder au formatage d'une entrée spécifique. Les indices des entrées commencent à zéro, donc l'indice `1` correspond à la deuxième entrée.
 
-Aspose.Slides pour Node.js via Java permet aux développeurs de définir la taille de police des entrées individuelles de la légende. Veuillez suivre les étapes ci-dessous :
+Cet exemple crée un graphique à colonnes groupées dont les données par défaut comprennent au moins deux séries. Il formate la deuxième entrée de légende avec du texte gras, italique et bleu de 20 points.
 
-- Instanciez la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Créez le graphique par défaut.
-- Accédez à l'entrée de légende.
-- Définissez la taille de la police.
-- Définissez la valeur minimale de l'axe.
-- Définissez la valeur maximale de l'axe.
-- Enregistrez la présentation sur le disque.
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Masquer des entrées de légende individuelles**
+
+Pour exclure une série auxiliaire de la légende tout en conservant ses données visibles, appelez [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) avec `true` via [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Cela masque uniquement l'entrée de légende sélectionnée ; cela ne supprime pas la série ni ses points de données. En revanche, appeler [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) avec `false` masque la légende entière.
+
+L'exemple ci‑dessous crée un graphique à colonnes groupées avec plusieurs séries en utilisant les données par défaut. Il masque l'entrée de légende de la deuxième série (indice `1`) et enregistre la présentation. Il restaure ensuite l'entrée en appelant [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) avec `false` et enregistre une seconde copie. Les colonnes restent visibles dans les deux fichiers.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Restaurer la même entrée sans modifier les données du graphique.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La comparaison ci‑dessous montre le même graphique avec toutes les entrées visibles et avec la deuxième entrée masquée. Les colonnes de la deuxième série restent inchangées.
+
+![Comparaison d'un graphique avec toutes les entrées de légende visibles et avec la série 2 masquée de la légende ; toutes les colonnes restent visibles.](hide-legend-entry.png)
+
+Dans les graphiques à colonnes, à barres et en lignes, les entrées de légende identifient les séries. Pour les graphiques circulaires, elles identifient des points de données individuels (parts), donc utilisez [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) sur la part sélectionnée à la place. L'API documente cette méthode de point de données pour les types de graphiques `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` et `BarOfPie`. Ne supposez pas qu'elle s'applique aux graphiques en anneau, qui ne figurent pas dans cette liste.
 
 ## **FAQ**
 
-**Puis-je activer la légende afin que le graphique réserve automatiquement de l'espace pour elle au lieu de la superposer ?**  
-Oui. Utilisez le mode non superposé ([setOverlay(false)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/)) ; dans ce cas, la zone du tracé se rétrécira pour accueillir la légende.
+**Puis-je faire en sorte que le graphique réserve de l'espace pour la légende au lieu de la superposer ?**  
+Oui. Appelez [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) avec `false` pour réserver de l'espace à la légende au lieu de la laisser chevaucher la zone de tracé.
 
-**Puis-je créer des étiquettes de légende multi-lignes ?**  
-Oui. Les longues étiquettes se renvoient automatiquement lorsqu'il n'y a pas assez d'espace ; les sauts de ligne forcés sont pris en charge via les caractères de nouvelle ligne dans le nom de la série.
+**Puis-je créer des libellés de légende multilignes ?**  
+Oui. Les libellés longs peuvent se renvoyer à la ligne lorsque la largeur disponible est insuffisante. Vous pouvez également utiliser des caractères de saut de ligne dans les noms de séries pour demander des ruptures de ligne.
 
-**Comment faire en sorte que la légende suive le schéma de couleurs du thème de la présentation ?**  
-N'appliquez pas de couleurs, remplissages ou polices explicites à la légende ou à son texte. Elle héritera alors du thème et se mettra à jour correctement lorsque le design changera.
+**Comment faire en sorte que la légende suive le jeu de couleurs du thème de la présentation ?**  
+Laissez les couleurs, remplissages et polices de la légende non définis afin qu'elle puisse hériter du formatage du thème. Un formatage explicite remplace les paramètres correspondants du thème.
