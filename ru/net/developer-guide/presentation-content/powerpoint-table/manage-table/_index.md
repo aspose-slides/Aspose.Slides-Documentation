@@ -1,5 +1,5 @@
 ---
-title: Управление таблицами презентаций в .NET
+title: Управление таблицами презентации в .NET
 linktitle: Управление таблицей
 type: docs
 weight: 10
@@ -21,80 +21,73 @@ description: "Создавайте и редактируйте таблицы в
 ---
 ## **Введение**
 
-Таблица в PowerPoint — эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) проста и легко понимается.
+Таблицы в PowerPoint упорядочивают информацию в строки и столбцы, упрощая чтение и сравнение значений.
 
-Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/ru/net/aspose.slides/table/) , интерфейс [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) , класс [Cell](https://reference.aspose.com/slides/ru/net/aspose.slides/cell/) , интерфейс [ICell](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/) , а также другие типы, позволяющие создавать, обновлять и управлять таблицами во всех типах презентаций. 
+Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , интерфейс [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , класс [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) , интерфейс [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) , а также другие типы, позволяющие создавать, обновлять и управлять таблицами в презентациях.
 
-## **Создать таблицу с нуля**
+## **Создание таблицы с нуля**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) .
-2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth` .
-4. Определите массив `rowHeight` .
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) на слайд с помощью метода [AddTable](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addtable/) .
-6. Пройдитесь по каждому [ICell](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/) чтобы применить форматирование к верхней, нижней, правой и левой границам.
-7. Объедините первые две ячейки первой строки таблицы. 
-8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/) у [ICell](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/) .
-9. Добавьте некоторый текст в [TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/) .
+Создайте таблицу, указав её позицию, ширины столбцов и высоты строк. После добавления её на слайд вы можете форматировать границы ячеек, объединять ячейки и вставлять текст.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Определите массив ширин столбцов в пунктах.
+4. Определите массив высот строк в пунктах.
+5. Добавьте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) на слайд с помощью метода [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) .
+6. Итерируйте каждый [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) , чтобы применить форматирование к верхней, нижней, правой и левой границам.
+7. Объедините первые два ячейки первой строки таблицы.
+8. Получите доступ к объединённой ячейке через её свойство [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) .
+9. Установите текст в объединённой ячейке.
 10. Сохраните изменённую презентацию.
 
-Этот код C# демонстрирует, как создать таблицу в презентации:
+Пример ниже создаёт таблицу с тремя столбцами и пятью строками в точке (100, 50). Он применяет красные границы шириной 5 пунктов, объединяет первые два ячейки в первой строке и сохраняет результат как `table.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создаёт экземпляр класса Presentation, представляющего файл PPTX
-Presentation pres = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Получает первый слайд
-ISlide sld = pres.Slides[0];
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-// Определяет столбцы с шириной и строки с высотой
-double[] dblCols = { 50, 50, 50 };
-double[] dblRows = { 50, 30, 30, 30, 30 };
-
-// Добавляет форму таблицы на слайд
-ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-// Устанавливает формат границы для каждой ячейки
-for (int row = 0; row < tbl.Rows.Count; row++)
+foreach (var row in table.Rows)
 {
-	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
-	{
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderTop.Width = 5;
+    foreach (var cell in row)
+    {
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.FillType = (FillType.Solid);
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.SolidFillColor.Color= Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderBottom.Width =5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.SolidFillColor.Color =Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
-	}
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
+    }
 }
-// Объединяет ячейки 1 и 2 первой строки
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
-// Добавляет текст в объединённую ячейку
-tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
+table.MergeCells(table[0, 0], table[1, 0], false);
+table[0, 0].TextFrame.Text = "Merged Cells";
 
-// Сохраняет презентацию на диск
-pres.Save("table.pptx", SaveFormat.Pptx);
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **Нумерация в стандартной таблице**
 
-В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка в таблице имеет индекс 0,0 (столбец 0, строка 0). 
+В стандартной таблице индексы ячеек начинаются с нуля и используют порядок (столбец, строка). Первая ячейка имеет индекс (0, 0).
 
-Например, ячейки в таблице с 4 столбцами и 4 строками нумеруются следующим образом:
+Например, ячейки таблицы с 4 столбцами и 4 строками нумеруются следующим образом:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,256 +95,231 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Этот код C# создаёт стандартную таблицу 4 × 4 с указанной выше нумерацией и задаёт формат границ для каждой её ячейки:
+Этот пример создаёт таблицу 4 × 4, показанную выше, с шириной столбцов и высотой строк 70 пунктов и красными границами ячеек шириной 5 пунктов. Координаты показывают индексы ячеек; пример оставляет ячейки пустыми и сохраняет таблицу как `StandardTables_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создаёт экземпляр класса Presentation, представляющего файл PPTX
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 70, 70, 70, 70 };
+var rowHeights = new double[] { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+foreach (var row in table.Rows)
 {
-
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
-
-    // Определяет столбцы с шириной и строки с высотой
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Добавляет форму таблицы на слайд
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Устанавливает формат границы для каждой ячейки
-    foreach (IRow row in tbl.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-			cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderTop.Width = 5;
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-			cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderBottom.Width = 5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-			cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-			cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderRight.Width = 5;
-        }
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
     }
-
-    // Сохраняет презентацию на диск
-    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Получить доступ к существующей таблице**
+## **Доступ к существующей таблице**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) .
-2. Получите ссылку на слайд, содержащий таблицу, по его индексу. 
-3. Создайте объект [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) и присвойте ему значение null.
-4. Пройдитесь по всем объектам [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/) , пока не будет найдена таблица.
+Таблицы хранятся в коллекции фигур слайда. Пройдитесь по фигурам, чтобы найти таблицу, затем используйте интерфейс [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) , чтобы читать или обновлять её ячейки.
 
-   Если вы подозреваете, что обрабатываемый слайд содержит одну таблицу, вы можете просто проверить все его фигуры. Когда фигура идентифицируется как таблица, её можно привести к типу [Table](https://reference.aspose.com/slides/ru/net/aspose.slides/table/) . Однако если слайд содержит несколько таблиц, лучше искать нужную таблицу по её [AlternativeText](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/alternativetext/) .
+1. Загрузите презентацию, используя класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд, содержащий таблицу, по его индексу.
+3. Итерируйте объекты [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) , останавливаясь, когда найдёте таблицу. Если слайд содержит несколько таблиц, используйте [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) , чтобы определить нужную.
+4. Обновите текст в целевой ячейке.
+5. Сохраните изменённую презентацию.
 
-5. Используйте объект [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) , чтобы работать с таблицей. В примере ниже мы добавили новую строку в таблицу.
-6. Сохраните изменённую презентацию.
+Пример ниже открывает `UpdateExistingTable.pptx` и находит первую таблицу на первом слайде. Он устанавливает значение ячейки в столбце 0, строка 1 в `New` и сохраняет результат как `table1_out.pptx`. Входные данные должны содержать минимум один слайд, а первая таблица на этом слайде должна иметь минимум один столбец и две строки.
 
-Этот код C# демонстрирует, как получить доступ и работать с существующей таблицей:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Создаёт экземпляр класса Presentation, представляющего файл PPTX
-using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
+using var presentation = new Presentation("UpdateExistingTable.pptx");
+var slide = presentation.Slides[0];
+ITable? table = null;
+
+foreach (var shape in slide.Shapes)
 {
-
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
-
-    // Инициализирует TableEx со значением null
-    ITable tbl = null;
-
-    // Перебирает фигуры и задаёт ссылку на найденную таблицу
-    foreach (IShape shp in sld.Shapes)
-        if (shp is ITable)
-            tbl = (ITable)shp;
-
-    // Устанавливает текст для первого столбца второй строки
-    tbl[0, 1].TextFrame.Text = "New";
-
-    // Сохраняет изменённую презентацию на диск
-    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    if (shape is ITable candidateTable)
+    {
+        table = candidateTable;
+        break;
+    }
 }
+
+table![0, 1].TextFrame.Text = "New";
+
+presentation.Save("table1_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Найти ячейку, которой принадлежит TextFrame**
+Чтобы изменить высоту строки в существующей таблице и понять, почему её фактическая высота может превышать запрошенный минимум, см. [Управление высотой строк](/slides/ru/net/manage-rows-and-columns/#control-row-height).
 
-Когда универсальный код обработки текста получает [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) из таблицы, используйте свойство [ITextFrame.ParentCell](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentcell/) , чтобы получить владеющую [ICell](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/) . Для TextFrame ячейки таблицы свойство [ITextFrame.ParentCell](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentcell/) установлено, а [ITextFrame.ParentShape](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentshape/) равно `null`, хотя сама таблица является фигурой.
+## **Найти ячейку, владеющую текстовым фреймом**
 
-Координаты ячейки доступны через только для чтения свойства [ICell.FirstColumnIndex](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/firstcolumnindex/) и [ICell.FirstRowIndex](https://reference.aspose.com/slides/ru/net/aspose.slides/icell/firstrowindex/) . Свойство [ITextFrame.ParentCell](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentcell/) также только для чтения: оно предоставляет навигацию к владельцу, но не изменяет владение. Всегда проверяйте полученную ячейку на `null` перед её использованием.
+Когда общий код обработки текста получает [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) из таблицы, используйте свойство [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) , чтобы получить владеющую [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) . Для текстового фрейма ячейки таблицы свойство [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) установлено, а [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) имеет значение `null`, хотя сама таблица является фигурой.
 
-Полный пример, идентифицирующий владельцев ячеек таблицы и фигур, включая фигуры, связанные с узлами SmartArt, смотрите в разделе [Search and Replace Text](/slides/ru/net/search-and-replace-text/) .
+Координаты ячейки доступны через только для чтения свойства [ICell.FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) и [ICell.FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) . Свойство [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) также только для чтения: оно предоставляет навигацию к владельцу, но не меняет владение. Всегда проверяйте возвращённую ячейку на `null` перед использованием.
+
+Для полного примера, определяющего владельцев ячеек таблицы и фигур, включая фигуры, связанные с узлами SmartArt, см. [Поиск и замена текста](/slides/ru/net/search-and-replace-text/) .
 
 ## **Выравнивание текста в таблице**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) .
-2. Получите ссылку на слайд по его индексу. 
-3. Добавьте объект [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) на слайд. 
-4. Получите объект [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) из таблицы. 
-5. Получите [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/) из [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) .
-6. Выравняйте текст по вертикали.
+Вы можете управлять вертикальной привязкой и направлением текста отдельных ячеек таблицы. Пример в этом разделе центрирует текст в первой ячейке и вращает его на 270 градусов.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) на слайд.
+4. Получите объект [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) из таблицы.
+5. Получите первый [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) и задайте его текст и цвет.
+6. Установите свойства ячейки [TextAnchorType](https://reference.aspose.com/slides/net/aspose.slides/icell/textanchortype/) и [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/icell/textverticaltype/) .
 7. Сохраните изменённую презентацию.
 
-Этот код C# демонстрирует, как выровнять текст в таблице:
+Этот пример создаёт таблицу 4 × 4 с шириной столбцов 120 пунктов и высотой строк 100 пунктов. Он форматирует текст в ячейке (0, 0), добавляет значения в остальные ячейки первой строки и сохраняет результат как `Vertical_Align_Text_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создаёт экземпляр класса Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Получает первый слайд
-ISlide slide = presentation.Slides[0];
+var columnWidths = new double[] { 120, 120, 120, 120 };
+var rowHeights = new double[] { 100, 100, 100, 100 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+table[1, 0].TextFrame.Text = "10";
+table[2, 0].TextFrame.Text = "20";
+table[3, 0].TextFrame.Text = "30";
 
-// Определяет столбцы с шириной и строки с высотой
-double[] dblCols = { 120, 120, 120, 120 };
-double[] dblRows = { 100, 100, 100, 100 };
-
-// Добавляет форму таблицы на слайд
-ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-tbl[1, 0].TextFrame.Text = "10";
-tbl[2, 0].TextFrame.Text = "20";
-tbl[3, 0].TextFrame.Text = "30";
-
-// Получает текстовый фрейм
-ITextFrame txtFrame = tbl[0, 0].TextFrame;
-
-// Создаёт объект Paragraph для текстового фрейма
-IParagraph paragraph = txtFrame.Paragraphs[0];
-
-// Создаёт объект Portion для абзаца
-IPortion portion = paragraph.Portions[0];
+var cell = table[0, 0];
+var paragraph = cell.TextFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 portion.Text = "Text here";
 portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Выравнивает текст по вертикали
-ICell cell = tbl[0, 0];
 cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
-// Сохраняет презентацию на диск
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Задать форматирование текста на уровне таблицы**
+## **Установка форматирования текста на уровне таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) .
-2. Получите ссылку на слайд по его индексу. 
-3. Получите объект [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) со слайда.
-4. Установите [FontHeight](https://reference.aspose.com/slides/ru/net/aspose.slides/baseportionformat/fontheight/) для текста. 
-5. Задайте [Alignment](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/alignment/) и [MarginRight](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/marginright/) . 
-6. Установите [TextVerticalType](https://reference.aspose.com/slides/ru/net/aspose.slides/textframeformat/textverticaltype/) .
-7. Сохраните изменённую презентацию. 
+Используйте [SetTextFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulktextformattable/settextformat/) , чтобы применить форматирование текста ко всем ячейкам таблицы. Его перегрузки принимают форматирование части, абзаца и текстового фрейма, поэтому вы можете задавать эти свойства без итерации по отдельным ячейкам.
 
-Этот код C# демонстрирует, как применить предпочитаемые параметры форматирования к тексту в таблице:
+1. Загрузите презентацию, используя класс [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
+2. Получите ссылку на слайд по его индексу.
+3. Получите объект [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) слайда.
+4. Установите [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) для текста.
+5. Задайте [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) и [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) .
+6. Установите [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) .
+7. Сохраните изменённую презентацию.
 
-```c#
+Пример ниже открывает `table.pptx`, который должен содержать минимум один слайд с таблицей в качестве первой фигуры. Он задаёт размер шрифта 25 пунктов, выравнивает абзацы по правому краю с правым отступом 20 пунктов и делает текст вертикальным. Отформатированная презентация сохраняется как `result.pptx`.
+
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Создаёт экземпляр класса Presentation
-Presentation presentation = new Presentation();
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Предположим, что первая фигура на первом слайде — это таблица
+var table = (ITable)slide.Shapes[0];
 
-// Устанавливает высоту шрифта ячеек таблицы
-PortionFormat portionFormat = new PortionFormat();
+var portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
-someTable.SetTextFormat(portionFormat);
+table.SetTextFormat(portionFormat);
 
-// Устанавливает выравнивание текста ячеек таблицы и правый отступ одним вызовом
-ParagraphFormat paragraphFormat = new ParagraphFormat();
+var paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
-someTable.SetTextFormat(paragraphFormat);
+table.SetTextFormat(paragraphFormat);
 
-// Устанавливает вертикальный тип текста ячеек таблицы
-TextFrameFormat textFrameFormat = new TextFrameFormat();
+var textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.SetTextFormat(textFrameFormat);
+table.SetTextFormat(textFrameFormat);
 
-
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("result.pptx", SaveFormat.Pptx);
 ```
 
-## **Получить свойства стиля таблицы**
+## **Получение свойств стиля таблицы**
 
-Aspose.Slides позволяет получать свойства стиля таблицы, чтобы использовать эти данные для другой таблицы или в другом месте. Этот код C# демонстрирует, как получить свойства стиля из предустановки таблицы: 
+Используйте [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) , чтобы прочитать или назначить предустановленный стиль таблицы. Этот пример применяет [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/) к одной таблице, выводит имя предустановки и назначает тот же стиль второй таблице. Обе таблицы сохраняются в `table-style.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // изменить тему предустановленного стиля по умолчанию
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Получить предустановку стиля таблицы.
-    TableStylePreset stylePreset = table.StylePreset;
-    Console.WriteLine($"Table style preset: {stylePreset}");
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
 
-    // Применить полученную предустановку стиля к другой таблице.
-    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    anotherTable.StylePreset = stylePreset;
+var stylePreset = table.StylePreset;
+Console.WriteLine($"Table style preset: {stylePreset}");
 
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+var anotherTable = slide.Shapes.AddTable(10, 100, columnWidths, rowHeights);
+anotherTable.StylePreset = stylePreset;
+
+presentation.Save("table-style.pptx", SaveFormat.Pptx);
 ```
 
-## **Блокировать соотношение сторон таблицы**
+## **Блокировка коэффициента пропорций таблицы**
 
-Соотношение сторон геометрической фигуры — это отношение её размеров в разных измерениях. Aspose.Slides предоставляет свойство `AspectRatioLocked`, позволяющее блокировать настройку соотношения сторон для таблиц и других фигур. 
+Коэффициент пропорций таблицы — это отношение её ширины к высоте. Используйте [AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/aspectratiolocked/) , чтобы заблокировать это отношение для таблицы.
 
-Этот код C# демонстрирует, как заблокировать соотношение сторон для таблицы:
+Пример ниже открывает `pres.pptx`, который должен содержать минимум один слайд с таблицей в качестве первой фигуры. Он выводит текущее состояние блокировки, включается блокировка коэффициента пропорций, выводит обновлённое состояние (`True`) и сохраняет результат как `pres-out.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ITable table = (ITable)pres.Slides[0].Shapes[0];
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+using var presentation = new Presentation("pres.pptx");
+var slide = presentation.Slides[0];
 
-    table.ShapeLock.AspectRatioLocked = !table.ShapeLock.AspectRatioLocked; // инвертировать
+var table = (ITable)slide.Shapes[0];
 
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+table.ShapeLock.AspectRatioLocked = true;
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+
+presentation.Save("pres-out.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Можно ли включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
+**Могу ли я включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
 
-Да. Таблица предоставляет свойство [RightToLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/table/righttoleft/) , а абзацы имеют [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/ru/net/aspose.slides/paragraphformat/righttoleft/) . Использование обоих обеспечивает правильный порядок RTL и корректный рендеринг внутри ячеек.
+Да. Таблица предоставляет свойство [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) , а у абзацев есть [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/) . Использование обоих обеспечивает правильный порядок RTL и корректное отображение внутри ячеек.
 
-**Как предотвратить перемещение или изменение размера таблицы пользователями в окончательном файле?**
+**Как я могу предотвратить перемещение или изменение размера таблицы в конечном файле?**
 
-Используйте [shape locks](/slides/ru/net/applying-protection-to-presentation/) , чтобы отключить перемещение, изменение размеров, выделение и т.д. Эти блокировки применимы и к таблицам.
+Используйте [блокировки фигур](/slides/ru/net/applying-protection-to-presentation/) , чтобы отключить перемещение, изменение размера, выделение и т.д. Эти блокировки применимы и к таблицам.
 
-**Поддерживает ли вставку изображения внутри ячейки в качестве фона?**
+**Поддерживается ли вставка изображения в ячейку в качестве фона?**
 
-Да. Вы можете задать [picture fill](https://reference.aspose.com/slides/ru/net/aspose.slides/picturefillformat/) для ячейки; изображение будет покрывать область ячейки в соответствии с выбранным режимом (растяжка или плитка).
+Да. Вы можете задать [заполнение картинкой](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) для ячейки; изображение покрывает область ячейки в соответствии с выбранным режимом (растянуть или повторить).

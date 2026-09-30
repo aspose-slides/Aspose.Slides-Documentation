@@ -1,256 +1,272 @@
 ---
-title: จัดการแถวและคอลัมน์ในตาราง PowerPoint ด้วย .NET
-linktitle: แถวและคอลัมน์
+title: "จัดการแถวและคอลัมน์ในตาราง PowerPoint ด้วย .NET"
+linktitle: "แถวและคอลัมน์"
 type: docs
 weight: 20
 url: /th/net/manage-rows-and-columns/
 keywords:
-- แถวของตาราง
-- คอลัมน์ของตาราง
-- แถวแรก
-- หัวตาราง
-- คัดลอกแถว
-- คัดลอกคอลัมน์
-- คัดลอกแถว
-- คัดลอกคอลัมน์
-- ลบแถว
-- ลบคอลัมน์
-- การจัดรูปแบบข้อความของแถว
-- การจัดรูปแบบข้อความของคอลัมน์
-- สไตล์ของตาราง
-- PowerPoint
-- งานนำเสนอ
-- .NET
-- C#
-- Aspose.Slides
-description: "จัดการแถวและคอลัมน์ของตารางใน PowerPoint ด้วย Aspose.Slides สำหรับ .NET และเพิ่มความเร็วในการแก้ไขงานนำเสนอและอัปเดตข้อมูล."
+- "แถวตาราง"
+- "คอลัมน์ตาราง"
+- "แถวแรก"
+- "หัวตาราง"
+- "คัดลอกแถว"
+- "คัดลอกคอลัมน์"
+- "ทำสำเนาแถว"
+- "ทำสำเนาคอลัมน์"
+- "ลบแถว"
+- "ลบคอลัมน์"
+- "การจัดรูปแบบข้อความแถว"
+- "การจัดรูปแบบข้อความคอลัมน์"
+- "สไตล์ตาราง"
+- "PowerPoint"
+- "งานนำเสนอ"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "จัดการแถวและคอลัมน์ของตารางใน PowerPoint ด้วย Aspose.Slides for .NET เพื่อเร่งการแก้ไขงานนำเสนอและอัปเดตข้อมูล."
 ---
 ## **บทนำ**
 
-เพื่อให้คุณสามารถจัดการแถวและคอลัมน์ของตารางในงานนำเสนอ PowerPoint ได้ Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/th/net/aspose.slides/table/) อินเทอร์เฟซ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) และประเภทอื่น ๆ มากมาย  
+Aspose.Slides for .NET ให้คุณจัดการโครงสร้างและการจัดรูปแบบตารางในงานนำเสนอ PowerPoint ผ่านคลาส [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) และอินเทอร์เฟซ [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) คุณสามารถกำหนดแถวหัวเรื่อง, คัดลอกหรือเอาแถวและคอลัมน์ออก, และใช้การจัดรูปแบบข้อความกับแถวหรือคอลัมน์ทั้งหมดได้
 
-## **ตั้งค่าแถวแรกเป็นหัวตาราง**
+บทความนี้อธิบายการดำเนินการเหล่านี้ด้วยตัวอย่าง C# นอกจากนี้ยังแสดงวิธีดึงสไตล์ของตารางเพื่อให้คุณสามารถนำกลับมาใช้ใหม่ ดัชนีแถวและคอลัมน์ของตารางเริ่มต้นจากศูนย์
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) และโหลดงานนำเสนอ  
-2. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. สร้างอ็อบเจ็กต์ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) แล้วตั้งค่าเป็น null  
-4. วนรอบอ็อบเจ็กต์ทั้งหมดของ [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) เพื่อค้นหาตารางที่เกี่ยวข้อง  
-5. ตั้งค่าแถวแรกของตารางเป็นหัวตาราง  
+## **ควบคุมความสูงแถว**
 
-โค้ด C# นี้แสดงวิธีตั้งค่าแถวแรกของตารางให้เป็นหัวตาราง:
+ใช้ [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) เพื่อตั้งค่าความสูงขั้นต่ำของแถวเป็นหน่วยจุด เป็นค่าต่ำสุด ไม่ใช่ความสูงคงที่ [IRow.Height](https://reference.aspose.com/slides/net/aspose.slides/irow/height/) คืนค่าความสูงจริงและอ่านได้อย่างเดียว เข้าถึงแถวผ่าน [ITable.Rows](https://reference.aspose.com/slides/net/aspose.slides/itable/rows/)
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation("table.pptx");
+ตัวอย่างโหลด [row-height-input.pptx](row-height-input.pptx) ซึ่งมีตารางเป็นรูปทรงแรกบนสไลด์แรก แถวแรกเริ่มที่ 70 จุด เซลล์ใช้ข้อความ Arial ขนาด 18 จุด การห่อข้อความ และระยะขอบบนและล่าง 6 จุด; ข้อความยาวในคอลัมน์ที่สองห่อหลายบรรทัด ตัวอย่างเพิ่มค่าขั้นต่ำเป็น 100 จุด แล้วลดลงเป็น 20 จุด พิมพ์ความสูงจริงหลังการเปลี่ยนแต่ละครั้ง และบันทึกผลลัพธ์ทั้งสอง
 
-// เข้าถึงสไลด์แรก
-ISlide sld = pres.Slides[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// กำหนดค่าเริ่มต้นให้ TableEx เป็น null
-ITable tbl = null;
+using var presentation = new Presentation("row-height-input.pptx");
+var table = (ITable)presentation.Slides[0].Shapes[0];
+var row = table.Rows[0];
 
-// วนผ่านรูปร่างทั้งหมดและตั้งค่าอ้างอิงไปยังตาราง
-foreach (IShape shp in sld.Shapes)
-{
-    if (shp is ITable)
-    {
-        tbl = (ITable)shp;
-    }
-}
+row.MinimalHeight = 100;
+Console.WriteLine($"Increased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-increased.pptx", SaveFormat.Pptx);
 
-// ตั้งค่าแถวแรกของตารางเป็นหัวตาราง
-tbl.FirstRow = true;
+row.MinimalHeight = 20;
+Console.WriteLine($"Decreased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-decreased.pptx", SaveFormat.Pptx);
+```
 
-// บันทึกงานนำเสนอลงดิสก์
-pres.Save("First_row_header.pptx", SaveFormat.Pptx);
+ด้วยงานนำเสนอที่ให้มา การเพิ่มค่าขั้นต่ำจะเพิ่มพื้นที่ให้กับแถว การลดค่าจะลบพื้นที่ส่วนที่เพิ่มนั้นออก แต่ความสูงจริงยังคงมากกว่า 20 จุดเนื่องจากข้อความและระยะขอบของเซลล์ต้องการพื้นที่มากกว่าที่กำหนด การลดค่าขั้นต่ำอย่างเดียวไม่สามารถบังคับให้แถวต่ำกว่าพื้นที่ที่เนื้อหาต้องการได้
+
+หลายปัจจัยมีผลต่อความสูงจริง:
+
+- **ข้อความและขนาดฟอนต์:** ข้อความยาว, การขึ้นบรรทัดใหม่โดยเจตนา, หรือฟอนต์ที่ใหญ่ขึ้นอาจต้องการพื้นที่แนวตั้งเพิ่ม
+- **การห่อและความกว้างคอลัมน์:** เมื่อเปิดการห่อไว้ ความกว้างที่แคบของ [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) สามารถทำให้เกิดบรรทัดเพิ่มขึ้น คอลัมน์ที่กว้างขึ้นสามารถลดพื้นที่แนวตั้งที่ต้องการ
+- **ระยะขอบเซลล์:** [ICell.MarginTop](https://reference.aspose.com/slides/net/aspose.slides/icell/margintop/) และ [ICell.MarginBottom](https://reference.aspose.com/slides/net/aspose.slides/icell/marginbottom/) เพิ่มพื้นที่แนวตั้ง [ICell.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/icell/marginleft/) และ [ICell.MarginRight](https://reference.aspose.com/slides/net/aspose.slides/icell/marginright/) ลดความกว้างที่ใช้ได้สำหรับข้อความและอาจทำให้เกิดการห่อเพิ่มเติม
+
+สำหรับตารางนี้ไม่มีการรวมเซลล์ เซลล์ที่ต้องการพื้นที่แนวตั้งมากที่สุดจะกำหนดขีดจำกัดล่างที่ขับเคลื่อนโดยเนื้อหาเพื่อทั้งแถว หากต้องการให้แถวสั้นลง คุณอาจต้องย่อข้อความ, ลดขนาดฟอนต์หรือระยะขอบ, หรือทำให้คอลัมน์กว้างขึ้น
+
+ภาพด้านล่างแสดงตารางเดียวกันในสเกลเดียวกัน ในการรันนี้ ความสูงจริงเป็น 70, 100, และ 55.2 จุด: แถวสุดท้ายยังคงสูงกว่าค่าขั้นต่ำ 20 จุด การวัดข้อความที่แม่นยำอาจแตกต่างตามฟอนต์ที่มีในสภาพแวดล้อมของคุณ ดาวน์โหลดผลลัพธ์ที่บันทึกไว้: [increased minimum](row-height-increased.pptx) และ [decreased minimum](row-height-decreased.pptx)
+
+| ต้นฉบับ: ขั้นต่ำ 70 pt, จริง 70 pt | เพิ่ม: ขั้นต่ำ 100 pt, จริง 100 pt | ลด: ขั้นต่ำ 20 pt, จริง 55.2 pt |
+| --- | --- | --- |
+| ![ตารางต้นฉบับที่มีแถวแรก 70 จุด.](row-height-before.png) | ![ตารางหลังจากเพิ่มค่าขั้นต่ำของแถวแรกเป็น 100 จุด.](row-height-increased.png) | ![ตารางหลังจากลดค่าขั้นต่ำของแถวแรกเป็น 20 จุด; ข้อความห่อทำให้แถวสูงกว่าขั้นต่ำ.](row-height-decreased.png) |
+
+## **ตั้งค่าแถวแรกเป็นหัวเรื่อง**
+
+ใช้คุณสมบัติ [FirstRow](https://reference.aspose.com/slides/net/aspose.slides/itable/firstrow/) เพื่อทำเครื่องหมายแถวแรกสำหรับการจัดรูปแบบหัวเรื่อง การแสดงผลขึ้นอยู่กับสไตล์ตารางที่ใช้กับตาราง
+
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
+2. เข้าถึงสไลด์แรก
+3. เข้าถึงตารางที่เก็บเป็นรูปทรงแรกบนสไลด์
+4. เปิดการจัดรูปแบบหัวเรื่องสำหรับแถวแรกของมัน
+5. บันทึกงานนำเสนอที่แก้ไขแล้ว
+
+ตัวอย่างต้องการ `table.pptx` ที่มีตารางเป็นรูปทรงแรกบนสไลด์แรก มันเปิดการจัดรูปแบบหัวเรื่องสำหรับแถวแรกและบันทึกเป็น `First_row_header.pptx`
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
+
+var table = (ITable)slide.Shapes[0];
+table.FirstRow = true;
+
+presentation.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
 ## **คัดลอกแถวหรือคอลัมน์ของตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) และโหลดงานนำเสนอ  
-2. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. กำหนดอาเรย์ของ `columnWidth`  
-4. กำหนดอาเรย์ของ `rowHeight`  
-5. เพิ่มอ็อบเจ็กต์ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) ไปยังสไลด์ผ่านเมธอด [AddTable](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addtable/)  
-6. คัดลอกแถวของตาราง  
-7. คัดลอกคอลัมน์ของตาราง  
-8. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+คัดลอกแถวหรือคอลัมน์เพื่อใช้เนื้อหาและการจัดรูปแบบซ้ำ คุณสามารถต่อท้ายสำเนาที่คัดลอกไว้ที่ส่วนท้ายของตารางหรือแทรกในตำแหน่งที่กำหนด
 
-โค้ด C# นี้แสดงวิธีคัดลอกแถวหรือคอลัมน์ของตาราง PowerPoint:
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
+2. เข้าถึงสไลด์แรก
+3. กำหนดความกว้างของคอลัมน์และความสูงของแถว
+4. เพิ่มตารางด้วยวิธีการ [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/)
+5. คัดลอกแถวที่ต้องการ
+6. คัดลอกคอลัมน์ที่ต้องการ
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว
 
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation
-using (Presentation presentation = new Presentation("Test.pptx"))
-{
-    // เข้าถึงสไลด์แรก
-    ISlide sld = presentation.Slides[0];
+ตัวอย่างต้องการ `Test.pptx` ที่มีอย่างน้อยหนึ่งสไลด์ มันสร้างตารางที่มีสามคอลัมน์และห้าแถว โดยกำหนดขนาดเป็นหน่วยจุด มันต่อท้ายสำเนาของแถวแรกและคอลัมน์แรก, จากนั้นแทรกสำเนาของแถวที่สองและคอลัมน์ที่สองที่ตำแหน่งดัชนี 3 (ตำแหน่งที่สี่) ตารางที่ได้จะมีเจ็ดแถวและห้าคอลัมน์ อาร์กิวเมนต์ `false` ปิดการคัดลอกไปยังแถวหรือคอลัมน์ที่รวมติดกัน; ตารางนี้ไม่มีการรวมเซลล์
 
-    // กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
 
-    // เพิ่มข้อความบางส่วนในแถว 1 เซลล์ 1
-    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // เพิ่มข้อความบางส่วนในแถว 1 เซลล์ 2
-    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+table.Rows.AddClone(table.Rows[0], false);
 
-    // คัดลอกแถว 1 ไปยังตำแหน่งสุดท้ายของตาราง
-    table.Rows.AddClone(table.Rows[0], false);
+table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+table.Rows.InsertClone(3, table.Rows[1], false);
 
-    // เพิ่มข้อความบางส่วนในแถว 2 เซลล์ 1
-    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table.Columns.AddClone(table.Columns[0], false);
+table.Columns.InsertClone(3, table.Columns[1], false);
 
-    // เพิ่มข้อความบางส่วนในแถว 2 เซลล์ 2
-    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
-
-    // คัดลอกแถว 2 เป็นแถวที่ 4 ของตาราง
-    table.Rows.InsertClone(3,table.Rows[1], false);
-
-    // คัดลอกคอลัมน์แรกที่ตำแหน่งสุดท้าย
-    table.Columns.AddClone(table.Columns[0], false);
-
-    // คัดลอกคอลัมน์ที่ 2 ที่ตำแหน่งคอลัมน์ที่ 4
-    table.Columns.InsertClone(3,table.Columns[1], false);
-    
-    // บันทึกงานนำเสนอลงดิสก์ 
-    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("table_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **ลบแถวหรือคอลัมน์จากตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) และโหลดงานนำเสนอ  
-2. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. กำหนดอาเรย์ของ `columnWidth`  
-4. กำหนดอาเรย์ของ `rowHeight`  
-5. เพิ่มอ็อบเจ็กต์ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) ไปยังสไลด์ผ่านเมธอด [AddTable](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addtable/)  
-6. ลบแถวของตาราง  
-7. ลบคอลัมน์ของตาราง  
-8. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+ลบแถวหรือคอลัมน์ที่ไม่ต้องการในตาราง การลบรายการจะเลื่อนดัชนีของแถวหรือคอลัมน์ที่ตามมาหลังจากนั้น
 
-โค้ด C# นี้แสดงวิธีลบแถวหรือคอลัมน์จากตาราง:
+1. สร้างงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
+2. เข้าถึงสไลด์แรก
+3. กำหนดความกว้างของคอลัมน์และความสูงของแถว
+4. เพิ่มตารางด้วยวิธีการ [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/)
+5. ลบแถวที่สองและคอลัมน์ที่สอง
+6. บันทึกงานนำเสนอที่แก้ไขแล้ว
 
-```c#
-Presentation pres = new Presentation();
+ตัวอย่างนี้สร้างตาราง 3x3 และลบแถวและคอลัมน์ที่ดัชนี 1 ทำให้เหลือตาราง 2x2 ในไฟล์ `TestTable_out.pptx` ขนาดเป็นหน่วยจุด อาร์กิวเมนต์ `false` ปิดการลบแถวหรือคอลัมน์ที่รวมติดกัน; ตารางนี้ไม่มีการรวมเซลล์
 
-ISlide slide = pres.Slides[0];
-double[] colWidth = { 100, 50, 30 };
-double[] rowHeight = { 30, 50, 30 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 50, 30 };
+var rowHeights = new double[] { 30, 50, 30 };
+var table = slide.Shapes.AddTable(100, 100, columnWidths, rowHeights);
+
 table.Rows.RemoveAt(1, false);
 table.Columns.RemoveAt(1, false);
-pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+presentation.Save("TestTable_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าการจัดรูปแบบข้อความในระดับแถวของตาราง**
+## **ตั้งค่าการจัดรูปแบบข้อความระดับแถวของตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) และโหลดงานนำเสนอ  
-2. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เข้าถึงอ็อบเจ็กต์ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) ที่เกี่ยวข้องจากสไลด์  
-4. ตั้งค่า [FontHeight](https://reference.aspose.com/slides/th/net/aspose.slides/baseportionformat/fontheight/) ของเซลล์ในแถวแรก  
-5. ตั้งค่า [Alignment](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/alignment/) และ [MarginRight](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/marginright/) ของเซลล์ในแถวแรก  
-6. ตั้งค่า [TextVerticalType](https://reference.aspose.com/slides/th/net/aspose.slides/textframeformat/textverticaltype/) ของเซลล์ในแถวที่สอง  
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+ใช้การจัดรูปแบบข้อความกับแถวทั้งหมดเพื่อให้เซลล์สอดคล้องกัน คุณสามารถตั้งค่าคุณสมบัติฟอนต์, การจัดย่อหน้า, และทิศทางข้อความโดยไม่ต้องจัดรูปแบบแต่ละเซลล์แยกกัน
 
-โค้ด C# นี้แสดงการดำเนินการ:
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
+2. เข้าถึงตารางบนสไลด์แรก
+3. ตั้งค่า [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) สำหรับแถวแรก
+4. ตั้งค่า [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) และ [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) สำหรับแถวแรก
+5. ตั้งค่า [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) สำหรับแถวที่สอง
+6. บันทึกงานนำเสนอที่แก้ไขแล้ว
 
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation
-Presentation presentation = new Presentation();
-           
-ISlide slide = presentation.Slides[0];
+ตัวอย่างต้องการ `table.pptx` ที่มีตารางเป็นรูปทรงแรกบนสไลด์แรกและอย่างน้อยสองแถว มันใช้ข้อความขนาด 25 จุด, การจัดชิดขวา, และระยะขอบย่อหน้าขวา 20 จุดสำหรับแถวแรก, แล้วตั้งค่าข้อความแนวตั้งในแถวที่สอง
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // สมมติว่ารูปร่างแรกบนสไลด์แรกเป็นตาราง
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// ตั้งค่าความสูงของฟอนต์สำหรับเซลล์ในแถวแรก
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Rows[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// ตั้งค่าการจัดแนวข้อความและระยะขอบขวาของเซลล์ในแถวแรก
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Rows[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// ตั้งค่าประเภทการจัดแนวข้อความแนวตั้งของเซลล์ในแถวที่สอง
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Rows[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Rows[0].SetTextFormat(portionFormat);
 
-// บันทึกงานนำเสนอลงดิสก์
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Rows[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Rows[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("row_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าการจัดรูปแบบข้อความในระดับคอลัมน์ของตาราง**
+## **ตั้งค่าการจัดรูปแบบข้อความระดับคอลัมน์ของตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) และโหลดงานนำเสนอ  
-2. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เข้าถึงอ็อบเจ็กต์ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) ที่เกี่ยวข้องจากสไลด์  
-4. ตั้งค่า [FontHeight](https://reference.aspose.com/slides/th/net/aspose.slides/baseportionformat/fontheight/) ของเซลล์ในคอลัมน์แรก  
-5. ตั้งค่า [Alignment](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/alignment/) และ [MarginRight](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/marginright/) ของเซลล์ในคอลัมน์แรก  
-6. ตั้งค่า [TextVerticalType](https://reference.aspose.com/slides/th/net/aspose.slides/textframeformat/textverticaltype/) ของเซลล์ในคอลัมน์ที่สอง  
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+ใช้การจัดรูปแบบข้อความกับคอลัมน์ทั้งหมดเพื่อให้เซลล์สอดคล้องกัน คุณสามารถตั้งค่าคุณสมบัติฟอนต์, การจัดย่อหน้า, และทิศทางข้อความโดยไม่ต้องจัดรูปแบบแต่ละเซลล์แยกกัน
 
-โค้ด C# นี้แสดงการดำเนินการ:
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
+2. เข้าถึงตารางบนสไลด์แรก
+3. ตั้งค่า [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) สำหรับคอลัมน์แรก
+4. ตั้งค่า [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) และ [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) สำหรับคอลัมน์แรก
+5. ตั้งค่า [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) สำหรับคอลัมน์ที่สอง
+6. บันทึกงานนำเสนอที่แก้ไขแล้ว
 
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation();
-           
-ISlide slide = pres.Slides[0];
+ตัวอย่างต้องการ `table.pptx` ที่มีตารางเป็นรูปทรงแรกบนสไลด์แรกและอย่างน้อยสองคอลัมน์ มันใช้ข้อความขนาด 25 จุด, การจัดชิดขวา, และระยะขอบย่อหน้าขวา 20 จุดสำหรับคอลัมน์แรก, แล้วตั้งค่าข้อความแนวตั้งในคอลัมน์ที่สอง
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // สมมติว่ารูปร่างแรกบนสไลด์แรกเป็นตาราง
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// ตั้งค่าความสูงของฟอนต์สำหรับเซลล์ในคอลัมน์แรก
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Columns[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// ตั้งค่าการจัดแนวข้อความและระยะขอบขวาของเซลล์ในคอลัมน์แรกในหนึ่งคำสั่ง
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Columns[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// ตั้งค่าประเภทการจัดแนวข้อความแนวตั้งของเซลล์ในคอลัมน์ที่สอง
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Columns[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Columns[0].SetTextFormat(portionFormat);
 
-// บันทึกงานนำเสนอลงดิสก์
-pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Columns[0].SetTextFormat(paragraphFormat);
 
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Columns[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("column_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **รับคุณสมบัติรูปแบบของตาราง**
+## **รับคุณสมบัติสไตล์ของตาราง**
 
-Aspose.Slides อนุญาตให้คุณดึงคุณสมบัติรูปแบบของตารางเพื่อใช้รายละเอียดเหล่านั้นกับตารางอื่นหรือที่อื่น โค้ด C# นี้แสดงวิธีรับคุณสมบัติรูปแบบจากสไตล์ตารางที่กำหนดไว้ล่วงหน้า:
+ใช้คุณสมบัติ [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) เพื่อดึงสไตล์พรีเซ็ตที่ใช้กับตารางและนำไปใช้กับตารางอื่น นี่จะระบุพรีเซ็ตแทนการเขียนทับการจัดรูปแบบของเซลล์แต่ละเซลล์
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // เปลี่ยนธีมพรีเซ็ตสไตล์เริ่มต้น
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+ตัวอย่างสร้างตาราง, ใช้ [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/) แล้วอ่านพรีเซ็ตกลับมา พิมพ์ `DarkStyle1` และบันทึกตารางในไฟล์ `table.pptx`
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
+
+Console.WriteLine(table.StylePreset);
+
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถนำธีม/สไตล์ของ PowerPoint ไปใช้กับตารางที่สร้างแล้วได้หรือไม่?**
+**ฉันสามารถใช้ธีม/สไตล์ PowerPoint กับตารางที่สร้างแล้วได้หรือไม่?**
 
-ได้ ตารางจะสืบทอดธีมของสไลด์/เลเอาต์/มาสเตอร์ และคุณยังสามารถแoverride การเติมสี ขอบ และสีข้อความได้บนธีมดังกล่าว
+ได้ ตารางสืบทอดธีมของสไลด์/เลเอาต์/มาสเตอร์, และคุณยังสามารถเขียนทับการเติมสี, เส้นขอบ, และสีข้อความเหนือธีมนั้นได้
 
-**ฉันสามารถเรียงลำดับแถวของตารางเหมือนใน Excel ได้หรือไม่?**
+**ฉันสามารถจัดเรียงแถวของตารางแบบ Excel ได้หรือไม่?**
 
-ไม่ได้ ตารางของ Aspose.Slides ไม่มีการจัดเรียงหรือฟิลเตอร์ในตัว ให้เรียงลำดับข้อมูลในหน่วยความจำก่อน แล้วค่อยเติมแถวของตารางตามลำดับนั้น
+ไม่ได้, ตารางของ Aspose.Slides ไม่มีการจัดเรียงหรือฟิลเตอร์ในตัว คุณต้องจัดเรียงข้อมูลในหน่วยความจำก่อน แล้วคัดลอกแถวตารางใหม่ตามลำดับนั้น
 
-**ฉันสามารถใช้คอลัมน์แบบมีแถบ (striped) พร้อมสีที่กำหนดเองในเซลล์เฉพาะได้หรือไม่?**
+**ฉันสามารถมีคอลัมน์ลายทาง (striped) พร้อมกับสีกำหนดเองในเซลล์บางเซลล์ได้หรือไม่?**
 
-ได้ เปิดใช้งานคอลัมน์แบบมีแถบ แล้วแoverride เซลล์เฉพาะด้วยการจัดรูปแบบระดับเซลล์; การจัดรูปแบบระดับเซลล์จะมีลำดับความสำคัญเหนือสไตล์ของตาราง
+ได้ เปิดการใช้คอลัมน์ลายทาง, แล้วเขียนทับเซลล์เฉพาะด้วยการจัดรูปแบบท้องถิ่น; การจัดรูปแบบระดับเซลล์มีลำดับความสำคัญเหนือสไตล์ของตาราง

@@ -1,6 +1,6 @@
 ---
 title: PHP でプレゼンテーション テーブルを管理する
-linktitle: テーブルを管理
+linktitle: テーブルを管理する
 type: docs
 weight: 10
 url: /ja/php-java/manage-table/
@@ -9,81 +9,89 @@ keywords:
 - テーブルを作成
 - テーブルにアクセス
 - アスペクト比
-- テキストを揃える
-- テキスト書式設定
+- テキストの配置
+- テキストの書式設定
 - テーブルスタイル
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides を使用して、PowerPoint スライド内のテーブルを作成および編集します。テーブル操作を効率化するシンプルなコード例をご紹介します。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint スライドのテーブルを作成および編集します。テーブル操作を効率化するシンプルなコード例をご紹介します。"
 ---
-## **紹介**
+## **概要**
 
-PowerPoint の表は、情報を表示・表現する効率的な方法です。行と列に配置されたセルのグリッドにある情報は、シンプルで理解しやすいです。
+PowerPoint の表は情報を行と列に整理し、値を読み取りやすく比較しやすくします。
 
-Aspose.Slides は、[Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Table) クラス、[Cell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/) クラス、その他の型を提供し、さまざまなプレゼンテーションで表を作成、更新、管理できるようにします。
+Aspose.Slides は、[Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) クラス、[Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) クラス、およびその他のタイプを提供し、プレゼンテーション内の表を作成、更新、管理できるようにします。
 
-## **スクラッチから表を作成する**
+## **テーブルを最初から作成する**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. `columnWidth` の配列を定義します。  
-4. `rowHeight` の配列を定義します。  
-5. [addTable](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addtable/) メソッドを使用して、スライドに [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/table/) オブジェクトを追加します。  
-6. 各 [Cell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/) を走査し、上・下・左・右の罫線に書式設定を適用します。  
-7. 表の最初の行の最初の 2 つのセルを結合します。  
-8. [Cell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/) の [TextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/) にアクセスします。  
-9. [TextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/) にテキストを追加します。  
+位置、列幅、行高さを指定してテーブルを作成します。スライドに追加した後、セルの罫線を書式設定したり、セルを結合したり、テキストを挿入したりできます。
+
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. 列幅をポイント単位の配列で定義します。
+4. 行高さをポイント単位の配列で定義します。
+5. スライドに [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) オブジェクトを [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) メソッドで追加します。
+6. [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) をそれぞれ反復処理し、上、下、右、左の罫線に書式設定を適用します。
+7. テーブルの最初の行の最初の 2 つのセルを結合します。
+8. 結合されたセルを [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/gettextframe/) メソッドで取得します。
+9. 結合セルのテキストを設定します。
 10. 変更されたプレゼンテーションを保存します。
 
+以下の例は、(100, 50) ポイントの位置に列が 3、行が 5 のテーブルを作成します。幅 5 ポイントの赤い罫線を適用し、最初の行の最初の 2 つのセルを結合し、結果を `table.pptx` として保存します。
+
 ```php
-  # PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-  $pres = new Presentation();
-  try {
-    # 最初のスライドにアクセスします
-    $sld = $pres->getSlides()->get_Item(0);
-    # 列の幅と行の高さを定義します
-    $dblCols = array(50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # スライドにテーブル シェイプを追加します
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # 各セルの罫線書式を設定します
-    for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
-      for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
-        $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
-        $cellFormat::getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderTop()->setWidth(5);
-        $cellFormat::getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderBottom()->setWidth(5);
-        $cellFormat::getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderLeft()->setWidth(5);
-        $cellFormat::getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderRight()->setWidth(5);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $red = java("java.awt.Color")->RED;
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        $row = $table->getRows()->get_Item($rowIndex);
+        for ($columnIndex = 0; $columnIndex < java_values($row->size()); $columnIndex++) {
+            $cell = $row->get_Item($columnIndex);
+            $cellFormat = $cell->getCellFormat();
+            $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderTop()->setWidth(5);
+
+            $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderBottom()->setWidth(5);
+
+            $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderLeft()->setWidth(5);
+
+            $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderRight()->setWidth(5);
+        }
     }
-    # 行 1 のセル 1 と 2 を結合します
-    $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
-    # 結合されたセルにテキストを追加します
-    $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
-    # プレゼンテーションをディスクに保存します
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->mergeCells($table->get_Item(0, 0), $table->get_Item(1, 0), false);
+    $table->get_Item(0, 0)->getTextFrame()->setText("Merged Cells");
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **標準表の番号付け**
+## **標準テーブルの番号付け**
 
-標準表では、セルの番号付けはシンプルでゼロベースです。表の最初のセルは 0,0（列 0、行 0）としてインデックス付けされます。
+標準テーブルでは、セルインデックスは 0 から始まり、順序は (列, 行) です。最初のセルは (0, 0) とインデックス付けされます。
 
-例えば、4 列 4 行の表のセルは次のように番号付けされます：
+たとえば、4 列 4 行のテーブルのセルは次のように番号付けされます。
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -91,225 +99,266 @@ Aspose.Slides は、[Table](https://reference.aspose.com/slides/ja/php-java/aspo
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-この PHP コードは、表のセルの番号付け方法を示しています：
+この例は、上図の 4 × 4 テーブルを作成し、列幅と行高さを 70 ポイント、幅 5 ポイントの赤い罫線で設定します。座標はセルインデックスを示しています。セルは空のままにし、テーブルを `StandardTables_out.pptx` として保存します。
 
 ```php
-  # PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-  $pres = new Presentation();
-  try {
-    # 最初のスライドにアクセスします
-    $sld = $pres->getSlides()->get_Item(0);
-    # 列の幅と行の高さを定義します
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # スライドにテーブル シェイプを追加します
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # 各セルの罫線書式を設定します
-    $rows = $tbl->getRows();
-    foreach($rows as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $red = java("java.awt.Color")->RED;
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        $row = $table->getRows()->get_Item($rowIndex);
+        for ($columnIndex = 0; $columnIndex < java_values($row->size()); $columnIndex++) {
+            $cell = $row->get_Item($columnIndex);
+            $cellFormat = $cell->getCellFormat();
+            $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderTop()->setWidth(5);
+
+            $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderBottom()->setWidth(5);
+
+            $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderLeft()->setWidth(5);
+
+            $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderRight()->setWidth(5);
+        }
     }
-    # プレゼンテーションをディスクに保存します
-    $pres->save("StandardTables_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("StandardTables_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **既存の表にアクセスする**
+## **既存のテーブルにアクセスする**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用して、表が含まれるスライドへの参照を取得します。  
-3. [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Table) オブジェクトを作成し、null に設定します。  
-4. 表が見つかるまで、すべての [Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) オブジェクトを走査します。  
+テーブルはスライドのシェイプ コレクションに格納されます。シェイプを反復処理してテーブルを見つけ、[Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) クラスを使用してセルを読み取ったり更新したりします。
 
-   スライドに単一の表しか含まれていないと疑われる場合は、含まれるすべてのシェイプをチェックすればよいです。シェイプが表として判別されたら、[Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Table) オブジェクトにキャストできます。複数の表が存在する場合は、[setAlternativeText(String value)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/setalternativetext/) で目的の表を検索した方が便利です。  
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスを使用してプレゼンテーションをロードします。
+2. インデックスでテーブルを含むスライドへの参照を取得します。
+3. [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) オブジェクトを反復処理し、テーブルが見つかった時点で停止します。スライドに複数のテーブルがある場合は、[getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) を使用して目的のテーブルを識別します。
+4. 対象セルのテキストを更新します。
+5. 変更されたプレゼンテーションを保存します。
 
-5. [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Table) オブジェクトを使用して表を操作します。以下の例では、表に新しい行を追加しました。  
-6. 変更されたプレゼンテーションを保存します。
+以下の例は `UpdateExistingTable.pptx` を開き、最初のスライドの最初のテーブルを見つけます。列 0、行 1 のセルに `New` を設定し、結果を `table1_out.pptx` として保存します。入力ファイルは少なくとも 1 枚のスライドを含み、そのスライドの最初のテーブルは少なくとも 1 列 2 行を持つ必要があります。
 
 ```php
-  # PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-  $pres = new Presentation("UpdateExistingTable.pptx");
-  try {
-    # 最初のスライドにアクセスします
-    $sld = $pres->getSlides()->get_Item(0);
-    # null TableEx を初期化します
-    $tbl = null;
-    # 形状を走査し、見つかった表への参照を設定します
-    $shapes = $sld->getShapes();
-    foreach($shapes as $shp) {
-      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
-        $tbl = $shp;
-        # 第2行の第1列のテキストを設定します
-        $tbl->get_Item(0, 1)->getTextFrame()->setText("New");
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("UpdateExistingTable.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = null;
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            $table = $shape;
+            break;
+        }
     }
-    # 変更されたプレゼンテーションをディスクに保存します
-    $pres->save("table1_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    if ($table !== null) {
+        $table->get_Item(0, 1)->getTextFrame()->setText("New");
+        $presentation->save("table1_out.pptx", SaveFormat::Pptx);
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **テキスト フレームを所有するセルを見つける**
+既存のテーブルで行のサイズを変更し、実際の高さが要求された最小値を超える理由を理解するには、[Control Row Height](/slides/ja/php-java/manage-rows-and-columns/#control-row-height) を参照してください。
 
-テーブルから取得した [TextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/) を汎用的なテキスト処理コードで受け取る場合は、[TextFrame::getParentCell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/#getParentCell) メソッドを使用して所有する [Cell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/) を取得します。テーブルセルのテキストフレームに対しては、[TextFrame::getParentCell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/#getParentCell) が所有者を返し、[TextFrame::getParentShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/#getParentShape) は `null` を返します（テーブル自体はシェイプです）。
+## **テキストフレームを所有するセルを見つける**
 
-セルの座標は、読み取り専用の [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/#getFirstColumnIndex) および [Cell::getFirstRowIndex](https://reference.aspose.com/slides/ja/php-java/aspose.slides/cell/#getFirstRowIndex) メソッドで取得できます。[TextFrame::getParentCell](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/#getParentCell) も読み取り専用のナビゲーションを提供し、所有者を返しますが所有権は変更されません。使用する前に必ず `java_is_null` で返されたセルをチェックしてください。
+テーブルから取得した [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) に対して汎用的なテキスト処理コードが受け取った場合は、[TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) メソッドを使用して所有する [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) を取得します。テーブルセルのテキストフレームの場合、[TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) は所有者を返し、[TextFrame::getParentShape](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentShape) は `null` を返します。テーブル自体はシェイプですが、このような動作になります。
 
-テーブルセルとシェイプの所有者を特定する完全な例（SmartArt ノードに関連付けられたシェイプを含む）は、[Search and Replace Text](/slides/ja/php-java/search-and-replace-text/) を参照してください。
+セルの座標は読み取り専用の [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) と [Cell::getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) メソッドで取得できます。[TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) は所有者を返すだけで所有権を変更しない読み取り専用ナビゲーションも提供します。使用する前に必ず `java_is_null` で返されたセルをチェックしてください。
 
-## **表内のテキストを揃える**
+テーブルセルとシェイプの所有者、SmartArt ノードに関連付けられたシェイプを識別する完全な例については、[Search and Replace Text](/slides/ja/php-java/search-and-replace-text/) を参照してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. スライドに [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Table) オブジェクトを追加します。  
-4. 表から [TextFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframe/) オブジェクトにアクセスします。  
-5. [Paragraph](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraph/) にアクセスします。  
-6. テキストを垂直方向に揃えます。  
+## **テーブル内のテキストを配置する**
+
+個々のテーブルセルの垂直アンカーとテキスト方向を制御できます。このセクションの例では、最初のセル内のテキストを中央揃えにし、270 度回転させます。
+
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. スライドに [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) オブジェクトを追加します。
+4. テーブルから [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) オブジェクトを取得します。
+5. 最初の [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) にアクセスし、テキストと色を設定します。
+6. [setTextAnchorType](https://reference.aspose.com/slides/php-java/aspose.slides/cell/settextanchortype/) と [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/cell/settextverticaltype/) を使用してセルの垂直アンカーとテキスト方向を設定します。
 7. 変更されたプレゼンテーションを保存します。
 
+この例は列幅 120 ポイント、行高さ 100 ポイントの 4 × 4 テーブルを作成し、セル (0, 0) のテキストをフォーマットし、最初の行の残りのセルに値を追加して、`Vertical_Align_Text_out.pptx` として保存します。
+
 ```php
-  # Presentation クラスのインスタンスを作成します
-  $pres = new Presentation();
-  try {
-    # 最初のスライドを取得します
-    $slide = $pres->getSlides()->get_Item(0);
-    # 列の幅と行の高さを定義します
-    $dblCols = array(120, 120, 120, 120 );
-    $dblRows = array(100, 100, 100, 100 );
-    # スライドにテーブル シェイプを追加します
-    $tbl = $slide->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
-    $tbl->get_Item(2, 0)->getTextFrame()->setText("20");
-    $tbl->get_Item(3, 0)->getTextFrame()->setText("30");
-    # テキスト フレームにアクセスします
-    $txtFrame = $tbl->get_Item(0, 0)->getTextFrame();
-    # テキスト フレーム用の Paragraph オブジェクトを作成します
-    $paragraph = $txtFrame->getParagraphs()->get_Item(0);
-    # Paragraph 用の Portion オブジェクトを作成します
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAnchorType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $black = java("java.awt.Color")->BLACK;
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 120, 120, 120, 120 ];
+    $rowHeights = [ 100, 100, 100, 100 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 0)->getTextFrame()->setText("10");
+    $table->get_Item(2, 0)->getTextFrame()->setText("20");
+    $table->get_Item(3, 0)->getTextFrame()->setText("30");
+
+    $textFrame = $table->get_Item(0, 0)->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+
     $portion = $paragraph->getPortions()->get_Item(0);
     $portion->setText("Text here");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # テキストを垂直方向に揃えます
-    $cell = $tbl->get_Item(0, 0);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+
+    $cell = $table->get_Item(0, 0);
     $cell->setTextAnchorType(TextAnchorType::Center);
     $cell->setTextVerticalType(TextVerticalType::Vertical270);
-    # プレゼンテーションをディスクに保存します
-    $pres->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **テーブルレベルでテキスト書式を設定する**
+## **テーブルレベルでテキスト書式設定を行う**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. スライドから [Table](https://reference.aspose.com/slides/ja/php-java/aspose.slides/Table) オブジェクトにアクセスします。  
-4. テキストの [setFontHeight(float value)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseportionformat/#setFontHeight) を設定します。  
-5. [setAlignment(int value)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/setalignment/) と [setMarginRight(float value)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/setmarginright/) を設定します。  
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textframeformat/settextverticaltype/) を設定します。  
+[setTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/table/settextformat/) を使用して、テーブル内のすべてのセルにテキスト書式設定を適用できます。オーバーロードにより、部分、段落、テキストフレームの書式設定を受け取るため、個々のセルを反復処理せずにこれらのプロパティを設定できます。
+
+1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) クラスを使用してプレゼンテーションをロードします。
+2. インデックスでスライドへの参照を取得します。
+3. スライドから [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) オブジェクトを取得します。
+4. テキストのフォントサイズを [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) で設定します。
+5. [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) と [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) を使用して段落の揃えと右余白を設定します。
+6. [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) でテキスト方向を設定します。
 7. 変更されたプレゼンテーションを保存します。
 
+以下の例は `table.pptx` を開きます。このファイルは少なくとも 1 枚のスライドを含み、最初のシェイプがテーブルである必要があります。フォントサイズを 25 ポイントに設定し、右余白 20 ポイントで段落を右揃えにし、テキストを縦方向にします。書式設定されたプレゼンテーションは `result.pptx` として保存されます。
+
 ```php
-  # Presentation クラスのインスタンスを作成します
-  $pres = new Presentation("simpletable.pptx");
-  try {
-    # 最初のスライドの最初のシェイプがテーブルであると想定します
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # テーブルセルのフォント高さを設定します
+use aspose\slides\ParagraphFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->setTextFormat($portionFormat);
-    # テーブルセルのテキスト配置と右余白を一度の呼び出しで設定します
+    $portionFormat->setFontHeight(25);
+    $table->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->setTextFormat($paragraphFormat);
-    # テーブルセルのテキスト垂直タイプを設定します
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->setTextFormat($textFrameFormat);
+
+    $presentation->save("result.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **テーブルスタイルのプロパティを取得する**
+## **テーブルスタイル プロパティの取得**
 
-Aspose.Slides は、テーブルのスタイルプロパティを取得できるようにし、その情報を別のテーブルや他の場所で使用できます。この PHP コードは、テーブルのプリセットスタイルからスタイルプロパティを取得する方法を示しています：
+[getStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/getstylepreset/) を使用してテーブルのプリセットスタイルを読み取り、[setStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/setstylepreset/) で割り当てます。この例では [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/php-java/aspose.slides/tablestylepreset/) を 1 つのテーブルに適用し、プリセット値を出力し、同じプリセットを 2 番目のテーブルに割り当てます。両方のテーブルは `table-style.pptx` に保存されます。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// 既定のスタイルプリセットテーマを変更します
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 100, 150 ];
+    $rowHeights = [ 5, 5, 5 ];
+    $table = $slide->getShapes()->addTable(10, 10, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::DarkStyle1);
+
+    $stylePreset = java_values($table->getStylePreset());
+    echo "Table style preset: " . $stylePreset . PHP_EOL;
+
+    $anotherTable = $slide->getShapes()->addTable(10, 100, $columnWidths, $rowHeights);
+    $anotherTable->setStylePreset($stylePreset);
+
+    $presentation->save("table-style.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **表のアスペクト比をロックする**
+## **テーブルの縦横比を固定する**
 
-幾何形状のアスペクト比は、異なる次元におけるサイズの比率です。Aspose.Slides は、表やその他のシェイプに対してアスペクト比ロック設定を行うために、[setAspectRatioLocked](https://reference.aspose.com/slides/ja/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) メソッドを提供しています。
+テーブルの縦横比は幅と高さの比率です。[setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) を使用してこの比率をロックできます。
 
-この PHP コードは、表のアスペクト比をロックする方法を示しています：
+以下の例は `pres.pptx` を開きます。このファイルは少なくとも 1 枚のスライドを含み、最初のシェイプがテーブルである必要があります。現在のロック状態を出力し、縦横比ロックを有効にして、更新された状態 (`true`) を出力し、結果を `pres-out.pptx` として保存します。
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// 反転
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("pres.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    echo "Lock aspect ratio set: " . (java_values($table->getGraphicalObjectLock()->getAspectRatioLocked()) ? "true" : "false") . PHP_EOL;
+
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(true);
+    echo "Lock aspect ratio set: " . (java_values($table->getGraphicalObjectLock()->getAspectRatioLocked()) ? "true" : "false") . PHP_EOL;
+
+    $presentation->save("pres-out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **よくある質問**
 
-**テーブル全体とセル内のテキストに右から左 (RTL) の読み方向を有効にできますか？**  
+**テーブル全体およびセル内のテキストに対して右から左 (RTL) の読み取り方向を有効にできますか？**
 
-はい。テーブルは [setRightToLeft](https://reference.aspose.com/slides/ja/php-java/aspose.slides/table/setrighttoleft/) メソッドを公開しており、段落には [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraphformat/setrighttoleft/) があります。両方を使用することで、セル内の正しい RTL 順序とレンダリングが保証されます。
+はい。テーブルは [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/) メソッドを公開しており、段落には [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/) があります。両方を使用することで、セル内で正しい RTL の順序と描画が保証されます。
 
-**最終ファイルで表をユーザーが移動またはサイズ変更できないようにするにはどうすればよいですか？**  
+**最終ファイルでユーザーがテーブルを移動またはサイズ変更できないようにするにはどうすればよいですか？**
 
-シェイプロックを使用して、移動、サイズ変更、選択などを無効にします。これらのロックは表にも適用されます。
+[shape locks](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) を使用して、移動、サイズ変更、選択などを無効にします。これらのロックはテーブルにも適用されます。
 
-**セル内に画像を背景として挿入することはサポートされていますか？**  
+**セル内に画像を背景として挿入することはサポートされていますか？**
 
-はい。セルに対して [picture fill](https://reference.aspose.com/slides/ja/php-java/aspose.slides/picturefillformat/) を設定できます。画像は選択したモード（ストレッチまたはタイル）に従ってセル領域全体をカバーします。
+はい。セルに対して [picture fill](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) を設定できます。画像は選択されたモード（ストレッチまたはタイル）に従ってセル領域全体を覆います。

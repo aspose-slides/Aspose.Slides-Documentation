@@ -1,6 +1,6 @@
 ---
-title: PowerPoint Tablolarında Satır ve Sütunları C++ ile Yönetme
-linktitle: Satırlar ve Sütunlar
+title: C++ Kullanarak PowerPoint Tablolarında Satır ve Sütunları Yönetme
+linktitle: Satır ve Sütunlar
 type: docs
 weight: 20
 url: /tr/cpp/manage-rows-and-columns/
@@ -9,10 +9,10 @@ keywords:
 - tablo sütunu
 - ilk satır
 - tablo başlığı
-- satırı klonla
-- sütunu klonla
-- satırı kopyala
-- sütunu kopyala
+- satırı çoğalt
+- sütunu çoğalt
+- satır kopyala
+- sütun kopyala
 - satırı kaldır
 - sütunu kaldır
 - satır metin biçimlendirmesi
@@ -22,284 +22,334 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint'te tablo satırlarını ve sütunlarını yönetin ve sunum düzenlemelerini ve veri güncellemelerini hızlandırın."
+description: "Aspose.Slides for C++ ile PowerPoint'te tablo satırlarını ve sütunlarını yönetin ve sunum düzenleme ve veri güncellemelerini hızlandırın."
 ---
 ## **Giriş**
 
-PowerPoint sunumunda bir tablonun satırlarını ve sütunlarını yönetebilmeniz için, Aspose.Slides [Table](https://reference.aspose.com/slides/tr/cpp/aspose.slides/table/) sınıfını, [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) arayüzünü ve birçok başka türü sağlar. 
+Aspose.Slides for C++ size, PowerPoint sunumlarında tablo yapısını ve biçimlendirmesini [Tablo](https://reference.aspose.com/slides/cpp/aspose.slides/table/) sınıfı ve [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) arabirimi üzerinden yönetmenizi sağlar. Başlık satırı belirleyebilir, satır ve sütunları kopyalayabilir veya kaldırabilir ve tüm bir satır veya sütun için metin biçimlendirmesi uygulayabilirsiniz.
 
-## **İlk Satırı Başlık Olarak Ayarlama**
+Bu makale bu işlemleri C++ örnekleriyle açıklar. Ayrıca bir tablonun stil ön ayarını nasıl alabileceğinizi ve yeniden kullanabileceğinizi gösterir. Tablo satır ve sütun indeksleri sıfır tabanlıdır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin. 
-2. Slaytın referansını dizini aracılığıyla alın. 
-3. Bir [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) nesnesi oluşturun ve onu null olarak ayarlayın. 
-4. İlgili tabloyu bulmak için tüm [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) nesneleri üzerinde döngü yapın. 
-5. Tablonun ilk satırını başlık olarak ayarlayın. 
+## **Satır Yüksekliğini Kontrol Et**
 
-Bu C++ kodu, bir tablonun ilk satırını başlık olarak nasıl ayarlayacağınızı gösterir:
+Satırın minimum yüksekliğini puan cinsinden ayarlamak için [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) kullanın. Bu bir alt sınırdır, sabit bir yükseklik değildir. [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) gerçek yüksekliği döndürür; bu değer doğrudan ayarlanamaz. Satıra [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/) aracılığıyla erişin.
 
-```c++
-// Presentation sınıfını örnekler 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+Örnek, ilk slayttaki ilk şekil olarak bir tablo içeren [row-height-input.pptx](row-height-input.pptx) dosyasını yükler. İlk satırı 70 puanda başlar. Hücreler 18 puan Arial metin, satır sonu sarmalama ve 6 puan üst ve alt kenar boşlukları kullanır; ikinci sütundaki daha uzun metin birden fazla satıra sarılır. Örnek minimumu 100 puana artırır, ardından 20 puana düşürür, her değişiklikten sonra gerçek yüksekliği yazdırır ve her iki sonucu kaydeder.
 
-// İlk slayta erişir
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// null TableEx'i başlatır
-SharedPtr<ITable> tbl;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Şekiller üzerinde döner ve tabloya bir referans ayarlar
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Bir tablonun ilk satırını başlık olarak ayarlar 
-tbl->set_FirstRow(true);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
+Sağlanan sunumda, minimumu artırmak satıra boşluk ekler. Azaltmak ise bu ekstra boşluğu kaldırır, ancak metin ve hücre kenar boşlukları daha fazla alan gerektirdiği için gerçek yükseklik 20 puandan büyük kalır. Minimumu yalnızca azaltmak, satırı içeriğinin gerektirdiği boşluğun altına zorlayamaz.
 
-## **Bir Tablo Satırını veya Sütununu Kopyalama**
+Gerçek yüksekliği etkileyen birkaç faktör vardır:
+- **Metin ve yazı tipi boyutu:** daha uzun metin, açık satır sonları veya daha büyük bir yazı tipi daha fazla düşey alan gerektirebilir.
+- **Sarma ve sütun genişliği:** sarma etkinleştirildiğinde, [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) ile sütun genişliğini azaltmak daha çok satır oluşturabilir. Daha geniş bir sütun ise düşey alana ihtiyaç duyulan boşluğu azaltabilir.
+- **Hücre kenar boşlukları:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) ve [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) dikey boşluk ekleyen kenar boşluklarını kontrol eder. [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) ve [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) metin için kullanılabilir genişliği azaltan kenar boşluklarını kontrol eder ve ek sarma oluşturabilir.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Slaytın referansını dizini aracılığıyla alın. 
-3. `columnWidth` dizisini tanımlayın. 
-4. `rowHeight` dizisini tanımlayın. 
-5. [AddTable()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addtable/) yöntemiyle slayda bir [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) nesnesi ekleyin. 
-6. Tablo satırını kopyalayın. 
-7. Tablo sütununu kopyalayın. 
-8. Değiştirilmiş sunumu kaydedin. 
+Birleştirilmiş hücreleri olmayan bu tabloda, en fazla düşey alan gerektiren hücre, tüm satır için içeriğe dayalı alt sınırı belirler. Satırı kısaltmak için metni kısaltmanız, yazı tipi boyutunu veya kenar boşluklarını azaltmanız veya bir sütunu genişletmeniz gerekebilir.
 
-Bu C++ kodu, bir PowerPoint tablosunun satırını veya sütununu nasıl kopyalayacağınızı gösterir:
+Aşağıdaki görseller aynı tabloyu aynı ölçekte gösterir. Burada gösterilen referans .NET çalıştırmasında, gerçek yükseklikler 70, 100 ve 55,2 puandı: son satır 20 puanlık minimumundan daha yüksek kaldı. Metin ölçümleri, ortamınızdaki mevcut yazı tiplerine bağlı olarak değişebilir. Kaydedilen sonuçları indirin: [artırılmış minimum](row-height-increased.pptx) ve [azaltılmış minimum](row-height-decreased.pptx).
 
-```c++
- // Belgeler dizinine yol.
-const String outPath = u"../out/CloningInTable_out.pptx";
+| Orijinal: minimum 70 pt, gerçek 70 pt | Artırılmış: minimum 100 pt, gerçek 100 pt | Azaltılmış: minimum 20 pt, gerçek 55.2 pt |
+| --- | --- | --- |
+| ![70 puanlık ilk satıra sahip orijinal tablo.](row-height-before.png) | ![İlk satır minimumu 100 puana artırıldıktan sonraki tablo.](row-height-increased.png) | ![İlk satır minimumu 20 puana düşürüldükten sonraki tablo; sarılmış metin satırı minimumtan daha yüksek tutar.](row-height-decreased.png) |
 
-// Presentation sınıfını örnekler
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+## **İlk Satırı Başlık Olarak Ayarla**
 
-// İlk slayta erişir
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+[set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) metodunu kullanarak ilk satırı başlık biçimlendirmesi için işaretleyin. Görünümü, tabloya uygulanan tablo stiline bağlıdır.
 
-// Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+1. Sunumu [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayta erişin.
+3. Slayttaki ilk şekil olarak kaydedilmiş tabloya erişin.
+4. İlk satır için başlık biçimlendirmesini etkinleştirin.
+5. Değiştirilen sunumu kaydedin.
 
-// Slayta bir tablo şekli ekler
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+Örnek, ilk slayttaki ilk şekil olarak bir tablo içeren `table.pptx` dosyasını gerektirir. İlk satır için başlık biçimlendirmesini etkinleştirir ve `First_row_header.pptx` dosyasını kaydeder.
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-// Her hücre için kenar biçimini ayarlar
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+## **Bir Tablo Satırını veya Sütununu Kopyala**
 
-	}
+Satırları veya sütunları kopyalayarak içeriklerini ve biçimlendirmelerini yeniden kullanın. Kopyayı tablonun sonuna ekleyebilir veya belirli bir konuma ekleyebilirsiniz.
 
-}
+1. Sunumu [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayta erişin.
+3. Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
+4. [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) metodunu kullanarak bir tablo ekleyin.
+5. Gerekli satırları kopyalayın.
+6. Gerekli sütunları kopyalayın.
+7. Değiştirilen sunumu kaydedin.
 
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
+Örnek, en az bir slaytı olan `Test.pptx` dosyasını gerektirir. Üç sütun ve beş satırdan oluşan, boyutları puan cinsinden belirtilen bir tablo oluşturur. İlk satır ve sütunun kopyalarını sonuna ekler, ardından ikinci satır ve sütunun kopyalarını indeks 3'te (dördüncü konum) ekler. Ortaya çıkan tablo yedi satır ve beş sütuna sahiptir. `false` argümanı, bitişik birleştirilmiş satır veya sütunlara kopyalamayı devre dışı bırakır; bu tabloda birleştirilmiş hücre yoktur.
 
-//AddClone tablo sonuna bir satır ekler
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone tablo içinde belirli bir konuma satır ekler
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone tablo sonuna bir sütun ekler
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone tablo içinde belirli bir konuma sütun ekler
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Sunumu diske kaydeder
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Bir Tablo Satırını veya Sütununu Kaldır**
 
-## **Tablodan Bir Satır veya Sütun Kaldırma**
+Tabloda artık ihtiyaç duyulmayan satırları veya sütunları kaldırın. Bir öğeyi kaldırmak, ardından gelen satır ve sütunların indekslerini kaydırır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Slaytın referansını dizini aracılığıyla alın. 
-3. `columnWidth` dizisini tanımlayın. 
-4. `rowHeight` dizisini tanımlayın. 
-5. [AddTable()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addtable/) yöntemiyle slayda bir [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) nesnesi ekleyin. 
-6. Tablo satırını kaldırın. 
-7. Tablo sütununu kaldırın. 
-8. Değiştirilmiş sunumu kaydedin. 
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı ile bir sunum oluşturun.
+2. İlk slayta erişin.
+3. Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
+4. [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) metodunu kullanarak bir tablo ekleyin.
+5. İkinci satırı ve ikinci sütunu kaldırın.
+6. Değiştirilen sunumu kaydedin.
 
-Bu C++ kodu, bir tablodan satır veya sütun nasıl kaldırılacağını gösterir:
+Bu örnek, üç satır üç sütunluk bir tablo oluşturur ve indeks 1'deki satır ve sütunu kaldırarak `TestTable_out.pptx` içinde iki satır iki sütunluk bir tablo bırakır. Boyutlar puan cinsindendir. `false` argümanı, bitişik birleştirilmiş satır veya sütunların kaldırılmasını devre dışı bırakır; bu tabloda birleştirilmiş hücre yoktur.
 
-```c++
-// Belgeler dizinine yol.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Presentation sınıfını örnekler
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// İlk slayta erişir
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Sütunları genişlikleri ve satırları yükseklikleri ile tanımlar
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
-
-// Slayta bir tablo şekli ekler
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Hücreleri (1, 1) x (2, 1) birleştirir
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Hücreleri (1, 2) x (2, 2) birleştirir
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Sunumu diske kaydeder
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Tablo Satırı Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Tablo Satırı Düzeyinde Metin Biçimlendirmesi Ayarla**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Slaytın referansını dizini aracılığıyla alın. 
-3. Slayttan ilgili [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) nesnesine erişin. 
-4. İlk satır hücrelerinin [set_FontHeight()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/baseportionformat/set_fontheight/) metodunu ayarlayın. 
-5. İlk satır hücrelerinin [set_Alignment()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_alignment/) ve [set_MarginRight()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_marginright/) metodlarını ayarlayın. 
-6. İkinci satır hücrelerinin [set_TextVerticalType()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/textframeformat/set_textverticaltype/) metodunu ayarlayın. 
-7. Değiştirilmiş sunumu kaydedin. 
+Tüm bir satıra metin biçimlendirmesi uygulayarak hücrelerinin tutarlı olmasını sağlayın. Her hücreyi ayrı ayrı biçimlendirmeden, yazı tipi özelliklerini, paragraf biçimlendirmesini ve metin yönünü ayarlayabilirsiniz.
 
-Bu C++ kodu işlemi gösterir.
+1. Sunumu [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayttaki tabloya erişin.
+3. İlk satır için [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) ile yazı tipi yüksekliğini ayarlayın.
+4. İlk satır için [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) ve [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) ile hizalamayı ve sağ paragraf kenar boşluğunu ayarlayın.
+5. İkinci satır için [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) ile metin yönünü ayarlayın.
+6. Değiştirilen sunumu kaydedin.
 
-```c++
-// Presentation sınıfının bir örneğini oluşturur
-auto presentation = System::MakeObject<Presentation>();
+Örnek, ilk slayttaki ilk şekil olarak bir tablo içeren ve en az iki satır bulunan `table.pptx` dosyasını gerektirir. İlk satıra 25 puanlık metin, sağ hizalama ve 20 puanlık sağ paragraf kenar boşluğu uygular, ardından ikinci satıra dikey metin ayarlar.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// İlk slayttaki ilk şeklin bir tablo olduğunu varsayalım
-// İlk satır hücrelerinin yazı tipi yüksekliğini ayarlar
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// İlk satır hücrelerinin metin hizalamasını ve sağ kenar boşluğunu ayarlar
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// İkinci satır hücrelerinin metin dikey tipini ayarlar
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Sunumu diske kaydeder
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **Tablo Sütun Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Tablo Sütun Düzeyinde Metin Biçimlendirmesi Ayarla**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Slaytın referansını dizini aracılığıyla alın. 
-3. Slayttan ilgili [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) nesnesine erişin. 
-4. İlk sütun hücrelerinin [set_FontHeight()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/baseportionformat/set_fontheight/) metodunu ayarlayın. 
-5. İlk sütun hücrelerinin [set_Alignment()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_alignment/) ve [set_MarginRight()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/set_marginright/) metodlarını ayarlayın. 
-6. İkinci sütun hücrelerinin [set_TextVerticalType()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/textframeformat/set_textverticaltype/) metodunu ayarlayın. 
-7. Değiştirilmiş sunumu kaydedin. 
+Tüm bir sütuna metin biçimlendirmesi uygulayarak hücrelerinin tutarlı olmasını sağlayın. Her hücreyi ayrı ayrı biçimlendirmeden, yazı tipi özelliklerini, paragraf biçimlendirmesini ve metin yönünü ayarlayabilirsiniz.
 
-Bu C++ kodu işlemi gösterir: 
+1. Sunumu [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayttaki tabloya erişin.
+3. İlk sütun için [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) ile yazı tipi yüksekliğini ayarlayın.
+4. İlk sütun için [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) ve [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) ile hizalamayı ve sağ paragraf kenar boşluğunu ayarlayın.
+5. İkinci sütun için [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) ile metin yönünü ayarlayın.
+6. Değiştirilen sunumu kaydedin.
 
-```c++
-// Presentation sınıfının bir örneğini oluşturur
-auto pres = System::MakeObject<Presentation>();
+Örnek, ilk slayttaki ilk şekil olarak bir tablo içeren ve en az iki sütun bulunan `table.pptx` dosyasını gerektirir. İlk sütuna 25 puanlık metin, sağ hizalama ve 20 puanlık sağ paragraf kenar boşluğu uygular, ardından ikinci sütuna dikey metin ayarlar.
 
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// İlk slayttaki ilk şeklin bir tablo olduğunu varsayalım
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// İlk sütun hücrelerinin yazı tipi yüksekliğini ayarlar
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// İlk sütun hücrelerinin metin hizalamasını ve sağ kenar boşluğunu tek bir çağrıda ayarlar
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// İkinci sütun hücrelerinin metin dikey tipini ayarlar
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **Tablo Stil Özelliklerini Alma**
+## **Tablo Stil Özelliklerini Al**
 
-Aspose.Slides, bir tablo için stil özelliklerini almanıza olanak tanır, böylece bu ayrıntıları başka bir tabloya veya başka bir yere uygulayabilirsiniz. Bu C++ kodu, bir tablo ön ayar stilinden stil özelliklerini nasıl alacağınızı gösterir:
+[get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) metodunu kullanarak bir tabloya uygulanan ön ayarı alıp başka bir tabloda yeniden kullanın. Bu, bireysel hücre biçimlendirme geçersiz kılmalarından ziyade ön ayarı tanımlar.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+Örnek bir tablo oluşturur, [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) uygular ve ön ayarı geri okur. `DarkStyle1` değerini yazdırır ve tabloyu `table.pptx` içinde kaydeder.
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **SSS**
 
-**Varolan bir tabloya PowerPoint tema/ stillerini uygulayabilir miyim?**
+**Bir tabloya zaten oluşturulmuşken PowerPoint temalarını/ stillerini uygulayabilir miyim?**
 
-Evet. Tablo, slayt/düzen/ana tema (master) teması miras alır ve bu temanın üzerine dolgu, kenarlık ve metin renklerini hâlâ geçersiz kılabilirsiniz.
+Evet. Tablo, slayt/yerleşim/ana tema (master) teması miras alır ve yine de dolgu, kenarlık ve metin renklerini bu temanın üzerine geçersiz kılabilirsiniz.
 
 **Tablo satırlarını Excel'deki gibi sıralayabilir miyim?**
 
-Hayır, Aspose.Slides tablolarının yerleşik sıralama veya filtreleme özelliği yoktur. Verilerinizi önce bellekte sıralayın, ardından tablo satırlarını bu sırayla yeniden doldurun.
+Hayır, Aspose.Slides tabloları yerleşik sıralama veya filtreleme özelliğine sahip değildir. Verilerinizi önce bellekte sıralayın, ardından tablo satırlarını bu sırayla yeniden doldurun.
 
-**Belirli hücrelerde özel renkleri korurken çizgili (stripe) sütunlar elde edebilir miyim?**
+**Özel renkleri belirli hücrelerde tutarken bantlı (çizgili) sütunlar kullanabilir miyim?**
 
-Evet. Çizgili sütunları etkinleştirin, ardından belirli hücreleri yerel biçimlendirme ile geçersiz kılın; hücre düzeyindeki biçimlendirme tablo stiline göre önceliklidir.
+Evet. Bantlı sütunları etkinleştirin, ardından belirli hücreleri yerel biçimlendirme ile geçersiz kılın; hücre düzeyindeki biçimlendirme tablo stiline göre önceliklidir.

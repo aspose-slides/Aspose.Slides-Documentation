@@ -1,5 +1,5 @@
 ---
-title: .NET'te PowerPoint Tablolarında Satır ve Sütunları Yönetme
+title: PowerPoint Tablolarında .NET ile Satır ve Sütunları Yönetme
 linktitle: Satır ve Sütunlar
 type: docs
 weight: 20
@@ -9,12 +9,12 @@ keywords:
 - tablo sütunu
 - ilk satır
 - tablo başlığı
-- satırı klonla
-- sütunu klonla
-- satırı kopyala
-- sütunu kopyala
-- satırı kaldır
-- sütunu kaldır
+- satır klonla
+- sütun klonla
+- satır kopyala
+- sütun kopyala
+- satır kaldır
+- sütun kaldır
 - satır metin biçimlendirme
 - sütun metin biçimlendirme
 - tablo stili
@@ -23,233 +23,249 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint'te tablo satır ve sütunlarını Aspose.Slides for .NET ile yönetin ve sunum düzenlemesini ve veri güncellemelerini hızlandırın."
+description: "Aspose.Slides for .NET ile PowerPoint'te tablo satır ve sütunlarını yönetin ve sunum düzenleme ve veri güncellemelerini hızlandırın."
 ---
 ## **Giriş**
 
-PowerPoint sunumunda bir tablonun satır ve sütunlarını yönetmenizi sağlamak için Aspose.Slides, [Table](https://reference.aspose.com/slides/tr/net/aspose.slides/table/) sınıfı, [ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) arayüzü ve birçok başka tür sağlar. 
+Aspose.Slides for .NET, PowerPoint sunumlarında tablo yapısını ve biçimlendirmesini [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) sınıfı ve [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) arayüzü aracılığıyla yönetmenizi sağlar. Başlık satırı belirleyebilir, satır ve sütunları kopyalayabilir veya kaldırabilir ve bir satır veya sütunun tamamına metin biçimlendirmesi uygulayabilirsiniz.
 
-## **İlk Satırı Başlık Olarak Ayarlama**
+Bu makale, bu işlemleri C# örnekleriyle açıklar. Ayrıca bir tablonun stil ön ayarını nasıl alabileceğinizi ve yeniden kullanabileceğinizi gösterir. Tablo satır ve sütun indeksleri sıfır tabanlıdır.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin. 
-2. Bir slaytın referansını indeksine göre alın. 
-3. Bir [ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) nesnesi oluşturun ve null olarak ayarlayın. 
-4. İlgili tabloyu bulmak için tüm [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) nesnelerini döngüyle gezinin. 
-5. Tablonun ilk satırını başlık olarak ayarlayın. 
+## **Satır Yüksekliğini Kontrol Et**
 
-Bu C# kodu, bir tablonun ilk satırını başlık olarak nasıl ayarlayacağınızı gösterir:
+Bir satırın minimum yüksekliğini puan cinsinden ayarlamak için [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) kullanın. Bu bir alt sınırdır, sabit bir yükseklik değildir. [IRow.Height](https://reference.aspose.com/slides/net/aspose.slides/irow/height/) gerçek yüksekliği döndürür ve yalnızca okunur. Satıra [ITable.Rows](https://reference.aspose.com/slides/net/aspose.slides/itable/rows/) üzerinden erişin.
 
-```c#
-// Presentation sınıfını örnekler
-Presentation pres = new Presentation("table.pptx");
+Örnek, ilk slayttaki ilk şekil olarak bir tablo içeren [row-height-input.pptx](row-height-input.pptx) dosyasını yükler. İlk satırı 70 puandan başlar. Hücreler 18 puan Arial metin, kaydırma ve 6 puan üst ve alt kenar boşluğu kullanır; ikinci sütundaki daha uzun metin birden çok satıra kayar. Örnek, minimum değeri 100 puana yükseltir, ardından 20 puana düşürür, her değişiklikten sonra gerçek yüksekliği yazdırır ve her iki sonucu da kaydeder.
 
-// İlk slayta erişir
-ISlide sld = pres.Slides[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// null TableEx'i başlatır
-ITable tbl = null;
+using var presentation = new Presentation("row-height-input.pptx");
+var table = (ITable)presentation.Slides[0].Shapes[0];
+var row = table.Rows[0];
 
-// Şekiller üzerinden döner ve tabloya bir referans ayarlar
-foreach (IShape shp in sld.Shapes)
-{
-    if (shp is ITable)
-    {
-        tbl = (ITable)shp;
-    }
-}
+row.MinimalHeight = 100;
+Console.WriteLine($"Increased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-increased.pptx", SaveFormat.Pptx);
 
-// Tablonun ilk satırını başlık olarak ayarlar
-tbl.FirstRow = true;
-
-// Sunumu diske kaydeder
-pres.Save("First_row_header.pptx", SaveFormat.Pptx);
+row.MinimalHeight = 20;
+Console.WriteLine($"Decreased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-decreased.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Tablo Satırını veya Sütununu Kopyalama**
+Sağlanan sunumla, minimum değeri artırmak satıra boşluk ekler. Azaltmak bu ek boşluğu kaldırır, ancak gerçek yükseklik 20 puandan büyük kalır çünkü metin ve hücre kenar boşlukları daha fazla alana ihtiyaç duyar. Minimum değeri yalnızca azaltmak, satırı içeriğin gerektirdiği boşluğun altına zorlayamaz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Bir slaytın referansını indeksine göre alın. 
-3. `columnWidth` dizisini tanımlayın. 
-4. `rowHeight` dizisini tanımlayın. 
-5. [AddTable](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addtable/) yöntemiyle slayta bir [ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) nesnesi ekleyin. 
-6. Tablo satırını kopyalayın. 
-7. Tablo sütununu kopyalayın. 
-8. Değiştirilmiş sunumu kaydedin. 
+Gerçek yüksekliği etkileyen birkaç faktör:
+- **Metin ve yazı tipi boyutu:** daha uzun metin, açık satır sonları veya daha büyük bir yazı tipi daha fazla dikey alan gerektirebilir.
+- **Kaydırma ve sütun genişliği:** kaydırma etkinleştirildiğinde, daha dar bir [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) daha fazla satır üretebilir. Daha geniş bir sütun dikey olarak gereken alanı azaltabilir.
+- **Hücre kenar boşlukları:** [ICell.MarginTop](https://reference.aspose.com/slides/net/aspose.slides/icell/margintop/) ve [ICell.MarginBottom](https://reference.aspose.com/slides/net/aspose.slides/icell/marginbottom/) dikey boşluk ekler. [ICell.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/icell/marginleft/) ve [ICell.MarginRight](https://reference.aspose.com/slides/net/aspose.slides/icell/marginright/) metin için kullanılabilir genişliği azaltır ve ek kaydırmalara neden olabilir.
 
-Bu C# kodu, bir PowerPoint tablosunun satırını veya sütununu nasıl kopyalayacağınızı gösterir:
+Birleştirilmiş hücreleri olmayan bu tabloda, en çok dikey alana ihtiyaç duyan hücre, tüm satır için içeriğe dayalı alt sınırı belirler. Satırı kısaltmak için metni kısaltmanız, yazı tipi boyutunu veya kenar boşluklarını azaltmanız veya bir sütunu genişletmeniz gerekebilir.
 
-```c#
- // Presentation sınıfını örnekler
-using (Presentation presentation = new Presentation("Test.pptx"))
-{
-    // İlk slayta erişir
-    ISlide sld = presentation.Slides[0];
+Aşağıdaki görseller aynı tabloyu aynı ölçekte gösterir. Bu çalışmada gerçek yükseklikler 70, 100 ve 55,2 puan oldu: son satır 20 puanlık minimumdan daha yüksek kaldı. Metin ölçüleri, ortamınızdaki mevcut yazı tiplerine bağlı olarak değişebilir. Kaydedilmiş sonuçları indirin: [increased minimum](row-height-increased.pptx) ve [decreased minimum](row-height-decreased.pptx).
 
-    // Sütunları genişliklerle ve satırları yüksekliklerle tanımlar
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+| Orijinal: minimum 70 pt, gerçek 70 pt | Artırılmış: minimum 100 pt, gerçek 100 pt | Azaltılmış: minimum 20 pt, gerçek 55.2 pt |
+| --- | --- | --- |
+| ![Orijinal tablo, 70 puanlık ilk satırla.](row-height-before.png) | ![Tablo, ilk satır minimumu 100 puana artırıldıktan sonra.](row-height-increased.png) | ![Tablo, ilk satır minimumu 20 puana düşürüldükten sonra; kaydırılan metin satırı minimumdan daha yüksek tutar.](row-height-decreased.png) |
 
-    // Slayta bir tablo şekli ekler
-    ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+## **İlk Satırı Başlık Olarak Ayarla**
 
-    // 1. satır 1. hücresine bazı metin ekler
-    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+[FirstRow](https://reference.aspose.com/slides/net/aspose.slides/itable/firstrow/) özelliğini kullanarak ilk satırı başlık biçimlendirmesi için işaretleyin. Görünümü, tabloya uygulanan tablo stiline bağlıdır.
 
-    // 1. satır 2. hücresine bazı metin ekler
-    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+1. Sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayta erişin.
+3. Slayttaki ilk şekil olarak depolanan tabloya erişin.
+4. İlk satır için başlık biçimlendirmesini etkinleştirin.
+5. Değiştirilmiş sunumu kaydedin.
 
-    // Satır 1'i tablonun sonuna kopyalar
-    table.Rows.AddClone(table.Rows[0], false);
+Örnek, ilk slayttaki ilk şekil olarak bir tablo içeren `table.pptx` dosyasını gerektirir. İlk satır için başlık biçimlendirmesini etkinleştirir ve `First_row_header.pptx` dosyasını kaydeder.
 
-    // 2. satır 1. hücresine bazı metin ekler
-    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 2. satır 2. hücresine bazı metin ekler
-    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-    // Satır 2'yi tablonun 4. satırı olarak kopyalar
-    table.Rows.InsertClone(3,table.Rows[1], false);
+var table = (ITable)slide.Shapes[0];
+table.FirstRow = true;
 
-    // İlk sütunu sonuna kopyalar
-    table.Columns.AddClone(table.Columns[0], false);
-
-    // 2. sütunu 4. sütun indeksine kopyalar
-    table.Columns.InsertClone(3,table.Columns[1], false);
-    
-    // Sunumu diske kaydeder 
-    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Tablodan Satır veya Sütun Kaldırma**
+## **Bir Tablo Satırını veya Sütununu Kopyala**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Bir slaytın referansını indeksine göre alın. 
-3. `columnWidth` dizisini tanımlayın. 
-4. `rowHeight` dizisini tanımlayın. 
-5. [AddTable](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addtable/) yöntemiyle slayta bir [ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) nesnesi ekleyin. 
-6. Tablo satırını kaldırın. 
-7. Tablo sütununu kaldırın. 
-8. Değiştirilmiş sunumu kaydedin. 
+Satırları veya sütunları kopyalayarak içerik ve biçimlendirmelerini yeniden kullanın. Kopyayı tablonun sonuna ekleyebilir veya belirli bir konuma yerleştirebilirsiniz.
 
-Bu C# kodu, bir tablodan satır veya sütun nasıl kaldırılır gösterir:
+1. Sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayta erişin.
+3. Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
+4. Tabloyu [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) yöntemiyle ekleyin.
+5. Gerekli satırları kopyalayın.
+6. Gerekli sütunları kopyalayın.
+7. Değiştirilmiş sunumu kaydedin.
 
-```c#
-Presentation pres = new Presentation();
+Örnek, en az bir slayt içeren `Test.pptx` dosyasını gerektirir. Üç sütun ve beş satırdan oluşan bir tablo oluşturur; boyutlar puan cinsindendir. İlk satır ve sütunun kopyalarını sona ekler, ardından ikinci satır ve sütunun kopyalarını indeks 3'te (dördüncü konum) ekler. Ortaya çıkan tablo yedi satır ve beş sütun içerir. `false` argümanı, bitişik birleştirilmiş satır veya sütunlara kopyalamayı devre dışı bırakır; bu tabloda birleştirilmiş hücre yoktur.
 
-ISlide slide = pres.Slides[0];
-double[] colWidth = { 100, 50, 30 };
-double[] rowHeight = { 30, 50, 30 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+table.Rows.AddClone(table.Rows[0], false);
+
+table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+table.Rows.InsertClone(3, table.Rows[1], false);
+
+table.Columns.AddClone(table.Columns[0], false);
+table.Columns.InsertClone(3, table.Columns[1], false);
+
+presentation.Save("table_out.pptx", SaveFormat.Pptx);
+```
+
+## **Bir Tablodan Satır veya Sütun Kaldır**
+
+Tabloda artık ihtiyaç duyulmayan satırları veya sütunları kaldırın. Bir öğeyi kaldırmak, ardından gelen satır veya sütun indekslerini kaydırır.
+
+1. Sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı ile oluşturun.
+2. İlk slayta erişin.
+3. Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
+4. Tabloyu [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) yöntemiyle ekleyin.
+5. İkinci satırı ve ikinci sütunu kaldırın.
+6. Değiştirilmiş sunumu kaydedin.
+
+Bu örnek, üçer üçer bir tablo oluşturur ve indeks 1'deki satır ve sütunu kaldırarak `TestTable_out.pptx` içinde ikiye iki bir tablo bırakır. Boyutlar puan cinsindendir. `false` argümanı, bitişik birleştirilmiş satır veya sütunların kaldırılmasını devre dışı bırakır; bu tabloda birleştirilmiş hücre yoktur.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 50, 30 };
+var rowHeights = new double[] { 30, 50, 30 };
+var table = slide.Shapes.AddTable(100, 100, columnWidths, rowHeights);
+
 table.Rows.RemoveAt(1, false);
 table.Columns.RemoveAt(1, false);
-pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+presentation.Save("TestTable_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Tablo Satır Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Tablo Satır Düzeyinde Metin Biçimlendirmesi Ayarla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Bir slaytın referansını indeksine göre alın. 
-3. Slayttan ilgili [ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) nesnesine erişin. 
-4. İlk satır hücrelerinin [FontHeight](https://reference.aspose.com/slides/tr/net/aspose.slides/baseportionformat/fontheight/) değerini ayarlayın. 
-5. İlk satır hücrelerinin [Alignment](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/alignment/) ve [MarginRight](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginright/) değerlerini ayarlayın. 
-6. İkinci satır hücrelerinin [TextVerticalType](https://reference.aspose.com/slides/tr/net/aspose.slides/textframeformat/textverticaltype/) değerini ayarlayın. 
-7. Değiştirilmiş sunumu kaydedin. 
+Bir satırın tüm hücrelerinde tutarlı kalması için metin biçimlendirmesi uygulayın. Her hücreyi ayrı ayrı biçimlendirmeden yazı tipi özellikleri, paragraf biçimlendirmesi ve metin yönünü ayarlayabilirsiniz.
 
-Bu C# kodu işlemi gösterir.
+1. Sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayttaki tabloya erişin.
+3. [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) özelliğini ilk satır için ayarlayın.
+4. [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) ve [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) özelliklerini ilk satır için ayarlayın.
+5. [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) özelliğini ikinci satır için ayarlayın.
+6. Değiştirilmiş sunumu kaydedin.
 
-```c#
-// Presentation sınıfının bir örneğini oluşturur
-Presentation presentation = new Presentation();
-           
-ISlide slide = presentation.Slides[0];
+Örnek, ilk slayttaki ilk şekil olarak bir tablo ve en az iki satır içeren `table.pptx` dosyasını gerektirir. İlk satıra 25 puanlık metin, sağ hizalama ve 20 puanlık sağ paragraf kenar boşluğu uygular, ardından ikinci satıra dikey metin ayarlar.
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // İlk slayttaki ilk şeklin bir tablo olduğunu varsayalım
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// İlk satır hücrelerinin yazı tipi yüksekliğini ayarlar
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Rows[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// İlk satır hücrelerinin metin hizalamasını ve sağ kenar boşluğunu ayarlar
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Rows[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// İkinci satır hücrelerinin dikey metin tipini ayarlar
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Rows[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Rows[0].SetTextFormat(portionFormat);
 
-// Sunumu diske kaydeder
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Rows[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Rows[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("row_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **Tablo Sütun Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Tablo Sütun Düzeyinde Metin Biçimlendirmesi Ayarla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun ve sunumu yükleyin, 
-2. Bir slaytın referansını indeksine göre alın. 
-3. Slayttan ilgili [ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) nesnesine erişin. 
-4. İlk sütun hücrelerinin [FontHeight](https://reference.aspose.com/slides/tr/net/aspose.slides/baseportionformat/fontheight/) değerini ayarlayın. 
-5. İlk sütun hücrelerinin [Alignment](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/alignment/) ve [MarginRight](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraphformat/marginright/) değerlerini ayarlayın. 
-6. İkinci sütun hücrelerinin [TextVerticalType](https://reference.aspose.com/slides/tr/net/aspose.slides/textframeformat/textverticaltype/) değerini ayarlayın. 
-7. Değiştirilmiş sunumu kaydedin. 
+Bir sütunun tüm hücrelerinde tutarlı kalması için metin biçimlendirmesi uygulayın. Her hücreyi ayrı ayrı biçimlendirmeden yazı tipi özellikleri, paragraf biçimlendirmesi ve metin yönünü ayarlayabilirsiniz.
 
-Bu C# kodu işlemi gösterir: 
+1. Sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayttaki tabloya erişin.
+3. [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) özelliğini ilk sütun için ayarlayın.
+4. [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) ve [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) özelliklerini ilk sütun için ayarlayın.
+5. [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) özelliğini ikinci sütun için ayarlayın.
+6. Değiştirilmiş sunumu kaydedin.
 
-```c#
-// Presentation sınıfının bir örneğini oluşturur
-Presentation pres = new Presentation();
-           
-ISlide slide = pres.Slides[0];
+Örnek, ilk slayttaki ilk şekil olarak bir tablo ve en az iki sütun içeren `table.pptx` dosyasını gerektirir. İlk sütuna 25 puanlık metin, sağ hizalama ve 20 puanlık sağ paragraf kenar boşluğu uygular, ardından ikinci sütuna dikey metin ayarlar.
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // İlk slayttaki ilk şeklin bir tablo olduğunu varsayalım
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// İlk sütun hücrelerinin yazı tipi yüksekliğini ayarlar
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Columns[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// İlk sütun hücrelerinin metin hizalamasını ve sağ kenar boşluğunu tek çağrıda ayarlar
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Columns[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// İkinci sütun hücrelerinin dikey metin tipini ayarlar
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Columns[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Columns[0].SetTextFormat(portionFormat);
 
-// Sunumu diske kaydeder
-pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Columns[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Columns[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("column_formatting.pptx", SaveFormat.Pptx);
 ```
 
 ## **Tablo Stil Özelliklerini Al**
 
-Aspose.Slides, bir tablo için stil özelliklerini almanıza olanak tanır; böylece bu detayları başka bir tablo ya da başka bir yerde kullanabilirsiniz. Bu C# kodu, bir tablo ön ayar stilinden stil özelliklerini nasıl alacağınızı gösterir: 
+[StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) özelliğini kullanarak bir tabloya uygulanan ön ayarı alın ve başka bir tabloda yeniden kullanın. Bu, bireysel hücre biçimlendirme geçersiz kılmalarından ziyade ön ayarı belirler.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // varsayılan stil ön ayar temasını değiştir
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+Örnek bir tablo oluşturur, [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/) uygular ve ön ayarı geri okur. `DarkStyle1` değerini yazdırır ve tabloyu `table.pptx` dosyasına kaydeder.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
+
+Console.WriteLine(table.StylePreset);
+
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **SSS**
 
-**PowerPoint temalarını/stillerini zaten oluşturulmuş bir tabloya uygulayabilir miyim?**
+**Bir tabloya zaten oluşturulduktan sonra PowerPoint temalarını/stillerini uygulayabilir miyim?**
 
-Evet. Tablo, slayt/düzen/ana tema’yı devralır ve bu temanın üzerine dolgu, kenarlık ve metin renklerini hâlâ geçersiz kılabilirsiniz.
+Evet. Tablo, slayt/düzen/ana tema mirasını alır ve bu temanın üzerinde dolgu, kenarlık ve metin renklerini hâlâ geçersiz kılabilirsiniz.
 
-**Tablo satırlarını Excel’deki gibi sıralayabilir miyim?**
+**Excel'deki gibi tablo satırlarını sıralayabilir miyim?**
 
-Hayır, Aspose.Slides tablolarında yerleşik sıralama veya filtreleme bulunmaz. Verilerinizi önce bellekte sıralayın, ardından tablo satırlarını o sırayla yeniden doldurun.
+Hayır, Aspose.Slides tabloları yerleşik sıralama veya filtreleme özelliğine sahip değildir. Verilerinizi önce bellekte sıralayın, ardından tablo satırlarını bu sırayla yeniden doldurun.
 
-**Özel renklere sahip belirli hücreleri korurken şeritli (banded) sütunlar kullanabilir miyim?**
+**Belirli hücrelerde özelleşmiş renkleri korurken şeritli (banded) sütunlar olabilir mi?**
 
-Evet. Şeritli sütunları etkinleştirin, ardından belirli hücreleri yerel biçimlendirme ile geçersiz kılın; hücre‑seviyesi biçimlendirme tablo stiline üstünlük tanır.
+Evet. Şeritli sütunları etkinleştirin, ardından belirli hücrelerde yerel biçimlendirme ile geçersiz kılın; hücre düzeyindeki biçimlendirme tablo stiline göre önceliklidir.

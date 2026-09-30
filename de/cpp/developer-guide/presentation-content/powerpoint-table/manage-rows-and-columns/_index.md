@@ -8,291 +8,349 @@ keywords:
 - Tabellenzeile
 - Tabellenspalte
 - erste Zeile
-- Tabellenkopfzeile
+- Tabellenkopf
 - Zeile klonen
 - Spalte klonen
 - Zeile kopieren
 - Spalte kopieren
 - Zeile entfernen
 - Spalte entfernen
-- Textformatierung für Zeilen
-- Textformatierung für Spalten
+- Zeilentextformatierung
+- Spaltentextformatierung
 - Tabellenstil
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint mit Aspose.Slides für C++ und beschleunigen Sie die Bearbeitung von Präsentationen sowie Datenaktualisierungen."
+description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint mit Aspose.Slides für C++ und beschleunigen Sie die Bearbeitung von Präsentationen und Datenaktualisierungen."
 ---
+## **Einleitung**
 
-Um Ihnen die Verwaltung von Zeilen und Spalten einer Tabelle in einer PowerPoint‑Präsentation zu ermöglichen, stellt Aspose.Slides die Klasse [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) und das Interface [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) sowie viele weitere Typen bereit. 
+Aspose.Slides for C++ ermöglicht es Ihnen, Tabellenstruktur und -formatierung in PowerPoint‑Präsentationen über die Klasse [Tabelle](https://reference.aspose.com/slides/cpp/aspose.slides/table/) und die Schnittstelle [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) zu verwalten. Sie können eine Header‑Zeile festlegen, Zeilen und Spalten klonen oder entfernen und Textformatierung auf eine gesamte Zeile oder Spalte anwenden.
 
-## **Erste Zeile als Kopfzeile festlegen**
+Dieser Artikel erklärt diese Vorgänge anhand von C++‑Beispielen. Er zeigt auch, wie man das Stil‑Preset einer Tabelle abruft, um es wiederzuverwenden. Zeilen‑ und Spaltenindizes einer Tabelle beginnen bei Null.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) und laden Sie die Präsentation. 
-2. Holen Sie sich die Referenz einer Folie über deren Index. 
-3. Erstellen Sie ein [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)‑Objekt und setzen Sie es auf null. 
-4. Iterieren Sie über alle [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)‑Objekte, um die entsprechende Tabelle zu finden. 
-5. Setzen Sie die erste Zeile der Tabelle als Kopfzeile. 
+## **Steuerung der Zeilenhöhe**
 
-Dieser C++‑Code zeigt Ihnen, wie Sie die erste Zeile einer Tabelle als Kopfzeile festlegen:
-```c++
-// Instanziiert die Presentation-Klasse 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+Verwenden Sie [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/), um die minimale Höhe einer Zeile in Punkten festzulegen. Es ist eine Untergrenze, keine feste Höhe. [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) gibt die tatsächliche Höhe zurück; dieser Wert kann nicht direkt gesetzt werden. Greifen Sie über [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/) auf die Zeile zu.
 
-// Greift auf die erste Folie zu
-auto sld = pres->get_Slides()->idx_get(0);
+Das Beispiel lädt [row-height-input.pptx](row-height-input.pptx), das eine Tabelle als erste Form auf der ersten Folie enthält. Die erste Zeile beginnt bei 70 Punkten. Die Zellen verwenden 18‑Punkt‑Arial‑Text, Zeilenumbruch und 6‑Punkt‑Oben‑ und -Unten‑Abstände; der längere Text in der zweiten Spalte wird über mehrere Zeilen umgebrochen. Das Beispiel erhöht die Mindesthöhe auf 100 Punkte, dann reduziert sie auf 20 Punkte, gibt nach jeder Änderung die tatsächliche Höhe aus und speichert beide Ergebnisse.
 
-// Initialisiert die null TableEx
-SharedPtr<ITable> tbl;
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// Iteriert durch die Shapes und setzt eine Referenz auf die Tabelle
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Setzt die erste Zeile einer Tabelle als Kopfzeile 
-tbl->set_FirstRow(true);
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
+Mit der bereitgestellten Präsentation fügt das Erhöhen der Mindesthöhe der Zeile zusätzlichen Raum hinzu. Das Reduzieren entfernt diesen zusätzlichen Raum, aber die tatsächliche Höhe bleibt größer als 20 Punkte, weil Text und Zellabstände mehr Platz benötigen. Das alleinige Reduzieren der Mindesthöhe kann die Zeile nicht unter den von ihrem Inhalt benötigten Raum zwingen.
 
-## **Eine Tabellenzeile oder -spalte klonen**
+Mehrere Faktoren beeinflussen die tatsächliche Höhe:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) und laden Sie die Präsentation, 
-2. Holen Sie sich die Referenz einer Folie über deren Index. 
-3. Definieren Sie ein Array von `columnWidth`. 
-4. Definieren Sie ein Array von `rowHeight`. 
-5. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)‑Objekt über die Methode [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) hinzu. 
-6. Klonen Sie die Tabellenzeile. 
-7. Klonen Sie die Tabellenspalte. 
-8. Speichern Sie die modifizierte Präsentation. 
+- **Text und Schriftgröße:** Längerer Text, explizite Zeilenumbrüche oder eine größere Schriftart können mehr vertikalen Platz erfordern.
+- **Umbruch und Spaltenbreite:** Bei aktiviertem Umbruch kann das Reduzieren der Spaltenbreite mit [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) mehr Zeilen erzeugen. Eine breitere Spalte kann den vertikalen Platzbedarf reduzieren.
+- **Zellabstände:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) und [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) steuern die Abstände, die vertikalen Raum hinzufügen. [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) und [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) steuern die Abstände, die die für Text verfügbare Breite verringern und zusätzlichen Umbruch verursachen können.
 
-Dieser C++‑Code zeigt Ihnen, wie Sie eine PowerPoint‑Tabellenzeile oder -spalte klonen:
-```c++
- // Der Pfad zum Dokumentenverzeichnis.
-const String outPath = u"../out/CloningInTable_out.pptx";
+Für diese Tabelle ohne zusammengeführte Zellen bestimmt die Zelle, die am meisten vertikalen Raum benötigt, die inhaltlich getriebene Untergrenze für die gesamte Zeile. Um die Zeile zu verkürzen, müssen Sie ggf. den Text kürzen, die Schriftgröße oder Abstände reduzieren oder eine Spalte verbreitern.
 
-// Instanziert die Presentation-Klasse
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Die untenstehenden Bilder zeigen dieselbe Tabelle im gleichen Maßstab. In dem hier gezeigten .NET‑Referenzlauf betrugen die tatsächlichen Höhen 70, 100 und 55,2 Punkte: die letzte Zeile blieb höher als ihr Minimum von 20 Punkten. Exakte Textmessungen können je nach in Ihrer Umgebung verfügbaren Schriftarten variieren. Laden Sie die gespeicherten Ergebnisse herunter: [erhöhtes Minimum](row-height-increased.pptx) und [verringertes Minimum](row-height-decreased.pptx).
 
-// Greift auf die erste Folie zu
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+| Original: Minimum 70 pt, tatsächlich 70 pt | Erhöht: Minimum 100 pt, tatsächlich 100 pt | Verringert: Minimum 20 pt, tatsächlich 55,2 pt |
+| --- | --- | --- |
+| ![Originaltabelle mit einer ersten Zeile von 70 Punkten.](row-height-before.png) | ![Tabelle nach Erhöhen des Minimalwerts der ersten Zeile auf 100 Punkte.](row-height-increased.png) | ![Tabelle nach Verringern des Minimalwerts der ersten Zeile auf 20 Punkte; umbrochener Text hält die Zeile höher als das Minimum.](row-height-decreased.png) |
 
-// Definiert Spalten mit Breiten und Zeilen mit Höhen
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+## **Erste Zeile als Header festlegen**
 
-// Fügt der Folie ein Tabellenshape hinzu
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+Verwenden Sie die Methode [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/), um die erste Zeile für die Header‑Formatierung zu markieren. Ihr Aussehen hängt vom auf die Tabelle angewendeten Tabellenvorlagestil ab.
 
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Greifen Sie auf die erste Folie zu.
+3. Greifen Sie auf die Tabelle zu, die als erste Form auf der Folie gespeichert ist.
+4. Aktivieren Sie die Header‑Formatierung für deren erste Zeile.
+5. Speichern Sie die modifizierte Präsentation.
 
-// Setzt das Rahmenformat für jede Zelle
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
+Das Beispiel benötigt `table.pptx` mit einer Tabelle als erste Form auf der ersten Folie. Es aktiviert die Header‑Formatierung für die erste Zeile und speichert `First_row_header.pptx`.
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
 
-	}
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
-}
+## **Tabellenzeile oder -spalte klonen**
 
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
+Klonen Sie Zeilen oder Spalten, um deren Inhalt und Formatierung wiederzuverwenden. Sie können eine Kopie am Ende der Tabelle anhängen oder an einer bestimmten Position einfügen.
 
-//AddClone fügt am Ende der Tabelle eine Zeile hinzu
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Greifen Sie auf die erste Folie zu.
+3. Definieren Sie die Spaltenbreiten und Zeilenhöhen.
+4. Fügen Sie mit der Methode [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) eine Tabelle hinzu.
+5. Klonen Sie die erforderlichen Zeilen.
+6. Klonen Sie die erforderlichen Spalten.
+7. Speichern Sie die modifizierte Präsentation.
+
+Das Beispiel benötigt `Test.pptx` mit mindestens einer Folie. Es erzeugt eine Tabelle mit drei Spalten und fünf Zeilen, wobei die Abmessungen in Punkten angegeben sind. Es hängt Kopien der ersten Zeile und Spalte an und fügt Kopien der zweiten Zeile und Spalte an Index 3 (der vierten Position) ein. Die resultierende Tabelle hat sieben Zeilen und fünf Spalten. Das Argument `false` deaktiviert das Klonen in benachbarte zusammengeführte Zeilen oder Spalten; diese Tabelle enthält keine zusammengeführten Zellen.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone fügt an einer bestimmten Position in der Tabelle eine Zeile ein
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone fügt am Ende der Tabelle eine Spalte hinzu
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone fügt an einer bestimmten Position in der Tabelle eine Spalte ein
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Speichert die Präsentation auf dem Datenträger
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Zeile oder Spalte aus einer Tabelle entfernen**
 
-## **Eine Zeile oder Spalte aus einer Tabelle entfernen**
+Entfernen Sie Zeilen oder Spalten, die in einer Tabelle nicht mehr benötigt werden. Das Entfernen eines Elements verschiebt die Indizes der nachfolgenden Zeilen bzw. Spalten.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) und laden Sie die Präsentation, 
-2. Holen Sie sich die Referenz einer Folie über deren Index. 
-3. Definieren Sie ein Array von `columnWidth`. 
-4. Definieren Sie ein Array von `rowHeight`. 
-5. Fügen Sie der Folie ein [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)‑Objekt über die Methode [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) hinzu. 
-6. Entfernen Sie die Tabellenzeile. 
-7. Entfernen Sie die Tabellenspalte. 
-8. Speichern Sie die modifizierte Präsentation. 
+1. Erstellen Sie eine Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Greifen Sie auf die erste Folie zu.
+3. Definieren Sie die Spaltenbreiten und Zeilenhöhen.
+4. Fügen Sie mit der Methode [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) eine Tabelle hinzu.
+5. Entfernen Sie die zweite Zeile und die zweite Spalte.
+6. Speichern Sie die modifizierte Präsentation.
 
-Dieser C++‑Code zeigt Ihnen, wie Sie eine Zeile oder Spalte aus einer Tabelle entfernen:
-```c++
-// Der Pfad zum Dokumentenverzeichnis.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+Dieses Beispiel erstellt eine 3 × 3‑Tabelle und entfernt die Zeile und Spalte an Index 1, sodass eine 2 × 2‑Tabelle in `TestTable_out.pptx` verbleibt. Die Abmessungen sind in Punkten angegeben. Das Argument `false` deaktiviert das Entfernen benachbarter zusammengeführter Zeilen oder Spalten; diese Tabelle enthält keine zusammengeführten Zellen.
 
-// Instanziert die Presentation-Klasse
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Greift auf die erste Folie zu
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Definiert die Spalten mit Breiten und die Zeilen mit Höhen
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Fügt der Folie ein Tabellenshape hinzu
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Zusammenführen der Zellen (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Zusammenführen der Zellen (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Speichert die Präsentation auf dem Datenträger
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Textformatierung auf Zeilenebene festlegen**
 
-## **Textformatierung auf Zeilenebene der Tabelle festlegen**
+Wenden Sie Textformatierung auf eine gesamte Zeile an, um deren Zellen konsistent zu halten. Sie können Schriftarteigenschaften, Absatzformatierung und Textausrichtung festlegen, ohne jede Zelle einzeln zu formatieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) und laden Sie die Präsentation, 
-2. Holen Sie sich die Referenz einer Folie über deren Index. 
-3. Greifen Sie auf das entsprechende [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)‑Objekt der Folie zu. 
-4. Setzen Sie für die Zellen der ersten Zeile [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Setzen Sie für die Zellen der ersten Zeile [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) und [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Setzen Sie für die Zellen der zweiten Zeile [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Speichern Sie die modifizierte Präsentation. 
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Greifen Sie auf die Tabelle auf der ersten Folie zu.
+3. Setzen Sie die Schriftgröße mit [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) für die erste Zeile.
+4. Setzen Sie die Ausrichtung und den rechten Absatzabstand mit [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) und [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) für die erste Zeile.
+5. Setzen Sie die Textausrichtung mit [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) für die zweite Zeile.
+6. Speichern Sie die modifizierte Präsentation.
 
-Dieser C++‑Code demonstriert den Vorgang.
-```c++
-// Erstellt eine Instanz der Presentation-Klasse
-auto presentation = System::MakeObject<Presentation>();
+Das Beispiel benötigt `table.pptx` mit einer Tabelle als erste Form auf der ersten Folie und mindestens zwei Zeilen. Es wendet 25‑Punkt‑Text, Rechtsbündigkeit und einen 20‑Punkt‑rechten Absatzabstand auf die erste Zeile an und setzt dann vertikalen Text in der zweiten Zeile.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Angenommen, das erste Shape auf der ersten Folie ist eine Tabelle
-// Setzt die Schriftgröße der Zellen der ersten Zeile
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Setzt die Textausrichtung und den rechten Rand der Zellen der ersten Zeile
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Setzt den vertikalen Texttyp der Zellen der zweiten Zeile
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Speichert die Präsentation auf dem Datenträger
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
 
+## **Textformatierung auf Spaltenebene festlegen**
 
-## **Textformatierung auf Spaltenebene der Tabelle festlegen**
+Wenden Sie Textformatierung auf eine gesamte Spalte an, um deren Zellen konsistent zu halten. Sie können Schriftarteigenschaften, Absatzformatierung und Textausrichtung festlegen, ohne jede Zelle einzeln zu formatieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) und laden Sie die Präsentation, 
-2. Holen Sie sich die Referenz einer Folie über deren Index. 
-3. Greifen Sie auf das entsprechende [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)‑Objekt der Folie zu. 
-4. Setzen Sie für die Zellen der ersten Spalte [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Setzen Sie für die Zellen der ersten Spalte [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) und [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Setzen Sie für die Zellen der zweiten Spalte [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Speichern Sie die modifizierte Präsentation. 
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Greifen Sie auf die Tabelle auf der ersten Folie zu.
+3. Setzen Sie die Schriftgröße mit [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) für die erste Spalte.
+4. Setzen Sie die Ausrichtung und den rechten Absatzabstand mit [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) und [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) für die erste Spalte.
+5. Setzen Sie die Textausrichtung mit [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) für die zweite Spalte.
+6. Speichern Sie die modifizierte Präsentation.
 
-Dieser C++‑Code demonstriert den Vorgang: 
-```c++
-// Erstellt eine Instanz der Presentation-Klasse
-auto pres = System::MakeObject<Presentation>();
+Das Beispiel benötigt `table.pptx` mit einer Tabelle als erste Form auf der ersten Folie und mindestens zwei Spalten. Es wendet 25‑Punkt‑Text, Rechtsbündigkeit und einen 20‑Punkt‑rechten Absatzabstand auf die erste Spalte an und setzt dann vertikalen Text in der zweiten Spalte.
 
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Angenommen, das erste Shape auf der ersten Folie ist eine Tabelle
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Setzt die Schriftgröße der Zellen der ersten Spalte
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Setzt die Textausrichtung und den rechten Rand der Zellen der ersten Spalte in einem Aufruf
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Setzt den vertikalen Texttyp der Zellen der zweiten Spalte
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Tabellenstil‑Eigenschaften abrufen**
 
-Aspose.Slides ermöglicht das Abrufen der Stileigenschaften einer Tabelle, sodass Sie diese Details für eine andere Tabelle oder an anderer Stelle verwenden können. Dieser C++‑Code zeigt, wie Sie die Stil‑Eigenschaften aus einem vordefinierten Tabellestil erhalten:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+Verwenden Sie die Methode [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/), um das auf eine Tabelle angewendete Preset abzurufen und es auf einer anderen Tabelle wiederzuverwenden. Dies identifiziert das Preset statt einzelner Zellformatierungs‑Überschreibungen.
 
+Das Beispiel erstellt eine Tabelle, wendet [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) an und liest das Preset wieder aus. Es gibt `DarkStyle1` aus und speichert die Tabelle in `table.pptx`.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **Häufig gestellte Fragen**
 
-## **FAQ**
+**Kann ich PowerPoint-Themen/–Stile auf eine bereits erstellte Tabelle anwenden?**
 
-**Kann ich PowerPoint‑Designs/‑Stile auf eine bereits erstellte Tabelle anwenden?**
-
-Ja. Die Tabelle erbt das Design der Folie/Layout/Master und Sie können dennoch Füllungen, Rahmen und Textfarben über das Design hinweg überschreiben.
+Ja. Die Tabelle erbt das Folien‑/Layout‑/Master‑Thema, und Sie können dennoch Füllungen, Rahmen und Textfarben über diesem Thema überschreiben.
 
 **Kann ich Tabellenzeilen wie in Excel sortieren?**
 
-Nein, Aspose.Slides‑Tabellen verfügen nicht über integrierte Sortier‑ oder Filterfunktionen. Sortieren Sie Ihre Daten zuerst im Speicher und fügen Sie dann die Tabellzeilen in dieser Reihenfolge wieder hinzu.
+Nein, Aspose.Slides‑Tabellen besitzen keine integrierte Sortier‑ oder Filterfunktion. Sortieren Sie Ihre Daten zuerst im Speicher und fügen Sie dann die Tabellenzeilen in dieser Reihenfolge wieder ein.
 
 **Kann ich banded (gestreifte) Spalten haben und gleichzeitig benutzerdefinierte Farben für bestimmte Zellen beibehalten?**
 
-Ja. Aktivieren Sie gestreifte Spalten und überschreiben Sie dann bestimmte Zellen mit lokaler Formatierung; die Zellen‑formatierung hat Vorrang vor dem Tabellstil.
+Ja. Aktivieren Sie gestreifte Spalten und überschreiben Sie dann einzelne Zellen mit lokaler Formatierung; die Formatierung auf Zellebene hat Vorrang vor dem Tabellenstil.

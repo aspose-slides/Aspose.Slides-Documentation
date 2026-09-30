@@ -1,5 +1,5 @@
 ---
-title: Управление строками и столбцами таблиц PowerPoint с помощью C++
+title: Управление строками и столбцами в таблицах PowerPoint с помощью C++
 linktitle: Строки и столбцы
 type: docs
 weight: 20
@@ -9,12 +9,12 @@ keywords:
 - столбец таблицы
 - первая строка
 - заголовок таблицы
-- клонировать строку
-- клонировать столбец
+- клонирование строки
+- клонирование столбца
 - копировать строку
 - копировать столбец
-- удалить строку
-- удалить столбец
+- удаление строки
+- удаление столбца
 - форматирование текста строки
 - форматирование текста столбца
 - стиль таблицы
@@ -24,270 +24,333 @@ keywords:
 - Aspose.Slides
 description: "Управляйте строками и столбцами таблиц в PowerPoint с помощью Aspose.Slides для C++ и ускоряйте редактирование презентаций и обновление данных."
 ---
+## **Введение**
 
-Чтобы вы могли управлять строками и столбцами таблицы в презентации PowerPoint, Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) , интерфейс [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) , а также многие другие типы. 
+Aspose.Slides for C++ позволяет управлять структурой таблиц и их форматированием в презентациях PowerPoint с помощью класса [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) и интерфейса [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Вы можете пометить строку заголовка, создавать копии или удалять строки и столбцы, а также применять форматирование текста к целой строке или столбцу.
 
-## **Установить первую строку в качестве заголовка**
+Эта статья объясняет эти операции с примерами на C++. Она также показывает, как получить предустановку стиля таблицы, чтобы её можно было повторно использовать. Индексы строк и столбцов таблицы начинаются с нуля.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию. 
-2. Получите ссылку на слайд по его индексу. 
-3. Создайте объект [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) и установите его в null. 
-4. Переберите все объекты [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) , чтобы найти нужную таблицу. 
-5. Установите первую строку таблицы в качестве заголовка. 
+## **Управление высотой строки**
 
-```c++
-// Создает экземпляр класса Presentation 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+Используйте [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) для установки минимальной высоты строки в пунктах. Это нижний предел, а не фиксированная высота. [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) возвращает фактическую высоту; это значение нельзя задать напрямую. Доступ к строке осуществляется через [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/).
 
-// Получает первый слайд
-auto sld = pres->get_Slides()->idx_get(0);
+Пример загружает файл [row-height-input.pptx](row-height-input.pptx), в котором первая фигура на первом слайде — таблица. Первая строка начинается с 70 пунктов. Ячейки используют шрифт Arial 18 пунктов, перенос строк и отступы сверху и снизу по 6 пунктов; более длинный текст во втором столбце переносится на несколько строк. Пример увеличивает минимум до 100 пунктов, затем уменьшает его до 20 пунктов, выводит фактическую высоту после каждого изменения и сохраняет оба результата.
 
-// Инициализирует null TableEx
-SharedPtr<ITable> tbl;
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// Итерирует формы и задает ссылку на таблицу
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Устанавливает первую строку таблицы как заголовок 
-tbl->set_FirstRow(true);
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
+При работе с предоставленной презентацией увеличение минимума добавляет пространство к строке. Уменьшение убирает это дополнительное пространство, но фактическая высота остаётся больше 20 пунктов, потому что текст и отступы ячеек требуют больше места. Сократить минимум невозможно, если этого места недостаточно для содержимого строки.
+
+Несколько факторов влияют на фактическую высоту:
+
+- **Текст и размер шрифта:** более длинный текст, явные разрывы строк или больший шрифт требуют больше вертикального пространства.
+- **Перенос и ширина столбца:** при включённом переносе уменьшение ширины столбца с помощью [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) может привести к появлению новых строк. Более широкий столбец может уменьшить требуемое вертикальное пространство.
+- **Отступы ячеек:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) и [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) управляют отступами, которые добавляют вертикальное пространство. [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) и [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) контролируют отступы, уменьшающие доступную ширину для текста и вызывающие дополнительный перенос.
+
+Для этой таблицы без объединённых ячеек ячейка, которая требует наибольшего вертикального пространства, определяет нижний предел для всей строки. Чтобы сделать строку короче, возможно, придётся сократить текст, уменьшить размер шрифта или отступы, либо увеличить ширину столбца.
+
+Изображения ниже показывают одну и ту же таблицу в одинаковом масштабе. В показе .NET фактические высоты составили 70, 100 и 55,2 пункта: последняя строка осталась выше своего минимума в 20 пунктов. Точные измерения текста могут различаться в зависимости от доступных в вашей системе шрифтов. Скачайте сохранённые результаты: [increased minimum](row-height-increased.pptx) и [decreased minimum](row-height-decreased.pptx).
+
+| Исходный: минимум 70 пт, фактическая высота 70 пт | Увеличенный: минимум 100 пт, фактическая высота 100 пт | Уменьшенный: минимум 20 пт, фактическая высота 55,2 пт |
+| --- | --- | --- |
+| ![Исходная таблица с первой строкой 70 пунктов.](row-height-before.png) | ![Таблица после увеличения минимума первой строки до 100 пунктов.](row-height-increased.png) | ![Таблица после уменьшения минимума первой строки до 20 пунктов; перенос текста удерживает строку выше минимума.](row-height-decreased.png) |
+
+## **Установить первую строку как заголовок**
+
+Используйте метод [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) для пометки первой строки как заголовочной. Её внешний вид зависит от стиля таблицы, применённого к таблице.
+
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Получите доступ к первому слайду.
+3. Получите доступ к таблице, хранящейся как первая фигура на слайде.
+4. Включите форматирование заголовка для её первой строки.
+5. Сохраните изменённую презентацию.
+
+Для примера требуется файл `table.pptx` с таблицей в первой фигуре на первом слайде. Он включает форматирование заголовка для первой строки и сохраняет файл `First_row_header.pptx`.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
+
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
 ## **Клонировать строку или столбец таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth`. 
-4. Определите массив `rowHeight`. 
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) на слайд с помощью метода [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) . 
-6. Клонируйте строку таблицы. 
-7. Клонируйте столбец таблицы. 
-8. Сохраните изменённую презентацию. 
+Клонируйте строки или столбцы, чтобы повторно использовать их содержимое и форматирование. Вы можете добавить копию в конец таблицы или вставить её в определённую позицию.
 
-```c++
- // Путь к каталогу документов.
-const String outPath = u"../out/CloningInTable_out.pptx";
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Получите доступ к первому слайду.
+3. Определите ширины столбцов и высоты строк.
+4. Добавьте таблицу с помощью метода [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+5. Клонируйте необходимые строки.
+6. Клонируйте необходимые столбцы.
+7. Сохраните изменённую презентацию.
 
-// Создает экземпляр класса Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Для примера требуется файл `Test.pptx` с хотя бы одним слайдом. Он создаёт таблицу из трёх столбцов и пяти строк, размеры задаются в пунктах. Затем добавляет копии первой строки и первого столбца, после чего вставляет копии второй строки и второго столбца на индекс 3 (четвёртая позиция). Итоговая таблица содержит семь строк и пять столбцов. Параметр `false` отключает клонирование в соседние объединённые строки или столбцы; в этой таблице нет объединённых ячеек.
 
-// Получает первый слайд
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
 
-// Определяет столбцы с ширинами и строки с высотами
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Добавляет форму таблицы на слайд
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
 
-// Устанавливает формат границы для каждой ячейки
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
-
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
-
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
-
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
-
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
-
-	}
-
-}
-
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
-
-//AddClone добавляет строку в конец таблицы
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone добавляет строку в определенную позицию таблицы
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone добавляет столбец в конец таблицы
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone добавляет столбец в определенную позицию таблицы
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Сохраняет презентацию на диск
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Удалить строку или столбец из таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth`. 
-4. Определите массив `rowHeight`. 
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) на слайд с помощью метода [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) . 
-6. Удалите строку таблицы. 
-7. Удалите столбец таблицы. 
-8. Сохраните изменённую презентацию. 
+Удалите строки или столбцы, которые больше не нужны в таблице. При удалении элемент смещает индексы последующих строк или столбцов.
 
-```c++
-// Путь к каталогу документов.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+1. Создайте презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Получите доступ к первому слайду.
+3. Определите ширины столбцов и высоты строк.
+4. Добавьте таблицу методом [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+5. Удалите вторую строку и второй столбец.
+6. Сохраните изменённую презентацию.
 
-// Создает экземпляр класса Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Этот пример создаёт таблицу 3×3 и удаляет строку и столбец с индексом 1, оставляя таблицу 2×2 в файле `TestTable_out.pptx`. Размеры задаются в пунктах. Параметр `false` отключает удаление соседних объединённых строк или столбцов; в этой таблице нет объединённых ячеек.
 
-// Получает первый слайд
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Определяет столбцы с ширинами и строки с высотами
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Добавляет форму таблицы на слайд
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Объединяет ячейки (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Объединяет ячейки (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Сохраняет презентацию на диск
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Установить форматирование текста на уровне строк таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Получите доступ к нужному объекту [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) со слайда. 
-4. Установите для ячеек первой строки [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Установите для ячеек первой строки [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) и [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Установите для ячеек второй строки [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Сохраните изменённую презентацию. 
+Примените форматирование текста ко всей строке, чтобы ячейки были согласованы. Вы можете задать свойства шрифта, параметры абзаца и направление текста без необходимости форматировать каждую ячейку отдельно.
 
-```c++
-// Создает экземпляр класса Presentation
-auto presentation = System::MakeObject<Presentation>();
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Получите доступ к таблице на первом слайде.
+3. Установите высоту шрифта с помощью [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) для первой строки.
+4. Задайте выравнивание и правый отступ абзаца с помощью [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) и [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) для первой строки.
+5. Установите направление текста с помощью [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) для второй строки.
+6. Сохраните изменённую презентацию.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+Для примера требуется файл `table.pptx` с таблицей в первой фигуре на первом слайде и как минимум двумя строками. Он применяет текст размером 25 пунктов, выравнивание по правому краю и правый отступ абзаца в 20 пунктов к первой строке, затем задаёт вертикальный текст во второй строке.
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Предположим, что первая фигура на первом слайде является таблицей
-// Устанавливает высоту шрифта ячеек первой строки
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-// Устанавливает выравнивание текста ячеек первой строки и правый отступ
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Устанавливает тип вертикального текста ячеек второй строки
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Сохраняет презентацию на диск
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Установить форматирование текста на уровне столбцов таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Получите доступ к нужному объекту [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) со слайда. 
-4. Установите для ячеек первого столбца [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Установите для ячеек первого столбца [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) и [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Установите для ячеек второго столбца [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Сохраните изменённую презентацию. 
+Примените форматирование текста ко всему столбцу, чтобы ячейки были согласованы. Вы можете задать свойства шрифта, параметры абзаца и направление текста без необходимости форматировать каждую ячейку отдельно.
 
-```c++
-// Создает экземпляр класса Presentation
-auto pres = System::MakeObject<Presentation>();
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Получите доступ к таблице на первом слайде.
+3. Установите высоту шрифта с помощью [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) для первого столбца.
+4. Задайте выравнивание и правый отступ абзаца с помощью [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) и [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) для первого столбца.
+5. Установите направление текста с помощью [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) для второго столбца.
+6. Сохраните изменённую презентацию.
 
-auto slide = pres->get_Slides()->idx_get(0);
+Для примера требуется файл `table.pptx` с таблицей в первой фигуре на первом слайде и как минимум двумя столбцами. Он применяет текст размером 25 пунктов, выравнивание по правому краю и правый отступ абзаца в 20 пунктов к первому столбцу, затем задаёт вертикальный текст во втором столбце.
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Предположим, что первая фигура на первом слайде является таблицей
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-// Устанавливает высоту шрифта ячеек первого столбца
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Устанавливает выравнивание текста ячеек первого столбца и правый отступ одной командой
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Устанавливает тип вертикального текста ячеек второго столбца
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Получить свойства стиля таблицы**
 
-Aspose.Slides позволяет получить свойства стиля таблицы, чтобы вы могли использовать эти детали для другой таблицы или в другом месте. Этот код C++ показывает, как получить свойства стиля из предустановленного стиля таблицы:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+Используйте метод [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) для получения предустановки, применённой к таблице, и повторного её использования в другой таблице. Это позволяет идентифицировать предустановку, а не отдельные переопределения форматирования ячеек.
 
+Пример создаёт таблицу, применяет [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/), а затем считывает предустановку обратно. Он выводит `DarkStyle1` и сохраняет таблицу в файле `table.pptx`.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
-```
 
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
+```
 
 ## **FAQ**
 
 **Можно ли применить темы/стили PowerPoint к уже созданной таблице?**
 
-Да. Таблица наследует тему слайда/макета/главного шаблона, и вы всё равно можете переопределять заливки, границы и цвета текста поверх этой темы.
+Да. Таблица наследует тему слайда/макета/шаблона, и вы всё равно можете переопределять заливки, границы и цвета текста поверх этой темы.
 
-**Можно ли сортировать строки таблицы как в Excel?**
+**Можно ли сортировать строки таблицы, как в Excel?**
 
-Нет, таблицы Aspose.Slides не поддерживают встроенную сортировку или фильтры. Сначала отсортируйте данные в памяти, затем заново заполните строки таблицы в этом порядке.
+Нет, таблицы Aspose.Slides не имеют встроенной сортировки или фильтров. Сначала отсортируйте данные в памяти, а затем заполните строки таблицы в нужном порядке.
 
-**Можно ли иметь чередующиеся (полосатые) столбцы, сохраняя пользовательские цвета в отдельных ячейках?**
+**Можно ли задать чередующиеся (полосатые) столбцы, сохранив пользовательские цвета в определённых ячейках?**
 
-Да. Включите чередование столбцов, затем переопределите отдельные ячейки локальным форматированием; форматирование на уровне ячейки имеет приоритет перед стилем таблицы.
+Да. Включите чередующиеся столбцы, затем переопределите отдельные ячейки локальным форматированием; форматирование уровня ячейки имеет приоритет перед стилем таблицы.

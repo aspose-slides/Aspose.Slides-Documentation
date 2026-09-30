@@ -15,243 +15,258 @@ keywords:
 - copia colonna
 - rimuovi riga
 - rimuovi colonna
-- formattazione testo riga
-- formattazione testo colonna
+- formattazione del testo della riga
+- formattazione del testo della colonna
 - stile della tabella
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Gestisci le righe e le colonne delle tabelle in PowerPoint con Aspose.Slides per .NET e velocizza la modifica delle presentazioni e l'aggiornamento dei dati."
+description: "Gestisci righe e colonne delle tabelle in PowerPoint con Aspose.Slides per .NET e velocizza la modifica delle presentazioni e l'aggiornamento dei dati."
 ---
 ## **Introduzione**
 
-Per consentirti di gestire le righe e le colonne di una tabella in una presentazione PowerPoint, Aspose.Slides fornisce la classe [Table](https://reference.aspose.com/slides/it/net/aspose.slides/table/), l’interfaccia [ITable](https://reference.aspose.com/slides/it/net/aspose.slides/itable/) e molti altri tipi. 
+Aspose.Slides per .NET consente di gestire la struttura e la formattazione delle tabelle nelle presentazioni PowerPoint tramite la classe [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) e l’interfaccia [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). È possibile designare una riga di intestazione, clonare o rimuovere righe e colonne e applicare la formattazione del testo a un’intera riga o colonna.
 
-## **Imposta la prima riga come intestazione**
+Questo articolo spiega queste operazioni con esempi C#. Mostra anche come recuperare lo stile predefinito di una tabella per riutilizzarlo. Gli indici di righe e colonne della tabella partono da zero.
 
-1. Crea un&rsquo;istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) e carica la presentazione. 
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Crea un oggetto [ITable](https://reference.aspose.com/slides/it/net/aspose.slides/itable/) e impostalo a null. 
-4. Itera su tutti gli oggetti [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/) per trovare la tabella pertinente. 
-5. Imposta la prima riga della tabella come intestazione. 
+## **Controllare l'Altezza della Riga**
 
-Questo codice C# mostra come impostare la prima riga di una tabella come intestazione:
+Utilizzare [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) per impostare l’altezza minima di una riga in punti. È un limite inferiore, non un’altezza fissa. [IRow.Height](https://reference.aspose.com/slides/net/aspose.slides/irow/height/) restituisce l’altezza reale ed è di sola lettura. Accedere alla riga tramite [ITable.Rows](https://reference.aspose.com/slides/net/aspose.slides/itable/rows/).
 
-```c#
-// Istanzia la classe Presentation
-Presentation pres = new Presentation("table.pptx");
+L’esempio carica [row-height-input.pptx](row-height-input.pptx), che contiene una tabella come prima forma nella prima diapositiva. La sua prima riga inizia a 70 punti. Le celle usano testo Arial da 18 punti, a capo automatico e margini superiori e inferiori di 6 punti; il testo più lungo nella seconda colonna va a capo su più righe. L’esempio aumenta il minimo a 100 punti, poi lo riduce a 20 punti, stampa l’altezza reale dopo ogni modifica e salva entrambi i risultati.
 
-// Accede alla prima diapositiva
-ISlide sld = pres.Slides[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Inizializza la TableEx nulla
-ITable tbl = null;
+using var presentation = new Presentation("row-height-input.pptx");
+var table = (ITable)presentation.Slides[0].Shapes[0];
+var row = table.Rows[0];
 
-// Itera attraverso le forme e imposta un riferimento alla tabella
-foreach (IShape shp in sld.Shapes)
-{
-    if (shp is ITable)
-    {
-        tbl = (ITable)shp;
-    }
-}
+row.MinimalHeight = 100;
+Console.WriteLine($"Increased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-increased.pptx", SaveFormat.Pptx);
 
-// Imposta la prima riga di una tabella come intestazione
-tbl.FirstRow = true;
-
-// Salva la presentazione su disco
-pres.Save("First_row_header.pptx", SaveFormat.Pptx);
+row.MinimalHeight = 20;
+Console.WriteLine($"Decreased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-decreased.pptx", SaveFormat.Pptx);
 ```
 
+Con la presentazione fornita, aumentare il minimo aggiunge spazio alla riga. Ridurlo rimuove quello spazio extra, ma l’altezza reale rimane superiore a 20 punti perché testo e margini delle celle richiedono più spazio. Ridurre solo il minimo non può forzare la riga al di sotto dello spazio richiesto dal contenuto.
 
-## **Clona una riga o colonna di una tabella**
+Diversi fattori influenzano l’altezza reale:
 
-1. Crea un&rsquo;istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) e carica la presentazione, 
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Definisci un array di `columnWidth`. 
-4. Definisci un array di `rowHeight`. 
-5. Aggiungi un oggetto [ITable](https://reference.aspose.com/slides/it/net/aspose.slides/itable/) alla diapositiva tramite il metodo [AddTable](https://reference.aspose.com/slides/it/net/aspose.slides/ishapecollection/addtable/). 
-6. Clona la riga della tabella. 
-7. Clona la colonna della tabella. 
-8. Salva la presentazione modificata. 
+- **Testo e dimensione del carattere:** testo più lungo, interruzioni di riga esplicite o un carattere più grande possono richiedere più spazio verticale.
+- **A capo automatico e larghezza della colonna:** con l’a capo abilitato, una [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) più stretta può produrre più righe. Una colonna più larga può ridurre lo spazio richiesto verticalmente.
+- **Margini delle celle:** [ICell.MarginTop](https://reference.aspose.com/slides/net/aspose.slides/icell/margintop/) e [ICell.MarginBottom](https://reference.aspose.com/slides/net/aspose.slides/icell/marginbottom/) aggiungono spazio verticale. [ICell.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/icell/marginleft/) e [ICell.MarginRight](https://reference.aspose.com/slides/net/aspose.slides/icell/marginright/) riducono la larghezza disponibile per il testo e possono causare ulteriore a capo automatico.
 
-Questo codice C# mostra come clonare una riga o colonna di una tabella PowerPoint:
+Per questa tabella senza celle unite, la cella che richiede più spazio verticale determina il limite inferiore dettato dal contenuto per l’intera riga. Per rendere la riga più corta, potrebbe essere necessario accorpare il testo, ridurre la dimensione del carattere o i margini, oppure allargare una colonna.
 
-```c#
- // Istanzia la classe Presentation
-using (Presentation presentation = new Presentation("Test.pptx"))
-{
-    // Accede alla prima diapositiva
-    ISlide sld = presentation.Slides[0];
+Le immagini sottostanti mostrano la stessa tabella alla stessa scala. In questo caso, le altezze reali erano 70, 100 e 55,2 punti: la riga finale è rimasta più alta del minimo di 20 punti. Le misurazioni precise del testo possono variare a seconda dei caratteri disponibili nel proprio ambiente. Scarica i risultati salvati: [increased minimum](row-height-increased.pptx) e [decreased minimum](row-height-decreased.pptx).
 
-    // Definisce le colonne con larghezze e le righe con altezze
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+| Originale: minimo 70 pt, reale 70 pt | Aumentato: minimo 100 pt, reale 100 pt | Ridotto: minimo 20 pt, reale 55,2 pt |
+| --- | --- | --- |
+| ![Tabella originale con una prima riga di 70 punti.](row-height-before.png) | ![Tabella dopo aver aumentato il minimo della prima riga a 100 punti.](row-height-increased.png) | ![Tabella dopo aver diminuito il minimo della prima riga a 20 punti; il testo a capo mantiene la riga più alta del minimo.](row-height-decreased.png) |
 
-    // Aggiunge una forma di tabella alla diapositiva
-    ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+## **Impostare la Prima Riga come Intestazione**
 
-    // Aggiunge del testo alla cella 1 della riga 1
-    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+Usare la proprietà [FirstRow](https://reference.aspose.com/slides/net/aspose.slides/itable/firstrow/) per contrassegnare la prima riga per la formattazione dell’intestazione. L’aspetto dipende dallo stile della tabella applicato alla tabella.
 
-    // Aggiunge del testo alla cella 2 della riga 1
-    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+1. Caricare la presentazione con la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Accedere alla prima diapositiva.
+3. Accedere alla tabella memorizzata come prima forma nella diapositiva.
+4. Abilitare la formattazione dell’intestazione per la sua prima riga.
+5. Salvare la presentazione modificata.
 
-    // Clona la riga 1 alla fine della tabella
-    table.Rows.AddClone(table.Rows[0], false);
+L’esempio richiede `table.pptx` con una tabella come prima forma nella prima diapositiva. Abilita la formattazione dell’intestazione per la prima riga e salva `First_row_header.pptx`.
 
-    // Aggiunge del testo alla cella 1 della riga 2
-    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Aggiunge del testo alla cella 2 della riga 2
-    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-    // Clona la riga 2 come quarta riga della tabella
-    table.Rows.InsertClone(3,table.Rows[1], false);
+var table = (ITable)slide.Shapes[0];
+table.FirstRow = true;
 
-    // Clona la prima colonna alla fine
-    table.Columns.AddClone(table.Columns[0], false);
-
-    // Clona la seconda colonna all'indice della quarta colonna
-    table.Columns.InsertClone(3,table.Columns[1], false);
-    
-    // Salva la presentazione su disco 
-    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
-## **Rimuovi una riga o colonna da una tabella**
+## **Clonare una Riga o una Colonna della Tabella**
 
-1. Crea un&rsquo;istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) e carica la presentazione, 
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Definisci un array di `columnWidth`. 
-4. Definisci un array di `rowHeight`. 
-5. Aggiungi un oggetto [ITable](https://reference.aspose.com/slides/it/net/aspose.slides/itable/) alla diapositiva tramite il metodo [AddTable](https://reference.aspose.com/slides/it/net/aspose.slides/ishapecollection/addtable/). 
-6. Rimuovi la riga della tabella. 
-7. Rimuovi la colonna della tabella. 
-8. Salva la presentazione modificata. 
+Clonare righe o colonne per riutilizzare il loro contenuto e la loro formattazione. È possibile aggiungere una copia alla fine della tabella o inserirla in una posizione specifica.
 
-Questo codice C# mostra come rimuovere una riga o colonna da una tabella:
+1. Caricare la presentazione con la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Accedere alla prima diapositiva.
+3. Definire le larghezze delle colonne e le altezze delle righe.
+4. Aggiungere una tabella con il metodo [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+5. Clonare le righe richieste.
+6. Clonare le colonne richieste.
+7. Salvare la presentazione modificata.
 
-```c#
-Presentation pres = new Presentation();
+L’esempio richiede `Test.pptx` con almeno una diapositiva. Crea una tabella con tre colonne e cinque righe, con dimensioni specificate in punti. Aggiunge copie della prima riga e della prima colonna, quindi inserisce copie della seconda riga e della seconda colonna all’indice 3 (la quarta posizione). La tabella risultante ha sette righe e cinque colonne. L’argomento `false` disabilita il cloning in righe o colonne unite adiacenti; questa tabella non ha celle unite.
 
-ISlide slide = pres.Slides[0];
-double[] colWidth = { 100, 50, 30 };
-double[] rowHeight = { 30, 50, 30 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+table.Rows.AddClone(table.Rows[0], false);
+
+table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+table.Rows.InsertClone(3, table.Rows[1], false);
+
+table.Columns.AddClone(table.Columns[0], false);
+table.Columns.InsertClone(3, table.Columns[1], false);
+
+presentation.Save("table_out.pptx", SaveFormat.Pptx);
+```
+
+## **Rimuovere una Riga o una Colonna da una Tabella**
+
+Rimuovere righe o colonne non più necessarie in una tabella. Rimuovere un elemento sposta gli indici delle righe o colonne successive.
+
+1. Creare una presentazione con la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Accedere alla prima diapositiva.
+3. Definire le larghezze delle colonne e le altezze delle righe.
+4. Aggiungere una tabella con il metodo [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+5. Rimuovere la seconda riga e la seconda colonna.
+6. Salvare la presentazione modificata.
+
+Questo esempio crea una tabella 3×3 e rimuove la riga e la colonna all’indice 1, lasciando una tabella 2×2 in `TestTable_out.pptx`. Le dimensioni sono in punti. L’argomento `false` disabilita la rimozione di righe o colonne unite adiacenti; questa tabella non ha celle unite.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 50, 30 };
+var rowHeights = new double[] { 30, 50, 30 };
+var table = slide.Shapes.AddTable(100, 100, columnWidths, rowHeights);
+
 table.Rows.RemoveAt(1, false);
 table.Columns.RemoveAt(1, false);
-pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+presentation.Save("TestTable_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Imposta la formattazione del testo a livello di riga della tabella**
+## **Impostare la Formattazione del Testo a Livello di Riga della Tabella**
 
-1. Crea un&rsquo;istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) e carica la presentazione, 
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Accedi all&rsquo;oggetto [ITable](https://reference.aspose.com/slides/it/net/aspose.slides/itable/) pertinente dalla diapositiva. 
-4. Imposta la proprietà [FontHeight](https://reference.aspose.com/slides/it/net/aspose.slides/baseportionformat/fontheight/) delle celle della prima riga. 
-5. Imposta le proprietà [Alignment](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/alignment/) e [MarginRight](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/marginright/) delle celle della prima riga. 
-6. Imposta la proprietà [TextVerticalType](https://reference.aspose.com/slides/it/net/aspose.slides/textframeformat/textverticaltype/) delle celle della seconda riga. 
-7. Salva la presentazione modificata. 
+Applicare la formattazione del testo a un’intera riga per mantenere coerenti le celle. È possibile impostare le proprietà del carattere, la formattazione del paragrafo e l’orientamento del testo senza formattare ogni cella singolarmente.
 
-Questo codice C# dimostra l&rsquo;operazione.
+1. Caricare la presentazione con la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Accedere alla tabella nella prima diapositiva.
+3. Impostare [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) per la prima riga.
+4. Impostare [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) e [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) per la prima riga.
+5. Impostare [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) per la seconda riga.
+6. Salvare la presentazione modificata.
 
-```c#
-// Crea un'istanza della classe Presentation
-Presentation presentation = new Presentation();
-           
-ISlide slide = presentation.Slides[0];
+L’esempio richiede `table.pptx` con una tabella come prima forma nella prima diapositiva e almeno due righe. Applica testo da 25 punti, allineamento a destra e un margine di paragrafo destro di 20 punti alla prima riga, poi imposta il testo verticale nella seconda riga.
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Supponiamo che la prima forma sulla prima diapositiva sia una tabella
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Imposta l'altezza del carattere delle celle della prima riga
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Rows[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// Imposta l'allineamento del testo e il margine destro delle celle della prima riga
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Rows[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// Imposta il tipo di orientamento verticale del testo delle celle della seconda riga
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Rows[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Rows[0].SetTextFormat(portionFormat);
 
-// Salva la presentazione su disco
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Rows[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Rows[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("row_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **Imposta la formattazione del testo a livello di colonna della tabella**
+## **Impostare la Formattazione del Testo a Livello di Colonna della Tabella**
 
-1. Crea un&rsquo;istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) e carica la presentazione, 
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Accedi all&rsquo;oggetto [ITable](https://reference.aspose.com/slides/it/net/aspose.slides/itable/) pertinente dalla diapositiva. 
-4. Imposta la proprietà [FontHeight](https://reference.aspose.com/slides/it/net/aspose.slides/baseportionformat/fontheight/) delle celle della prima colonna. 
-5. Imposta le proprietà [Alignment](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/alignment/) e [MarginRight](https://reference.aspose.com/slides/it/net/aspose.slides/iparagraphformat/marginright/) delle celle della prima colonna. 
-6. Imposta la proprietà [TextVerticalType](https://reference.aspose.com/slides/it/net/aspose.slides/textframeformat/textverticaltype/) delle celle della seconda colonna. 
-7. Salva la presentazione modificata. 
+Applicare la formattazione del testo a un’intera colonna per mantenere coerenti le celle. È possibile impostare le proprietà del carattere, la formattazione del paragrafo e l’orientamento del testo senza formattare ogni cella singolarmente.
 
-Questo codice C# dimostra l&rsquo;operazione: 
+1. Caricare la presentazione con la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Accedere alla tabella nella prima diapositiva.
+3. Impostare [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) per la prima colonna.
+4. Impostare [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) e [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) per la prima colonna.
+5. Impostare [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) per la seconda colonna.
+6. Salvare la presentazione modificata.
 
-```c#
-// Crea un'istanza della classe Presentation
-Presentation pres = new Presentation();
-           
-ISlide slide = pres.Slides[0];
+L’esempio richiede `table.pptx` con una tabella come prima forma nella prima diapositiva e almeno due colonne. Applica testo da 25 punti, allineamento a destra e un margine di paragrafo destro di 20 punti alla prima colonna, poi imposta il testo verticale nella seconda colonna.
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // Supponiamo che la prima forma sulla prima diapositiva sia una tabella
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Imposta l'altezza del carattere delle celle della prima colonna
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Columns[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// Imposta l'allineamento del testo e il margine destro delle celle della prima colonna in una chiamata
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Columns[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// Imposta il tipo di orientamento verticale del testo delle celle della seconda colonna
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Columns[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Columns[0].SetTextFormat(portionFormat);
 
-// Salva la presentazione su disco
-pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Columns[0].SetTextFormat(paragraphFormat);
 
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Columns[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("column_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **Recupera le proprietà di stile della tabella**
+## **Ottenere le Proprietà di Stile della Tabella**
 
-Aspose.Slides consente di recuperare le proprietà di stile di una tabella in modo da poter utilizzare tali dettagli per un&rsquo;altra tabella o in altro contesto. Questo codice C# mostra come ottenere le proprietà di stile da uno stile predefinito di una tabella: 
+Utilizzare la proprietà [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) per recuperare il preset applicato a una tabella e riutilizzarlo su un’altra tabella. Questo identifica il preset anziché le sovrascritture di formattazione celle individuali.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // cambia il tema predefinito dello stile preimpostato
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+L’esempio crea una tabella, applica [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/), e legge il preset. Stampa `DarkStyle1` e salva la tabella in `table.pptx`.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
+
+Console.WriteLine(table.StylePreset);
+
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Posso applicare temi/stili di PowerPoint a una tabella già creata?**
 
-Sì. La tabella eredita il tema della diapositiva/layout/master e puoi comunque sovrascrivere riempimenti, bordi e colori del testo sopra quel tema.
+Sì. La tabella eredita il tema della diapositiva/layout/master e si possono comunque sovrascrivere riempimenti, bordi e colori del testo sopra quel tema.
 
 **Posso ordinare le righe della tabella come in Excel?**
 
-No, le tabelle di Aspose.Slides non hanno ordinamento o filtri integrati. Ordina i dati in memoria prima, quindi ricrea le righe della tabella in quell&rsquo;ordine.
+No, le tabelle di Aspose.Slides non hanno ordinamento o filtri incorporati. Ordina i dati in memoria prima, poi ricopia le righe della tabella in quell’ordine.
 
-**Posso avere colonne a bande (a strisce) mantenendo colori personalizzati su celle specifiche?**
+**Posso avere colonne a bande (a righe alternate) mantenendo colori personalizzati su celle specifiche?**
 
-Sì. Attiva le colonne a bande, quindi sovrascrivi le celle specifiche con una formattazione locale; la formattazione a livello di cella ha precedenza sullo stile della tabella.
+Sì. Attiva le colonne a bande, poi sovrascrivi le celle specifiche con formattazione locale; la formattazione a livello di cella ha precedenza sullo stile della tabella.

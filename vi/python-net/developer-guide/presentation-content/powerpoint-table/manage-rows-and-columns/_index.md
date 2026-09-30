@@ -1,5 +1,5 @@
 ---
-title: Quản lý các hàng và cột trong bảng PowerPoint bằng Python
+title: Quản lý hàng và cột trong bảng PowerPoint bằng Python
 linktitle: Hàng và Cột
 type: docs
 weight: 20
@@ -8,225 +8,236 @@ keywords:
 - hàng bảng
 - cột bảng
 - hàng đầu tiên
-- tiêu đề bảng
+- đầu đề bảng
 - sao chép hàng
 - sao chép cột
-- sao chép hàng
-- sao chép cột
+- chép hàng
+- chép cột
 - xóa hàng
 - xóa cột
 - định dạng văn bản hàng
 - định dạng văn bản cột
 - kiểu bảng
 - PowerPoint
+- bản trình bày
 - Python
 - Aspose.Slides
-description: "Quản lý các hàng và cột của bảng trong PowerPoint và OpenDocument bằng Aspose.Slides cho Python thông qua .NET và tăng tốc việc chỉnh sửa bản trình chiếu và cập nhật dữ liệu."
+description: "Quản lý các hàng và cột của bảng trong PowerPoint bằng Aspose.Slides cho Python thông qua .NET và tăng tốc việc chỉnh sửa bản trình bày và cập nhật dữ liệu."
 ---
-## **Tổng quan**
+## **Giới thiệu**
 
-Bài viết này trình bày cách quản lý các hàng và cột của bảng trong bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides for Python. Bạn sẽ học cách thêm, chèn, sao chép và xóa các hàng hoặc cột, đánh dấu hàng đầu tiên làm tiêu đề, điều chỉnh kích thước và bố cục, và áp dụng định dạng văn bản và kiểu ở mức hàng hoặc cột. Mỗi tác vụ được minh họa bằng các đoạn mã ngắn gọn, độc lập dựa trên API [Table](https://reference.aspose.com/slides/vi/python-net/aspose.slides/table/) , giúp bạn nhanh chóng tìm bảng trên một slide và thay đổi cấu trúc của nó để phù hợp với thiết kế.
+Aspose.Slides for Python via .NET cho phép bạn quản lý cấu trúc và định dạng bảng trong các bản trình bày PowerPoint thông qua lớp [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) . Bạn có thể chỉ định một hàng tiêu đề, sao chép hoặc xóa các hàng và cột, và áp dụng định dạng văn bản cho toàn bộ một hàng hoặc cột.
 
-## **Đặt Hàng Đầu Tiên Là Tiêu Đề**
+Bài viết này giải thích các thao tác này bằng các ví dụ Python. Nó cũng cho thấy cách lấy trước kiểu bảng để bạn có thể tái sử dụng. Chỉ số hàng và cột của bảng bắt đầu từ không.
 
-Đánh dấu hàng đầu tiên của bảng làm tiêu đề để phân biệt rõ ràng tiêu đề cột với dữ liệu. Trong Aspose.Slides for Python, chỉ cần bật tùy chọn *First Row* của bảng để áp dụng định dạng tiêu đề được xác định bởi kiểu bảng đã chọn.
+## **Kiểm soát chiều cao hàng**
 
-1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình chiếu.
-1. Truy cập slide theo chỉ mục của nó.
-1. Duyệt qua tất cả các đối tượng [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) để tìm bảng tương ứng.
-1. Đặt hàng đầu tiên của bảng làm tiêu đề.
+Sử dụng [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) để đặt chiều cao tối thiểu của một hàng tính bằng điểm. Đây là một giới hạn dưới, không phải chiều cao cố định. [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) trả về chiều cao thực tế và chỉ đọc. Truy cập hàng qua [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/).
+
+Ví dụ tải [row-height-input.pptx](row-height-input.pptx), trong đó có một bảng là hình dạng đầu tiên trên slide đầu tiên. Hàng đầu tiên bắt đầu ở 70 điểm. Các ô sử dụng văn bản Arial 18 điểm, có ngắt dòng và lề trên dưới 6 điểm; văn bản dài hơn ở cột thứ hai được ngắt dòng thành nhiều dòng. Ví dụ tăng tối thiểu lên 100 điểm, sau đó giảm xuống 20 điểm, in chiều cao thực tế sau mỗi thay đổi, và lưu cả hai kết quả.
 
 ```python
 import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation.
-with slides.Presentation("table.pptx") as presentation:
-    # Truy cập slide đầu tiên.
-    slide = presentation.slides[0]
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
 
-    # Duyệt qua các shape và lấy tham chiếu tới bảng.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
 
-    # Đặt hàng đầu tiên của bảng làm tiêu đề.
-    table.first_row = True
-    
-    # Lưu bản trình chiếu vào đĩa.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sao Chép Một Hàng Hoặc Cột Bảng**
+Với bản trình bày được cung cấp, tăng tối thiểu sẽ thêm không gian vào hàng. Giảm nó sẽ loại bỏ không gian thừa, nhưng chiều cao thực tế vẫn lớn hơn 20 điểm vì văn bản và lề ô cần nhiều không gian hơn. Chỉ giảm tối thiểu không thể ép hàng xuống dưới không gian cần thiết cho nội dung của nó.
 
-Sao chép bất kỳ hàng hoặc cột nào của bảng và chèn bản sao vào vị trí mong muốn trong bảng. Bản sao giữ nguyên nội dung ô, định dạng và kích thước, cho phép bạn mở rộng bố cục nhanh chóng và nhất quán.
+Một số yếu tố ảnh hưởng đến chiều cao thực tế:
 
-1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình chiếu.
-1. Truy cập slide theo chỉ mục của nó.
-1. Xác định một mảng độ rộng cột.
-1. Xác định một mảng độ cao hàng.
-1. Thêm một [Table](https://reference.aspose.com/slides/vi/python-net/aspose.slides/table/) vào slide bằng cách sử dụng `add_table(x, y, column_widths, row_heights)`.
-1. Sao chép một hàng bảng.
-1. Sao chép một cột bảng.
-1. Lưu bản trình chiếu đã chỉnh sửa.
+- **Văn bản và kích thước phông chữ:** văn bản dài hơn, ngắt dòng rõ ràng, hoặc phông chữ lớn hơn có thể yêu cầu nhiều không gian dọc hơn.
+- **Ngắt dòng và độ rộng cột:** khi bật ngắt dòng, một [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) hẹp hơn có thể tạo ra nhiều dòng hơn. Cột rộng hơn có thể giảm không gian cần thiết theo chiều dọc.
+- **Lề ô:** [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) và [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) thêm không gian dọc. [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) và [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) giảm độ rộng có thể dùng cho văn bản và có thể gây ngắt dòng thêm.
+
+Đối với bảng này không có ô ghép, ô cần nhiều không gian dọc nhất quyết định giới hạn dưới dựa trên nội dung cho toàn bộ hàng. Để làm hàng ngắn hơn, bạn có thể cần rút ngắn văn bản, giảm kích thước phông chữ hoặc lề, hoặc làm rộng một cột.
+
+Các hình ảnh bên dưới hiển thị cùng một bảng ở cùng tỷ lệ. Trong ví dụ này, chiều cao thực tế là 70, 100 và 55.2 điểm: hàng cuối vẫn cao hơn mức tối thiểu 20 điểm. Các đo lường văn bản chính xác có thể thay đổi tùy vào phông chữ có trong môi trường của bạn. Tải xuống các kết quả đã lưu: [tối thiểu tăng](row-height-increased.pptx) và [tối thiểu giảm](row-height-decreased.pptx).
+
+| Gốc: tối thiểu 70 pt, thực tế 70 pt | Tăng: tối thiểu 100 pt, thực tế 100 pt | Giảm: tối thiểu 20 pt, thực tế 55.2 pt |
+| --- | --- | --- |
+| ![Bảng gốc với hàng đầu tiên 70 điểm.](row-height-before.png) | ![Bảng sau khi tăng tối thiểu hàng đầu tiên lên 100 điểm.](row-height-increased.png) | ![Bảng sau khi giảm tối thiểu hàng đầu tiên xuống 20 điểm; văn bản được ngắt dòng khiến hàng cao hơn mức tối thiểu.](row-height-decreased.png) |
+
+## **Đặt hàng đầu tiên làm tiêu đề**
+
+Sử dụng thuộc tính [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) để đánh dấu hàng đầu tiên cho định dạng tiêu đề. Hiển thị của nó phụ thuộc vào kiểu bảng được áp dụng cho bảng.
+
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Truy cập bảng được lưu dưới dạng hình dạng đầu tiên trên slide.
+4. Bật định dạng tiêu đề cho hàng đầu tiên của nó.
+5. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên. Nó bật định dạng tiêu đề cho hàng đầu tiên và lưu thành `First_row_header.pptx`.
 
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation.
-with slides.Presentation() as presentation:
-    # Truy cập slide đầu tiên.
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Xác định độ rộng cột và độ cao hàng.
+    table = slide.shapes[0]
+    table.first_row = True
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Sao chép một hàng hoặc cột bảng**
+
+Sao chép các hàng hoặc cột để tái sử dụng nội dung và định dạng của chúng. Bạn có thể bổ sung một bản sao vào cuối bảng hoặc chèn vào vị trí cụ thể.
+
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Định nghĩa độ rộng cột và chiều cao hàng.
+4. Thêm một bảng bằng phương thức [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Sao chép các hàng cần thiết.
+6. Sao chép các cột cần thiết.
+7. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ yêu cầu `Test.pptx` có ít nhất một slide. Nó tạo một bảng có ba cột và năm hàng, với kích thước được chỉ định bằng điểm. Nó bổ sung các bản sao của hàng và cột đầu tiên, sau đó chèn các bản sao của hàng và cột thứ hai tại chỉ mục 3 (vị trí thứ tư). Bảng kết quả có bảy hàng và năm cột. Tham số `False` vô hiệu hoá việc sao chép vào các hàng hoặc cột ghép liền kề; bảng này không có ô ghép.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Thêm một bảng vào slide.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Thêm văn bản vào hàng 1, cột 1.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Thêm văn bản vào hàng 2, cột 1.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Sao chép hàng 1 vào cuối bảng.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Thêm văn bản vào hàng 1, cột 2.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Thêm văn bản vào hàng 2, cột 2.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Sao chép hàng 2 làm hàng thứ 4 của bảng.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Sao chép cột đầu tiên vào cuối.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Sao chép cột thứ hai tại chỉ mục 3 (vị trí thứ 4).
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Lưu bản trình chiếu vào đĩa.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Xóa Một Hàng Hoặc Cột Khỏi Bảng**
+## **Xóa một hàng hoặc cột khỏi bảng**
 
-Tinh giản bảng bằng cách xóa bất kỳ hàng hoặc cột nào theo chỉ mục bằng Aspose.Slides for Python—bố cục sẽ tự động điều chỉnh lại trong khi vẫn giữ định dạng của các ô còn lại. Điều này hữu ích để đơn giản hoá lưới dữ liệu hoặc xóa các chỗ giữ chỗ mà không cần xây dựng lại bảng.
+Xóa các hàng hoặc cột không còn cần thiết trong một bảng. Việc xóa một mục sẽ làm lệch chỉ số của các hàng hoặc cột phía sau nó.
 
-1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình chiếu.
-1. Truy cập slide theo chỉ mục của nó.
-1. Xác định một mảng độ rộng cột.
-1. Xác định một mảng độ cao hàng.
-1. Thêm một ITable vào slide bằng cách sử dụng `add_table(x, y, column_widths, row_heights)`.
-1. Xóa hàng bảng.
-1. Xóa cột bảng.
-1. Lưu bản trình chiếu đã chỉnh sửa.
+1. Tạo một bản trình bày với lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Định nghĩa độ rộng cột và chiều cao hàng.
+4. Thêm một bảng bằng phương thức [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Xóa hàng thứ hai và cột thứ hai.
+6. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ này tạo một bảng ba‑by‑ba và xóa hàng và cột ở chỉ mục 1, để lại một bảng hai‑by‑hai trong `TestTable_out.pptx`. Kích thước được tính bằng điểm. Tham số `False` vô hiệu hoá việc xóa các hàng hoặc cột ghép liền kề; bảng này không có ô ghép.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
     presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Đặt Định Dạng Văn Bản ở Mức Hàng Bảng**
+## **Đặt định dạng văn bản ở mức độ hàng bảng**
 
-Áp dụng kiểu văn bản đồng nhất cho toàn bộ một hàng bảng trong một bước. Với Aspose.Slides for Python, bạn có thể thiết lập họ font, kích thước, độ đậm, màu và căn chỉnh cho tất cả các ô trong hàng cùng lúc để giữ tiêu đề hoặc dải dữ liệu nhất quán.
+Áp dụng định dạng văn bản cho toàn bộ một hàng để giữ cho các ô của nó nhất quán. Bạn có thể đặt các thuộc tính phông chữ, định dạng đoạn văn và hướng văn bản mà không cần định dạng từng ô riêng lẻ.
 
-1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình chiếu.
-1. Truy cập slide theo chỉ mục của nó.
-1. Truy cập đối tượng [Table] liên quan trên slide.
-1. Đặt chiều cao phông chữ cho các ô hàng đầu tiên.
-1. Đặt căn chỉnh và lề phải cho các ô hàng đầu tiên.
-1. Đặt kiểu dọc của văn bản cho các ô hàng thứ hai.
-1. Lưu bản trình chiếu đã chỉnh sửa.
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Truy cập bảng trên slide đầu tiên.
+3. Đặt [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) cho hàng đầu tiên.
+4. Đặt [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) và [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) cho hàng đầu tiên.
+5. Đặt [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) cho hàng thứ hai.
+6. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên và ít nhất hai hàng. Nó áp dụng văn bản 25 điểm, căn phải và lề đoạn văn phải 20 điểm cho hàng đầu tiên, sau đó đặt văn bản dọc cho hàng thứ hai.
 
 ```python
 import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Đặt chiều cao phông chữ cho các ô hàng đầu tiên.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Đặt căn chỉnh văn bản và lề phải cho các ô hàng đầu tiên.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Đặt kiểu dọc của văn bản cho các ô hàng thứ hai.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Lưu bản trình chiếu vào đĩa.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Đặt Định Dạng Văn Bản ở Mức Cột Bảng**
+## **Đặt định dạng văn bản ở mức độ cột bảng**
 
-Áp dụng kiểu văn bản đồng nhất cho toàn bộ một cột bảng cùng lúc. Với Aspose.Slides for Python, bạn có thể thiết lập họ font, kích thước, độ đậm, màu và căn chỉnh cho tất cả các ô trong một cột để tạo ra các dải dọc đồng nhất cho tiêu đề hoặc dữ liệu.
+Áp dụng định dạng văn bản cho toàn bộ một cột để giữ cho các ô của nó nhất quán. Bạn có thể đặt các thuộc tính phông chữ, định dạng đoạn văn và hướng văn bản mà không cần định dạng từng ô riêng lẻ.
 
-1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và tải bản trình chiếu.
-1. Truy cập slide theo chỉ mục của nó.
-1. Truy cập đối tượng [Table] liên quan trên slide.
-1. Đặt chiều cao phông chữ cho các ô cột đầu tiên.
-1. Đặt căn chỉnh và lề phải cho các ô cột đầu tiên.
-1. Đặt kiểu dọc của văn bản cho các ô cột thứ hai.
-1. Lưu bản trình chiếu đã chỉnh sửa.
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Truy cập bảng trên slide đầu tiên.
+3. Đặt [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) cho cột đầu tiên.
+4. Đặt [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) và [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) cho cột đầu tiên.
+5. Đặt [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) cho cột thứ hai.
+6. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên và ít nhất hai cột. Nó áp dụng văn bản 25 điểm, căn phải và lề đoạn văn phải 20 điểm cho cột đầu tiên, sau đó đặt văn bản dọc cho cột thứ hai.
 
 ```python
 import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Đặt chiều cao phông chữ cho các ô cột đầu tiên.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Đặt căn chỉnh văn bản và lề phải cho các ô cột đầu tiên.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Đặt kiểu dọc của văn bản cho các ô cột thứ hai.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Lưu bản trình chiếu vào đĩa.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lấy Thuộc Tính Kiểu Bảng**
+## **Lấy thuộc tính kiểu bảng**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính kiểu của một bảng để có thể tái sử dụng chúng cho bảng khác hoặc nơi khác. Đoạn mã Python sau cho thấy cách lấy các thuộc tính kiểu từ một kiểu bảng đã định sẵn:
+Sử dụng thuộc tính [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) để lấy trước kiểu đã áp dụng cho một bảng và tái sử dụng nó trên một bảng khác. Điều này xác định trước kiểu thay vì các ghi đè định dạng riêng lẻ của ô.
+
+Ví dụ tạo một bảng, áp dụng [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) và đọc lại trước kiểu. Nó in ra `True` khi trước kiểu được lấy khớp với trước kiểu đã áp dụng và lưu bảng trong `table.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -234,25 +245,27 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Can I apply PowerPoint themes/styles to a table that’s already created?**  
-**Tôi có thể áp dụng chủ đề/kiểu PowerPoint cho một bảng đã tạo sẵn không?**
+**Tôi có thể áp dụng giao diện/kiểu PowerPoint cho một bảng đã được tạo không?**
 
-Có. Bảng sẽ kế thừa chủ đề của slide/bố cục/master, và bạn vẫn có thể ghi đè các màu nền, đường viền và màu văn bản trên chủ đề đó.
+Có. Bảng kế thừa giao diện slide/bố cục/máy chủ, và bạn vẫn có thể ghi đè màu nền, viền và màu văn bản phía trên giao diện đó.
 
-**Can I sort table rows like in Excel?**  
 **Tôi có thể sắp xếp các hàng bảng giống như trong Excel không?**
 
-Không, các bảng trong Aspose.Slides không có tính năng sắp xếp hoặc lọc tích hợp. Hãy sắp xếp dữ liệu trong bộ nhớ trước, sau đó điền lại các hàng bảng theo thứ tự đó.
+Không, các bảng Aspose.Slides không có tính năng sắp xếp hay bộ lọc tích hợp. Bạn nên sắp xếp dữ liệu trong bộ nhớ trước, sau đó điền lại các hàng bảng theo thứ tự đó.
 
-**Can I have banded (striped) columns while keeping custom colors on specific cells?**  
-**Tôi có thể có các cột sọc (striped) trong khi vẫn giữ màu tùy chỉnh cho các ô cụ thể không?**
+**Tôi có thể có các cột dạng sọc trong khi giữ màu tùy chỉnh cho các ô cụ thể không?**
 
-Có. Bật tính năng cột sọc, sau đó ghi đè các ô cụ thể bằng định dạng cục bộ; định dạng ở mức ô sẽ ưu tiên hơn kiểu bảng.
+Có. Bật cột dạng sọc, sau đó ghi đè các ô cụ thể bằng định dạng cục bộ; định dạng ở mức ô sẽ ưu tiên hơn kiểu bảng.

@@ -1,5 +1,5 @@
 ---
-title: Hantera presentations‑tabeller i Java
+title: Hantera presentationstabeller i Java
 linktitle: Hantera tabell
 type: docs
 weight: 10
@@ -7,7 +7,7 @@ url: /sv/java/manage-table/
 keywords:
 - lägga till tabell
 - skapa tabell
-- åtkomst tabell
+- åtkomst till tabell
 - bildförhållande
 - justera text
 - textformatering
@@ -16,53 +16,48 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Skapa och redigera tabeller i PowerPoint-bilder med Aspose.Slides för Java. Upptäck enkla kodexempel för att effektivisera ditt tabellarbetsflöde."
+description: "Skapa och redigera tabeller i PowerPoint-bilder med Aspose.Slides för Java. Upptäck enkla kodexempel för att förenkla ditt tabellarbetsflöde."
 ---
 ## **Introduktion**
 
-En tabell i PowerPoint är ett effektivt sätt att visa och framställa information. Informationen i ett rutnät av celler (arrangerade i rader och kolumner) är enkel och lätt att förstå.
+Tabeller i PowerPoint organiserar information i rader och kolumner, vilket gör det enklare att läsa och jämföra värden.
 
-Aspose.Slides tillhandahåller klassen [Table](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Table) interfacet [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable) klassen [Cell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/cell/) interfacet [ICell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icell/) och andra typer för att låta dig skapa, uppdatera och hantera tabeller i alla typer av presentationer. 
+Aspose.Slides tillhandahåller klassen [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/), gränssnittet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) , klassen [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) , gränssnittet [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) och andra typer för att låta dig skapa, uppdatera och hantera tabeller i presentationer.
 
-## **Skapa en tabell från grunden**
+## **Skapa en tabell från början**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index. 
-3. Definiera en array av `columnWidth`.
-4. Definiera en array av `rowHeight`.
-5. Lägg till ett [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable)‑objekt på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iterera genom varje [ICell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icell/) för att tillämpa formatering på de övre, nedre, högra och vänstra kanterna.
-7. Sammanfoga de två första cellerna i tabellens första rad. 
-8. Få åtkomst till en [ICell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icell/)s [TextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textframe/). 
-9. Lägg till lite text i [TextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textframe/).
+Skapa en tabell genom att ange dess position, kolumnbredder och radhöjder. Efter att ha lagt till den på en bild kan du formatera cellkanter, slå ihop celler och infoga text.
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. Hämta en referens till bilden med dess index.
+3. Definiera en array med kolumnbredder i punkter.
+4. Definiera en array med radhöjder i punkter.
+5. Lägg till ett [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/)‑objekt på bilden genom metoden [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) .
+6. Iterera genom varje [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) för att tillämpa formatering på övre, nedre, högra och vänstra kanterna.
+7. Slå ihop de två första cellerna i tabellens första rad.
+8. Åtkomst till den sammanslagna cellen via dess [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--)‑metod.
+9. Ställ in texten i den sammanslagna cellen.
 10. Spara den ändrade presentationen.
 
-Denna Java‑kod visar hur du skapar en tabell i en presentation:
+Exemplet nedan skapar en tabell med tre kolumner och fem rader på (100, 50) punkter. Det tillämpar röda kanter med en bredd på 5 punkter, slår ihop de två första cellerna i den första raden och sparar resultatet som `table.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Skapar en Presentation-klass som representerar en PPTX-fil
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Åtkomst till den första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definierar kolumner med bredder och rader med höjder
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Lägger till en tabellform på bilden
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ställer in kantformat för varje cell
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -80,24 +75,21 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Sammanfogar cellerna 1 och 2 i rad 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // Lägger till text i den sammanslagna cellen
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // Sparar presentationen till disk
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Numrering i en standardtabell**
 
-I en standardtabell är numreringen av celler enkel och nollbaserad. Den första cellen i en tabell har indexet 0,0 (kolumn 0, rad 0). 
+I en standardtabell är cellindex nollbaserade och använder ordningen (kolumn, rad). Den första cellen har index (0, 0).
 
-Till exempel numreras cellerna i en tabell med 4 kolumner och 4 rader på följande sätt:
+Till exempel är cellerna i en tabell med 4 kolumner och 4 rader numrerade på detta sätt:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -105,258 +97,234 @@ Till exempel numreras cellerna i en tabell med 4 kolumner och 4 rader på följa
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Denna Java‑kod visar hur du specificerar numreringen för celler i en tabell:
+Detta exempel skapar den 4 × 4 tabell som illustreras ovan, med kolumnbredder och radhöjder på 70 punkter samt röda cellkanter med en bredd på 5 punkter. Koordinaterna visar cellindex; exemplet lämnar cellerna tomma och sparar tabellen som `StandardTables_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Skapar en Presentation-klass som representerar en PPTX-fil
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Åtkomst till den första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definierar kolumner med bredder och rader med höjder
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Lägger till en tabellform på bilden
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ställer in kantformat för varje cell
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // Sparar presentationen till disk
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Åtkomst till en befintlig tabell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
+Tabeller lagras i en bilds formsamling. Iterera genom formerna för att hitta en tabell och använd sedan gränssnittet [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) för att läsa eller uppdatera dess celler.
 
-2. Hämta en referens till bilden som innehåller tabellen via dess index. 
+1. Läs in presentationen med hjälp av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. Hämta en referens till bilden som innehåller tabellen med dess index.
+3. Iterera genom objekten [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) och stoppa när en tabell hittas. Om bilden innehåller flera tabeller, använd [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getAlternativeText--) för att identifiera den du behöver.
+4. Uppdatera texten i målcell.
+5. Spara den ändrade presentationen.
 
-3. Skapa ett [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable)‑objekt och sätt det till null.
-
-4. Iterera genom alla [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/)‑objekt tills tabellen hittas.
-
-   Om du misstänker att bilden du arbetar med innehåller en enda tabell kan du helt enkelt kontrollera alla former som den innehåller. När en form identifieras som en tabell kan du typcasta den till ett [Table](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Table)-objekt. Men om bilden du arbetar med innehåller flera tabeller är det bättre att söka efter den tabell du behöver via dess [setAlternativeText(String value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
-
-5. Använd [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable)-objektet för att arbeta med tabellen. I exemplet nedan lade vi till en ny rad i tabellen.
-
-6. Spara den ändrade presentationen.
-
-Denna Java‑kod visar hur du får åtkomst till och arbetar med en befintlig tabell:
+Exemplet nedan öppnar `UpdateExistingTable.pptx` och hittar den första tabellen på den första bilden. Det sätter cellen i kolumn 0, rad 1 till `New` och sparar resultatet som `table1_out.pptx`. Inmatningen måste innehålla minst en bild, och den första tabellen på den bilden måste ha minst en kolumn och två rader.
 
 ```java
 import com.aspose.slides.*;
 
-// Skapar en Presentation-klass som representerar en PPTX-fil
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // Åtkomst till den första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Initierar null TableEx
-    ITable tbl = null;
-
-    // Itererar genom formerna och sätter en referens till den funna tabellen
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // Sätter texten för den första kolumnen i den andra raden
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // Sparar den ändrade presentationen till disk
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Hitta cellen som äger en textram**
+För att ändra storlek på en rad i en befintlig tabell och förstå varför dess faktiska höjd kan överstiga det begärda minimumet, se [Kontrollera radhöjd](/slides/sv/java/manage-rows-and-columns/#control-row-height).
 
-När generisk text‑behandlingskod får ett [ITextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/) från en tabell, använd metoden [ITextFrame.getParentCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/#getParentCell--) för att hämta den ägande [ICell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icell/). För en tabellcell‑textram returnerar [ITextFrame.getParentCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/#getParentCell--) ägaren och [ITextFrame.getParentShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/#getParentShape--) returnerar `null`, även om själva tabellen är en form.
+## **Hitta cellen som äger ett textram**
 
-Cellkoordinaterna finns tillgängliga via de skrivskyddade metoderna [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icell/#getFirstColumnIndex--) och [ICell.getFirstRowIndex](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icell/#getFirstRowIndex--). [ITextFrame.getParentCell](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/#getParentCell--) ger också skrivskyddad navigation: den returnerar ägaren men ändrar inte ägandet. Kontrollera alltid den returnerade cellen för `null` innan du använder den.
+När generisk textbehandlingskod får ett [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) från en tabell, använd metoden [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) för att hämta den ägande [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/). För ett textram i en tabellcell returnerar [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) ägaren och [ITextFrame.getParentShape](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentShape--) returnerar `null`, även om tabellen själv är en form.
 
-För ett fullständigt exempel som identifierar ägare av tabellceller och former, inklusive former knutna till SmartArt‑noder, se [Search and Replace Text](/slides/sv/java/search-and-replace-text/).
+Cellkoordinaterna är tillgängliga via de skrivskyddade metoderna [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) och [ICell.getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--). [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) ger också skrivskyddad navigation: den returnerar ägaren men ändrar inte ägarskapet. Kontrollera alltid att den returnerade cellen inte är `null` innan den används.
+
+För ett komplett exempel som identifierar tabellcell- och formägare, inklusive former som är associerade med SmartArt‑noder, se [Sök och ersätt text](/slides/sv/java/search-and-replace-text/).
 
 ## **Justera text i en tabell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index. 
-3. Lägg till ett [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable)‑objekt på bilden. 
-4. Få åtkomst till ett [ITextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/)‑objekt från tabellen. 
-5. Få åtkomst till [IParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/) via [ITextFrame]. 
-6. Justera texten vertikalt.
+Du kan kontrollera vertikal förankring och textriktning för individuella tabellceller. Exemplet i detta avsnitt centrerar text i den första cellen och roterar den 270 grader.
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. Hämta en referens till bilden med dess index.
+3. Lägg till ett [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/)‑objekt på bilden.
+4. Åtkomst till ett [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)‑objekt från tabellen.
+5. Åtkomst till den första [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) och ange dess text och färg.
+6. Ställ in cellens vertikala förankring och textriktning med [setTextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextAnchorType-byte-) och [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextVerticalType-byte-) .
 7. Spara den ändrade presentationen.
 
-Denna Java‑kod visar hur du justerar text i en tabell:
+Detta exempel skapar en 4 × 4 tabell med kolumnbredder på 120 punkter och radhöjder på 100 punkter. Det formaterar texten i cell (0, 0), lägger till värden i de återstående cellerna i den första raden och sparar resultatet som `Vertical_Align_Text_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Skapar en instans av Presentation-klassen
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Hämtar den första bilden 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Definierar kolumner med bredder och rader med höjder
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // Lägger till tabellformen på bilden
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // Åtkomst till textram
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // Skapar Paragraph-objektet för textram
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // Skapar Portion-objektet för stycket
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // Justera texten vertikalt
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // Sparar presentationen till disk
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ställ in textformatering på tabellnivå**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index. 
-3. Få åtkomst till ett [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable)‑objekt från bilden.
-4. Ställ in [setFontHeight(float value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) för texten. 
-5. Ställ in [setAlignment(int value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) och [setMarginRight(float value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Ställ in [setTextVerticalType(byte value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Spara den ändrade presentationen. 
+Använd [setTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-) för att tillämpa textformatering på alla celler i en tabell. Dess överlagringar accepterar formatering för del av text, stycke och textram, så du kan ange dessa egenskaper utan att iterera genom enskilda celler.
 
-Denna Java‑kod visar hur du tillämpar dina föredragna formateringsalternativ på texten i en tabell:
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) .
+2. Hämta en referens till bilden med dess index.
+3. Åtkomst till ett [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/)‑objekt från bilden.
+4. Ställ in teckenstorlek med [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) för texten.
+5. Ställ in styckejustering och högermarginal med [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) och [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) .
+6. Ställ in textriktning med [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) .
+7. Spara den ändrade presentationen.
+
+Exemplet nedan öppnar `table.pptx`, som måste innehålla minst en bild med en tabell som dess första form. Det sätter teckenstorleken till 25 punkter, högerjusterar stycken med en högermarginal på 20 punkter och gör texten vertikal. Den formaterade presentationen sparas som `result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// Skapar en instans av Presentation-klassen
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Låt oss anta att den första formen på den första bilden är en tabell
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // Ställer in tabellcellernas teckenhöjd
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // Ställer in tabellcellernas textjustering och högermarginal i ett anrop
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // Ställer in tabellcellernas vertikala texttyp
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Hämta tabellstilegenskaper**
+## **Hämta tabellstils‑egenskaper**
 
-Aspose.Slides låter dig hämta stilegenskaperna för en tabell så att du kan använda dessa detaljer för en annan tabell eller någon annanstans. Denna Java‑kod visar hur du får stil‑egenskaperna från en förinställd tabellstil:
+Använd [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) för att läsa en tabells förinställda stil och [setStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setStylePreset-int-) för att tilldela den. Detta exempel tillämpar [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/) på en tabell, skriver ut det förinställda värdet och tilldelar samma förinställning till en andra tabell. Båda tabellerna sparas i `table-style.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // ändra standardstilpresettemat 
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hämtar stilpreset för tabellen
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // Tillämpa det hämtade stilpresetet på en annan tabell
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Lås bildförhållandet för en tabell**
 
-Bildförhållandet för en geometrisk form är förhållandet mellan dess storlekar i olika dimensioner. Aspose.Slides tillhandahåller egenskapen [**setAspectRatioLocked**](https://reference.aspose.com/slides/sv/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) för att låta dig låsa bildförhållandet för tabeller och andra former. 
+En tabells bildförhållande är förhållandet mellan dess bredd och höjd. Använd [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-) för att låsa detta förhållande för en tabell.
 
-Denna Java‑kod visar hur du låser bildförhållandet för en tabell:
+Exemplet nedan öppnar `pres.pptx`, som måste innehålla minst en bild med en tabell som dess första form. Det skriver ut det aktuella låstillståndet, aktiverar låsning av bildförhållandet, skriver ut det uppdaterade tillståndet (`true`) och sparar resultatet som `pres-out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // invertera
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -364,12 +332,12 @@ try {
 
 **Kan jag aktivera läsriktning från höger till vänster (RTL) för en hel tabell och texten i dess celler?**
 
-Ja. Tabellen har en [setRightToLeft](https://reference.aspose.com/slides/sv/java/com.aspose.slides/table/#setRightToLeft-boolean-)‑metod, och stycken har [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/sv/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Genom att använda båda säkerställer du korrekt RTL‑ordning och rendering i cellerna.
+Ja. Tabellen har en [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-)‑metod, och stycken har [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Att använda båda säkerställer korrekt RTL‑ordning och rendering i cellerna.
 
 **Hur kan jag förhindra att användare flyttar eller ändrar storlek på en tabell i den slutliga filen?**
 
-Använd [shape locks](/slides/sv/java/applying-protection-to-presentation/) för att inaktivera flyttning, storleksändring, markering etc. Dessa lås gäller även för tabeller.
+Använd [shape locks](/slides/sv/java/applying-protection-to-presentation/) för att inaktivera flytt, storleksändring, markering osv. Dessa lås gäller även för tabeller.
 
 **Stöds det att infoga en bild i en cell som bakgrund?**
 
-Ja. Du kan ange en [picture fill](https://reference.aspose.com/slides/sv/java/com.aspose.slides/picturefillformat/) för en cell; bilden täcker cellområdet enligt valt läge (sträcka eller mosaik).
+Ja. Du kan ange en [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) för en cell; bilden täcker cellområdet enligt valt läge (sträckning eller mosaik).

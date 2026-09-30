@@ -1,5 +1,5 @@
 ---
-title: Správa řádků a sloupců v tabulkách PowerPointu na Androidu
+title: Správa řádků a sloupců v tabulkách PowerPoint na Androidu
 linktitle: Řádky a sloupce
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - řádek tabulky
 - sloupec tabulky
 - první řádek
-- hlavička tabulky
+- záhlaví tabulky
 - klonovat řádek
 - klonovat sloupec
 - kopírovat řádek
@@ -23,254 +23,280 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Spravujte řádky a sloupce tabulek v PowerPointu pomocí Aspose.Slides pro Android v Javě a zrychlete úpravy prezentací a aktualizace dat."
+description: "Spravujte řádky a sloupce tabulky v PowerPointu pomocí Aspose.Slides pro Android přes Java a zrychlete úpravy prezentací a aktualizace dat."
 ---
 ## **Úvod**
 
-Abychom vám umožnili spravovat řádky a sloupce tabulky v prezentaci PowerPoint, poskytuje Aspose.Slides třídu [Table](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/table/) , rozhraní [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable) a mnoho dalších typů.
+Aspose.Slides for Android via Java vám umožňuje spravovat strukturu tabulky a formátování v prezentacích PowerPoint prostřednictvím třídy [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) a rozhraní [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Můžete označit řádek jako záhlaví, klonovat nebo odstraňovat řádky a sloupce a použít formátování textu na celý řádek nebo sloupec.
+
+Tento článek popisuje tyto operace s příklady v jazyce Java. Také ukazuje, jak získat přednastavený styl tabulky, aby bylo možné jej znovu použít. Indexy řádků a sloupců tabulky jsou nulové.
+
+## **Řízení výšky řádku**
+
+Použijte [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) k nastavení minimální výšky řádku v bodech. Jedná se o dolní mez, nikoli o pevnou výšku. [IRow.getHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#getHeight--) vrací skutečnou výšku. Přístup k řádku získáte přes [ITable.getRows](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getRows--).
+
+Příklad načte [row-height-input.pptx](row-height-input.pptx), který obsahuje tabulku jako první tvar na první snímku. Jeho první řádek začíná ve výšce 70 bodů. Buňky používají text Arial 18 bodů, zalamování a okraje nahoře i dole po 6 bodů; delší text ve druhém sloupci se zalamuje do více řádků. Příklad zvýší minimum na 100 bodů, poté jej sníží na 20 bodů, vypíše skutečnou výšku po každé změně a uloží oba výsledky.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
+
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+U poskytnuté prezentace zvýšení minima přidá řádku prostor. Snížení ho odstraní ten přebytečný prostor, ale skutečná výška zůstane větší než 20 bodů, protože text a okraje buněk potřebují více místa. Pouhé snížení minima nemůže řádek donutit pod úroveň prostoru vyžadovaného jeho obsahem.
+
+Na skutečnou výšku má vliv několik faktorů:
+
+- **Text a velikost písma:** delší text, explicitní konce řádků nebo větší písmo mohou vyžadovat více svislého prostoru.
+- **Zalamování a šířka sloupce:** při povoleném zalamování může snížení šířky sloupce pomocí [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) vytvořit více řádků. Širší sloupec může snížit potřebný vertikální prostor.
+- **Okraje buněk:** [ICell.setMarginTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginTop-double-) a [ICell.setMarginBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginBottom-double-) přidávají svislý prostor. [ICell.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginLeft-double-) a [ICell.setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginRight-double-) zmenšují šířku dostupnou pro text a mohou způsobit další zalamování.
+
+Pro tuto tabulku bez sloučených buněk určuje buňka, která potřebuje nejvíce svislého prostoru, spodní limit pro celý řádek. Chcete‑li řádek zkrátit, může být také nutné zkrátit text, zmenšit velikost písma nebo okraje, případně sloupec rozšířit.
+
+Obrázky níže ukazují stejnou tabulku ve stejném měřítku. Ve znázorněných výsledcích byly skutečné výšky 70, 100 a 55,2 bodu: poslední řádek zůstal vyšší než jeho minimální výška 20 bodů. Přesná měření textu se mohou lišit podle dostupných písem ve vašem prostředí. Stáhněte si uložené výsledky: [zvýšené minimum](row-height-increased.pptx) a [snížené minimum](row-height-decreased.pptx).
+
+| Originál: minimum 70 pt, skutečná 70 pt | Zvýšeno: minimum 100 pt, skutečná 100 pt | Sníženo: minimum 20 pt, skutečná 55,2 pt |
+| --- | --- | --- |
+| ![Původní tabulka s prvním řádkem 70 bodů.](row-height-before.png) | ![Tabulka po zvýšení minimální výšky prvního řádku na 100 bodů.](row-height-increased.png) | ![Tabulka po snížení minimální výšky prvního řádku na 20 bodů; zalomený text udržuje řádek vyšší než minimum.](row-height-decreased.png) |
 
 ## **Nastavit první řádek jako záhlaví**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte prezentaci.  
-2. Získejte odkaz na snímek pomocí jeho indexu.  
-3. Vytvořte objekt [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable) a nastavte jej na null.  
-4. Projděte všechny objekty [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) a najděte požadovanou tabulku.  
-5. Nastavte první řádek tabulky jako její záhlaví.  
+Použijte metodu [setFirstRow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setFirstRow-boolean-) k označení prvního řádku pro formátování záhlaví. Jeho vzhled závisí na stylu tabulky aplikovaném na tabulku.
 
-Tento Java kód ukazuje, jak nastavit první řádek tabulky jako záhlaví:
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Získejte první snímek.
+3. Získejte tabulku uloženou jako první tvar na snímku.
+4. Povolit formátování záhlaví pro její první řádek.
+5. Uložte upravenou prezentaci.
+
+Příklad vyžaduje `table.pptx` s tabulkou jako první tvar na první snímku. Povolit formátování záhlaví pro první řádek a uloží `First_row_header.pptx`.
 
 ```java
-// Vytvoří instanci třídy Presentation
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Přistupuje k prvnímu snímku
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Inicializuje null TableEx
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Prochází tvary a nastavuje odkaz na tabulku
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Nastaví první řádek tabulky jako její záhlaví
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Uloží prezentaci na disk
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Klonovat řádek nebo sloupec tabulky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte prezentaci,  
-2. Získejte odkaz na snímek pomocí jeho indexu.  
-3. Definujte pole `columnWidth`.  
-4. Definujte pole `rowHeight`.  
-5. Přidejte objekt [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable) na snímek pomocí metody [addTable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Klonujte řádek tabulky.  
-7. Klonujte sloupec tabulky.  
-8. Uložte upravenou prezentaci.  
+Klonovat řádky nebo sloupce pro opakované použití jejich obsahu a formátování. Kopii můžete připojit na konec tabulky nebo ji vložit na konkrétní pozici.
 
-Tento Java kód ukazuje, jak klonovat řádek nebo sloupec tabulky PowerPoint:
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Získejte první snímek.
+3. Definujte šířky sloupců a výšky řádků.
+4. Přidejte tabulku pomocí metody [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Klonujte požadované řádky.
+6. Klonujte požadované sloupce.
+7. Uložte upravenou prezentaci.
+
+Příklad vyžaduje `Test.pptx` s alespoň jedním snímkem. Vytvoří tabulku se třemi sloupci a pěti řádky, rozměry jsou zadány v bodech. Připojí kopie prvního řádku a sloupce, poté vloží kopie druhého řádku a sloupce na index 3 (čtvrtá pozice). Výsledná tabulka má sedm řádků a pět sloupců. Argument `false` zakazuje klonování do sousedních sloučených řádků nebo sloupců; tato tabulka nemá sloučené buňky.
 
 ```java
- // Vytvoří instanci třídy Presentation
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    // Přistupuje k prvnímu snímku
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Definuje sloupce se šířkami a řádky s výškami
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Přidá tvar tabulky na snímek
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Přidá text do buňky řádku 1 sloupce 1
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Přidá text do buňky řádku 1 sloupce 2
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Klonuje řádek 1 na konci tabulky
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Přidá text do buňky řádku 2 sloupce 1
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Přidá text do buňky řádku 2 sloupce 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Klonuje řádek 2 jako 4. řádek tabulky
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Klonuje první sloupec na konci
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Klonuje druhý sloupec na indexu 4. sloupce
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Uloží prezentaci na disk
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Odstranit řádek nebo sloupec z tabulky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte prezentaci,  
-2. Získejte odkaz na snímek pomocí jeho indexu.  
-3. Definujte pole `columnWidth`.  
-4. Definujte pole `rowHeight`.  
-5. Přidejte objekt [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable) na snímek pomocí metody [addTable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Odstraňte řádek tabulky.  
-7. Odstraňte sloupec tabulky.  
-8. Uložte upravenou prezentaci.  
+Odstranit řádky nebo sloupce, které již v tabulce nejsou potřeba. Odstranění položky posune indexy řádků nebo sloupců, které následují.
 
-Tento Java kód ukazuje, jak odstranit řádek nebo sloupec z tabulky:
+1. Vytvořte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Získejte první snímek.
+3. Definujte šířky sloupců a výšky řádků.
+4. Přidejte tabulku pomocí metody [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Odstraňte druhý řádek a druhý sloupec.
+6. Uložte upravenou prezentaci.
+
+Tento příklad vytvoří tabulku tři × tři a odstraní řádek a sloupec s indexem 1, zůstane tabulka dva × dva v souboru `TestTable_out.pptx`. Rozměry jsou v bodech. Argument `false` zakazuje odstraňování sousedních sloučených řádků nebo sloupců; tato tabulka nemá sloučené buňky.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Nastavit formátování textu na úrovni řádku tabulky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte prezentaci,  
-2. Získejte odkaz na snímek pomocí jeho indexu.  
-3. Získejte požadovaný objekt [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable) ze snímku.  
-4. Nastavte výšku písma buněk v prvním řádku pomocí [setFontHeight(float value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Nastavte zarovnání a pravý okraj buněk v prvním řádku pomocí [setAlignment(int value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) a [setMarginRight(float value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Nastavte vertikální typ textu buněk ve druhém řádku pomocí [setTextVerticalType(byte value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Uložte upravenou prezentaci.  
+Aplikovat formátování textu na celý řádek, aby buňky zůstaly jednotné. Můžete nastavit vlastnosti písma, formát odstavce a směr textu, aniž byste formátovali každou buňku zvlášť.
 
-Tento Java kód demonstruje operaci.
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Získejte tabulku na prvním snímku.
+3. Použijte [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) pro první řádek.
+4. Použijte [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) a [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) pro první řádek.
+5. Použijte [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) pro druhý řádek.
+6. Uložte upravenou prezentaci.
+
+Příklad vyžaduje `table.pptx` s tabulkou jako první tvar na první snímku a alespoň dvěma řádky. Použije 25‑bodový text, pravé zarovnání a pravý okraj odstavce 20 bodů pro první řádek, poté nastaví svislý text ve druhém řádku.
 
 ```java
-// Vytvoří instanci třídy Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Předpokládejme, že první tvar na první snímku je tabulka
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Nastaví výšku písma buněk v prvním řádku
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Nastaví zarovnání textu a pravý okraj buněk v prvním řádku
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Nastaví vertikální typ textu buněk ve druhém řádku
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Uloží prezentaci na disk
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Nastavit formátování textu na úrovni sloupce tabulky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte prezentaci,  
-2. Získejte odkaz na snímek pomocí jeho indexu.  
-3. Získejte požadovaný objekt [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable) ze snímku.  
-4. Nastavte výšku písma buněk v prvním sloupci pomocí [setFontHeight(float value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Nastavte zarovnání a pravý okraj buněk v prvním sloupci pomocí [setAlignment(int value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) a [setMarginRight(float value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Nastavte vertikální typ textu buněk ve druhém sloupci pomocí [setTextVerticalType(byte value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Uložte upravenou prezentaci.  
+Aplikovat formátování textu na celý sloupec, aby buňky zůstaly jednotné. Můžete nastavit vlastnosti písma, formát odstavce a směr textu, aniž byste formátovali každou buňku zvlášť.
 
-Tento Java kód demonstruje operaci: 
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Získejte tabulku na prvním snímku.
+3. Použijte [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) pro první sloupec.
+4. Použijte [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) a [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) pro první sloupec.
+5. Použijte [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) pro druhý sloupec.
+6. Uložte upravenou prezentaci.
+
+Příklad vyžaduje `table.pptx` s tabulkou jako první tvar na první snímku a alespoň dvěma sloupci. Použije 25‑bodový text, pravé zarovnání a pravý okraj odstavce 20 bodů pro první sloupec, poté nastaví svislý text ve druhém sloupci.
 
 ```java
-// Vytvoří instanci třídy Presentation
-Presentation pres = new Presentation();
-try {
-    // Předpokládejme, že první tvar na první snímku je tabulka
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Nastaví výšku písma buněk v prvním sloupci
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Nastaví zarovnání textu a pravý okraj buněk v prvním sloupci jedním voláním
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Nastaví vertikální typ textu buněk ve druhém sloupci
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Získat vlastnosti stylu tabulky**
 
-Aspose.Slides vám umožňuje získat vlastnosti stylu tabulky, abyste je mohli použít pro jinou tabulku nebo jinde. Tento Java kód ukazuje, jak získat vlastnosti stylu z předdefinovaného stylu tabulky:
+Použijte metodu [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) k načtení přednastaveného stylu aplikovaného na tabulku a jeho opětovnému použití na jiné tabulce. Identifikuje přednastavení namísto jednotlivých přepisů formátování buněk.
+
+Příklad vytvoří tabulku, použije [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/#DarkStyle1) a načte zpět přednastavení. Vytiskne celočíselnou hodnotu odpovídající `DarkStyle1` a uloží tabulku do `table.pptx`.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // změní výchozí předdefinovaný styl motivu
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Často kladené otázky**
 
-**Mohu použít motivy/styly PowerPointu na již vytvořenou tabulku?**
+**Mohu na již vytvořenou tabulku použít motivy/styly PowerPoint?**
 
-Ano. Tabulka dědí motiv snímku/podkladu/mistra a přesto můžete přepsat výplně, okraje a barvy textu nad tímto motivem.
+Ano. Tabulka dědí motiv snímku/layoutu/master a nad ním můžete stále přepsat výplně, ohraničení a barvy textu.
 
-**Mohu třídit řádky tabulky jako v Excelu?**
+**Mohu řadit řádky tabulky jako v Excelu?**
 
-Ne, tabulky Aspose.Slides nemají vestavěné řazení ani filtry. Seřaďte svá data v paměti nejprve a poté znovu naplňte řádky tabulky v tomto pořadí.
+Ne, tabulky Aspose.Slides nemají vestavěné řazení ani filtry. Seřaďte data v paměti nejprve a poté znovu naplňte řádky tabulky v požadovaném pořadí.
 
-**Mohu mít pruhované (proužkované) sloupce a zároveň zachovat vlastní barvy v konkrétních buňkách?**
+**Mohu mít proužkované (pruhované) sloupce a zároveň zachovat vlastní barvy konkrétních buněk?**
 
-Ano. Zapněte pruhované sloupce, poté přepište konkrétní buňky místním formátováním; formátování na úrovni buňky má přednost před stylem tabulky.
+Ano. Zapněte proužkované sloupce a poté přepište konkrétní buňky lokálním formátováním; formátování na úrovni buňky má přednost před stylem tabulky.

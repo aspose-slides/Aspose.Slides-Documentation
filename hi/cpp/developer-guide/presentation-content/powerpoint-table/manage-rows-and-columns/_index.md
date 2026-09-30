@@ -1,299 +1,358 @@
 ---
-title: C++ का उपयोग करके PowerPoint तालिकाओं में पंक्तियों और स्तंभों का प्रबंधन
-linktitle: पंक्तियाँ और स्तंभ
+title: "C++ का उपयोग करके PowerPoint तालिकाओं में पंक्तियों और कॉलम को प्रबंधित करें"
+linktitle: "पंक्तियाँ और कॉलम"
 type: docs
 weight: 20
 url: /hi/cpp/manage-rows-and-columns/
 keywords:
 - तालिका पंक्ति
-- तालिका स्तंभ
+- तालिका कॉलम
 - पहली पंक्ति
 - तालिका हेडर
-- पंक्ति क्लोन
-- स्तंभ क्लोन
-- पंक्ति कॉपी
-- स्तंभ कॉपी
+- पंक्ति क्लोन करें
+- कॉलम क्लोन करें
+- पंक्ति कॉपी करें
+- कॉलम कॉपी करें
 - पंक्ति हटाएँ
-- स्तंभ हटाएँ
-- पंक्ति पाठ स्वरूपण
-- स्तंभ पाठ स्वरूपण
+- कॉलम हटाएँ
+- पंक्ति पाठ फ़ॉर्मेटिंग
+- कॉलम पाठ फ़ॉर्मेटिंग
 - तालिका शैली
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ PowerPoint में तालिका पंक्तियों और स्तंभों का प्रबंधन करें और प्रस्तुति संपादन व डेटा अद्यतन को तेज़ बनाएं।"
+description: "Aspose.Slides for C++ के साथ PowerPoint में तालिका पंक्तियों और कॉलम को प्रबंधित करें और प्रस्तुति संपादन और डेटा अपडेट को तेज़ करें।"
 ---
 ## **परिचय**
 
-PowerPoint प्रस्तुति में तालिका की पंक्तियों और स्तंभों को प्रबंधित करने के लिए, Aspose.Slides [Table](https://reference.aspose.com/slides/hi/cpp/aspose.slides/table/) वर्ग, [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) इंटरफ़ेस और कई अन्य प्रकार प्रदान करता है।
+Aspose.Slides for C++ आपको PowerPoint प्रस्तुतियों में तालिका संरचना और फ़ॉर्मेटिंग को [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) क्लास और [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) इंटरफ़ेस के माध्यम से प्रबंधित करने देता है। आप हेडर पंक्ति निर्दिष्ट कर सकते हैं, पंक्तियों और कॉलम को क्लोन या हटाया जा सकता है, और पूरे पंक्ति या कॉलम पर पाठ फ़ॉर्मेटिंग लागू कर सकते हैं।
 
-## **पहली पंक्ति को हेडर के रूप में सेट करें**
+यह लेख इन ऑपरेशनों को C++ उदाहरणों के साथ समझाता है। यह भी दिखाता है कि तालिका की शैली प्रीसेट को कैसे प्राप्त किया जाए ताकि आप उसे पुनः उपयोग कर सकें। तालिका पंक्ति और कॉलम सूचकांक शून्य‑आधारित होते हैं।
 
-1. Presentation वर्ग का एक उदाहरण बनाएं और प्रस्तुति लोड करें।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. ITable ऑब्जेक्ट बनाएं और इसे null पर सेट करें।  
-4. सभी IShape ऑब्जेक्ट्स पर इटरेट करके संबंधित तालिका खोजें।  
-5. तालिका की पहली पंक्ति को उसका हेडर सेट करें।  
+## **पंक्ति की ऊँचाई नियंत्रित करें**
 
-यह C++ कोड दिखाता है कि तालिका की पहली पंक्ति को हेडर के रूप में कैसे सेट करें:
+[IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) का उपयोग करके पंक्ति की न्यूनतम ऊँचाई बिंदुओं में सेट करें। यह एक निचली सीमा है, न कि स्थिर ऊँचाई। [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) वास्तविक ऊँचाई लौटाता है; इस मान को सीधे सेट नहीं किया जा सकता। पंक्ति तक पहुँचने के लिए [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/) का उपयोग करें।
 
-```c++
-// Presentation क्लास का इंस्टेंस बनाता है 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+उदाहरण में [row-height-input.pptx](row-height-input.pptx) लोड किया जाता है, जिसमें पहली स्लाइड पर पहली आकृति के रूप में एक तालिका होती है। इसकी पहली पंक्ति 70 बिंदु से शुरू होती है। कोशिकाएँ 18‑बिंदु Arial पाठ, रैपिंग, और 6‑बिंदु शीर्ष व नीचे मार्जिन का उपयोग करती हैं; दूसरे कॉलम में लंबा पाठ कई पंक्तियों में रैप होता है। उदाहरण न्यूनतम को 100 बिंदु बढ़ाता है, फिर 20 बिंदु तक घटाता है, प्रत्येक परिवर्तन के बाद वास्तविक ऊँचाई प्रिंट करता है, और दोनों परिणाम सहेजता है।
 
-// पहली स्लाइड तक पहुँचता है
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// null TableEx को इनिशियलाइज़ करता है
-SharedPtr<ITable> tbl;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// शेप्स के माध्यम से इटरिट करता है और तालिका का रेफ़रेंस सेट करता है
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// तालिका की पहली पंक्ति को उसका हेडर सेट करता है 
-tbl->set_FirstRow(true);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका की पंक्ति या स्तंभ को क्लोन करें**
+प्रदान किए गए प्रस्तुति के साथ, न्यूनतम बढ़ाने से पंक्ति में स्थान जोड़ता है। घटाने से वह अतिरिक्त स्थान हट जाता है, लेकिन वास्तविक ऊँचाई 20 बिंदु से अधिक रहती है क्योंकि पाठ और कोशिका मार्जिन को अधिक जगह की आवश्यकता होती है। केवल न्यूनतम को घटाने से पंक्ति को उसकी सामग्री द्वारा आवश्यक स्थान से नीचे नहीं धकेला जा सकता।
 
-1. Presentation वर्ग का एक उदाहरण बनाएं और प्रस्तुति लोड करें,  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. `columnWidth` का एक array परिभाषित करें।  
-4. `rowHeight` का एक array परिभाषित करें।  
-5. स्लाइड में [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट को [AddTable()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addtable/) मेथड से जोड़ें।  
-6. तालिका की पंक्ति को क्लोन करें।  
-7. तालिका के स्तंभ को क्लोन करें।  
-8. संशोधित प्रस्तुति को सहेजें।  
+वास्तविक ऊँचाई को प्रभावित करने वाले कई कारक:
 
-यह C++ कोड दिखाता है कि PowerPoint तालिका की पंक्ति या स्तंभ को कैसे क्लोन करें:
+- **पाठ और फ़ॉन्ट आकार:** लंबा पाठ, स्पष्ट लाइन ब्रेक, या बड़ा फ़ॉन्ट अधिक ऊर्ध्वाधर स्थान की आवश्यकता कर सकता है।
+- **रैपिंग और कॉलम चौड़ाई:** रैपिंग सक्षम होने पर, [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) के साथ कॉलम चौड़ाई घटाने से अधिक पंक्तियाँ बन सकती हैं। व्यापक कॉलम ऊर्ध्वाधर स्थान की जरूरत को कम कर सकता है।
+- **कोशिका मार्जिन:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) और [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) मार्जिन नियंत्रित करते हैं जो ऊर्ध्वाधर जगह जोड़ते हैं। [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) और [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) मार्जिन नियंत्रित करते हैं जो पाठ के लिए उपलब्ध चौड़ाई घटाते हैं और अतिरिक्त रैपिंग का कारण बन सकते हैं।
 
-```c++
- // दस्तावेज़ डायरेक्टरी का पथ।
-const String outPath = u"../out/CloningInTable_out.pptx";
+इस तालिका में कोई मिश्रित कोशिकाएँ नहीं हैं, इसलिए सबसे अधिक ऊर्ध्वाधर स्थान वाली कोशिका पूरी पंक्ति के लिए सामग्री‑निर्धारित निचली सीमा निर्धारित करती है। पंक्ति को छोटा करने के लिए, आपको पाठ को छोटा करना, फ़ॉन्ट आकार या मार्जिन घटाना, या कॉलम को चौड़ा करना पड़ सकता है।
 
-// Presentation क्लास का इंस्टेंस बनाता है
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+नीचे दिखाए गए चित्र समान तालिका को समान माप में प्रदर्शित करते हैं। यहाँ प्रदर्शित .NET रन में वास्तविक ऊँचाइयाँ क्रमशः 70, 100 और 55.2 बिंदु थीं: अंतिम पंक्ति अपने 20‑बिंदु न्यूनतम से अधिक लंबी रही। सटीक पाठ माप आपके वातावरण में उपलब्ध फ़ॉन्ट्स के अनुसार बदल सकता है। सहेजे गए परिणाम डाउनलोड करें: [increased minimum](row-height-increased.pptx) और [decreased minimum](row-height-decreased.pptx)。
 
-// पहली स्लाइड तक पहुँचता है
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+| मूल: न्यूनतम 70 pt, वास्तविक 70 pt | बढ़ाया: न्यूनतम 100 pt, वास्तविक 100 pt | घटाया: न्यूनतम 20 pt, वास्तविक 55.2 pt |
+| --- | --- | --- |
+| ![मूल तालिका जिसमें 70‑बिंदु की पहली पंक्ति है.](row-height-before.png) | ![पहली पंक्ति का न्यूनतम 100 बिंदु करने के बाद तालिका.](row-height-increased.png) | ![पहली पंक्ति का न्यूनतम 20 बिंदु करने के बाद तालिका; रैप किया गया पाठ पंक्ति को न्यूनतम से अधिक ऊँचा रखता है.](row-height-decreased.png) |
 
-// स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+## **पहली पंक्ति को हेडर रूप में सेट करें**
 
-// स्लाइड में एक टेबल शेप जोड़ता है
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+पहली पंक्ति को हेडर फ़ॉर्मेटिंग के लिए चिह्नित करने हेतु [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) मेथड का उपयोग करें। इसका स्वरूप तालिका पर लागू तालिका शैली पर निर्भर करता है।
 
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास से प्रस्तुति लोड करें।  
+2. पहली स्लाइड तक पहुँचें।  
+3. स्लाइड पर पहली आकृति के रूप में संग्रहीत तालिका तक पहुँचें।  
+4. उसकी पहली पंक्ति के लिए हेडर फ़ॉर्मेटिंग सक्षम करें।  
+5. संशोधित प्रस्तुति सहेजें।
 
-// प्रत्येक सेल के लिए बॉर्डर फॉर्मेट सेट करता है
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
+उदाहरण में `table.pptx` आवश्यक है जिसमें पहली स्लाइड पर पहली आकृति के रूप में एक तालिका हो। यह पहली पंक्ति के लिए हेडर फ़ॉर्मेटिंग सक्षम करता है और `First_row_header.pptx` सहेजता है।
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
 
-	}
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
-}
+## **तालिका पंक्ति या कॉलम को क्लोन करें**
 
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
+पंक्तियों या कॉलम को क्लोन करके उनकी सामग्री और फ़ॉर्मेटिंग को पुनः उपयोग करें। आप कॉपी को तालिका के अंत में जोड़ सकते हैं या किसी विशिष्ट स्थिति में डाल सकते हैं।
 
-// AddClone तालिका के अंत में एक पंक्ति जोड़ता है
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास से प्रस्तुति लोड करें।  
+2. पहली स्लाइड तक पहुँचें।  
+3. कॉलम चौड़ाई और पंक्ति ऊँचाई निर्धारित करें।  
+4. [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) मेथड से तालिका जोड़ें।  
+5. आवश्यक पंक्तियों को क्लोन करें।  
+6. आवश्यक कॉलम को क्लोन करें।  
+7. संशोधित प्रस्तुति सहेजें।
+
+उदाहरण में `Test.pptx` आवश्यक है जिसमें कम से कम एक स्लाइड हो। यह तीन कॉलम और पाँच पंक्तियों वाली तालिका बनाता है, बिंदुओं में निर्दिष्ट आयामों के साथ। यह पहली पंक्ति और कॉलम के प्रतिलिपियों को अंत में जोड़ता है, फिर दूसरी पंक्ति और कॉलम की प्रतिलिपियों को इंडेक्स 3 (चौथा स्थान) पर डालता है। परिणामी तालिका में सात पंक्तियाँ और पाँच कॉलम होते हैं। `false` तर्क संयोजित/मर्ज्ड पंक्तियों या कॉलमों में क्लोनिंग को निष्क्रिय करता है; इस तालिका में कोई मर्ज्ड कोशिकाएँ नहीं हैं।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-// InsertClone तालिका में एक विशिष्ट स्थिति पर पंक्ति जोड़ता है
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-// AddClone तालिका के अंत में एक स्तंभ जोड़ता है
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-// InsertClone तालिका में एक विशिष्ट स्थिति पर स्तंभ जोड़ता है
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// प्रस्तुति को डिस्क पर सहेजता है
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका से पंक्ति या स्तंभ हटाएँ**
+## **तालिका से पंक्ति या कॉलम हटाएँ**
 
-1. Presentation वर्ग का एक उदाहरण बनाएं और प्रस्तुति लोड करें,  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. `columnWidth` का एक array परिभाषित करें।  
-4. `rowHeight` का एक array परिभाषित करें।  
-5. स्लाइड में [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट को [AddTable()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addtable/) मेथड से जोड़ें।  
-6. तालिका की पंक्ति को हटाएँ।  
-7. तालिका के स्तंभ को हटाएँ।  
-8. संशोधित प्रस्तुति को सहेजें।  
+तालिका में अब आवश्यकता न रही पंक्तियों या कॉलमों को हटाएँ। किसी आइटम को हटाने से उसके बाद वाली पंक्तियों या कॉलमों के सूचकांक शिफ्ट हो जाते हैं।
 
-यह C++ कोड दिखाता है कि तालिका से पंक्ति या स्तंभ कैसे हटाएँ:
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास से प्रस्तुति बनाएँ।  
+2. पहली स्लाइड तक पहुँचें।  
+3. कॉलम चौड़ाई और पंक्ति ऊँचाई निर्धारित करें।  
+4. [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) मेथड से तालिका जोड़ें।  
+5. दूसरी पंक्ति और दूसरा कॉलम हटाएँ।  
+6. संशोधित प्रस्तुति सहेजें।
 
-```c++
-// दस्तावेज़ डायरेक्टरी का पथ।
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+यह उदाहरण तीन‑बाय‑तीन तालिका बनाता है और इंडेक्स 1 पर पंक्ति और कॉलम हटाता है, जिससे `TestTable_out.pptx` में दो‑बाय‑दो तालिका बचती है। आयाम बिंदुओं में हैं। `false` तर्क निकटवर्ती मर्ज्ड पंक्तियों या कॉलमों के हटाने को निष्क्रिय करता है; इस तालिका में कोई मर्ज्ड कोशिकाएँ नहीं हैं।
 
-// Presentation क्लास का इंस्टेंस बनाता है
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// पहली स्लाइड तक पहुँचता है
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// स्तंभों को चौड़ाइयों और पंक्तियों को ऊँचाइयों के साथ परिभाषित करता है
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// स्लाइड में एक टेबल आकार जोड़ता है
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// सेल्स (1, 1) x (2, 1) को मिलाता है
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// सेल्स (1, 2) x (2, 2) को मिलाता है
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// प्रेजेंटेशन को डिस्क पर सहेजता है
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका पंक्ति स्तर पर टेक्स्ट फॉर्मेटिंग सेट करें**
+## **तालिका पंक्ति स्तर पर पाठ फ़ॉर्मेटिंग सेट करें**
 
-1. Presentation वर्ग का एक उदाहरण बनाएं और प्रस्तुति लोड करें,  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. स्लाइड से संबंधित [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट तक पहुँचें।  
-4. पहली पंक्ति की कोशिकाओं के लिए [set_FontHeight()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/baseportionformat/set_fontheight/) सेट करें।  
-5. पहली पंक्ति की कोशिकाओं के लिए [set_Alignment()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_alignment/) और [set_MarginRight()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_marginright/) सेट करें।  
-6. दूसरी पंक्ति की कोशिकाओं के लिए [set_TextVerticalType()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textframeformat/set_textverticaltype/) सेट करें।  
-7. संशोधित प्रस्तुति को सहेजें।  
+पूरी पंक्ति पर पाठ फ़ॉर्मेटिंग लागू करें ताकि उसकी कोशिकाएँ समान रहें। आप फ़ॉन्ट गुण, पैराग्राफ फ़ॉर्मेटिंग, और पाठ दिशा सेट कर सकते हैं बिना प्रत्येक कोशिका को अलग‑अलग फ़ॉर्मेट किए।
 
-यह C++ कोड इस ऑपरेशन को दर्शाता है:
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास से प्रस्तुति लोड करें।  
+2. पहली स्लाइड पर तालिका तक पहुँचें।  
+3. पहली पंक्ति के लिए [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) द्वारा फ़ॉन्ट ऊँचाई सेट करें।  
+4. पहली पंक्ति के लिए [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) और [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) के साथ संरेखण और दायाँ पैराग्राफ मार्जिन सेट करें।  
+5. दूसरी पंक्ति के लिए [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) द्वारा पाठ दिशा सेट करें।  
+6. संशोधित प्रस्तुति सहेजें।
 
-```c++
-// Presentation क्लास का इंस्टेंस बनाता है
-auto presentation = System::MakeObject<Presentation>();
+उदाहरण में `table.pptx` आवश्यक है जिसमें पहली स्लाइड पर पहली आकृति के रूप में एक तालिका हो और कम से कम दो पंक्तियाँ हों। यह पहली पंक्ति पर 25‑बिंदु पाठ, दायाँ संरेखण, और 20‑बिंदु दायाँ पैराग्राफ मार्जिन लागू करता है, फिर दूसरी पंक्ति में लंबवत पाठ सेट करता है।
 
-auto slide = presentation->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// मान लेते हैं कि पहली स्लाइड पर पहला शेप एक टेबल है
-// पहली पंक्ति की कोशिकाओं की फ़ॉन्ट ऊँचाई सेट करता है
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// पहली पंक्ति की कोशिकाओं के टेक्स्ट संरेखण और दाएँ मार्जिन को सेट करता है
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// दूसरी पंक्ति की कोशिकाओं के टेक्स्ट वर्टिकल प्रकार को सेट करता है
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// प्रेजेण्टेशन को डिस्क पर सहेजता है
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका स्तंभ स्तर पर टेक्स्ट फॉर्मेटिंग सेट करें**
+## **तालिका कॉलम स्तर पर पाठ फ़ॉर्मेटिंग सेट करें**
 
-1. Presentation वर्ग का एक उदाहरण बनाएं और प्रस्तुति लोड करें,  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. स्लाइड से संबंधित [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट तक पहुँचें।  
-4. पहली स्तंभ की कोशिकाओं के लिए [set_FontHeight()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/baseportionformat/set_fontheight/) सेट करें।  
-5. पहली स्तंभ की कोशिकाओं के लिए [set_Alignment()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_alignment/) और [set_MarginRight()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_marginright/) सेट करें।  
-6. दूसरी स्तंभ की कोशिकाओं के लिए [set_TextVerticalType()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textframeformat/set_textverticaltype/) सेट करें।  
-7. संशोधित प्रस्तुति को सहेजें।  
+पूरे कॉलम पर पाठ फ़ॉर्मेटिंग लागू करें ताकि उसकी कोशिकाएँ समान रहें। आप फ़ॉन्ट गुण, पैराग्राफ फ़ॉर्मेटिंग, और पाठ दिशा सेट कर सकते हैं बिना प्रत्येक कोशिका को अलग‑अलग फ़ॉर्मेट किए।
 
-यह C++ कोड इस ऑपरेशन को दर्शाता है:
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास से प्रस्तुति लोड करें।  
+2. पहली स्लाइड पर तालिका तक पहुँचें।  
+3. पहली कॉलम के लिए [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) द्वारा फ़ॉन्ट ऊँचाई सेट करें।  
+4. पहली कॉलम के लिए [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) और [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) के साथ संरेखण और दायाँ पैराग्राफ मार्जिन सेट करें।  
+5. दूसरी कॉलम के लिए [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) द्वारा पाठ दिशा सेट करें।  
+6. संशोधित प्रस्तुति सहेजें।
 
-```c++
-// Presentation क्लास का इंस्टेंस बनाता है
-auto pres = System::MakeObject<Presentation>();
+उदाहरण में `table.pptx` आवश्यक है जिसमें पहली स्लाइड पर पहली आकृति के रूप में एक तालिका हो और कम से कम दो कॉलम हों। यह पहली कॉलम पर 25‑बिंदु पाठ, दायाँ संरेखण, और 20‑बिंदु दायाँ पैराग्राफ मार्जिन लागू करता है, फिर दूसरी कॉलम में लंबवत पाठ सेट करता है।
 
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// मान लेते हैं कि पहली स्लाइड पर पहला शेप एक टेबल है
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// पहली कॉलम की कोशिकाओं की फ़ॉन्ट ऊँचाई सेट करता है
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// एक कॉल में पहली कॉलम की कोशिकाओं के टेक्स्ट संरेखण और दाएँ मार्जिन को सेट करता है
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// दूसरी कॉलम की कोशिकाओं के टेक्स्ट वर्टिकल प्रकार को सेट करता है
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
 
 ## **तालिका शैली गुण प्राप्त करें**
 
-Aspose.Slides आपको तालिका के शैली गुण प्राप्त करने की अनुमति देता है ताकि आप उन विवरणों को किसी अन्य तालिका या अन्य स्थान पर उपयोग कर सकें। यह C++ कोड दिखाता है कि तालिका प्रीसेट शैली से शैली गुण कैसे प्राप्त करें:
+[get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) मेथड का उपयोग करके तालिका पर लागू प्रीसेट प्राप्त करें और उसे दूसरी तालिका पर पुनः उपयोग करें। यह व्यक्तिगत कोशिका फ़ॉर्मेट ओवरराइड के बजाय प्रीसेट की पहचान करता है।
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+उदाहरण एक तालिका बनाता है, [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) लागू करता है, और प्रीसेट को वापस पढ़ता है। यह `DarkStyle1` प्रिंट करता है और तालिका को `table.pptx` में सहेजता है।
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं पहले से बनाई गई तालिका पर PowerPoint थीम/शैलियों को लागू कर सकता हूँ?**
+**क्या मैं पहले से बनी तालिका पर PowerPoint थीम/शैलियों को लागू कर सकता हूँ?**
 
-हाँ। तालिका स्लाइड/लेआउट/मास्टर थीम को विरासत में लेती है, और आप फिर भी उस थीम के ऊपर फ़िल, बॉर्डर और टेक्स्ट रंगों को ओवरराइड कर सकते हैं।
+हां। तालिका स्लाइड/लेआउट/मास्टर थीम को विरासत में लेती है, और आप अभी भी फ़िल, बॉर्डर, और पाठ रंगों को उस थीम के ऊपर ओवरराइट कर सकते हैं।
 
-**क्या मैं Excel की तरह तालिका पंक्तियों को क्रमबद्ध कर सकता हूँ?**
+**क्या मैं Excel की तरह तालिका पंक्तियों को सॉर्ट कर सकता हूँ?**
 
-नहीं, Aspose.Slides तालिकाओं में अंतर्निहित क्रमबद्धता या फ़िल्टर नहीं होते। पहले डेटा को मेमोरी में क्रमबद्ध करें, फिर उस क्रम के अनुसार तालिका पंक्तियों को पुनः भरें।
+नहीं, Aspose.Slides तालिकाओं में अंतर्निर्मित सॉर्टिंग या फ़िल्टर नहीं होते। पहले डेटा को मेमोरी में सॉर्ट करें, फिर उसी क्रम में तालिका पंक्तियों को पुनः भरें।
 
-**क्या मैं बैंडेड (धारीदार) स्तंभ रख कर विशिष्ट कोशिकाओं पर कस्टम रंग रख सकता हूँ?**
+**क्या मैं बैंडेड (धारीदार) कॉलम रख सकता हूँ जबकि विशिष्ट कोशिकाओं पर कस्टम रंग बनाये रखूँ?**
 
-हाँ। बैंडेड स्तंभ को सक्षम करें, फिर विशिष्ट कोशिकाओं को स्थानीय फॉर्मेटिंग से ओवरराइड करें; कोशिका‑स्तर की फॉर्मेटिंग तालिका शैली पर प्राथमिकता लेती है।
+हां। बैंडेड कॉलम सक्षम करें, फिर विशिष्ट कोशिकाओं को स्थानीय फ़ॉर्मेटिंग से ओवरराइट करें; कोशिका‑स्तर की फ़ॉर्मेटिंग तालिका शैली पर प्राथमिकता लेती है।
+
+{{end}}

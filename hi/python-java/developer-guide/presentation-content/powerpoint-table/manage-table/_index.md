@@ -1,6 +1,6 @@
 ---
 title: Python में प्रस्तुति तालिकाओं का प्रबंधन
-linktitle: तालिका प्रबंधित करें
+linktitle: तालिका प्रबंधन
 type: docs
 weight: 10
 url: /hi/python-java/manage-table/
@@ -8,36 +8,38 @@ keywords:
 - तालिका जोड़ें
 - तालिका बनाएं
 - तालिका तक पहुंचें
-- अस्पेक्ट अनुपात
-- पाठ संरेखित करें
-- पाठ स्वरूपण
+- आस्पेक्ट अनुपात
+- टेक्स्ट संरेखित करें
+- टेक्स्ट स्वरूपण
 - तालिका शैली
 - PowerPoint
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ PowerPoint स्लाइड्स में तालिकाएँ बनाएं और संपादित करें। अपने तालिका कार्यप्रवाह को सहज बनाने के लिए सरल कोड उदाहरण खोजें।"
+description: "Aspose.Slides for Python via Java के साथ PowerPoint स्लाइड्स में तालिकाएँ बनाएं और संपादित करें। अपनी तालिका कार्यप्रवाह को सुव्यवस्थित करने के लिए सरल कोड उदाहरण खोजें।"
 ---
 ## **परिचय**
 
-PowerPoint में एक तालिका जानकारी प्रदर्शित करने का एक प्रभावी तरीका है। कोशिकाओं की ग्रिड में (पंक्तियों और स्तंभों में व्यवस्थित) जानकारी सीधी और समझने में आसान है।
+PowerPoint में तालिकाएँ जानकारी को पंक्तियों और स्तंभों में व्यवस्थित करती हैं, जिससे मान पढ़ना और तुलना करना आसान हो जाता है।
 
-Aspose.Slides एक [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) क्लास, [Cell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/cell/) क्लास, और अन्य प्रकार प्रदान करता है जिससे आप विभिन्न प्रकार की प्रस्तुतियों में तालिकाएँ बना, अपडेट और प्रबंधित कर सकते हैं।
+Aspose.Slides निम्नलिखित [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) और [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) क्लास और अन्य प्रकार प्रदान करता है जिससे आप प्रस्तुतियों में तालिकाएँ बना, अपडेट और प्रबंधित कर सकते हैं।
 
-## **शुरुआत से तालिका बनाना**
+## **शुरू से तालिका बनाना**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास की नई उदाहरण बनाएँ।
+एक तालिका बनाते समय उसकी स्थिति, स्तंभ की चौड़ाई, और पंक्ति की ऊँचाई निर्दिष्ट की जाती है। इसे स्लाइड में जोड़ने के बाद आप सेल की सीमाओं को स्वरूपित कर सकते हैं, सेल्स को मर्ज कर सकते हैं, और टेक्स्ट डाल सकते हैं।
+
+1. एक [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
 2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
-3. कॉलम चौड़ाइयों की सूची निर्धारित करें।
-4. पंक्ति ऊँचाइयों की सूची निर्धारित करें।
-5. स्लाइड में एक [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) ऑब्जेक्ट को [addTable](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/#addTable) मेथड के माध्यम से जोड़ें।
-6. प्रत्येक [Cell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/cell/) पर इटरेट करके शीर्ष, नीचे, दाएँ और बाएँ किनारों पर स्वरूपण लागू करें।
-7. तालिका की पहली पंक्ति की पहले दो कोशिकाओं को मिलाएँ।
-8. [Cell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/cell/) के [TextFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/) तक पहुँचें।
-9. [TextFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/) में कुछ टेक्स्ट जोड़ें।
+3. पॉइंट में स्तंभ की चौड़ाई की सूची परिभाषित करें।
+4. पॉइंट में पंक्ति की ऊँचाई की सूची परिभाषित करें।
+5. स्लाइड में एक [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) वस्तु को [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) मेथड के माध्यम से जोड़ें।
+6. प्रत्येक [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) पर इटरैट करके उनके ऊपर, नीचे, दाएँ और बाएँ सीमा का स्वरूप लागू करें।
+7. तालिका की पहली पंक्ति के पहले दो सेल्स को मर्ज करें।
+8. मर्ज किए गए सेल को उसके [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) मेथड के माध्यम से एक्सेस करें।
+9. मर्ज किए गए सेल में टेक्स्ट सेट करें।
 10. संशोधित प्रस्तुति को सहेजें।
 
-यह Python कोड दर्शाता है कि प्रस्तुति में तालिका कैसे बनानी है:
+नीचे दिया गया उदाहरण तीन स्तंभ और पाँच पंक्तियों वाली तालिका (100, 50) पॉइंट पर बनाता है। यह 5 पॉइंट चौड़ी लाल सीमाएँ लागू करता है, पहली पंक्ति के पहले दो सेल्स को मर्ज करता है, और परिणाम को `table.pptx` के रूप में सहेजता है।
 
 ```python
 import jpype
@@ -49,21 +51,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
 presentation = Presentation()
 try:
-
-    # पहली स्लाइड तक पहुँचता है
     slide = presentation.getSlides().get_Item(0)
 
-    # कॉलमों की चौड़ाइयों और पंक्तियों की ऊँचाइयों को परिभाषित करता है
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # स्लाइड पर एक तालिका आकार जोड़ता है
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # प्रत्येक कोशिका के लिए बॉर्डर फ़ॉर्मेट सेट करता है
     for row in table.getRows():
         for cell in row:
             cell_format = cell.getCellFormat()
@@ -80,23 +75,19 @@ try:
             cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
             cell_format.getBorderRight().setWidth(5)
 
-    # पंक्ति 1 की सेल 1 और 2 को मिलाता है
-    table.mergeCells(table.getRows().get_Item(0).get_Item(0), table.getRows().get_Item(0).get_Item(1), False)
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), False)
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells")
 
-    # मर्ज की गई सेल में कुछ टेक्स्ट जोड़ता है
-    table.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells")
-
-    # प्रस्तुति को डिस्क पर सहेजता है
     presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **मानक तालिका में क्रमांकण**
+## **मानक तालिका में क्रमांकन**
 
-मानक तालिका में, कोशिकाओं का क्रमांकण सरल और शून्य-आधारित होता है। तालिका की पहली कोशिका को 0,0 (कॉलम 0, पंक्ति 0) के रूप में अनुक्रमित किया जाता है।
+एक मानक तालिका में, सेल इंडेक्स शून्य-आधारित होते हैं और क्रम (स्तंभ, पंक्ति) का उपयोग करते हैं। पहला सेल (0, 0) के रूप में इंडेक्स किया जाता है।
 
-उदाहरण के लिए, 4 कॉलम और 4 पंक्तियों वाली तालिका में कोशिकाएँ इस प्रकार क्रमांकित की जाती हैं:
+उदाहरण के लिए, 4 स्तंभ और 4 पंक्तियों वाली तालिका में सेल्स इस प्रकार क्रमांकित किए जाते हैं:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -104,7 +95,7 @@ finally:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-यह Python कोड दर्शाता है कि मानक सेल क्रमांकण के साथ तालिका कैसे बनानी है:
+यह उदाहरण ऊपर दर्शाए गए 4 × 4 तालिका को बनाता है, जिसमें स्तंभ चौड़ाई और पंक्ति ऊँचाई 70 पॉइंट है और लाल सेल सीमाएँ 5 पॉइंट की हैं। निर्देशांक सेल इंडेक्स दिखाते हैं; उदाहरण सेल्स को खाली छोड़ता है और तालिका को `StandardTables_out.pptx` के रूप में सहेजता है।
 
 ```python
 import jpype
@@ -116,54 +107,46 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
 presentation = Presentation()
 try:
-
-    # पहली स्लाइड तक पहुँचता है
     slide = presentation.getSlides().get_Item(0)
 
-    # कॉलम की चौड़ाइयाँ और पंक्तियों की ऊँचाइयाँ परिभाषित करता है
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # स्लाइड में एक तालिका आकार जोड़ता है
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # प्रत्येक सेल के लिए बॉर्डर फ़ॉर्मेट सेट करता है
     for row in table.getRows():
         for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
+            cell_format = cell.getCellFormat()
+            cell_format.getBorderTop().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderTop().setWidth(5)
+            cell_format.getBorderBottom().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderBottom().setWidth(5)
+            cell_format.getBorderLeft().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderLeft().setWidth(5)
+            cell_format.getBorderRight().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderRight().setWidth(5)
 
-    # प्रस्तुति को डिस्क पर सहेजता है
     presentation.save("StandardTables_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **मौजूदा तालिका तक पहुँचें**
+## **मौजूदा तालिका तक पहुँच**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास की नई उदाहरण बनाएँ।
-2. इंडेक्स के माध्यम से तालिका वाली स्लाइड का संदर्भ प्राप्त करें।
-3. [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) ऑब्जेक्ट के लिए एक वेरिएबल प्रारंभ करें और इसे `None` सेट करें।
-4. सभी [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) ऑब्जेक्ट्स पर इटरेट करें जब तक तालिका नहीं मिलती।
+तालिकाएँ स्लाइड के शेप संग्रह में संग्रहीत होती हैं। शेप्स के माध्यम से इटरैट करके तालिका खोजें, फिर उसके सेल्स को पढ़ने या अपडेट करने के लिए [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) क्लास का उपयोग करें।
 
-   यदि आपको संदेह है कि जिस स्लाइड को आप देख रहे हैं वह केवल एक तालिका रखती है, तो आप उसमें मौजूद सभी शेप्स को सरलता से जांच सकते हैं। जब कोई शेप तालिका के रूप में पहचाना जाता है, तो आप इसे एक [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) ऑब्जेक्ट के रूप में उपयोग कर सकते हैं। लेकिन यदि उस स्लाइड में कई तालिकाएँ हैं, तो आप अपनी आवश्यक तालिका को उसके [getAlternativeText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getAlternativeText) के माध्यम से खोजना बेहतर है।
-5. तालिका के साथ काम करने के लिए [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) ऑब्जेक्ट का उपयोग करें। नीचे के उदाहरण में, हम दूसरी पंक्ति के पहले कॉलम में टेक्स्ट को अपडेट करते हैं।
-6. संशोधित प्रस्तुति को सहेजें।
+1. प्रस्तुति को [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) क्लास का उपयोग करके लोड करें।
+2. इंडेक्स द्वारा तालिका वाली स्लाइड का संदर्भ प्राप्त करें।
+3. सभी [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) वस्तुओं के माध्यम से इटरैट करें और जब तालिका मिले तो रुकें। यदि स्लाइड में कई तालिकाएँ हों, तो आवश्यक तालिका पहचानने के लिए [getAlternativeText](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getAlternativeText) का उपयोग करें।
+4. लक्षित सेल में टेक्स्ट अपडेट करें।
+5. संशोधित प्रस्तुति को सहेजें।
 
-यह Python कोड दर्शाता है कि मौजूदा तालिका तक कैसे पहुँचा जाए और उसके साथ कैसे काम किया जाए:
+नीचे दिया गया उदाहरण `UpdateExistingTable.pptx` खोलता है और पहले स्लाइड पर पहली तालिका खोजता है। यह कॉलम 0, पंक्ति 1 के सेल को `New` सेट करता है और परिणाम को `table1_out.pptx` के रूप में सहेजता है। इनपुट में कम से कम एक स्लाइड होनी चाहिए, और उस स्लाइड की पहली तालिका में कम से कम एक स्तंभ और दो पंक्तियाँ होनी चाहिए।
 
 ```python
 import jpype
@@ -174,49 +157,47 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, Table
 
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
 presentation = Presentation("UpdateExistingTable.pptx")
 try:
-
-    # पहली स्लाइड तक पहुँचता है
     slide = presentation.getSlides().get_Item(0)
 
-    # टेबल संदर्भ को प्रारंभ करता है।
     table = None
 
-    # शेप्स के माध्यम से इटरेट करता है और मिलने वाली तालिका का संदर्भ सेट करता है
     for shape in slide.getShapes():
         if isinstance(shape, Table):
             table = shape
+            break
 
-            # दूसरी पंक्ति के पहले कॉलम के टेक्स्ट को सेट करता है
-            table.get_Item(0, 1).getTextFrame().setText("New")
-
-    # परिवर्तित प्रस्तुति को डिस्क पर सहेजता है
-    presentation.save("table1_out.pptx", SaveFormat.Pptx)
+    if table is not None:
+        table.get_Item(0, 1).getTextFrame().setText("New")
+        presentation.save("table1_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **ऐसे सेल को खोजें जो टेक्स्ट फ्रेम का मालिक है**
+[पंक्ति की ऊँचाई नियंत्रित करना](/slides/hi/python-java/manage-rows-and-columns/#control-row-height) के बारे में देखें ताकि मौजूदा तालिका की पंक्ति का आकार बदला जा सके और यह समझा जा सके कि वास्तविक ऊँचाई अनुरोधित न्यूनतम से अधिक क्यों हो सकती है।
 
-जब सामान्य टेक्स्ट-प्रोसेसिंग कोड को तालिका से एक [TextFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/) प्राप्त होता है, तो मालिक [Cell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/cell/) को प्राप्त करने के लिए [TextFrame.getParentCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/#getParentCell) मेथड का उपयोग करें। तालिका-सेल टेक्स्ट फ्रेम के लिए, [TextFrame.getParentCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/#getParentCell) मालिक को लौटाता है और [TextFrame.getParentShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/#getParentShape) `None` लौटाता है, हालांकि तालिका स्वयं एक शेप है।
+## **टेक्स्ट फ़्रेम वाला सेल खोजें**
 
-सेल कॉर्डिनेट्स को पढ़ने-केवल वाले [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/hi/python-java/aspose.slides/cell/#getFirstColumnIndex) और [Cell.getFirstRowIndex](https://reference.aspose.com/slides/hi/python-java/aspose.slides/cell/#getFirstRowIndex) मेथड्स के माध्यम से प्राप्त किया जा सकता है। [TextFrame.getParentCell](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/#getParentCell) पढ़ने-केवल नेविगेशन भी प्रदान करता है: यह मालिक को लौटाता है लेकिन स्वामित्व नहीं बदलता। उपयोग करने से पहले हमेशा लौटाए गए सेल की `None` जाँच करें।
+जब सामान्य टेक्स्ट-प्रोसेसिंग कोड को तालिका से एक [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) मिलता है, तो स्वामित्व वाला [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) प्राप्त करने के लिए [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) मेथड का उपयोग करें। एक तालिका-सेल टेक्स्ट फ़्रेम के लिए, [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) मालिक लौटाता है और [TextFrame.getParentShape](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentShape) `None` लौटाता है, भले ही तालिका स्वयं एक शेप हो।
 
-एक पूर्ण उदाहरण के लिए जो तालिका-सेल और शेप मालिकों को पहचानता है, जिसमें SmartArt नोड्स से जुड़े शेप्स भी शामिल हैं, देखें [Search and Replace Text](/slides/hi/python-java/search-and-replace-text/)।
+सेल निर्देशांक पढ़ने-केवल [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) और [Cell.getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) मेथड्स के माध्यम से उपलब्ध होते हैं। [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) भी पढ़ने-केवल नेविगेशन प्रदान करता है: यह मालिक को वापस करता है लेकिन स्वामित्व नहीं बदलता। हमेशा उपयोग करने से पहले `None` के लिए लौटाए गए सेल की जांच करें।
 
-## **तालिका में टेक्स्ट को संरेखित करें**
+तालिका-सेल और शेप मालिकों की पहचान करने वाला पूरा उदाहरण, जिसमें SmartArt नोड्स से जुड़े शेप्स भी शामिल हैं, के लिए देखें [टेक्स्ट खोजें और बदलें](/slides/hi/python-java/search-and-replace-text/)।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास की नई उदाहरण बनाएँ।
+## **तालिका में टेक्स्ट संरेखित करना**
+
+आप व्यक्तिगत तालिका सेल्स की ऊर्ध्वाधर एंकरिंग और टेक्स्ट दिशा को नियंत्रित कर सकते हैं। इस अनुभाग में दिया गया उदाहरण पहली सेल के भीतर टेक्स्ट को केंद्रित करता है और उसे 270 डिग्री घुमाता है।
+
+1. एक [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
 2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) ऑब्जेक्ट जोड़ें।
-4. तालिका से एक [TextFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/) ऑब्जेक्ट तक पहुँचें।
-5. [TextFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/) ऑब्जेक्ट के [Paragraph](https://reference.aspose.com/slides/hi/python-java/aspose.slides/paragraph/) तक पहुँचें।
-6. टेक्स्ट को ऊर्ध्वाधर रूप से संरेखित करें।
+3. स्लाइड में एक [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) वस्तु जोड़ें।
+4. तालिका से एक [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) वस्तु प्राप्त करें।
+5. पहले [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) को एक्सेस करें और उसका टेक्स्ट और रंग सेट करें।
+6. सेल की ऊर्ध्वाधर एंकरिंग और टेक्स्ट दिशा को [setTextAnchorType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextAnchorType) और [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextVerticalType) का उपयोग करके सेट करें।
 7. संशोधित प्रस्तुति को सहेजें।
 
-यह Python कोड दर्शाता है कि तालिका में टेक्स्ट को कैसे संरेखित किया जाए:
+यह उदाहरण 4 × 4 तालिका बनाता है जिसमें स्तंभ चौड़ाई 120 पॉइंट और पंक्ति ऊँचाई 100 पॉइंट है। यह सेल (0, 0) में टेक्स्ट को स्वरूपित करता है, पहली पंक्ति के शेष सेल्स में मान जोड़ता है, और परिणाम को `Vertical_Align_Text_out.pptx` के रूप में सहेजता है।
 
 ```python
 import jpype
@@ -228,57 +209,48 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, TextAnchorType, TextVerticalType
 from java.awt import Color
 
-# Presentation क्लास का एक उदाहरण बनाता है
 presentation = Presentation()
 try:
-
-    # पहली स्लाइड प्राप्त करता है
     slide = presentation.getSlides().get_Item(0)
 
-    # कॉलम की चौड़ाइयों और पंक्तियों की ऊँचाइयों को परिभाषित करता है
     column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # स्लाइड में तालिका आकार जोड़ता है
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    
     table.get_Item(1, 0).getTextFrame().setText("10")
     table.get_Item(2, 0).getTextFrame().setText("20")
     table.get_Item(3, 0).getTextFrame().setText("30")
 
-    # टेक्स्ट फ्रेम तक पहुँचता है
     text_frame = table.get_Item(0, 0).getTextFrame()
-
-    # टेक्स्ट फ्रेम में पहला पैराग्राफ पहुँचता है।
     paragraph = text_frame.getParagraphs().get_Item(0)
 
-    # पैराग्राफ में पहला भाग पहुँचता है।
     portion = paragraph.getPortions().get_Item(0)
     portion.setText("Text here")
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # टेक्स्ट को ऊर्ध्वाधर रूप से संरेखित करता है
     cell = table.get_Item(0, 0)
     cell.setTextAnchorType(TextAnchorType.Center)
     cell.setTextVerticalType(TextVerticalType.Vertical270)
 
-    # प्रस्तुति को डिस्क पर सहेजता है
     presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **टेबल स्तर पर टेक्स्ट फॉर्मेटिंग सेट करें**
+## **तालिका स्तर पर टेक्स्ट स्वरूपण सेट करें**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास की नई उदाहरण बनाएँ।
+[setTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setTextFormat) का उपयोग करके आप तालिका के सभी सेल्स में टेक्स्ट स्वरूपण लागू कर सकते हैं। इसके ओवरलोड्स भाग, पैराग्राफ, और टेक्स्ट फ्रेम स्वरूपण स्वीकार करते हैं, इसलिए आप इन गुणों को बिना व्यक्तिगत सेल्स में इटरैट किए सेट कर सकते हैं।
+
+1. प्रस्तुति को [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) क्लास का उपयोग करके लोड करें।
 2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड से एक [Table](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/) ऑब्जेक्ट तक पहुँचें।
-4. [setFontHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/baseportionformat/#setFontHeight) का उपयोग करके टेक्स्ट का फ़ॉन्ट ऊँचाई सेट करें।
-5. [setAlignment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/paragraphformat/#setAlignment) और [setMarginRight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/paragraphformat/#setMarginRight) का उपयोग करके संरेखण और दाहिना मार्जिन सेट करें।
-6. [setTextVerticalType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/#setTextVerticalType) द्वारा ऊर्ध्वाधर टेक्स्ट प्रकार सेट करें।
+3. स्लाइड से एक [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) वस्तु प्राप्त करें।
+4. टेक्स्ट के फ़ॉन्ट आकार को सेट करने के लिए [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) का उपयोग करें।
+5. पैराग्राफ संरेखण और दायाँ मार्जिन सेट करने के लिए [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) और [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight) का उपयोग करें।
+6. टेक्स्ट दिशा सेट करने के लिए [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) का उपयोग करें।
 7. संशोधित प्रस्तुति को सहेजें।
 
-यह Python कोड दर्शाता है कि तालिका में टेक्स्ट पर अपने पसंदीदा फॉर्मेटिंग विकल्प कैसे लागू करें:
+नीचे दिया गया उदाहरण `table.pptx` खोलता है, जिसमें कम से कम एक स्लाइड होनी चाहिए और पहली शेप तालिका होनी चाहिए। यह फ़ॉन्ट आकार 25 पॉइंट, पैराग्राफ को दाएँ संरेखित (दायाँ मार्जिन 20 पॉइंट) करता है और टेक्स्ट को लंबवत बनाता है। स्वरूपित प्रस्तुति `result.pptx` के रूप में सहेजी जाती है।
 
 ```python
 import jpype
@@ -289,40 +261,31 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ParagraphFormat, PortionFormat, Presentation, SaveFormat, TextAlignment, TextFrameFormat, TextVerticalType, Table
 
-# Presentation क्लास का एक उदाहरण बनाता है
-presentation = Presentation("simpletable.pptx")
+presentation = Presentation("table.pptx")
 try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
 
-    # मान लेते हैं कि पहली स्लाइड की पहली शेप एक तालिका है
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.setTextFormat(portion_format)
 
-        # तालिका कोशिकाओं का फ़ॉन्ट आकार सेट करता है
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.setTextFormat(portion_format)
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.setTextFormat(paragraph_format)
 
-        # एक ही कॉल में तालिका कोशिकाओं का टेक्स्ट संरेखण और दायाँ मार्जिन सेट करता है
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.setTextFormat(paragraph_format)
-
-        # तालिका कोशिकाओं का टेक्स्ट ऊर्ध्वाधर प्रकार सेट करता है
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.setTextFormat(text_frame_format)
+    presentation.save("result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **टेबल शैली गुण प्राप्त करें**
+## **तालिका शैली गुण प्राप्त करें**
 
-Aspose.Slides आपको तालिका के शैली गुण प्राप्त करने की अनुमति देता है ताकि आप उन विवरणों को किसी अन्य तालिका या कहीं और उपयोग कर सकें। यह Python कोड दर्शाता है कि तालिका के प्रीसेट शैली से शैली गुण कैसे प्राप्त करें:
+[getStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getStylePreset) का उपयोग करके आप तालिका की प्रीसेट शैली पढ़ सकते हैं और [setStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setStylePreset) से इसे असाइन कर सकते हैं। यह उदाहरण एक तालिका पर [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/python-java/aspose.slides/tablestylepreset/) लागू करता है, प्रीसेट मान को प्रिंट करता है, और वही प्रीसेट दूसरी तालिका को असाइन करता है। दोनों तालिकाएँ `table-style.pptx` में सहेजी गई हैं।
 
 ```python
 import jpype
@@ -335,26 +298,29 @@ from asposeslides.api import Presentation, SaveFormat, TableStylePreset
 
 presentation = Presentation()
 try:
-    table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 10, [100, 150], [5, 5, 5])
-    table.setStylePreset(TableStylePreset.DarkStyle1)  # डिफ़ॉल्ट शैली प्रीसेट थीम बदलें
+    slide = presentation.getSlides().get_Item(0)
 
-    # तालिका का शैली प्रीसेट प्राप्त करता है
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.getShapes().addTable(10, 10, column_widths, row_heights)
+    table.setStylePreset(TableStylePreset.DarkStyle1)
+
     style_preset = table.getStylePreset()
     print("Table style preset: ", style_preset)
 
-    # प्राप्त किए गए शैली प्रीसेट को दूसरी तालिका पर लागू करता है
-    another_table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 100, [100, 150], [5, 5, 5])
+    another_table = slide.getShapes().addTable(10, 100, column_widths, row_heights)
     another_table.setStylePreset(style_preset)
-    presentation.save("table.pptx", SaveFormat.Pptx)
+
+    presentation.save("table-style.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **टेबल का एस्पेक्ट रेशियो लॉक करें**
+## **तालिका का पहलू अनुपात लॉक करें**
 
-एक ज्यामितीय आकार का एस्पेक्ट रेशियो विभिन्न आयामों में उसके आकारों का अनुपात होता है। Aspose.Slides [setAspectRatioLocked](https://reference.aspose.com/slides/hi/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) मेथड प्रदान करता है जिससे आप तालिकाओं और अन्य आकारों के लिए एस्पेक्ट रेशियो सेटिंग को लॉक कर सकते हैं।
+तालिका का पहलू अनुपात उसकी चौड़ाई और ऊँचाई के अनुपात को दर्शाता है। तालिका के लिए इस अनुपात को लॉक करने हेतु [setAspectRatioLocked](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) का उपयोग करें।
 
-यह Python कोड दर्शाता है कि तालिका के लिए एस्पेक्ट रेशियो कैसे लॉक किया जाए:
+नीचे दिया गया उदाहरण `pres.pptx` खोलता है, जिसमें कम से कम एक स्लाइड होनी चाहिए और पहली शेप तालिका होनी चाहिए। यह वर्तमान लॉक स्थिति प्रिंट करता है, पहलू अनुपात लॉक सक्षम करता है, अपडेटेड स्थिति (`True`) प्रिंट करता है, और परिणाम को `pres-out.pptx` के रूप में सहेजता है।
 
 ```python
 import jpype
@@ -367,29 +333,29 @@ from asposeslides.api import Presentation, SaveFormat, Table
 
 presentation = Presentation("pres.pptx")
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        table.getGraphicalObjectLock().setAspectRatioLocked(not table.getGraphicalObjectLock().getAspectRatioLocked())  # उलटा
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        presentation.save("pres-out.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(True)
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    presentation.save("pres-out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं पूरी तालिका और उसकी कोशिकाओं के टेक्स्ट के लिए दाएँ-से-बाएँ (RTL) रीडिंग दिशा सक्षम कर सकता हूँ?**
+**क्या मैं पूरी तालिका और उसके सेल्स में टेक्स्ट के लिए दाएँ‑से‑बाएँ (RTL) पढ़ने की दिशा सक्षम कर सकता हूँ?**
 
-हाँ। तालिका एक [setRightToLeft](https://reference.aspose.com/slides/hi/python-java/aspose.slides/table/#setRightToLeft) मेथड प्रदान करती है, और पैराग्राफ में [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/hi/python-java/aspose.slides/paragraphformat/#setRightToLeft) होता है। दोनों का उपयोग करने से कोशिकाओं के अंदर सही RTL क्रम और रेंडरिंग सुनिश्चित होती है।
+हां। तालिका एक [setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setRightToLeft) मेथड प्रदान करती है, और पैराग्राफ में [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setRightToLeft) होता है। दोनों का उपयोग करने से सेल्स के भीतर सही RTL क्रम और रेंडरिंग सुनिश्चित होती है।
 
-**मैं अंतिम फ़ाइल में उपयोगकर्ताओं को तालिका को मूव या रिसाइज़ करने से कैसे रोक सकता हूँ?**
+**मैं कैसे सुनिश्चित करूँ कि अंतिम फ़ाइल में उपयोगकर्ता तालिका को स्थानांतरित या आकार बदल न सकें?**
 
-उपयोगकर्ताओं को मूव, रिसाइज़, चयन आदि को निष्क्रिय करने के लिए [shape locks](/slides/hi/python-java/applying-protection-to-presentation/) का उपयोग करें। ये लॉक तालिकाओं पर भी लागू होते हैं।
+[शेप लॉक](/slides/hi/python-java/applying-protection-to-presentation/) का उपयोग करके स्थानांतरित करने, आकार बदलने, चयन आदि को अक्षम करें। ये लॉक तालिकाओं पर भी लागू होते हैं।
 
-**क्या सेल के अंदर एक छवि को बैकग्राउंड के रूप में डालना समर्थित है?**
+**क्या एक सेल के अंदर छवि को बैकग्राउंड के रूप में डालना समर्थित है?**
 
-हाँ। आप एक सेल के लिए [picture fill](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/) सेट कर सकते हैं; छवि चयनित मोड (स्ट्रैच या टाइल) के अनुसार सेल क्षेत्र को कवर कर देगी।
+हां। आप किसी सेल के लिए एक [picture fill](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) सेट कर सकते हैं; छवि चयनित मोड (स्ट्रेस्च या टाइल) के अनुसार सेल क्षेत्र को कवर कर देगी।

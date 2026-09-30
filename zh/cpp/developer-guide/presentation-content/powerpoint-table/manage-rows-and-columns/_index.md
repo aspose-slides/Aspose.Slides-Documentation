@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 管理 PowerPoint 表格的行和列
+title: 使用 C++ 管理 PowerPoint 表格中的行和列
 linktitle: 行和列
 type: docs
 weight: 20
@@ -7,293 +7,350 @@ url: /zh/cpp/manage-rows-and-columns/
 keywords:
 - 表格行
 - 表格列
-- 第一行
-- 表格标题行
+- 首行
+- 表格标题
 - 克隆行
 - 克隆列
 - 复制行
 - 复制列
 - 删除行
 - 删除列
-- 行文本格式
-- 列文本格式
+- 行文本格式化
+- 列文本格式化
 - 表格样式
 - PowerPoint
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 在 PowerPoint 中管理表格的行和列，加快演示文稿编辑和数据更新。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 中管理表格的行和列，并加快演示文稿的编辑和数据更新。"
 ---
+## **简介**
 
-为了让您在 PowerPoint 演示文稿中管理表格的行和列，Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 接口以及许多其他类型。 
+Aspose.Slides for C++ 让您通过 [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) 类和 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 接口在 PowerPoint 演示文稿中管理表格结构和格式。您可以指定标题行，克隆或删除行和列，并对整行或整列应用文本格式。
 
-## **将第一行设为标题**
+本文通过 C++ 示例解释这些操作。它还展示了如何检索表格的样式预设以便重复使用。表格行列索引从零开始。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例并加载演示文稿。 
-2. 通过索引获取幻灯片的引用。 
-3. 创建一个 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象并将其设置为 null。 
-4. 遍历所有 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 对象以查找相关表格。 
-5. 将表格的第一行设为标题行。 
+## **控制行高**
 
-下面的 C++ 代码演示了如何将表格的第一行设为标题行：
-```c++
-// 实例化 Presentation 类 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+使用 [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) 设置行的最小高度（单位为点）。它是下限，而非固定高度。 [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) 返回实际高度；该值不能直接设置。通过 [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/) 访问行。
 
-// 访问第一张幻灯片
-auto sld = pres->get_Slides()->idx_get(0);
+示例加载 [row-height-input.pptx](row-height-input.pptx)，该文件在首张幻灯片的第一个形状中包含一个表格。其首行高度为 70 点。单元格使用 18 点 Arial 文本，自动换行，顶部和底部边距为 6 点；第二列的较长文本会换成多行。示例将最小高度提高到 100 点，然后降低到 20 点，每次更改后打印实际高度，并保存两种结果。
 
-// 初始化空的 TableEx
-SharedPtr<ITable> tbl;
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// 遍历形状并获取对表格的引用
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 将表格的第一行设为标题 
-tbl->set_FirstRow(true);
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
+使用提供的演示文稿时，增大最小值会为行添加空间。减小最小值会去除该额外空间，但实际高度仍大于 20 点，因为文本和单元格边距需要更多空间。仅降低最小值无法将行高度压低到内容所需空间以下。
 
+实际高度受多个因素影响：
 
-## **克隆表格的行或列**
+- **文本和字体大小**：更长的文本、显式换行或更大的字体会占用更多垂直空间。
+- **换行和列宽**：启用换行后，使用 [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) 减小列宽会产生更多行。更宽的列可以降低垂直空间需求。
+- **单元格边距**：[ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) 和 [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) 控制增加垂直空间的边距。[ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) 和 [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) 控制水平边距，会影响文本可用宽度并可能导致额外换行。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例并加载演示文稿， 
-2. 通过索引获取幻灯片的引用。 
-3. 定义一个 `columnWidth` 数组。 
-4. 定义一个 `rowHeight` 数组。 
-5. 通过 [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) 方法将 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象添加到幻灯片中。 
-6. 克隆表格行。 
-7. 克隆表格列。 
-8. 保存修改后的演示文稿。 
+对于此未合并单元格的表格，需要最多垂直空间的单元格决定整行的内容驱动下限。若要使行更短，可能还需缩短文本、减小字体或边距，或加宽列。
 
-下面的 C++ 代码演示了如何克隆 PowerPoint 表格的行或列：
-```c++
- // 文档目录的路径。
-const String outPath = u"../out/CloningInTable_out.pptx";
+下图展示了相同比例下的同一表格。参考 .NET 运行示例中的实际高度分别为 70、100 和 55.2 点：最终行仍高于其 20 点的最小值。具体文本度量可能随您环境中的字体而异。下载保存结果：[增加最小值](row-height-increased.pptx) 和 [减少最小值](row-height-decreased.pptx)。
 
-// 实例化 Presentation 类
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+| 原始：最小值 70 pt，实际 70 pt | 增加：最小值 100 pt，实际 100 pt | 减少：最小值 20 pt，实际 55.2 pt |
+| --- | --- | --- |
+| ![原始表格，首行 70 点。](row-height-before.png) | ![将首行最小值增加到 100 点后的表格。](row-height-increased.png) | ![将首行最小值减小到 20 点后的表格；换行文本使行高仍高于最小值。](row-height-decreased.png) |
 
-// 访问第一张幻灯片
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+## **将首行设为标题**
 
-// 定义列宽和行高
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+使用 [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) 方法将首行标记为标题格式。其外观取决于表格所应用的表格样式。
 
-// 向幻灯片添加表格形状
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+1. 使用 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类加载演示文稿。
+2. 访问第一张幻灯片。
+3. 访问存储在幻灯片上第一形状的表格。
+4. 为其首行启用标题格式。
+5. 保存修改后的演示文稿。
 
+示例需要 `table.pptx`，其中首张幻灯片的第一形状是表格。它为首行启用标题格式并保存为 `First_row_header.pptx`。
 
-// 为每个单元格设置边框格式
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
-	}
+## **克隆表格行或列**
 
-}
+克隆行或列以重用其内容和格式。您可以将副本追加到表格末尾，或插入到指定位置。
 
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
+1. 使用 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类加载演示文稿。
+2. 访问第一张幻灯片。
+3. 定义列宽和行高。
+4. 使用 [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) 方法添加表格。
+5. 克隆所需的行。
+6. 克隆所需的列。
+7. 保存修改后的演示文稿。
 
-//AddClone 在表格末尾添加一行
+示例需要 `Test.pptx`，其中至少包含一张幻灯片。它创建一个三列五行的表格，尺寸以点为单位。示例将首行和首列的副本追加，然后在索引 3（第四位置）插入第二行和第二列的副本。生成的表格具有七行五列。`false` 参数禁用对相邻合并行或列的克隆；此表格无合并单元格。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone 在表格中的特定位置添加一行
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone 在表格末尾添加一列
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone 在表格中的特定位置添加一列
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// 将演示文稿保存到磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **从表格中删除行或列**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例并加载演示文稿， 
-2. 通过索引获取幻灯片的引用。 
-3. 定义一个 `columnWidth` 数组。 
-4. 定义一个 `rowHeight` 数组。 
-5. 通过 [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) 方法将 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象添加到幻灯片中。 
-6. 删除表格行。 
-7. 删除表格列。 
-8. 保存修改后的演示文稿。 
+删除表格中不再需要的行或列。删除项会导致后续行或列的索引移动。
 
-下面的 C++ 代码演示了如何从表格中删除行或列：
-```c++
-// 文档目录的路径。
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+1. 使用 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类创建演示文稿。
+2. 访问第一张幻灯片。
+3. 定义列宽和行高。
+4. 使用 [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) 方法添加表格。
+5. 删除第二行和第二列。
+6. 保存修改后的演示文稿。
 
-// 实例化 Presentation 类
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+此示例创建一个三乘三的表格并删除索引为 1 的行和列，留下一个二乘二的表格，保存为 `TestTable_out.pptx`。尺寸以点为单位。`false` 参数禁用对相邻合并行或列的删除；此表格无合并单元格。
 
-// 访问第一张幻灯片
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// 定义列宽和行高
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 向幻灯片添加表格形状
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// 合并单元格 (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// 合并单元格 (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// 将演示文稿保存到磁盘
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **在表格行级别设置文本格式**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例并加载演示文稿， 
-2. 通过索引获取幻灯片的引用。 
-3. 从幻灯片中访问相关的 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象。 
-4. 设置第一行单元格的 [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/)。 
-5. 设置第一行单元格的 [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 和 [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/)。 
-6. 设置第二行单元格的 [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/)。 
-7. 保存修改后的演示文稿。 
+对整行应用文本格式以保持单元格一致。您可以设置字体属性、段落格式和文本方向，而无需对每个单元格单独格式化。
 
-下面的 C++ 代码演示了该操作。
-```c++
-// 创建 Presentation 类的实例
-auto presentation = System::MakeObject<Presentation>();
+1. 使用 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类加载演示文稿。
+2. 访问第一张幻灯片上的表格。
+3. 使用 [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) 为首行设置字体高度。
+4. 使用 [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 和 [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) 为首行设置对齐方式和右段落边距。
+5. 使用 [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) 为第二行设置文本方向。
+6. 保存修改后的演示文稿。
 
-auto slide = presentation->get_Slides()->idx_get(0);
+示例需要 `table.pptx`，其中首张幻灯片的第一形状是表格且至少有两行。它为首行应用 25 点文本、右对齐和 20 点右段落边距，然后为第二行设置垂直文本。
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// 假设第一张幻灯片上的第一个形状是表格
-// 设置第一行单元格的字体高度
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRrow.h>
 
-// 设置第一行单元格的文本对齐方式和右侧边距
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// 设置第二行单元格的文本垂直方向
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// 将演示文稿保存到磁盘
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **在表格列级别设置文本格式**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例并加载演示文稿， 
-2. 通过索引获取幻灯片的引用。 
-3. 从幻灯片中访问相关的 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象。 
-4. 设置第一列单元格的 [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/)。 
-5. 设置第一列单元格的 [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 和 [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/)。 
-6. 设置第二列单元格的 [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/)。 
-7. 保存修改后的演示文稿。 
+对整列应用文本格式以保持单元格一致。您可以设置字体属性、段落格式和文本方向，而无需对每个单元格单独格式化。
 
-下面的 C++ 代码演示了该操作： 
-```c++
-// 创建 Presentation 类的实例
-auto pres = System::MakeObject<Presentation>();
+1. 使用 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类加载演示文稿。
+2. 访问第一张幻灯片上的表格。
+3. 使用 [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) 为首列设置字体高度。
+4. 使用 [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 和 [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) 为首列设置对齐方式和右段落边距。
+5. 使用 [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) 为第二列设置文本方向。
+6. 保存修改后的演示文稿。
 
-auto slide = pres->get_Slides()->idx_get(0);
+示例需要 `table.pptx`，其中首张幻灯片的第一形状是表格且至少有两列。它为首列应用 25 点文本、右对齐和 20 点右段落边距，然后为第二列设置垂直文本。
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// 假设第一张幻灯片上的第一个形状是表格
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-// 设置第一列单元格的字体高度
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 一次调用设置第一列单元格的文本对齐方式和右侧边距
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// 设置第二列单元格的文本垂直方向
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **获取表格样式属性**
 
-Aspose.Slides 允许您检索表格的样式属性，以便将这些细节用于其他表格或其他位置。下面的 C++ 代码演示了如何从表格预设样式中获取样式属性：
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+使用 [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) 方法检索已应用于表格的预设样式，以便在另一表格上重复使用。该方法返回预设标识，而不是单元格的个别格式覆盖。
 
+示例创建一个表格，应用 [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) 并读取回预设。它打印 `DarkStyle1` 并将表格保存为 `table.pptx`。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
-```
 
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
+```
 
 ## **常见问题**
 
-**我可以将已创建的表格应用 PowerPoint 主题/样式吗？**
+**我可以将 PowerPoint 主题/样式应用于已经创建的表格吗？**
 
-可以。表格会继承幻灯片/布局/母版的主题，并且您仍然可以在此主题之上覆盖填充、边框和文字颜色。
+可以。表格会继承幻灯片/版面/母版的主题，您仍然可以在此基础上覆盖填充、边框和文本颜色。
 
-**我可以像 Excel 那样对表格行进行排序吗？**
+**我可以像在 Excel 中那样对表格行进行排序吗？**
 
-不，Aspose.Slides 表格没有内置的排序或筛选功能。请先在内存中对数据进行排序，然后按该顺序重新填充表格行。
+不能，Aspose.Slides 表格没有内置的排序或筛选功能。请先在内存中对数据进行排序，然后按该顺序重新填充表格行。
 
-**我可以在保留特定单元格自定义颜色的同时使用带状（条纹）列吗？**
+**我可以在保持特定单元格自定义颜色的同时使用带状（条纹）列吗？**
 
-可以。打开带状列后，您可以为特定单元格使用局部格式覆盖；单元格级别的格式会优先于表格样式。
+可以。启用带状列后，仍可对特定单元格应用本地格式；单元格级别的格式会优先于表格样式。

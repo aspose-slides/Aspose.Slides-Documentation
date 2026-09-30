@@ -1,5 +1,5 @@
 ---
-title: Quản lý Bảng Trình Chiếu trên Android
+title: Quản lý Bảng trong Bản trình chiếu trên Android
 linktitle: Quản lý Bảng
 type: docs
 weight: 10
@@ -8,62 +8,57 @@ keywords:
 - thêm bảng
 - tạo bảng
 - truy cập bảng
-- tỷ lệ khung hình
+- tỷ lệ khía cạnh
 - căn chỉnh văn bản
 - định dạng văn bản
 - kiểu bảng
 - PowerPoint
-- trình chiếu
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Tạo & chỉnh sửa các bảng trong slide PowerPoint với Aspose.Slides cho Android. Khám phá các ví dụ mã Java đơn giản để tối ưu quy trình làm việc với bảng."
+description: "Tạo & chỉnh sửa bảng trong các slide PowerPoint bằng Aspose.Slides cho Android. Khám phá các ví dụ mã Java đơn giản để tối ưu hoá quy trình làm việc với bảng của bạn."
 ---
 ## **Giới thiệu**
 
-Bảng trong PowerPoint là một cách hiệu quả để hiển thị và trình bày thông tin. Thông tin trong lưới các ô (được sắp xếp theo hàng và cột) đơn giản và dễ hiểu.
+Bảng trong PowerPoint sắp xếp thông tin thành các hàng và cột, giúp dễ đọc và so sánh các giá trị hơn.
 
-Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Table) , giao diện [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) , lớp [Cell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cell/) , giao diện [ICell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/) và các loại khác để cho phép bạn tạo, cập nhật và quản lý các bảng trong mọi loại bản trình chiếu.
+Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) , giao diện [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) , lớp [Cell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) , giao diện [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) và các kiểu khác để cho phép bạn tạo, cập nhật và quản lý các bảng trong bản trình chiếu.
 
-## **Tạo bảng từ đầu**
+## **Tạo một Bảng từ Đầu**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến một slide thông qua chỉ mục của nó. 
-3. Định nghĩa một mảng `columnWidth`.
-4. Định nghĩa một mảng `rowHeight`.
-5. Thêm đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) .
-6. Duyệt qua mỗi [ICell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
-7. Gộp hai ô đầu tiên của hàng đầu tiên của bảng. 
-8. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textframe/) của một [ICell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/) .
-9. Thêm một số văn bản vào [TextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textframe/) .
-10. Lưu bản trình chiếu đã chỉnh sửa.
+Tạo một bảng bằng cách chỉ định vị trí, độ rộng cột và chiều cao hàng. Sau khi thêm vào một slide, bạn có thể định dạng viền ô, hợp nhất ô và chèn văn bản.
 
-Mã Java này cho bạn thấy cách tạo một bảng trong bản trình chiếu:
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide bằng chỉ mục của nó.
+3. Xác định một mảng độ rộng cột bằng điểm.
+4. Xác định một mảng chiều cao hàng bằng điểm.
+5. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) .
+6. Lặp lại qua mỗi [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
+7. Hợp nhất hai ô đầu tiên của hàng đầu tiên của bảng.
+8. Truy cập vào ô đã hợp nhất thông qua phương thức [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) .
+9. Đặt văn bản trong ô đã hợp nhất.
+10. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ dưới đây tạo một bảng với ba cột và năm hàng tại vị trí (100, 50) điểm. Nó áp dụng viền đỏ với độ rộng 5 điểm, hợp nhất hai ô đầu tiên trong hàng đầu tiên, và lưu kết quả dưới dạng `table.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Khởi tạo một đối tượng lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Định nghĩa các cột với độ rộng và các hàng với độ cao
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Thêm một hình bảng vào slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Đặt định dạng viền cho mỗi ô
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -81,22 +76,19 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Hợp nhất các ô 1 và 2 của hàng 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // Thêm một số văn bản vào ô đã hợp nhất
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đánh số trong bảng tiêu chuẩn**
+## **Đánh số trong Bảng Tiêu chuẩn**
 
-Trong một bảng tiêu chuẩn, việc đánh số các ô là đơn giản và bắt đầu từ 0. Ô đầu tiên trong bảng được đánh chỉ mục là 0,0 (cột 0, hàng 0). 
+Trong một bảng tiêu chuẩn, chỉ số ô bắt đầu từ 0 và sử dụng thứ tự (cột, hàng). Ô đầu tiên có chỉ số là (0, 0).
 
 Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh số như sau:
 
@@ -106,267 +98,247 @@ Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh s�
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Mã Java này cho bạn thấy cách chỉ định đánh số cho các ô trong một bảng:
+Ví dụ này tạo bảng 4 × 4 như trên, với độ rộng cột và chiều cao hàng là 70 điểm và viền ô đỏ có độ rộng 5 điểm. Các tọa độ minh họa chỉ số ô; ví dụ để các ô trống và lưu bảng dưới dạng `StandardTables_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Định nghĩa các cột với độ rộng và các hàng với độ cao
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Thêm một hình bảng vào slide
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Đặt định dạng viền cho mỗi ô
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Truy cập bảng hiện có**
+## **Truy cập Bảng hiện có**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide chứa bảng thông qua chỉ mục của nó. 
-3. Tạo một đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) và đặt nó thành null.
-4. Duyệt qua tất cả các đối tượng [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) cho đến khi tìm thấy bảng.
+Các bảng được lưu trong bộ sưu tập shape của slide. Duyệt qua các shape để tìm một bảng, sau đó sử dụng giao diện [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) để đọc hoặc cập nhật các ô của nó.
 
-   Nếu bạn nghi ngờ slide đang làm việc chứa một bảng duy nhất, bạn có thể chỉ kiểm tra tất cả các shape mà nó chứa. Khi một shape được xác định là bảng, bạn có thể ép kiểu nó thành đối tượng [Table](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Table) . Nhưng nếu slide đang làm việc chứa nhiều bảng, thì tốt hơn hết bạn nên tìm bảng cần thiết thông qua thuộc tính [setAlternativeText(String value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide chứa bảng bằng chỉ mục của nó.
+3. Duyệt qua các đối tượng [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) và dừng lại khi tìm thấy một bảng. Nếu slide chứa nhiều bảng, sử dụng [getAlternativeText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getAlternativeText--) để xác định bảng bạn cần.
+4. Cập nhật văn bản trong ô mục tiêu.
+5. Lưu bản trình chiếu đã sửa đổi.
 
-5. Sử dụng đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) để làm việc với bảng. Trong ví dụ dưới đây, chúng tôi đặt văn bản cho một ô trong bảng.
-6. Lưu bản trình chiếu đã chỉnh sửa.
-
-Mã Java này cho bạn thấy cách truy cập và làm việc với một bảng hiện có:
+Ví dụ dưới đây mở `UpdateExistingTable.pptx` và tìm bảng đầu tiên trên slide đầu tiên. Nó đặt ô ở cột 0, hàng 1 thành `New` và lưu kết quả dưới dạng `table1_out.pptx`. Tệp đầu vào phải chứa ít nhất một slide, và bảng đầu tiên trên slide đó phải có ít nhất một cột và hai hàng.
 
 ```java
 import com.aspose.slides.*;
 
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Khởi tạo TableEx null
-    ITable tbl = null;
-
-    // Duyệt qua các shape và thiết lập tham chiếu tới bảng được tìm thấy
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // Đặt văn bản cho cột đầu tiên của hàng thứ hai
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // Lưu bản trình chiếu đã chỉnh sửa vào đĩa
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tìm ô sở hữu một khung văn bản**
+Để thay đổi kích thước hàng trong một bảng hiện có và hiểu tại sao chiều cao thực tế có thể vượt quá chiều cao tối thiểu đã yêu cầu, hãy xem [Control Row Height](/slides/vi/androidjava/manage-rows-and-columns/#control-row-height).
 
-Khi mã xử lý văn bản chung nhận được một [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) từ một bảng, hãy sử dụng phương thức [ITextFrame.getParentCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#getParentCell--) để lấy [ICell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/) sở hữu. Đối với khung văn bản của ô bảng, [ITextFrame.getParentCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#getParentCell--) trả về chủ sở hữu và [ITextFrame.getParentShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#getParentShape--) trả về `null`, mặc dù bảng tự nó cũng là một shape.
+## **Tìm ô Chủ sở hữu Khung Văn bản**
 
-Các tọa độ ô có sẵn qua các phương thức chỉ đọc [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) và [ICell.getFirstRowIndex](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) . [ITextFrame.getParentCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/#getParentCell--) cũng cung cấp điều hướng chỉ đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra ô trả về có `null` trước khi sử dụng.
+Khi mã xử lý văn bản chung nhận được một [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) từ một bảng, sử dụng phương thức [ITextFrame.getParentCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentCell--) để lấy [ICell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/) sở hữu. Đối với khung văn bản của ô bảng, [ITextFrame.getParentCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentCell--) trả về chủ sở hữu và [ITextFrame.getParentShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentShape--) trả về `null`, mặc dù bảng tự nó là một shape.
 
-Để xem một ví dụ đầy đủ xác định chủ sở hữu ô bảng và shape, bao gồm các shape liên kết với các nút SmartArt, xem [Search and Replace Text](/slides/vi/androidjava/search-and-replace-text/).
+Các tọa độ ô có sẵn thông qua các phương thức chỉ đọc [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) và [ICell.getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--). [ITextFrame.getParentCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentCell--) cũng cung cấp điều hướng chỉ đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra ô trả về có `null` trước khi sử dụng.
 
-## **Căn chỉnh văn bản trong bảng**
+Để xem ví dụ đầy đủ xác định chủ sở hữu ô bảng và shape, bao gồm các shape liên quan tới nút SmartArt, hãy xem [Search and Replace Text](/slides/vi/androidjava/search-and-replace-text/).
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến một slide thông qua chỉ mục của nó. 
-3. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) vào slide.
-4. Truy cập một đối tượng [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) từ bảng.
-5. Truy cập [IParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/) của [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/) .
-6. Căn chỉnh văn bản theo chiều dọc.
-7. Lưu bản trình chiếu đã chỉnh sửa.
+## **Căn chỉnh Văn bản trong Bảng**
 
-Mã Java này cho bạn thấy cách căn chỉnh văn bản trong bảng:
+Bạn có thể kiểm soát việc neo dọc và hướng văn bản của các ô riêng lẻ. Ví dụ trong phần này căn giữa văn bản trong ô đầu tiên và xoay nó 270 độ.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide bằng chỉ mục của nó.
+3. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) vào slide.
+4. Truy cập một đối tượng [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) từ bảng.
+5. Truy cập [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) đầu tiên và đặt văn bản và màu sắc cho nó.
+6. Đặt căn dọc của ô và hướng văn bản bằng cách sử dụng [setTextAnchorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setTextAnchorType-byte-) và [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setTextVerticalType-byte-).
+7. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ này tạo bảng 4 × 4 với độ rộng cột 120 điểm và chiều cao hàng 100 điểm. Nó định dạng văn bản trong ô (0, 0), thêm giá trị vào các ô còn lại trong hàng đầu tiên, và lưu kết quả dưới dạng `Vertical_Align_Text_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Định nghĩa các cột với độ rộng và các hàng với độ cao
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // Thêm hình bảng vào slide
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // Truy cập khung văn bản
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // Tạo đối tượng Paragraph cho khung văn bản
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // Tạo đối tượng Portion cho đoạn văn
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // Căn chỉnh văn bản theo chiều dọc
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt định dạng văn bản ở mức bảng**
+## **Đặt Định dạng Văn bản ở Cấp độ Bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến một slide thông qua chỉ mục của nó. 
-3. Truy cập một đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) từ Slide.
-4. Đặt [setFontHeight(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) cho văn bản.
-5. Đặt [setAlignment(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) và [setMarginRight(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) .
-6. Đặt [setTextVerticalType(byte value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) .
-7. Lưu bản trình chiếu đã chỉnh sửa. 
+Sử dụng [setTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-) để áp dụng định dạng văn bản cho tất cả các ô trong một bảng. Các phiên bản overload cho phép định dạng phần, đoạn và khung văn bản, vì vậy bạn có thể đặt các thuộc tính này mà không cần lặp qua từng ô.
 
-Mã Java này cho bạn thấy cách áp dụng các tùy chọn định dạng ưa thích của bạn cho văn bản trong bảng:
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide bằng chỉ mục của nó.
+3. Truy cập một đối tượng [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) từ slide.
+4. Đặt kích thước phông chữ bằng cách sử dụng [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) cho văn bản.
+5. Đặt căn chỉnh đoạn và lề phải bằng [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) và [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. Đặt hướng văn bản bằng [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+7. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ dưới đây mở `table.pptx`, tệp này phải chứa ít nhất một slide với một bảng là shape đầu tiên. Nó đặt kích thước phông chữ thành 25 điểm, căn phải các đoạn với lề phải 20 điểm và làm văn bản đứng dọc. Bản trình chiếu đã định dạng được lưu dưới tên `result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Giả sử rằng shape đầu tiên trên slide đầu tiên là một bảng
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // Đặt chiều cao phông chữ cho các ô bảng
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // Đặt căn chỉnh văn bản và lề phải cho các ô bảng trong một lần gọi
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // Đặt loại chiều dọc của văn bản cho các ô bảng
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lấy thuộc tính kiểu bảng**
+## **Lấy Thuộc tính Kiểu Bảng**
 
-Aspose.Slides cho phép bạn truy xuất các thuộc tính kiểu cho một bảng để bạn có thể sử dụng các chi tiết này cho bảng khác hoặc ở nơi khác. Mã Java này cho bạn thấy cách lấy các thuộc tính kiểu từ một kiểu bảng được cài sẵn:
+Sử dụng [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) để đọc kiểu đặt trước của bảng và [setStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setStylePreset-int-) để chỉ định nó. Ví dụ này áp dụng [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/) cho một bảng, in giá trị kiểu đặt trước, và gán cùng kiểu cho bảng thứ hai. Cả hai bảng được lưu trong `table-style.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // thay đổi preset kiểu mẫu mặc định
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lấy preset kiểu mẫu của bảng
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // Áp dụng preset kiểu mẫu đã lấy cho bảng khác
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Khóa tỷ lệ khung hình của bảng**
+## **Khóa Tỷ lệ Khía cạnh của Bảng**
 
-Tỷ lệ khung hình của một hình dạng hình học là tỉ lệ giữa các kích thước của nó trên các chiều khác nhau. Aspose.Slides cung cấp thuộc tính [**setAspectRatioLocked**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) để cho phép bạn khóa cài đặt tỷ lệ khung hình cho bảng và các shape khác.
+Tỷ lệ khía cạnh của một bảng là tỉ lệ giữa chiều rộng và chiều cao của nó. Sử dụng [setAspectRatioLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-) để khóa tỉ lệ này cho một bảng.
 
-Mã Java này cho bạn thấy cách khóa tỷ lệ khung hình cho một bảng:
+Ví dụ dưới đây mở `pres.pptx`, tệp này phải chứa ít nhất một slide với một bảng là shape đầu tiên. Nó in trạng thái khóa hiện tại, bật khóa tỷ lệ khía cạnh, in trạng thái đã cập nhật (`true`), và lưu kết quả dưới dạng `pres-out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // đảo ngược
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Tôi có thể bật hướng đọc từ phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô không?**
+**Tôi có thể bật hướng đọc phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô của nó không?**
 
-Có. Bảng cung cấp phương thức [setRightToLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), và các đoạn văn có [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Sử dụng cả hai đảm bảo thứ tự RTL đúng và việc hiển thị bên trong các ô.
+Có. Bảng cung cấp phương thức [setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/#setRightToLeft-boolean-), và các đoạn có [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Sử dụng cả hai đảm bảo thứ tự RTL đúng và hiển thị bên trong các ô.
 
-**Làm thế nào để ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong tệp cuối?**
+**Làm thế nào để ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong file cuối cùng?**
 
-Sử dụng khóa shape để vô hiệu hoá việc di chuyển, thay đổi kích thước, lựa chọn, v.v. Các khóa này cũng áp dụng cho bảng.
+Sử dụng [shape locks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) để vô hiệu hoá việc di chuyển, thay đổi kích thước, chọn, v.v. Các khóa này cũng áp dụng cho bảng.
 
-**Có hỗ trợ chèn hình ảnh vào trong ô làm nền không?**
+**Có hỗ trợ chèn hình ảnh vào ô làm nền không?**
 
-Có. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/picturefillformat/) cho ô; hình ảnh sẽ bao phủ khu vực ô theo chế độ đã chọn (kéo giãn hoặc lặp).
+Có. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) cho ô; hình ảnh sẽ bao phủ khu vực ô theo chế độ được chọn (giãn hoặc lát).

@@ -1,5 +1,5 @@
 ---
-title: JavaScript ile Sunum Tablolarını Yönetme
+title: JavaScript'te Sunum Tablolarını Yönetme
 linktitle: Tabloyu Yönet
 type: docs
 weight: 10
@@ -8,7 +8,7 @@ keywords:
 - tablo ekle
 - tablo oluştur
 - tabloya eriş
-- en‑boy oranı
+- en boy oranı
 - metni hizala
 - metin biçimlendirme
 - tablo stili
@@ -17,78 +17,81 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ve Aspose.Slides for Node.js kullanarak PowerPoint slaytlarında tablolar oluşturun ve düzenleyin. Tablo işlemlerinizi kolaylaştırmak için basit kod örneklerini keşfedin."
+description: "JavaScript ve Node.js için Aspose.Slides ile PowerPoint slaytlarında tablolar oluşturun ve düzenleyin. Tablo iş akışlarınızı kolaylaştıran basit kod örneklerini keşfedin."
 ---
-## **Giriş**
+## **Introduction**
 
-PowerPoint'teki bir tablo, bilgiyi görüntülemenin ve sunmanın etkili bir yoludur. Hücrelerden oluşan bir ızgaradaki (satır ve sütunlara düzenlenmiş) bilgiler doğrudan ve anlaşılması kolaydır.
+PowerPoint'teki tablolar bilgileri satır ve sütunlara düzenler, değerleri okumayı ve karşılaştırmayı kolaylaştırır.
 
-Aspose.Slides, [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) sınıfı, [Cell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/cell/) sınıfı ve tabloları her türlü sunumda oluşturmanıza, güncellemenize ve yönetmenize olanak sağlayan diğer türleri sağlar.
+Aspose.Slides, [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) sınıfını, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) sınıfını ve sunumlarda tabloları oluşturmanıza, güncellemenize ve yönetmenize olanak tanıyan diğer türleri sağlar.
 
-## **Sıfırdan Tablo Oluşturma**
+## **Create a Table from Scratch**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeksine göre alın.  
-3. `columnWidth` dizisini tanımlayın.  
-4. `rowHeight` dizisini tanımlayın.  
-5. Slayta, [addTable](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) yöntemiyle bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) nesnesi ekleyin.  
-6. Her bir [Cell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/cell/) üzerinde dolaşarak üst, alt, sağ ve sol kenarlara biçimlendirme uygulayın.  
-7. Tablonun sol üst köşesindeki dört hücreyi (ilk iki satırın ilk iki sütunu) tek bir hücreye birleştirin.  
-8. Bir [Cell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/cell/)'in [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) öğesine erişin.  
-9. [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/)’e bir metin ekleyin.  
-10. Değiştirilmiş sunumu kaydedin.
+Konumunu, sütun genişliklerini ve satır yüksekliklerini belirterek bir tablo oluşturun. Slayta ekledikten sonra hücre kenarlıklarını biçimlendirebilir, hücreleri birleştirebilir ve metin ekleyebilirsiniz.
+
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İndeksiyle slayta bir referans alın.  
+3. Point cinsinden sütun genişliklerinin bir dizisini tanımlayın.  
+4. Point cinsinden satır yüksekliklerinin bir dizisini tanımlayın.  
+5. [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double:A-double:A-) yöntemiyle slayta bir [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) nesnesi ekleyin.  
+6. Her [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) üzerinde döngü yaparak üst, alt, sağ ve sol kenarlıklara biçimlendirme uygulayın.  
+7. Tablonun ilk satırındaki ilk iki hücreyi birleştirin.  
+8. Birleştirilmiş hücreye [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) yöntemiyle erişin.  
+9. Birleştirilmiş hücredeki metni ayarlayın.  
+10. Değiştirilen sunumu kaydedin.
+
+Aşağıdaki örnek, (100, 50) point konumunda üç sütun ve beş satırdan oluşan bir tablo oluşturur. Kırmızı kenarlıkları 5 point kalınlıkta uygular, ilk satırdaki ilk iki hücreyi birleştirir ve sonucu `table.pptx` olarak kaydeder.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// PPTX dosyasını temsil eden bir Presentation sınıfı örnekler
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk slayta erişir
-    var sld = pres.getSlides().get_Item(0);
-    // Genişlikleriyle sütunları ve yükseklikleriyle satırları tanımlar
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Slayta bir tablo şekli ekler
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Her hücrenin kenar biçimini ayarlar
-    for (var row = 0; row < tbl.getRows().size(); row++) {
-        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            const cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderTop().setWidth(5);
+
             cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderBottom().setWidth(5);
+
             cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderLeft().setWidth(5);
+
             cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Sol üstteki 2x2 hücre bloğunu tek hücreye birleştirir
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-    // Birleştirilen hücreye bazı metin ekler
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-    // Sunumu diske kaydeder
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Standart Tablo Numaralandırması**
+## **Numbering in a Standard Table**
 
-Standart bir tabloda hücrelerin numaralandırması doğrudan ve sıfır tabanlıdır. Bir tablodaki ilk hücre 0,0 (sütun 0, satır 0) olarak indekslenir.  
+Standart bir tabloda hücre indisleri sıfır tabanlıdır ve (sütun, satır) biçiminde kullanılır. İlk hücre (0, 0) olarak indekslenir.
 
-Örneğin, 4 sütun ve 4 satır içeren bir tablodaki hücreler şu şekilde numaralandırılır:
+Örneğin, 4 sütun ve 4 satırdan oluşan bir tablodaki hücreler aşağıdaki gibi numaralandırılır:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -96,243 +99,264 @@ Standart bir tabloda hücrelerin numaralandırması doğrudan ve sıfır tabanl�
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Bu JavaScript kodu, bir tablodaki hücreler için numaralandırmanın nasıl belirtileceğini gösterir:
+Bu örnek, yukarıda gösterilen 4 × 4 tabloyu, sütun genişlikleri ve satır yükseklikleri 70 point ve kırmızı hücre kenarlıkları 5 point genişliğinde oluşturarak hazırlar. Koordinatlar hücre indekslerini gösterir; örnek hücreleri boş bırakır ve tabloyu `StandardTables_out.pptx` olarak kaydeder.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// PPTX dosyasını temsil eden bir Presentation sınıfı örnekler
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk slayta erişir
-    var sld = pres.getSlides().get_Item(0);
-    // Genişlikleriyle sütunları ve yükseklikleriyle satırları tanımlar
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Slayta bir tablo şekli ekler
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Her hücre için kenar biçimini ayarlar
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
         for (let j = 0; j < row.size(); j++) {
             const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            const cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderTop().setWidth(5);
+
+            cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderBottom().setWidth(5);
+
+            cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderLeft().setWidth(5);
+
+            cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Sunumu diske kaydeder
-    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Mevcut Tabloya Erişim**
+## **Access an Existing Table**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Tabloyu içeren slayta indeksine göre bir referans alın.  
-3. Bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) nesnesi oluşturun ve null olarak ayarlayın.  
-4. Tablo bulunana kadar tüm [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) nesneleri üzerinde döngü yapın.  
-   Eğer üzerinde çalıştığınız slaydın tek bir tablo içerdiğini düşünüyorsanız, içindeki tüm şekilleri basitçe kontrol edebilirsiniz. Bir şekil tablo olarak tanımlandığında, onu bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) nesnesi olarak tip dönüştürebilirsiniz. Ancak slayt birden fazla tablo içeriyorsa, ihtiyacınız olan tabloyu [setAlternativeText(String value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-) yöntemiyle aramanız daha iyidir.  
-5. Tabloyla çalışmak için [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) nesnesini kullanın. Aşağıdaki örnekte, tablodaki bir hücrenin metnini ayarlıyoruz.  
-6. Değiştirilmiş sunumu kaydedin.
+Tablolar bir slaydın şekil koleksiyonunda depolanır. Şekiller arasında döngü yaparak bir tablo bulun, ardından [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) sınıfını kullanarak hücrelerini okuyun veya güncelleyin.
+
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfını kullanarak sunumu yükleyin.  
+2. İndeksiyle tabloyu içeren slayta bir referans alın.  
+3. [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) nesneleri arasında döngü yapın ve bir tablo bulunduğunda durun. Slayt birden fazla tablo içeriyorsa, ihtiyacınız olanı tanımlamak için [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getAlternativeText--) yöntemini kullanın.  
+4. Hedef hücredeki metni güncelleyin.  
+5. Değiştirilen sunumu kaydedin.
+
+Aşağıdaki örnek `UpdateExistingTable.pptx` dosyasını açar ve ilk slayttaki ilk tabloyu bulur. Hücreyi sütun 0, satır 1 konumunda `New` olarak ayarlar ve sonucu `table1_out.pptx` olarak kaydeder. Girdi en az bir slayt içermeli ve o slayttaki ilk tablonun en az bir sütun ve iki satırı olmalıdır.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluşturur
-var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+const presentation = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // İlk slayta erişir
-    var sld = pres.getSlides().get_Item(0);
-    // null TableEx'i başlatır
-    var tbl = null;
-    // Şekiller üzerinde döner ve bulunan tabloya bir referans ayarlar
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // İkinci satırın birinci sütunu için metni ayarlar
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    const slide = presentation.getSlides().get_Item(0);
+    let table = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+            table = shape;
+            break;
         }
     }
-    // Değiştirilmiş sunumu diske kaydeder
-    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Bir Metin Çerçevesine Sahip Hücreyi Bulma**
+Mevcut bir tabloda bir satırı yeniden boyutlandırmak ve gerçek yüksekliğinin istenen minimumu aşmasının nedenini anlamak için [Satır Yüksekliğini Kontrol Et](/slides/tr/nodejs-java/manage-rows-and-columns/#control-row-height) bölümüne bakın.
 
-Genel bir metin işleme kodu bir tablodan [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) aldığında, sahip olduğu [Cell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/cell/) nesnesini almak için [TextFrame.getParentCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentCell--) yöntemini kullanın. Bir tablo hücresi metin çerçevesi için, [TextFrame.getParentCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentCell--) sahibi döndürür ve [TextFrame.getParentShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentShape--) `null` döndürür, tablo kendisi bir şekil olsa bile.  
+## **Find the Cell That Owns a Text Frame**
 
-Hücre koordinatları, yalnızca okunabilir [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) ve [Cell.getFirstRowIndex](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) yöntemleriyle elde edilir. [TextFrame.getParentCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentCell--) aynı zamanda yalnızca okunabilir bir gezinme sağlar: sahibi döndürür ancak sahipliği değiştirmez. Kullanımdan önce dönen hücrenin `null` olup olmadığını her zaman kontrol edin.  
+Bir metin çerçevesine sahip hücreyi bulma
 
-SmartArt düğümleriyle ilişkili şekilleri de içeren tablo hücresi ve şekil sahiplerini belirten eksiksiz bir örnek için [Search and Replace Text](/slides/tr/nodejs-java/search-and-replace-text/) sayfasına bakın.
+Genel metin işleme kodu bir tablodan bir [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) aldığında, sahip [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) i almak için [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) yöntemini kullanın. Bir tablo hücresi metin çerçevesi için, [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) sahibi döndürür ve [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) `null` döndürür, hatta tablo kendisi bir şekil olsa bile.
 
-## **Tabloda Metni Hizalama**
+Hücre koordinatları, sadece okunabilir [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) ve [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) yöntemleriyle elde edilebilir. [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) ayrıca sadece okunabilir bir gezinme sağlar: sahibi döndürür ancak sahipliği değiştirmez. Kullanımdan önce dönen hücrenin `null` olup olmadığını her zaman kontrol edin.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeksine göre alın.  
-3. Slayta bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) nesnesi ekleyin.  
-4. Tablodan bir [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) nesnesine erişin.  
-5. [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) içerisindeki [Paragraph](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/) öğesine erişin.  
-6. Metni dikey olarak hizalayın.  
-7. Değiştirilmiş sunumu kaydedin.
+Tablo hücresi ve şekil sahiplerini, SmartArt düğümleriyle ilişkili şekilleri de içeren tam bir örnek için [Metin Arama ve Değiştirme](/slides/tr/nodejs-java/search-and-replace-text/) bölümüne bakın.
+
+## **Align Text in a Table**
+
+Tablodaki metni hizalama
+
+Bireysel tablo hücrelerinin dikey sabitlemesini ve metin yönünü kontrol edebilirsiniz. Bu bölümdeki örnek, ilk hücredeki metni ortalar ve 270 derece döndürür.
+
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İndeksiyle slayta bir referans alın.  
+3. Slayta bir [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) nesnesi ekleyin.  
+4. Tablodan bir [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) nesnesine erişin.  
+5. İlk [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) a erişin ve metnini ve rengini ayarlayın.  
+6. Hücrenin dikey sabitlemesini ve metin yönünü [setTextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextAnchorType-byte-) ve [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextVerticalType-byte-) kullanarak ayarlayın.  
+7. Değiştirilen sunumu kaydedin.
+
+Bu örnek, 120 point sütun genişlikleri ve 100 point satır yükseklikleriyle 4 × 4 bir tablo oluşturur. (0, 0) hücresindeki metni biçimlendirir, ilk satırdaki kalan hücrelere değerler ekler ve sonucu `Vertical_Align_Text_out.pptx` olarak kaydeder.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
 
-// Presentation sınıfının bir örneğini oluşturur
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk slaytı alır
-    var slide = pres.getSlides().get_Item(0);
-    // Genişlikleriyle sütunları ve yükseklikleriyle satırları tanımlar
-    var dblCols = java.newArray("double", [120, 120, 120, 120]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // Tablo şeklini slayta ekler
-    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // Metin çerçevesine erişir
-    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    // Metin çerçevesi için Paragraph nesnesi oluşturur
-    var paragraph = txtFrame.getParagraphs().get_Item(0);
-    // Paragraf için Portion nesnesi oluşturur
-    var portion = paragraph.getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [120, 120, 120, 120]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    const textFrame = table.get_Item(0, 0).getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+
+    const portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Metni dikey olarak hizalar
-    var cell = tbl.get_Item(0, 0);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+
+    const cell = table.get_Item(0, 0);
     cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
     cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
-    // Sunumu diske kaydeder
-    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tablo Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Set Text Formatting on the Table Level**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeksine göre alın.  
-3. Slayttan bir [Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Table) nesnesine erişin.  
-4. Metin için [setFontHeight(float value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) metodunu ayarlayın.  
-5. [setAlignment(int value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) ve [setMarginRight(float value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) metodlarını ayarlayın.  
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) metodunu ayarlayın.  
-7. Değiştirilmiş sunumu kaydedin.  
+Tablo Düzeyinde Metin Biçimlendirmesini Ayarlama
+
+[setTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setTextFormat-com.aspose.slides.IPortionFormat-) yöntemini kullanarak bir tablodaki tüm hücrelere metin biçimlendirmesi uygulayın. Aşırı yüklemeleri, parça, paragraf ve metin çerçevesi biçimlendirmesini kabul eder, böylece bireysel hücreler arasında döngü yapmadan bu özellikleri ayarlayabilirsiniz.
+
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfını kullanarak sunumu yükleyin.  
+2. İndeksiyle slayta bir referans alın.  
+3. Slayttan bir [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) nesnesine erişin.  
+4. Metin için [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) kullanarak yazı tipi boyutunu ayarlayın.  
+5. Paragraf hizalamasını ve sağ kenar boşluğunu [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) ve [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) kullanarak ayarlayın.  
+6. Metin yönünü [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) ile ayarlayın.  
+7. Değiştirilen sunumu kaydedin.
+
+Aşağıdaki örnek `table.pptx` dosyasını açar; bu dosya en az bir slayt içermeli ve ilk şekli bir tablo olmalıdır. Yazı tipi boyutunu 25 point olarak ayarlar, paragrafları 20 point sağ kenar boşluğu ile sağa hizalar ve metni dikey yapar. Biçimlendirilmiş sunum `result.pptx` olarak kaydedilir.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Presentation sınıfının bir örneğini oluşturur
-var pres = new aspose.slides.Presentation("simpletable.pptx");
+const presentation = new aspose.slides.Presentation("table.pptx");
 try {
-    // İlk slayttaki ilk şeklin bir tablo olduğunu varsayalım
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Tablo hücrelerinin yazı tipi yüksekliğini ayarlar
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    // Tablo hücrelerinin metin hizalamasını ve sağ kenar boşluğunu tek bir çağrıda ayarlar
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    table.setTextFormat(portionFormat);
+
+    const paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    // Tablo hücrelerinin metin dikey türünü ayarlar
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    table.setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new aspose.slides.TextFrameFormat();
     textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
-    someTable.setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tablo Stil Ön Ayarını Belirleme**
+## **Get Table Style Properties**
 
-Aspose.Slides, yerleşik PowerPoint tablo stillerini [TableStylePreset](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tablestylepreset/) sayımı olarak sunar, böylece aynı görünümü herhangi bir tabloya uygulayabilirsiniz. Bu JavaScript kodu, bir tablonun varsayılan stilini ön ayar stiliyle nasıl değiştireceğinizi gösterir:
+Tablo Stil Özelliklerini Almak
+
+[getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) yöntemiyle bir tablonun ön tanımlı stilini okuyun ve [setStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setStylePreset-int-) ile atayın. Bu örnek, bir tabloya [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) uygular, ön tanımlı değeri yazar ve aynı ön tanımlıyı ikinci bir tabloya atar. Her iki tablo da `table-style.pptx` içinde kaydedilir.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// varsayılan stil ön ayarı temasını değiştirir
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log("Table style preset: " + stylePreset);
+
+    const anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
+    anotherTable.setStylePreset(stylePreset);
+
+    presentation.save("table-style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tablonun En–Boy Oranını Kilitleme**
+## **Lock Aspect Ratio of a Table**
 
-Geometrik bir şeklin en–boy oranı, farklı boyutlardaki ölçülerinin oranıdır. Aspose.Slides, tablolar ve diğer şekiller için en–boy oranı kilitleme ayarını sağlayan [**setAspectRatioLocked**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) özelliğini sunar.
+Bir Tablonun En Boy Oranını Kilitleme
+
+Bir tablonun en boy oranı, genişliğinin yüksekliğine oranıdır. Bu oranı bir tablo için kilitlemek üzere [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked-boolean-) yöntemini kullanın.
+
+Aşağıdaki örnek `pres.pptx` dosyasını açar; bu dosya en az bir slayt içermeli ve ilk şekli bir tablo olmalıdır. Mevcut kilit durumunu yazar, en boy oranı kilidini etkinleştirir, güncellenmiş durumu (`true`) yazar ve sonucu `pres-out.pptx` olarak kaydeder.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// invert
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **SSS**
+## **FAQ**
 
-**Bir tablonun tamamı ve hücrelerindeki metin için sağdan sola (RTL) okuma yönünü etkinleştirebilir miyim?**
+**Bir tablo ve hücrelerindeki metin için sağdan sola (RTL) okuma yönünü etkinleştirebilir miyim?**
 
-Evet. Tablo, [setRightToLeft](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/table/setrighttoleft/) yöntemini, paragraflar ise [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/) yöntemini sağlar. Her ikisinin kullanılması, hücre içindeki doğru RTL sırasını ve render'ı garantiler.
+Evet. Tablo, bir [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setRightToLeft-boolean-) yöntemi sunar ve paragraflar [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setRightToLeft-byte-) yöntemine sahiptir. İkisini de kullanmak hücre içindeki doğru RTL sırasını ve renderlamayı sağlar.
 
-**Kullanıcıların son dosyada bir tabloyu taşımasını veya yeniden boyutlandırmasını nasıl engelleyebilirim?**
+**Kullanıcıların final dosyasında tabloyu hareket ettirmesini veya yeniden boyutlandırmasını nasıl engelleyebilirim?**
 
-Taşıma, yeniden boyutlandırma, seçim vb. işlemleri devre dışı bırakmak için şekil kilitlerini kullanın. Bu kilitler tabloya da uygulanır.
+[şekil kilitleri](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) kullanarak hareket ettirmeyi, yeniden boyutlandırmayı, seçimi vb. devre dışı bırakabilirsiniz. Bu kilitler tablolara da uygulanır.
 
-**Bir hücrenin içinde görüntüyü arka plan olarak eklemek destekleniyor mu?**
+**Bir hücre içinde arka plan olarak bir resim eklemek destekleniyor mu?**
 
-Evet. Bir hücre için [picture fill](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) ayarlayabilirsiniz; görüntü, seçilen moda (germe veya döşeme) göre hücre alanını kaplar.
+Evet. Bir hücre için [resim doldurma](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) ayarlayabilirsiniz; resim seçilen moda (esnetme veya döşeme) göre hücre alanını kaplar.

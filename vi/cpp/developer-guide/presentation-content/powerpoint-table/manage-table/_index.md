@@ -1,5 +1,5 @@
 ---
-title: Quản lý bảng trình chiếu trong C++
+title: Quản lý bảng trong bài thuyết trình bằng C++
 linktitle: Quản lý bảng
 type: docs
 weight: 10
@@ -16,73 +16,70 @@ keywords:
 - bài thuyết trình
 - C++
 - Aspose.Slides
-description: "Tạo và chỉnh sửa bảng trong các slide PowerPoint bằng Aspose.Slides cho C++. Khám phá các ví dụ mã đơn giản để tối ưu hoá quy trình làm việc với bảng."
+description: "Tạo và chỉnh sửa bảng trong các slide PowerPoint bằng Aspose.Slides cho C++. Khám phá các ví dụ mã đơn giản để tối ưu hoá quy trình làm việc với bảng của bạn."
 ---
 ## **Giới thiệu**
 
-Bảng trong PowerPoint là một cách hiệu quả để hiển thị và trình bày thông tin. Thông tin trong lưới các ô (được sắp xếp thành hàng và cột) rất rõ ràng và dễ hiểu.
+Bảng trong PowerPoint sắp xếp thông tin thành các hàng và cột, giúp dễ dàng đọc và so sánh các giá trị.
 
-Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/vi/cpp/aspose.slides/table/) , giao diện [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) , lớp [Cell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/cell/) , giao diện [ICell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/) và các kiểu khác để cho phép bạn tạo, cập nhật và quản lý bảng trong mọi loại bài thuyết trình. 
+Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) , giao diện [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) , lớp [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) , giao diện [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) , và các kiểu khác cho phép bạn tạo, cập nhật và quản lý bảng trong các bài thuyết trình.
 
 ## **Tạo bảng từ đầu**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Lấy tham chiếu của slide thông qua chỉ số của nó. 
-3. Xác định một mảng `columnWidth`.
-4. Xác định một mảng `rowHeight`.
-5. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) vào slide thông qua phương thức [AddTable()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addtable/) .
-6. Duyệt qua từng [ICell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
-7. Hợp nhất hai ô đầu tiên của hàng đầu tiên của bảng. 
-8. Truy cập vào [TextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textframe/) của một [ICell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/) .
-9. Thêm một số văn bản vào [TextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textframe/) .
+Tạo một bảng bằng cách chỉ định vị trí, chiều rộng của các cột và chiều cao của các hàng. Sau khi thêm vào một slide, bạn có thể định dạng viền ô, hợp nhất các ô và chèn văn bản.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Lấy một tham chiếu tới slide bằng chỉ mục của nó.
+3. Xác định một mảng các chiều rộng cột bằng điểm.
+4. Xác định một mảng các chiều cao hàng bằng điểm.
+5. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) vào slide thông qua phương thức [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) .
+6. Lặp qua từng [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
+7. Hợp nhất hai ô đầu tiên của hàng đầu tiên của bảng.
+8. Truy cập ô đã hợp nhất thông qua phương thức [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) .
+9. Đặt văn bản trong ô đã hợp nhất.
 10. Lưu bản trình bày đã sửa đổi.
 
-```c++
+Ví dụ dưới đây tạo một bảng có ba cột và năm hàng tại (100, 50) điểm. Nó áp dụng viền màu đỏ có độ rộng 5 điểm, hợp nhất hai ô đầu tiên trong hàng đầu tiên, và lưu kết quả dưới dạng `table.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
-#include <DOM/Table/ICell.h>
-#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICCell.h>
+#include <DOM/Table/ICCellFormat.h>
 #include <DOM/Table/IRow.h>
 #include <DOM/Table/IRowCollection.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Truy cập slide đầu tiên
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Xác định các cột với độ rộng và các hàng với chiều cao
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// Thêm một hình dạng bảng vào slide
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Đặt định dạng viền cho mỗi ô
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -95,19 +92,16 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// Hợp nhất các ô 1 và 2 của hàng 1
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// Thêm một số văn bản vào ô đã hợp nhất
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// Lưu bản trình bày vào đĩa
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Đánh số trong bảng chuẩn**
+## **Đánh số trong bảng tiêu chuẩn**
 
-Trong một bảng chuẩn, việc đánh số các ô rất đơn giản và bắt đầu từ 0. Ô đầu tiên trong bảng có chỉ số là 0,0 (cột 0, hàng 0). 
+Trong một bảng tiêu chuẩn, chỉ số ô bắt đầu từ 0 và sử dụng thứ tự (cột, hàng). Ô đầu tiên có chỉ số (0, 0).
 
 Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh số như sau:
 
@@ -117,9 +111,9 @@ Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh s�
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Đoạn mã C++ này cho thấy cách chỉ định đánh số cho các ô trong bảng:
+Ví dụ này tạo bảng 4 × 4 như hình trên, với chiều rộng cột và chiều cao hàng là 70 điểm và viền ô màu đỏ có độ rộng 5 điểm. Các tọa độ minh họa chỉ số ô; ví dụ để các ô trống và lưu bảng dưới dạng `StandardTables_out.pptx`.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -127,7 +121,6 @@ Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh s�
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -136,25 +129,19 @@ Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh s�
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Tạo một đối tượng lớp Presentation đại diện cho tệp PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Truy cập slide đầu tiên
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Xác định các cột với độ rộng và các hàng với chiều cao
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// Thêm một hình dạng bảng vào slide
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Đặt định dạng viền cho mỗi ô
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -177,25 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// Lưu bản trình chiếu vào đĩa
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Truy cập bảng đã tồn tại**
+## **Truy cập một bảng hiện có**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Lấy tham chiếu tới slide chứa bảng thông qua chỉ số của nó. 
-3. Tạo một đối tượng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) và đặt nó thành null.
-4. Duyệt qua tất cả các đối tượng [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) cho đến khi tìm thấy bảng.
+Bảng được lưu trong bộ sưu tập shape của slide. Duyệt qua các shape để tìm bảng, sau đó sử dụng giao diện [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) để đọc hoặc cập nhật các ô của nó.
 
-   Nếu bạn cho rằng slide đang xử lý chỉ chứa một bảng, bạn có thể đơn giản kiểm tra tất cả các hình dạng nó chứa. Khi một hình dạng được xác định là bảng, bạn có thể ép kiểu nó thành đối tượng [Table](https://reference.aspose.com/slides/vi/cpp/aspose.slides/table/) . Nhưng nếu slide chứa nhiều bảng, bạn nên tìm kiếm bảng cần thiết thông qua phương thức [set_AlternativeText()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/set_alternativetext/) .
-5. Sử dụng đối tượng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) để làm việc với bảng. Trong ví dụ dưới đây, chúng tôi đã thêm một hàng mới vào bảng.
-6. Lưu bản trình bày đã sửa đổi.
+1. Tải bản trình bày bằng cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Lấy một tham chiếu tới slide chứa bảng bằng chỉ mục của nó.
+3. Duyệt qua các đối tượng [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) và dừng khi tìm thấy một bảng. Nếu slide chứa nhiều bảng, sử dụng [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) để xác định bảng bạn cần.
+4. Cập nhật văn bản trong ô mục tiêu.
+5. Lưu bản trình bày đã sửa đổi.
 
-```c++
+Ví dụ dưới đây mở `UpdateExistingTable.pptx` và tìm bảng đầu tiên trên slide đầu tiên. Nó đặt ô tại cột 0, hàng 1 thành `New` và lưu kết quả dưới dạng `table1_out.pptx`. Tệp đầu vào phải chứa ít nhất một slide, và bảng đầu tiên trên slide đó phải có ít nhất một cột và hai hàng.
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -203,53 +189,56 @@ pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// Truy cập slide đầu tiên
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Khởi tạo Table null
-System::SharedPtr<ITable> tbl;
-
-// Duyệt qua các shape và đặt tham chiếu tới bảng được tìm thấy
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// Đặt văn bản cho cột đầu tiên của hàng thứ hai
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// Lưu bản trình chiếu đã sửa đổi vào đĩa
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
 
-## **Tìm ô sở hữu một khung văn bản**
+Để thay đổi kích thước hàng trong một bảng hiện có và hiểu tại sao chiều cao thực tế có thể vượt quá mức tối thiểu yêu cầu, xem [Kiểm soát chiều cao hàng](/slides/vi/cpp/manage-rows-and-columns/#control-row-height).
 
-Khi mã xử lý văn bản chung nhận được một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) từ bảng, sử dụng [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) để lấy [ICell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/) sở hữu. Đối với khung văn bản trong ô bảng, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) trả về chủ sở hữu và [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/) trả về `nullptr`, mặc dù bảng tự nó là một hình dạng.
+## **Tìm ô sở hữu khung văn bản**
 
-Các tọa độ của ô có thể truy cập thông qua các phương thức chỉ‑đọc [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/get_firstcolumnindex/) và [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/get_firstrowindex/) . [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) cũng cung cấp khả năng điều hướng chỉ‑đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra ô trả về có phải `nullptr` trước khi sử dụng.
+Khi mã xử lý văn bản chung nhận được một [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) từ một bảng, sử dụng [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) để lấy [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) sở hữu. Đối với khung văn bản ô bảng, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) trả về chủ sở hữu và [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) trả về `nullptr`, mặc dù bảng tự nó là một shape.
 
-Đối với ví dụ hoàn chỉnh xác định chủ sở hữu ô bảng và hình dạng, bao gồm các hình dạng liên kết với nút SmartArt, xem [Search and Replace Text](/slides/vi/cpp/search-and-replace-text/) .
+Các tọa độ ô có sẵn qua các phương thức chỉ đọc [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) và [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/). [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) cũng cung cấp khả năng điều hướng chỉ đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra ô trả về xem có phải `nullptr` trước khi sử dụng.
+
+Đối với một ví dụ hoàn chỉnh xác định chủ sở hữu ô bảng và shape, bao gồm các shape liên kết với nút SmartArt, xem [Tìm kiếm và Thay thế Văn bản](/slides/vi/cpp/search-and-replace-text/).
 
 ## **Căn chỉnh văn bản trong bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Lấy tham chiếu của slide thông qua chỉ số của nó. 
-3. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) vào slide. 
-4. Truy cập vào đối tượng [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) từ bảng. 
-5. Truy cập [IParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/) của [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) .
-6. Căn chỉnh văn bản theo chiều dọc.
+Bạn có thể điều khiển việc neo dọc và hướng văn bản của các ô bảng riêng lẻ. Ví dụ trong phần này căn giữa văn bản trong ô đầu tiên và xoay nó 270 độ.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Lấy một tham chiếu tới slide bằng chỉ mục của nó.
+3. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) vào slide.
+4. Truy cập một đối tượng [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) từ bảng.
+5. Truy cập [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) đầu tiên và đặt văn bản và màu sắc cho nó.
+6. Đặt việc neo dọc và hướng văn bản của ô bằng cách sử dụng [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) và [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/) .
 7. Lưu bản trình bày đã sửa đổi.
 
-```c++
+Ví dụ này tạo một bảng 4 × 4 với chiều rộng cột 120 điểm và chiều cao hàng 100 điểm. Nó định dạng văn bản trong ô (0, 0), thêm giá trị vào các ô còn lại trong hàng đầu tiên, và lưu kết quả dưới dạng `Vertical_Align_Text_out.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -260,7 +249,6 @@ Các tọa độ của ô có thể truy cập thông qua các phương thức c
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -269,63 +257,53 @@ Các tọa độ của ô có thể truy cập thông qua các phương thức c
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Tạo một thực thể của lớp Presentation
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Lấy slide đầu tiên
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Xác định các cột với độ rộng và các hàng với chiều cao
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// Thêm hình dạng bảng vào slide
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// Truy cập khung văn bản
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// Tạo đối tượng Paragraph cho khung văn bản
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Tạo đối tượng Portion cho đoạn văn
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Căn chỉnh văn bản theo chiều dọc
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// Lưu Presentation vào đĩa
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Đặt định dạng văn bản ở mức độ bảng**
+## **Đặt định dạng văn bản ở mức bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Lấy tham chiếu của slide thông qua chỉ số của nó. 
-3. Truy cập vào đối tượng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) từ Slide.
-4. Đặt [set_FontHeight()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/baseportionformat/set_fontheight/) cho văn bản. 
-5. Đặt [set_Alignment()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_alignment/) và [set_MarginRight()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_marginright/) .
-6. Đặt [set_TextVerticalType()](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textframeformat/set_textverticaltype/) .
-7. Lưu bản trình bày đã sửa đổi. 
+Sử dụng [SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/) để áp dụng định dạng văn bản cho tất cả các ô trong bảng. Các overload của nó chấp nhận định dạng phần, đoạn và khung văn bản, vì vậy bạn có thể đặt các thuộc tính này mà không cần lặp qua từng ô.
 
-Đoạn mã C++ này cho thấy cách áp dụng các tùy chọn định dạng ưa thích cho văn bản trong bảng:
+1. Tải bản trình bày bằng cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Lấy một tham chiếu tới slide bằng chỉ mục của nó.
+3. Truy cập một đối tượng [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) từ slide.
+4. Đặt kích thước phông bằng cách sử dụng [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) cho văn bản.
+5. Đặt căn chỉnh đoạn và lề phải bằng cách sử dụng [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) và [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) .
+6. Đặt hướng văn bản bằng cách sử dụng [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) .
+7. Lưu bản trình bày đã sửa đổi.
 
-```c++
+Ví dụ dưới đây mở `table.pptx`, tệp này phải chứa ít nhất một slide với một bảng là shape đầu tiên. Nó đặt kích thước phông chữ thành 25 điểm, căn phải các đoạn với lề phải 20 điểm, và đặt văn bản theo chiều dọc. Bản trình bày đã định dạng được lưu dưới dạng `result.pptx`.
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -334,99 +312,106 @@ presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Tạo một thực thể của lớp Presentation
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Giả sử rằng hình dạng đầu tiên trên slide đầu tiên là một bảng
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// Đặt kích thước font cho các ô của bảng
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// Đặt căn chỉnh văn bản và lề phải cho các ô của bảng trong một lần gọi
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// Đặt loại văn bản theo chiều dọc cho các ô của bảng
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
 ## **Lấy thuộc tính kiểu bảng**
 
-Aspose.Slides cho phép bạn truy xuất các thuộc tính kiểu cho một bảng để bạn có thể sử dụng các chi tiết này cho một bảng khác hoặc ở nơi khác. Đoạn mã C++ này cho thấy cách lấy các thuộc tính kiểu từ một kiểu bảng có sẵn:
+Sử dụng [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) để đọc kiểu preset của bảng và [set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/) để gán nó. Ví dụ này áp dụng [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) cho một bảng, in ra tên preset và gán cùng preset cho bảng thứ hai. Cả hai bảng đều được lưu trong `table-style.pptx`.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
-## **Khóa tỉ lệ khung hình của bảng**
+## **Khóa tỷ lệ khung hình của bảng**
 
-Tỷ lệ khung hình của một hình học là tỉ lệ kích thước của nó ở các chiều khác nhau. Aspose.Slides cung cấp thuộc tính `AspectRatioLocked()` để cho phép bạn khóa cài đặt tỷ lệ khung hình cho bảng và các hình dạng khác. 
+Tỷ lệ khung hình của bảng là tỷ lệ giữa chiều rộng và chiều cao của nó. Sử dụng [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/) để khóa tỷ lệ này cho một bảng.
 
-Đoạn mã C++ này cho thấy cách khóa tỉ lệ khung hình cho một bảng:
+Ví dụ dưới đây mở `pres.pptx`, tệp này phải chứa ít nhất một slide với một bảng là shape đầu tiên. Nó in trạng thái khóa hiện tại, bật khóa tỷ lệ khung hình, in trạng thái cập nhật (`True`), và lưu kết quả dưới dạng `pres-out.pptx`.
 
-```c++
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể bật chế độ đọc từ phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô của nó không?**
+**Tôi có thể bật hướng đọc từ phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô của nó không?**
 
-Có. Bảng cung cấp phương thức [set_RightToLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/table/set_righttoleft/) và các đoạn văn có [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/vi/cpp/aspose.slides/paragraphformat/set_righttoleft/) . Sử dụng cả hai sẽ đảm bảo thứ tự và hiển thị RTL đúng bên trong các ô.
+Có. Bảng cung cấp phương thức [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) , và các đoạn có [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/) . Sử dụng cả hai đảm bảo thứ tự RTL đúng và việc hiển thị bên trong các ô.
 
-**Làm sao tôi có thể ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong tệp cuối cùng?**
+**Làm thế nào để ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong tệp cuối cùng?**
 
-Sử dụng [shape locks](/slides/vi/cpp/applying-protection-to-presentation/) để vô hiệu hoá việc di chuyển, thay đổi kích thước, lựa chọn, v.v. Các khóa này cũng áp dụng cho bảng.
+Sử dụng [shape locks](/slides/vi/cpp/applying-protection-to-presentation/) để vô hiệu hoá việc di chuyển, thay đổi kích thước, chọn, vv. Các khóa này cũng áp dụng cho bảng.
 
-**Có hỗ trợ chèn ảnh vào bên trong một ô dưới dạng nền không?**
+**Có hỗ trợ chèn hình ảnh vào bên trong ô làm nền không?**
 
-Có. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/vi/cpp/aspose.slides/picturefillformat/) cho ô; ảnh sẽ phủ hết vùng ô theo chế độ đã chọn (kéo giãn hoặc lặp).
+Có. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) cho ô; hình ảnh sẽ bao phủ khu vực ô theo chế độ đã chọn (kéo dài hoặc lát).

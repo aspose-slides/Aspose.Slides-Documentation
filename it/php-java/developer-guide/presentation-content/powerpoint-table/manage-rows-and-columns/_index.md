@@ -1,5 +1,5 @@
 ---
-title: Gestire righe e colonne nelle tabelle PowerPoint usando PHP
+title: Gestisci righe e colonne nelle tabelle PowerPoint usando PHP
 linktitle: Righe e colonne
 type: docs
 weight: 20
@@ -17,238 +17,303 @@ keywords:
 - rimuovi colonna
 - formattazione testo riga
 - formattazione testo colonna
-- stile della tabella
+- stile tabella
 - PowerPoint
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Gestisci le righe e le colonne delle tabelle in PowerPoint con Aspose.Slides per PHP via Java e velocizza la modifica delle presentazioni e gli aggiornamenti dei dati."
+description: "Gestisci righe e colonne delle tabelle in PowerPoint con Aspose.Slides per PHP tramite Java e velocizza la modifica delle presentazioni e gli aggiornamenti dei dati."
 ---
 ## **Introduzione**
 
-Per consentirti di gestire le righe e le colonne di una tabella in una presentazione PowerPoint, Aspose.Slides fornisce la classe [Table](https://reference.aspose.com/slides/it/php-java/aspose.slides/table/) e molti altri tipi.
+Aspose.Slides per PHP tramite Java ti consente di gestire la struttura e la formattazione delle tabelle nelle presentazioni PowerPoint tramite la classe [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Puoi designare una riga di intestazione, clonare o rimuovere righe e colonne e applicare la formattazione del testo a un'intera riga o colonna.
 
-## **Imposta la Prima Riga come Intestazione**
+Questo articolo spiega queste operazioni con esempi PHP. Mostra anche come recuperare il preset di stile di una tabella in modo da riutilizzarlo. Gli indici di righe e colonne della tabella partono da zero.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e carica la presentazione.  
-2. Ottieni un riferimento alla diapositiva tramite il suo indice.  
-3. Crea un oggetto [Table](https://reference.aspose.com/slides/it/php-java/aspose.slides/Table) e impostalo a null.  
-4. Itera attraverso tutti gli oggetti [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/) per trovare la tabella pertinente.  
-5. Imposta la prima riga della tabella come intestazione.  
+## **Controllo altezza riga**
 
-Questo codice PHP mostra come impostare la prima riga di una tabella come intestazione:
+Usa [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/) per impostare l'altezza minima di una riga in punti. È un limite inferiore, non un'altezza fissa. [Row::getHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/getheight/) restituisce l'altezza effettiva. Accedi alla riga tramite [Table::getRows](https://reference.aspose.com/slides/php-java/aspose.slides/table/getrows/).
+
+L'esempio carica [row-height-input.pptx](row-height-input.pptx), che contiene una tabella come prima forma nella prima diapositiva. La sua prima riga inizia a 70 punti. Le celle usano testo Arial da 18 punti, con a capo automatico e margini superiore e inferiore di 6 punti; il testo più lungo nella seconda colonna va a capo su più righe. L'esempio aumenta il minimo a 100 punti, poi lo diminuisce a 20 punti, stampa l'altezza reale dopo ogni modifica e salva entrambi i risultati.
 
 ```php
-  # Istanzia la classe Presentation
-  $pres = new Presentation("table.pptx");
-  try {
-    # Accede alla prima diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Inizializza la TableEx a null
-    $tbl = null;
-    # Itera attraverso le forme e imposta un riferimento alla tabella
-    foreach($sld->getShapes() as $shp) {
-      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
-        $tbl = $shp;
-        # Imposta la prima riga di una tabella come intestazione
-        $tbl->setFirstRow(true);
-      }
-    }
-    # Salva la presentazione su disco
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("row-height-input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $row = $table->getRows()->get_Item(0);
+
+    $row->setMinimalHeight(100);
+    printf("Increased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-increased.pptx", SaveFormat::Pptx);
+
+    $row->setMinimalHeight(20);
+    printf("Decreased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-decreased.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Clona una Riga o una Colonna di Tabella**
+Con la presentazione fornita, aumentare il minimo aggiunge spazio alla riga. Diminuirlo rimuove quello spazio extra, ma l'altezza reale rimane superiore a 20 punti perché testo e margini delle celle richiedono più spazio. Ridurre solo il minimo non può forzare la riga al di sotto dello spazio necessario al suo contenuto.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e carica la presentazione,  
-2. Ottieni un riferimento alla diapositiva tramite il suo indice.  
-3. Definisci un array di `columnWidth`.  
-4. Definisci un array di `rowHeight`.  
-5. Aggiungi un oggetto [Table](https://reference.aspose.com/slides/it/php-java/aspose.slides/Table) alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addtable/).  
-6. Clona la riga della tabella.  
-7. Clona la colonna della tabella.  
-8. Salva la presentazione modificata.  
+Diversi fattori influenzano l'altezza reale:
 
-Questo codice PHP mostra come clonare una riga o una colonna di una tabella PowerPoint:
+- **Testo e dimensione carattere:** testo più lungo, interruzioni di riga esplicite o un carattere più grande possono richiedere più spazio verticale.
+- **A capo e larghezza colonna:** con l'a capo abilitato, ridurre la larghezza della colonna con [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) può produrre più righe. Una colonna più larga può ridurre lo spazio richiesto verticalmente.
+- **Margini celle:** [Cell::setMarginTop](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmargintop/) e [Cell::setMarginBottom](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginbottom/) aggiungono spazio verticale. [Cell::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginleft/) e [Cell::setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginright/) riducono la larghezza disponibile per il testo e possono causare ulteriori a capo.
+
+Per questa tabella senza celle unite, la cella che necessita del maggior spazio verticale determina il limite inferiore basato sul contenuto per l'intera riga. Per rendere la riga più corta, potrebbe essere necessario abbreviare il testo, ridurre la dimensione del carattere o i margini, o allargare una colonna.
+
+Le immagini seguenti mostrano la stessa tabella alla stessa scala. Nei risultati illustrati, le altezze reali erano 70, 100 e 55,2 punti: la riga finale è rimasta più alta del suo minimo di 20 punti. Le misurazioni testuali precise possono variare con i caratteri disponibili nell'ambiente. Scarica i risultati salvati: [minimum aumentato](row-height-increased.pptx) e [minimum diminuito](row-height-decreased.pptx).
+
+| Originale: minimum 70 pt, reale 70 pt | Aumentato: minimum 100 pt, reale 100 pt | Diminuito: minimum 20 pt, reale 55,2 pt |
+| --- | --- | --- |
+| ![Tabella originale con prima riga di 70 punti.](row-height-before.png) | ![Tabella dopo aver aumentato il minimum della prima riga a 100 punti.](row-height-increased.png) | ![Tabella dopo aver diminuito il minimum della prima riga a 20 punti; il testo a capo mantiene la riga più alta del minimum.](row-height-decreased.png) |
+
+## **Imposta la prima riga come intestazione**
+
+Usa il metodo [setFirstRow](https://reference.aspose.com/slides/php-java/aspose.slides/table/setfirstrow/) per contrassegnare la prima riga per la formattazione dell'intestazione. Il suo aspetto dipende dallo stile della tabella applicato.
+
+1. Carica la presentazione con la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Accedi alla prima diapositiva.
+3. Accedi alla tabella memorizzata come prima forma sulla diapositiva.
+4. Abilita la formattazione dell'intestazione per la sua prima riga.
+5. Salva la presentazione modificata.
+
+L'esempio richiede `table.pptx` con una tabella come prima forma nella prima diapositiva. Abilita la formattazione dell'intestazione per la prima riga e salva `First_row_header.pptx`.
 
 ```php
-  # Istanzia la classe Presentation
-  $pres = new Presentation("Test.pptx");
-  try {
-    # Accede alla prima diapositiva
-    $sld = $pres->getSlides()->get_Item(0);
-    # Definisce colonne con larghezze e righe con altezze
-    $dblCols = array(50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Aggiunge una forma tabella alla diapositiva
-    $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Aggiunge del testo alla cella riga 1 colonna 1
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $table->setFirstRow(true);
+
+    $presentation->save("First_row_header.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Clona una riga o colonna di tabella**
+
+Clona righe o colonne per riutilizzare il loro contenuto e la loro formattazione. Puoi aggiungere una copia alla fine della tabella o inserirla in una posizione specifica.
+
+1. Carica la presentazione con la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Accedi alla prima diapositiva.
+3. Definisci le larghezze delle colonne e le altezze delle righe.
+4. Aggiungi una tabella con il metodo [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+5. Clona le righe necessarie.
+6. Clona le colonne necessarie.
+7. Salva la presentazione modificata.
+
+L'esempio richiede `Test.pptx` con almeno una diapositiva. Crea una tabella con tre colonne e cinque righe, con dimensioni specificate in punti. Aggiunge copie della prima riga e della prima colonna, poi inserisce copie della seconda riga e della seconda colonna all'indice 3 (quarta posizione). La tabella risultante ha sette righe e cinque colonne. L'argomento `false` disabilita la clonazione in righe o colonne unite adiacenti; questa tabella non ha celle unite.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [50, 50, 50];
+    $rowHeights = [50, 30, 30, 30, 30];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
     $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
-    # Aggiunge del testo alla cella riga 1 colonna 2
     $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
-    # Clona la riga 1 alla fine della tabella
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # Aggiunge del testo alla cella riga 2 colonna 1
+
     $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
-    # Aggiunge del testo alla cella riga 2 colonna 2
     $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
-    # Clona la riga 2 come quarta riga della tabella
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
-    # Clona la prima colonna alla fine
+
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # Clona la seconda colonna all'indice della quarta colonna
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
-    # Salva la presentazione su disco
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Rimuovi una Riga o una Colonna da una Tabella**
+## **Rimuovi una riga o colonna da una tabella**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e carica la presentazione,  
-2. Ottieni un riferimento alla diapositiva tramite il suo indice.  
-3. Definisci un array di `columnWidth`.  
-4. Definisci un array di `rowHeight`.  
-5. Aggiungi un oggetto [Table](https://reference.aspose.com/slides/it/php-java/aspose.slides/Table) alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addtable/).  
-6. Rimuovi la riga della tabella.  
-7. Rimuovi la colonna della tabella.  
-8. Salva la presentazione modificata.  
+Rimuovi righe o colonne che non sono più necessarie in una tabella. La rimozione di un elemento sposta gli indici delle righe o colonne che lo seguono.
 
-Questo codice PHP mostra come rimuovere una riga o una colonna da una tabella:
+1. Crea una presentazione con la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Accedi alla prima diapositiva.
+3. Definisci le larghezze delle colonne e le altezze delle righe.
+4. Aggiungi una tabella con il metodo [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+5. Rimuovi la seconda riga e la seconda colonna.
+6. Salva la presentazione modificata.
+
+Questo esempio crea una tabella 3×3 e rimuove la riga e la colonna all'indice 1, lasciando una tabella 2×2 in `TestTable_out.pptx`. Le dimensioni sono in punti. L'argomento `false` disabilita la rimozione di righe o colonne unite adiacenti; questa tabella non ha celle unite.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $colWidth = array(100, 50, 30 );
-    $rowHeight = array(30, 50, 30 );
-    $table = $slide->getShapes()->addTable(100, 100, $colWidth, $rowHeight);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 50, 30];
+    $rowHeights = [30, 50, 30];
+    $table = $slide->getShapes()->addTable(100, 100, $columnWidths, $rowHeights);
+
     $table->getRows()->removeAt(1, false);
     $table->getColumns()->removeAt(1, false);
-    $pres->save("TestTable_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TestTable_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Imposta la Formattazione del Testo a Livello di Riga della Tabella**
+## **Imposta la formattazione del testo a livello di riga della tabella**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e carica la presentazione,  
-2. Ottieni un riferimento alla diapositiva tramite il suo indice.  
-3. Accedi all'oggetto [Table](https://reference.aspose.com/slides/it/php-java/aspose.slides/Table) pertinente dalla diapositiva.  
-4. Imposta le celle della prima riga con [setFontHeight(float value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseportionformat/#setFontHeight).  
-5. Imposta le celle della prima riga con [setAlignment(int value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setalignment/) e [setMarginRight(float value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginright/).  
-6. Imposta le celle della seconda riga con [setTextVerticalType(byte value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/settextverticaltype/).  
-7. Salva la presentazione modificata.  
+Applica la formattazione del testo a un'intera riga per mantenere le celle coerenti. Puoi impostare le proprietà del carattere, la formattazione del paragrafo e la direzione del testo senza formattare ogni cella singolarmente.
 
-Questo codice PHP dimostra l'operazione.
+1. Carica la presentazione con la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Accedi alla tabella nella prima diapositiva.
+3. Usa [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) per la prima riga.
+4. Usa [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) e [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) per la prima riga.
+5. Usa [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) per la seconda riga.
+6. Salva la presentazione modificata.
+
+L'esempio richiede `table.pptx` con una tabella come prima forma nella prima diapositiva e almeno due righe. Applica testo da 25 punti, allineamento a destra e un margine di paragrafo destro di 20 punti alla prima riga, poi imposta il testo verticale nella seconda riga.
 
 ```php
-  # Crea un'istanza della classe Presentation
-  $pres = new Presentation();
-  try {
-    # Supponiamo che la prima forma nella prima diapositiva sia una tabella
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Imposta l'altezza del font delle celle della prima riga
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
-    # Imposta l'allineamento del testo e il margine destro delle celle della prima riga
+    $portionFormat->setFontHeight(25);
+    $table->getRows()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Imposta il tipo verticale del testo delle celle della seconda riga
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    # Salva la presentazione su disco
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("row_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Imposta la Formattazione del Testo a Livello di Colonna della Tabella**
+## **Imposta la formattazione del testo a livello di colonna della tabella**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) e carica la presentazione,  
-2. Ottieni un riferimento alla diapositiva tramite il suo indice.  
-3. Accedi all'oggetto [Table](https://reference.aspose.com/slides/it/php-java/aspose.slides/Table) pertinente dalla diapositiva.  
-4. Imposta le celle della prima colonna con [setFontHeight(float value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseportionformat/#setFontHeight).  
-5. Imposta le celle della prima colonna con [setAlignment(int value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setalignment/) e [setMarginRight(float value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/paragraphformat/setmarginright/).  
-6. Imposta le celle della seconda colonna con [setTextVerticalType(byte value)](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframeformat/settextverticaltype/).  
-7. Salva la presentazione modificata.  
+Applica la formattazione del testo a un'intera colonna per mantenere le celle coerenti. Puoi impostare le proprietà del carattere, la formattazione del paragrafo e la direzione del testo senza formattare ogni cella singolarmente.
 
-Questo codice PHP dimostra l'operazione:
+1. Carica la presentazione con la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Accedi alla tabella nella prima diapositiva.
+3. Usa [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) per la prima colonna.
+4. Usa [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) e [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) per la prima colonna.
+5. Usa [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) per la seconda colonna.
+6. Salva la presentazione modificata.
+
+L'esempio richiede `table.pptx` con una tabella come prima forma nella prima diapositiva e almeno due colonne. Applica testo da 25 punti, allineamento a destra e un margine di paragrafo destro di 20 punti alla prima colonna, poi imposta il testo verticale nella seconda colonna.
 
 ```php
-  # Crea un'istanza della classe Presentation
-  $pres = new Presentation();
-  try {
-    # Supponiamo che la prima forma nella prima diapositiva sia una tabella
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Imposta l'altezza del font delle celle della prima colonna
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
-    # Imposta l'allineamento del testo e il margine destro delle celle della prima colonna in una chiamata
+    $portionFormat->setFontHeight(25);
+    $table->getColumns()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Imposta il tipo verticale del testo delle celle della seconda colonna
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("column_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ottieni le Proprietà di Stile della Tabella**
+## **Ottieni le proprietà dello stile della tabella**
 
-Aspose.Slides ti consente di recuperare le proprietà di stile di una tabella in modo da poter utilizzare questi dettagli per un'altra tabella o altrove. Questo codice PHP mostra come ottenere le proprietà di stile da uno stile predefinito di tabella:
+Usa il metodo [getStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/getstylepreset/) per recuperare il preset applicato a una tabella e riutilizzarlo su un'altra tabella. Questo identifica il preset piuttosto che le singole sovrascritture di formattazione delle celle.
+
+L'esempio crea una tabella, applica [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/php-java/aspose.slides/tablestylepreset/#DarkStyle1) e legge nuovamente il preset. Stampa il valore intero corrispondente a `DarkStyle1` e salva la tabella in `table.pptx`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// cambia il tema predefinito dello stile preimpostato
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 150];
+    $rowHeights = [5, 5, 5];
+    $table = $slide->getShapes()->addTable(10, 10, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::DarkStyle1);
+
+    $stylePreset = $table->getStylePreset();
+    echo java_values($stylePreset) . PHP_EOL;
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Posso applicare temi/stili PowerPoint a una tabella già creata?**
+**Posso applicare temi/stili di PowerPoint a una tabella già creata?**
 
 Sì. La tabella eredita il tema della diapositiva/layout/master e puoi comunque sovrascrivere riempimenti, bordi e colori del testo sopra quel tema.
 
 **Posso ordinare le righe della tabella come in Excel?**
 
-No, le tabelle di Aspose.Slides non dispongono di ordinamento o filtri integrati. Ordina i dati in memoria prima, quindi ripopolare le righe della tabella in quell'ordine.
+No, le tabelle Aspose.Slides non hanno ordinamento o filtri integrati. Ordina i dati in memoria prima, poi ripopola le righe della tabella in quell'ordine.
 
-**Posso avere colonne a bande (a strisce) mantenendo colori personalizzati su celle specifiche?**
+**Posso avere colonne a bande (a righe) mantenendo colori personalizzati su celle specifiche?**
 
-Sì. Attiva le colonne a bande, quindi sovrascrivi le celle specifiche con una formattazione locale; la formattazione a livello di cella ha la precedenza sullo stile della tabella.
+Sì. Attiva le colonne a bande, poi sovrascrivi le celle specifiche con formattazione locale; la formattazione a livello di cella ha precedenza sullo stile della tabella.

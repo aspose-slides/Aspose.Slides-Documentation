@@ -1,6 +1,6 @@
 ---
-title: "Beheer rijen en kolommen in PowerPoint‑tabellen met C++"
-linktitle: "Rijen en kolommen"
+title: Beheer rijen en kolommen in PowerPoint‑tabellen met C++
+linktitle: Rijen en kolommen
 type: docs
 weight: 20
 url: /nl/cpp/manage-rows-and-columns/
@@ -15,289 +15,342 @@ keywords:
 - kolom kopiëren
 - rij verwijderen
 - kolom verwijderen
-- tekstopmaak van rij
-- tekstopmaak van kolom
+- rijtekstopmaak
+- kolomtekstopmaak
 - tabelstijl
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Beheer tabelrijen en -kolommen in PowerPoint met Aspose.Slides voor C++ en versnel de bewerking van presentaties en gegevensupdates."
+description: "Beheer tabelrijen en -kolommen in PowerPoint met Aspose.Slides voor C++ en versnel het bewerken van presentaties en het bijwerken van gegevens."
 ---
 ## **Inleiding**
 
-Om u in staat te stellen de rijen en kolommen van een tabel in een PowerPoint‑presentatie te beheren, biedt Aspose.Slides de [Table](https://reference.aspose.com/slides/nl/cpp/aspose.slides/table/) klasse, de [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) interface en vele andere types. 
+Aspose.Slides for C++ laat u tabelstructuur en opmaak in PowerPoint‑presentaties beheren via de [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) klasse en de [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) interface. U kunt een header‑rij aanwijzen, rijen en kolommen klonen of verwijderen, en tekstopmaak toepassen op een hele rij of kolom.
 
-## **Stel de eerste rij in als koptekst**
+Dit artikel legt deze bewerkingen uit met C++‑voorbeelden. Het laat ook zien hoe u een tabel‑stijl‑preset kunt ophalen zodat u deze opnieuw kunt gebruiken. Rijen‑ en kolom‑indices in een tabel zijn nul‑gebaseerd.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse en laad de presentatie. 
-2. Haal een referentie naar een dia op via de index. 
-3. Maak een [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) object en stel het in op null. 
-4. Doorloop alle [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/) objecten om de betreffende tabel te vinden. 
-5. Stel de eerste rij van de tabel in als koptekst. 
+## **Rijhoogte regelen**
 
-Deze C++‑code laat zien hoe u de eerste rij van een tabel als koptekst instelt:
+Gebruik [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) om de minimale hoogte van een rij in punten in te stellen. Het is een ondergrens, geen vaste hoogte. [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) geeft de werkelijke hoogte terug; deze waarde kan niet rechtstreeks worden ingesteld. Toegang tot de rij via [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/).
 
-```c++
-// Instantiëert de Presentation‑klasse 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+Het voorbeeld laadt [row-height-input.pptx](row-height-input.pptx), dat een tabel bevat als het eerste object op de eerste dia. De eerste rij begint op 70 punten. De cellen gebruiken 18‑punt Arial‑tekst, omloop en 6‑punt marges boven en onder; de langere tekst in de tweede kolom wordt op meerdere regels weergegeven. Het voorbeeld verhoogt het minimum naar 100 punten, verlaagt het vervolgens naar 20 punten, drukt de werkelijke hoogte na elke wijziging af en slaat beide resultaten op.
 
-// Toegang tot de eerste dia
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// Initialiseert de null‑TableEx
-SharedPtr<ITable> tbl;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Itereert door de shapes en stelt een referentie naar de tabel in
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Stelt de eerste rij van een tabel in als koptekst 
-tbl->set_FirstRow(true);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
-## **Kopieer een tabelrij of -kolom**
+Met de meegeleverde presentatie voegt het verhogen van het minimum ruimte toe aan de rij. Het verlagen verwijdert die extra ruimte, maar de werkelijke hoogte blijft groter dan 20 punten omdat de tekst en celmarges meer ruimte nodig hebben. Alleen het minimum verlagen kan de rij niet onder de ruimte dwingen die de inhoud vereist.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse en laad de presentatie, 
-2. Haal een referentie naar een dia op via de index. 
-3. Definieer een array van `columnWidth`. 
-4. Definieer een array van `rowHeight`. 
-5. Voeg een [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) object toe aan de dia via de [AddTable()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addtable/) methode. 
-6. Kopieer de tabelrij. 
-7. Kopieer de tabelkolom. 
-8. Sla de gewijzigde presentatie op. 
+Enkele factoren die de werkelijke hoogte beïnvloeden:
 
-Deze C++‑code laat zien hoe u een PowerPoint‑tabelrij of -kolom kloont:
+- **Tekst en lettergrootte:** langere tekst, expliciete regeleinden of een groter lettertype kan meer verticale ruimte vereisen.  
+- **Omloop en kolombreedte:** wanneer omloop ingeschakeld is, kan het verkleinen van de kolombreedte met [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) meer regels opleveren. Een bredere kolom kan de benodigde verticale ruimte verminderen.  
+- **Celmarges:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) en [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) regelen de marges die verticale ruimte toevoegen. [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) en [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) beperken de breedte die beschikbaar is voor tekst en kunnen extra omloop veroorzaken.
 
-```c++
- // Het pad naar de documentmap.
-const String outPath = u"../out/CloningInTable_out.pptx";
+Voor deze tabel zonder samengevoegde cellen bepaalt de cel die de meeste verticale ruimte nodig heeft de inhoud‑gedreven ondergrens voor de hele rij. Om de rij korter te maken, moet u mogelijk de tekst inkorten, de lettergrootte of marges verkleinen, of een kolom breder maken.
 
-// Instantiëert de Presentation‑klasse
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+De afbeeldingen hieronder tonen dezelfde tabel op dezelfde schaal. In de referentie‑.NET‑run die hier wordt getoond, waren de werkelijke hoogtes 70, 100 en 55.2 punten: de laatste rij bleef hoger dan het minimum van 20 punten. Exacte tekstmetingen kunnen variëren afhankelijk van de lettertypen die in uw omgeving beschikbaar zijn. Download de opgeslagen resultaten: [verhoogd minimum](row-height-increased.pptx) en [verlaagd minimum](row-height-decreased.pptx).
 
-// Toegang tot de eerste dia
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+| Origineel: minimum 70 pt, werkelijk 70 pt | Verhoogd: minimum 100 pt, werkelijk 100 pt | Verlaagd: minimum 20 pt, werkelijk 55.2 pt |
+| --- | --- | --- |
+| ![Originele tabel met een eerste rij van 70 punten.](row-height-before.png) | ![Tabel na het verhogen van de minimale hoogte van de eerste rij naar 100 punten.](row-height-increased.png) | ![Tabel na het verlagen van de minimale hoogte van de eerste rij naar 20 punten; omgebroken tekst houdt de rij hoger dan het minimum.](row-height-decreased.png) |
 
-// Definieert kolommen met breedtes en rijen met hoogtes
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+## **Eerste rij als header instellen**
 
-// Voegt een tabelvorm toe aan de dia
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+Gebruik de [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/)‑methode om de eerste rij te markeren voor header‑opmaak. Het uiterlijk hangt af van de tabel‑stijl die op de tabel is toegepast.
 
+1. Laad de presentatie met de klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).  
+2. Open de eerste dia.  
+3. Open de tabel die is opgeslagen als het eerste object op de dia.  
+4. Schakel header‑opmaak in voor de eerste rij.  
+5. Sla de aangepaste presentatie op.
 
-// Stelt het randformaat in voor elke cel
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
+Het voorbeeld vereist `table.pptx` met een tabel als het eerste object op de eerste dia. Het schakelt header‑opmaak in voor de eerste rij en slaat `First_row_header.pptx` op.
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
 
-	}
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
-}
+## **Een tabelrij of -kolom klonen**
 
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
+Kloon rijen of kolommen om hun inhoud en opmaak opnieuw te gebruiken. U kunt een kopie aan het einde van de tabel toevoegen of deze op een specifieke positie invoegen.
 
-//AddClone voegt een rij toe aan het einde van de tabel
+1. Laad de presentatie met de klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).  
+2. Open de eerste dia.  
+3. Definieer de kolombreedtes en rijhoogtes.  
+4. Voeg een tabel toe met de [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/)‑methode.  
+5. Kloon de benodigde rijen.  
+6. Kloon de benodigde kolommen.  
+7. Sla de aangepaste presentatie op.
+
+Het voorbeeld vereist `Test.pptx` met minstens één dia. Het maakt een tabel met drie kolommen en vijf rijen, met afmetingen opgegeven in punten. Het voegt kopieën van de eerste rij en kolom toe aan het einde, en voegt vervolgens kopieën van de tweede rij en kolom in op index 3 (de vierde positie). De resulterende tabel heeft zeven rijen en vijf kolommen. Het argument `false` schakelt klonen in aangrenzende samengevoegde rijen of kolommen uit; deze tabel heeft geen samengevoegde cellen.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone voegt een rij toe op een specifieke positie in een tabel
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone voegt een kolom toe aan het einde van de tabel
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone voegt een kolom toe op een specifieke positie in een tabel
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Slaat de presentatie op naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Verwijder een rij of kolom uit een tabel**
+## **Een rij of kolom uit een tabel verwijderen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse en laad de presentatie, 
-2. Haal een referentie naar een dia op via de index. 
-3. Definieer een array van `columnWidth`. 
-4. Definieer een array van `rowHeight`. 
-5. Voeg een [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) object toe aan de dia via de [AddTable()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addtable/) methode. 
-6. Verwijder de tabelrij. 
-7. Verwijder de tabelkolom. 
-8. Sla de gewijzigde presentatie op. 
+Verwijder rijen of kolommen die niet langer nodig zijn in een tabel. Het verwijderen van een item verschuift de indices van de daaropvolgende rijen of kolommen.
 
-Deze C++‑code laat zien hoe u een rij of kolom uit een tabel verwijdert:
+1. Maak een presentatie met de klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).  
+2. Open de eerste dia.  
+3. Definieer de kolombreedtes en rijhoogtes.  
+4. Voeg een tabel toe met de [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/)‑methode.  
+5. Verwijder de tweede rij en tweede kolom.  
+6. Sla de aangepaste presentatie op.
 
-```c++
-// Het pad naar de documentmap.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+Dit voorbeeld maakt een drie‑bij‑drie‑tabel en verwijdert de rij en kolom op index 1, waardoor een twee‑bij‑twee‑tabel overblijft in `TestTable_out.pptx`. De afmetingen zijn in punten. Het argument `false` schakelt het verwijderen van aangrenzende samengevoegde rijen of kolommen uit; deze tabel heeft geen samengevoegde cellen.
 
-// Instantiëert de Presentation‑klasse
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Toegang tot de eerste dia
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Definieert de kolommen met breedtes en rijen met hoogtes
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Voegt een tabelvorm toe aan de dia
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Voegt cellen (1, 1) x (2, 1) samen
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Voegt cellen (1, 2) x (2, 2) samen
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Slaat de presentatie op naar schijf
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Stel tekstopmaak in op rijniveau van de tabel**
+## **Tekstopmaak instellen op rijniveau van de tabel**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse en laad de presentatie, 
-2. Haal een referentie naar een dia op via de index. 
-3. Toegang tot het relevante [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) object vanaf de dia. 
-4. Stel de [set_FontHeight()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/baseportionformat/set_fontheight/) van de cellen in de eerste rij in. 
-5. Stel de [set_Alignment()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_alignment/) en [set_MarginRight()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginright/) van de cellen in de eerste rij in. 
-6. Stel de [set_TextVerticalType()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/textframeformat/set_textverticaltype/) van de cellen in de tweede rij in. 
-7. Sla de gewijzigde presentatie op. 
+Pas tekstopmaak toe op een volledige rij zodat de cellen consistent blijven. U kunt lettertype‑eigenschappen, alinea‑opmaak en tekstrichting instellen zonder elke cel afzonderlijk te formatteren.
 
-Deze C++‑code demonstreert de bewerking.
+1. Laad de presentatie met de klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).  
+2. Open de tabel op de eerste dia.  
+3. Stel de letterhoogte in met [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) voor de eerste rij.  
+4. Stel de uitlijning en de rechter alinea‑marge in met [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) en [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) voor de eerste rij.  
+5. Stel de tekstrichting in met [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) voor de tweede rij.  
+6. Sla de aangepaste presentatie op.
 
-```c++
-// Maakt een instantie van de Presentation‑klasse
-auto presentation = System::MakeObject<Presentation>();
+Het voorbeeld vereist `table.pptx` met een tabel als eerste object op de eerste dia en minstens twee rijen. Het past 25‑punt tekst, rechts uitlijnen en een rechter alinea‑marge van 20 punt toe op de eerste rij, en zet verticale tekst in de tweede rij.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Laten we aannemen dat de eerste shape op de eerste dia een tabel is
-// Stelt de letterhoogte van de cellen in de eerste rij in
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Stelt de tekstuitlijning en rechter marge van de cellen in de eerste rij in
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Stelt het verticale teksttype van de cellen in de tweede rij in
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Slaat de presentatie op naar schijf
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **Stel tekstopmaak in op kolomniveau van de tabel**
+## **Tekstopmaak instellen op kolomniveau van de tabel**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse en laad de presentatie, 
-2. Haal een referentie naar een dia op via de index. 
-3. Toegang tot het relevante [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) object vanaf de dia. 
-4. Stel de [set_FontHeight()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/baseportionformat/set_fontheight/) van de cellen in de eerste kolom in. 
-5. Stel de [set_Alignment()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_alignment/) en [set_MarginRight()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/set_marginright/) van de cellen in de eerste kolom in. 
-6. Stel de [set_TextVerticalType()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/textframeformat/set_textverticaltype/) van de cellen in de tweede kolom in. 
-7. Sla de gewijzigde presentatie op. 
+Pas tekstopmaak toe op een volledige kolom zodat de cellen consistent blijven. U kunt lettertype‑eigenschappen, alinea‑opmaak en tekstrichting instellen zonder elke cel afzonderlijk te formatteren.
 
-Deze C++‑code demonstreert de bewerking: 
+1. Laad de presentatie met de klasse [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).  
+2. Open de tabel op de eerste dia.  
+3. Stel de letterhoogte in met [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) voor de eerste kolom.  
+4. Stel de uitlijning en de rechter alinea‑marge in met [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) en [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) voor de eerste kolom.  
+5. Stel de tekstrichting in met [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) voor de tweede kolom.  
+6. Sla de aangepaste presentatie op.
 
-```c++
-// Maakt een instantie van de Presentation‑klasse
-auto pres = System::MakeObject<Presentation>();
+Het voorbeeld vereist `table.pptx` met een tabel als eerste object op de eerste dia en minstens twee kolommen. Het past 25‑punt tekst, rechts uitlijnen en een rechter alinea‑marge van 20 punt toe op de eerste kolom, en zet verticale tekst in de tweede kolom.
 
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Laten we aannemen dat de eerste shape op de eerste dia een tabel is
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Stelt de letterhoogte van de cellen in de eerste kolom in
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Stelt de tekstuitlijning en rechter marge van de cellen in de eerste kolom in één oproep
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Stelt het verticale teksttype van de cellen in de tweede kolom in
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **Haal tafel‑stijleigenschappen op**
+## **Tabelstijleigenschappen ophalen**
 
-Aspose.Slides stelt u in staat de stijleigenschappen van een tabel op te halen zodat u die details voor een andere tabel of elders kunt gebruiken. Deze C++‑code laat zien hoe u de stijleigenschappen van een tabel‑preset‑stijl verkrijgt:
+Gebruik de [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/)‑methode om de preset die op een tabel is toegepast op te halen en opnieuw te gebruiken op een andere tabel. Dit identificeert de preset in plaats van individuele cel‑opmaakoverschrijvingen.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+Het voorbeeld maakt een tabel, past [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) toe en leest de preset terug. Het drukt `DarkStyle1` af en slaat de tabel op in `table.pptx`.
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik PowerPoint‑thema’s/stijlen toepassen op een reeds aangemaakte tabel?**
+**Kan ik PowerPoint‑thema’s/stijlen toepassen op een tabel die al bestaat?**
 
-Ja. De tabel erft het thema van de dia/lay‑out/master en u kunt nog steeds vullingen, randen en tekstkleuren bovenop dat thema overschrijven.
+Ja. De tabel erft het thema van de dia/lay‑out/master, en u kunt nog steeds opvullingen, randen en tekstkleuren bovenop dat thema overschrijven.
 
 **Kan ik tabelrijen sorteren zoals in Excel?**
 
-Nee, Aspose.Slides‑tabellen hebben geen ingebouwde sortering of filters. Sorteer uw gegevens eerst in het geheugen en vul daarna de tabelrijen in die volgorde opnieuw.
+Nee, Aspose.Slides‑tabellen hebben geen ingebouwde sortering of filters. Sorteer uw gegevens eerst in het geheugen en vul vervolgens de tabelrijen in die volgorde opnieuw.
 
-**Kan ik banden‑ (gestreepte) kolommen hebben terwijl ik aangepaste kleuren behoud voor specifieke cellen?**
+**Kan ik afwisselend (gestreept) gekleurde kolommen hebben terwijl ik aangepaste kleuren behoud voor specifieke cellen?**
 
-Ja. Schakel banden‑kolommen in en overschrijf vervolgens specifieke cellen met lokale opmaak; opmaak op celniveau heeft voorrang boven de tabel‑stijl.
+Ja. Schakel afwisselende kolommen in, en overschrijf vervolgens specifieke cellen met lokale opmaak; opmaak op celniveau heeft voorrang boven de tabel‑stijl.

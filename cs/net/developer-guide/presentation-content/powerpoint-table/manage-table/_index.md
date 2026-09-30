@@ -1,6 +1,6 @@
 ---
-title: Správa tabulek prezentací v .NET
-linktitle: Spravovat tabulku
+title: Správa tabulek prezentace v .NET
+linktitle: Správa tabulky
 type: docs
 weight: 10
 url: /cs/net/manage-table/
@@ -9,7 +9,7 @@ keywords:
 - vytvořit tabulku
 - přístup k tabulce
 - poměr stran
-- zarovnání textu
+- zarovnat text
 - formátování textu
 - styl tabulky
 - PowerPoint
@@ -17,84 +17,77 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte a upravujte tabulky v PowerPoint slidech pomocí Aspose.Slides pro .NET. Objevte jednoduché ukázky kódu v C#, které zjednoduší vaše pracovní postupy s tabulkami."
+description: "Vytvářejte a upravujte tabulky v PowerPoint slidech pomocí Aspose.Slides pro .NET. Objevte jednoduché příklady kódu v C# pro zefektivnění vašich pracovních postupů s tabulkami."
 ---
 ## **Úvod**
 
-Tabulka v PowerPointu je efektivní způsob, jak zobrazit a vyjádřit informace. Informace v mřížce buněk (uspořádaných do řádků a sloupců) jsou přehledné a snadno pochopitelné.
+Tabulky v PowerPointu uspořádávají informace do řádků a sloupců, což usnadňuje čtení a porovnávání hodnot.
 
-Aspose.Slides poskytuje třídu [Tabulka](https://reference.aspose.com/slides/cs/net/aspose.slides/table/) , rozhraní [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) , třídu [Buňka](https://reference.aspose.com/slides/cs/net/aspose.slides/cell/) , rozhraní [ICell](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/) a další typy, které vám umožní vytvářet, aktualizovat a spravovat tabulky ve všech druzích prezentací. 
+Aspose.Slides poskytuje třídu [Table](https://reference.aspose.com/slides/net/aspose.slides/table/), rozhraní [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/), třídu [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/), rozhraní [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) a další typy, které vám umožní vytvářet, aktualizovat a spravovat tabulky v prezentacích.
 
 ## **Vytvoření tabulky od nuly**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).  
-2. Získejte referenci na snímek přes jeho index.  
-3. Definujte pole `columnWidth`.  
-4. Definujte pole `rowHeight`.  
-5. Přidejte objekt [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) na snímek pomocí metody [AddTable](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addtable/).  
-6. Projděte každou [ICell](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/) a aplikujte formátování na horní, dolní, pravý a levý okraj.  
-7. Sloučte první dvě buňky prvního řádku tabulky.  
-8. Získejte [TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/textframe/) buňky [ICell](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/).  
-9. Přidejte do [TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/textframe/) nějaký text.  
+Vytvořte tabulku zadáním její pozice, šířek sloupců a výšek řádků. Po přidání na snímek můžete formátovat okraje buněk, slučovat buňky a vkládat text.
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Definujte pole šířek sloupců v bodech.
+4. Definujte pole výšek řádků v bodech.
+5. Přidejte objekt [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) na snímek pomocí metody [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+6. Procházejte každé [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) a použijte formátování horního, dolního, pravého a levého okraje.
+7. Sloučte první dvě buňky v první řadě tabulky.
+8. Přistupte ke sloučené buňce přes její vlastnost [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/).
+9. Nastavte text ve sloučené buňce.
 10. Uložte upravenou prezentaci.
 
-Tento C# kód ukazuje, jak vytvořit tabulku v prezentaci:
+Níže uvedený příklad vytvoří tabulku se třemi sloupci a pěti řádky v bodovém umístění (100, 50). Použije červené okraje o šířce 5 bodů, sloučí první dvě buňky v první řadě a výsledek uloží jako `table.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Accesses the first slide
-ISlide sld = pres.Slides[0];
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-// Defines columns with widths and rows with heights
-double[] dblCols = { 50, 50, 50 };
-double[] dblRows = { 50, 30, 30, 30, 30 };
-
-// Adds a table shape to the slide
-ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-// Sets the border format for each cell
-for (int row = 0; row < tbl.Rows.Count; row++)
+foreach (var row in table.Rows)
 {
-	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
-	{
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderTop.Width = 5;
+    foreach (var cell in row)
+    {
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.FillType = (FillType.Solid);
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.SolidFillColor.Color= Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderBottom.Width =5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.SolidFillColor.Color =Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
-	}
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
+    }
 }
-// Sloučí buňky 1 a 2 v řádku 1
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
-// Přidá text do sloučené buňky
-tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
+table.MergeCells(table[0, 0], table[1, 0], false);
+table[0, 0].TextFrame.Text = "Merged Cells";
 
-// Uloží prezentaci na disk
-pres.Save("table.pptx", SaveFormat.Pptx);
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **Číslování ve standardní tabulce**
 
-Ve standardní tabulce je číslování buněk jednoduché a začíná od nuly. První buňka v tabulce má index 0,0 (sloupec 0, řádek 0). 
+Ve standardní tabulce jsou indexy buněk nulové a používají pořadí (sloupec, řádek). První buňka má index (0, 0).
 
-Například buňky v tabulce se 4 sloupci a 4 řádky jsou číslovány takto:
+Například buňky v tabulce se 4 sloupci a 4 řádky jsou očíslovány takto:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,260 +95,231 @@ Například buňky v tabulce se 4 sloupci a 4 řádky jsou číslovány takto:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Tento C# kód vytvoří výše číslovanou standardní tabulku 4 × 4 a nastaví formát okrajů pro každou její buňku:
+Tento příklad vytvoří výše ilustrovanou tabulku 4 × 4, se šířkami sloupců a výškami řádků 70 bodů a červenými okraji buněk o šířce 5 bodů. Souřadnice ukazují indexy buněk; příklad ponechá buňky prázdné a uloží tabulku jako `StandardTables_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 70, 70, 70, 70 };
+var rowHeights = new double[] { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+foreach (var row in table.Rows)
 {
-
-    // Získá první snímek
-    ISlide sld = pres.Slides[0];
-
-    // Definuje sloupce s šířkami a řádky s výškami
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Přidá tvar tabulky na snímek
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Nastaví formát okraje pro každou buňku
-    foreach (IRow row in tbl.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-			cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderTop.Width = 5;
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-			cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderBottom.Width = 5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-			cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-			cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderRight.Width = 5;
-        }
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
     }
-
-    // Uloží prezentaci na disk
-    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Přístup k existující tabulce**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).  
+Tabulky jsou uloženy v kolekci tvarů snímku. Procházejte tvary a najděte tabulku, poté použijte rozhraní [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) pro čtení nebo aktualizaci jejích buněk.
 
-2. Získejte referenci na snímek obsahující tabulku přes jeho index.  
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Získejte odkaz na snímek obsahující tabulku podle jeho indexu.
+3. Procházejte objekty [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) a zastavte se, když najdete tabulku. Pokud snímek obsahuje několik tabulek, použijte [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) k identifikaci požadované tabulky.
+4. Aktualizujte text v cílové buňce.
+5. Uložte upravenou prezentaci.
 
-3. Vytvořte objekt [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) a přiřaďte mu hodnotu null.  
+Níže uvedený příklad otevře `UpdateExistingTable.pptx` a najde první tabulku na prvním snímku. Nastaví buňku ve sloupci 0, řádku 1 na hodnotu `New` a výsledek uloží jako `table1_out.pptx`. Vstup musí obsahovat alespoň jeden snímek a první tabulka na tomto snímku musí mít alespoň jeden sloupec a dva řádky.
 
-4. Procházejte všechny objekty [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/) až do nalezení tabulky.  
-
-   Pokud předpokládáte, že snímek, se kterým pracujete, obsahuje jedinou tabulku, můžete jednoduše prověřit všechny tvary, které obsahuje. Když je tvar identifikován jako tabulka, můžete jej přetypovat na objekt [Tabulka](https://reference.aspose.com/slides/cs/net/aspose.slides/table/). Pokud však snímek obsahuje několik tabulek, je lepší hledat požadovanou tabulku pomocí jejího [AlternativeText](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/alternativetext/).  
-
-5. Použijte objekt [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) k práci s tabulkou. V níže uvedeném příkladu jsme přidali nový řádek do tabulky.  
-
-6. Uložte upravenou prezentaci.
-
-Tento C# kód ukazuje, jak získat přístup k existující tabulce a s ní pracovat:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
+using var presentation = new Presentation("UpdateExistingTable.pptx");
+var slide = presentation.Slides[0];
+ITable? table = null;
+
+foreach (var shape in slide.Shapes)
 {
-
-    // Získá první snímek
-    ISlide sld = pres.Slides[0];
-
-    // Inicializuje nulovou proměnnou TableEx
-    ITable tbl = null;
-
-    // Prochází tvary a nastaví referenci na nalezenou tabulku
-    foreach (IShape shp in sld.Shapes)
-        if (shp is ITable)
-            tbl = (ITable)shp;
-
-    // Nastaví text pro první sloupec druhého řádku
-    tbl[0, 1].TextFrame.Text = "New";
-
-    // Uloží upravenou prezentaci na disk
-    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    if (shape is ITable candidateTable)
+    {
+        table = candidateTable;
+        break;
+    }
 }
+
+table![0, 1].TextFrame.Text = "New";
+
+presentation.Save("table1_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Najít buňku, která vlastní textový rámec**
+Pro změnu výšky řádku v existující tabulce a pochopení, proč její skutečná výška může překročit požadovanou minimální, viz [Control Row Height](/slides/cs/net/manage-rows-and-columns/#control-row-height).
 
-Když obecný kód pro zpracování textu získá objekt [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) z tabulky, použijte vlastnost [ITextFrame.ParentCell](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentcell/) k získání vlastní [ICell](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/). U textového rámce buňky tabulky je [ITextFrame.ParentCell](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentcell/) nastaven a [ITextFrame.ParentShape](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentshape/) je `null`, i když samotná tabulka je tvar.
+## **Nalezení buňky, která vlastní textový rámec**
 
-Souřadnice buňky jsou dostupné přes jen ke čtení vlastnosti [ICell.FirstColumnIndex](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/firstcolumnindex/) a [ICell.FirstRowIndex](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/firstrowindex/). [ITextFrame.ParentCell](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentcell/) je také jen ke čtení: poskytuje navigaci k vlastníkovi, ale nemění vlastnictví. Vždy před použitím zkontrolujte, zda vrácená buňka není `null`.
+Když obecný kód pro zpracování textu obdrží objekt [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) z tabulky, použijte vlastnost [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) k získání vlastníka – objektu [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/). Pro textový rámec buňky tabulky je [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) nastaven a [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) je `null`, i když samotná tabulka je tvarem.
 
-Kompletní příklad, který identifikuje vlastníky buňky tabulky i tvaru, včetně tvarů spojených s uzly SmartArt, najdete v [Search and Replace Text](/slides/cs/net/search-and-replace-text/).
+Souřadnice buňky jsou dostupné přes jen pro čtení vlastnosti [ICell.FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) a [ICell.FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/). Vlastnost [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) je také jen pro čtení: umožňuje navigaci k vlastníkovi, ale nemění vlastnictví. Vždy před použitím zkontrolujte, zda vrácená buňka není `null`.
+
+Kompletní příklad, který identifikuje vlastníky buněk tabulky a tvarů, včetně tvarů spojených s uzly SmartArt, naleznete v [Search and Replace Text](/slides/cs/net/search-and-replace-text/).
 
 ## **Zarovnání textu v tabulce**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).  
-2. Získejte referenci na snímek přes jeho index.  
-3. Přidejte objekt [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) na snímek.  
-4. Získejte objekt [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) z tabulky.  
-5. Získejte [IParagraph](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/) z [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/).  
-6. Zarovnejte text vertikálně.  
+Můžete řídit vertikální ukotvení a směr textu jednotlivých buněk tabulky. Příklad v této sekci zarovná text ve první buňce na střed a otočí jej o 270 stupňů.
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte objekt [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) na snímek.
+4. Získejte objekt [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) z tabulky.
+5. Přistupte k prvnímu [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) a nastavte jeho text a barvu.
+6. Nastavte buňce [TextAnchorType](https://reference.aspose.com/slides/net/aspose.slides/icell/textanchortype/) a [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/icell/textverticaltype/).
 7. Uložte upravenou prezentaci.
 
-Tento C# kód ukazuje, jak zarovnat text v tabulce:
+Tento příklad vytvoří tabulku 4 × 4 se šířkami sloupců 120 bodů a výškami řádků 100 bodů. Formátuje text v buňce (0, 0), přidá hodnoty do zbývajících buněk v první řadě a výsledek uloží jako `Vertical_Align_Text_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Vytvoří instanci třídy Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Získá první snímek
-ISlide slide = presentation.Slides[0];
+var columnWidths = new double[] { 120, 120, 120, 120 };
+var rowHeights = new double[] { 100, 100, 100, 100 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+table[1, 0].TextFrame.Text = "10";
+table[2, 0].TextFrame.Text = "20";
+table[3, 0].TextFrame.Text = "30";
 
-// Definuje sloupce s šířkami a řádky s výškami
-double[] dblCols = { 120, 120, 120, 120 };
-double[] dblRows = { 100, 100, 100, 100 };
-
-// Přidá tvar tabulky na snímek
-ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-tbl[1, 0].TextFrame.Text = "10";
-tbl[2, 0].TextFrame.Text = "20";
-tbl[3, 0].TextFrame.Text = "30";
-
-// Získá textový rámec
-ITextFrame txtFrame = tbl[0, 0].TextFrame;
-
-// Vytvoří objekt Paragraph pro textový rámec
-IParagraph paragraph = txtFrame.Paragraphs[0];
-
-// Vytvoří objekt Portion pro odstavec
-IPortion portion = paragraph.Portions[0];
+var cell = table[0, 0];
+var paragraph = cell.TextFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 portion.Text = "Text here";
 portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Zarovná text vertikálně
-ICell cell = tbl[0, 0];
 cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
-// Uloží prezentaci na disk
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Nastavení formátování textu na úrovni tabulky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).  
-2. Získejte referenci na snímek přes jeho index.  
-3. Získejte objekt [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) ze snímku.  
-4. Nastavte [FontHeight](https://reference.aspose.com/slides/cs/net/aspose.slides/baseportionformat/fontheight/) pro text.  
-5. Nastavte [Alignment](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/alignment/) a [MarginRight](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/marginright/).  
-6. Nastavte [TextVerticalType](https://reference.aspose.com/slides/cs/net/aspose.slides/textframeformat/textverticaltype/).  
-7. Uložte upravenou prezentaci. 
+Použijte [SetTextFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulktextformattable/settextformat/) k aplikaci formátování textu na všechny buňky v tabulce. Jeho přetížení přijímají formátování částí, odstavců i textových rámců, takže můžete nastavit tyto vlastnosti bez iterace přes jednotlivé buňky.
 
-Tento C# kód ukazuje, jak aplikovat požadované možnosti formátování na text v tabulce:
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Získejte objekt [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) ze snímku.
+4. Nastavte [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) pro text.
+5. Nastavte [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) a [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/).
+6. Nastavte [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+7. Uložte upravenou prezentaci.
 
-```c#
+Níže uvedený příklad otevře `table.pptx`, který musí obsahovat alespoň jeden snímek s tabulkou jako jejím prvním tvarem. Nastaví velikost písma na 25 bodů, zarovná odstavce vpravo s pravým okrajem 20 bodů a text nastaví vertikální. Formátovaná prezentace se uloží jako `result.pptx`.
+
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Vytvoří instanci třídy Presentation
-Presentation presentation = new Presentation();
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Předpokládejme, že první tvar na prvním snímku je tabulka
+var table = (ITable)slide.Shapes[0];
 
-// Nastaví výšku písma buněk tabulky
-PortionFormat portionFormat = new PortionFormat();
+var portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
-someTable.SetTextFormat(portionFormat);
+table.SetTextFormat(portionFormat);
 
-// Nastaví zarovnání textu buněk tabulky a pravý okraj v jednom volání
-ParagraphFormat paragraphFormat = new ParagraphFormat();
+var paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
-someTable.SetTextFormat(paragraphFormat);
+table.SetTextFormat(paragraphFormat);
 
-// Nastaví vertikální typ textu buněk tabulky
-TextFrameFormat textFrameFormat = new TextFrameFormat();
+var textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.SetTextFormat(textFrameFormat);
+table.SetTextFormat(textFrameFormat);
 
-
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("result.pptx", SaveFormat.Pptx);
 ```
 
 ## **Získání vlastností stylu tabulky**
 
-Aspose.Slides vám umožňuje načíst vlastnosti stylu tabulky, abyste je mohli použít pro jinou tabulku nebo jinde. Tento C# kód ukazuje, jak získat vlastnosti stylu z předdefinovaného stylu tabulky: 
+Použijte [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) k načtení nebo přiřazení předdefinovaného stylu tabulky. Tento příklad použije [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/) na jedné tabulce, vytiskne název presetu a přiřadí stejný preset druhé tabulce. Obě tabulky jsou uloženy v `table-style.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // změnit výchozí motiv předvolby stylu 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Získat předvolbu stylu tabulky.
-    TableStylePreset stylePreset = table.StylePreset;
-    Console.WriteLine($"Table style preset: {stylePreset}");
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
 
-    // Použít získanou předvolbu stylu na jinou tabulku.
-    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    anotherTable.StylePreset = stylePreset;
+var stylePreset = table.StylePreset;
+Console.WriteLine($"Table style preset: {stylePreset}");
 
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+var anotherTable = slide.Shapes.AddTable(10, 100, columnWidths, rowHeights);
+anotherTable.StylePreset = stylePreset;
+
+presentation.Save("table-style.pptx", SaveFormat.Pptx);
 ```
 
 ## **Uzamčení poměru stran tabulky**
 
-Poměr stran geometrického tvaru je poměr jeho rozměrů v různých dimenzích. Aspose.Slides poskytuje vlastnost `AspectRatioLocked`, která vám umožní uzamknout nastavení poměru stran pro tabulky i další tvary. 
+Poměr stran tabulky je poměr její šířky k výšce. Použijte [AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/aspectratiolocked/) k uzamčení tohoto poměru pro tabulku.
 
-Tento C# kód ukazuje, jak uzamknout poměr stran tabulky:
+Níže uvedený příklad otevře `pres.pptx`, který musí obsahovat alespoň jeden snímek s tabulkou jako jejím prvním tvarem. Vytiskne aktuální stav uzamčení, aktivuje uzamčení poměru stran, vytiskne aktualizovaný stav (`True`) a výsledek uloží jako `pres-out.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ITable table = (ITable)pres.Slides[0].Shapes[0];
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+using var presentation = new Presentation("pres.pptx");
+var slide = presentation.Slides[0];
 
-    table.ShapeLock.AspectRatioLocked = !table.ShapeLock.AspectRatioLocked; // invertovat
+var table = (ITable)slide.Shapes[0];
 
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+table.ShapeLock.AspectRatioLocked = true;
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+
+presentation.Save("pres-out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Často kladené otázky**
 
-**Mohu povolit čtení zprava doleva (RTL) pro celou tabulku a text v jejích buňkách?**
+**Mohu povolit směr čtení zprava doleva (RTL) pro celou tabulku a text v jejích buňkách?**
 
-Ano. Tabulka má vlastnost [RightToLeft](https://reference.aspose.com/slides/cs/net/aspose.slides/table/righttoleft/), a odstavce mají [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/cs/net/aspose.slides/paragraphformat/righttoleft/). Použití obou zajišťuje správné pořadí RTL a vykreslení uvnitř buněk.
+Ano. Tabulka má vlastnost [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) a odstavce mají [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/). Použití obou zajišťuje správné RTL pořadí a vykreslení uvnitř buněk.
 
 **Jak mohu zabránit uživatelům přesouvat nebo měnit velikost tabulky v konečném souboru?**
 
-Použijte [zámky tvarů](/slides/cs/net/applying-protection-to-presentation/), které zakážou přesouvání, změnu velikosti, výběr atd. Tyto zámky platí i pro tabulky.
+Použijte [shape locks](/slides/cs/net/applying-protection-to-presentation/) k zakázání přesunu, změny velikosti, výběru atd. Tyto zámky platí i pro tabulky.
 
-**Je podporováno vložení obrázku do buňky jako pozadí?**
+**Je podporováno vložení obrázku jako pozadí buňky?**
 
-Ano. Můžete nastavit [picture fill](https://reference.aspose.com/slides/cs/net/aspose.slides/picturefillformat/) pro buňku; obrázek pokryje oblast buňky podle zvoleného režimu (roztahování nebo dlaždice).
+Ano. Můžete nastavit [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) pro buňku; obrázek pokryje oblast buňky podle zvoleného režimu (roztažení nebo dlaždice).

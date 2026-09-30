@@ -1,97 +1,88 @@
 ---
-title: Prezentációs táblák kezelése Pythonban
-linktitle: Tábla kezelése
+title: Prezentációs táblázatok kezelése Pythonban
+linktitle: Táblázat kezelése
 type: docs
 weight: 10
 url: /hu/python-net/manage-table/
 keywords:
-- tábla hozzáadása
-- tábla létrehozása
-- tábla elérése
+- táblázat hozzáadása
+- táblázat létrehozása
+- táblázat elérése
 - képarány
 - szöveg igazítása
 - szövegformázás
-- tábla stílus
+- táblázat stílusa
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Hozzon létre és szerkesszen táblákat PowerPoint és OpenDocument diákon az Aspose.Slides for Python .NET használatával. Fedezzen fel egyszerű kódrészleteket, hogy optimalizálja a tábla munkafolyamatait."
+description: "Hozzon létre és szerkesszen táblázatokat PowerPoint és OpenDocument diákként az Aspose.Slides for Python segítségével .NET-en keresztül. Fedezzen fel egyszerű kódrészleteket, amelyek leegyszerűsítik a táblázatkezelési folyamatokat."
 ---
 ## **Bevezetés**
 
-A táblázat a PowerPointban hatékony módja az információk bemutatásának. A cellák (sorok és oszlopok) rácsában elrendezett adatok egyértelműek és könnyen érthetőek.
+A PowerPoint táblázatai sorokba és oszlopokba szervezik az információkat, megkönnyítve ezzel az olvasást és az értékek összehasonlítását.
 
-Az Aspose.Slides a [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) osztályt, a [Cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/) osztályt és további kapcsolódó típusokat biztosít, amelyek segítenek táblák létrehozásában, frissítésében és kezelésében bármely prezentációban.
+Az Aspose.Slides a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) és [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) osztályokat valamint egyéb típusokat biztosít, amelyekkel táblázatokat hozhat létre, frissíthet és kezelhet a prezentációkban.
 
-## **Táblák létrehozása a semmiből**
+## **Táblázat létrehozása nulláról**
 
-Ez a szakasz bemutatja, hogyan hozhatunk létre táblát a semmiből az Aspose.Slides segítségével úgy, hogy táblázat alakzatot adunk a diára, meghatározzuk a sorok és oszlopok számát, valamint a pontos méreteket. Megmutatjuk, hogyan töltsük fel a cellákat szöveggel, hogyan állítsuk be a igazítást és a szegélyeket, valamint hogyan testre szabjuk a tábla megjelenését.
+Hozzon létre egy táblázatot a pozíciójának, az oszlopszélességeknek és a sormagasságoknak a megadásával. A diára való felhelyezés után formázhatja a cellahatárokat, egyesítheti a cellákat, és szöveget illeszthet be.
 
-1. Hozzunk létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzünk hivatkozást egy diára a indexe alapján.
-3. Definiáljunk egy oszlopszélesség‑tömböt.
-4. Definiáljunk egy sormagasság‑tömböt.
-5. Adjunk egy [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) objektumot a diához.
-6. Iteráljunk végig minden egyes [Cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/) elemen, és formázzuk a felső, alsó, jobb és bal szegélyét.
-7. Egyesítsük az első két sor és az első két oszlop celláit egyetlen cellává.
-8. Érjük el a [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/)‑et egy [Cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/)‑ben.
-9. Adjunk szöveget a [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/)‑hez.
-10. Mentsük el a módosított prezentációt.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztályból.
+2. Szerezzen referenciát a diára annak indexe alapján.
+3. Határozzon meg egy pontban megadott oszlopszélességek listáját.
+4. Határozzon meg egy pontban megadott sormagasságok listáját.
+5. Adjon a diához egy [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) objektumot az [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) metódus segítségével.
+6. Iteráljon végig minden [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) objektumon, hogy alkalmazza a formázást a felső, alsó, jobb és bal határokra.
+7. Egyesítse a táblázat első sorának első két celláját.
+8. A merge‑elt cellához a [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) tulajdonságon keresztül férhet hozzá.
+9. Állítsa be a szöveget a merge‑elt cellában.
+10. Mentse el a módosított prezentációt.
 
-Az alábbi Python példa bemutatja, hogyan hozhatunk létre egy táblát egy prezentációban:
+Az alábbi példa egy három oszlopos és öt soros táblázatot hoz létre a (100, 50) pontban. Piros határokat alkalmaz 5 pont szélességgel, egyesíti az első sor első két celláját, és a végeredményt `table.pptx`‑ként menti.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 with slides.Presentation() as presentation:
-    # Nyissa meg az első diát.
     slide = presentation.slides[0]
 
-    # Határozza meg az oszlopszélességeket és a sormagasságokat.
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Adjon hozzá egy táblázat alakzatot a diához.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Állítsa be az egyes cellák szegélyformátumát.
     for row in table.rows:
         for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
+            cell_format = cell.cell_format
+            cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_top.width = 5
 
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
-            cell.cell_format.border_bottom.width = 5
+            cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_bottom.width = 5
 
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
-            cell.cell_format.border_left.width = 5
+            cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_left.width = 5
 
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-        
-    # Egyesítse a cellákat (0. sor, 0. oszlop) és (1. sor, 1. oszlop) között.
-    table.merge_cells(table.rows[0][0], table.rows[1][1], False)
+            cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_right.width = 5
 
-    # Adjon szöveget az egyesített cellához.
+    table.merge_cells(table.rows[0][0], table.rows[0][1], False)
     table.rows[0][0].text_frame.text = "Merged Cells"
 
-    # Mentse a prezentációt a lemezre.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Számozás szabványos táblákban**
+## **Számozás egy szabványos táblázatban**
 
-Egy szabványos táblában a cellák számozása egyszerű és nulla‑alapú. Az első cella a (0, 0) indexszel rendelkezik (oszlop 0, sor 0).
+Egy szabványos táblázatban a cellaindexek nulláról indulnak és (oszlop, sor) sorrendet használnak. Az első cella indexe (0, 0). Pythonban a cellához a `table.rows[row_index][column_index]` szintaxissal férhet hozzá; ebben a kifejezésben a sorindex jön először.
 
-Például egy 4 oszlopos és 4 soros táblában a cellák a következőképpen számozottak:
+Például a 4 oszlopból és 4 sorból álló táblázat cellái a következőképpen vannak számozva:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -99,209 +90,213 @@ Például egy 4 oszlopos és 4 soros táblában a cellák a következőképpen s
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Az alábbi Python példa bemutatja, hogyan hivatkozhatunk cellákra ezzel a nulla‑alapú számozással:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-    # Nyissa meg az első diát.
-    slide = presentation.slides[0]
-
-    # Adjon hozzá egy táblázatot 4 oszloppal és 4 sorral.
-    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
-
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            cell.text_frame.text = f"({column_index}, {row_index})"
-
-    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Létező tábla elérése**
-
-Ez a szakasz elmagyarázza, hogyan keressünk és dolgozzunk egy már létező táblával a prezentációban az Aspose.Slides segítségével. Megtanulja, hogyan találja meg a táblát a dián, hogyan érje el a sorait, oszlopait és celláit, valamint hogyan frissítse a tartalmat vagy a formázást.
-
-1. Hozzunk létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzünk hivatkozást a táblát tartalmazó diára a indexe alapján.
-3. Iteráljunk végig az összes [Shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/) objektumon, amíg meg nem találjuk a táblát.
-4. Használjuk a [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) objektumot a tábla kezeléséhez.
-5. Mentsük el a módosított prezentációt.
-
-{{% alert color="info" title="Note" %}}
-
-Ha a dia több táblát tartalmaz, érdemes a keresett táblát a `alternative_text` tulajdonsága alapján megtalálni.
-
-{{% /alert %}}
-
-Az alábbi Python példa bemutatja, hogyan érhetjük el és dolgozhatunk egy már létező táblával:
+Ez a példa létrehozza a fent ábrázolt 4 × 4-es táblázatot, 70 pontos oszlopszélességekkel és sormagasságokkal, valamint 5 pont szélességű piros cellahatárokkal. A koordináták a cellaindexeket szemléltetik; a példa üresen hagyja a cellákat, és a táblázatot `StandardTables_out.pptx`‑ként menti.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt egy PPTX fájl betöltéséhez.
-with slides.Presentation("sample.pptx") as presentation:
-    # Nyissa meg az első diát.
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
+
+    for row in table.rows:
+        for cell in row:
+            cell_format = cell.cell_format
+            cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_top.width = 5
+
+            cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_bottom.width = 5
+
+            cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_left.width = 5
+
+            cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_right.width = 5
+
+    presentation.save("StandardTables_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Meglévő táblázat elérése**
+
+A táblázatok a diák alakzatgyűjteményében tárolódnak. Iteráljon végig az alakzatokon a táblázat megtalálásához, majd a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) osztály segítségével olvassa vagy frissítse annak celláit.
+
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztály segítségével.
+2. Szerezzen referenciát az adott indexű diára, amely a táblázatot tartalmazza.
+3. Iteráljon végig a [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) objektumokon, és álljon le, amikor táblázatot talál. Ha a dián több táblázat is van, használja az [alternative_text](https://reference.aspose.com/slides/python-net/aspose.slides/shape/alternative_text/) tulajdonságot a szükséges azonosításához.
+4. Frissítse a célcellában lévő szöveget.
+5. Mentse el a módosított prezentációt.
+
+Az alábbi példa megnyitja a `UpdateExistingTable.pptx` fájlt, és megtalálja az első táblázatot az első dián. A 0. oszlop, 1. sor celláját `New`‑re állítja, majd a végeredményt `table1_out.pptx`‑ként menti. A bemenetnek legalább egy diát kell tartalmaznia, és azon a dián az első táblázatnak legalább egy oszloppal és két sorral kell rendelkeznie.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("UpdateExistingTable.pptx") as presentation:
+    slide = presentation.slides[0]
     table = None
 
-    # Iteráljon végig az alakzatokon, és hivatkozzon az első megtalált táblára.
     for shape in slide.shapes:
         if isinstance(shape, slides.Table):
             table = shape
             break
 
-    # Állítsa be az első sor első cellájának szövegét.
-    if table is not None:
-        table.rows[0][0].text_frame.text = "Found"
-
-    # Mentse el a módosított prezentációt a lemezre.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    if table is not None and len(table.rows) >= 2:
+        table.rows[1][0].text_frame.text = "New"
+        presentation.save("table1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **A szövegkeretet tartalmazó cella megtalálása**
+A meglévő táblázat egy sorának átméretezéséhez és annak megértéséhez, hogy miért haladhatja meg a tényleges magasság a kért minimumot, lásd a [Sor magasságának vezérlése](/slides/hu/python-net/manage-rows-and-columns/#control-row-height).
 
-Amikor egy általános szöveggelisztoló kód egy [TextFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/) objektumot kap egy táblából, használja a [TextFrame.parent_cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/parent_cell/) tulajdonságot a tulajdonos [Cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/) lekéréséhez. Egy táblacellához tartozó szövegkeret esetén a [TextFrame.parent_cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/parent_cell/) be van állítva, míg a [TextFrame.parent_shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/parent_shape/) `None`, bár maga a tábla alakzatként jelenik meg.
+## **Az a cella megtalálása, amelyik a szövegkeretet birtokolja**
 
-A cella koordinátái a csak‑olvasásra szánt [Cell.first_column_index](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/first_column_index/) és [Cell.first_row_index](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/first_row_index/) tulajdonságokban érhetők el. A [TextFrame.parent_cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/parent_cell/) szintén csak‑olvasású: navigációt biztosít a tulajdonos felé, de nem módosítja a tulajdonjogot. Mindig ellenőrizze, hogy a visszaadott cella nem `None`‑e, mielőtt használná.
+Amikor általános szövegfeldolgozó kód egy [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) objektumot kap egy táblázatból, akkor a [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) tulajdonságot használja a tulajdonos [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) lekéréséhez. Egy táblázatcellából származó szövegkeret esetén a [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) be van állítva, míg a [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/) értéke `None`, még akkor is, ha maga a táblázat egy alakzat.
 
-A teljes példáért, amely azonosítja a táblacellát és a forma tulajdonosát, beleértve a SmartArt‑csomópontokhoz kapcsolódó alakzatokat, lásd a [Search and Replace Text](/slides/hu/python-net/search-and-replace-text/) oldalt.
+A cella koordinátái a csak olvasható [Cell.first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) és [Cell.first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) tulajdonságokon keresztül érhetők el. A [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) is csak olvasható: navigációt biztosít a tulajdonos felé, de nem módosítja a tulajdonjogot. Mindig ellenőrizze, hogy a visszaadott cella nem `None`‑e, mielőtt használja.
 
-## **Szöveg igazítása a táblákban**
+Egy teljes példáért, amely azonosítja a táblázat‑cellákat és alakzat‑tulajdonosokat, beleértve a SmartArt‑csomópontokhoz tartozó alakzatokat, lásd a [Szöveg keresése és cseréje](/slides/hu/python-net/search-and-replace-text/).
 
-Ez a szakasz bemutatja, hogyan szabályozhatjuk a szöveg elhelyezkedését a táblacellákban az Aspose.Slides segítségével. Megtanulja, hogyan rögzítse a szöveget függőlegesen egy cellában, és hogyan változtassa meg a szöveg írásirányát.
+## **Szöveg igazítása táblázatban**
 
-1. Hozzunk létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzünk hivatkozást a diára a indexe alapján.
-3. Adjunk egy [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) objektumot a diához.
-4. Szerezzünk egy [Cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides/cell/) objektumot a táblából.
-5. Igazítsuk középre a szöveget függőlegesen a cellában, és állítsuk be a szöveg írásirányát.
-6. Mentsük el a módosított prezentációt.
+Az egyes táblázatcellák függőleges rögzítését és szövegirányát szabályozhatja. Az ebben a szakaszban szereplő példa a szöveget a első cellában középre helyezi, és 270 fokkal elforgatja.
 
-Az alábbi Python példa bemutatja, hogyan igazítható a szöveg egy táblában:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztályból.
+2. Szerezzen referenciát a diára annak indexe alapján.
+3. Adj egy [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) objektumot a diára.
+4. Szerezzen hozzáférést egy [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) objektumhoz a táblázatból.
+5. Szerezze meg az első [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) objektumot, és állítsa be a szövegét és színét.
+6. Állítsa be a cella [text_anchor_type](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_anchor_type/) és [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_vertical_type/) értékeit.
+7. Mentse el a módosított prezentációt.
+
+Ez a példa egy 4 × 4-es táblázatot hoz létre, 120 pontos oszlopszélességekkel és 100 pontos sormagasságokkal. Formázza a (0, 0) cellában lévő szöveget, értékeket ad a első sor többi cellájához, és a végeredményt `Vertical_Align_Text_out.pptx`‑ként menti.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Hozzon létre egy példányt a Presentation osztályból.
 with slides.Presentation() as presentation:
-    # Nyissa meg az első diát.
     slide = presentation.slides[0]
 
-    # Határozza meg az oszlopszélességeket és a sormagasságokat.
-    column_widths = [40, 120, 120, 120]
+    column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # Adjon hozzá egy táblázat alakzatot a diához.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
-    table.rows[0][0].text_frame.text = "Numbers"
-    table.rows[1][0].text_frame.text = "10"
-    table.rows[2][0].text_frame.text = "20"
-    table.rows[3][0].text_frame.text = "30"
+    table.rows[0][1].text_frame.text = "10"
+    table.rows[0][2].text_frame.text = "20"
+    table.rows[0][3].text_frame.text = "30"
 
-    # Igazítsa középre a szöveget, és állítsa be a függőleges irányt.
     cell = table.rows[0][0]
+    paragraph = cell.text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+    portion.text = "Text here"
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-    # Mentse el a prezentációt a lemezre.
-    presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Vertical_Align_Text_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Szövegformázás beállítása táblaszinten**
+## **Szövegformázás beállítása a táblázat szintjén**
 
-Ez a szakasz azt mutatja be, hogyan alkalmazhatunk szövegformázást a tábla szintjén az Aspose.Slides‑ben, hogy minden cella egységes, következetes stílust örököljön. Megtanulja, hogyan állítsuk be a betűméretet, az igazítást és a margókat globálisan.
+Használja a [set_text_format](https://reference.aspose.com/slides/python-net/aspose.slides/table/set_text_format/) metódust, hogy szövegformázást alkalmazzon a táblázat összes cellájára. A túlterhelései tartomány-, bekezdés- és szövegkeret-formázást is elfogadják, így ezeket a tulajdonságokat anélkül állíthatja be, hogy egyes cellákon iterálna.
 
-1. Hozzunk létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezzünk hivatkozást a diára a indexe alapján.
-3. Adjunk egy [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) objektumot a diához.
-4. Állítsuk be a betűméretet (betűmagasságot) a szöveghez.
-5. Állítsuk be a bekezdés igazítását és a margókat.
-6. Állítsuk be a függőleges szövegorientációt.
-7. Mentsük el a módosított prezentációt.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztály segítségével.
+2. Szerezzen referenciát a diára annak indexe alapján.
+3. Szerezzen hozzáférést egy [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) objektumhoz a diáról.
+4. Állítsa be a [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) értéket a szöveghez.
+5. Állítsa be az [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) és a [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) értékeket.
+6. Állítsa be a [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) értékét.
+7. Mentse el a módosított prezentációt.
 
-Az alábbi Python példa bemutatja, hogyan alkalmazhatja a kívánt formázási beállításokat egy táblázat szövegére:
+Az alábbi példa megnyitja a `table.pptx` fájlt, amelynek legalább egy diát kell tartalmaznia, és azon a dián a táblázatnak az első alakzatnak kell lennie. A betűméretet 25 pontra állítja, a bekezdéseket jobbra igazítja 20 pont jobb margóval, és a szöveget függőlegessé teszi. A formázott prezentációt `result.pptx`‑ként menti.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Létrehoz egy példányt a Presentation osztályból
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
+    table = slide.shapes[0]
 
-    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
-
-    # Állítsa be a betűméretet az összes táblacellában.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.set_text_format(portion_format)
 
-    # Állítsa be a jobbra igazított szöveget és a jobb margót az összes táblacellában.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.set_text_format(paragraph_format)
 
-    # Állítsa be a függőleges szövegorientációt az összes táblacellában.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.set_text_format(text_frame_format)
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Beépített táblastílusok alkalmazása**
+## **Táblázat stílus tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy a táblákat előre definiált stílusokkal formázzuk közvetlenül a kódban. A példa bemutatja egy tábla létrehozását, egy beépített stílus alkalmazását, majd az eredmény mentését – ez egy hatékony módja a konzisztens, professzionális formázás biztosításának.
+Használja a [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) metódust egy táblázat előre beállított stílusának olvasásához vagy hozzárendeléséhez. Ez a példa a [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) értéket alkalmaz egy táblázatra, kiírja az előre beállított nevét, majd ugyanazt a beállítást a második táblázatra is alkalmazza. Mindkét táblázat a `table-style.pptx`‑ben lesz mentve.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
 
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
 
-    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
+    style_preset = table.style_preset
+    print(f"Table style preset: {style_preset.name}")
+
+    another_table = slide.shapes.add_table(10, 100, column_widths, row_heights)
+    another_table.style_preset = style_preset
+
+    presentation.save("table-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Táblák képarányának zárolása**
+## **Táblázat méretarányának zárolása**
 
-A forma képaránya a méretei arányát jelenti. Az Aspose.Slides biztosítja az `aspect_ratio_locked` tulajdonságot, amellyel zárolható a képarány táblák és egyéb alakzatok esetén.
+A táblázat képaránya a szélességének és magasságának arányát jelenti. Használja az [aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/aspect_ratio_locked/) tulajdonságot a képarány zárolásához egy táblázatnál.
 
-Az alábbi Python példa bemutatja, hogyan zárolható a képarány egy táblán:
+Ez a példa megnyitja a `pres.pptx` fájlt, amelynek legalább egy diát kell tartalmaznia, és azon a dián a táblázatnak az első alakzatnak kell lennie. Kiírja a jelenlegi zárolási állapotot, engedélyezi a képarány zárolását, majd kiírja a frissített állapotot (`True`), és a végeredményt `pres-out.pptx`‑ként menti.
 
-```py
-import aspose.pydrawing as draw
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
+with slides.Presentation("pres.pptx") as presentation:
     slide = presentation.slides[0]
-    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
     print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
-    table.shape_lock.aspect_ratio_locked = not table.shape_lock.aspect_ratio_locked
+    
+    table.shape_lock.aspect_ratio_locked = True
     print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **GYIK**
 
-**Engedélyezhetem a jobb‑balra (RTL) olvasási irányt egy teljes táblán és a celláinak szövegén?**
+**Engedélyezhetem a jobbról balra (RTL) olvasási irányt az egész táblázat és a celláiban lévő szöveg számára?**
 
-Igen. A tábla rendelkezik egy [right_to_left](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/right_to_left/) tulajdonsággal, és a bekezdéseknek is van egy [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/hu/python-net/aspose.slides/paragraphformat/right_to_left/) beállítása. Mindkettő használata biztosítja a helyes RTL sorrendet és megjelenítést a cellákon belül.
+Igen. A táblázat rendelkezik egy [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/) tulajdonsággal, a bekezdések pedig a [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/) tulajdonsággal. Mindkettő használata biztosítja a helyes RTL sorrendet és a cellákon belüli megjelenítést.
 
-**Hogyan akadályozhatom meg, hogy a felhasználók mozgatni vagy átméretezni tudják a táblát a végleges fájlban?**
+**Hogyan akadályozhatom meg, hogy a felhasználók mozgassák vagy átméretezzék a táblázatot a végleges fájlban?**
 
-Használja a [shape locks](/slides/hu/python-net/applying-protection-to-presentation/) funkciót a mozgatás, átméretezés, kiválasztás stb. letiltásához. Ezek a zárak a táblákra is érvényesek.
+Használja a [shape locks](/slides/hu/python-net/applying-protection-to-presentation/) funkciót a mozgás, átméretezés, kijelölés stb. letiltásához. Ezek a zárolások a táblázatokra is érvényesek.
 
-**Támogatott-e egy kép beillesztése a cellába háttérként?**
+**Támogatott-e egy kép beillesztése egy cellába háttérként?**
 
-Igen. Beállíthat egy [picture fill](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) formátumot a cellához; a kép a cellaterületet a választott mód szerint (nyújtás vagy ismétlés) lefedi.
+Igen. Beállíthat egy [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) formátumot a cellához; a kép a kiválasztott mód (nyújtás vagy csempézés) szerint lefedi a cellaterületet.

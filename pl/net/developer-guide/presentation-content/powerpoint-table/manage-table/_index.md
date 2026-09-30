@@ -17,84 +17,77 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Twórz i edytuj tabele w slajdach PowerPoint za pomocą Aspose.Slides dla .NET. Odkryj proste przykłady kodu C#, aby usprawnić przepływy pracy z tabelami."
+description: "Utwórz i edytuj tabele w slajdach PowerPoint przy użyciu Aspose.Slides dla .NET. Odkryj proste przykłady kodu C#, aby usprawnić pracę z tabelami."
 ---
 ## **Wprowadzenie**
 
-Tabela w programie PowerPoint to wydajny sposób wyświetlania i prezentacji informacji. Informacje w siatce komórek (układanych w wiersze i kolumny) są proste i łatwe do zrozumienia.
+Tabele w programie PowerPoint organizują informacje w wierszach i kolumnach, co ułatwia ich odczytywanie i porównywanie wartości.
 
-Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/pl/net/aspose.slides/table/), interfejs [ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/), klasę [Cell](https://reference.aspose.com/slides/pl/net/aspose.slides/cell/), interfejs [ICell](https://reference.aspose.com/slides/pl/net/aspose.slides/icell/) oraz inne typy, które pozwalają tworzyć, aktualizować i zarządzać tabelami w prezentacjach.
+Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) interfejs [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) klasę [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) interfejs [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) oraz inne typy, które umożliwiają tworzenie, aktualizację i zarządzanie tabelami w prezentacjach.
 
-## **Utworzenie tabeli od podstaw**
+## **Utwórz tabelę od podstaw**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) .
-2. Pobierz odniesienie do slajdu za pośrednictwem jego indeksu. 
-3. Zdefiniuj tablicę `columnWidth`.
-4. Zdefiniuj tablicę `rowHeight`.
-5. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) do slajdu przy użyciu metody [AddTable](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addtable/) .
-6. Przejdź przez każdy [ICell](https://reference.aspose.com/slides/pl/net/aspose.slides/icell/) i zastosuj formatowanie krawędzi: górnej, dolnej, prawej i lewej.
-7. Połącz pierwsze dwie komórki pierwszego wiersza tabeli. 
-8. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/textframe/) komórki [ICell](https://reference.aspose.com/slides/pl/net/aspose.slides/icell/) . 
-9. Dodaj tekst do [TextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/textframe/) .
+Utwórz tabelę, określając jej położenie, szerokości kolumn i wysokości wierszy. Po dodaniu jej do slajdu możesz formatować krawędzie komórek, scalać komórki i wstawiać tekst.
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu na podstawie jego indeksu.
+3. Zdefiniuj tablicę szerokości kolumn w punktach.
+4. Zdefiniuj tablicę wysokości wierszy w punktach.
+5. Dodaj obiekt [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) do slajdu za pomocą metody [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+6. Iteruj po każdym [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/), aby zastosować formatowanie krawędzi górnej, dolnej, prawej i lewej.
+7. Scal pierwsze dwa komórki pierwszego wiersza tabeli.
+8. Uzyskaj dostęp do scalonej komórki przez jej właściwość [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/).
+9. Ustaw tekst w scalonej komórce.
 10. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C# pokazuje, jak utworzyć tabelę w prezentacji:
+Przykład poniżej tworzy tabelę z trzema kolumnami i pięcioma wierszami w punkcie (100, 50). Stosuje czerwone krawędzie o szerokości 5 punktów, scala pierwsze dwa komórki w pierwszym wierszu i zapisuje wynik jako `table.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-Presentation pres = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Uzyskuje dostęp do pierwszego slajdu
-ISlide sld = pres.Slides[0];
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-// Definiuje kolumny o określonych szerokościach oraz wiersze o określonych wysokościach
-double[] dblCols = { 50, 50, 50 };
-double[] dblRows = { 50, 30, 30, 30, 30 };
-
-// Dodaje kształt tabeli do slajdu
-ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-// Ustawia formatowanie krawędzi dla każdej komórki
-for (int row = 0; row < tbl.Rows.Count; row++)
+foreach (var row in table.Rows)
 {
-	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
-	{
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderTop.Width = 5;
+    foreach (var cell in row)
+    {
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.FillType = (FillType.Solid);
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.SolidFillColor.Color= Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderBottom.Width =5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.SolidFillColor.Color =Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
-	}
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
+    }
 }
-// Łączy komórki 1 i 2 pierwszego wiersza
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
-// Dodaje tekst do połączonej komórki
-tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
+table.MergeCells(table[0, 0], table[1, 0], false);
+table[0, 0].TextFrame.Text = "Merged Cells";
 
-// Zapisuje prezentację na dysku
-pres.Save("table.pptx", SaveFormat.Pptx);
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **Numeracja w standardowej tabeli**
 
-W standardowej tabeli numeracja komórek jest prosta i rozpoczyna się od zera. Pierwsza komórka tabeli ma indeks 0,0 (kolumna 0, wiersz 0). 
+W standardowej tabeli indeksy komórek zaczynają się od zera i używają kolejności (kolumna, wiersz). Pierwsza komórka ma indeks (0, 0).
 
-Na przykład, komórki w tabeli o 4 kolumnach i 4 wierszach są numerowane w ten sposób:
+Na przykład komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w ten sposób:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,256 +95,231 @@ Na przykład, komórki w tabeli o 4 kolumnach i 4 wierszach są numerowane w ten
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Ten kod C# tworzy powyższą standardową tabelę 4 × 4 i ustawia formatowanie krawędzi dla każdej jej komórki:
+Ten przykład tworzy powyższą tabelę 4 × 4, z szerokościami kolumn i wysokościami wierszy po 70 punktów oraz czerwonymi krawędziami komórek o szerokości 5 punktów. Współrzędne ilustrują indeksy komórek; przykład pozostawia komórki puste i zapisuje tabelę jako `StandardTables_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 70, 70, 70, 70 };
+var rowHeights = new double[] { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+foreach (var row in table.Rows)
 {
-
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide sld = pres.Slides[0];
-
-    // Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // Dodaje kształt tabeli do slajdu
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // Ustawia formatowanie krawędzi dla każdej komórki
-    foreach (IRow row in tbl.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-			cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderTop.Width = 5;
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-			cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderBottom.Width = 5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-			cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-			cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-			cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-			cell.CellFormat.BorderRight.Width = 5;
-        }
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
     }
-
-    // Zapisuje prezentację na dysku
-    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Dostęp do istniejącej tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) .
-2. Pobierz odniesienie do slajdu zawierającego tabelę za pośrednictwem jego indeksu. 
-3. Utwórz obiekt [ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) i ustaw go na null.
-4. Przejdź przez wszystkie obiekty [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/) aż zostanie znaleziona tabela.
+Tabele są przechowywane w kolekcji kształtów slajdu. Iteruj po kształtach, aby zlokalizować tabelę, a następnie użyj interfejsu [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) do odczytu lub aktualizacji jej komórek.
 
-   Jeśli podejrzewasz, że rozpatrywany slajd zawiera jedną tabelę, możesz po prostu sprawdzić wszystkie znajdujące się na nim kształty. Gdy kształt zostanie rozpoznany jako tabela, możesz rzutować go na obiekt [Table](https://reference.aspose.com/slides/pl/net/aspose.slides/table/) . Jeśli natomiast slajd zawiera kilka tabel, lepiej szukać potrzebnej tabeli po jej [AlternativeText](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/alternativetext/) .
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu zawierającego tabelę na podstawie jego indeksu.
+3. Iteruj po obiektach [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) i zatrzymaj się, gdy znajdziesz tabelę. Jeśli slajd zawiera kilka tabel, użyj [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/), aby zidentyfikować potrzebną.
+4. Zaktualizuj tekst w docelowej komórce.
+5. Zapisz zmodyfikowaną prezentację.
 
-5. Użyj obiektu [ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) do pracy z tabelą. W poniższym przykładzie dodaliśmy nowy wiersz do tabeli.
-6. Zapisz zmodyfikowaną prezentację.
+Poniższy przykład otwiera `UpdateExistingTable.pptx` i znajduje pierwszą tabelę na pierwszym slajdzie. Ustawia komórkę w kolumnie 0, wierszu 1 na `New` i zapisuje wynik jako `table1_out.pptx`. Wejście musi zawierać co najmniej jeden slajd, a pierwsza tabela na tym slajdzie musi mieć co najmniej jedną kolumnę i dwa wiersze.
 
-Ten kod C# pokazuje, jak uzyskać dostęp i pracować z istniejącą tabelą:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
+using var presentation = new Presentation("UpdateExistingTable.pptx");
+var slide = presentation.Slides[0];
+ITable? table = null;
+
+foreach (var shape in slide.Shapes)
 {
-
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide sld = pres.Slides[0];
-
-    // Inicjalizuje zmienną TableEx jako null
-    ITable tbl = null;
-
-    // Iteruje po kształtach i ustawia referencję do odnalezionej tabeli
-    foreach (IShape shp in sld.Shapes)
-        if (shp is ITable)
-            tbl = (ITable)shp;
-
-    // Ustawia tekst dla pierwszej kolumny drugiego wiersza
-    tbl[0, 1].TextFrame.Text = "New";
-
-    // Zapisuje zmodyfikowaną prezentację na dysk
-    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    if (shape is ITable candidateTable)
+    {
+        table = candidateTable;
+        break;
+    }
 }
+
+table![0, 1].TextFrame.Text = "New";
+
+presentation.Save("table1_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Znajdź komórkę, której własnością jest ramka tekstowa**
+Aby zmienić rozmiar wiersza w istniejącej tabeli i zrozumieć, dlaczego jej rzeczywista wysokość może przekraczać żądaną minimalną, zobacz [Kontrola wysokości wiersza](/slides/pl/net/manage-rows-and-columns/#control-row-height).
 
-Gdy ogólny kod przetwarzania tekstu otrzyma obiekt [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) z tabeli, użyj właściwości [ITextFrame.ParentCell](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/parentcell/) aby pobrać należącą do niej [ICell](https://reference.aspose.com/slides/pl/net/aspose.slides/icell/) . Dla ramki tekstowej w komórce tabeli, [ITextFrame.ParentCell](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/parentcell/) jest ustawiona, a [ITextFrame.ParentShape](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/parentshape/) ma wartość `null`, mimo że sama tabela jest kształtem.
+## **Znajdź komórkę posiadającą ramkę tekstową**
 
-Współrzędne komórki są dostępne za pośrednictwem właściwości tylko do odczytu [ICell.FirstColumnIndex](https://reference.aspose.com/slides/pl/net/aspose.slides/icell/firstcolumnindex/) i [ICell.FirstRowIndex](https://reference.aspose.com/slides/pl/net/aspose.slides/icell/firstrowindex/) . [ITextFrame.ParentCell](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/parentcell/) jest również tylko do odczytu: umożliwia nawigację do właściciela, ale nie zmienia własności. Zawsze sprawdzaj, czy zwrócona komórka nie jest `null` przed jej użyciem.
+Gdy ogólny kod przetwarzający tekst otrzymuje obiekt [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) z tabeli, użyj właściwości [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/), aby pobrać będącą właścicielem [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/). Dla ramki tekstowej komórki tabeli [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) jest ustawiona, a [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) ma wartość `null`, mimo że sama tabela jest kształtem.
 
-Pełny przykład identyfikujący właścicieli komórek tabeli i kształtów, w tym kształty powiązane z węzłami SmartArt, znajduje się w artykule [Search and Replace Text](/slides/pl/net/search-and-replace-text/) .
+Współrzędne komórki są dostępne poprzez właściwości tylko do odczytu [ICell.FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) i [ICell.FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/). [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) jest również tylko do odczytu: zapewnia nawigację do właściciela, ale nie zmienia własności. Zawsze sprawdzaj, czy zwrócona komórka nie jest `null` przed jej użyciem.
 
-## **Wyrównanie tekstu w tabeli**
+Pełny przykład, który identyfikuje właścicieli komórek tabeli i kształtów, w tym kształty powiązane z węzłami SmartArt, znajdziesz w [Wyszukiwanie i zamiana tekstu](/slides/pl/net/search-and-replace-text/).
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) .
-2. Pobierz odniesienie do slajdu za pośrednictwem jego indeksu. 
-3. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) do slajdu. 
-4. Uzyskaj dostęp do obiektu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) z tabeli. 
-5. Uzyskaj dostęp do [IParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraph/) w ramach [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/) .
-6. Wyrównaj tekst w pionie.
+## **Wyrównaj tekst w tabeli**
+
+Możesz kontrolować pionowe zakotwiczenie i kierunek tekstu pojedynczych komórek tabeli. Przykład w tej sekcji centruje tekst w pierwszej komórce i obraca go o 270 stopni.
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu na podstawie jego indeksu.
+3. Dodaj obiekt [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) do slajdu.
+4. Uzyskaj dostęp do obiektu [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) z tabeli.
+5. Uzyskaj dostęp do pierwszego [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) i ustaw jego tekst oraz kolor.
+6. Ustaw w komórce właściwości [TextAnchorType](https://reference.aspose.com/slides/net/aspose.slides/icell/textanchortype/) i [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/icell/textverticaltype/).
 7. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C# pokazuje, jak wyrównać tekst w tabeli:
+Ten przykład tworzy tabelę 4 × 4 z szerokościami kolumn po 120 punktów i wysokościami wierszy po 100 punktów. Formatuje tekst w komórce (0, 0), dodaje wartości do pozostałych komórek w pierwszym wierszu i zapisuje wynik jako `Vertical_Align_Text_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Tworzy instancję klasy Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Pobiera pierwszy slajd 
-ISlide slide = presentation.Slides[0];
+var columnWidths = new double[] { 120, 120, 120, 120 };
+var rowHeights = new double[] { 100, 100, 100, 100 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+table[1, 0].TextFrame.Text = "10";
+table[2, 0].TextFrame.Text = "20";
+table[3, 0].TextFrame.Text = "30";
 
-// Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-double[] dblCols = { 120, 120, 120, 120 };
-double[] dblRows = { 100, 100, 100, 100 };
-
-// Dodaje kształt tabeli do slajdu
-ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-tbl[1, 0].TextFrame.Text = "10";
-tbl[2, 0].TextFrame.Text = "20";
-tbl[3, 0].TextFrame.Text = "30";
-
-// Uzyskuje dostęp do ramki tekstowej
-ITextFrame txtFrame = tbl[0, 0].TextFrame;
-
-// Tworzy obiekt Paragraph dla ramki tekstowej
-IParagraph paragraph = txtFrame.Paragraphs[0];
-
-// Tworzy obiekt Portion dla akapitu
-IPortion portion = paragraph.Portions[0];
+var cell = table[0, 0];
+var paragraph = cell.TextFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 portion.Text = "Text here";
 portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Wyrównuje tekst pionowo
-ICell cell = tbl[0, 0];
 cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
-// Zapisuje prezentację na dysk
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Ustaw formatowanie tekstu na poziomie tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-2. Pobierz odniesienie do slajdu za pośrednictwem jego indeksu. 
-3. Uzyskaj dostęp do obiektu [ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) ze slajdu.
-4. Ustaw [FontHeight](https://reference.aspose.com/slides/pl/net/aspose.slides/baseportionformat/fontheight/) dla tekstu. 
-5. Ustaw [Alignment](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/alignment/) i [MarginRight](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/marginright/) .
-6. Ustaw [TextVerticalType](https://reference.aspose.com/slides/pl/net/aspose.slides/textframeformat/textverticaltype/) .
-7. Zapisz zmodyfikowaną prezentację. 
+Użyj [SetTextFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulktextformattable/settextformat/) aby zastosować formatowanie tekstu we wszystkich komórkach tabeli. Przeciążenia akceptują formatowanie fragmentu, akapitu i ramki tekstowej, więc możesz ustawić te właściwości bez iteracji po poszczególnych komórkach.
 
-Ten kod C# pokazuje, jak zastosować wybrane opcje formatowania do tekstu w tabeli:
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Uzyskaj odwołanie do slajdu na podstawie jego indeksu.
+3. Uzyskaj dostęp do obiektu [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) ze slajdu.
+4. Ustaw [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) dla tekstu.
+5. Ustaw [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) oraz [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/).
+6. Ustaw [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+7. Zapisz zmodyfikowaną prezentację.
 
-```c#
+Poniższy przykład otwiera `table.pptx`, który musi zawierać przynajmniej jeden slajd z tabelą jako pierwszym kształtem. Ustawia rozmiar czcionki na 25 punktów, wyrównuje akapity do prawej z prawym marginesem 20 punktów i ustawia tekst w pionie. Sformatowaną prezentację zapisuje jako `result.pptx`.
+
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Tworzy instancję klasy Presentation
-Presentation presentation = new Presentation();
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Załóżmy, że pierwszy kształt na pierwszym slajdzie jest tabelą
+var table = (ITable)slide.Shapes[0];
 
-// Ustawia wysokość czcionki komórek tabeli
-PortionFormat portionFormat = new PortionFormat();
+var portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
-someTable.SetTextFormat(portionFormat);
+table.SetTextFormat(portionFormat);
 
-// Ustawia wyrównanie tekstu komórek tabeli i prawy margines w jednym wywołaniu
-ParagraphFormat paragraphFormat = new ParagraphFormat();
+var paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
-someTable.SetTextFormat(paragraphFormat);
+table.SetTextFormat(paragraphFormat);
 
-// Ustawia typ pionowego rozmieszczenia tekstu w komórkach tabeli
-TextFrameFormat textFrameFormat = new TextFrameFormat();
+var textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.SetTextFormat(textFrameFormat);
+table.SetTextFormat(textFrameFormat);
 
-
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("result.pptx", SaveFormat.Pptx);
 ```
 
 ## **Pobierz właściwości stylu tabeli**
 
-Aspose.Slides umożliwia pobranie właściwości stylu tabeli, aby można je było użyć w innej tabeli lub w innym miejscu. Ten kod C# pokazuje, jak uzyskać właściwości stylu z gotowego stylu tabeli: 
+Użyj [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/), aby odczytać lub przypisać wstępnie zdefiniowany styl tabeli. Ten przykład stosuje [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/) do jednej tabeli, wypisuje nazwę stylu i przypisuje ten sam styl drugiej tabeli. Obie tabele są zapisane w `table-style.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // zmień domyślny preset stylu
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Pobierz preset stylu tabeli.
-    TableStylePreset stylePreset = table.StylePreset;
-    Console.WriteLine($"Table style preset: {stylePreset}");
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
 
-    // Zastosuj pobrany preset stylu do innej tabeli.
-    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    anotherTable.StylePreset = stylePreset;
+var stylePreset = table.StylePreset;
+Console.WriteLine($"Table style preset: {stylePreset}");
 
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+var anotherTable = slide.Shapes.AddTable(10, 100, columnWidths, rowHeights);
+anotherTable.StylePreset = stylePreset;
+
+presentation.Save("table-style.pptx", SaveFormat.Pptx);
 ```
 
 ## **Zablokuj proporcje tabeli**
 
-Proporcje geometrycznego kształtu to stosunek jego wymiarów w różnych osiach. Aspose.Slides udostępnia właściwość `AspectRatioLocked`, aby pozwolić zablokować ustawienie proporcji dla tabel i innych kształtów. 
+Proporcje tabeli to stosunek jej szerokości do wysokości. Użyj [AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/aspectratiolocked/), aby zablokować ten stosunek dla tabeli.
 
-Ten kod C# pokazuje, jak zablokować proporcje tabeli:
+Poniższy przykład otwiera `pres.pptx`, który musi zawierać przynajmniej jeden slajd z tabelą jako pierwszym kształtem. Wypisuje bieżący stan blokady, włącza blokadę proporcji, wypisuje zaktualizowany stan (`True`) i zapisuje wynik jako `pres-out.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ITable table = (ITable)pres.Slides[0].Shapes[0];
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+using var presentation = new Presentation("pres.pptx");
+var slide = presentation.Slides[0];
 
-    table.ShapeLock.AspectRatioLocked = !table.ShapeLock.AspectRatioLocked; // odwróć
+var table = (ITable)slide.Shapes[0];
 
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+table.ShapeLock.AspectRatioLocked = true;
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+
+presentation.Save("pres-out.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Czy mogę włączyć kierunek czytania od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
+**Czy mogę włączyć kierunek odczytu od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
 
-Tak. Tabela udostępnia właściwość [RightToLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/table/righttoleft/), a akapity mają [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/pl/net/aspose.slides/paragraphformat/righttoleft/). Użycie obu zapewnia prawidłowy porządek RTL oraz renderowanie w komórkach.
+Tak. Tabela udostępnia właściwość [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/), a akapity mają [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/). Użycie obu zapewnia prawidłowy porządek RTL i renderowanie wewnątrz komórek.
 
-**Jak zapobiec przemieszczeniu lub zmianie rozmiaru tabeli przez użytkowników w ostatecznym pliku?**
+**Jak mogę zapobiec przenoszeniu lub zmianie rozmiaru tabeli przez użytkowników w pliku końcowym?**
 
-Użyj [shape locks](/slides/pl/net/applying-protection-to-presentation/), aby wyłączyć przemieszczanie, zmianę rozmiaru, zaznaczanie itp. Te blokady dotyczą także tabel.
+Użyj [blokady kształtów](/slides/pl/net/applying-protection-to-presentation/), aby wyłączyć przenoszenie, zmianę rozmiaru, zaznaczanie itp. Te blokady mają zastosowanie również do tabel.
 
-**Czy wstawianie obrazu jako tła w komórce jest obsługiwane?**
+**Czy wstawianie obrazu wewnątrz komórki jako tła jest obsługiwane?**
 
-Tak. Można ustawić [picture fill](https://reference.aspose.com/slides/pl/net/aspose.slides/picturefillformat/) dla komórki; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub kafelkowanie).
+Tak. Możesz ustawić [wypełnienie obrazem](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) dla komórki; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub kafelkowanie).

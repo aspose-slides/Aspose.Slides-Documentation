@@ -1,6 +1,6 @@
 ---
 title: Gérer les lignes et les colonnes des tableaux PowerPoint en .NET
-linktitle: Lignes et colonnes
+linktitle: Lignes et Colonnes
 type: docs
 weight: 20
 url: /fr/net/manage-rows-and-columns/
@@ -8,247 +8,265 @@ keywords:
 - ligne de tableau
 - colonne de tableau
 - première ligne
-- en-tête de tableau
-- cloner la ligne
-- cloner la colonne
-- copier la ligne
-- copier la colonne
-- supprimer la ligne
-- supprimer la colonne
-- mise en forme du texte de la ligne
-- mise en forme du texte de la colonne
+- en‑tête de tableau
+- cloner ligne
+- cloner colonne
+- copier ligne
+- copier colonne
+- supprimer ligne
+- supprimer colonne
+- formatage du texte de la ligne
+- formatage du texte de la colonne
 - style de tableau
 - PowerPoint
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérez les lignes et les colonnes d'un tableau PowerPoint avec Aspose.Slides pour .NET et accélérez la modification des présentations et la mise à jour des données."
+description: "Gérez les lignes et les colonnes des tableaux PowerPoint avec Aspose.Slides pour .NET et accélérez la modification des présentations ainsi que les mises à jour de données."
 ---
+## **Introduction**
 
-Pour vous permettre de gérer les lignes et les colonnes d'un tableau dans une présentation PowerPoint, Aspose.Slides fournit la classe [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) , l'interface [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) et de nombreux autres types. 
+Aspose.Slides for .NET vous permet de gérer la structure et le formatage des tables dans les présentations PowerPoint via la classe [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) et l’interface [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Vous pouvez désigner une ligne d’en‑tête, cloner ou supprimer des lignes et des colonnes, et appliquer le formatage du texte à une ligne ou une colonne entière.
 
-## **Définir la première ligne comme en-tête**
+Cet article explique ces opérations avec des exemples C#. Il montre également comment récupérer le préréglage de style d’une table afin de le réutiliser. Les indices des lignes et des colonnes d’une table commencent à zéro.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) et chargez la présentation. 
-2. Obtenez la référence d'une diapositive via son indice. 
-3. Créez un objet [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) et affectez-lui la valeur null. 
-4. Parcourez tous les objets [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) afin de trouver le tableau concerné. 
-5. Définissez la première ligne du tableau comme en-tête. 
+## **Contrôler la hauteur des lignes**
 
-Ce code C# montre comment définir la première ligne d'un tableau comme en-tête :
-```c#
- // Instancie la classe Presentation
- Presentation pres = new Presentation("table.pptx");
+Utilisez [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) pour définir la hauteur minimale d’une ligne en points. Il s’agit d’une borne inférieure, pas d’une hauteur fixe. [IRow.Height](https://reference.aspose.com/slides/net/aspose.slides/irow/height/) renvoie la hauteur réelle et est en lecture seule. Accédez à la ligne via [ITable.Rows](https://reference.aspose.com/slides/net/aspose.slides/itable/rows/).
 
- // Accède à la première diapositive
- ISlide sld = pres.Slides[0];
+L’exemple charge [row-height-input.pptx](row-height-input.pptx), qui contient une table comme première forme sur la première diapositive. Sa première ligne commence à 70 points. Les cellules utilisent du texte Arial de 18 points, un renvoi à la ligne et des marges supérieures et inférieures de 6 points ; le texte plus long dans la deuxième colonne se renvoie sur plusieurs lignes. L’exemple augmente le minimum à 100 points, puis le diminue à 20 points, imprime la hauteur réelle après chaque modification et enregistre les deux résultats.
 
- // Initialise le TableEx à null
- ITable tbl = null;
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- // Itère à travers les formes et définit une référence au tableau
- foreach (IShape shp in sld.Shapes)
- {
-     if (shp is ITable)
-     {
-         tbl = (ITable)shp;
-     }
- }
+using var presentation = new Presentation("row-height-input.pptx");
+var table = (ITable)presentation.Slides[0].Shapes[0];
+var row = table.Rows[0];
 
- // Définit la première ligne d'un tableau comme en-tête
- tbl.FirstRow = true;
+row.MinimalHeight = 100;
+Console.WriteLine($"Increased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-increased.pptx", SaveFormat.Pptx);
 
- // Enregistre la présentation sur le disque
- pres.Save("First_row_header.pptx", SaveFormat.Pptx);
+row.MinimalHeight = 20;
+Console.WriteLine($"Decreased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-decreased.pptx", SaveFormat.Pptx);
 ```
 
+Avec la présentation fournie, augmenter le minimum ajoute de l’espace à la ligne. Le diminuer supprime cet espace supplémentaire, mais la hauteur réelle reste supérieure à 20 points parce que le texte et les marges des cellules nécessitent plus de place. Réduire seulement le minimum ne peut pas forcer la ligne en dessous de l’espace requis par son contenu.
+
+Plusieurs facteurs influencent la hauteur réelle :
+
+- **Texte et taille de police :** un texte plus long, des sauts de ligne explicites ou une police plus grande peuvent nécessiter plus d’espace vertical.  
+- **Renvoi à la ligne et largeur de colonne :** avec le renvoi activé, une [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) plus étroite peut générer plus de lignes. Une colonne plus large peut réduire l’espace vertical requis.  
+- **Marges de cellule :** [ICell.MarginTop](https://reference.aspose.com/slides/net/aspose.slides/icell/margintop/) et [ICell.MarginBottom](https://reference.aspose.com/slides/net/aspose.slides/icell/marginbottom/) ajoutent de l’espace vertical. [ICell.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/icell/marginleft/) et [ICell.MarginRight](https://reference.aspose.com/slides/net/aspose.slides/icell/marginright/) réduisent la largeur disponible pour le texte et peuvent provoquer un renvoi supplémentaire.
+
+Pour cette table sans cellules fusionnées, la cellule qui nécessite le plus d’espace vertical détermine la limite inférieure imposée par le contenu pour toute la ligne. Pour raccourcir la ligne, il peut également être nécessaire de raccourcir le texte, de réduire la taille de la police ou les marges, ou d’élargir une colonne.
+
+Les images ci‑dessous montrent la même table à la même échelle. Dans cet exemple, les hauteurs réelles étaient de 70, 100 et 55,2 points : la ligne finale est restée plus haute que son minimum de 20 points. Les mesures exactes du texte peuvent varier selon les polices disponibles dans votre environnement. Téléchargez les résultats enregistrés : [increased minimum](row-height-increased.pptx) et [decreased minimum](row-height-decreased.pptx).
+
+| Original : minimum 70 pt, actual 70 pt | Increased : minimum 100 pt, actual 100 pt | Decreased : minimum 20 pt, actual 55.2 pt |
+| --- | --- | --- |
+| ![Tableau original avec une première ligne de 70 points.](row-height-before.png) | ![Tableau après avoir augmenté le minimum de la première ligne à 100 points.](row-height-increased.png) | ![Tableau après avoir diminué le minimum de la première ligne à 20 points ; le texte renvoyé garde la ligne plus haute que le minimum.](row-height-decreased.png) |
+
+## **Définir la première ligne comme en‑tête**
+
+Utilisez la propriété [FirstRow](https://reference.aspose.com/slides/net/aspose.slides/itable/firstrow/) pour marquer la première ligne comme en‑tête. Son apparence dépend du style de tableau appliqué.
+
+1. Chargez la présentation avec la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Accédez à la première diapositive.  
+3. Accédez à la table stockée comme première forme sur la diapositive.  
+4. Activez le format d’en‑tête pour sa première ligne.  
+5. Enregistrez la présentation modifiée.
+
+L’exemple nécessite `table.pptx` contenant une table comme première forme sur la première diapositive. Il active le format d’en‑tête pour la première ligne et enregistre `First_row_header.pptx`.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
+
+var table = (ITable)slide.Shapes[0];
+table.FirstRow = true;
+
+presentation.Save("First_row_header.pptx", SaveFormat.Pptx);
+```
 
 ## **Cloner une ligne ou une colonne de tableau**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) et chargez la présentation, 
-2. Obtenez la référence d'une diapositive via son indice. 
-3. Définissez un tableau de `columnWidth`. 
-4. Définissez un tableau de `rowHeight`. 
-5. Ajoutez un objet [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) à la diapositive via la méthode [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) . 
-6. Clonez la ligne du tableau. 
-7. Clonez la colonne du tableau. 
-8. Enregistrez la présentation modifiée. 
+Clonez des lignes ou des colonnes pour réutiliser leur contenu et leur formatage. Vous pouvez ajouter une copie à la fin du tableau ou l’insérer à une position spécifique.
 
-Ce code C# montre comment cloner une ligne ou une colonne d'un tableau PowerPoint :
-```c#
- // Instancie la classe Presentation
-using (Presentation presentation = new Presentation("Test.pptx"))
-{
-    // Accède à la première diapositive
-    ISlide sld = presentation.Slides[0];
+1. Chargez la présentation avec la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Accédez à la première diapositive.  
+3. Définissez les largeurs de colonnes et les hauteurs de lignes.  
+4. Ajoutez une table avec la méthode [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).  
+5. Clonez les lignes requises.  
+6. Clonez les colonnes requises.  
+7. Enregistrez la présentation modifiée.
 
-    // Définit les colonnes avec leurs largeurs et les lignes avec leurs hauteurs
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+L’exemple nécessite `Test.pptx` contenant au moins une diapositive. Il crée une table de trois colonnes et cinq lignes, avec des dimensions spécifiées en points. Il ajoute des copies de la première ligne et de la première colonne, puis insère des copies de la deuxième ligne et de la deuxième colonne à l’indice 3 (quatrième position). La table résultante possède sept lignes et cinq colonnes. L’argument `false` désactive le clonage dans les lignes ou colonnes fusionnées adjacentes ; cette table ne possède pas de cellules fusionnées.
 
-    // Ajoute une forme de tableau à la diapositive
-    ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Ajoute du texte à la cellule 1 de la ligne 1
-    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
 
-    // Ajoute du texte à la cellule 2 de la ligne 1
-    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-    // Clone la ligne 1 à la fin du tableau
-    table.Rows.AddClone(table.Rows[0], false);
+table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+table.Rows.AddClone(table.Rows[0], false);
 
-    // Ajoute du texte à la cellule 1 de la ligne 2
-    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+table.Rows.InsertClone(3, table.Rows[1], false);
 
-    // Ajoute du texte à la cellule 2 de la ligne 2
-    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+table.Columns.AddClone(table.Columns[0], false);
+table.Columns.InsertClone(3, table.Columns[1], false);
 
-    // Clone la ligne 2 comme la 4e ligne du tableau
-    table.Rows.InsertClone(3,table.Rows[1], false);
-
-    // Clone la première colonne à la fin
-    table.Columns.AddClone(table.Columns[0], false);
-
-    // Clone la 2e colonne à l'index de la 4e colonne
-    table.Columns.InsertClone(3,table.Columns[1], false);
-    
-    // Enregistre la présentation sur le disque 
-    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("table_out.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **Supprimer une ligne ou une colonne d'un tableau**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) et chargez la présentation, 
-2. Obtenez la référence d'une diapositive via son indice. 
-3. Définissez un tableau de `columnWidth`. 
-4. Définissez un tableau de `rowHeight`. 
-5. Ajoutez un objet [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) à la diapositive via la méthode [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) . 
-6. Supprimez la ligne du tableau. 
-7. Supprimez la colonne du tableau. 
-8. Enregistrez la présentation modifiée. 
+Supprimez les lignes ou colonnes qui ne sont plus nécessaires dans une table. La suppression d’un élément décale les indices des lignes ou colonnes qui le suivent.
 
-Ce code C# montre comment supprimer une ligne ou une colonne d'un tableau :
-```c#
-Presentation pres = new Presentation();
+1. Créez une présentation avec la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Accédez à la première diapositive.  
+3. Définissez les largeurs de colonnes et les hauteurs de lignes.  
+4. Ajoutez une table avec la méthode [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).  
+5. Supprimez la deuxième ligne et la deuxième colonne.  
+6. Enregistrez la présentation modifiée.
 
-ISlide slide = pres.Slides[0];
-double[] colWidth = { 100, 50, 30 };
-double[] rowHeight = { 30, 50, 30 };
+Cet exemple crée une table trois‑par‑trois et supprime la ligne et la colonne à l’indice 1, laissant une table deux‑par‑deux dans `TestTable_out.pptx`. Les dimensions sont en points. L’argument `false` désactive la suppression de lignes ou colonnes fusionnées adjacentes ; cette table ne possède pas de cellules fusionnées.
 
-ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 50, 30 };
+var rowHeights = new double[] { 30, 50, 30 };
+var table = slide.Shapes.AddTable(100, 100, columnWidths, rowHeights);
+
 table.Rows.RemoveAt(1, false);
 table.Columns.RemoveAt(1, false);
-pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+presentation.Save("TestTable_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Définir le formatage du texte au niveau de la ligne du tableau**
 
-## **Définir le format du texte au niveau de la ligne du tableau**
+Appliquez le formatage du texte à une ligne entière pour garder la cohérence des cellules. Vous pouvez définir les propriétés de police, le formatage des paragraphes et la direction du texte sans formater chaque cellule individuellement.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) et chargez la présentation, 
-2. Obtenez la référence d'une diapositive via son indice. 
-3. Accédez à l'objet [ITable] pertinent depuis la diapositive. 
-4. Définissez le [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) des cellules de la première ligne. 
-5. Définissez l'[Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) et le [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) des cellules de la première ligne. 
-6. Définissez le [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) des cellules de la deuxième ligne. 
-7. Enregistrez la présentation modifiée. 
+1. Chargez la présentation avec la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Accédez à la table sur la première diapositive.  
+3. Définissez [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) pour la première ligne.  
+4. Définissez [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) et [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) pour la première ligne.  
+5. Définissez [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) pour la deuxième ligne.  
+6. Enregistrez la présentation modifiée.
 
-Ce code C# montre l'opération.
-```c#
-// Crée une instance de la classe Presentation
-Presentation presentation = new Presentation();
-           
-ISlide slide = presentation.Slides[0];
+L’exemple nécessite `table.pptx` contenant une table comme première forme sur la première diapositive et au moins deux lignes. Il applique un texte de 25 points, un alignement à droite et une marge de paragraphe droite de 20 points à la première ligne, puis définit le texte vertical dans la deuxième ligne.
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Supposons que la première forme de la première diapositive soit un tableau
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Définit la hauteur de police des cellules de la première ligne
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Rows[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// Définit l'alignement du texte et la marge droite des cellules de la première ligne
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Rows[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// Définit le type d'orientation verticale du texte des cellules de la seconde ligne
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Rows[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Rows[0].SetTextFormat(portionFormat);
 
-// Enregistre la présentation sur le disque
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Rows[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Rows[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("row_formatting.pptx", SaveFormat.Pptx);
 ```
 
+## **Définir le formatage du texte au niveau de la colonne du tableau**
 
-## **Définir le format du texte au niveau de la colonne du tableau**
+Appliquez le formatage du texte à une colonne entière pour garder la cohérence des cellules. Vous pouvez définir les propriétés de police, le formatage des paragraphes et la direction du texte sans formater chaque cellule individuellement.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) et chargez la présentation, 
-2. Obtenez la référence d'une diapositive via son indice. 
-3. Accédez à l'objet [ITable] pertinent depuis la diapositive. 
-4. Définissez le [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) des cellules de la première colonne. 
-5. Définissez l'[Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) et le [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) des cellules de la première colonne. 
-6. Définissez le [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) des cellules de la deuxième colonne. 
-7. Enregistrez la présentation modifiée. 
+1. Chargez la présentation avec la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).  
+2. Accédez à la table sur la première diapositive.  
+3. Définissez [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) pour la première colonne.  
+4. Définissez [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) et [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) pour la première colonne.  
+5. Définissez [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) pour la deuxième colonne.  
+6. Enregistrez la présentation modifiée.
 
-Ce code C# montre l'opération : 
-```c#
-// Crée une instance de la classe Presentation
-Presentation pres = new Presentation();
-           
-ISlide slide = pres.Slides[0];
+L’exemple nécessite `table.pptx` contenant une table comme première forme sur la première diapositive et au moins deux colonnes. Il applique un texte de 25 points, un alignement à droite et une marge de paragraphe droite de 20 points à la première colonne, puis définit le texte vertical dans la deuxième colonne.
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // Supposons que la première forme de la première diapositive soit un tableau
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Définit la hauteur de police des cellules de la première colonne
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Columns[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// Définit l'alignement du texte et la marge droite des cellules de la première colonne en un appel
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Columns[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// Définit le type d'orientation verticale du texte des cellules de la deuxième colonne
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Columns[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Columns[0].SetTextFormat(portionFormat);
 
-// Enregistre la présentation sur le disque
-pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Columns[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Columns[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("column_formatting.pptx", SaveFormat.Pptx);
 ```
 
+## **Obtenir les propriétés du style de tableau**
 
-## **Obtenir les propriétés de style du tableau**
+Utilisez la propriété [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) pour récupérer le préréglage appliqué à une table et le réutiliser sur une autre table. Cela identifie le préréglage plutôt que les modifications de formatage individuelles des cellules.
 
-Aspose.Slides vous permet de récupérer les propriétés de style d'un tableau afin de pouvoir utiliser ces informations pour un autre tableau ou dans un autre contexte. Ce code C# montre comment obtenir les propriétés de style à partir d'un style de tableau prédéfini :
-```c#
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // modifier le thème du style prédéfini par défaut
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+L’exemple crée une table, applique [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/), puis lit le préréglage. Il affiche `DarkStyle1` et enregistre la table dans `table.pptx`.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
+
+Console.WriteLine(table.StylePreset);
+
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **FAQ**
 
-**Puis-je appliquer des thèmes/styles PowerPoint à un tableau déjà créé ?**
+**Puis‑je appliquer des thèmes/styles PowerPoint à une table déjà créée ?**
 
-Oui. Le tableau hérite du thème de la diapositive/de la disposition/du maître, et vous pouvez toujours remplacer les remplissages, les bordures et les couleurs du texte par-dessus ce thème.
+Oui. La table hérite du thème de la diapositive/disposition/maître, et vous pouvez toujours remplacer les remplissages, les bordures et les couleurs du texte par-dessus ce thème.
 
-**Puis-je trier les lignes d'un tableau comme dans Excel ?**
+**Puis‑je trier les lignes d’une table comme dans Excel ?**
 
-Non, les tableaux Aspose.Slides n’ont pas de tri ou de filtres intégrés. Triez vos données en mémoire d’abord, puis remplissez à nouveau les lignes du tableau dans cet ordre.
+Non, les tables Aspose.Slides ne possèdent pas de fonction de tri ou de filtres intégrée. Triez d’abord vos données en mémoire, puis repopulez les lignes de la table dans cet ordre.
 
-**Puis-je avoir des colonnes à bandes (rayées) tout en conservant des couleurs personnalisées sur des cellules spécifiques ?**
+**Puis‑je avoir des colonnes à bandes (zébrées) tout en conservant des couleurs personnalisées sur des cellules spécifiques ?**
 
-Oui. Activez les colonnes à bandes, puis remplacez les cellules spécifiques par un formatage local ; le formatage au niveau de la cellule a priorité sur le style du tableau.
+Oui. Activez les colonnes à bandes, puis remplacez les cellules spécifiques avec un formatage local ; le formatage au niveau de la cellule l’emporte sur le style du tableau.

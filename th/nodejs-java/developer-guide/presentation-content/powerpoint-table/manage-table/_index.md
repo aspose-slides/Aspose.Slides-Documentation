@@ -1,5 +1,5 @@
 ---
-title: จัดการตารางการนำเสนอด้วย JavaScript
+title: จัดการตารางการนำเสนอใน JavaScript
 linktitle: จัดการตาราง
 type: docs
 weight: 10
@@ -10,87 +10,88 @@ keywords:
 - เข้าถึงตาราง
 - อัตราส่วน
 - จัดแนวข้อความ
-- รูปแบบข้อความ
+- การจัดรูปแบบข้อความ
 - สไตล์ตาราง
 - PowerPoint
 - การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "สร้างและแก้ไขตารางในสไลด์ PowerPoint ด้วย JavaScript และ Aspose.Slides สำหรับ Node.js. ค้นพบตัวอย่างโค้ดง่าย ๆ เพื่อทำให้กระบวนการทำงานกับตารางของคุณเป็นระเบียบ"
+description: "สร้างและแก้ไขตารางในสไลด์ PowerPoint ด้วย JavaScript และ Aspose.Slides สำหรับ Node.js ค้นหาตัวอย่างโค้ดง่าย ๆ เพื่อทำให้กระบวนการทำงานกับตารางของคุณรวดเร็วขึ้น"
 ---
-## **Introduction**
+## **บทนำ**
 
-ตารางใน PowerPoint เป็นวิธีที่มีประสิทธิภาพในการแสดงและสื่อสารข้อมูล ข้อมูลในกริดของเซลล์ (จัดเรียงเป็นแถวและคอลัมน์) เข้าใจง่ายและตรงไปตรงมา
+ตารางใน PowerPoint จัดระเบียบข้อมูลเป็นแถวและคอลัมน์ ทำให้การอ่านและเปรียบเทียบค่าเป็นเรื่องง่าย
 
-Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) , [Cell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cell/) และประเภทอื่น ๆ ที่ช่วยให้คุณสร้าง, อัปเดตและจัดการตารางในงานนำเสนอทุกประเภท
+Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) , คลาส [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) และประเภทอื่น ๆ เพื่อให้คุณสามารถสร้าง, ปรับปรุงและจัดการตารางในงานนำเสนอได้
 
-## **Create Table from Scratch**
+## **สร้างตารางจากศูนย์**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. กำหนดอาร์เรย์ของ `columnWidth`  
-4. กำหนดอาร์เรย์ของ `rowHeight`  
-5. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) ไปยังสไลด์ผ่านเมธอด [addTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-)  
-6. วนลูปผ่านแต่ละ [Cell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cell/) เพื่อกำหนดรูปแบบให้ขอบบน, ล่าง, ขวาและซ้าย  
-7. ผสานสี่เซลล์ในมุมบนซ้ายของตาราง (สองคอลัมน์แรกของสองแถวแรก) ให้เป็นเซลล์เดียว  
-8. เข้าถึง [Cell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/)  
-9. เพิ่มข้อความบางส่วนลงใน [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/)  
-10. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+สร้างตารางโดยระบุตำแหน่ง, ความกว้างของคอลัมน์, และความสูงของแถว หลังจากเพิ่มลงในสไลด์แล้ว คุณสามารถจัดรูปแบบเส้นขอบของเซลล์, ผสานเซลล์, และแทรกข้อความได้
 
-โค้ด JavaScript นี้แสดงวิธีสร้างตารางในงานนำเสนอ:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน 
+3. กำหนดอาร์เรย์ของความกว้างคอลัมน์ในหน่วยจุด 
+4. กำหนดอาร์เรย์ของความสูงแถวในหน่วยจุด 
+5. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) ไปยังสไลด์ผ่านเมธอด [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double:A-double:A-) 
+6. วนลูปผ่านแต่ละ [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) เพื่อใช้การจัดรูปแบบกับเส้นขอบบน, ล่าง, ขวา, และซ้าย 
+7. ผสานเซลล์สองเซลล์แรกของแถวแรกของตาราง 
+8. เข้าถึงเซลล์ที่ผสานโดยใช้เมธอด [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) 
+9. ตั้งค่าข้อความในเซลล์ที่ผสาน 
+10. บันทึกงานนำเสนอที่ถูกแก้ไข 
+
+ตัวอย่างด้านล่างสร้างตารางที่มีสามคอลัมน์และห้าแถวที่ตำแหน่ง (100, 50) จุด มันใช้เส้นขอบสีแดงความกว้าง 5 จุด, ผสานเซลล์สองเซลล์แรกในแถวแรก, และบันทึกผลลัพธ์เป็น `table.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // เข้าถึงสไลด์แรก
-    var sld = pres.getSlides().get_Item(0);
-    // กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // กำหนดรูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for (var row = 0; row < tbl.getRows().size(); row++) {
-        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            const cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderTop().setWidth(5);
+
             cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderBottom().setWidth(5);
+
             cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderLeft().setWidth(5);
+
             cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // ผสานบล็อกเซลล์ 2x2 ที่อยู่ด้านบนซ้ายให้เป็นเซลล์เดียว
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-    // เพิ่มข้อความบางส่วนลงในเซลล์ที่ผสานแล้ว
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-    // บันทึกการนำเสนอลงดิสก์
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Numbering in Standard Table**
+## **การนับในตารางมาตรฐาน**
 
-ในตารางมาตรฐาน การนับลำดับของเซลล์เป็นศูนย์ฐาน (zero‑based) เซลล์แรกในตารางจะมีดัชนีเป็น 0,0 (คอลัมน์ 0, แถว 0)
+ในตารางมาตรฐาน ดัชนีของเซลล์จะเริ่มจากศูนย์และใช้ลำดับ (คอลัมน์, แถว) เซลล์แรกมีดัชนีเป็น (0, 0)
 
-ตัวอย่างเช่น เซลล์ในตารางที่มี 4 คอลัมน์และ 4 แถวจะมีการจัดลำดับดังนี้:
+ตัวอย่างเช่น เซลล์ในตารางที่มี 4 คอลัมน์และ 4 แถวจะถูกจัดหมายเลขดังนี้:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,253 +99,254 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-โค้ด JavaScript นี้แสดงวิธีระบุการนับลำดับของเซลล์ในตาราง:
+ตัวอย่างนี้สร้างตาราง 4 × 4 ตามที่แสดงข้างต้น โดยให้ความกว้างของคอลัมน์และความสูงของแถวเป็น 70 จุด และเส้นขอบเซลล์สีแดงความกว้าง 5 จุด พิกัดแสดงดัชนีของเซลล์; ตัวอย่างนี้ปล่อยเซลล์ว่างเปล่าและบันทึกตารางเป็น `StandardTables_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // เข้าถึงสไลด์แรก
-    var sld = pres.getSlides().get_Item(0);
-    // กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // กำหนดรูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
         for (let j = 0; j < row.size(); j++) {
             const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            const cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderTop().setWidth(5);
+
+            cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderBottom().setWidth(5);
+
+            cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderLeft().setWidth(5);
+
+            cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // บันทึกการนำเสนอไปยังดิสก์
-    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Access Existing Table**
+## **เข้าถึงตารางที่มีอยู่**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)  
-2. รับอ้างอิงสไลด์ที่มีตารางผ่านดัชนีของมัน  
-3. สร้างอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) แล้วกำหนดค่าเป็น null  
-4. วนลูปผ่านอ็อบเจกต์ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) ทั้งหมดจนกว่าจะพบตาราง  
+ตารางจะถูกจัดเก็บในคอลเลกชันรูปทรงของสไลด์ การวนลูปผ่านรูปทรงเพื่อค้นหาตาราง แล้วใช้คลาส [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) เพื่ออ่านหรืออัปเดตเซลล์ของมัน
 
-   หากคุณสงสัยว่าสไลด์ที่ทำงานอยู่มีเพียงตารางเดียว คุณสามารถตรวจสอบทุก shape ที่มันมีได้ เมื่อพบ shape ที่ระบุว่าเป็นตาราง คุณสามารถแคสต์เป็นอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) ได้ แต่ถ้าสไลด์มีหลายตาราง คุณควรค้นหาตารางที่ต้องการผ่านเมธอด [setAlternativeText(String value)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-)  
+1. โหลดงานนำเสนอโดยใช้คลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 
+2. รับอ้างอิงไปยังสไลด์ที่มีตารางโดยใช้ดัชนีของมัน 
+3. วนลูปผ่านอ็อบเจกต์ [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) และหยุดเมื่อพบตาราง หากสไลด์มีหลายตาราง ให้ใช้ [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getAlternativeText--) เพื่อระบุตารางที่ต้องการ 
+4. อัปเดตข้อความในเซลล์เป้าหมาย 
+5. บันทึกงานนำเสนอที่แก้ไขแล้ว 
 
-5. ใช้อ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) เพื่อทำงานกับตาราง ในตัวอย่างด้านล่าง เราตั้งค่าข้อความของเซลล์หนึ่งในตาราง  
-6. บันทึกงานนำเสนอที่แก้ไขแล้ว  
-
-โค้ด JavaScript นี้แสดงวิธีเข้าถึงและทำงานกับตารางที่มีอยู่:
+ตัวอย่างด้านล่างเปิดไฟล์ `UpdateExistingTable.pptx` และค้นหาตารางแรกบนสไลด์แรก มันตั้งค่าเซลล์ที่คอลัมน์ 0, แถว 1 เป็น `New` และบันทึกผลลัพธ์เป็น `table1_out.pptx` อินพุตต้องมีอย่างน้อยหนึ่งสไลด์ และตารางแรกบนสไลด์นั้นต้องมีอย่างน้อยหนึ่งคอลัมน์และสองแถว.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+const presentation = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // เข้าถึงสไลด์แรก
-    var sld = pres.getSlides().get_Item(0);
-    // เริ่มต้น TableEx เป็น null
-    var tbl = null;
-    // วนรอบผ่าน shapes และตั้งค่าอ้างอิงไปยังตารางที่พบ
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // ตั้งค่าข้อความสำหรับคอลัมน์แรกของแถวที่สอง
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    const slide = presentation.getSlides().get_Item(0);
+    let table = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+            table = shape;
+            break;
         }
     }
-    // บันทึกการนำเสนอที่แก้ไขแล้วลงดิสก์
-    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Find the Cell That Owns a Text Frame**
+เพื่อปรับขนาดแถวในตารางที่มีอยู่และเข้าใจว่าทำไมความสูงจริงจึงอาจเกินค่าต่ำสุดที่ร้องขอ ดูที่ [ควบคุมความสูงแถว](/slides/th/nodejs-java/manage-rows-and-columns/#control-row-height)
 
-เมื่อโค้ดประมวลผลข้อความทั่วไปได้รับ [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/) จากตาราง ให้ใช้เมธอด [TextFrame.getParentCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentCell--) เพื่อดึง [Cell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cell/) เจ้าของ สำหรับ TextFrame ของเซลล์ตาราง, [TextFrame.getParentCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentCell--) จะคืนเจ้าของและ [TextFrame.getParentShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentShape--) จะคืนค่า `null` แม้ว่าตารางเองเป็น shape ก็ตาม  
+## **ค้นหาเซลล์ที่เป็นเจ้าของ Text Frame**
 
-พิกัดของเซลล์สามารถเข้าถึงได้ผ่านเมธอดอ่านอย่างเดียว [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) และ [Cell.getFirstRowIndex](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cell/#getFirstRowIndex--)  [TextFrame.getParentCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentCell--) ยังให้การนำทางแบบอ่านอย่างเดียว: มันคืนเจ้าของแต่ไม่เปลี่ยนสภาพของการเป็นเจ้าของ ให้ตรวจสอบว่าเซลล์ที่ได้เป็น `null` ก่อนใช้งานเสมอ  
+เมื่อโค้ดการประมวลผลข้อความทั่วไปได้รับอ็อบเจกต์ [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) จากตาราง ให้ใช้เมธอด [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) เพื่อดึงเซลล์เจ้าของ [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) สำหรับ TextFrame ของเซลล์ตาราง, [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) จะคืนค่าเจ้าของและ [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) จะคืนค่า `null` แม้ว่าตารางเองเป็นรูปทรง
 
-สำหรับตัวอย่างสมบูรณ์ที่ระบุตัวตนของเจ้าของเซลล์ตารางและ shape รวมถึง shape ที่เชื่อมโยงกับโหนด SmartArt ดูที่ [Search and Replace Text](/slides/th/nodejs-java/search-and-replace-text/)
+พิกัดของเซลล์สามารถเข้าถึงได้ผ่านเมธอดอ่านอย่างเดียว [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) และ [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) ยังให้การนำทางแบบอ่านอย่างเดียว: มันคืนค่าเจ้าของแต่ไม่เปลี่ยนการเป็นเจ้าของ ตรวจสอบเสมอว่าเซลล์ที่ได้รับเป็น `null` ก่อนใช้
 
-## **Align Text in Table**
+สำหรับตัวอย่างที่สมบูรณ์ซึ่งระบุเจ้าของเซลล์ตารางและรูปทรง, รวมถึงรูปทรงที่เชื่อมโยงกับโหนด SmartArt, ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/nodejs-java/search-and-replace-text/)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) ไปยังสไลด์  
-4. เข้าถึงอ็อบเจกต์ [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/) จากตาราง  
-5. เข้าถึง [Paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraph/) ของ [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/)  
-6. จัดแนวข้อความในแนวตั้ง  
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+## **จัดแนวข้อความในตาราง**
 
-โค้ด JavaScript นี้แสดงวิธีจัดแนวข้อความในตาราง:
+คุณสามารถควบคุมการยึดแนวตั้งและทิศทางของข้อความในแต่ละเซลล์ของตาราง ตัวอย่างในส่วนนี้ทำให้ข้อความอยู่ตรงกลางในเซลล์แรกและหมุนที่ 270 องศา
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน 
+3. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) ไปยังสไลด์ 
+4. เข้าถึงอ็อบเจกต์ [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) จากตาราง 
+5. เข้าถึง [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) แรกและตั้งค่าข้อความและสีของมัน 
+6. ตั้งค่าการยึดแนวตั้งและทิศทางข้อความของเซลล์โดยใช้ [setTextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextAnchorType-byte-) และ [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextVerticalType-byte-) 
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว 
+
+ตัวอย่างนี้สร้างตาราง 4 × 4 โดยความกว้างคอลัมน์ 120 จุดและความสูงแถว 100 จุด มันจัดรูปแบบข้อความในเซลล์ (0, 0), เพิ่มค่าให้กับเซลล์ที่เหลือในแถวแรก, และบันทึกผลลัพธ์เป็น `Vertical_Align_Text_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
 
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // รับสไลด์แรก
-    var slide = pres.getSlides().get_Item(0);
-    // กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-    var dblCols = java.newArray("double", [120, 120, 120, 120]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // เพิ่มรูปร่างตารางลงในสไลด์
-    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // เข้าถึง TextFrame
-    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    // สร้างอ็อบเจกต์ Paragraph สำหรับ TextFrame
-    var paragraph = txtFrame.getParagraphs().get_Item(0);
-    // สร้างอ็อบเจกต์ Portion สำหรับ Paragraph
-    var portion = paragraph.getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [120, 120, 120, 120]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    const textFrame = table.get_Item(0, 0).getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+
+    const portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // จัดแนวข้อความในแนวตั้ง
-    var cell = tbl.get_Item(0, 0);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+
+    const cell = table.get_Item(0, 0);
     cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
     cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
-    // บันทึกการนำเสนอไปยังดิสก์
-    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Set Text Formatting on Table Level**
+## **ตั้งค่าการจัดรูปแบบข้อความระดับตาราง**
 
-1. สร้างอินสแตนซ์ของ คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)  
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-3. เข้าถึงอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Table) จากสไลด์  
-4. ตั้งค่า [setFontHeight(float value)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) สำหรับข้อความ  
-5. ตั้งค่า [setAlignment(int value)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) และ [setMarginRight(float value)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-)  
-6. ตั้งค่า [setTextVerticalType(byte value)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-)  
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+ใช้ [setTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setTextFormat-com.aspose.slides.IPortionFormat-) เพื่อใช้การจัดรูปแบบข้อความกับทุกเซลล์ในตาราง วิธีการโอเวอร์โหลดของมันรับการจัดรูปแบบส่วน, ย่อหน้า, และ TextFrame, ดังนั้นคุณสามารถตั้งค่าคุณสมบัติเหล่านี้โดยไม่ต้องวนลูปผ่านแต่ละเซลล์
 
-โค้ด JavaScript นี้แสดงวิธีนำทางเลือกการจัดรูปแบบที่คุณต้องการไปใช้กับข้อความในตาราง:
+1. โหลดงานนำเสนอโดยใช้คลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 
+2. รับอ้างอิงไปยังสไลด์โดยใช้ดัชนีของมัน 
+3. เข้าถึงอ็อบเจกต์ [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) จากสไลด์ 
+4. ตั้งค่าขนาดฟอนต์โดยใช้ [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) สำหรับข้อความ 
+5. ตั้งค่าการจัดแนวย่อหน้าและระยะขอบขวาโดยใช้ [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) และ [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) 
+6. ตั้งค่าทิศทางของข้อความโดยใช้ [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) 
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว 
+
+ตัวอย่างด้านล่างเปิดไฟล์ `table.pptx` ซึ่งต้องมีอย่างน้อยหนึ่งสไลด์ที่มีตารางเป็นรูปทรงแรก มันตั้งค่าขนาดฟอนต์เป็น 25 จุด, จัดย่อหน้าให้ชิดขวาพร้อมระยะขอบขวา 20 จุด, และทำให้ข้อความเป็นแนวตั้ง งานนำเสนอที่จัดรูปแบบแล้วจะถูกบันทึกเป็น `result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation("simpletable.pptx");
+const presentation = new aspose.slides.Presentation("table.pptx");
 try {
-    // สมมติว่ารูปร่างแรกบนสไลด์แรกเป็นตาราง
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // ตั้งค่าความสูงของฟอนต์ในเซลล์ตาราง
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    // ตั้งค่าการจัดแนวข้อความและระยะขอบด้านขวาของเซลล์ตารางในคำสั่งเดียว
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    table.setTextFormat(portionFormat);
+
+    const paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    // ตั้งค่าประเภทการจัดแนวข้อความแนวตั้งของเซลล์ตาราง
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    table.setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new aspose.slides.TextFrameFormat();
     textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
-    someTable.setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Set Table Style Preset**
+## **รับคุณสมบัติสไตล์ของตาราง**
 
-Aspose.Slides มีสไตล์ตารางของ PowerPoint ที่สร้างมาในตัวเป็น enumeration [TableStylePreset](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tablestylepreset/) ดังนั้นคุณสามารถใช้ลุคเดียวกันกับตารางใด ๆ โค้ด JavaScript นี้แสดงวิธีแทนที่สไตล์เริ่มต้นของตารางด้วยสไตล์ที่กำหนดล่วงหน้า:
+ใช้ [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) เพื่ออ่านสไตล์ที่กำหนดไว้ล่วงหน้าของตารางและใช้ [setStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setStylePreset-int-) เพื่อกำหนดค่า ตัวอย่างนี้ใช้ [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) กับตารางหนึ่ง, พิมพ์ค่าพรีเซ็ต, และกำหนดพรีเซ็ตเดียวกันให้กับตารางที่สอง ทั้งสองตารางถูกบันทึกใน `table-style.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// เปลี่ยนธีมสไตล์พรีเซ็ตเริ่มต้น
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log("Table style preset: " + stylePreset);
+
+    const anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
+    anotherTable.setStylePreset(stylePreset);
+
+    presentation.save("table-style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Lock Aspect Ratio of Table**
+## **ล็อกอัตราส่วนของตาราง**
 
-อัตราส่วนของรูปทรงเรขาคณิตคือสัดส่วนของขนาดในมิติที่ต่างกัน Aspose.Slides มีคุณสมบัติ [**setAspectRatioLocked**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) เพื่อให้คุณล็อคการตั้งค่าอัตราส่วนของตารางและรูปทรงอื่น ๆ  
+อัตราส่วนของตารางคืออัตราส่วนระหว่างความกว้างกับความสูง ใช้ [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked-boolean-) เพื่อทำการล็อกอัตราส่วนนี้สำหรับตาราง
 
-โค้ด JavaScript นี้แสดงวิธีล็อคอัตราส่วนสำหรับตาราง:
+ตัวอย่างด้านล่างเปิดไฟล์ `pres.pptx` ซึ่งต้องมีอย่างน้อยหนึ่งสไลด์ที่มีตารางเป็นรูปทรงแรก มันพิมพ์สถานะล็อกปัจจุบัน, เปิดการล็อกอัตราส่วน, พิมพ์สถานะที่อัปเดต (`true`), และบันทึกผลลัพธ์เป็น `pres-out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// invert
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**ฉันสามารถเปิดใช้งานทิศทางการอ่านจากขวาไปซ้าย (RTL) สำหรับตารางทั้งหมดและข้อความในเซลล์ได้หรือไม่?**
+**ฉันสามารถเปิดใช้งานทิศทางการอ่านจากขวาไปซ้าย (RTL) สำหรับตารางทั้งหมดและข้อความในเซลล์ของมันได้หรือไม่?**
 
-ได้ ตารางมีเมธอด [setRightToLeft](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/table/setrighttoleft/) และย่อหน้ามี [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/) การใช้ทั้งสองจะทำให้ลำดับ RTL และการเรนเดอร์ภายในเซลล์ถูกต้อง
+ใช่ ตารางมีเมธอด [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setRightToLeft-boolean-) และย่อหน้ามีเมธอด [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setRightToLeft-byte-) การใช้ทั้งสองจะทำให้ลำดับ RTL ถูกต้องและการแสดงผลภายในเซลล์เป็นไปตามที่ต้องการ
 
-**ฉันจะป้องกันผู้ใช้ไม่ให้ย้ายหรือปรับขนาดตารางในไฟล์สุดท้ายได้อย่างไร?**
+**ฉันจะป้องกันไม่ให้ผู้ใช้ย้ายหรือปรับขนาดตารางในไฟล์สุดท้ายได้อย่างไร?**
 
-ใช้การล็อค shape เพื่อปิดการย้าย, ปรับขนาด, การเลือก ฯลฯ ซึ่งการล็อคนี้ใช้กับตารางด้วย
+ใช้ [shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) เพื่อปิดการย้าย, ปรับขนาด, การเลือก ฯลฯ การล็อกเหล่านี้ใช้กับตารางด้วย
 
-**การแทรกรูปภาพเป็นพื้นหลังในเซลล์ได้รับการสนับสนุนหรือไม่?**
+**การแทรกรูปภาพภายในเซลล์เป็นพื้นหลังได้รับการสนับสนุนหรือไม่?**
 
-ได้ คุณสามารถตั้งค่า [picture fill](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picturefillformat/) สำหรับเซลล์; รูปภาพจะครอบพื้นที่เซลล์ตามโหมดที่เลือก (ยืดหรือเรียงต่อกัน)  
+ใช่ คุณสามารถตั้งค่า [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) สำหรับเซลล์; ภาพจะครอบคลุมพื้นที่เซลล์ตามโหมดที่เลือก (ขยายหรือซ้ำ).

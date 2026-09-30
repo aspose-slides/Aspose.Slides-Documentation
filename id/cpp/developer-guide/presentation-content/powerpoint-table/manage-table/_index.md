@@ -5,9 +5,9 @@ type: docs
 weight: 10
 url: /id/cpp/manage-table/
 keywords:
-- tambah tabel
-- buat tabel
-- akses tabel
+- menambah tabel
+- membuat tabel
+- mengakses tabel
 - rasio aspek
 - menyelaraskan teks
 - pemformatan teks
@@ -20,33 +20,34 @@ description: "Buat & edit tabel dalam slide PowerPoint dengan Aspose.Slides untu
 ---
 ## **Pendahuluan**
 
-Tabel di PowerPoint adalah cara yang efisien untuk menampilkan dan menggambarkan informasi. Informasi dalam kisi sel (diatur dalam baris dan kolom) sederhana dan mudah dipahami.
+Tabel dalam PowerPoint mengatur informasi ke dalam baris dan kolom, sehingga lebih mudah dibaca dan membandingkan nilai.
 
-Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/cpp/aspose.slides/table/), antarmuka [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/), kelas [Cell](https://reference.aspose.com/slides/id/cpp/aspose.slides/cell/), antarmuka [ICell](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/), dan tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel dalam segala jenis presentasi. 
+Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) , antarmuka [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) , kelas [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) , antarmuka [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) , dan tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel dalam presentasi.
 
 ## **Membuat Tabel dari Awal**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tentukan array `columnWidth`.
-4. Tentukan array `rowHeight`.
-5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/) ke slide melalui metode [AddTable](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addtable/).
-6. Iterasi setiap [ICell](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/) untuk menerapkan pemformatan pada batas atas, bawah, kanan, dan kiri.
-7. Gabungkan dua sel pertama pada baris pertama tabel. 
-8. Akses [TextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/textframe/) milik sebuah [ICell](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/). 
-9. Tambahkan teks ke [TextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/textframe/).
-10. Simpan presentasi yang telah dimodifikasi.
+Buat tabel dengan menentukan posisinya, lebar kolom, dan tinggi baris. Setelah menambahkannya ke slide, Anda dapat memformat batas sel, menggabungkan sel, dan menyisipkan teks.
 
-Kode C++ ini menunjukkan cara membuat tabel dalam presentasi:
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tentukan array lebar kolom dalam poin.
+4. Tentukan array tinggi baris dalam poin.
+5. Tambahkan objek [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) ke slide melalui metode [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) .
+6. Iterasi setiap [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) untuk menerapkan format pada batas atas, bawah, kanan, dan kiri.
+7. Gabungkan dua sel pertama di baris pertama tabel.
+8. Akses sel yang digabungkan melalui metode [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) .
+9. Atur teks di sel yang digabungkan.
+10. Simpan presentasi yang dimodifikasi.
 
-```c++
+Contoh di bawah ini membuat tabel dengan tiga kolom dan lima baris pada titik (100, 50) poin. Itu menerapkan batas merah dengan lebar 5 poin, menggabungkan dua sel pertama di baris pertama, dan menyimpan hasilnya sebagai `table.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -56,35 +57,29 @@ Kode C++ ini menunjukkan cara membuat tabel dalam presentasi:
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Membuat instance kelas Presentation yang mewakili file PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Mengakses slide pertama
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// Menambahkan shape tabel ke slide
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Mengatur format batas untuk setiap sel
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -97,21 +92,18 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// Menggabungkan sel 1 dan 2 pada baris 1
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// Menambahkan teks ke sel yang digabungkan
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// Menyimpan presentasi ke Disk
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **Penomoran dalam Tabel Standar**
 
-Dalam tabel standar, penomoran sel bersifat sederhana dan dimulai dari nol. Sel pertama dalam tabel memiliki indeks 0,0 (kolom 0, baris 0). 
+Dalam tabel standar, indeks sel berbasis nol dan menggunakan urutan (kolom, baris). Sel pertama diindeks sebagai (0, 0).
 
-Sebagai contoh, sel-sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor seperti ini:
+Sebagai contoh, sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor seperti ini:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -119,9 +111,9 @@ Sebagai contoh, sel-sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor sepe
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Kode C++ ini menunjukkan cara menentukan penomoran untuk sel-sel dalam tabel:
+Contoh ini membuat tabel 4 × 4 yang diilustrasikan di atas, dengan lebar kolom dan tinggi baris 70 poin serta batas sel merah dengan lebar 5 poin. Koordinat menggambarkan indeks sel; contoh ini membiarkan sel kosong dan menyimpan tabel sebagai `StandardTables_out.pptx`.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -129,7 +121,6 @@ Kode C++ ini menunjukkan cara menentukan penomoran untuk sel-sel dalam tabel:
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -138,25 +129,19 @@ Kode C++ ini menunjukkan cara menentukan penomoran untuk sel-sel dalam tabel:
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Membuat instance kelas Presentation yang mewakili file PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Mengakses slide pertama
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// Menambahkan shape tabel ke slide
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Mengatur format batas untuk setiap sel
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -179,32 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// Menyimpan presentasi ke disk
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Mengakses Tabel yang Ada**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+Tabel disimpan dalam koleksi bentuk slide. Iterasi bentuk-bentuk untuk menemukan tabel, lalu gunakan antarmuka [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) untuk membaca atau memperbarui sel-selnya.
 
-2. Dapatkan referensi ke slide yang berisi tabel melalui indeksnya. 
+1. Muat presentasi menggunakan kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide yang berisi tabel berdasarkan indeksnya.
+3. Iterasi objek [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) dan berhenti ketika tabel ditemukan. Jika slide berisi beberapa tabel, gunakan [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) untuk mengidentifikasi yang Anda perlukan.
+4. Perbarui teks di sel target.
+5. Simpan presentasi yang dimodifikasi.
 
-3. Buat objek [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/) dan setel menjadi null.
+Contoh di bawah membuka `UpdateExistingTable.pptx` dan menemukan tabel pertama pada slide pertama. Ia mengatur sel pada kolom 0, baris 1 menjadi `New` dan menyimpan hasilnya sebagai `table1_out.pptx`. Input harus berisi setidaknya satu slide, dan tabel pertama pada slide tersebut harus memiliki setidaknya satu kolom dan dua baris.
 
-4. Iterasi semua objek [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) hingga tabel ditemukan.
-
-   Jika Anda menduga slide yang sedang Anda kerjakan hanya berisi satu tabel, Anda dapat memeriksa semua shape yang ada di dalamnya. Ketika sebuah shape diidentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/cpp/aspose.slides/table/). Namun jika slide yang sedang Anda kerjakan berisi beberapa tabel, lebih baik mencari tabel yang diperlukan melalui [set_AlternativeText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/set_alternativetext/).
-
-5. Gunakan objek [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/) untuk bekerja dengan tabel. Pada contoh di bawah, kami menambahkan baris baru ke tabel.
-
-6. Simpan presentasi yang telah dimodifikasi.
-
-Kode C++ ini menunjukkan cara mengakses dan bekerja dengan tabel yang ada:
-
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -212,55 +189,56 @@ Kode C++ ini menunjukkan cara mengakses dan bekerja dengan tabel yang ada:
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Membuat instance kelas Presentation yang mewakili file PPTX
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// Mengakses slide pertama
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Menginisialisasi Table null
-System::SharedPtr<ITable> tbl;
-
-// Mengiterasi shape dan menetapkan referensi ke tabel yang ditemukan
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// Menetapkan teks untuk kolom pertama baris kedua
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// Menyimpan presentasi yang dimodifikasi ke disk
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
+
+Untuk mengubah ukuran baris dalam tabel yang ada dan memahami mengapa tinggi sebenarnya dapat melampaui minimum yang diminta, lihat [Control Row Height](/slides/id/cpp/manage-rows-and-columns/#control-row-height).
 
 ## **Temukan Sel yang Memiliki Text Frame**
 
-Saat kode pemrosesan teks generik menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) dari tabel, gunakan [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) untuk mengambil [ICell](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/) yang memilikinya. Untuk text frame sel tabel, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) mengembalikan pemiliknya dan [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/) mengembalikan `nullptr`, meskipun tabel itu sendiri adalah sebuah shape.
+Ketika kode pemrosesan teks generik menerima sebuah [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) dari tabel, gunakan [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) untuk mengambil [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) pemiliknya. Untuk text frame sel tabel, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) mengembalikan pemilik dan [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) mengembalikan `nullptr`, meskipun tabel itu sendiri adalah sebuah bentuk.
 
-Koordinat sel tersedia melalui metode hanya-baca [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/get_firstcolumnindex/) dan [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/get_firstrowindex/). [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) juga menyediakan navigasi hanya-baca: ia mengembalikan pemilik tetapi tidak mengubah kepemilikan. Selalu periksa apakah sel yang dikembalikan bernilai `nullptr` sebelum menggunakannya.
+Koordinat sel tersedia melalui metode read‑only [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) dan [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) . [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) juga menyediakan navigasi read‑only: ia mengembalikan pemilik tetapi tidak mengubah kepemilikan. Selalu periksa sel yang dikembalikan untuk `nullptr` sebelum menggunakannya.
 
-Untuk contoh lengkap yang mengidentifikasi pemilik sel tabel dan shape, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/cpp/search-and-replace-text/).
+Untuk contoh lengkap yang mengidentifikasi pemilik sel tabel dan bentuk, termasuk bentuk yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/cpp/search-and-replace-text/).
 
-## **Menyelaraskan Teks dalam Tabel**
+## **Menjajarkan Teks dalam Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/) ke slide. 
-4. Akses objek [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) dari tabel. 
-5. Akses [IParagraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/) milik [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/).
-6. Selaraskan teks secara vertikal.
-7. Simpan presentasi yang telah dimodifikasi.
+Anda dapat mengontrol penempatan vertikal dan arah teks sel tabel individu. Contoh pada bagian ini menengahkan teks di dalam sel pertama dan memutarnya 270 derajat.
 
-Kode C++ ini menunjukkan cara menyelaraskan teks dalam tabel:
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Tambahkan objek [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) ke slide.
+4. Akses objek [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) dari tabel.
+5. Akses [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) pertama dan atur teks serta warnanya.
+6. Atur penempatan vertikal sel dan arah teks menggunakan [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) dan [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/) .
+7. Simpan presentasi yang dimodifikasi.
 
-```c++
+Contoh ini membuat tabel 4 × 4 dengan lebar kolom 120 poin dan tinggi baris 100 poin. Ia memformat teks di sel (0, 0), menambahkan nilai ke sel‑sel lain di baris pertama, dan menyimpan hasilnya sebagai `Vertical_Align_Text_out.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -271,7 +249,6 @@ Kode C++ ini menunjukkan cara menyelaraskan teks dalam tabel:
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -280,63 +257,53 @@ Kode C++ ini menunjukkan cara menyelaraskan teks dalam tabel:
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Membuat instance kelas Presentation
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Mendapatkan slide pertama
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// Menambahkan shape tabel ke slide
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// Mengakses frame teks
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// Membuat objek Paragraph untuk frame teks
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Membuat objek Portion untuk paragraf
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Menyelaraskan teks secara vertikal
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// Menyimpan Presentation ke disk
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Mengatur Pemformatan Teks pada Tingkat Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Akses objek [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/) dari Slide.
-4. Setel [set_FontHeight](https://reference.aspose.com/slides/id/cpp/aspose.slides/baseportionformat/set_fontheight/) untuk teks. 
-5. Setel [set_Alignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_alignment/) dan [set_MarginRight](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Setel [set_TextVerticalType](https://reference.aspose.com/slides/id/cpp/aspose.slides/textframeformat/set_textverticaltype/).
-7. Simpan presentasi yang telah dimodifikasi. 
+Gunakan [SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/) untuk menerapkan pemformatan teks ke semua sel dalam tabel. Overload‑nya menerima pemformatan bagian, paragraf, dan frame teks, sehingga Anda dapat mengatur properti ini tanpa iterasi sel‑sel individu.
 
-Kode C++ ini menunjukkan cara menerapkan opsi pemformatan pilihan Anda pada teks dalam tabel:
+1. Muat presentasi menggunakan kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Akses objek [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) dari slide.
+4. Atur ukuran font menggunakan [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) untuk teks.
+5. Atur perataan paragraf dan margin kanan menggunakan [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) dan [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) .
+6. Atur arah teks menggunakan [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) .
+7. Simpan presentasi yang dimodifikasi.
 
-```c++
+Contoh di bawah membuka `table.pptx`, yang harus berisi setidaknya satu slide dengan tabel sebagai bentuk pertama. Ia mengatur ukuran font menjadi 25 poin, meratakan paragraf ke kanan dengan margin kanan 20 poin, dan membuat teks vertikal. Presentasi yang diformat disimpan sebagai `result.pptx`.
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -345,99 +312,106 @@ Kode C++ ini menunjukkan cara menerapkan opsi pemformatan pilihan Anda pada teks
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Membuat instance kelas Presentation
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Anggap bahwa shape pertama pada slide pertama adalah tabel
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// Mengatur tinggi font sel tabel
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// Mengatur perataan teks sel tabel dan margin kanan dalam satu panggilan
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// Mengatur tipe vertikal teks sel tabel
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
 ## **Mendapatkan Properti Gaya Tabel**
 
-Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode C++ ini menunjukkan cara mendapatkan properti gaya dari style prasetel tabel:
+Gunakan [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) untuk membaca gaya preset tabel dan [set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/) untuk menugaskannya. Contoh ini menerapkan [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) ke satu tabel, mencetak nama preset, dan menugaskan preset yang sama ke tabel kedua. Kedua tabel disimpan dalam `table-style.pptx`.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
 ## **Kunci Rasio Aspek Tabel**
 
-Rasio aspek sebuah shape geometrik adalah perbandingan ukuran dalam dimensi yang berbeda. Aspose.Slides menyediakan properti `AspectRatioLocked()` untuk memungkinkan Anda mengunci pengaturan rasio aspek bagi tabel dan shape lainnya. 
+Rasio aspek tabel adalah perbandingan antara lebar dan tingginya. Gunakan [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/) untuk mengunci rasio ini pada tabel.
 
-Kode C++ ini menunjukkan cara mengunci rasio aspek untuk tabel:
+Contoh di bawah membuka `pres.pptx`, yang harus berisi setidaknya satu slide dengan tabel sebagai bentuk pertama. Ia mencetak status kunci saat ini, mengaktifkan kunci rasio aspek, mencetak status yang diperbarui (`True`), dan menyimpan hasilnya sebagai `pres-out.pptx`.
 
-```c++
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Apakah saya dapat mengaktifkan arah baca right-to-left (RTL) untuk seluruh tabel dan teks di sel-selnya?**
+**Apakah saya dapat mengaktifkan arah baca kanan-ke-kiri (RTL) untuk seluruh tabel dan teks di dalam selnya?**
 
-Ya. Tabel menyediakan metode [set_RightToLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/table/set_righttoleft/), dan paragraf memiliki [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/id/cpp/aspose.slides/paragraphformat/set_righttoleft/). Menggunakan keduanya memastikan urutan RTL yang benar serta rendering di dalam sel.
+Ya. Tabel menyediakan metode [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) , dan paragraf memiliki [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/) . Menggunakan keduanya memastikan urutan RTL yang benar dan render yang tepat di dalam sel.
 
 **Bagaimana saya dapat mencegah pengguna memindahkan atau mengubah ukuran tabel dalam file akhir?**
 
-Gunakan [shape locks](/slides/id/cpp/applying-protection-to-presentation/) untuk menonaktifkan pemindahan, pengubahan ukuran, pemilihan, dll. Kunci ini juga berlaku untuk tabel.
+Gunakan [kunci bentuk](/slides/id/cpp/applying-protection-to-presentation/) untuk menonaktifkan pemindahan, pengubahan ukuran, pemilihan, dll. Kunci ini juga berlaku untuk tabel.
 
-**Apakah menyisipkan gambar di dalam sel sebagai latar belakang didukung?**
+**Apakah penyisipan gambar di dalam sel sebagai latar belakang didukung?**
 
-Ya. Anda dapat mengatur [picture fill](https://reference.aspose.com/slides/id/cpp/aspose.slides/picturefillformat/) untuk sebuah sel; gambar akan menutupi area sel sesuai mode yang dipilih (stretch atau tile).
+Ya. Anda dapat mengatur [isi gambar](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) untuk sel; gambar akan menutupi area sel sesuai mode yang dipilih (stretch atau tile).

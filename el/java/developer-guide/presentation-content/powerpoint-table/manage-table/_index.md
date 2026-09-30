@@ -8,7 +8,7 @@ keywords:
 - προσθήκη πίνακα
 - δημιουργία πίνακα
 - πρόσβαση σε πίνακα
-- αναλογία διαστάσεων
+- αναλογία πτυχίου
 - στοίχιση κειμένου
 - μορφοποίηση κειμένου
 - στυλ πίνακα
@@ -16,53 +16,48 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Δημιουργήστε & επεξεργαστείτε πίνακες σε διαφάνειες PowerPoint με το Aspose.Slides για Java. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιστοποιήσετε τις ροές εργασίας με τους πίνακες."
+description: "Δημιουργία και επεξεργασία πινάκων σε διαφάνειες PowerPoint με το Aspose.Slides για Java. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιώσετε τη ροή εργασίας των πινάκων σας."
 ---
 ## **Εισαγωγή**
 
-Ένας πίνακας στο PowerPoint είναι ένας αποδοτικός τρόπος εμφάνισης και απεικόνισης πληροφοριών. Οι πληροφορίες σε ένα πλέγμα κελιών (διατεταγμένα σε σειρές και στήλες) είναι απλές και εύκολα κατανοητές.
+Οι πίνακες στο PowerPoint οργανώνουν τις πληροφορίες σε σειρές και στήλες, κάνοντας πιο εύκολη την ανάγνωση και τη σύγκριση τιμών.
 
-Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/java/com.aspose.slides/Table), το interface [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITable), την κλάση [Cell](https://reference.aspose.com/slides/el/java/com.aspose.slides/cell/), το interface [ICell](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/) και άλλους τύπους για να μπορείτε να δημιουργείτε, ενημερώνετε και διαχειρίζεστε πίνακες σε κάθε είδους παρουσιάσεις. 
+Aspose.Slides παρέχει τις κλάσεις [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/), [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/), [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/), [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) και άλλους τύπους ώστε να μπορείτε να δημιουργείτε, να ενημερώνετε και να διαχειρίζεστε πίνακες σε παρουσιάσεις.
 
-## **Δημιουργία Πίνακα από το μηδέν**
+## **Δημιουργία Πίνακα από την Αρχή**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα `columnWidth`.
-4. Ορίστε έναν πίνακα `rowHeight`.
-5. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITable) στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. Περιηγηθείτε σε κάθε [ICell](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/) για να εφαρμόσετε μορφοποίηση στα άνω, κάτω, δεξιά και αριστερά σύνορα.
-7. Συγχωνεύστε τα πρώτα δύο κελιά της πρώτης σειράς του πίνακα. 
-8. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/textframe/) ενός [ICell](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/). 
-9. Προσθέστε κάποιο κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/textframe/).
-10. Αποθηκεύστε την τροποποιημένη παρουσία.
+Δημιουργήστε έναν πίνακα καθορίζοντας τη θέση, το πλάτος των στηλών και το ύψος των σειρών. Αφού τον προσθέσετε σε μια διαφάνεια, μπορείτε να μορφοποιήσετε τα σύνορα των κελιών, να συγχωνεύσετε κελιά και να εισάγετε κείμενο.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε έναν πίνακα σε μια παρουσίαση:
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Λάβετε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Ορίστε έναν πίνακα με τα πλάτη των στηλών σε μονάδες σημείου.
+4. Ορίστε έναν πίνακα με τα ύψη των σειρών σε μονάδες σημείου.
+5. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+6. Διατρέξτε κάθε [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) για να εφαρμόσετε μορφοποίηση στα άνω, κάτω, δεξιά και αριστερά σύνορα.
+7. Συγχωνεύστε τα δύο πρώτα κελιά της πρώτης σειράς του πίνακα.
+8. Αποκτήστε πρόσβαση στο συγχωνευμένο κελί μέσω της μεθόδου [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--).
+9. Ορίστε το κείμενο στο συγχωνευμένο κελί.
+10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα με τρεις στήλες και πέντε σειρές στο (100, 50) σημεία. Εφαρμόζει κόκκινα σύνορα με πάχος 5 σημείων, συγχωνεύει τα δύο πρώτα κελιά στην πρώτη σειρά και αποθηκεύει το αποτέλεσμα ως `table.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ορίζει τη μορφοποίηση του περιγράμματος για κάθε κελί
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -80,22 +75,19 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Συγχωνεύει τα κελιά 1 & 2 της σειράς 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // Προσθέτει κείμενο στο συγχωνευμένο κελί
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Αρίθμηση σε έναν Κανονικό Πίνακα**
+## **Αρίθμηση σε Τυπικό Πίνακα**
 
-Σε έναν κανονικό πίνακα, η αρίθμηση των κελιών είναι απλή και αρχίζει από το μηδέν. Το πρώτο κελί σε έναν πίνακα έχει δείκτη 0,0 (στήλη 0, σειρά 0). 
+Σε έναν τυπικό πίνακα, οι δείκτες των κελιών είναι μηδενικής βάσης και χρησιμοποιούν τη σειρά (στήλη, σειρά). Το πρώτο κελί έχει δείκτη (0, 0).
 
 Για παράδειγμα, τα κελιά σε έναν πίνακα με 4 στήλες και 4 σειρές αριθμούνται ως εξής:
 
@@ -105,266 +97,247 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Αυτός ο κώδικας Java δείχνει πώς να καθορίσετε την αρίθμηση των κελιών σε έναν πίνακα:
+Αυτό το παράδειγμα δημιουργεί τον 4 × 4 πίνακα που απεικονίζεται παραπάνω, με πλάτη στηλών και ύψη σειρών 70 σημείων και κόκκινα σύνορα κελιών 5 σημείων. Οι συντεταγμένες απεικονίζουν τους δείκτες των κελιών· το παράδειγμα αφήνει τα κελιά κενά και αποθηκεύει τον πίνακα ως `StandardTables_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Προσβάλλει την πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Ορίζει τη μορφοποίηση του περιγράμματος για κάθε κελί
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Πρόσβαση σε Υπάρχοντα Πίνακα**
+## **Πρόσβαση σε Υπάρχον Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Λάβετε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITable) και ορίστε το σε null.
-4. Περιηγηθείτε σε όλα τα αντικείμενα [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) μέχρι να βρεθεί ο πίνακας.
+Οι πίνακες αποθηκεύονται στη συλλογή σχημάτων μιας διαφάνειας. Διατρέξτε τα σχήματα για να εντοπίσετε έναν πίνακα, στη συνέχεια χρησιμοποιήστε τη διεπαφή [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) για να διαβάσετε ή να ενημερώσετε τα κελιά του.
 
-   Αν υποψιάζεστε ότι η διαφάνεια που διαχειρίζεστε περιέχει έναν μόνο πίνακα, μπορείτε απλώς να ελέγξετε όλα τα σχήματα που περιέχει. Όταν ένα shape προσδιορίζεται ως πίνακας, μπορείτε να το μετατρέψετε σε αντικείμενο [Table](https://reference.aspose.com/slides/el/java/com.aspose.slides/Table). Αν όμως η διαφάνεια περιέχει πολλούς πίνακες, είναι καλύτερο να αναζητήσετε τον πίνακα που χρειάζεστε μέσω της μεθόδου [setAlternativeText(String value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
-5. Χρησιμοποιήστε το αντικείμενο [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITable) για να εργαστείτε με τον πίνακα. Στο παρακάτω παράδειγμα προσθέσαμε μια νέα σειρά στον πίνακα.
-6. Αποθηκεύστε την τροποποιημένη παρουσία.
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Λάβετε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα με το δείκτη της.
+3. Διατρέξτε τα αντικείμενα [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) και σταματήστε όταν βρεθεί ένας πίνακας. Εάν η διαφάνεια περιέχει πολλούς πίνακες, χρησιμοποιήστε το [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getAlternativeText--) για να εντοπίσετε αυτόν που χρειάζεστε.
+4. Ενημερώστε το κείμενο στο στοχευμένο κελί.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας Java δείχνει πώς να αποκτήσετε πρόσβαση και να εργαστείτε με έναν υπάρχοντα πίνακα:
+Το παρακάτω παράδειγμα ανοίγει το `UpdateExistingTable.pptx` και βρίσκει τον πρώτο πίνακα στην πρώτη διαφάνεια. Ορίζει το κελί στη στήλη 0, σειρά 1 σε `New` και αποθηκεύει το αποτέλεσμα ως `table1_out.pptx`. Η είσοδος πρέπει να περιέχει τουλάχιστον μία διαφάνεια και ο πρώτος πίνακας σε αυτήν πρέπει να έχει τουλάχιστον μία στήλη και δύο σειρές.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Αρχικοποιεί το TableEx σε null
-    ITable tbl = null;
-
-    // Διατρέχει τα σχήματα και ορίζει μια αναφορά στον πίνακα που βρέθηκε
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // Ορίζει το κείμενο για την πρώτη στήλη της δεύτερης σειράς
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // Αποθηκεύει την τροποποιημένη παρουσίαση στο δίσκο
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Εύρεση του Κελιού που Κατέχει ένα Πλαίσιο Κειμένου**
+Για να αλλάξετε το μέγεθος μιας σειράς σε έναν υπάρχοντα πίνακα και να κατανοήσετε γιατί το πραγματικό του ύψος μπορεί να υπερβαίνει το ζητούμενο ελάχιστο, δείτε [Control Row Height](/slides/el/java/manage-rows-and-columns/#control-row-height).
 
-Όταν γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/) από πίνακα, χρησιμοποιήστε τη μέθοδο [ITextFrame.getParentCell](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/#getParentCell--) για να ανακτήσετε το ιδιοκτησιακό [ICell](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/). Για ένα πλαίσιο κειμένου κελιού πίνακα, η μέθοδος [ITextFrame.getParentCell](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/#getParentCell--) επιστρέφει τον ιδιοκτήτη και η μέθοδος [ITextFrame.getParentShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/#getParentShape--) επιστρέφει `null`, ακόμη και αν ο πίνακας είναι shape.
+## **Βρείτε το Κελί που Κατέχει Πλαίσιο Κειμένου**
 
-Οι συντεταγμένες του κελιού είναι διαθέσιμες μέσω των μόνο-ανάγνωσης μεθόδων [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/#getFirstColumnIndex--) και [ICell.getFirstRowIndex](https://reference.aspose.com/slides/el/java/com.aspose.slides/icell/#getFirstRowIndex--). Η μέθοδος [ITextFrame.getParentCell](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/#getParentCell--) παρέχει επίσης μόνο-ανάγνωσης πλοήγηση: επιστρέφει τον ιδιοκτήτη αλλά δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε το επιστρεφόμενο κελί για `null` πριν το χρησιμοποιήσετε.
+Όταν ο γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) από έναν πίνακα, χρησιμοποιήστε τη μέθοδο [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) για να ανακτήσετε το ιδιοκτησιακό [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/). Για ένα πλαίσιο κειμένου κελιού πίνακα, το [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) επιστρέφει τον κάτοχο και το [ITextFrame.getParentShape](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentShape--) επιστρέφει `null`, ακόμη και αν ο ίδιος ο πίνακας είναι σχήμα.
 
-Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες κελιού πίνακα και shape, συμπεριλαμβανομένων των shapes που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/java/search-and-replace-text/).
+Οι συντεταγμένες του κελιού είναι διαθέσιμες μέσω των αναγνώσιμων μόνο μεθόδων [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) και [ICell.getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--). Το [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) παρέχει επίσης πλοήγηση μόνο για ανάγνωση: επιστρέφει τον κάτοχο αλλά δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε το επιστρεφόμενο κελί για `null` πριν το χρησιμοποιήσετε.
+
+Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες κελιών πίνακα και σχημάτων, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε [Search and Replace Text](/slides/el/java/search-and-replace-text/).
 
 ## **Στοίχιση Κειμένου σε Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITable) στη διαφάνεια. 
-4. Αποκτήστε ένα αντικείμενο [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/) από τον πίνακα. 
-5. Αποκτήστε το [IParagraph](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/) του [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/).
-6. Στοίχξτε το κείμενο κατακόρυφα.
-7. Αποθηκεύστε την τροποποιημένη παρουσία.
+Μπορείτε να ελέγξετε την κάθετη αγκύρωση και την κατεύθυνση κειμένου των μεμονωμένων κελιών πίνακα. Το παράδειγμα σε αυτήν την ενότητα κεντράρει το κείμενο στο πρώτο κελί και το περιστρέφει κατά 270 μοίρες.
 
-Αυτός ο κώδικας Java δείχνει πώς να ευθυγραμμίσετε το κείμενο σε έναν πίνακα:
+1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Λάβετε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) στη διαφάνεια.
+4. Αποκτήστε πρόσβαση σε ένα αντικείμενο [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) από τον πίνακα.
+5. Αποκτήστε πρόσβαση στο πρώτο [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) και ορίστε το κείμενο και το χρώμα του.
+6. Ορίστε την κάθετη αγκύρωση του κελιού και την κατεύθυνση κειμένου χρησιμοποιώντας τις μεθόδους [setTextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextAnchorType-byte-) και [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextVerticalType-byte-).
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα αυτό δημιουργεί έναν 4 × 4 πίνακα με πλάτη στηλών 120 σημείων και ύψη σειρών 100 σημείων. Μορφοποιεί το κείμενο στο κελί (0, 0), προσθέτει τιμές στα υπόλοιπα κελιά της πρώτης σειράς και αποθηκεύει το αποτέλεσμα ως `Vertical_Align_Text_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Ορίζει στήλες με πλάτη και σειρές με ύψη
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // Προσθέτει το σχήμα πίνακα στη διαφάνεια
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // Πρόσβαση στο πλαίσιο κειμένου
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // Δημιουργεί το αντικείμενο Paragraph για το πλαίσιο κειμένου
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // Δημιουργεί το αντικείμενο Portion για την παράγραφο
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // Στοίχζει το κείμενο καθέτως
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Αποκτήστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITable) από τη Διαφάνεια.
-4. Ορίστε το [setFontHeight(float value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) για το κείμενο. 
-5. Ορίστε το [setAlignment(int value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) και το [setMarginRight(float value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Ορίστε το [setTextVerticalType(byte value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Αποθηκεύστε την τροποποιημένη παρουσία. 
+Χρησιμοποιήστε τη μέθοδο [setTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-) για να εφαρμόσετε μορφοποίηση κειμένου σε όλα τα κελιά ενός πίνακα. Οι υπερφορτώσεις της δέχονται μορφοποίηση τμήματος, παραγράφου και πλαισίου κειμένου, ώστε να μπορείτε να ορίσετε αυτές τις ιδιότητες χωρίς να διατρέχετε τα μεμονωμένα κελιά.
 
-Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε τις προτιμώμενες επιλογές μορφοποίησης στο κείμενο ενός πίνακα:
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Λάβετε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Αποκτήστε πρόσβαση σε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) από τη διαφάνεια.
+4. Ορίστε το μέγεθος γραμματοσειράς χρησιμοποιώντας τη μέθοδο [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) για το κείμενο.
+5. Ορίστε την στοίχιση παραγράφου και το δεξιό περιθώριο χρησιμοποιώντας τις μεθόδους [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) και [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. Ορίστε την κατεύθυνση κειμένου χρησιμοποιώντας τη μέθοδο [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα παρακάτω ανοίγει το `table.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια με πίνακα ως πρώτο του σχήμα. Ορίζει το μέγεθος γραμματοσειράς στα 25 σημεία, ευθυγραμμίζει δεξιά τις παραγράφους με δεξιό περιθώριο 20 σημεία και καθιστά το κείμενο κάθετο. Η μορφοποιημένη παρουσίαση αποθηκεύεται ως `result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Ας υποθέσουμε ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι πίνακας
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // Ορίζει το ύψος γραμματοσειράς των κελιών του πίνακα
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // Ορίζει την στοίχιση κειμένου και το δεξί περιθώριο των κελιών του πίνακα με μία κλήση
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // Ορίζει τον κάθετο τύπο κειμένου των κελιών του πίνακα
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Λήψη Ιδιοτήτων Στυλ Πίνακα**
 
-Το Aspose.Slides σας επιτρέπει να ανακτήσετε τις ιδιότητες στυλ ενός πίνακα ώστε να μπορείτε να τις χρησιμοποιήσετε για άλλον πίνακα ή αλλού. Αυτός ο κώδικας Java δείχνει πώς να λάβετε τις ιδιότητες στυλ από ένα προκαθορισμένο στυλ πίνακα:
+Χρησιμοποιήστε τη μέθοδο [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) για να διαβάσετε το προεπιλεγμένο στυλ ενός πίνακα και τη μέθοδο [setStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setStylePreset-int-) για να το ορίσετε. Αυτό το παράδειγμα εφαρμόζει το [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/) σε έναν πίνακα, εκτυπώνει την τιμή του προεπιλεγμένου στυλ και την αναθέτει σε δεύτερο πίνακα. Και οι δύο πίνακες αποθηκεύονται στο `table-style.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // αλλάζει το προεπιλεγμένο στυλ προεπιλογής 
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Λαμβάνει την προεπιλογή στυλ του πίνακα
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // Εφαρμόζει την ανακτημένη προεπιλογή στυλ σε άλλο πίνακα
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Κλείδωμα Αναλογίας Διαστάσεων Πίνακα**
+## **Κλείδωμα Λόγου Πτυχίου Πίνακα**
 
-Η αναλογία διαστάσεων ενός γεωμετρικού σχήματος είναι το πηλίκο των μεγεθών του σε διαφορετικές διαστάσεις. Το Aspose.Slides παρείχε την ιδιότητα **setAspectRatioLocked**(https://reference.aspose.com/slides/el/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) για να κλειδώνετε τη ρύθμιση αναλογίας διαστάσεων για πίνακες και άλλα σχήματα. 
+Ο λόγος πτυχίου ενός πίνακα είναι η αναλογία του πλάτους προς το ύψος του. Χρησιμοποιήστε τη μέθοδο [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-) για να κλειδώσετε αυτήν την αναλογία για έναν πίνακα.
 
-Αυτός ο κώδικας Java δείχνει πώς να κλειδώσετε την αναλογία διαστάσεων για έναν πίνακα:
+Το παράδειγμα παρακάτω ανοίγει το `pres.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια με πίνακα ως πρώτο σχήμα. Εκτυπώνει την τρέχουσα κατάσταση κλειδώματος, ενεργοποιεί το κλείδωμα λόγου πτυχίου, εκτυπώνει την ενημερωμένη κατάσταση (`true`) και αποθηκεύει το αποτέλεσμα ως `pres-out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // αντιστροφή
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ΣΥΓΚΕΝΤΡΑΜΕΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **ΣΥΝΗΘΕΣΜΕΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
 **Μπορώ να ενεργοποιήσω την ανάγνωση από δεξιά προς αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στα κελιά του;**
 
-Ναι. Ο πίνακας εκθέτει τη μέθοδο [setRightToLeft](https://reference.aspose.com/slides/el/java/com.aspose.slides/table/#setRightToLeft-boolean-), και οι παράγραφοι έχουν το [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/el/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Χρησιμοποιώντας και τα δύο διασφαλίζετε τη σωστή σειρά RTL και την απόδοση μέσα στα κελιά.
+Ναι. Ο πίνακας προσφέρει τη μέθοδο [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-), και οι παράγραφοι έχουν τη μέθοδο [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Η χρήση και των δύο εξασφαλίζει τη σωστή σειρά RTL και την απόδοση μέσα στα κελιά.
 
-**Πώς μπορώ να αποτρέψω τους χρήστες από το να μετακινήσουν ή να αλλάξουν το μέγεθος ενός πίνακα στο τελικό αρχείο;**
+**Πώς μπορώ να αποτρέψω τους χρήστες από το να μετακινούν ή να αλλάζουν το μέγεθος ενός πίνακα στο τελικό αρχείο;**
 
-Χρησιμοποιήστε [shape locks](/slides/el/java/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, το αλλαγή μεγέθους, την επιλογή κ.λπ. Αυτά τα κλειδώματα εφαρμόζονται και στους πίνακες.
+Χρησιμοποιήστε τις [shape locks](/slides/el/java/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, την αλλαγή μεγέθους, την επιλογή κ.λπ. Αυτοί οι περιορισμοί εφαρμόζονται και στους πίνακες.
 
-**Υποστηρίζεται η εισαγωγή εικόνας μέσα σε κελί ως φόντο;**
+**Υποστηρίζεται η εισαγωγή μιας εικόνας μέσα σε ένα κελί ως φόντο;**
 
-Ναι. Μπορείτε να ορίσετε μια [picture fill](https://reference.aspose.com/slides/el/java/com.aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύπτει την περιοχή του κελιού ανάλογα με την επιλεγμένη λειτουργία (stretch ή tile).
+Ναι. Μπορείτε να ορίσετε μια [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύψει την περιοχή του κελιού σύμφωνα με την επιλεγμένη λειτουργία (τεντωμένη ή πλακίδια).

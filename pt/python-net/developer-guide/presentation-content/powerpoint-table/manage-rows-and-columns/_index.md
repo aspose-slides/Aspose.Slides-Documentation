@@ -1,5 +1,5 @@
 ---
-title: Gerenciar linhas e colunas em tabelas PowerPoint usando Python
+title: Gerenciar Linhas e Colunas em Tabelas do PowerPoint Usando Python
 linktitle: Linhas e Colunas
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - linha de tabela
 - coluna de tabela
 - primeira linha
-- cabeçalho da tabela
+- cabeçalho de tabela
 - clonar linha
 - clonar coluna
 - copiar linha
@@ -22,222 +22,222 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Gerencie linhas e colunas de tabelas no PowerPoint e OpenDocument com Aspose.Slides para Python via .NET e acelere a edição de apresentações e a atualização de dados."
+description: "Gerencie linhas e colunas de tabelas no PowerPoint com Aspose.Slides for Python via .NET e acelere a edição de apresentações e atualizações de dados."
 ---
-## **Visão geral**
+## **Introdução**
 
-Este artigo mostra como gerenciar linhas e colunas de tabelas em apresentações PowerPoint e OpenDocument usando Aspose.Slides para Python. Você aprenderá como adicionar, inserir, clonar e excluir linhas ou colunas, marcar a primeira linha como cabeçalho, ajustar tamanho e layout e aplicar formatação de texto e estilo no nível da linha ou da coluna. Cada tarefa é demonstrada com trechos de código compactos e autocontidos baseados na API [Tabela](https://reference.aspose.com/slides/pt/python-net/aspose.slides/table/), para que você possa encontrar rapidamente uma tabela em um slide e remodelar sua estrutura de acordo com seu design.
+Aspose.Slides for Python via .NET permite que você gerencie a estrutura e a formatação de tabelas em apresentações do PowerPoint através da classe [Tabela](https://reference.aspose.com/slides/python-net/aspose.slides/table/). É possível designar uma linha de cabeçalho, clonar ou remover linhas e colunas e aplicar formatação de texto a uma linha ou coluna inteira.
 
-## **Definir a primeira linha como cabeçalho**
+Este artigo explica essas operações com exemplos em Python. Também mostra como recuperar a predefinição de estilo de uma tabela para que você possa reutilizá‑la. Os índices de linhas e colunas da tabela são baseados em zero.
 
-Marque a primeira linha da tabela como cabeçalho para distinguir claramente os títulos das colunas dos dados. No Aspose.Slides para Python, basta habilitar a opção *First Row* da tabela para aplicar a formatação de cabeçalho definida pelo estilo de tabela selecionado.
+## **Controlar a Altura da Linha**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) e carregue a apresentação.  
-1. Acesse o slide pelo seu índice.  
-1. Itere por todos os objetos [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) para encontrar a tabela relevante.  
-1. Defina a primeira linha da tabela como cabeçalho.  
+Use [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) para definir a altura mínima de uma linha em pontos. É um limite inferior, não uma altura fixa. [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) devolve a altura real e é somente leitura. Acesse a linha através de [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/).
 
-Este código Python mostra como definir a primeira linha de uma tabela como seu cabeçalho:
+O exemplo carrega [row-height-input.pptx](row-height-input.pptx), que possui uma tabela como o primeiro shape no primeiro slide. Sua primeira linha começa em 70 pontos. As células usam texto Arial de 18 pt, quebra de linha automática e margens superior e inferior de 6 pt; o texto mais longo na segunda coluna quebra em várias linhas. O exemplo aumenta o mínimo para 100 pt, depois diminui para 20 pt, imprime a altura real após cada alteração e salva ambos os resultados.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation.
-with slides.Presentation("table.pptx") as presentation:
-    # Acessar o primeiro slide.
-    slide = presentation.slides[0]
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
 
-    # Iterar pelos shapes e obter uma referência à tabela.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
 
-    # Definir a primeira linha da tabela como cabeçalho.
-    table.first_row = True
-    
-    # Salvar a apresentação no disco.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Clonar uma linha ou coluna de tabela**
+Com a apresentação fornecida, aumentar o mínimo adiciona espaço à linha. Diminuí‑lo remove esse espaço extra, mas a altura real permanece maior que 20 pt porque o texto e as margens da célula exigem mais espaço. Reduzir apenas o mínimo não pode forçar a linha abaixo do espaço requerido pelo seu conteúdo.
 
-Clone qualquer linha ou coluna de tabela e insira a cópia na posição desejada na tabela. A duplicata preserva o conteúdo das células, a formatação e os tamanhos, permitindo expandir layouts de forma rápida e consistente.
+Vários fatores afetam a altura real:
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) e carregue a apresentação.  
-1. Acesse o slide pelo seu índice.  
-1. Defina um array de larguras de coluna.  
-1. Defina um array de alturas de linha.  
-1. Adicione uma [Tabela](https://reference.aspose.com/slides/pt/python-net/aspose.slides/table/) ao slide usando `add_table(x, y, column_widths, row_heights)`.  
-1. Clone uma linha de tabela.  
-1. Clone uma coluna de tabela.  
-1. Salve a apresentação modificada.  
+- **Texto e tamanho da fonte:** texto mais longo, quebras de linha explícitas ou uma fonte maior podem exigir mais espaço vertical.
+- **Quebra de linha e largura da coluna:** com quebra ativada, uma [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) mais estreita pode gerar mais linhas. Uma coluna mais larga pode reduzir o espaço necessário verticalmente.
+- **Margens da célula:** [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) e [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) adicionam espaço vertical. [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) e [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) reduzem a largura disponível para o texto e podem causar quebras adicionais.
 
-Este código Python mostra como clonar uma linha e uma coluna de uma tabela PowerPoint:
+Para esta tabela sem células mescladas, a célula que necessita de mais espaço vertical determina o limite inferior impulsionado pelo conteúdo para a linha inteira. Para encurtar a linha, talvez seja necessário encurtar o texto, reduzir o tamanho da fonte ou das margens, ou alargar uma coluna.
+
+As imagens abaixo mostram a mesma tabela na mesma escala. Nesta execução, as alturas reais foram 70, 100 e 55,2 pontos: a linha final permaneceu mais alta que seu mínimo de 20 pt. Medições de texto exatas podem variar conforme as fontes disponíveis no seu ambiente. Baixe os resultados salvos: [mínimo aumentado](row-height-increased.pptx) e [mínimo diminuído](row-height-decreased.pptx).
+
+| Original: mínimo 70 pt, real 70 pt | Aumentado: mínimo 100 pt, real 100 pt | Diminuído: mínimo 20 pt, real 55,2 pt |
+| --- | --- | --- |
+| ![Tabela original com a primeira linha de 70 pt.](row-height-before.png) | ![Tabela após aumentar o mínimo da primeira linha para 100 pt.](row-height-increased.png) | ![Tabela após diminuir o mínimo da primeira linha para 20 pt; texto quebrado mantém a linha mais alta que o mínimo.](row-height-decreased.png) |
+
+## **Definir a Primeira Linha como Cabeçalho**
+
+Use a propriedade [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) para marcar a primeira linha para formatação de cabeçalho. Sua aparência depende do estilo de tabela aplicado.
+
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acesse o primeiro slide.
+3. Acesse a tabela armazenada como o primeiro shape no slide.
+4. Ative a formatação de cabeçalho para sua primeira linha.
+5. Salve a apresentação modificada.
+
+O exemplo requer `table.pptx` com uma tabela como o primeiro shape no primeiro slide. Ele habilita a formatação de cabeçalho para a primeira linha e salva `First_row_header.pptx`.
 
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Instanciar a classe Presentation.
-with slides.Presentation() as presentation:
-    # Acessar o primeiro slide.
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Definir larguras das colunas e alturas das linhas.
+    table = slide.shapes[0]
+    table.first_row = True
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Clonar uma Linha ou Coluna da Tabela**
+
+Clone linhas ou colunas para reutilizar seu conteúdo e formatação. Você pode anexar uma cópia ao final da tabela ou inseri‑la em uma posição específica.
+
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acesse o primeiro slide.
+3. Defina as larguras das colunas e as alturas das linhas.
+4. Adicione uma tabela com o método [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Clone as linhas necessárias.
+6. Clone as colunas necessárias.
+7. Salve a apresentação modificada.
+
+O exemplo requer `Test.pptx` com ao menos um slide. Ele cria uma tabela com três colunas e cinco linhas, com dimensões especificadas em pontos. Anexa cópias da primeira linha e coluna, depois insere cópias da segunda linha e coluna no índice 3 (a quarta posição). A tabela resultante tem sete linhas e cinco colunas. O argumento `False` desabilita a clonagem em linhas ou colunas mescladas adjacentes; esta tabela não possui células mescladas.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Adicionar uma tabela ao slide.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Adicionar texto à linha 1, coluna 1.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Adicionar texto à linha 2, coluna 1.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Clonar a linha 1 ao final da tabela.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Adicionar texto à linha 1, coluna 2.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Adicionar texto à linha 2, coluna 2.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Clonar a linha 2 como a 4ª linha da tabela.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Clonar a primeira coluna ao final.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Clonar a segunda coluna no índice 3 (a 4ª posição).
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Salvar a apresentação no disco.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Remover uma linha ou coluna de uma tabela**
+## **Remover uma Linha ou Coluna de uma Tabela**
 
-Simplifique uma tabela removendo qualquer linha ou coluna pelo índice usando Aspose.Slides para Python — o layout é ajustado automaticamente enquanto preserva a formatação das células restantes. Isso é útil para simplificar grades de dados ou excluir marcadores de posição sem reconstruir a tabela.
+Remova linhas ou colunas que não são mais necessárias em uma tabela. A remoção de um item desloca os índices das linhas ou colunas que o seguem.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) e carregue a apresentação.  
-1. Acesse o slide pelo seu índice.  
-1. Defina um array de larguras de coluna.  
-1. Defina um array de alturas de linha.  
-1. Adicione um ITable ao slide usando `add_table(x, y, column_widths, row_heights)`.  
-1. Remova a linha da tabela.  
-1. Remova a coluna da tabela.  
-1. Salve a apresentação modificada.  
+1. Crie uma apresentação com a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acesse o primeiro slide.
+3. Defina as larguras das colunas e as alturas das linhas.
+4. Adicione uma tabela com o método [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Remova a segunda linha e a segunda coluna.
+6. Salve a apresentação modificada.
 
-O código Python a seguir mostra como remover uma linha e uma coluna de uma tabela:
+Este exemplo cria uma tabela de três por três e remove a linha e a coluna no índice 1, deixando uma tabela de dois por dois em `TestTable_out.pptx`. As dimensões estão em pontos. O argumento `False` desabilita a remoção de linhas ou colunas mescladas adjacentes; esta tabela não possui células mescladas.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
     presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Definir formatação de texto no nível da linha da tabela**
+## **Definir Formatação de Texto no Nível da Linha da Tabela**
 
-Aplique um estilo de texto consistente a uma linha inteira da tabela em um único passo. Com Aspose.Slides para Python, você pode definir família de fonte, tamanho, peso, cor e alinhamento para todas as células da linha de uma vez, mantendo cabeçalhos ou faixas de dados uniformes.
+Aplique formatação de texto a uma linha inteira para manter suas células consistentes. Você pode definir propriedades de fonte, formatação de parágrafo e direção do texto sem formatar cada célula individualmente.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) e carregue a apresentação.  
-1. Acesse o slide pelo seu índice.  
-1. Acesse o objeto [Tabela](https://reference.aspose.com/slides/pt/python-net/aspose.slides/table/) relevante no slide.  
-1. Defina a altura da fonte para as células da primeira linha.  
-1. Defina o alinhamento e a margem direita para as células da primeira linha.  
-1. Defina o tipo de texto vertical para as células da segunda linha.  
-1. Salve a apresentação modificada.  
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acesse a tabela no primeiro slide.
+3. Defina [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) para a primeira linha.
+4. Defina [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) e [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) para a primeira linha.
+5. Defina [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) para a segunda linha.
+6. Salve a apresentação modificada.
 
-Este código Python demonstra a operação.
+O exemplo requer `table.pptx` com uma tabela como o primeiro shape no primeiro slide e ao menos duas linhas. Ele aplica texto de 25 pt, alinhamento à direita e margem de parágrafo direita de 20 pt à primeira linha, depois define texto vertical na segunda linha.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Definir a altura da fonte para as células da primeira linha.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Definir o alinhamento de texto e a margem direita das células da primeira linha.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Definir o tipo de texto vertical para as células da segunda linha.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Salvar a apresentação no disco.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Definir formatação de texto no nível da coluna da tabela**
+## **Definir Formatação de Texto no Nível da Coluna da Tabela**
 
-Aplique um estilo de texto consistente a uma coluna inteira da tabela de uma só vez. Com Aspose.Slides para Python, você pode definir família de fonte, tamanho, peso, cor e alinhamento para todas as células de uma coluna, criando faixas verticais uniformes para cabeçalhos ou dados.
+Aplique formatação de texto a uma coluna inteira para manter suas células consistentes. Você pode definir propriedades de fonte, formatação de parágrafo e direção do texto sem formatar cada célula individualmente.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) e carregue a apresentação.  
-1. Acesse o slide pelo seu índice.  
-1. Acesse o objeto [Tabela](https://reference.aspose.com/slides/pt/python-net/aspose.slides/table/) relevante no slide.  
-1. Defina a altura da fonte para as células da primeira coluna.  
-1. Defina o alinhamento e a margem direita para as células da primeira coluna.  
-1. Defina o tipo de texto vertical para as células da segunda coluna.  
-1. Salve a apresentação modificada.  
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acesse a tabela no primeiro slide.
+3. Defina [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) para a primeira coluna.
+4. Defina [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) e [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) para a primeira coluna.
+5. Defina [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) para a segunda coluna.
+6. Salve a apresentação modificada.
 
-O código Python a seguir demonstra a operação:
+O exemplo requer `table.pptx` com uma tabela como o primeiro shape no primeiro slide e ao menos duas colunas. Ele aplica texto de 25 pt, alinhamento à direita e margem de parágrafo direita de 20 pt à primeira coluna, depois define texto vertical na segunda coluna.
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Definir a altura da fonte das células da primeira coluna.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Definir o alinhamento de texto e a margem direita das células da primeira coluna.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Definir o tipo de texto vertical das células da segunda coluna.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Salvar a apresentação no disco.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Obter propriedades de estilo da tabela**
+## **Obter Propriedades de Estilo da Tabela**
 
-Aspose.Slides permite recuperar as propriedades de estilo de uma tabela para que você possa reutilizá‑las em outra tabela ou em outro local. O código Python a seguir mostra como obter as propriedades de estilo de um estilo de tabela predefinido:
+Use a propriedade [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) para recuperar a predefinição aplicada a uma tabela e reutilizá‑la em outra tabela. Isso identifica a predefinição em vez de sobrescrições individuais de formatação de célula.
+
+O exemplo cria uma tabela, aplica [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/), e lê a predefinição de volta. Ele imprime `True` quando a predefinição recuperada corresponde à predefinição aplicada e salva a tabela em `table.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -245,22 +245,27 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Posso aplicar temas/estilos do PowerPoint a uma tabela já criada?**
+**Posso aplicar temas/estilos do PowerPoint a uma tabela que já foi criada?**
 
-Sim. A tabela herda o tema do slide/layout/master e ainda é possível substituir preenchimentos, bordas e cores de texto sobre esse tema.
+Sim. A tabela herda o tema do slide/layout/master e você ainda pode sobrescrever preenchimentos, bordas e cores de texto sobre esse tema.
 
-**Posso classificar linhas de tabela como no Excel?**
+**Posso ordenar linhas de tabela como no Excel?**
 
-Não, as tabelas do Aspose.Slides não possuem classificação ou filtros integrados. Classifique seus dados na memória primeiro e, em seguida, repopule as linhas da tabela nessa ordem.
+Não, as tabelas do Aspose.Slides não possuem ordenação ou filtros internos. Ordene seus dados em memória primeiro e, em seguida, repopule as linhas da tabela nessa ordem.
 
-**Posso ter colunas listradas enquanto mantenho cores personalizadas em células específicas?**
+**Posso ter colunas listradas (banded) mantendo cores personalizadas em células específicas?**
 
-Sim. Ative colunas listradas e depois substitua células específicas com formatação local; a formatação ao nível da célula tem precedência sobre o estilo da tabela.
+Sim. Ative colunas listradas e depois sobrescreva células específicas com formatação local; a formatação ao nível da célula tem precedência sobre o estilo da tabela.

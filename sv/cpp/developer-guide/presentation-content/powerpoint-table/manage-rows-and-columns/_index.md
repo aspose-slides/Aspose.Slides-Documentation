@@ -1,299 +1,356 @@
 ---
-title: "Hantera rader och kolumner i PowerPoint‑tabeller med C++"
+title: "Hantera rader och kolumner i PowerPoint-tabeller med C++"
 linktitle: "Rader och kolumner"
 type: docs
 weight: 20
 url: /sv/cpp/manage-rows-and-columns/
 keywords:
-  - "tabellrad"
-  - "tabellkolumn"
-  - "första raden"
-  - "tabellrubrik"
-  - "klona rad"
-  - "klona kolumn"
-  - "kopiera rad"
-  - "kopiera kolumn"
-  - "ta bort rad"
-  - "ta bort kolumn"
-  - "textformatering för rad"
-  - "textformatering för kolumn"
-  - "tabellstil"
-  - "PowerPoint"
-  - "presentation"
-  - "C++"
-  - "Aspose.Slides"
-description: "Hantera tabellrader och -kolumner i PowerPoint med Aspose.Slides för C++ och snabba upp redigering av presentationer samt datauppdateringar."
+- tabellrad
+- tabellkolumn
+- första rad
+- tabellrubrik
+- klona rad
+- klona kolumn
+- kopiera rad
+- kopiera kolumn
+- ta bort rad
+- ta bort kolumn
+- radtextformatering
+- kolumntextformatering
+- tabellstil
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Hantera tabellrader och -kolumner i PowerPoint med Aspose.Slides för C++ och påskynda redigering av presentationer samt datauppdateringar."
 ---
 ## **Introduktion**
 
-För att låta dig hantera en tabells rader och kolumner i en PowerPoint-presentation erbjuder Aspose.Slides klassen [Table](https://reference.aspose.com/slides/sv/cpp/aspose.slides/table/) , gränssnittet [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/) och många andra typer. 
+Aspose.Slides för C++ låter dig hantera tabellstruktur och formatering i PowerPoint-presentationer via klassen [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) och gränssnittet [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Du kan ange en rubrikrad, klona eller ta bort rader och kolumner samt tillämpa textformatering på en hel rad eller kolumn.
 
-## **Ange den första raden som rubrik**
+Den här artikeln förklarar dessa operationer med C++-exempel. Den visar också hur du hämtar en tabells stilförinställning så att du kan återanvända den. Rads- och kolumnindex i tabellen är nollbaserade.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) och ladda presentationen. 
-2. Hämta en bilds referens via dess index. 
-3. Skapa ett [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/)‑objekt och sätt det till null. 
-4. Iterera genom alla [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/)‑objekt för att hitta den relevanta tabellen. 
-5. Ställ in tabellens första rad som dess rubrik. 
+## **Styr radens höjd**
 
-Denna C++‑kod visar hur du sätter en tabells första rad som rubrik:
+Använd [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) för att ange en rads minsta höjd i punkter. Det är en lägre gräns, inte en fast höjd. [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) returnerar den faktiska höjden; detta värde kan inte sättas direkt. Få åtkomst till raden via [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/).
 
-```c++
-// Instansierar Presentation‑klassen 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+Exemplet laddar [row-height-input.pptx](row-height-input.pptx), som har en tabell som den första formen på den första bilden. Dess första rad börjar på 70 punkter. Cellerna använder 18‑punkts Arial‑text, radbrytning och 6‑punkts marginaler topp och botten; den längre texten i den andra kolumnen radbryts till flera rader. Exemplet ökar minimum till 100 punkter, sänker det sedan till 20 punkter, skriver ut den faktiska höjden efter varje ändring och sparar båda resultaten.
 
-// Hämtar den första bilden
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// Initierar null TableEx
-SharedPtr<ITable> tbl;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Itererar genom formerna och sätter en referens till tabellen
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Sätter tabellens första rad som rubrik 
-tbl->set_FirstRow(true);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
+```
+
+Med den medföljande presentationen lägger en ökning av minimum till extra utrymme i raden. En minskning tar bort det extra utrymmet, men den faktiska höjden förblir större än 20 punkter eftersom texten och cellmarginalerna kräver mer plats. Att bara minska minimum kan inte tvinga raden under det utrymme som dess innehåll kräver.
+
+Flera faktorer påverkar den faktiska höjden:
+
+- **Text och teckenstorlek:** längre text, explicita radbrytningar eller ett större teckensnitt kan kräva mer vertikalt utrymme.
+- **Radbrytning och kolumnbredd:** när radbrytning är aktiverad kan en minskning av kolumnbredden med [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) skapa fler rader. En bredare kolumn kan minska det vertikala utrymmet som behövs.
+- **Cell marginaler:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) och [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) styr marginalerna som lägger till vertikalt utrymme. [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) och [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) styr marginalerna som minskar bredden tillgänglig för text och kan orsaka ytterligare radbrytning.
+
+För den här tabellen utan sammanslagna celler bestämmer den cell som kräver mest vertikalt utrymme den innehållsstyrda lägre gränsen för hela raden. För att göra raden kortare kan du också behöva förkorta texten, minska teckenstorleken eller marginalerna, eller bredda en kolumn.
+
+Bilderna nedan visar samma tabell i samma skala. I .NET‑referensen som visas här var de faktiska höjderna 70, 100 och 55,2 punkter: den sista raden förblev högre än sitt 20‑punkts minimum. Exakta textmått kan variera beroende på vilka teckensnitt som finns i din miljö. Ladda ner de sparade resultaten: [increased minimum](row-height-increased.pptx) och [decreased minimum](row-height-decreased.pptx).
+
+| Original: minimum 70 pt, faktisk 70 pt | Ökad: minimum 100 pt, faktisk 100 pt | Minskad: minimum 20 pt, faktisk 55,2 pt |
+| --- | --- | --- |
+| ![Original tabell med en 70‑punkts första rad.](row-height-before.png) | ![Tabell efter att ha ökat första radens minimum till 100 punkter.](row-height-increased.png) | ![Tabell efter att ha minskat första radens minimum till 20 punkter; radbruten text håller raden högre än minimum.](row-height-decreased.png) |
+
+## **Ställ in den första raden som rubrik**
+
+Använd metoden [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) för att markera den första raden för rubrikformatering. Dess utseende beror på den tabellstil som tillämpas på tabellen.
+
+1. Ladda presentationen med klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Öppna den första bilden.
+3. Hämta tabellen som är lagrad som den första formen på bilden.
+4. Aktivera rubrikformatering för dess första rad.
+5. Spara den ändrade presentationen.
+
+Exemplet kräver `table.pptx` med en tabell som den första formen på den första bilden. Det aktiverar rubrikformatering för den första raden och sparar `First_row_header.pptx`.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
+
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
 ```
 
 ## **Klona en tabellrad eller -kolumn**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) och ladda presentationen, 
-2. Hämta en bilds referens via dess index. 
-3. Definiera en array av `columnWidth`. 
-4. Definiera en array av `rowHeight`. 
-5. Lägg till ett [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/)‑objekt på bilden via metoden [AddTable()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/addtable/). 
-6. Klona tabellraden. 
-7. Klona tabellkolumnen. 
-8. Spara den ändrade presentationen. 
+Klona rader eller kolumner för att återanvända deras innehåll och formatering. Du kan lägga till en kopia i slutet av tabellen eller infoga den på en specifik plats.
 
-Denna C++‑kod visar hur du klonar en PowerPoint‑tabells rad eller kolumn:
+1. Ladda presentationen med klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Öppna den första bilden.
+3. Definiera kolumnbredder och radhöjder.
+4. Lägg till en tabell med metoden [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+5. Klona de behövda raderna.
+6. Klona de behövda kolumnerna.
+7. Spara den ändrade presentationen.
 
-```c++
- // Sökvägen till dokumentkatalogen.
-const String outPath = u"../out/CloningInTable_out.pptx";
+Exemplet kräver `Test.pptx` med minst en bild. Det skapar en tabell med tre kolumner och fem rader, med dimensioner angivna i punkter. Det lägger till kopior av den första raden och kolumnen, och infogar sedan kopior av den andra raden och kolumnen på index 3 (den fjärde positionen). Den resulterande tabellen har sju rader och fem kolumner. Argumentet `false` inaktiverar kloning i intilliggande sammanslagna rader eller kolumner; den här tabellen har inga sammanslagna celler.
 
-// Instansierar Presentation‑klassen
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
 
-// Hämtar den första bilden
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Definierar kolumner med bredder och rader med höjder
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Lägger till en tabellform på bilden
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
 
-
-// Ställer in kantformat för varje cell
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
-
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
-
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
-
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
-
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
-
-	}
-
-}
-
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
-
-//AddClone lägger till en rad i slutet av tabellen
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone lägger till en rad på en specifik position i en tabell
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone lägger till en kolumn i slutet av tabellen
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone lägger till en kolumn på en specifik position i en tabell
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Sparar presentationen till disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ta bort en rad eller kolumn från en tabell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) och ladda presentationen, 
-2. Hämta en bilds referens via dess index. 
-3. Definiera en array av `columnWidth`. 
-4. Definiera en array av `rowHeight`. 
-5. Lägg till ett [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/)‑objekt på bilden via metoden [AddTable()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/addtable/). 
-6. Ta bort tabellraden. 
-7. Ta bort tabellkolumnen. 
-8. Spara den ändrade presentationen. 
+Ta bort rader eller kolumner som inte längre behövs i en tabell. När ett objekt tas bort flyttas indexen för de rader eller kolumner som följer efter.
 
-Denna C++‑kod visar hur du tar bort en rad eller kolumn från en tabell:
+1. Skapa en presentation med klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Öppna den första bilden.
+3. Definiera kolumnbredder och radhöjder.
+4. Lägg till en tabell med metoden [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+5. Ta bort den andra raden och den andra kolumnen.
+6. Spara den ändrade presentationen.
 
-```c++
-// Sökvägen till dokumentkatalogen.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+Exemplet skapar en tre‑på‑tre‑tabell och tar bort raden och kolumnen på index 1, vilket lämnar en två‑på‑två‑tabell i `TestTable_out.pptx`. Dimensionerna är i punkter. Argumentet `false` inaktiverar borttagning av intilliggande sammanslagna rader eller kolumner; den här tabellen har inga sammanslagna celler.
 
-// Instansierar Presentation-klassen
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Hämtar den första bilden
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Definierar kolumner med bredder och rader med höjder
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Lägger till en tabellform på bilden
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Slår ihop celler (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Slår ihop celler (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Sparar presentationen till disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ställ in textformatering på radnivå i tabellen**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) och ladda presentationen, 
-2. Hämta en bilds referens via dess index. 
-3. Få åtkomst till det relevanta [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/)‑objektet från bilden. 
-4. Ställ in den första radens cellers [set_FontHeight()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Ställ in den första radens cellers [set_Alignment()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_alignment/) och [set_MarginRight()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Ställ in den andra radens cellers [set_TextVerticalType()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Spara den ändrade presentationen. 
+Tillämpa textformatering på en hel rad för att hålla dess celler enhetliga. Du kan ange teckensegenskaper, styckeformatering och textriktning utan att formatera varje cell individuellt.
 
-Denna C++‑kod demonstrerar operationen.
+1. Ladda presentationen med klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Hämta tabellen på den första bilden.
+3. Ange teckenhöjden med [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) för den första raden.
+4. Ange justeringen och högermarginalen för stycket med [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) och [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) för den första raden.
+5. Ange textriktningen med [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) för den andra raden.
+6. Spara den ändrade presentationen.
 
-```c++
-// Skapar en instans av Presentation-klassen
-auto presentation = System::MakeObject<Presentation>();
+Exemplet kräver `table.pptx` med en tabell som den första formen på den första bilden och minst två rader. Det tillämpar 25‑punkts text, högerjustering och en 20‑punkts högermarginal för stycket på den första raden, och sätter sedan vertikal text i den andra raden.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Anta att den första formen på den första bilden är en tabell
-// Ställer in teckenhöjden för cellerna i första raden
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Ställer in textriktning och högermarginal för cellerna i första raden
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Ställer in vertikal texttyp för cellerna i andra raden
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Sparar presentationen till disk
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ställ in textformatering på kolumnnivå i tabellen**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) och ladda presentationen, 
-2. Hämta en bilds referens via dess index. 
-3. Få åtkomst till det relevanta [ITable](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itable/)‑objektet från bilden. 
-4. Ställ in den första kolumnens cellers [set_FontHeight()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Ställ in den första kolumnens cellers [set_Alignment()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_alignment/) och [set_MarginRight()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Ställ in den andra kolumnens cellers [set_TextVerticalType()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Spara den ändrade presentationen. 
+Tillämpa textformatering på en hel kolumn för att hålla dess celler enhetliga. Du kan ange teckensegenskaper, styckeformatering och textriktning utan att formatera varje cell individuellt.
 
-Denna C++‑kod demonstrerar operationen: 
+1. Ladda presentationen med klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Hämta tabellen på den första bilden.
+3. Ange teckenhöjden med [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) för den första kolumnen.
+4. Ange justeringen och högermarginalen för stycket med [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) och [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) för den första kolumnen.
+5. Ange textriktningen med [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) för den andra kolumnen.
+6. Spara den ändrade presentationen.
 
-```c++
-// Skapar en instans av Presentation-klassen
-auto pres = System::MakeObject<Presentation>();
+Exemplet kräver `table.pptx` med en tabell som den första formen på den första bilden och minst två kolumner. Det tillämpar 25‑punkts text, högerjustering och en 20‑punkts högermarginal för stycket på den första kolumnen, och sätter sedan vertikal text i den andra kolumnen.
 
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Anta att den första formen på den första bilden är en tabell
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sätter teckenhöjden för cellerna i första kolumnen
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Sätter textriktning och högermarginal för cellerna i första kolumnen i ett anrop
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Sätter vertikal texttyp för cellerna i andra kolumnen
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **Hämta tabellens stilegenskaper**
+## **Hämta tabellstilsegenskaper**
 
-Aspose.Slides låter dig hämta stilegenskaperna för en tabell så att du kan använda dessa detaljer för en annan tabell eller någon annanstans. Denna C++‑kod visar hur du hämtar stilegenskaperna från en förinställd tabellstil:
+Använd metoden [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) för att hämta den förinställning som har tillämpats på en tabell och återanvända den på en annan tabell. Detta identifierar förinställningen snarare än individuella cellformateringsöverskrivningar.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+Exemplet skapar en tabell, tillämpar [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/), och läser tillbaka förinställningen. Det skriver ut `DarkStyle1` och sparar tabellen i `table.pptx`.
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Kan jag tillämpa PowerPoint‑teman/stilar på en redan skapad tabell?**
+**Kan jag tillämpa PowerPoint‑teman/stilar på en tabell som redan är skapad?**
 
-Ja. Tabellen ärver bildens/layoute­ns/master‑tema, och du kan fortfarande åsidosätta fyllningar, ramar och textfärger ovanpå det temat.
+Ja. Tabellen ärver bild-/layout-/master‑temat och du kan fortfarande åsidosätta fyllningar, kanter och textfärger ovanpå det temat.
 
 **Kan jag sortera tabellrader som i Excel?**
 
-Nej, Aspose.Slides‑tabeller har ingen inbyggd sortering eller filter. Sortera dina data i minnet först, och fyll sedan tabellraderna på nytt i den ordningen.
+Nej, Aspose.Slides‑tabeller har ingen inbyggd sortering eller filtrering. Sortera dina data i minnet först och fyll sedan tabellraderna på nytt i den ordningen.
 
-**Kan jag ha bandade (randiga) kolumner samtidigt som jag behåller anpassade färger på specifika celler?**
+**Kan jag ha bandade (randiga) kolumner samtidigt som jag behåller egna färger på specifika celler?**
 
-Ja. Aktivera bandade kolumner, och åsidosätt sedan specifika celler med lokal formatering; cellnivå‑formatering har företräde framför tabellstilen.
+Ja. Aktivera bandade kolumner och åsidosätt sedan specifika celler med lokal formatering; cellnivåformatering har företräde framför tabellstilen.

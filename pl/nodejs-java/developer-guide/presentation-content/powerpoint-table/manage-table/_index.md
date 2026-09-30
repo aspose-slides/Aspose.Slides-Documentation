@@ -21,76 +21,77 @@ description: "Twórz i edytuj tabele w slajdach PowerPoint przy użyciu JavaScri
 ---
 ## **Wprowadzenie**
 
-Tabela w PowerPoint jest efektywnym sposobem wyświetlania i prezentowania informacji. Informacje w siatce komórek (ustawionych w wierszach i kolumnach) są proste i łatwe do zrozumienia.
+Tabele w programie PowerPoint organizują informacje w wierszach i kolumnach, ułatwiając odczyt i porównywanie wartości.
 
-Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table) klasę [Cell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/) oraz inne typy, które umożliwiają tworzenie, aktualizowanie i zarządzanie tabelami we wszystkich rodzajach prezentacji.
+Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) , klasę [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) oraz inne typy, które umożliwiają tworzenie, aktualizowanie i zarządzanie tabelami w prezentacjach.
 
 ## **Utworzenie tabeli od podstaw**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu poprzez jego indeks. 
-3. Zdefiniuj tablicę `columnWidth`.
-4. Zdefiniuj tablicę `rowHeight`.
-5. Dodaj obiekt [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table) do slajdu za pomocą metody [addTable](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Iteruj po każdej [Cell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/) aby zastosować formatowanie do górnych, dolnych, prawych i lewych krawędzi.
-7. Połącz cztery komórki w lewym górnym rogu tabeli (pierwsze dwie kolumny pierwszych dwóch wierszy) w jedną komórkę. 
-8. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) komórki [Cell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/).
-9. Dodaj tekst do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/).
+Utwórz tabelę, określając jej pozycję, szerokości kolumn i wysokości wierszy. Po dodaniu jej do slajdu możesz formatować krawędzie komórek, scalać komórki i wstawiać tekst.
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+3. Zdefiniuj tablicę szerokości kolumn w punktach.
+4. Zdefiniuj tablicę wysokości wierszy w punktach.
+5. Dodaj obiekt [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) do slajdu za pomocą metody [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double:A-double:A-) .
+6. Iteruj przez każdą [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) , aby zastosować formatowanie krawędzi górnej, dolnej, prawej i lewej.
+7. Scal pierwsze dwie komórki pierwszego wiersza tabeli.
+8. Uzyskaj dostęp do scalonej komórki za pomocą jej metody [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) .
+9. Ustaw tekst w scalonej komórce.
 10. Zapisz zmodyfikowaną prezentację.
 
-Ten kod JavaScript pokazuje, jak utworzyć tabelę w prezentacji:
+Poniższy przykład tworzy tabelę z trzema kolumnami i pięcioma wierszami w punkcie (100, 50). Nakłada czerwone obramowania o szerokości 5 punktów, scala pierwsze dwie komórki w pierwszym wierszu i zapisuje wynik jako `table.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ustawia format obramowania dla każdej komórki
-    for (var row = 0; row < tbl.getRows().size(); row++) {
-        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            const cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderTop().setWidth(5);
+
             cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderBottom().setWidth(5);
+
             cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderLeft().setWidth(5);
+
             cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Łączy blok 2x2 komórek w lewym górnym rogu w jedną komórkę
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-    // Dodaje tekst do połączonej komórki
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-    // Zapisuje prezentację na dysk
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Numeracja w standardowej tabeli**
 
-W standardowej tabeli numeracja komórek jest prosta i zerowa. Pierwsza komórka w tabeli ma indeks 0,0 (kolumna 0, wiersz 0). 
+W standardowej tabeli indeksy komórek są zerowe i używają kolejności (kolumna, wiersz). Pierwsza komórka ma indeks (0, 0).
 
-Na przykład, komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w następujący sposób:
+Na przykład komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w ten sposób:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,240 +99,241 @@ Na przykład, komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w nas
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Ten kod JavaScript pokazuje, jak określić numerację komórek w tabeli:
+Ten przykład tworzy tabelę 4 × 4 przedstawioną powyżej, z szerokościami kolumn i wysokościami wierszy po 70 punktów oraz czerwonymi obramowaniami komórek o szerokości 5 punktów. Współrzędne ilustrują indeksy komórek; przykład pozostawia komórki puste i zapisuje tabelę jako `StandardTables_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Ustawia format obramowania dla każdej komórki
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
         for (let j = 0; j < row.size(); j++) {
             const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            const cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderTop().setWidth(5);
+
+            cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderBottom().setWidth(5);
+
+            cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderLeft().setWidth(5);
+
+            cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Zapisuje prezentację na dysk
-    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Uzyskanie dostępu do istniejącej tabeli**
+## **Dostęp do istniejącej tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu zawierającego tabelę poprzez jego indeks. 
-3. Utwórz obiekt [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table) i ustaw go na null.
-4. Iteruj po wszystkich obiektach [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) aż zostanie znaleziona tabela.
+Tabele są przechowywane w kolekcji kształtów slajdu. Iteruj przez kształty, aby znaleźć tabelę, a następnie użyj klasy [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) , aby odczytać lub zaktualizować jej komórki.
 
-Jeśli podejrzewasz, że slajd, z którym masz do czynienia, zawiera jedną tabelę, możesz po prostu sprawdzić wszystkie znajdujące się na nim kształty. Gdy kształt zostanie zidentyfikowany jako tabela, możesz rzutować go na obiekt [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table). Jednak jeśli slajd zawiera kilka tabel, lepiej jest wyszukać potrzebną tabelę przy użyciu jej [setAlternativeText(String value)](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
+1. Wczytaj prezentację za pomocą klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Uzyskaj odwołanie do slajdu zawierającego tabelę za pomocą jego indeksu.
+3. Iteruj przez obiekty [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) , zatrzymując się, gdy znajdziesz tabelę. Jeśli slajd zawiera kilka tabel, użyj [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getAlternativeText--) , aby zidentyfikować potrzebną.
+4. Zaktualizuj tekst w docelowej komórce.
+5. Zapisz zmodyfikowaną prezentację.
 
-5. Użyj obiektu [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table), aby pracować z tabelą. W poniższym przykładzie ustawiamy tekst komórki w tabeli.
-6. Zapisz zmodyfikowaną prezentację.
-
-Ten kod JavaScript pokazuje, jak uzyskać dostęp i pracować z istniejącą tabelą:
+Poniższy przykład otwiera `UpdateExistingTable.pptx` i znajduje pierwszą tabelę na pierwszym slajdzie. Ustawia komórkę w kolumnie 0, wierszu 1 na `New` i zapisuje wynik jako `table1_out.pptx`. Wejście musi zawierać co najmniej jeden slajd, a pierwsza tabela na tym slajdzie musi mieć co najmniej jedną kolumnę i dwa wiersze.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+const presentation = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var sld = pres.getSlides().get_Item(0);
-    // Inicjalizuje zmienną TableEx jako null
-    var tbl = null;
-    // Iteruje przez kształty i ustawia odniesienie do znalezionej tabeli
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // Ustawia tekst dla pierwszej kolumny drugiego wiersza
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    const slide = presentation.getSlides().get_Item(0);
+    let table = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+            table = shape;
+            break;
         }
     }
-    // Zapisuje zmodyfikowaną prezentację na dysk
-    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Znajdowanie komórki będącej właścicielem ramki tekstowej**
+Aby zmienić rozmiar wiersza w istniejącej tabeli i zrozumieć, dlaczego jego rzeczywista wysokość może przekraczać żądane minimum, zobacz [Kontrola wysokości wiersza](/slides/pl/nodejs-java/manage-rows-and-columns/#control-row-height).
 
-Podczas gdy ogólny kod przetwarzający tekst otrzymuje [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) z tabeli, użyj metody [TextFrame.getParentCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getParentCell--) aby uzyskać własną [Cell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/). Dla ramki tekstowej komórki tabeli, [TextFrame.getParentCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getParentCell--) zwraca właściciela, a [TextFrame.getParentShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getParentShape--) zwraca `null`, mimo że sama tabela jest kształtem.
+## **Znajdź komórkę, której własnością jest ramka tekstowa**
 
-Współrzędne komórki są dostępne poprzez tylko do odczytu metody [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) i [Cell.getFirstRowIndex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/#getFirstRowIndex--). [TextFrame.getParentCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getParentCell--) zapewnia również nawigację tylko do odczytu: zwraca właściciela, ale nie zmienia własności. Zawsze sprawdzaj, czy zwrócona komórka nie jest `null` przed jej użyciem.
+Gdy ogólny kod przetwarzający tekst otrzymuje [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) z tabeli, użyj metody [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) , aby uzyskać własną [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) . Dla ramki tekstowej w komórce tabeli, [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) zwraca właściciela, a [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) zwraca `null`, mimo że sama tabela jest kształtem.
 
-Aby zobaczyć kompletny przykład identyfikujący właścicieli komórek tabel i kształtów, w tym kształty powiązane z węzłami SmartArt, zobacz [Search and Replace Text](/slides/pl/nodejs-java/search-and-replace-text/).
+Współrzędne komórki są dostępne za pośrednictwem metod tylko do odczytu [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) i [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) . [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) zapewnia również nawigację tylko do odczytu: zwraca właściciela, ale nie zmienia własności. Zawsze sprawdzaj, czy zwrócona komórka nie jest `null` przed jej użyciem.
+
+Aby zobaczyć pełny przykład identyfikujący właścicieli komórek tabeli i kształtów, w tym kształty powiązane z węzłami SmartArt, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/nodejs-java/search-and-replace-text/).
 
 ## **Wyrównanie tekstu w tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu poprzez jego indeks. 
-3. Dodaj obiekt [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table) do slajdu.
-4. Uzyskaj dostęp do obiektu [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) z tabeli.
-5. Uzyskaj dostęp do [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) w [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/).
-6. Wyrównaj tekst pionowo.
+Możesz kontrolować pionowe zakotwiczenie i kierunek tekstu poszczególnych komórek tabeli. Przykład w tej sekcji centruje tekst w pierwszej komórce i obraca go o 270 stopni.
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+3. Dodaj obiekt [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) do slajdu.
+4. Uzyskaj dostęp do obiektu [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) z tabeli.
+5. Uzyskaj dostęp do pierwszego [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) , ustaw jego tekst i kolor.
+6. Ustaw pionowe zakotwiczenie komórki i kierunek tekstu przy użyciu [setTextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextAnchorType-byte-) i [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextVerticalType-byte-) .
 7. Zapisz zmodyfikowaną prezentację.
 
-Ten kod JavaScript pokazuje, jak wyrównać tekst w tabeli:
+Ten przykład tworzy tabelę 4 × 4 o szerokościach kolumn 120 punktów i wysokościach wierszy 100 punktów. Formatuje tekst w komórce (0, 0), dodaje wartości do pozostałych komórek w pierwszym wierszu i zapisuje wynik jako `Vertical_Align_Text_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
 
-// Tworzy instancję klasy Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Pobiera pierwszy slajd
-    var slide = pres.getSlides().get_Item(0);
-    // Definiuje kolumny o określonych szerokościach i wiersze o określonych wysokościach
-    var dblCols = java.newArray("double", [120, 120, 120, 120]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // Dodaje kształt tabeli do slajdu
-    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // Uzyskuje dostęp do ramki tekstowej
-    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    // Tworzy obiekt Paragraph dla ramki tekstowej
-    var paragraph = txtFrame.getParagraphs().get_Item(0);
-    // Tworzy obiekt Portion dla paragrafu
-    var portion = paragraph.getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [120, 120, 120, 120]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    const textFrame = table.get_Item(0, 0).getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+
+    const portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Wyrównuje tekst pionowo
-    var cell = tbl.get_Item(0, 0);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+
+    const cell = table.get_Item(0, 0);
     cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
     cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
-    // Zapisuje prezentację na dysk
-    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ustawienie formatowania tekstu na poziomie tabeli**
+## **Ustaw formatowanie tekstu na poziomie tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu poprzez jego indeks. 
-3. Uzyskaj dostęp do obiektu [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Table) ze slajdu.
-4. Ustaw [setFontHeight(float value)](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) dla tekstu.
-5. Ustaw [setAlignment(int value)](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) oraz [setMarginRight(float value)](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).
-6. Ustaw [setTextVerticalType(byte value)](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Zapisz zmodyfikowaną prezentację. 
+Użyj [setTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setTextFormat-com.aspose.slides.IPortionFormat-) , aby zastosować formatowanie tekstu we wszystkich komórkach tabeli. Jej przeciążenia akceptują formatowanie fragmentu, akapitu i ramki tekstowej, więc możesz ustawiać te właściwości bez iteracji przez poszczególne komórki.
 
-Ten kod JavaScript pokazuje, jak zastosować wybrane opcje formatowania do tekstu w tabeli:
+1. Wczytaj prezentację za pomocą klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+3. Uzyskaj dostęp do obiektu [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) ze slajdu.
+4. Ustaw rozmiar czcionki przy użyciu [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) dla tekstu.
+5. Ustaw wyrównanie akapitu i prawy margines przy użyciu [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) i [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) .
+6. Ustaw kierunek tekstu przy użyciu [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) .
+7. Zapisz zmodyfikowaną prezentację.
+
+Poniższy przykład otwiera `table.pptx`, który musi zawierać co najmniej jeden slajd z tabelą jako pierwszym kształtem. Ustawia rozmiar czcionki na 25 punktów, prawe wyrównanie akapitów z prawym marginesem 20 punktów oraz ustawia tekst pionowo. Sformatowana prezentacja jest zapisana jako `result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Tworzy instancję klasy Presentation
-var pres = new aspose.slides.Presentation("simpletable.pptx");
+const presentation = new aspose.slides.Presentation("table.pptx");
 try {
-    // Załóżmy, że pierwszym kształtem na pierwszym slajdzie jest tabela
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Ustawia wysokość czcionki komórek tabeli
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    // Ustawia wyrównanie tekstu komórek tabeli oraz prawy margines w jednym wywołaniu
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    table.setTextFormat(portionFormat);
+
+    const paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    // Ustawia pionowy typ tekstu komórek tabeli
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    table.setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new aspose.slides.TextFrameFormat();
     textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
-    someTable.setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ustawienie predefiniowanego stylu tabeli**
+## **Pobierz właściwości stylu tabeli**
 
-Aspose.Slides dostarcza wbudowane style tabel PowerPoint jako wyliczenie [TableStylePreset](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/tablestylepreset/), dzięki czemu możesz zastosować ten sam wygląd do dowolnej tabeli. Ten kod JavaScript pokazuje, jak zastąpić domyślny styl tabeli stylem predefiniowanym:
+Użyj [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) , aby odczytać domyślny styl tabeli i [setStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setStylePreset-int-) , aby go przypisać. Ten przykład stosuje [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) do jednej tabeli, wypisuje wartość preset i przypisuje ten sam preset do drugiej tabeli. Obie tabele są zapisywane w `table-style.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// zmień domyślny predefiniowany styl
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log("Table style preset: " + stylePreset);
+
+    const anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
+    anotherTable.setStylePreset(stylePreset);
+
+    presentation.save("table-style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zablokowanie proporcji tabeli**
+## **Zablokuj proporcje tabeli**
 
-Proporcje geometrycznego kształtu to stosunek jego wymiarów w różnych osiach. Aspose.Slides udostępnia właściwość [**setAspectRatioLocked**](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) która umożliwia zablokowanie ustawienia proporcji dla tabel i innych kształtów.
+Proporcje tabeli to stosunek jej szerokości do wysokości. Użyj [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked-boolean-) , aby zablokować te proporcje dla tabeli.
 
-Ten kod JavaScript pokazuje, jak zablokować proporcje tabeli:
+Poniższy przykład otwiera `pres.pptx`, który musi zawierać co najmniej jeden slajd z tabelą jako pierwszym kształtem. Wypisuje bieżący stan blokady, włącza blokadę proporcji, wypisuje zaktualizowany stan (`true`) i zapisuje wynik jako `pres-out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// odwróć
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
@@ -339,12 +341,12 @@ try {
 
 **Czy mogę włączyć kierunek czytania od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
 
-Tak. Tabela udostępnia metodę [setRightToLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/table/setrighttoleft/), a akapity mają [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). Użycie obu zapewnia prawidłowy porządek RTL oraz renderowanie wewnątrz komórek.
+Tak. Tabela udostępnia metodę [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setRightToLeft-boolean-) , a akapity mają [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setRightToLeft-byte-) . Użycie obu zapewnia prawidłowy porządek RTL i renderowanie wewnątrz komórek.
 
-**Jak mogę uniemożliwić użytkownikom przemieszczanie lub zmianę rozmiaru tabeli w finalnym pliku?**
+**Jak mogę uniemożliwić użytkownikom przenoszenie lub zmianę rozmiaru tabeli w finalnym pliku?**
 
-Użyj blokad kształtu, aby wyłączyć przemieszczanie, zmianę rozmiaru, zaznaczanie itp. Te blokady dotyczą także tabel.
+Użyj [shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) , aby wyłączyć przenoszenie, zmianę rozmiaru, zaznaczanie itp. Te blokady mają zastosowanie również do tabel.
 
 **Czy wstawianie obrazu jako tła wewnątrz komórki jest obsługiwane?**
 
-Tak. Możesz ustawić [picture fill](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/) dla komórki; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub mozaika).
+Tak. Możesz ustawić [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) , aby wypełnić komórkę obrazem; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub powielanie).

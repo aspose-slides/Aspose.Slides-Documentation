@@ -8,7 +8,7 @@ keywords:
 - 표 추가
 - 표 만들기
 - 표 접근
-- 가로 세로 비율
+- 가로세로 비율
 - 텍스트 정렬
 - 텍스트 서식
 - 표 스타일
@@ -16,37 +16,38 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint 슬라이드에서 표를 만들고 편집하세요. 표 작업 흐름을 간소화하는 간단한 코드 예제를 확인해 보세요."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 슬라이드에서 표를 만들고 편집하십시오. 표 작업 흐름을 간소화하는 간단한 코드 예제를 확인하세요."
 ---
 ## **소개**
 
-PowerPoint의 표는 정보를 표시하고 전달하는 효율적인 방법입니다. 행과 열로 구성된 셀 그리드에 있는 정보는 단순하고 이해하기 쉽습니다.
+PowerPoint의 표는 정보를 행과 열로 정리하여 값을 읽고 비교하기 쉽게 합니다.
 
-Aspose.Slides는 [Table](https://reference.aspose.com/slides/ko/cpp/aspose.slides/table/) 클래스, [ITable](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itable/) 인터페이스, [Cell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/cell/) 클래스, [ICell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icell/) 인터페이스 및 기타 유형을 제공하여 모든 종류의 프레젠테이션에서 표를 만들고, 업데이트하고, 관리할 수 있도록 합니다.
+Aspose.Slides는 [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) 클래스, [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 인터페이스, [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) 클래스, [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) 인터페이스 및 기타 유형을 제공하여 프레젠테이션에서 표를 만들고, 업데이트하고, 관리할 수 있게 합니다.
 
-## **처음부터 표 만들기**
+## **스크래치에서 표 만들기**
 
-1. 프레젠테이션 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 슬라이드에 대한 참조를 가져옵니다.
-3. `columnWidth` 배열을 정의합니다.
-4. `rowHeight` 배열을 정의합니다.
-5. [AddTable()](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishapecollection/addtable/) 메서드를 사용하여 슬라이드에 [ITable](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itable/) 객체를 추가합니다.
-6. 각 [ICell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icell/)을 반복하여 위, 아래, 오른쪽, 왼쪽 테두리에 서식을 적용합니다.
+위치, 열 너비 및 행 높이를 지정하여 표를 생성합니다. 슬라이드에 추가한 후에는 셀 테두리를 서식 지정하고, 셀을 병합하고, 텍스트를 삽입할 수 있습니다.
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+3. 포인트 단위의 열 너비 배열을 정의합니다.
+4. 포인트 단위의 행 높이 배열을 정의합니다.
+5. [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) 메서드를 통해 슬라이드에 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 객체를 추가합니다.
+6. 각 [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/)을 반복하여 상단, 하단, 오른쪽 및 왼쪽 테두리에 서식을 적용합니다.
 7. 표 첫 번째 행의 처음 두 셀을 병합합니다.
-8. [ICell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icell/)'s [TextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/textframe/)에 접근합니다.
-9. [TextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/textframe/)에 텍스트를 추가합니다.
+8. 병합된 셀을 [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) 메서드를 통해 접근합니다.
+9. 병합된 셀에 텍스트를 설정합니다.
 10. 수정된 프레젠테이션을 저장합니다.
 
-This C++ code shows you how to create a table in a presentation:
+아래 예제는 (100, 50) 포인트 위치에 열 3개와 행 5개인 표를 생성합니다. 테두리 두께 5포인트의 빨간색 테두리를 적용하고, 첫 번째 행의 처음 두 셀을 병합한 후 결과를 `table.pptx`로 저장합니다.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -56,35 +57,29 @@ This C++ code shows you how to create a table in a presentation:
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 첫 번째 슬라이드에 접근합니다
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// 열 너비와 행 높이를 정의합니다
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// 슬라이드에 표 도형을 추가합니다
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// 각 셀에 대한 테두리 형식을 설정합니다
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -97,19 +92,16 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// 첫 번째 행의 셀 1과 2를 병합합니다
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// 병합된 셀에 텍스트를 추가합니다
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// 프레젠테이션을 디스크에 저장합니다
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **표준 표의 번호 매기기**
+## **표준 표에서 번호 매기기**
 
-표준 표에서는 셀 번호 매김이 단순하고 0부터 시작합니다. 표의 첫 번째 셀은 0,0(열 0, 행 0)으로 인덱스됩니다.
+표준 표에서 셀 인덱스는 0부터 시작하며 (열, 행) 순서를 사용합니다. 첫 번째 셀은 (0, 0)으로 인덱싱됩니다.
 
 예를 들어, 4열 4행 표의 셀은 다음과 같이 번호가 매겨집니다:
 
@@ -119,9 +111,9 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-This C++ code shows you how to specify the numbering for cells in a table:
+이 예제는 위에 표시된 4 × 4 표를 생성하며, 열 너비와 행 높이는 70포인트이고 빨간색 셀 테두리 두께는 5포인트입니다. 좌표는 셀 인덱스를 나타냅니다; 예제는 셀을 비워 두고 표를 `StandardTables_out.pptx`로 저장합니다.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -129,7 +121,6 @@ This C++ code shows you how to specify the numbering for cells in a table:
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -138,25 +129,19 @@ This C++ code shows you how to specify the numbering for cells in a table:
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 첫 번째 슬라이드에 접근합니다
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// 열 너비와 행 높이를 정의합니다
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// 슬라이드에 표 도형을 추가합니다
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// 각 셀에 대한 테두리 형식을 설정합니다
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -179,27 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// 프레젠테이션을 디스크에 저장합니다
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
-## **기존 표에 접근하기**
+## **기존 표에 액세스하기**
 
-1. 프레젠테이션 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 표가 포함된 슬라이드에 대한 참조를 가져옵니다.
-3. [ITable](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itable/) 객체를 생성하고 null로 설정합니다.
-4. 모든 [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/) 객체를 반복하여 표가 발견될 때까지 탐색합니다.
+표는 슬라이드의 도형 컬렉션에 저장됩니다. 도형들을 반복하여 표를 찾은 다음, [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 인터페이스를 사용해 셀을 읽거나 업데이트합니다.
 
-   슬라이드에 단일 표만 포함된 것으로 예상될 경우, 포함된 모든 도형을 확인하면 됩니다. 도형이 표로 식별되면 [Table](https://reference.aspose.com/slides/ko/cpp/aspose.slides/table/) 객체로 형 변환할 수 있습니다. 그러나 슬라이드에 여러 표가 포함된 경우, [set_AlternativeText()](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/set_alternativetext/)를 통해 필요한 표를 검색하는 것이 좋습니다.
-5. [ITable](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itable/) 객체를 사용하여 표를 작업합니다. 아래 예제에서는 표에 새 행을 추가했습니다.
-6. 수정된 프레젠테이션을 저장합니다.
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스를 사용하여 프레젠테이션을 로드합니다.
+2. 인덱스로 테이블이 포함된 슬라이드에 대한 참조를 가져옵니다.
+3. [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 객체들을 반복하고 표를 찾으면 중지합니다. 슬라이드에 여러 표가 있는 경우, [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/)을 사용하여 필요한 표를 식별합니다.
+4. 대상 셀의 텍스트를 업데이트합니다.
+5. 수정된 프레젠테이션을 저장합니다.
 
-This C++ code shows you how to access and work with an existing table:
+아래 예제는 `UpdateExistingTable.pptx`를 열고 첫 번째 슬라이드에서 첫 번째 표를 찾습니다. 열 0, 행 1 위치의 셀을 `New`로 설정하고 결과를 `table1_out.pptx`로 저장합니다. 입력 파일에는 최소 하나의 슬라이드가 있어야 하며, 해당 슬라이드의 첫 번째 표는 최소 하나의 열과 두 개의 행을 가져야 합니다.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -207,55 +189,56 @@ This C++ code shows you how to access and work with an existing table:
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// 첫 번째 슬라이드에 접근합니다
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Table을 null로 초기화합니다
-System::SharedPtr<ITable> tbl;
-
-// 도형들을 순회하며 찾은 표에 대한 참조를 설정합니다
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// 두 번째 행의 첫 번째 열에 텍스트를 설정합니다
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// 수정된 프레젠테이션을 디스크에 저장합니다
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
+
+기존 표의 행 크기를 조정하고, 실제 높이가 요청된 최소값을 초과할 수 있는 이유를 이해하려면 [행 높이 제어](/slides/ko/cpp/manage-rows-and-columns/#control-row-height)를 참조하십시오.
 
 ## **텍스트 프레임을 소유하는 셀 찾기**
 
-표에서 [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/)을 수신하는 일반 텍스트 처리 코드에서는 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentcell/)를 사용하여 해당 [ICell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icell/)을 조회합니다. 표 셀의 텍스트 프레임에 대해 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentcell/)은 소유자를 반환하고 [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentshape/)는 `nullptr`를 반환합니다(표 자체도 도형이지만).
+일반 텍스트 처리 코드가 표에서 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/)을 받으면, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/)을 사용하여 소유자 [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/)을 가져옵니다. 표 셀의 텍스트 프레임의 경우, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/)은 소유자를 반환하고 [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/)은 `nullptr`을 반환합니다(표 자체도 도형이지만).
 
-셀 좌표는 읽기 전용 [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icell/get_firstcolumnindex/) 및 [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icell/get_firstrowindex/) 메서드를 통해 확인할 수 있습니다. [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentcell/)도 읽기 전용 탐색을 제공하며, 소유자를 반환하지만 소유권을 변경하지는 않습니다. 사용하기 전에 반환된 셀이 `nullptr`인지 항상 확인하십시오.
+셀 좌표는 읽기 전용 [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) 및 [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) 메서드를 통해 확인할 수 있습니다. [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/)은 또한 읽기 전용 탐색을 제공하며, 소유자를 반환하지만 소유권을 변경하지 않습니다. 사용하기 전에 항상 반환된 셀이 `nullptr`인지 확인하십시오.
 
-표 셀 및 도형 소유자를 식별하는 전체 예제(스마트아트 노드와 연결된 도형 포함)는 [Search and Replace Text](/slides/ko/cpp/search-and-replace-text/)를 참조하십시오.
+테이블 셀 및 도형 소유자를 식별하는 전체 예제(스마트아트 노드와 연결된 도형 포함)는 [텍스트 검색 및 교체](/slides/ko/cpp/search-and-replace-text/)를 참조하십시오.
 
-## **표 안의 텍스트 정렬**
+## **표에서 텍스트 정렬**
 
-1. 프레젠테이션 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 슬라이드에 대한 참조를 가져옵니다.
-3. 슬라이드에 [ITable](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itable/) 객체를 추가합니다.
-4. 표에서 [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/) 객체에 접근합니다.
-5. [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/)의 [IParagraph](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraph/)에 접근합니다.
-6. 텍스트를 수직으로 정렬합니다.
+개별 표 셀의 수직 고정 및 텍스트 방향을 제어할 수 있습니다. 이 섹션의 예제는 첫 번째 셀의 텍스트를 가운데 정렬하고 270도 회전합니다.
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+3. 슬라이드에 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 객체를 추가합니다.
+4. 표에서 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 객체에 액세스합니다.
+5. 첫 번째 [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/)에 액세스하고 텍스트와 색상을 설정합니다.
+6. [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) 및 [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/)을 사용하여 셀의 수직 고정 및 텍스트 방향을 설정합니다.
 7. 수정된 프레젠테이션을 저장합니다.
 
-This C++ code shows you how to align the text in a table:
+이 예제는 열 너비 120포인트, 행 높이 100포인트인 4 × 4 표를 생성합니다. 셀 (0, 0)의 텍스트를 서식 지정하고, 첫 번째 행의 나머지 셀에 값을 추가한 후 결과를 `Vertical_Align_Text_out.pptx`로 저장합니다.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -266,7 +249,6 @@ This C++ code shows you how to align the text in a table:
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -275,63 +257,53 @@ This C++ code shows you how to align the text in a table:
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Presentation 클래스의 인스턴스를 생성합니다
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 첫 번째 슬라이드를 가져옵니다
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// 열 너비와 행 높이를 정의합니다
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// 슬라이드에 표 도형을 추가합니다
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// 텍스트 프레임에 접근합니다
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// 텍스트 프레임용 Paragraph 객체를 생성합니다
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Paragraph용 Portion 객체를 생성합니다
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// 텍스트를 수직으로 정렬합니다
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// 프레젠테이션을 디스크에 저장합니다
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **표 수준에서 텍스트 서식 설정**
 
-1. 프레젠테이션 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 슬라이드에 대한 참조를 가져옵니다.
-3. 슬라이드에서 [ITable](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itable/) 객체에 접근합니다.
-4. 텍스트의 [set_FontHeight()](https://reference.aspose.com/slides/ko/cpp/aspose.slides/baseportionformat/set_fontheight/)를 설정합니다.
-5. [set_Alignment()](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/set_alignment/) 및 [set_MarginRight()](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/set_marginright/)를 설정합니다.
-6. [set_TextVerticalType()](https://reference.aspose.com/slides/ko/cpp/aspose.slides/textframeformat/set_textverticaltype/)를 설정합니다.
+[SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/)을 사용하여 표의 모든 셀에 텍스트 서식을 적용합니다. 이 메서드의 오버로드는 구간, 단락 및 텍스트 프레임 서식을 허용하므로 개별 셀을 반복하지 않고도 이러한 속성을 설정할 수 있습니다.
+
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스를 사용하여 프레젠테이션을 로드합니다.
+2. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+3. 슬라이드에서 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 객체에 액세스합니다.
+4. 텍스트에 대해 [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/)을 사용하여 글꼴 크기를 설정합니다.
+5. [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 및 [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/)을 사용하여 단락 정렬 및 오른쪽 여백을 설정합니다.
+6. [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/)을 사용하여 텍스트 방향을 설정합니다.
 7. 수정된 프레젠테이션을 저장합니다.
 
-This C++ code shows you how to apply your preferred formatting options to the text in a table:
+아래 예제는 `table.pptx`를 열며, 이 파일은 최소 하나의 슬라이드에 첫 번째 도형으로 표가 포함되어 있어야 합니다. 글꼴 크기를 25포인트로 설정하고, 단락을 오른쪽 정렬하며 오른쪽 여백을 20포인트로 지정하고, 텍스트를 수직으로 만듭니다. 서식이 적용된 프레젠테이션은 `result.pptx`로 저장됩니다.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -340,99 +312,106 @@ This C++ code shows you how to apply your preferred formatting options to the te
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Presentation 클래스의 인스턴스를 생성합니다
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// 첫 번째 슬라이드의 첫 번째 도형이 표라고 가정합니다
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// 표 셀의 글꼴 높이를 설정합니다
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// 표 셀의 텍스트 정렬과 오른쪽 여백을 한 번에 설정합니다
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// 표 셀의 텍스트 수직 유형을 설정합니다
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
 ## **표 스타일 속성 가져오기**
 
-Aspose.Slides는 표의 스타일 속성을 검색할 수 있게 하여 해당 세부 정보를 다른 표나 다른 위치에 사용할 수 있도록 합니다. 이 C++ 코드는 표 사전 설정 스타일에서 스타일 속성을 가져오는 방법을 보여줍니다:
+[get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/)을 사용하여 표의 사전 정의된 스타일을 읽고, [set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/)으로 지정합니다. 이 예제는 한 표에 [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/)을 적용하고, 프리셋 이름을 출력한 다음, 동일한 프리셋을 두 번째 표에 할당합니다. 두 표 모두 `table-style.pptx`에 저장됩니다.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
-## **표의 가로 세로 비율 잠금**
+## **표의 가로세로 비율 잠금**
 
-기하학적 도형의 가로 세로 비율은 서로 다른 차원에서의 크기 비율을 의미합니다. Aspose.Slides는 `AspectRatioLocked()` 속성을 제공하여 표 및 기타 도형에 대한 가로 세로 비율 잠금을 가능하게 합니다.
+표의 가로세로 비율은 너비와 높이의 비율입니다. [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/)을 사용하여 표의 비율을 잠글 수 있습니다.
 
-This C++ code shows you how to lock the aspect ratio for a table:
+아래 예제는 `pres.pptx`를 열며, 이 파일은 최소 하나의 슬라이드에 첫 번째 도형으로 표가 포함되어 있어야 합니다. 현재 잠금 상태를 출력하고, 가로세로 비율 잠금을 활성화한 뒤, 업데이트된 상태(`True`)를 출력하고 결과를 `pres-out.pptx`로 저장합니다.
 
-```c++
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
+**전체 표와 셀 내부 텍스트에 대해 오른쪽에서 왼쪽(RTL) 읽기 방향을 활성화할 수 있나요?**
 
-예. 표는 [set_RightToLeft](https://reference.aspose.com/slides/ko/cpp/aspose.slides/table/set_righttoleft/) 메서드를 제공하고, 단락은 [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/ko/cpp/aspose.slides/paragraphformat/set_righttoleft/)을 지원합니다. 두 가지를 모두 사용하면 셀 내부의 올바른 RTL 순서와 렌더링이 보장됩니다.
+예. 표는 [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) 메서드를 제공하고, 단락에는 [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/)이 있습니다. 두 메서드를 모두 사용하면 셀 내부에서 올바른 RTL 순서와 렌더링이 보장됩니다.
 
-**How can I prevent users from moving or resizing a table in the final file?**
+**최종 파일에서 사용자가 표를 이동하거나 크기를 조정하지 못하도록 하려면 어떻게 해야 하나요?**
 
-[shape locks](/slides/ko/cpp/applying-protection-to-presentation/)를 사용하여 이동, 크기 조절, 선택 등을 비활성화합니다. 이러한 잠금은 표에도 적용됩니다.
+[shape locks](/slides/ko/cpp/applying-protection-to-presentation/)을 사용하여 이동, 크기 조정, 선택 등을 비활성화합니다. 이러한 잠금은 표에도 적용됩니다.
 
-**Is inserting an image inside a cell as a background supported?**
+**셀 내부에 이미지를 배경으로 삽입하는 것이 지원되나요?**
 
-예. 셀에 [picture fill](https://reference.aspose.com/slides/ko/cpp/aspose.slides/picturefillformat/)을 설정하면 이미지가 선택한 모드(늘리기 또는 타일링)에 따라 셀 영역을 채웁니다.
+예. 셀에 대해 [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/)을 설정할 수 있으며, 선택한 모드(늘리기 또는 타일)에 따라 이미지가 셀 영역을 채웁니다.

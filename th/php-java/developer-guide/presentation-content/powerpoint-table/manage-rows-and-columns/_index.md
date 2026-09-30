@@ -11,244 +11,309 @@ keywords:
 - ส่วนหัวของตาราง
 - คัดลอกแถว
 - คัดลอกคอลัมน์
-- คัดลอกแถว
-- คัดลอกคอลัมน์
+- ทำสำเนาแถว
+- ทำสำเนาคอลัมน์
 - ลบแถว
 - ลบคอลัมน์
-- การจัดรูปแบบข้อความแถว
-- การจัดรูปแบบข้อความคอลัมน์
+- การจัดรูปแบบข้อความของแถว
+- การจัดรูปแบบข้อความของคอลัมน์
 - สไตล์ตาราง
 - PowerPoint
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "จัดการแถวและคอลัมน์ของตารางใน PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อเร่งการแก้ไขการนำเสนอและการอัปเดตข้อมูล."
+description: "จัดการแถวและคอลัมน์ของตารางใน PowerPoint ด้วย Aspose.Slides for PHP via Java และเร่งการแก้ไขการนำเสนอและการอัปเดตข้อมูล."
 ---
 ## **บทนำ**
 
-เพื่อให้คุณสามารถจัดการแถวและคอลัมน์ของตารางในงานนำเสนอ PowerPoint, Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/) และชนิดอื่น ๆ อีกหลายประเภท.
+Aspose.Slides for PHP via Java ให้คุณจัดการโครงสร้างและการจัดรูปแบบของตารางในงานนำเสนอ PowerPoint ผ่านคลาส [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) คุณสามารถกำหนดแถวหัวเรื่อง, ทำสำเนาหรือเอาแถวและคอลัมน์ออก, และใช้การจัดรูปแบบข้อความกับทั้งหมดของแถวหรือคอลัมน์ได้
 
-## **ตั้งแถวแรกเป็นส่วนหัว**
+บทความนี้อธิบายการดำเนินการเหล่านี้ด้วยตัวอย่าง PHP นอกจากนี้ยังแสดงวิธีดึงสไตล์พรีเซ็ตของตารางเพื่อให้คุณสามารถนำกลับมาใช้ใหม่ได้ ดัชนีแถวและคอลัมน์ของตารางเป็นศูนย์ฐาน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และโหลดงานนำเสนอ.
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน. 
-3. สร้างออบเจ็กต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) แล้วกำหนดให้เป็น null.
-4. วนซ้ำผ่านออบเจ็กต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) ทั้งหมดเพื่อค้นหาตารางที่เกี่ยวข้อง.
-5. ตั้งค่าแถวแรกของตารางเป็นส่วนหัวของตาราง. 
+## **ควบคุมความสูงของแถว**
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าแถวแรกของตารางเป็นส่วนหัวของตาราง:
+ใช้ [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/) เพื่อกำหนดความสูงขั้นต่ำของแถวเป็นหน่วยจุด เป็นขอบเขตล่าง ไม่ใช่ความสูงคงที่ [Row::getHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/getheight/) จะคืนค่าความสูงจริง เข้าถึงแถวผ่าน [Table::getRows](https://reference.aspose.com/slides/php-java/aspose.slides/table/getrows/)
+
+ตัวอย่างโหลดไฟล์ [row-height-input.pptx](row-height-input.pptx) ซึ่งมีตารางเป็นรูปร่างแรกบนสไลด์แรก แถวแรกเริ่มที่ 70 จุด เซลล์ใช้ข้อความ Arial ขนาด 18 จุด มีการตัดบรรทัดและขอบบน‑ล่าง 6 จุด; ข้อความยาวในคอลัมน์ที่สองตัดบรรทัดหลายบรรทัด ตัวอย่างเพิ่มค่าขั้นต่ำเป็น 100 จุด แล้วลดลงเป็น 20 จุด พิมพ์ความสูงจริงหลังแต่ละการเปลี่ยนแปลงและบันทึกผลลัพธ์ทั้งสอง
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation("table.pptx");
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดค่าเริ่มต้น TableEx เป็น null
-    $tbl = null;
-    # วนซ้ำผ่านรูปร่างและตั้งค่าอ้างอิงไปยังตาราง
-    foreach($sld->getShapes() as $shp) {
-      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
-        $tbl = $shp;
-        # ตั้งค่าแถวแรกของตารางเป็นส่วนหัว
-        $tbl->setFirstRow(true);
-      }
-    }
-    # บันทึกการนำเสนอไปยังดิสก์
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("row-height-input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $row = $table->getRows()->get_Item(0);
+
+    $row->setMinimalHeight(100);
+    printf("Increased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-increased.pptx", SaveFormat::Pptx);
+
+    $row->setMinimalHeight(20);
+    printf("Decreased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-decreased.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **คัดลอกแถวหรือคอลัมน์ของตาราง**
+ด้วยงานนำเสนอที่ให้มา การเพิ่มค่าขั้นต่ำจะเพิ่มพื้นที่ให้กับแถว การลดค่าขั้นต่ำจะลบพื้นที่พิเศษนั้นออก แต่ความสูงจริงยังคงมากกว่า 20 จุดเนื่องจากข้อความและขอบของเซลล์ต้องการพื้นที่เพิ่มเติม การลดค่าขั้นต่ำอย่างเดียวไม่สามารถบังคับให้แถวสั้นกว่าพื้นที่ที่เนื้อหาต้องการได้
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และโหลดงานนำเสนอ,
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน. 
-3. กำหนดอาร์เรย์ของ `columnWidth`.
-4. กำหนดอาร์เรย์ของ `rowHeight`.
-5. เพิ่มออบเจ็กต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ลงในสไลด์โดยใช้เมธอด [addTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addtable/).
-6. คัดลอกแถวของตาราง.
-7. คัดลอกคอลัมน์ของตาราง.
-8. บันทึกงานนำเสนอที่แก้ไขแล้ว.
+ปัจจัยหลายอย่างมีผลต่อความสูงจริง:
 
-โค้ด PHP นี้แสดงวิธีคัดลอกแถวหรือคอลัมน์ของตาราง PowerPoint:
+- **ข้อความและขนาดฟอนต์:** ข้อความยาว, การตัดบรรทัดอย่างชัดเจน, หรือฟอนต์ใหญ่กว่าอาจต้องการพื้นที่แนวตั้งเพิ่มขึ้น
+- **การตัดบรรทัดและความกว้างคอลัมน์:** เมื่อเปิดการตัดบรรทัดไว้ การลดความกว้างคอลัมน์ด้วย [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) สามารถทำให้เกิดบรรทัดเพิ่มขึ้น คอลัมน์กว้างขึ้นอาจลดพื้นที่ที่ต้องการในแนวตั้ง
+- **ขอบของเซลล์:** [Cell::setMarginTop](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmargintop/) และ [Cell::setMarginBottom](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginbottom/) เพิ่มพื้นที่แนวตั้ง [Cell::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginleft/) และ [Cell::setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginright/) ลดความกว้างที่ใช้สำหรับข้อความและอาจทำให้ตัดบรรทัดเพิ่ม
+
+สำหรับตารางนี้ที่ไม่มีการรวมเซลล์ เซลล์ที่ต้องการพื้นที่แนวตั้งมากที่สุดจะกำหนดขอบเขตล่างตามเนื้อหาเพื่อทั้งแถว หากต้องการให้แถวสั้นลง คุณอาจต้องย่อตัวข้อความ, ลดขนาดฟอนต์หรือขอบ, หรือขยายคอลัมน์
+
+รูปภาพด้านล่างแสดงตารางเดียวกันในสเกลเดียวกัน ในผลลัพธ์ที่แสดง ความสูงจริงคือ 70, 100 และ 55.2 จุด: แถวสุดท้ายยังคงสูงกว่าค่าขั้นต่ำ 20 จุด การวัดข้อความอาจแตกต่างตามฟอนต์ที่มีในสภาพแวดล้อมของคุณ ดาวน์โหลดผลลัพธ์ที่บันทึกไว้: [เพิ่มค่าต่ำสุด](row-height-increased.pptx) และ [ลดค่าต่ำสุด](row-height-decreased.pptx)
+
+| ต้นฉบับ: ค่าต่ำสุด 70 pt, ความสูงจริง 70 pt | เพิ่มขึ้น: ค่าต่ำสุด 100 pt, ความสูงจริง 100 pt | ลดลง: ค่าต่ำสุด 20 pt, ความสูงจริง 55.2 pt |
+| --- | --- | --- |
+| ![ตารางต้นฉบับที่มีแถวแรกความสูง 70 pt.](row-height-before.png) | ![ตารางหลังจากเพิ่มค่าต่ำสุดของแถวแรกเป็น 100 pt.](row-height-increased.png) | ![ตารางหลังจากลดค่าต่ำสุดของแถวแรกเป็น 20 pt; ข้อความที่ห่อหุ้มทำให้แถวสูงกว่าค่าต่ำสุด.](row-height-decreased.png) |
+
+## **ตั้งค่าแถวแรกเป็นหัวเรื่อง**
+
+ใช้เมธอด [setFirstRow](https://reference.aspose.com/slides/php-java/aspose.slides/table/setfirstrow/) เพื่อทำเครื่องหมายแถวแรกสำหรับการจัดรูปแบบหัวเรื่อง การแสดงผลขึ้นอยู่กับสไตล์ตารางที่ใช้กับตาราง
+
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+2. เข้าถึงสไลด์แรก
+3. เข้าถึงตารางที่เก็บเป็นรูปร่างแรกบนสไลด์
+4. เปิดใช้งานการจัดรูปแบบหัวเรื่องสำหรับแถวแรกของมัน
+5. บันทึกงานนำเสนอที่แก้ไข
+
+ตัวอย่างต้องการไฟล์ `table.pptx` ที่มีตารางเป็นรูปร่างแรกบนสไลด์แรก มันเปิดใช้งานการจัดรูปแบบหัวเรื่องสำหรับแถวแรกและบันทึกเป็น `First_row_header.pptx`
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation("Test.pptx");
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์ด้วยความกว้างและแถวด้วยความสูง
-    $dblCols = array(50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # เพิ่มรูปร่างตารางลงบนสไลด์
-    $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # เพิ่มข้อความบางส่วนลงในแถว 1 เซลล์ 1
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $table->setFirstRow(true);
+
+    $presentation->save("First_row_header.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ทำสำเนาแถวหรือคอลัมน์ของตาราง**
+
+ทำสำเนาแถวหรือคอลัมน์เพื่อใช้งานเนื้อหาและการจัดรูปแบบซ้ำ คุณสามารถเพิ่มเติมสำเนาที่ส่วนท้ายของตารางหรือแทรกที่ตำแหน่งเฉพาะได้
+
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+2. เข้าถึงสไลด์แรก
+3. กำหนดความกว้างของคอลัมน์และความสูงของแถว
+4. เพิ่มตารางด้วยเมธอด [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/)
+5. ทำสำเนาแถวที่ต้องการ
+6. ทำสำเนาคอลัมน์ที่ต้องการ
+7. บันทึกงานนำเสนอที่แก้ไข
+
+ตัวอย่างต้องการไฟล์ `Test.pptx` ที่มีอย่างน้อยหนึ่งสไลด์ มันสร้างตารางที่มีสามคอลัมน์และห้าแถว โดยกำหนดขนาดเป็นหน่วยจุด มันเพิ่มสำเนาของแถวแรกและคอลัมน์แรก แล้วแทรกสำเนาของแถวและคอลัมน์ที่สองที่ตำแหน่งดัชนี 3 (ตำแหน่งที่สี่) ตารางที่ได้มีเจ็ดแถวและห้าคอลัมน์ อาร์กิวเมนต์ `false` ปิดการทำสำเนาในแถวหรือคอลัมน์ที่รวมกัน; ตารางนี้ไม่มีเซลล์ที่รวมกัน
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [50, 50, 50];
+    $rowHeights = [50, 30, 30, 30, 30];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
     $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
-    # เพิ่มข้อความบางส่วนลงในแถว 1 เซลล์ 2
     $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
-    # คัดลอกแถว 1 ไปยังท้ายตาราง
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # เพิ่มข้อความบางส่วนลงในแถว 2 เซลล์ 1
+
     $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
-    # เพิ่มข้อความบางส่วนลงในแถว 2 เซลล์ 2
     $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
-    # คัดลอกแถว 2 เป็นแถวที่ 4 ของตาราง
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
-    # คัดลอกคอลัมน์แรกไปยังตำแหน่งสุดท้าย
+
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # คัดลอกคอลัมน์ที่ 2 ไปยังตำแหน่งคอลัมน์ที่ 4
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
-    # บันทึกการนำเสนอไปยังดิสก์
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ลบแถวหรือคอลัมน์ออกจากตาราง**
+## **ลบแถวหรือคอลัมน์จากตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และโหลดงานนำเสนอ,
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน. 
-3. กำหนดอาร์เรย์ของ `columnWidth`.
-4. กำหนดอาร์เรย์ของ `rowHeight`.
-5. เพิ่มออบเจ็กต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ลงในสไลด์โดยใช้เมธอด [addTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addtable/).
-6. ลบแถวของตาราง.
-7. ลบคอลัมน์ของตาราง.
-8. บันทึกงานนำเสนอที่แก้ไขแล้ว. 
+ลบแถวหรือคอลัมน์ที่ไม่ต้องการจากตาราง การลบรายการหนึ่งจะทำให้ดัชนีของแถวหรือคอลัมน์ที่ตามมาถูกเลื่อน
 
-โค้ด PHP นี้แสดงวิธีลบแถวหรือคอลัมน์ออกจากตาราง:
+1. สร้างงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+2. เข้าถึงสไลด์แรก
+3. กำหนดความกว้างของคอลัมน์และความสูงของแถว
+4. เพิ่มตารางด้วยเมธอด [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/)
+5. ลบแถวที่สองและคอลัมน์ที่สอง
+6. บันทึกงานนำเสนอที่แก้ไข
+
+ตัวอย่างนี้สร้างตารางสามโดยสามและลบแถวและคอลัมน์ที่ดัชนี 1 ทำให้เหลือตารางสองโดยสองในไฟล์ `TestTable_out.pptx` ขนาดเป็นหน่วยจุด อาร์กิวเมนต์ `false` ปิดการลบแถวหรือคอลัมน์ที่รวมกัน; ตารางนี้ไม่มีเซลล์ที่รวมกัน
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $colWidth = array(100, 50, 30 );
-    $rowHeight = array(30, 50, 30 );
-    $table = $slide->getShapes()->addTable(100, 100, $colWidth, $rowHeight);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 50, 30];
+    $rowHeights = [30, 50, 30];
+    $table = $slide->getShapes()->addTable(100, 100, $columnWidths, $rowHeights);
+
     $table->getRows()->removeAt(1, false);
     $table->getColumns()->removeAt(1, false);
-    $pres->save("TestTable_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TestTable_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ตั้งค่าการจัดรูปแบบข้อความในระดับแถวของตาราง**
+## **กำหนดการจัดรูปแบบข้อความในระดับแถวของตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และโหลดงานนำเสนอ,
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน. 
-3. เข้าถึงออบเจ็กต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ที่เกี่ยวข้องจากสไลด์.
-4. ตั้งค่า [setFontHeight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setFontHeight) ของเซลล์ในแถวแรก.
-5. ตั้งค่า [setAlignment(int value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setmarginright/) ของเซลล์ในแถวแรก.
-6. ตั้งค่า [setTextVerticalType(byte value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/settextverticaltype/) ของเซลล์ในแถวที่สอง.
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว.
+ใช้การจัดรูปแบบข้อความกับแถวทั้งหมดเพื่อให้เซลล์สอดคล้องกัน คุณสามารถตั้งค่าคุณสมบัติฟอนต์, การจัดรูปแบบย่อหน้า, และทิศทางข้อความโดยไม่ต้องจัดรูปแบบแต่ละเซลล์แยกกัน
 
-โค้ด PHP นี้แสดงการทำงาน.
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+2. เข้าถึงตารางบนสไลด์แรก
+3. ใช้ [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) สำหรับแถวแรก
+4. ใช้ [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) สำหรับแถวแรก
+5. ใช้ [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) สำหรับแถวที่สอง
+6. บันทึกงานนำเสนอที่แก้ไข
+
+ตัวอย่างต้องการไฟล์ `table.pptx` ที่มีตารางเป็นรูปร่างแรกบนสไลด์แรกและมีอย่างน้อยสองแถว มันใช้ข้อความขนาด 25 จุด, การจัดชิดขวา, และระยะขอบย่อหน้าขวา 20 จุดกับแถวแรก จากนั้นกำหนดข้อความแนวตั้งในแถวที่สอง
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # สมมติว่ารูปร่างแรกบนสไลด์แรกเป็นตาราง
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # ตั้งค่าความสูงของฟอนต์ในเซลล์แถวแรก
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
-    # ตั้งค่าการจัดแนวข้อความและระยะขอบด้านขวาของเซลล์แถวแรก
+    $portionFormat->setFontHeight(25);
+    $table->getRows()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    # ตั้งค่าชนิดข้อความแนวตั้งของเซลล์แถวที่สอง
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    # บันทึกการนำเสนอไปยังดิสก์
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("row_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ตั้งค่าการจัดรูปแบบข้อความในระดับคอลัมน์ของตาราง**
+## **กำหนดการจัดรูปแบบข้อความในระดับคอลัมน์ของตาราง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และโหลดงานนำเสนอ,
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน. 
-3. เข้าถึงออบเจ็กต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ที่เกี่ยวข้องจากสไลด์.
-4. ตั้งค่า [setFontHeight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setFontHeight) ของเซลล์ในคอลัมน์แรก.
-5. ตั้งค่า [setAlignment(int value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setmarginright/) ของเซลล์ในคอลัมน์แรก.
-6. ตั้งค่า [setTextVerticalType(byte value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/settextverticaltype/) ของเซลล์ในคอลัมน์ที่สอง.
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว. 
+ใช้การจัดรูปแบบข้อความกับคอลัมน์ทั้งหมดเพื่อให้เซลล์สอดคล้องกัน คุณสามารถตั้งค่าคุณสมบัติฟอนต์, การจัดรูปแบบย่อหน้า, และทิศทางข้อความโดยไม่ต้องจัดรูปแบบแต่ละเซลล์แยกกัน
 
-โค้ด PHP นี้แสดงการทำงาน:
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)
+2. เข้าถึงตารางบนสไลด์แรก
+3. ใช้ [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) สำหรับคอลัมน์แรก
+4. ใช้ [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) สำหรับคอลัมน์แรก
+5. ใช้ [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) สำหรับคอลัมน์ที่สอง
+6. บันทึกงานนำเสนอที่แก้ไข
+
+ตัวอย่างต้องการไฟล์ `table.pptx` ที่มีตารางเป็นรูปร่างแรกบนสไลด์แรกและมีอย่างน้อยสองคอลัมน์ มันใช้ข้อความขนาด 25 จุด, การจัดชิดขวา, และระยะขอบย่อหน้าขวา 20 จุดกับคอลัมน์แรก จากนั้นกำหนดข้อความแนวตั้งในคอลัมน์ที่สอง
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # สมมติว่ารูปร่างแรกบนสไลด์แรกเป็นตาราง
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # ตั้งค่าความสูงของฟอนต์ในเซลล์คอลัมน์แรก
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
-    # ตั้งค่าการจัดแนวข้อความและระยะขอบด้านขวาของเซลล์คอลัมน์แรกด้วยคำสั่งเดียว
+    $portionFormat->setFontHeight(25);
+    $table->getColumns()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    # ตั้งค่าชนิดข้อความแนวตั้งของเซลล์คอลัมน์ที่สอง
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("column_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **รับคุณสมบัติสไตล์ของตาราง**
 
-Aspose.Slides ทำให้คุณสามารถดึงคุณสมบัติสไตล์ของตารางเพื่อที่คุณจะใช้รายละเอียดเหล่านั้นกับตารางอื่นหรือในที่อื่นได้ โค้ด PHP นี้แสดงวิธีรับคุณสมบัติสไตล์จากสไตล์สำเร็จรูปของตาราง:
+ใช้เมธอด [getStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/getstylepreset/) เพื่อดึงพรีเซ็ตที่ใช้กับตารางและนำกลับมาใช้กับตารางอื่น วิธีนี้จะระบุพรีเซ็ตแทนการเขียนทับการจัดรูปแบบของเซลล์แต่ละอัน
+
+ตัวอย่างสร้างตาราง, ใช้ [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/php-java/aspose.slides/tablestylepreset/#DarkStyle1), แล้วอ่านพรีเซ็ตกลับมา มันพิมพ์ค่าจำนวนเต็มที่สอดคล้องกับ `DarkStyle1` และบันทึกตารางในไฟล์ `table.pptx`
 
 ```php
-  $pres = new Presentation();
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// เปลี่ยนธีม preset สไตล์เริ่มต้น
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 150];
+    $rowHeights = [5, 5, 5];
+    $table = $slide->getShapes()->addTable(10, 10, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::DarkStyle1);
+
+    $stylePreset = $table->getStylePreset();
+    echo java_values($stylePreset) . PHP_EOL;
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถใช้ธีม/สไตล์ของ PowerPoint กับตารางที่สร้างไว้แล้วได้หรือไม่?**
+**ฉันสามารถใช้ธีม/สไตล์ของ PowerPoint กับตารางที่สร้างแล้วได้หรือไม่?**
 
-ได้ ตารางจะสืบทอดธีมของสไลด์/เลย์เอาต์/มาสเตอร์ และคุณยังสามารถเขียนทับสีพื้น, เส้นขอบ, และสีข้อความเหนือธีมนั้นได้.
+ใช่ ตารางสืบทอดธีมของสไลด์/เลย์เอาต์/มาสเตอร์ และคุณยังสามารถเขียนทับการเติมสี, เส้นขอบ, และสีข้อความเหนือธีมนั้นได้
 
 **ฉันสามารถจัดเรียงแถวของตารางแบบใน Excel ได้หรือไม่?**
 
-ไม่ได้ ตารางของ Aspose.Slides ไม่มีการจัดเรียงหรือกรองในตัว คุณต้องจัดเรียงข้อมูลในหน่วยความจำก่อน แล้วจึงเติมแถวของตารางใหม่ตามลำดับนั้น.
+ไม่ได้ ตารางของ Aspose.Slides ไม่มีการจัดเรียงหรือฟิลเตอร์ในตัว คุณต้องจัดเรียงข้อมูลในหน่วยความจำก่อน แล้วค่อยเติมแถวของตารางใหม่ตามลำดับนั้น
 
-**ฉันสามารถมีคอลัมน์เป็นแถบ (striped) พร้อมกับคงสีที่กำหนดเองในเซลล์เฉพาะได้หรือไม่?**
+**ฉันสามารถใช้คอลัมน์แบบลายเส้น (banded) พร้อมค่าสีที่กำหนดเองสำหรับเซลล์เฉพาะได้หรือไม่?**
 
-ได้ เปิดคอลัมน์แบบแถบ จากนั้นเขียนทับเซลล์เฉพาะด้วยการจัดรูปแบบท้องถิ่น; การจัดรูปแบบระดับเซลล์จะมีความสำคัญเหนือสไตล์ของตาราง.
+ได้ เปิดใช้งานคอลัมน์แบบลายเส้น จากนั้นเขียนทับเซลล์เฉพาะด้วยการจัดรูปแบบท้องถิ่น; การจัดรูปแบบระดับเซลล์มีลำดับความสำคัญเหนือสไตล์ของตาราง

@@ -1,5 +1,5 @@
 ---
-title: Python を使用して PowerPoint テーブルの行と列を管理
+title: Python を使用して PowerPoint テーブルの行と列を管理する
 linktitle: 行と列
 type: docs
 weight: 20
@@ -9,259 +9,263 @@ keywords:
 - テーブル列
 - 最初の行
 - テーブルヘッダー
-- 行のクローン
-- 列のクロン
+- 行の複製
+- 列の複製
 - 行のコピー
 - 列のコピー
 - 行の削除
 - 列の削除
-- 行テキスト書式設定
-- 列テキスト書式設定
+- 行のテキスト書式設定
+- 列のテキスト書式設定
 - テーブルスタイル
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のテーブル行と列を管理し、プレゼンテーションの編集とデータ更新を高速化します。"
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint のテーブル行と列を管理し、プレゼンテーションの編集とデータ更新を高速化します。"
 ---
+## **導入**
 
-## **概要**
+Aspose.Slides for Python via .NET を使用すると、PowerPoint プレゼンテーション内のテーブルの構造と書式設定を [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) クラスで管理できます。ヘッダー行を指定したり、行や列を複製または削除したり、行や列全体にテキスト書式設定を適用したりできます。
 
-この記事では、Aspose.Slides for Python を使用して PowerPoint および OpenDocument プレゼンテーションの表の行と列を管理する方法を示します。行または列の追加、挿入、クローン作成、削除、最初の行をヘッダーとしてマーク、サイズやレイアウトの調整、行または列レベルでのテキストおよびスタイルの書式設定方法を学びます。各タスクは、[Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) API をベースにしたコンパクトで自立したコードスニペットで示されるので、スライド上の表をすばやく見つけて、デザインに合わせて構造を変更できます。
+この記事では、これらの操作を Python のサンプルで説明します。また、テーブルのスタイルプリセットを取得して再利用する方法も示します。テーブルの行と列のインデックスは 0 から始まります。
 
-## **最初の行をヘッダーとして設定**
+## **行の高さの制御**
 
-表の最初の行をヘッダーとしてマークし、列のタイトルとデータを明確に区別します。Aspose.Slides for Python では、テーブルの *First Row* オプションを有効にするだけで、選択したテーブルスタイルで定義されたヘッダー書式が適用されます。
+[Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) を使用して、行の最小高さ（ポイント単位）を設定します。これは下限であり、固定高さではありません。[Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) は実際の高さを返し、読み取り専用です。行は [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/) から取得します。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
-1. インデックスでスライドにアクセスします。
-1. すべての [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) オブジェクトを反復処理して、対象のテーブルを見つけます。
-1. テーブルの最初の行をヘッダーとして設定します。
+サンプルは [row-height-input.pptx](row-height-input.pptx) を読み込みます。このファイルは最初のスライドの最初のシェイプとしてテーブルを含み、最初の行は 70 ポイントから始まります。セルは 18 ポイントの Arial 文字、折り返し、上下に 6 ポイントの余白を使用しています。2 列目の長いテキストは複数行に折り返されています。サンプルは最小高さを 100 ポイントに増やした後、20 ポイントに減らし、各変更後に実際の高さを出力し、両方の結果を保存します。
 
-この Python コードは、テーブルの最初の行をヘッダーとして設定する方法を示しています。
 ```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成します。
-with slides.Presentation("table.pptx") as presentation:
-    # 最初のスライドにアクセスします。
-    slide = presentation.slides[0]
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
 
-    # シェイプを反復処理し、テーブルへの参照を取得します。
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
 
-    # テーブルの最初の行をヘッダーとして設定します。
-    table.first_row = True
-    
-    # プレゼンテーションをディスクに保存します。
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+提供されたプレゼンテーションでは、最小高さを増やすと行に余白が追加され、減らすと余分な余白が削除されますが、実際の高さはテキストとセル余白のため 20 ポイントより大きくなります。最小高さだけを減らしても、コンテンツが要求するスペース以下には行を強制できません。
 
-## **テーブルの行または列をクローン**
+実際の高さに影響する要因は次のとおりです。
 
-任意のテーブル行または列をクローンし、テーブル内の目的の位置にコピーを挿入します。クローンはセルの内容、書式、サイズを保持するため、レイアウトを迅速かつ一貫して拡張できます。
+- **テキストとフォントサイズ:** 長いテキスト、明示的な改行、または大きなフォントは垂直方向のスペースを多く必要とします。
+- **折り返しと列幅:** 折り返しが有効な場合、狭い [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) は行数を増やします。広い列は垂直方向の必要スペースを減らすことがあります。
+- **セル余白:** [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) と [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) は垂直余白を追加します。[Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) と [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) はテキスト領域の幅を狭め、折り返しを増やす可能性があります。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
-1. インデックスでスライドにアクセスします。
-1. 列の幅の配列を定義します。
-1. 行の高さの配列を定義します。
-1. [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) をスライドに `add_table(x, y, column_widths, row_heights)` で追加します。
-1. テーブル行をクローンします。
-1. テーブル列をクローンします。
-1. 変更されたプレゼンテーションを保存します。
+結合セルがないこのテーブルでは、最も垂直スペースを必要とするセルが行全体の下限を決定します。行を短くしたい場合は、テキストを短くしたり、フォントサイズや余白を減らしたり、列幅を広げる必要があります。
 
-この Python コードは、PowerPoint のテーブルの行と列をクローンする方法を示しています。
+以下の画像は同じテーブルを同一スケールで示しています。この実行では、実際の高さは 70、100、55.2 ポイントでした。最終行は 20 ポイントの最小高さよりも高く残っています。フォント環境によりテキスト測定は多少変わります。保存された結果は [increased minimum](row-height-increased.pptx) と [decreased minimum](row-height-decreased.pptx) からダウンロードできます。
+
+| Original: minimum 70 pt, actual 70 pt | Increased: minimum 100 pt, actual 100 pt | Decreased: minimum 20 pt, actual 55.2 pt |
+| --- | --- | --- |
+| ![Original table with a 70-point first row.](row-height-before.png) | ![Table after increasing the first row minimum to 100 points.](row-height-increased.png) | ![Table after decreasing the first row minimum to 20 points; wrapped text keeps the row taller than the minimum.](row-height-decreased.png) |
+
+## **最初の行をヘッダーとして設定する**
+
+[first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) プロパティを使用して、最初の行をヘッダー書式としてマークします。見た目はテーブルに適用されたスタイルに依存します。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスでプレゼンテーションを読み込む。  
+2. 最初のスライドにアクセスする。  
+3. スライド上の最初のシェイプとして格納されているテーブルにアクセスする。  
+4. その最初の行のヘッダー書式を有効にする。  
+5. 変更したプレゼンテーションを保存する。
+
+サンプルは最初のスライドの最初のシェイプとしてテーブルを含む `table.pptx` を必要とします。最初の行にヘッダー書式を設定し、`First_row_header.pptx` として保存します。
+
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成します。
-with slides.Presentation() as presentation:
-    # 最初のスライドにアクセスします。
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # 列幅と行高さを定義します。
+    table = slide.shapes[0]
+    table.first_row = True
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **テーブル行または列を複製する**
+
+行や列を複製して、コンテンツと書式を再利用できます。複製はテーブルの末尾に追加することも、特定の位置に挿入することもできます。
+
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスでプレゼンテーションを読み込む。  
+2. 最初のスライドにアクセスする。  
+3. 列幅と行高さを定義する。  
+4. [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) メソッドでテーブルを追加する。  
+5. 必要な行を複製する。  
+6. 必要な列を複製する。  
+7. 変更したプレゼンテーションを保存する。
+
+サンプルは少なくとも1枚のスライドを含む `Test.pptx` を必要とします。3 列 5 行のテーブルをポイント単位で作成し、最初の行と列のコピーを末尾に追加し、2 行目と列のコピーをインデックス 3（4 番目の位置）に挿入します。結果として 7 行 5 列のテーブルができます。`False` 引数は隣接する結合行・列への複製を無効にします。このテーブルに結合セルはありません。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # スライドにテーブルを追加します。
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # 行1、列1にテキストを追加します。
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # 行2、列1にテキストを追加します。
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # テーブルの末尾に行1をクローンします。
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # 行1、列2にテキストを追加します。
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # 行2、列2にテキストを追加します。
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # テーブルの4番目の行として行2をクローンします。
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # 末尾に最初の列をクローンします。
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # インデックス3（4番目の位置）に2番目の列をクローンします。
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # プレゼンテーションをディスクに保存します。
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **テーブルから行または列を削除する**
 
-## **テーブルから行または列を削除**
+不要になった行や列をテーブルから削除します。削除により、以降の行や列のインデックスがシフトします。
 
-Aspose.Slides for Python を使用してインデックスで任意の行または列を削除し、テーブルを簡素化します。レイアウトは自動的に再調整され、残りのセルの書式は保持されます。データグリッドを簡略化したり、プレースホルダーを削除してテーブルを再構築しない場合に便利です。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスでプレゼンテーションを作成する。  
+2. 最初のスライドにアクセスする。  
+3. 列幅と行高さを定義する。  
+4. [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) メソッドでテーブルを追加する。  
+5. 2 行目と 2 列目を削除する。  
+6. 変更したプレゼンテーションを保存する。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
-1. インデックスでスライドにアクセスします。
-1. 列の幅の配列を定義します。
-1. 行の高さの配列を定義します。
-1. `add_table(x, y, column_widths, row_heights)` を使用してスライドに ITable を追加します。
-1. テーブルの行を削除します。
-1. テーブルの列を削除します。
-1. 変更されたプレゼンテーションを保存します。
+このサンプルは 3×3 のテーブルを作成し、インデックス 1 の行と列を削除して 2×2 のテーブルを `TestTable_out.pptx` に残します。サイズはポイント単位です。`False` 引数は隣接する結合行・列の削除を無効にします。このテーブルに結合セルはありません。
 
-以下の Python コードは、テーブルから行と列を削除する方法を示しています。
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
     presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **テーブル行レベルでテキスト書式を設定する**
 
-## **テーブル行レベルでテキスト書式を設定**
+行全体にテキスト書式を適用してセル間の一貫性を保ちます。フォント属性、段落書式、テキスト方向を個別のセルを編集せずに設定できます。
 
-1 つの手順でテーブル行全体に一貫したテキストスタイルを適用します。Aspose.Slides for Python を使用すると、行内のすべてのセルに対してフォントファミリー、サイズ、太さ、色、配置を一括で設定でき、見出しやデータバンドを統一できます。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスでプレゼンテーションを読み込む。  
+2. 最初のスライド上のテーブルにアクセスする。  
+3. 最初の行に対して [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) を設定する。  
+4. 最初の行に対して [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) と [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) を設定する。  
+5. 2 行目に対して [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) を設定する。  
+6. 変更したプレゼンテーションを保存する。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
-1. インデックスでスライドにアクセスします。
-1. スライド上の対象 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) オブジェクトにアクセスします。
-1. 最初の行のセルのフォント高さを設定します。
-1. 最初の行のセルの配置と右余白を設定します。
-1. 2 行目のセルのテキスト垂直タイプを設定します。
-1. 変更されたプレゼンテーションを保存します。
+サンプルは最初のシェイプとしてテーブルを含む `table.pptx` と、少なくとも 2 行があることを前提とします。1 行目に 25 ポイントのテキスト、右揃え、右段落余白 20 ポイントを適用し、2 行目に縦書きテキストを設定します。
 
-この Python コードは操作を示しています。
 ```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成します。
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # 最初の行のセルのフォント高さを設定します。
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # 最初の行のセルのテキスト配置と右余白を設定します。
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # 2 行目のセルのテキスト垂直タイプを設定します。
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-	# プレゼンテーションをディスクに保存します。
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **テーブル列レベルでテキスト書式を設定する**
 
-## **テーブル列レベルでテキスト書式を設定**
+列全体にテキスト書式を適用してセル間の一貫性を保ちます。フォント属性、段落書式、テキスト方向を個別のセルを編集せずに設定できます。
 
-テーブル列全体に一貫したテキストスタイルを一度に適用します。Aspose.Slides for Python を使用すると、列内のすべてのセルに対してフォントファミリー、サイズ、太さ、色、配置を設定でき、見出しやデータの垂直帯を統一できます。
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスでプレゼンテーションを読み込む。  
+2. 最初のスライド上のテーブルにアクセスする。  
+3. 最初の列に対して [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) を設定する。  
+4. 最初の列に対して [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) と [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) を設定する。  
+5. 2 列目に対して [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) を設定する。  
+6. 変更したプレゼンテーションを保存する。
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーションをロードします。
-1. インデックスでスライドにアクセスします。
-1. スライド上の対象 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) オブジェクトにアクセスします。
-1. 最初の列のセルのフォント高さを設定します。
-1. 最初の列のセルの配置と右余白を設定します。
-1. 2 列目のセルのテキスト垂直タイプを設定します。
-1. 変更されたプレゼンテーションを保存します。
+サンプルは最初のシェイプとしてテーブルを含む `table.pptx` と、少なくとも 2 列があることを前提とします。1 列目に 25 ポイントのテキスト、右揃え、右段落余白 20 ポイントを適用し、2 列目に縦書きテキストを設定します。
 
-以下の Python コードは操作を示しています。
 ```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成します。
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # 最初の列のセルのフォント高さを設定します。
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # 最初の列のセルのテキスト配置と右余白を設定します。
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # 2 番目の列のセルのテキスト垂直タイプを設定します。
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # プレゼンテーションをディスクに保存します。
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **テーブルスタイル プロパティの取得**
 
-Aspose.Slides では、テーブルのスタイルプロパティを取得できるため、別のテーブルや他の場所で再利用できます。以下の Python コードは、プリセットのテーブルスタイルからスタイルプロパティを取得する方法を示しています。
+[style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) プロパティを使用して、テーブルに適用されたプリセットを取得し、別のテーブルで再利用できます。これは個々のセル書式オーバーライドではなく、プリセット自体を識別します。
+
+サンプルはテーブルを作成し、[TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) を適用してからプリセットを読み戻します。取得したプリセットが適用したものと一致すれば `True` を出力し、テーブルを `table.pptx` に保存します。
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **FAQ**
 
 **既に作成されたテーブルに PowerPoint のテーマ/スタイルを適用できますか？**
 
-はい。テーブルはスライド/レイアウト/マスターテーマを継承し、必要に応じて塗りつぶし、枠線、テキスト色を上書きできます。
+はい。テーブルはスライド/レイアウト/マスタのテーマを継承しますが、テーマ上に塗りつぶし、枠線、テキスト色などを上書きすることも可能です。
 
-**Excel のようにテーブル行を並べ替えられますか？**
+**Excel のようにテーブル行を並べ替えることはできますか？**
 
-いいえ、Aspose.Slides のテーブルには組み込みの並べ替えやフィルタ機能はありません。データをメモリ内でソートしてから、同じ順序でテーブル行を再配置してください。
+できません。Aspose.Slides のテーブルには組み込みのソートやフィルター機能はありません。まずメモリ上でデータをソートし、その順序でテーブル行を再配置してください。
 
-**特定のセルにカスタムカラーを保持しながら、帯状（ストライプ）列を設定できますか？**
+**帯状（ストライプ）列を使用しつつ、特定のセルにカスタムカラーを保持できますか？**
 
-はい。帯状列を有効にし、特定のセルにローカル書式で上書きすれば、セルレベルの書式がテーブルスタイルより優先されます。
+はい。帯状列を有効にした後、特定のセルにローカル書式を上書きすれば、セルレベルの書式がテーブルスタイルより優先されます。

@@ -1,5 +1,5 @@
 ---
-title: Управление таблицами презентации в JavaScript
+title: Управление таблицами презентаций на JavaScript
 linktitle: Управление таблицей
 type: docs
 weight: 10
@@ -17,80 +17,81 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Создавайте и редактируйте таблицы в слайдах PowerPoint с помощью JavaScript и Aspose.Slides для Node.js. Откройте простые примеры кода, упрощающие работу с таблицами."
+description: "Создавайте и редактируйте таблицы в слайдах PowerPoint с помощью JavaScript и Aspose.Slides для Node.js. Узнайте простые примеры кода для оптимизации работы с таблицами."
 ---
 ## **Введение**
 
-Таблица в PowerPoint — эффективный способ отображения и представления информации. Информация в сетке ячеек (расположенных в строках и столбцах) представлена просто и легко воспринимается.
+Таблицы в PowerPoint организуют информацию в строки и столбцы, упрощая чтение и сравнение значений.
 
-Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table), класс [Cell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами во всех типах презентаций.
+Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/), класс [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) и другие типы, позволяющие создавать, обновлять и управлять таблицами в презентациях.
 
 ## **Создание таблицы с нуля**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth`.
-4. Определите массив `rowHeight`.
-5. Добавьте объект [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Пройдитесь по каждой [Cell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cell/) и задайте форматирование верхних, нижних, правых и левых границ.
-7. Объедините четыре ячейки в левом верхнем углу таблицы (первые два столбца первых двух строк) в одну ячейку. 
-8. Получите доступ к [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/) ячейки [Cell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cell/).
-9. Добавьте некоторый текст в [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/).
+Создайте таблицу, указав её позицию, ширину столбцов и высоту строк. После добавления её на слайд можно форматировать границы ячеек, объединять ячейки и вставлять текст.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Определите массив ширин столбцов в пунктах.
+4. Определите массив высот строк в пунктах.
+5. Добавьте объект [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double:A-double:A-).
+6. Пройдите по каждому [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/), чтобы применить форматирование верхних, нижних, правых и левых границ.
+7. Объедините первые две ячейки первой строки таблицы.
+8. Получите доступ к объединённой ячейке через её метод [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--).
+9. Установите текст в объединённую ячейку.
 10. Сохраните изменённую презентацию.
 
-Этот JavaScript‑код демонстрирует, как создать таблицу в презентации:
+Пример ниже создаёт таблицу с тремя столбцами и пятью строками в точке (100, 50). Он применяет красные границы шириной 5 пунктов, объединяет первые две ячейки первой строки и сохраняет результат как `table.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// Создаёт экземпляр класса Presentation, представляющего файл PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает доступ к первому слайду
-    var sld = pres.getSlides().get_Item(0);
-    // Определяет столбцы с ширинами и строки с высотами
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Добавляет форму таблицы на слайд
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Устанавливает формат рамки для каждой ячейки
-    for (var row = 0; row < tbl.getRows().size(); row++) {
-        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            const cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderTop().setWidth(5);
+
             cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderBottom().setWidth(5);
+
             cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderLeft().setWidth(5);
+
             cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Объединяет блок ячеек 2x2 в левом верхнем углу в одну ячейку
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-    // Добавляет текст в объединённую ячейку
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-    // Сохраняет презентацию на диск
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Нумерация в стандартной таблице**
 
-В стандартной таблице нумерация ячеек проста и начинается с нуля. Первая ячейка в таблице имеет индексы 0,0 (столбец 0, строка 0). 
+В стандартной таблице индексы ячеек начинаются с нуля и задаются в порядке (столбец, строка). Первая ячейка имеет индекс (0, 0).
 
-Например, ячейки в таблице из 4 столбцов и 4 строк нумеруются так:
+Например, ячейки в таблице с 4 столбцами и 4 строками нумеруются следующим образом:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,257 +99,254 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Этот JavaScript‑код показывает, как задать нумерацию ячеек в таблице:
+Этот пример создаёт таблицу 4 × 4, изображённую выше, со столбцами и строками шириной 70 пунктов и красными границами ячеек шириной 5 пунктов. Координаты иллюстрируют индексы ячеек; пример оставляет ячейки пустыми и сохраняет таблицу как `StandardTables_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// Создаёт экземпляр класса Presentation, представляющего файл PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает доступ к первому слайду
-    var sld = pres.getSlides().get_Item(0);
-    // Определяет столбцы с ширинами и строки с высотами
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Добавляет форму таблицы на слайд
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Устанавливает формат границы для каждой ячейки
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
         for (let j = 0; j < row.size(); j++) {
             const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            const cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderTop().setWidth(5);
+
+            cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderBottom().setWidth(5);
+
+            cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderLeft().setWidth(5);
+
+            cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Сохраняет презентацию на диск
-    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Доступ к существующей таблице**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
+Таблицы хранятся в коллекции фигур слайда. Пройдите по фигурам, чтобы найти таблицу, затем используйте класс [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) для чтения или обновления её ячеек.
 
-2. Получите ссылку на слайд, содержащий таблицу, по его индексу. 
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд, содержащий таблицу, по его индексу.
+3. Пройдите по объектам [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) и остановитесь, когда найдёте таблицу. Если на слайде несколько таблиц, используйте [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getAlternativeText--) для идентификации нужной.
+4. Обновите текст в целевой ячейке.
+5. Сохраните изменённую презентацию.
 
-3. Создайте объект [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table) и присвойте ему значение `null`.
-
-4. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/) до тех пор, пока не найдёте таблицу.
-
-   Если вы подозреваете, что обрабатываемый слайд содержит одну единственную таблицу, просто проверьте все его фигуры. Когда фигура определяется как таблица, её можно привести к типу [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table). Если же на слайде несколько таблиц, лучше искать нужную таблицу по её [setAlternativeText(String value)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
-
-5. Используйте объект [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table) для работы с таблицей. В примере ниже мы задаём текст ячейки таблицы.
-
-6. Сохраните изменённую презентацию.
-
-Этот JavaScript‑код демонстрирует, как получить доступ к существующей таблице и работать с ней:
+Пример ниже открывает `UpdateExistingTable.pptx` и находит первую таблицу на первом слайде. Он задаёт значение `New` ячейке в столбце 0, строка 1 и сохраняет результат как `table1_out.pptx`. Входной файл должен содержать как минимум один слайд, а первая таблица на этом слайде должна иметь минимум один столбец и две строки.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Создаёт экземпляр класса Presentation, представляющего файл PPTX
-var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+const presentation = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // Получает доступ к первому слайду
-    var sld = pres.getSlides().get_Item(0);
-    // Инициализирует TableEx как null
-    var tbl = null;
-    // Проходит по всем фигурам и сохраняет ссылку на найденную таблицу
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // Устанавливает текст для первого столбца второй строки
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    const slide = presentation.getSlides().get_Item(0);
+    let table = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+            table = shape;
+            break;
         }
     }
-    // Сохраняет изменённую презентацию на диск
-    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Для изменения высоты строки в существующей таблице и понимания, почему её фактическая высота может превышать запрошенный минимум, см. [Control Row Height](/slides/ru/nodejs-java/manage-rows-and-columns/#control-row-height).
+
 ## **Поиск ячейки, владеющей текстовым фреймом**
 
-Когда общий код обработки текста получает объект [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/) из таблицы, используйте метод [TextFrame.getParentCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentCell--) для получения владеющей [Cell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cell/). Для текстового фрейма ячейки таблицы [TextFrame.getParentCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentCell--) возвращает владельца, а [TextFrame.getParentShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentShape--) возвращает `null`, хотя сама таблица является фигурой.
+Когда общий код обработки текста получает объект [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) из таблицы, используйте метод [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) для получения владельца‑[Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/). Для текстового фрейма ячейки таблицы [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) возвращает владельца, а [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) возвращает `null`, хотя сама таблица является фигурой.
 
-Координаты ячейки доступны через только для чтения методы [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) и [Cell.getFirstRowIndex](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cell/#getFirstRowIndex--). [TextFrame.getParentCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentCell--) также обеспечивает только чтение: он возвращает владельца, но не меняет владения. Всегда проверяйте возвращаемую ячейку на `null` перед использованием.
+Координаты ячейки доступны через только для чтения методы [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) и [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstRowIndex--). [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) также предоставляет только навигацию: он возвращает владельца, но не меняет владение. Всегда проверяйте возвращаемую ячейку на `null` перед её использованием.
 
-Полный пример, определяющий владельцев ячеек таблицы и фигур, включая фигуры, связанные с узлами SmartArt, см. в разделе [Search and Replace Text](/slides/ru/nodejs-java/search-and-replace-text/).
+Для полного примера, определяющего владельцев ячейки таблицы и фигур, включая фигуры, связанные с узлами SmartArt, см. [Search and Replace Text](/slides/ru/nodejs-java/search-and-replace-text/).
 
 ## **Выравнивание текста в таблице**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу. 
-3. Добавьте объект [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table) на слайд.
-4. Получите объект [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/) из таблицы.
-5. Получите [Paragraph](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/paragraph/) из [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/).
-6. Выведите текст вертикально.
+Можно управлять вертикальной привязкой и направлением текста в отдельных ячейках таблицы. Пример в этом разделе центрирует текст в первой ячейке и вращает его на 270 градусов.
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Добавьте объект [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) на слайд.
+4. Получите объект [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) из таблицы.
+5. Получите первый [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) и задайте ему текст и цвет.
+6. Установите вертикальную привязку ячейки и направление текста с помощью [setTextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextAnchorType-byte-) и [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextVerticalType-byte-).
 7. Сохраните изменённую презентацию.
 
-Этот JavaScript‑код показывает, как выровнять текст в таблице:
+Этот пример создаёт таблицу 4 × 4 со столбцами шириной 120 пунктов и строками высотой 100 пунктов. Он форматирует текст в ячейке (0, 0), добавляет значения в остальные ячейки первой строки и сохраняет результат как `Vertical_Align_Text_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
 
-// Создаёт экземпляр класса Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд
-    var slide = pres.getSlides().get_Item(0);
-    // Определяет столбцы с ширинами и строки с высотами
-    var dblCols = java.newArray("double", [120, 120, 120, 120]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // Добавляет форму таблицы на слайд
-    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // Получает доступ к текстовому фрейму
-    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    // Создаёт объект Paragraph для текстового фрейма
-    var paragraph = txtFrame.getParagraphs().get_Item(0);
-    // Создаёт объект Portion для абзаца
-    var portion = paragraph.getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [120, 120, 120, 120]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    const textFrame = table.get_Item(0, 0).getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+
+    const portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Выравнивает текст вертикально
-    var cell = tbl.get_Item(0, 0);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+
+    const cell = table.get_Item(0, 0);
     cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
     cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
-    // Сохраняет презентацию на диск
-    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Установка форматирования текста на уровне таблицы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу. 
-3. Получите объект [Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Table) со слайда.
-4. Установите [setFontHeight(float value)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) для текста.
-5. Установите [setAlignment(int value)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) и [setMarginRight(float value)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).
-6. Установите [setTextVerticalType(byte value)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Сохраните изменённую презентацию. 
+Используйте [setTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setTextFormat-com.aspose.slides.IPortionFormat-) для применения форматирования текста ко всем ячейкам таблицы. Его перегрузки принимают форматирование части, абзаца и текстового фрейма, поэтому можно задавать эти свойства без перебора отдельных ячеек.
 
-Этот JavaScript‑код демонстрирует, как применить предпочтительные параметры форматирования к тексту в таблице:
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
+3. Получите объект [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) со слайда.
+4. Установите размер шрифта с помощью [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) для текста.
+5. Задайте выравнивание абзаца и правый отступ с помощью [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) и [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).
+6. Установите направление текста с помощью [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
+7. Сохраните изменённую презентацию.
+
+Пример ниже открывает `table.pptx`, который должен содержать как минимум один слайд с таблицей в качестве первой фигуры. Он задаёт размер шрифта 25 пунктов, выравнивает абзацы по правому краю с правым отступом 20 пунктов и делает текст вертикальным. Отформатированная презентация сохраняется как `result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Создаёт экземпляр класса Presentation
-var pres = new aspose.slides.Presentation("simpletable.pptx");
+const presentation = new aspose.slides.Presentation("table.pptx");
 try {
-    // Предположим, что первая фигура на первом слайде — таблица
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Устанавливает высоту шрифта ячеек таблицы
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    // Устанавливает выравнивание текста ячеек таблицы и правый отступ одним вызовом
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    table.setTextFormat(portionFormat);
+
+    const paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    // Устанавливает вертикальный тип текста ячеек таблицы
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    table.setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new aspose.slides.TextFrameFormat();
     textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
-    someTable.setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Установка предустановки стиля таблицы**
+## **Получение свойств стиля таблицы**
 
-Aspose.Slides поставляется со встроенными стилями таблиц PowerPoint в виде перечисления [TableStylePreset](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/tablestylepreset/), так что вы можете применить одинаковый вид к любой таблице. Этот JavaScript‑код показывает, как заменить стиль таблицы по умолчанию на предустановленный стиль:
+Используйте [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) для чтения предустановленного стиля таблицы и [setStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setStylePreset-int-) для его назначения. Этот пример применяет [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) к одной таблице, выводит значение предустановки и назначает тот же стиль второй таблице. Обе таблицы сохраняются в `table-style.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// изменить тему предустановленного стиля по умолчанию
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log("Table style preset: " + stylePreset);
+
+    const anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
+    anotherTable.setStylePreset(stylePreset);
+
+    presentation.save("table-style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Блокировка соотношения сторон таблицы**
 
-Соотношение сторон геометрической фигуры — это отношение её размеров по различным измерениям. Aspose.Slides предоставляет свойство [**setAspectRatioLocked**](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) для блокировки настройки соотношения сторон у таблиц и других фигур.
+Соотношение сторон таблицы — это отношение её ширины к высоте. Используйте [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked-boolean-) для блокировки этого соотношения.
 
-Этот JavaScript‑код демонстрирует, как заблокировать соотношение сторон для таблицы:
+Пример ниже открывает `pres.pptx`, который должен содержать как минимум один слайд с таблицей в качестве первой фигуры. Он выводит текущее состояние блокировки, включает блокировку соотношения сторон, выводит обновлённое состояние (`true`) и сохраняет результат как `pres-out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// invert
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Могу ли я включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
+**Можно ли включить направление чтения справа налево (RTL) для всей таблицы и текста в её ячейках?**
 
-Да. Таблица предоставляет метод [setRightToLeft](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/table/setrighttoleft/), а абзацы имеют [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). Использование обоих гарантирует правильный порядок RTL и корректный рендеринг внутри ячеек.
+Да. Таблица предоставляет метод [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setRightToLeft-boolean-), а у абзацев есть [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setRightToLeft-byte-). Использование обоих обеспечивает правильный RTL‑порядок и отображение внутри ячеек.
 
-**Как я могу запретить пользователям перемещать или изменять размер таблицы в финальном файле?**
+**Как предотвратить перемещение или изменение размера таблицы пользователями в итоговом файле?**
 
-Используйте блокировки фигур, чтобы отключить перемещение, изменение размера, выделение и т.д. Эти блокировки применимы и к таблицам.
+Используйте [shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) для отключения перемещения, изменения размера, выбора и т.д. Эти блокировки применимы и к таблицам.
 
-**Поддерживается ли вставка изображения в ячейку в качестве фоновой заливки?**
+**Поддерживается ли вставка изображения в ячейку в качестве фона?**
 
-Да. Вы можете задать [picture fill](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/) для ячейки; изображение покрывает область ячейки в соответствии с выбранным режимом (растягивание или мозаика).
+Да. Вы можете задать [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) для ячейки; изображение покрывает область ячейки в выбранном режиме (растягивание или замостка).
