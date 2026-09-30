@@ -21,24 +21,26 @@ description: "Create & edit tables in PowerPoint slides with Aspose.Slides for P
 
 ## **Introduction**
 
-A table in PowerPoint is an efficient way of displaying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
+Tables in PowerPoint organize information into rows and columns, making it easier to read and compare values.
 
-Aspose.Slides provides the [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) class, [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) class, and other types to allow you to create, update, and manage tables in all kinds of presentations.
+Aspose.Slides provides the [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) and [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) classes and other types to allow you to create, update, and manage tables in presentations.
 
 ## **Create a Table from Scratch**
 
+Create a table by specifying its position, column widths, and row heights. After adding it to a slide, you can format cell borders, merge cells, and insert text.
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-2. Get a reference to a slide by its index.
-3. Define a list of column widths.
-4. Define a list of row heights.
+2. Get a reference to the slide by its index.
+3. Define a list of column widths in points.
+4. Define a list of row heights in points.
 5. Add a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object to the slide through the [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) method.
 6. Iterate through each [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
 7. Merge the first two cells of the table's first row.
-8. Access a [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).
-9. Add some text to the [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).
+8. Access the merged cell through its [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) method.
+9. Set the text in the merged cell.
 10. Save the modified presentation.
 
-This Python code shows you how to create a table in a presentation:
+The example below creates a table with three columns and five rows at (100, 50) points. It applies red borders with a width of 5 points, merges the first two cells in the first row, and saves the result as `table.pptx`.
 
 ```python
 import jpype
@@ -50,21 +52,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Instantiates a Presentation class that represents a PPTX file
 presentation = Presentation()
 try:
-
-    # Accesses the first slide
     slide = presentation.getSlides().get_Item(0)
 
-    # Defines columns with widths and rows with heights
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Adds a table shape to slide
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Sets the border format for each cell
     for row in table.getRows():
         for cell in row:
             cell_format = cell.getCellFormat()
@@ -81,13 +76,9 @@ try:
             cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
             cell_format.getBorderRight().setWidth(5)
 
-    # Merges cells 1 & 2 of row 1
-    table.mergeCells(table.getRows().get_Item(0).get_Item(0), table.getRows().get_Item(0).get_Item(1), False)
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), False)
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells")
 
-    # Adds some text to the merged cell
-    table.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells")
-
-    # Saves the presentation to Disk
     presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -95,7 +86,7 @@ finally:
 
 ## **Numbering in a Standard Table**
 
-In a standard table, the numbering of cells is straightforward and zero-based. The first cell in a table is indexed as 0,0 (column 0, row 0).
+In a standard table, cell indices are zero-based and use the order (column, row). The first cell is indexed as (0, 0).
 
 For example, the cells in a table with 4 columns and 4 rows are numbered this way:
 
@@ -105,7 +96,7 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-This Python code shows you how to create a table with standard cell numbering:
+This example creates the 4 × 4 table illustrated above, with column widths and row heights of 70 points and red cell borders with a width of 5 points. The coordinates illustrate cell indices; the example leaves the cells empty and saves the table as `StandardTables_out.pptx`.
 
 ```python
 import jpype
@@ -117,37 +108,30 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Instantiates a Presentation class that represents a PPTX file
 presentation = Presentation()
 try:
-
-    # Accesses first slide
     slide = presentation.getSlides().get_Item(0)
 
-    # Defines columns with widths and rows with heights
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Adds a table shape to slide
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Sets the border format for each cell
     for row in table.getRows():
         for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
+            cell_format = cell.getCellFormat()
+            cell_format.getBorderTop().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderTop().setWidth(5)
+            cell_format.getBorderBottom().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderBottom().setWidth(5)
+            cell_format.getBorderLeft().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderLeft().setWidth(5)
+            cell_format.getBorderRight().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderRight().setWidth(5)
 
-    # Saves presentation to disk
     presentation.save("StandardTables_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -155,21 +139,15 @@ finally:
 
 ## **Access an Existing Table**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+Tables are stored in a slide's shape collection. Iterate through the shapes to locate a table, then use the [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) class to read or update its cells.
 
-2. Get a reference to the slide containing the table through its index.
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide containing the table by its index.
+3. Iterate through the [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) objects and stop when a table is found. If the slide contains several tables, use [getAlternativeText](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getAlternativeText) to identify the one you need.
+4. Update the text in the target cell.
+5. Save the modified presentation.
 
-3. Initialize a variable for a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object and set it to `None`.
-
-4. Iterate through all [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) objects until the table is found.
-
-   If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can use it as a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [getAlternativeText](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getAlternativeText).
-
-5. Use the [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object to work with the table. In the example below, we update the text in the first column of the second row.
-
-6. Save the modified presentation.
-
-This Python code shows you how to access and work with an existing table:
+The example below opens `UpdateExistingTable.pptx` and finds the first table on the first slide. It sets the cell at column 0, row 1 to `New` and saves the result as `table1_out.pptx`. The input must contain at least one slide, and the first table on that slide must have at least one column and two rows.
 
 ```python
 import jpype
@@ -180,29 +158,25 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, Table
 
-# Instantiates the Presentation class that represents a PPTX file
 presentation = Presentation("UpdateExistingTable.pptx")
 try:
-
-    # Accesses the first slide
     slide = presentation.getSlides().get_Item(0)
 
-    # Initialize the table reference.
     table = None
 
-    # Iterates through the shapes and sets a reference to the table found
     for shape in slide.getShapes():
         if isinstance(shape, Table):
             table = shape
+            break
 
-            # Sets the text for the first column of the second row
-            table.get_Item(0, 1).getTextFrame().setText("New")
-
-    # Saves the modified presentation to disk
-    presentation.save("table1_out.pptx", SaveFormat.Pptx)
+    if table is not None:
+        table.get_Item(0, 1).getTextFrame().setText("New")
+        presentation.save("table1_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
+
+To resize a row in an existing table and understand why its actual height can exceed the requested minimum, see [Control Row Height](/slides/python-java/manage-rows-and-columns/#control-row-height).
 
 ## **Find the Cell That Owns a Text Frame**
 
@@ -214,15 +188,17 @@ For a complete example that identifies table-cell and shape owners, including sh
 
 ## **Align Text in a Table**
 
+You can control the vertical anchoring and text direction of individual table cells. The example in this section centers text within the first cell and rotates it by 270 degrees.
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-2. Get a reference to a slide by its index.
+2. Get a reference to the slide by its index.
 3. Add a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object to the slide.
 4. Access a [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) object from the table.
-5. Access the [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) object's [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/).
-6. Align the text vertically.
+5. Access the first [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) and set its text and color.
+6. Set the cell's vertical anchoring and text direction using [setTextAnchorType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextAnchorType) and [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextVerticalType).
 7. Save the modified presentation.
 
-This Python code shows you how to align the text in a table:
+This example creates a 4 × 4 table with column widths of 120 points and row heights of 100 points. It formats the text in cell (0, 0), adds values to the remaining cells in the first row, and saves the result as `Vertical_Align_Text_out.pptx`.
 
 ```python
 import jpype
@@ -234,41 +210,30 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, TextAnchorType, TextVerticalType
 from java.awt import Color
 
-# Creates an instance of the Presentation class
 presentation = Presentation()
 try:
-
-    # Gets the first slide
     slide = presentation.getSlides().get_Item(0)
 
-    # Defines columns with widths and rows with heights
     column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # Adds the table shape to the slide
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    
     table.get_Item(1, 0).getTextFrame().setText("10")
     table.get_Item(2, 0).getTextFrame().setText("20")
     table.get_Item(3, 0).getTextFrame().setText("30")
 
-    # Accesses the text frame
     text_frame = table.get_Item(0, 0).getTextFrame()
-
-    # Access the first paragraph in the text frame.
     paragraph = text_frame.getParagraphs().get_Item(0)
 
-    # Access the first portion in the paragraph.
     portion = paragraph.getPortions().get_Item(0)
     portion.setText("Text here")
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Aligns the text vertically
     cell = table.get_Item(0, 0)
     cell.setTextAnchorType(TextAnchorType.Center)
     cell.setTextVerticalType(TextVerticalType.Vertical270)
 
-    # Saves the presentation to disk
     presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -276,15 +241,17 @@ finally:
 
 ## **Set Text Formatting on the Table Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-2. Get a reference to a slide by its index.
+Use [setTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setTextFormat) to apply text formatting to all cells in a table. Its overloads accept portion, paragraph, and text frame formatting, so you can set these properties without iterating through individual cells.
+
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
 3. Access a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object from the slide.
-4. Set the text's font height with [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight).
-5. Set the alignment and right margin with [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) and [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight).
-6. Set the vertical text type with [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType).
+4. Set the font size using [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) for the text.
+5. Set paragraph alignment and the right margin using [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) and [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight).
+6. Set the text direction using [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType).
 7. Save the modified presentation.
 
-This Python code shows you how to apply your preferred formatting options to the text in a table:
+The example below opens `table.pptx`, which must contain at least one slide with a table as its first shape. It sets the font size to 25 points, right-aligns paragraphs with a right margin of 20 points, and makes the text vertical. The formatted presentation is saved as `result.pptx`.
 
 ```python
 import jpype
@@ -295,40 +262,31 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ParagraphFormat, PortionFormat, Presentation, SaveFormat, TextAlignment, TextFrameFormat, TextVerticalType, Table
 
-# Creates an instance of the Presentation class
-presentation = Presentation("simpletable.pptx")
+presentation = Presentation("table.pptx")
 try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
 
-    # Let's assume that the first shape on the first slide is a table
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.setTextFormat(portion_format)
 
-        # Sets the table cells' font height
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.setTextFormat(portion_format)
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.setTextFormat(paragraph_format)
 
-        # Sets the table cells' text alignment and right margin in one call
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.setTextFormat(paragraph_format)
-
-        # Sets the table cells' text vertical type
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.setTextFormat(text_frame_format)
+    presentation.save("result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Python code shows you how to get the style properties from a table preset style:
+Use [getStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getStylePreset) to read a table's preset style and [setStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setStylePreset) to assign it. This example applies [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/python-java/aspose.slides/tablestylepreset/) to one table, prints the preset value, and assigns the same preset to a second table. Both tables are saved in `table-style.pptx`.
 
 ```python
 import jpype
@@ -341,26 +299,29 @@ from asposeslides.api import Presentation, SaveFormat, TableStylePreset
 
 presentation = Presentation()
 try:
-    table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 10, [100, 150], [5, 5, 5])
-    table.setStylePreset(TableStylePreset.DarkStyle1)  # change the default style preset theme
+    slide = presentation.getSlides().get_Item(0)
 
-    # Gets the style preset of the table
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.getShapes().addTable(10, 10, column_widths, row_heights)
+    table.setStylePreset(TableStylePreset.DarkStyle1)
+
     style_preset = table.getStylePreset()
     print("Table style preset: ", style_preset)
 
-    # Applies the retrieved style preset to another table
-    another_table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 100, [100, 150], [5, 5, 5])
+    another_table = slide.getShapes().addTable(10, 100, column_widths, row_heights)
     another_table.setStylePreset(style_preset)
-    presentation.save("table.pptx", SaveFormat.Pptx)
+
+    presentation.save("table-style.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Lock Aspect Ratio of a Table**
 
-The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provides the [setAspectRatioLocked](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) method to allow you to lock the aspect ratio setting for tables and other shapes.
+A table's aspect ratio is the ratio of its width to its height. Use [setAspectRatioLocked](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) to lock this ratio for a table.
 
-This Python code shows you how to lock the aspect ratio for a table:
+The example below opens `pres.pptx`, which must contain at least one slide with a table as its first shape. It prints the current lock state, enables the aspect ratio lock, prints the updated state (`True`), and saves the result as `pres-out.pptx`.
 
 ```python
 import jpype
@@ -373,15 +334,15 @@ from asposeslides.api import Presentation, SaveFormat, Table
 
 presentation = Presentation("pres.pptx")
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        table.getGraphicalObjectLock().setAspectRatioLocked(not table.getGraphicalObjectLock().getAspectRatioLocked())  # invert
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        presentation.save("pres-out.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(True)
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    presentation.save("pres-out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
