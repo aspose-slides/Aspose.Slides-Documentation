@@ -1,6 +1,6 @@
 ---
-title: C++ में प्रस्तुति तालिकाओं को प्रबंधित करें
-linktitle: तालिका प्रबंधन
+title: C++ में प्रस्तुति तालिकाएँ प्रबंधित करें
+linktitle: तालिका प्रबंधित करें
 type: docs
 weight: 10
 url: /hi/cpp/manage-table/
@@ -9,44 +9,45 @@ keywords:
 - तालिका बनाएं
 - तालिका तक पहुंचें
 - आस्पेक्ट अनुपात
-- पाठ संरेखित करें
+- पाठ को संरेखित करें
 - पाठ स्वरूपण
 - तालिका शैली
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint स्लाइड में तालिकाओं को बनाएं और संपादित करें। अपने तालिका कार्य प्रवाह को सुव्यवस्थित करने के लिए सरल कोड उदाहरणों की खोज करें।"
+description: "Aspose.Slides for C++ के साथ PowerPoint स्लाइड्स में तालिकाएँ बनाएं और संपादित करें। अपने तालिका कार्यप्रवाह को सरल बनाने के लिए सरल कोड उदाहरण खोजें।"
 ---
 ## **परिचय**
 
-PowerPoint में तालिका जानकारी को प्रदर्शित और चित्रित करने का एक प्रभावी तरीका है। पंक्तियों और स्तंभों में व्यवस्थित कोशिकाओं की ग्रिड में जानकारी सरल और आसानी से समझने योग्य होती है।
+PowerPoint में तालिकाएँ जानकारी को पंक्तियों और स्तंभों में व्यवस्थित करती हैं, जिससे मानों को पढ़ना और तुलना करना आसान हो जाता है।
 
-Aspose.Slides [Table](https://reference.aspose.com/slides/hi/cpp/aspose.slides/table/) क्लास, [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) इंटरफ़ेस, [Cell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/cell/) क्लास, [ICell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/) इंटरफ़ेस, और अन्य प्रकार प्रदान करता है ताकि आप विभिन्न प्रस्तुतियों में तालिकाओं को बना, अद्यतन और प्रबंधित कर सकें। 
+Aspose.Slides निम्नलिखित प्रदान करता है: [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) क्लास, [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) इंटरफ़ेस, [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) क्लास, [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) इंटरफ़ेस, और अन्य प्रकार, जिससे आप प्रस्तुतियों में तालिकाएँ बना, अपडेट और प्रबंधित कर सकते हैं।
 
 ## **शुरू से तालिका बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. उसके सूचकांक के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. `columnWidth` की एक एरे निर्धारित करें।  
-4. `rowHeight` की एक एरे निर्धारित करें।  
-5. स्लाइड में एक [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट को [AddTable()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addtable/) मेथड के माध्यम से जोड़ें।  
-6. प्रत्येक [ICell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/) को पारित करके ऊपरी, निचले, दाएँ और बाएँ किनारों पर स्वरूपण लागू करें।  
-7. तालिका की पहली पंक्ति के पहले दो कोशिकाओं को मिलाएँ।  
-8. किसी [ICell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/)'s [TextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textframe/) तक पहुंचें।  
-9. [TextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textframe/) में कुछ पाठ जोड़ें।  
-10. संशोधित प्रस्तुति को सहेजें।
+एक तालिका बनाते समय उसकी स्थिति, स्तंभ चौड़ाई और पंक्ति ऊँचाई निर्दिष्ट करें। स्लाइड में जोड़ने के बाद, आप सेल बॉर्डर को स्वरूपित कर सकते हैं, सेल्स को मिलाएँ, और टेक्स्ट डाल सकते हैं।
 
-यह C++ 코ड आपको दिखाता है कि प्रस्तुति में तालिका कैसे बनाएं:
+1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
+2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+3. पॉइंट में स्तंभ चौड़ाई की एक एरे परिभाषित करें।
+4. पॉइंट में पंक्ति ऊँचाई की एक एरे परिभाषित करें।
+5. [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) मेथड के माध्यम से स्लाइड में एक [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) ऑब्जेक्ट जोड़ें।
+6. प्रत्येक [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) के माध्यम से इटररेट करके शीर्ष, नीचे, दाएँ और बाएँ बॉर्डर्स पर स्वरूपण लागू करें।
+7. तालिका की पहली पंक्ति के पहले दो सेल्स को मिलाएँ।
+8. मर्ज किए गए सेल को उसके [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) मेथड के माध्यम से एक्सेस करें।
+9. मर्ज किए गए सेल में टेक्स्ट सेट करें।
+10. परिवर्तित प्रस्तुति को सहेजें।
 
-```c++
+नीचे दिया गया उदाहरण 3 स्तंभ और 5 पंक्तियों वाली तालिका (100, 50) पॉइंट पर बनाता है। यह 5 पॉइंट चौड़ाई के लाल बॉर्डर लागू करता है, पहली पंक्ति के पहले दो सेल को मिलाता है, और परिणाम को `table.pptx` के रूप में सहेजता है।
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -56,35 +57,29 @@ Aspose.Slides [Table](https://reference.aspose.com/slides/hi/cpp/aspose.slides/t
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// पहली स्लाइड तक पहुंचता है
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// कॉलम की चौड़ाइयों और पंक्तियों की ऊँचाइयों को निर्धारित करता है
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// स्लाइड में एक तालिका आकार जोड़ता है
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// प्रत्येक सेल के लिए बॉर्डर फ़ॉर्मेट सेट करता है
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -97,21 +92,18 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// पंक्ति 1 की सेल 1 और 2 को मिलाता है
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// मिलाए गए सेल में कुछ टेक्स्ट जोड़ता है
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// प्रस्तुति को डिस्क पर सहेजता है
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **मानक तालिका में क्रमांकन**
 
-मानक तालिका में कोशिकाओं का क्रमांकन सरल और शून्य-आधारित होता है। तालिका की पहली कोशिका को 0,0 (स्तंभ 0, पंक्ति 0) के रूप में अनुक्रमित किया जाता है। 
+एक मानक तालिका में, सेल अनुक्रमण शून्य-आधारित होते हैं और क्रम (स्तंभ, पंक्ति) का उपयोग करते हैं। पहला सेल (0, 0) के रूप में अनुक्रमित होता है।
 
-उदाहरण के लिए, 4 स्तम्भ और 4 पंक्तियों वाली तालिका में कोशिकाएँ इस प्रकार क्रमांकित होती हैं:
+उदाहरण के लिये, 4 स्तंभ और 4 पंक्तियों वाली तालिका के सेल इस प्रकार क्रमांकित होते हैं:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -119,9 +111,9 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-यह C++ 코ड आपको दिखाता है कि तालिका में कोशिकाओं के क्रमांकन को कैसे निर्दिष्ट करें:
+यह उदाहरण ऊपर दर्शाए गए 4 × 4 तालिका को बनाता है, जिसमें स्तंभ चौड़ाई और पंक्ति ऊँचाई 70 पॉइंट है और लाल सेल बॉर्डर 5 पॉइंट चौड़ा है। निर्देशांक सेल अनुक्रमण दर्शाते हैं; यह उदाहरण सेल को खाली छोड़ता है और तालिका को `StandardTables_out.pptx` के रूप में सहेजता है।
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -129,7 +121,6 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -138,25 +129,19 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// एक Presentation क्लास का उदाहरण बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// पहली स्लाइड तक पहुंचता है
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// कॉलम की चौड़ाइयों और पंक्तियों की ऊँचाइयों को परिभाषित करता है
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// स्लाइड में एक तालिका आकार जोड़ता है
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// प्रत्येक सेल के लिए बॉर्डर फ़ॉर्मेट सेट करता है
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -179,32 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// प्रस्तुति को डिस्क पर सहेजता है
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **मौजूदा तालिका तक पहुंचें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
+तालिकाएँ स्लाइड के शेप कलेक्शन में संग्रहीत होती हैं। टेबल खोजने हेतु शेप्स के माध्यम से इटररेट करें, फिर उसकी सेल्स को पढ़ने या अपडेट करने के लिए [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) इंटरफ़ेस का उपयोग करें।
 
-2. उसके सूचकांक के माध्यम से तालिका वाली स्लाइड का संदर्भ प्राप्त करें।  
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का उपयोग करके प्रस्तुति लोड करें।
+2. इंडेक्स द्वारा वह स्लाइड प्राप्त करें जिसमें टेबल अस्तित्व में है।
+3. [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) ऑब्जेक्ट के माध्यम से इटररेट करें और टेबल मिलने पर रुकें। यदि स्लाइड में कई तालिकाएँ हैं, तो आवश्यक तालिका की पहचान के लिए [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) का उपयोग करें।
+4. लक्षित सेल में टेक्स्ट अपडेट करें।
+5. परिवर्तित प्रस्तुति को सहेजें।
 
-3. एक [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट बनाएं और उसे null सेट करें।  
+नीچے दिया गया उदाहरण `UpdateExistingTable.pptx` को खोलता है और पहले स्लाइड पर पहली तालिका खोजता है। यह कॉलम 0, पंक्ति 1 के सेल को `New` सेट करता है और परिणाम को `table1_out.pptx` के रूप में सहेजता है। इनपुट में कम से कम एक स्लाइड होना चाहिए, और उस स्लाइड की पहली तालिका में कम से कम एक कॉलम और दो पंक्तियाँ होनी चाहिए।
 
-4. सभी [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) ऑब्जेक्ट्स को पारित करें जब तक तालिका न मिल जाए।  
-
-   यदि आपको संदेह है कि आप जिस स्लाइड को संभाल रहे हैं उसमें एक ही तालिका है, तो आप बस उसकी सभी आकृतियों की जाँच कर सकते हैं। जब कोई आकार तालिका के रूप में पहचाना जाता है, तो आप उसे [Table](https://reference.aspose.com/slides/hi/cpp/aspose.slides/table/) ऑब्जेक्ट के रूप में टाइपकास्ट कर सकते हैं। लेकिन यदि स्लाइड में कई तालिकाएँ हैं, तो आपको उसकी [set_AlternativeText()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/set_alternativetext/) के माध्यम से आवश्यकता वाली तालिका को खोज लेना बेहतर रहेगा।  
-
-5. तालिका के साथ काम करने के लिए [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट का उपयोग करें। नीचे के उदाहरण में हमने तालिका में एक नई पंक्ति जोड़ी है।  
-
-6. संशोधित प्रस्तुति को सहेजें।  
-
-यह C++ 코ड आपको दिखाता है कि मौजूदा तालिका तक कैसे पहुंचें और उसके साथ काम करें:
-
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -212,55 +189,56 @@ pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का उदाहरण बनाता है
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// पहली स्लाइड तक पहुंचता है
-auto sld = pres->get_Slides()->idx_get(0);
-
-// शून्य Table को प्रारंभ करता है
-System::SharedPtr<ITable> tbl;
-
-// आकारों के माध्यम से इटरनेट करता है और मिली टेबल का संदर्भ सेट करता है
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// दूसरी पंक्ति के पहले कॉलम का टेक्स्ट सेट करता है
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// संशोधित प्रस्तुति को डिस्क पर सहेजता है
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
 
-## **ऐसे सेल को खोजें जिसका टेक्स्ट फ्रेम मालिक है**
+किसी मौजूदा तालिका में पंक्ति का आकार बदलने और यह समझने के लिए कि उसका वास्तविक ऊँचाई अनुरोधित न्यूनतम से अधिक क्यों हो सकती है, देखें [पंक्ति ऊँचाई नियंत्रण](/slides/hi/cpp/manage-rows-and-columns/#control-row-height)।
 
-जब सामान्य टेक्स्ट प्रोसेसिंग कोड को तालिका से कोई [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) मिलता है, तो उस मालिक [ICell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/) को प्राप्त करने के लिए [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentcell/) का उपयोग करें। तालिका‑सेल टेक्स्ट फ्रेम के लिए, यह मेथड मालिक को लौटाता है और [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) `nullptr` लौटाता है, जबकि स्वयं तालिका एक शैप है।  
+## **टेक्स्ट फ्रेम का स्वामी सेल खोजें**
 
-सेल के निर्देशांक पढ़ने‑के‑लिए‑केवल [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/get_firstcolumnindex/) और [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/get_firstrowindex/) मेथड उपलब्ध हैं। [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentcell/) केवल पढ़ने‑के‑लिए नेविगेशन भी प्रदान करता है: यह मालिक लौटाता है लेकिन स्वामित्व नहीं बदलता। हमेशा उपयोग करने से पहले लौटाए गए सेल के लिए `nullptr` की जाँच करें।  
+जब सामान्य टेक्स्ट-प्रोसेसिंग कोड को तालिका से एक [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) प्राप्त होता है, तो स्वामी [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) को प्राप्त करने के लिए [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) का उपयोग करें। तालिका-सेल टेक्स्ट फ्रेम के लिए, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) स्वामी लौटाता है और [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) `nullptr` लौटाता है, भले ही तालिका स्वयं एक शेप हो।
 
-पूरी उदाहरण के लिए जो तालिका‑सेल और शैप मालिकों की पहचान करता है, जिसमें SmartArt नोड्स से जुड़े शैप भी शामिल हैं, देखें [Search and Replace Text](/slides/hi/cpp/search-and-replace-text/)।
+सेल निर्देशांक पढ़ने‑के‑लिए केवल [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) और [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) मेथड्स के माध्यम से उपलब्ध हैं। [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) भी पढ़ने‑के‑लिए नेविगेशन प्रदान करता है: यह स्वामी लौटाता है लेकिन स्वामित्व नहीं बदलता। उपयोग करने से पहले हमेशा लौटाए गये सेल को `nullptr` के लिए जांचें।
+
+एक पूर्ण उदाहरण जिसके द्वारा टेबल‑सेल और शेप मालिकों की पहचान की जाती है, जिसमें SmartArt नोड्स से जुड़े शेप्स भी शामिल हैं, देखें [टेक्स्ट खोजें और बदलें](/slides/hi/cpp/search-and-replace-text/)।
 
 ## **तालिका में टेक्स्ट को संरेखित करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. उसके सूचकांक के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. स्लाइड में एक [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट जोड़ें।  
-4. तालिका से एक [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) ऑब्जेक्ट तक पहुंचें।  
-5. उस [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) के भीतर के [IParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraph/) तक पहुंचें।  
-6. टेक्स्ट को ऊर्ध्वाधर रूप से संरेखित करें।  
-7. संशोधित प्रस्तुति को सहेजें।  
+आप व्यक्तिगत तालिका कोशिकाओं के वर्टिकल एंकरिंग और टेक्स्ट दिशा को नियंत्रित कर सकते हैं। इस अनुभाग का उदाहरण पहले सेल में टेक्स्ट को केंद्रित करता है और उसे 270 डिग्री घुमाता है।
 
-यह C++ 코ड आपको दिखाता है कि तालिका में टेक्स्ट को कैसे संरेखित करें:
+1. एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
+2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+3. स्लाइड में एक [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) ऑब्जेक्ट जोड़ें।
+4. तालिका से एक [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) ऑब्जेक्ट एक्सेस करें।
+5. पहले [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) को एक्सेस करें और उसका टेक्स्ट व रंग सेट करें।
+6. [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) और [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/) का उपयोग करके सेल की वर्टिकल एंकरिंग और टेक्स्ट दिशा सेट करें।
+7. परिवर्तित प्रस्तुति को सहेजें।
 
-```c++
+यह उदाहरण 120 पॉइंट स्तंभ चौड़ाई और 100 पॉइंट पंक्ति ऊँचाई वाली 4 × 4 तालिका बनाता है। यह सेल (0, 0) में टेक्स्ट को स्वरूपित करता है, पहली पंक्ति के शेष कोशिकाओं में मान जोड़ता है, और परिणाम को `Vertical_Align_Text_out.pptx` के रूप में सहेजता है।
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -271,7 +249,6 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -280,63 +257,53 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Presentation क्लास का एक उदाहरण बनाता है
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// पहली स्लाइड प्राप्त करता है
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// कॉलम की चौड़ाइयों और पंक्तियों की ऊँचाइयों को परिभाषित करता है
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// स्लाइड में तालिका आकार जोड़ता है
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// टेक्स्ट फ्रेम तक पहुंचता है
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// टेक्स्ट फ्रेम के लिए Paragraph ऑब्जेक्ट बनाता है
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Paragraph के लिए Portion ऑब्जेक्ट बनाता है
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// टेक्स्ट को ऊर्ध्वाधर रूप से संरेखित करता है
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// प्रस्तुति को डिस्क पर सहेजता है
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **तालिका स्तर पर टेक्स्ट स्वरूपण सेट करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।  
-2. उसके सूचकांक के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. स्लाइड से एक [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) ऑब्जेक्ट तक पहुंचें।  
-4. टेक्स्ट के लिए [set_FontHeight()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/baseportionformat/set_fontheight/) सेट करें।  
-5. [set_Alignment()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_alignment/) और [set_MarginRight()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_marginright/) सेट करें।  
-6. [set_TextVerticalType()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textframeformat/set_textverticaltype/) सेट करें।  
-7. संशोधित प्रस्तुति को सहेजें।  
+[SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/) का उपयोग करके तालिका के सभी सेल्स पर टेक्स्ट स्वरूपण लागू करें। इसके ओवरलोड हिस्से, पैराग्राफ, और टेक्स्ट फ्रेम स्वरूपण ले सकते हैं, जिससे आप व्यक्तिगत सेल्स के माध्यम से इटररेट किए बिना इन गुणों को सेट कर सकते हैं।
 
-यह C++ 코ड आपको दिखाता है कि तालिका में टेक्स्ट पर अपनी वांछित स्वरूपण विकल्प कैसे लागू करें:
+1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) क्लास का उपयोग करके प्रस्तुति लोड करें।
+2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+3. स्लाइड से एक [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) ऑब्जेक्ट एक्सेस करें।
+4. टेक्स्ट के फ़ॉन्ट आकार को सेट करने के लिए [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) का उपयोग करें।
+5. पैराग्राफ संरेखण और दायाँ मार्जिन सेट करने के लिये [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) और [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) का उपयोग करें।
+6. [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) का उपयोग करके टेक्स्ट दिशा सेट करें।
+7. परिवर्तित प्रस्तुति को सहेजें।
 
-```c++
+नीचे दिया गया उदाहरण `table.pptx` को खोलता है, जिसमें कम से कम एक स्लाइड होनी चाहिए जिसमें पहला शेप एक तालिका हो। यह फ़ॉन्ट आकार 25 पॉइंट सेट करता है, पैराग्राफ को दाएँ संरेखित करता है और दायाँ मार्जिन 20 पॉइंट रखता है, तथा टेक्स्ट को वर्टिकल बनाता है। स्वरूपित प्रस्तुति `result.pptx` के रूप में सहेजी जाती है।
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -345,99 +312,106 @@ presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Presentation क्लास का एक उदाहरण बनाता है
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// मान लें कि पहली स्लाइड पर पहला आकार एक तालिका है
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// तालिका कोशिकाओं की फ़ॉन्ट ऊँचाई सेट करता है
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// एक कॉल में तालिका कोशिकाओं का टेक्स्ट संरेखण और दायाँ मार्जिन सेट करता है
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// तालिका कोशिकाओं का टेक्स्ट ऊर्ध्वाधर प्रकार सेट करता है
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
 ## **तालिका शैली गुण प्राप्त करें**
 
-Aspose.Slides आपको तालिका की शैली गुण प्राप्त करने की सुविधा देता है ताकि आप इन विवरणों को किसी अन्य तालिका या कहीं और उपयोग कर सकें। यह C++ 코ड आपको दिखाता है कि तालिका प्रीसेट शैली से शैली गुण कैसे प्राप्त करें:
+[get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) का उपयोग करके तालिका की प्रीसेट शैली पढ़ें और उसे असाइन करने के लिये [set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/) का उपयोग करें। यह उदाहरण एक तालिका पर [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) लागू करता है, प्रीसेट नाम प्रिंट करता है, और उसी प्रीसेट को दूसरी तालिका को असाइन करता है। दोनों तालिकाएँ `table-style.pptx` में सहेजी जाती हैं।
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका का पहलू अनुपात लॉक करें**
+## **तालिका का अनुपात लॉक करें**
 
-ज्यामितीय आकार का पहलू अनुपात विभिन्न आयामों में इसके आकार का अनुपात होता है। Aspose.Slides ने `AspectRatioLocked()` प्रॉपर्टी प्रदान की है जिससे आप तालिकाओं और अन्य आकारों के लिए पहलू अनुपात सेटिंग को लॉक कर सकते हैं।  
+तालिका का अस्पेक्ट रेशियो उसकी चौड़ाई और ऊँचाई का अनुपात है। [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/) का उपयोग करके इस अनुपात को तालिका के लिए लॉक करें।
 
-यह C++ 코ड आपको दिखाता है कि तालिका के लिए पहलू अनुपात कैसे लॉक करें:
+नीचे दिया गया उदाहरण `pres.pptx` को खोलता है, जिसमें कम से कम एक स्लाइड होनी चाहिए जिसमें पहला शेप एक तालिका हो। यह वर्तमान लॉक स्थिति प्रिंट करता है, अस्पेक्ट रेशियो लॉक सक्षम करता है, अपडेटेड स्थिति (`True`) प्रिंट करता है, और परिणाम को `pres-out.pptx` के रूप में सहेजता है।
 
-```c++
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं पूरी तालिका और उसकी कोशिकाओं के टेक्स्ट के लिए दायें‑से‑बाएँ (RTL) पढ़ने की दिशा सक्षम कर सकता हूँ?**
+**क्या मैं पूरी तालिका और उसकी कोशिकाओं के टेक्स्ट के लिये राइट‑टू‑लेफ़्ट (RTL) पढ़ने की दिशा सक्षम कर सकता हूँ?**
 
-हां। तालिका एक [set_RightToLeft](https://reference.aspose.com/slides/hi/cpp/aspose.slides/table/set_righttoleft/) मेथड प्रदान करती है, और पैराग्राफ के पास [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/hi/cpp/aspose.slides/paragraphformat/set_righttoleft/) है। दोनों का उपयोग करने से कोशिकाओं के भीतर सही RTL क्रम और रेंडरिंग सुनिश्चित होती है।  
+हां। तालिका एक [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) मेथड प्रदान करती है, और पैराग्राफ में [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/) है। दोनों का उपयोग करके कोशिकाओं के भीतर सही RTL क्रम और रेंडरिंग सुनिश्चित की जाती है।
 
 **मैं उपयोगकर्ताओं को अंतिम फ़ाइल में तालिका को स्थानांतरित या आकार बदलने से कैसे रोक सकता हूँ?**
 
-[shape locks](/slides/hi/cpp/applying-protection-to-presentation/) का उपयोग करके स्थानांतरण, आकार बदलना, चयन आदि को निष्क्रिय करें। ये लॉक तालिकाओं पर भी लागू होते हैं।  
+टेबल को स्थानांतरित, आकार बदलने, चयन आदि को निष्क्रिय करने के लिये [shape locks](/slides/hi/cpp/applying-protection-to-presentation/) का उपयोग करें। ये लॉक तालिकाओं पर भी लागू होते हैं।
 
-**क्या सेल के अंदर पृष्ठभूमि के रूप में छवि डालना समर्थित है?**
+**क्या एक सेल के अंदर छवि को बैकग्राउंड के रूप में डालना समर्थित है?**
 
-हां। आप सेल के लिए एक [picture fill](https://reference.aspose.com/slides/hi/cpp/aspose.slides/picturefillformat/) सेट कर सकते हैं; छवि चयनित मोड (खींचना या टाइल) के अनुसार सेल क्षेत्र को कवर कर लेगी।
+हां। आप एक सेल के लिये [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) सेट कर सकते हैं; चयनित मोड (स्ट्रैच या टाइल) के अनुसार छवि सेल क्षेत्र को कवर कर देगी।
