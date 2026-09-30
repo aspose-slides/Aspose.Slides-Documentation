@@ -12,118 +12,139 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Personalize legendas de gráficos com Aspose.Slides para Android via Java para otimizar apresentações do PowerPoint com formatação de legenda sob medida."
+description: "Personalize legendas de gráficos com Aspose.Slides for Android via Java para otimizar apresentações PowerPoint com formatação de legenda personalizada."
 ---
 ## **Visão geral**
 
-O Aspose.Slides oferece opções para personalizar legendas de gráficos em apresentações do PowerPoint. Este artigo mostra como posicionar e dimensionar uma legenda, definir o tamanho da fonte para a legenda inteira e aplicar formatação a uma entrada individual da legenda.
+Aspose.Slides for Android via Java oferece opções para personalizar legendas de gráficos em apresentações do PowerPoint. Este artigo mostra como posicionar e dimensionar uma legenda, definir o tamanho da fonte para a legenda inteira, formatar uma entrada individual da legenda e ocultar ou restaurar entradas selecionadas.
 
-Ele também cobre vários comportamentos relacionados nas Perguntas Frequentes, incluindo o uso do modo sem sobreposição para que a área do gráfico reserve espaço para a legenda, permitir que rótulos longos de legenda sejam quebrados em várias linhas ou usem quebras de linha, e permitir que a formatação da legenda herde do tema da apresentação quando cores, preenchimentos ou fontes explícitos não são definidos.
+A seção de Perguntas Frequentes aborda comportamentos relacionados, incluindo reservar espaço para a legenda, exibir rótulos multilinha e herdar a formatação do tema da apresentação.
 
 ## **Posicionamento da Legenda**
-Para definir as propriedades da legenda, siga os passos abaixo:
 
-- Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation).
-- Obtenha a referência do slide.
-- Adicione um gráfico ao slide.
-- Defina as propriedades da legenda.
-- Grave a apresentação como um arquivo PPTX.
+Use os métodos [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-), e [setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-) da legenda para especificar sua posição e tamanho como frações das dimensões do gráfico.
 
-No exemplo abaixo, definimos a posição e o tamanho da legenda do Gráfico.
+Este exemplo cria uma apresentação e adiciona um gráfico de colunas agrupadas com dados padrão ao primeiro slide. Dividir os deslocamentos e dimensões desejados da legenda pela largura e altura do gráfico converte‑os em valores relativos: a legenda é deslocada em 50 pontos do canto superior esquerdo do gráfico e dimensionada em 100 por 100 pontos.
 
 ```java
-// Crie uma instância da classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Obtenha a referência do slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Adicione um gráfico de colunas agrupadas no slide
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Defina as propriedades da legenda
+
+    // Expresse a posição e o tamanho da legenda em relação ao gráfico.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Grave a apresentação no disco
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Definir o Tamanho da Fonte de uma Legenda**
-O Aspose.Slides para Android via Java permite que os desenvolvedores definam o tamanho da fonte da legenda. Siga os passos abaixo:
 
-- Instancie a classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation).
-- Crie o gráfico padrão.
-- Defina o Tamanho da Fonte.
-- Defina o valor mínimo do eixo.
-- Defina o valor máximo do eixo.
-- Grave a apresentação no disco.
+Use o [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) da legenda para acessar a formatação de texto e use [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) para definir o tamanho da fonte em pontos.
+
+Este exemplo cria um gráfico com dados padrão e define o texto da legenda para 20 pontos. Também desativa os limites automáticos para o eixo vertical e define seu intervalo de -5 a 10.
 
 ```java
-// Crie uma instância da classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Definir o Tamanho da Fonte de uma Legenda Individual**
-O Aspose.Slides para Android via Java permite que os desenvolvedores definam o tamanho da fonte de entradas individuais da legenda. Siga os passos abaixo:
+## **Definir o Tamanho da Fonte de uma Entrada Individual da Legenda**
 
-- Instancie a classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation).
-- Crie o gráfico padrão.
-- Acesse a entrada da legenda.
-- Defina o Tamanho da Fonte.
-- Defina o valor mínimo do eixo.
-- Defina o valor máximo do eixo.
-- Grave a apresentação no disco.
+Use a coleção retornada pelo método [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--) da legenda para acessar a formatação de uma entrada específica. Os índices das entradas começam em zero, portanto o índice `1` refere‑se à segunda entrada.
+
+Este exemplo cria um gráfico de colunas agrupadas cuja dados padrão incluem pelo menos duas séries. Ele formata a segunda entrada da legenda com texto em negrito, itálico e azul de 20 pontos.
 
 ```java
-// Crie uma instância da classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Perguntas Frequentes**
+## **Ocultar Entradas Individuais da Legenda**
 
-**Posso habilitar a legenda para que o gráfico reserve espaço automaticamente para ela em vez de sobrepor?**
+Para excluir uma série auxiliar da legenda mantendo seus dados visíveis, chame [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) com `true` via [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). Isso oculta apenas a entrada de legenda selecionada; não remove a série ou seus pontos de dados. Chamar [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) com `false`, em contraste, oculta a legenda inteira.
 
-Sim. Use o modo sem sobreposição ([setOverlay(false)](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); nesse caso, a área do gráfico será reduzida para acomodar a legenda.
+O exemplo abaixo cria um gráfico de colunas agrupadas com várias séries usando dados padrão. Ele oculta a entrada de legenda da segunda série (índice `1`) e salva a apresentação. Em seguida, restaura a entrada chamando [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) com `false` e salva uma segunda cópia. As colunas permanecem visíveis em ambos os arquivos.
 
-**Posso criar rótulos de legenda em várias linhas?**
+```java
+import com.aspose.slides.*;
 
-Sim. Rótulos longos são quebrados automaticamente quando o espaço é insuficiente; quebras de linha forçadas são suportadas por meio de caracteres de nova linha no nome da série.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**Como faço a legenda seguir o esquema de cores do tema da apresentação?**
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-Não defina cores, preenchimentos ou fontes explícitos para a legenda ou seu texto. Eles herdarão do tema e serão atualizados corretamente quando o design for alterado.
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // Restaurar a mesma entrada sem alterar os dados do gráfico.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A comparação abaixo mostra o mesmo gráfico com todas as entradas visíveis e com a segunda entrada oculta. As colunas da segunda série permanecem inalteradas.
+
+![Comparação de um gráfico com todas as entradas de legenda visíveis e com a Série 2 oculta da legenda; todas as colunas permanecem visíveis.](hide-legend-entry.png)
+
+Em gráficos de colunas, barras e linhas, as entradas da legenda identificam séries. Nos gráficos de pizza, elas identificam pontos de dados individuais (fatias), portanto use [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) na fatia selecionada. A API documenta este método de ponto de dados para os tipos de gráfico `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` e `BarOfPie`. Não presuma que ele se aplica a gráficos de rosquinha, que não estão incluídos nessa lista.
+
+## **FAQ**
+
+**Posso fazer o gráfico reservar espaço para a legenda em vez de sobrepô‑lo?**  
+Sim. Chame [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) com `false` para reservar espaço para a legenda em vez de permitir que ela sobreponha a área do gráfico.
+
+**Posso criar rótulos de legenda multilinha?**  
+Sim. Rótulos longos podem ser quebrados quando a largura disponível é insuficiente. Você também pode usar caracteres de nova linha nos nomes das séries para solicitar quebras de linha.
+
+**Como faço a legenda seguir o esquema de cores do tema da apresentação?**  
+Deixe as cores, preenchimentos e fontes da legenda não definidos para que ela possa herdar a formatação do tema. A formatação explícita substitui as configurações correspondentes do tema.

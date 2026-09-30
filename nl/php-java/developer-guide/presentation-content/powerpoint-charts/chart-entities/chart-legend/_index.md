@@ -1,125 +1,164 @@
 ---
-title: Diagramlegenda's aanpassen in presentaties met PHP
-linktitle: Diagramlegenda
+title: Grafieklegenden aanpassen in presentaties met PHP
+linktitle: Grafieklegende
 type: docs
 url: /nl/php-java/chart-legend/
 keywords:
-- diagramlegenda
-- legenda positie
+- grafieklegende
+- legende positie
 - lettergrootte
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Pas diagramlegenda's aan met Aspose.Slides for PHP via Java om PowerPoint-presentaties te optimaliseren met op maat gemaakte legenda-opmaak."
+description: "Pas grafieklegenden aan met Aspose.Slides for PHP via Java om PowerPoint‑presentaties te optimaliseren met op maat gemaakte legende‑opmaak."
 ---
 ## **Overzicht**
 
-Aspose.Slides biedt opties om de legenda van diagrammen in PowerPoint‑presentaties aan te passen. Dit artikel laat zien hoe je de positie en grootte van een legenda kunt instellen, het lettertype van de volledige legenda kunt wijzigen en opmaak kunt toepassen op een afzonderlijk legendaveld.
+Aspose.Slides for PHP via Java biedt opties om diagramlegenden in PowerPoint‑presentaties aan te passen. Dit artikel laat zien hoe je een legenda positioneert en van grootte wijzigt, de lettergrootte voor de gehele legenda instelt, een individuele legende‑item formatteert, en geselecteerde items verbergt of herstelt.
 
-Het behandelt ook verschillende gerelateerde scenario’s in de FAQ, waaronder het gebruik van de niet‑overlay‑modus zodat het plot‑gebied ruimte maakt voor de legenda, het automatisch laten omslaan of afbreken van lange legendalabels, en het laten overerven van de opmaak van de legenda uit het presentatie‑thema wanneer geen expliciete tekst‑‑ en opvullingsinstellingen zijn opgegeven.
+De FAQ behandelt gerelateerde gedragingen, waaronder het reserveren van ruimte voor de legenda, het weergeven van labels op meerdere regels, en het overnemen van opmaak vanuit het presentatiethema.
 
-## **Legenda‑positionering**
-Om de legenda‑eigenschappen in te stellen, volg je de onderstaande stappen:
+## **Positie van de Legenda**
 
-- Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation)‑klasse.
-- Verkrijg een referentie naar de dia.
-- Voeg een diagram toe aan de dia.
-- Stel de eigenschappen van de legenda in.
-- Schrijf de presentatie weg als een PPTX‑bestand.
+Gebruik de [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/), en [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) methoden van de legenda om de positie en grootte op te geven als breuken van de afmetingen van het diagram.
 
-In het onderstaande voorbeeld hebben we de positie en grootte van de diagramlegenda ingesteld.
+Dit voorbeeld maakt een presentatie aan en voegt een gegroepeerde kolomgrafiek met standaardgegevens toe aan de eerste dia. Door de gewenste legenda‑offsets en -afmetingen te delen door de breedte en hoogte van het diagram, worden ze omgezet naar relatieve waarden: de legenda wordt 50 punten verschoven vanaf de linkerbovenhoek van het diagram en krijgt een grootte van 100 bij 100 punten. Het voorbeeld gebruikt java_values om de diagramafmetingen die door de PHP/Java Bridge worden geretourneerd, naar PHP‑getallen te converteren vóór de deling.
 
 ```php
-  # Maak een instantie van de Presentation-klasse
-  $pres = new Presentation();
-  try {
-    # Krijg een referentie naar de dia
-    $slide = $pres->getSlides()->get_Item(0);
-    # Voeg een gegroepeerde kolomgrafiek toe op de dia
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Stel legende-eigenschappen in
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Schrijf de presentatie naar schijf
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Geef de positie en grootte van de legende weer relatief ten opzichte van het diagram.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Lettergrootte van een legenda instellen**
-Aspose.Slides for PHP via Java maakt het mogelijk om de lettergrootte van de legenda te bepalen. Volg de onderstaande stappen:
+## **Lettergrootte van een Legenda Instellen**
 
-- Instantieer de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation)‑klasse.
-- Maak het standaarddiagram aan.
-- Stel de lettergrootte in.
-- Stel de minimum‑aswaarde in.
-- Stel de maximum‑aswaarde in.
-- Schrijf de presentatie naar schijf.
+Gebruik de [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) van de legenda om de tekstopmaak te benaderen en gebruik [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) om de lettergrootte in punten in te stellen.
+
+Dit voorbeeld maakt een diagram met standaardgegevens en stelt de legenda‑tekst in op 20 punten. Het schakelt ook de automatische grenzen voor de verticale as uit en stelt het bereik in op -5 tot en met 10.
 
 ```php
-  # Maak een instantie van de Presentation-klasse
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Lettergrootte van een afzonderlijk legendaveld instellen**
-Aspose.Slides for PHP via Java maakt het mogelijk om de lettergrootte van individuele legendavelden te bepalen. Volg de onderstaande stappen:
+## **Lettergrootte van een Individueel Legenda‑item Instellen**
 
-- Instantieer de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation)‑klasse.
-- Maak het standaarddiagram aan.
-- Open het gewenste legendaveld.
-- Stel de lettergrootte in.
-- Stel de minimum‑aswaarde in.
-- Stel de maximum‑aswaarde in.
-- Schrijf de presentatie naar schijf.
+Gebruik de collectie die wordt geretourneerd door de [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) methode van de legenda om de opmaak van een specifiek item te benaderen. Item‑indices beginnen bij nul, dus index `1` verwijst naar het tweede item.
+
+Dit voorbeeld maakt een gegroepeerde kolomgrafiek waarvan de standaardgegevens minstens twee series bevatten. Het formatteert het tweede legende‑item met vet, cursief en blauwe tekst van 20 punten.
 
 ```php
-  # Maak een instantie van de Presentation-klasse
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Individuele Legenda‑items Verbergen**
+
+Om een aanvullende series uit de legenda te verwijderen terwijl de gegevens zichtbaar blijven, roep je [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) aan met `true` via [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). Dit verbergt alleen het geselecteerde legende‑item; de serie of de datapoints worden niet verwijderd. In tegenstelling hiermee verbergt het aanroepen van [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) met `false` de volledige legenda.
+
+Het voorbeeld hieronder maakt een gegroepeerde kolomgrafiek met meerdere series met standaardgegevens. Het verbergt het legende‑item van de tweede serie (index `1`) en slaat de presentatie op. Vervolgens herstelt het het item door [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) aan te roepen met `false` en slaat een tweede kopie op. De kolommen blijven in beide bestanden zichtbaar.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // Herstel hetzelfde item zonder de diagramgegevens te wijzigen.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+De vergelijking hieronder toont hetzelfde diagram met alle items zichtbaar en met het tweede item verborgen. De kolommen van de tweede serie blijven ongewijzigd.
+
+![Vergelijking van een diagram met alle legende‑items zichtbaar en met Serie 2 verborgen in de legenda; alle kolommen blijven zichtbaar.](hide-legend-entry.png)
+
+In kolom‑, staaf‑ en lijndiagrammen identificeren legende‑items series. Voor cirkeldiagrammen identificeren ze individuele datapoints (partjes), dus gebruik je [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) op het geselecteerde partje. De API documenteert deze datapunt‑methode voor de diagramtypen `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` en `BarOfPie`. Ga niet ervan uit dat hij van toepassing is op donut‑diagrammen, die niet in die lijst staan.
 
 ## **FAQ**
 
-**Kan ik de legenda activeren zodat het diagram automatisch ruimte hiervoor reserveert in plaats van deze erboven te leggen?**
+**Kan ik het diagram ruimte laten reserveren voor de legenda in plaats van deze te overlappen?**
 
-Ja. Gebruik de niet‑overlay‑modus ([setOverlay(false)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/legend/setoverlay/)); in dat geval krimpt het plot‑gebied om de legenda te huisvesten.
+Ja. Roep [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) aan met `false` om ruimte voor de legenda te reserveren in plaats van toe te staan dat deze het plotgebied overlapt.
 
-**Kan ik legendalabels op meerdere regels laten weergeven?**
+**Kan ik legenda‑labels op meerdere regels maken?**
 
-Ja. Lange labels worden automatisch afgebroken wanneer er onvoldoende ruimte is; geforceerde regeleinden worden ondersteund via nieuwe‑regel‑tekens in de serienaam.
+Ja. Lange labels kunnen worden afgebroken wanneer de beschikbare breedte onvoldoende is. Je kunt ook regeleinde‑tekens gebruiken in seriesnamen om een nieuwe regel af te dwingen.
 
-**Hoe zorg ik ervoor dat de legenda de kleuren uit het themaschema van de presentatie overneemt?**
+**Hoe zorg ik dat de legenda het kleurenpalet van het presentatiethema volgt?**
 
-Stel geen expliciete kleuren, opvullingen of lettertypen in voor de legenda of de tekst ervan. Ze zullen dan overerven van het thema en correct worden bijgewerkt wanneer het ontwerp verandert.
+Laat de kleuren, vullingen en lettertypen van de legenda leeg, zodat hij de thematische opmaak kan overnemen. Expliciete opmaak overschrijft de bijbehorende themainstellingen.

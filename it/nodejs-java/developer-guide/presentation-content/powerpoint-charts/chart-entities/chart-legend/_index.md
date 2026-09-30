@@ -1,129 +1,161 @@
 ---
-title: Personalizza le legende dei grafici nelle presentazioni con JavaScript
-linktitle: Legenda del grafico
+title: Personalizza le legende dei grafici nelle presentazioni usando JavaScript
+linktitle: Leggenda del grafico
 type: docs
 url: /it/nodejs-java/chart-legend/
 keywords:
-- legenda del grafico
-- posizione della legenda
-- dimensione del carattere
+- leggenda del grafico
+- posizione leggenda
+- dimensione carattere
 - PowerPoint
 - presentazione
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Personalizza le legende dei grafici con JavaScript e Aspose.Slides per Node.js per ottimizzare le presentazioni PowerPoint con una formattazione della legenda su misura."
+description: "Personalizza le legende dei grafici con Aspose.Slides per Node.js via Java per ottimizzare le presentazioni PowerPoint con formattazione della leggenda su misura."
 ---
 ## **Panoramica**
 
-Aspose.Slides offre opzioni per personalizzare le legende dei grafici nelle presentazioni PowerPoint. Questo articolo mostra come posizionare e dimensionare una legenda, impostare la dimensione del carattere per l'intera legenda e applicare formattazioni a una voce di legenda individuale.
+Aspose.Slides for Node.js via Java offre opzioni per personalizzare le leggende dei grafici nelle presentazioni PowerPoint. Questo articolo mostra come posizionare e dimensionare una legenda, impostare la dimensione del carattere per l'intera legenda, formattare una voce della legenda individuale e nascondere o ripristinare le voci selezionate.
 
-Copre anche diversi comportamenti correlati nella FAQ, inclusa l'uso della modalità non sovrapposta in modo che l'area del grafico lasci spazio alla legenda, consentendo alle etichette lunghe di andare a capo o utilizzare interruzioni di riga, e facendo ereditare la formattazione della legenda dal tema della presentazione quando non vengono applicate impostazioni esplicite di testo e riempimento.
+Le FAQ coprono comportamenti correlati, includendo la riserva di spazio per la legenda, la visualizzazione di etichette multilinea e l'ereditarietà della formattazione dal tema della presentazione.
 
-## **Posizionamento della legenda**
+## **Posizionamento della leggenda**
 
-Per impostare le proprietà della legenda, seguire i passaggi riportati di seguito:
+Utilizza i metodi [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/) e [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) della legenda per specificare la sua posizione e dimensione come frazioni delle dimensioni del grafico.
 
-- Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-- Ottenere il riferimento della diapositiva.
-- Aggiungere un grafico alla diapositiva.
-- Impostare le proprietà della legenda.
-- Scrivere la presentazione in un file PPTX.
-
-Nell'esempio mostrato di seguito, abbiamo impostato la posizione e le dimensioni della legenda del grafico.
+Questo esempio crea una presentazione e aggiunge un grafico a colonne raggruppate con dati predefiniti alla prima diapositiva. Dividendo gli offset e le dimensioni desiderate della legenda per la larghezza e l'altezza del grafico si convertono in valori relativi: la legenda è spostata di 50 punti dall'angolo superiore sinistro del grafico e dimensionata a 100 per 100 punti.
 
 ```javascript
-// Crea un'istanza della classe Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Ottieni il riferimento della diapositiva
-    var slide = pres.getSlides().get_Item(0);
-    // Aggiungi un grafico a colonne raggruppate nella diapositiva
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Imposta le proprietà della legenda
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Scrivi la presentazione su disco
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Esprimi la posizione e le dimensioni della leggenda rispetto al grafico.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Imposta la dimensione del carattere della legenda**
+## **Imposta la dimensione del carattere di una legenda**
 
-Aspose.Slides per Node.js via Java consente agli sviluppatori di impostare la dimensione del carattere della legenda. Seguire i passaggi riportati di seguito:
+Utilizza il metodo [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) della legenda per accedere alla formattazione del testo e usa [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) per impostare la dimensione del carattere in punti.
 
-- Istanziare la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-- Creare il grafico predefinito.
-- Impostare la dimensione del carattere.
-- Impostare il valore minimo dell'asse.
-- Impostare il valore massimo dell'asse.
-- Scrivere la presentazione su disco.
+Questo esempio crea un grafico con dati predefiniti e imposta il testo della legenda a 20 punti. Disabilita inoltre i limiti automatici per l'asse verticale e imposta il suo intervallo da -5 a 10.
 
 ```javascript
-// Crea un'istanza della classe Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Imposta la dimensione del carattere della legenda individuale**
+## **Imposta la dimensione del carattere di una voce della leggenda individuale**
 
-Aspose.Slides per Node.js via Java consente agli sviluppatori di impostare la dimensione del carattere delle voci di legenda individuali. Seguire i passaggi riportati di seguito:
+Utilizza la collezione restituita dal metodo [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) della legenda per accedere alla formattazione di una voce specifica. Gli indici delle voci partono da zero, quindi l'indice `1` si riferisce alla seconda voce.
 
-- Istanziare la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-- Creare il grafico predefinito.
-- Accedere alla voce della legenda.
-- Impostare la dimensione del carattere.
-- Impostare il valore minimo dell'asse.
-- Impostare il valore massimo dell'asse.
-- Scrivere la presentazione su disco.
+Questo esempio crea un grafico a colonne raggruppate i cui dati predefiniti includono almeno due serie. Formatta la seconda voce della legenda con testo grassetto, corsivo e blu da 20 punti.
 
 ```javascript
-// Crea un'istanza della classe Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Nascondi voci della leggenda individuali**
+
+Per escludere una serie ausiliaria dalla leggenda mantenendo i suoi dati visibili, chiama [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) con `true` tramite [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Questo nasconde solo la voce della legenda selezionata; non rimuove la serie o i suoi punti dati. Chiamare [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) con `false`, invece, nasconde l'intera leggenda.
+
+L'esempio seguente crea un grafico a colonne raggruppate con più serie usando dati predefiniti. Nasconde la voce della legenda della seconda serie (indice `1`) e salva la presentazione. Poi ripristina la voce chiamando [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) con `false` e salva una seconda copia. Le colonne rimangono visibili in entrambi i file.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Ripristina la stessa voce senza modificare i dati del grafico.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il confronto sotto mostra lo stesso grafico con tutte le voci visibili e con la seconda voce nascosta. Le colonne della seconda serie rimangono inalterate.
+
+![Confronto di un grafico con tutte le voci della legenda visibili e con la Serie 2 nascosta nella legenda; tutte le colonne rimangono visibili.](hide-legend-entry.png)
+
+Nei grafici a colonne, barre e linee, le voci della legenda identificano le serie. Nei grafici a torta, identificano i singoli punti dati (fette), quindi usa [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) sulla fetta selezionata. L'API documenta questo metodo per i tipi di grafico `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` e `BarOfPie`. Non presumere che si applichi ai grafici a ciambella, che non sono inclusi in tale elenco.
 
 ## **FAQ**
 
-**Posso abilitare la legenda in modo che il grafico allochi automaticamente spazio per essa invece di sovrapporsi?**
+**Posso fare in modo che il grafico riservi spazio per la legenda invece di sovrapporla?**
 
-Sì. Utilizzare la modalità non sovrapposta ([setOverlay(false)](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/legend/setoverlay/)); in questo caso, l'area del grafico si ridurrà per ospitare la legenda.
+Sì. Chiama [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) con `false` per riservare spazio per la legenda invece di consentire che si sovrapponga all'area del grafico.
 
-**Posso creare etichette della legenda su più righe?**
+**Posso creare etichette della legenda multilinea?**
 
-Sì. Le etichette lunghe vanno a capo automaticamente quando lo spazio è insufficiente; le interruzioni di riga forzate sono supportate tramite caratteri di nuova linea nel nome della serie.
+Sì. Le etichette lunghe possono andare a capo quando la larghezza disponibile è insufficiente. È anche possibile utilizzare caratteri di nuova riga nei nomi delle serie per richiedere interruzioni di riga.
 
-**Come faccio a far seguire alla legenda lo schema di colori del tema della presentazione?**
+**Come posso fare in modo che la legenda segua lo schema colore del tema della presentazione?**
 
-Non impostare colori/riempimenti/caratteri espliciti per la legenda o il suo testo. In tal modo erediteranno dal tema e si aggiorneranno correttamente quando il design viene modificato.
+Lascia vuoti i colori, i riempimenti e i caratteri della legenda in modo che possa ereditare la formattazione del tema. La formattazione esplicita sovrascrive le impostazioni corrispondenti del tema.

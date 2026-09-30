@@ -1,128 +1,150 @@
 ---
-title: Diagramlegenda's aanpassen in presentaties met Java
-linktitle: Diagramlegenda
+title: Grafieklegenda aanpassen in presentaties met Java
+linktitle: Grafieklegenda
 type: docs
 url: /nl/java/chart-legend/
 keywords:
-- diagramlegenda
+- grafieklegenda
 - legenda positie
 - lettergrootte
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Pas diagramlegenda's aan met Aspose.Slides voor Java om PowerPoint-presentaties te optimaliseren met op maat gemaakte legendapresentatie."
+description: "Pas grafieklegenda's aan met Aspose.Slides for Java om PowerPoint-presentaties te optimaliseren met op maat gemaakte legenda-opmaak."
 ---
 ## **Overzicht**
 
-Aspose.Slides biedt opties om diagramlegenda's aan te passen in PowerPoint‑presentaties. Dit artikel laat zien hoe je een legenda kunt positioneren en de grootte kunt aanpassen, de lettergrootte voor de gehele legenda kunt instellen, en opmaak kunt toepassen op een individueel legendapunt.
+Aspose.Slides for Java biedt opties om de legenda van diagrammen in PowerPoint‑presentaties aan te passen. Dit artikel laat zien hoe je een legenda positioneert en de grootte ervan bepaalt, de lettergrootte voor de hele legenda instelt, een individueel legende‑item opmaakt en geselecteerde items verbergt of herstelt.
 
-Het behandelt ook verschillende gerelateerde gedragingen in de FAQ, inclusief het gebruik van de non‑overlay‑modus zodat het plotgebied plaats maakt voor de legenda, het toestaan dat lange legendarlabels worden afgebroken of een regeleinde bevatten, en het laten erven van de legenda‑opmaak van het presentatiethema wanneer geen expliciete tekst‑ en opvullingsinstellingen zijn toegepast.
+De FAQ behandelt gerelateerde gedrag, waaronder het reserveren van ruimte voor de legende, het weergeven van labels over meerdere regels en het overnemen van opmaak uit het thema van de presentatie.
 
-## **Positionering van de legenda**
-Om de legenda‑eigenschappen in te stellen, volg de onderstaande stappen:
+## **Legende positionering**
 
-- Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) aan.
-- Haal een referentie naar de slide op.
-- Voeg een diagram toe aan de slide.
-- Stel de eigenschappen van de legenda in.
-- Schrijf de presentatie weg als een PPTX‑bestand.
+Gebruik de methoden van de legende [setX](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setWidth-float-), en [setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setHeight-float-) om de positie en grootte ervan op te geven als fracties van de afmetingen van het diagram.
 
-In het onderstaande voorbeeld hebben we de positie en grootte van de diagramlegenda ingesteld.
+Dit voorbeeld maakt een presentatie aan en voegt een gegroepeerde kolomgrafiek met standaardgegevens toe aan de eerste dia. Door de gewenste legende‑offsets en afmetingen te delen door de breedte en hoogte van het diagram, worden ze omgezet naar relatieve waarden: de legende wordt 50 punten verplaatst vanaf de linkerbovenhoek van het diagram en krijgt een grootte van 100 bij 100 punten.
 
 ```java
-// Maak een instantie van de Presentation‑klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Haal de referentie van de slide op
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Voeg een gegroepeerd kolomdiagram toe aan de slide
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Stel legendeigenschappen in
+
+    // Geef de positie en grootte van de legende weer ten opzichte van het diagram.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Schrijf de presentatie naar schijf
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lettergrootte van een legenda instellen**
-Aspose.Slides for Java stelt ontwikkelaars in staat de lettergrootte van de legenda in te stellen. Volg de onderstaande stappen:
+## **Lettergrootte van de legende instellen**
 
-- Instantieer de klasse [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation).
-- Maak het standaarddiagram aan.
-- Stel de lettergrootte in.
-- Stel de minimale aswaarde in.
-- Stel de maximale aswaarde in.
-- Schrijf de presentatie naar schijf.
+Gebruik de [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getTextFormat--) van de legende om de tekstopmaak te benaderen en gebruik [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) om de lettergrootte in punten in te stellen.
+
+Dit voorbeeld maakt een diagram met standaardgegevens en stelt de legendetekst in op 20 punten. Het schakelt ook automatische grenzen voor de verticale as uit en stelt het bereik in op -5 tot 10.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lettergrootte van een individuele legenda instellen**
-Aspose.Slides for Java stelt ontwikkelaars in staat de lettergrootte van individuele legendaposten in te stellen. Volg de onderstaande stappen:
+## **Lettergrootte van een individueel legende‑item instellen**
 
-- Instantieer de klasse [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation).
-- Maak het standaarddiagram aan.
-- Toegang tot de legendapost.
-- Stel de lettergrootte in.
-- Stel de minimale aswaarde in.
-- Stel de maximale aswaarde in.
-- Schrijf de presentatie naar schijf.
+Gebruik de collectie die wordt geretourneerd door de [getEntries](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getEntries--) methode van de legende om de opmaak van een specifiek item te benaderen. Item‑indexen beginnen bij nul, dus index `1` verwijst naar het tweede item.
+
+Dit voorbeeld maakt een gegroepeerde kolomgrafiek waarvan de standaardgegevens ten minste twee reeksen bevatten. Het formatteert het tweede legende‑item met vet, cursief en blauwe tekst van 20 punten.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Individuele legende‑items verbergen**
+
+Om een hulpreeks uit de legende te verwijderen terwijl de gegevens zichtbaar blijven, roep je [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) aan met `true` via [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). Dit verbergt alleen het geselecteerde legende‑item; het verwijdert de reeks of de gegevenspunten niet. In tegenstelling hiermee verbergt het aanroepen van [IChart.setLegend](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setLegend-boolean-) met `false` de volledige legende.
+
+Het onderstaande voorbeeld maakt een gegroepeerde kolomgrafiek met meerdere reeksen met standaardgegevens. Het verbergt het legende‑item van de tweede reeks (index `1`) en slaat de presentatie op. Vervolgens wordt het item hersteld door [setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) aan te roepen met `false` en wordt een tweede kopie opgeslagen. De kolommen blijven in beide bestanden zichtbaar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // Herstel hetzelfde item zonder de grafiekgegevens te wijzigen.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Vergelijking van een diagram met alle legende‑items zichtbaar en met Serie 2 verborgen in de legende; alle kolommen blijven zichtbaar.](hide-legend-entry.png)
+
+In kolom‑, staaf‑ en lijndiagrammen identificeren legende‑items reeksen. Voor cirkeldiagrammen identificeren ze individuele datapunten (segmenten), dus gebruik je [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) op het geselecteerde segment. De API documenteert deze datapunten‑methode voor de diagramtypen `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` en `BarOfPie`. Ga er niet van uit dat dit geldt voor donutsdiagrammen, die niet in die lijst zijn opgenomen.
 
 ## **FAQ**
 
-**Kan ik de legenda activeren zodat het diagram automatisch ruimte voor de legenda reserveert in plaats van deze te overlappen?**
+**Kan ik het diagram ruimte laten reserveren voor de legende in plaats van deze te overlappen?**
 
-Ja. Gebruik de non‑overlay‑modus ([setOverlay(false)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/legend/#setOverlay-boolean-)); in dit geval krimpt het plotgebied om de legenda te huisvesten.
+Ja. Roep [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-) aan met `false` om ruimte voor de legende te reserveren in plaats van deze het plotgebied te laten overlappen.
 
-**Kan ik meerregelige legendalabels maken?**
+**Kan ik legende‑labels over meerdere regels maken?**
 
-Ja. Lange labels worden automatisch afgebroken wanneer er onvoldoende ruimte is; geforceerde regeleinden worden ondersteund via newline‑tekens in de serienaam.
+Ja. Lange labels kunnen worden afgebroken wanneer de beschikbare breedte onvoldoende is. Je kunt ook reeksnamen van een regeleinde scheiden om een regelafbreking af te dwingen.
 
-**Hoe zorg ik dat de legenda het kleurenpalet van het presentatiethema volgt?**
+**Hoe laat ik de legende het kleurschema van het presentatie‑thema volgen?**
 
-Stel geen expliciete kleuren/opvullingen/lettertypen in voor de legenda of de tekst ervan. Ze erven dan van het thema en worden correct bijgewerkt wanneer het ontwerp verandert.
+Laat de kleuren, opvullingen en lettertypen van de legende leeg, zodat deze de themavormgeving kan overnemen. Expliciete opmaak overschrijft de bijbehorende themainstellingen.

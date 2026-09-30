@@ -1,113 +1,161 @@
 ---
-title: Легенда диаграммы
+title: Настройка легенд диаграмм в презентациях с использованием JavaScript
+linktitle: Легенда диаграммы
 type: docs
 url: /ru/nodejs-java/chart-legend/
+keywords:
+- легенда диаграммы
+- позиция легенды
+- размер шрифта
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Настройте легенды диаграмм с помощью Aspose.Slides for Node.js via Java для оптимизации презентаций PowerPoint с индивидуальным форматированием легенд."
 ---
+## **Обзор**
 
-## **Расположение легенды**
+Aspose.Slides for Node.js via Java предоставляет возможности настройки легенд диаграмм в презентациях PowerPoint. В этой статье показано, как задать позицию и размер легенды, установить размер шрифта для всей легенды, отформатировать отдельный элемент легенды и скрыть или восстановить выбранные элементы.
 
-Чтобы задать свойства легенды, выполните следующие шаги:
+В разделе FAQ рассматриваются связанные поведения, включая резервирование места для легенды, отображение многострочных меток и наследование форматирования из темы презентации.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Получите ссылку на слайд.
-- Добавьте диаграмму на слайд.
-- Задайте свойства легенды.
-- Сохраните презентацию в файл PPTX.
+## **Позиционирование легенды**
 
-В приведённом ниже примере мы задали позицию и размер легенды диаграммы.
+Используйте методы легенды [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/) и [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) для указания её позиции и размеров в долях от размеров диаграммы.
+
+В этом примере создаётся презентация и добавляется сгруппированная столбчатая диаграмма с данными по умолчанию на первый слайд. Деление желаемых смещений и размеров легенды на ширину и высоту диаграммы переводит их в относительные значения: легенда смещена на 50 пунктов от верхнего левого угла диаграммы и имеет размер 100 × 100 пунктов.
+
 ```javascript
-// Создайте экземпляр класса Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Получите ссылку на слайд
-    var slide = pres.getSlides().get_Item(0);
-    // Добавьте кластеризованную столбчатую диаграмму на слайд
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Задайте свойства легенды
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Сохраните презентацию на диск
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Задайте позицию и размер легенды относительно диаграммы.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
 ## **Установка размера шрифта легенды**
 
-Aspose.Slides для Node.js via Java позволяет разработчикам задавать размер шрифта легенды. Выполните следующие шаги:
+Получите объект форматирования текста легенды через [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) и задайте размер шрифта в пунктах с помощью [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight).
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Создайте диаграмму по умолчанию.
-- Установите размер шрифта.
-- Задайте минимальное значение оси.
-- Задайте максимальное значение оси.
-- Сохраните презентацию на диск.
+В этом примере создаётся диаграмма с данными по умолчанию и задаётся размер шрифта текста легенды — 20 пунктов. Также отключаются автоматические границы вертикальной оси и задаётся диапазон от ‑5 до 10.
+
 ```javascript
-// Создайте экземпляр класса Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **Установка размера шрифта отдельного элемента легенды**
 
-Aspose.Slides для Node.js via Java позволяет разработчикам задавать размер шрифта отдельного элемента легенды. Выполните следующие шаги:
+Получите коллекцию, возвращаемую методом [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) легенды, чтобы обратиться к форматированию конкретного элемента. Индексы элементов начинаются с нуля, поэтому индекс `1` относится ко второму элементу.
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- Создайте диаграмму по умолчанию.
-- Получите доступ к элементу легенды.
-- Установите размер шрифта.
-- Задайте минимальное значение оси.
-- Задайте максимальное значение оси.
-- Сохраните презентацию на диск.
+В этом примере создаётся сгруппированная столбчатая диаграмма, у которой данные по умолчанию включают как минимум две серии. Второй элемент легенды форматируется полужирным, курсивом и синим текстом размером 20 пунктов.
+
 ```javascript
-// Создайте экземпляр класса Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Скрытие отдельных элементов легенды**
 
-## **Часто задаваемые вопросы**
+Чтобы исключить вспомогательную серию из легенды, оставив её данные видимыми, вызовите [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) со значением `true` через [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Это скрывает только выбранный элемент легенды; серия и её точки данных остаются. В отличие от этого, вызов [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) со значением `false` скрывает всю легенду.
 
-**Можно ли включить легенду так, чтобы диаграмма автоматически выделяла место для неё, а не накладывала её?**
+Ниже пример, где создаётся сгруппированная столбчатая диаграмма с несколькими сериями на основе данных по умолчанию. Скрывается элемент легенды второй серии (индекс `1`) и презентация сохраняется. Затем элемент восстанавливается вызовом [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) со значением `false` и сохраняется вторая копия. Столбцы остаются видимыми в обоих файлах.
 
-Да. Используйте режим без наложения ([setOverlay(false)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/)); в этом случае область построения сожмётся, чтобы вместить легенду.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-**Можно ли сделать многострочные подписи легенды?**
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
 
-Да. Длинные подписи автоматически переносятся, если места недостаточно; принудительные разрывы строк поддерживаются символами новой строки в имени серии.
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-**Как сделать так, чтобы легенда следовала цветовой схеме темы презентации?**
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
 
-Не задавайте явные цвета/заливки/шрифты для легенды или её текста. Они будут наследоваться из темы и корректно обновятся при изменении дизайна.
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Восстановить тот же элемент без изменения данных диаграммы.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Сравнение ниже показывает одну и ту же диаграмму с видимыми всеми элементами легенды и с скрытым вторым элементом. Столбцы второй серии остаются без изменений.
+
+![Сравнение диаграммы с видимыми всеми элементами легенды и с скрытым элементом серии 2; все столбцы остаются видимыми.](hide-legend-entry.png)
+
+В столбчатых, линейных и гистограммах элементы легенды идентифицируют серии. В круговых диаграммах они идентифицируют отдельные точки данных (дольки), поэтому используйте [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) для выбранной дольки. API документирует этот метод для типов диаграмм `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` и `BarOfPie`. Не следует считать, что он применим к кольцевым диаграммам, которые в этом списке не указаны.
+
+## **FAQ**
+
+**Можно ли заставить диаграмму выделять место для легенды вместо её наложения?**
+
+Да. Вызовите [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) со значением `false`, чтобы зарезервировать место для легенды, а не позволять ей накладываться на область построения.
+
+**Можно ли делать многострочные подписи в легенде?**
+
+Да. Длинные подписи могут переноситься, если доступной ширины недостаточно. Также можно использовать символы новой строки в названиях серий, чтобы задать разрывы строк.
+
+**Как сделать так, чтобы легенда использовала цветовую схему темы презентации?**
+
+Не задавайте явно цвета, заливки и шрифты для легенды, чтобы она могла наследовать форматирование из темы. Явное форматирование переопределяет соответствующие настройки темы.

@@ -1,5 +1,5 @@
 ---
-title: Sesuaikan Legenda Diagram dalam Presentasi Menggunakan Java
+title: Sesuaikan Legenda Diagram di Presentasi Menggunakan Java
 linktitle: Legenda Diagram
 type: docs
 url: /id/java/chart-legend/
@@ -11,118 +11,142 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Sesuaikan legenda diagram dengan Aspose.Slides untuk Java guna mengoptimalkan presentasi PowerPoint dengan format legenda yang disesuaikan."
+description: "Sesuaikan legenda diagram dengan Aspose.Slides for Java untuk mengoptimalkan presentasi PowerPoint dengan pemformatan legenda yang disesuaikan."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides menyediakan opsi untuk menyesuaikan legenda diagram dalam presentasi PowerPoint. Artikel ini menunjukkan cara memposisikan dan mengubah ukuran legenda, mengatur ukuran font untuk seluruh legenda, dan menerapkan pemformatan pada entri legenda individu.
+Aspose.Slides for Java menyediakan opsi untuk menyesuaikan legenda diagram dalam presentasi PowerPoint. Artikel ini menunjukkan cara memposisikan dan mengubah ukuran legenda, mengatur ukuran font untuk seluruh legenda, memformat entri legenda tunggal, serta menyembunyikan atau mengembalikan entri yang dipilih.
 
-Artikel ini juga mencakup beberapa perilaku terkait dalam FAQ, termasuk menggunakan mode non-overlay sehingga area plot memberi ruang untuk legenda, memungkinkan label legenda panjang dibungkus atau menggunakan pemisah baris, serta membiarkan format legenda mewarisi dari tema presentasi ketika pengaturan teks dan isi tidak diterapkan secara eksplisit.
+FAQ mencakup perilaku terkait, termasuk memesan ruang untuk legenda, menampilkan label multiline, dan mewarisi format dari tema presentasi.
 
-## **Penempatan Legenda**
-Untuk mengatur properti legenda, ikuti langkah-langkah berikut:
+## **Posisi Legenda**
 
-- Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-- Dapatkan referensi slide.
-- Menambahkan bagan pada slide.
-- Menetapkan properti legenda.
-- Tuliskan presentasi sebagai file PPTX.
+Gunakan metode legend [setX](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setWidth-float-), dan [setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setHeight-float-) untuk menentukan posisi dan ukurannya sebagai pecahan dari dimensi diagram.
 
-Dalam contoh di bawah ini, kami telah mengatur posisi dan ukuran legenda Bagan.
+Contoh ini membuat presentasi dan menambahkan diagram kolom berkelompok dengan data default ke slide pertama. Membagi offset dan dimensi legenda yang diinginkan dengan lebar dan tinggi diagram mengubahnya menjadi nilai relatif: legenda dipindahkan sejauh 50 poin dari sudut kiri atas diagram dan berukuran 100 x 100 poin.
 
 ```java
-// Buat instance dari kelas Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Dapatkan referensi slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Tambahkan diagram kolom berkelompok pada slide
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Atur Properti Legenda
+
+    // Ekspresikan posisi dan ukuran legenda relatif terhadap diagram.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Tulis presentasi ke disk
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Atur Ukuran Font Legenda**
-Aspose.Slides untuk Java memungkinkan pengembang mengatur ukuran font legenda. Ikuti langkah-langkah di bawah ini:
 
-- Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-- Membuat bagan default.
-- Atur Ukuran Font.
-- Atur nilai sumbu minimum.
-- Atur nilai sumbu maksimum.
-- Tuliskan presentasi ke disk.
+Gunakan [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getTextFormat--) legenda untuk mengakses pemformatan teksnya dan gunakan [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) untuk mengatur ukuran font dalam poin.
+
+Contoh ini membuat diagram dengan data default dan mengatur teks legenda menjadi 20 poin. Selain itu, menonaktifkan batas otomatis untuk sumbu vertikal dan mengatur jangkauannya menjadi -5 sampai 10.
 
 ```java
-// Buat instance dari kelas Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Atur Ukuran Font Legenda Individual**
-Aspose.Slides untuk Java memungkinkan pengembang mengatur ukuran font entri legenda individual. Ikuti langkah-langkah di bawah ini:
+## **Atur Ukuran Font Entri Legenda Individual**
 
-- Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-- Membuat bagan default.
-- Akses entri legenda.
-- Atur Ukuran Font.
-- Atur nilai sumbu minimum.
-- Atur nilai sumbu maksimum.
-- Tuliskan presentasi ke disk.
+Gunakan koleksi yang dikembalikan oleh metode [getEntries](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getEntries--) legenda untuk mengakses pemformatan entri tertentu. Indeks entri berbasis nol, sehingga indeks `1` mengacu pada entri kedua.
+
+Contoh ini membuat diagram kolom berkelompok yang data defaultnya mencakup setidaknya dua seri. Ia memformat entri legenda kedua dengan teks tebal, miring, dan biru berukuran 20 poin.
 
 ```java
-// Buat instance dari kelas Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Sembunyikan Entri Legenda Individual**
+
+Untuk mengecualikan seri tambahan dari legenda sambil tetap menampilkan datanya, panggil [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) dengan `true` melalui [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). Ini hanya menyembunyikan entri legenda yang dipilih; tidak menghapus seri atau titik datanya. Sebaliknya, memanggil [IChart.setLegend](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setLegend-boolean-) dengan `false` menyembunyikan seluruh legenda.
+
+Contoh di bawah ini membuat diagram kolom berkelompok dengan beberapa seri menggunakan data default. Ia menyembunyikan entri legenda seri kedua (indeks `1`) dan menyimpan presentasi. Kemudian entri tersebut dipulihkan dengan memanggil [setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) dengan `false` dan menyimpan salinan kedua. Kolom tetap terlihat di kedua file.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // Pulihkan entri yang sama tanpa mengubah data diagram.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Perbandingan di bawah ini menunjukkan diagram yang sama dengan semua entri terlihat dan dengan entri kedua tersembunyi. Kolom seri kedua tetap tidak berubah.
+
+![Perbandingan diagram dengan semua entri legenda terlihat dan dengan Seri 2 disembunyikan dari legenda; semua kolom tetap terlihat.](hide-legend-entry.png)
+
+Pada diagram kolom, batang, dan garis, entri legenda mengidentifikasi seri. Pada diagram pai, mereka mengidentifikasi titik data individual (iris), sehingga gunakan [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) pada irisan yang dipilih. API mendokumentasikan metode titik data ini untuk tipe diagram `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie`, dan `BarOfPie`. Jangan menganggapnya berlaku untuk diagram donat, yang tidak termasuk dalam daftar tersebut.
 
 ## **FAQ**
 
-**Apakah saya dapat mengaktifkan legenda sehingga bagan secara otomatis menyediakan ruang untuknya alih-alih menimpanya?**
+**Bisakah saya membuat diagram mengalokasikan ruang untuk legenda alih-alih menimpanya?**
 
-Ya. Gunakan mode non-overlay ([setOverlay(false)](https://reference.aspose.com/slides/id/java/com.aspose.slides/legend/#setOverlay-boolean-)); dalam hal ini, area plot akan menyusut untuk menampung legenda.
+Ya. Panggil [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-) dengan `false` untuk memesan ruang bagi legenda alih-alih memungkinkan menimpanya pada area plot.
 
-**Apakah saya dapat membuat label legenda multi-baris?**
+**Bisakah saya membuat label legenda multiline?**
 
-Ya. Label yang panjang akan otomatis dibungkus ketika ruang tidak cukup; pemisahan baris paksa didukung melalui karakter newline dalam nama seri.
+Ya. Label yang panjang dapat dibungkus ketika lebar yang tersedia tidak cukup. Anda juga dapat menggunakan karakter baris baru dalam nama seri untuk meminta pemisahan baris.
 
-**Bagaimana cara membuat legenda mengikuti skema warna tema presentasi?**
+**Bagaimana saya membuat legenda mengikuti skema warna tema presentasi?**
 
-Jangan menetapkan warna/pengisian/font secara eksplisit untuk legenda atau teksnya. Mereka akan mewarisi dari tema dan akan diperbarui dengan benar ketika desain berubah.
+Biarkan warna, isian, dan font legenda tidak diatur sehingga dapat mewarisi pemformatan tema. Pemformatan eksplisit akan menimpa pengaturan tema yang bersangkutan.

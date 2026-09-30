@@ -1,5 +1,5 @@
 ---
-title: Använda diagramförklaringar i presentationer på Android
+title: Anpassa diagramförklaringar i presentationer på Android
 linktitle: Diagramförklaring
 type: docs
 url: /sv/androidjava/chart-legend/
@@ -16,114 +16,138 @@ description: "Anpassa diagramförklaringar med Aspose.Slides för Android via Ja
 ---
 ## **Översikt**
 
-Aspose.Slides erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Denna artikel visar hur man placerar och storlekar en förklaring, anger teckenstorleken för hela förklaringen och tillämpar formatering på ett enskilt förklaringsobjekt.
+Aspose.Slides for Android via Java erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Den här artikeln visar hur man placerar och ändrar storlek på en förklaring, anger teckenstorlek för hela förklaringen, formaterar en enskild förklaringspost och döljer eller återställer valda poster.
 
-Den behandlar också flera relaterade beteenden i FAQ, inklusive att använda icke-överlappningsläge så att plotområdet ger plats åt förklaringen, tillåter långa förklaringsetiketter att radbrytas eller använda radbrytningar, samt låter förklaringsformatering ärva från presentationens tema när explicita text- och fyllnadsinställningar inte har använts.
+Vanliga frågor täcker relaterat beteende, inklusive att reservera utrymme för förklaringen, visa flerradiga etiketter och ärva formatering från presentationens tema.
 
 ## **Placering av förklaring**
-För att ange förklaringens egenskaper. Följ stegen nedan:
 
-- Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) klassen.
-- Hämta referens till bilden.
-- Lägg till ett diagram på bilden.
-- Ställ in förklaringens egenskaper.
-- Skriv presentationen som en PPTX-fil.
+Använd förklaringens [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-), och [setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-)‑metoder för att ange dess position och storlek som bråkdelar av diagrammets dimensioner.
 
-I exemplet nedan har vi angett position och storlek för diagramförklaringen.
+Detta exempel skapar en presentation och lägger till ett grupperat stapeldiagram med standarddata på den första bilden. Genom att dividera de önskade förklaringsförskjutningarna och dimensionerna med diagrammets bredd och höjd konverteras de till relativa värden: förklaringen förskjuts 50 punkter från diagrammets övre vänstra hörn och får storleken 100 gånger 100 punkter.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Hämta referens till bilden
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Lägg till ett grupperat stapeldiagram på bilden
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Ställ in förklaringsegenskaper
+
+    // Uttryck förklaringens position och storlek i förhållande till diagrammet.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Skriv presentationen till disk
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ange teckenstorlek för en förklaring**
-Aspose.Slides för Android via Java låter utvecklare ange teckenstorlek för förklaringen. Följ stegen nedan:
 
-- Instansiera [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) klassen.
-- Skapa standarddiagrammet.
-- Ange teckenstorleken.
-- Ange minimalt axelvärde.
-- Ange maximalt axelvärde.
-- Skriv presentationen till disk.
+Använd förklaringens [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) för att komma åt dess textformatering och använd [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) för att ange teckenstorleken i punkter.
+
+Detta exempel skapar ett diagram med standarddata och anger förklaringstexten till 20 punkter. Det inaktiverar också automatiska gränser för den vertikala axeln och sätter dess intervall till -5 till 10.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ange teckenstorlek för en enskild förklaring**
-Aspose.Slides för Android via Java låter utvecklare ange teckenstorlek för enskilda förklaringsposter. Följ stegen nedan:
+## **Ange teckenstorlek för en enskild förklaringspost**
 
-- Instansiera [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) klassen.
-- Skapa standarddiagrammet.
-- Åtkomst till förklaringspost.
-- Ange teckenstorleken.
-- Ange minimalt axelvärde.
-- Ange maximalt axelvärde.
-- Skriv presentationen till disk.
+Använd samlingen som returneras av förklaringens [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--)‑metod för att komma åt formatering för en specifik post. Postindexpunkterna är nollbaserade, så index `1` hänvisar till den andra posten.
+
+Detta exempel skapar ett grupperat stapeldiagram vars standarddata innehåller minst två serier. Det formaterar den andra förklaringsposten med fet, kursiv och 20‑punkts blå text.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Dölj enskilda förklaringsposter**
+
+För att utesluta en hjälpserie från förklaringen samtidigt som dess data förblir synlig, anropa [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) med `true` via [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). Detta döljer endast den valda förklaringsposten; den tar inte bort serien eller dess datapunkter. Att anropa [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) med `false` döljer däremot hela förklaringen.
+
+Exemplet nedan skapar ett grupperat stapeldiagram med flera serier med standarddata. Det döljer den andra seriens förklaringspost (index `1`) och sparar presentationen. Det återställer sedan posten genom att anropa [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) med `false` och sparar en andra kopia. Kolumnerna förblir synliga i båda filerna.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // Återställ samma post utan att ändra diagramdata.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Jämförelsen nedan visar samma diagram med alla poster synliga och med den andra posten dold. Den andra seriens kolumner förblir oförändrade.
+
+![Jämförelse av ett diagram med alla förklaringsposter synliga och med Serie 2 dold från förklaringen; alla kolumner förblir synliga.](hide-legend-entry.png)
+
+I stapel-, stapel- och linjediagram identifierar förklaringsposter serier. För cirkeldiagram identifierar de enskilda datapunkter (bitar), så använd [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) på den valda biten istället. API:et dokumenterar denna datapunktmetod för diagramtyperna `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` och `BarOfPie`. Anta inte att den gäller för donutsdiagram, som inte är med i listan.
 
 ## **FAQ**
 
-**Kan jag aktivera förklaringen så att diagrammet automatiskt avsätter utrymme för den istället för att överlappa den?**
+**Kan jag få diagrammet att reservera utrymme för förklaringen istället för att överlappa den?**
 
-Ja. Använd icke‑överlappningsläget ([setOverlay(false)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); i så fall kommer plotområdet att krympa för att rymma förklaringen.
+Ja. Anropa [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) med `false` för att reservera utrymme för förklaringen istället för att låta den överlappa plotområdet.
 
 **Kan jag skapa flerradiga förklaringsetiketter?**
 
-Ja. Långa etiketter radbryts automatiskt när utrymmet är otillräckligt; tvingade radbrytningar stöds via nyradstecken i seriens namn.
+Ja. Långa etiketter kan radbrytas när den tillgängliga bredden är otillräcklig. Du kan också använda radbrytningstecken i seriens namn för att begära radbrytningar.
 
-**Hur får jag förklaringen att följa presentationens temas färgschema?**
+**Hur får jag förklaringen att följa presentationens färgschema?**
 
-Ange inte explicita färger/fyllningar/typsnitt för förklaringen eller dess text. De kommer då att ärva från temat och uppdateras korrekt när designen ändras.
+Lämna förklaringens färger, fyllningar och teckensnitt odefinierade så att den kan ärva temats formatering. Explicit formatering åsidosätter motsvarande temainställningar.

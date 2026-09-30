@@ -6,115 +6,136 @@ url: /it/python-net/chart-legend/
 keywords:
 - legenda del grafico
 - posizione della legenda
-- dimensione del font
+- dimensione del carattere
 - PowerPoint
-- OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Personalizza le legende dei grafici con Aspose.Slides per Python via .NET per ottimizzare le presentazioni PowerPoint e OpenDocument con una formattazione della legenda su misura."
+description: "Personalizza le legende dei grafici con Aspose.Slides per Python via .NET per ottimizzare le presentazioni PowerPoint con una formattazione della legenda su misura."
 ---
 ## **Panoramica**
 
-Aspose.Slides for Python offre il controllo completo sulle legende dei grafici, consentendoti di rendere le etichette dei dati chiare e pronte per la presentazione. Puoi mostrare o nascondere la legenda, scegliere la sua posizione nella diapositiva e regolare il layout per evitare sovrapposizioni con l’area del grafico. L’API permette di formattare testo e marcatori, perfezionare i margini e lo sfondo, e formattare bordi e riempimenti per corrispondere al tuo tema. Gli sviluppatori possono anche accedere a singole voci della legenda per rinominarle o filtrarle, garantendo che vengano visualizzate solo le serie più rilevanti. Con queste funzionalità, i tuoi grafici rimangono leggibili, coerenti e allineati agli standard di design della presentazione.
+Aspose.Slides for Python via .NET offre opzioni per personalizzare le legende dei grafici nelle presentazioni PowerPoint. Questo articolo mostra come posizionare e dimensionare una legenda, impostare la dimensione del carattere per l'intera legenda, formattare una voce di legenda individuale e nascondere o ripristinare voci selezionate.
+
+Le FAQ coprono comportamenti correlati, inclusa la riserva di spazio per la legenda, la visualizzazione di etichette multilinea e l'ereditarietà della formattazione dal tema della presentazione.
 
 ## **Posizionamento della Legenda**
 
-Con Aspose.Slides, puoi controllare rapidamente dove appare la legenda del grafico e come si adatta al layout della diapositiva. Scopri come posizionare la legenda con precisione.
+Utilizza le proprietà [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/x/), [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/y/), [width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/width/) e [height](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/height/) della legenda per specificarne la posizione e le dimensioni come frazioni delle dimensioni del grafico.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento alla diapositiva.
-1. Aggiungi un grafico alla diapositiva.
-1. Imposta le proprietà della legenda.
-1. Salva la presentazione come file PPTX.
+Questo esempio crea una presentazione e aggiunge un grafico a colonne raggruppate con dati predefiniti alla prima diapositiva. Dividendo gli offset e le dimensioni desiderate della legenda per la larghezza e l'altezza del grafico si ottengono valori relativi: la legenda è spostata di 50 punti dall'angolo in alto a sinistra del grafico e dimensionata a 100 per 100 punti.
 
-Nell’esempio seguente, impostiamo la posizione e le dimensioni della legenda del grafico:
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Crea un'istanza della classe Presentation.
 with slides.Presentation() as presentation:
-
-    # Ottieni un riferimento alla diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi un grafico a colonne raggruppate alla diapositiva.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
 
-    # Imposta le proprietà della legenda.
-    chart.legend.x = 80 / chart.width
-    chart.legend.y = 20 / chart.height
+    # Esprimi la posizione e la dimensione della legenda relative al grafico.
+    chart.legend.x = 50 / chart.width
+    chart.legend.y = 50 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Salva la presentazione su disco.
-    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_position.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Imposta la Dimensione del Font della Legenda**
+## **Imposta la Dimensione del Carattere di una Legenda**
 
-La legenda di un grafico deve essere leggibile quanto i dati che spiega. Questa sezione mostra come regolare la dimensione del font della legenda per abbinare la tipografia della presentazione e migliorare l’accessibilità.
+Utilizza il [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) della legenda per accedere alla formattazione del testo e impostare [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) in punti.
 
-1. Instanzia la classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Crea un grafico.
-1. Imposta la dimensione del font.
-1. Salva la presentazione su disco.
+Questo esempio crea un grafico con dati predefiniti e imposta il testo della legenda a 20 punti. Disabilita inoltre i limiti automatici per l'asse verticale e ne imposta l'intervallo da -5 a 10.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    chart.legend.text_format.portion_format.font_height = 20
 
-    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
+    chart.legend.text_format.portion_format.font_height = 20
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = -5
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 10
+
+    presentation.save("legend_font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Imposta la Dimensione del Font per una Voce della Legenda**
+## **Imposta la Dimensione del Carattere di una Voce di Legenda Individuale**
 
-Aspose.Slides consente di perfezionare l’aspetto delle legende dei grafici formattando voci individuali. L’esempio seguente mostra come selezionare una voce specifica della legenda e impostarne le proprietà senza modificare il resto della legenda.
+Utilizza la collezione [entries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/entries/) della legenda per accedere alla formattazione di una voce specifica. Gli indici delle voci partono da zero, quindi l'indice `1` si riferisce alla seconda voce.
 
-1. Instanzia la classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Crea un grafico.
-1. Accedi a una voce della legenda.
-1. Imposta le proprietà della voce.
-1. Salva la presentazione su disco.
+Questo esempio crea un grafico a colonne raggruppate i cui dati predefiniti includono almeno due serie. Formatta la seconda voce della legenda con testo in grassetto, corsivo e di colore blu a 20 punti.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-    text_format = chart.legend.entries[1].text_format
 
+    text_format = chart.legend.entries[1].text_format
     text_format.portion_format.font_bold = slides.NullableBool.TRUE
     text_format.portion_format.font_height = 20
     text_format.portion_format.font_italic = slides.NullableBool.TRUE
     text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
     text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("legend_entry_format.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Nascondi Voci di Legenda Individuali**
+
+Per escludere una serie ausiliaria dalla legenda mantenendo i dati visibili, imposta [ILegendEntryProperties.hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) su `True` tramite [IChartSeries.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/related_legend_entry/). Questo nasconde solo la voce di legenda selezionata; non rimuove la serie né i suoi punti dati. Impostare [IChart.has_legend](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/has_legend/) su `False`, invece, nasconde l'intera legenda.
+
+L'esempio seguente crea un grafico a colonne raggruppate con più serie utilizzando dati predefiniti. Nasconde la voce di legenda della seconda serie (indice `1`) e salva la presentazione. Poi ripristina la voce impostando [hide](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ilegendentryproperties/hide/) su `False` e salva una seconda copia. Le colonne rimangono visibili in entrambi i file.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.has_legend = True
+
+    legend_entry = chart.chart_data.series[1].related_legend_entry
+    legend_entry.hide = True
+
+    presentation.save("hidden_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+
+    # Ripristina la stessa voce senza modificare i dati del grafico.
+    legend_entry.hide = False
+
+    presentation.save("restored_legend_entry.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Il confronto seguente mostra lo stesso grafico con tutte le voci visibili e con la seconda voce nascosta. Le colonne della seconda serie rimangono inalterate.
+
+![Confronto di un grafico con tutte le voci della legenda visibili e con la Serie 2 nascosta dalla legenda; tutte le colonne rimangono visibili.](hide-legend-entry.png)
+
+Nei grafici a colonne, barre e linee, le voci della legenda identificano le serie. Nei grafici a torta, identificano i singoli punti dati (fette), quindi usa [IChartDataPoint.related_legend_entry](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/related_legend_entry/) sulla fetta selezionata. L'API documenta questa proprietà del punto dati per i tipi di grafico `PIE`, `PIE3D`, `EXPLODED_PIE`, `EXPLODED_PIE3D`, `PIE_OF_PIE` e `BAR_OF_PIE`. Non presumere che si applichi ai grafici a ciambella, che non sono inclusi in quell'elenco.
 
 ## **FAQ**
 
-**Posso abilitare la legenda in modo che il grafico riservi automaticamente spazio per essa invece di sovrapporsi?**
+**Posso fare in modo che il grafico riservi spazio per la legenda anziché sovrapporla?**
 
-Sì. Usa la modalità non sovrapposta ([overlay](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/legend/overlay/) = `false`); in questo caso, l’area del grafico si ridurrà per ospitare la legenda.
+Sì. Imposta [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) su `False` per riservare spazio per la legenda anziché permetterle di sovrapporsi all'area del grafico.
 
-**Posso creare etichette della legenda su più righe?**
+**Posso creare etichette della legenda multilinea?**
 
-Sì. Le etichette lunghe vanno a capo automaticamente quando lo spazio è insufficiente; è possibile forzare interruzioni di riga tramite caratteri di newline nel nome della serie.
+Sì. Le etichette lunghe possono andare a capo quando la larghezza disponibile è insufficiente. È inoltre possibile utilizzare caratteri di nuova riga nei nomi delle serie per richiedere interruzioni di linea.
 
 **Come faccio a far sì che la legenda segua lo schema di colori del tema della presentazione?**
 
-Non impostare colori/riempimenti/font espliciti per la legenda o il suo testo. In questo modo erediterà dal tema e si aggiornerà correttamente quando il design cambierà.
+Lascia non impostati i colori, i riempimenti e i caratteri della legenda in modo che possa ereditare la formattazione del tema. La formattazione esplicita sovrascrive le impostazioni corrispondenti del tema.

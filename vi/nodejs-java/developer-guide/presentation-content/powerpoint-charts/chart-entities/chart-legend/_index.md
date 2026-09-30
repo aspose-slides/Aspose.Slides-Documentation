@@ -1,129 +1,161 @@
 ---
-title: "Tùy chỉnh chú giải biểu đồ trong bài thuyết trình bằng JavaScript"
-linktitle: "Chú giải biểu đồ"
+title: Tùy chỉnh chú giải biểu đồ trong các bản trình bày bằng JavaScript
+linktitle: Chú giải biểu đồ
 type: docs
 url: /vi/nodejs-java/chart-legend/
 keywords:
-- "chú giải biểu đồ"
-- "vị trí chú giải"
-- "kích thước phông chữ"
-- "PowerPoint"
-- "bài thuyết trình"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Tùy chỉnh chú giải biểu đồ với JavaScript và Aspose.Slides cho Node.js để tối ưu hóa các bài thuyết trình PowerPoint với định dạng chú giải được cá nhân hoá."
+- chú giải biểu đồ
+- vị trí chú giải
+- kích thước phông chữ
+- PowerPoint
+- bản trình bày
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Tùy chỉnh chú giải biểu đồ với Aspose.Slides cho Node.js thông qua Java để tối ưu hóa các bản trình bày PowerPoint với định dạng chú giải được thiết kế riêng."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cung cấp các tùy chọn để tùy chỉnh chú giải biểu đồ trong các bài thuyết trình PowerPoint. Bài viết này hướng dẫn cách đặt vị trí và kích thước của chú giải, đặt kích thước phông chữ cho toàn bộ chú giải và áp dụng định dạng cho một mục chú giải riêng lẻ.
+Aspose.Slides for Node.js via Java cung cấp các tùy chọn để tùy chỉnh chú giải biểu đồ trong bản trình bày PowerPoint. Bài viết này cho thấy cách định vị và kích thước một chú giải, đặt kích thước phông chữ cho toàn bộ chú giải, định dạng một mục chú giải riêng lẻ, và ẩn hoặc khôi phục các mục đã chọn.
 
-Nó cũng đề cập đến một số hành vi liên quan trong phần Câu hỏi thường gặp, bao gồm việc sử dụng chế độ không chồng lên để khu vực vẽ dành chỗ cho chú giải, cho phép nhãn chú giải dài tự động ngắt dòng hoặc sử dụng ký tự ngắt dòng, và cho phép định dạng chú giải kế thừa từ giao diện chủ đề của bài thuyết trình khi không thiết lập màu chữ, màu nền hay phông chữ cụ thể.
+FAQ bao gồm các hành vi liên quan, bao gồm việc dành không gian cho chú giải, hiển thị nhãn đa dòng, và kế thừa định dạng từ chủ đề bản trình bày.
 
-## **Định vị Chú giải**
+## **Vị trí chú giải**
 
-Để đặt các thuộc tính của chú giải, hãy thực hiện các bước sau:
+Sử dụng các phương thức [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/), và [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) của chú giải để chỉ định vị trí và kích thước của nó dưới dạng phần tỷ lệ của kích thước biểu đồ.
 
-- Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-- Lấy tham chiếu tới slide.
-- Thêm biểu đồ vào slide.
-- Đặt các thuộc tính cho chú giải.
-- Ghi bài thuyết trình dưới dạng tệp PPTX.
-
-Trong ví dụ dưới đây, chúng tôi đã thiết lập vị trí và kích thước cho chú giải biểu đồ.
+Ví dụ này tạo một bản trình bày và thêm một biểu đồ cột nhóm với dữ liệu mặc định vào slide đầu tiên. Việc chia các offset và kích thước mong muốn của chú giải cho chiều rộng và chiều cao của biểu đồ chuyển chúng thành các giá trị tương đối: chú giải được dịch chuyển 50 điểm từ góc trên‑trái của biểu đồ và có kích thước 100x100 điểm.
 
 ```javascript
-// Tạo một thể hiện của lớp Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Lấy tham chiếu của slide
-    var slide = pres.getSlides().get_Item(0);
-    // Thêm biểu đồ cột cụm trên slide
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Đặt thuộc tính cho Legend
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Ghi bài thuyết trình ra đĩa
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Diễn đạt vị trí và kích thước của chú giải so với biểu đồ.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Đặt Kích Thước Phông Chữ cho Chú Giải**
+## **Đặt kích thước phông chữ cho chú giải**
 
-Aspose.Slides cho Node.js qua Java cho phép các nhà phát triển đặt kích thước phông chữ của chú giải. Vui lòng thực hiện các bước sau:
+Sử dụng [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) của chú giải để truy cập định dạng văn bản và sử dụng [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) để đặt kích thước phông chữ tính bằng điểm.
 
-- Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-- Tạo biểu đồ mặc định.
-- Đặt kích thước phông chữ.
-- Đặt giá trị tối thiểu cho trục.
-- Đặt giá trị tối đa cho trục.
-- Ghi bài thuyết trình ra đĩa.
+Ví dụ này tạo một biểu đồ với dữ liệu mặc định và đặt văn bản chú giải thành 20 điểm. Nó cũng vô hiệu hoá giới hạn tự động cho trục dọc và đặt phạm vi của trục từ -5 đến 10.
 
 ```javascript
-// Tạo một thể hiện của lớp Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Đặt Kích Thước Phông Chữ cho Mục Chú Giải Riêng Lẻ**
+## **Đặt kích thước phông chữ cho mục chú giải riêng lẻ**
 
-Aspose.Slides cho Node.js qua Java cho phép các nhà phát triển đặt kích thước phông chữ cho từng mục chú giải riêng lẻ. Vui lòng thực hiện các bước sau:
+Sử dụng tập hợp trả về bởi phương thức [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) của chú giải để truy cập định dạng cho một mục cụ thể. Các chỉ mục mục được đánh số bắt đầu từ 0, vì vậy chỉ mục `1` tương ứng với mục thứ hai.
 
-- Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-- Tạo biểu đồ mặc định.
-- Truy cập mục chú giải.
-- Đặt kích thước phông chữ.
-- Đặt giá trị tối thiểu cho trục.
-- Đặt giá trị tối đa cho trục.
-- Ghi bài thuyết trình ra đĩa.
+Ví dụ này tạo một biểu đồ cột nhóm mà dữ liệu mặc định bao gồm ít nhất hai chuỗi. Nó định dạng mục chú giải thứ hai thành in đậm, in nghiêng và văn bản màu xanh dương có kích thước 20 điểm.
 
 ```javascript
-// Tạo một thể hiện của lớp Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Ẩn các mục chú giải riêng lẻ**
 
-**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+Để loại bỏ một chuỗi phụ trợ khỏi chú giải trong khi vẫn giữ dữ liệu của nó hiển thị, gọi [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) với `true` thông qua [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Điều này chỉ ẩn mục chú giải đã chọn; nó không xóa chuỗi hoặc các điểm dữ liệu của nó. Ngược lại, gọi [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) với `false` sẽ ẩn toàn bộ chú giải.
 
-Có. Sử dụng chế độ không chồng lên ([setOverlay(false)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/legend/setoverlay/)); trong trường hợp này, khu vực vẽ sẽ thu nhỏ để chứa chú giải.
+Ví dụ dưới đây tạo một biểu đồ cột nhóm với nhiều chuỗi sử dụng dữ liệu mặc định. Nó ẩn mục chú giải của chuỗi thứ hai (chỉ mục `1`) và lưu bản trình bày. Sau đó khôi phục mục này bằng cách gọi [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) với `false` và lưu một bản sao thứ hai. Các cột vẫn hiển thị trong cả hai tệp.
 
-**Can I make multi-line legend labels?**
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Có. Nhãn dài sẽ tự động ngắt dòng khi không đủ không gian; các ngắt dòng buộc được hỗ trợ bằng ký tự xuống dòng trong tên chuỗi.
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
 
-**How do I make the legend follow the presentation theme’s color scheme?**
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-Không đặt màu/ràu nền/phông chữ cụ thể cho chú giải hoặc văn bản của nó. Khi đó chúng sẽ kế thừa từ chủ đề và tự động cập nhật đúng khi thiết kế thay đổi.
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Khôi phục cùng mục mà không thay đổi dữ liệu biểu đồ.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+So sánh dưới đây cho thấy cùng một biểu đồ với tất cả các mục được hiển thị và với mục thứ hai bị ẩn. Các cột của chuỗi thứ hai vẫn không thay đổi.
+
+![So sánh một biểu đồ với tất cả các mục chú giải hiển thị và với Series 2 bị ẩn khỏi chú giải; tất cả các cột vẫn hiển thị.](hide-legend-entry.png)
+
+Trong các biểu đồ cột, thanh và đường, các mục chú giải xác định chuỗi. Đối với biểu đồ tròn, chúng xác định các điểm dữ liệu riêng lẻ (miếng), vì vậy sử dụng [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) trên miếng đã chọn thay thế. Tài liệu API mô tả phương thức điểm dữ liệu này cho các loại biểu đồ `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` và `BarOfPie`. Đừng cho rằng nó áp dụng cho biểu đồ vòng donut, vì chúng không nằm trong danh sách đó.
+
+## **Câu hỏi thường gặp**
+
+**Có thể làm cho biểu đồ dành không gian cho chú giải thay vì chồng lên không?**
+
+Có. Gọi [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) với `false` để dành không gian cho chú giải thay vì cho phép nó chồng lên vùng vẽ.
+
+**Có thể tạo nhãn chú giải đa dòng không?**
+
+Có. Các nhãn dài có thể tự động ngắt dòng khi chiều rộng khả dụng không đủ. Bạn cũng có thể dùng ký tự xuống dòng trong tên chuỗi để yêu cầu ngắt dòng.
+
+**Làm sao để chú giải tuân theo bảng màu chủ đề của bản trình bày?**
+
+Để màu, nền và phông chữ của chú giải không được đặt để nó có thể kế thừa định dạng chủ đề. Định dạng rõ ràng sẽ ghi đè các cài đặt chủ đề tương ứng.

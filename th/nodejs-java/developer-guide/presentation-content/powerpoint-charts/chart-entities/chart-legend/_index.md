@@ -1,125 +1,161 @@
 ---
-title: ปรับแต่งคำบรรยายแผนภูมิในงานนำเสนอด้วย JavaScript
-linktitle: คำบรรยายแผนภูมิ
+title: ปรับแต่งคำนำแผนภูมิในงานนำเสนอด้วย JavaScript
+linktitle: คำนำแผนภูมิ
 type: docs
 url: /th/nodejs-java/chart-legend/
 keywords:
-- คำบรรยายแผนภูมิ
-- ตำแหน่งคำบรรยาย
-- ขนาดฟอนต์
+- คำนำแผนภูมิ
+- ตำแหน่งคำนำ
+- ขนาดตัวอักษร
 - PowerPoint
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ปรับแต่งคำบรรยายแผนภูมิด้วย JavaScript และ Aspose.Slides สำหรับ Node.js เพื่อเพิ่มประสิทธิภาพงานนำเสนอ PowerPoint ด้วยการจัดรูปแบบคำบรรยายที่กำหนดเอง."
+description: "ปรับแต่งคำนำแผนภูมิด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อเพิ่มประสิทธิภาพงานนำเสนอ PowerPoint ด้วยการจัดรูปแบบคำนำที่กำหนดเอง"
 ---
 ## **ภาพรวม**
 
-Aspose.Slides มีตัวเลือกสำหรับการปรับแต่งคำบรรยายของแผนภูมิในงานนำเสนอ PowerPoint บทความนี้แสดงวิธีการกำหนดตำแหน่งและขนาดของคำบรรยาย ตั้งขนาดฟอนต์สำหรับคำบรรยายทั้งหมด และใช้การจัดรูปแบบกับรายการคำบรรยายแต่ละรายการ.  
-บทความยังครอบคลุมพฤติกรรมที่เกี่ยวข้องหลายอย่างในส่วนคำถามที่พบบ่อย รวมถึงการใช้โหมดไม่ซ้อนกันเพื่อให้พื้นที่พล็อตทำให้มีที่ว่างสำหรับคำบรรยาย การอนุญาตให้ป้ายคำบรรยายยาวห่อหุ้มหรือใช้การย่อบรรทัด และให้การจัดรูปแบบของคำบรรยายสืบทอดจากธีมของงานนำเสนอเมื่อไม่ได้ตั้งค่าข้อความและพื้นสีอย่างชัดเจน.
+Aspose.Slides for Node.js via Java มีตัวเลือกสำหรับการปรับแต่งคำนำของแผนภูมิในงานนำเสนอ PowerPoint บทความนี้แสดงวิธีกำหนดตำแหน่งและขนาดของคำนำ การตั้งค่าขนาดตัวอักษรสำหรับคำนำทั้งหมด การจัดรูปแบบรายการคำนำแต่ละรายการ และการซ่อนหรือคืนค่ารายการที่เลือก
 
-## **การกำหนดตำแหน่งคำบรรยาย**
+FAQ ครอบคลุมพฤติกรรมที่เกี่ยวข้อง รวมถึงการสำรองพื้นที่ให้คำนำ การแสดงป้ายกำกับหลายบรรทัด และการสืบทอดการจัดรูปแบบจากธีมของงานนำเสนอ
 
-เพื่อกำหนดคุณสมบัติของคำบรรยาย กรุณาติดตามขั้นตอนด้านล่าง:
+## **การจัดตำแหน่งคำนำ**
 
-- สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-- รับอ้างอิงของสไลด์
-- เพิ่มแผนภูมิบนสไลด์
-- ตั้งค่าคุณสมบัติของคำบรรยาย
-- เขียนงานนำเสนอเป็นไฟล์ PPTX
+ใช้เมธอดของคำนำ [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/) และ [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) เพื่อกำหนดตำแหน่งและขนาดของคำนำเป็นอัตราส่วนของมิติของแผนภูมิ
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าตำแหน่งและขนาดสำหรับคำบรรยายของแผนภูมิ.
+ตัวอย่างนี้สร้างงานนำเสนอและเพิ่มแผนภูมิดิ่งกลุ่มที่มีข้อมูลค่าเริ่มต้นลงในสไลด์แรก การหารค่าการเลื่อนและขนาดของคำนำที่ต้องการด้วยความกว้างและความสูงของแผนภูมิจะทำให้เป็นค่าตามสัดส่วน: คำนำถูกเลื่อน 50 จุดจากมุมบนซ้ายของแผนภูมิและมีขนาด 100 × 100 จุด
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // รับอ้างอิงของสไลด์
-    var slide = pres.getSlides().get_Item(0);
-    // เพิ่มแผนภูมิคอลัมน์แบบกลุ่มบนสไลด์
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // ตั้งค่าคุณสมบัติของคำบรรยาย
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // ระบุตำแหน่งและขนาดของคำนำสัมพันธ์กับแผนภูมิ
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าขนาดฟอนต์ของคำบรรยาย**
+## **ตั้งค่าขนาดตัวอักษรของคำนำ**
 
-Aspose.Slides สำหรับ Node.js ผ่าน Java ทำให้ผู้พัฒนาสามารถตั้งค่าขนาดฟอนต์ของคำบรรยายได้ กรุณาติดตามขั้นตอนด้านล่าง:
+ใช้ [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) ของคำนำเพื่อเข้าถึงการจัดรูปแบบข้อความและใช้ [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) เพื่อตั้งค่าขนาดตัวอักษรเป็นจุด
 
-- สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-- สร้างแผนภูมิเริ่มต้น
-- ตั้งค่าขนาดฟอนต์
-- ตั้งค่าค่าต่ำสุดของแกน
-- ตั้งค่าค่าสูงสุดของแกน
-- บันทึกงานนำเสนอลงดิสก์
+ตัวอย่างนี้สร้างแผนภูมิด้วยข้อมูลค่าเริ่มต้นและตั้งค่าขนาดข้อความคำนำเป็น 20 จุด นอกจากนี้ยังปิดการกำหนดขอบอัตโนมัติสำหรับแกนตั้งและตั้งช่วงค่าจาก -5 ถึง 10
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าขนาดฟอนต์ของคำบรรยายแต่ละรายการ**
+## **ตั้งค่าขนาดตัวอักษรของรายการคำนำแบบแยกส่วน**
 
-Aspose.Slides สำหรับ Node.js ผ่าน Java ทำให้ผู้พัฒนาสามารถตั้งค่าขนาดฟอนต์ของรายการคำบรรยายแต่ละรายการได้ กรุณาติดตามขั้นตอนด้านล่าง:
+ใช้คอลเลกชันที่คืนจากเมธอด [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) ของคำนำเพื่อเข้าถึงการจัดรูปแบบของรายการเฉพาะ ดัชนีของรายการเริ่มจากศูนย์ ดังนั้นดัชนี `1` หมายถึงรายการที่สอง
 
-- สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-- สร้างแผนภูมิเริ่มต้น
-- เข้าถึงรายการคำบรรยาย
-- ตั้งค่าขนาดฟอนต์
-- ตั้งค่าค่าต่ำสุดของแกน
-- ตั้งค่าค่าสูงสุดของแกน
-- บันทึกงานนำเสนอลงดิสก์
+ตัวอย่างนี้สร้างแผนภูมิดิ่งกลุ่มที่ข้อมูลค่าเริ่มต้นมีอย่างน้อยสองชุดข้อมูล มันจัดรูปแบบรายการคำนำที่สองให้เป็นตัวหนา ตัวเอียง และข้อความสีฟ้า 20 จุด
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **ซ่อนรายการคำนำแบบแยกส่วน**
 
-**ฉันสามารถเปิดใช้งานคำบรรยายเพื่อให้แผนภูมิจัดสรรพื้นที่ให้โดยอัตโนมัติแทนการซ้อนกันได้หรือไม่?**  
-ใช่ ใช้โหมดไม่ซ้อนกัน ([setOverlay(false)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/legend/setoverlay/)); ในกรณีนี้ พื้นที่พล็อตจะหดลงเพื่อรองรับคำบรรยาย.
+เพื่อไม่ให้ชุดข้อมูลเสริมแสดงในคำนำขณะยังคงแสดงข้อมูลอยู่ ให้เรียก [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) ด้วยค่า `true` ผ่าน [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/) วิธีนี้จะซ่อนเฉพาะรายการคำนำที่เลือก ไม่ได้ลบชุดข้อมูลหรือจุดข้อมูลออก การเรียก [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) ด้วยค่า `false` ในทางกลับกันจะซ่อนคำนำทั้งหมด
 
-**ฉันสามารถทำให้ป้ายคำบรรยายหลายบรรทัดได้หรือไม่?**  
-ใช่ ป้ายที่ยาวจะห่อหุ้มโดยอัตโนมัติเมื่อตำแหน่งไม่พอ; การบังคับให้ขึ้นบรรทัดใหม่สนับสนุนโดยอักขระ newline ในชื่อซีรีส์.
+ตัวอย่างด้านล่างสร้างแผนภูมิดิ่งกลุ่มที่มีหลายชุดข้อมูลโดยใช้ข้อมูลค่าเริ่มต้น มันซ่อนรายการคำนำของชุดข้อมูลที่สอง (ดัชนี `1`) แล้วบันทึกงานนำเสนอ จากนั้นคืนค่ารายการโดยเรียก [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) ด้วยค่า `false` และบันทึกสำเนาที่สอง คอลัมน์ยังคงแสดงในทั้งสองไฟล์
 
-**ฉันจะทำให้คำบรรยายสอดคล้องกับโครงสร้างสีของธีมงานนำเสนอได้อย่างไร?**  
-อย่า ตั้งค่าสี/พื้น/ฟอนต์อย่างเจาะจงสำหรับคำบรรยายหรือข้อความของมัน ระบบจะสืบทอดจากธีมและอัพเดตอย่างถูกต้องเมื่อการออกแบบเปลี่ยนแปลง.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // กู้คืนรายการเดิมโดยไม่เปลี่ยนแปลงข้อมูลแผนภูมิ
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การเปรียบเทียบด้านล่างแสดงแผนภูมิเดียวกันที่รายการทั้งหมดแสดงและรายการที่สองถูกซ่อน คอลัมน์ของชุดข้อมูลที่สองยังคงไม่เปลี่ยนแปลง
+
+![เปรียบเทียบแผนภูมิที่มีรายการคำนำทั้งหมดแสดงและรายการที่สองถูกซ่อน; คอลัมน์ทั้งหมดยังคงแสดง](hide-legend-entry.png)
+
+ในแผนภูมิคอลัมน์, แถบ, และเส้น, รายการคำนำระบุชุดข้อมูล ส่วนในแผนภูมิพายจะระบุจุดข้อมูลแต่ละจุด (ส่วน), ดังนั้นให้ใช้ [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) กับส่วนที่เลือก API เอกสารวิธีนี้สำหรับประเภทแผนภูมิ `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` และ `BarOfPie` อย่าสมมติว่าใช้ได้กับแผนภูมิดอนัท ซึ่งไม่ได้อยู่ในรายการนั้น
+
+## **FAQ**
+
+**ฉันสามารถทำให้แผนภูมิสำรองพื้นที่ให้คำนำแทนการทับซ้อนได้หรือไม่?**
+
+ได้ ให้เรียก [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) ด้วยค่า `false` เพื่อสำรองพื้นที่ให้คำนำแทนการให้ทับบริเวณแผนภูมิ
+
+**ฉันสามารถทำให้ป้ายกำกับคำนำเป็นหลายบรรทัดได้หรือไม่?**
+
+ได้ ป้ายกำกับยาวสามารถตัดบรรทัดได้เมื่อความกว้างที่ใช้ได้ไม่เพียงพอ คุณยังสามารถใช้อักขระขึ้นบรรทัดใหม่ในชื่อชุดข้อมูลเพื่อขอให้ตัดบรรทัด
+
+**ฉันจะทำให้คำนำสืบทอดโทนสีจากธีมของงานนำเสนอได้อย่างไร?**
+
+ปล่อยให้สี, การเติมสี, และแบบอักษรของคำนำไม่ได้กำหนดค่า เพื่อให้คำนำสืบทอดการจัดรูปแบบจากธีม การจัดรูปแบบอย่างชัดเจนจะลบการตั้งค่าของธีมที่สอดคล้องกันออก

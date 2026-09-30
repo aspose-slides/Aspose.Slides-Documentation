@@ -16,21 +16,15 @@ description: "Anpassa diagramförklaringar med Aspose.Slides för Python via Jav
 ---
 ## **Översikt**
 
-Aspose.Slides erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Denna artikel visar hur man positionerar och storlekar en förklaring, anger teckenstorleken för hela förklaringen och tillämpar formatering på ett enskilt förklaringsobjekt.
+Aspose.Slides for Python via Java tillhandahåller alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Denna artikel visar hur man positionerar och storlekar en förklaring, ställer in teckenstorleken för hela förklaringen, formaterar ett enskilt förklaringspost och döljer eller återställer utvalda poster.
 
-Den täcker även flera relaterade beteenden i vanliga frågor, inklusive att använda icke‑överlappningsläge så att diagramområdet ger plats åt förklaringen, tillåter långa förklaringsetiketter att radbrytas eller använda radbrytningar, och låter förklaringsformatering ärva från presentationens tema när explicita text‑ och fyllningsinställningar inte tillämpas.
+FAQ:n täcker relaterade beteenden, inklusive att reservera utrymme för förklaringen, visa flerradiga etiketter och ärva formatering från presentationens tema.
 
 ## **Placering av förklaring**
 
-För att ställa in förklaringsegenskaperna, följ dessa steg:
+Använd förklaringens [setX](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setX), [setY](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setY), [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setWidth) och [setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setHeight) metoder för att ange dess position och storlek som bråkdelar av diagrammets dimensioner.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta en referens till bilden.
-3. Lägg till ett diagram på bilden.
-4. Ställ in förklaringsegenskaperna.
-5. Spara presentationen som en PPTX‑fil.
-
-Följande exempel anger position och storlek för en diagramförklaring.
+Detta exempel skapar en presentation och lägger till ett grupperat stapeldiagram med standarddata på den första bilden. Genom att dividera önskade förklaringsförskjutningar och dimensioner med diagrammets bredd och höjd omvandlas de till relativa värden: förklaringen förskjuts 50 punkter från diagrammets övre vänstra hörn och storleksätts till 100 × 100 punkter.
 
 ```python
 import jpype
@@ -41,38 +35,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Skapa en tom presentation.
 presentation = Presentation()
 try:
-    # Hämta en referens till bilden.
     slide = presentation.getSlides().get_Item(0)
 
-    # Lägg till ett klustrat kolumndiagram på bilden.
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500)
 
-    # Ställ in förklaringsegenskaperna.
-    legend = chart.getLegend()
-    legend.setX(50 / chart.getWidth())
-    legend.setY(50 / chart.getHeight())
-    legend.setWidth(100 / chart.getWidth())
-    legend.setHeight(100 / chart.getHeight())
+    # Uttryck förklaringens position och storlek relativt diagrammet.
+    chart.getLegend().setX(50 / chart.getWidth())
+    chart.getLegend().setY(50 / chart.getHeight())
+    chart.getLegend().setWidth(100 / chart.getWidth())
+    chart.getLegend().setHeight(100 / chart.getHeight())
 
-    # Spara presentationen till disk.
-    presentation.save("Legend_out.pptx", SaveFormat.Pptx)
+    presentation.save("legend_position.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ange teckenstorlek för en förklaring**
+## **Ställ in teckenstorlek för en förklaring**
 
-Aspose.Slides för Python via Java låter dig ange teckenstorleken för en förklaring. Följ dessa steg:
+Använd förklaringens [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) för att komma åt dess textformatering och använd [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) för att ange teckenstorleken i punkter.
 
-1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Skapa standarddiagrammet.
-3. Ange teckenstorleken.
-4. Ange det minsta axelvärdet.
-5. Ange det största axelvärdet.
-6. Spara presentationen till disk.
+Detta exempel skapar ett diagram med standarddata och ställer in förklaringstexten till 20 punkter. Det inaktiverar också automatiska gränser för den vertikala axeln och sätter dess intervall till -5 till 10.
 
 ```python
 import jpype
@@ -83,33 +67,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Skapa en tom presentation.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20)
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(False)
+    chart.getAxes().getVerticalAxis().setMinValue(-5)
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(10)
 
-    vertical_axis = chart.getAxes().getVerticalAxis()
-    vertical_axis.setAutomaticMinValue(False)
-    vertical_axis.setMinValue(-5)
-    vertical_axis.setAutomaticMaxValue(False)
-    vertical_axis.setMaxValue(10)
-
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ange teckenstorlek för ett enskilt förklaringsobjekt**
+## **Ställ in teckenstorlek för en enskild förklaringspost**
 
-Aspose.Slides för Python via Java låter dig ange teckenstorleken för enskilda förklaringsobjekt. Följ dessa steg:
+Använd samlingen som returneras av förklaringens [getEntries](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getEntries) metod för att komma åt formatering för ett specifikt inlägg. Postindex är nollbaserade, så index `1` avser den andra posten.
 
-1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Skapa standarddiagrammet.
-3. Kom åt ett förklaringsobjekt.
-4. Ange teckenstorleken.
-5. Spara presentationen till disk.
+Detta exempel skapar ett grupperat stapeldiagram vars standarddata innehåller minst två serier. Det formaterar den andra förklaringsposten med fet, kursiv och 20‑punkts blå text.
 
 ```python
 import jpype
@@ -122,35 +101,71 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Skapa en tom presentation.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     text_format = chart.getLegend().getEntries().get_Item(1).getTextFormat()
-    portion_format = text_format.getPortionFormat()
 
-    portion_format.setFontBold(NullableBool.True_)
-    portion_format.setFontHeight(20)
-    portion_format.setFontItalic(NullableBool.True_)
-    portion_format.getFillFormat().setFillType(FillType.Solid)
-    portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    text_format.getPortionFormat().setFontBold(NullableBool.True_)
+    text_format.getPortionFormat().setFontHeight(20)
+    text_format.getPortionFormat().setFontItalic(NullableBool.True_)
+    text_format.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    text_format.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Vanliga frågor**
+## **Dölj enskilda förklaringsposter**
 
-**Kan jag aktivera förklaringen så att diagrammet automatiskt avsätter utrymme för den istället för att överlappa den?**
+För att utesluta en hjälpserie från förklaringen samtidigt som dess data förblir synlig, anropa [LegendEntryProperties.setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) med `True` via [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getRelatedLegendEntry). Detta döljer endast den valda förklaringsposten; den tar inte bort serien eller dess datapunkter. Att anropa [Chart.setLegend](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setLegend) med `False` döljer däremot hela förklaringen.
 
-Ja. Använd [setOverlay](https://reference.aspose.com/slides/sv/python-java/aspose.slides/legend/#setOverlay) med `False` för att aktivera icke‑överlappningsläge; i så fall kommer diagramområdet att krympa för att rymma förklaringen.
+Exemplet nedan skapar ett grupperat stapeldiagram med flera serier med standarddata. Det döljer den andra seriens förklaringspost (index `1`) och sparar presentationen. Det återställer sedan posten genom att anropa [setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) med `False` och sparar en andra kopia. Kolumnerna förblir synliga i båda filerna.
 
-**Kan jag skapa flerradiga förklaringsetiketter?**
+```python
+import jpype
+import asposeslides
 
-Ja. Långa etiketter radbryts automatiskt när utrymmet är otillräckligt; tvingade radbrytningar stöds via nyradstecken i seriens namn.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-**Hur får jag förklaringen att följa presentationens temafärgschema?**
+from asposeslides.api import ChartType, Presentation, SaveFormat
 
-Ange inte explicita färger, fyllningar eller teckensnitt för förklaringen eller dess text. De kommer då att ärva från temat och uppdateras korrekt när designen förändras.
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(True)
+
+    legend_entry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry()
+
+    legend_entry.setHide(True)
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx)
+
+    # Återställ samma post utan att ändra diagramdata.
+    legend_entry.setHide(False)
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Jämförelsen nedan visar samma diagram med alla poster synliga och med den andra posten dold. Den andra seriens kolumner förblir oförändrade.
+
+![Jämförelse av ett diagram med alla förklaringsposter synliga och med Serie 2 dold i förklaringen; alla kolumner förblir synliga.](hide-legend-entry.png)
+
+I stapel-, stång- och linjediagram identifierar förklaringsposter serier. I pajdiagram identifierar de enskilda datapunkter (bitar), så använd [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getRelatedLegendEntry) på den valda biten istället. API:et dokumenterar denna datapunktmetod för diagramtyperna `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` och `BarOfPie`. Anta inte att den gäller för munkdiagram, som inte ingår i den listan.
+
+## **FAQ**
+
+**Kan jag få diagrammet att reservera utrymme för förklaringen istället för att överlagra den?**  
+Ja. Anropa [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) med `False` för att reservera utrymme för förklaringen istället för att låta den överlappa plotområdet.
+
+**Kan jag skapa flerradiga förklaringsetiketter?**  
+Ja. Långa etiketter kan radbrytas när den tillgängliga bredden är otillräcklig. Du kan också använda nyradstecken i serienamn för att begära radbrytningar.
+
+**Hur får jag förklaringen att följa presentationens temafärgschema?**  
+Lämna förklaringens färger, fyllningar och teckensnitt oinställda så att den kan ärva temats formatering. Explicit formatering åsidosätter motsvarande temainställningar.

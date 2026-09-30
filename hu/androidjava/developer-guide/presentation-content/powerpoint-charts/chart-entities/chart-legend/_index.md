@@ -1,128 +1,153 @@
 ---
-title: Diagrammagyarázatok testreszabása prezentációkban Androidon
-linktitle: Diagrammagyarázat
+title: Diagram legendák testreszabása Androidos prezentációkban
+linktitle: Diagram legenda
 type: docs
 url: /hu/androidjava/chart-legend/
 keywords:
-- diagrammagyarázat
-- magyarázat pozíciója
+- diagram legenda
+- legend helyzete
 - betűméret
 - PowerPoint
 - prezentáció
 - Android
+- Java
 - Aspose.Slides
-description: "Testreszabott diagrammagyarázatok az Aspose.Slides for Android via Java használatával a PowerPoint-prezentációk optimalizálásához, a legendák egyedi formázásával."
+description: "Testreszabja a diagram legendákat az Aspose.Slides for Android via Java segítségével, hogy a PowerPoint prezentációkat a legendák egyedi formázásával optimalizálja."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetőségeket kínál a diagrammagyarázatok testreszabásához a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet elhelyezni és méretezni egy magyarázatot, beállítani a teljes magyarázat betűméretét, valamint formázni egy adott magyarázati elemet.
+Az Aspose.Slides for Android via Java lehetőséget biztosít a diagramlegendák testreszabására a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet elhelyezni és méretezni egy legendát, beállítani a teljes legenda betűméretét, formázni egy egyedi legendabejegyzést, illetve elrejteni vagy visszaállítani a kiválasztott bejegyzéseket.
 
-A GYIK‑ban is több kapcsolódó viselkedést tárgyal, többek között a nem átfedési mód használatát, amely lehetővé teszi, hogy a diagramterület helyet biztosítson a magyarázatnak, a hosszú magyarázati címkék automatikus tördelését vagy sortörések használatát, valamint hogy a magyarázat formázása öröklődjön a prezentáció témájától, ha nem kerülnek megadásra explicit szöveg‑ és kitöltési beállítások.
+Az GYIK a kapcsolódó viselkedéseket tárgyalja, beleértve a legenda számára hely lefoglalását, a több soros címkék megjelenítését, valamint a formázás öröklését a prezentáció témájától.
 
 ## **Legenda elhelyezése**
-A legenda tulajdonságainak beállításához kövesse az alábbi lépéseket:
 
-- Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-- Szerezze meg a dia hivatkozását.
-- Adjon hozzá egy diagramot a diára.
-- Állítsa be a legenda tulajdonságait.
-- Írja ki a prezentációt PPTX fájlként.
+Használja a legenda [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-), és [setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-) metódusait a pozíció és méret meghatározásához a diagram méretének tört részeként.
 
-Az alábbi példában beállítottuk a diagrammagyarázat pozícióját és méretét.
+Ez a példa egy prezentációt hoz létre, és egy klaszterezett oszlopdiagramot ad hozzá alapértelmezett adatokkal az első diára. A kívánt legenda eltolás és méret a diagram szélességével és magasságával elosztva relatív értékekké alakul: a legenda 50 ponttal van eltolva a diagram bal‑felső sarkától, és 100 × 100 pont méretű.
 
 ```java
-// Hozzon létre egy példányt a Presentation osztályból
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Szerezze meg a dia hivatkozását
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Adjon hozzá egy klaszterezett oszlopdiagramot a diára
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Állítsa be a legenda tulajdonságait
+
+    // A legend pozíciójának és méretének kifejezése a diagramhoz viszonyítva.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Mentse a prezentációt lemezre
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **A legenda betűméretének beállítása**
-Az Aspose.Slides for Android via Java lehetővé teszi a fejlesztők számára a legenda betűméretének beállítását. Kövesse az alábbi lépéseket:
 
-- Példányosítsa a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályt.
-- Hozza létre az alapértelmezett diagramot.
-- Állítsa be a betűméretet.
-- Állítsa be a minimum tengelyértéket.
-- Állítsa be a maximum tengelyértéket.
-- Írja ki a prezentációt lemezre.
+Használja a legenda [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) hogy hozzáférjen a szövegformázáshoz, és a [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódust a betűméret pontban történő beállításához.
+
+Ez a példa egy diagramot hoz létre alapértelmezett adatokkal, és a legenda szövegét 20 pontra állítja. Emellett letiltja az automatikus határokat a függőleges tengelyen, és -5‑től 10‑ig állítja be a tartományt.
 
 ```java
-// Hozzon létre egy példányt a Presentation osztályból
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Egy adott legenda betűméretének beállítása**
-Az Aspose.Slides for Android via Java lehetővé teszi a fejlesztők számára az egyes legendaelemek betűméretének beállítását. Kövesse az alábbi lépéseket:
+## **Egyedi legendabejegyzés betűméretének beállítása**
 
-- Példányosítsa a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályt.
-- Hozza létre az alapértelmezett diagramot.
-- Hozzáférés a legendaelemhez.
-- Állítsa be a betűméretet.
-- Állítsa be a minimum tengelyértéket.
-- Állítsa be a maximum tengelyértéket.
-- Írja ki a prezentációt lemezre.
+Használja a legendától a [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--) metódus visszaadta gyűjteményt egy adott bejegyzés formázásához. A bejegyzés indexei nullától indulnak, így a `1` index a második bejegyzésre vonatkozik.
+
+Ez a példa egy klaszterezett oszlopdiagramot hoz létre, amely alapértelmezett adatai legalább két sorozatot tartalmaznak. Formázza a második legendabejegyzést félkövér, dőlt és 20 pontos kék szöveggel.
 
 ```java
-// Hozzon létre egy példányt a Presentation osztályból
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Egyedi legendabejegyzések elrejtése**
 
-**Engedélyezhetem a magyarázatot úgy, hogy a diagram automatikusan helyet biztosítson számára ahelyett, hogy átfedné?**
+Egy segédsorozat kizárásához a legendából, miközben az adatai láthatóak maradnak, hívja meg az [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) metódust `true` értékkel a [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--) segítségével. Ez csak a kiválasztott legendabejegyzést rejti el; nem távolítja el a sorozatot vagy adatpontjait. Ezzel szemben az [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) `false` értékével való meghívás az egész legendát elrejti.
 
-Igen. Használja a nem átfedési módot ([setOverlay(false)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); ebben az esetben a diagramterület összezsugorodik, hogy helyet biztosítson a magyarázatnak.
+Az alábbi példa egy több sorozatos klaszterezett oszlopdiagramot hoz létre alapértelmezett adatokkal. Elrejti a második sorozat legendabejegyzését (index `1`), és elmenti a prezentációt. Ezután a [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) `false` értékkel történő meghívásával visszaállítja a bejegyzést, és egy második másolatot ment el. Az oszlopok mindkét fájlban láthatóak maradnak.
 
-**Készíthetek több soros legenda címkéket?**
+```java
+import com.aspose.slides.*;
 
-Igen. A hosszú címkék automatikusan tördelődnek, ha nincs elég hely; a kényszerített sortöréseket a sorozat nevében lévő új sor karakterek támogatják.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**Hogyan tehetem, hogy a legenda a prezentáció téma színsémáját kövesse?**
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-Ne állítson be explicit színeket/kitöltéseket/betűtípusokat a legenda vagy annak szövege számára. Ezek ekkor a témától öröklődnek, és a tervezés változásakor megfelelően frissülnek.
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    //    A bejegyzést a diagram adatainak módosítása nélkül állítja vissza.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az alábbi összehasonlítás ugyanazt a diagramot mutatja, minden bejegyzés látható állapotban és a második bejegyzés rejtett állapotban. A második sorozat oszlopai változatlanok maradnak.
+
+![Diagram összehasonlítása, ahol minden legendabejegyzés látható, illetve a 2. sorozat rejtve van a legendában; az összes oszlop látható marad.](hide-legend-entry.png)
+
+Az oszlop-, oszlop– és vonaldiagramokban a legendabejegyzések a sorozatokat azonosítják. Pie-diagramok esetén egyedi adatpontokat (szeleteket) jelölnek, ezért a kiválasztott szeletre alkalmazza az [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) metódust. Az API ezt a adatpont‑metódust a `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` és `BarOfPie` diagramtípusoknál dokumentálja. Ne feltételezze, hogy ez a módszer a gyűrűdiagramokra is vonatkozik, mivel azok nincsenek a felsoroltak között.
+
+## **GYIK**
+
+**A diagram lefoglalhat helyet a legendának az átfedés helyett?**
+
+Igen. Hívja meg a [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) metódust `false` értékkel, hogy a legendának helyet foglaljon, ahelyett, hogy átfedné a diagram területét.
+
+**Készíthetek több soros legendacímkéket?**
+
+Igen. Hosszú címkék megtörhetnek, ha a rendelkezésre álló szélesség nem elegendő. Új sor karaktereket is használhat a sorozatneveknél a sortörés kéréséhez.
+
+**Hogyan tudom, hogy a legenda kövesse a prezentáció téma színsémáját?**
+
+Hagyja a legenda színeit, kitöltéseit és betűtípusait beállítás nélkül, hogy örökölje a téma formázását. A kifejezett formázás felülírja a megfelelő téma beállításokat.

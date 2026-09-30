@@ -8,116 +8,145 @@ keywords:
 - موضع الوسمة
 - حجم الخط
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Java
 - Aspose.Slides
-description: "قم بتخصيص وسوم المخططات باستخدام Aspose.Slides for Java لتحسين عروض PowerPoint مع تنسيق وسوم مخصص."
+description: "خصص وسوم المخططات باستخدام Aspose.Slides للغة Java لتحسين عروض PowerPoint التقديمية من خلال تنسيق وسوم مخصص."
 ---
+## **نظرة عامة**
 
-## **تموضع المفتاح**
-لضبط خصائص المفتاح، يرجى اتباع الخطوات التالية:
+Aspose.Slides for Java يوفر خيارات لتخصيص وسوم المخطط في عروض PowerPoint التقديمية. توضح هذه المقالة كيفية تحديد موضع وحجم الوسم، ضبط حجم الخط للوسم بالكامل، تنسيق إدخال وسمة فردي، وإخفاء أو استعادة الإدخالات المحددة.
 
-- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-- احصل على مرجع الشريحة.
-- إضافة مخطط إلى الشريحة.
-- ضبط خصائص المفتاح.
-- احفظ العرض التقديمي كملف PPTX.
+تغطي الأسئلة الشائعة السلوكيات المتعلقة، بما في ذلك حجز مساحة للوسم، عرض تسميات متعددة الأسطر، وراثة التنسيق من سمة العرض التقديمي.
 
-في المثال الموضح أدناه، قمنا بضبط الموقع والحجم للمفتاح في المخطط.
+## **تحديد موضع الوسم**
+
+استخدم طرق [setX](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setWidth-float-), و[setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setHeight-float-) للوسم لتحديد موضعه وحجمه ككسر من أبعاد المخطط.
+
+ينشئ هذا المثال عرضًا تقديميًا ويضيف مخطط أعمدة مجمع مع بيانات افتراضية إلى الشريحة الأولى. تقسيم إزاحات وأبعاد الوسم المطلوبة على عرض وارتفاع المخطط يحولها إلى قيم نسبية: يُبعد الوسم 50 نقطة عن زاوية المخطط العليا اليسرى ويكون حجمه 100 × 100 نقطة.
+
 ```java
-// إنشاء نسخة من فئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // الحصول على مرجع الشريحة
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // إضافة مخطط عمود مجمع إلى الشريحة
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // تعيين خصائص المفتاح
+
+    // عبّر عن موضع وحجم الوسم بالنسبة إلى المخطط.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // حفظ العرض التقديمي إلى القرص
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **ضبط حجم الخط للوسم**
 
-## **ضبط حجم الخط للمفتاح**
-تتيح مكتبة Aspose.Slides for Java للمطورين ضبط حجم خط المفتاح. يرجى اتباع الخطوات التالية:
+استخدم [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getTextFormat--) للوسم للوصول إلى تنسيق النص الخاص به واستخدم [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) لتعيين حجم الخط بالنقاط.
 
-- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-- إنشاء المخطط الافتراضي.
-- ضبط حجم الخط.
-- تعيين الحد الأدنى لقيمة المحور.
-- تعيين الحد الأقصى لقيمة المحور.
-- حفظ العرض التقديمي على القرص.
+ينشئ هذا المثال مخططًا ببيانات افتراضية ويضبط نص الوسم إلى 20 نقطة. كما يقوم بتعطيل الحدود التلقائية للمحور العمودي ويحدد نطاقه من -5 إلى 10.
+
 ```java
-// إنشاء نسخة من فئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **ضبط حجم الخط لإدخال وسمة فردي**
 
-## **ضبط حجم الخط لمفتاح فردي**
-تتيح مكتبة Aspose.Slides for Java للمطورين ضبط حجم خط العناصر الفردية في المفتاح. يرجى اتباع الخطوات التالية:
+استخدم المجموعة التي تُعيدها طريقة [getEntries](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#getEntries--) للوسم للوصول إلى تنسيق إدخال معين. مؤشرات الإدخالات تبدأ من الصفر، لذا فإن الفهرس `1` يشير إلى الإدخال الثاني.
 
-- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-- إنشاء المخطط الافتراضي.
-- الوصول إلى عنصر المفتاح.
-- ضبط حجم الخط.
-- تعيين الحد الأدنى لقيمة المحور.
-- تعيين الحد الأقصى لقيمة المحور.
-- حفظ العرض التقديمي على القرص.
+ينشئ هذا المثال مخطط أعمدة مجمع تكون بياناته الافتراضية تشمل سلسلتين على الأقل. يقوم بتنسيق الإدخال الثاني للوسم بخط غامق ومائل ونص أزرق بحجم 20 نقطة.
+
 ```java
-// إنشاء نسخة من فئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **إخفاء إدخالات وسمة فردية**
 
-## **الأسئلة الشائعة**
+لإستبعاد سلسلة مساعدة من الوسم مع إبقاء بياناتها مرئية، استدعِ [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) بقيمة `true` عبر [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). هذا يخفي فقط الوسم المحدد؛ ولا يزيل السلسلة أو نقاط بياناتها. في المقابل، استدعاء [IChart.setLegend](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setLegend-boolean-) بقيمة `false` يخفي الوسم بالكامل.
 
-**هل يمكنني تفعيل المفتاح بحيث يخصص المخطط مساحة له تلقائيًا بدلاً من تغطيته؟**
+ينشئ المثال أدناه مخطط أعمدة مجمع مع عدة سلاسل باستخدام بيانات افتراضية. يخفى إدخال وسمة السلسلة الثانية (الفهرس `1`) ويحفظ العرض التقديمي. ثم يعيد الإدخال عن طريق استدعاء [setHide](https://reference.aspose.com/slides/java/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) بـ `false` ويحفظ نسخة ثانية. تبقى الأعمدة مرئية في كلا الملفين.
 
-نعم. استخدم وضع عدم التغطية ([setOverlay(false)](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-)); في هذه الحالة، سيتم تقليل مساحة منطقة الرسم لتستوعب المفتاح.
+```java
+import com.aspose.slides.*;
 
-**هل يمكنني إنشاء تسميات المفتاح متعددة الأسطر؟**
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-نعم. تُلف التسميات الطويلة تلقائيًا عندما لا تكون المساحة كافية؛ كما يتم دعم فواصل الأسطر القسرية عبر أحرف السطر الجديد داخل اسم السلسلة.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-**كيف أجعل المفتاح يتبع نظام ألوان سمة العرض التقديمي؟**
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
 
-لا تقم بتعيين ألوان/تعبئات/خطوط صريحة للمفتاح أو نصه. سيتوارث هذه الخصائص من السمة وسيتم تحديثها بشكل صحيح عند تغيّر التصميم.
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // استعادة نفس الإدخال دون تغيير بيانات المخطط.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+المقارنة أدناه تظهر المخطط نفسه مع جميع الإدخالات مرئية ومع إخفاء الإدخال الثاني. تبقى أعمدة السلسلة الثانية دون تغيير.
+
+![مقارنة مخطط مع جميع إدخالات الوسم مرئية ومع إخفاء السلسلة 2 من الوسم؛ جميع الأعمدة تبقى مرئية.](hide-legend-entry.png)
+
+في المخططات العمودية، الشريطية، وخطية، تُعرِّف إدخالات الوسم السلاسل. بالنسبة لمخططات الفطيرة، تُعرِّف نقاط البيانات الفردية (الشرائح)، لذا استخدم [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) على الشريحة المختارة بدلاً من ذلك. توثِّق الواجهة البرمجية هذه الطريقة لنقاط البيانات لأنواع المخططات `Pie`، `Pie3D`، `ExplodedPie`، `ExplodedPie3D`، `PieOfPie`، و`BarOfPie`. لا تفترض أنها تنطبق على مخططات الدونات، التي لا تُدرج في تلك القائمة.
+
+## **FAQ**
+
+**هل يمكنني جعل المخطط يخصص مساحة للوسم بدلاً من تراكبه؟**
+
+نعم. استدعِ [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/legend/#setOverlay-boolean-) بقيمة `false` لحجز مساحة للوسم بدلاً من السماح له بالتراكب على منطقة الرسم.
+
+**هل يمكنني إنشاء تسميات وسمة متعددة الأسطر؟**
+
+نعم. يمكن أن تُلف التسميات الطويلة عندما يكون العرض المتاح غير كافٍ. يمكنك أيضًا استخدام أحرف السطر الجديد في أسماء السلاسل لطلب فواصل سطر.
+
+**كيف أجعل الوسم يتبع نظام ألوان سمة العرض التقديمي؟**
+
+اترك ألوان الوسم، وتعبئاته، وخطوطه غير مُحددة بحيث يمكنه وراثة تنسيق السمة. التنسيق الصريح يتجاوز إعدادات السمة المقابلة.

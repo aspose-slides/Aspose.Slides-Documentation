@@ -1,5 +1,5 @@
 ---
-title: Prezentációk diagram jelmagyarázatának testreszabása PHP használatával
+title: Diagram jelmagyarázatok testreszabása prezentációkban PHP használatával
 linktitle: Diagram jelmagyarázat
 type: docs
 url: /hu/php-java/chart-legend/
@@ -11,115 +11,151 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Testreszabhatja a diagram jelmagyarázatokat az Aspose.Slides for PHP via Java segítségével, hogy a PowerPoint prezentációkat a megfelelő jelmagyarázati formázással optimalizálja."
+description: "Testreszabhatja a diagram jelmagyarázatokat az Aspose.Slides for PHP via Java segítségével, hogy a PowerPoint prezentációkat a személyre szabott jelmagyarázati formázással optimalizálja."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetőséget biztosít a diagram jelmagyarázatának testreszabására a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet elhelyezni és méretezni egy jelmagyarázatot, hogyan állítható be a teljes jelmagyarázat betűmérete, és hogyan formázható egyedi jelmagyarázati bejegyzés.  
+Az Aspose.Slides for PHP via Java lehetőséget biztosít a diagram jelmagyarázatainak testreszabására a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet pozicionálni és méretezni egy jelmagyarázatot, beállítani a teljes jelmagyarázat betűméretét, formázni egyetlen bejegyzést, valamint elrejteni vagy visszaállítani a kiválasztott bejegyzéseket.
 
-Továbbá a GyIK-ben több kapcsolódó viselkedést is tárgyal, többek között a nem‑átfedés mód használatát, amely lehetővé teszi, hogy a diagramterület helyet biztosítson a jelmagyarázatnak, a hosszú jelmagyarázati címkék sortörésre vagy sortöréssel történő megtörésére, valamint azt, hogy a jelmagyarázat formázása öröklődjön a prezentáció sablonjából, ha nem kerülnek beállításra explicit szöveg‑ vagy kitöltési értékek.
+A GyIK a kapcsolódó viselkedéseket is tárgyalja, beleértve a jelmagyarázat számára lefoglalt helyet, a többsoros címkék megjelenítését és a formázás öröklését a prezentáció témájából.
 
-## **Jelmagyarázat elhelyezése**
-A jelmagyarázat tulajdonságainak beállításához kövesse az alábbi lépéseket:
+## **Jelmagyarázat pozicionálása**
 
-- Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-- Szerezze meg a dia referenciáját.
-- Diagram hozzáadása a diára.
-- A jelmagyarázat tulajdonságainak beállítása.
-- A prezentáció mentése PPTX fájlként.
+Használja a jelmagyarázat [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/), és [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) metódusait a pozíció és a méret megadásához a diagram méretének tört részeként.
 
-Az alábbi példában beállítottuk a diagram jelmagyarázatának pozícióját és méretét.
+Ez a példa egy prezentációt hoz létre, és egy alapértelmezett adatokkal rendelkező klaszteres oszlopdiagramot ad az első diára. A kívánt jelmagyarázat eltolásokat és méreteket a diagram szélességével és magasságával elosztva relatív értékekké alakítja: a jelmagyarázat 50 ponttal van eltolva a diagram bal‑felső sarkától, és 100 × 100 pont méretű. A példa a java_values funkciót használja, hogy a PHP/Java Bridge által visszaadott diagramméreteket PHP‑számokká konvertálja az osztás előtt.
 
 ```php
-  # Hozzon létre egy példányt a Presentation osztályból
-  $pres = new Presentation();
-  try {
-    # Szerezze meg a dia referenciáját
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adjon hozzá egy csoportosított oszlopdiagramot a diára
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Állítsa be a jelmagyarázat tulajdonságait
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Mentse a prezentációt a lemezre
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Fejezze ki a jelmagyarázat pozícióját és méretét a diagramhoz viszonyítva.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **A jelmagyarázat betűméretének beállítása**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára, hogy beállítsák a jelmagyarázat betűméretét. Kövesse az alábbi lépéseket:
 
-- Példányosítsa a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályt.
-- Alapértelmezett diagram létrehozása.
-- A betűméret beállítása.
-- Minimum tengelyérték beállítása.
-- Maximum tengelyérték beállítása.
-- A prezentáció írása a lemezre.
+Használja a jelmagyarázat [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) metódusát a szövegformázás eléréséhez, és a [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) metódust a betűméret pontban történő beállításához.
+
+Ez a példa egy alapértelmezett adatokkal rendelkező diagramot hoz létre, és a jelmagyarázat szövegét 20 pontra állítja. Emellett letiltja a függőleges tengely automatikus határait, és a tartományt -5‑től 10‑ig állítja be.
 
 ```php
-  # Hozzon létre egy példányt a Presentation osztályból
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Egyéni jelmagyarázat betűméretének beállítása**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára, hogy egyedi jelmagyarázati bejegyzések betűméretét állítsák be. Kövesse az alábbi lépéseket:
+## **Egyes jelmagyarázat bejegyzés betűméretének beállítása**
 
-- Példányosítsa a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályt.
-- Alapértelmezett diagram létrehozása.
-- Hozzáférés a jelmagyarázati bejegyzéshez.
-- A betűméret beállítása.
-- Minimum tengelyérték beállítása.
-- Maximum tengelyérték beállítása.
-- A prezentáció írása a lemezre.
+Használja a jelmagyarázat [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) metódusa által visszaadott gyűjteményt egy adott bejegyzés formázásához. A bejegyzés indexei nullával kezdődnek, ezért az `1` index a második bejegyzést jelöli.
+
+Ez a példa egy klaszteres oszlopdiagramot hoz létre, amely alapértelmezett adatai legalább két sorozatot tartalmaznak. A második jelmagyarázat bejegyzést félkövér, dőlt és 20 pontos kék szöveggel formázza.
 
 ```php
-  # Hozzon létre egy példányt a Presentation osztályból
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Egyes jelmagyarázat bejegyzések elrejtése**
+
+Egy segédsorozat kizárásához a jelmagyarázatból, miközben az adatai láthatóak maradnak, hívja meg a [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) metódust `true` értékkel a [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/) segítségével. Ez csak a kijelölt jelmagyarázat bejegyzést rejti el; a sorozat vagy annak adatpontjai nem kerülnek eltávolításra. Ezzel szemben a [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) `false` értékkel történő hívása az egész jelmagyarázatot elrejti.
+
+Az alábbi példa több sorozattal rendelkező klaszteres oszlopdiagramot hoz létre alapértelmezett adatokkal. Elrejti a második sorozat jelmagyarázat bejegyzését (index `1`), menti a prezentációt, majd a [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) `false` értékkel történő hívással visszaállítja a bejegyzést, és második másolatot ment. A oszlopok mindkét fájlban láthatóak maradnak.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
+
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // A bejegyzés visszaállítása a diagram adatait módosítása nélkül.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A lenti összehasonlítás ugyanazt a diagramot mutatja, egyszer az összes jelmagyarázat bejegyzés látható, egyszer pedig a második bejegyzés elrejtett. A második sorozat oszlopai változatlanok maradnak.
+
+![Diagram összehasonlítása, amikor minden jelmagyarázat bejegyzés látható, és amikor a 2. sorozat el van rejtve a jelmagyarázatból; az összes oszlop látható marad.](hide-legend-entry.png)
+
+Oszlop-, sáv- és vonaldiagramok esetén a jelmagyarázat bejegyzései a sorozatokat azonosítják. Kördiagramok esetén egyedi adatpontokat (szeleteket) jelölnek, ezért a kiválasztott szeletre a [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) metódust kell használni. Az API dokumentálja ezt a adatpont‑metódust a `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` és `BarOfPie` diagramtípusokhoz. Ne feltételezze, hogy ez a gyűrűdiagramokra is érvényes, mivel azok nincsenek a felsoroltak között.
 
 ## **GYIK**
 
-**Engedélyezhetem a jelmagyarázatot úgy, hogy a diagram automatikusan helyet biztosítson számára az átfedés helyett?**
+**Megtudom-e úgy beállítani, hogy a diagram lefoglalja a helyet a jelmagyarázatnak a felülírás helyett?**  
+Igen. Hívja meg a [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) metódust `false` értékkel, hogy a jelmagyarázat helyét lefoglalja, ahelyett, hogy átfedné a diagram területét.
 
-Igen. Használja a nem‑átfedés módot ([setOverlay(false)](https://reference.aspose.com/slides/hu/php-java/aspose.slides/legend/setoverlay/)); ebben az esetben a diagramterület összezsugorodik, hogy helyet biztosítson a jelmagyarázatnak.
+**Készíthetek többsoros jelmagyarázat címkéket?**  
+Igen. A hosszú címkék megtörnek, ha a rendelkezésre álló szélesség nem elegendő. Soronkénti sortöréseket is beilleszthet a sorozatnevekbe új sor karakterek használatával.
 
-**Készíthetek több soros jelmagyarázati címkéket?**
-
-Igen. A hosszú címkék automatikusan megtörnek, ha nincs elég hely; a sorok kényszerített megtörése a sorozat nevében lévő újsor karakterekkel támogatott.
-
-**Hogyan tehetem, hogy a jelmagyarázat a prezentáció sablonjának színsémáját kövesse?**
-
-Ne állítson be explicit színeket/kitöltéseket/betűtípusokat a jelmagyarázathoz vagy a szövegéhez. Ebben az esetben azok a sablonból öröklődnek, és a tervezés módosulásakor megfelelően frissülnek.
+**Hogyan tehetem, hogy a jelmagyarázat a prezentáció téma színsémáját kövesse?**  
+Hagyja a jelmagyarázat színeit, kitöltéseit és betűtípusait beállítatlanul, hogy örökölje a téma formázását. Az explicit formázás felülírja a megfelelő téma beállításokat.

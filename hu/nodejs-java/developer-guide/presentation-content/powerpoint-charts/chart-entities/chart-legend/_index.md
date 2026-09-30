@@ -1,129 +1,161 @@
 ---
-title: Diagramlegendák testreszabása bemutatókban JavaScript használatával
-linktitle: Diagramlegenda
+title: Diagram jelmagyarázatok testreszabása prezentációkban JavaScript használatával
+linktitle: Diagram jelmagyarázat
 type: docs
 url: /hu/nodejs-java/chart-legend/
 keywords:
-- diagram legenda
-- legend pozíció
+- diagram jelmagyarázat
+- jelmagyarázat pozíció
 - betűméret
 - PowerPoint
-- bemutató
+- prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Testreszabott diagramlegendák JavaScript és Aspose.Slides for Node.js segítségével a PowerPoint bemutatók optimalizálásához, a legendák egyedi formázásával."
+description: "Testreszabja a diagram jelmagyarázatokat az Aspose.Slides for Node.js via Java segítségével, hogy optimalizálja a PowerPoint prezentációkat a testreszabott jelmagyarázati formázással."
 ---
 ## **Áttekintés**
 
-Aspose.Slides lehetőségeket kínál a diagramlegendák testreszabására PowerPoint bemutatókban. Ez a cikk bemutatja, hogyan állítható be a legenda pozíciója és mérete, hogyan állítható be a teljes legenda betűmérete, és hogyan alkalmazható formázás egy egyedi legendabejegyzésre.
+Az Aspose.Slides for Node.js via Java lehetőséget biztosít a diagram jelmagyarázatok testreszabására a PowerPoint-prezentációkban. Ez a cikk bemutatja, hogyan lehet elhelyezni és méretezni egy jelmagyarázatot, beállítani a teljes jelmagyarázat betűméretét, formázni egy adott jelmagyarázati bejegyzést, valamint elrejteni vagy visszaállítani a kiválasztott bejegyzéseket.
 
-Továbbá a GYIK-ben számos kapcsolódó viselkedést tárgyal, többek között a nem‑átfedés mód használatát, amelyben a diagramterület helyet biztosít a legendának, a hosszú legendacímkék automatikus tördelését vagy sorvégek használatát, valamint azt, hogy a legenda formázása öröklődjön a bemutató témájától, ha nem kerülnek megadva explicit szöveg- és kitöltésbeállítások.
+A GyIK a kapcsolódó viselkedéseket is lefedi, többek között a jelmagyarázat helyének lefoglalását, a több soros címkék megjelenítését, valamint a formázás öröklését a prezentáció témájából.
 
-## **Legenda elhelyezése**
+## **Jelmagyarázat elhelyezése**
 
-A legenda tulajdonságainak beállításához kövesse az alábbi lépéseket:
+Használja a jelmagyarázat [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/), és [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) metódusait a pozíciója és mérete meghatározásához a diagram méretének tört részeként.
 
-- Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-- Szerezze be a dia referenciáját.
-- Hozzon létre egy diagramot a dián.
-- Állítsa be a legenda tulajdonságait.
-- Írja ki a bemutatót PPTX fájlként.
-
-Az alább bemutatott példában beállítottuk a diagram legenda pozícióját és méretét.
+Ez a példa létrehoz egy prezentációt, és az első diára egy csoportosított oszlopdiagramot ad hozzá az alapértelmezett adatokkal. A kívánt jelmagyarázat eltolásokat és méreteket a diagram szélességével és magasságával elosztva relatív értékekké alakítja: a jelmagyarázat 50 ponttal van eltolva a diagram bal felső sarkától, és 100 pont szélességű és 100 pont magasságú.
 
 ```javascript
-// Presentation osztály példányának létrehozása
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Diára való hivatkozás lekérése
-    var slide = pres.getSlides().get_Item(0);
-    // Csoportos oszlopdiagram hozzáadása a diára
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Legend tulajdonságok beállítása
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Bemutató mentése lemezre
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // A jelmagyarázat pozícióját és méretét a diagramhoz viszonyítva adja meg.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Legenda betűméretének beállítása**
+## **A jelmagyarázat betűméretének beállítása**
 
-Aspose.Slides for Node.js via Java lehetővé teszi a fejlesztők számára a legenda betűméretének beállítását. Kérjük, kövesse az alábbi lépéseket:
+Használja a jelmagyarázat [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) metódusát a szövegformázás eléréséhez, és a [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) metódust a betűméret pontban történő beállításához.
 
-- Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztály példányt.
-- Hozzon létre egy alapértelmezett diagramot.
-- Állítsa be a betűméretet.
-- Állítsa be a minimum tengelyértéket.
-- Állítsa be a maximum tengelyértéket.
-- Írja ki a bemutatót a lemezre.
+Ez a példa létrehoz egy diagramot az alapértelmezett adatokkal, és a jelmagyarázat szövegét 20 pontra állítja. Emellett letiltja a függőleges tengely automatikus határait, és a tartományt -5 és 10 között állítja be.
 
 ```javascript
-// Presentation osztály példányának létrehozása
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Egyedi legendabejegyzés betűméretének beállítása**
+## **Egy adott jelmagyarázati bejegyzés betűméretének beállítása**
 
-Aspose.Slides for Node.js via Java lehetővé teszi a fejlesztők számára az egyedi legendabejegyzések betűméretének beállítását. Kérjük, kövesse az alábbi lépéseket:
+Használja a jelmagyarázat [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) metódusa által visszaadott gyűjteményt egy adott bejegyzés formázásának eléréséhez. A bejegyzések indexelése nullától indul, így az `1` index a második bejegyzést jelöli.
 
-- Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztály példányt.
-- Hozzon létre egy alapértelmezett diagramot.
-- Hozzáférés a legendabejegyzéshez.
-- Állítsa be a betűméretet.
-- Állítsa be a minimum tengelyértéket.
-- Állítsa be a maximum tengelyértéket.
-- Írja ki a bemutatót a lemezre.
+Ez a példa létrehoz egy csoportosított oszlopdiagramot, amelynek alapértelmezett adatai legalább két sorozatot tartalmaznak. Formázza a második jelmagyarázati bejegyzést félkövér, dőlt és 20 pontos kék szöveggel.
 
 ```javascript
-// Presentation osztály példányának létrehozása
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Egyedi jelmagyarázati bejegyzések elrejtése**
+
+Egy segédsorozat kizárásához a jelmagyarázatból, miközben az adat látható marad, hívja meg a [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) metódust `true` értékkel a [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/) segítségével. Ez csak a kiválasztott jelmagyarázati bejegyzést rejti el; a sorozatot vagy adatpontjait nem távolítja el. Ezzel szemben a [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) `false` értékkel történő meghívása az egész jelmagyarázatot eltünteti.
+
+Az alábbi példa létrehoz egy csoportosított oszlopdiagramot több sorozattal az alapértelmezett adatok használatával. Elrejti a második sorozat jelmagyarázati bejegyzését (index `1`), majd elmenti a prezentációt. Ezután a [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) `false` értékkel történő meghívásával visszaállítja a bejegyzést, és egy második másolatot ment. Az oszlopok mindkét fájlban láthatók maradnak.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Állítsa vissza ugyanazt a bejegyzést a diagram adatait megváltoztatás nélkül.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az alábbi összehasonlítás ugyanazt a diagramot mutatja, az összes bejegyzés látható állapotban és a második bejegyzés rejtett állapotban. A második sorozat oszlopai változatlanok maradnak.
+
+![Diagram összehasonlítása, ahol az összes jelmagyarázati bejegyzés látható, illetve a 2. sorozat el van rejtve a jelmagyarázatból; az összes oszlop látható marad.](hide-legend-entry.png)
+
+Oszlop-, oszlopdiagramoknál és vonaldiagramoknál a jelmagyarázati bejegyzések a sorozatokat azonosítják. Kördiagramoknál egyenkénti adatpontokat (szeleteket) jelölnek, ezért a kiválasztott szelet esetén használja a [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) metódust. Az API ezt az adatpont‑metódust a `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` és `BarOfPie` diagramtípusokra dokumentálja. Ne feltételezze, hogy ez a gyűrűdiagramokra is érvényes, mivel azok nincsenek a felsorolásban.
 
 ## **GYIK**
 
-**Bekapcsolhatom a legendát úgy, hogy a diagram automatikusan helyet biztosítson számára a felülírás helyett?**
+**Kérhetem, hogy a diagram helyet foglaljon a jelmagyarázatnak ahelyett, hogy átfedje azt?**
 
-Igen. Használja a nem‑átfedés módot ([setOverlay(false)](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/legend/setoverlay/)); ebben az esetben a diagramterület zsugorodni fog, hogy helyet adjon a legendának.
+Igen. Hívja meg a [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) metódust `false` értékkel, hogy helyet foglaljon a jelmagyarázatnak, ahelyett, hogy átfedné a diagramterületet.
 
-**Készíthetek több soros legendacímkéket?**
+**Létrehozhatok több soros jelmagyarázati címkéket?**
 
-Igen. A hosszú címkék automatikusan megtörnek, ha a hely nem elegendő; a kényszerített sortöréseket a soron belüli újsor karakterek támogatják a sorozat nevében.
+Igen. A hosszú címkék megtörhetnek, ha a rendelkezésre álló szélesség nem elegendő. A sorozatnevekben új sor karaktereket is használhat a sortörés kérése érdekében.
 
-**Hogyan tehetem, hogy a legenda a bemutató téma színsémáját kövesse?**
+**Hogyan tudom, hogy a jelmagyarázat kövesse a prezentáció téma színpalettáját?**
 
-Ne állítson be explicit színeket/kitöltéseket/betűtípusokat a legendához vagy annak szövegéhez. Ezek ilyenkor a témából öröklődnek, és a tervezés változásakor megfelelően frissülnek.
+Hagyja a jelmagyarázat színeit, kitöltéseit és betűtípusait beállítatlanul, hogy örökölje a téma formázását. Az explicit formázás felülírja a megfelelő téma beállításait.

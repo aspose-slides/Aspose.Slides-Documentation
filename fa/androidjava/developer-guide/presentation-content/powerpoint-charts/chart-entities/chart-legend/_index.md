@@ -1,127 +1,150 @@
 ---
-title: سفارشی‌سازی راهنمای نمودارها در ارائه‌ها در اندروید
-linktitle: راهنمای نمودار
+title: سفارشی‌سازی لگن‌های نمودار در ارائه‌ها روی Android
+linktitle: لگن نمودار
 type: docs
 url: /fa/androidjava/chart-legend/
 keywords:
-- راهنمای نمودار
-- موقعیت راهنما
+- لگن نمودار
+- موقعیت لگن
 - اندازه قلم
 - PowerPoint
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: راهنمای نمودارها را با Aspose.Slides برای اندروید از طریق جاوا سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی ویژهٔ راهنما بهینه کنید.
+description: "لگن‌های نمودار را با Aspose.Slides برای Android از طریق Java سفارشی کنید تا ارائه‌های PowerPoint را با قالب‌بندی لگن متناسب بهینه نمایید."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides گزینه‌هایی برای سفارشی‌سازی راهنمای نمودار در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه موقعیت و اندازه یک راهنما را تنظیم کنید، اندازه قلم را برای کل راهنما تعیین کنید، و قالب‌بندی را برای یک ورودی راهنمای جداگانه اعمال کنید.
+Aspose.Slides برای Android از طریق Java گزینه‌هایی برای سفارشی‌سازی لگن‌های نمودار در ارائه‌های PowerPoint فراهم می‌کند. این مقاله نشان می‌دهد چگونه موقعیت و اندازه یک لگن را تنظیم کنید، اندازه قلم را برای کل لگن تعیین کنید، یک ورودی لگن منفرد را قالب‌بندی کنید و ورودی‌های انتخابی را مخفی یا بازگردانید.
 
-همچنین چند رفتار مرتبط در بخش پرسش‌های متداول پوشش داده می‌شود، از جمله استفاده از حالت غیر هم‌پوشانی تا ناحیه‌نمودار برای راهنما جایی فراهم کند، اجازه دادن به برچسب‌های طولانی راهنما برای شکسته شدن یا استفاده از شکست خط، و اجازه دادن به ارث‌بری قالب راهنما از تم ارائه زمانی که تنظیمات صریح متن و پر کردن اعمال نشده باشند.
+سوالات متداول شامل رفتارهای مرتبط، از جمله رزرو فضای برای لگن، نمایش برچسب‌های چندخطی، و ارث‌بری قالب‌بندی از قالب ارائه است.
 
-## **موقعیت‌گذاری راهنما**
-In order to set the legend properties. Please follow the steps below:
+## **موقعیت‌یابی لگن**
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-- مرجع اسلاید را به‌دست آورید.
-- یک نمودار به اسلاید اضافه کنید.
-- تنظیم ویژگی‌های راهنما.
-- ارائه را به‌عنوان فایل PPTX ذخیره کنید.
+از متدهای [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-), و [setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-) لگن استفاده کنید تا موقعیت و اندازه آن را به صورت کسرهایی از ابعاد نمودار مشخص کنید.
+
+این مثال یک ارائه ایجاد می‌کند و یک نمودار ستون خوشه‌ای با داده‌های پیش‌فرض به اولین اسلاید اضافه می‌کند. تقسیم مقادیر جابجایی و ابعاد مطلوب لگن بر عرض و ارتفاع نمودار آنها را به مقادیر نسبی تبدیل می‌کند: لگن ۵۰ پوینت از گوشه بالا‑چپ نمودار جابجا شده و به اندازه ۱۰۰ در ۱۰۰ پوینت تنظیم می‌شود.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // مرجع اسلاید را دریافت کنید
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // یک نمودار ستونی گروهی به اسلاید اضافه کنید
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // تنظیم ویژگی‌های راهنما
+
+    // موقعیت و اندازه لگن را نسبت به نمودار نشان می‌دهد.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // ارائه را روی دیسک ذخیره کنید
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم اندازه قلم یک راهنما**
-The Aspose.Slides for Android via Java lets developers allow to set font size of legend. Please follow the steps below: 
+## **تنظیم اندازه قلم یک لگن**
 
-- نمونه‌سازی از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) انجام دهید.
-- نمودار پیش‌فرض را ایجاد کنید.
-- اندازه قلم را تنظیم کنید.
-- حداقل مقدار محور را تنظیم کنید.
-- حداکثر مقدار محور را تنظیم کنید.
-- ارائه را روی دیسک ذخیره کنید.
+از [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) لگن برای دسترسی به قالب‌بندی متن آن استفاده کنید و با [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) اندازه قلم را بر حسب پوینت تنظیم کنید.
+
+این مثال یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند و متن لگن را به ۲۰ پوینت تنظیم می‌کند. همچنین مرزهای خودکار برای محور عمودی را غیرفعال کرده و بازه آن را از -5 تا 10 تنظیم می‌نماید.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم اندازه قلم یک ورودی راهنمای جداگانه**
-The Aspose.Slides for Android via Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
+## **تنظیم اندازه قلم یک ورودی منفرد لگن**
 
-- نمونه‌سازی از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) انجام دهید.
-- نمودار پیش‌فرض را ایجاد کنید.
-- به ورودی راهنما دسترسی پیدا کنید.
-- اندازه قلم را تنظیم کنید.
-- حداقل مقدار محور را تنظیم کنید.
-- حداکثر مقدار محور را تنظیم کنید.
-- ارائه را روی دیسک ذخیره کنید.
+از مجموعه‌ای که توسط متد [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--) لگن برگردانده می‌شود برای دسترسی به قالب‌بندی ورودی خاص استفاده کنید. شاخص‌های ورودی صفر‑مبنا هستند، بنابراین شاخص `1` به ورودی دوم اشاره دارد.
+
+این مثال یک نمودار ستون خوشه‌ای ایجاد می‌کند که داده‌های پیش‌فرض آن شامل حداقل دو سری است. ورودی دوم لگن را با متن ضخیم، کج و آبی به اندازه ۲۰ پوینت قالب‌بندی می‌کند.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **مخفی‌سازی ورودی‌های منفرد لگن**
 
-**آیا می‌توانم راهنما را فعال کنم طوری که نمودار به‌صورت خودکار برای آن فضا اختصاص دهد به‌جای هم‌پوشانی؟**
+برای حذف یک سری کمکی از لگن در حالی که داده‌های آن قابل مشاهده باقی می‌مانند، با `true` متد [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) را از طریق [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--) فراخوانی کنید. این فقط ورودی منتخب لگن را مخفی می‌کند؛ سری یا نقاط داده آن حذف نمی‌شوند. در عوض، فراخوانی [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) با `false` کل لگن را مخفی می‌سازد.
 
-بله. از حالت غیر هم‌پوشانی استفاده کنید ([setOverlay(false)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); در این حالت ناحیهٔ نمودار کوچک می‌شود تا جا برای راهنما فراهم شود.
+مثال زیر یک نمودار ستون خوشه‌ای با چندین سری با استفاده از داده‌های پیش‌فرض ایجاد می‌کند. ورودی لگن سری دوم (شاخص `1`) را مخفی می‌کند و ارائه را ذخیره می‌نماید. سپس با فراخوانی [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) با `false` ورودی را بازیابی کرده و یک نسخه دوم ذخیره می‌کند. ستون‌ها در هر دو فایل قابل مشاهده می‌مانند.
 
-**آیا می‌توانم برچسب‌های راهنما چندخطی داشته باشم؟**
+```java
+import com.aspose.slides.*;
 
-بله. برچسب‌های طولانی وقتی فضا کافی نیست به‌صورت خودکار شکسته می‌شوند؛ شکست خط اجباری با استفاده از کاراکترهای newline در نام سری پشتیبانی می‌شود.
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**چگونه راهنما را به‌گونه‌ای تنظیم کنم که طرح رنگی تم ارائه را دنبال کند؟**
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-برای راهنما یا متن آن رنگ/پر/قلم صریح تنظیم نکنید. در این صورت آن‌ها از تم ارث می‌برند و هنگام تغییر طراحی به‌درستی به‌روز می‌شوند.
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // ورودی یکسان را بدون تغییر داده‌های نمودار بازیابی کنید.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مقایسه زیر همان نمودار را نشان می‌دهد که همه ورودی‌ها قابل مشاهده هستند و ورودی دوم مخفی شده است. ستون‌های سری دوم بدون تغییر باقی می‌مانند.
+
+![مقایسه نموداری که تمام ورودی‌های لگن قابل مشاهده هستند و ورودی سری ۲ از لگن مخفی شده است؛ تمام ستون‌ها قابل مشاهده می‌مانند.](hide-legend-entry.png)
+
+در نمودارهای ستون، نوار و خط، ورودی‌های لگن سری‌ها را شناسایی می‌کنند. برای نمودارهای دایره‌ای، آن‌ها نقاط داده منفرد (برش‌ها) را شناسایی می‌کنند، بنابراین به جای آن از [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) بر روی برش انتخابی استفاده کنید. API این متد نقطه‌داده را برای انواع نمودار `Pie`، `Pie3D`، `ExplodedPie`، `ExplodedPie3D`، `PieOfPie` و `BarOfPie` مستند کرده است. فرض نکنید که برای نمودارهای دونات نیز صادق است، زیرا در آن فهرست گنجانده نشده‌اند.
+
+## **سؤالات متداول**
+
+**آیا می‌توانم نمودار را طوری تنظیم کنم که برای لگن فضایی اختصاص دهد به جای پوشاندن آن؟**  
+بله. با `false` متد [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) را فراخوانی کنید تا به جای اجازه به هم‌پوشانی با منطقه نمودار، فضای مورد نیاز برای لگن رزرو شود.
+
+**آیا می‌توانم برچسب‌های لگن چندخطی داشته باشم؟**  
+بله. برچسب‌های طولانی می‌توانند وقتی عرض موجود کافی نیست به چند خط تقسیم شوند. همچنین می‌توانید از کاراکترهای خط جدید در نام‌های سری برای درخواست شکست خط استفاده کنید.
+
+**چگونه می‌توانم لگن را به طرح رنگی قالب ارائه پیروی کنم؟**  
+رنگ‌ها، پرکننده‌ها و قلم‌های لگن را تنظیم نکنید تا بتواند قالب‌بندی قالب را به ارث ببرد. قالب‌بندی صریح تنظیمات مربوط به قالب را نقض می‌کند.

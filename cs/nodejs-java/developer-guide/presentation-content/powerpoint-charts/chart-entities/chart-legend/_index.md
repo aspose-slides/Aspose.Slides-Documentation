@@ -12,118 +12,150 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Přizpůsobte legendy grafů pomocí JavaScriptu a Aspose.Slides pro Node.js a optimalizujte prezentace PowerPoint s upraveným formátováním legend."
+description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro Node.js přes Java a optimalizujte prezentace PowerPoint s upraveným formátováním legend."
 ---
 ## **Přehled**
 
-Aspose.Slides poskytuje možnosti přizpůsobení legend grafů v prezentacích PowerPoint. Tento článek ukazuje, jak umístit a nastavit velikost legendy, nastavit velikost písma pro celou legendu a použít formátování na jednotlivou položku legendy.
+Aspose.Slides for Node.js via Java poskytuje možnosti přizpůsobení legend grafů v prezentacích PowerPoint. Tento článek ukazuje, jak umístit a změnit velikost legendy, nastavit velikost písma celé legendy, formátovat jednotlivou položku legendy a skrýt nebo obnovit vybrané položky.
 
-Také pokrývá několik souvisejících chování v častých dotazech (FAQ), včetně použití režimu bez překrývání, aby oblast grafu vytvořila místo pro legendu, umožnění dlouhých popisků legendy zalomit nebo použít konce řádků, a nechat formátování legendy dědit z motivu prezentace, pokud nejsou nastaveny explicitní textové a výplňové hodnoty.
+Často kladené otázky (FAQ) pokrývají související chování, včetně rezervace místa pro legendu, zobrazení víceřádkových popisků a dědění formátování z motivu prezentace.
 
 ## **Umístění legendy**
 
-Pro nastavení vlastností legendy postupujte podle následujících kroků:
+Pro určení polohy a velikosti legendy jako zlomků rozměrů grafu použijte metody legendy [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/) a [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/).
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-- Získejte referenci na snímek.
-- Přidejte graf na snímek.
-- Nastavte vlastnosti legendy.
-- Uložte prezentaci jako soubor PPTX.
-
-V níže uvedeném příkladu jsme nastavili polohu a velikost legendy grafu.
+Tento příklad vytvoří prezentaci a přidá na první snímek shlukový sloupcový graf s výchozími daty. Rozdělením požadovaných posunů a rozměrů legendy šířkou a výškou grafu na relativní hodnoty získáme: legenda je posunuta o 50 bodů od levého horního rohu grafu a má velikost 100 × 100 bodů.
 
 ```javascript
-// Vytvořte instanci třídy Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Získejte referenci na snímek
-    var slide = pres.getSlides().get_Item(0);
-    // Přidejte seskupený sloupcový graf na snímek
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Nastavte vlastnosti legendy
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Uložte prezentaci na disk
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Vyjádřete polohu a velikost legendy relativně k grafu.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Nastavení velikosti písma legendy**
 
-Aspose.Slides pro Node.js via Java umožňuje vývojářům nastavit velikost písma legendy. Postupujte podle následujících kroků:
+Pro přístup k formátování textu legendy použijte [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) a k nastavení velikosti písma v bodech použijte [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight).
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-- Vytvořte výchozí graf.
-- Nastavte velikost písma.
-- Nastavte minimální hodnotu osy.
-- Nastavte maximální hodnotu osy.
-- Uložte prezentaci na disk.
+Tento příklad vytvoří graf s výchozími daty a nastaví text legendy na 20 bodů. Také zakáže automatické hranice pro svislou osu a nastaví její rozsah od –5 do 10.
 
 ```javascript
-// Vytvořte instanci třídy Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Nastavení velikosti písma jednotlivé položky legendy**
 
-Aspose.Slides pro Node.js via Java umožňuje vývojářům nastavit velikost písma jednotlivých položek legendy. Postupujte podle následujících kroků:
+Pro přístup k formátování konkrétní položky použijte kolekci vrácenou metodou legendy [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/). Indexy položek jsou nulové, takže index `1` odkazuje na druhou položku.
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-- Vytvořte výchozí graf.
-- Získejte přístup k položce legendy.
-- Nastavte velikost písma.
-- Nastavte minimální hodnotu osy.
-- Nastavte maximální hodnotu osy.
-- Uložte prezentaci na disk.
+Tento příklad vytvoří shlukový sloupcový graf, jehož výchozí data obsahují alespoň dva řady. Formátuje druhou položku legendy tučně, kurzívou a modrým textem o velikosti 20 bodů.
 
 ```javascript
-// Vytvořte instanci třídy Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Časté dotazy**
+## **Skrytí jednotlivých položek legendy**
 
-**Mohu povolit legendu tak, aby graf automaticky vyčlenil místo pro ni místo překrývání?**
+Chcete‑li vyloučit pomocnou řadu z legendy a přitom zachovat její data viditelná, zavolejte [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) s hodnotou `true` přes [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Tím se skryje pouze vybraná položka legendy; řada ani její datové body nejsou odstraněny. Naopak volání [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) s hodnotou `false` skryje celou legendu.
 
-Ano. Použijte režim bez překrývání ([setOverlay(false)](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/legend/setoverlay/)); v tomto případě se oblast grafu zmenší, aby vytvořila místo pro legendu.
+Níže uvedený příklad vytvoří shlukový sloupcový graf s více řadami pomocí výchozích dat. Skryje legendu druhé řady (index `1`) a prezentaci uloží. Poté položku obnoví voláním [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) s hodnotou `false` a uloží druhou kopii. Sloupce zůstávají viditelné v obou souborech.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Obnovit stejnou položku bez změny dat grafu.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Porovnání níže ukazuje stejný graf se všemi položkami legendy viditelnými a s druhou položkou skrytou. Sloupce druhé řady zůstávají nezměněny.
+
+![Comparison of a chart with all legend entries visible and with Series 2 hidden from the legend; all columns remain visible.](hide-legend-entry.png)
+
+U sloupcových, pruhových a čárových grafů položky legendy identifikují řady. U koláčových grafů identifikují jednotlivé datové body (kousky), takže místo toho použijte [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) na vybraný výsek. API tuto metodu popisuje pro typy grafů `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` a `BarOfPie`. Nepředpokládejte, že platí i pro prstencové grafy, které v tomto seznamu nejsou zahrnuty.
+
+## **FAQ**
+
+**Mohu nastavit, aby graf vyhradil místo pro legendu místo jejího překrývání?**
+
+Ano. Zavolejte [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) s hodnotou `false`, aby se pro legendu rezervovalo místo místo toho, aby překrývala oblast grafu.
 
 **Mohu vytvořit víceřádkové popisky legendy?**
 
-Ano. Dlouhé popisky se automaticky zalamují, pokud není dostatek místa; vynucené zalomení řádku je podporováno pomocí znaků nového řádku v názvu řady.
+Ano. Dlouhé popisky se při nedostatečné šířce automaticky zalomí. Můžete také použít znaky nového řádku v názvech řad k vytvoření zlomů řádků.
 
-**Jak mohu, aby legenda následovala barevné schéma motivu prezentace?**
+**Jak zajistím, aby legenda následovala schéma barev motivu prezentace?**
 
-Nenastavujte explicitní barvy/výplně/písma pro legendu nebo její text. Pak budou dědit z motivu a při změně designu se správně aktualizují.
+Nechte barvy, výplně a písma legendy nedefinované, aby mohla zdědit formátování motivu. Explicitní formátování přepíše odpovídající nastavení motivu.

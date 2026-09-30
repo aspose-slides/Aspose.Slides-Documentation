@@ -4,75 +4,27 @@ linktitle: Chú giải biểu đồ
 type: docs
 url: /vi/python-java/chart-legend/
 keywords:
-  - chú giải biểu đồ
-  - vị trí chú giải
-  - kích thước phông chữ
-  - PowerPoint
-  - bản trình bày
-  - Python
-  - Java
-  - Aspose.Slides
+- chú giải biểu đồ
+- vị trí chú giải
+- kích thước phông chữ
+- PowerPoint
+- bản trình bày
+- Python
+- Java
+- Aspose.Slides
 description: "Tùy chỉnh chú giải biểu đồ với Aspose.Slides cho Python thông qua Java để tối ưu hóa bản trình bày PowerPoint với định dạng chú giải được thiết kế riêng."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cung cấp các tùy chọn để tùy chỉnh chú giải biểu đồ trong bản trình bày PowerPoint. Bài viết này cho thấy cách đặt vị trí và kích thước của chú giải, đặt kích thước phông chữ cho toàn bộ chú giải và áp dụng định dạng cho một mục chú giải riêng lẻ.
+Aspose.Slides for Python via Java cung cấp các tùy chọn để tùy chỉnh chú giải biểu đồ trong bản trình bày PowerPoint. Bài viết này cho thấy cách định vị và thay đổi kích thước chú giải, đặt kích thước phông chữ cho toàn bộ chú giải, định dạng một mục chú giải riêng lẻ, và ẩn hoặc khôi phục các mục đã chọn.
 
-Nó cũng đề cập đến một số hành vi liên quan trong phần Câu hỏi thường gặp, bao gồm việc sử dụng chế độ không chồng lên để vùng vẽ biểu đồ nhường chỗ cho chú giải, cho phép nhãn chú giải dài được cuộn hoặc sử dụng ngắt dòng, và cho phép định dạng chú giải kế thừa từ giao diện bản trình bày khi không áp dụng các thiết lập màu và nền cụ thể.
+Phần Câu hỏi thường gặp đề cập đến các hành vi liên quan, bao gồm việc dự trữ không gian cho chú giải, hiển thị nhãn đa dòng, và kế thừa định dạng từ giao diện chủ đề của bản trình bày.
 
-## **Định vị chú giải**
+## **Định vị Chú giải**
 
-Để thiết lập các thuộc tính của chú giải, thực hiện các bước sau:
+Sử dụng các phương thức [setX](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setX), [setY](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setY), [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setWidth), và [setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setHeight) của chú giải để chỉ định vị trí và kích thước của nó dưới dạng tỷ lệ của kích thước biểu đồ.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Lấy tham chiếu tới slide.
-1. Thêm một biểu đồ vào slide.
-1. Đặt các thuộc tính của chú giải.
-1. Lưu bản trình bày dưới dạng tệp PPTX.
-
-Ví dụ sau thiết lập vị trí và kích thước của chú giải biểu đồ.
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpure.startJVM()
-
-from asposeslides.api import ChartType, Presentation, SaveFormat
-
-# Tạo một bản trình bày trống.
-presentation = Presentation()
-try:
-    # Lấy tham chiếu tới slide.
-    slide = presentation.getSlides().get_Item(0)
-
-    # Thêm biểu đồ cột nhóm vào slide.
-    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500)
-
-    # Đặt các thuộc tính của chú giải.
-    legend = chart.getLegend()
-    legend.setX(50 / chart.getWidth())
-    legend.setY(50 / chart.getHeight())
-    legend.setWidth(100 / chart.getWidth())
-    legend.setHeight(100 / chart.getHeight())
-
-    # Lưu bản trình bày vào đĩa.
-    presentation.save("Legend_out.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-## **Đặt kích thước phông chữ cho chú giải**
-
-Aspose.Slides for Python via Java cho phép bạn đặt kích thước phông chữ của chú giải. Thực hiện các bước sau:
-
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Tạo biểu đồ mặc định.
-1. Đặt kích thước phông chữ.
-1. Đặt giá trị tối thiểu cho trục.
-1. Đặt giá trị tối đa cho trục.
-1. Lưu bản trình bày vào đĩa.
+Ví dụ này tạo một bản trình bày và thêm một biểu đồ cột nhóm với dữ liệu mặc định vào slide đầu tiên. Khi chia các độ dịch và kích thước mong muốn của chú giải cho chiều rộng và chiều cao của biểu đồ, chúng được chuyển thành giá trị tương đối: chú giải được dịch 50 điểm so với góc trên‑trái của biểu đồ và có kích thước 100 x 100 điểm.
 
 ```python
 import jpype
@@ -83,33 +35,60 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Tạo một bản trình bày trống.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500)
 
-    vertical_axis = chart.getAxes().getVerticalAxis()
-    vertical_axis.setAutomaticMinValue(False)
-    vertical_axis.setMinValue(-5)
-    vertical_axis.setAutomaticMaxValue(False)
-    vertical_axis.setMaxValue(10)
+    # Diễn đạt vị trí và kích thước của chú giải tương đối với biểu đồ.
+    chart.getLegend().setX(50 / chart.getWidth())
+    chart.getLegend().setY(50 / chart.getHeight())
+    chart.getLegend().setWidth(100 / chart.getWidth())
+    chart.getLegend().setHeight(100 / chart.getHeight())
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_position.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Đặt kích thước phông chữ cho một mục chú giải riêng lẻ**
+## **Đặt Kích Thước Phông Chữ cho Chú Giải**
 
-Aspose.Slides for Python via Java cho phép bạn đặt kích thước phông chữ cho các mục chú giải riêng lẻ. Thực hiện các bước sau:
+Sử dụng [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) của chú giải để truy cập định dạng văn bản và dùng [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) để đặt kích thước phông chữ tính bằng điểm.
 
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Tạo biểu đồ mặc định.
-1. Truy cập một mục chú giải.
-1. Đặt kích thước phông chữ.
-1. Lưu bản trình bày vào đĩa.
+Ví dụ này tạo một biểu đồ với dữ liệu mặc định và đặt văn bản chú giải thành 20 điểm. Nó cũng tắt giới hạn tự động cho trục dọc và đặt phạm vi của nó từ -5 tới 10.
+
+```python
+import jpime
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+
+    chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20)
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(False)
+    chart.getAxes().getVerticalAxis().setMinValue(-5)
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(10)
+
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Đặt Kích Thước Phông Chữ cho Mục Chú Giải Riêng Lẻ**
+
+Sử dụng tập hợp trả về bởi phương thức [getEntries](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getEntries) của chú giải để truy cập định dạng cho một mục cụ thể. Chỉ mục mục nhập bắt đầu từ 0, vì vậy chỉ mục `1` đề cập tới mục thứ hai.
+
+Ví dụ này tạo một biểu đồ cột nhóm mà dữ liệu mặc định của nó bao gồm ít nhất hai chuỗi. Nó định dạng mục chú giải thứ hai với chữ đậm, nghiêng và văn bản màu xanh 20 điểm.
 
 ```python
 import jpype
@@ -122,35 +101,74 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# Tạo một bản trình bày trống.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     text_format = chart.getLegend().getEntries().get_Item(1).getTextFormat()
-    portion_format = text_format.getPortionFormat()
 
-    portion_format.setFontBold(NullableBool.True_)
-    portion_format.setFontHeight(20)
-    portion_format.setFontItalic(NullableBool.True_)
-    portion_format.getFillFormat().setFillType(FillType.Solid)
-    portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    text_format.getPortionFormat().setFontBold(NullableBool.True_)
+    text_format.getPortionFormat().setFontHeight(20)
+    text_format.getPortionFormat().setFontItalic(NullableBool.True_)
+    text_format.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    text_format.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **Ẩn Các Mục Chú Giải Riêng Lẻ**
 
-**Tôi có thể bật chú giải để biểu đồ tự động cấp phát không gian cho nó thay vì phủ lên không?**
+Để loại trừ một chuỗi phụ khỏi chú giải trong khi vẫn giữ dữ liệu của nó hiển thị, gọi [LegendEntryProperties.setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) với `True` thông qua [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getRelatedLegendEntry). Thao tác này chỉ ẩn mục chú giải đã chọn; nó không xóa chuỗi hoặc các điểm dữ liệu. Ngược lại, gọi [Chart.setLegend](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setLegend) với `False` sẽ ẩn toàn bộ chú giải.
 
-Có. Sử dụng [setOverlay](https://reference.aspose.com/slides/vi/python-java/aspose.slides/legend/#setOverlay) với `False` để bật chế độ không chồng lên; trong trường hợp này, vùng vẽ sẽ thu nhỏ lại để chứa chú giải.
+Ví dụ dưới đây tạo một biểu đồ cột nhóm với nhiều chuỗi sử dụng dữ liệu mặc định. Nó ẩn mục chú giải của chuỗi thứ hai (chỉ mục `1`) và lưu bản trình bày. Sau đó nó khôi phục mục này bằng cách gọi [setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) với `False` và lưu một bản sao thứ hai. Các cột vẫn hiển thị trong cả hai tệp.
 
-**Tôi có thể tạo nhãn chú giải nhiều dòng không?**
+```python
+import jpype
+import asposeslides
 
-Có. Nhãn dài sẽ tự động cuộn khi không gian không đủ; ngắt dòng bắt buộc được hỗ trợ bằng ký tự xuống dòng trong tên chuỗi.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-**Làm thế nào để chú giải tuân theo bảng màu của giao diện bản trình bày?**
+from asposeslides.api import ChartType, Presentation, SaveFormat
 
-Không đặt màu, nền hoặc phông chữ cụ thể cho chú giải hoặc văn bản của nó. Khi đó chúng sẽ kế thừa từ giao diện và cập nhật đúng khi thiết kế thay đổi.
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(True)
+
+    legend_entry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry()
+
+    legend_entry.setHide(True)
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx)
+
+    # Khôi phục cùng mục mà không thay đổi dữ liệu biểu đồ.
+    legend_entry.setHide(False)
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+So sánh dưới đây hiển thị cùng một biểu đồ với tất cả các mục hiển thị và với mục thứ hai bị ẩn; các cột của chuỗi thứ hai vẫn không thay đổi.
+
+![So sánh một biểu đồ với tất cả các mục chú giải hiển thị và với Series 2 bị ẩn khỏi chú giải; tất cả các cột vẫn hiển thị.](hide-legend-entry.png)
+
+Trong các biểu đồ cột, thanh và đường, các mục chú giải xác định các chuỗi. Đối với biểu đồ tròn, chúng xác định các điểm dữ liệu riêng lẻ (miếng), vì vậy hãy sử dụng [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getRelatedLegendEntry) trên miếng đã chọn. API ghi lại phương thức điểm dữ liệu này cho các loại biểu đồ `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` và `BarOfPie`. Đừng giả định nó áp dụng cho biểu đồ vòng, vì chúng không nằm trong danh sách đó.
+
+## **Câu Hỏi Thường Gặp**
+
+**Tôi có thể làm cho biểu đồ dành chỗ cho chú giải thay vì phủ lên nó không?**
+
+Có. Gọi [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) với `False` để dự trữ không gian cho chú giải thay vì cho phép nó phủ lên khu vực vẽ.
+
+**Tôi có thể tạo nhãn chú giải đa dòng không?**
+
+Có. Các nhãn dài có thể xuống dòng khi chiều rộng khả dụng không đủ. Bạn cũng có thể sử dụng ký tự xuống dòng trong tên chuỗi để yêu cầu ngắt dòng.
+
+**Làm thế nào để chú giải tuân theo bảng màu của chủ đề bản trình bày?**
+
+Để lại màu sắc, độ đổ bóng và phông chữ của chú giải không được đặt để nó có thể kế thừa định dạng của chủ đề. Định dạng cụ thể sẽ ghi đè lên các cài đặt chủ đề tương ứng.

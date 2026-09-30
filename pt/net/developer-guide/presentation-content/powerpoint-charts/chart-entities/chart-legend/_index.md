@@ -1,6 +1,6 @@
 ---
 title: Personalizar legendas de gráficos em apresentações no .NET
-linktitle: Legenda de Gráfico
+linktitle: Legenda do Gráfico
 type: docs
 url: /pt/net/chart-legend/
 keywords:
@@ -12,110 +12,134 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Personalize legendas de gráficos com Aspose.Slides para .NET para otimizar apresentações PowerPoint com formatação de legenda sob medida."
+description: "Personalize legendas de gráficos com Aspose.Slides para .NET para otimizar apresentações do PowerPoint com formatação de legenda sob medida."
 ---
 ## **Visão geral**
 
-Aspose.Slides oferece opções para personalizar legendas de gráficos em apresentações do PowerPoint. Este artigo mostra como posicionar e dimensionar uma legenda, definir o tamanho da fonte para toda a legenda e aplicar formatação a uma entrada individual da legenda.
+Aspose.Slides for .NET oferece opções para personalizar legendas de gráficos em apresentações do PowerPoint. Este artigo mostra como posicionar e dimensionar uma legenda, definir o tamanho da fonte para a legenda inteira, formatar uma entrada individual da legenda e ocultar ou restaurar entradas selecionadas.
 
-Também aborda vários comportamentos relacionados nas Perguntas Frequentes, incluindo o uso do modo não sobreposição para que a área de plotagem faça espaço para a legenda, permitir que rótulos longos de legenda quebrem em linhas ou usem quebras de linha, e permitir que a formatação da legenda herde do tema da apresentação quando configurações explícitas de texto e preenchimento não são aplicadas.
+A FAQ cobre comportamentos relacionados, incluindo reservar espaço para a legenda, exibir rótulos em várias linhas e herdar a formatação do tema da apresentação.
 
-## **Posicionamento da legenda**
-Para definir as propriedades da legenda. Siga as etapas abaixo:
+## **Posicionamento da Legenda**
 
-- Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation).
-- Obtenha a referência do slide.
-- Adicione um gráfico ao slide.
-- Defina as propriedades da legenda.
-- Salve a apresentação como um arquivo PPTX.
+Use as propriedades [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/) e [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) da legenda para especificar sua posição e tamanho como frações das dimensões do gráfico.
 
-No exemplo abaixo, definimos a posição e o tamanho da legenda do gráfico.
+Este exemplo cria uma apresentação e adiciona um gráfico de colunas agrupadas com dados padrão ao primeiro slide. Dividir os deslocamentos e dimensões desejados da legenda pela largura e altura do gráfico os converte em valores relativos: a legenda é deslocada em 50 pontos do canto superior esquerdo do gráfico e tem tamanho de 100 por 100 pontos.
 
-```c#
-// Crie uma instância da classe Presentation
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Obtenha a referência do slide
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Adicione um gráfico de colunas agrupadas no slide
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
-// Defina as propriedades da legenda
+// Expresse a posição e o tamanho da legenda em relação ao gráfico.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// Salve a apresentação no disco
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
+## **Definir o Tamanho da Fonte de uma Legenda**
 
+Use o [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) da legenda para acessar sua formatação de texto e definir [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) em pontos.
 
-## **Definir o tamanho da fonte da legenda**
-O Aspose.Slides for .NET permite que os desenvolvedores definam o tamanho da fonte da legenda. Siga as etapas abaixo: 
+Este exemplo cria um gráfico com dados padrão e define o texto da legenda para 20 pontos. Também desabilita os limites automáticos para o eixo vertical e define seu intervalo de -5 a 10.
 
-- Instancie a classe `Presentation`.
-- Crie o gráfico padrão.
-- Defina o Tamanho da Fonte.
-- Defina o valor mínimo do eixo.
-- Defina o valor máximo do eixo.
-- Salve a apresentação no disco.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
+## **Definir o Tamanho da Fonte de uma Entrada Individual da Legenda**
 
-## **Definir o tamanho da fonte de uma legenda individual**
-O Aspose.Slides for .NET permite que os desenvolvedores definam o tamanho da fonte de entradas individuais da legenda. Siga as etapas abaixo: 
+Use a coleção [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) da legenda para acessar a formatação de uma entrada específica. Os índices de entrada são baseados em zero, portanto o índice `1` refere‑se à segunda entrada.
 
-- Instancie a classe `Presentation`.
-- Crie o gráfico padrão.
-- Acesse a entrada da legenda.
-- Defina o Tamanho da Fonte.
-- Defina o valor mínimo do eixo.
-- Defina o valor máximo do eixo.
-- Salve a apresentação no disco.
+Este exemplo cria um gráfico de colunas agrupadas cujo dados padrão incluem pelo menos duas séries. Ele formata a segunda entrada da legenda com texto em negrito, itálico e azul de 20 pontos.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
-## **Perguntas Frequentes**
+## **Ocultar Entradas Individuais da Legenda**
 
-**Posso habilitar a legenda para que o gráfico aloque automaticamente espaço para ela em vez de sobrepor?**
+Para excluir uma série auxiliar da legenda mantendo seus dados visíveis, defina [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) como `true` através de [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/). Isso oculta somente a entrada de legenda selecionada; não remove a série ou seus pontos de dados. Definir [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) como `false`, por outro lado, oculta toda a legenda.
 
-Sim. Use o modo não sobreposição ([Overlay](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/legend/overlay/) = `false`); nesse caso, a área de plotagem será reduzida para acomodar a legenda.
+O exemplo abaixo cria um gráfico de colunas agrupadas com várias séries usando dados padrão. Ele oculta a entrada de legenda da segunda série (índice `1`) e salva a apresentação. Em seguida, restaura a entrada definindo `Hide` como `false` e salva uma segunda cópia. As colunas permanecem visíveis em ambos os arquivos.
 
-**Posso criar rótulos de legenda com várias linhas?**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Sim. Rótulos longos são quebrados automaticamente quando o espaço é insuficiente; quebras de linha forçadas são suportadas via caracteres de nova linha no nome da série.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
+
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// Restaurar a mesma entrada sem alterar os dados do gráfico.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+A comparação abaixo mostra o mesmo gráfico com todas as entradas visíveis e com a segunda entrada oculta. As colunas da segunda série permanecem inalteradas.
+
+![Comparação de um gráfico com todas as entradas da legenda visíveis e com a Série 2 oculta da legenda; todas as colunas permanecem visíveis.](hide-legend-entry.png)
+
+Em gráficos de colunas, barras e linhas, as entradas da legenda identificam séries. Para gráficos de pizza, elas identificam pontos de dados individuais (fatias), portanto use [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) na fatia selecionada. A API documenta essa propriedade de ponto de dados para os tipos de gráfico `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` e `BarOfPie`. Não assume que ela se aplique a gráficos de rosca, que não estão incluídos nessa lista.
+
+## **FAQ**
+
+**Posso fazer o gráfico reservar espaço para a legenda em vez de sobrepô-lo?**
+
+Sim. Defina [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) como `false` para reservar espaço para a legenda em vez de permitir que ela sobreponha a área de plotagem.
+
+**Posso criar rótulos de legenda em várias linhas?**
+
+Sim. Rótulos longos podem ser quebrados quando a largura disponível é insuficiente. Você também pode usar caracteres de nova linha nos nomes das séries para solicitar quebras de linha.
 
 **Como faço a legenda seguir o esquema de cores do tema da apresentação?**
 
-Não defina cores, preenchimentos ou fontes explícitas para a legenda ou seu texto. Eles herdarão do tema e serão atualizados corretamente quando o design mudar.
+Deixe as cores, preenchimentos e fontes da legenda sem definição para que ela possa herdar a formatação do tema. Formatação explícita sobrescreve as configurações correspondentes do tema.

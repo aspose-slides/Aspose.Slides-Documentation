@@ -12,118 +12,142 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Tùy chỉnh chú giải biểu đồ với Aspose.Slides cho Android qua Java để tối ưu hóa các bản trình bày PowerPoint với định dạng chú giải được điều chỉnh riêng."
+description: "Tùy chỉnh chú giải biểu đồ với Aspose.Slides for Android via Java để tối ưu hóa các bản trình bày PowerPoint với định dạng chú giải được thiết kế riêng."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cung cấp các tùy chọn để tùy chỉnh chú giải biểu đồ trong các bản trình bày PowerPoint. Bài viết này hướng dẫn cách đặt vị trí và kích thước cho chú giải, thiết lập kích thước phông chữ cho toàn bộ chú giải và áp dụng định dạng cho một mục chú giải riêng lẻ.
+Aspose.Slides for Android via Java cung cấp các tùy chọn để tùy chỉnh chú giải biểu đồ trong các bản trình bày PowerPoint. Bài viết này cho thấy cách đặt vị trí và kích thước của chú giải, đặt kích thước phông chữ cho toàn bộ chú giải, định dạng một mục chú giải cá nhân, và ẩn hoặc khôi phục các mục đã chọn.
 
-Nó cũng đề cập đến một số hành vi liên quan trong phần Câu hỏi thường gặp, bao gồm việc sử dụng chế độ không chồng lấp để vùng vẽ nhường chỗ cho chú giải, cho phép các nhãn chú giải dài tự động ngắt dòng hoặc sử dụng ngắt dòng thủ công, và cho phép định dạng chú giải kế thừa từ giao diện chủ đề của bản trình bày khi không đặt các thiết lập màu chữ và nền cụ thể.
+Phần Hỏi Đáp bao gồm các hành vi liên quan, bao gồm việc dự trữ không gian cho chú giải, hiển thị nhãn nhiều dòng, và kế thừa định dạng từ giao diện chủ đề của bản trình bày.
 
-## **Vị trí Chú giải**
-Để thiết lập các thuộc tính của chú giải, vui lòng thực hiện theo các bước dưới đây:
+## **Định vị chú giải**
 
-- Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-- Lấy tham chiếu của slide.
-- Thêm biểu đồ vào slide.
-- Thiết lập các thuộc tính của chú giải.
-- Ghi bản trình bày dưới dạng tệp PPTX.
+Sử dụng các phương thức [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setX-float-), [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setY-float-), [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setWidth-float-), và [setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setHeight-float-) của chú giải để chỉ định vị trí và kích thước của nó dưới dạng tỷ lệ phần trăm của kích thước biểu đồ.
 
-Trong ví dụ dưới đây, chúng tôi đã thiết lập vị trí và kích thước cho chú giải biểu đồ.
+Ví dụ này tạo một bản trình bày và thêm một biểu đồ cột nhóm với dữ liệu mặc định vào slide đầu tiên. Việc chia các độ lệch và kích thước mong muốn của chú giải cho chiều rộng và chiều cao của biểu đồ chuyển chúng thành các giá trị tương đối: chú giải được dịch 50 điểm so với góc trên‑trái của biểu đồ và có kích thước 100 × 100 điểm.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Lấy tham chiếu của slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Thêm biểu đồ cột nhóm vào slide
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
-    
-    // Đặt thuộc tính cho Chú giải
+
+    // Diễn đạt vị trí và kích thước của chú giải tương đối so với biểu đồ.
     chart.getLegend().setX(50 / chart.getWidth());
     chart.getLegend().setY(50 / chart.getHeight());
     chart.getLegend().setWidth(100 / chart.getWidth());
     chart.getLegend().setHeight(100 / chart.getHeight());
-    
-    // Ghi bản trình bày ra đĩa
-    pres.save("Legend_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("legend_position.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thiết lập Kích thước Phông chữ cho Chú giải**
-Aspose.Slides cho Android qua Java cho phép các nhà phát triển thiết lập kích thước phông chữ của chú giải. Vui lòng thực hiện theo các bước dưới đây:
+## **Đặt kích thước phông chữ cho chú giải**
 
-- Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-- Tạo biểu đồ mặc định.
-- Thiết lập kích thước phông chữ.
-- Thiết lập giá trị trục tối thiểu.
-- Thiết lập giá trị trục tối đa.
-- Ghi bản trình bày ra đĩa.
+Sử dụng [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getTextFormat--) của chú giải để truy cập định dạng văn bản và dùng [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) để đặt kích thước phông chữ tính bằng điểm.
+
+Ví dụ này tạo một biểu đồ với dữ liệu mặc định và đặt văn bản chú giải thành 20 điểm. Nó cũng tắt giới hạn tự động cho trục dọc và đặt phạm vi của trục từ -5 đến 10.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
-
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thiết lập Kích thước Phông chữ cho Mục Chú giải Riêng lẻ**
-Aspose.Slides cho Android qua Java cho phép các nhà phát triển thiết lập kích thước phông chữ của các mục chú giải riêng lẻ. Vui lòng thực hiện theo các bước dưới đây:
+## **Đặt kích thước phông chữ cho mục chú giải cá nhân**
 
-- Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-- Tạo biểu đồ mặc định.
-- Truy cập mục chú giải.
-- Thiết lập kích thước phông chữ.
-- Thiết lập giá trị trục tối thiểu.
-- Thiết lập giá trị trục tối đa.
-- Ghi bản trình bày ra đĩa.
+Sử dụng tập hợp trả về bởi phương thức [getEntries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#getEntries--) của chú giải để truy cập định dạng cho một mục cụ thể. Chỉ số mục bắt đầu từ 0, vì vậy chỉ số `1` đại diện cho mục thứ hai.
+
+Ví dụ này tạo một biểu đồ cột nhóm mà dữ liệu mặc định bao gồm ít nhất hai chuỗi. Nó định dạng mục chú giải thứ hai bằng chữ đậm, in nghiêng và văn bản màu xanh 20 điểm.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChartTextFormat tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    IChartTextFormat textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
 
-    tf.getPortionFormat().setFontBold(NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+    textFormat.getPortionFormat().setFontBold(NullableBool.True);
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(NullableBool.True);
+    textFormat.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Ẩn các mục chú giải cá nhân**
+
+Để loại trừ một chuỗi phụ trợ khỏi chú giải trong khi vẫn giữ dữ liệu của nó hiển thị, gọi [ILegendEntryProperties.setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) với `true` thông qua [IChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getRelatedLegendEntry--). Thao tác này chỉ ẩn mục chú giải đã chọn; nó không xóa chuỗi hoặc các điểm dữ liệu. Ngược lại, gọi [IChart.setLegend](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) với `false` sẽ ẩn toàn bộ chú giải.
+
+Ví dụ dưới đây tạo một biểu đồ cột nhóm với nhiều chuỗi sử dụng dữ liệu mặc định. Nó ẩn mục chú giải của chuỗi thứ hai (chỉ số `1`) và lưu bản trình bày. Sau đó khôi phục mục bằng cách gọi [setHide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegendentryproperties/#setHide-boolean-) với `false` và lưu bản sao thứ hai. Các cột vẫn hiển thị trong cả hai tệp.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    ILegendEntryProperties legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+    // Khôi phục mục giống nhau mà không thay đổi dữ liệu biểu đồ.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+So sánh bên dưới cho thấy cùng một biểu đồ với tất cả các mục chú giải hiển thị và với mục thứ hai bị ẩn. Các cột của chuỗi thứ hai vẫn không thay đổi.
+
+![So sánh biểu đồ với tất cả các mục chú giải hiển thị và với Series 2 bị ẩn khỏi chú giải; tất cả các cột vẫn hiển thị.](hide-legend-entry.png)
+
+Trong các biểu đồ cột, thanh và đường, các mục chú giải xác định chuỗi. Đối với biểu đồ tròn, chúng xác định các điểm dữ liệu cá nhân (miếng), vì vậy hãy sử dụng [IChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getRelatedLegendEntry--) trên miếng đã chọn. API tài liệu phương thức này cho các loại biểu đồ `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` và `BarOfPie`. Đừng cho rằng nó áp dụng cho biểu đồ vòng donut, vì chúng không nằm trong danh sách đó.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể bật chú giải để biểu đồ tự động phân bổ không gian cho nó thay vì chồng lên không?**
+**Tôi có thể làm cho biểu đồ dành không gian cho chú giải thay vì chồng lên nó không?**
 
-Có. Sử dụng chế độ không chồng lấp ([setOverlay(false)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/legend/#setOverlay-boolean-)); trong trường hợp này, vùng vẽ sẽ thu nhỏ để nhường chỗ cho chú giải.
+Có. Gọi [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/legend/#setOverlay-boolean-) với `false` để dự trữ không gian cho chú giải thay vì cho phép nó chồng lên vùng vẽ.
 
 **Tôi có thể tạo nhãn chú giải đa dòng không?**
 
-Có. Các nhãn dài sẽ tự động ngắt dòng khi không đủ không gian; việc chèn ngắt dòng bắt buộc được hỗ trợ bằng ký tự xuống dòng trong tên chuỗi.
+Có. Nhãn dài có thể tự động ngắt dòng khi chiều rộng khả dụng không đủ. Bạn cũng có thể chèn ký tự xuống dòng trong tên chuỗi để yêu cầu ngắt dòng.
 
-**Làm thế nào để chú giải tuân theo bảng màu của giao diện chủ đề bản trình bày?**
+**Làm thế nào để chú giải tuân theo bảng màu của chủ đề bản trình bày?**
 
-Không đặt màu/vùng nền/phông chữ cụ thể cho chú giải hoặc văn bản của nó. Khi đó chúng sẽ kế thừa từ chủ đề và cập nhật đúng khi thiết kế thay đổi.
+Để lại màu sắc, màu nền và phông chữ của chú giải chưa được đặt để nó có thể kế thừa định dạng từ chủ đề. Định dạng rõ ràng sẽ ghi đè lên các thiết lập chủ đề tương ứng.

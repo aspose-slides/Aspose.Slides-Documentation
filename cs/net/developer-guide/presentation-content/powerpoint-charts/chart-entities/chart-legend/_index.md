@@ -12,107 +12,134 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro .NET a optimalizujte prezentace PowerPoint s přizpůsobeným formátováním legend."
+description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro .NET a optimalizujte prezentace PowerPoint s upraveným formátováním legend."
 ---
 ## **Přehled**
 
-Aspose.Slides poskytuje možnosti přizpůsobení legend grafů v prezentacích PowerPoint. Tento článek ukazuje, jak umístit a změnit velikost legendy, nastavit velikost písma pro celou legendu a aplikovat formátování na jednotlivý záznam legendy.
+Aspose.Slides for .NET poskytuje možnosti přizpůsobení legendy grafu v prezentacích PowerPoint. Tento článek ukazuje, jak umístit a změnit velikost legendy, nastavit velikost písma pro celou legendu, formátovat jednotlivý záznam legendy a skrýt nebo obnovit vybrané záznamy.
 
-Také se v sekci FAQ probírají související chování, včetně použití režimu bez překrytí, aby oblast grafu uvolnila místo pro legendu, povolení zalamování dlouhých popisků legend nebo použití konců řádků a umožnění, aby formátování legendy dědilo motiv prezentace, pokud nejsou nastaveny explicitní textové a výplňové hodnoty.
+FAQ pokrývá související chování, včetně vyhrazení místa pro legendu, zobrazování víceřádkových popisků a dědění formátování z motivu prezentace.
 
 ## **Umístění legendy**
-Pro nastavení vlastností legendy postupujte podle následujících kroků:
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) .
-- Získejte referenci na snímek.
-- Přidejte graf na snímek.
-- Nastavte vlastnosti legendy.
-- Uložte prezentaci jako soubor PPTX.
+Použijte vlastnosti legendy [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/) a [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) k určení jejího umístění a velikosti jako zlomků rozměrů grafu.
 
-V níže uvedeném příkladu jsme nastavili pozici a velikost legendy grafu.
+Tento příklad vytvoří prezentaci a přidá do první snímku seskupený sloupcový graf s výchozími daty. Rozdělením požadovaných posunů a rozměrů legendy šířkou a výškou grafu získáte relativní hodnoty: legenda je posunuta o 50 bodů od levého horního rohu grafu a má velikost 100 × 100 bodů.
 
-```c#
-// Vytvořte instanci třídy Presentation
-Presentation presentation = new Presentation();
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Získejte referenci na snímek
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Přidejte seskupený sloupcový graf na snímek
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
 
-// Nastavte vlastnosti legendy
+// Vyjádřete pozici a velikost legendy relativně k grafu.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// Uložte prezentaci na disk
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
 
 ## **Nastavení velikosti písma legendy**
-Aspose.Slides pro .NET umožňuje vývojářům nastavit velikost písma legendy. Postupujte podle následujících kroků:
 
-- Instancujte třídu `Presentation` .
-- Vytvořte výchozí graf.
-- Nastavte velikost písma.
-- Nastavte minimální hodnotu osy.
-- Nastavte maximální hodnotu osy.
-- Uložte prezentaci na disk.
+Použijte legendu [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) pro přístup k formátování textu a nastavte [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) v bodech.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+Tento příklad vytvoří graf s výchozími daty a nastaví text legendy na 20 bodů. Také zakáže automatické ohraničení svislé osy a nastaví její rozsah od -5 do 10.
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
-## **Nastavení velikosti písma jednotlivé legendy**
-Aspose.Slides pro .NET umožňuje vývojářům nastavit velikost písma jednotlivých položek legendy. Postupujte podle následujících kroků:
+## **Nastavení velikosti písma jednotlivého záznamu legendy**
 
-- Instancujte třídu `Presentation` .
-- Vytvořte výchozí graf.
-- Přístup k položce legendy.
-- Nastavte velikost písma.
-- Nastavte minimální hodnotu osy.
-- Nastavte maximální hodnotu osy.
-- Uložte prezentaci na disk.
+Použijte kolekci legendy [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) pro přístup k formátování konkrétního záznamu. Indexy záznamů jsou nulové, takže index `1` odkazuje na druhý záznam.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+Tento příklad vytvoří seskupený sloupcový graf, jehož výchozí data obsahují alespoň dvě řady. Formátuje druhý záznam legendy tučným, kurzívním a modrým textem o velikosti 20 bodů.
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Skrytí jednotlivých záznamů legendy**
 
-**Mohu povolit legendu tak, aby graf automaticky vyčlenil místo pro ni místo překrytí?**
+Chcete‑li vyloučit pomocnou řadu z legendy a přitom zachovat její data viditelná, nastavte [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) na `true` přes [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/). Tím se skryje pouze vybraný záznam legendy; řada ani její datové body se neodstraní. Naopak nastavení [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) na `false` skryje celou legendu.
 
-Ano. Použijte režim bez překrytí ([Overlay](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/legend/overlay/) = `false`); v tomto případě se oblast grafu zmenší, aby uvolnila místo pro legendu.
+Níže uvedený příklad vytvoří seskupený sloupcový graf s více řadami pomocí výchozích dat. Skryje záznam legendy druhé řady (index `1`) a uloží prezentaci. Poté záznam obnoví nastavením `Hide` na `false` a uloží druhou kopii. Sloupce zůstanou v obou souborech viditelné.
 
-**Mohu vytvořit vícero řádkové popisky legendy?**
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Ano. Dlouhé popisky se automaticky zalamují, pokud není dostatek místa; vynucené konce řádků jsou podporovány pomocí znaků nového řádku v názvu řady.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**Jak zajistím, aby legenda následovala barevné schéma motivu prezentace?**
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
 
-Nenastavujte explicitní barvy/výplně/písma pro legendu nebo její text. Ty pak zdědí nastavení z motivu a správně se aktualizují při změně návrhu.
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// Obnovte stejný záznam bez změny dat grafu.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+Níže uvedené srovnání ukazuje stejný graf se všemi viditelnými záznamy legendy a se skrytým řadou 2 v legendě; všechny sloupce zůstávají viditelné.
+
+![Porovnání grafu se všemi viditelnými záznamy legendy a se skrytým řadou 2 v legendě; všechny sloupce zůstávají viditelné.](hide-legend-entry.png)
+
+V sloupcových, pruhových a čárových grafech záznamy legendy identifikují řady. U výsečových grafů identifikují jednotlivé datové body (výseče), proto použijte [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) na vybranou výseč. API dokumentuje tuto vlastnost datového bodu pro typy grafů `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` a `BarOfPie`. Nepřepokládejte, že se vztahuje i na prstencové grafy, které v tomto seznamu nejsou.
+
+## **Často kladené otázky**
+
+**Mohu nechat graf vyčlenit místo pro legendu místo překrývání?**
+
+Ano. Nastavte [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) na `false`, aby se vyčlenilo místo pro legendu místo povolení překrytí oblasti grafu.
+
+**Mohu vytvořit vícřádkové popisky legendy?**
+
+Ano. Dlouhé popisky se zalomí, pokud není k dispozici dostatečná šířka. Můžete také použít znaky nového řádku ve jménech řad k vynucení zalomení.
+
+**Jak zajistit, aby legenda následovala barevné schéma motivu prezentace?**
+
+Nechte barvy, výplně a písma legendy nenastavené, aby mohla zdědit formátování motivu. Výslovné formátování přepíše odpovídající nastavení motivu.

@@ -5,124 +5,160 @@ type: docs
 url: /cs/php-java/chart-legend/
 keywords:
 - legenda grafu
-- umístění legendy
+- pozice legendy
 - velikost písma
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro PHP přes Java a optimalizujte prezentace PowerPoint pomocí nastaveného formátování legendy."
+description: "Přizpůsobte legendy grafů pomocí Aspose.Slides pro PHP přes Java a optimalizujte prezentace PowerPoint s upraveným formátováním legend."
 ---
-## **Overview**
+## **Přehled**
 
-Aspose.Slides poskytuje možnosti přizpůsobení legend grafů v prezentacích PowerPoint. Tento článek ukazuje, jak nastavit pozici a velikost legendy, nastavit velikost písma pro celou legendu a aplikovat formátování na jednotlivý záznam legendy.
+Aspose.Slides for PHP via Java poskytuje možnosti přizpůsobení legendy grafu v prezentacích PowerPoint. Tento článek ukazuje, jak umístit a změnit velikost legendy, nastavit velikost písma pro celou legendu, formátovat jednotlivou položku legendy a skrýt nebo obnovit vybrané položky.
 
-Také pokrývá několik souvisejících chování v sekci FAQ, včetně použití režimu bez překrytí, aby oblast grafu udělala místo legendě, umožnění dlouhých popisků legendy zalamovat se nebo používat konce řádků a umožnění, aby formátování legendy zdědilo vzhled z motivu prezentace, pokud nejsou nastaveny explicitní nastavení textu a výplně.
+Často kladené otázky pokrývají související chování, včetně rezervace místa pro legendu, zobrazování víceliniových popisků a dědění formátování z motivu prezentace.
 
-## **Legend Positioning**
+## **Umístění legendy**
 
-Pro nastavení vlastností legendy postupujte podle následujících kroků:
+Použijte metody legendy [setX](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/php-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setwidth/) a [setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setheight/) k určení jejího umístění a velikosti jako zlomků rozměrů grafu.
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-- Získejte referenci na snímek.
-- Přidejte graf na snímek.
-- Nastavte vlastnosti legendy.
-- Uložte prezentaci jako soubor PPTX.
-
-V níže uvedeném příkladu jsme nastavili pozici a velikost legendy grafu.
+Tento příklad vytvoří prezentaci a přidá na první snímek klastrový sloupcový graf s výchozími daty. Rozdělením požadovaných odsazení a rozměrů legendy šířkou a výškou grafu je převede na relativní hodnoty: legenda je posunuta o 50 bodů od levého horního rohu grafu a má velikost 100 × 100 bodů. Příklad používá java_values k převodu rozměrů grafu vrácených PHP/Java Bridge na čísla PHP před dělením.
 
 ```php
-  # Vytvořte instanci třídy Presentation
-  $pres = new Presentation();
-  try {
-    # Získejte referenci na snímek
-    $slide = $pres->getSlides()->get_Item(0);
-    # Přidejte seskupený sloupcový graf na snímek
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    # Nastavte vlastnosti legendy
-    $chart->getLegend()->setX(50 / $chart->getWidth());
-    $chart->getLegend()->setY(50 / $chart->getHeight());
-    $chart->getLegend()->setWidth(100 / $chart->getWidth());
-    $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    # Uložte prezentaci na disk
-    $pres->save("Legend_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $chartWidth = java_values($chart->getWidth());
+    $chartHeight = java_values($chart->getHeight());
+
+    // Vyjádřete pozici a velikost legendy vzhledem k grafu.
+    $chart->getLegend()->setX(50 / $chartWidth);
+    $chart->getLegend()->setY(50 / $chartHeight);
+    $chart->getLegend()->setWidth(100 / $chartWidth);
+    $chart->getLegend()->setHeight(100 / $chartHeight);
+
+    $presentation->save("legend_position.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Set the Font Size of a Legend**
+## **Nastavení velikosti písma legendy**
 
-Aspose.Slides for PHP via Java umožňuje vývojářům nastavit velikost písma legendy. Postupujte podle následujících kroků: 
+Použijte [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/gettextformat/) k získání formátování textu legendy a [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) k nastavení velikosti písma v bodech.
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-- Vytvořte výchozí graf.
-- Nastavte velikost písma.
-- Nastavte minimální hodnotu osy.
-- Nastavte maximální hodnotu osy.
-- Uložte prezentaci na disk.
+Tento příklad vytvoří graf s výchozími daty a nastaví text legendy na 20 bodů. Také zakáže automatické ohraničení pro svislou osu a nastaví její rozsah od -5 do 10.
 
 ```php
-  # Vytvořte instanci třídy Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
     $chart->getAxes()->getVerticalAxis()->setMinValue(-5);
     $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
     $chart->getAxes()->getVerticalAxis()->setMaxValue(10);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("legend_font_size.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Set the Font Size of an Individual Legend**
+## **Nastavení velikosti písma jednotlivé položky legendy**
 
-Aspose.Slides for PHP via Java umožňuje vývojářům nastavit velikost písma jednotlivých položek legendy. Postupujte podle následujících kroků: 
+Použijte kolekci vrácenou metodou [getEntries](https://reference.aspose.com/slides/php-java/aspose.slides/legend/getentries/) k získání formátování konkrétní položky. Indexy položek jsou nulové, takže index `1` odkazuje na druhou položku.
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-- Vytvořte výchozí graf.
-- Přistupte k položce legendy.
-- Nastavte velikost písma.
-- Nastavte minimální hodnotu osy.
-- Nastavte maximální hodnotu osy.
-- Uložte prezentaci na disk.
+Tento příklad vytvoří klastrový sloupcový graf, jehož výchozí data obsahují alespoň dvě řady. Formátuje druhou položku legendy tučným, kurzívovým textem o velikosti 20 bodů a modrou barvou.
 
 ```php
-  # Vytvořte instanci třídy Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool::True);
-    $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
-    $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $textFormat = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
+
+    $textFormat->getPortionFormat()->setFontBold(NullableBool::True);
+    $textFormat->getPortionFormat()->setFontHeight(20);
+    $textFormat->getPortionFormat()->setFontItalic(NullableBool::True);
+    $textFormat->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $textFormat->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+
+    $presentation->save("legend_entry_format.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **Skrytí jednotlivých položek legendy**
 
-**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+Chcete‑li vyloučit pomocnou řadu z legendy při zachování jejích dat, zavolejte [LegendEntryProperties::setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) s hodnotou `true` přes [ChartSeries::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getrelatedlegendentry/). Tím se skryje pouze vybraná položka legendy; řada ani její datové body nebudou odebrány. Naopak zavoláním [Chart::setLegend](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setlegend/) s hodnotou `false` skryjete celou legendu.
 
-Ano. Použijte režim bez překrytí ([setOverlay(false)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/legend/setoverlay/)); v tomto případě se oblast grafu zmenší, aby poskytla místo legendě.
+Níže uvedený příklad vytvoří klastrový sloupcový graf s několika řadami pomocí výchozích dat. Skryje legendu druhé řady (index `1`) a uloží prezentaci. Poté položku obnoví voláním [setHide](https://reference.aspose.com/slides/php-java/aspose.slides/legendentryproperties/sethide/) s hodnotou `false` a uloží druhou kopii. Sloupce zůstávají viditelné v obou souborech.
 
-**Can I make multi-line legend labels?**
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Ano. Dlouhé popisky se automaticky zalamují, pokud není dostatek místa; nucené zalomení řádku je podporováno pomocí znaků nového řádku v názvu řady.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-**How do I make the legend follow the presentation theme’s color scheme?**
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setLegend(true);
 
-Nenastavujte explicitní barvy/výplně/písma pro legendu nebo její text. Pak zdědí hodnoty z motivu a budou se správně aktualizovat při změně návrhu.
+    $legendEntry = $chart->getChartData()->getSeries()->get_Item(1)->getRelatedLegendEntry();
+
+    $legendEntry->setHide(true);
+    $presentation->save("hidden_legend_entry.pptx", SaveFormat::Pptx);
+
+    // Obnovit stejnou položku bez změny dat grafu.
+    $legendEntry->setHide(false);
+    $presentation->save("restored_legend_entry.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Níže uvedené srovnání ukazuje stejný graf se všemi položkami legendy viditelnými a s druhou položkou skrytou. Sloupce druhé řady zůstávají nezměněny.
+
+![Porovnání grafu se všemi položkami legendy viditelnými a s řadou 2 skrytou v legendě; všechny sloupce jsou stále viditelné.](hide-legend-entry.png)
+
+V sloupcových, pruhových a čárových grafech položky legendy identifikují řady. U koláčových grafů identifikují jednotlivé datové body (výseče), takže místo toho použijte [ChartDataPoint::getRelatedLegendEntry](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) na vybrané výseči. API dokumentuje tuto metodu datového bodu pro typy grafů `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` a `BarOfPie`. Nepředpokládejte, že se vztahuje na prstencové grafy, které v tomto seznamu nejsou.
+
+## **Často kladené otázky**
+
+**Mohu nechat graf vyhradit místo pro legendu místo toho, aby ji překrýval?**
+
+Ano. Zavolejte [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) s hodnotou `false`, aby legenda vyhradila místo místo toho, aby překrývala oblast grafu.
+
+**Mohu vytvořit víceliniové popisky legendy?**
+
+Ano. Dlouhé popisky se mohou zalomit, pokud dostupná šířka není dostatečná. Můžete také použít znak nového řádku ve jménech řad pro vložení zalomení.
+
+**Jak zajistit, aby legenda následovala barevné schéma motivu prezentace?**
+
+Ponechte barvy, výplně a písma legendy nenastavené, aby mohla dědit formátování motivu. Explicitní formátování přepíše odpovídající nastavení motivu.

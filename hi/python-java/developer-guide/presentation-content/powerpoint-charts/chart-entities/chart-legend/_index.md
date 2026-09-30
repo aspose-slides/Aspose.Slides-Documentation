@@ -1,5 +1,5 @@
 ---
-title: Python का उपयोग करके प्रस्तुतियों में चार्ट लेजेंड को कस्टमाइज़ करें
+title: Python का उपयोग करके प्रस्तुतियों में चार्ट लेजेंड को अनुकूलित करें
 linktitle: चार्ट लेजेंड
 type: docs
 url: /hi/python-java/chart-legend/
@@ -12,25 +12,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Python के लिए Aspose.Slides via Java के साथ चार्ट लेजेंड को कस्टमाइज़ करें ताकि PowerPoint प्रस्तुतियों को अनुकूलित लेजेंड फ़ॉर्मेटिंग के साथ ऑप्टिमाइज़ किया जा सके।"
+description: "PowerPoint प्रस्तुतियों को अनुकूलित करने के लिए Aspose.Slides for Python via Java के साथ चार्ट लेजेंड को अनुकूलित करें, जिससे लेजेंड फॉर्मेटिंग को विशेष रूप से तैयार किया जा सके।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides PowerPoint प्रस्तुतियों में चार्ट लेजेंड को अनुकूलित करने के विकल्प प्रदान करता है। यह लेख दिखाता है कि लेजेंड की स्थिति और आकार कैसे निर्धारित करें, पूरे लेजेंड के लिए फ़ॉन्ट आकार कैसे सेट करें, और व्यक्तिगत लेजेंड प्रविष्टि पर स्वरूपण कैसे लागू करें।
+Aspose.Slides for Python via Java PowerPoint प्रस्तुतियों में चार्ट लीजेंड को अनुकूलित करने के विकल्प प्रदान करता है। यह लेख दिखाता है कि लीजेंड को कैसे स्थित और आकार दिया जाए, पूरे लीजेंड के फ़ॉन्ट आकार को सेट किया जाए, एक व्यक्तिगत लीजेंड प्रविष्टि को फॉर्मेट किया जाए, और चयनित प्रविष्टियों को छुपाया या पुनर्स्थापित किया जाए।
 
-यह FAQ में कई संबंधित व्यवहारों को भी कवर करता है, जिसमें नॉन-ओवरले मोड का उपयोग करके प्लॉट क्षेत्र को लेजेंड के लिए स्थान देने, लंबे लेजेंड लेबल को रैप या लाइन ब्रेक्स का उपयोग करने, और जब स्पष्ट टेक्स्ट और फ़िल सेटिंग्स लागू नहीं की गई हों तो लेजेंड फ़ॉर्मेटिंग को प्रस्तुति थीम से विरासत में प्राप्त करने शामिल है।
+FAQ संबंधित व्यवहारों को कवर करता है, जिसमें लीजेंड के लिए स्थान आरक्षित करना, बहु-लाइन लेबल प्रदर्शित करना, और प्रस्तुति थीम से फॉर्मेटिंग विरासत में लेना शामिल है।
 
-## **लेजेंड स्थिति**
+## **लीजेंड की स्थिति निर्धारण**
 
-लेजेंड गुण सेट करने के लिए, निम्न चरणों का पालन करें:
+लीजेंड की [setX](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setX), [setY](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setY), [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setWidth), और [setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setHeight) विधियों का उपयोग करके उसकी स्थिति और आकार को चार्ट के आयामों के अंश के रूप में निर्दिष्ट करें।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. स्लाइड का संदर्भ प्राप्त करें।
-3. स्लाइड में एक चार्ट जोड़ें।
-4. लेजेंड गुण सेट करें।
-5. प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-निम्न उदाहरण चार्ट लेजेंड की स्थिति और आकार सेट करता है।
+यह उदाहरण एक प्रस्तुति बनाता है और पहले स्लाइड में डिफ़ॉल्ट डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट जोड़ता है। इच्छित लीजेंड ऑफ़सेट और आयामों को चार्ट की चौड़ाई और ऊँचाई से विभाजित करने से वे सापेक्ष मानों में परिवर्तित हो जाते हैं: लीजेंड चार्ट के शीर्ष-बाएँ कोने से 50 पॉइंट्स की दूरी पर स्थित है और इसका आकार 100 बाय 100 पॉइंट्स है।
 
 ```python
 import jpype
@@ -41,38 +35,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# एक खाली प्रस्तुति बनाएं।
 presentation = Presentation()
 try:
-    # स्लाइड का संदर्भ प्राप्त करें।
     slide = presentation.getSlides().get_Item(0)
 
-    # स्लाइड में एक क्लस्टर्ड कॉलम चार्ट जोड़ें।
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 500)
 
-    # लेजेंड गुण सेट करें।
-    legend = chart.getLegend()
-    legend.setX(50 / chart.getWidth())
-    legend.setY(50 / chart.getHeight())
-    legend.setWidth(100 / chart.getWidth())
-    legend.setHeight(100 / chart.getHeight())
+    # चार्ट के सापेक्ष लेजेंड की स्थिति और आकार व्यक्त करें।
+    chart.getLegend().setX(50 / chart.getWidth())
+    chart.getLegend().setY(50 / chart.getHeight())
+    chart.getLegend().setWidth(100 / chart.getWidth())
+    chart.getLegend().setHeight(100 / chart.getHeight())
 
-    # प्रस्तुति को डिस्क पर सहेजें।
-    presentation.save("Legend_out.pptx", SaveFormat.Pptx)
+    presentation.save("legend_position.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **लेजेंड का फ़ॉन्ट आकार सेट करें**
+## **लीजेंड का फ़ॉन्ट आकार सेट करें**
 
-Aspose.Slides for Python via Java आपको लेजेंड का फ़ॉन्ट आकार सेट करने की अनुमति देता है। निम्न चरणों का पालन करें:
+लीजेंड के [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) का उपयोग करके उसके टेक्स्ट फॉर्मेटिंग तक पहुँचें और [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) को फ़ॉन्ट आकार को पॉइंट्स में सेट करने के लिए उपयोग करें।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. डिफ़ॉल्ट चार्ट बनाएं।
-3. फ़ॉन्ट आकार सेट करें।
-4. न्यूनतम अक्ष मान सेट करें।
-5. अधिकतम अक्ष मान सेट करें।
-6. प्रस्तुति को डिस्क पर सहेजें।
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक चार्ट बनाता है और लीजेंड टेक्स्ट को 20 पॉइंट्स पर सेट करता है। यह वर्टिकल अक्ष के लिए स्वचालित बाउंड्स को भी निष्क्रिय करता है और उसकी रेंज को -5 से 10 तक सेट करता है।
 
 ```python
 import jpype
@@ -83,33 +67,28 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# एक खाली प्रस्तुति बनाएं।
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20)
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(False)
+    chart.getAxes().getVerticalAxis().setMinValue(-5)
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
+    chart.getAxes().getVerticalAxis().setMaxValue(10)
 
-    vertical_axis = chart.getAxes().getVerticalAxis()
-    vertical_axis.setAutomaticMinValue(False)
-    vertical_axis.setMinValue(-5)
-    vertical_axis.setAutomaticMaxValue(False)
-    vertical_axis.setMaxValue(10)
-
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_font_size.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **व्यक्तिगत लेजेंड प्रविष्टि का फ़ॉन्ट आकार सेट करें**
+## **व्यक्तिगत लीजेंड प्रविष्टि का फ़ॉन्ट आकार सेट करें**
 
-Aspose.Slides for Python via Java आपको व्यक्तिगत लेजेंड प्रविष्टियों का फ़ॉन्ट आकार सेट करने की अनुमति देता है। निम्न चरणों का पालन करें:
+लीजेंड के [getEntries](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getEntries) मेथड द्वारा लौटाए गए संग्रह का उपयोग करके किसी विशेष प्रविष्टि के फ़ॉर्मेटिंग तक पहुँचें। प्रविष्टि सूचकांक शून्य-आधारित होते हैं, इसलिए सूचकांक `1` दूसरा प्रविष्टि दर्शाता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं।
-2. डिफ़ॉल्ट चार्ट बनाएं।
-3. एक लेजेंड प्रविष्टि तक पहुँचें।
-4. फ़ॉन्ट आकार सेट करें।
-5. प्रस्तुति को डिस्क पर सहेजें।
+यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है जिसका डिफ़ॉल्ट डेटा कम से कम दो सीरीज़ शामिल करता है। यह दूसरे लीजेंड प्रविष्टि को बोल्ड, इटैलिक और 20 पॉइंट ब्लू टेक्स्ट के साथ फ़ॉर्मेट करता है।
 
 ```python
 import jpype
@@ -122,35 +101,71 @@ from asposeslides.api import ChartType, FillType, NullableBool, Presentation, Sa
 
 Color = jpype.JClass("java.awt.Color")
 
-# एक खाली प्रस्तुति बनाएं।
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     text_format = chart.getLegend().getEntries().get_Item(1).getTextFormat()
-    portion_format = text_format.getPortionFormat()
 
-    portion_format.setFontBold(NullableBool.True_)
-    portion_format.setFontHeight(20)
-    portion_format.setFontItalic(NullableBool.True_)
-    portion_format.getFillFormat().setFillType(FillType.Solid)
-    portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    text_format.getPortionFormat().setFontBold(NullableBool.True_)
+    text_format.getPortionFormat().setFontHeight(20)
+    text_format.getPortionFormat().setFontItalic(NullableBool.True_)
+    text_format.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    text_format.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("legend_entry_format.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **व्यक्तिगत लीजेंड प्रविष्टियों को छुपाएँ**
 
-**Can I enable the legend so that the chart automatically allocates space for it instead of overlaying it?**
+एक सहायक सीरीज़ को लीजेंड से बाहर करने के लिए जबकि उसका डेटा दृश्य रहना चाहिए, [LegendEntryProperties.setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) को `True` के साथ कॉल करें, इसे [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getRelatedLegendEntry) के माध्यम से प्राप्त किया जाता है। यह केवल चयनित लीजेंड प्रविष्टि को छुपाता है; यह सीरीज़ या उसके डेटा पॉइंट्स को नहीं हटाता। इसके विपरीत, [Chart.setLegend](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setLegend) को `False` के साथ कॉल करने से पूरा लीजेंड छुप जाता है।
 
-हाँ। लेजेंड को गैर-ओवरले मोड में सक्षम करने के लिए `False` के साथ [setOverlay](https://reference.aspose.com/slides/hi/python-java/aspose.slides/legend/#setOverlay) का उपयोग करें; इस स्थिति में, प्लॉट एरिया लेजेंड को समायोजित करने के लिए छोटा हो जाएगा।
+निम्नलिखित उदाहरण डिफ़ॉल्ट डेटा के साथ कई सीरीज़ वाले एक क्लस्टर्ड कॉलम चार्ट बनाता है। यह दूसरी सीरीज़ की लीजेंड प्रविष्टि (सूचकांक `1`) को छुपाता है और प्रस्तुति को सहेजता है। बाद में यह प्रविष्टि को [setHide](https://reference.aspose.com/slides/python-java/aspose.slides/legendentryproperties/#setHide) को `False` के साथ कॉल करके पुनर्स्थापित करता है और दूसरी प्रति सहेजता है। दोनों फाइलों में कॉलम दृश्य रहते हैं।
 
-**Can I make multi-line legend labels?**
+```python
+import jpype
+import asposeslides
 
-हाँ। जब स्थान अपर्याप्त हो तो लंबे लेबल स्वतः रैप हो जाते हैं; श्रृंखला नाम में नई पंक्ति वर्णों के द्वारा मैन्युअल लाइन ब्रेक समर्थित हैं।
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-**How do I make the legend follow the presentation theme’s color scheme?**
+from asposeslides.api import ChartType, Presentation, SaveFormat
 
-स्पष्ट रंग, भराव, या फ़ॉन्ट सेट न करें। तब वे थीम से विरासत में मिलेंगे और डिज़ाइन बदलने पर सही ढंग से अपडेट होंगे।
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setLegend(True)
+
+    legend_entry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry()
+
+    legend_entry.setHide(True)
+    presentation.save("hidden_legend_entry.pptx", SaveFormat.Pptx)
+
+    # चर्ट डेटा को बदले बिना वही प्रविष्टि पुनर्स्थापित करें।
+    legend_entry.setHide(False)
+    presentation.save("restored_legend_entry.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+नीचे दिया गया तुलना समान चार्ट को दिखाती है जिसमें सभी प्रविष्टियाँ दृश्यमान हैं और दूसरी प्रविष्टि छुपी हुई है। दूसरी सीरीज़ के कॉलम अपरिवर्तित रहते हैं।
+
+![सभी लीजेंड प्रविष्टियों के दृश्यमान और सीरीज़ 2 को लीजेंड से छुपाए गए चार्ट की तुलना; सभी कॉलम दृश्यमान रहते हैं।](hide-legend-entry.png)
+
+कॉलम, बार और लाइन चार्ट में, लीजेंड प्रविष्टियाँ सीरीज़ को पहचानती हैं। पाई चार्ट में, वे व्यक्तिगत डेटा पॉइंट्स (स्लाइस) को पहचानती हैं, इसलिए चयनित स्लाइस पर [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getRelatedLegendEntry) का उपयोग करें। API इस डेटा-पॉइंट मेथड को `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie`, और `BarOfPie` चार्ट प्रकारों के लिए दस्तावेज़ित करता है। यह मानें नहीं कि यह डोनट चार्ट पर लागू होता है, जो इस सूची में शामिल नहीं है।
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**क्या मैं चार्ट को लीजेंड के लिए स्थान आरक्षित करने के लिए बना सकता हूँ बजाय उसे ओवरले करने के?**  
+हां। [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) को `False` के साथ कॉल करके लीजेंड के लिए स्थान आरक्षित करें, बजाय उसे प्लॉट एरिया के ऊपर ओवरले करने के।
+
+**क्या मैं बहु-लाइन लीजेंड लेबल बना सकता हूँ?**  
+हां। जब उपलब्ध चौड़ाई अपर्याप्त हो तो लंबे लेबल रैप हो सकते हैं। आप सीरीज़ नामों में newline कैरेक्टर का उपयोग करके लाइन ब्रेक भी जोड़ सकते हैं।
+
+**मैं लीजेंड को प्रस्तुति थीम की रंग योजना के अनुसार कैसे बनाऊँ?**  
+लीजेंड के रंग, भराव और फ़ॉन्ट को अनसेट रखें ताकि वह थीम फॉर्मेटिंग को विरासत में ले सके। स्पष्ट फॉर्मेटिंग संबंधित थीम सेटिंग्स को ओवरराइड करती है।

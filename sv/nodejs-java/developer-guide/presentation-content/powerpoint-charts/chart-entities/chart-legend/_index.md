@@ -12,118 +12,150 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Anpassa diagramförklaringar med JavaScript och Aspose.Slides för Node.js för att optimera PowerPoint-presentationer med skräddarsydd förklaringsformatering."
+description: "Anpassa diagramförklaringar med Aspose.Slides för Node.js via Java för att optimera PowerPoint-presentationer med skräddarsydd förklaringsformatering."
 ---
 ## **Översikt**
 
-Aspose.Slides erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Den här artikeln visar hur man placerar och storlekar en förklaring, anger teckenstorleken för hela förklaringen och tillämpar formatering på ett enskilt förklaringsobjekt.
+Aspose.Slides för Node.js via Java erbjuder alternativ för att anpassa diagramförklaringar i PowerPoint-presentationer. Den här artikeln visar hur man placerar och storlekar en förklaring, anger teckenstorleken för hela förklaringen, formaterar ett enskilt förklarings‑element och döljer eller återställer valda element.
 
-Den täcker också flera relaterade beteenden i FAQ, inklusive att använda icke‑överlappningsläge så att diagramområdet gör plats för förklaringen, tillåter långa förklaringsetiketter att radbrytas eller använda radbrytningar, och låter förklaringsformatering ärva från presentationens tema när explicita text‑ och fyllnadsinställningar inte har använts.
+FAQ täcker relaterade beteenden, inklusive att reservera utrymme för förklaringen, visa flerradiga etiketter och ärva formatering från presentationens tema.
 
 ## **Placering av förklaring**
 
-För att ange egenskaperna för förklaringen. Följ stegen nedan:
+Använd förklaringens [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/), och [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/)‑metoder för att ange dess position och storlek som bråkdelar av diagrammets mått.
 
-- Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)-klassen.
-- Hämta referensen till bilden.
-- Lägg till ett diagram på bilden.
-- Ställ in egenskaperna för förklaringen.
-- Skriv presentationen som en PPTX-fil.
-
-I exemplet nedan har vi ställt in positionen och storleken för diagramförklaringen.
+Detta exempel skapar en presentation och lägger till ett grupperat stapeldiagram med standarddata på den första bilden. Genom att dividera de önskade förklaringens förskjutningar och dimensioner med diagrammets bredd och höjd konverteras de till relativa värden: förklaringen förskjuts 50 punkter från diagrammets övre vänstra hörn och har storleken 100 × 100 punkter.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Hämta referensen till bilden
-    var slide = pres.getSlides().get_Item(0);
-    // Lägg till ett grupperat stapeldiagram på bilden
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Ställ in legendegenskaper
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Skriv presentationen till disk
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Ange förklaringens position och storlek relativt diagrammet.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange teckenstorlek för förklaring**
+## **Ange teckenstorlek för en förklaring**
 
-Aspose.Slides för Node.js via Java låter utvecklare ange teckenstorlek för förklaringen. Följ stegen nedan:
+Använd förklaringens [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) för att komma åt dess textformatering och [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) för att ange teckenstorleken i punkter.
 
-- Instansiera [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)-klassen.
-- Skapa standarddiagrammet.
-- Ange teckenstorleken.
-- Ange minimalt axelvärde.
-- Ange maximalt axelvärde.
-- Skriv presentationen till disk.
+Detta exempel skapar ett diagram med standarddata och ställer in förklaringstexten till 20 punkter. Det inaktiverar också automatiska gränser för den vertikala axeln och sätter dess intervall till -5 till 10.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange teckenstorlek för enskild förklaring**
+## **Ange teckenstorlek för ett enskilt förklarings‑element**
 
-Aspose.Slides för Node.js via Java låter utvecklare ange teckenstorlek för enskilda förklaringsposter. Följ stegen nedan:
+Använd samlingen som returneras av förklaringens [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/)‑metod för att komma åt formatering för ett specifikt element. Index för element är nollbaserade, så index `1` hänvisar till det andra elementet.
 
-- Instansiera [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)-klassen.
-- Skapa standarddiagrammet.
-- Åtkom förklaringsposten.
-- Ange teckenstorleken.
-- Ange minimalt axelvärde.
-- Ange maximalt axelvärde.
-- Skriv presentationen till disk.
+Detta exempel skapar ett grupperat stapeldiagram vars standarddata innehåller minst två serier. Det formaterar det andra förklarings‑elementet med fet, kursiv och 20‑punkts blå text.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Dölj enskilda förklarings‑element**
+
+För att exkludera en hjälpserie från förklaringen samtidigt som dess data förblir synlig, anropa [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) med `true` via [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Detta döljer endast det valda förklarings‑elementet; det tar inte bort serien eller dess datapunkter. Att anropa [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) med `false` döljer däremot hela förklaringen.
+
+Exemplet nedan skapar ett grupperat stapeldiagram med flera serier med standarddata. Det döljer den andra seriens förklarings‑element (index `1`) och sparar presentationen. Det återställer sedan elementet genom att anropa [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) med `false` och sparar en andra kopia. Kolumnerna förblir synliga i båda filerna.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
+
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Återställ samma element utan att ändra diagramdata.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Jämförelsen nedan visar samma diagram med alla element synliga och med det andra elementet dolt. Den andra seriens kolumner förblir oförändrade.
+
+![Jämförelse av ett diagram med alla förklarings‑element synliga och med Serie 2 dold i förklaringen; alla kolumner förblir synliga.](hide-legend-entry.png)
+
+I stapel‑, stapel‑och linjediagram identifierar förklarings‑element serier. I cirkeldiagram identifierar de enskilda datapunkter (skivor), så använd [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) på den valda skivan istället. API‑dokumentationen beskriver denna datapunktmetod för diagramtyperna `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` och `BarOfPie`. Anta inte att den gäller för donuts‑diagram, som inte ingår i listan.
 
 ## **FAQ**
 
-**Kan jag aktivera förklaringen så att diagrammet automatiskt avsätter utrymme för den istället för att överlappa den?**
+**Kan jag få diagrammet att reservera utrymme för förklaringen istället för att överlappa den?**
 
-Ja. Använd icke‑överlappningsläget ([setOverlay(false)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/legend/setoverlay/)); i så fall kommer diagramområdet att krympa för att rymma förklaringen.
+Ja. Anropa [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) med `false` för att reservera utrymme för förklaringen istället för att låta den överlappa plot‑området.
 
 **Kan jag skapa flerradiga förklaringsetiketter?**
 
-Ja. Långa etiketter radbryts automatiskt när utrymmet är otillräckligt; tvingade radbrytningar stöds via newline‑tecken i seriernas namn.
+Ja. Långa etiketter kan radbrytas när den tillgängliga bredden är otillräcklig. Du kan också använda nyradstecken i serienamn för att begära radbrytningar.
 
-**Hur får jag förklaringen att följa presentationens temanfärgschema?**
+**Hur får jag förklaringen att följa presentationens färgschema?**
 
-Ange inte explicita färger/fyllningar/teckensnitt för förklaringen eller dess text. De kommer då att ärva från temat och uppdateras korrekt när designen ändras.
+Låt förklaringens färger, fyllningar och teckensnitt vara odefinierade så att den kan ärva temats formatering. Explicit formatering åsidosätter de motsvarande temainställningarna.

@@ -1,129 +1,161 @@
 ---
-title: Προσαρμογή λεζαντών γραφημάτων σε παρουσιάσεις χρησιμοποιώντας JavaScript
-linktitle: Λεζάντα γραφήματος
+title: Προσαρμογή των Υπόμνησεων Διαγραμμάτων σε Παρουσιάσεις με JavaScript
+linktitle: Υπόμνηση Διαγράμματος
 type: docs
 url: /el/nodejs-java/chart-legend/
 keywords:
-- λεζάντα γραφήματος
-- θέση λεζάντας
+- υπόμνηση διαγράμματος
+- θέση υπόμνησης
 - μέγεθος γραμματοσειράς
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Προσαρμόστε τις λεζάντες γραφημάτων με JavaScript και Aspose.Slides για Node.js ώστε να βελτιστοποιήσετε τις παρουσιάσεις PowerPoint με προσαρμοσμένη μορφοποίηση λεζάντας."
+description: "Προσαρμόστε τις υπομνήσεις διαγραμμάτων με το Aspose.Slides για Node.js μέσω Java ώστε να βελτιστοποιήσετε τις παρουσιάσεις PowerPoint με προσαρμοσμένη μορφοποίηση υπομνήσεων."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides παρέχει επιλογές για προσαρμογή των λεζάντων γραφημάτων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο δείχνει πώς να τοποθετήσετε και να διαστάσετε μια λεζάντα, να ορίσετε το μέγεθος γραμματοσειράς για ολόκληρη τη λεζάντα και να εφαρμόσετε μορφοποίηση σε ξεχωριστή καταχώρηση λεζάντας.
+Aspose.Slides for Node.js via Java παρέχει επιλογές για την προσαρμογή των υπόμνησεων διαγραμμάτων σε παρουσιάσεις PowerPoint. Αυτό το άρθρο δείχνει πώς να τοποθετήσετε και να διαμορφώσετε το μέγεθος μιας υπόμνησης, να ορίσετε το μέγεθος γραμματοσειράς για ολόκληρη την υπόμνηση, να μορφοποιήσετε μια μεμονωμένη καταχώρηση υπόμνησης και να κρύψετε ή να επαναφέρετε επιλεγμένες καταχωρήσεις.
 
-Περιλαμβάνει επίσης αρκετές σχετικές συμπεριφορές στις Συχνές Ερωτήσεις, όπως η χρήση λειτουργίας μη‑επικάλυψης ώστε η περιοχή σχεδίασης να δημιουργεί χώρο για τη λεζάντα, η δυνατότητα να τυλίγονται μακροσκελείς ετικέτες λεζάντας ή να χρησιμοποιούν αλλαγές γραμμής, και η κληρονομικότητα μορφοποίησης της λεζάντας από το θέμα της παρουσίασης όταν δεν έχουν οριστεί ρητά επιλογές κειμένου και γεμίσματος.
+Το ΤΣΥ (Συχνές ερωτήσεις) καλύπτει σχετικές συμπεριφορές, συμπεριλαμβανομένης της κράτησης χώρου για την υπόμνηση, της εμφάνισης ετικετών πολλαπλών γραμμών και της κληρονομιάς μορφοποίησης από το θέμα της παρουσίασης.
 
-## **Τοποθέτηση Λεζάντας**
+## **Τοποθέτηση Υπόμνησης**
 
-Για να ορίσετε τις ιδιότητες της λεζάντας, ακολουθήστε τα παρακάτω βήματα:
+Χρησιμοποιήστε τις μεθόδους [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setx/), [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/sety/), [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setwidth/), και [setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setheight/) της υπόμνησης για να καθορίσετε τη θέση και το μέγεθός της ως κλάσματα των διαστάσεων του διαγράμματος.
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-- Λάβετε αναφορά της διαφάνειας.
-- Προσθέτοντας ένα διάγραμμα στη διαφάνεια.
-- Ορίζοντας τις ιδιότητες της λεζάντας.
-- Γράψτε την παρουσίαση ως αρχείο PPTX.
-
-Στο παρακάτω παράδειγμα, έχουμε ορίσει τη θέση και το μέγεθος για τη λεζάντα γραφήματος.
+Αυτό το παράδειγμα δημιουργεί μια παρουσίαση και προσθέτει ένα συγκροτημένο στήλης γράφημα με προεπιλεγμένα δεδομένα στην πρώτη διαφάνεια. Διαιρώντας τις επιθυμητές μετατοπίσεις και διαστάσεις της υπόμνησης με το πλάτος και το ύψος του διαγράμματος, μετατρέπονται σε σχετικές τιμές: η υπόμνηση μετατοπίζεται κατά 50 σημεία από την επάνω αριστερή γωνία του διαγράμματος και έχει μέγεθος 100 κατά 100 σημεία.
 
 ```javascript
-// Δημιουργήστε μια περίπτωση της κλάσης Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε αναφορά της διαφάνειας
-    var slide = pres.getSlides().get_Item(0);
-    // Προσθέστε ένα συγκεντρωμένο διάγραμμα στήλης στη διαφάνεια
+    var slide = presentation.getSlides().get_Item(0);
+
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 500);
-    // Ορίστε ιδιότητες λεζάντας
-    chart.getLegend().setX(50 / chart.getWidth());
-    chart.getLegend().setY(50 / chart.getHeight());
-    chart.getLegend().setWidth(100 / chart.getWidth());
-    chart.getLegend().setHeight(100 / chart.getHeight());
-    // Γράψτε την παρουσίαση στον δίσκο
-    pres.save("Legend_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Δηλώστε τη θέση και το μέγεθος της υπόμνησης σε σχέση με το διάγραμμα.
+    chart.getLegend().setX(java.newFloat(50 / chart.getWidth()));
+    chart.getLegend().setY(java.newFloat(50 / chart.getHeight()));
+    chart.getLegend().setWidth(java.newFloat(100 / chart.getWidth()));
+    chart.getLegend().setHeight(java.newFloat(100 / chart.getHeight()));
+
+    presentation.save("legend_position.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Μεγέθους Γραμματοσειράς της Λεζάντας**
+## **Ορισμός Μεγέθους Γραμματοσειράς Υπόμνησης**
 
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να ορίσουν το μέγεθος γραμματοσειράς της λεζάντας. Παρακαλώ ακολουθήστε τα παρακάτω βήματα:
+Χρησιμοποιήστε το [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/gettextformat/) της υπόμνησης για να έχετε πρόσβαση στη μορφοποίηση κειμένου και χρησιμοποιήστε το [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) για να ορίσετε το μέγεθος γραμματοσειράς σε σημεία.
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-- Δημιουργώντας το προεπιλεγμένο διάγραμμα.
-- Ορίστε το μέγεθος γραμματοσειράς.
-- Ορίστε την ελάχιστη τιμή άξονα.
-- Ορίστε τη μέγιστη τιμή άξονα.
-- Γράψτε την παρουσίαση στον δίσκο.
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα με προεπιλεγμένα δεδομένα και ορίζει το κείμενο της υπόμνησης στα 20 σημεία. Επίσης, απενεργοποιεί τα αυτόματα όρια για τον κατακόρυφο άξονα και ορίζει την περιοχή του από -5 έως 10.
 
 ```javascript
-// Δημιουργήστε μια περίπτωση της κλάσης Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
     chart.getAxes().getVerticalAxis().setMinValue(-5);
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
     chart.getAxes().getVerticalAxis().setMaxValue(10);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("legend_font_size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Μεγέθους Γραμματοσειράς μεμονωμένης Λεζάντας**
+## **Ορισμός Μεγέθους Γραμματοσειράς Μεμονωμένης Καταχώρησης Υπόμνησης**
 
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να ορίσουν το μέγεθος γραμματοσειράς των μεμονωμένων καταχωρήσεων της λεζάντας. Παρακαλώ ακολουθήστε τα παρακάτω βήματα:
+Χρησιμοποιήστε τη συλλογή που επιστρέφεται από τη μέθοδο [getEntries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/getentries/) της υπόμνησης για να αποκτήσετε πρόσβαση στη μορφοποίηση μιας συγκεκριμένης καταχώρησης. Οι δείκτες των καταχωρήσεων είναι μηδενικής βάσης, έτσι ο δείκτης `1` αναφέρεται στη δεύτερη καταχώρηση.
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-- Δημιουργώντας το προεπιλεγμένο διάγραμμα.
-- Πρόσβαση στην καταχώρηση λεζάντας.
-- Ορίστε το μέγεθος γραμματοσειράς.
-- Ορίστε την ελάχιστη τιμή άξονα.
-- Ορίστε τη μέγιστη τιμή άξονα.
-- Γράψτε την παρουσίαση στον δίσκο.
+Αυτό το παράδειγμα δημιουργεί ένα συγκροτημένο στήλης γράφημα του οποίου τα προεπιλεγμένα δεδομένα περιλαμβάνουν τουλάχιστον δύο σειρές. Μορφοποιεί τη δεύτερη καταχώρηση της υπόμνησης με έντονη, πλάγια και γαλάζια γραφή 20 σημείων.
 
 ```javascript
-// Δημιουργήστε μια περίπτωση της κλάσης Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var tf = chart.getLegend().getEntries().get_Item(1).getTextFormat();
-    tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().setFontHeight(20);
-    tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    var textFormat = chart.getLegend().getEntries().get_Item(1).getTextFormat();
+
+    textFormat.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().setFontHeight(20);
+    textFormat.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    textFormat.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var blue = java.getStaticFieldValue("java.awt.Color", "BLUE");
+    textFormat.getPortionFormat().getFillFormat().getSolidFillColor().setColor(blue);
+
+    presentation.save("legend_entry_format.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Απόκρυψη Μεμονωμένων Καταχωρήσεων Υπόμνησης**
 
-**Μπορώ να ενεργοποιήσω τη λεζάντα ώστε το γράφημα να διατηρεί αυτόματα χώρο για αυτήν αντί να την επικαλύπτει;**
+Για να εξαιρέσετε μια βοηθητική σειρά από την υπόμνηση ενώ διατηρείτε τα δεδομένα της ορατά, καλέστε το [LegendEntryProperties.setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) με `true` μέσω του [ChartSeries.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getrelatedlegendentry/). Αυτό κρύβει μόνο τη συγκεκριμένη καταχώρηση υπόμνησης· δεν αφαιρεί τη σειρά ή τα σημεία δεδομένων της. Αντίθετα, η κλήση του [Chart.setLegend](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setlegend/) με `false` κρύβει ολόκληρη την υπόμνηση.
 
-Ναι. Χρησιμοποιήστε τη λειτουργία μη‑επικάλυψης ([setOverlay(false)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/legend/setoverlay/)); σε αυτή την περίπτωση, η περιοχή σχεδίασης θα συρρικνωθεί ώστε να προσαρμόσει τη λεζάντα.
+Το παρακάτω παράδειγμα δημιουργεί ένα συγκροτημένο στήλης γράφημα με πολλαπλές σειρές χρησιμοποιώντας προεπιλεγμένα δεδομένα. Κρύβει τη καταχώρηση υπόμνησης της δεύτερης σειράς (δείκτης `1`) και αποθηκεύει την παρουσίαση. Στη συνέχεια επαναφέρει τη καταχώρηση καλώντας το [setHide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legendentryproperties/sethide/) με `false` και αποθηκεύει ένα δεύτερο αντίγραφο. Οι στήλες παραμένουν ορατές και στα δύο αρχεία.
 
-**Μπορώ να δημιουργήσω ετικέτες λεζάντας πολλαπλών γραμμών;**
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ναι. Οι μακροσκελείς ετικέτες τυλίγονται αυτόματα όταν ο χώρος είναι ανεπαρκής· υποστηρίζονται υποχρεωτικές αλλαγές γραμμής μέσω χαρακτήρων νέας γραμμής στο όνομα της σειράς.
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
 
-**Πώς μπορώ να κάνω τη λεζάντα να ακολουθεί το χρωματικό σχήμα του θέματος της παρουσίασης;**
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setLegend(true);
 
-Μην ορίζετε ρητά χρώματα, γεμίσματα ή γραμματοσειρές για τη λεζάντα ή το κείμενό της. Θα κληρονομήσουν το θέμα και θα ενημερώνονται σωστά όταν αλλάζει ο σχεδιασμός.
+    var legendEntry = chart.getChartData().getSeries().get_Item(1).getRelatedLegendEntry();
+
+    legendEntry.setHide(true);
+    presentation.save("hidden_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+
+    // Επαναφέρετε την ίδια καταχώρηση χωρίς να αλλάξετε τα δεδομένα του διαγράμματος.
+    legendEntry.setHide(false);
+    presentation.save("restored_legend_entry.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η παρακάτω σύγκριση δείχνει το ίδιο γράφημα με όλες τις καταχωρήσεις ορατές και με τη δεύτερη καταχώρηση κρυφή. Οι στήλες της δεύτερης σειράς παραμένουν αμετάβλητες.
+
+![Σύγκριση γραφήματος με όλες τις καταχωρήσεις υπόμνησης ορατές και με τη Σειρά 2 κρυφή από την υπόμνηση· όλες οι στήλες παραμένουν ορατές.](hide-legend-entry.png)
+
+Σε γραφήματα στήλης, μπάρας και γραμμής, οι καταχωρήσεις υπόμνησης προσδιορίζουν τις σειρές. Για διαγράμματα πίτας, προσδιορίζουν μεμονωμένα σημεία δεδομένων (φέτες), επομένως χρησιμοποιήστε το [ChartDataPoint.getRelatedLegendEntry](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getrelatedlegendentry/) στην επιλεγμένη φέτα. Το API τεκμηριώνει αυτή τη μέθοδο σημείου δεδομένων για τους τύπους διαγραμμάτων `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` και `BarOfPie`. Μην υποθέτετε ότι ισχύει για διαγράμματα δακτυλίου, που δεν συμπεριλαμβάνονται σε αυτή τη λίστα.
+
+## **Συχνές ερωτήσεις**
+
+**Μπορώ να κάνω το γράφημα να κατανείμει χώρο για την υπόμνηση αντί να την επικαλύπτει;**
+
+Ναι. Καλέστε το [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/setoverlay/) με `false` για να κρατήσετε χώρο για την υπόμνηση αντί να επιτρέψετε την επικάλυψή της στην περιοχή σχεδίασης.
+
+**Μπορώ να δημιουργήσω ετικέτες υπόμνησης πολλαπλών γραμμών;**
+
+Ναι. Οι μακριές ετικέτες μπορούν να τυλίγονται όταν το διαθέσιμο πλάτος είναι ανεπαρκές. Μπορείτε επίσης να χρησιμοποιήσετε χαρακτήρες νέας γραμμής στα ονόματα των σειρών για να ζητήσετε αλλαγές γραμμής.
+
+**Πώς μπορώ να κάνω την υπόμνηση να ακολουθεί το χρωματικό σχήμα του θέματος της παρουσίασης;**
+
+Αφήστε τα χρώματα, τα γεμίσματα και τις γραμματοσειρές της υπόμνησης ακαθορισμένα ώστε να κληρονομεί τη μορφοποίηση του θέματος. Η ρητή μορφοποίηση υπερισχύει των αντίστοιχων ρυθμίσεων του θέματος.

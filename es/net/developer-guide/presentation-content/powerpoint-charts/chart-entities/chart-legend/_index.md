@@ -1,6 +1,6 @@
 ---
 title: Personalizar leyendas de gráficos en presentaciones en .NET
-linktitle: Leyenda de gráfico
+linktitle: Leyenda del gráfico
 type: docs
 url: /es/net/chart-legend/
 keywords:
@@ -12,102 +12,134 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Personalice las leyendas de gráficos con Aspose.Slides para .NET para optimizar presentaciones de PowerPoint con un formato de leyenda a medida."
+description: "Personaliza las leyendas de los gráficos con Aspose.Slides para .NET para optimizar las presentaciones de PowerPoint con un formato de leyenda a medida."
 ---
+## **Visión general**
+
+Aspose.Slides for .NET ofrece opciones para personalizar las leyendas de los gráficos en presentaciones de PowerPoint. Este artículo muestra cómo posicionar y dimensionar una leyenda, establecer el tamaño de fuente para toda la leyenda, formatear una entrada individual de la leyenda y ocultar o restaurar entradas seleccionadas.
+
+Las preguntas frecuentes cubren comportamientos relacionados, incluyendo reservar espacio para la leyenda, mostrar etiquetas multilínea y heredar el formato del tema de la presentación.
 
 ## **Posicionamiento de la leyenda**
-Para establecer las propiedades de la leyenda, siga los pasos a continuación:
 
-- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-- Obtener la referencia de la diapositiva.
-- Agregar un gráfico en la diapositiva.
-- Establecer las propiedades de la leyenda.
-- Guardar la presentación como archivo PPTX.
+Utilice las propiedades [X](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/x/), [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/y/), [Width](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/width/) y [Height](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/height/) de la leyenda para especificar su posición y tamaño como fracciones de las dimensiones del gráfico.
 
-En el ejemplo a continuación, hemos configurado la posición y el tamaño de la leyenda del gráfico.
-```c#
-// Crear una instancia de la clase Presentation
-Presentation presentation = new Presentation();
+Este ejemplo crea una presentación y agrega un gráfico de columnas agrupadas con datos predeterminados a la primera diapositiva. Dividir los desplazamientos y dimensiones deseados de la leyenda entre el ancho y alto del gráfico los convierte en valores relativos: la leyenda se desplaza 50 puntos desde la esquina superior izquierda del gráfico y tiene un tamaño de 100 por 100 puntos.
 
-// Obtener la referencia de la diapositiva
-ISlide slide = presentation.Slides[0];
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Agregar un gráfico de columnas agrupadas en la diapositiva
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Establecer propiedades de la leyenda
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 500);
+
+// Expresar la posición y el tamaño de la leyenda en relación con el gráfico.
 chart.Legend.X = 50 / chart.Width;
 chart.Legend.Y = 50 / chart.Height;
 chart.Legend.Width = 100 / chart.Width;
 chart.Legend.Height = 100 / chart.Height;
 
-// Guardar la presentación en disco
-presentation.Save("Legend_out.pptx", SaveFormat.Pptx);
+presentation.Save("legend_position.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **Establecer el tamaño de fuente de una leyenda**
-Aspose.Slides for .NET permite a los desarrolladores establecer el tamaño de fuente de la leyenda. Por favor, siga los pasos a continuación:
 
-- Instanciar la clase `Presentation`.
-- Crear el gráfico predeterminado.
-- Establecer el tamaño de fuente.
-- Establecer el valor mínimo del eje.
-- Establecer el valor máximo del eje.
-- Guardar la presentación en disco.
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(Aspose.Slides.Charts.ChartType.ClusteredColumn, 50, 50, 600, 400);
+Utilice la [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/textformat/) de la leyenda para acceder a su formato de texto y establezca [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) en puntos.
 
-	chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
-	chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-	chart.Axes.VerticalAxis.MinValue = -5;
-	chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-	chart.Axes.VerticalAxis.MaxValue = 10;
+Este ejemplo crea un gráfico con datos predeterminados y establece el texto de la leyenda a 20 puntos. También desactiva los límites automáticos para el eje vertical y establece su rango de -5 a 10.
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+chart.Legend.TextFormat.PortionFormat.FontHeight = 20;
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = -5;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 10;
+
+presentation.Save("legend_font_size.pptx", SaveFormat.Pptx);
 ```
 
+## **Establecer el tamaño de fuente de una entrada individual de la leyenda**
 
-## **Establecer el tamaño de fuente de una leyenda individual**
-Aspose.Slides for .NET permite a los desarrolladores establecer el tamaño de fuente de entradas individuales de la leyenda. Por favor, siga los pasos a continuación:
+Utilice la colección [Entries](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/entries/) de la leyenda para acceder al formato de una entrada específica. Los índices de las entradas empiezan en cero, por lo que el índice `1` se refiere a la segunda entrada.
 
-- Instanciar la clase `Presentation`.
-- Crear el gráfico predeterminado.
-- Acceder a la entrada de la leyenda.
-- Establecer el tamaño de fuente.
-- Establecer el valor mínimo del eje.
-- Establecer el valor máximo del eje.
-- Guardar la presentación en disco.
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-	IChartTextFormat tf = chart.Legend.Entries[1].TextFormat;
+Este ejemplo crea un gráfico de columnas agrupadas cuyos datos predeterminados incluyen al menos dos series. Formatea la segunda entrada de la leyenda con texto en negrita, cursiva y de 20 puntos en color azul.
 
-	tf.PortionFormat.FontBold = NullableBool.True;
-	tf.PortionFormat.FontHeight = 20;
-	tf.PortionFormat.FontItalic = NullableBool.True;
-	tf.PortionFormat.FillFormat.FillType = FillType.Solid; ;
-	tf.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+var textFormat = chart.Legend.Entries[1].TextFormat;
+
+textFormat.PortionFormat.FontBold = NullableBool.True;
+textFormat.PortionFormat.FontHeight = 20;
+textFormat.PortionFormat.FontItalic = NullableBool.True;
+textFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+textFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("legend_entry_format.pptx", SaveFormat.Pptx);
 ```
 
+## **Ocultar entradas individuales de la leyenda**
+
+Para excluir una serie auxiliar de la leyenda mientras se mantiene sus datos visibles, establezca [ILegendEntryProperties.Hide](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegendentryproperties/hide/) en `true` a través de [IChartSeries.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/relatedlegendentry/). Esto oculta solo la entrada de la leyenda seleccionada; no elimina la serie ni sus puntos de datos. Establecer [IChart.HasLegend](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/haslegend/) en `false`, en cambio, oculta toda la leyenda.
+
+El ejemplo siguiente crea un gráfico de columnas agrupadas con varias series usando datos predeterminados. Oculta la entrada de la leyenda de la segunda serie (índice `1`) y guarda la presentación. Luego restaura la entrada estableciendo `Hide` en `false` y guarda una segunda copia. Las columnas permanecen visibles en ambos archivos.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 200);
+chart.HasLegend = true;
+
+var legendEntry = chart.ChartData.Series[1].RelatedLegendEntry;
+
+legendEntry.Hide = true;
+presentation.Save("hidden_legend_entry.pptx", SaveFormat.Pptx);
+
+// Restaurar la misma entrada sin cambiar los datos del gráfico.
+legendEntry.Hide = false;
+presentation.Save("restored_legend_entry.pptx", SaveFormat.Pptx);
+```
+
+La comparación a continuación muestra el mismo gráfico con todas las entradas visibles y con la segunda entrada oculta. Las columnas de la segunda serie permanecen sin cambios.
+
+![Comparación de un gráfico con todas las entradas de la leyenda visibles y con la Serie 2 oculta de la leyenda; todas las columnas permanecen visibles.](hide-legend-entry.png)
+
+En los gráficos de columnas, barras y líneas, las entradas de la leyenda identifican series. En los gráficos de sectores, identifican puntos de datos individuales (rebanadas), por lo que debe usar [IChartDataPoint.RelatedLegendEntry](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/relatedlegendentry/) en la rebanada seleccionada. La API documenta esta propiedad del punto de datos para los tipos de gráfico `Pie`, `Pie3D`, `ExplodedPie`, `ExplodedPie3D`, `PieOfPie` y `BarOfPie`. No asuma que se aplica a los gráficos de rosquilla, que no están incluidos en esa lista.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo habilitar la leyenda para que el gráfico asigne automáticamente espacio para ella en lugar de superponerse?**
+**¿Puedo hacer que el gráfico reserve espacio para la leyenda en lugar de superponerla?**
 
-Sí. Use el modo sin superposición (Overlay = `false`); en este caso, el área del gráfico se reducirá para acomodar la leyenda.
+Sí. Establezca [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/legend/overlay/) en `false` para reservar espacio para la leyenda en lugar de permitir que se solape con el área de trazado.
 
-**¿Puedo crear etiquetas de leyenda de varias líneas?**
+**¿Puedo crear etiquetas de leyenda multilínea?**
 
-Sí. Las etiquetas largas se ajustan automáticamente cuando el espacio es insuficiente; los saltos de línea forzados se admiten mediante caracteres de nueva línea en el nombre de la serie.
+Sí. Las etiquetas largas pueden ajustarse cuando el ancho disponible es insuficiente. También puede usar caracteres de salto de línea en los nombres de las series para solicitar rupturas de línea.
 
 **¿Cómo hago que la leyenda siga el esquema de colores del tema de la presentación?**
 
-No establezca colores/rellenos/fuentes explícitos para la leyenda ni su texto. Entonces heredarán del tema y se actualizarán correctamente cuando el diseño cambie.
+Deje sin establecer los colores, rellenos y fuentes de la leyenda para que pueda heredar el formato del tema. El formato explícito sobrescribe los ajustes correspondientes del tema.
