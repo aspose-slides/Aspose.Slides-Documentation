@@ -1,15 +1,15 @@
 ---
-title: Gestisci Tabelle delle Presentazioni in C++
-linktitle: Gestisci Tabella
+title: Gestire le tabelle delle presentazioni in C++
+linktitle: Gestire la tabella
 type: docs
 weight: 10
 url: /it/cpp/manage-table/
 keywords:
-- aggiungi tabella
-- crea tabella
-- accedi tabella
+- aggiungere tabella
+- creare tabella
+- accedere tabella
 - rapporto d'aspetto
-- allinea testo
+- allineare testo
 - formattazione testo
 - stile tabella
 - PowerPoint
@@ -20,33 +20,34 @@ description: "Crea e modifica tabelle nelle diapositive PowerPoint con Aspose.Sl
 ---
 ## **Introduzione**
 
-Una tabella in PowerPoint è un modo efficiente per visualizzare e rappresentare informazioni. Le informazioni in una griglia di celle (disposte in righe e colonne) sono chiare e facili da capire.
+Le tabelle in PowerPoint organizzano le informazioni in righe e colonne, rendendo più facile la lettura e il confronto dei valori.
 
-Aspose.Slides fornisce la classe [Table](https://reference.aspose.com/slides/it/cpp/aspose.slides/table/) , l'interfaccia [ITable](https://reference.aspose.com/slides/it/cpp/aspose.slides/itable/) , la classe [Cell](https://reference.aspose.com/slides/it/cpp/aspose.slides/cell/) , l'interfaccia [ICell](https://reference.aspose.com/slides/it/cpp/aspose.slides/icell/) e altri tipi per consentire di creare, aggiornare e gestire tabelle in tutti i tipi di presentazioni. 
+Aspose.Slides fornisce la classe [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) , l'interfaccia [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) , la classe [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) , l'interfaccia [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) e altri tipi per permettere di creare, aggiornare e gestire le tabelle nelle presentazioni.
 
-## **Crea una Tabella da Zero**
+## **Creare una tabella da zero**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) .
-2. Ottieni un riferimento alla diapositiva tramite il suo indice. 
-3. Definisci un array di `columnWidth`.
-4. Definisci un array di `rowHeight`.
-5. Aggiungi un oggetto [ITable](https://reference.aspose.com/slides/it/cpp/aspose.slides/itable/) alla diapositiva tramite il metodo [AddTable()](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/addtable/) .
-6. Itera attraverso ciascun [ICell](https://reference.aspose.com/slides/it/cpp/aspose.slides/icell/) per applicare la formattazione ai bordi superiore, inferiore, destro e sinistro.
-7. Unisci le prime due celle della prima riga della tabella. 
-8. Accedi al [TextFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/textframe/) di una [ICell](https://reference.aspose.com/slides/it/cpp/aspose.slides/icell/) . 
-9. Aggiungi del testo al [TextFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/textframe/) .
-10. Salva la presentazione modificata.
+Creare una tabella specificando la sua posizione, le larghezze delle colonne e le altezze delle righe. Dopo averla aggiunta a una diapositiva, è possibile formattare i bordi delle celle, unire le celle e inserire del testo.
 
-Questo codice C++ mostra come creare una tabella in una presentazione:
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Ottenere un riferimento alla diapositiva tramite il suo indice.
+3. Definire un array di larghezze di colonna in punti.
+4. Definire un array di altezze di riga in punti.
+5. Aggiungere un oggetto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) alla diapositiva tramite il metodo [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) .
+6. Iterare su ciascun [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) per applicare la formattazione ai bordi superiore, inferiore, destro e sinistro.
+7. Unire le prime due celle della prima riga della tabella.
+8. Accedere alla cella unita tramite il suo metodo [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) .
+9. Impostare il testo nella cella unita.
+10. Salvare la presentazione modificata.
 
-```c++
+L'esempio seguente crea una tabella con tre colonne e cinque righe in (100, 50) punti. Applica bordi rossi con spessore di 5 punti, unisce le prime due celle nella prima riga e salva il risultato come `table.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -56,35 +57,29 @@ Questo codice C++ mostra come creare una tabella in una presentazione:
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Instanzia una classe Presentation che rappresenta un file PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Accede alla prima diapositiva
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Definisce le colonne con larghezze e le righe con altezze
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// Aggiunge una forma tabella alla diapositiva
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Imposta il formato del bordo per ogni cella
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -97,19 +92,16 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// Unisce le celle 1 e 2 della riga 1
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// Aggiunge del testo alla cella unita
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// Salva la presentazione su disco
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Numerazione in una Tabella Standard**
+## **Numerazione in una tabella standard**
 
-In una tabella standard, la numerazione delle celle è semplice e basata su zero. La prima cella in una tabella è indicizzata come 0,0 (colonna 0, riga 0). 
+Nelle tabelle standard, gli indici delle celle sono basati su zero e utilizzano l'ordine (colonna, riga). La prima cella ha indice (0, 0).
 
 Ad esempio, le celle in una tabella con 4 colonne e 4 righe sono numerate in questo modo:
 
@@ -119,9 +111,9 @@ Ad esempio, le celle in una tabella con 4 colonne e 4 righe sono numerate in que
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Questo codice C++ mostra come specificare la numerazione per le celle in una tabella:
+Questo esempio crea la tabella 4 × 4 illustrata sopra, con larghezze delle colonne e altezze delle righe di 70 punti e bordi rossi con spessore di 5 punti. Le coordinate illustrano gli indici delle celle; l'esempio lascia le celle vuote e salva la tabella come `StandardTables_out.pptx`.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -129,7 +121,6 @@ Questo codice C++ mostra come specificare la numerazione per le celle in una tab
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -138,25 +129,19 @@ Questo codice C++ mostra come specificare la numerazione per le celle in una tab
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Instanzia una classe Presentation che rappresenta un file PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Accede alla prima diapositiva
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Definisce le colonne con larghezze e le righe con altezze
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// Aggiunge una forma tabella alla diapositiva
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Imposta il formato del bordo per ogni cella
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -179,32 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// Salva la presentazione su disco
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Accedi a una Tabella Esistente**
+## **Accedere a una tabella esistente**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) .
+Le tabelle sono archiviate nella collezione di forme di una diapositiva. Iterare tra le forme per individuare una tabella, quindi utilizzare l'interfaccia [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) per leggere o aggiornare le sue celle.
 
-2. Ottieni un riferimento alla diapositiva contenente la tabella tramite il suo indice. 
+1. Caricare la presentazione usando la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Ottenere un riferimento alla diapositiva che contiene la tabella tramite il suo indice.
+3. Iterare tra gli oggetti [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) e fermarsi quando viene trovata una tabella. Se la diapositiva contiene diverse tabelle, usare [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) per identificare quella desiderata.
+4. Aggiornare il testo nella cella target.
+5. Salvare la presentazione modificata.
 
-3. Crea un oggetto [ITable](https://reference.aspose.com/slides/it/cpp/aspose.slides/itable/) e impostalo a null.
+L'esempio seguente apre `UpdateExistingTable.pptx` e trova la prima tabella nella prima diapositiva. Imposta la cella alla colonna 0, riga 1 a `New` e salva il risultato come `table1_out.pptx`. L'input deve contenere almeno una diapositiva, e la prima tabella su quella diapositiva deve avere almeno una colonna e due righe.
 
-4. Itera attraverso tutti gli oggetti [IShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/) finché non trovi la tabella.
-
-   Se sospetti che la diapositiva in uso contenga una sola tabella, puoi semplicemente controllare tutte le forme che contiene. Quando una forma è identificata come tabella, puoi eseguire il cast a oggetto [Table](https://reference.aspose.com/slides/it/cpp/aspose.slides/table/) . Ma se la diapositiva contiene più tabelle, è consigliabile cercare la tabella necessaria tramite il suo [set_AlternativeText()](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_alternativetext/) .
-
-5. Usa l'oggetto [ITable](https://reference.aspose.com/slides/it/cpp/aspose.slides/itable/) per lavorare con la tabella. Nell'esempio sotto, abbiamo aggiunto una nuova riga alla tabella.
-
-6. Salva la presentazione modificata.
-
-Questo codice C++ mostra come accedere e lavorare con una tabella esistente:
-
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -212,55 +189,56 @@ Questo codice C++ mostra come accedere e lavorare con una tabella esistente:
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Instanzia una classe Presentation che rappresenta un file PPTX
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// Accede alla prima diapositiva
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Inizializza una tabella nulla
-System::SharedPtr<ITable> tbl;
-
-// Itera tra le forme e imposta un riferimento alla tabella trovata
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// Imposta il testo per la prima colonna della seconda riga
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// Salva la presentazione modificata su disco
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
 
-## **Trova la Cella che Possiede un Text Frame**
+Per ridimensionare una riga in una tabella esistente e comprendere perché la sua altezza reale può superare l'altezza minima richiesta, vedere [Controllare l'altezza della riga](/slides/it/cpp/manage-rows-and-columns/#control-row-height).
 
-Quando un codice generico di elaborazione del testo riceve un [ITextFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/) da una tabella, utilizza [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/get_parentcell/) per recuperare la [ICell](https://reference.aspose.com/slides/it/cpp/aspose.slides/icell/) proprietaria. Per un text frame di una cella di tabella, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/get_parentcell/) restituisce il proprietario e [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/get_parentshape/) restituisce `nullptr`, anche se la tabella stessa è una forma.
+## **Trovare la cella che possiede un TextFrame**
 
-Le coordinate della cella sono disponibili tramite i metodi di sola lettura [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/it/cpp/aspose.slides/icell/get_firstcolumnindex/) e [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/it/cpp/aspose.slides/icell/get_firstrowindex/) . [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/get_parentcell/) fornisce anche una navigazione di sola lettura: restituisce il proprietario ma non ne cambia la proprietà. Verifica sempre che la cella restituita non sia `nullptr` prima di usarla.
+Quando del codice generico di elaborazione del testo riceve un [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) da una tabella, usare [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) per recuperare la [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) proprietaria. Per un frame di testo di una cella di tabella, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) restituisce il proprietario e [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) restituisce `nullptr`, anche se la tabella stessa è una forma.
 
-Per un esempio completo che identifica i proprietari di celle di tabella e di forme, incluse le forme associate ai nodi SmartArt, vedi [Search and Replace Text](/slides/it/cpp/search-and-replace-text/) .
+Le coordinate della cella sono disponibili tramite i metodi di sola lettura [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) e [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) . Anche [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) fornisce una navigazione di sola lettura: restituisce il proprietario ma non ne cambia la proprietà. Controllare sempre se la cella restituita è `nullptr` prima di usarla.
 
-## **Allinea il Testo in una Tabella**
+Per un esempio completo che identifica i proprietari di celle di tabella e di forme, incluse le forme associate a nodi SmartArt, vedere [Cerca e sostituisci testo](/slides/it/cpp/search-and-replace-text/).
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) .
-2. Ottieni un riferimento alla diapositiva tramite il suo indice. 
-3. Aggiungi un oggetto [ITable](https://reference.aspose.com/slides/it/cpp/aspose.slides/itable/) alla diapositiva. 
-4. Accedi a un oggetto [ITextFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/) dalla tabella. 
-5. Accedi all'[IParagraph](https://reference.aspose.com/slides/it/cpp/aspose.slides/iparagraph/) dell'[ITextFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/) .
-6. Allinea il testo verticalmente.
-7. Salva la presentazione modificata.
+## **Allineare il testo in una tabella**
 
-Questo codice C++ mostra come allineare il testo in una tabella:
+È possibile controllare l'ancoraggio verticale e la direzione del testo delle singole celle della tabella. L'esempio in questa sezione centra il testo nella prima cella e lo ruota di 270 gradi.
 
-```c++
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Ottenere un riferimento alla diapositiva tramite il suo indice.
+3. Aggiungere un oggetto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) alla diapositiva.
+4. Accedere a un oggetto [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) dalla tabella.
+5. Accedere al primo [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) e impostare il suo testo e colore.
+6. Impostare l'ancoraggio verticale della cella e la direzione del testo usando [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) e [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/) .
+7. Salvare la presentazione modificata.
+
+Questo esempio crea una tabella 4 × 4 con larghezze delle colonne di 120 punti e altezze delle righe di 100 punti. Formatta il testo nella cella (0, 0), aggiunge valori alle celle rimanenti nella prima riga e salva il risultato come `Vertical_Align_Text_out.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -271,7 +249,6 @@ Questo codice C++ mostra come allineare il testo in una tabella:
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -280,63 +257,53 @@ Questo codice C++ mostra come allineare il testo in una tabella:
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Crea un'istanza della classe Presentation
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Ottiene la prima diapositiva
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Definisce le colonne con larghezze e le righe con altezze
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// Aggiunge la forma tabella alla diapositiva
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// Accede al frame di testo
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// Crea l'oggetto Paragraph per il frame di testo
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Crea l'oggetto Portion per il paragrafo
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Allinea il testo verticalmente
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// Salva la Presentazione su disco
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Imposta la Formattazione del Testo a Livello di Tabella**
+## **Impostare la formattazione del testo a livello di tabella**
 
-1. Crea un'istanza della [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) .
-2. Ottieni un riferimento alla diapositiva tramite il suo indice. 
-3. Accedi a un oggetto [ITable](https://reference.aspose.com/slides/it/cpp/aspose.slides/itable/) dalla diapositiva.
-4. Imposta il [set_FontHeight()](https://reference.aspose.com/slides/it/cpp/aspose.slides/baseportionformat/set_fontheight/) per il testo. 
-5. Imposta il [set_Alignment()](https://reference.aspose.com/slides/it/cpp/aspose.slides/iparagraphformat/set_alignment/) e il [set_MarginRight()](https://reference.aspose.com/slides/it/cpp/aspose.slides/iparagraphformat/set_marginright/) . 
-6. Imposta il [set_TextVerticalType()](https://reference.aspose.com/slides/it/cpp/aspose.slides/textframeformat/set_textverticaltype/) .
-7. Salva la presentazione modificata. 
+Usare [SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/) per applicare la formattazione del testo a tutte le celle di una tabella. Le sue sovraccariche accettano la formattazione di porzione, paragrafo e frame di testo, così è possibile impostare queste proprietà senza iterare tra le singole celle.
 
-Questo codice C++ mostra come applicare le opzioni di formattazione preferite al testo in una tabella:
+1. Caricare la presentazione usando la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) .
+2. Ottenere un riferimento alla diapositiva tramite il suo indice.
+3. Accedere a un oggetto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) dalla diapositiva.
+4. Impostare la dimensione del font usando [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) per il testo.
+5. Impostare l'allineamento del paragrafo e il margine destro usando [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) e [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) .
+6. Impostare la direzione del testo usando [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) .
+7. Salvare la presentazione modificata.
 
-```c++
+L'esempio seguente apre `table.pptx`, che deve contenere almeno una diapositiva con una tabella come sua prima forma. Imposta la dimensione del font a 25 punti, allinea a destra i paragrafi con un margine destro di 20 punti e rende il testo verticale. La presentazione formattata è salvata come `result.pptx`.
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -345,99 +312,106 @@ Questo codice C++ mostra come applicare le opzioni di formattazione preferite al
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Crea un'istanza della classe Presentation
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Supponiamo che la prima forma nella prima diapositiva sia una tabella
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// Imposta l'altezza del carattere delle celle della tabella
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// Imposta l'allineamento del testo e il margine destro delle celle della tabella in un'unica chiamata
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// Imposta il tipo di orientamento verticale del testo delle celle della tabella
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
-## **Ottieni le Proprietà di Stile della Tabella**
+## **Ottenere le proprietà di stile della tabella**
 
-Aspose.Slides consente di recuperare le proprietà di stile per una tabella in modo da poterle utilizzare per un’altra tabella o altrove. Questo codice C++ mostra come ottenere le proprietà di stile da uno stile predefinito di tabella:
+Usare [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) per leggere lo stile predefinito di una tabella e [set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/) per assegnarlo. Questo esempio applica [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) a una tabella, stampa il nome del preset e assegna lo stesso preset a una seconda tabella. Entrambe le tabelle sono salvate in `table-style.pptx`.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
-## **Blocca il Rapporto d'Aspetto di una Tabella**
+## **Bloccare il rapporto d'aspetto di una tabella**
 
-Il rapporto d'aspetto di una forma geometrica è il rapporto delle sue dimensioni in diverse dimensioni. Aspose.Slides fornisce la proprietà `AspectRatioLocked()` per consentire di bloccare l'impostazione del rapporto d'aspetto per tabelle e altre forme. 
+Il rapporto d'aspetto di una tabella è il rapporto tra la sua larghezza e la sua altezza. Usare [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/) per bloccare questo rapporto per una tabella.
 
-Questo codice C++ mostra come bloccare il rapporto d'aspetto per una tabella:
+L'esempio seguente apre `pres.pptx`, che deve contenere almeno una diapositiva con una tabella come sua prima forma. Stampa lo stato corrente del blocco, abilita il blocco del rapporto d'aspetto, stampa lo stato aggiornato (`True`) e salva il risultato come `pres-out.pptx`.
 
-```c++
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Posso abilitare la direzione di lettura da destra a sinistra (RTL) per un'intera tabella e il testo nelle sue celle?**
+**Posso abilitare la direzione di lettura da destra a sinistra (RTL) per un'intera tabella e per il testo nelle sue celle?**
 
-Sì. La tabella espone un metodo [set_RightToLeft](https://reference.aspose.com/slides/it/cpp/aspose.slides/table/set_righttoleft/) e i paragrafi hanno [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/it/cpp/aspose.slides/paragraphformat/set_righttoleft/) . L'uso di entrambi garantisce l'ordine RTL corretto e il rendering all'interno delle celle.
+Sì. La tabella espone un metodo [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) , e i paragrafi hanno [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/) . Usare entrambi garantisce l'ordine RTL corretto e il rendering all'interno delle celle.
 
 **Come posso impedire agli utenti di spostare o ridimensionare una tabella nel file finale?**
 
-Usa [shape locks](/slides/it/cpp/applying-protection-to-presentation/) per disabilitare lo spostamento, il ridimensionamento, la selezione, ecc. Questi blocchi si applicano anche alle tabelle.
+Utilizzare i [blocchi forma](/slides/it/cpp/applying-protection-to-presentation/) per disabilitare lo spostamento, il ridimensionamento, la selezione, ecc. Questi blocchi si applicano anche alle tabelle.
 
-**È supportato inserire un'immagine all'interno di una cella come sfondo?**
+**È supportato l'inserimento di un'immagine all'interno di una cella come sfondo?**
 
-Sì. È possibile impostare un [picture fill](https://reference.aspose.com/slides/it/cpp/aspose.slides/picturefillformat/) per una cella; l'immagine coprirà l'area della cella secondo la modalità scelta (stretch o tile).
+Sì. È possibile impostare un [riempimento immagine](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) per una cella; l'immagine coprirà l'area della cella secondo la modalità scelta (stretch o tile).

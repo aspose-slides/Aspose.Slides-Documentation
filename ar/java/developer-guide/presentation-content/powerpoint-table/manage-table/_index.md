@@ -1,68 +1,63 @@
 ---
-title: "إدارة جداول العروض التقديمية في Java"
-linktitle: "إدارة الجدول"
+title: إدارة جداول العروض التقديمية في Java
+linktitle: إدارة الجدول
 type: docs
 weight: 10
 url: /ar/java/manage-table/
 keywords:
-- "إضافة جدول"
-- "إنشاء جدول"
-- "الوصول إلى جدول"
-- "نسبة العرض إلى الارتفاع"
-- "محاذاة النص"
-- "تنسيق النص"
-- "نمط الجدول"
-- "PowerPoint"
-- "عرض تقديمي"
-- "Java"
-- "Aspose.Slides"
-description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides للغة Java. اكتشف أمثلة شفرة بسيطة لتبسيط عمليات العمل مع الجداول."
+- إضافة جدول
+- إنشاء جدول
+- الوصول إلى الجدول
+- نسبة الجانب
+- محاذاة النص
+- تنسيق النص
+- نمط الجدول
+- PowerPoint
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides للغة Java. اكتشف أمثلة شيفرة بسيطة لتبسيط سير عمل الجداول لديك."
 ---
-## **مقدمة**
+## **المقدمة**
 
-جدول في PowerPoint هو طريقة فعالة لعرض وتقديم المعلومات. المعلومات في شبكة من الخلايا (مرتبة في صفوف وأعمدة) تكون واضحة وسهلة الفهم.
+تقوم الجداول في PowerPoint بتنظيم المعلومات في صفوف وأعمدة، مما يجعل قراءة القيم ومقارنتها أسهل.
 
-توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Table) والواجهة [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable) والفئة [Cell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cell/) والواجهة [ICell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/) وأنواعًا أخرى لتسمح لك بإنشاء وتحديث وإدارة الجداول في جميع أنواع العروض التقديمية. 
+توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/)، الواجهة [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/)، الفئة [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/)، الواجهة [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) وأنواع أخرى لتتيح لك إنشاء الجداول وتحديثها وإدارتها في العروض التقديمية.
 
 ## **إنشاء جدول من الصفر**
 
-1. إنشاء مثال (كائن) من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. احصل على مرجع الشريحة عبر فهرستها. 
-3. عرّف مصفوفة من `columnWidth`.
-4. عرّف مصفوفة من `rowHeight`.
-5. أضف كائنًا من النوع [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable) إلى الشريحة عبر طريقة [addTable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).
-6. تجول عبر كل [ICell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/) لتطبيق التنسيق على الحدود العليا والسفلى واليمنى واليسرى.
-7. ادمج الخليتين الأوليين في الصف الأول للجدول. 
-8. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textframe/) الخاص بـ [ICell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/). 
-9. أضف بعض النص إلى [TextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textframe/).
-10. احفظ العرض التقديمي المعدل.
+إنشاء جدول عن طريق تحديد موضعه وعرض الأعمدة وارتفاع الصفوف. بعد إضافته إلى شريحة، يمكنك تنسيق حدود الخلايا، دمج الخلايا، وإدراج نص.
 
-يوضح لك هذا الكود بلغة Java كيفية إنشاء جدول في عرض تقديمي:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة بحسب الفهرس الخاص بها.
+3. تعريف مصفوفة لعروض الأعمدة بوحدات النقاط.
+4. تعريف مصفوفة لارتفاعات الصفوف بوحدات النقاط.
+5. إضافة كائن [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) إلى الشريحة عبر طريقة [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+6. المرور على كل عنصر من عناصر [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) لتطبيق تنسيق على الحدود العلوية والسفلية واليمين واليسار.
+7. دمج الخليتين الأوليين في الصف الأول للجدول.
+8. الوصول إلى الخلية المدموجة عبر طريقة [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) الخاصة بها.
+9. تعيين النص في الخلية المدموجة.
+10. حفظ العرض التقديمي المعدل.
+
+المثال أدناه ينشئ جدولًا يتألف من ثلاثة أعمدة وخمسة صفوف في الموقع (100، 50) نقطة. يطبق حدودًا حمراء بعرض 5 نقاط، يدمج الخليتين الأوليين في الصف الأول، ويحفظ النتيجة باسم `table.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// ينشئ كائن من فئة Presentation يمثل ملف PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // تحديد الأعمدة بأعرضها والصفوف بارتفاعها
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // إضافة شكل جدول إلى الشريحة
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // تعيين تنسيق الحدود لكل خلية
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -80,24 +75,21 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // دمج الخلية 1 و 2 في الصف الأول
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // إضافة نص إلى الخلية المدمجة
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // حفظ العرض التقديمي إلى القرص
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **الترقيم في جدول قياسي**
 
-في جدول قياسي، يكون ترقيم الخلايا بسيطًا ومبنيًا على الصفر. تُرقم الخلية الأولى في الجدول كـ 0,0 (العمود 0، الصف 0). 
+في جدول قياسي، تكون مؤشرات الخلايا صفرية القاعدة وتُستخدم الصيغة (العمود، الصف). تُرقم الخلية الأولى كـ (0, 0).
 
-على سبيل المثال، تُرقم الخلايا في جدول يضم 4 أعمدة و4 صفوف بهذه الطريقة:
+على سبيل المثال، تُرقم الخلايا في جدول يحتوي على 4 أعمدة و4 صفوف كما يلي:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -105,265 +97,247 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-يوضح لك هذا الكود بلغة Java كيفية تحديد ترقيم الخلايا في جدول:
+هذا المثال ينشئ جدول 4 × 4 الموضح أعلاه، بعرض أعمدة وارتفاع صفوف يبلغ 70 نقطة وحدود خلايا حمراء بعرض 5 نقاط. تُظهر الإحداثيات مؤشرات الخلايا؛ يترك المثال الخلايا فارغة ويحفظ الجدول باسم `StandardTables_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// ينشئ كائن من فئة Presentation يمثل ملف PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // يصل إلى الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // يحدد الأعمدة بأعرضها والصفوف بارتفاعها
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // يضيف شكل جدول إلى الشريحة
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // يضبط تنسيق الحدود لكل خلية
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // يحفظ العرض التقديمي إلى القرص
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **الوصول إلى جدول موجود**
 
-1. إنشاء مثال (كائن) من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. احصل على مرجع الشريحة التي تحتوي على الجدول عبر فهرستها. 
-3. أنشئ كائنًا من النوع [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable) وضعه كقيمة null.
-4. تجول عبر جميع كائنات [IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/) حتى يتم العثور على الجدول.  
-   إذا كنت تشك أن الشريحة التي تتعامل معها تحتوي على جدول واحد فقط، يمكنك ببساطة فحص جميع الأشكال التي تحتويها. عندما يُحدد شكل كجدول، يمكنك تحويل نوعه إلى كائن [Table](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Table). لكن إذا كانت الشريحة التي تتعامل معها تحتوي على عدة جداول، فالأفضل البحث عن الجدول المطلوب عبر خاصية [setAlternativeText(String value)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).
-5. استخدم كائن [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable) للعمل مع الجدول. في المثال أدناه، أضفنا صفًا جديدًا إلى الجدول.
-6. احفظ العرض التقديمي المعدل.
+تُخزن الجداول في مجموعة الأشكال الخاصة بالشريحة. قم بالمرور عبر الأشكال لتحديد جدول، ثم استخدم الواجهة [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) لقراءة أو تحديث خلاياه.
 
-يوضح لك هذا الكود بلغة Java كيفية الوصول إلى جدول موجود والعمل معه:
+1. تحميل العرض التقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة التي تحتوي على الجدول بحسب الفهرس الخاص بها.
+3. المرور عبر كائنات [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) والتوقف عند العثور على جدول. إذا احتوت الشريحة على عدة جداول، استخدم طريقة [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getAlternativeText--) لتحديد الجدول المطلوب.
+4. تحديث النص في الخلية المستهدفة.
+5. حفظ العرض التقديمي المعدل.
+
+المثال أدناه يفتح الملف `UpdateExistingTable.pptx` ويجد أول جدول في الشريحة الأولى. يضبط الخلية في العمود 0، الصف 1 إلى القيمة `New` ويحفظ النتيجة باسم `table1_out.pptx`. يجب أن يحتوي الملف المدخل على شريحة واحدة على الأقل، ويجب أن يحتوي أول جدول في تلك الشريحة على عمود واحد على الأقل وصفين.
 
 ```java
 import com.aspose.slides.*;
 
-// ينشئ فئة Presentation التي تمثل ملف PPTX
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // يصل إلى الشريحة الأولى
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // يهيئ TableEx إلى null
-    ITable tbl = null;
-
-    // يتنقل عبر الأشكال ويحدد مرجعًا للجدول الموجود
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // يضبط النص للعمود الأول من الصف الثاني
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // يحفظ العرض التقديمي المعدل إلى القرص
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+لتغيير حجم صف في جدول موجود وفهم لماذا قد يتجاوز ارتفاعه الفعلي الحد الأدنى المطلوب، راجع [Control Row Height](/slides/ar/java/manage-rows-and-columns/#control-row-height).
+
 ## **العثور على الخلية التي تملك إطار نص**
 
-عند استلام كود معالجة نص عام كائن [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) من جدول، استخدم طريقة [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentCell--) لاسترجاع [ICell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/) المالك. لإطار نص خلية جدول، تُعيد [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentCell--) المالك وتُعيد [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentShape--) قيمة `null`، على الرغم من أن الجدول نفسه يُعتبر شكلًا.
+عند تلقي كود معالجة نص عام كائن [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) من جدول، استخدم طريقة [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) لاسترداد [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) المالك. بالنسبة لإطار نص خلية جدول، تُعيد [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) المالك وتُعيد [ITextFrame.getParentShape](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentShape--) القيمة `null`، على الرغم من أن الجدول نفسه يُعتبر شكلًا.
 
-إحداثيات الخلية متاحة عبر طرق القراءة فقط [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/#getFirstColumnIndex--) و[ICell.getFirstRowIndex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/#getFirstRowIndex--). كما تُوفر [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentCell--) تنقلًا للقراءة فقط: تُعيد المالك دون تعديل الملكية. تأكد دائمًا من فحص الخلية المرجعة للتأكد من أنها ليست `null` قبل استخدامها.
+تتوفر إحداثيات الخلية عبر الطريقتين للقراءة فقط [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) و[ICell.getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--). كما تُوفر [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) تنقلًا للقراءة فقط: تُعيد المالك دون تغيير الملكية. تحقق دائمًا مما إذا كانت الخلية المرجعية `null` قبل استخدامها.
 
-للحصول على مثال كامل يحدد مالكي خلايا الجدول والأشكال، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/java/search-and-replace-text/).
+للحصول على مثال كامل يحدد مالكي خلايا الجدول والشكل، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/java/search-and-replace-text/).
 
 ## **محاذاة النص في جدول**
 
-1. إنشاء مثال (كائن) من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. احصل على مرجع الشريحة عبر فهرستها. 
-3. أضف كائنًا من النوع [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable) إلى الشريحة. 
-4. الوصول إلى كائن [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) من الجدول. 
-5. الوصول إلى [IParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/) الخاص بـ [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/).
-6. محاذاة النص عموديًا.
-7. احفظ العرض التقديمي المعدل.
+يمكنك التحكم في تثبيت النص عموديًا واتجاهه داخل خلايا الجدول الفردية. المثال في هذا القسم يُركز النص داخل الخلية الأولى ويُدوِّره بزاوية 270 درجة.
 
-يوضح لك هذا الكود بلغة Java كيفية محاذاة النص في جدول:
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة بحسب الفهرس الخاص بها.
+3. إضافة كائن [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) إلى الشريحة.
+4. الوصول إلى كائن [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) من الجدول.
+5. الوصول إلى أول عنصر [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) وتعيين النص واللون له.
+6. تعيين تثبيت عمودي للنص واتجاهه باستخدام [setTextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextAnchorType-byte-) و[setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextVerticalType-byte-).
+7. حفظ العرض التقديمي المعدل.
+
+هذا المثال ينشئ جدولًا 4 × 4 بعرض أعمدة 120 نقطة وارتفاع صفوف 100 نقطة. ينسق النص في الخلية (0, 0)، يضيف قيمًا إلى الخلايا المتبقية في الصف الأول، ويحفظ النتيجة باسم `Vertical_Align_Text_out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// ينشئ مثيلًا من فئة Presentation
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // يحصل على الشريحة الأولى 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // يحدد الأعمدة بأعرضها والصفوف بارتفاعها
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // يضيف شكل الجدول إلى الشريحة
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // يفتح إطار النص
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // ينشئ كائن الفقرة لإطار النص
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // ينشئ كائن الجزء للفقرة
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // محاذاة النص عموديًا
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // يحفظ العرض التقديمي إلى القرص
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **تعيين تنسيق النص على مستوى الجدول**
 
-1. إنشاء مثال (كائن) من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation).
-2. احصل على مرجع الشريحة عبر فهرستها. 
-3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable) من الشريحة.
-4. ضبط [setFontHeight(float value)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) للخط. 
-5. ضبط [setAlignment(int value)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) و[setMarginRight(float value)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. ضبط [setTextVerticalType(byte value)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. احفظ العرض التقديمي المعدل. 
+استخدم [setTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-) لتطبيق تنسيق النص على جميع خلايا الجدول. تُقبل التَحميلات إما تنسيق الجزء أو الفقرة أو إطار النص، لذا يمكنك ضبط هذه الخصائص دون المرور على كل خلية على حدة.
 
-يوضح لك هذا الكود بلغة Java كيفية تطبيق خيارات التنسيق المفضلة على النص داخل جدول:
+1. تحميل العرض التقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. الحصول على مرجع إلى الشريحة بحسب الفهرس الخاص بها.
+3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) من الشريحة.
+4. تعيين حجم الخط باستخدام [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) للنص.
+5. تعيين محاذاة الفقرة والهامش الأيمن باستخدام [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) و[setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. تعيين اتجاه النص باستخدام [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+7. حفظ العرض التقديمي المعدل.
+
+المثال أدناه يفتح الملف `table.pptx`، الذي يجب أن يحتوي على شريحة واحدة على الأقل مع جدول كأول شكل لها. يحدد حجم الخط إلى 25 نقطة، يُحاذِى الفقرات إلى اليمين مع هامش أيمن قدره 20 نقطة، ويجعل النص عموديًا. يُحفظ العرض المنسق باسم `result.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-// ينشئ مثيلًا من فئة Presentation
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // لنفترض أن الشكل الأول على الشريحة الأولى هو جدول
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // يحدد ارتفاع خط خلايا الجدول
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // يحدد محاذاة نص خلايا الجدول والهامش الأيمن في مكالمة واحدة
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // يحدد النوع العمودي لنص خلايا الجدول
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **الحصول على خصائص نمط الجدول**
 
-تتيح لك Aspose.Slides استرداد خصائص النمط لجدول بحيث يمكنك استخدام تلك التفاصيل لجدول آخر أو في مكان آخر. يوضح لك هذا الكود بلغة Java كيفية الحصول على خصائص النمط من نمط جدول محدد مسبقًا:
+استخدم [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) لقراءة النمط المسبق للجدول و[setStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setStylePreset-int-) لتعيينه. يُطبق هذا المثال [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/) على جدول واحد، يطبع قيمة النمط المسبق، ويُعيّن نفس النمط لجدول ثانٍ. يُحفظ كلا الجدولين في الملف `table-style.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // تغيير نمط القالب الافتراضي للجدول
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // يحصل على نمط القالب للجدول
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // يطبق نمط القالب المستخرج على جدول آخر
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **قفل نسبة العرض إلى الارتفاع للجدول**
+## **قفل نسبة الجانب للجدول**
 
-نسبة العرض إلى الارتفاع لشكل هندسي هي نسبة أبعاده المختلفة. قدمت Aspose.Slides خاصية [**setAspectRatioLocked**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) لتسمح لك بقفل إعداد نسبة العرض إلى الارتفاع للجداول وغيرها من الأشكال. 
+نسبة جانب الجدول هي نسبة عرضه إلى ارتفاعه. استخدم [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-) لقفل هذه النسبة للجدول.
 
-يوضح لك هذا الكود بلغة Java كيفية قفل نسبة العرض إلى الارتفاع لجدول:
+المثال أدناه يفتح الملف `pres.pptx`، الذي يجب أن يحتوي على شريحة واحدة على الأقل مع جدول كأول شكل لها. يطبع حالة القفل الحالية، يفعّل قفل نسبة الجانب، يطبع الحالة المُحدَّثة (`true`)، ويحفظ النتيجة باسم `pres-out.pptx`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // عكس
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **الأسئلة المتداولة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
+**هل يمكن تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
 
-نعم. يعرض الجدول الطريقة [setRightToLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/table/#setRightToLeft-boolean-)، وتحتوي الفقرات على [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). باستخدام كلاهما يضمن الترتيب الصحيح للـ RTL وعرضه داخل الخلايا.
+نعم. يُوفر الجدول طريقة [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-)، وتحتوي الفقرات على الطريقة [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). يضمن استخدام الاثنين ترتيب RTL الصحيح وعرضه داخل الخلايا.
 
-**كيف يمكنني منع المستخدمين من تحريك أو تغيير حجم جدول في الملف النهائي؟**
+**كيف يمكن منع المستخدمين من تحريك أو تغيير حجم جدول في الملف النهائي؟**
 
-استخدم [shape locks](/slides/ar/java/applying-protection-to-presentation/) لتعطيل التحريك، وتغيير الحجم، والتحديد، وما إلى ذلك. تنطبق هذه الأقفال على الجداول أيضًا.
+استخدم [shape locks](/slides/ar/java/applying-protection-to-presentation/) لتعطيل التحريك، تعديل الحجم، التحديد، إلخ. تنطبق هذه الأقفال على الجداول أيضًا.
 
-**هل يدعم إدراج صورة داخل خلية كخلفية؟**
+**هل يُدعم إدراج صورة داخل خلية كخلفية؟**
 
-نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/ar/java/com.aspose.slides/picturefillformat/) للخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المختار (تمديد أو تقسيم).
+نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) للخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المختار (تمتد أو تتكرر).

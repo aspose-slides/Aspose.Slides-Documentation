@@ -1,5 +1,5 @@
 ---
-title: Android'de PowerPoint Tablolarında Satır ve Sütunları Yönetme
+title: Android'de PowerPoint Tablolarındaki Satır ve Sütunları Yönetme
 linktitle: Satır ve Sütunlar
 type: docs
 weight: 20
@@ -11,266 +11,289 @@ keywords:
 - tablo başlığı
 - satır kopyala
 - sütun kopyala
-- satırı kopyala
-- sütunu kopyala
+- satır kopyala
+- sütun kopyala
 - satır kaldır
 - sütun kaldır
-- satır metin biçimlendirme
-- sütun metin biçimlendirme
+- satır metin biçimlendirmesi
+- sütun metin biçimlendirmesi
 - tablo stili
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android ile Java üzerinden PowerPoint'te tablo satırlarını ve sütunlarını yönetin ve sunum düzenleme ve veri güncellemelerini hızlandırın."
+description: "Aspose.Slides for Android via Java kullanarak PowerPoint'te tablo satırlarını ve sütunlarını yönetin ve sunum düzenleme ve veri güncellemelerini hızlandırın."
 ---
 ## **Giriş**
 
-PowerPoint sunumunda bir tablonun satır ve sütunlarını yönetebilmeniz için, Aspose.Slides [Table](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/table/) sınıfını, [ITable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ITable) arayüzünü ve diğer birçok türü sağlar.
+Aspose.Slides for Android via Java, PowerPoint sunumlarında tablo yapısını ve biçimlendirmesini [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) sınıfı ve [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) arayüzü aracılığıyla yönetmenizi sağlar. Bir başlık satırı belirleyebilir, satır ve sütunları kopyalayabilir veya kaldırabilir ve bir bütün satır veya sütuna metin biçimlendirmesi uygulayabilirsiniz.
+
+Bu makale, bu işlemleri Java örnekleriyle açıklar. Ayrıca, bir tablonun stil ön ayarını nasıl alıp yeniden kullanabileceğinizi gösterir. Tablo satır ve sütun dizinleri sıfır tabanlıdır.
+
+## **Satır Yüksekliğini Kontrol Et**
+
+Bir satırın minimum yüksekliğini puan cinsinden ayarlamak için [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) kullanın. Bu, sabit bir yükseklik değil, alt bir sınırlamadır. [IRow.getHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#getHeight--) gerçek yüksekliği döndürür. Satıra, [ITable.getRows](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getRows--) aracılığıyla erişin.
+
+Örnek, ilk slaydın ilk şekli olarak bir tablo içeren [row-height-input.pptx](row-height-input.pptx) dosyasını yükler. İlk satırı 70 puandan başlar. Hücreler 18 puanlık Arial metin, kaydırma ve 6 puanlık üst ve alt kenar boşlukları kullanır; ikinci sütundaki daha uzun metin birden fazla satıra kayar. Örnek, minimumu 100 puana artırır, ardından 20 puana düşürür, her değişiklikten sonra gerçek yüksekliği yazdırır ve her iki sonucu da kaydeder.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
+
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sağlanan sunumla, minimumun artırılması satıra boşluk ekler. Minimumun azaltılması bu fazla boşluğu kaldırır, ancak gerçek yükseklik 20 puandan büyük kalır çünkü metin ve hücre kenar boşlukları daha fazla alan gerektirir. Sadece minimumu azaltmak, içeriğin gerektirdiği boşluktan daha düşük bir satır yüksekliğini zorlayamaz.
+
+Gerçek yüksekliği etkileyen çeşitli faktörler şunlardır:
+
+- **Metin ve yazı tipi boyutu:** daha uzun metin, açık satır sonları veya daha büyük bir yazı tipi daha fazla dikey alan gerektirebilir.
+- **Satır kaydırma ve sütun genişliği:** kaydırma etkinleştirildiğinde, [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) ile sütun genişliğini azaltmak daha fazla satır üretebilir. Daha geniş bir sütun, dikey olarak gereken alanı azaltabilir.
+- **Hücre kenar boşlukları:** [ICell.setMarginTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginTop-double-) ve [ICell.setMarginBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginBottom-double-) dikey boşluk ekler. [ICell.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginLeft-double-) ve [ICell.setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginRight-double-) metin için kullanılabilir genişliği azaltır ve ek kaydırmaya neden olabilir.
+
+Birleştirilmiş hücreleri olmayan bu tablo için, en çok dikey alan gerektiren hücre, tüm satır için içeriğe dayalı alt sınırlamayı belirler. Satırı kısaltmak için metni kısaltmanız, yazı tipi boyutunu veya kenar boşluklarını azaltmanız veya bir sütunu genişletmeniz gerekebilir.
+
+Aşağıdaki görseller aynı tabloyu aynı ölçekte gösterir. Görsel sonuçlarda gerçek yükseklikler 70, 100 ve 55,2 puan idi: son satır 20 puanlık minimumundan daha yüksek kaldı. Metin ölçümleri, ortamınızda bulunan yazı tiplerine göre değişebilir. Kaydedilen sonuçları indirin: [increased minimum](row-height-increased.pptx) ve [decreased minimum](row-height-decreased.pptx).
+
+| Orijinal: minimum 70 pt, gerçek 70 pt | Artırıldı: minimum 100 pt, gerçek 100 pt | Azaltıldı: minimum 20 pt, gerçek 55.2 pt |
+| --- | --- | --- |
+| ![Orijinal tablo, 70 puanlık ilk satırla.](row-height-before.png) | ![İlk satır minimumu 100 puana artırıldıktan sonraki tablo.](row-height-increased.png) | ![İlk satır minimumu 20 puana düşürüldükten sonraki tablo; kaydırılmış metin satırı minimumdan daha yüksek tutar.](row-height-decreased.png) |
 
 ## **İlk Satırı Başlık Olarak Ayarla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve sunumu yükleyin.  
-2. Bir slaydın referansını indeksine göre alın.  
-3. Bir [ITable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ITable) nesnesi oluşturun ve null olarak ayarlayın.  
-4. İlgili tabloyu bulmak için tüm [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) nesneleri üzerinden döngü oluşturun.  
-5. Tablonun ilk satırını başlık olarak ayarlayın.  
+İlk satırı başlık biçimlendirmesi için işaretlemek amacıyla [setFirstRow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setFirstRow-boolean-) yöntemini kullanın. Görünümü, tabloya uygulanan tablo stiline bağlıdır.
 
-Bu Java kodu, bir tablonun ilk satırını başlık olarak nasıl ayarlayacağınızı gösterir:
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayta erişin.
+3. Slayttaki ilk şekil olarak saklanan tabloya erişin.
+4. İlk satırı için başlık biçimlendirmesini etkinleştirin.
+5. Değiştirilen sunumu kaydedin.
+
+Örnek, ilk slaydın ilk şekli olarak bir tablo içeren `table.pptx` dosyasını gerektirir. İlk satır için başlık biçimlendirmesini etkinleştirir ve `First_row_header.pptx` dosyasını kaydeder.
 
 ```java
-// Presentation sınıfını örnekler
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // ilk slayta erişir
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // null TableEx'i başlatır
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // şekiller arasında döner ve tabloya bir referans ayarlar
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Tablonun ilk satırını başlık olarak ayarlar
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // sunumu diske kaydeder
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Bir Tablo Satırını veya Sütununu Kopyala**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve sunumu yükleyin,  
-2. Bir slaydın referansını indeksine göre alın.  
-3. `columnWidth` dizisini tanımlayın.  
-4. `rowHeight` dizisini tanımlayın.  
-5. Slayda bir [ITable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ITable) nesnesi ekleyin ve [addTable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metodunu kullanın.  
-6. Tablo satırını kopyalayın.  
-7. Tablo sütununu kopyalayın.  
-8. Değiştirilen sunumu kaydedin.  
+Satırları veya sütunları, içerik ve biçimlendirmelerini yeniden kullanmak için kopyalayın. Kopyayı tablonun sonuna ekleyebilir veya belirli bir konuma ekleyebilirsiniz.
 
-Bu Java kodu, bir PowerPoint tablosunun satırını veya sütununu nasıl kopyalayacağınızı gösterir:
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayta erişin.
+3. Sütun genişliklerini ve satır yüksekliklerini tanımlayın.
+4. [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) yöntemiyle bir tablo ekleyin.
+5. Gerekli satırları kopyalayın.
+6. Gerekli sütunları kopyalayın.
+7. Değiştirilen sunumu kaydedin.
+
+Örnek, en az bir slaytı olan `Test.pptx` dosyasını gerektirir. Üç sütun ve beş satır içeren bir tablo oluşturur, boyutlar puan cinsindendir. İlk satır ve sütunun kopyalarını ekler, ardından ikinci satır ve sütunun kopyalarını indeks 3'te (dördüncü konum) ekler. Sonuçta tablo yedi satır ve beş sütun olur. `false` argümanı, bitişik birleştirilmiş satır veya sütunlara kopyalamayı devre dışı bırakır; bu tabloda birleşik hücre yoktur.
 
 ```java
- // Presentation sınıfını örnekler
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    // ilk slayta erişir
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // sütunları genişlikleri ve satırları yükseklikleriyle tanımlar
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // slayta bir tablo şekli ekler
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // satır 1 hücre 1'e metin ekler
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // satır 1 hücre 2'ye metin ekler
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // tablonun sonunda 1. satırı kopyalar
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // satır 2 hücre 1'e metin ekler
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // satır 2 hücre 2'ye metin ekler
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // 2. satırı tablonun 4. satırı olarak kopyalar
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // ilk sütunu sonuna kopyalar
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // 2. sütunu 4. sütun indeksine kopyalar
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // sunumu diske kaydeder
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Tablodan Satır veya Sütun Kaldırma**
+## **Bir Tablodan Satır veya Sütun Kaldır**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve sunumu yükleyin,  
-2. Bir slaydın referansını indeksine göre alın.  
-3. `columnWidth` dizisini tanımlayın.  
-4. `rowHeight` dizisini tanımlayın.  
-5. Slayda bir [ITable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ITable) nesnesi ekleyin ve [addTable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metodunu kullanın.  
-6. Tablo satırını kaldırın.  
-7. Tablo sütununu kaldırın.  
-8. Değiştirilen sunumu kaydedin.  
+Tabloda artık ihtiyaç duyulmayan satırları veya sütunları kaldırın. Bir öğeyi kaldırmak, ardından gelen satır veya sütunların dizinlerini kaydırır.
 
-Bu Java kodu, bir tablodan satır veya sütun nasıl kaldırılacağını gösterir:
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfı ile oluşturun.
+2. İlk slayta erişin.
+3. Sütun genişliklerini ve satır yüksekliğini tanımlayın.
+4. [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) yöntemiyle bir tablo ekleyin.
+5. İkinci satırı ve ikinci sütunu kaldırın.
+6. Değiştirilen sunumu kaydedin.
+
+Bu örnek, üçe üç bir tablo oluşturur ve indeks 1'deki satır ve sütunu kaldırarak `TestTable_out.pptx` içinde ikiye iki bir tablo bırakır. Boyutlar puan cinsindendir. `false` argümanı, bitişik birleştirilmiş satır veya sütunların kaldırılmasını devre dışı bırakır; bu tabloda birleşik hücre yoktur.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tablo Satırı Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Tablo Satır Düzeyinde Metin Biçimlendirmesini Ayarla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve sunumu yükleyin,  
-2. Bir slaydın referansını indeksine göre alın.  
-3. İlgili [ITable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ITable) nesnesine slayttan erişin.  
-4. İlk satır hücrelerinin [setFontHeight(float value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metodunu ayarlayın.  
-5. İlk satır hücrelerinin [setAlignment(int value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) ve [setMarginRight(float value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) ayarlarını yapın.  
-6. İkinci satır hücrelerinin [setTextVerticalType(byte value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) ayarını yapın.  
-7. Değiştirilen sunumu kaydedin.  
+Bir tüm satıra metin biçimlendirmesi uygulayarak hücrelerinin tutarlı kalmasını sağlayın. Her hücreyi ayrı ayrı biçimlendirmeye gerek kalmadan yazı tipi özelliklerini, paragraf biçimlendirmesini ve metin yönünü ayarlayabilirsiniz.
 
-Bu Java kodu işlemi gösterir.
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayttaki tabloya erişin.
+3. İlk satır için [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) kullanın.
+4. İlk satır için [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) ve [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) kullanın.
+5. İkinci satır için [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) kullanın.
+6. Değiştirilen sunumu kaydedin.
+
+Örnek, ilk slaydın ilk şekli olarak bir tablo içeren ve en az iki satırı olan `table.pptx` dosyasını gerektirir. İlk satıra 25 puanlık metin, sağ hizalama ve 20 puanlık sağ paragraf kenar boşluğu uygular, ardından ikinci satıra dikey metin ayarlar.
 
 ```java
-// Presentation sınıfının bir örneğini oluşturur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // İlk slaydın ilk şeklinin bir tablo olduğunu varsayalım
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // İlk satır hücrelerinin font yüksekliğini ayarlar
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // İlk satır hücrelerinin metin hizalamasını ve sağ kenar boşluğunu ayarlar
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // İkinci satır hücrelerinin metin dikey tipini ayarlar
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Sunumu diske kaydeder
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Tablo Sütun Düzeyinde Metin Biçimlendirmesini Ayarlama**
+## **Tablo Sütun Düzeyinde Metin Biçimlendirmesini Ayarla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve sunumu yükleyin,  
-2. Bir slaydın referansını indeksine göre alın.  
-3. İlgili [ITable](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ITable) nesnesine slayttan erişin.  
-4. İlk sütun hücrelerinin [setFontHeight(float value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metodunu ayarlayın.  
-5. İlk sütun hücrelerinin [setAlignment(int value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) ve [setMarginRight(float value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) ayarlarını yapın.  
-6. İkinci sütun hücrelerinin [setTextVerticalType(byte value)](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) ayarını yapın.  
-7. Değiştirilen sunumu kaydedin.  
+Bir tüm sütuna metin biçimlendirmesi uygulayarak hücrelerinin tutarlı kalmasını sağlayın. Her hücreyi ayrı ayrı biçimlendirmeye gerek kalmadan yazı tipi özelliklerini, paragraf biçimlendirmesini ve metin yönünü ayarlayabilirsiniz.
 
-Bu Java kodu işlemi gösterir: 
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfı ile yükleyin.
+2. İlk slayttaki tabloya erişin.
+3. İlk sütun için [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) kullanın.
+4. İlk sütun için [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) ve [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) kullanın.
+5. İkinci sütun için [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) kullanın.
+6. Değiştirilen sunumu kaydedin.
+
+Örnek, ilk slaydın ilk şekli olarak bir tablo içeren ve en az iki sütunu olan `table.pptx` dosyasını gerektirir. İlk sütuna 25 puanlık metin, sağ hizalama ve 20 puanlık sağ paragraf kenar boşluğu uygular, ardından ikinci sütuna dikey metin ayarlar.
 
 ```java
-// Presentation sınıfının bir örneğini oluşturur
-Presentation pres = new Presentation();
-try {
-    // İlk slaydın ilk şeklinin bir tablo olduğunu varsayalım
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // İlk sütun hücrelerinin font yüksekliğini ayarlar
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // İlk sütun hücrelerinin metin hizalamasını ve sağ kenar boşluğunu tek bir çağrıda ayarlar
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // İkinci sütun hücrelerinin metin dikey tipini ayarlar
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Tablo Stil Özelliklerini Al**
 
-Aspose.Slides, bir tablo için stil özelliklerini almanıza olanak tanır, böylece bu detayları başka bir tabloya veya başka bir yere kullanabilirsiniz. Bu Java kodu, bir tablo ön ayar stilinden stil özelliklerini nasıl alacağınızı gösterir:
+Bir tabloya uygulanan stil ön ayarını almak ve başka bir tabloda yeniden kullanmak için [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) yöntemini kullanın. Bu, bireysel hücre biçimlendirme geçersiz kılmalarından ziyade ön ayarı tanımlar.
+
+Örnek bir tablo oluşturur, [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/#DarkStyle1) uygular ve ön ayarı geri okur. `DarkStyle1` değerine karşılık gelen tam sayı değerini yazdırır ve tabloyu `table.pptx` içinde kaydeder.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // varsayılan stil ön ayar temasını değiştir
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **SSS**
 
-**Zaten oluşturulmuş bir tabloya PowerPoint temalarını/stillerini uygulayabilir miyim?**
+**Varolan bir tabloya PowerPoint temaları/stilleri uygulayabilir miyim?**  
+Evet. Tablo, slayt/layout/ana tema miras alır ve yine de bu temanın üzerine dolgu, kenarlık ve metin renklerini geçersiz kılabilirsiniz.
 
-Evet. Tablo, slayt/düzen/ana tema temelli bir tema devralır ve yine de bu temanın üzerine dolgu, kenarlık ve metin renklerini geçersiz kılabilirsiniz.
+**Excel'de olduğu gibi tablo satırlarını sıralayabilir miyim?**  
+Hayır, Aspose.Slides tablolarında yerleşik sıralama veya filtreleme özelliği yoktur. Verilerinizi önce bellekte sıralayın, ardından tablo satırlarını o sırayla yeniden doldurun.
 
-**Tablo satırlarını Excel gibi sıralayabilir miyim?**
-
-Hayır, Aspose.Slides tablolarında yerleşik sıralama veya filtreleme yoktur. Verilerinizi önce bellekte sıralayın, ardından tablo satırlarını bu sırayla yeniden doldurun.
-
-**Belirli hücrelerde özel renkleri korurken şeritli (banded) sütunlar elde edebilir miyim?**
-
-Evet. Şeritli sütunları etkinleştirin, ardından belirli hücreleri yerel biçimlendirme ile geçersiz kılın; hücre düzeyindeki biçimlendirme tablo stiline göre önceliklidir.
+**Belirli hücrelerde özel renkler tutarken şeritli (banded) sütunlar oluşturabilir miyim?**  
+Evet. Şeritli sütunları etkinleştirin, ardından belirli hücreleri yerel biçimlendirme ile geçersiz kılın; hücre seviyesindeki biçimlendirme tablo stiline göre öncelikli olur.

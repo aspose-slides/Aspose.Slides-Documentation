@@ -1,5 +1,5 @@
 ---
-title: Quản lý các hàng và cột trong bảng PowerPoint bằng PHP
+title: Quản lý hàng và cột trong bảng PowerPoint bằng PHP
 linktitle: Hàng và Cột
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - hàng bảng
 - cột bảng
 - hàng đầu tiên
-- tiêu đề bảng
+- đầu đề bảng
 - nhân bản hàng
 - nhân bản cột
 - sao chép hàng
@@ -22,230 +22,298 @@ keywords:
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Quản lý các hàng và cột của bảng trong PowerPoint bằng Aspose.Slides cho PHP thông qua Java và tăng tốc việc chỉnh sửa bản trình chiếu cùng cập nhật dữ liệu."
+description: "Quản lý các hàng và cột của bảng trong PowerPoint với Aspose.Slides for PHP qua Java, giúp tăng tốc việc chỉnh sửa bản trình chiếu và cập nhật dữ liệu."
 ---
 ## **Giới thiệu**
 
-Để cho phép bạn quản lý các hàng và cột của bảng trong một bản thuyết trình PowerPoint, Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/vi/php-java/aspose.slides/table/) và nhiều kiểu khác.
+Aspose.Slides for PHP via Java cho phép bạn quản lý cấu trúc và định dạng bảng trong các bản trình chiếu PowerPoint thông qua lớp [Bảng](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Bạn có thể chỉ định một hàng tiêu đề, sao chép hoặc xóa các hàng và cột, và áp dụng định dạng văn bản cho toàn bộ hàng hoặc cột.
 
-## **Đặt Hàng Đầu Tiên Là Tiêu Đề**
+Bài viết này giải thích các thao tác này bằng các ví dụ PHP. Nó cũng cho thấy cách lấy trước mẫu kiểu bảng để bạn có thể tái sử dụng. Các chỉ số hàng và cột của bảng bắt đầu từ 0.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và tải bản thuyết trình.  
-2. Lấy tham chiếu của một slide thông qua chỉ số của nó.  
-3. Tạo một đối tượng [Table](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Table) và đặt nó thành null.  
-4. Duyệt qua tất cả các đối tượng [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) để tìm bảng tương ứng.  
-5. Đặt hàng đầu tiên của bảng làm tiêu đề.  
+## **Kiểm soát chiều cao hàng**
 
-Đoạn mã PHP này cho bạn thấy cách đặt hàng đầu tiên của bảng làm tiêu đề:
+Sử dụng [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/) để đặt chiều cao tối thiểu của một hàng tính bằng điểm. Đây là giới hạn dưới, không phải chiều cao cố định. [Row::getHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/getheight/) trả về chiều cao thực tế. Truy cập hàng thông qua [Table::getRows](https://reference.aspose.com/slides/php-java/aspose.slides/table/getrows/).
+
+Ví dụ tải [row-height-input.pptx](row-height-input.pptx), trong đó có một bảng là hình dạng đầu tiên trên slide đầu tiên. Hàng đầu tiên bắt đầu ở 70 điểm. Các ô sử dụng văn bản Arial 18 điểm, có ngắt dòng và lề trên dưới 6 điểm; văn bản dài hơn ở cột thứ hai ngắt dòng thành nhiều dòng. Ví dụ tăng tối thiểu lên 100 điểm, sau đó giảm xuống 20 điểm, in ra chiều cao thực tế sau mỗi thay đổi và lưu cả hai kết quả.
 
 ```php
-  # Khởi tạo lớp Presentation
-  $pres = new Presentation("table.pptx");
-  try {
-    # Truy cập slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Khởi tạo TableEx null
-    $tbl = null;
-    # Duyệt qua các shape và đặt tham chiếu tới bảng
-    foreach($sld->getShapes() as $shp) {
-      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
-        $tbl = $shp;
-        # Đặt hàng đầu tiên của bảng làm tiêu đề
-        $tbl->setFirstRow(true);
-      }
-    }
-    # Lưu bản trình chiếu vào đĩa
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("row-height-input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $row = $table->getRows()->get_Item(0);
+
+    $row->setMinimalHeight(100);
+    printf("Increased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-increased.pptx", SaveFormat::Pptx);
+
+    $row->setMinimalHeight(20);
+    printf("Decreased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-decreased.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Sao Chép Hàng Hoặc Cột Bảng**
+Với bản trình chiếu được cung cấp, tăng tối thiểu sẽ thêm không gian vào hàng. Giảm tối thiểu sẽ loại bỏ không gian thêm đó, nhưng chiều cao thực tế vẫn lớn hơn 20 điểm vì văn bản và lề ô cần nhiều không gian hơn. Chỉ giảm tối thiểu không thể ép hàng xuống dưới mức không gian cần thiết cho nội dung của nó.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và tải bản thuyết trình,  
-2. Lấy tham chiếu của một slide thông qua chỉ số của nó.  
-3. Xác định một mảng `columnWidth`.  
-4. Xác định một mảng `rowHeight`.  
-5. Thêm một đối tượng [Table](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Table) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addtable/).  
-6. Sao chép hàng bảng.  
-7. Sao chép cột bảng.  
-8. Lưu bản thuyết trình đã sửa đổi.  
+Một số yếu tố ảnh hưởng đến chiều cao thực tế:
 
-Đoạn mã PHP này cho bạn thấy cách sao chép hàng hoặc cột của bảng PowerPoint:
+- **Văn bản và kích thước phông chữ:** văn bản dài hơn, ngắt dòng rõ ràng hoặc phông chữ lớn hơn có thể yêu cầu nhiều không gian dọc hơn.
+- **Việc ngắt dòng và độ rộng cột:** khi bật ngắt dòng, giảm độ rộng cột bằng [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) có thể tạo ra nhiều dòng hơn. Cột rộng hơn có thể giảm không gian cần thiết theo chiều dọc.
+- **Lề ô:** [Cell::setMarginTop](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmargintop/) và [Cell::setMarginBottom](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginbottom/) thêm không gian dọc. [Cell::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginleft/) và [Cell::setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginright/) giảm độ rộng có sẵn cho văn bản và có thể gây ra việc ngắt dòng thêm.
+
+Đối với bảng này không có ô hợp nhất, ô cần nhiều không gian dọc nhất sẽ xác định giới hạn dưới do nội dung quyết định cho toàn bộ hàng. Để làm hàng ngắn hơn, bạn cũng có thể cần rút ngắn văn bản, giảm kích thước phông chữ hoặc lề, hoặc làm rộng một cột.
+
+Các hình ảnh dưới đây cho thấy cùng một bảng ở cùng tỉ lệ. Trong các kết quả minh họa, chiều cao thực tế là 70, 100 và 55,2 điểm: hàng cuối vẫn cao hơn mức tối thiểu 20 điểm. Các đo lường văn bản chính xác có thể thay đổi tùy vào phông chữ có trong môi trường của bạn. Tải các kết quả đã lưu: [tối thiểu tăng](row-height-increased.pptx) và [tối thiểu giảm](row-height-decreased.pptx).
+
+| Ban đầu: tối thiểu 70 pt, thực tế 70 pt | Tăng: tối thiểu 100 pt, thực tế 100 pt | Giảm: tối thiểu 20 pt, thực tế 55.2 pt |
+| --- | --- | --- |
+| ![Bảng gốc với hàng đầu tiên 70 điểm.](row-height-before.png) | ![Bảng sau khi tăng tối thiểu của hàng đầu tiên lên 100 điểm.](row-height-increased.png) | ![Bảng sau khi giảm tối thiểu của hàng đầu tiên xuống 20 điểm; văn bản ngắt dòng giữ cho hàng cao hơn mức tối thiểu.](row-height-decreased.png) |
+
+## **Đặt hàng đầu tiên làm tiêu đề**
+
+Sử dụng phương thức [setFirstRow](https://reference.aspose.com/slides/php-java/aspose.slides/table/setfirstrow/) để đánh dấu hàng đầu tiên cho định dạng tiêu đề. Hiển thị của nó phụ thuộc vào kiểu bảng được áp dụng cho bảng.
+
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Truy cập bảng được lưu dưới dạng hình dạng đầu tiên trên slide.
+4. Bật định dạng tiêu đề cho hàng đầu tiên của nó.
+5. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên. Nó bật định dạng tiêu đề cho hàng đầu tiên và lưu `First_row_header.pptx`.
 
 ```php
-  # Khởi tạo lớp Presentation
-  $pres = new Presentation("Test.pptx");
-  try {
-    # Truy cập slide đầu tiên
-    $sld = $pres->getSlides()->get_Item(0);
-    # Định nghĩa các cột với độ rộng và các hàng với chiều cao
-    $dblCols = array(50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Thêm hình dạng bảng vào slide
-    $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Thêm một số văn bản vào ô 1 của hàng 1
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $table->setFirstRow(true);
+
+    $presentation->save("First_row_header.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Sao chép hàng hoặc cột của bảng**
+
+Sao chép các hàng hoặc cột để tái sử dụng nội dung và định dạng của chúng. Bạn có thể thêm bản sao vào cuối bảng hoặc chèn vào vị trí cụ thể.
+
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Xác định độ rộng cột và chiều cao hàng.
+4. Thêm một bảng bằng phương thức [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+5. Sao chép các hàng cần thiết.
+6. Sao chép các cột cần thiết.
+7. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ yêu cầu `Test.pptx` có ít nhất một slide. Nó tạo một bảng có ba cột và năm hàng, với kích thước được chỉ định bằng điểm. Nó thêm bản sao của hàng và cột đầu tiên, sau đó chèn bản sao của hàng và cột thứ hai tại chỉ số 3 (vị trí thứ tư). Bảng kết quả có bảy hàng và năm cột. Tham số `false` vô hiệu hoá việc sao chép vào các hàng hoặc cột hợp nhất liền kề; bảng này không có ô hợp nhất.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [50, 50, 50];
+    $rowHeights = [50, 30, 30, 30, 30];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
     $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
-    # Thêm một số văn bản vào ô 2 của hàng 1
     $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
-    # Sao chép Hàng 1 vào cuối bảng
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # Thêm một số văn bản vào ô 1 của hàng 2
+
     $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
-    # Thêm một số văn bản vào ô 2 của hàng 2
     $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
-    # Sao chép Hàng 2 thành hàng thứ 4 của bảng
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
-    # Sao chép cột đầu tiên vào cuối
+
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # Sao chép cột thứ 2 vào vị trí cột thứ 4
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
-    # Lưu bản trình chiếu vào đĩa
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Xóa Hàng Hoặc Cột Khỏi Bảng**
+## **Xóa một hàng hoặc cột khỏi bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và tải bản thuyết trình,  
-2. Lấy tham chiếu của một slide thông qua chỉ số của nó.  
-3. Xác định một mảng `columnWidth`.  
-4. Xác định một mảng `rowHeight`.  
-5. Thêm một đối tượng [Table](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Table) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addtable/).  
-6. Xóa hàng bảng.  
-7. Xóa cột bảng.  
-8. Lưu bản thuyết trình đã sửa đổi.  
+Xóa các hàng hoặc cột không còn cần thiết trong bảng. Khi xóa một mục, các chỉ số của các hàng hoặc cột phía sau sẽ được dịch chuyển.
 
-Đoạn mã PHP này cho bạn thấy cách xóa một hàng hoặc cột khỏi bảng:
+1. Tạo một bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Xác định độ rộng cột và chiều cao hàng.
+4. Thêm một bảng bằng phương thức [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+5. Xóa hàng thứ hai và cột thứ hai.
+6. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ này tạo một bảng ba‑by‑ba và xóa hàng và cột tại chỉ số 1, để lại một bảng hai‑by‑hai trong `TestTable_out.pptx`. Các kích thước tính bằng điểm. Tham số `false` vô hiệu hoá việc xóa các hàng hoặc cột hợp nhất liền kề; bảng này không có ô hợp nhất.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $colWidth = array(100, 50, 30 );
-    $rowHeight = array(30, 50, 30 );
-    $table = $slide->getShapes()->addTable(100, 100, $colWidth, $rowHeight);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 50, 30];
+    $rowHeights = [30, 50, 30];
+    $table = $slide->getShapes()->addTable(100, 100, $columnWidths, $rowHeights);
+
     $table->getRows()->removeAt(1, false);
     $table->getColumns()->removeAt(1, false);
-    $pres->save("TestTable_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TestTable_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Đặt Định Dạng Văn Bản Ở Mức Hàng Bảng**
+## **Đặt định dạng văn bản ở mức hàng của bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và tải bản thuyết trình,  
-2. Lấy tham chiếu của một slide thông qua chỉ số của nó.  
-3. Truy cập đối tượng [Table](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Table) liên quan từ slide.  
-4. Đặt [setFontHeight(float value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseportionformat/#setFontHeight) cho các ô của hàng đầu tiên.  
-5. Đặt [setAlignment(int value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/paragraphformat/setalignment/) và [setMarginRight(float value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/paragraphformat/setmarginright/) cho các ô của hàng đầu tiên.  
-6. Đặt [setTextVerticalType(byte value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframeformat/settextverticaltype/) cho các ô của hàng thứ hai.  
-7. Lưu bản thuyết trình đã sửa đổi.  
+Áp dụng định dạng văn bản cho toàn bộ hàng để giữ cho các ô của nó nhất quán. Bạn có thể thiết lập thuộc tính phông chữ, định dạng đoạn văn và hướng văn bản mà không cần định dạng từng ô riêng lẻ.
 
-Đoạn mã PHP này minh họa thao tác.
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Truy cập bảng trên slide đầu tiên.
+3. Sử dụng [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) cho hàng đầu tiên.
+4. Sử dụng [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) và [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) cho hàng đầu tiên.
+5. Sử dụng [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) cho hàng thứ hai.
+6. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên và ít nhất hai hàng. Nó áp dụng văn bản 25‑point, căn phải và lề đoạn văn phải 20‑point cho hàng đầu tiên, sau đó đặt văn bản dọc cho hàng thứ hai.
 
 ```php
-  # Tạo một thể hiện của lớp Presentation
-  $pres = new Presentation();
-  try {
-    # Giả sử rằng shape đầu tiên trên slide đầu tiên là một bảng
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Đặt độ cao phông chữ cho các ô của hàng đầu tiên
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
-    # Đặt căn chỉnh văn bản và lề phải cho các ô của hàng đầu tiên
+    $portionFormat->setFontHeight(25);
+    $table->getRows()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Đặt loại văn bản dọc cho các ô của hàng thứ hai
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    # Lưu bản trình chiếu vào đĩa
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("row_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Đặt Định Dạng Văn Bản Ở Mức Cột Bảng**
+## **Đặt định dạng văn bản ở mức cột của bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và tải bản thuyết trình,  
-2. Lấy tham chiếu của một slide thông qua chỉ số của nó.  
-3. Truy cập đối tượng [Table](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Table) liên quan từ slide.  
-4. Đặt [setFontHeight(float value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseportionformat/#setFontHeight) cho các ô của cột đầu tiên.  
-5. Đặt [setAlignment(int value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/paragraphformat/setalignment/) và [setMarginRight(float value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/paragraphformat/setmarginright/) cho các ô của cột đầu tiên.  
-6. Đặt [setTextVerticalType(byte value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframeformat/settextverticaltype/) cho các ô của cột thứ hai.  
-7. Lưu bản thuyết trình đã sửa đổi.  
+Áp dụng định dạng văn bản cho toàn bộ cột để giữ cho các ô của nó nhất quán. Bạn có thể thiết lập thuộc tính phông chữ, định dạng đoạn văn và hướng văn bản mà không cần định dạng từng ô riêng lẻ.
 
-Đoạn mã PHP này minh họa thao tác:
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Truy cập bảng trên slide đầu tiên.
+3. Sử dụng [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) cho cột đầu tiên.
+4. Sử dụng [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) và [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) cho cột đầu tiên.
+5. Sử dụng [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) cho cột thứ hai.
+6. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên và ít nhất hai cột. Nó áp dụng văn bản 25‑point, căn phải và lề đoạn văn phải 20‑point cho cột đầu tiên, sau đó đặt văn bản dọc cho cột thứ hai.
 
 ```php
-  # Tạo một thể hiện của lớp Presentation
-  $pres = new Presentation();
-  try {
-    # Giả sử rằng shape đầu tiên trên slide đầu tiên là một bảng
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Đặt độ cao phông chữ cho các ô của cột đầu tiên
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
-    # Đặt căn chỉnh văn bản và lề phải cho các ô của cột đầu tiên trong một lệnh
+    $portionFormat->setFontHeight(25);
+    $table->getColumns()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Đặt loại văn bản dọc cho các ô của cột thứ hai
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("column_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Lấy Thuộc Tính Kiểu Bảng**
+## **Lấy thuộc tính kiểu bảng**
 
-Aspose.Slides cho phép bạn truy xuất các thuộc tính kiểu cho một bảng để bạn có thể sử dụng các chi tiết đó cho bảng khác hoặc ở nơi khác. Đoạn mã PHP này cho bạn thấy cách lấy các thuộc tính kiểu từ một kiểu bảng được đặt trước:
+Sử dụng phương thức [getStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/getstylepreset/) để lấy trước mẫu kiểu đã áp dụng cho một bảng và tái sử dụng nó trên bảng khác. Điều này xác định trước mẫu thay vì các ghi đè định dạng ô riêng lẻ.
+
+Ví dụ tạo một bảng, áp dụng [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/php-java/aspose.slides/tablestylepreset/#DarkStyle1), và đọc lại trước mẫu. Nó in ra giá trị số nguyên tương ứng với `DarkStyle1` và lưu bảng trong `table.pptx`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// thay đổi preset kiểu mặc định
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 150];
+    $rowHeights = [5, 5, 5];
+    $table = $slide->getShapes()->addTable(10, 10, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::DarkStyle1);
+
+    $stylePreset = $table->getStylePreset();
+    echo java_values($stylePreset) . PHP_EOL;
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Can I apply PowerPoint themes/styles to a table that’s already created?**  
-Có. Bảng sẽ kế thừa chủ đề của slide/layout/master, và bạn vẫn có thể ghi đè màu nền, viền và màu chữ lên trên chủ đề đó.
+**Tôi có thể áp dụng giao diện/kiểu mẫu PowerPoint cho một bảng đã được tạo không?**
 
-**Can I sort table rows like in Excel?**  
-Không, các bảng trong Aspose.Slides không có tính năng sắp xếp hay bộ lọc tích hợp. Hãy sắp xếp dữ liệu trong bộ nhớ trước, sau đó đưa lại các hàng bảng theo thứ tự đó.
+Có. Bảng kế thừa giao diện slide/bố cục/mảnh, và bạn vẫn có thể ghi đè các màu nền, viền và màu văn bản phía trên giao diện đó.
 
-**Can I have banded (striped) columns while keeping custom colors on specific cells?**  
-Có. Bật tính năng cột kẻ sọc, sau đó ghi đè các ô cụ thể bằng định dạng cục bộ; định dạng cấp ô sẽ ưu tiên hơn kiểu bảng.
+**Tôi có thể sắp xếp các hàng của bảng giống như trong Excel không?**
+
+Không, các bảng Aspose.Slides không có tính năng sắp xếp hoặc bộ lọc tích hợp. Hãy sắp xếp dữ liệu trong bộ nhớ trước, sau đó điền lại các hàng bảng theo thứ tự đó.
+
+**Tôi có thể có các cột có dải (kẻ sọc) trong khi vẫn giữ màu tùy chỉnh cho các ô cụ thể không?**
+
+Có. Bật chế độ cột có dải, sau đó ghi đè các ô cụ thể bằng định dạng cục bộ; định dạng ở mức ô sẽ ưu tiên hơn kiểu bảng.

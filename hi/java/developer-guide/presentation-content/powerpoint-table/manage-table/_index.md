@@ -7,62 +7,57 @@ url: /hi/java/manage-table/
 keywords:
 - तालिका जोड़ें
 - तालिका बनाएं
-- तालिका तक पहुँचें
-- आस्पेक्ट रेशियो
-- पाठ संरेखित करें
-- पाठ स्वरूपण
+- तालिका तक पहुंचें
+- आस्पेक्ट अनुपात
+- टेक्स्ट संरेखित करें
+- टेक्स्ट फ़ॉर्मेटिंग
 - तालिका शैली
 - PowerPoint
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ PowerPoint स्लाइड्स में तालिकाओं को बनाएँ और संपादित करें। अपने तालिका कार्यप्रवाह को सुव्यवस्थित करने के लिए आसान कोड उदाहरण खोजें।"
+description: "Aspose.Slides for Java के साथ PowerPoint स्लाइड्स में तालिकाएँ बनाएं और संपादित करें। अपने तालिका कार्यप्रवाह को सुव्यवस्थित करने के लिए सरल कोड उदाहरण खोजें।"
 ---
 ## **परिचय**
 
-PowerPoint में तालिका जानकारी को प्रदर्शित करने और अभिव्यक्त करने का एक प्रभावी तरीका है। कोशिकाओं के ग्रिड (पंक्तियों और स्तंभों में व्यवस्थित) में जानकारी सीधी और समझने में आसान होती है।
+PowerPoint में तालिकाएँ जानकारी को पंक्तियों और स्तंभों में व्यवस्थित करती हैं, जिससे मानों को पढ़ना और तुलना करना आसान हो जाता है।
 
-Aspose.Slides [Table](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Table) क्लास, [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) इंटरफ़ेस, [Cell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/cell/) क्लास, [ICell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/) इंटरफ़ेस, और अन्य प्रकार प्रदान करता है ताकि आप सभी प्रकार की प्रस्तुतियों में तालिकाएँ बना, अपडेट और प्रबंधित कर सकें। 
+Aspose.Slides [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) क्लास, [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) इंटरफ़ेस, [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) क्लास, [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) इंटरफ़ेस, और अन्य प्रकार प्रदान करता है जिससे आप प्रस्तुतियों में तालिकाएँ बना, अपडेट और प्रबंधित कर सकते हैं।
 
-## **शुरू से तालिका बनाएं**
+## **शुरुआत से तालिका बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
-2. उसके अनुक्रमणिका के माध्यम से स्लाइड का संदर्भ प्राप्त करें। 
-3. `columnWidth` का एक एरे परिभाषित करें।
-4. `rowHeight` का एक एरे परिभाषित करें।
-5. स्लाइड में [addTable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) मेथड के द्वारा एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) ऑब्जेक्ट जोड़ें।
-6. प्रत्येक [ICell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/) पर इटररेट करके ऊपर, नीचे, दाएँ और बाएँ बॉर्डर पर फ़ॉर्मेटिंग लागू करें।
-7. तालिका की पहली पंक्ति के पहले दो कोशिकाओं को मिलाएँ। 
-8. किसी [ICell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/) की [TextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textframe/) तक पहुँचें। 
-9. [TextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textframe/) में कुछ टेक्स्ट जोड़ें।
+एक तालिका बनाएं और उसकी स्थिति, स्तंभ चौड़ाइयाँ, और पंक्ति ऊँचाइयाँ निर्दिष्ट करें। स्लाइड में जोड़ने के बाद, आप सेल बॉर्डर फ़ॉर्मेट कर सकते हैं, सेल को मर्ज कर सकते हैं, और टेक्स्ट सम्मिलित कर सकते हैं।
+
+1. एक नया [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास बनाएं।
+2. उसके इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+3. बिंदुओं में कॉलम चौड़ाइयों की एक एरे निर्धारित करें।
+4. बिंदुओं में पंक्ति ऊँचाइयों की एक एरे निर्धारित करें।
+5. [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) मेथड के माध्यम से स्लाइड में एक [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) ऑब्जेक्ट जोड़ें।
+6. प्रत्येक [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) के लिए शीर्ष, नीचे, दाएँ, और बाएँ बॉर्डर पर फ़ॉर्मेट लागू करने के लिए इटररेट करें।
+7. तालिका की पहली पंक्ति के पहले दो सेल को मर्ज करें।
+8. मर्ज किए गए सेल को उसके [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) मेथड से एक्सेस करें।
+9. मर्ज किए गए सेल में टेक्स्ट सेट करें।
 10. संशोधित प्रस्तुति सहेजें।
 
-यह Java कोड दिखाता है कि प्रस्तुति में तालिका कैसे बनायीँ:
+नीचे दिया गया उदाहरण (100, 50) बिंदु पर तीन कॉलम और पाँच पंक्तियों वाली तालिका बनाता है। यह 5 बिंदु चौड़ाई वाली लाल बॉर्डर लागू करता है, पहली पंक्ति के पहले दो सेल को मर्ज करता है, और परिणाम को `table.pptx` के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // कॉलम की चौड़ाई और पंक्तियों की ऊँचाई परिभाषित करता है
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // स्लाइड में एक तालिका आकार जोड़ता है
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के लिए बॉर्डर फ़ॉर्मेट सेट करता है
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -80,24 +75,21 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // पंक्ति 1 की कोशिकाएँ 1 और 2 को मिलाता है
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // मर्ज की गई कोशिका में कुछ टेक्स्ट जोड़ता है
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // प्रस्तुति को डिस्क पर सहेजता है
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **मानक तालिका में क्रमांक निर्धारण**
+## **मानक तालिका में क्रमांकन**
 
-मानक तालिका में कोशिकाओं का क्रमांक निर्धारण साधारण और शून्य-आधारित होता है। तालिका की पहली कोशिका का इंडेक्स 0,0 (स्तंभ 0, पंक्ति 0) होता है। 
+एक मानक तालिका में, सेल इंडेक्स शून्य‑आधारित होते हैं और क्रम (स्तंभ, पंक्ति) का उपयोग करता है। पहला सेल (0, 0) के रूप में क्रमांकित होता है।
 
-उदाहरण के लिए, 4 स्तंभ और 4 पंक्तियों वाली तालिका की कोशिकाएँ इस प्रकार क्रमांकित होती हैं:
+उदाहरण के लिए, 4 कॉलम और 4 पंक्तियों वाली तालिका के सेल इस प्रकार क्रमांकित हैं:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -105,271 +97,247 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-यह Java कोड दिखाता है कि तालिका में कोशिकाओं के क्रमांक कैसे निर्धारित करें:
+यह उदाहरण ऊपर दर्शायी गई 4 × 4 तालिका बनाता है, जिसमें कॉलम चौड़ाइयाँ और पंक्ति ऊँचाइयाँ 70 बिंदु हैं और लाल सेल बॉर्डर 5 बिंदु चौड़ी है। निर्देशांक सेल इंडेक्स को दर्शाते हैं; उदाहरण सेल को खाली छोड़ता है और तालिका को `StandardTables_out.pptx` के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // कॉलम की चौड़ाइयाँ और पंक्तियों की ऊँचाइयाँ परिभाषित करता है
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // स्लाइड में एक तालिका आकार जोड़ता है
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // प्रत्येक कोशिका के बॉर्डर फ़ॉर्मेट को सेट करता है
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // प्रस्तुति को डिस्क पर सहेजता है
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **मौजूदा तालिका तक पहुँचें**
+## **मौजूदा तालिका तक पहुंच**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
+तालिकाएँ स्लाइड की शेप कलेक्शन में संग्रहीत रहती हैं। शेप्स के माध्यम से इटररेट करके तालिका खोजें, फिर [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) इंटरफ़ेस का उपयोग करके उसके सेल पढ़ें या अपडेट करें।
 
-2. अनुक्रमणिका के माध्यम से उस स्लाइड का संदर्भ प्राप्त करें जिसमें तालिका है। 
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का उपयोग करके प्रस्तुति लोड करें।
+2. इंडेक्स द्वारा तालिका वाली स्लाइड का संदर्भ प्राप्त करें।
+3. [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) ऑब्जेक्ट्स के माध्यम से इटररेट करें और जब तालिका मिले तो रुकें। यदि स्लाइड में कई तालिकाएँ हैं, तो आवश्यक तालिका पहचानने के लिए [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getAlternativeText--) का उपयोग करें।
+4. लक्षित सेल में टेक्स्ट अपडेट करें।
+5. संशोधित प्रस्तुति सहेजें।
 
-3. एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) ऑब्जेक्ट बनाएँ और उसे null सेट करें।
-
-4. सभी [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) ऑब्जेक्ट्स को इटररेट करें जब तक कि तालिका न मिल जाए।
-
-   यदि आपको संदेह है कि जिस स्लाइड को आप संभाल रहे हैं उसमें केवल एक तालिका है, तो आप बस उसमें मौजूद सभी शैप्स की जाँच कर सकते हैं। जब कोई शैप तालिका के रूप में पहचाना जाता है, तो आप उसे [Table](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Table) ऑब्जेक्ट में टाइप-कास्ट कर सकते हैं। लेकिन यदि स्लाइड में कई तालिकाएँ हैं, तो आपको उसकी [setAlternativeText(String value)](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) के माध्यम से आवश्यक तालिका खोजनी होगी।
-
-5. तालिका के साथ काम करने के लिए [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) ऑब्जेक्ट का उपयोग करें। नीचे के उदाहरण में हमने तालिका में एक नई पंक्ति जोड़ दी।
-
-6. संशोधित प्रस्तुति सहेजें।
-
-यह Java कोड दिखाता है कि मौजूदा तालिका तक कैसे पहुँचें और उसके साथ कार्य करें:
+नीचे दिया गया उदाहरण `UpdateExistingTable.pptx` खोलता है और पहले स्लाइड पर पहली तालिका खोजता है। यह कॉलम 0, पंक्ति 1 के सेल को `New` सेट करता है और परिणाम को `table1_out.pptx` के रूप में सहेजता है। इनपुट में कम से कम एक स्लाइड होना चाहिए, और उस स्लाइड पर पहली तालिका में कम से कम एक कॉलम और दो पंक्तियाँ होनी चाहिए।
 
 ```java
 import com.aspose.slides.*;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // पहली स्लाइड तक पहुँचता है
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // null TableEx को आरंभ करता है
-    ITable tbl = null;
-
-    // शेप्स के माध्यम से इटररेट करता है और मिलने वाली तालिका का संदर्भ सेट करता है
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // दूसरी पंक्ति के पहले कॉलम का टेक्स्ट सेट करता है
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // संशोधित प्रस्तुति को डिस्क पर सहेजता है
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **उन कोशिकाओं को ढूंढें जिनके पास टेक्स्ट फ्रेम है**
+[पंक्ति की ऊँचाई नियंत्रित करें](/slides/hi/java/manage-rows-and-columns/#control-row-height)
 
-जब सामान्य टेक्स्ट-प्रोसेसिंग कोड को तालिका से एक [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) प्राप्त होता है, तो मालिक [ICell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/) को प्राप्त करने के लिए [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) मेथड का उपयोग करें। एक तालिका-कोशिका टेक्स्ट फ्रेम के लिए, [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) मालिक को लौटाता है और [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) `null` लौटाता है, हालांकि तालिका स्वयं एक शैप है।
+## **टेक्स्ट फ्रेम वाला सेल खोजें**
 
-कोशिका कॉर्डिनेट्स पढ़ने‑के‑लिए‑केवल [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/#getFirstColumnIndex--) और [ICell.getFirstRowIndex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/#getFirstRowIndex--) मेथड उपलब्ध हैं। [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) केवल पढ़ने‑के‑लिए‑नेविगेशन भी प्रदान करता है: यह मालिक को लौटाता है लेकिन स्वामित्व नहीं बदलता। उपयोग करने से पहले हमेशा लौटाए गए कोशिका के `null` होने की जाँच करें।
+जब सामान्य टेक्स्ट‑प्रोसेसिंग कोड को तालिका से [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) प्राप्त होता है, तो [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) मेथड का उपयोग करके मालिक [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) प्राप्त करें। तालिका‑सेल टेक्स्ट फ्रेम के लिए, [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) स्वामी लौटाता है और [ITextFrame.getParentShape](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentShape--) `null` लौटाता है, भले ही तालिका स्वयं एक शेप हो।
 
-तालिका‑कोशिका और शैप मालिकों की पहचान करने वाले पूर्ण उदाहरण के लिए, जिसमें SmartArt नोड्स से जुड़े शैप्स भी शामिल हैं, देखें [Search and Replace Text](/slides/hi/java/search-and-replace-text/)।
+सेल निर्देशांक रीड‑ओनली [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) और [ICell.getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) मेथड्स के माध्यम से उपलब्ध हैं। [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) भी रीड‑ओनली नेविगेशन प्रदान करता है: यह स्वामी लौटाता है लेकिन स्वामित्व नहीं बदलता। उपयोग से पहले हमेशा `null` की जाँच करें।
 
-## **तालिका में टेक्स्ट को संरेखित करें**
+तालिका‑सेल और शेप स्वामियों की पहचान करने वाला पूर्ण उदाहरण, जिसमें स्मार्टआर्ट नोड्स से संबंधित शेप्स शामिल हैं, देखें [Search and Replace Text](/slides/hi/java/search-and-replace-text/)।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
-2. उसके अनुक्रमणिका के माध्यम से स्लाइड का संदर्भ प्राप्त करें। 
-3. स्लाइड में एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) ऑब्जेक्ट जोड़ें। 
-4. तालिका से एक [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) ऑब्जेक्ट तक पहुँचें। 
-5. [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) की [IParagraph](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraph/) तक पहुँचें।
-6. टेक्स्ट को लंबवत रूप से संरेखित करें।
+## **तालिका में टेक्स्ट संरेखित करें**
+
+आप व्यक्तिगत तालिका सेल के वर्टिकल एंकरिंग और टेक्स्ट दिशा को नियंत्रित कर सकते हैं। इस सेक्शन का उदाहरण पहली सेल के भीतर टेक्स्ट को केंद्रित करता है और उसे 270 डिग्री घुमाता है।
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+3. स्लाइड में एक [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) ऑब्जेक्ट जोड़ें।
+4. तालिका से एक [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) ऑब्जेक्ट एक्सेस करें।
+5. पहले [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) को एक्सेस करें और उसका टेक्स्ट व रंग सेट करें।
+6. सेल की वर्टिकल एंकरिंग और टेक्स्ट दिशा को [setTextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextAnchorType-byte-) और [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextVerticalType-byte-) से सेट करें।
 7. संशोधित प्रस्तुति सहेजें।
 
-यह Java कोड दिखाता है कि तालिका में टेक्स्ट को कैसे संरेखित करें:
+यह उदाहरण 120 बिंदु कॉलम चौड़ाइयों और 100 बिंदु पंक्ति ऊँचाइयों वाली 4 × 4 तालिका बनाता है। यह सेल (0, 0) में टेक्स्ट फ़ॉर्मेट करता है, पहली पंक्ति के शेष सेल में मान जोड़ता है, और परिणाम को `Vertical_Align_Text_out.pptx` के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Presentation क्लास का एक इंस्टेंस बनाता है
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड प्राप्त करता है
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // कॉलम की चौड़ाई और पंक्तियों की ऊँचाई परिभाषित करता है
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // स्लाइड में तालिका आकार जोड़ता है
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // टेक्स्ट फ्रेम तक पहुँचता है
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // टेक्स्ट फ्रेम के लिए Paragraph ऑब्जेक्ट बनाता है
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // पैराग्राफ के लिए Portion ऑब्जेक्ट बनाता है
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // टेक्स्ट को लंबवत रूप से संरेखित करता है
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // प्रस्तुति को डिस्क पर सहेजता है
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **तालिका स्तर पर टेक्स्ट फ़ॉर्मेटिंग सेट करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।
-2. उसके अनुक्रमणिका के माध्यम से स्लाइड का संदर्भ प्राप्त करें। 
-3. स्लाइड से एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) ऑब्जेक्ट तक पहुँचें।
-4. टेक्स्ट के लिए [setFontHeight(float value)](https://reference.aspose.com/slides/hi/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) सेट करें। 
-5. [setAlignment(int value)](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) और [setMarginRight(float value)](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) सेट करें। 
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) सेट करें।
-7. संशोधित प्रस्तुति सहेजें। 
+सभी सेल पर टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [setTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-) का उपयोग करें। इसके ओवरलोड भाग, पैराग्राफ और टेक्स्ट फ्रेम फ़ॉर्मेटिंग को स्वीकार करते हैं, इसलिए आप व्यक्तिगत सेल पर इटररेट किए बिना इन गुणों को सेट कर सकते हैं।
 
-यह Java कोड दिखाता है कि तालिका में टेक्स्ट पर अपनी पसंदीदा फ़ॉर्मेटिंग विकल्प कैसे लागू करें:
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास से प्रस्तुति लोड करें।
+2. इंडेक्स द्वारा स्लाइड का संदर्भ प्राप्त करें।
+3. स्लाइड से एक [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) ऑब्जेक्ट एक्सेस करें।
+4. टेक्स्ट के फ़ॉन्ट आकार को [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) से 25 बिंदु सेट करें।
+5. पैराग्राफ एलाइनमेंट और दाएँ मार्जिन को [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) और [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) से क्रमशः सेट करें।
+6. टेक्स्ट दिशा को [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) से सेट करें।
+7. संशोधित प्रस्तुति सहेजें।
+
+नीचे दिया गया उदाहरण `table.pptx` खोलता है, जिसमें कम से कम एक स्लाइड पर पहला शेप एक तालिका होना आवश्यक है। यह फ़ॉन्ट आकार को 25 बिंदु, पैराग्राफ को दाएँ-एलाइन 20 बिंदु मार्जिन के साथ सेट करता है, और टेक्स्ट को वर्टिकल बनाता है। फ़ॉर्मेट की गई प्रस्तुति को `result.pptx` के रूप में सहेजा जाता है।
 
 ```java
 import com.aspose.slides.*;
 
-// Presentation क्लास का एक इंस्टेंस बनाता है
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // मान लेते हैं कि पहली स्लाइड की पहली आकृति एक तालिका है
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // तालिका कोशिकाओं की फ़ॉन्ट ऊँचाई सेट करता है
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // तालिका कोशिकाओं के टेक्स्ट संरेखण और दाएँ मार्जिन को एक ही कॉल में सेट करता है
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // तालिका कोशिकाओं के टेक्स्ट वर्टिकल टाइप को सेट करता है
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **तालिका शैली गुण प्राप्त करें**
 
-Aspose.Slides आपको तालिका के लिए शैली गुण प्राप्त करने की अनुमति देता है ताकि आप उन विवरणों को किसी अन्य तालिका या किसी अन्य स्थान पर उपयोग कर सकें। यह Java कोड दिखाता है कि तालिका प्रीसेट शैली से शैली गुण कैसे प्राप्त करें:
+एक तालिका की प्रीसेट शैली को पढ़ने के लिए [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) का उपयोग करें और उसे असाइन करने के लिए [setStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setStylePreset-int-) का उपयोग करें। यह उदाहरण [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/) को एक तालिका पर लागू करता है, प्रीसेट वैल्यू प्रिंट करता है, और उसी प्रीसेट को दूसरी तालिका पर असाइन करता है। दोनों तालिकाएँ `table-style.pptx` में सहेजी जाती हैं।
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // डिफ़ॉल्ट शैली प्रीसेट थीम बदलें
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // तालिका की शैली प्रीसेट प्राप्त करता है
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // प्राप्त शैली प्रीसेट को दूसरी तालिका पर लागू करता है
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **तालिका का आस्पेक्ट रेश्यो लॉक करें**
+## **तालिका का अनुपात लॉक करें**
 
-ज्यामितीय आकार का आस्पेक्ट रेश्यो विभिन्न आयामों में उसके आकार का अनुपात है। Aspose.Slides ने तालिकाओं और अन्य शैप्स के लिए आस्पेक्ट रेश्यो सेटिंग को लॉक करने हेतु [**setAspectRatioLocked**](https://reference.aspose.com/slides/hi/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) प्रॉपर्टी प्रदान की है। 
+एक तालिका का अनुपात उसकी चौड़ाई और ऊँचाई का अनुपात होता है। इस अनुपात को तालिका के लिए लॉक करने हेतु [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-) का उपयोग करें।
 
-यह Java कोड दिखाता है कि तालिका के लिए आस्पेक्ट रेश्यो कैसे लॉक करें:
+निचे दिया गया उदाहरण `pres.pptx` खोलता है, जिसमें कम से कम एक स्लाइड पर पहला शेप एक तालिका होना आवश्यक है। यह वर्तमान लॉक स्थिति प्रिंट करता है, अनुपात लॉक को सक्षम करता है, अपडेटेड स्थिति (`true`) प्रिंट करता है, और परिणाम को `pres-out.pptx` के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // उलटें
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं पूरी तालिका और उसकी कोशिकाओं के टेक्स्ट के लिए दाएँ‑से‑बाएँ (RTL) पढ़ने की दिशा सक्षम कर सकता हूँ?**
+**क्या मैं पूरी तालिका और उसके सेल्स के टेक्स्ट के लिए दाएं से बाएं (RTL) पढ़ने की दिशा सक्रिय कर सकता/सकती हूँ?**
 
-हाँ। तालिका में एक [setRightToLeft](https://reference.aspose.com/slides/hi/java/com.aspose.slides/table/#setRightToLeft-boolean-) मेथड उपलब्ध है, और पैराग्राफ़ में [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/hi/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) होता है। दोनों का उपयोग करने से कोशिकाओं के अंदर सही RTL क्रम और रेंडरिंग सुनिश्चित होती है।
+हाँ। तालिका [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-) मेथड प्रदान करती है, और पैराग्राफ़ में [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) है। दोनों का उपयोग करने से सेल्स के भीतर सही RTL क्रम और रेंडरिंग सुनिश्चित होती है।
 
-**मैं उपयोगकर्ताओं को अंतिम फ़ाइल में तालिका को स्थानांतरित या आकार बदलने से कैसे रोक सकता हूँ?**
+**मैं अंतिम फ़ाइल में उपयोगकर्ताओं को तालिका को स्थानांतरित या आकार बदलने से कैसे रोक सकता हूँ?**
 
-तालिका सहित शैप्स को स्थानांतरित, आकार बदलने, चयन आदि को निष्क्रिय करने के लिए [shape locks](/slides/hi/java/applying-protection-to-presentation/) का उपयोग करें। ये लॉक तालिकाओं पर भी लागू होते हैं।
+[आकार लॉक](/slides/hi/java/applying-protection-to-presentation/) का उपयोग करके मूविंग, रिसाइज़िंग, सेलेक्शन आदि को निष्क्रिय करें। ये लॉक तालिकाओं पर भी लागू होते हैं।
 
-**क्या एक कोशिका के भीतर पृष्ठभूमि के रूप में छवि सम्मिलित करना समर्थित है?**
+**क्या सेल के अंदर छवि को बैकग्राउंड के रूप में सम्मिलित करना समर्थित है?**
 
-हाँ। आप किसी कोशिका के लिए [picture fill](https://reference.aspose.com/slides/hi/java/com.aspose.slides/picturefillformat/) सेट कर सकते हैं; छवि चयनित मोड (स्ट्रेच या टाइल) के अनुसार कोशिका क्षेत्र को कवर कर देगी।
+हाँ। आप सेल के लिए [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) सेट कर सकते हैं; छवि चयनित मोड (स्टेच या टाइल) के अनुसार सेल क्षेत्र को कवर करेगी।

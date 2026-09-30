@@ -1,13 +1,13 @@
 ---
-title: Prezentációs táblázatok kezelése Java-ban
+title: Prezentációs táblázatok kezelése Java nyelven
 linktitle: Táblázat kezelése
 type: docs
 weight: 10
 url: /hu/java/manage-table/
 keywords:
-- tábla hozzáadása
-- tábla létrehozása
-- tábla elérése
+- táblázat hozzáadása
+- táblázat létrehozása
+- táblázat elérése
 - képarány
 - szöveg igazítása
 - szövegformázás
@@ -16,53 +16,48 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Táblázatok létrehozása és szerkesztése PowerPoint-diákon az Aspose.Slides for Java segítségével. Fedezze fel az egyszerű kódrészleteket, hogy hatékonyabbá tegye a táblázati munkafolyamatokat."
+description: "Készítsen és szerkesszen táblázatokat PowerPoint diákon az Aspose.Slides for Java segítségével. Fedezzen fel egyszerű kódpéldákat, hogy egyszerűsítse a táblázat-kezelési folyamatokat."
 ---
 ## **Bevezetés**
 
-A PowerPoint táblázata hatékony módja az információk megjelenítésének és ábrázolásának. A cellák (sorokba és oszlopokba rendezett) rácsában lévő információk egyszerűek és könnyen érthetőek.
+A táblázatok a PowerPointban információkat sorokba és oszlopokba szerveznek, megkönnyítve az értékek olvasását és összehasonlítását.
 
-Aspose.Slides a [Table](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Table) osztályt, az [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITable) interfészt, a [Cell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/cell/) osztályt, az [ICell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icell/) interfészt és egyéb típusokat biztosít, amelyekkel táblázatokat hozhat létre, frissíthet és kezelhet mindenféle bemutatóban. 
+Az Aspose.Slides biztosítja a [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) osztályt, az [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) interfészt, a [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) osztályt, az [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) interfészt és egyéb típusokat, hogy táblázatokat hozhasson létre, frissíthessen és kezelhessen a prezentációkban.
 
 ## **Táblázat létrehozása a semmiből**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze meg a diára való hivatkozást az indexén keresztül.  
-3. `columnWidth` tömbjének definiálása.  
-4. `rowHeight` tömbjének definiálása.  
-5. Adjon hozzá egy [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITable) objektumot a diára a [addTable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) metódus segítségével.  
-6. Iteráljon minden [ICell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icell/) elemen a felső, alsó, jobb és bal szegélyek formázásához.  
-7. Fésülje össze a táblázat első sorának első két celláját.  
-8. Érje el egy [ICell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icell/) [TextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textframe/) objektumát.  
-9. Adjon szöveget a [TextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textframe/)-hez.  
-10. Mentse a módosított bemutatót.  
+Hozzon létre egy táblázatot a pozíció, az oszlopszélességek és a sormagasságok megadásával. A diára történő hozzáadás után formázhatja a cellaszegélyeket, egyesítheti a cellákat, és szöveget vihet be.
 
-Ez a Java kód bemutatja, hogyan hozhat létre táblázatot egy bemutatóban:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztályból.  
+2. Szerezze be a diát az indexe alapján.  
+3. Határozzon meg egy pontokban megadott oszlopszélességek tömbjét.  
+4. Határozzon meg egy pontokban megadott sormagasságok tömbjét.  
+5. Adjon hozzá egy [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) objektumot a diához a [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metódus segítségével.  
+6. Iteráljon végig minden [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) elemen a felső, alsó, jobb és bal szegély formázásához.  
+7. Egyesítse a táblázat első sorának első két celláját.  
+8. Érje el az egyesített cellát a [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) metódusával.  
+9. Állítsa be a szöveget az egyesített cellában.  
+10. Mentse a módosított prezentációt.
+
+A lenti példa egy három oszlopos és öt soros táblázatot hoz létre (100, 50) pont helyen. Piros szegélyeket alkalmaz 5 pont szélességgel, egyesíti az első sor első két celláját, és a végeredményt `table.pptx` néven menti.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Létrehozza a Presentation osztály egy példányát, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Eléri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Meghatározza az oszlopok szélességét és a sorok magasságát
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Táblázat alakzatot ad hozzá a diához
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Beállítja a szegélyformátumot minden cellához
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -80,22 +75,19 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Összevonja az 1. sor 1. és 2. celláját
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // Szöveget ad a összevont cellához
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // Mentse a bemutatót a lemezre
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Számozás egy standard táblázatban**
+## **Számozás egy szabványos táblázatban**
 
-Egy standard táblázatban a cellák számozása egyszerű és nulláról kezdődik. A táblázat első cellája 0,0 (oszlop 0, sor 0) indexel.
+Egy szabványos táblázatban a cella indexek nullaalapúak, és (oszlop, sor) sorrendet követnek. Az első cella indexe (0, 0).
 
 Például egy 4 oszlopos és 4 soros táblázat cellái így vannak számozva:
 
@@ -105,270 +97,247 @@ Például egy 4 oszlopos és 4 soros táblázat cellái így vannak számozva:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Ez a Java kód bemutatja, hogyan adhatja meg a cellák számozását egy táblázatban:
+Ez a példa a fent ábrázolt 4 × 4-es táblázatot hozza létre, 70 pont széles oszlopszélességekkel és sormagasságokkal, valamint 5 pont széles piros cellaszegélyekkel. A koordináták a cella indexeket mutatják; a példa üresen hagyja a cellákat, és a táblázatot `StandardTables_out.pptx` néven menti.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Elindít egy Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Eléri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Oszlopok szélességének és sorok magasságának meghatározása
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Táblázat alakzatot ad hozzá a diához
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Beállítja a szegélyformátumot minden cellához
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // Mentse a bemutatót a lemezre
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Létező táblázat elérése**
+## **Meglévő táblázat elérése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból.  
+A táblázatok a dia alakzatgyűjteményében tárolódnak. Iteráljon az alakzatokon, hogy megtalálja a táblázatot, majd használja az [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) interfészt a cellák olvasásához vagy frissítéséhez.
 
-2. Szerezze meg a táblázatot tartalmazó dia hivatkozását az indexén keresztül.  
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztály segítségével.  
+2. Szerezze meg a táblázatot tartalmazó dia referenciáját az indexe alapján.  
+3. Iteráljon a [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) objektumokon, és álljon meg, amikor táblázatot talál. Ha a dián több táblázat is van, használja a [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getAlternativeText--) metódust a szükséges azonosításához.  
+4. Frissítse a célcella szövegét.  
+5. Mentse a módosított prezentációt.
 
-3. Hozzon létre egy [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITable) objektumot, és állítsa null értékre.  
-
-4. Iteráljon az összes [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) objektumon, amíg a táblázat meg nem található.  
-   Ha úgy gondolja, hogy a feldolgozott dia egyetlen táblázatot tartalmaz, egyszerűen ellenőrizheti az összes benne lévő alakzatot. Ha egy alakzatot táblázatként azonosít, akkor típuskonvertálhatja [Table](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Table) objektummá. Ha a dia több táblázatot tartalmaz, akkor célszerűbb a szükséges táblázatot a [setAlternativeText(String value)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-) metódus alapján keresni.  
-
-5. Használja az [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITable) objektumot a táblázat kezeléséhez. Az alábbi példában új sort adtunk a táblázathoz.  
-
-6. Mentse a módosított bemutatót.  
-
-Ez a Java kód bemutatja, hogyan érheti el és dolgozhat fel egy létező táblázatot:
+A lenti példa megnyitja a `UpdateExistingTable.pptx` fájlt, és megtalálja az első táblázatot az első dián. A 0. oszlop, 1. sor celláját `New` értékre állítja, és az eredményt `table1_out.pptx` néven menti. A bemeneti fájlnak legalább egy diát kell tartalmaznia, és az első táblázatnak legalább egy oszlopot és két sort.
 
 ```java
 import com.aspose.slides.*;
 
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // Eléri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Inicializálja a null TableEx-et
-    ITable tbl = null;
-
-    // Végig iterál a alakzatokon és beállítja a megtalált táblázatra a hivatkozást
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // Beállítja a szöveget a második sor első oszlopához
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // Mentse a módosított bemutatót a lemezre
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Keresse meg a szövegkeretet tartalmazó cellát**
+Ha egy meglévő táblázat sorát szeretné átméretezni, és meg akarja érteni, miért lehet a tényleges magasság nagyobb a kért minimumnál, lásd a [Sor magasságának szabályozása](/slides/hu/java/manage-rows-and-columns/#control-row-height) oldalt.
 
-Ha általános szövegfeldolgozó kód egy [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/) objektumot kap egy táblázatból, használja az [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentCell--) metódust a tulajdonos [ICell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icell/) lekéréséhez. Egy táblacellás szövegkeret esetén az [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentCell--) visszaadja a tulajdonost, míg az [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentShape--) `null` értéket ad, még akkor is, ha a táblázat maga alakzat.
+## **Keresse meg a szövegtáblát tartalmazó cellát**
 
-A cellakoordináták a csak olvasható [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icell/#getFirstColumnIndex--) és [ICell.getFirstRowIndex](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icell/#getFirstRowIndex--) metódusokon keresztül érhetők el. Az [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentCell--) szintén csak olvasható navigációt biztosít: visszaadja a tulajdonost, de nem változtatja meg a tulajdonjogot. Mindig ellenőrizze a visszakapott cellát `null` érték ellen, mielőtt felhasználná.
+Amikor egy általános szövegfeldolgozó kód egy [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) objektumot kap egy táblázatból, használja az [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) metódust a tulajdonos [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) lekéréséhez. Egy táblázat‑cella szövegtáblánál az [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) visszaadja a tulajdonost, míg az [ITextFrame.getParentShape](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentShape--) `null`‑t ad, annak ellenére, hogy maga a táblázat is egy alakzat.
 
-Egy teljes példáért, amely azonosítja a táblacellákat és alakzat tulajdonosokat, beleértve a SmartArt csomópontokkal kapcsolatos alakzatokat, lásd a [Search and Replace Text](/slides/hu/java/search-and-replace-text/) oldalt.
+A cellakoordináták a csak‑olvasásra szóló [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) és [ICell.getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) metódusokkal érhetők el. Az [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) szintén csak‑olvasási navigációt biztosít: visszaadja a tulajdonost, de nem módosítja a tulajdonjogot. Mindig ellenőrizze, hogy a visszakapott cella `null`‑e, mielőtt felhasználná.
+
+A teljes példáért, amely azonosítja a táblázat‑cella és alakzat tulajdonosait, beleértve a SmartArt csomópontokhoz kapcsolódó alakzatokat, lásd a [Keresés és csere szöveg](/slides/hu/java/search-and-replace-text/) oldalt.
 
 ## **Szöveg igazítása egy táblázatban**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze meg a diára való hivatkozást az indexén keresztül.  
-3. Adjon hozzá egy [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITable) objektumot a diára.  
-4. Érjen hozzá egy [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/) objektumhoz a táblázatból.  
-5. Érjen hozzá az [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/) [IParagraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraph/) objektumához.  
-6. Igazítsa függőlegesen a szöveget.  
-7. Mentse a módosított bemutatót.  
+Egyes táblázatcella függőleges rögzítését és szövegirányát vezérelheti. E szakaszban szereplő példa a szöveget a első cellában középre igazítja, és 270 fokkal elforgatja.
 
-Ez a Java kód bemutatja, hogyan igazíthatja a szöveget egy táblázatban:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztályból.  
+2. Szerezze meg a dia referencia értékét az index alapján.  
+3. Adjon hozzá egy [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) objektumot a diához.  
+4. Érje el a táblázatból egy [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) objektumot.  
+5. Érje el az első [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/) objektumot, és állítsa be a szövegét és színét.  
+6. Állítsa be a cella függőleges rögzítését és a szövegirányt a [setTextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextAnchorType-byte-) és a [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextVerticalType-byte-) segítségével.  
+7. Mentse a módosított prezentációt.
+
+Ez a példa egy 4 × 4-es táblázatot hoz létre, 120 pont széles oszlopszélességekkel és 100 pont magas sorokkal. Formázza a (0, 0) cella szövegét, értékeket ad a első sor többi cellájához, és a végeredményt `Vertical_Align_Text_out.pptx` néven menti.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Lekéri az első diát
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Meghatározza az oszlopok szélességét és a sorok magasságát
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // Hozzáadja a táblázat alakzatot a diához
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // Eléri a szövegkeretet
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // Létrehozza a Paragraph objektumot a szövegkerethez
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // Létrehozza a Portion objektumot a bekezdéshez
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // Függőlegesen igazítja a szöveget
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // Mentse a bemutatót a lemezre
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Szövegformázás beállítása a táblázat szintjén**
+## **Szövegformázás beállítása táblázati szinten**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze meg a diára való hivatkozást az indexén keresztül.  
-3. Érjen hozzá egy [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITable) objektumhoz a diáról.  
-4. Állítsa be a [setFontHeight(float value)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódust a szöveghez.  
-5. Állítsa be a [setAlignment(int value)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) és a [setMarginRight(float value)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) metódusokat.  
-6. Állítsa be a [setTextVerticalType(byte value)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) metódust.  
-7. Mentse a módosított bemutatót.  
+A [setTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-) használatával szövegformázást alkalmazhat a táblázat minden cellájára. A túlterhelései részek, bekezdés és szövegtáblázat formázását fogadják, így ezek a tulajdonságok egyenkénti cellák iterálása nélkül állíthatók be.
 
-Ez a Java kód bemutatja, hogyan alkalmazhatja a kívánt formázási beállításokat egy táblázat szövegére:
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) osztály segítségével.  
+2. Szerezze meg a dia referencia értékét az index alapján.  
+3. Érje el a dián egy [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) objektumot.  
+4. Állítsa be a betűméretet a [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódussal a szöveghez.  
+5. Állítsa be a bekezdés igazítását és a jobb margót a [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) és a [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) segítségével.  
+6. Állítsa be a szöveg irányát a [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) metódussal.  
+7. Mentse a módosított prezentációt.
+
+A lenti példa megnyitja a `table.pptx` fájlt, amelynek legalább egy diát kell tartalmaznia, ahol a táblázat az első alakzat. A betűméretet 25 pontra állítja, a bekezdéseket jobbra igazítja 20 pont jobb margóval, és függőlegessé teszi a szöveget. A formázott prezentáció `result.pptx` néven kerül mentésre.
 
 ```java
 import com.aspose.slides.*;
 
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Tegyük fel, hogy az első dia első alakzata egy táblázat
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // Beállítja a táblázat celláinak betűmagasságát
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // Egy hívással beállítja a cellák szövegigazítását és jobb margóját
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // Beállítja a cellák szöveg függőleges típusát
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Táblázat stílus tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy táblázat stílus tulajdonságait, így ezeket a részleteket felhasználhatja egy másik táblázathoz vagy máshová. Ez a Java kód bemutatja, hogyan szerezheti meg a stílus tulajdonságokat egy táblázat előre beállított stílusából:
+Használja a [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) metódust egy táblázat előre beállított stílusának lekéréséhez, és a [setStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setStylePreset-int-) metódust annak beállításához. Ez a példa egy táblázatra alkalmazza a [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/) stílust, kiírja az előre beállított értéket, majd ugyanazt a stílust a második táblázatra is beállítja. Mindkét táblázat a `table-style.pptx` fájlban kerül mentésre.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // módosítja az alapértelmezett stílus előbeállítását
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lekéri a táblázat stílus előbeállítását
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // Alkalmazza a lekért stílus előbeállítást egy másik táblázatra
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Táblázat képarányának zárolása**
 
-A geometriai alakzat képaránya annak különböző dimenziókban mért méreteinek aránya. Az Aspose.Slides biztosítja a **setAspectRatioLocked** tulajdonságot, amely lehetővé teszi a képarány beállításának zárolását táblázatok és egyéb alakzatok esetén.  
+Egy táblázat képaránya a szélesség és a magasság aránya. A [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-) használatával zárolhatja ezt az arányt a táblázat számára.
 
-Ez a Java kód bemutatja, hogyan zárolhatja a képarányt egy táblázatra:
+A lenti példa megnyitja a `pres.pptx` fájlt, amelynek legalább egy diát kell tartalmaznia, ahol a táblázat az első alakzat. Kiírja a jelenlegi zárási állapotot, engedélyezi a képarány zárolását, kiírja a frissített állapotot (`true`), majd a végeredményt `pres-out.pptx` néven menti.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // invertálja
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Engedélyezhetem a jobbról balra (RTL) olvasási irányt egy egész táblázatra és a cellák szövegére?**
+**Engedélyezhetem a jobbról balra (RTL) olvasási irányt egy teljes táblázatra és a celláiban lévő szövegre?**
 
-Igen. A táblázat rendelkezik egy [setRightToLeft](https://reference.aspose.com/slides/hu/java/com.aspose.slides/table/#setRightToLeft-boolean-) metódussal, és a bekezdések rendelkeznek a [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/hu/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) beállítással. Mindkettő használata biztosítja a helyes RTL sorrendet és megjelenítést a cellákon belül.
+Igen. A táblázat a [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-) metódust biztosítja, a bekezdéseknek pedig a [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-) metódusa van. Mindkettő használata biztosítja a helyes RTL sorrendet és megjelenítést a cellákon belül.
 
-**Hogyan akadályozhatom meg, hogy a felhasználók mozgassák vagy átméretezzék a táblázatot a végleges fájlban?**
+**Hogyan akadályozhatom meg, hogy a felhasználók a kész fájlban mozgatni vagy átméretezni a táblázatot?**
 
-Használja a [shape locks](/slides/hu/java/applying-protection-to-presentation/) funkciókat a mozgatás, átméretezés, kijelölés stb. letiltásához. Ezek a zárolások a táblázatokra is érvényesek.
+Használja a [alakzat zárolások](/slides/hu/java/applying-protection-to-presentation/) funkciót a mozgatás, átméretezés, kiválasztás stb. letiltásához. Ezek a zárolások a táblázatokra is érvényesek.
 
-**Támogatott-e egy kép cellán belüli háttérként történő beszúrása?**
+**Támogatott-e egy kép beillesztése egy cellába háttérként?**
 
-Igen. Beállíthat egy [picture fill](https://reference.aspose.com/slides/hu/java/com.aspose.slides/picturefillformat/) kitöltést egy cellához; a kép a kiválasztott mód (nyújtás vagy csempe) szerint lefedi a cella területét.
+Igen. Egy cellához beállíthat egy [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) kitöltést; a kép a kiválasztott mód (nyújtás vagy csempézés) szerint lefedi a cellaterületet.

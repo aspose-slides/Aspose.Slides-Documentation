@@ -1,5 +1,5 @@
 ---
-title: Управление строками и столбцами в таблицах PowerPoint с использованием Java
+title: Управление строками и столбцами в таблицах PowerPoint на Java
 linktitle: Строки и столбцы
 type: docs
 weight: 20
@@ -9,12 +9,12 @@ keywords:
 - столбец таблицы
 - первая строка
 - заголовок таблицы
-- клонирование строки
-- клонирование столбца
-- копирование строки
-- копирование столбца
-- удаление строки
-- удаление столбца
+- клонировать строку
+- клонировать столбец
+- копировать строку
+- копировать столбец
+- удалить строку
+- удалить столбец
 - форматирование текста строки
 - форматирование текста столбца
 - стиль таблицы
@@ -22,256 +22,280 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Управляйте строками и столбцами таблиц в PowerPoint с помощью Aspose.Slides для Java и ускоряйте редактирование презентаций и обновление данных."
+description: "Управляйте строками и столбцами таблиц в PowerPoint с помощью Aspose.Slides для Java и ускорьте редактирование презентаций и обновление данных."
 ---
+## **Введение**
 
-Чтобы позволить вам управлять строками и столбцами таблицы в презентации PowerPoint, Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) , интерфейс [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) и многие другие типы. 
+Aspose.Slides for Java позволяет управлять структурой таблицы и форматированием в презентациях PowerPoint через класс [Таблица](https://reference.aspose.com/slides/java/com.aspose.slides/table/) и интерфейс [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/). Вы можете обозначить строку заголовка, клонировать или удалять строки и столбцы, а также применять форматирование текста к целой строке или столбцу.
 
-## **Установить первую строку в качестве заголовка**
+Эта статья объясняет эти операции с примерами на Java. Она также показывает, как получить предустановленный стиль таблицы, чтобы повторно использовать его. Индексы строк и столбцов таблицы нумеруются с нуля.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и загрузите презентацию. 
-2. Получите ссылку на слайд по его индексу. 
-3. Создайте объект [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) и присвойте ему значение null. 
-4. Пройдите по всем объектам [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) , чтобы найти нужную таблицу. 
-5. Установите первую строку таблицы в качестве её заголовка. 
+## **Управление высотой строки**
 
-Следующий код Java показывает, как установить первую строку таблицы в качестве заголовка:
+Используйте [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) чтобы установить минимальную высоту строки в пунктах. Это нижняя граница, а не фиксированная высота. [IRow.getHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#getHeight--) возвращает фактическую высоту. Доступ к строке осуществляется через [ITable.getRows](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getRows--).
+
+Пример загружает [row-height-input.pptx](row-height-input.pptx), в котором таблица является первой фигурой на первом слайде. Ее первая строка начинается с 70 пунктов. Ячейки используют текст Arial 18 пунктов, с переносом и отступами сверху и снизу по 6 пунктов; более длинный текст во втором столбце переносится на несколько линий. Пример увеличивает минимум до 100 пунктов, затем уменьшает его до 20 пунктов, выводит фактическую высоту после каждого изменения и сохраняет оба результата.
+
 ```java
-// Создает экземпляр класса Presentation
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
 try {
-    // Получает первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Инициализирует null TableEx
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
 
-    // Итерирует формы и устанавливает ссылку на таблицу
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Sets the first row of a table as its header
-            // Устанавливает первую строку таблицы как заголовок
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Сохраняет презентацию на диск
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+При использовании предоставленной презентации увеличение минимума добавляет пространство к строке. Уменьшение убирает это дополнительное пространство, но фактическая высота остаётся больше 20 пунктов, потому что текст и отступы ячеек требуют больше места. Сокращение только минимума не может заставить строку стать ниже пространства, требуемого её содержимым.
 
+Несколько факторов влияют на фактическую высоту:
 
+- **Текст и размер шрифта:** более длинный текст, явные разрывы строк или более крупный шрифт могут требовать больше вертикального пространства.
+- **Перенос и ширина столбца:** при включённом переносе уменьшение ширины столбца с помощью [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) может привести к появлению дополнительных строк. Более широкий столбец может уменьшить требуемое вертикальное пространство.
+- **Отступы ячеек:** [ICell.setMarginTop](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginTop-double-) и [ICell.setMarginBottom](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginBottom-double-) добавляют вертикальное пространство. [ICell.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginLeft-double-) и [ICell.setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginRight-double-) уменьшают ширину, доступную для текста, и могут вызвать дополнительный перенос.
 
-## **Клонирование строки или столбца таблицы**
+Для этой таблицы без объединённых ячеек ячейка, требующая наибольшее вертикальное пространство, определяет нижний предел, задаваемый содержимым, для всей строки. Чтобы сделать строку короче, возможно, придётся сократить текст, уменьшить размер шрифта или отступы, либо расширить столбец.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth`. 
-4. Определите массив `rowHeight`. 
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). 
-6. Клонируйте строку таблицы. 
-7. Клонируйте столбец таблицы. 
-8. Сохраните изменённую презентацию. 
+Изображения ниже показывают одну и ту же таблицу в одинаковом масштабе. На иллюстрированных результатах фактические высоты составляли 70, 100 и 55,2 пункта: последняя строка оставалась выше минимального значения в 20 пунктов. Точные измерения текста могут варьироваться в зависимости от доступных в вашей среде шрифтов. Скачайте сохранённые результаты: [увеличенный минимум](row-height-increased.pptx) и [уменьшенный минимум](row-height-decreased.pptx).
 
-Следующий код Java показывает, как клонировать строку или столбец таблицы PowerPoint:
+| Исходный: минимум 70 pt, фактическая 70 pt | Увеличенный минимум: минимум 100 pt, фактическая 100 pt | Уменьшенный минимум: минимум 20 pt, фактическая 55.2 pt |
+| --- | --- | --- |
+| ![Исходная таблица с первой строкой 70 пунктов.](row-height-before.png) | ![Таблица после увеличения минимума первой строки до 100 пунктов.](row-height-increased.png) | ![Таблица после уменьшения минимума первой строки до 20 пунктов; перенос текста сохраняет строку выше минимума.](row-height-decreased.png) |
+
+## **Установить первую строку как заголовок**
+
+Используйте метод [setFirstRow](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setFirstRow-boolean-) для пометки первой строки как заголовка. Её внешний вид зависит от стиля таблицы, применённого к таблице.
+
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Получите доступ к первому слайду.
+3. Получите доступ к таблице, хранящейся как первая фигура на слайде.
+4. Включите форматирование заголовка для её первой строки.
+5. Сохраните изменённую презентацию.
+
+Пример требует файл `table.pptx` с таблицей в качестве первой фигуры на первом слайде. Он включает форматирование заголовка для первой строки и сохраняет `First_row_header.pptx`.
+
 ```java
- // Создает экземпляр класса Presentation
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Получает первый слайд
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Определяет столбцы с шириной и строки с высотой
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Добавляет форму таблицы на слайд
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    // Добавляет текст в ячейку 1 строки 1
+## **Клонировать строку или столбец таблицы**
+
+Клонируйте строки или столбцы, чтобы переиспользовать их содержимое и форматирование. Вы можете добавить копию в конец таблицы или вставить её в определённую позицию.
+
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Получите доступ к первому слайду.
+3. Задайте ширины столбцов и высоты строк.
+4. Добавьте таблицу с помощью метода [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Клонируйте необходимые строки.
+6. Клонируйте необходимые столбцы.
+7. Сохраните изменённую презентацию.
+
+Пример требует файл `Test.pptx` с как минимум одним слайдом. Он создаёт таблицу с тремя столбцами и пятью строками, задавая размеры в пунктах. Затем он добавляет копии первой строки и первого столбца, после чего вставляет копии второй строки и второго столбца в индекс 3 (четвёртая позиция). Получившаяся таблица содержит семь строк и пять столбцов. Аргумент `false` отключает клонирование в соседние объединённые строки или столбцы; в этой таблице нет объединённых ячеек.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Добавляет текст в ячейку 2 строки 1
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Клонирует строку 1 в конец таблицы
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Добавляет текст в ячейку 1 строки 2
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Добавляет текст в ячейку 2 строки 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Клонирует строку 2 как 4‑ю строку таблицы
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Клонирует первый столбец в конец
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Клонирует второй столбец на позицию 4‑го столбца
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Сохраняет презентацию на диск
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Удалить строку или столбец из таблицы**
 
-## **Удаление строки или столбца из таблицы**
+Удалите строки или столбцы, которые больше не нужны в таблице. Удаление элемента сдвигает индексы последующих строк или столбцов.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Определите массив `columnWidth`. 
-4. Определите массив `rowHeight`. 
-5. Добавьте объект [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) на слайд с помощью метода [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). 
-6. Удалите строку таблицы. 
-7. Удалите столбец таблицы. 
-8. Сохраните изменённую презентацию. 
+1. Создайте презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Получите доступ к первому слайду.
+3. Задайте ширины столбцов и высоты строк.
+4. Добавьте таблицу с помощью метода [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Удалите вторую строку и второй столбец.
+6. Сохраните изменённую презентацию.
 
-Следующий код Java показывает, как удалить строку или столбец из таблицы:
+Этот пример создаёт таблицу 3×3 и удаляет строку и столбец с индексом 1, оставляя таблицу 2×2 в файле `TestTable_out.pptx`. Размеры указаны в пунктах. Аргумент `false` отключает удаление соседних объединённых строк или столбцов; в этой таблице нет объединённых ячеек.
+
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Установить форматирование текста на уровне строки таблицы**
 
-## **Установка форматирования текста на уровне строк таблицы**
+Применяйте форматирование текста к целой строке, чтобы ячейки оставались согласованными. Можно задать свойства шрифта, форматирование абзаца и направление текста без необходимости форматировать каждую ячейку отдельно.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Получите соответствующий объект [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) со слайда. 
-4. Установите для ячеек первой строки [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-). 
-5. Установите для ячеек первой строки [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) и [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Установите для ячеек второй строки [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-). 
-7. Сохраните изменённую презентацию. 
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Получите доступ к таблице на первом слайде.
+3. Используйте [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) для первой строки.
+4. Используйте [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) и [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) для первой строки.
+5. Используйте [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) для второй строки.
+6. Сохраните изменённую презентацию.
 
-Следующий код Java демонстрирует эту операцию.
+Пример требует файл `table.pptx` с таблицей в качестве первой фигуры на первом слайде и как минимум двумя строками. Он применяет к первой строке текст 25 пунктов, правое выравнивание и правый отступ абзаца 20 пунктов, затем задаёт вертикальный текст во второй строке.
+
 ```java
-// Создает экземпляр класса Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Предположим, что первая фигура на первом слайде — таблица
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Устанавливает высоту шрифта ячеек первой строки
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Устанавливает выравнивание текста ячеек первой строки и правый отступ
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Устанавливает вертикальный тип текста ячеек второй строки
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Сохраняет презентацию на диск
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Установить форматирование текста на уровне столбца таблицы**
 
-## **Установка форматирования текста на уровне столбцов таблицы**
+Применяйте форматирование текста к целому столбцу, чтобы ячейки оставались согласованными. Можно задать свойства шрифта, форматирование абзаца и направление текста без необходимости форматировать каждую ячейку отдельно.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и загрузите презентацию, 
-2. Получите ссылку на слайд по его индексу. 
-3. Получите соответствующий объект [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) со слайда. 
-4. Установите для ячеек первого столбца [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-). 
-5. Установите для ячеек первого столбца [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) и [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Установите для ячеек второго столбца [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-). 
-7. Сохраните изменённую презентацию. 
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Получите доступ к таблице на первом слайде.
+3. Используйте [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) для первого столбца.
+4. Используйте [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) и [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) для первого столбца.
+5. Используйте [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) для второго столбца.
+6. Сохраните изменённую презентацию.
 
-Следующий код Java демонстрирует эту операцию:
+Пример требует файл `table.pptx` с таблицей в качестве первой фигуры на первом слайде и как минимум двумя столбцами. Он применяет к первому столбцу текст 25 пунктов, правое выравнивание и правый отступ абзаца 20 пунктов, затем задаёт вертикальный текст во втором столбце.
+
 ```java
-// Создает экземпляр класса Presentation
-Presentation pres = new Presentation();
-try {
-    // Предположим, что первая фигура на первом слайде — таблица
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Устанавливает высоту шрифта ячеек первого столбца
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Устанавливает выравнивание текста ячеек первого столбца и правый отступ одним вызовом
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Устанавливает вертикальный тип текста ячеек второго столбца
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Получить свойства стиля таблицы**
 
-## **Получение свойств стиля таблицы**
+Используйте метод [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) для получения предустановленного стиля, применённого к таблице, и повторного его использования в другой таблице. Это определяет предустановку, а не отдельные переопределения форматирования ячеек.
 
-Aspose.Slides позволяет получать свойства стиля таблицы, чтобы использовать эти данные для другой таблицы или в другом месте. Следующий код Java показывает, как получить свойства стиля из предустановленного стиля таблицы:
+Пример создаёт таблицу, применяет [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/#DarkStyle1) и считывает предустановку обратно. Он выводит целочисленное значение, соответствующее `DarkStyle1`, и сохраняет таблицу в `table.pptx`.
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // изменить предустановленную тему стиля по умолчанию
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
 **Можно ли применить темы/стили PowerPoint к уже созданной таблице?**
 
-Да. Таблица наследует тему слайда/макета/образца, и вы всё равно можете переопределять заливки, границы и цвета текста поверх этой темы.
+Да. Таблица наследует тему слайда/макета/шаблона, и вы всё ещё можете переопределять заливки, границы и цвета текста поверх этой темы.
 
-**Можно ли сортировать строки таблицы, как в Excel?**
+**Можно ли сортировать строки таблицы как в Excel?**
 
-Нет, таблицы Aspose.Slides не имеют встроенной сортировки или фильтров. Сначала отсортируйте данные в памяти, а затем заново заполните строки таблицы в этом порядке.
+Нет, у таблиц Aspose.Slides нет встроенной сортировки или фильтров. Сначала отсортируйте данные в памяти, а затем заново заполните строки таблицы в нужном порядке.
 
-**Можно ли использовать чередующиеся (полосатые) столбцы, одновременно сохраняя пользовательские цвета в отдельных ячейках?**
+**Можно ли иметь чередующиеся (полосатые) столбцы, сохраняя пользовательские цвета в отдельных ячейках?**
 
-Да. Включите чередующиеся столбцы, а затем переопределите отдельные ячейки локальным форматированием; форматирование на уровне ячейки имеет приоритет над стилем таблицы.
+Да. Включите чередование столбцов, затем переопределите отдельные ячейки локальным форматированием; форматирование на уровне ячейки имеет приоритет перед стилем таблицы.

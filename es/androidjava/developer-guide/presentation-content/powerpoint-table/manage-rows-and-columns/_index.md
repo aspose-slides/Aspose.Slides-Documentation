@@ -23,253 +23,280 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Administre filas y columnas de tablas en PowerPoint con Aspose.Slides para Android mediante Java y agilice la edición de presentaciones y la actualización de datos."
+description: "Gestionar filas y columnas de tabla en PowerPoint con Aspose.Slides para Android a través de Java y acelerar la edición de presentaciones y la actualización de datos."
 ---
+## **Introducción**
 
-Para permitirle gestionar las filas y columnas de una tabla en una presentación de PowerPoint, Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) , la interfaz [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) y muchos otros tipos.
+Aspose.Slides for Android via Java le permite gestionar la estructura y el formato de tablas en presentaciones de PowerPoint a través de la clase [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) y la interfaz [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Puede designar una fila de encabezado, clonar o eliminar filas y columnas, y aplicar formato de texto a una fila o columna completa.
+
+Este artículo explica estas operaciones con ejemplos en Java. También muestra cómo obtener el preset de estilo de una tabla para que pueda reutilizarlo. Los índices de filas y columnas de la tabla son base cero.
+
+## **Controlar la altura de la fila**
+
+Utilice [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) para establecer la altura mínima de una fila en puntos. Es un límite inferior, no una altura fija. [IRow.getHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#getHeight--) devuelve la altura real. Acceda a la fila mediante [ITable.getRows](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getRows--).
+
+El ejemplo carga [row-height-input.pptx](row-height-input.pptx), que contiene una tabla como la primera forma en la primera diapositiva. Su primera fila comienza en 70 puntos. Las celdas usan texto Arial de 18 puntos, con ajuste de línea y márgenes superior e inferior de 6 puntos; el texto más largo en la segunda columna se ajusta en varias líneas. El ejemplo aumenta la mínima a 100 puntos, luego la reduce a 20 puntos, imprime la altura real después de cada cambio y guarda ambos resultados.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
+
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Con la presentación suministrada, aumentar la mínima agrega espacio a la fila. Reducirla elimina ese espacio adicional, pero la altura real sigue siendo mayor que 20 puntos porque el texto y los márgenes de la celda necesitan más espacio. Reducir solo la mínima no puede forzar la fila por debajo del espacio requerido por su contenido.
+
+Varios factores afectan la altura real:
+
+- **Text and font size:** longer text, explicit line breaks, or a larger font can require more vertical space.
+- **Wrapping and column width:** with wrapping enabled, reducing the column width with [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) can produce more lines. A wider column can reduce the space required vertically.
+- **Cell margins:** [ICell.setMarginTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginTop-double-) and [ICell.setMarginBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginBottom-double-) add vertical space. [ICell.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginLeft-double-) and [ICell.setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginRight-double-) reduce the width available for text and can cause additional wrapping.
+
+Para esta tabla sin celdas combinadas, la celda que necesita más espacio vertical determina el límite inferior impulsado por el contenido para toda la fila. Para acortar la fila, también puede ser necesario abreviar el texto, reducir el tamaño de la fuente o los márgenes, o ensanchar una columna.
+
+Las imágenes a continuación muestran la misma tabla a la misma escala. En los resultados ilustrados, las alturas reales fueron 70, 100 y 55,2 puntos: la fila final permaneció más alta que su mínimo de 20 puntos. Las mediciones exactas del texto pueden variar según las fuentes disponibles en su entorno. Descargue los resultados guardados: [increased minimum](row-height-increased.pptx) y [decreased minimum](row-height-decreased.pptx).
+
+| Original: mínimo 70 pt, real 70 pt | Aumentado: mínimo 100 pt, real 100 pt | Reducido: mínimo 20 pt, real 55.2 pt |
+| --- | --- | --- |
+| ![Tabla original con una primera fila de 70 puntos.](row-height-before.png) | ![Tabla después de aumentar la altura mínima de la primera fila a 100 puntos.](row-height-increased.png) | ![Tabla después de disminuir la altura mínima de la primera fila a 20 puntos; el texto ajustado mantiene la fila más alta que el mínimo.](row-height-decreased.png) |
 
 ## **Establecer la primera fila como encabezado**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) y cargue la presentación.
-2. Obtenga la referencia de una diapositiva a través de su índice.
-3. Cree un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) y establézcalo en null.
-4. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) para encontrar la tabla pertinente.
-5. Establezca la primera fila de la tabla como su encabezado.
+Utilice el método [setFirstRow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setFirstRow-boolean-) para marcar la primera fila para formato de encabezado. Su apariencia depende del estilo de tabla aplicado a la tabla.
 
-Este código Java le muestra cómo establecer la primera fila de una tabla como su encabezado:
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Acceda a la tabla almacenada como la primera forma en la diapositiva.
+4. Habilite el formato de encabezado para su primera fila.
+5. Guarde la presentación modificada.
+
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva. Habilita el formato de encabezado para la primera fila y guarda `First_row_header.pptx`.
+
 ```java
-// Instancia la clase Presentation
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Accede a la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Inicializa la tabla nula
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Itera a través de las formas y establece una referencia a la tabla
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Establece la primera fila de una tabla como su encabezado
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Guarda la presentación en disco
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Clonar una fila o columna de tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) y cargue la presentación,
-2. Obtenga la referencia de una diapositiva a través de su índice.
-3. Defina una matriz de `columnWidth`.
-4. Defina una matriz de `rowHeight`.
-5. Agregue un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
-6. Clone la fila de la tabla.
-7. Clone la columna de la tabla.
-8. Guarde la presentación modificada.
+Clone filas o columnas para reutilizar su contenido y formato. Puede adjuntar una copia al final de la tabla o insertarla en una posición específica.
 
-Este código Java le muestra cómo clonar la fila o columna de una tabla de PowerPoint:
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Defina los anchos de columna y las alturas de fila.
+4. Añada una tabla con el método [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Clone las filas requeridas.
+6. Clone las columnas requeridas.
+7. Guarde la presentación modificada.
+
+El ejemplo requiere `Test.pptx` con al menos una diapositiva. Crea una tabla con tres columnas y cinco filas, con dimensiones especificadas en puntos. Adjunta copias de la primera fila y columna, luego inserta copias de la segunda fila y columna en el índice 3 (la cuarta posición). La tabla resultante tiene siete filas y cinco columnas. El argumento `false` desactiva la clonación en filas o columnas combinadas adyacentes; esta tabla no tiene celdas combinadas.
+
 ```java
- // Instancia la clase Presentation
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    // Accede a la primera diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Define columnas con anchuras y filas con alturas
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Añade una forma de tabla a la diapositiva
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Añade texto a la fila 1 celda 1
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Añade texto a la fila 1 celda 2
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Clona la fila 1 al final de la tabla
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Añade texto a la fila 2 celda 1
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Añade texto a la fila 2 celda 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Clona la fila 2 como la cuarta fila de la tabla
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Clona la primera columna al final
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Clona la segunda columna en el índice de la cuarta columna
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Guarda la presentación en el disco
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Eliminar una fila o columna de una tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) y cargue la presentación,
-2. Obtenga la referencia de una diapositiva a través de su índice.
-3. Defina una matriz de `columnWidth`.
-4. Defina una matriz de `rowHeight`.
-5. Agregue un objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) a la diapositiva mediante el método [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
-6. Elimine la fila de la tabla.
-7. Elimine la columna de la tabla.
-8. Guarde la presentación modificada.
+Elimine filas o columnas que ya no son necesarias en una tabla. Eliminar un elemento desplaza los índices de las filas o columnas que le siguen.
 
-Este código Java le muestra cómo eliminar una fila o columna de una tabla:
+1. Cree una presentación con la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Defina los anchos de columna y las alturas de fila.
+4. Añada una tabla con el método [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Elimine la segunda fila y la segunda columna.
+6. Guarde la presentación modificada.
+
+Este ejemplo crea una tabla de tres por tres y elimina la fila y la columna en el índice 1, dejando una tabla de dos por dos en `TestTable_out.pptx`. Las dimensiones están en puntos. El argumento `false` desactiva la eliminación de filas o columnas combinadas adyacentes; esta tabla no tiene celdas combinadas.
+
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Establecer formato de texto a nivel de fila de tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) y cargue la presentación,
-2. Obtenga la referencia de una diapositiva a través de su índice.
-3. Acceda al objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) pertinente desde la diapositiva.
-4. Establezca la [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) de las celdas de la primera fila.
-5. Establezca la [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) y la [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) de las celdas de la primera fila.
-6. Establezca la [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) de las celdas de la segunda fila.
-7. Guarde la presentación modificada.
+Aplique formato de texto a una fila completa para mantener la consistencia de sus celdas. Puede establecer propiedades de fuente, formato de párrafo y dirección del texto sin formatear cada celda individualmente.
 
-Este código Java demuestra la operación.
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acceda a la tabla en la primera diapositiva.
+3. Utilice [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) para la primera fila.
+4. Utilice [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) y [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) para la primera fila.
+5. Utilice [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) para la segunda fila.
+6. Guarde la presentación modificada.
+
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva y al menos dos filas. Aplica texto de 25 puntos, alineación a la derecha y un margen de párrafo derecho de 20 puntos a la primera fila, luego establece texto vertical en la segunda fila.
+
 ```java
-// Crea una instancia de la clase Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Supongamos que la primera forma en la primera diapositiva es una tabla
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Establece la altura de fuente de las celdas de la primera fila
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Establece la alineación de texto y el margen derecho de las celdas de la primera fila
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Establece el tipo de orientación vertical del texto de las celdas de la segunda fila
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Guarda la presentación en disco
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Establecer formato de texto a nivel de columna de tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) y cargue la presentación,
-2. Obtenga la referencia de una diapositiva a través de su índice.
-3. Acceda al objeto [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITable) pertinente desde la diapositiva.
-4. Establezca la [setFontHeight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) de las celdas de la primera columna.
-5. Establezca la [setAlignment(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) y la [setMarginRight(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) de las celdas de la primera columna.
-6. Establezca la [setTextVerticalType(byte value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) de las celdas de la segunda columna.
-7. Guarde la presentación modificada.
+Aplique formato de texto a una columna completa para mantener la consistencia de sus celdas. Puede establecer propiedades de fuente, formato de párrafo y dirección del texto sin formatear cada celda individualmente.
 
-Este código Java demuestra la operación:
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Acceda a la tabla en la primera diapositiva.
+3. Utilice [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) para la primera columna.
+4. Utilice [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) y [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) para la primera columna.
+5. Utilice [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) para la segunda columna.
+6. Guarde la presentación modificada.
+
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva y al menos dos columnas. Aplica texto de 25 puntos, alineación a la derecha y un margen de párrafo derecho de 20 puntos a la primera columna, luego establece texto vertical en la segunda columna.
+
 ```java
-// Crea una instancia de la clase Presentation
-Presentation pres = new Presentation();
-try {
-    // Supongamos que la primera forma en la primera diapositiva es una tabla
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Establece la altura de fuente de las celdas de la primera columna
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Establece la alineación de texto y el margen derecho de las celdas de la primera columna en una sola llamada
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Establece el tipo de orientación vertical del texto de las celdas de la segunda columna
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Obtener propiedades de estilo de tabla**
 
-Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda usar esos detalles en otra tabla o en otro lugar. Este código Java le muestra cómo obtener las propiedades de estilo de un estilo predefinido de tabla:
+Utilice el método [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) para recuperar el preset aplicado a una tabla y reutilizarlo en otra tabla. Esto identifica el preset en lugar de las anulaciones de formato de celda individuales.
+
+El ejemplo crea una tabla, aplica [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/#DarkStyle1) y lee de nuevo el preset. Imprime el valor entero correspondiente a `DarkStyle1` y guarda la tabla en `table.pptx`.
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // cambiar el preset de estilo predeterminado
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Puedo aplicar temas/estilos de PowerPoint a una tabla que ya está creada?**
 
-Sí. La tabla hereda el tema de la diapositiva/diseño/maestro, y aún puede sobrescribir los rellenos, bordes y colores de texto sobre ese tema.
+Sí. La tabla hereda el tema de la diapositiva/disposición/maestro, y aún puede sobrescribir rellenos, bordes y colores de texto sobre ese tema.
 
 **¿Puedo ordenar filas de tabla como en Excel?**
 
-No, las tablas de Aspose.Slides no tienen ordenación o filtros incorporados. Ordene sus datos en memoria primero, luego vuelva a llenar las filas de la tabla en ese orden.
+No, las tablas de Aspose.Slides no disponen de ordenación o filtros incorporados. Ordene sus datos en memoria primero, y luego vuelva a poblar las filas de la tabla en ese orden.
 
 **¿Puedo tener columnas con bandas (rayas) manteniendo colores personalizados en celdas específicas?**
 
-Sí. Active las columnas con bandas y luego sobrescriba celdas específicas con formato local; el formato a nivel de celda prevalece sobre el estilo de tabla.
+Sí. Active las columnas con bandas y, a continuación, sobrescriba celdas específicas con formato local; el formato a nivel de celda tiene prioridad sobre el estilo de tabla.

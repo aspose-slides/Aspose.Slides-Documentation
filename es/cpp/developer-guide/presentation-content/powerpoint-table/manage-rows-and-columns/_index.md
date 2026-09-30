@@ -1,6 +1,6 @@
 ---
-title: Administrar filas y columnas en tablas de PowerPoint usando C++
-linktitle: Filas y columnas
+title: "Gestionar filas y columnas en tablas de PowerPoint usando C++"
+linktitle: "Filas y columnas"
 type: docs
 weight: 20
 url: /es/cpp/manage-rows-and-columns/
@@ -22,277 +22,335 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Administre filas y columnas de tabla en PowerPoint con Aspose.Slides para C++ y acelere la edición de presentaciones y la actualización de datos."
+description: "Gestiona filas y columnas de tablas en PowerPoint con Aspose.Slides para C++ y acelera la edición de presentaciones y la actualización de datos."
 ---
+## **Introducción**
 
-Para permitirle administrar las filas y columnas de una tabla en una presentación de PowerPoint, Aspose.Slides proporciona la clase [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) , la interfaz [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) y muchos otros tipos. 
+Aspose.Slides for C++ le permite gestionar la estructura y el formato de tablas en presentaciones de PowerPoint mediante la clase [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) y la interfaz [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Puede designar una fila de encabezado, clonar o eliminar filas y columnas, y aplicar formato de texto a una fila o columna completa.
+
+Este artículo explica estas operaciones con ejemplos en C++. También muestra cómo obtener el estilo predefinido de una tabla para poder reutilizarlo. Los índices de filas y columnas de la tabla comienzan en cero.
+
+## **Controlar la altura de la fila**
+
+Utilice [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) para establecer la altura mínima de una fila en puntos. Es un límite inferior, no una altura fija. [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) devuelve la altura real; este valor no puede establecerse directamente. Acceda a la fila a través de [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/).
+
+El ejemplo carga [row-height-input.pptx](row-height-input.pptx), que tiene una tabla como la primera forma en la primera diapositiva. Su primera fila comienza en 70 puntos. Las celdas usan texto Arial de 18 puntos, ajuste y márgenes superior e inferior de 6 puntos; el texto más largo en la segunda columna se ajusta en varias líneas. El ejemplo aumenta el mínimo a 100 puntos, luego lo reduce a 20 puntos, imprime la altura real después de cada cambio y guarda ambos resultados.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
+```
+
+Con la presentación suministrada, aumentar el mínimo añade espacio a la fila. Reducirlo elimina ese espacio adicional, pero la altura real permanece superior a 20 puntos porque el texto y los márgenes de celda necesitan más espacio. Reducir solo el mínimo no puede forzar a la fila a quedar por debajo del espacio requerido por su contenido.
+
+Varios factores influyen en la altura real:
+
+- **Texto y tamaño de fuente:** texto más largo, saltos de línea explícitos o una fuente mayor pueden requerir más espacio vertical.
+- **Ajuste y ancho de columna:** con el ajuste habilitado, reducir el ancho de la columna con [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) puede generar más líneas. Una columna más ancha puede reducir el espacio necesario verticalmente.
+- **Márgenes de celda:** [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) y [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) controlan los márgenes que añaden espacio vertical. [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) y [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) controlan los márgenes que reducen el ancho disponible para el texto y pueden provocar un ajuste adicional.
+
+Para esta tabla sin celdas combinadas, la celda que necesita más espacio vertical determina el límite inferior impulsado por el contenido para toda la fila. Para acortar la fila, quizá también deba acortar el texto, reducir el tamaño de fuente o los márgenes, o ampliar una columna.
+
+Las imágenes a continuación muestran la misma tabla a la misma escala. En la ejecución de referencia .NET mostrada aquí, las alturas reales fueron 70, 100 y 55.2 puntos: la fila final siguió siendo más alta que su mínimo de 20 puntos. Las mediciones exactas del texto pueden variar con las fuentes disponibles en su entorno. Descargue los resultados guardados: [increased minimum](row-height-increased.pptx) y [decreased minimum](row-height-decreased.pptx).
+
+| Original: mínimo 70 pt, real 70 pt | Aumentado: mínimo 100 pt, real 100 pt | Disminuido: mínimo 20 pt, real 55.2 pt |
+| --- | --- | --- |
+| ![Tabla original con una primera fila de 70 puntos.](row-height-before.png) | ![Tabla después de aumentar el mínimo de la primera fila a 100 puntos.](row-height-increased.png) | ![Tabla después de reducir el mínimo de la primera fila a 20 puntos; el texto ajustado mantiene la fila más alta que el mínimo.](row-height-decreased.png) |
 
 ## **Establecer la primera fila como encabezado**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y cargue la presentación. 
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Cree un objeto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) y establézcalo en null. 
-4. Itere a través de todos los objetos [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) para encontrar la tabla correspondiente. 
-5. Establezca la primera fila de la tabla como su encabezado. 
+Utilice el método [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) para marcar la primera fila como encabezado. Su apariencia depende del estilo de tabla aplicado.
 
-Este código C++ muestra cómo establecer la primera fila de una tabla como su encabezado:
-```c++
-// Instancia la clase Presentation 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Acceda a la tabla almacenada como la primera forma en la diapositiva.
+4. Habilite el formato de encabezado para su primera fila.
+5. Guarde la presentación modificada.
 
-// Accede a la primera diapositiva
-auto sld = pres->get_Slides()->idx_get(0);
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva. Habilita el formato de encabezado para la primera fila y guarda `First_row_header.pptx`.
 
-// Inicializa la tabla nula TableEx
-SharedPtr<ITable> tbl;
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-// Recorre las formas y establece una referencia a la tabla
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Establece la primera fila de una tabla como su encabezado 
-tbl->set_FirstRow(true);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
+
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Clonar una fila o columna de tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y cargue la presentación, 
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Defina una matriz de `columnWidth`. 
-4. Defina una matriz de `rowHeight`. 
-5. Agregue un objeto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) a la diapositiva mediante el método [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) . 
-6. Clone la fila de la tabla. 
-7. Clone la columna de la tabla. 
-8. Guarde la presentación modificada. 
+Clone filas o columnas para reutilizar su contenido y formato. Puede añadir una copia al final de la tabla o insertarla en una posición específica.
 
-Este código C++ muestra cómo clonar una fila o columna de una tabla de PowerPoint:
-```c++
- // La ruta al directorio de documentos.
-const String outPath = u"../out/CloningInTable_out.pptx";
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Defina los anchos de columna y las alturas de fila.
+4. Añada una tabla con el método [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+5. Clone las filas requeridas.
+6. Clone las columnas requeridas.
+7. Guarde la presentación modificada.
 
-// Instancia la clase Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+El ejemplo requiere `Test.pptx` con al menos una diapositiva. Crea una tabla con tres columnas y cinco filas, con dimensiones especificadas en puntos. Añade copias de la primera fila y columna, luego inserta copias de la segunda fila y columna en el índice 3 (la cuarta posición). La tabla resultante tiene siete filas y cinco columnas. El argumento `false` desactiva la clonación en filas o columnas combinadas adyacentes; esta tabla no tiene celdas combinadas.
 
-// Accede a la primera diapositiva
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
 
-// Define columnas con anchuras y filas con alturas
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Agrega una forma de tabla a la diapositiva
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
 
-// Establece el formato de borde para cada celda
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
-
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
-
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
-
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
-
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
-
-	}
-
-}
-
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
-
-//AddClone agrega una fila al final de la tabla
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-//InsertClone agrega una fila en una posición específica de la tabla
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-//AddClone agrega una columna al final de la tabla
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-//InsertClone agrega una columna en una posición específica de la tabla
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Guarda la presentación en disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Eliminar una fila o columna de una tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y cargue la presentación, 
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Defina una matriz de `columnWidth`. 
-4. Defina una matriz de `rowHeight`. 
-5. Agregue un objeto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) a la diapositiva mediante el método [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) . 
-6. Elimine la fila de la tabla. 
-7. Elimine la columna de la tabla. 
-8. Guarde la presentación modificada. 
+Elimine filas o columnas que ya no son necesarias en una tabla. Eliminar un elemento desplaza los índices de las filas o columnas que le siguen.
 
-Este código C++ muestra cómo eliminar una fila o columna de una tabla:
-```c++
-// La ruta al directorio de documentos.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+1. Cree una presentación con la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Defina los anchos de columna y las alturas de fila.
+4. Añada una tabla con el método [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+5. Elimine la segunda fila y la segunda columna.
+6. Guarde la presentación modificada.
 
-// Instancia la clase Presentation
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Este ejemplo crea una tabla de tres por tres y elimina la fila y la columna en el índice 1, dejando una tabla de dos por dos en `TestTable_out.pptx`. Las dimensiones están en puntos. El argumento `false` desactiva la eliminación de filas o columnas combinadas adyacentes; esta tabla no tiene celdas combinadas.
 
-// Accede a la primera diapositiva
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Define las columnas con anchuras y las filas con alturas
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Agrega una forma de tabla a la diapositiva
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Fusiona celdas (1, 1) x (2, 1)
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Fusiona celdas (1, 2) x (2, 2)
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Guarda la presentación en disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Establecer formato de texto a nivel de fila de tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y cargue la presentación, 
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Acceda al objeto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) relevante de la diapositiva. 
-4. Establezca la altura de fuente de las celdas de la primera fila mediante [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Establezca la alineación [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) y el margen derecho [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) de las celdas de la primera fila. 
-6. Establezca el tipo de texto vertical de las celdas de la segunda fila mediante [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Guarde la presentación modificada. 
+Aplique formato de texto a toda una fila para mantener la coherencia de sus celdas. Puede establecer propiedades de fuente, formato de párrafo y dirección del texto sin formatear cada celda individualmente.
 
-Este código C++ demuestra la operación.
-```c++
-// Crea una instancia de la clase Presentation
-auto presentation = System::MakeObject<Presentation>();
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Acceda a la tabla en la primera diapositiva.
+3. Establezca la altura de la fuente con [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) para la primera fila.
+4. Establezca la alineación y el margen derecho del párrafo con [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) y [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) para la primera fila.
+5. Establezca la dirección del texto con [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) para la segunda fila.
+6. Guarde la presentación modificada.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva y al menos dos filas. Aplica texto de 25 puntos, alineación a la derecha y un margen derecho del párrafo de 20 puntos a la primera fila, luego establece texto vertical en la segunda fila.
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Supongamos que la primera forma en la primera diapositiva es una tabla
-// Establece la altura de fuente de las celdas de la primera fila
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-// Establece la alineación de texto y el margen derecho de las celdas de la primera fila
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Establece el tipo de texto vertical de las celdas de la segunda fila
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Guarda la presentación en disco
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Establecer formato de texto a nivel de columna de tabla**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y cargue la presentación, 
-2. Obtenga la referencia de una diapositiva mediante su índice. 
-3. Acceda al objeto [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) relevante de la diapositiva. 
-4. Establezca la altura de fuente de las celdas de la primera columna mediante [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Establezca la alineación [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) y el margen derecho [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) de las celdas de la primera columna. 
-6. Establezca el tipo de texto vertical de las celdas de la segunda columna mediante [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Guarde la presentación modificada. 
+Aplique formato de texto a toda una columna para mantener la coherencia de sus celdas. Puede establecer propiedades de fuente, formato de párrafo y dirección del texto sin formatear cada celda individualmente.
 
-Este código C++ demuestra la operación: 
-```c++
-// Crea una instancia de la clase Presentation
-auto pres = System::MakeObject<Presentation>();
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Acceda a la tabla en la primera diapositiva.
+3. Establezca la altura de la fuente con [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) para la primera columna.
+4. Establezca la alineación y el margen derecho del párrafo con [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) y [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) para la primera columna.
+5. Establezca la dirección del texto con [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) para la segunda columna.
+6. Guarde la presentación modificada.
 
-auto slide = pres->get_Slides()->idx_get(0);
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva y al menos dos columnas. Aplica texto de 25 puntos, alineación a la derecha y un margen derecho del párrafo de 20 puntos a la primera columna, luego establece texto vertical en la segunda columna.
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Supongamos que la primera forma en la primera diapositiva es una tabla
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-// Establece la altura de fuente de las celdas de la primera columna
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Establece la alineación de texto y el margen derecho de las celdas de la primera columna en una sola llamada
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Establece el tipo de texto vertical de las celdas de la segunda columna
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
 
+## **Obtener propiedades del estilo de tabla**
 
-## **Obtener propiedades de estilo de tabla**
+Utilice el método [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) para recuperar el estilo predefinido aplicado a una tabla y reutilizarlo en otra tabla. Esto identifica el preset en lugar de las sobrescrituras de formato de celdas individuales.
 
-Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para que pueda usar esos detalles en otra tabla o en otro lugar. Este código C++ muestra cómo obtener las propiedades de estilo de un estilo predefinido de tabla:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+El ejemplo crea una tabla, aplica [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) y lee el preset nuevamente. Imprime `DarkStyle1` y guarda la tabla en `table.pptx`.
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Puedo aplicar temas/estilos de PowerPoint a una tabla que ya está creada?**
 
-Sí. La tabla hereda el tema de la diapositiva/disposición/maestra, y aún puede sobrescribir los rellenos, bordes y colores de texto sobre ese tema.
+Sí. La tabla hereda el tema de la diapositiva/disposición/maestra, y aún puede anular los rellenos, bordes y colores de texto sobre ese tema.
 
 **¿Puedo ordenar filas de tabla como en Excel?**
 
-No, las tablas de Aspose.Slides no tienen ordenación o filtros integrados. Ordene sus datos en memoria primero y luego vuelva a poblar las filas de la tabla en ese orden.
+No, las tablas de Aspose.Slides no disponen de ordenación ni filtros integrados. Ordene sus datos en memoria primero y, a continuación, vuelva a poblar las filas de la tabla en ese orden.
 
-**¿Puedo tener columnas con bandas (rayas) manteniendo colores personalizados en celdas específicas?**
+**¿Puedo tener columnas con bandas (a rayas) manteniendo colores personalizados en celdas específicas?**
 
-Sí. Active las columnas con bandas y luego sobrescriba celdas específicas con formato local; el formato a nivel de celda tiene prioridad sobre el estilo de tabla.
+Sí. Active las columnas con bandas y, después, sobrescriba celdas específicas con formato local; el formato a nivel de celda tiene prioridad sobre el estilo de tabla.

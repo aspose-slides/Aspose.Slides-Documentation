@@ -1,6 +1,6 @@
 ---
-title: Beheer presentatietabellen met Python
-linktitle: Beheer tabel
+title: Beheer presentatie tabellen met Python
+linktitle: Beheer Tabel
 type: docs
 weight: 10
 url: /nl/python-net/manage-table/
@@ -17,81 +17,72 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Maak & bewerk tabellen in PowerPoint- en OpenDocument‑slides met Aspose.Slides voor Python via .NET. Ontdek eenvoudige codevoorbeelden om je tabelwerkstromen te stroomlijnen."
+description: "Maak & bewerk tabellen in PowerPoint- en OpenDocument-dia's met Aspose.Slides voor Python via .NET. Ontdek eenvoudige code-voorbeelden om je tabel-werkstromen te stroomlijnen."
 ---
-## **Introductie**
+## **Inleiding**
 
-Een tabel in PowerPoint is een efficiënte manier om informatie weer te geven. Informatie die is gerangschikt in een raster van cellen (rijen en kolommen) is eenvoudig en makkelijk te begrijpen.
+Tabellen in PowerPoint organiseren informatie in rijen en kolommen, waardoor het makkelijker wordt om waarden te lezen en te vergelijken.
 
-Aspose.Slides levert de [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/)‑klasse, de [Cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/)‑klasse en andere gerelateerde types om tabellen in elke presentatie te maken, bij te werken en te beheren.
+Aspose.Slides biedt de [Tabel](https://reference.aspose.com/slides/python-net/aspose.slides/table/) en [Cel](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) klassen en andere types om tabellen in presentaties te maken, bij te werken en te beheren.
 
-## **Tabellen van Grund af creëren**
+## **Maak een tabel vanaf nul**
 
-Dit gedeelte laat zien hoe je een tabel vanaf nul maakt in Aspose.Slides door een tabelvorm aan een dia toe te voegen, rijen en kolommen te definiëren en precieze afmetingen in te stellen. Je ziet ook hoe je cellen vult met tekst, uitlijning en randen aanpast en het uiterlijk van de tabel aanpast.
+Maak een tabel door de positie, kolombreedtes en rijhoogtes op te geven. Nadat je hem aan een dia hebt toegevoegd, kun je celranden formatteren, cellen samenvoegen en tekst invoegen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie op naar een dia op basis van de index.
-3. Definieer een array met kolombreedtes.
-4. Definieer een array met rijhoogtes.
-5. Voeg een [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/) toe aan de dia.
-6. Loop over elke [Cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/) en formatteer de boven‑, onder‑, rechter‑ en linkerranden.
-7. Voeg de cellen van de eerste twee rijen en de eerste twee kolommen samen tot één cel.
-8. Toegang tot het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van een [Cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/).
-9. Voeg tekst toe aan het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+2. Verkrijg een referentie naar de dia op basis van de index.
+3. Definieer een lijst met kolombreedtes in punten.
+4. Definieer een lijst met rijhoogtes in punten.
+5. Voeg een [Tabel](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object toe aan de dia via de [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) methode.
+6. Loop door elke [Cel](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) om de boven-, onder-, rechts- en linkerrand op te maken.
+7. Voeg de eerste twee cellen van de eerste rij van de tabel samen.
+8. Benader de samengevoegde cel via de [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) eigenschap.
+9. Stel de tekst in de samengevoegde cel in.
 10. Sla de gewijzigde presentatie op.
 
-Het volgende Python‑voorbeeld laat zien hoe je een tabel in een presentatie creëert:
+Het voorbeeld hieronder maakt een tabel met drie kolommen en vijf rijen op (100, 50) punten. Het past rode randen met een breedte van 5 punten toe, voegt de eerste twee cellen in de eerste rij samen, en slaat het resultaat op als `table.pptx`.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse die een presentatiebestand representeert.
 with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Definieer kolombreedtes en rijhoogtes.
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Voeg een tabelvorm toe aan de dia.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Stel het randformaat in voor elke cel.
     for row in table.rows:
         for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
+            cell_format = cell.cell_format
+            cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_top.width = 5
 
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
-            cell.cell_format.border_bottom.width = 5
+            cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_bottom.width = 5
 
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
-            cell.cell_format.border_left.width = 5
+            cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_left.width = 5
 
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-        
-    # Voeg cellen samen van (rij 0, kolom 0) tot (rij 1, kolom 1).
-    table.merge_cells(table.rows[0][0], table.rows[1][1], False)
+            cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_right.width = 5
 
-    # Voeg tekst toe aan de samengevoegde cel.
+    table.merge_cells(table.rows[0][0], table.rows[0][1], False)
     table.rows[0][0].text_frame.text = "Merged Cells"
 
-    # Sla de presentatie op naar schijf.
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nummering in Standaardtabel­len**
+## **Nummering in een standaardtabel**
 
-In een standaardtabel is de celnummering eenvoudig en nul‑gebaseerd. De eerste cel in een tabel heeft de index (0, 0) (kolom 0, rij 0).
+In een standaardtabel zijn celindexen nulgebaseerd en gebruiken ze de volgorde (kolom, rij). De eerste cel heeft index (0, 0). In Python benader je een cel met `table.rows[row_index][column_index]`; de rij‑index staat eerst in deze uitdrukking.
 
-Bijvoorbeeld, in een tabel met 4 kolommen en 4 rijen worden de cellen als volgt genummerd:
+Bijvoorbeeld, de cellen in een tabel met 4 kolommen en 4 rijen worden op deze manier genummerd:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -99,209 +90,213 @@ Bijvoorbeeld, in een tabel met 4 kolommen en 4 rijen worden de cellen als volgt 
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Het volgende Python‑voorbeeld toont hoe je cellen kunt refereren met deze nul‑gebaseerde nummering:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
-    slide = presentation.slides[0]
-
-    # Voeg een tabel toe met 4 kolommen en 4 rijen.
-    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
-
-    for row_index in range(len(table.rows)):
-        for column_index in range(len(table.rows[row_index])):
-            cell = table.rows[row_index][column_index]
-            cell.text_frame.text = f"({column_index}, {row_index})"
-
-    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Toegang tot een Bestaande Tabel**
-
-Dit gedeelte legt uit hoe je een bestaande tabel in een presentatie kunt lokaliseren en bewerken met Aspose.Slides. Je leert hoe je de tabel op een dia vindt, toegang krijgt tot rijen, kolommen en cellen, en de inhoud of opmaak bijwerkt.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie op naar de dia die de tabel bevat op basis van de index.
-3. Loop door alle [Shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/)‑objecten totdat je de tabel vindt.
-4. Gebruik het [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/)‑object om met de tabel te werken.
-5. Sla de gewijzigde presentatie op.
-
-{{% alert color="info" title="Note" %}}
-
-Als de dia meerdere tabellen bevat, is het beter om te zoeken naar de tabel die je nodig hebt via de eigenschap `alternative_text`.
-
-{{% /alert %}}
-
-Het volgende Python‑voorbeeld laat zien hoe je een bestaande tabel benadert en bewerkt:
+Dit voorbeeld maakt de 4 × 4 tabel die hierboven is geïllustreerd, met kolombreedtes en rijhoogtes van 70 punten en rode celranden van 5 punten. De coördinaten illustreren celindexen; het voorbeeld laat de cellen leeg en slaat de tabel op als `StandardTables_out.pptx`.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantieren van de Presentation-klasse om een PPTX-bestand te laden.
-with slides.Presentation("sample.pptx") as presentation:
-    # Toegang tot de eerste dia.
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
+
+    for row in table.rows:
+        for cell in row:
+            cell_format = cell.cell_format
+            cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_top.width = 5
+
+            cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_bottom.width = 5
+
+            cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_left.width = 5
+
+            cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell_format.border_right.width = 5
+
+    presentation.save("StandardTables_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Toegang tot een bestaande tabel**
+
+Tabellen worden opgeslagen in de vormverzameling van een dia. Loop door de vormen om een tabel te vinden, en gebruik vervolgens de [Tabel](https://reference.aspose.com/slides/python-net/aspose.slides/table/) klasse om de cellen te lezen of bij te werken.
+
+1. Laad de presentatie met de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+2. Verkrijg een referentie naar de dia die de tabel bevat op basis van de index.
+3. Loop door de [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) objecten en stop wanneer een tabel wordt gevonden. Als de dia meerdere tabellen bevat, gebruik dan [alternative_text](https://reference.aspose.com/slides/python-net/aspose.slides/shape/alternative_text/) om de gewenste tabel te identificeren.
+4. Werk de tekst in de doelcel bij.
+5. Sla de gewijzigde presentatie op.
+
+Het voorbeeld hieronder opent `UpdateExistingTable.pptx` en vindt de eerste tabel op de eerste dia. Het stelt de cel op kolom 0, rij 1 in op `New` en slaat het resultaat op als `table1_out.pptx`. De invoer moet minstens één dia bevatten, en de eerste tabel op die dia moet minstens één kolom en twee rijen hebben.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("UpdateExistingTable.pptx") as presentation:
+    slide = presentation.slides[0]
     table = None
 
-    # Doorloop de shapes en verwijs naar de eerste gevonden tabel.
     for shape in slide.shapes:
         if isinstance(shape, slides.Table):
             table = shape
             break
 
-    # Stel de tekst van de eerste cel in de eerste rij in.
-    if table is not None:
-        table.rows[0][0].text_frame.text = "Found"
-
-    # Sla de gewijzigde presentatie op naar schijf.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    if table is not None and len(table.rows) >= 2:
+        table.rows[1][0].text_frame.text = "New"
+        presentation.save("table1_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Zoek de Cel die een Tekstframe Bezit**
+Om een rij in een bestaande tabel van grootte te veranderen en te begrijpen waarom de werkelijke hoogte groter kan zijn dan de gevraagde minimumhoogte, zie [Control Row Height](/slides/nl/python-net/manage-rows-and-columns/#control-row-height).
 
-Wanneer generieke tekstverwerkingscode een [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) uit een tabel ontvangt, gebruik je de eigenschap [TextFrame.parent_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_cell/) om de eigende [Cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/) op te halen. Voor een tabelcel‑tekstframe is [TextFrame.parent_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_cell/) gezet en is [TextFrame.parent_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_shape/) `None`, ook al is de tabel zelf een vorm.
+## **Vind de cel die een tekstframe bezit**
 
-De celcoördinaten zijn beschikbaar via de alleen‑lezen eigenschappen [Cell.first_column_index](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/first_column_index/) en [Cell.first_row_index](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/first_row_index/). [TextFrame.parent_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_cell/) is eveneens alleen‑lezen: het biedt navigatie naar de eigenaar maar verandert de eigenaar niet. Controleer altijd of de geretourneerde cel niet `None` is voordat je deze gebruikt.
+Wanneer generieke tekstverwerkingscode een [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) van een tabel ontvangt, gebruik dan de [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) eigenschap om de bezittende [Cel](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) op te halen. Voor een tabel‑cel‑tekstframe is [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) ingesteld en is [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/) `None`, hoewel de tabel zelf een vorm is.
 
-Voor een volledig voorbeeld dat tabel‑cel‑ en vorm‑eigenaren identificeert, inclusief vormen die gekoppeld zijn aan SmartArt‑knopen, zie [Search and Replace Text](/slides/nl/python-net/search-and-replace-text/).
+De celcoördinaten zijn beschikbaar via de alleen‑lezen eigenschappen [Cell.first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) en [Cell.first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/). [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) is ook alleen‑lezen: het biedt navigatie naar de eigenaar maar verandert de eigendom niet. Controleer altijd of de geretourneerde cel `None` is voordat je deze gebruikt.
 
-## **Tekst uitlijnen in Tabellen**
+Voor een compleet voorbeeld dat tabel‑cel‑ en vorm‑eigenaars identificeert, inclusief vormen die zijn gekoppeld aan SmartArt‑knooppunten, zie [Search and Replace Text](/slides/nl/python-net/search-and-replace-text/).
 
-Dit gedeelte toont hoe je de plaatsing van tekst binnen tabelcellen kunt regelen met Aspose.Slides. Je leert de tekst verticaal in een cel te verankeren en de richting waarin de tekst loopt te wijzigen.
+## **Tekst uitlijnen in een tabel**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie op naar de dia op basis van de index.
-3. Voeg een [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/)‑object toe aan de dia.
-4. Verkrijg een [Cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/cell/)‑object uit de tabel.
-5. Centreer de tekst verticaal in de cel en stel de tekstrichting in.
-6. Sla de gewijzigde presentatie op.
+Je kunt de verticale verankering en tekstrichting van individuele tabelcellen regelen. Het voorbeeld in deze sectie centreert de tekst in de eerste cel en roteert deze met 270 graden.
 
-Het volgende Python‑voorbeeld toont hoe je de tekst in een tabel uitlijnt:
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+2. Verkrijg een referentie naar de dia op basis van de index.
+3. Voeg een [Tabel](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object toe aan de dia.
+4. Haal een [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) object op uit de tabel.
+5. Haal de eerste [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) op en stel de tekst en kleur in.
+6. Stel de [text_anchor_type](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_anchor_type/) en [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_vertical_type/) van de cel in.
+7. Sla de gewijzigde presentatie op.
+
+Dit voorbeeld maakt een 4 × 4 tabel met kolombreedtes van 120 punten en rijhoogtes van 100 punten. Het formatteert de tekst in cel (0, 0), voegt waarden toe aan de overige cellen in de eerste rij, en slaat het resultaat op als `Vertical_Align_Text_out.pptx`.
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse.
 with slides.Presentation() as presentation:
-    # Toegang tot de eerste dia.
     slide = presentation.slides[0]
 
-    # Definieer kolombreedtes en rijhoogtes.
-    column_widths = [40, 120, 120, 120]
+    column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # Voeg een tabelvorm toe aan de dia.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
-    table.rows[0][0].text_frame.text = "Numbers"
-    table.rows[1][0].text_frame.text = "10"
-    table.rows[2][0].text_frame.text = "20"
-    table.rows[3][0].text_frame.text = "30"
+    table.rows[0][1].text_frame.text = "10"
+    table.rows[0][2].text_frame.text = "20"
+    table.rows[0][3].text_frame.text = "30"
 
-    # Centreer de tekst en stel de verticale oriëntatie in.
     cell = table.rows[0][0]
+    paragraph = cell.text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+    portion.text = "Text here"
+    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-    # Sla de presentatie op naar schijf.
-    presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Vertical_Align_Text_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tekstopmaak Instellen op Tabelniveau**
+## **Tekstopmaak instellen op tabelniveau**
 
-Dit gedeelte laat zien hoe je tekstopmaak op tabelniveau toepast in Aspose.Slides zodat elke cel een consistente, uniforme stijl erft. Je leert lettergroottes, uitlijningen en marges globaal in te stellen.
+Gebruik [set_text_format](https://reference.aspose.com/slides/python-net/aspose.slides/table/set_text_format/) om tekstopmaak toe te passen op alle cellen in een tabel. De overloads accepteren opmaak voor delen, alinea’s en tekstframes, zodat je deze eigenschappen kunt instellen zonder door individuele cellen te itereren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie op naar de dia op basis van de index.
-3. Voeg een [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/) toe aan de dia.
-4. Stel de lettergrootte (font height) voor de tekst in.
-5. Stel alinea‑uitlijning en marges in.
-6. Stel de verticale tekstoriëntatie in.
+1. Laad de presentatie met de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) klasse.
+2. Verkrijg een referentie naar de dia op basis van de index.
+3. Haal een [Tabel](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object op van de dia.
+4. Stel de [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) in voor de tekst.
+5. Stel de [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) en [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) in.
+6. Stel de [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) in.
 7. Sla de gewijzigde presentatie op.
 
-Het volgende Python‑voorbeeld laat zien hoe je je gewenste opmaakopties toepast op tekst in een tabel:
+Het voorbeeld hieronder opent `table.pptx`, die minstens één dia met een tabel als eerste vorm moet bevatten. Het stelt de lettergrootte in op 25 punten, alinea’s rechts uitgelijnd met een rechter marge van 20 punten, en maakt de tekst verticaal. De opgemaakte presentatie wordt opgeslagen als `result.pptx`.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Creëert een instantie van de Presentation-klasse
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
+    table = slide.shapes[0]
 
-    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
-
-    # Stel de lettergrootte in voor alle tabelcellen.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.set_text_format(portion_format)
 
-    # Stel rechts uitgelijnde tekst en een rechtermarge in voor alle tabelcellen.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.set_text_format(paragraph_format)
 
-    # Stel de verticale tekstoriëntatie in voor alle tabelcellen.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.set_text_format(text_frame_format)
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ingebouwde Tabelstijlen Toepassen**
+## **Tabelstijl‑eigenschappen ophalen**
 
-Aspose.Slides maakt het mogelijk tabellen te formatteren met vooraf gedefinieerde stijlen direct in de code. Het voorbeeld demonstreert het maken van een tabel, het toepassen van een ingebouwde stijl en het opslaan van het resultaat – een efficiënte manier om consistente, professionele opmaak te garanderen.
+Gebruik [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) om de vooraf ingestelde stijl van een tabel te lezen of toe te wijzen. Dit voorbeeld past [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) toe op één tabel, drukt de preset‑naam af, en wijst dezelfde preset toe aan een tweede tabel. Beide tabellen worden opgeslagen in `table-style.pptx`.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
 
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
 
-    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
+    style_preset = table.style_preset
+    print(f"Table style preset: {style_preset.name}")
+
+    another_table = slide.shapes.add_table(10, 100, column_widths, row_heights)
+    another_table.style_preset = style_preset
+
+    presentation.save("table-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Verhouding van Tabellen vergrendelen**
+## **Verhoudingssleutel van een tabel vergrendelen**
 
-De beeldverhouding van een vorm is de verhouding tussen de afmetingen. Aspose.Slides biedt de eigenschap `aspect_ratio_locked`, waarmee je de beeldverhouding voor tabellen en andere vormen kunt vergrendelen.
+De verhoudingssleutel van een tabel is de verhouding tussen breedte en hoogte. Gebruik [aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/aspect_ratio_locked/) om deze verhouding voor een tabel te vergrendelen.
 
-Het volgende Python‑voorbeeld laat zien hoe je de beeldverhouding van een tabel vergrendelt:
+Het voorbeeld hieronder opent `pres.pptx`, die minstens één dia met een tabel als eerste vorm moet bevatten. Het drukt de huidige vergrendelingsstatus af, schakelt de verhoudingsvergrendeling in, drukt de bijgewerkte status (`True`) af, en slaat het resultaat op als `pres-out.pptx`.
 
-```py
-import aspose.pydrawing as draw
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
+with slides.Presentation("pres.pptx") as presentation:
     slide = presentation.slides[0]
-    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
     print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
-    table.shape_lock.aspect_ratio_locked = not table.shape_lock.aspect_ratio_locked
+    
+    table.shape_lock.aspect_ratio_locked = True
     print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Kan ik de leesrichting van rechts‑naar‑links (RTL) voor een gehele tabel en de tekst in de cellen inschakelen?**
+**Kan ik de leesrichting van rechts‑naar‑links (RTL) voor een hele tabel en de tekst in de cellen inschakelen?**
 
-Ja. De tabel exposeert een eigenschap [right_to_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/right_to_left/), en alinea’s hebben [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/right_to_left/). Het gebruik van beide zorgt voor de juiste RTL‑volgorde en weergave binnen cellen.
+Ja. De tabel stelt een [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/) eigenschap beschikbaar, en alinea’s hebben [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/). Het gebruik van beide zorgt voor de juiste RTL‑volgorde en weergave binnen cellen.
 
-**Hoe kan ik voorkomen dat gebruikers een tabel in het eindbestand verplaatsen of de grootte aanpassen?**
+**Hoe kan ik voorkomen dat gebruikers een tabel in het uiteindelijke bestand verplaatsen of de grootte aanpassen?**
 
-Gebruik [shape locks](/slides/nl/python-net/applying-protection-to-presentation/) om verplaatsen, schalen, selecteren, enz. uit te schakelen. Deze vergrendelingen gelden ook voor tabellen.
+Gebruik [shape locks](/slides/nl/python-net/applying-protection-to-presentation/) om verplaatsen, grootte‑aanpassing, selectie, enz. te uitschakelen. Deze vergrendelingen gelden ook voor tabellen.
 
 **Wordt het invoegen van een afbeelding als achtergrond in een cel ondersteund?**
 
-Ja. Je kunt een [picture fill](https://reference.aspose.com/slides/nl/python-net/aspose.slides/picturefillformat/) voor een cel instellen; de afbeelding bedekt het celgebied volgens de gekozen modus (stretch of tile).
+Ja. Je kunt een [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) instellen voor een cel; de afbeelding bedekt het celgebied volgens de gekozen modus (strekken of betegelen).

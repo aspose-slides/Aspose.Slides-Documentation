@@ -1,5 +1,5 @@
 ---
-title: Hantera rader och kolumner i PowerPoint‑tabeller med JavaScript
+title: Hantera rader och kolumner i PowerPoint-tabeller med JavaScript
 linktitle: Rader och kolumner
 type: docs
 weight: 20
@@ -23,233 +23,285 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Hantera tabellrader och -kolumner i PowerPoint med JavaScript och Aspose.Slides för Node.js via Java och snabbare redigering av presentationer samt datauppdateringar."
+description: "Hantera tabellrader och -kolumner i PowerPoint med JavaScript och Aspose.Slides för Node.js via Java samt snabba upp redigering av presentationer och datauppdateringar."
 ---
 ## **Introduktion**
 
-För att låta dig hantera en tabells rader och kolumner i en PowerPoint‑presentation tillhandahåller Aspose.Slides klassen [Table](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/table/) samt andra typer.
+Aspose.Slides för Node.js via Java låter dig hantera tabellstruktur och formatering i PowerPoint-presentationer via klassen [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). Du kan ange en rubrikrad, klona eller ta bort rader och kolumner, samt tillämpa textformatering på en hel rad eller kolumn.
 
-## **Ange första raden som rubrik**
+Den här artikeln förklarar dessa operationer med JavaScript-exempel. Den visar också hur du hämtar en tabells stilförinställning så att du kan återanvända den. Rads- och kolumnindex i tabeller är nollbaserade.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och läs in presentationen.  
-2. Hämta en bilds referens via dess index.  
-3. Skapa ett [Table](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Table)‑objekt och sätt det till null.  
-4. Iterera igenom alla [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)‑objekt för att hitta den relevanta tabellen.  
-5. Ange tabellens första rad som dess rubrik.  
+## **Styr radens höjd**
 
-Denna JavaScript‑kod visar hur du anger en tabells första rad som rubrik:
+Använd [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight-double-) för att ange en rads minsta höjd i punkter. Det är en nedre gräns, inte en fast höjd. [Row.getHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#getHeight--) returnerar den faktiska höjden. Åtkom raden via [Table.getRows](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getRows--).
+
+Exemplet laddar [row-height-input.pptx](row-height-input.pptx), som har en tabell som den första formen på den första bilden. Dess första rad börjar på 70 punkter. Cellerna använder 18‑punkts Arial‑text, radbrytning och 6‑punkts marginaler högst och längst ner; den längre texten i den andra kolumnen radbryts till flera rader. Exemplet ökar minimin till 100 punkter, minskar det sedan till 20 punkter, skriver ut den faktiska höjden efter varje förändring och sparar båda resultaten.
 
 ```javascript
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation("table.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("row-height-input.pptx");
 try {
-    // Hämtar den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Initierar TableEx till null
-    var tbl = null;
-    // Itererar genom formerna och sätter en referens till tabellen
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // Anger den första raden i en tabell som rubrik
-            tbl.setFirstRow(true);
-        }
-    }
-    // Sparar presentationen till disk
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
+    const row = table.getRows().get_Item(0);
+
+    row.setMinimalHeight(100);
+    console.log("Increased: minimum = " + row.getMinimalHeight().toFixed(1) + ", actual = " + row.getHeight().toFixed(1) + " pt");
+    presentation.save("row-height-increased.pptx", slides.SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    console.log("Decreased: minimum = " + row.getMinimalHeight().toFixed(1) + ", actual = " + row.getHeight().toFixed(1) + " pt");
+    presentation.save("row-height-decreased.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Klona tabellens rad eller kolumn**
+Med den medföljande presentationen lägger ökning av minimum till extra utrymme i raden. Minskning tar bort det extra utrymmet, men den faktiska höjden förblir större än 20 punkter eftersom texten och cellmarginalerna kräver mer plats. Att bara minska minimum kan inte tvinga raden under det utrymme som innehållet kräver.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och läs in presentationen,  
-2. Hämta en bilds referens via dess index.  
-3. Definiera en array av `columnWidth`.  
-4. Definiera en array av `rowHeight`.  
-5. Lägg till ett [Table](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Table)‑objekt på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double---double---).  
-6. Klona tabellraden.  
-7. Klona tabellkolumnen.  
-8. Spara den ändrade presentationen.  
+Flera faktorer påverkar den faktiska höjden:
 
-Denna JavaScript‑kod visar hur du klonar en PowerPoint‑tabells rad eller kolumn:
+- **Text och teckenstorlek:** längre text, explicita radbrytningar eller ett större teckensnitt kan kräva mer vertikalt utrymme.
+- **Radbrytning och kolumnbredd:** med radbrytning aktiverad kan minskning av kolumnbredden med [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth-double-) skapa fler rader. En bredare kolumn kan minska det vertikala utrymmet.
+- **Cellmarginaler:** [Cell.setMarginTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginTop-double-) och [Cell.setMarginBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginBottom-double-) lägger till vertikalt utrymme. [Cell.setMarginLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginLeft-double-) och [Cell.setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setMarginRight-double-) minskar bredden som är tillgänglig för text och kan orsaka extra radbrytning.
+
+För denna tabell utan sammanslagna celler bestämmer den cell som behöver mest vertikalt utrymme den innehållsdrivna lägre gränsen för hela raden. För att göra raden kortare kan du också behöva förkorta texten, minska teckenstorleken eller marginalerna, eller bredda en kolumn.
+
+Bilderna nedan visar samma tabell i samma skala. I de illustrerade resultaten var de faktiska höjderna 70, 100 och 55.2 punkter: den sista raden förblev högre än sitt 20‑punkts minimum. Exakta textmått kan variera med de teckensnitt som finns i din miljö. Ladda ner de sparade resultaten: [ökad minimum](row-height-increased.pptx) och [minskad minimum](row-height-decreased.pptx).
+
+| Original: minimum 70 pt, faktiskt 70 pt | Ökad: minimum 100 pt, faktiskt 100 pt | Minskad: minimum 20 pt, faktiskt 55.2 pt |
+| --- | --- | --- |
+| ![Original tabell med en 70‑punkts första rad.](row-height-before.png) | ![Tabell efter att ha ökat den första radens minimum till 100 punkter.](row-height-increased.png) | ![Tabell efter att ha minskat den första radens minimum till 20 punkter; radbruten text håller raden högre än minimum.](row-height-decreased.png) |
+
+## **Ställ in den första raden som rubrik**
+
+Använd metoden [setFirstRow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setFirstRow-boolean-) för att markera den första raden för rubrikformatering. Dess utseende beror på tabellstilen som tillämpas på tabellen.
+
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Öppna den första bilden.
+3. Hämta tabellen som lagras som den första formen på bilden.
+4. Aktivera rubrikformatering för dess första rad.
+5. Spara den ändrade presentationen.
+
+Exemplet kräver `table.pptx` med en tabell som den första formen på den första bilden. Det aktiverar rubrikformatering för den första raden och sparar `First_row_header.pptx`.
 
 ```javascript
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation("Test.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("table.pptx");
 try {
-    // Hämtar den första bilden
-    var sld = pres.getSlides().get_Item(0);
-    // Definierar kolumner med bredder och rader med höjder
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Lägger till en tabellform på bilden
-    var table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Lägger till lite text i rad 1 cell 1
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
+
+    presentation.save("First_row_header.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Klona en tabellrad eller -kolumn**
+
+Klona rader eller kolumner för att återanvända deras innehåll och formatering. Du kan lägga till en kopia i slutet av tabellen eller infoga den på en specifik position.
+
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Öppna den första bilden.
+3. Definiera kolumnbredder och radhöjder.
+4. Lägg till en tabell med metoden [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double---double---).
+5. Klona de önskade raderna.
+6. Klona de önskade kolumnerna.
+7. Spara den ändrade presentationen.
+
+Exemplet kräver `Test.pptx` med minst en bild. Det skapar en tabell med tre kolumner och fem rader, med dimensioner angivna i punkter. Det lägger till kopior av den första raden och kolumnen, och infogar sedan kopior av den andra raden och kolumnen på index 3 (den fjärde positionen). Den resulterande tabellen har sju rader och fem kolumner. Argumentet `false` inaktiverar kloning i intilliggande sammanslagna rader eller kolumner; denna tabell har inga sammanslagna celler.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("Test.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-    // Lägger till lite text i rad 1 cell 2
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-    // Klonar rad 1 i slutet av tabellen
     table.getRows().addClone(table.getRows().get_Item(0), false);
-    // Lägger till lite text i rad 2 cell 1
+
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-    // Lägger till lite text i rad 2 cell 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-    // Klonar rad 2 som den 4:e raden i tabellen
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
-    // Klonar första kolumnen i slutet
+
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
-    // Klonar 2:a kolumnen på den 4:e kolumnindexen
     table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
-    // Sparar presentationen till disk
-    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("table_out.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ta bort rad eller kolumn från tabell**
+## **Ta bort en rad eller kolumn från en tabell**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och läs in presentationen,  
-2. Hämta en bilds referens via dess index.  
-3. Definiera en array av `columnWidth`.  
-4. Definiera en array av `rowHeight`.  
-5. Lägg till ett [Table](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Table)‑objekt på bilden via metoden [addTable](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double---double---).  
-6. Ta bort tabellraden.  
-7. Ta bort tabellkolumnen.  
-8. Spara den ändrade presentationen.  
+Ta bort rader eller kolumner som inte längre behövs i en tabell. När ett objekt tas bort förskjuts indexen för raderna eller kolumnerna som följer.
 
-Denna JavaScript‑kod visar hur du tar bort en rad eller kolumn från en tabell:
+1. Skapa en presentation med klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Öppna den första bilden.
+3. Definiera kolumnbredder och radhöjder.
+4. Lägg till en tabell med metoden [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double---double---).
+5. Ta bort den andra raden och den andra kolumnen.
+6. Spara den ändrade presentationen.
+
+Detta exempel skapar en tre‑x‑tre tabell och tar bort raden och kolumnen på index 1, vilket lämnar en två‑x‑två tabell i `TestTable_out.pptx`. Dimensionerna är i punkter. Argumentet `false` inaktiverar borttagning av intilliggande sammanslagna rader eller kolumner; denna tabell har inga sammanslagna celler.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var colWidth = java.newArray("double", [100, 50, 30]);
-    var rowHeight = java.newArray("double", [30, 50, 30]);
-    var table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 50, 30]);
+    const rowHeights = java.newArray("double", [30, 50, 30]);
+    const table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    pres.save("TestTable_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange textformatering på radnivå i tabell**
+## **Ställ in textformatering på tabellradnivå**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och läs in presentationen,  
-2. Hämta en bilds referens via dess index.  
-3. Åtkomst till det relevanta [Table](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Table)‑objektet från bilden.  
-4. Ange de första radens cellers [setFontHeight(float value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Ange de första radens cellers [setAlignment(int value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) och [setMarginRight(float value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).  
-6. Ange de andra radens cellers [setTextVerticalType(byte value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Spara den ändrade presentationen.  
+Tillämpa textformatering på en hel rad för att hålla dess celler enhetliga. Du kan ange teckensnittsegenskaper, styckeformat och textriktning utan att formatera varje cell individuellt.
 
-Denna JavaScript‑kod demonstrerar operationen.
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Åtkom tabellen på den första bilden.
+3. Använd [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) för den första raden.
+4. Använd [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) och [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) för den första raden.
+5. Använd [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) för den andra raden.
+6. Spara den ändrade presentationen.
+
+Exemplet kräver `table.pptx` med en tabell som den första formen på den första bilden och minst två rader. Det applicerar 25‑punkts text, högerjustering och en 20‑punkts högermarginal för stycket på den första raden, och ställer in vertikal text i den andra raden.
 
 ```javascript
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("table.pptx");
 try {
-    // Låt oss anta att den första formen på den första bilden är en tabell
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Sätter teckenhöjden för cellerna i första raden
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    // Ställer in textjustering och högermarginal för cellerna i första raden
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
-    paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
+    const paragraphFormat = new slides.ParagraphFormat();
+    paragraphFormat.setAlignment(slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    // Ställer in vertikal texttyp för cellerna i andra raden
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
-    textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
-    // Sparar presentationen till disk
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new slides.TextFrameFormat();
+    textFrameFormat.setTextVerticalType(java.newByte(slides.TextVerticalType.Vertical));
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
+
+    presentation.save("row_formatting.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange textformatering på kolumnnivå i tabell**
+## **Ställ in textformatering på tabellkolumnnivå**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och läs in presentationen,  
-2. Hämta en bilds referens via dess index.  
-3. Åtkomst till det relevanta [Table](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Table)‑objektet från bilden.  
-4. Ange de första kolumnens cellers [setFontHeight(float value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Ange de första kolumnens cellers [setAlignment(int value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) och [setMarginRight(float value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).  
-6. Ange de andra kolumnens cellers [setTextVerticalType(byte value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Spara den ändrade presentationen.  
+Tillämpa textformatering på en hel kolumn för att hålla dess celler enhetliga. Du kan ange teckensnittsegenskaper, styckeformat och textriktning utan att formatera varje cell individuellt.
 
-Denna JavaScript‑kod demonstrerar operationen:
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
+2. Åtkom tabellen på den första bilden.
+3. Använd [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) för den första kolumnen.
+4. Använd [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) och [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) för den första kolumnen.
+5. Använd [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) för den andra kolumnen.
+6. Spara den ändrade presentationen.
+
+Exemplet kräver `table.pptx` med en tabell som den första formen på den första bilden och minst två kolumner. Det applicerar 25‑punkts text, högerjustering och en 20‑punkts högermarginal för stycket på den första kolumnen, och ställer in vertikal text i den andra kolumnen.
 
 ```javascript
-// Skapar en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("table.pptx");
 try {
-    // Låt oss anta att den första formen på den första bilden är en tabell
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Sätter teckenhöjden för cellerna i den första kolumnen
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
-    // Sätter textjustering och högermarginal för cellerna i den första kolumnen i ett anrop
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
-    paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
+
+    const paragraphFormat = new slides.ParagraphFormat();
+    paragraphFormat.setAlignment(slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
-    // Sätter vertikal texttyp för cellerna i den andra kolumnen
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
-    textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new slides.TextFrameFormat();
+    textFrameFormat.setTextVerticalType(java.newByte(slides.TextVerticalType.Vertical));
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+
+    presentation.save("column_formatting.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Hämta tabellstilsegenskaper**
+## **Hämta egenskaper för tabellstil**
 
-Aspose.Slides låter dig hämta stilegenskaperna för en tabell så att du kan använda dessa detaljer för en annan tabell eller någon annanstans. Denna JavaScript‑kod visar hur du får stilegenskaperna från en förinställd tabellstil:
+Använd metoden [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) för att hämta förinställningen som tillämpats på en tabell och återanvända den på en annan tabell. Detta identifierar förinställningen snarare än enskilda cellformat‑åsidosättningar.
+
+Exemplet skapar en tabell, tillämpar [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/#DarkStyle1) och läser sedan tillbaka förinställningen. Det skriver ut det heltalsvärde som motsvarar `DarkStyle1` och sparar tabellen i `table.pptx`.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// ändra standardstil‑förinställningens tema
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log(stylePreset);
+
+    presentation.save("table.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Kan jag tillämpa PowerPoint‑teman/stilar på en redan skapad tabell?**
+**Kan jag applicera PowerPoint-teman/stilar på en tabell som redan har skapats?**
 
-Ja. Tabellen ärver bild‑/layout‑/master‑temat, och du kan fortfarande åsidosätta fyllningar, kanter och textfärger ovanpå det temat.
+Ja. Tabellen ärver slide/layout/master‑temat, och du kan fortfarande åsidosätta fyllningar, kanter och textfärger ovanpå det temat.
 
 **Kan jag sortera tabellrader som i Excel?**
 
-Nej, Aspose.Slides‑tabeller har ingen inbyggd sortering eller filter. Sortera dina data i minnet först, och fyll sedan på tabellraderna i den ordningen.
+Nej, Aspose.Slides‑tabeller har ingen inbyggd sortering eller filtrering. Sortera dina data i minnet först, och återpopulate sedan tabellraderna i den ordningen.
 
 **Kan jag ha bandade (randiga) kolumner samtidigt som jag behåller anpassade färger på specifika celler?**
 
-Ja. Aktivera bandade kolumner och åsidosätt sedan specifika celler med lokal formatering; cellnivåformatering har företräde framför tabellstilen.
+Ja. Aktivera bandade kolumner, och åsidosätt sedan specifika celler med lokal formatering; cell‑nivå‑formatering har företräde framför tabellstilen.

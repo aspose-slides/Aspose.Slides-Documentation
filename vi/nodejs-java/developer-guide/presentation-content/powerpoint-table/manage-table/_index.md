@@ -1,5 +1,5 @@
 ---
-title: Quản lý Bảng trong Bài thuyết trình bằng JavaScript
+title: Quản lý Bảng trong Bản trình chiếu bằng JavaScript
 linktitle: Quản lý Bảng
 type: docs
 weight: 10
@@ -8,85 +8,88 @@ keywords:
 - thêm bảng
 - tạo bảng
 - truy cập bảng
-- tỷ lệ khía cạnh
-- căn chỉnh văn bản
+- tỷ lệ khung hình
+- canh chỉnh văn bản
 - định dạng văn bản
 - kiểu bảng
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tạo và chỉnh sửa bảng trong slide PowerPoint bằng JavaScript và Aspose.Slides cho Node.js. Khám phá các ví dụ mã đơn giản để tối ưu quy trình làm việc với bảng."
+description: "Tạo & chỉnh sửa bảng trong các slide PowerPoint bằng JavaScript và Aspose.Slides cho Node.js. Khám phá các ví dụ mã đơn giản để tối ưu hoá quy trình làm việc với bảng."
 ---
 ## **Giới thiệu**
 
-Bảng trong PowerPoint là một cách hiệu quả để hiển thị và truyền đạt thông tin. Thông tin trong lưới các ô (được sắp xếp theo hàng và cột) rất đơn giản và dễ hiểu.
+Bảng trong PowerPoint sắp xếp thông tin thành các hàng và cột, giúp dễ đọc và so sánh các giá trị hơn.
 
-Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table), lớp [Cell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/) và các kiểu khác để cho phép bạn tạo, cập nhật và quản lý bảng trong mọi loại bài thuyết trình.
+Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) , lớp [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) và các loại khác để cho phép bạn tạo, cập nhật và quản lý các bảng trong bản trình bày.
 
-## **Tạo Bảng từ Đầu**
+## **Tạo Bảng Từ Đầu**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
-3. Xác định một mảng `columnWidth`.
-4. Xác định một mảng `rowHeight`.
-5. Thêm một đối tượng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-).
-6. Duyệt qua từng [Cell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
-7. Hợp nhất bốn ô ở góc trên‑trái của bảng (hai cột đầu tiên của hai hàng đầu tiên) thành một ô duy nhất. 
-8. Truy cập vào [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của một [Cell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/).
-9. Thêm một số văn bản vào [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/).
-10. Lưu bài thuyết trình đã sửa đổi.
+Tạo một bảng bằng cách chỉ định vị trí, độ rộng các cột và chiều cao các hàng. Sau khi thêm nó vào một slide, bạn có thể định dạng viền ô, hợp nhất các ô và chèn văn bản.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide bằng chỉ số của nó.
+3. Định nghĩa một mảng độ rộng cột tính bằng điểm.
+4. Định nghĩa một mảng chiều cao hàng tính bằng điểm.
+5. Thêm một đối tượng [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double:A-double:A-) .
+6. Lặp qua từng [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
+7. Hợp nhất hai ô đầu tiên của hàng đầu tiên của bảng.
+8. Truy cập ô đã hợp nhất qua phương thức [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) của nó.
+9. Đặt văn bản trong ô đã hợp nhất.
+10. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ dưới đây tạo một bảng có ba cột và năm hàng tại vị trí (100, 50) điểm. Nó áp dụng viền màu đỏ với độ rộng 5 điểm, hợp nhất hai ô đầu tiên trong hàng đầu tiên, và lưu kết quả dưới dạng `table.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Truy cập slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Định nghĩa các cột với độ rộng và các hàng với độ cao
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // Thêm một shape bảng vào slide
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Đặt định dạng viền cho mỗi ô
-    for (var row = 0; row < tbl.getRows().size(); row++) {
-        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            const cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderTop().setWidth(5);
+
             cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderBottom().setWidth(5);
+
             cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderLeft().setWidth(5);
+
             cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Hợp nhất khối 2x2 ô ở góc trên‑trái thành một ô
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-    // Thêm một số văn bản vào ô đã hợp nhất
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-    // Lưu bài thuyết trình vào đĩa
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Đánh số trong Bảng chuẩn**
+## **Đánh số trong Bảng Tiêu chuẩn**
 
-Trong một bảng chuẩn, việc đánh số các ô là đơn giản và bắt đầu từ 0. Ô đầu tiên trong bảng có chỉ mục là 0,0 (cột 0, hàng 0). 
+Trong một bảng tiêu chuẩn, chỉ số ô bắt đầu từ 0 và sử dụng thứ tự (cột, hàng). Ô đầu tiên có chỉ số là (0, 0).
 
 Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh số như sau:
 
@@ -96,251 +99,254 @@ Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh s�
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Đoạn mã JavaScript này cho bạn thấy cách chỉ định đánh số cho các ô trong bảng:
+Ví dụ này tạo bảng 4 × 4 được minh họa ở trên, với độ rộng cột và chiều cao hàng là 70 điểm và viền ô màu đỏ có độ rộng 5 điểm. Các tọa độ minh họa chỉ số ô; ví dụ để các ô trống và lưu bảng dưới dạng `StandardTables_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Truy cập slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Định nghĩa các cột với độ rộng và các hàng với độ cao
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // Thêm một shape bảng vào slide
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // Đặt định dạng viền cho mỗi ô
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
         for (let j = 0; j < row.size(); j++) {
             const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            const cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderTop().setWidth(5);
+
+            cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderBottom().setWidth(5);
+
+            cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderLeft().setWidth(5);
+
+            cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // Lưu bài thuyết trình vào đĩa
-    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Truy cập Bảng hiện có**
+## **Truy cập Bảng Đã tồn tại**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
+Tables được lưu trong bộ sưu tập hình dạng của slide. Duyệt qua các hình dạng để tìm một bảng, sau đó sử dụng lớp [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) để đọc hoặc cập nhật các ô của nó.
 
-2. Lấy tham chiếu tới slide chứa bảng thông qua chỉ mục của nó. 
+1. Tải bản trình bày bằng cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide chứa bảng bằng chỉ số của nó.
+3. Duyệt qua các đối tượng [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) và dừng lại khi tìm thấy một bảng. Nếu slide chứa nhiều bảng, sử dụng [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getAlternativeText--) để xác định bảng bạn cần.
+4. Cập nhật văn bản trong ô mục tiêu.
+5. Lưu bản trình bày đã sửa đổi.
 
-3. Tạo một đối tượng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table) và gán nó bằng null.
-
-4. Duyệt qua tất cả các đối tượng [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) cho đến khi tìm thấy bảng.
-
-   Nếu bạn nghi ngờ slide bạn đang xử lý chứa một bảng duy nhất, bạn có thể đơn giản kiểm tra tất cả các shape mà nó chứa. Khi một shape được xác định là một bảng, bạn có thể ép kiểu nó thành đối tượng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table). Tuy nhiên nếu slide bạn đang xử lý chứa nhiều bảng, thì bạn nên tìm kiếm bảng cần thiết thông qua phương thức [setAlternativeText(String value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
-
-5. Sử dụng đối tượng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table) để làm việc với bảng. Trong ví dụ dưới đây, chúng tôi đặt văn bản cho một ô trong bảng.
-
-6. Lưu bài thuyết trình đã sửa đổi.
+Ví dụ dưới đây mở `UpdateExistingTable.pptx` và tìm bảng đầu tiên trên slide đầu tiên. Nó đặt ô tại cột 0, hàng 1 thành `New` và lưu kết quả dưới dạng `table1_out.pptx`. Tệp đầu vào phải chứa ít nhất một slide, và bảng đầu tiên trên slide đó phải có ít nhất một cột và hai hàng.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+const presentation = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // Truy cập slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Khởi tạo TableEx null
-    var tbl = null;
-    // Duyệt qua các shape và đặt tham chiếu tới bảng được tìm thấy
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // Đặt văn bản cho cột đầu tiên của hàng thứ hai
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    const slide = presentation.getSlides().get_Item(0);
+    let table = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+            table = shape;
+            break;
         }
     }
-    // Lưu bài thuyết trình đã sửa đổi vào đĩa
-    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Tìm Ô sở hữu Text Frame**
+Để thay đổi kích thước hàng trong một bảng đã tồn tại và hiểu vì sao chiều cao thực tế có thể vượt quá mức tối thiểu yêu cầu, xem [Kiểm soát chiều cao hàng](/slides/vi/nodejs-java/manage-rows-and-columns/#control-row-height).
 
-Khi mã xử lý văn bản chung nhận được một [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) từ bảng, hãy sử dụng phương thức [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell--) để lấy [Cell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/) sở hữu. Đối với một khung văn bản của ô trong bảng, [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell--) trả về chủ sở hữu và [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape--) trả về `null`, mặc dù bảng tự nó là một shape.
+## **Tìm Ô Chủ sở hữu Text Frame**
 
-Các tọa độ ô có sẵn qua các phương thức chỉ đọc [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) và [Cell.getFirstRowIndex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) . [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell--) cũng cung cấp khả năng điều hướng chỉ đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra ô trả về có `null` hay không trước khi sử dụng.
+Khi mã xử lý văn bản chung nhận được một [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) từ một bảng, sử dụng phương thức [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) để lấy [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) sở hữu. Đối với khung văn bản của ô bảng, [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) trả về chủ sở hữu và [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) trả về `null`, mặc dù bảng tự nó là một shape.
 
-Đối với một ví dụ hoàn chỉnh xác định chủ sở hữu của ô bảng và shape, bao gồm các shape liên kết với các nút SmartArt, hãy xem [Search and Replace Text](/slides/vi/nodejs-java/search-and-replace-text/).
+Các tọa độ ô có sẵn qua các phương thức chỉ đọc [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) và [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) . [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) cũng cung cấp điều hướng chỉ đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra ô trả về có phải `null` trước khi sử dụng.
 
-## **Căn chỉnh Văn bản trong Bảng**
+Đối với một ví dụ đầy đủ xác định chủ sở hữu ô bảng và shape, bao gồm các shape liên kết với node SmartArt, xem [Search and Replace Text](/slides/vi/nodejs-java/search-and-replace-text/).
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
-3. Thêm một đối tượng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table) vào slide.
-4. Truy cập vào một đối tượng [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) từ bảng.
-5. Truy cập vào [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/) của [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/).
-6. Căn chỉnh văn bản theo chiều dọc.
-7. Lưu bài thuyết trình đã sửa đổi.
+## **Canh chỉnh Văn bản trong Bảng**
+
+Bạn có thể kiểm soát việc neo dọc và hướng văn bản của từng ô bảng. Ví dụ trong phần này căn giữa văn bản trong ô đầu tiên và xoay nó 270 độ.
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide bằng chỉ số của nó.
+3. Thêm một đối tượng [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) vào slide.
+4. Truy cập một đối tượng [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) từ bảng.
+5. Truy cập đoạn [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) đầu tiên và đặt văn bản và màu của nó.
+6. Đặt việc neo dọc và hướng văn bản của ô bằng cách sử dụng [setTextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextAnchorType-byte-) và [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextVerticalType-byte-) .
+7. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ này tạo một bảng 4 × 4 với độ rộng cột 120 điểm và chiều cao hàng 100 điểm. Nó định dạng văn bản trong ô (0, 0), thêm giá trị vào các ô còn lại trong hàng đầu tiên, và lưu kết quả dưới dạng `Vertical_Align_Text_out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
 
-// Tạo một thể hiện của lớp Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy slide đầu tiên
-    var slide = pres.getSlides().get_Item(0);
-    // Định nghĩa các cột với độ rộng và các hàng với độ cao
-    var dblCols = java.newArray("double", [120, 120, 120, 120]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // Thêm shape bảng vào slide
-    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // Truy cập vào text frame
-    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    // Tạo đối tượng Paragraph cho text frame
-    var paragraph = txtFrame.getParagraphs().get_Item(0);
-    // Tạo đối tượng Portion cho đoạn văn
-    var portion = paragraph.getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [120, 120, 120, 120]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    const textFrame = table.get_Item(0, 0).getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+
+    const portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Căn chỉnh văn bản theo chiều dọc
-    var cell = tbl.get_Item(0, 0);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+
+    const cell = table.get_Item(0, 0);
     cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
     cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
-    // Lưu bài thuyết trình vào đĩa
-    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Đặt Định dạng Văn bản ở Cấp độ Bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
-3. Truy cập vào một đối tượng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Table) từ Slide.
-4. Đặt [setFontHeight(float value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) cho văn bản.
-5. Đặt [setAlignment(int value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) và [setMarginRight(float value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).
-6. Đặt [setTextVerticalType(byte value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
-7. Lưu bài thuyết trình đã sửa đổi. 
+Sử dụng [setTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setTextFormat-com.aspose.slides.IPortionFormat-) để áp dụng định dạng văn bản cho tất cả các ô trong một bảng. Các overload của nó chấp nhận định dạng phần, đoạn và khung văn bản, cho phép bạn đặt các thuộc tính này mà không cần lặp qua từng ô riêng lẻ.
+
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu tới slide bằng chỉ số của nó.
+3. Truy cập một đối tượng [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) từ slide.
+4. Đặt kích thước phông chữ bằng [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) cho văn bản.
+5. Đặt căn chỉnh đoạn và lề phải bằng [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) và [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) .
+6. Đặt hướng văn bản bằng [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) .
+7. Lưu bản trình bày đã sửa đổi.
+
+Ví dụ dưới đây mở `table.pptx`, phải chứa ít nhất một slide với một bảng là shape đầu tiên. Nó đặt kích thước phông chữ thành 25 điểm, căn phải các đoạn với lề phải 20 điểm, và làm văn bản đứng dọc. Bản trình bày đã định dạng được lưu dưới dạng `result.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Tạo một thể hiện của lớp Presentation
-var pres = new aspose.slides.Presentation("simpletable.pptx");
+const presentation = new aspose.slides.Presentation("table.pptx");
 try {
-    // Giả sử shape đầu tiên trên slide đầu tiên là một bảng
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Đặt độ cao phông chữ cho các ô của bảng
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    // Đặt căn chỉnh văn bản và lề phải cho các ô của bảng trong một lần gọi
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    table.setTextFormat(portionFormat);
+
+    const paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    // Đặt kiểu dọc của văn bản cho các ô của bảng
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    table.setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new aspose.slides.TextFrameFormat();
     textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
-    someTable.setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Đặt Kiểu Bảng Tiên Định**
+## **Lấy Thuộc tính Kiểu Bảng**
 
-Aspose.Slides cung cấp các kiểu bảng PowerPoint tích hợp sẵn dưới dạng liệt kê [TableStylePreset](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/tablestylepreset/), vì vậy bạn có thể áp dụng cùng một giao diện cho bất kỳ bảng nào. Đoạn mã JavaScript này cho bạn thấy cách thay thế kiểu mặc định của một bảng bằng kiểu tiên định:
+Sử dụng [getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) để đọc kiểu được cài sẵn của bảng và [setStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setStylePreset-int-) để gán nó. Ví dụ này áp dụng [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) cho một bảng, in ra giá trị preset, và gán cùng một preset cho bảng thứ hai. Cả hai bảng được lưu trong `table-style.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// thay đổi giao diện preset mặc định
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log("Table style preset: " + stylePreset);
+
+    const anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
+    anotherTable.setStylePreset(stylePreset);
+
+    presentation.save("table-style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Khóa Tỷ lệ Khía cạnh của Bảng**
+## **Khóa Tỷ lệ Khung hình của Bảng**
 
-Tỷ lệ khía cạnh của một hình dạng hình học là tỉ lệ các kích thước của nó ở các chiều khác nhau. Aspose.Slides cung cấp thuộc tính [**setAspectRatioLocked**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) để cho phép bạn khóa thiết lập tỷ lệ khía cạnh cho bảng và các hình dạng khác.
+Tỷ lệ khung hình của một bảng là tỉ lệ giữa chiều rộng và chiều cao của nó. Sử dụng [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked-boolean-) để khóa tỉ lệ này cho một bảng.
 
-Đoạn mã JavaScript này cho bạn thấy cách khóa tỷ lệ khía cạnh cho một bảng:
+Ví dụ dưới đây mở `pres.pptx`, phải chứa ít nhất một slide với một bảng là shape đầu tiên. Nó in ra trạng thái khóa hiện tại, bật khóa tỷ lệ khung hình, in ra trạng thái đã cập nhật (`true`), và lưu kết quả dưới dạng `pres-out.pptx`.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// đảo ngược
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Có thể bật hướng đọc từ phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô của nó không?**
+**Tôi có thể bật hướng đọc phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô của nó không?**
 
-Có. Bảng cung cấp phương thức [setRightToLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/table/setrighttoleft/), và các đoạn văn có [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/). Sử dụng cả hai sẽ đảm bảo thứ tự RTL đúng và hiển thị chính xác bên trong các ô.
+Có. Bảng cung cấp phương thức [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setRightToLeft-boolean-), và các đoạn có [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setRightToLeft-byte-). Sử dụng cả hai đảm bảo thứ tự RTL đúng và hiển thị bên trong các ô.
 
-**Làm thế nào để ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong tệp cuối cùng?**
+**Làm sao tôi có thể ngăn người dùng di chuyển hoặc thay đổi kích thước một bảng trong tệp cuối cùng?**
 
-Sử dụng khóa shape để vô hiệu hóa việc di chuyển, thay đổi kích thước, chọn, v.v. Các khóa này cũng áp dụng cho bảng.
+Sử dụng [shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) để vô hiệu hoá việc di chuyển, thay đổi kích thước, lựa chọn, v.v. Các khóa này cũng áp dụng cho bảng.
 
-**Có hỗ trợ chèn hình ảnh vào trong ô làm nền không?**
+**Có hỗ trợ chèn hình ảnh vào ô làm nền không?**
 
-Có. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/) cho ô; hình ảnh sẽ bao phủ khu vực ô theo chế độ đã chọn (kéo dài hoặc lát).
+Có. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) cho ô; hình ảnh sẽ phủ toàn bộ khu vực ô theo chế độ đã chọn (giãn hoặc lặp).

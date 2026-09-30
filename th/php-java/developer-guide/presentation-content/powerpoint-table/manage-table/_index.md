@@ -1,91 +1,97 @@
 ---
-title: จัดการตารางการนำเสนอใน PHP
-linktitle: จัดการตาราง
+title: "จัดการตารางการนำเสนอใน PHP"
+linktitle: "จัดการตาราง"
 type: docs
 weight: 10
 url: /th/php-java/manage-table/
 keywords:
-- เพิ่มตาราง
-- สร้างตาราง
-- เข้าถึงตาราง
-- อัตราส่วน
-- จัดแนวข้อความ
-- การจัดรูปแบบข้อความ
-- สไตล์ตาราง
-- PowerPoint
-- การนำเสนอ
-- PHP
-- Aspose.Slides
-description: "สร้างและแก้ไขตารางในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ค้นพบตัวอย่างโค้ดอย่างง่ายเพื่อเพิ่มประสิทธิภาพกระบวนการทำงานกับตารางของคุณ"
+- "เพิ่มตาราง"
+- "สร้างตาราง"
+- "เข้าถึงตาราง"
+- "อัตราส่วนภาพ"
+- "จัดแนวข้อความ"
+- "การจัดรูปแบบข้อความ"
+- "สไตล์ตาราง"
+- "PowerPoint"
+- "การนำเสนอ"
+- "PHP"
+- "Aspose.Slides"
+description: "สร้างและแก้ไขตารางในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java ค้นหาตัวอย่างโค้ดง่ายๆ เพื่อทำให้กระบวนการทำงานกับตารางของคุณเป็นระเบียบง่ายขึ้น"
 ---
-## **บทนำ**
+## **คำนำ**
 
-ตารางใน PowerPoint เป็นวิธีที่มีประสิทธิภาพในการแสดงและสื่อสารข้อมูล ข้อมูลในตารางที่ประกอบด้วยเซลล์ (จัดเรียงเป็นแถวและคอลัมน์) มีความชัดเจนและเข้าใจง่าย
+Tables in PowerPoint organize information into rows and columns, making it easier to read and compare values.
 
-Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) , [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) และประเภทอื่น ๆ ที่ช่วยให้คุณสร้าง, แก้ไขและจัดการตารางในงานนำเสนอทุกประเภท
+Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) class, [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) class, and other types to allow you to create, update, and manage tables in presentations.
 
-## **Create a Table from Scratch**
+## **สร้างตารางตั้งแต่ต้น**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. กำหนดอาเรย์ของ `columnWidth`  
-4. กำหนดอาเรย์ของ `rowHeight`  
-5. เพิ่มออบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/) ลงในสไลด์โดยใช้เมธอด [addTable](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addtable/)  
-6. วนผ่านแต่ละ [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) เพื่อกำหนดรูปแบบเส้นขอบด้านบน, ด้านล่าง, ด้านขวาและด้านซ้าย  
-7. รวมสองเซลล์แรกของแถวแรกในตาราง  
-8. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) ของ [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/)  
-9. เพิ่มข้อความใน [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/)  
-10. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+Create a table by specifying its position, column widths, and row heights. After adding it to a slide, you can format cell borders, merge cells, and insert text.
 
-โค้ด PHP นี้แสดงวิธีสร้างตารางในงานนำเสนอ:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
+3. Define an array of column widths in points.
+4. Define an array of row heights in points.
+5. Add a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) method.
+6. Iterate through each [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
+7. Merge the first two cells of the table's first row.
+8. Access the merged cell through its [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/gettextframe/) method.
+9. Set the text in the merged cell.
+10. Save the modified presentation.
+
+The example below creates a table with three columns and five rows at (100, 50) points. It applies red borders with a width of 5 points, merges the first two cells in the first row, and saves the result as `table.pptx`.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
-      for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
-        $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
-        $cellFormat::getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderTop()->setWidth(5);
-        $cellFormat::getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderBottom()->setWidth(5);
-        $cellFormat::getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderLeft()->setWidth(5);
-        $cellFormat::getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat::getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat::getBorderRight()->setWidth(5);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $red = java("java.awt.Color")->RED;
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 50, 50, 50 ];
+    $rowHeights = [ 50, 30, 30, 30, 30 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        $row = $table->getRows()->get_Item($rowIndex);
+        for ($columnIndex = 0; $columnIndex < java_values($row->size()); $columnIndex++) {
+            $cell = $row->get_Item($columnIndex);
+            $cellFormat = $cell->getCellFormat();
+            $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderTop()->setWidth(5);
+
+            $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderBottom()->setWidth(5);
+
+            $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderLeft()->setWidth(5);
+
+            $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderRight()->setWidth(5);
+        }
     }
-    # รวมเซลล์ที่ 1 และ 2 ของแถวที่ 1
-    $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
-    # เพิ่มข้อความบางส่วนลงในเซลล์ที่รวมกัน
-    $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
-    # บันทึกการนำเสนอลงดิสก์
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $table->mergeCells($table->get_Item(0, 0), $table->get_Item(1, 0), false);
+    $table->get_Item(0, 0)->getTextFrame()->setText("Merged Cells");
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Numbering in a Standard Table**
+## **การกำหนดหมายเลขในตารางมาตรฐาน**
 
-ในตารางมาตรฐาน การจัดลำดับหมายเลขของเซลล์เป็นการนับจากศูนย์ เซลล์แรกในตารางมีดัชนีเป็น 0,0 (คอลัมน์ 0, แถว 0)  
+In a standard table, cell indices are zero-based and use the order (column, row). The first cell is indexed as (0, 0).
 
-ตัวอย่างเช่น เซลล์ในตารางที่มี 4 คอลัมน์และ 4 แถวจะถูกนับดังนี้:
+For example, the cells in a table with 4 columns and 4 rows are numbered this way:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -93,228 +99,266 @@ Aspose.Slides มีคลาส [Table](https://reference.aspose.com/slides/th/
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-โค้ด PHP นี้แสดงวิธีระบุลำดับหมายเลขของเซลล์ในตาราง:
+This example creates the 4 × 4 table illustrated above, with column widths and row heights of 70 points and red cell borders with a width of 5 points. The coordinates illustrate cell indices; the example leaves the cells empty and saves the table as `StandardTables_out.pptx`.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(70, 70, 70, 70 );
-    $dblRows = array(70, 70, 70, 70 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # ตั้งค่ารูปแบบเส้นขอบสำหรับแต่ละเซลล์
-    $rows = $tbl->getRows();
-    foreach($rows as $row) {
-      foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cell->getCellFormat()->getBorderRight()->setWidth(5);
-      }
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $red = java("java.awt.Color")->RED;
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 70, 70, 70, 70 ];
+    $rowHeights = [ 70, 70, 70, 70 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    for ($rowIndex = 0; $rowIndex < java_values($table->getRows()->size()); $rowIndex++) {
+        $row = $table->getRows()->get_Item($rowIndex);
+        for ($columnIndex = 0; $columnIndex < java_values($row->size()); $columnIndex++) {
+            $cell = $row->get_Item($columnIndex);
+            $cellFormat = $cell->getCellFormat();
+            $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderTop()->setWidth(5);
+
+            $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderBottom()->setWidth(5);
+
+            $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderLeft()->setWidth(5);
+
+            $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+            $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor($red);
+            $cellFormat->getBorderRight()->setWidth(5);
+        }
     }
-    # บันทึกการนำเสนอลงดิสก์
-    $pres->save("StandardTables_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("StandardTables_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Access an Existing Table**
+## **เข้าถึงตารางที่มีอยู่**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ที่มีตารางผ่านดัชนีของมัน  
-3. สร้างอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) แล้วตั้งค่าเป็น null  
-4. วนผ่านออบเจกต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) ทั้งหมดจนกว่าจะพบตาราง  
+Tables are stored in a slide's shape collection. Iterate through the shapes to locate a table, then use the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) class to read or update its cells.
 
-   หากคุณสงสัยว่ารูปที่กำลังทำงานอยู่มีเพียงตารางเดียว คุณสามารถตรวจสอบรูปทั้งหมดที่มันมีได้ เมื่อรูปถูกระบุว่าเป็นตาราง คุณสามารถแคสต์เป็นอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) แต่หากสไลด์มีหลายตาราง คุณควรค้นหาตารางที่ต้องการผ่าน [setAlternativeText(String value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/setalternativetext/)  
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide containing the table by its index.
+3. Iterate through the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) objects and stop when a table is found. If the slide contains several tables, use [getAlternativeText](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getalternativetext/) to identify the one you need.
+4. Update the text in the target cell.
+5. Save the modified presentation.
 
-5. ใช้อ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) เพื่อทำงานกับตาราง ในตัวอย่างด้านล่าง เราเพิ่มแถวใหม่ให้กับตาราง  
-6. บันทึกงานนำเสนอที่แก้ไขแล้ว  
-
-โค้ด PHP นี้แสดงวิธีเข้าถึงและทำงานกับตารางที่มีอยู่:
+The example below opens `UpdateExistingTable.pptx` and finds the first table on the first slide. It sets the cell at column 0, row 1 to `New` and saves the result as `table1_out.pptx`. The input must contain at least one slide, and the first table on that slide must have at least one column and two rows.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-  $pres = new Presentation("UpdateExistingTable.pptx");
-  try {
-    # เข้าถึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # กำหนดค่าเริ่มต้นให้ TableEx เป็น null
-    $tbl = null;
-    # วนลูปผ่านรูปร่างทั้งหมดและตั้งค่าอ้างอิงไปยังตารางที่พบ
-    $shapes = $sld->getShapes();
-    foreach($shapes as $shp) {
-      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
-        $tbl = $shp;
-        # ตั้งค่าข้อความสำหรับคอลัมน์แรกของแถวที่สอง
-        $tbl->get_Item(0, 1)->getTextFrame()->setText("New");
-      }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("UpdateExistingTable.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = null;
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            $table = $shape;
+            break;
+        }
     }
-    # บันทึกการนำเสนอที่แก้ไขแล้วลงดิสก์
-    $pres->save("table1_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    if ($table !== null) {
+        $table->get_Item(0, 1)->getTextFrame()->setText("New");
+        $presentation->save("table1_out.pptx", SaveFormat::Pptx);
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Find the Cell That Owns a Text Frame**
+To resize a row in an existing table and understand why its actual height can exceed the requested minimum, see [Control Row Height](/slides/th/php-java/manage-rows-and-columns/#control-row-height).
 
-เมื่อโค้ดประมวลผลข้อความทั่วไปได้รับออบเจกต์ [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) จากตาราง ให้ใช้เมธอด [TextFrame::getParentCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentCell) เพื่อดึง [Cell](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/) เจ้าของ สำหรับ TextFrame ของเซลล์ตาราง, [TextFrame::getParentCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentCell) จะคืนค่าเจ้าของและ [TextFrame::getParentShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentShape) จะคืนค่า `null` แม้ว่าตารางเองเป็น Shape  
+## **ค้นหาเซลล์ที่เป็นเจ้าของ Text Frame**
 
-พิกัดเซลล์สามารถเข้าถึงได้ผ่านเมธอดอ่าน‑เท่านั้น [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/#getFirstColumnIndex) และ [Cell::getFirstRowIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/cell/#getFirstRowIndex)  [TextFrame::getParentCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/#getParentCell) ยังให้การนำทางแบบอ่าน‑เท่านั้น: มันคืนค่าเจ้าของแต่ไม่เปลี่ยนความเป็นเจ้าของ ตรวจสอบว่าเซลล์ที่คืนมาไม่ใช่ `java_is_null` ก่อนใช้งานเสมอ  
+When generic text-processing code receives a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) from a table, use the [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) method to retrieve the owning [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/). For a table-cell text frame, [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) returns the owner and [TextFrame::getParentShape](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentShape) returns `null`, even though the table itself is a shape.
 
-สำหรับตัวอย่างสมบูรณ์ที่ระบุเจ้าของของเซลล์ตารางและ Shape รวมถึง Shape ที่เชื่อมโยงกับโหนด SmartArt ให้ดูที่ [Search and Replace Text](/slides/th/php-java/search-and-replace-text/)
+The cell coordinates are available through the read-only [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) and [Cell::getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) methods. [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) also provides read-only navigation: it returns the owner but does not change ownership. Always check the returned cell with `java_is_null` before using it.
 
-## **Align Text in a Table**
+For a complete example that identifies table-cell and shape owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/th/php-java/search-and-replace-text/).
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) ลงในสไลด์  
-4. เข้าถึงอ็อบเจกต์ [TextFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/) จากตาราง  
-5. เข้าถึง [Paragraph](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/)  
-6. จัดแนวข้อความในแนวตั้ง  
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+## **จัดแนวข้อความในตาราง**
 
-โค้ด PHP นี้แสดงวิธีจัดแนวข้อความในตาราง:
+You can control the vertical anchoring and text direction of individual table cells. The example in this section centers text within the first cell and rotates it by 270 degrees.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
+3. Add a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) object to the slide.
+4. Access a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) object from the table.
+5. Access the first [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) and set its text and color.
+6. Set the cell's vertical anchoring and text direction using [setTextAnchorType](https://reference.aspose.com/slides/php-java/aspose.slides/cell/settextanchortype/) and [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/cell/settextverticaltype/).
+7. Save the modified presentation.
+
+This example creates a 4 × 4 table with column widths of 120 points and row heights of 100 points. It formats the text in cell (0, 0), adds values to the remaining cells in the first row, and saves the result as `Vertical_Align_Text_out.pptx`.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # ดึงสไลด์แรก
-    $slide = $pres->getSlides()->get_Item(0);
-    # กำหนดคอลัมน์พร้อมความกว้างและแถวพร้อมความสูง
-    $dblCols = array(120, 120, 120, 120 );
-    $dblRows = array(100, 100, 100, 100 );
-    # เพิ่มรูปร่างตารางลงในสไลด์
-    $tbl = $slide->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
-    $tbl->get_Item(2, 0)->getTextFrame()->setText("20");
-    $tbl->get_Item(3, 0)->getTextFrame()->setText("30");
-    # เข้าถึง TextFrame
-    $txtFrame = $tbl->get_Item(0, 0)->getTextFrame();
-    # สร้างอ็อบเจกต์ Paragraph สำหรับ TextFrame
-    $paragraph = $txtFrame->getParagraphs()->get_Item(0);
-    # สร้างอ็อบเจกต์ Portion สำหรับ Paragraph
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAnchorType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $black = java("java.awt.Color")->BLACK;
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 120, 120, 120, 120 ];
+    $rowHeights = [ 100, 100, 100, 100 ];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
+    $table->get_Item(1, 0)->getTextFrame()->setText("10");
+    $table->get_Item(2, 0)->getTextFrame()->setText("20");
+    $table->get_Item(3, 0)->getTextFrame()->setText("30");
+
+    $textFrame = $table->get_Item(0, 0)->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+
     $portion = $paragraph->getPortions()->get_Item(0);
     $portion->setText("Text here");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # จัดแนวข้อความในแนวตั้ง
-    $cell = $tbl->get_Item(0, 0);
+    $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+
+    $cell = $table->get_Item(0, 0);
     $cell->setTextAnchorType(TextAnchorType::Center);
     $cell->setTextVerticalType(TextVerticalType::Vertical270);
-    # บันทึกการนำเสนอลงดิสก์
-    $pres->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Set Text Formatting on the Table Level**
+## **ตั้งค่าการจัดรูปแบบข้อความในระดับตาราง**
 
-1. สร้างอินสแตนซ์ของ คลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เข้าถึงอ็อบเจกต์ [Table](https://reference.aspose.com/slides/th/php-java/aspose.slides/Table) จากสไลด์  
-4. ตั้งค่า [setFontHeight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseportionformat/#setFontHeight) สำหรับข้อความ  
-5. ตั้งค่า [setAlignment(int value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setalignment/) และ [setMarginRight(float value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setmarginright/)  
-6. ตั้งค่า [setTextVerticalType(byte value)](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframeformat/settextverticaltype/)  
-7. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+Use [setTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/table/settextformat/) to apply text formatting to all cells in a table. Its overloads accept portion, paragraph, and text frame formatting, so you can set these properties without iterating through individual cells.
 
-โค้ด PHP นี้แสดงวิธีปรับใช้ตัวเลือกการจัดรูปแบบที่คุณต้องการให้กับข้อความในตาราง:
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
+3. Access a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) object from the slide.
+4. Set the font size using [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) for the text.
+5. Set paragraph alignment and the right margin using [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) and [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/).
+6. Set the text direction using [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/).
+7. Save the modified presentation.
+
+The example below opens `table.pptx`, which must contain at least one slide with a table as its first shape. It sets the font size to 25 points, right-aligns paragraphs with a right margin of 20 points, and makes the text vertical. The formatted presentation is saved as `result.pptx`.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation("simpletable.pptx");
-  try {
-    # สมมติว่า shape แรกบนสไลด์แรกเป็นตาราง
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # ตั้งค่าความสูงของฟอนต์ในเซลล์ตาราง
+use aspose\slides\ParagraphFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->setTextFormat($portionFormat);
-    # ตั้งค่าการจัดแนวข้อความและระยะขวาของเซลล์ตารางในหนึ่งคำสั่ง
+    $portionFormat->setFontHeight(25);
+    $table->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->setTextFormat($paragraphFormat);
-    # ตั้งค่าชนิดการวางแนวข้อความในแนวตั้งของเซลล์ตาราง
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->setTextFormat($textFrameFormat);
+
+    $presentation->save("result.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Get Table Style Properties**
+## **รับคุณสมบัติสไตล์ของตาราง**
 
-Aspose.Slides ให้คุณดึงคุณสมบัติลักษณะของตารางเพื่อใช้กับตารางอื่นหรือในที่อื่น โค้ด PHP นี้แสดงวิธีดึงคุณสมบัติสไตล์จากตารางที่ใช้สไตล์กำหนดล่วงหน้า:
+Use [getStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/getstylepreset/) to read a table's preset style and [setStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/setstylepreset/) to assign it. This example applies [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/php-java/aspose.slides/tablestylepreset/) to one table, prints the preset value, and assigns the same preset to a second table. Both tables are saved in `table-style.pptx`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// เปลี่ยนธีมสไตล์พรีเซ็ตเริ่มต้น
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 100, 150 ];
+    $rowHeights = [ 5, 5, 5 ];
+    $table = $slide->getShapes()->addTable(10, 10, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::DarkStyle1);
+
+    $stylePreset = java_values($table->getStylePreset());
+    echo "Table style preset: " . $stylePreset . PHP_EOL;
+
+    $anotherTable = $slide->getShapes()->addTable(10, 100, $columnWidths, $rowHeights);
+    $anotherTable->setStylePreset($stylePreset);
+
+    $presentation->save("table-style.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Lock Aspect Ratio of a Table**
+## **ล็อคอัตราส่วนของตาราง**
 
-อัตราส่วนของรูปร่างเรขาคณิตคือสัดส่วนของขนาดในมิติที่ต่างกัน Aspose.Slides มีเมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) เพื่อให้คุณล็อกการตั้งค่าอัตราส่วนสำหรับตารางและรูปร่างอื่น ๆ  
+A table's aspect ratio is the ratio of its width to its height. Use [setAspectRatioLocked](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) to lock this ratio for a table.
 
-โค้ด PHP นี้แสดงวิธีล็อกอัตราส่วนของตาราง:
+The example below opens `pres.pptx`, which must contain at least one slide with a table as its first shape. It prints the current lock state, enables the aspect ratio lock, prints the updated state (`true`), and saves the result as `pres-out.pptx`.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("pres.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    echo "Lock aspect ratio set: " . (java_values($table->getGraphicalObjectLock()->getAspectRatioLocked()) ? "true" : "false") . PHP_EOL;
+
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(true);
+    echo "Lock aspect ratio set: " . (java_values($table->getGraphicalObjectLock()->getAspectRatioLocked()) ? "true" : "false") . PHP_EOL;
+
+    $presentation->save("pres-out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**ฉันสามารถเปิดใช้งานทิศทางการอ่านจากขวาไปซ้าย (RTL) สำหรับทั้งตารางและข้อความในเซลล์ได้หรือไม่?**  
-ใช่ ตารางเปิดเผยเมธอด [setRightToLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/table/setrighttoleft/) และพารากราฟมี [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraphformat/setrighttoleft/) การใช้ทั้งสองจะทำให้ลำดับ RTL ถูกต้องและแสดงผลภายในเซลล์ได้ถูกต้อง  
+**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
 
-**ฉันจะป้องกันผู้ใช้จากการย้ายหรือปรับขนาดตารางในไฟล์สุดท้ายได้อย่างไร?**  
-ใช้การล็อกรูปเพื่อปิดการย้าย, ปรับขนาด, เลือก ฯลฯ การล็อกเหล่านี้ใช้ได้กับตารางเช่นกัน  
+Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/) method, and paragraphs have [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Using both ensures the correct RTL order and rendering inside cells.
 
-**การแทรกรูปภาพเป็นพื้นหลังภายในเซลล์ได้รับการสนับสนุนหรือไม่?**  
-ใช่ คุณสามารถตั้งค่า [picture fill](https://reference.aspose.com/slides/th/php-java/aspose.slides/picturefillformat/) ให้กับเซลล์ได้ ภาพจะครอบพื้นที่เซลล์ตามโมดที่เลือก (ขยายหรือเปลี่ยนเป็นกระเบื้อง)  
+**How can I prevent users from moving or resizing a table in the final file?**
+
+Use [shape locks](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
+
+**Is inserting an image inside a cell as a background supported?**
+
+Yes. You can set a [picture fill](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).

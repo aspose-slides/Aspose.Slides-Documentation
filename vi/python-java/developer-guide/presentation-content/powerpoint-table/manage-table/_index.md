@@ -1,6 +1,6 @@
 ---
-title: Quản lý Bảng trong Bản trình chiếu bằng Python
-linktitle: Quản lý Bảng
+title: Quản lý bảng trong bài thuyết trình bằng Python
+linktitle: Quản lý bảng
 type: docs
 weight: 10
 url: /vi/python-java/manage-table/
@@ -13,29 +13,33 @@ keywords:
 - định dạng văn bản
 - kiểu bảng
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - Python
 - Aspose.Slides
-description: "Tạo & chỉnh sửa bảng trong các slide PowerPoint với Aspose.Slides cho Python qua Java. Khám phá các ví dụ mã đơn giản để tối ưu hoá quy trình làm việc với bảng."
+description: "Tạo và chỉnh sửa bảng trong slide PowerPoint với Aspose.Slides cho Python thông qua Java. Khám phá các ví dụ mã đơn giản để tối ưu quy trình làm việc với bảng của bạn."
 ---
 ## **Giới thiệu**
 
-Bảng trong PowerPoint là một cách hiệu quả để hiển thị thông tin. Thông tin trong lưới các ô (được sắp xếp thành hàng và cột) rất trực quan và dễ hiểu.
+Tables in PowerPoint organize information into rows and columns, making it easier to read and compare values.
 
-Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) và lớp [Cell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cell/) cùng các kiểu khác để cho phép bạn tạo, cập nhật và quản lý các bảng trong mọi loại bản trình chiếu.
+Aspose.Slides provides the [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) and [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) classes and other types to allow you to create, update, and manage tables in presentations.
 
 ## **Tạo bảng từ đầu**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu tới một slide dựa trên chỉ mục của nó.
-3. Xác định danh sách chiều rộng cột.
-4. Xác định danh sách chiều cao hàng.
-5. Thêm một đối tượng [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/#addTable) .
-6. Lặp qua từng [Cell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cell/) để áp dụng định dạng cho các viền trên, dưới, phải và trái.
-7. Hợp nhất hai ô đầu tiên của hàng đầu tiên trong bảng.
-8. Truy cập tới [TextFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/) của một [Cell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cell/) .
-9. Thêm một số văn bản vào [TextFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/) .
-10. Lưu bản trình chiếu đã chỉnh sửa.
+Create a table by specifying its position, column widths, and row heights. After adding it to a slide, you can format cell borders, merge cells, and insert text.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
+3. Define a list of column widths in points.
+4. Define a list of row heights in points.
+5. Add a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object to the slide through the [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) method.
+6. Iterate through each [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
+7. Merge the first two cells of the table's first row.
+8. Access the merged cell through its [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) method.
+9. Set the text in the merged cell.
+10. Save the modified presentation.
+
+The example below creates a table with three columns and five rows at (100, 50) points. It applies red borders with a width of 5 points, merges the first two cells in the first row, and saves the result as `table.pptx`.
 
 ```python
 import jpype
@@ -47,21 +51,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Khởi tạo một lớp Presentation đại diện cho tệp PPTX
 presentation = Presentation()
 try:
-
-    # Truy cập slide đầu tiên
     slide = presentation.getSlides().get_Item(0)
 
-    # Xác định các cột với độ rộng và các hàng với độ cao
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Thêm một shape bảng vào slide
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Đặt định dạng viền cho mỗi ô
     for row in table.getRows():
         for cell in row:
             cell_format = cell.getCellFormat()
@@ -78,23 +75,19 @@ try:
             cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
             cell_format.getBorderRight().setWidth(5)
 
-    # Hợp nhất các ô 1 và 2 của hàng 1
-    table.mergeCells(table.getRows().get_Item(0).get_Item(0), table.getRows().get_Item(0).get_Item(1), False)
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), False)
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells")
 
-    # Thêm một số văn bản vào ô đã hợp nhất
-    table.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells")
-
-    # Lưu bản trình chiếu vào Đĩa
     presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Đánh số trong bảng tiêu chuẩn**
+## **Đánh số trong một bảng tiêu chuẩn**
 
-Trong một bảng tiêu chuẩn, việc đánh số các ô là đơn giản và bắt đầu từ 0. Ô đầu tiên trong bảng được đánh chỉ số là 0,0 (cột 0, hàng 0).
+In a standard table, cell indices are zero-based and use the order (column, row). The first cell is indexed as (0, 0).
 
-Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh số như sau:
+For example, the cells in a table with 4 columns and 4 rows are numbered this way:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,7 +95,7 @@ Ví dụ, các ô trong một bảng có 4 cột và 4 hàng được đánh s�
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Đoạn mã Python này cho bạn thấy cách tạo một bảng với việc đánh số ô tiêu chuẩn:
+This example creates the 4 × 4 table illustrated above, with column widths and row heights of 70 points and red cell borders with a width of 5 points. The coordinates illustrate cell indices; the example leaves the cells empty and saves the table as `StandardTables_out.pptx`.
 
 ```python
 import jpype
@@ -114,53 +107,46 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Khởi tạo một lớp Presentation đại diện cho tệp PPTX
 presentation = Presentation()
 try:
-
-    # Truy cập slide đầu tiên
     slide = presentation.getSlides().get_Item(0)
 
-    # Xác định các cột với độ rộng và các hàng với độ cao
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Thêm một shape bảng vào slide
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Đặt định dạng viền cho mỗi ô
     for row in table.getRows():
         for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
+            cell_format = cell.getCellFormat()
+            cell_format.getBorderTop().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderTop().setWidth(5)
+            cell_format.getBorderBottom().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderBottom().setWidth(5)
+            cell_format.getBorderLeft().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderLeft().setWidth(5)
+            cell_format.getBorderRight().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderRight().setWidth(5)
 
-    # Lưu bản trình chiếu vào đĩa
     presentation.save("StandardTables_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Truy cập bảng hiện có**
+## **Truy cập một bảng hiện có**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu đến slide chứa bảng thông qua chỉ mục của nó.
-3. Khởi tạo một biến cho đối tượng [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) và gán giá trị `None` .
-4. Lặp qua tất cả các đối tượng [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) cho đến khi tìm thấy bảng.
+Tables are stored in a slide's shape collection. Iterate through the shapes to locate a table, then use the [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) class to read or update its cells.
 
-   Nếu bạn nghi ngờ slide đang làm việc chỉ chứa một bảng, bạn có thể đơn giản kiểm tra tất cả các shape mà nó chứa. Khi một shape được xác định là bảng, bạn có thể sử dụng nó như một đối tượng [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) . Nhưng nếu slide chứa nhiều bảng, thì bạn nên tìm kiếm bảng cần thiết thông qua thuộc tính [getAlternativeText](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/#getAlternativeText) .
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide containing the table by its index.
+3. Iterate through the [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) objects and stop when a table is found. If the slide contains several tables, use [getAlternativeText](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getAlternativeText) to identify the one you need.
+4. Update the text in the target cell.
+5. Save the modified presentation.
 
-5. Sử dụng đối tượng [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) để làm việc với bảng. Trong ví dụ dưới đây, chúng tôi cập nhật văn bản ở cột đầu tiên của hàng thứ hai.
-6. Lưu bản trình chiếu đã chỉnh sửa.
+The example below opens `UpdateExistingTable.pptx` and finds the first table on the first slide. It sets the cell at column 0, row 1 to `New` and saves the result as `table1_out.pptx`. The input must contain at least one slide, and the first table on that slide must have at least one column and two rows.
 
 ```python
 import jpype
@@ -171,47 +157,47 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, Table
 
-# Khởi tạo lớp Presentation đại diện cho tệp PPTX
 presentation = Presentation("UpdateExistingTable.pptx")
 try:
-
-    # Truy cập slide đầu tiên
     slide = presentation.getSlides().get_Item(0)
 
-    # Khởi tạo tham chiếu đến bảng.
     table = None
 
-    # Lặp qua các shape và đặt tham chiếu tới bảng được tìm thấy
     for shape in slide.getShapes():
         if isinstance(shape, Table):
             table = shape
+            break
 
-            # Đặt văn bản cho cột đầu tiên của hàng thứ hai
-            table.get_Item(0, 1).getTextFrame().setText("New")
-
-    # Lưu bản trình chiếu đã chỉnh sửa vào đĩa
-    presentation.save("table1_out.pptx", SaveFormat.Pptx)
+    if table is not None:
+        table.get_Item(0, 1).getTextFrame().setText("New")
+        presentation.save("table1_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Tìm ô sở hữu một Text Frame**
+To resize a row in an existing table and understand why its actual height can exceed the requested minimum, see [Kiểm soát chiều cao hàng](/slides/vi/python-java/manage-rows-and-columns/#control-row-height).
 
-Khi mã xử lý văn bản chung nhận được một [TextFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/) từ một bảng, hãy sử dụng phương thức [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/#getParentCell) để lấy ô sở hữu [Cell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cell/) . Đối với TextFrame của ô bảng, [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/#getParentCell) trả về chủ sở hữu và [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/#getParentShape) trả về `None`, mặc dù bảng tự nó là một shape.
+## **Tìm ô sở hữu Text Frame**
 
-Các tọa độ ô có sẵn thông qua các phương thức chỉ đọc [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cell/#getFirstColumnIndex) và [Cell.getFirstRowIndex](https://reference.aspose.com/slides/vi/python-java/aspose.slides/cell/#getFirstRowIndex) . [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/#getParentCell) cũng cung cấp khả năng điều hướng chỉ đọc: nó trả về chủ sở hữu nhưng không thay đổi quyền sở hữu. Luôn kiểm tra xem ô trả về có `None` trước khi sử dụng.
+When generic text-processing code receives a [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) from a table, use the [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) method to retrieve the owning [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/). For a table-cell text frame, [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) returns the owner and [TextFrame.getParentShape](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentShape) returns `None`, even though the table itself is a shape.
 
-Đối với một ví dụ đầy đủ xác định chủ sở hữu của ô bảng và shape, bao gồm các shape liên kết với nút SmartArt, xem phần [Search and Replace Text](/slides/vi/python-java/search-and-replace-text/) .
+The cell coordinates are available through the read-only [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) and [Cell.getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) methods. [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) also provides read-only navigation: it returns the owner but does not change ownership. Always check the returned cell for `None` before using it.
+
+For a complete example that identifies table-cell and shape owners, including shapes associated with SmartArt nodes, see [Tìm kiếm và Thay thế Văn bản](/slides/vi/python-java/search-and-replace-text/).
 
 ## **Căn chỉnh văn bản trong bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu tới một slide dựa trên chỉ mục của nó.
-3. Thêm một đối tượng [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) vào slide.
-4. Truy cập một đối tượng [TextFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/) từ bảng.
-5. Truy cập đến [Paragraph](https://reference.aspose.com/slides/vi/python-java/aspose.slides/paragraph/) của đối tượng [TextFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframe/) .
-6. Căn chỉnh văn bản theo chiều dọc.
-7. Lưu bản trình chiếu đã chỉnh sửa.
+You can control the vertical anchoring and text direction of individual table cells. The example in this section centers text within the first cell and rotates it by 270 degrees.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
+3. Add a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object to the slide.
+4. Access a [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) object from the table.
+5. Access the first [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) and set its text and color.
+6. Set the cell's vertical anchoring and text direction using [setTextAnchorType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextAnchorType) and [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextVerticalType).
+7. Save the modified presentation.
+
+This example creates a 4 × 4 table with column widths of 120 points and row heights of 100 points. It formats the text in cell (0, 0), adds values to the remaining cells in the first row, and saves the result as `Vertical_Align_Text_out.pptx`.
 
 ```python
 import jpype
@@ -223,41 +209,30 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, TextAnchorType, TextVerticalType
 from java.awt import Color
 
-# Tạo một thể hiện của lớp Presentation
 presentation = Presentation()
 try:
-
-    # Lấy slide đầu tiên
     slide = presentation.getSlides().get_Item(0)
 
-    # Xác định các cột với độ rộng và các hàng với độ cao
     column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # Thêm shape bảng vào slide
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    
     table.get_Item(1, 0).getTextFrame().setText("10")
     table.get_Item(2, 0).getTextFrame().setText("20")
     table.get_Item(3, 0).getTextFrame().setText("30")
 
-    # Truy cập vào TextFrame
     text_frame = table.get_Item(0, 0).getTextFrame()
-
-    # Truy cập đoạn văn đầu tiên trong TextFrame.
     paragraph = text_frame.getParagraphs().get_Item(0)
 
-    # Truy cập phần đầu tiên trong đoạn văn.
     portion = paragraph.getPortions().get_Item(0)
     portion.setText("Text here")
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Căn chỉnh văn bản theo chiều dọc
     cell = table.get_Item(0, 0)
     cell.setTextAnchorType(TextAnchorType.Center)
     cell.setTextVerticalType(TextVerticalType.Vertical270)
 
-    # Lưu bản trình chiếu vào đĩa
     presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -265,13 +240,17 @@ finally:
 
 ## **Đặt định dạng văn bản ở mức bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu tới một slide dựa trên chỉ mục của nó.
-3. Truy cập một đối tượng [Table](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/) từ slide.
-4. Đặt chiều cao phông chữ của văn bản bằng [setFontHeight](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseportionformat/#setFontHeight) .
-5. Đặt căn chỉnh và lề phải bằng [setAlignment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/paragraphformat/#setAlignment) và [setMarginRight](https://reference.aspose.com/slides/vi/python-java/aspose.slides/paragraphformat/#setMarginRight) .
-6. Đặt kiểu văn bản dọc bằng [setTextVerticalType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/textframeformat/#setTextVerticalType) .
-7. Lưu bản trình chiếu đã chỉnh sửa.
+Use [setTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setTextFormat) to apply text formatting to all cells in a table. Its overloads accept portion, paragraph, and text frame formatting, so you can set these properties without iterating through individual cells.
+
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
+2. Get a reference to the slide by its index.
+3. Access a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) object from the slide.
+4. Set the font size using [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) for the text.
+5. Set paragraph alignment and the right margin using [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) and [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight).
+6. Set the text direction using [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType).
+7. Save the modified presentation.
+
+The example below opens `table.pptx`, which must contain at least one slide with a table as its first shape. It sets the font size to 25 points, right-aligns paragraphs with a right margin of 20 points, and makes the text vertical. The formatted presentation is saved as `result.pptx`.
 
 ```python
 import jpype
@@ -282,40 +261,31 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ParagraphFormat, PortionFormat, Presentation, SaveFormat, TextAlignment, TextFrameFormat, TextVerticalType, Table
 
-# Tạo một thể hiện của lớp Presentation
-presentation = Presentation("simpletable.pptx")
+presentation = Presentation("table.pptx")
 try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
 
-    # Giả sử shape đầu tiên trên slide đầu tiên là một bảng
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.setTextFormat(portion_format)
 
-        # Đặt chiều cao phông chữ cho các ô bảng
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.setTextFormat(portion_format)
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.setTextFormat(paragraph_format)
 
-        # Đặt căn chỉnh văn bản và lề phải cho các ô bảng trong một lệnh
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.setTextFormat(paragraph_format)
-
-        # Đặt kiểu văn bản dọc cho các ô bảng
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.setTextFormat(text_frame_format)
+    presentation.save("result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Lấy thuộc tính kiểu bảng**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính kiểu cho một bảng để bạn có thể sử dụng những chi tiết này cho bảng khác hoặc nơi khác. Đoạn mã Python này cho bạn thấy cách lấy các thuộc tính kiểu từ một kiểu bảng đã được cài đặt trước:
+Use [getStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getStylePreset) to read a table's preset style and [setStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setStylePreset) to assign it. This example applies [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/python-java/aspose.slides/tablestylepreset/) to one table, prints the preset value, and assigns the same preset to a second table. Both tables are saved in `table-style.pptx`.
 
 ```python
 import jpype
@@ -328,24 +298,29 @@ from asposeslides.api import Presentation, SaveFormat, TableStylePreset
 
 presentation = Presentation()
 try:
-    table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 10, [100, 150], [5, 5, 5])
-    table.setStylePreset(TableStylePreset.DarkStyle1)  # thay đổi chủ đề preset kiểu mặc định
+    slide = presentation.getSlides().get_Item(0)
 
-    # Lấy preset kiểu của bảng
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.getShapes().addTable(10, 10, column_widths, row_heights)
+    table.setStylePreset(TableStylePreset.DarkStyle1)
+
     style_preset = table.getStylePreset()
     print("Table style preset: ", style_preset)
 
-    # Áp dụng preset kiểu đã lấy cho bảng khác
-    another_table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 100, [100, 150], [5, 5, 5])
+    another_table = slide.getShapes().addTable(10, 100, column_widths, row_heights)
     another_table.setStylePreset(style_preset)
-    presentation.save("table.pptx", SaveFormat.Pptx)
+
+    presentation.save("table-style.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Khóa tỷ lệ khung hình của bảng**
 
-Tỷ lệ khung hình của một hình dạng hình học là tỉ lệ kích thước của nó ở các chiều khác nhau. Aspose.Slides cung cấp phương thức [setAspectRatioLocked](https://reference.aspose.com/slides/vi/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) cho phép bạn khóa cài đặt tỷ lệ khung hình cho các bảng và các shape khác.
+A table's aspect ratio is the ratio of its width to its height. Use [setAspectRatioLocked](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) to lock this ratio for a table.
+
+The example below opens `pres.pptx`, which must contain at least one slide with a table as its first shape. It prints the current lock state, enables the aspect ratio lock, prints the updated state (`True`), and saves the result as `pres-out.pptx`.
 
 ```python
 import jpype
@@ -358,29 +333,29 @@ from asposeslides.api import Presentation, SaveFormat, Table
 
 presentation = Presentation("pres.pptx")
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        table.getGraphicalObjectLock().setAspectRatioLocked(not table.getGraphicalObjectLock().getAspectRatioLocked())  # đảo ngược
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        presentation.save("pres-out.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(True)
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    presentation.save("pres-out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể bật hướng đọc từ phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô của nó không?**
+**Tôi có thể bật hướng đọc từ phải sang trái (RTL) cho toàn bộ bảng và văn bản trong các ô không?**
 
-Đúng. Bảng cung cấp phương thức [setRightToLeft](https://reference.aspose.com/slides/vi/python-java/aspose.slides/table/#setRightToLeft) , và các đoạn văn có [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/vi/python-java/aspose.slides/paragraphformat/#setRightToLeft) . Sử dụng cả hai đảm bảo thứ tự và hiển thị RTL đúng bên trong các ô.
+Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setRightToLeft) method, and paragraphs have [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setRightToLeft). Using both ensures the correct RTL order and rendering inside cells.
 
-**Làm sao tôi có thể ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong file cuối cùng?**
+**Làm thế nào để ngăn người dùng di chuyển hoặc thay đổi kích thước bảng trong tệp cuối cùng?**
 
-Sử dụng [shape locks](/slides/vi/python-java/applying-protection-to-presentation/) để vô hiệu hoá việc di chuyển, thay đổi kích thước, chọn, v.v. Các khóa này cũng áp dụng cho bảng.
+Use [shape locks](/slides/vi/python-java/applying-protection-to-presentation/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
 
-**Việc chèn hình ảnh vào bên trong một ô làm nền có được hỗ trợ không?**
+**Có hỗ trợ chèn hình ảnh vào trong ô làm nền không?**
 
-Đúng. Bạn có thể đặt một [picture fill](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillformat/) cho ô; hình ảnh sẽ phủ toàn bộ khu vực ô theo chế độ đã chọn (kéo dài hoặc lát gạch).
+Yes. You can set a [picture fill](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).

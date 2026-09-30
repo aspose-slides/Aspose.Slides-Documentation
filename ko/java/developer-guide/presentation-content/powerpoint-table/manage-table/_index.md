@@ -1,68 +1,63 @@
 ---
-title: Java에서 프레젠테이션 표 관리
-linktitle: 표 관리
+title: Java에서 프레젠테이션 테이블 관리
+linktitle: 테이블 관리
 type: docs
 weight: 10
 url: /ko/java/manage-table/
 keywords:
-- 표 추가
-- 표 만들기
-- 표 접근
+- 테이블 추가
+- 테이블 만들기
+- 테이블 접근
 - 가로세로 비율
 - 텍스트 정렬
 - 텍스트 서식
-- 표 스타일
+- 테이블 스타일
 - PowerPoint
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java를 사용하여 PowerPoint 슬라이드에서 표를 만들고 편집합니다. 표 작업 흐름을 간소화하는 간단한 코드 예제를 확인하세요."
+description: "Aspose.Slides for Java를 사용하여 PowerPoint 슬라이드에서 테이블을 만들고 편집합니다. 테이블 작업 흐름을 간소화하는 간단한 코드 예제를 확인하세요."
 ---
 ## **소개**
 
-PowerPoint의 표는 정보를 표시하고 전달하는 효율적인 방법입니다. 행과 열로 배열된 셀 그리드에 있는 정보는 직관적이고 이해하기 쉽습니다.
+PowerPoint의 테이블은 정보를 행과 열로 정리하여 값을 읽고 비교하기 쉽게 해줍니다.
 
-Aspose.Slides는 [Table](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Table) 클래스, [ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ITable) 인터페이스, [Cell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/cell/) 클래스, [ICell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icell/) 인터페이스 및 기타 유형을 제공하여 프레젠테이션에서 표를 만들고, 업데이트하고, 관리할 수 있도록 합니다. 
+Aspose.Slides는 [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) 클래스, [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 인터페이스, [Cell](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) 클래스, [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) 인터페이스 및 기타 유형을 제공하여 프레젠테이션에서 테이블을 만들고, 업데이트하고, 관리할 수 있게 해줍니다.
 
-## **처음부터 표 만들기**
+## **테이블을 처음부터 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 통해 슬라이드의 참조를 가져옵니다.  
-3. `columnWidth` 배열을 정의합니다.  
-4. `rowHeight` 배열을 정의합니다.  
-5. [addTable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) 메서드를 사용하여 슬라이드에 [ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ITable) 객체를 추가합니다.  
-6. 각 [ICell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icell/)을 반복하면서 위, 아래, 오른쪽, 왼쪽 테두리 서식을 적용합니다.  
-7. 표의 첫 번째 행에서 첫 번째 두 셀을 병합합니다.  
-8. [ICell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icell/)의 [TextFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/textframe/)에 접근합니다.  
-9. [TextFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/textframe/)에 텍스트를 추가합니다.  
+위치, 열 폭 및 행 높이를 지정하여 테이블을 만듭니다. 슬라이드에 추가한 후 셀 테두리를 서식 지정하고, 셀을 병합하고, 텍스트를 삽입할 수 있습니다.
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+3. 포인트 단위의 열 폭 배열을 정의합니다.
+4. 포인트 단위의 행 높이 배열을 정의합니다.
+5. [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) 메서드를 통해 슬라이드에 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 객체를 추가합니다.
+6. 각 [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/)을 반복하면서 상, 하, 좌, 우 테두리 서식을 적용합니다.
+7. 테이블 첫 번째 행의 처음 두 셀을 병합합니다.
+8. 병합된 셀을 [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) 메서드로 접근합니다.
+9. 병합된 셀에 텍스트를 설정합니다.
 10. 수정된 프레젠테이션을 저장합니다.
 
-다음 Java 코드는 프레젠테이션에 표를 만드는 방법을 보여줍니다:
+아래 예제는 (100, 50) 포인트 위치에 열 3개, 행 5개인 테이블을 만들고, 빨간색 테두리(두께 5 포인트)를 적용하며, 첫 번째 행의 처음 두 셀을 병합하고, 결과를 `table.pptx`로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 열 너비와 행 높이를 정의합니다
-    double[] dblCols = {50, 50, 50};
-    double[] dblRows = {50, 30, 30, 30, 30};
+    double[] columnWidths = { 50, 50, 50 };
+    double[] rowHeights = { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // 슬라이드에 표 모양을 추가합니다
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // 각 셀에 대한 테두리 형식을 설정합니다
-    for (int row = 0; row < tbl.getRows().size(); row++)
+    for (IRow row : table.getRows())
     {
-        for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
+        for (ICell cell : row)
         {
-            ICellFormat cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-            
+            ICellFormat cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
             cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
             cellFormat.getBorderTop().setWidth(5);
@@ -80,24 +75,21 @@ try {
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // 행 1의 셀 1과 2를 병합합니다
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
-    // 병합된 셀에 텍스트를 추가합니다
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
 
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **표의 기본 번호 매기기**
+## **표준 테이블에서 번호 매기기**
 
-표에서 셀 번호 매기기는 직관적이며 0부터 시작합니다. 표의 첫 번째 셀은 0,0 (열 0, 행 0)으로 인덱싱됩니다.  
+표준 테이블에서 셀 인덱스는 0부터 시작하며 순서는 (열, 행)입니다. 첫 번째 셀은 (0, 0)으로 인덱싱됩니다.
 
-예를 들어, 4열 4행 표의 셀은 다음과 같이 번호가 매겨집니다:
+예를 들어, 4열 4행 테이블의 셀은 다음과 같이 번호가 매겨집니다:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -105,271 +97,247 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-다음 Java 코드는 표의 셀 번호를 지정하는 방법을 보여줍니다:
+이 예제는 위에 표시된 4 × 4 테이블을 만들고, 열 폭과 행 높이를 70 포인트, 빨간색 셀 테두리(두께 5 포인트)로 설정합니다. 좌표는 셀 인덱스를 나타내며, 셀은 비워 두고 `StandardTables_out.pptx`로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 열 너비와 행 높이를 정의합니다
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
+    double[] columnWidths = { 70, 70, 70, 70 };
+    double[] rowHeights = { 70, 70, 70, 70 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // 슬라이드에 표 모양을 추가합니다
-    ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // 각 셀에 대한 테두리 형식을 설정합니다
-    for (IRow row : tbl.getRows())
+    for (IRow row : table.getRows())
     {
         for (ICell cell : row)
         {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderTop().setWidth(5);
+            ICellFormat cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderTop().setWidth(5);
 
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderBottom().setWidth(5);
 
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderLeft().setWidth(5);
 
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid);
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
 
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("StandardTables_out.pptx", SaveFormat.Pptx);
+    presentation.save("StandardTables_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **기존 표 접근**
+## **기존 테이블에 접근하기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
+테이블은 슬라이드의 shape 컬렉션에 저장됩니다. shape들을 순회하여 테이블을 찾은 다음, [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 인터페이스를 사용해 셀을 읽거나 업데이트합니다.
 
-2. 인덱스를 통해 표가 포함된 슬라이드에 대한 참조를 가져옵니다.  
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 클래스로 프레젠테이션을 로드합니다.
+2. 인덱스로 테이블이 포함된 슬라이드에 대한 참조를 가져옵니다.
+3. [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) 객체들을 순회하면서 테이블을 찾을 때까지 진행합니다. 슬라이드에 여러 테이블이 있는 경우, [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getAlternativeText--)를 사용해 원하는 테이블을 식별합니다.
+4. 대상 셀의 텍스트를 업데이트합니다.
+5. 수정된 프레젠테이션을 저장합니다.
 
-3. [ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ITable) 객체를 만들고 null로 초기화합니다.  
-
-4. 모든 [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/) 객체를 반복하면서 표를 찾을 때까지 탐색합니다.  
-
-   슬라이드에 단일 표만 포함된 것으로 의심되는 경우 해당 슬라이드에 포함된 모든 쉐이프를 확인하면 됩니다. 쉐이프가 표로 식별되면 이를 [Table](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Table) 객체로 형변환할 수 있습니다. 그러나 슬라이드에 여러 표가 있는 경우 [setAlternativeText(String value)](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-)를 사용해 필요한 표를 검색하는 것이 좋습니다.  
-
-5. [ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ITable) 객체를 사용해 표를 조작합니다. 아래 예제에서는 표에 새 행을 추가했습니다.  
-
-6. 수정된 프레젠테이션을 저장합니다.  
-
-다음 Java 코드는 기존 표에 접근하고 작업하는 방법을 보여줍니다:
+아래 예제는 `UpdateExistingTable.pptx`를 열어 첫 번째 슬라이드의 첫 번째 테이블을 찾고, 열 0, 행 1 셀에 `New`를 설정한 뒤 결과를 `table1_out.pptx`로 저장합니다. 입력 파일에는 최소 하나의 슬라이드가 있어야 하며, 해당 슬라이드의 첫 번째 테이블은 최소 하나의 열과 두 개의 행을 포함해야 합니다.
 
 ```java
 import com.aspose.slides.*;
 
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation("UpdateExistingTable.pptx");
+Presentation presentation = new Presentation("UpdateExistingTable.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = null;
 
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // null TableEx를 초기화합니다
-    ITable tbl = null;
-
-    // 모양들을 반복하며 찾은 표에 대한 참조를 설정합니다
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable) shp;
-            // 두 번째 행의 첫 번째 열에 텍스트를 설정합니다
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof ITable) {
+            table = (ITable) shape;
+            break;
         }
     }
-    
-    // 수정된 프레젠테이션을 디스크에 저장합니다
-    pres.save("table1_out.pptx", SaveFormat.Pptx);
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **텍스트 프레임을 보유한 셀 찾기**
+기존 테이블의 행 높이를 조정하고 실제 높이가 요청한 최소값을 초과할 수 있는 이유를 보려면 [Control Row Height](/slides/ko/java/manage-rows-and-columns/#control-row-height)를 참조하십시오.
 
-표에서 [ITextFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/)을 받는 일반 텍스트 처리 코드에서는 [ITextFrame.getParentCell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/#getParentCell--) 메서드를 사용해 해당 셀([ICell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icell/))을 가져옵니다. 표 셀의 텍스트 프레임에 대해 [ITextFrame.getParentCell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/#getParentCell--)은 소유자를 반환하고, [ITextFrame.getParentShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/#getParentShape--)은 `null`을 반환합니다. 이는 표 자체가 쉐이프이지만 텍스트 프레임이 셀에 직접 연결되어 있기 때문입니다.  
+## **텍스트 프레임을 소유한 셀 찾기**
 
-읽기 전용 [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icell/#getFirstColumnIndex--) 및 [ICell.getFirstRowIndex](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icell/#getFirstRowIndex--) 메서드를 통해 셀 좌표에 접근할 수 있습니다. [ITextFrame.getParentCell](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/#getParentCell--) 또한 읽기 전용 탐색을 제공하며, 반환된 소유자를 변경하지 않습니다. 사용하기 전에 항상 반환된 셀이 `null`인지 확인하십시오.  
+일반 텍스트 처리 코드가 테이블에서 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)를 받을 때, [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--) 메서드를 사용해 소유자 [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/)을 가져옵니다. 테이블 셀 텍스트 프레임의 경우, [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--)는 소유자를 반환하고, [ITextFrame.getParentShape](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentShape--)는 `null`을 반환합니다(테이블 자체도 shape이지만).
 
-표 셀 및 쉐이프 소유자를 식별하는 전체 예제(스마트아트 노드와 연결된 쉐이프 포함)는 [Search and Replace Text](/slides/ko/java/search-and-replace-text/)를 참조하십시오.
+셀 좌표는 읽기 전용 [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) 및 [ICell.getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) 메서드를 통해 확인할 수 있습니다. [ITextFrame.getParentCell](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getParentCell--)은 또한 읽기 전용 탐색을 제공하며, 반환된 셀이 `null`인지 항상 확인한 후 사용하십시오.
 
-## **표 안의 텍스트 정렬**
+테이블 셀 및 shape 소유자를 식별하는 전체 예제(스마트아트 노드와 연결된 shape 포함)는 [Search and Replace Text](/slides/ko/java/search-and-replace-text/)를 참조하십시오.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 통해 슬라이드의 참조를 가져옵니다.  
-3. 슬라이드에 [ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ITable) 객체를 추가합니다.  
-4. 표에서 [ITextFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/) 객체에 접근합니다.  
-5. [ITextFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itextframe/)의 [IParagraph](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iparagraph/)에 접근합니다.  
-6. 텍스트를 수직으로 정렬합니다.  
-7. 수정된 프레젠테이션을 저장합니다.  
+## **테이블에서 텍스트 정렬**
 
-다음 Java 코드는 표 안의 텍스트를 정렬하는 방법을 보여줍니다:
+개별 테이블 셀의 수직 정렬 및 텍스트 방향을 제어할 수 있습니다. 이 섹션의 예제는 첫 번째 셀의 텍스트를 가운데 정렬하고 270도 회전시킵니다.
+
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+3. 슬라이드에 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 객체를 추가합니다.
+4. 테이블에서 [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) 객체에 접근합니다.
+5. 첫 번째 [IParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/)에 접근하여 텍스트와 색상을 설정합니다.
+6. [setTextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextAnchorType-byte-) 및 [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setTextVerticalType-byte-)을 사용해 셀의 수직 정렬과 텍스트 방향을 설정합니다.
+7. 수정된 프레젠테이션을 저장합니다.
+
+이 예제는 열 폭 120 포인트, 행 높이 100 포인트인 4 × 4 테이블을 만들고, 셀 (0, 0)의 텍스트를 서식 지정한 뒤 첫 번째 행의 나머지 셀에 값을 추가하고 `Vertical_Align_Text_out.pptx`로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Presentation 클래스의 인스턴스를 생성합니다
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 첫 번째 슬라이드를 가져옵니다 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 열 너비와 행 높이를 정의합니다
-    double[] dblCols = { 120, 120, 120, 120 };
-    double[] dblRows = { 100, 100, 100, 100 };
-    
-    // 슬라이드에 표 모양을 추가합니다
-    ITable tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    
-    // 텍스트 프레임에 접근합니다
-    ITextFrame txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    
-    // 텍스트 프레임용 Paragraph 객체를 생성합니다
-    IParagraph paragraph = txtFrame.getParagraphs().get_Item(0);
-    
-    // Paragraph용 Portion 객체를 생성합니다
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 120, 120, 120, 120 };
+    double[] rowHeights = { 100, 100, 100, 100 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    ITextFrame textFrame = table.get_Item(0, 0).getTextFrame();
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+
     IPortion portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // 텍스트를 수직으로 정렬합니다
-    ICell cell = tbl.get_Item(0, 0);
+
+    ICell cell = table.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **표 수준에서 텍스트 서식 지정**
+## **테이블 수준에서 텍스트 서식 설정**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 통해 슬라이드의 참조를 가져옵니다.  
-3. 슬라이드에서 [ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ITable) 객체에 접근합니다.  
-4. 텍스트에 대해 [setFontHeight(float value)](https://reference.aspose.com/slides/ko/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)를 설정합니다.  
-5. [setAlignment(int value)](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 및 [setMarginRight(float value)](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-)를 설정합니다.  
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/ko/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)를 설정합니다.  
-7. 수정된 프레젠테이션을 저장합니다.  
+[setTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibulktextformattable/#setTextFormat-com.aspose.slides.IPortionFormat-)을 사용하면 테이블의 모든 셀에 텍스트 서식을 적용할 수 있습니다. 이 메서드의 오버로드는 부분, 단락 및 텍스트 프레임 서식을 받아 개별 셀을 반복하지 않아도 이러한 속성을 설정할 수 있습니다.
 
-다음 Java 코드는 표 안 텍스트에 원하는 서식 옵션을 적용하는 방법을 보여줍니다:
+1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 클래스로 프레젠테이션을 로드합니다.
+2. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+3. 슬라이드에서 [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 객체에 접근합니다.
+4. 텍스트에 대해 [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-)을 사용해 글꼴 크기를 설정합니다.
+5. [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 및 [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-)을 사용해 단락 정렬과 오른쪽 여백을 설정합니다.
+6. [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-)을 사용해 텍스트 방향을 설정합니다.
+7. 수정된 프레젠테이션을 저장합니다.
+
+아래 예제는 최소 하나의 슬라이드와 첫 번째 shape가 테이블인 `table.pptx`를 열어 글꼴 크기를 25 포인트로 설정하고, 오른쪽 여백 20 포인트로 단락을 오른쪽 정렬하며, 텍스트를 수직으로 전환한 뒤 `result.pptx`로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
 
-// Presentation 클래스의 인스턴스를 생성합니다
-Presentation pres = new Presentation("simpletable.pptx");
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // 첫 번째 슬라이드의 첫 번째 도형이 표라고 가정합니다
-    ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    // 표 셀의 글꼴 높이를 설정합니다
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = (ITable) slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    
-    // 표 셀의 텍스트 정렬과 오른쪽 여백을 한 번에 설정합니다
+    table.setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    
-    // 표 셀의 텍스트 수직 유형을 설정합니다
+    table.setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-    someTable.setTextFormat(textFrameFormat);
-    
-    pres.save("result.pptx", SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **표 스타일 속성 가져오기**
+## **테이블 스타일 속성 가져오기**
 
-Aspose.Slides를 사용하면 표의 스타일 속성을 검색하여 다른 표나 다른 위치에 재사용할 수 있습니다. 다음 Java 코드는 표 프리셋 스타일에서 스타일 속성을 가져오는 방법을 보여줍니다:
+[getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--)을 사용해 테이블의 사전 정의된 스타일을 읽고, [setStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setStylePreset-int-)을 사용해 스타일을 지정합니다. 이 예제는 하나의 테이블에 [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/)을 적용하고, 사전 값을 출력한 뒤 동일한 사전값을 두 번째 테이블에 할당합니다. 두 테이블은 `table-style.pptx`에 저장됩니다.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // 기본 스타일 프리셋 테마를 변경합니다 
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 테이블의 스타일 프리셋을 가져옵니다
+    double[] columnWidths = { 100, 150 };
+    double[] rowHeights = { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
     int stylePreset = table.getStylePreset();
     System.out.println("Table style preset: " + stylePreset);
 
-    // 가져온 스타일 프리셋을 다른 표에 적용합니다
-    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    ITable anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
     anotherTable.setStylePreset(stylePreset);
 
-    pres.save("table.pptx", SaveFormat.Pptx);
+    presentation.save("table-style.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **표의 가로세로 비율 잠금**
+## **테이블의 가로세로 비율 고정**
 
-기하학적 도형의 가로세로 비율은 서로 다른 차원에서의 크기 비율을 의미합니다. Aspose.Slides는 표 및 기타 도형에 대한 가로세로 비율 잠금 설정을 제공하는 [**setAspectRatioLocked**](https://reference.aspose.com/slides/ko/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) 속성을 제공합니다.  
+테이블의 가로세로 비율은 너비와 높이의 비율을 의미합니다. [setAspectRatioLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/#setAspectRatioLocked-boolean-)을 사용해 이 비율을 고정할 수 있습니다.
 
-다음 Java 코드는 표의 가로세로 비율을 잠그는 방법을 보여줍니다:
+아래 예제는 최소 하나의 슬라이드와 첫 번째 shape가 테이블인 `pres.pptx`를 열어 현재 잠금 상태를 출력하고, 가로세로 비율 잠금을 활성화한 뒤 업데이트된 상태(`true`)를 출력하고 `pres-out.pptx`로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable) slide.getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // 반전
-
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**전체 표와 셀 텍스트에 대해 오른쪽에서 왼쪽(RTL) 읽기 방향을 활성화할 수 있나요?**
+**전체 테이블과 셀 내부 텍스트에 대해 오른쪽에서 왼쪽(RTL) 읽기 방향을 활성화할 수 있나요?**
 
-네. 표는 [setRightToLeft](https://reference.aspose.com/slides/ko/java/com.aspose.slides/table/#setRightToLeft-boolean-) 메서드를 제공하며, 단락은 [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/ko/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-)를 가집니다. 두 메서드를 모두 사용하면 셀 내부의 RTL 순서와 렌더링이 올바르게 적용됩니다.
+예. 테이블은 [setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/table/#setRightToLeft-boolean-) 메서드를 제공하며, 단락은 [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-)을 지원합니다. 두 메서드를 모두 사용하면 셀 내부에서도 올바른 RTL 순서와 렌더링이 보장됩니다.
 
-**최종 파일에서 사용자가 표를 이동하거나 크기 조정하지 못하도록 방지하려면 어떻게 해야 하나요?**
+**최종 파일에서 사용자가 테이블을 이동하거나 크기를 조정하지 못하게 하려면 어떻게 해야 하나요?**
 
-[shape locks](/slides/ko/java/applying-protection-to-presentation/)를 사용하여 이동, 크기 조정, 선택 등을 비활성화합니다. 이러한 잠금은 표에도 적용됩니다.
+[shape locks](/slides/ko/java/applying-protection-to-presentation/)를 사용해 이동, 크기 조정, 선택 등을 비활성화하십시오. 이러한 잠금은 테이블에도 적용됩니다.
 
-**셀 안에 이미지를 배경으로 삽입하는 것이 지원되나요?**
+**셀 내부에 이미지를 배경으로 삽입하는 것이 지원되나요?**
 
-네. 셀에 대해 [picture fill](https://reference.aspose.com/slides/ko/java/com.aspose.slides/picturefillformat/)을 설정하면 이미지가 선택한 모드(늘리기 또는 타일)대로 셀 영역을 덮습니다.
+예. 셀에 [picture fill](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/)을 설정하면 이미지가 선택한 모드(늘리기 또는 타일)대로 셀 영역을 덮습니다.

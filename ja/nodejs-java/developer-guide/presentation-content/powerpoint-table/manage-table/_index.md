@@ -1,96 +1,97 @@
 ---
-title: JavaScript でプレゼンテーションテーブルを管理する
-linktitle: テーブルの管理
+title: JavaScript でプレゼンテーションの表を管理する
+linktitle: 表を管理する
 type: docs
 weight: 10
 url: /ja/nodejs-java/manage-table/
 keywords:
-- テーブルを追加
-- テーブルを作成
-- テーブルにアクセス
+- 表の追加
+- 表の作成
+- 表へのアクセス
 - アスペクト比
 - テキストの配置
 - テキスト書式設定
-- テーブルスタイル
+- 表スタイル
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript と Aspose.Slides for Node.js を使用して、PowerPoint スライド内のテーブルを作成および編集します。テーブル操作を効率化するシンプルなコード例をご覧ください。"
+description: "JavaScript と Aspose.Slides for Node.js を使用して PowerPoint スライドの表を作成および編集します。表の操作を簡素化するコード例をご紹介します。"
 ---
-## **概要**
+## **はじめに**
 
-PowerPoint のテーブルは情報を表示および表現する効率的な方法です。行と列に配置されたセルのグリッド内の情報はシンプルで理解しやすいです。
+PowerPoint の表は情報を行と列に整理し、値の読み取りや比較を容易にします。
 
-Aspose.Slides は、[Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) クラス、[Cell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/) クラス、およびその他の型を提供し、さまざまなプレゼンテーションでテーブルの作成、更新、管理を可能にします。
+Aspose.Slides は、[Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) クラス、[Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) クラス、およびその他の型を提供し、プレゼンテーション内の表の作成、更新、管理が可能です。
 
-## **テーブルをゼロから作成**
+## **ゼロから表を作成する**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. `columnWidth` の配列を定義します。  
-4. `rowHeight` の配列を定義します。  
-5. [addTable](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) メソッドを使用して、スライドに [Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) オブジェクトを追加します。  
-6. 各 [Cell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/) を反復処理し、上、下、右、左の境界線に書式設定を適用します。  
-7. テーブルの左上隅にある 4 つのセル（最初の 2 列と最初の 2 行）を 1 つのセルに結合します。  
-8. [Cell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/) の [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) にアクセスします。  
-9. [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) にテキストを追加します。  
-10. 変更したプレゼンテーションを保存します。
+位置、列幅、行高さを指定して表を作成します。スライドに追加した後、セルの罫線を書式設定したり、セルを結合したり、テキストを挿入したりできます。
 
-この JavaScript コードは、プレゼンテーションでテーブルを作成する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. 列幅（ポイント）の配列を定義します。
+4. 行高さ（ポイント）の配列を定義します。
+5. [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addTable-float-float-double:A-double:A-) メソッドで、スライドに [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) オブジェクトを追加します。
+6. 各 [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) を反復し、上、下、右、左の罫線に書式設定を適用します。
+7. 表の最初の行の最初の 2 つのセルを結合します。
+8. 結合されたセルを、その [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) メソッドで取得します。
+9. 結合セルにテキストを設定します。
+10. 変更されたプレゼンテーションを保存します。
+
+以下の例は、(100, 50) ポイントの位置に列 3、行 5 の表を作成します。幅 5 ポイントの赤色罫線を適用し、最初の行の最初の 2 つのセルを結合し、結果を `table.pptx` として保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 最初のスライドにアクセスします
-    var sld = pres.getSlides().get_Item(0);
-    // 列の幅と行の高さを定義します
-    var dblCols = java.newArray("double", [50, 50, 50]);
-    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-    // スライドにテーブル シェイプを追加します
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // 各セルの罫線書式を設定します
-    for (var row = 0; row < tbl.getRows().size(); row++) {
-        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [50, 50, 50]);
+    const rowHeights = java.newArray("double", [50, 30, 30, 30, 30]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            const cellFormat = cell.getCellFormat();
             cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderTop().setWidth(5);
+
             cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderBottom().setWidth(5);
+
             cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderLeft().setWidth(5);
+
             cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
             cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // 左上の 2x2 セルブロックを 1 つのセルに結合します
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-    // 結合されたセルにテキストを追加します
-    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-    // プレゼンテーションをディスクに保存します
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), false);
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells");
+
+    presentation.save("table.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **標準テーブルの番号付け**
+## **標準表の番号付け**
 
-標準テーブルでは、セルの番号付けはシンプルでゼロベースです。テーブルの最初のセルは 0,0（列 0、行 0）としてインデックス付けされます。
+標準表では、セルインデックスは 0 から始まり、順序は (列, 行) です。最初のセルは (0, 0) としてインデックス付けされます。
 
-例として、4 列 4 行のテーブルのセルは次のように番号付けされます：
+たとえば、4 列 4 行の表のセルは次のように番号付けされます：
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,251 +99,254 @@ try {
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-この JavaScript コードは、テーブル内のセルの番号付けを指定する方法を示しています：
+この例は、上図の 4 × 4 表を作成し、列幅と行高さを 70 ポイント、罫線を幅 5 ポイントの赤色に設定します。座標はセルインデックスを示しています。セルは空のままにし、表を `StandardTables_out.pptx` として保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
 
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 最初のスライドにアクセスします
-    var sld = pres.getSlides().get_Item(0);
-    // 列の幅と行の高さを定義します
-    var dblCols = java.newArray("double", [70, 70, 70, 70]);
-    var dblRows = java.newArray("double", [70, 70, 70, 70]);
-    // スライドにテーブル シェイプを追加します
-    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-    // 各セルの罫線書式を設定します
-    for (let i = 0; i < tbl.getRows().size(); i++) {
-        const row = tbl.getRows().get_Item(i);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [70, 70, 70, 70]);
+    const rowHeights = java.newArray("double", [70, 70, 70, 70]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    for (let i = 0; i < table.getRows().size(); i++) {
+        const row = table.getRows().get_Item(i);
         for (let j = 0; j < row.size(); j++) {
             const cell = row.get_Item(j);
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-            cell.getCellFormat().getBorderRight().setWidth(5);
+            const cellFormat = cell.getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderTop().setWidth(5);
+
+            cellFormat.getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderBottom().setWidth(5);
+
+            cellFormat.getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderLeft().setWidth(5);
+
+            cellFormat.getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(red);
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
-    // プレゼンテーションをディスクに保存します
-    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **既存のテーブルにアクセス**
+## **既存の表へアクセスする**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してテーブルを含むスライドへの参照を取得します。  
-3. [Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) オブジェクトを作成し、null に設定します。  
-4. [Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) オブジェクトをすべて反復処理して、テーブルが見つかるまで続けます。  
-   対象のスライドに単一のテーブルが含まれていると疑う場合は、含まれるすべてのシェイプを単純にチェックできます。シェイプがテーブルとして識別されたら、[Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) オブジェクトに型キャストできます。ただし、対象のスライドに複数のテーブルが含まれている場合は、[setAlternativeText(String value)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-) を使用して目的のテーブルを検索した方がよいでしょう。  
-5. [Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) オブジェクトを使用してテーブルを操作します。以下の例では、テーブル内のセルのテキストを設定しています。  
-6. 変更したプレゼンテーションを保存します。
+表はスライドのシェイプコレクションに格納されています。シェイプを走査して表を見つけ、[Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) クラスでセルを読み取ったり更新したりします。
 
-この JavaScript コードは、既存のテーブルにアクセスして操作する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスを使用してプレゼンテーションを読み込みます。
+2. インデックスで、表が含まれるスライドへの参照を取得します。
+3. [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) オブジェクトを反復し、表が見つかったら停止します。スライドに複数の表がある場合は、[getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getAlternativeText--) を使用して目的の表を識別します。
+4. 対象セルのテキストを更新します。
+5. 変更されたプレゼンテーションを保存します。
+
+以下の例は `UpdateExistingTable.pptx` を開き、最初のスライドの最初の表を見つけます。列 0、行 1 のセルに `New` を設定し、結果を `table1_out.pptx` として保存します。入力ファイルは少なくとも 1 つのスライドを含み、該当スライドの最初の表は少なくとも 1 列 2 行を持っている必要があります。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+const presentation = new aspose.slides.Presentation("UpdateExistingTable.pptx");
 try {
-    // 最初のスライドにアクセスします
-    var sld = pres.getSlides().get_Item(0);
-    // null の TableEx を初期化します
-    var tbl = null;
-    // シェイプを走査し、見つかったテーブルへの参照を設定します
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-            tbl = shp;
-            // 2 行目の最初の列のテキストを設定します
-            tbl.get_Item(0, 1).getTextFrame().setText("New");
+    const slide = presentation.getSlides().get_Item(0);
+    let table = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
+            table = shape;
+            break;
         }
     }
-    // 変更したプレゼンテーションをディスクに保存します
-    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (table != null) {
+        table.get_Item(0, 1).getTextFrame().setText("New");
+        presentation.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **テキストフレームを所有するセルの取得**
+既存の表で行のサイズを変更し、実際の高さが要求された最小値を超える理由を理解するには、[行高さの制御](/slides/ja/nodejs-java/manage-rows-and-columns/#control-row-height) を参照してください。
 
-テーブルから [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) を取得した汎用テキスト処理コードでは、所有する [Cell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/) を取得するために [TextFrame.getParentCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentCell--) メソッドを使用します。テーブルセルのテキストフレームの場合、[TextFrame.getParentCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentCell--) は所有者を返し、[TextFrame.getParentShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentShape--) は `null` を返します（テーブル自体はシェイプであるにもかかわらず）。
+## **テキストフレームの所有セルを取得する**
 
-セルの座標は、読み取り専用の [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) および [Cell.getFirstRowIndex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) メソッドで取得できます。[TextFrame.getParentCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentCell--) は所有者を返すだけで所有権を変更しない読み取り専用ナビゲーションも提供します。使用する前に、返されたセルが `null` でないことを必ず確認してください。
+テーブルから取得した [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) を扱う汎用テキスト処理コードでは、[TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) メソッドを使用して所有者である [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) を取得します。テーブルセルのテキストフレームの場合、[TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) は所有セルを返し、[TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) は `null` を返します（テーブル自体はシェイプですが例外です）。
 
-テーブルセルとシェイプの所有者（SmartArt ノードに関連付けられたシェイプを含む）を識別する完全な例については、[Search and Replace Text](/slides/ja/nodejs-java/search-and-replace-text/) を参照してください。
+セルの座標は読み取り専用の [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstColumnIndex--) と [Cell.getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getFirstRowIndex--) メソッドで取得できます。[TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) は所有セルを返すだけで所有権を変更しない読み取り専用ナビゲーションも提供します。使用前に返されたセルが `null` でないことを必ず確認してください。
 
-## **テーブル内のテキストを配置**
+テーブルセルとシェイプの所有者（SmartArt ノードに関連付けられたシェイプを含む）を特定する完全な例については、[テキストの検索と置換](/slides/ja/nodejs-java/search-and-replace-text/) を参照してください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. スライドに [Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) オブジェクトを追加します。  
-4. テーブルから [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) オブジェクトにアクセスします。  
-5. [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) の [Paragraph](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/paragraph/) にアクセスします。  
-6. テキストを垂直方向に配置します。  
-7. 変更したプレゼンテーションを保存します。
+## **表内のテキストを揃える**
 
-この JavaScript コードは、テーブル内のテキストを配置する方法を示しています：
+個々のセルの垂直アンカリングとテキスト方向を制御できます。このセクションの例では、最初のセル内のテキストを中央揃えにし、270 度回転させます。
+
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. スライドに [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) オブジェクトを追加します。
+4. 表から [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) オブジェクトを取得します。
+5. 最初の [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) にアクセスし、テキストと色を設定します。
+6. [setTextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextAnchorType-byte-) と [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#setTextVerticalType-byte-) を使用してセルの垂直アンカリングとテキスト方向を設定します。
+7. 変更されたプレゼンテーションを保存します。
+
+この例は、列幅 120 ポイント、行高さ 100 ポイントの 4 × 4 表を作成します。セル (0, 0) のテキストを書式設定し、最初の行の残りのセルに値を追加して、結果を `Vertical_Align_Text_out.pptx` として保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
+const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
 
-// Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 最初のスライドを取得します
-    var slide = pres.getSlides().get_Item(0);
-    // 列の幅と行の高さを定義します
-    var dblCols = java.newArray("double", [120, 120, 120, 120]);
-    var dblRows = java.newArray("double", [100, 100, 100, 100]);
-    // スライドにテーブル シェイプを追加します
-    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-    tbl.get_Item(1, 0).getTextFrame().setText("10");
-    tbl.get_Item(2, 0).getTextFrame().setText("20");
-    tbl.get_Item(3, 0).getTextFrame().setText("30");
-    // テキストフレームにアクセスします
-    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-    // テキストフレーム用の Paragraph オブジェクトを作成します
-    var paragraph = txtFrame.getParagraphs().get_Item(0);
-    // Paragraph 用の Portion オブジェクトを作成します
-    var portion = paragraph.getPortions().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [120, 120, 120, 120]);
+    const rowHeights = java.newArray("double", [100, 100, 100, 100]);
+    const table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
+    table.get_Item(1, 0).getTextFrame().setText("10");
+    table.get_Item(2, 0).getTextFrame().setText("20");
+    table.get_Item(3, 0).getTextFrame().setText("30");
+
+    const textFrame = table.get_Item(0, 0).getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+
+    const portion = paragraph.getPortions().get_Item(0);
     portion.setText("Text here");
     portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // テキストを垂直方向に配置します
-    var cell = tbl.get_Item(0, 0);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+
+    const cell = table.get_Item(0, 0);
     cell.setTextAnchorType(java.newByte(aspose.slides.TextAnchorType.Center));
     cell.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
-    // プレゼンテーションをディスクに保存します
-    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **テーブルレベルでテキスト書式設定を行う**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. スライドから [Table](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Table) オブジェクトにアクセスします。  
-4. テキストの [setFontHeight(float value)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) を設定します。  
-5. [setAlignment(int value)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) と [setMarginRight(float value)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) を設定します。  
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) を設定します。  
-7. 変更したプレゼンテーションを保存します。
+[setTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setTextFormat-com.aspose.slides.IPortionFormat-) を使用して、テーブル内のすべてのセルにテキスト書式設定を適用できます。オーバーロードにより、ポーション、段落、テキストフレームの書式設定を受け取り、個々のセルを走査せずにこれらのプロパティを設定できます。
 
-この JavaScript コードは、テーブル内のテキストに好みの書式設定オプションを適用する方法を示しています：
+1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスを使用してプレゼンテーションを読み込みます。
+2. インデックスでスライドへの参照を取得します。
+3. スライドから [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) オブジェクトを取得します。
+4. テキストのフォントサイズを [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) で 25 ポイントに設定します。
+5. [setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) と [setMarginRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-) を使用して段落を右揃えにし、右余白を 20 ポイントに設定します。
+6. [setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) でテキスト方向を垂直に設定します。
+7. 変更されたプレゼンテーションを保存します。
+
+以下の例は `table.pptx` を開きます。このファイルは少なくとも 1 つのスライドを含み、その最初のシェイプが表である必要があります。フォントサイズを 25 ポイントに設定し、段落を右揃えにして右余白を 20 ポイント、テキストを垂直にします。書式設定されたプレゼンテーションは `result.pptx` として保存されます。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation("simpletable.pptx");
+const presentation = new aspose.slides.Presentation("table.pptx");
 try {
-    // 最初のスライドの最初のシェイプがテーブルであると仮定します
-    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // テーブルセルのフォント高さを設定します
-    var portionFormat = new aspose.slides.PortionFormat();
+    const slide = presentation.getSlides().get_Item(0);
+    const table = slide.getShapes().get_Item(0);
+
+    const portionFormat = new aspose.slides.PortionFormat();
     portionFormat.setFontHeight(25);
-    someTable.setTextFormat(portionFormat);
-    // テーブルセルのテキスト配置と右マージンを一度の呼び出しで設定します
-    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    table.setTextFormat(portionFormat);
+
+    const paragraphFormat = new aspose.slides.ParagraphFormat();
     paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-    someTable.setTextFormat(paragraphFormat);
-    // テーブルセルのテキスト垂直方向のタイプを設定します
-    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    table.setTextFormat(paragraphFormat);
+
+    const textFrameFormat = new aspose.slides.TextFrameFormat();
     textFrameFormat.setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical));
-    someTable.setTextFormat(textFrameFormat);
-    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+    table.setTextFormat(textFrameFormat);
+
+    presentation.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **テーブルスタイルのプリセットを設定**
+## **テーブルのスタイルプロパティを取得する**
 
-Aspose.Slides は組み込みの PowerPoint テーブルスタイルを [TableStylePreset](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tablestylepreset/) 列挙型として提供しているため、任意のテーブルに同じ外観を適用できます。この JavaScript コードは、テーブルの既定スタイルをプリセットスタイルに置き換える方法を示しています：
+[getStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#getStylePreset--) で表のプリセットスタイルを取得し、[setStylePreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setStylePreset-int-) で割り当てます。この例では [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tablestylepreset/) を 1 つの表に適用し、プリセット値を出力し、同じプリセットを別の表に設定します。両方の表は `table-style.pptx` に保存されます。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// デフォルトのスタイルプリセットテーマを変更します
-    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [100, 150]);
+    const rowHeights = java.newArray("double", [5, 5, 5]);
+    const table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);
+
+    const stylePreset = table.getStylePreset();
+    console.log("Table style preset: " + stylePreset);
+
+    const anotherTable = slide.getShapes().addTable(10, 100, columnWidths, rowHeights);
+    anotherTable.setStylePreset(stylePreset);
+
+    presentation.save("table-style.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **テーブルのアスペクト比をロック**
+## **表のアスペクト比をロックする**
 
-幾何学的形状のアスペクト比は、異なる次元におけるサイズの比率です。Aspose.Slides は、テーブルやその他のシェイプのアスペクト比設定をロックできるように、[**setAspectRatioLocked**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) プロパティを提供しています。
+表のアスペクト比は幅と高さの比率です。[setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked-boolean-) を使用してこの比率をロックできます。
 
-この JavaScriptコードは、テーブルのアスペクト比をロックする方法を示しています：
+以下の例は `pres.pptx` を開きます。このファイルは少なくとも 1 つのスライドを含み、その最初のシェイプが表である必要があります。現在のロック状態を出力し、アスペクト比ロックを有効にして更新された状態 (`true`) を出力し、結果を `pres-out.pptx` として保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const table = slide.getShapes().get_Item(0);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// 反転
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(true);
     console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**テーブル全体およびセル内のテキストに右から左 (RTL) の読み方向を有効にできますか？**
+**テーブル全体とセル内のテキストに対して右から左 (RTL) の読み方向を有効にできますか？**
 
-はい。テーブルは [setRightToLeft](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/table/setrighttoleft/) メソッドを提供し、段落には [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/paragraphformat/setrighttoleft/) があります。両方を使用することで、セル内の正しい RTL 順序とレンダリングが保証されます。
+はい。テーブルは [setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/#setRightToLeft-boolean-) メソッドを公開しており、段落は [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setRightToLeft-byte-) を持ちます。両方を使用すると、セル内で正しい RTL 順序とレンダリングが保証されます。
 
-**最終ファイルでユーザーがテーブルを移動またはサイズ変更できないようにするにはどうすればよいですか？**
+**最終ファイルでユーザーが表を移動またはサイズ変更できないようにするにはどうすればよいですか？**
 
-シェイプのロック機能を使用して、移動、サイズ変更、選択などを無効にします。これらのロックはテーブルにも適用されます。
+[shape locks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) を使用して、移動、サイズ変更、選択などを無効にします。これらのロックは表にも適用されます。
 
 **セル内に画像を背景として挿入することはサポートされていますか？**
 
-はい。セルに対して [picture fill](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picturefillformat/) を設定できます。選択したモード（伸縮またはタイル）に従って画像がセル領域を覆います。
+はい。セルに [picture fill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) を設定できます。選択したモード（伸縮またはタイル）に従って、画像がセル領域全体を覆います。

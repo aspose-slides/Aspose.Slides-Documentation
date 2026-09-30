@@ -1,5 +1,5 @@
 ---
-title: Administrar filas y columnas en tablas de PowerPoint usando Python
+title: Gestionar filas y columnas en tablas de PowerPoint usando Python
 linktitle: Filas y columnas
 type: docs
 weight: 20
@@ -22,246 +22,250 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Administre filas y columnas de tabla en PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET y acelere la edición de presentaciones y la actualización de datos."
+description: "Gestiona filas y columnas de tablas en PowerPoint con Aspose.Slides para Python mediante .NET y acelera la edición de presentaciones y la actualización de datos."
 ---
+## **Introducción**
 
-## **Descripción general**
+Aspose.Slides para Python mediante .NET le permite gestionar la estructura y el formato de tablas en presentaciones de PowerPoint a través de la clase [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Puede designar una fila de encabezado, clonar o eliminar filas y columnas, y aplicar formato de texto a una fila o columna completa.
 
-Este artículo muestra cómo administrar filas y columnas de tabla en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides for Python. Aprenderá cómo agregar, insertar, clonar y eliminar filas o columnas, marcar la primera fila como encabezado, ajustar el tamaño y el diseño, y aplicar formato de texto y estilo a nivel de fila o columna. Cada tarea se demuestra con fragmentos de código compactos y autocontenidos basados en la API [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/), para que pueda encontrar rápidamente una tabla en una diapositiva y remodelar su estructura según su diseño.
+Este artículo explica estas operaciones con ejemplos en Python. También muestra cómo obtener el preajuste de estilo de una tabla para que pueda reutilizarlo. Los índices de filas y columnas de la tabla comienzan en cero.
+
+## **Controlar la altura de la fila**
+
+Utilice [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) para establecer la altura mínima de una fila en puntos. Es un límite inferior, no una altura fija. [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) devuelve la altura real y es de solo lectura. Acceda a la fila a través de [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/).
+
+El ejemplo carga [row-height-input.pptx](row-height-input.pptx), que contiene una tabla como la primera forma en la primera diapositiva. Su primera fila comienza en 70 puntos. Las celdas usan texto Arial de 18 puntos, con ajuste de línea y márgenes superior e inferior de 6 puntos; el texto más largo en la segunda columna se ajusta en varias líneas. El ejemplo aumenta el mínimo a 100 puntos, luego lo disminuye a 20 puntos, imprime la altura real después de cada cambio y guarda ambos resultados.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
+
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
+
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Con la presentación suministrada, aumentar el mínimo agrega espacio a la fila. Disminuirlo elimina ese espacio adicional, pero la altura real sigue siendo mayor que 20 puntos porque el texto y los márgenes de la celda necesitan más espacio. Reducir solo el mínimo no puede obligar a la fila a quedar por debajo del espacio requerido por su contenido.
+
+Varios factores afectan la altura real:
+
+- **Texto y tamaño de fuente:** texto más largo, saltos de línea explícitos o una fuente mayor pueden requerir más espacio vertical.
+- **Ajuste de texto y ancho de columna:** con el ajuste activado, una [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) más estrecha puede generar más líneas. Una columna más ancha puede reducir el espacio necesario verticalmente.
+- **Márgenes de celda:** [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) y [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) añaden espacio vertical. [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) y [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) reducen el ancho disponible para el texto y pueden provocar un ajuste adicional.
+
+Para esta tabla sin celdas combinadas, la celda que necesita más espacio vertical determina el límite inferior impulsado por el contenido para toda la fila. Para acortar la fila, también puede ser necesario reducir el texto, disminuir el tamaño de fuente o los márgenes, o ensanchar una columna.
+
+Las imágenes a continuación muestran la misma tabla a la misma escala. En esta ejecución, las alturas reales fueron 70, 100 y 55,2 puntos: la fila final permaneció más alta que su mínimo de 20 puntos. Las mediciones exactas del texto pueden variar según las fuentes disponibles en su entorno. Descargue los resultados guardados: [increased minimum](row-height-increased.pptx) y [decreased minimum](row-height-decreased.pptx).
+
+| Original: mínimo 70 pt, real 70 pt | Aumentado: mínimo 100 pt, real 100 pt | Reducido: mínimo 20 pt, real 55.2 pt |
+| --- | --- | --- |
+| ![Tabla original con una primera fila de 70 puntos.](row-height-before.png) | ![Tabla tras aumentar el mínimo de la primera fila a 100 puntos.](row-height-increased.png) | ![Tabla tras reducir el mínimo de la primera fila a 20 puntos; el texto ajustado mantiene la fila más alta que el mínimo.](row-height-decreased.png) |
 
 ## **Establecer la primera fila como encabezado**
 
-Marque la primera fila de la tabla como encabezado para distinguir claramente los títulos de columna de los datos. En Aspose.Slides for Python, simplemente habilite la opción *First Row* de la tabla para aplicar el formato de encabezado definido por el estilo de tabla seleccionado.
+Utilice la propiedad [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) para marcar la primera fila como encabezado. Su apariencia depende del estilo de tabla aplicado a la tabla.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue la presentación.  
-1. Acceda a la diapositiva por su índice.  
-1. Recorra todos los objetos [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) para encontrar la tabla pertinente.  
-1. Establezca la primera fila de la tabla como encabezado.
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Acceda a la tabla almacenada como la primera forma en la diapositiva.
+4. Active el formato de encabezado para su primera fila.
+5. Guarde la presentación modificada.
 
-Este código Python muestra cómo establecer la primera fila de una tabla como su encabezado:
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva. Activa el formato de encabezado para la primera fila y guarda `First_row_header.pptx`.
+
 ```python
 import aspose.slides as slides
 
-# Instanciar la clase Presentation.
 with slides.Presentation("table.pptx") as presentation:
-    # Acceder a la primera diapositiva.
     slide = presentation.slides[0]
 
-    # Recorrer las formas y obtener una referencia a la tabla.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
-
-    # Establecer la primera fila de la tabla como encabezado.
+    table = slide.shapes[0]
     table.first_row = True
-    
-    # Guardar la presentación en disco.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
-```
 
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **Clonar una fila o columna de tabla**
 
-Clone cualquier fila o columna de tabla e inserte la copia en la posición deseada dentro de la tabla. El duplicado conserva el contenido de las celdas, el formato y los tamaños, lo que le permite ampliar los diseños de forma rápida y coherente.
+Clone filas o columnas para reutilizar su contenido y formato. Puede añadir una copia al final de la tabla o insertarla en una posición específica.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue la presentación.  
-1. Acceda a la diapositiva por su índice.  
-1. Defina una matriz de anchos de columna.  
-1. Defina una matriz de alturas de fila.  
-1. Añada una [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) a la diapositiva mediante `add_table(x, y, column_widths, row_heights)`.  
-1. Clone una fila de tabla.  
-1. Clone una columna de tabla.  
-1. Guarde la presentación modificada.
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Defina los anchos de columna y las alturas de fila.
+4. Añada una tabla con el método [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Clone las filas requeridas.
+6. Clone las columnas requeridas.
+7. Guarde la presentación modificada.
 
-Este código Python muestra cómo clonar una fila y una columna de una tabla de PowerPoint:
+El ejemplo requiere `Test.pptx` con al menos una diapositiva. Crea una tabla con tres columnas y cinco filas, con dimensiones especificadas en puntos. Añade copias de la primera fila y columna, luego inserta copias de la segunda fila y columna en el índice 3 (la cuarta posición). La tabla resultante tiene siete filas y cinco columnas. El argumento `False` desactiva la clonación en filas o columnas combinadas adyacentes; esta tabla no tiene celdas combinadas.
+
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Instanciar la clase Presentation.
-with slides.Presentation() as presentation:
-    # Acceder a la primera diapositiva.
+with slides.Presentation("Test.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Definir anchos de columna y alturas de fila.
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Agregar una tabla a la diapositiva.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Agregar texto a la fila 1, columna 1.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Agregar texto a la fila 2, columna 1.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Clonar la fila 1 al final de la tabla.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Agregar texto a la fila 1, columna 2.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Agregar texto a la fila 2, columna 2.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Clonar la fila 2 como la cuarta fila de la tabla.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Clonar la primera columna al final.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Clonar la segunda columna en el índice 3 (la cuarta posición).
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Guardar la presentación en disco.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Eliminar una fila o columna de una tabla**
 
-Simplifique una tabla eliminando cualquier fila o columna por índice usando Aspose.Slides for Python; el diseño se readapta automáticamente mientras conserva el formato de las celdas restantes. Esto es útil para simplificar cuadrículas de datos o suprimir marcadores de posición sin reconstruir la tabla.
+Elimine filas o columnas que ya no sean necesarias en una tabla. Eliminar un elemento desplaza los índices de las filas o columnas que lo siguen.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue la presentación.  
-1. Acceda a la diapositiva por su índice.  
-1. Defina una matriz de anchos de columna.  
-1. Defina una matriz de alturas de fila.  
-1. Añada un ITable a la diapositiva mediante `add_table(x, y, column_widths, row_heights)`.  
-1. Elimine la fila de la tabla.  
-1. Elimine la columna de la tabla.  
-1. Guarde la presentación modificada.
+1. Cree una presentación con la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceda a la primera diapositiva.
+3. Defina los anchos de columna y las alturas de fila.
+4. Añada una tabla con el método [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Elimine la segunda fila y la segunda columna.
+6. Guarde la presentación modificada.
 
-El siguiente código Python muestra cómo eliminar una fila y una columna de una tabla:
+Este ejemplo crea una tabla de tres por tres y elimina la fila y la columna en el índice 1, dejando una tabla de dos por dos en `TestTable_out.pptx`. Las dimensiones están en puntos. El argumento `False` desactiva la eliminación de filas o columnas combinadas adyacentes; esta tabla no tiene celdas combinadas.
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
     presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Establecer formato de texto a nivel de fila de tabla**
 
-Aplique un estilo de texto coherente a toda una fila de tabla de una sola vez. Con Aspose.Slides for Python, puede establecer la familia de fuentes, el tamaño, el peso, el color y la alineación para todas las celdas de la fila simultáneamente, manteniendo uniformes los encabezados o bandas de datos.
+Aplique formato de texto a una fila completa para mantener la consistencia de sus celdas. Puede establecer propiedades de fuente, formato de párrafo y dirección del texto sin formatear cada celda individualmente.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue la presentación.  
-1. Acceda a la diapositiva por su índice.  
-1. Acceda al objeto [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) pertinente en la diapositiva.  
-1. Establezca la altura de fuente para las celdas de la primera fila.  
-1. Defina la alineación y el margen derecho para las celdas de la primera fila.  
-1. Configure el tipo de texto vertical para las celdas de la segunda fila.  
-1. Guarde la presentación modificada.
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceda a la tabla en la primera diapositiva.
+3. Establezca [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) para la primera fila.
+4. Establezca [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) y [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) para la primera fila.
+5. Establezca [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) para la segunda fila.
+6. Guarde la presentación modificada.
 
-Este código Python demuestra la operación.
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva y al menos dos filas. Aplica texto de 25 puntos, alineación a la derecha y un margen de párrafo derecho de 20 puntos a la primera fila, luego establece texto vertical en la segunda fila.
+
 ```python
 import aspose.slides as slides
 
-# Crear una instancia de la clase Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Establecer la altura de fuente para las celdas de la primera fila.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Establecer la alineación de texto y el margen derecho de las celdas de la primera fila.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Establecer el tipo de orientación vertical del texto en las celdas de la segunda fila.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Guardar la presentación en disco.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
-```
 
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **Establecer formato de texto a nivel de columna de tabla**
 
-Aplique un estilo de texto coherente a toda una columna de tabla de una sola vez. Con Aspose.Slides for Python, puede establecer la familia de fuentes, el tamaño, el peso, el color y la alineación para todas las celdas de la columna, creando bandas verticales uniformes para encabezados o datos.
+Aplique formato de texto a una columna completa para mantener la consistencia de sus celdas. Puede establecer propiedades de fuente, formato de párrafo y dirección del texto sin formatear cada celda individualmente.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) y cargue la presentación.  
-1. Acceda a la diapositiva por su índice.  
-1. Acceda al objeto [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) pertinente en la diapositiva.  
-1. Establezca la altura de fuente para las celdas de la primera columna.  
-1. Defina la alineación y el margen derecho para las celdas de la primera columna.  
-1. Configure el tipo de texto vertical para las celdas de la segunda columna.  
-1. Guarde la presentación modificada.
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Acceda a la tabla en la primera diapositiva.
+3. Establezca [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) para la primera columna.
+4. Establezca [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) y [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) para la primera columna.
+5. Establezca [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) para la segunda columna.
+6. Guarde la presentación modificada.
 
-El siguiente código Python demuestra la operación:
+El ejemplo requiere `table.pptx` con una tabla como la primera forma en la primera diapositiva y al menos dos columnas. Aplica texto de 25 puntos, alineación a la derecha y un margen de párrafo derecho de 20 puntos a la primera columna, luego establece texto vertical en la segunda columna.
+
 ```python
 import aspose.slides as slides
 
-# Crear una instancia de la clase Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Establecer la altura de fuente de las celdas de la primera columna.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Establecer la alineación de texto y el margen derecho de las celdas de la primera columna.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Establecer el tipo de orientación vertical del texto en las celdas de la segunda columna.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Guardar la presentación en disco.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Obtener propiedades de estilo de tabla**
 
-Aspose.Slides le permite recuperar las propiedades de estilo de una tabla para reutilizarlas en otra tabla o en otro lugar. El siguiente código Python muestra cómo obtener las propiedades de estilo de un estilo de tabla predefinido:
+Utilice la propiedad [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) para recuperar el preajuste aplicado a una tabla y reutilizarlo en otra tabla. Esto identifica el preajuste en lugar de las anulaciones de formato de celdas individuales.
+
+El ejemplo crea una tabla, aplica [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/), y lee el preajuste de vuelta. Imprime `True` cuando el preajuste recuperado coincide con el preajuste aplicado y guarda la tabla en `table.pptx`.
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **FAQ**
 
-## **Preguntas frecuentes**
+**¿Puedo aplicar temas/estilos de PowerPoint a una tabla que ya está creada?**
 
-**¿Puedo aplicar temas/estilos de PowerPoint a una tabla ya creada?**
-
-Sí. La tabla hereda el tema de la diapositiva/diseño/maestra, y aún puede sobrescribir rellenos, bordes y colores de texto sobre ese tema.
+Sí. La tabla hereda el tema de la diapositiva/disposición/maestro, y aún puede sobrescribir los rellenos, bordes y colores de texto sobre ese tema.
 
 **¿Puedo ordenar filas de tabla como en Excel?**
 
-No, las tablas de Aspose.Slides no disponen de ordenación o filtros incorporados. Ordene sus datos en memoria primero y luego vuelva a poblar las filas de la tabla en ese orden.
+No, las tablas de Aspose.Slides no disponen de ordenación o filtros incorporados. Ordene sus datos en memoria primero, luego vuelva a poblar las filas de la tabla en ese orden.
 
-**¿Puedo tener columnas con bandas (rayas) manteniendo colores personalizados en celdas específicas?**
+**¿Puedo tener columnas con bandas (rayas) mientras mantengo colores personalizados en celdas específicas?**
 
-Sí. Active las columnas con bandas y luego sobrescriba celdas específicas con formato local; el formato a nivel de celda tiene prioridad sobre el estilo de tabla.
+Sí. Active las columnas con bandas y luego sobrescriba celdas específicas con formato local; el formato a nivel de celda tiene prioridad sobre el estilo de la tabla.

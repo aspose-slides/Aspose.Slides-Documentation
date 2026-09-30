@@ -1,5 +1,5 @@
 ---
-title: Gestire le tabelle di presentazione in Python
+title: Gestisci tabelle di presentazione in Python
 linktitle: Gestisci tabella
 type: docs
 weight: 10
@@ -10,34 +10,36 @@ keywords:
 - accedi tabella
 - rapporto di aspetto
 - allinea testo
-- formattazione testo
-- stile tabella
+- formattazione del testo
+- stile della tabella
 - PowerPoint
 - presentazione
 - Python
 - Aspose.Slides
-description: "Crea e modifica tabelle nelle diapositive PowerPoint con Aspose.Slides per Python tramite Java. Scopri esempi di codice semplici per ottimizzare i flussi di lavoro con le tabelle."
+description: "Crea e modifica tabelle nelle diapositive PowerPoint con Aspose.Slides per Python tramite Java. Scopri semplici esempi di codice per semplificare il tuo flusso di lavoro con le tabelle."
 ---
 ## **Introduzione**
 
-Una tabella in PowerPoint è un modo efficiente per visualizzare informazioni. Le informazioni in una griglia di celle (disposte in righe e colonne) sono semplici e facili da comprendere.
+Le tabelle in PowerPoint organizzano le informazioni in righe e colonne, facilitando la lettura e il confronto dei valori.
 
-Aspose.Slides fornisce la classe [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/), la classe [Cell](https://reference.aspose.com/slides/it/python-java/aspose.slides/cell/) e altri tipi per consentire la creazione, l'aggiornamento e la gestione delle tabelle in tutti i tipi di presentazioni.
+Aspose.Slides fornisce le classi [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) e [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) e altri tipi per consentire di creare, aggiornare e gestire le tabelle nelle presentazioni.
 
-## **Creare una tabella da zero**
+## **Crea una tabella da zero**
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
-2. Ottenere un riferimento a una diapositiva mediante il suo indice.
-3. Definire un elenco di larghezze delle colonne.
-4. Definire un elenco di altezze delle righe.
-5. Aggiungere un oggetto [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/) alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/it/python-java/aspose.slides/shapecollection/#addTable).
-6. Iterare su ogni [Cell](https://reference.aspose.com/slides/it/python-java/aspose.slides/cell/) per applicare la formattazione ai bordi superiore, inferiore, destro e sinistro.
-7. Unire le prime due celle della prima riga della tabella.
-8. Accedere al [TextFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/) di una [Cell](https://reference.aspose.com/slides/it/python-java/aspose.slides/cell/).
-9. Aggiungere del testo al [TextFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/).
-10. Salvare la presentazione modificata.
+Crea una tabella specificando la sua posizione, le larghezze delle colonne e le altezze delle righe. Dopo averla aggiunta a una diapositiva, è possibile formattare i bordi delle celle, unire le celle e inserire testo.
 
-Questo codice Python mostra come creare una tabella in una presentazione:
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Ottieni un riferimento alla diapositiva tramite il suo indice.
+3. Definisci un elenco di larghezze delle colonne in punti.
+4. Definisci un elenco di altezze delle righe in punti.
+5. Aggiungi un oggetto [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) alla diapositiva tramite il metodo [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable).
+6. Itera su ciascun [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) per applicare la formattazione ai bordi superiore, inferiore, destro e sinistro.
+7. Unisci le prime due celle della prima riga della tabella.
+8. Accedi alla cella unita tramite il suo metodo [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame).
+9. Imposta il testo nella cella unita.
+10. Salva la presentazione modificata.
+
+L'esempio seguente crea una tabella con tre colonne e cinque righe in (100, 50) punti. Applica bordi rossi con una larghezza di 5 punti, unisce le prime due celle della prima riga e salva il risultato come `table.pptx`.
 
 ```python
 import jpype
@@ -49,21 +51,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Istanzia una classe Presentation che rappresenta un file PPTX
 presentation = Presentation()
 try:
-
-    # Accede alla prima diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisce colonne con larghezze e righe con altezze
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Aggiunge una forma tabella alla diapositiva
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Imposta il formato del bordo per ogni cella
     for row in table.getRows():
         for cell in row:
             cell_format = cell.getCellFormat()
@@ -80,13 +75,9 @@ try:
             cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
             cell_format.getBorderRight().setWidth(5)
 
-    # Unisce le celle 1 e 2 della riga 1
-    table.mergeCells(table.getRows().get_Item(0).get_Item(0), table.getRows().get_Item(0).get_Item(1), False)
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), False)
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells")
 
-    # Aggiunge del testo alla cella unita
-    table.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells")
-
-    # Salva la presentazione su disco
     presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -94,9 +85,9 @@ finally:
 
 ## **Numerazione in una tabella standard**
 
-In una tabella standard, la numerazione delle celle è semplice e basata su zero. La prima cella di una tabella ha indice 0,0 (colonna 0, riga 0).
+In una tabella standard, gli indici delle celle sono basati su zero e usano l'ordine (colonna, riga). La prima cella è indicizzata come (0, 0).
 
-Ad esempio, le celle di una tabella con 4 colonne e 4 righe sono numerate in questo modo:
+Ad esempio, le celle in una tabella con 4 colonne e 4 righe sono numerate in questo modo:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -104,7 +95,7 @@ Ad esempio, le celle di una tabella con 4 colonne e 4 righe sono numerate in que
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Questo codice Python mostra come creare una tabella con numerazione di celle standard:
+Questo esempio crea la tabella 4 × 4 illustrata sopra, con larghezze delle colonne e altezze delle righe di 70 punti e bordi delle celle rossi con una larghezza di 5 punti. Le coordinate illustrano gli indici delle celle; l'esempio lascia le celle vuote e salva la tabella come `StandardTables_out.pptx`.
 
 ```python
 import jpype
@@ -116,59 +107,46 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Istanzia una classe Presentation che rappresenta un file PPTX
 presentation = Presentation()
 try:
-
-    # Accede alla prima diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisce colonne con larghezze e righe con altezze
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Aggiunge una forma tabella alla diapositiva
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Imposta il formato del bordo per ogni cella
     for row in table.getRows():
         for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
+            cell_format = cell.getCellFormat()
+            cell_format.getBorderTop().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderTop().setWidth(5)
+            cell_format.getBorderBottom().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderBottom().setWidth(5)
+            cell_format.getBorderLeft().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderLeft().setWidth(5)
+            cell_format.getBorderRight().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderRight().setWidth(5)
 
-    # Salva la presentazione su disco
     presentation.save("StandardTables_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Accedere a una tabella esistente**
+## **Accedi a una tabella esistente**
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
+Le tabelle sono memorizzate nella collezione di forme di una diapositiva. Itera attraverso le forme per individuare una tabella, quindi utilizza la classe [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) per leggere o aggiornare le sue celle.
 
-2. Ottenere un riferimento alla diapositiva che contiene la tabella tramite il suo indice.
+1. Carica la presentazione utilizzando la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Ottieni un riferimento alla diapositiva contenente la tabella tramite il suo indice.
+3. Itera attraverso gli oggetti [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) e interrompi quando trovi una tabella. Se la diapositiva contiene diverse tabelle, usa [getAlternativeText](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getAlternativeText) per identificare quella necessaria.
+4. Aggiorna il testo nella cella target.
+5. Salva la presentazione modificata.
 
-3. Inizializzare una variabile per un oggetto [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/) e impostarla a `None`.
-
-4. Iterare su tutti gli oggetti [Shape](https://reference.aspose.com/slides/it/python-java/aspose.slides/shape/) finché non si trova la tabella.
-
-   Se sospetti che la diapositiva in uso contenga una sola tabella, puoi semplicemente controllare tutte le forme contenute. Quando una forma viene identificata come tabella, puoi usarla come oggetto [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/). Ma se la diapositiva contiene più tabelle, è preferibile cercare la tabella desiderata tramite il suo [getAlternativeText](https://reference.aspose.com/slides/it/python-java/aspose.slides/shape/#getAlternativeText).
-
-5. Utilizzare l'oggetto [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/) per lavorare con la tabella. Nell'esempio seguente, aggiorniamo il testo nella prima colonna della seconda riga.
-
-6. Salvare la presentazione modificata.
-
-Questo codice Python mostra come accedere e lavorare con una tabella esistente:
+L'esempio seguente apre `UpdateExistingTable.pptx` e trova la prima tabella nella prima diapositiva. Imposta la cella alla colonna 0, riga 1 su `New` e salva il risultato come `table1_out.pptx`. L'input deve contenere almeno una diapositiva, e la prima tabella su quella diapositiva deve avere almeno una colonna e due righe.
 
 ```python
 import jpype
@@ -179,49 +157,47 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, Table
 
-# Istanzia la classe Presentation che rappresenta un file PPTX
 presentation = Presentation("UpdateExistingTable.pptx")
 try:
-
-    # Accede alla prima diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Inizializza il riferimento alla tabella.
     table = None
 
-    # Scorre le forme e imposta un riferimento alla tabella trovata
     for shape in slide.getShapes():
         if isinstance(shape, Table):
             table = shape
+            break
 
-            # Imposta il testo per la prima colonna della seconda riga
-            table.get_Item(0, 1).getTextFrame().setText("New")
-
-    # Salva la presentazione modificata su disco
-    presentation.save("table1_out.pptx", SaveFormat.Pptx)
+    if table is not None:
+        table.get_Item(0, 1).getTextFrame().setText("New")
+        presentation.save("table1_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Trovare la cella che possiede un TextFrame**
+Per ridimensionare una riga in una tabella esistente e capire perché la sua altezza reale può superare il minimo richiesto, consulta [Controllo altezza riga](/slides/it/python-java/manage-rows-and-columns/#control-row-height).
 
-Quando del codice generico di elaborazione testo riceve un [TextFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/) da una tabella, usa il metodo [TextFrame.getParentCell](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/#getParentCell) per recuperare la [Cell](https://reference.aspose.com/slides/it/python-java/aspose.slides/cell/) proprietaria. Per un TextFrame di cella di tabella, [TextFrame.getParentCell](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/#getParentCell) restituisce il proprietario e [TextFrame.getParentShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/#getParentShape) restituisce `None`, anche se la tabella stessa è una forma.
+## **Trova la cella che possiede un TextFrame**
 
-Le coordinate della cella sono disponibili tramite i metodi di sola lettura [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/it/python-java/aspose.slides/cell/#getFirstColumnIndex) e [Cell.getFirstRowIndex](https://reference.aspose.com/slides/it/python-java/aspose.slides/cell/#getFirstRowIndex). [TextFrame.getParentCell](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/#getParentCell) fornisce anche una navigazione di sola lettura: restituisce il proprietario ma non ne cambia la proprietà. Controlla sempre se la cella restituita è `None` prima di usarla.
+Quando il codice generico di elaborazione testo riceve un [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) da una tabella, usa il metodo [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) per recuperare la [Cell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) proprietaria. Per un TextFrame di una cella di tabella, [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) restituisce il proprietario e [TextFrame.getParentShape](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentShape) restituisce `None`, anche se la tabella stessa è una forma.
 
-Per un esempio completo che identifica i proprietari di celle di tabella e di forme, incluse le forme associate a nodi SmartArt, vedi [Search and Replace Text](/slides/it/python-java/search-and-replace-text/).
+Le coordinate della cella sono disponibili tramite i metodi di sola lettura [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) e [Cell.getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex). [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) fornisce anche una navigazione di sola lettura: restituisce il proprietario ma non ne modifica la proprietà. Verifica sempre che la cella restituita non sia `None` prima di usarla.
 
-## **Allineare il testo in una tabella**
+Per un esempio completo che identifica proprietari di celle di tabella e di forme, incluse le forme associate a nodi SmartArt, vedi [Cerca e sostituisci testo](/slides/it/python-java/search-and-replace-text/).
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
-2. Ottenere un riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un oggetto [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/) alla diapositiva.
-4. Accedere a un oggetto [TextFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/) dalla tabella.
-5. Accedere al [Paragraph](https://reference.aspose.com/slides/it/python-java/aspose.slides/paragraph/) dell'oggetto [TextFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframe/).
-6. Allineare il testo verticalmente.
-7. Salvare la presentazione modificata.
+## **Allinea il testo in una tabella**
 
-Questo codice Python mostra come allineare il testo in una tabella:
+È possibile controllare l'ancoraggio verticale e la direzione del testo delle singole celle di una tabella. L'esempio in questa sezione centra il testo nella prima cella e lo ruota di 270 gradi.
+
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Ottieni un riferimento alla diapositiva tramite il suo indice.
+3. Aggiungi un oggetto [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) alla diapositiva.
+4. Accedi a un oggetto [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) dalla tabella.
+5. Accedi al primo [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) e imposta il suo testo e colore.
+6. Imposta l'ancoraggio verticale della cella e la direzione del testo usando [setTextAnchorType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextAnchorType) e [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextVerticalType).
+7. Salva la presentazione modificata.
+
+Questo esempio crea una tabella 4 × 4 con larghezze delle colonne di 120 punti e altezze delle righe di 100 punti. Formattta il testo nella cella (0, 0), aggiunge valori alle restanti celle della prima riga e salva il risultato come `Vertical_Align_Text_out.pptx`.
 
 ```python
 import jpype
@@ -233,57 +209,48 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, TextAnchorType, TextVerticalType
 from java.awt import Color
 
-# Crea un'istanza della classe Presentation
 presentation = Presentation()
 try:
-
-    # Ottiene la prima diapositiva
     slide = presentation.getSlides().get_Item(0)
 
-    # Definisce le colonne con larghezze e le righe con altezze
     column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # Aggiunge la forma tabella alla diapositiva
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    
     table.get_Item(1, 0).getTextFrame().setText("10")
     table.get_Item(2, 0).getTextFrame().setText("20")
     table.get_Item(3, 0).getTextFrame().setText("30")
 
-    # Accede al TextFrame
     text_frame = table.get_Item(0, 0).getTextFrame()
-
-    # Accede al primo paragrafo nel TextFrame.
     paragraph = text_frame.getParagraphs().get_Item(0)
 
-    # Accede alla prima porzione nel paragrafo.
     portion = paragraph.getPortions().get_Item(0)
     portion.setText("Text here")
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Allinea il testo verticalmente
     cell = table.get_Item(0, 0)
     cell.setTextAnchorType(TextAnchorType.Center)
     cell.setTextVerticalType(TextVerticalType.Vertical270)
 
-    # Salva la presentazione su disco
     presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Impostare la formattazione del testo a livello di tabella**
+## **Imposta la formattazione del testo a livello di tabella**
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/).
-2. Ottenere un riferimento a una diapositiva tramite il suo indice.
-3. Accedere a un oggetto [Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/) dalla diapositiva.
-4. Impostare l'altezza del carattere del testo con [setFontHeight](https://reference.aspose.com/slides/it/python-java/aspose.slides/baseportionformat/#setFontHeight).
-5. Impostare l'allineamento e il margine destro con [setAlignment](https://reference.aspose.com/slides/it/python-java/aspose.slides/paragraphformat/#setAlignment) e [setMarginRight](https://reference.aspose.com/slides/it/python-java/aspose.slides/paragraphformat/#setMarginRight).
-6. Impostare il tipo di testo verticale con [setTextVerticalType](https://reference.aspose.com/slides/it/python-java/aspose.slides/textframeformat/#setTextVerticalType).
-7. Salvare la presentazione modificata.
+Usa [setTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setTextFormat) per applicare la formattazione del testo a tutte le celle di una tabella. Le sue sovraccariche accettano la formattazione di porzione, paragrafo e TextFrame, così è possibile impostare queste proprietà senza iterare attraverso le singole celle.
 
-Questo codice Python mostra come applicare le opzioni di formattazione preferite al testo in una tabella:
+1. Carica la presentazione utilizzando la classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Ottieni un riferimento alla diapositiva tramite il suo indice.
+3. Accedi a un oggetto [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) dalla diapositiva.
+4. Imposta la dimensione del carattere usando [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) per il testo.
+5. Imposta l'allineamento del paragrafo e il margine destro usando [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) e [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight).
+6. Imposta la direzione del testo usando [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType).
+7. Salva la presentazione modificata.
+
+L'esempio seguente apre `table.pptx`, che deve contenere almeno una diapositiva con una tabella come prima forma. Imposta la dimensione del carattere a 25 punti, allinea a destra i paragrafi con un margine destro di 20 punti e rende il testo verticale. La presentazione formattata viene salvata come `result.pptx`.
 
 ```python
 import jpype
@@ -294,40 +261,31 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ParagraphFormat, PortionFormat, Presentation, SaveFormat, TextAlignment, TextFrameFormat, TextVerticalType, Table
 
-# Crea un'istanza della classe Presentation
-presentation = Presentation("simpletable.pptx")
+presentation = Presentation("table.pptx")
 try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
 
-    # Supponiamo che la prima forma nella prima diapositiva sia una tabella
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.setTextFormat(portion_format)
 
-        # Imposta l'altezza del carattere delle celle della tabella
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.setTextFormat(portion_format)
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.setTextFormat(paragraph_format)
 
-        # Imposta l'allineamento del testo delle celle della tabella e il margine destro in un'unica chiamata
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.setTextFormat(paragraph_format)
-
-        # Imposta il tipo di testo verticale delle celle della tabella
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.setTextFormat(text_frame_format)
+    presentation.save("result.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ottenere le proprietà di stile della tabella**
+## **Ottieni le proprietà dello stile della tabella**
 
-Aspose.Slides consente di recuperare le proprietà di stile di una tabella in modo da poterle utilizzare per un'altra tabella o altrove. Questo codice Python mostra come ottenere le proprietà di stile da uno stile predefinito di tabella:
+Usa [getStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getStylePreset) per leggere lo stile predefinito di una tabella e [setStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setStylePreset) per assegnarlo. Questo esempio applica [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/python-java/aspose.slides/tablestylepreset/) a una tabella, stampa il valore predefinito e assegna lo stesso stile a una seconda tabella. Entrambe le tabelle vengono salvate in `table-style.pptx`.
 
 ```python
 import jpype
@@ -340,26 +298,29 @@ from asposeslides.api import Presentation, SaveFormat, TableStylePreset
 
 presentation = Presentation()
 try:
-    table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 10, [100, 150], [5, 5, 5])
-    table.setStylePreset(TableStylePreset.DarkStyle1)  # cambia il tema predefinito del preset di stile
+    slide = presentation.getSlides().get_Item(0)
 
-    # Ottiene il preset di stile della tabella
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.getShapes().addTable(10, 10, column_widths, row_heights)
+    table.setStylePreset(TableStylePreset.DarkStyle1)
+
     style_preset = table.getStylePreset()
     print("Table style preset: ", style_preset)
 
-    # Applica il preset di stile recuperato a un'altra tabella
-    another_table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 100, [100, 150], [5, 5, 5])
+    another_table = slide.getShapes().addTable(10, 100, column_widths, row_heights)
     another_table.setStylePreset(style_preset)
-    presentation.save("table.pptx", SaveFormat.Pptx)
+
+    presentation.save("table-style.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Bloccare il rapporto di aspetto di una tabella**
+## **Blocca il rapporto di aspetto di una tabella**
 
-Il rapporto di aspetto di una forma geometrica è il rapporto delle sue dimensioni in diverse direzioni. Aspose.Slides fornisce il metodo [setAspectRatioLocked](https://reference.aspose.com/slides/it/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) per consentire di bloccare l'impostazione del rapporto di aspetto per tabelle e altre forme.
+Il rapporto di aspetto di una tabella è il rapporto tra la sua larghezza e la sua altezza. Usa [setAspectRatioLocked](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) per bloccare questo rapporto per una tabella.
 
-Questo codice Python mostra come bloccare il rapporto di aspetto per una tabella:
+L'esempio seguente apre `pres.pptx`, che deve contenere almeno una diapositiva con una tabella come prima forma. Stampa lo stato di blocco attuale, abilita il blocco del rapporto di aspetto, stampa lo stato aggiornato (`True`) e salva il risultato come `pres-out.pptx`.
 
 ```python
 import jpype
@@ -372,15 +333,15 @@ from asposeslides.api import Presentation, SaveFormat, Table
 
 presentation = Presentation("pres.pptx")
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        table.getGraphicalObjectLock().setAspectRatioLocked(not table.getGraphicalObjectLock().getAspectRatioLocked())  # inverti
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        presentation.save("pres-out.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(True)
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    presentation.save("pres-out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
@@ -389,12 +350,12 @@ finally:
 
 **Posso abilitare la direzione di lettura da destra a sinistra (RTL) per un'intera tabella e il testo nelle sue celle?**
 
-Sì. La tabella espone il metodo [setRightToLeft](https://reference.aspose.com/slides/it/python-java/aspose.slides/table/#setRightToLeft), e i paragrafi hanno [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/it/python-java/aspose.slides/paragraphformat/#setRightToLeft). L'uso di entrambi garantisce l'ordine RTL corretto e il rendering all'interno delle celle.
+Sì. La tabella espone un metodo [setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setRightToLeft), e i paragrafi hanno [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setRightToLeft). L'utilizzo di entrambi garantisce l'ordine RTL corretto e il rendering all'interno delle celle.
 
 **Come posso impedire agli utenti di spostare o ridimensionare una tabella nel file finale?**
 
-Utilizza i [blocco forme](/slides/it/python-java/applying-protection-to-presentation/) per disabilitare spostamento, ridimensionamento, selezione, ecc. Questi blocchi si applicano anche alle tabelle.
+Utilizza [shape locks](/slides/it/python-java/applying-protection-to-presentation/) per disabilitare lo spostamento, il ridimensionamento, la selezione, ecc. Questi blocchi si applicano anche alle tabelle.
 
-**È supportata l'inserimento di un'immagine all'interno di una cella come sfondo?**
+**L'inserimento di un'immagine all'interno di una cella come sfondo è supportato?**
 
-Sì. È possibile impostare un [picture fill](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/) per una cella; l'immagine coprirà l'area della cella secondo la modalità scelta (stretch o tile).
+Sì. È possibile impostare un [picture fill](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) per una cella; l'immagine coprirà l'area della cella secondo la modalità scelta (allungamento o affiancamento).

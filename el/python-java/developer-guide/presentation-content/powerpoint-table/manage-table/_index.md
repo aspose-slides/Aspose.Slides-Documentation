@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Πινάκων Παρουσίασης σε Python
+title: Διαχείριση Πίνακων Παρουσίασης σε Python
 linktitle: Διαχείριση Πίνακα
 type: docs
 weight: 10
@@ -16,26 +16,30 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Δημιουργήστε και επεξεργαστείτε πίνακες σε διαφάνειες PowerPoint με το Aspose.Slides για Python μέσω Java. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιώσετε τις ροές εργασίας με πίνακες."
+description: "Δημιουργήστε και επεξεργαστείτε πίνακες στις διαφάνειες PowerPoint με το Aspose.Slides για Python μέσω Java. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιώσετε τη ροή εργασίας με τους πίνακες."
 ---
 ## **Εισαγωγή**
 
-Ένας πίνακας στο PowerPoint είναι ένας αποδοτικός τρόπος παρουσίασης πληροφοριών. Οι πληροφορίες σε ένα πλέγμα κελιών (διατεταγμένα σε σειρές και στήλες) είναι απλές και εύκολες στην κατανόηση.
+Οι πίνακες στο PowerPoint οργανώνουν τις πληροφορίες σε σειρές και στήλες, καθιστώντας ευκολότερη την ανάγνωση και τη σύγκριση των τιμών.
 
-Η Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) , την κλάση [Cell](https://reference.aspose.com/slides/el/python-java/aspose.slides/cell/) και άλλους τύπους ώστε να μπορείτε να δημιουργείτε, ενημερώνετε και διαχειρίζεστε πίνακες σε κάθε είδους παρουσίαση.
+Το Aspose.Slides παρέχει τις κλάσεις [Πίνακας](https://reference.aspose.com/slides/python-java/aspose.slides/table/) και [Κυψέλη](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) καθώς και άλλους τύπους, ώστε να μπορείτε να δημιουργείτε, να ενημερώνετε και να διαχειρίζεστε πίνακες σε παρουσιάσεις.
 
 ## **Δημιουργία Πίνακα από το Μηδέν**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Πάρτε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Ορίστε μια λίστα με πλάτη στηλών.
-4. Ορίστε μια λίστα με ύψη σειρών.
-5. Προσθέστε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapecollection/#addTable) .
-6. Επεξεργαστείτε κάθε [Cell](https://reference.aspose.com/slides/el/python-java/aspose.slides/cell/) για να εφαρμόσετε μορφοποίηση στα επάνω, κάτω, δεξιά και αριστερά σύνορα.
-7. Συγχωνεύστε τα δύο πρώτα κελιά της πρώτης σειράς του πίνακα.
-8. Αποκτήστε πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) ενός [Cell](https://reference.aspose.com/slides/el/python-java/aspose.slides/cell/) .
-9. Προσθέστε κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) .
+Δημιουργήστε έναν πίνακα καθορίζοντας τη θέση του, τα πλάτη των στηλών και τα ύψη των σειρών. Αφού τον προσθέσετε σε μια διαφάνεια, μπορείτε να μορφοποιήσετε τα σύνορα των κυψέλων, να συγχωνεύσετε κυψέλες και να εισάγετε κείμενο.
+
+1. Δημιουργήστε μια παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Ορίστε μια λίστα με τα πλάτη των στηλών σε σημεία.
+4. Ορίστε μια λίστα με τα ύψη των σειρών σε σημεία.
+5. Προσθέστε ένα αντικείμενο [Πίνακας](https://reference.aspose.com/slides/python-java/aspose.slides/table/) στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable).
+6. Διατρέξτε κάθε [Κυψέλη](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) για να εφαρμόσετε μορφοποίηση στα άνω, κάτω, δεξιά και αριστερά σύνορα.
+7. Συγχωνεύστε τις δύο πρώτες κυψέλες της πρώτης σειράς του πίνακα.
+8. Πρόσβαση στην ενωμένη κυψέλη μέσω της μεθόδου [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame).
+9. Ορίστε το κείμενο στην ενωμένη κυψέλη.
 10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα με τρεις στήλες και πέντε σειρές στη θέση (100, 50) σημεία. Εφαρμόζει κόκκινα σύνορα πλάτους 5 σημείων, συγχωνεύει τις δύο πρώτες κυψέλες της πρώτης σειράς και αποθηκεύει το αποτέλεσμα ως `table.pptx`.
 
 ```python
 import jpype
@@ -47,21 +51,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Δημιουργεί ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 presentation = Presentation()
 try:
-
-    # Πρόσβαση στην πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Ορίζει στήλες με πλάτη και σειρές με ύψη
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Ορίζει τη μορφοποίηση του πλαισίου για κάθε κελί
     for row in table.getRows():
         for cell in row:
             cell_format = cell.getCellFormat()
@@ -78,23 +75,19 @@ try:
             cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
             cell_format.getBorderRight().setWidth(5)
 
-    # Συγχωνεύει τα κελιά 1 και 2 της σειράς 1
-    table.mergeCells(table.getRows().get_Item(0).get_Item(0), table.getRows().get_Item(0).get_Item(1), False)
+    table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 0), False)
+    table.get_Item(0, 0).getTextFrame().setText("Merged Cells")
 
-    # Προσθέτει κείμενο στο συγχωνευμένο κελί
-    table.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells")
-
-    # Αποθηκεύει την παρουσίαση στον δίσκο
     presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Αρίθμηση σε Κανονικό Πίνακα**
+## **Αρίθμηση σε Τυπικό Πίνακα**
 
-Σε έναν κανονικό πίνακα, η αρίθμηση των κελιών είναι απλή και μηδενική βάση. Το πρώτο κελί σε έναν πίνακα έχει δείκτη 0,0 (στήλη 0, σειρά 0).
+Σε έναν τυπικό πίνακα, οι δείκτες των κυψέλων είναι μηδενικά και ακολουθούν τη σειρά (στήλη, σειρά). Η πρώτη κυψέλη έχει δείκτη (0, 0).
 
-Για παράδειγμα, τα κελιά σε έναν πίνακα με 4 στήλες και 4 σειρές αριθμούνται ως εξής:
+Για παράδειγμα, οι κυψέλες σε έναν πίνακα με 4 στήλες και 4 σειρές αριθμούνται ως εξής:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,7 +95,7 @@ finally:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Αυτός ο κώδικας Python δείχνει πώς να δημιουργήσετε έναν πίνακα με τυπική αρίθμηση κελιών:
+Το παράδειγμα αυτό δημιουργεί τον 4 × 4 πίνακα που απεικονίζεται παραπάνω, με πλάτη στηλών και ύψη σειρών 70 σημείων και κόκκινα σύνορα κυψέλων πλάτους 5 σημείων. Οι συντεταγμένες απεικονίζουν τους δείκτες των κυψέλων· το παράδειγμα αφήνει τις κυψέλες κενές και αποθηκεύει τον πίνακα ως `StandardTables_out.pptx`.
 
 ```python
 import jpype
@@ -114,37 +107,30 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat
 from java.awt import Color
 
-# Δημιουργεί ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 presentation = Presentation()
 try:
-
-    # Πρόσβαση στην πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Ορίζει στήλες με πλάτη και σειρές με ύψη
     column_widths = [70, 70, 70, 70]
     row_heights = [70, 70, 70, 70]
-
-    # Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
 
-    # Ορίζει τη μορφοποίηση του περιθωρίου για κάθε κελί
     for row in table.getRows():
         for cell in row:
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderTop().setWidth(5)
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderBottom().setWidth(5)
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderLeft().setWidth(5)
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(FillType.Solid)
-            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
-            cell.getCellFormat().getBorderRight().setWidth(5)
+            cell_format = cell.getCellFormat()
+            cell_format.getBorderTop().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderTop().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderTop().setWidth(5)
+            cell_format.getBorderBottom().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderBottom().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderBottom().setWidth(5)
+            cell_format.getBorderLeft().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderLeft().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderLeft().setWidth(5)
+            cell_format.getBorderRight().getFillFormat().setFillType(FillType.Solid)
+            cell_format.getBorderRight().getFillFormat().getSolidFillColor().setColor(Color.RED)
+            cell_format.getBorderRight().setWidth(5)
 
-    # Αποθηκεύει την παρουσίαση στον δίσκο
     presentation.save("StandardTables_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -152,112 +138,101 @@ finally:
 
 ## **Πρόσβαση σε Υπάρχον Πίνακα**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Πάρτε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα με βάση τον δείκτη της.
-3. Αρχικοποιήστε μια μεταβλητή για ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) και ορίστε την σε `None` .
-4. Διερευνήστε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/) μέχρι να βρεθεί ο πίνακας.
+Οι πίνακες αποθηκεύονται στη συλλογή σχημάτων μιας διαφάνειας. Διατρέξτε τα σχήματα για να εντοπίσετε έναν πίνακα, έπειτα χρησιμοποιήστε την κλάση [Πίνακας](https://reference.aspose.com/slides/python-java/aspose.slides/table/) για να διαβάσετε ή να ενημερώσετε τις κυψέλες του.
 
-   Εάν υποψιάζεστε ότι η διαφάνεια που επεξεργάζεστε περιέχει έναν μόνο πίνακα, μπορείτε απλώς να ελέγξετε όλα τα σχήματα που περιέχει. Όταν ένα σχήμα προσδιοριστεί ως πίνακας, μπορείτε να το χρησιμοποιήσετε ως αντικείμενο [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) . Όμως, εάν η διαφάνεια περιέχει πολλούς πίνακες, είναι προτιμότερο να αναζητήσετε τον επιθυμητό πίνακα μέσω του [getAlternativeText](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getAlternativeText) .
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα με το δείκτη της.
+3. Διατρέξτε τα αντικείμενα [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) και σταματήστε όταν βρεθεί ένας πίνακας. Εάν η διαφάνεια περιέχει πολλούς πίνακες, χρησιμοποιήστε το [getAlternativeText](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getAlternativeText) για να τα προσδιορίσετε.
+4. Ενημερώστε το κείμενο στην επιλεγμένη κυψέλη.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-5. Χρησιμοποιήστε το αντικείμενο [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) για να εργαστείτε με τον πίνακα. Στο παρακάτω παράδειγμα, ενημερώνουμε το κείμενο στην πρώτη στήλη της δεύτερης σειράς.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Το παρακάτω παράδειγμα ανοίγει το `UpdateExistingTable.pptx` και βρίσκει τον πρώτο πίνακα στην πρώτη διαφάνεια. Θέτει την κυψέλη στη στήλη 0, σειρά 1 σε `New` και αποθηκεύει το αποτέλεσμα ως `table1_out.pptx`. Η είσοδος πρέπει να περιέχει τουλάχιστον μία διαφάνεια και ο πρώτος πίνακας σε αυτή πρέπει να έχει τουλάχιστον μία στήλη και δύο σειρές.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpage.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, Table
 
-# Δημιουργεί ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 presentation = Presentation("UpdateExistingTable.pptx")
 try:
-
-    # Πρόσβαση στην πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Αρχικοποιεί την αναφορά στον πίνακα.
     table = None
 
-    # Διασχίζει τα σχήματα και ορίζει μια αναφορά στον εντοπισθέντα πίνακα
     for shape in slide.getShapes():
         if isinstance(shape, Table):
             table = shape
+            break
 
-            # Ορίζει το κείμενο για την πρώτη στήλη της δεύτερης σειράς
-            table.get_Item(0, 1).getTextFrame().setText("New")
-
-    # Αποθηκεύει την τροποποιημένη παρουσίαση στον δίσκο
-    presentation.save("table1_out.pptx", SaveFormat.Pptx)
+    if table is not None:
+        table.get_Item(0, 1).getTextFrame().setText("New")
+        presentation.save("table1_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Εύρεση του Κελιού που Κατέχει ένα TextFrame**
+Για να αλλάξετε το μέγεθος μιας σειράς σε υπάρχοντα πίνακα και να καταλάβετε γιατί το πραγματικό του ύψος μπορεί να υπερβαίνει το ελάχιστο που ζητήθηκε, δείτε το [Έλεγχος Ύψους Γραμμής](/slides/el/python-java/manage-rows-and-columns/#control-row-height).
 
-Όταν γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) από έναν πίνακα, χρησιμοποιήστε τη μέθοδο [TextFrame.getParentCell](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getParentCell) για να ανακτήσετε το ιδιοκτησιακό [Cell](https://reference.aspose.com/slides/el/python-java/aspose.slides/cell/) . Για ένα πλαίσιο κειμένου κελιού πίνακα, η μέθοδος [TextFrame.getParentCell](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getParentCell) επιστρέφει τον ιδιοκτήτη και η [TextFrame.getParentShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getParentShape) επιστρέφει `None`, παρόλο που ο πίνακας είναι σχήμα.
+## **Βρείτε την Κυψέλη που Κατέχει Πλαίσιο Κειμένου**
 
-Οι συντεταγμένες του κελιού είναι διαθέσιμες μέσω των μόνο-ανάγνωσης μεθόδων [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/el/python-java/aspose.slides/cell/#getFirstColumnIndex) και [Cell.getFirstRowIndex](https://reference.aspose.com/slides/el/python-java/aspose.slides/cell/#getFirstRowIndex) . Η [TextFrame.getParentCell](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getParentCell) παρέχει επίσης πλοήγηση μόνο για ανάγνωση: επιστρέφει τον ιδιοκτήτη αλλά δεν αλλάζει την κυριότητα. Πάντα ελέγχετε το επιστρεφόμενο κελί για `None` πριν το χρησιμοποιήσετε.
+Όταν γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) από έναν πίνακα, χρησιμοποιήστε τη μέθοδο [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) για να ανακτήσετε την ιδιοκτητική [Κυψέλη](https://reference.aspose.com/slides/python-java/aspose.slides/cell/). Για πλαίσιο κειμένου κυψέλης πίνακα, το [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) επιστρέφει τον ιδιοκτήτη και το [TextFrame.getParentShape](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentShape) επιστρέφει `None`, παρόλο που ο ίδιος ο πίνακας είναι σχήμα.
 
-Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες κελιών πίνακα και σχήματα, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε [Search and Replace Text](/slides/el/python-java/search-and-replace-text/) .
+Οι συντεταγμένες της κυψέλης είναι διαθέσιμες μέσω των μόνο-για-ανάγνωση μεθόδων [Cell.getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) και [Cell.getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex). Το [TextFrame.getParentCell](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getParentCell) παρέχει επίσης μόνο-για-ανάγνωση πλοήγηση: επιστρέφει τον ιδιοκτήτη χωρίς να αλλάζει την ιδιοκτησία. Πάντα ελέγχετε την επιστρεφόμενη κυψέλη για `None` πριν τη χρησιμοποιήσετε.
 
-## **Στοίχηση Κειμένου σε Πίνακα**
+Για ένα πλήρες παράδειγμα που αναγνωρίζει ιδιοκτήτες κυψέλης‑πίνακα και σχήματος, συμπεριλαμβανομένων σχημάτων που συνδέονται με κόμβους SmartArt, δείτε το [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/python-java/search-and-replace-text/).
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Πάρτε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) στη διαφάνεια.
-4. Αποκτήστε πρόσβαση σε ένα αντικείμενο [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) από τον πίνακα.
-5. Αποκτήστε πρόσβαση στο [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/) του αντικειμένου [TextFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/) .
-6. Στοίχισε το κείμενο κάθετα.
+## **Στοίχιση Κειμένου σε Πίνακα**
+
+Μπορείτε να ελέγξετε την κάθετη αγκύρωση και την κατεύθυνση κειμένου των μεμονωμένων κυψέλων πίνακα. Το παράδειγμα σε αυτήν την ενότητα κεντράρει το κείμενο στην πρώτη κυψέλη και το περιστρέφει κατά 270 μοίρες.
+
+1. Δημιουργήστε ένα αντίγραφο της κλάσης [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Προσθέστε ένα αντικείμενο [Πίνακας](https://reference.aspose.com/slides/python-java/aspose.slides/table/) στη διαφάνεια.
+4. Πρόσβαση σε ένα αντικείμενο [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) από τον πίνακα.
+5. Πρόσβαση στην πρώτη [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) και ορίστε το κείμενο και το χρώμα της.
+6. Ορίστε την κάθετη αγκύρωση της κυψέλης και την κατεύθυνση κειμένου χρησιμοποιώντας τις μεθόδους [setTextAnchorType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextAnchorType) και [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setTextVerticalType).
 7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
+Το παράδειγμα αυτό δημιουργεί έναν 4 × 4 πίνακα με πλάτη στηλών 120 σημείων και ύψη σειρών 100 σημείων. Μορφοποιεί το κείμενο στην κυψέλη (0, 0), προσθέτει τιμές στις υπόλοιπες κυψέλες της πρώτης σειράς και αποθηκεύει το αποτέλεσμα ως `Vertical_Align_Text_out.pptx`.
+
 ```python
-import jpade
+import jpype
 import asposeslides
 
-if not jpade.isJVMStarted():
-    jpade.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import FillType, Presentation, SaveFormat, TextAnchorType, TextVerticalType
 from java.awt import Color
 
-# Δημιουργεί ένα αντικείμενο της κλάσης Presentation
 presentation = Presentation()
 try:
-
-    # Λαμβάνει την πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Ορίζει στήλες με πλάτη και σειρές με ύψη
     column_widths = [120, 120, 120, 120]
     row_heights = [100, 100, 100, 100]
-
-    # Προσθέτει το σχήμα πίνακα στη διαφάνεια
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+    
     table.get_Item(1, 0).getTextFrame().setText("10")
     table.get_Item(2, 0).getTextFrame().setText("20")
     table.get_Item(3, 0).getTextFrame().setText("30")
 
-    # Προσπελάζει το πλαίσιο κειμένου
     text_frame = table.get_Item(0, 0).getTextFrame()
-
-    # Προσπελάζει την πρώτη παράγραφο στο πλαίσιο κειμένου.
     paragraph = text_frame.getParagraphs().get_Item(0)
 
-    # Προσπελάζει το πρώτο τμήμα στην παράγραφο.
     portion = paragraph.getPortions().get_Item(0)
     portion.setText("Text here")
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Στοίχει το κείμενο κάθετα
     cell = table.get_Item(0, 0)
     cell.setTextAnchorType(TextAnchorType.Center)
     cell.setTextVerticalType(TextVerticalType.Vertical270)
 
-    # Αποθηκεύει την παρουσίαση στον δίσκο
     presentation.save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -265,87 +240,87 @@ finally:
 
 ## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Πίνακα**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
-2. Πάρτε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Αποκτήστε πρόσβαση σε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/) από τη διαφάνεια.
-4. Ορίστε το ύψος γραμματοσειράς του κειμένου με τη μέθοδο [setFontHeight](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseportionformat/#setFontHeight) .
-5. Ορίστε την στοίχιση και το δεξιό περιθώριο με τις μεθόδους [setAlignment](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setAlignment) και [setMarginRight](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setMarginRight) .
-6. Ορίστε τον κάθετο τύπο κειμένου με τη μέθοδο [setTextVerticalType](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#setTextVerticalType) .
+Χρησιμοποιήστε το [setTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setTextFormat) για να εφαρμόσετε μορφοποίηση κειμένου σε όλες τις κυψέλες ενός πίνακα. Οι υπερφορτώσεις του δέχονται μορφοποίηση τμήματος, παραγράφου και πλαισίου κειμένου, ώστε να μπορείτε να ορίσετε αυτές τις ιδιότητες χωρίς να διατρέξετε μεμονωμένες κυψέλες.
+
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Πρόσβαση σε ένα αντικείμενο [Πίνακας](https://reference.aspose.com/slides/python-java/aspose.slides/table/) από τη διαφάνεια.
+4. Ορίστε το μέγεθος γραμματοσειράς με τη μέθοδο [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) για το κείμενο.
+5. Ορίστε την στοίχιση παραγράφου και το δεξιό περιθώριο με τις μεθόδους [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) και [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight).
+6. Ορίστε την κατακόρυφη κατεύθυνση κειμένου με τη μέθοδο [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType).
 7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```python
-import jpade
-import asposeslides
-
-if not jpade.isJVMStarted():
-    jpade.startJVM()
-
-from asposeslides.api import ParagraphFormat, PortionFormat, Presentation, SaveFormat, TextAlignment, TextFrameFormat, TextVerticalType, Table
-
-    # Δημιουργεί ένα αντικείμενο της κλάσης Presentation
-presentation = Presentation("simpletable.pptx")
-try:
-
-        # Ας υποθέσουμε ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι πίνακας
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-
-            # Ορίζει το ύψος γραμματοσειράς των κελιών του πίνακα
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.setTextFormat(portion_format)
-
-            # Ορίζει την στοίχιση κειμένου και το δεξιό περιθώριο των κελιών του πίνακα σε μία κλήση
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.setTextFormat(paragraph_format)
-
-            # Ορίζει τον κάθετο τύπο κειμένου των κελιών του πίνακα
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
-finally:
-    presentation.dispose()
-```
-
-## **Ανάκτηση Ιδιοτήτων Στυλ Πίνακα**
-
-Η Aspose.Slides σας επιτρέπει να ανακτήσετε τις ιδιότητες στυλ ενός πίνακα, ώστε να μπορείτε να χρησιμοποιήσετε αυτές τις λεπτομέρειες για κάποιον άλλο πίνακα ή αλλού. Αυτός ο κώδικας Python δείχνει πώς να πάρετε τις ιδιότητες στυλ από ένα προκαθορισμένο στυλ πίνακα:
+Το παρακάτω παράδειγμα ανοίγει το `table.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια με πίνακα ως πρώτο σχήμα. Ορίζει το μέγεθος γραμματοσειράς σε 25 σημεία, ευθυγραμμίζει τις παραγράφους δεξιά με δεξί περιθώριο 20 σημείων και κάνει το κείμενο κατακόρυφο. Η μορφοποιημένη παρουσίαση αποθηκεύεται ως `result.pptx`.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpade.startJVM()
+    jpype.startJVM()
+
+from asposeslides.api import ParagraphFormat, PortionFormat, Presentation, SaveFormat, TextAlignment, TextFrameFormat, TextVerticalType, Table
+
+presentation = Presentation("table.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.setTextFormat(portion_format)
+
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.setTextFormat(paragraph_format)
+
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.setTextFormat(text_frame_format)
+    presentation.save("result.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Λήψη Ιδιοτήτων Στυλ Πίνακα**
+
+Χρησιμοποιήστε το [getStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getStylePreset) για να διαβάσετε το προεπιλεγμένο στυλ ενός πίνακα και το [setStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setStylePreset) για να το ορίσετε. Το παράδειγμα αυτό εφαρμόζει το [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/python-java/aspose.slides/tablestylepreset/) σε έναν πίνακα, εκτυπώνει την τιμή του προεπιλεγμένου στυλ και ορίζει το ίδιο προεπιλεγμένο στυλ σε δεύτερο πίνακα. Και οι δύο πίνακες αποθηκεύονται στο `table-style.pptx`.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, TableStylePreset
 
 presentation = Presentation()
 try:
-    table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 10, [100, 150], [5, 5, 5])
-    table.setStylePreset(TableStylePreset.DarkStyle1)  # αλλάζει το προεπιλεγμένο θέμα στυλ προεπιλογής
+    slide = presentation.getSlides().get_Item(0)
 
-    # Λαμβάνει το προεπιλεγμένο στυλ του πίνακα
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.getShapes().addTable(10, 10, column_widths, row_heights)
+    table.setStylePreset(TableStylePreset.DarkStyle1)
+
     style_preset = table.getStylePreset()
     print("Table style preset: ", style_preset)
 
-    # Εφαρμόζει το ληφθέν προεπιλεγμένο στυλ σε άλλον πίνακα
-    another_table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 100, [100, 150], [5, 5, 5])
+    another_table = slide.getShapes().addTable(10, 100, column_widths, row_heights)
     another_table.setStylePreset(style_preset)
-    presentation.save("table.pptx", SaveFormat.Pptx)
+
+    presentation.save("table-style.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Κλείδωμα Αναλογίας Διαστάσεων Πίνακα**
+## **Κλείδωμα Αναλογιών Πίνακα**
 
-Η αναλογία διαστάσεων ενός γεωμετρικού σχήματος είναι το πηλίκο των μεγεθών του σε διαφορετικές διαστάσεις. Η Aspose.Slides παρέχει τη μέθοδο [setAspectRatioLocked](https://reference.aspose.com/slides/el/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) ώστε να μπορείτε να κλειδώσετε τη ρύθμιση αναλογίας διαστάσεων για πίνακες και άλλα σχήματα.
+Ο λόγος διαστάσεων ενός πίνακα είναι το πηλίκο του πλάτους προς το ύψος του. Χρησιμοποιήστε τη μέθοδο [setAspectRatioLocked](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/#setAspectRatioLocked) για να κλειδώσετε αυτό το λόγο σε έναν πίνακα.
+
+Το παρακάτω παράδειγμα ανοίγει το `pres.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια με πίνακα ως πρώτο σχήμα. Εκτυπώνει την τρέχουσα κατάσταση κλειδώματος, ενεργοποιεί το κλείδωμα του λόγου διαστάσεων, εκτυπώνει την ενημερωμένη κατάσταση (`True`) και αποθηκεύει το αποτέλεσμα ως `pres-out.pptx`.
 
 ```python
 import jpype
@@ -358,29 +333,29 @@ from asposeslides.api import Presentation, SaveFormat, Table
 
 presentation = Presentation("pres.pptx")
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        table.getGraphicalObjectLock().setAspectRatioLocked(not table.getGraphicalObjectLock().getAspectRatioLocked())  # αντιστρέφει
-        print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
-        presentation.save("pres-out.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().get_Item(0)
+
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    table.getGraphicalObjectLock().setAspectRatioLocked(True)
+    print("Lock aspect ratio set: ", table.getGraphicalObjectLock().getAspectRatioLocked())
+
+    presentation.save("pres-out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ενεργοποιήσω την ανάγνωση από δεξιά προς αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στα κελιά του;**
+**Μπορώ να ενεργοποιήσω την ανάγνωση από δεξιά προς τα αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στις κυψέλες του;**
 
-Ναι. Ο πίνακας διαθέτει τη μέθοδο [setRightToLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/table/#setRightToLeft) , ενώ οι παράγραφοι έχουν τη μέθοδο [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraphformat/#setRightToLeft) . Η χρήση και των δύο εγγυάται τη σωστή σειρά RTL και απόδοση εντός των κελιών.
+Ναι. Ο πίνακας διαθέτει τη μέθοδο [setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setRightToLeft) και οι παράγραφοι έχουν τη μέθοδο [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setRightToLeft). Η χρήση και των δύο εξασφαλίζει τη σωστή σειρά RTL και την απόδοση μέσα στις κυψέλες.
 
-**Πώς μπορώ να εμποδίσω τους χρήστες από το να μετακινούν ή να αλλάζουν το μέγεθος ενός πίνακα στο τελικό αρχείο;**
+**Πώς μπορώ να αποτρέψω τους χρήστες από το να μετακινούν ή να αλλάζουν μέγεθος ενός πίνακα στο τελικό αρχείο;**
 
-Χρησιμοποιήστε τα [shape locks](/slides/el/python-java/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, αλλαγή μεγέθους, επιλογή κ.λπ. Αυτά τα κλειδώματα εφαρμόζονται και στους πίνακες.
+Χρησιμοποιήστε τα [shape locks](/slides/el/python-java/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, το μέγεθος, την επιλογή κ.λπ. Αυτά τα κλειδώματα εφαρμόζονται και στους πίνακες.
 
-**Υποστηρίζεται η εισαγωγή εικόνας μέσα σε κελί ως φόντο;**
+**Υποστηρίζεται η εισαγωγή εικόνας μέσα σε μια κυψέλη ως φόντο;**
 
-Ναι. Μπορείτε να ορίσετε ένα [picture fill](https://reference.aspose.com/slides/el/python-java/aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύψει την περιοχή του κελιού σύμφωνα με την επιλεγμένη λειτουργία (επιμήκυνση ή επικάλυψη).
+Ναι. Μπορείτε να ορίσετε μια [picture fill](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) για μια κυψέλη· η εικόνα θα καλύπτει την περιοχή της κυψέλης ανάλογα με τη ζητούμενη λειτουργία (τέντωμα ή επικάλυψη).

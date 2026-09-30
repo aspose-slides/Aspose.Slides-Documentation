@@ -1,233 +1,243 @@
 ---
-title: Διαχείριση Σειρών και Στηλών σε Πίνακες PowerPoint με Python
-linktitle: Σειρές και Στήλες
+title: Διαχειριστείτε Γραμμές και Στήλες σε Πίνακες PowerPoint χρησιμοποιώντας Python
+linktitle: Γραμμές και Στήλες
 type: docs
 weight: 20
 url: /el/python-net/manage-rows-and-columns/
 keywords:
-- σειρά πίνακα
+- γραμμή πίνακα
 - στήλη πίνακα
-- πρώτη σειρά
+- πρώτη γραμμή
 - κεφαλίδα πίνακα
-- κλωνοποίηση σειράς
+- κλωνοποίηση γραμμής
 - κλωνοποίηση στήλης
-- αντιγραφή σειράς
+- αντιγραφή γραμμής
 - αντιγραφή στήλης
-- αφαίρεση σειράς
+- αφαίρεση γραμμής
 - αφαίρεση στήλης
-- μορφοποίηση κειμένου σειράς
+- μορφοποίηση κειμένου γραμμής
 - μορφοποίηση κειμένου στήλης
 - στυλ πίνακα
 - PowerPoint
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Διαχειριστείτε τις σειρές και τις στήλες των πινάκων σε PowerPoint και OpenDocument με το Aspose.Slides για Python μέσω .NET και επιταχύνετε την επεξεργασία παρουσιάσεων και την ενημέρωση δεδομένων."
+description: "Διαχειριστείτε γραμμές και στήλες πίνακα στο PowerPoint με το Aspose.Slides για Python μέσω .NET και επιταχύνετε την επεξεργασία παρουσιάσεων και την ενημέρωση δεδομένων."
 ---
-## **Overview**
+## **Εισαγωγή**
 
-Αυτό το άρθρο δείχνει πώς να διαχειριστείτε τις σειρές και τις στήλες πίνακα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python. Θα μάθετε πώς να προσθέτετε, να εισάγετε, να κλωνοποιείτε και να διαγράφετε σειρές ή στήλες, να σημειώνετε την πρώτη σειρά ως κεφαλίδα, να προσαρμόζετε το μέγεθος και τη διάταξη, και να εφαρμόζετε μορφοποίηση κειμένου και στυλ σε επίπεδο σειράς ή στήλης. Κάθε εργασία παρουσιάζεται με συμπαγή, αυτόνομα αποσπάσματα κώδικα βασισμένα στο API του [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) , ώστε να μπορείτε γρήγορα να εντοπίσετε έναν πίνακα σε μια διαφάνεια και να αναδιαμορφώσετε τη δομή του ώστε να ταιριάζει στο σχέδιό σας.
+Το Aspose.Slides for Python μέσω .NET σας επιτρέπει να διαχειρίζεστε τη δομή και τη μορφοποίηση των πινάκων σε παρουσιάσεις PowerPoint μέσω της κλάσης [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Μπορείτε να ορίσετε μια γραμμή κεφαλίδας, να αντιγράψετε ή να αφαιρέσετε γραμμές και στήλες, και να εφαρμόσετε μορφοποίηση κειμένου σε ολόκληρη τη γραμμή ή στήλη.
 
-## **Set the First Row as a Header**
+Αυτό το άρθρο εξηγεί αυτές τις λειτουργίες με παραδείγματα Python. Επίσης δείχνει πώς να ανακτήσετε το προκαθορισμένο στυλ ενός πίνακα ώστε να το ξαναχρησιμοποιήσετε. Τα ευρετήρια των γραμμών και των στηλών του πίνακα αρχίζουν από το μηδέν.
 
-Σημειώστε την πρώτη σειρά του πίνακα ως κεφαλίδα για να διακρίνετε σαφώς τους τίτλους των στηλών από τα δεδομένα. Στο Aspose.Slides για Python, απλώς ενεργοποιήστε την επιλογή *First Row* του πίνακα για να εφαρμόσετε τη μορφοποίηση κεφαλίδας που ορίζεται από το επιλεγμένο στυλ πίνακα.
+## **Έλεγχος Ύψους Γραμμής**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την παρουσίαση.
-1. Πρόσβαση στη διαφάνεια με βάση το δείκτη της.
-1. Διασχίστε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) για να βρείτε τον σχετικό πίνακα.
-1. Ορίστε την πρώτη σειρά του πίνακα ως κεφαλίδα.
+Χρησιμοποιήστε το [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) για να ορίσετε το ελάχιστο ύψος μιας γραμμής σε πόντους. Είναι ένα κατώτερο όριο, όχι σταθερό ύψος. Το [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) επιστρέφει το πραγματικό ύψος και είναι μόνο για ανάγνωση. Πρόσβαση στη γραμμή μέσω του [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/).
+
+Το παράδειγμα φορτώνει το [row-height-input.pptx](row-height-input.pptx), το οποίο έχει έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη του γραμμή ξεκινά στα 70 πόντους. Τα κελιά χρησιμοποιούν κείμενο Arial 18‑πόντων, με αναδίπλωση και περιθώρια 6 πόντους πάνω και κάτω· το μεγαλύτερο κείμενο στη δεύτερη στήλη αναδιπλώνεται σε πολλές γραμμές. Το παράδειγμα αυξάνει το ελάχιστο σε 100 πόντους, κατόπιν το μειώνει σε 20 πόντους, εκτυπώνει το πραγματικό ύψος μετά από κάθε αλλαγή και αποθηκεύει και τα δύο αποτελέσματα.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργία αντικειμένου της κλάσης Presentation.
-with slides.Presentation("table.pptx") as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια.
-    slide = presentation.slides[0]
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
 
-    # Διαπέραση των σχημάτων και λήψη αναφοράς στον πίνακα.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
 
-    # Ορισμός της πρώτης σειράς του πίνακα ως κεφαλίδα.
-    table.first_row = True
-    
-    # Αποθήκευση της παρουσίασης σε δίσκο.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Clone a Table Row or Column**
+Με την παρεχόμενη παρουσίαση, η αύξηση του ελάχιστου προσθέτει χώρο στη γραμμή. Η μείωσή του αφαιρεί αυτόν τον επιπλέον χώρο, αλλά το πραγματικό ύψος παραμένει μεγαλύτερο από 20 πόντους επειδή το κείμενο και τα περιθώρια των κελιών απαιτούν περισσότερο χώρο. Η μείωση του ελάχιστου μόνη της δεν μπορεί να πιέσει τη γραμμή κάτω από το χώρο που απαιτεί το περιεχόμενό της.
 
-Κλωνοποιήστε οποιαδήποτε σειρά ή στήλη πίνακα και εισάγετε το αντίγραφο στη ζητούμενη θέση μέσα στον πίνακα. Το αντίγραφο διατηρεί το περιεχόμενο των κελιών, τη μορφοποίηση και τα μεγέθη, ώστε να μπορείτε να επεκτείνετε τις διατάξεις γρήγορα και σταθερά.
+Πολλοί παράγοντες επηρεάζουν το πραγματικό ύψος:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την παρουσίαση.
-1. Πρόσβαση στη διαφάνεια με βάση το δείκτη της.
-1. Ορίστε έναν πίνακα με πλάτη στηλών.
-1. Ορίστε έναν πίνακα με ύψη σειρών.
-1. Προσθέστε έναν [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) στη διαφάνεια χρησιμοποιώντας `add_table(x, y, column_widths, row_heights)`.
-1. Κλωνοποιήστε μια σειρά πίνακα.
-1. Κλωνοποιήστε μια στήλη πίνακα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+- **Κείμενο και μέγεθος γραμματοσειράς:** το μεγαλύτερο κείμενο, ρητές αλλαγές γραμμής ή μεγαλύτερη γραμματοσειρά μπορούν να απαιτήσουν περισσότερο κάθετο χώρο.
+- **Αναδίπλωση και πλάτος στήλης:** με αναδίπλωση ενεργοποιημένη, μια πιο στενή [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) μπορεί να δημιουργήσει περισσότερες γραμμές. Μία πιο πλατιά στήλη μπορεί να μειώσει τον απαιτούμενο κάθετο χώρο.
+- **Περιθώρια κελιού:** τα [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) και [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) προσθέτουν κάθετο χώρο. Τα [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) και [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) μειώνουν το πλάτος διαθέσιμο για κείμενο και μπορούν να προκαλέσουν επιπλέον αναδίπλωση.
+
+Για αυτόν τον πίνακα χωρίς συγχωνευμένα κελιά, το κελί που χρειάζεται τον περισσότερο κάθετο χώρο καθορίζει το όριο κατώτερου μεγέθους της γραμμής. Για να γίνει η γραμμή πιο σύντομη, ίσως χρειαστεί επίσης να συντομεύσετε το κείμενο, να μειώσετε το μέγεθος γραμματοσειράς ή τα περιθώρια, ή να διευρύνετε μια στήλη.
+
+Οι εικόνες παρακάτω δείχνουν τον ίδιο πίνακα στην ίδια κλίμακα. Σε αυτήν την εκτέλεση, τα πραγματικά ύψη ήταν 70, 100 και 55,2 πόντοι: η τελική γραμμή παρέμεινε ψηλότερη από το ελάχιστο των 20 πόντων. Οι ακριβείς μετρήσεις κειμένου μπορούν να διαφέρουν ανάλογα με τις γραμματοσειρές που είναι διαθέσιμες στο περιβάλλον σας. Κατεβάστε τα αποθηκευμένα αποτελέσματα: [αυξημένο ελάχιστο](row-height-increased.pptx) και [μειωμένο ελάχιστο](row-height-decreased.pptx).
+
+| Αρχικό: ελάχιστο 70 pt, πραγματικό 70 pt | Αυξημένο: ελάχιστο 100 pt, πραγματικό 100 pt | Μειωμένο: ελάχιστο 20 pt, πραγματικό 55,2 pt |
+| --- | --- | --- |
+| ![Αρχικό πίνακα με πρώτη γραμμή 70 πόντων.](row-height-before.png) | ![Πίνακας μετά την αύξηση του ελάχιστου της πρώτης γραμμής σε 100 πόντους.](row-height-increased.png) | ![Πίνακας μετά τη μείωση του ελάχιστου της πρώτης γραμμής σε 20 πόντους· το αναδιπλωμένο κείμενο κρατά τη γραμμή ψηλότερη από το ελάχιστο.](row-height-decreased.png) |
+
+## **Ορισμός της Πρώτης Γραμμής ως Κεφαλίδας**
+
+Χρησιμοποιήστε την ιδιότητα [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) για να σημειώσετε την πρώτη γραμμή για μορφοποίηση κεφαλίδας. Η εμφάνισή της εξαρτάται από το στυλ πίνακα που έχει εφαρμοστεί.
+
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Πρόσβαση στον πίνακα που είναι αποθηκευμένος ως το πρώτο σχήμα στη διαφάνεια.
+4. Ενεργοποιήστε τη μορφοποίηση κεφαλίδας για την πρώτη του γραμμή.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια. Ενεργοποιεί τη μορφοποίηση κεφαλίδας για την πρώτη γραμμή και αποθηκεύει το `First_row_header.pptx`.
 
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Δημιουργία αντικειμένου της κλάσης Presentation.
-with slides.Presentation() as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια.
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Ορισμός πλάτους στηλών και ύψους σειρών.
+    table = slide.shapes[0]
+    table.first_row = True
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Κλωνοποίηση Γραμμής ή Στήλης Πίνακα**
+
+Κλωνοποιήστε γραμμές ή στήλες για επαναχρησιμοποίηση του περιεχομένου και της μορφοποίησής τους. Μπορείτε να προσθέσετε ένα αντίγραφο στο τέλος του πίνακα ή να το εισάγετε σε συγκεκριμένη θέση.
+
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Ορίστε τα πλάτη των στηλών και τα ύψη των γραμμών.
+4. Προσθέστε έναν πίνακα με τη μέθοδο [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Κλωνοποιήστε τις απαιτούμενες γραμμές.
+6. Κλωνοποιήστε τις απαιτούμενες στήλες.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα απαιτεί το `Test.pptx` με τουλάχιστον μία διαφάνεια. Δημιουργεί έναν πίνακα με τρεις στήλες και πέντε γραμμές, με διαστάσεις καθορισμένες σε πόντους. Προσθέτει αντίγραφα της πρώτης γραμμής και στήλης, έπειτα εισάγει αντίγραφα της δεύτερης γραμμής και στήλης στη θέση 3 (τη θέση τέταρτης). Ο τελικός πίνακας έχει επτά γραμμές και πέντε στήλες. Το όρισμα `False` απενεργοποιεί την κλωνοποίηση σε γειτονικά συγχωνευμένα κελιά· αυτός ο πίνακας δεν έχει συγχωνευμένα κελιά.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Προσθήκη πίνακα στη διαφάνεια.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Προσθήκη κειμένου στη σειρά 1, στήλη 1.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Προσθήκη κειμένου στη σειρά 2, στήλη 1.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Κλωνοποίηση της σειράς 1 στο τέλος του πίνακα.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Προσθήκη κειμένου στη σειρά 1, στήλη 2.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Προσθήκη κειμένου στη σειρά 2, στήλη 2.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Κλωνοποίηση της σειράς 2 ως 4η σειρά του πίνακα.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Αντιγραφή της πρώτης στήλης στο τέλος.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Κλωνοποίηση της δεύτερης στήλης στο δείκτη 3 (τη 4η θέση).
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Αποθήκευση της παρουσίασης σε δίσκο.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Remove a Row or Column from a Table**
+## **Αφαίρεση Γραμμής ή Στήλης από Πίνακα**
 
-Απλοποιήστε έναν πίνακα αφαιρώντας οποιαδήποτε σειρά ή στήλη με βάση το δείκτη χρησιμοποιώντας το Aspose.Slides για Python — η διάταξη προσαρμόζεται αυτόματα διατηρώντας τη μορφοποίηση των υπολοίπων κελιών. Αυτό είναι χρήσιμο για την απλοποίηση πλέγματων δεδομένων ή τη διαγραφή θέσεων κράτησης χωρίς την ανακατασκευή του πίνακα.
+Αφαιρέστε γραμμές ή στήλες που δεν χρειάζονται πλέον σε έναν πίνακα. Η αφαίρεση ενός στοιχείου μετατοπίζει τα ευρετήρια των γραμμών ή στηλών που ακολουθούν.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την παρουσίαση.
-1. Πρόσβαση στη διαφάνεια με βάση το δείκτη της.
-1. Ορίστε έναν πίνακα με πλάτη στηλών.
-1. Ορίστε έναν πίνακα με ύψη σειρών.
-1. Προσθέστε ένα ITable στη διαφάνεια χρησιμοποιώντας `add_table(x, y, column_widths, row_heights)`.
-1. Αφαιρέστε τη σειρά του πίνακα.
-1. Αφαιρέστε τη στήλη του πίνακα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+1. Δημιουργήστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Ορίστε τα πλάτη των στηλών και τα ύψη των γραμμών.
+4. Προσθέστε έναν πίνακα με τη μέθοδο [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+5. Αφαιρέστε τη δεύτερη γραμμή και τη δεύτερη στήλη.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα αυτό δημιουργεί έναν πίνακα 3 × 3 και αφαιρεί τη γραμμή και τη στήλη στη θέση 1, αφήνοντας έναν πίνακα 2 × 2 στο `TestTable_out.pptx`. Οι διαστάσεις είναι σε πόντους. Το όρισμα `False` απενεργοποιεί την αφαίρεση γειτονικών συγχωνευμένων γραμμών ή στηλών· αυτός ο πίνακας δεν έχει συγχωνευμένα κελιά.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
     presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Text Formatting at the Table Row Level**
+## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Γραμμής Πίνακα**
 
-Εφαρμόστε συνεπή στυλ κειμένου σε ολόκληρη τη σειρά του πίνακα με ένα βήμα. Με το Aspose.Slides για Python, μπορείτε να ορίσετε την οικογένεια γραμματοσειράς, το μέγεθος, το βάρος, το χρώμα και την στοίχιση για όλα τα κελιά της σειράς μονομιάς, ώστε να διατηρείτε τις επικεφαλίδες ή τις λωρίδες δεδομένων ομοιόμορφες.
+Εφαρμόστε μορφοποίηση κειμένου σε ολόκληρη τη γραμμή για να διατηρήσετε ομοιόμορφα τα κελιά της. Μπορείτε να ορίσετε ιδιότητες γραμματοσειράς, μορφοποίηση παραγράφου και προσανατολισμό κειμένου χωρίς να μορφοποιήσετε κάθε κελί ξεχωριστά.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την παρουσίαση.
-1. Πρόσβαση στη διαφάνεια με βάση το δείκτη της.
-1. Πρόσβαση στο σχετικό αντικείμενο [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) στη διαφάνεια.
-1. Ορίστε το ύψος γραμματοσειράς για τα κελιά της πρώτης σειράς.
-1. Ορίστε τη στοίχιση και το δεξί περιθώριο για τα κελιά της πρώτης σειράς.
-1. Ορίστε τον κάθετο τύπο κειμένου για τα κελιά της δεύτερης σειράς.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στον πίνακα στην πρώτη διαφάνεια.
+3. Ορίστε το [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) για την πρώτη γραμμή.
+4. Ορίστε το [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) και το [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) για την πρώτη γραμμή.
+5. Ορίστε το [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) για τη δεύτερη γραμμή.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον δύο γραμμές. Εφαρμόζει κείμενο 25‑πόντων, δεξιά στοίχιση και δεξί περιθώριο παραγράφου 20 πόντων στην πρώτη γραμμή, στη συνέχεια ορίζει κάθετο κείμενο στη δεύτερη γραμμή.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργία αντικειμένου της κλάσης Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Ορισμός ύψους γραμματοσειράς για τα κελιά της πρώτης σειράς.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Ορισμός στοίχισης κειμένου και δεξίου περιθωρίου για τα κελιά της πρώτης σειράς.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Ορισμός κάθετου τύπου κειμένου για τα κελιά της δεύτερης σειράς.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Αποθήκευση της παρουσίασης σε δίσκο.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Text Formatting at the Table Column Level**
+## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Στήλης Πίνακα**
 
-Εφαρμόστε συνεπή στυλ κειμένου σε ολόκληρη τη στήλη του πίνακα μονομιάς. Με το Aspose.Slides για Python, μπορείτε να ορίσετε την οικογένεια γραμματοσειράς, το μέγεθος, το βάρος, το χρώμα και την στοίχιση για όλα τα κελιά μιας στήλης, ώστε να δημιουργήσετε ομοιόμορφες κάθετες λωρίδες για επικεφαλίδες ή δεδομένα.
+Εφαρμόστε μορφοποίηση κειμένου σε ολόκληρη τη στήλη για να διατηρήσετε ομοιόμορφα τα κελιά της. Μπορείτε να ορίσετε ιδιότητες γραμματοσειράς, μορφοποίηση παραγράφου και προσανατολισμό κειμένου χωρίς να μορφοποιήσετε κάθε κελί ξεχωριστά.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την παρουσίαση.
-1. Πρόσβαση στη διαφάνεια με βάση το δείκτη της.
-1. Πρόσβαση στο σχετικό αντικείμενο [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) στη διαφάνεια.
-1. Ορίστε το ύψος γραμματοσειράς για τα κελιά της πρώτης στήλης.
-1. Ορίστε τη στοίχιση και το δεξί περιθώριο για τα κελιά της πρώτης στήλης.
-1. Ορίστε τον κάθετο τύπο κειμένου για τα κελιά της δεύτερης στήλης.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στον πίνακα στην πρώτη διαφάνεια.
+3. Ορίστε το [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) για την πρώτη στήλη.
+4. Ορίστε το [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) και το [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) για την πρώτη στήλη.
+5. Ορίστε το [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) για τη δεύτερη στήλη.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον δύο στήλες. Εφαρμόζει κείμενο 25‑πόντων, δεξιά στοίχιση και δεξί περιθώριο παραγράφου 20 πόντων στην πρώτη στήλη, στη συνέχεια ορίζει κάθετο κείμενο στη δεύτερη στήλη.
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργία αντικειμένου της κλάσης Presentation.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Ορισμός ύψους γραμματοσειράς για τα κελιά της πρώτης στήλης.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Ορισμός στοίχισης κειμένου και δεξιού περιθωρίου για τα κελιά της πρώτης στήλης.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Ορισμός κάθετου τύπου κειμένου για τα κελιά της δεύτερης στήλης.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Αποθήκευση της παρουσίασης σε δίσκο.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Get Table Style Properties**
+## **Λήψη Ιδιοτήτων Στυλ Πίνακα**
 
-Το Aspose.Slides σας επιτρέπει να ανακτήσετε τις ιδιότητες στυλ ενός πίνακα ώστε να τις χρησιμοποιήσετε ξανά για άλλο πίνακα ή αλλού. Ο παρακάτω κώδικας Python δείχνει πώς να λάβετε τις ιδιότητες στυλ από ένα προκαθορισμένο στυλ πίνακα:
+Χρησιμοποιήστε την ιδιότητα [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) για να ανακτήσετε το προεπιλεγμένο στυλ που έχει εφαρμοστεί σε έναν πίνακα και να το ξαναχρησιμοποιήσετε σε άλλον πίνακα. Αυτό προσδιορίζει το προεπιλεγμένο στυλ αντί για μεμονωμένες παραβιάσεις μορφοποίησης κελιού.
+
+Το παράδειγμα δημιουργεί έναν πίνακα, εφαρμόζει το [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) και διαβάζει ξανά το προεπιλεγμένο στυλ. Εκτυπώνει `True` όταν το ανακτημένο στυλ ταιριάζει με το εφαρμοσμένο και αποθηκεύει τον πίνακα στο `table.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -235,22 +245,27 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Can I apply PowerPoint themes/styles to a table that’s already created?**
+**Μπορώ να εφαρμόσω θέματα/στυλ PowerPoint σε πίνακα που έχει ήδη δημιουργηθεί;**
 
-Ναι. Ο πίνακας κληρονομεί το θέμα της διαφάνειας/διάταξης/κύριου, και μπορείτε ακόμη να αντικαταστήσετε τα γέμισμα, τα πλαίσια και τα χρώματα κειμένου πάνω από αυτό το θέμα.
+Ναι. Ο πίνακας κληρονομεί το θέμα της διαφάνειας/διάταξης/πρωτεύοντος θέματος και μπορείτε ακόμη να υπερισχύσετε τις γεμίσεις, τα πλαίσια και τα χρώματα κειμένου πάνω από εκείνο το θέμα.
 
-**Can I sort table rows like in Excel?**
+**Μπορώ να ταξινομήσω τις γραμμές του πίνακα όπως στο Excel;**
 
-Όχι, οι πίνακες του Aspose.Slides δεν διαθέτουν ενσωματωμένη ταξινόμηση ή φίλτρα. Ταξινομήστε πρώτα τα δεδομένα στη μνήμη και, στη συνέχεια, επανασυμπληρώστε τις σειρές του πίνακα με αυτή τη σειρά.
+Όχι, οι πίνακες Aspose.Slides δεν διαθέτουν ενσωματωμένη ταξινόμηση ή φίλτρα. Ταξινομήστε τα δεδομένα στη μνήμη πρώτα, κατόπιν επανασυμπληρώστε τις γραμμές του πίνακα με τη νέα σειρά.
 
-**Can I have banded (striped) columns while keeping custom colors on specific cells?**
+**Μπορώ να έχω ζώνες (striped) στήλες διατηρώντας προσαρμοσμένα χρώματα σε συγκεκριμένα κελιά;**
 
-Ναι. Ενεργοποιήστε τις λωρίδες στις στήλες, στη συνέχεια αντικαταστήστε συγκεκριμένα κελιά με τοπική μορφοποίηση· η μορφοποίηση σε επίπεδο κελιού έχει προτεραιότητα πάνω από το στυλ του πίνακα.
+Ναι. Ενεργοποιήστε τις ζώνες στη στήλη, έπειτα παρακάμψτε συγκεκριμένα κελιά με τοπική μορφοποίηση· η μορφοποίηση επιπέδου κελιού έχει προτεραιότητα έναντι του στυλ πίνακα.

@@ -1,148 +1,158 @@
 ---
-title: Sorok és oszlopok kezelése PowerPoint táblákban Python használatával
+title: PowerPoint táblázatok sorainak és oszlopainak kezelése Python segítségével
 linktitle: Sorok és oszlopok
 type: docs
 weight: 20
 url: /hu/python-net/manage-rows-and-columns/
 keywords:
-- táblasor
-- táblazatoszlop
+- táblázat sor
+- táblázat oszlop
 - első sor
-- tábla fejléce
+- táblázat fejléc
 - sor klónozása
 - oszlop klónozása
 - sor másolása
 - oszlop másolása
 - sor eltávolítása
 - oszlop eltávolítása
-- sor szövegformázása
-- oszlop szövegformázása
-- tábla stílus
+- sor szövegformázás
+- oszlop szövegformázás
+- táblázat stílus
 - PowerPoint
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Táblák sorainak és oszlopainak kezelése PowerPointban és OpenDocumentben az Aspose.Slides for Python (.NET) segítségével, a prezentációk szerkesztésének és adatfrissítéseknek a felgyorsítása érdekében."
+description: "Kezeletet a táblázat sorait és oszlopait PowerPointban az Aspose.Slides for Python via .NET segítségével, és gyorsítsa fel a prezentáció szerkesztését és az adatok frissítését."
 ---
-## **Áttekintés**
+## **Bevezetés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a táblázatsorok és -oszlopok PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python használatával. Megtanulja, hogyan adhasson hozzá, szúrjon be, klónozzon és töröljön sorokat vagy oszlopokat, hogyan jelölje meg az első sort fejlécként, hogyan állítsa be a méreteket és az elrendezést, valamint hogyan alkalmazzon szöveg- és stílusformázást sor- vagy oszlop szinten. Minden feladatot egy kompakt, önálló kódrészlet mutat be a [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) API alapján, így gyorsan megtalálhatja a táblát egy dián, és átalakíthatja annak szerkezetét a tervezésének megfelelően.
+Az Aspose.Slides for Python via .NET lehetővé teszi, hogy a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) osztályon keresztül kezelje a táblázat szerkezetét és formázását a PowerPoint‑prezentációkban. Kijelölhet egy fejlécsort, klónozhat vagy eltávolíthat sorokat és oszlopokat, valamint szövegformázást alkalmazhat egy teljes sorra vagy oszlopra.
 
-## **Az első sor beállítása fejlécként**
+Ez a cikk bemutatja ezeket a műveleteket Python‑példákkal. Ezen felül megmutatja, hogyan lehet lekérni egy táblázat stílus‑presetjét, hogy újra felhasználhassa azt. A táblázatsor‑ és oszlopszámok nullától kezdődnek.
 
-Jelölje meg a táblázat első sorát fejlécként, hogy egyértelműen megkülönböztesse az oszlopcímeket az adatoktól. Az Aspose.Slides for Python esetén egyszerűen engedélyezze a táblázat *First Row* (Első sor) beállítását, hogy alkalmazza a kiválasztott táblastílus által definiált fejlécformázást.
+## **Sor magasságának szabályozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból, és töltse be a prezentációt.  
-1. Hozzáférés a diára index alapján.  
-1. Iteráljon végig az összes [Shape](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/) objektumon, hogy megtalálja a megfelelő táblát.  
-1. Állítsa be a táblázat első sorát fejlécként.
+Használja a [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) tulajdonságot egy sor minimális magasságának beállításához pontban. Ez egy alsó határ, nem rögzített magasság. A [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) a tényleges magasságot adja vissza, és csak olvasható. A sorhoz a [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/) segítségével férhet hozzá.
 
-Ez a Python kód bemutatja, hogyan állítható be egy táblázat első sorát fejlécként:
+A példa betölti a [row-height-input.pptx](row-height-input.pptx) fájlt, amelyben az első dián az első alakzat egy táblázat. Az első sor 70 pontnál kezdődik. A cellák 18 pontos Arial szöveget, sortörést és 6 pontos felső és alsó margót használnak; a második oszlopban a hosszabb szöveg több sorra törik. A példa a minimális értéket 100 pontra növeli, majd 20 pontra csökkenti, minden változtatás után kiírja a tényleges magasságot, és elmenti mindkét eredményt.
 
 ```python
 import aspose.slides as slides
 
-# Példányosítja a Presentation osztályt.
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
+
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
+
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
+```
+
+A mellékelt prezentációval a minimum növelése helyet ad a sornak. A csökkentés eltávolítja ezt a plusz helyet, de a tényleges magasság továbbra is nagyobb lesz, mint 20 pont, mivel a szöveg és a cellamargók több helyet igényelnek. A minimum magának csökkentése önmagában nem kényszerítheti a sort a tartalom által igényelt hely alá.
+
+A tényleges magasságot több tényező befolyásolja:
+
+- **Szöveg és betűméret:** hosszabb szöveg, explicite sortörések vagy nagyobb betűméret több függőleges helyet igényelhet.
+- **Sortörés és oszlopszélesség:** sortörés engedélyezése esetén egy keskenyebb [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) több sort eredményezhet. Egy szélesebb oszlop csökkentheti a függőleges helyigényt.
+- **Cellamargók:** a [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) és a [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) függőleges helyet ad. A [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) és a [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) pedig csökkenti a szöveg számára rendelkezésre álló szélességet, és további sortörést okozhat.
+
+Ezen az egyesített cellákat nem tartalmazó táblázatnál a legmagasabb függőleges helyet igénylő cella határozza meg a sor alsó, tartalom‑vezérelt limitjét. A sor lerövidítéséhez gyakran szükséges a szöveget lerövidíteni, csökkenteni a betűméretet vagy a margókat, vagy egy oszlopot szélesíteni.
+
+Az alábbi képek ugyanazt a táblázatot mutatják azonos méretben. Ebben a futtatásban a tényleges magasságok 70, 100 és 55,2 pont voltak: az utolsó sor továbbra is magasabb maradt, mint a 20‑pontos minimum. A pontos szövegmérések változhatnak a környezetben elérhető betűkészletektől függően. Töltse le a mentett eredményeket: [increased minimum](row-height-increased.pptx) és [decreased minimum](row-height-decreased.pptx).
+
+| Eredeti: minimum 70 pt, tényleges 70 pt | Növelt: minimum 100 pt, tényleges 100 pt | Csökkentett: minimum 20 pt, tényleges 55.2 pt |
+| --- | --- | --- |
+| ![Eredeti táblázat 70 pontos első sorral.](row-height-before.png) | ![Táblázat a első sor minimum 100 pontra növelése után.](row-height-increased.png) | ![Táblázat a első sor minimum 20 pontra csökkentése után; a sortörés a sor magasságát a minimum fölött tartja.](row-height-decreased.png) |
+
+## **Az első sor beállítása fejlécnek**
+
+Használja a [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/) tulajdonságot az első sor fejlécformázásához. Megjelenése a táblázatra alkalmazott táblázat‑stílustól függ.
+
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztállyal.
+2. Hozza el az első diát.
+3. Szerezze meg a dián az első alakzatként tárolt táblázatot.
+4. Engedélyezze a fejlécformázást az első sorra.
+5. Mentse el a módosított prezentációt.
+
+A példa a `table.pptx` fájlt igényli, amelyben az első dián az első alakzat egy táblázat. Engedélyezi az első sor fejlécformázását, majd elmenti a `First_row_header.pptx` fájlt.
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("table.pptx") as presentation:
-    # Elérhető az első dia.
     slide = presentation.slides[0]
 
-    # Iterálja a alakzatok között, és szerezze meg a táblázatra való hivatkozást.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
-
-    # Állítsa be a tábla első sorát fejlécként.
+    table = slide.shapes[0]
     table.first_row = True
-    
-    # Mentse a prezentációt a lemezen.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Táblázatsor vagy -oszlop klónozása**
 
-Klónozzon bármely táblázatsort vagy -oszlopot, és szúrja be a másolatot a kívánt pozícióba a táblában. A másolat megőrzi a cellák tartalmát, formázását és méreteit, így gyorsan és egységesen bővítheti az elrendezést.
+Klónozza a sorokat vagy oszlopokat, hogy újra felhasználja azok tartalmát és formázását. A másolatot hozzáfűzheti a táblázat végéhez, vagy egy adott pozícióba beillesztheti.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból, és töltse be a prezentációt.  
-1. Hozzáférés a diára index alapján.  
-1. Definiáljon egy tömböt az oszlopszélességekhez.  
-1. Definiáljon egy tömböt a sormagasságokhoz.  
-1. Adjon hozzá egy [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) elemet a diára a `add_table(x, y, column_widths, row_heights)` metódussal.  
-1. Klónozzon egy táblázatsort.  
-1. Klónozzon egy táblázatoszlopot.  
-1. Mentse el a módosított prezentációt.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztállyal.
+2. Hozza el az első diát.
+3. Definiálja az oszlopszélességeket és sormagasságokat.
+4. Adjon hozzá egy táblázatot a [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) metódussal.
+5. Klónozza a szükséges sorokat.
+6. Klónozza a szükséges oszlopokat.
+7. Mentse el a módosított prezentációt.
 
-Ez a Python kód bemutatja, hogyan klónozható egy PowerPoint táblázat sor és oszlop:
+A példa a `Test.pptx` fájlt igényli, amely legalább egy diát tartalmaz. Létrehoz egy három oszlopos és öt soros táblázatot, a méreteket pontban adja meg. Az első sort és oszlopot hozzáfűzi, majd a második sort és oszlopot a 3‑as indexnél (a negyedik pozíció) beszúrja. Az eredmény egy hét soros és öt oszlopos táblázat. A `False` argumentum letiltja a klónozást a szomszédos egyesített sorokba vagy oszlopokba; ez a táblázat nem tartalmaz egyesített cellákat.
 
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Példányosítja a Presentation osztályt.
-with slides.Presentation() as presentation:
-    # Eléri az első diát.
+with slides.Presentation("Test.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Definiálja az oszlopszélességeket és a sormagasságokat.
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Hozzáad egy táblát a diára.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Szöveget ad hozzá az 1. sor, 1. oszlop cellájához.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Szöveget ad hozzá a 2. sor, 1. oszlop cellájához.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Klónozza az 1. sort a táblázat végén.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Szöveget ad hozzá az 1. sor, 2. oszlop cellájához.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Szöveget ad hozzá a 2. sor, 2. oszlop cellájához.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Klónozza a 2. sort a táblázat 4. soraként.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Klónozza az első oszlopot a végén.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Klónozza a második oszlopot a 3. indexen (a 4. pozícióban).
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Mentse a prezentációt a lemezen.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Sor vagy oszlop eltávolítása a táblázatból**
 
-Egyszerűsítse a táblázatot egy sor vagy oszlop index szerinti eltávolításával az Aspose.Slides for Python segítségével – a layout automatikusan újraigazítódik, miközben megőrzi a maradék cellák formázását. Hasznos adatrácsok egyszerűsítéséhez vagy helyőrzők törléséhez a tábla újbóli felépítése nélkül.
+Távolítsa el a már nem szükséges sorokat vagy oszlopokat. Egy elem eltávolítása eltolja az azt követő sorok vagy oszlopok indexeit.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból, és töltse be a prezentációt.  
-1. Hozzáférés a diára index alapján.  
-1. Definiáljon egy tömböt az oszlopszélességekhez.  
-1. Definiáljon egy tömböt a sormagasságokhoz.  
-1. Adjon hozzá egy ITable elemet a diára a `add_table(x, y, column_widths, row_heights)` metódussal.  
-1. Távolítsa el a táblázat sorát.  
-1. Távolítsa el a táblázat oszlopát.  
-1. Mentse el a módosított prezentációt.
+1. Hozzon létre egy prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztállyal.
+2. Hozza el az első diát.
+3. Definiálja az oszlopszélességeket és sormagasságokat.
+4. Adjon hozzá egy táblázatot a [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) metódussal.
+5. Távolítsa el a második sort és a második oszlopot.
+6. Mentse el a módosított prezentációt.
 
-Az alábbi Python kód mutatja, hogyan távolítható el egy sor és egy oszlop a táblázatból:
+Ez a példa egy három‑háromas táblázatot hoz létre, majd az 1‑es indexű sort és oszlopot eltávolítja, így egy két‑két-es táblázat marad a `TestTable_out.pptx` fájlban. A méretek pontokban vannak megadva. A `False` argumentum letiltja a szomszédos egyesített sorok vagy oszlopok eltávolítását; ez a táblázat nem tartalmaz egyesített cellákat.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
@@ -151,93 +161,83 @@ with slides.Presentation() as presentation:
 
 ## **Szövegformázás beállítása a táblázatsor szintjén**
 
-Alkalmazzon egységes szövegstílust egy teljes táblázatsoron egy lépésben. Az Aspose.Slides for Python segítségével egyszerre beállíthatja a betűcsaládot, méretet, vastagságot, színt és igazítást minden cellára a sorban, így a fejlécek vagy adatcsoportok egységesek maradnak.
+Alkalmazzon szövegformázást egy egész sorra, hogy a cellák konzisztens megjelenést kapjanak. Beállíthat betűtulajdonságokat, bekezdésformázást és szöve irányát anélkül, hogy minden egyes cellát külön kellene formázni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból, és töltse be a prezentációt.  
-1. Hozzáférés a diára index alapján.  
-1. Hozzáférés a megfelelő [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) objektumhoz a dián.  
-1. Állítsa be a betűmagasságot az első sor celláiban.  
-1. Állítsa be az igazítást és a jobb margót az első sor celláiban.  
-1. Állítsa be a szöveg függőleges típusát a második sor celláiban.  
-1. Mentse el a módosított prezentációt.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztállyal.
+2. Hozza el a táblázatot az első dián.
+3. Állítsa be a [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) értékét az első sorra.
+4. Állítsa be az [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) és a [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) értékét az első sorra.
+5. Állítsa be a [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) értékét a második sorra.
+6. Mentse el a módosított prezentációt.
 
-Ez a Python kód demonstrálja a műveletet.
+A példa a `table.pptx` fájlt igényli, amelyben az első dián az első alakzat egy táblázat, és legalább két sor található benne. 25 pontos szöveget, jobbra igazítást és 20 pontos jobb bekezdésmargót alkalmaz az első sorra, majd a második sorra függőleges szöveget állít be.
 
 ```python
 import aspose.slides as slides
 
-# Létrehozza a Presentation osztály egy példányát.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Beállítja a betűmagasságot az első sor celláihoz.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Beállítja az első sor celláinak szövegigazítását és jobb margóját.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Beállítja a második sor celláinak függőleges szöveg típusát.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Elmenti a prezentációt a lemezre.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Szövegformázás beállítása a táblázatoszlop szintjén**
 
-Alkalmazzon egységes szövegstílust egy teljes táblázatoszlopon egyszerre. Az Aspose.Slides for Python segítségével beállíthatja a betűcsaládot, méretet, vastagságot, színt és igazítást minden cellára egy oszlopban, hogy egységes függőleges sávok jöjjenek létre a fejlécek vagy adatok számára.
+Alkalmazzon szövegformázást egy egész oszlopra, hogy a cellák konzisztens megjelenést kapjanak. Beállíthat betűtulajdonságokat, bekezdésformázást és szöve irányát anélkül, hogy minden egyes cellát külön kellene formázni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból, és töltse be a prezentációt.  
-1. Hozzáférés a diára index alapján.  
-1. Hozzáférés a megfelelő [Table](https://reference.aspose.com/slides/hu/python-net/aspose.slides/table/) objektumhoz a dián.  
-1. Állítsa be a betűmagasságot az első oszlop celláiban.  
-1. Állítsa be az igazítást és a jobb margót az első oszlop celláiban.  
-1. Állítsa be a szöveg függőleges típusát a második oszlop celláiban.  
-1. Mentse el a módosított prezentációt.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) osztállyal.
+2. Hozza el a táblázatot az első dián.
+3. Állítsa be a [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) értékét az első oszlopra.
+4. Állítsa be az [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) és a [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) értékét az első oszlopra.
+5. Állítsa be a [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) értékét a második oszlopra.
+6. Mentse el a módosított prezentációt.
 
-Az alábbi Python kód demonstrálja a műveletet:
+A példa a `table.pptx` fájlt igényli, amelyben az első dián az első alakzat egy táblázat, és legalább két oszlop szerepel benne. 25 pontos szöveget, jobbra igazítást és 20 pontos jobb bekezdésmargót alkalmaz az első oszlopra, majd a második oszlopra függőleges szöveget állít be.
 
 ```python
 import aspose.slides as slides
 
-# Létrehozza a Presentation osztály egy példányát.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Beállítja az első oszlop celláinak betűmagasságát.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Beállítja az első oszlop celláinak szövegigazítását és jobb margóját.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Beállítja a második oszlop celláinak függőleges szöveg típusát.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Elmenti a prezentációt a lemezre.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Táblázatstílus tulajdonságok lekérése**
+## **Táblázat‑stílus tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy táblázat stílusának tulajdonságait, amelyeket később újra felhasználhat egy másik táblázathoz vagy máshová. Az alábbi Python kód mutatja, hogyan kérhető le egy előre definiált táblastílus tulajdonságai:
+Használja a [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/) tulajdonságot egy táblázatra alkalmazott preset lekérdezéséhez, hogy azt egy másik táblázaton is felhasználhassa. Ez a presetet azonosítja, nem pedig az egyedi cellaformázási felülbírálásokat.
+
+A példa létrehoz egy táblázatot, alkalmazza a [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) presetet, majd visszaolvassa azt. Kiírja a `True` értéket, ha a visszakapott preset megegyezik a beállítottal, és menti a táblázatot a `table.pptx` fájlba.
 
 ```python
 import aspose.slides as slides
@@ -245,22 +245,27 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **GYIK**
 
-**Alkalmazhatok PowerPoint témákat/stílusokat egy már létrehozott táblázatra?**
+**Alkalmazhatok PowerPoint‑témákat/stílusokat egy már létező táblázatra?**
 
-Igen. A táblázat örökli a dia/elrendezés/mester téma beállításait, és továbbra is felülírhatja a kitöltést, vonalakat és szövegszíneket ezen téma felett.
+Igen. A táblázat örökli a dia/kiosztás/mester téma beállításait, és továbbra is felülírhatja a kitöltéseket, szegélyeket és szövegszíneket a téma felett.
 
 **Rendezhetem a táblázatsorokat úgy, mint Excelben?**
 
-Nem, az Aspose.Slides táblázatok nem rendelkeznek beépített rendezési vagy szűrési funkcióval. Először rendezd a data memóriában, majd töltsd fel a táblázatsorokat a kívánt sorrendben.
+Nem, az Aspose.Slides táblázatoknak nincs beépített rendezési vagy szűrési funkciója. Rendezze először az adatokat a memóriában, majd töltse fel a táblázatsorokat a kívánt sorrendben.
 
-**Lehet csíkozott (csíkozott) oszlopokat használni, miközben egyedi színeket tartok meg bizonyos cellákban?**
+**Lehet csíkos (striped) oszlopokat használni, miközben egyes cellákhoz egyedi színeket tartok meg?**
 
-Igen. Kapcsold be a csíkozott oszlopokat, majd a helyi formázással felülírd a specifikus cellákat; a cellaszintű formázás előnyben részesül a táblastílushoz képest.
+Igen. Kapcsolja be a csíkos oszlopokat, majd helyi formázással felülírja a kívánt cellákat; a cellaszintű formázás elsőbbséget élvez a táblázat‑stílussal szemben.

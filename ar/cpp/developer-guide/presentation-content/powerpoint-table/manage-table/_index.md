@@ -1,5 +1,5 @@
 ---
-title: إدارة جداول العروض التقديمية بلغة C++
+title: إدارة جداول العروض التقديمية في C++
 linktitle: إدارة الجدول
 type: docs
 weight: 10
@@ -7,44 +7,47 @@ url: /ar/cpp/manage-table/
 keywords:
 - إضافة جدول
 - إنشاء جدول
-- الوصول إلى الجدول
-- نسبة الأبعاد
+- الوصول إلى جدول
+- نسبة العرض إلى الارتفاع
 - محاذاة النص
 - تنسيق النص
 - نمط الجدول
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides للغة C++. اكتشف أمثلة شفرة بسيطة لتبسيط سير عمل الجداول الخاص بك."
+description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides لـ C++. اكتشف أمثلة شفرة بسيطة لتبسيط سير عمل الجداول الخاص بك."
 ---
 ## **المقدمة**
 
-الجدول في PowerPoint هو طريقة فعّالة لعرض وتقديم المعلومات. المعلومات في شبكة من الخلايا (المرتبة في صفوف وأعمدة) تكون مباشرة وسهلة الفهم.
+تنظم الجداول في PowerPoint المعلومات في صفوف وأعمدة، مما يجعل قراءتها ومقارنة القيم أسهل.
 
-توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/ar/cpp/aspose.slides/table/) والواجهة [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) والفئة [Cell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/cell/) والواجهة [ICell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/) وأنواع أخرى لتتيح لك إنشاء وتحديث وإدارة الجداول في جميع أنواع العروض التقديمية. 
+توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) والواجهة [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) والفئة [Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) والواجهة [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) وأنواع أخرى لتتيح لك إنشاء وتحديث وإدارة الجداول في العروض التقديمية.
 
 ## **إنشاء جدول من الصفر**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. تعريف مصفوفة `columnWidth`.
-4. تعريف مصفوفة `rowHeight`.
-5. إضافة كائن [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) إلى الشريحة عبر الطريقة [AddTable()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addtable/).
-6. التكرار عبر كل [ICell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/) لتطبيق التنسيق على الحدود العلوية والسفلية واليمنى واليسرى.
-7. دمج الخليتين الأوليتين في الصف الأول للجدول. 
-8. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textframe/) الخاص بـ [ICell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/). 
-9. إضافة بعض النص إلى [TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textframe/).
+إنشاء جدول عن طريق تحديد موضعه وعرض الأعمدة وارتفاع الصفوف. بعد إضافته إلى شريحة، يمكنك تنسيق حدود الخلايا، دمج الخلايا، وإدراج النص.
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة باستخدام فهرسها.
+3. تعريف مصفوفة لعروض الأعمدة بالنقاط.
+4. تعريف مصفوفة لارتفاعات الصفوف بالنقاط.
+5. إضافة كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) إلى الشريحة عبر الطريقة [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+6. التكرار عبر كل [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) لتطبيق التنسيق على الحدود العليا والسفلى واليمين واليسار.
+7. دمج الخليتين الأوليتين في الصف الأول للجدول.
+8. الوصول إلى الخلية المدمجة عبر الطريقة [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/).
+9. تعيين النص في الخلية المدمجة.
 10. حفظ العرض التقديمي المعدل.
 
-```c++
+المثال أدناه ينشئ جدولًا بثلاثة أعمدة وخمسة صفوف عند (100, 50) نقطة. يطبق حدودًا حمراء بعرض 5 نقاط، يدمج الخليتين الأوليتين في الصف الأول، ويحفظ النتيجة كـ `table.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -54,35 +57,29 @@ description: "إنشاء وتعديل الجداول في شرائح PowerPoint 
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// يصل إلى الشريحة الأولى
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// يحدد الأعمدة بعروضها والصفوف بارتفاعاتها
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// يضيف شكل جدول إلى الشريحة
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// يضبط تنسيق الحدود لكل خلية
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -95,21 +92,18 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// يدمج الخلايا 1 و 2 في الصف 1
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// يضيف بعض النص إلى الخلية المدمجة
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// يحفظ العرض التقديمي على القرص
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **الترقيم في جدول قياسي**
+## **ترقيم في جدول قياسي**
 
-في جدول قياسي، يكون ترقيم الخلايا بسيطًا ويعتمد على الصفر. الخلية الأولى في الجدول تُرقم كـ 0,0 (العمود 0، الصف 0). 
+في جدول قياسي، مؤشرات الخلايا تبدأ من الصفر وتستخدم الترتيب (العمود، الصف). الخلية الأولى لديها المؤشر (0, 0).
 
-على سبيل المثال، تُرقم الخلايا في جدول يحتوي على 4 أعمدة و4 صفوف بهذه الطريقة:
+على سبيل المثال، تُرقم خلايا جدول يحتوي على 4 أعمدة و4 صفوف بهذه الطريقة:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -117,7 +111,9 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-```c++
+هذا المثال ينشئ جدول 4 × 4 الموضح أعلاه، بعرض أعمدة وارتفاع صفوف 70 نقطة وحدود خلايا حمراء بعرض 5 نقاط. تُظهر الإحداثيات مؤشرات الخلايا؛ المثال يترك الخلايا فارغة ويحفظ الجدول كـ `StandardTables_out.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -125,7 +121,6 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -134,25 +129,19 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// يصل إلى الشريحة الأولى
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// يحدد الأعمدة بعرضها والصفوف بارتفاعها
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// يضيف شكل جدول إلى الشريحة
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// يضبط تنسيق الحدود لكل خلية
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -175,30 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// يحفظ العرض التقديمي إلى القرص
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **الوصول إلى جدول موجود**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
+يتم تخزين الجداول في مجموعة الأشكال الخاصة بالشريحة. قم بالتكرار عبر الأشكال لتحديد جدول، ثم استخدم الواجهة [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) لقراءة خلاياه أو تحديثها.
 
-2. الحصول على مرجع إلى الشريحة التي تحتوي على الجدول عبر فهرستها. 
+1. تحميل العرض التقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة التي تحتوي على الجدول باستخدام فهرسها.
+3. التكرار عبر كائنات [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) والتوقف عندما يتم العثور على جدول. إذا احتوت الشريحة على عدة جداول، استخدم [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) لتحديد الجدول المطلوب.
+4. تحديث النص في الخلية المستهدفة.
+5. حفظ العرض التقديمي المعدل.
 
-3. إنشاء كائن [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) وتعيينه إلى null.
+المثال أدناه يفتح `UpdateExistingTable.pptx` ويعثر على أول جدول في الشريحة الأولى. يضبط الخلية في العمود 0، الصف 1 إلى `New` ويحفظ النتيجة كـ `table1_out.pptx`. يجب أن يحتوي الإدخال على شريحة واحدة على الأقل، وأن يحتوي أول جدول في تلك الشريحة على عمود واحد على الأقل واثنين من الصفوف.
 
-4. التكرار عبر جميع كائنات [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) حتى يتم العثور على الجدول.
-
-   إذا كنت تشك أن الشريحة التي تتعامل معها تحتوي على جدول واحد فقط، يمكنك ببساطة فحص جميع الأشكال التي تحتويها. عندما يتم تحديد شكل كجدول، يمكنك تحويل نوعه إلى كائن [Table](https://reference.aspose.com/slides/ar/cpp/aspose.slides/table/). ولكن إذا كانت الشريحة تحتوي على عدة جداول، فمن الأفضل البحث عن الجدول المطلوب عبر طريقة [set_AlternativeText()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/set_alternativetext/).
-
-5. استخدام كائن [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) للعمل مع الجدول. في المثال أدناه، أضفنا صفًا جديدًا إلى الجدول.
-
-6. حفظ العرض التقديمي المعدل.
-
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -206,53 +189,56 @@ pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// يصل إلى الشريحة الأولى
-auto sld = pres->get_Slides()->idx_get(0);
-
-// يهيئ جدولًا فارغًا (null)
-System::SharedPtr<ITable> tbl;
-
-// يتنقل عبر الأشكال ويضبط مرجعًا إلى الجدول الموجود
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// يضبط النص للعمود الأول من الصف الثاني
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// يحفظ العرض التقديمي المعدل إلى القرص
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
 
-## **العثور على الخلية التي تمتلك إطار نص**
+لتغيير حجم صف في جدول موجود وفهم لماذا يمكن أن يتجاوز ارتفاعه الفعلي الحد الأدنى المطلوب، راجع [Control Row Height](/slides/ar/cpp/manage-rows-and-columns/#control-row-height).
 
-عند تلقي كود معالجة النص العامة كائن [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) من جدول، استخدم [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) لاسترجاع [ICell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/) المالكة. بالنسبة لإطار نص خلية جدول، تُعيد [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) المالك وتُعيد [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/) `nullptr`، على الرغم من أن الجدول نفسه يعتبر شكلاً.
+## **العثور على الخلية التي تملك إطار النص**
 
-إحداثيات الخلية متاحة عبر الطريقتين القراءة فقط [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/get_firstcolumnindex/) و[ICell::get_FirstRowIndex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/get_firstrowindex/). كما تُوفر [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) تنقلًا للقراءة فقط: تُعيد المالك لكنها لا تغير الملكية. تحقق دائمًا من أن الخلية المرجعة ليست `nullptr` قبل استخدامها.
+عند وصول كود معالجة النص العامة إلى [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) من جدول، استخدم [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) لاسترجاع [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) المالك. في إطار نص خلية جدول، يعيد [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) المالك و [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) القيمة `nullptr`، رغم أن الجدول نفسه يعتبر شكلاً.
 
-لمثال كامل يحدد مالكي خلايا الجدول والأشكال، بما في ذلك الأشكال المرتبطة بعُقَد SmartArt، راجع [Search and Replace Text](/slides/ar/cpp/search-and-replace-text/).
+إحداثيات الخلية متاحة عبر طريقتي [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) و[ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) للقراءة فقط. كما توفر [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) تنقلًا للقراءة فقط: تُعيد المالك ولكنها لا تغير الملكية. تحقق دائمًا من أن الخليّة المرجعة ليست `nullptr` قبل استخدامها.
+
+للحصول على مثال كامل يحدد مالكي خلايا الجدول والمسShapes، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/cpp/search-and-replace-text/).
 
 ## **محاذاة النص في جدول**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. إضافة كائن [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) إلى الشريحة. 
-4. الوصول إلى كائن [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) من الجدول. 
-5. الوصول إلى [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) [IParagraph](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraph/).
-6. محاذاة النص عموديًا.
+يمكنك التحكم في التثبيت الرأسي واتجاه النص في خلايا الجدول الفردية. المثال في هذا القسم يوسّط النص داخل الخلية الأولى ويدوره بزاوية 270 درجة.
+
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة باستخدام فهرسها.
+3. إضافة كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) إلى الشريحة.
+4. الوصول إلى كائن [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) من الجدول.
+5. الوصول إلى أول [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) وتعيين نصه ولونه.
+6. تعيين تثبيت الخلية الرأسي واتجاه النص باستخدام [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) و[set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/).
 7. حفظ العرض التقديمي المعدل.
 
-```c++
+هذا المثال ينشئ جدول 4 × 4 بعرض أعمدة 120 نقطة وارتفاع صفوف 100 نقطة. ينسّق النص في الخلية (0, 0)، يضيف قيمًا إلى الخلايا المتبقية في الصف الأول، ويحفظ النتيجة كـ `Vertical_Align_Text_out.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -263,7 +249,6 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -272,61 +257,53 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// ينشئ كائنًا من فئة Presentation
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// يحصل على الشريحة الأولى
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// يحدد الأعمدة بعرضها والصفوف بارتفاعها
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// يضيف شكل جدول إلى الشريحة
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// يصل إلى إطار النص
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// ينشئ كائن Paragraph لإطار النص
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// ينشئ كائن Portion للفقرة
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// يضبط النص عموديًا
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// يحفظ العرض التقديمي إلى القرص
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **تعيين تنسيق النص على مستوى الجدول**
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/) من الشريحة.
-4. ضبط [set_FontHeight()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/baseportionformat/set_fontheight/) للنص. 
-5. ضبط [set_Alignment()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_alignment/) و[set_MarginRight()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. ضبط [set_TextVerticalType()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textframeformat/set_textverticaltype/).
-7. حفظ العرض التقديمي المعدل. 
+استخدم [SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/) لتطبيق تنسيق النص على جميع خلايا الجدول. تدعم التحميلات تنسيق الجزء والفقرة وإطار النص، بحيث يمكنك ضبط هذه الخصائص دون التكرار عبر الخلايا الفردية.
 
-```c++
+1. تحميل العرض التقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة باستخدام فهرسها.
+3. الوصول إلى كائن [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) من الشريحة.
+4. تعيين حجم الخط باستخدام [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) للنص.
+5. تعيين محاذاة الفقرة والهامش الأيمن باستخدام [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) و[set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/).
+6. تعيين اتجاه النص باستخدام [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/).
+7. حفظ العرض التقديمي المعدل.
+
+المثال أدناه يفتح `table.pptx`، والذي يجب أن يحتوي على شريحة واحدة على الأقل مع جدول كأول شكل له. يضبط حجم الخط إلى 25 نقطة، يمحاذاة الفقرات إلى اليمين بهامش أيمن 20 نقطة، ويجعل النص عموديًا. يُحفظ العرض المُنسق كـ `result.pptx`.
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -335,97 +312,106 @@ presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// ينشئ كائنًا من فئة Presentation
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// لنفترض أن الشكل الأول في الشريحة الأولى هو جدول
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// يضبط ارتفاع خط خلايا الجدول
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// يضبط محاذاة نص خلايا الجدول والهامش الأيمن في استدعاء واحد
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// يضبط نوع النص العمودي لخلايا الجدول
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
 ## **الحصول على خصائص نمط الجدول**
 
-تسمح لك Aspose.Slides باسترجاع خصائص النمط لجدول حتى تتمكن من استخدام تلك التفاصيل لجدول آخر أو في مكان آخر. يُظهر هذا الكود C++ كيفية الحصول على خصائص النمط من نمط جدول مبدئي:
+استخدم [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) لقراءة نمط الجدول المسبق و[set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/) لتعيينه. يطبق هذا المثال [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) على جدول واحد، يطبع اسم النمط، ويعين نفس النمط لجدول ثانٍ. يتم حفظ كلا الجدولين في `table-style.pptx`.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
-## **قفل نسبة الأبعاد للجدول**
+## **قفل نسبة العرض إلى الارتفاع للجدول**
 
-نسبة الأبعاد للشكل الهندسي هي نسبة أحجامه في الأبعاد المختلفة. وفّرت Aspose.Slides الخاصية `AspectRatioLocked()` للسماح لك بقفل إعداد نسبة الأبعاد للجداول والأشكال الأخرى. 
+نسبة العرض إلى الارتفاع للجدول هي نسبة عرضه إلى ارتفاعه. استخدم [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/) لقفل هذه النسبة للجدول.
 
-```c++
+المثال أدناه يفتح `pres.pptx`، والذي يجب أن يحتوي على شريحة واحدة على الأقل مع جدول كأول شكل له. يطبع حالة القفل الحالية، يفعّل قفل نسبة العرض إلى الارتفاع، يطبع الحالة المحدثة (`True`)، ويحفظ النتيجة كـ `pres-out.pptx`.
+
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
 ## **الأسئلة المتكررة**
 
 **هل يمكنني تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
 
-نعم. يوفّر الجدول طريقة [set_RightToLeft](https://reference.aspose.com/slides/ar/cpp/aspose.slides/table/set_righttoleft/) وتملك الفقرات الطريقة [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/ar/cpp/aspose.slides/paragraphformat/set_righttoleft/). يضمن استخدامهما معًا الترتيب الصحيح للـ RTL وعرضه داخل الخلايا.
+نعم. يعرض الجدول طريقة [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/)، وتحتوي الفقرات على [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/). يضمن استخدام كلاهما الترتيب الصحيح للـ RTL وعرضه داخل الخلايا.
 
-**كيف يمكنني منع المستخدمين من تحريك أو تغيير حجم الجدول في الملف النهائي؟**
+**كيف يمكنني منع المستخدمين من نقل أو تغيير حجم جدول في الملف النهائي؟**
 
-استخدم [shape locks](/slides/ar/cpp/applying-protection-to-presentation/) لتعطيل التحريك، وتغيير الحجم، وتحديد العنصر، وما إلى ذلك. تُطبق هذه الأقفال على الجداول أيضًا.
+استخدم [shape locks](/slides/ar/cpp/applying-protection-to-presentation/) لتعطيل النقل، وتغيير الحجم، والاختيار، وما إلى ذلك. تنطبق هذه الأقفال على الجداول أيضًا.
 
-**هل يدعم إدراج صورة داخل خلية كخلفية؟**
+**هل دعم إدراج صورة داخل خلية كخلفية؟**
 
-نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/ar/cpp/aspose.slides/picturefillformat/) للخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المختار (تمديد أو تجانب).
+نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) للخلية؛ ستغطي الصورة مساحة الخلية وفقًا للوضع المختار (تمدد أو تجانب).

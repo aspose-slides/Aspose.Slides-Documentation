@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Zeilen und Spalten in PowerPoint-Tabellen mit Python
-linktitle: Zeilen und Spalten
+title: "Verwalten von Zeilen und Spalten in PowerPoint‑Tabellen mit Python"
+linktitle: "Zeilen und Spalten"
 type: docs
 weight: 20
 url: /de/python-net/manage-rows-and-columns/
@@ -8,9 +8,9 @@ keywords:
 - Tabellenzeile
 - Tabellenspalte
 - erste Zeile
-- Tabellenkopf
-- Zeile duplizieren
-- Spalte duplizieren
+- Tabellenkopfzeile
+- Zeile klonen
+- Spalte klonen
 - Zeile kopieren
 - Spalte kopieren
 - Zeile entfernen
@@ -22,244 +22,250 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint und OpenDocument mit Aspose.Slides für Python über .NET und beschleunigen Sie die Bearbeitung von Präsentationen sowie Datenaktualisierungen."
+description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint mit Aspose.Slides für Python via .NET und beschleunigen Sie die Bearbeitung von Präsentationen und Datenaktualisierungen."
 ---
+## **Einleitung**
 
-## **Übersicht**
+Aspose.Slides for Python via .NET ermöglicht die Verwaltung von Tabellenstruktur und -formatierung in PowerPoint‑Präsentationen über die [Tabelle](https://reference.aspose.com/slides/python-net/aspose.slides/table/) Klasse. Sie können eine Kopfzeilenzeile festlegen, Zeilen und Spalten klonen oder entfernen und Textformatierung auf eine ganze Zeile oder Spalte anwenden.
 
-Dieser Artikel zeigt, wie Sie Zeilen und Spalten von Tabellen in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Python verwalten können. Sie lernen, wie Sie Zeilen oder Spalten hinzufügen, einfügen, duplizieren und löschen, die erste Zeile als Kopfzeile markieren, Größen und Layout anpassen und Text‑ sowie Formatierungsstil auf Zeilen‑ oder Spaltenebene anwenden. Jede Aufgabe wird mit kompakten, eigenständigen Code‑Snippets demonstriert, die auf der [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)‑API basieren, sodass Sie schnell eine Tabelle auf einer Folie finden und deren Struktur an Ihr Design anpassen können.
+Dieser Artikel erklärt diese Vorgänge mit Python‑Beispielen. Er zeigt auch, wie Sie das Stil‑Preset einer Tabelle abrufen können, um es wiederzuverwenden. Tabellen‑Zeilen‑ und Spaltenindizes beginnen bei Null.
 
-## **Erste Zeile als Header festlegen**
+## **Zeilenhöhe steuern**
 
-Markieren Sie die erste Zeile der Tabelle als Kopfzeile, um Spaltentitel eindeutig von den Daten zu unterscheiden. In Aspose.Slides für Python aktivieren Sie einfach die Option *First Row* der Tabelle, um die Header‑Formatierung anzuwenden, die im ausgewählten Tabellenvorlage‑Stil definiert ist.
+Verwenden Sie [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) um die minimale Höhe einer Zeile in Punkten festzulegen. Es ist eine Untergrenze, keine feste Höhe. [Row.height](https://reference.aspose.com/slides/python-net/aspose.slides/row/height/) gibt die tatsächliche Höhe zurück und ist schreibgeschützt. Greifen Sie über [Table.rows](https://reference.aspose.com/slides/python-net/aspose.slides/table/rows/) auf die Zeile zu.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation.  
-1. Greifen Sie über den Index auf die Folie zu.  
-1. Durchlaufen Sie alle [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/)‑Objekte, um die relevante Tabelle zu finden.  
-1. Setzen Sie die erste Zeile der Tabelle als Header.  
+Das Beispiel lädt [row-height-input.pptx](row-height-input.pptx), das in der ersten Folie eine Tabelle als erste Form enthält. Ihre erste Zeile beginnt bei 70 Punkten. Die Zellen verwenden 18‑Punkt‑Arial‑Text, Zeilenumbruch und 6‑Punkt‑Oben‑und‑Unten‑Abstände; der längere Text in der zweiten Spalte wird auf mehrere Zeilen umgebrochen. Das Beispiel erhöht die Mindesthöhe auf 100 Punkte, reduziert sie anschließend auf 20 Punkte, gibt nach jeder Änderung die tatsächliche Höhe aus und speichert beide Ergebnisse.
 
-Der folgende Python‑Code zeigt, wie Sie die erste Zeile einer Tabelle als Header festlegen:  
 ```python
 import aspose.slides as slides
 
-# Instanziieren der Presentation-Klasse.
-with slides.Presentation("table.pptx") as presentation:
-    # Zugriff auf die erste Folie.
-    slide = presentation.slides[0]
+with slides.Presentation("row-height-input.pptx") as presentation:
+    table = presentation.slides[0].shapes[0]
+    row = table.rows[0]
 
-    # Durchlaufen Sie die Shapes und erhalten Sie eine Referenz zur Tabelle.
-    for shape in slide.shapes:
-        if type(shape) is slides.Table:
-            table = shape
-            break
+    row.minimal_height = 100
+    print(f"Increased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-increased.pptx", slides.export.SaveFormat.PPTX)
 
-    # Setzen Sie die erste Zeile der Tabelle als Kopfzeile.
-    table.first_row = True
-    
-    # Speichern Sie die Präsentation auf der Festplatte.
-    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    row.minimal_height = 20
+    print(f"Decreased: minimum = {row.minimal_height:.1f}, actual = {row.height:.1f} pt")
+    presentation.save("row-height-decreased.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Bei der mitgelieferten Präsentation fügt das Erhöhen der Mindesthöhe der Zeile zusätzlichen Raum hinzu. Das Verringern entfernt diesen zusätzlichen Raum, aber die tatsächliche Höhe bleibt größer als 20 Punkte, weil Text und Zellenabstände mehr Platz benötigen. Das alleinige Reduzieren der Mindesthöhe kann die Zeile nicht unter den von ihrem Inhalt benötigten Raum bringen.
 
-## **Eine Tabellenzeile oder -spalte duplizieren**
+Mehrere Faktoren beeinflussen die tatsächliche Höhe:
 
-Duplizieren Sie eine beliebige Tabellenzeile oder -spalte und fügen Sie die Kopie an der gewünschten Position in die Tabelle ein. Die Kopie übernimmt Zellinhalt, Formatierung und Größen, sodass Sie Layouts schnell und konsistent erweitern können.
+- **Text und Schriftgröße:** Längerer Text, explizite Zeilenumbrüche oder eine größere Schrift können mehr vertikalen Platz benötigen.
+- **Umbruch und Spaltenbreite:** Bei aktiviertem Umbruch kann eine schmalere [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) mehr Zeilen erzeugen. Eine breitere Spalte kann den vertikalen Platzbedarf reduzieren.
+- **Zellabstände:** [Cell.margin_top](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_top/) und [Cell.margin_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_bottom/) fügen vertikalen Raum hinzu. [Cell.margin_left](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_left/) und [Cell.margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/cell/margin_right/) reduzieren die für Text verfügbare Breite und können zusätzlichen Umbruch verursachen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation.  
-1. Greifen Sie über den Index auf die Folie zu.  
-1. Definieren Sie ein Array mit Spaltenbreiten.  
-1. Definieren Sie ein Array mit Zeilenhöhen.  
-1. Fügen Sie der Folie ein [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) mit `add_table(x, y, column_widths, row_heights)` hinzu.  
-1. Duplizieren Sie eine Tabellenzeile.  
-1. Duplizieren Sie eine Tabellenspalte.  
-1. Speichern Sie die geänderte Präsentation.  
+Für diese Tabelle ohne zusammengeführte Zellen bestimmt die Zelle, die den meisten vertikalen Raum benötigt, die inhaltlich getriebene Untergrenze für die gesamte Zeile. Um die Zeile kürzer zu machen, müssen Sie möglicherweise den Text verkürzen, die Schriftgröße oder Abstände reduzieren oder eine Spalte verbreitern.
 
-Der folgende Python‑Code zeigt, wie Sie eine Zeile und eine Spalte einer PowerPoint‑Tabelle duplizieren:  
+Die untenstehenden Bilder zeigen dieselbe Tabelle im gleichen Maßstab. In diesem Durchlauf betrugen die tatsächlichen Höhen 70, 100 und 55.2 Punkte: Die letzte Zeile blieb höher als ihr Mindestwert von 20 Punkten. Genauere Textmessungen können je nach in Ihrer Umgebung verfügbaren Schriftarten variieren. Laden Sie die gespeicherten Ergebnisse herunter: [erhöhter Mindestwert](row-height-increased.pptx) und [reduzierter Mindestwert](row-height-decreased.pptx).
+
+| Original: Minimum 70 pt, tatsächliche 70 pt | Erhöht: Minimum 100 pt, tatsächliche 100 pt | Verringert: Minimum 20 pt, tatsächliche 55.2 pt |
+| --- | --- | --- |
+| ![Originaltabelle mit einer ersten Zeile von 70 Punkten.](row-height-before.png) | ![Tabelle nach Erhöhung des Mindestwerts der ersten Zeile auf 100 Punkte.](row-height-increased.png) | ![Tabelle nach Verringerung des Mindestwerts der ersten Zeile auf 20 Punkte; umgebrochener Text hält die Zeile höher als das Minimum.](row-height-decreased.png) |
+
+## **Erste Zeile als Kopfzeile festlegen**
+
+Verwenden Sie die Eigenschaft [first_row](https://reference.aspose.com/slides/python-net/aspose.slides/table/first_row/), um die erste Zeile für die Kopfzeilenformatierung zu markieren. Ihr Erscheinungsbild hängt vom auf die Tabelle angewendeten Tabellenstil ab.
+
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Greifen Sie auf die erste Folie zu.
+3. Greifen Sie auf die Tabelle zu, die als erste Form auf der Folie gespeichert ist.
+4. Aktivieren Sie die Kopfzeilenformatierung für deren erste Zeile.
+5. Speichern Sie die geänderte Präsentation.
+
+Das Beispiel benötigt `table.pptx` mit einer Tabelle als erste Form auf der ersten Folie. Es aktiviert die Kopfzeilenformatierung für die erste Zeile und speichert `First_row_header.pptx`.
+
 ```python
- import aspose.slides as slides
+import aspose.slides as slides
 
-# Instanziieren der Presentation-Klasse.
-with slides.Presentation() as presentation:
-    # Zugriff auf die erste Folie.
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # Definieren Sie Spaltenbreiten und Zeilenhöhen.
+    table = slide.shapes[0]
+    table.first_row = True
+
+    presentation.save("First_row_header.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Eine Tabellenzeile oder -spalte klonen**
+
+Klonen Sie Zeilen oder Spalten, um deren Inhalt und Formatierung wiederzuverwenden. Sie können eine Kopie an das Ende der Tabelle anhängen oder an einer bestimmten Position einfügen.
+
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Greifen Sie auf die erste Folie zu.
+3. Definieren Sie die Spaltenbreiten und Zeilenhöhen.
+4. Fügen Sie eine Tabelle mit der Methode [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) hinzu.
+5. Klonen Sie die erforderlichen Zeilen.
+6. Klonen Sie die erforderlichen Spalten.
+7. Speichern Sie die geänderte Präsentation.
+
+Das Beispiel benötigt `Test.pptx` mit mindestens einer Folie. Es erstellt eine Tabelle mit drei Spalten und fünf Zeilen, deren Abmessungen in Punkten angegeben sind. Es fügt Kopien der ersten Zeile und Spalte hinzu und fügt dann Kopien der zweiten Zeile und Spalte an Index 3 (der vierten Position) ein. Die resultierende Tabelle hat sieben Zeilen und fünf Spalten. Das Argument `False` deaktiviert das Klonen in angrenzende zusammengeführte Zeilen oder Spalten; diese Tabelle hat keine zusammengeführten Zellen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+
     column_widths = [50, 50, 50]
     row_heights = [50, 30, 30, 30, 30]
-
-    # Fügen Sie der Folie eine Tabelle hinzu.
     table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Text zu Zeile 1, Spalte 1 hinzufügen.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
-
-    # Text zu Zeile 2, Spalte 1 hinzufügen.
-    table.rows[1][0].text_frame.text = "Row 1 Cell 2"
-
-    # Zeile 1 am Ende der Tabelle klonen.
+    table.rows[0][1].text_frame.text = "Row 1 Cell 2"
     table.rows.add_clone(table.rows[0], False)
 
-    # Text zu Zeile 1, Spalte 2 hinzufügen.
-    table.rows[0][1].text_frame.text = "Row 2 Cell 1"
-
-    # Text zu Zeile 2, Spalte 2 hinzufügen.
+    table.rows[1][0].text_frame.text = "Row 2 Cell 1"
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
+    table.rows.insert_clone(3, table.rows[1], False)
 
-    # Zeile 2 als vierte Zeile der Tabelle klonen.
-    table.rows.insert_clone(3,table.rows[1], False)
-
-    # Erste Spalte am Ende klonen.
     table.columns.add_clone(table.columns[0], False)
+    table.columns.insert_clone(3, table.columns[1], False)
 
-    # Zweite Spalte an Index 3 (vierte Position) klonen.
-    table.columns.insert_clone(3,table.columns[1], False)
-    
-    # Präsentation auf dem Datenträger speichern.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
 
 ## **Eine Zeile oder Spalte aus einer Tabelle entfernen**
 
-Optimieren Sie eine Tabelle, indem Sie eine Zeile oder Spalte anhand ihres Index entfernen – Aspose.Slides für Python passt das Layout automatisch an und behält die Formatierung der verbleibenden Zellen bei. Das ist praktisch, um Datenrastern zu vereinfachen oder Platzhalter zu löschen, ohne die Tabelle neu aufzubauen.
+Entfernen Sie Zeilen oder Spalten, die in einer Tabelle nicht mehr benötigt werden. Das Entfernen eines Elements verschiebt die Indizes der nachfolgenden Zeilen oder Spalten.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation.  
-1. Greifen Sie über den Index auf die Folie zu.  
-1. Definieren Sie ein Array mit Spaltenbreiten.  
-1. Definieren Sie ein Array mit Zeilenhöhen.  
-1. Fügen Sie der Folie ein ITable mit `add_table(x, y, column_widths, row_heights)` hinzu.  
-1. Entfernen Sie die Tabellenzeile.  
-1. Entfernen Sie die Tabellenspalte.  
-1. Speichern Sie die geänderte Präsentation.  
+1. Erstellen Sie eine Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Greifen Sie auf die erste Folie zu.
+3. Definieren Sie die Spaltenbreiten und Zeilenhöhen.
+4. Fügen Sie eine Tabelle mit der Methode [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) hinzu.
+5. Entfernen Sie die zweite Zeile und die zweite Spalte.
+6. Speichern Sie die geänderte Präsentation.
 
-Der nachfolgende Python‑Code zeigt, wie Sie eine Zeile und eine Spalte aus einer Tabelle entfernen:  
+Dieses Beispiel erstellt eine 3 × 3‑Tabelle und entfernt die Zeile und Spalte bei Index 1, sodass eine 2 × 2‑Tabelle in `TestTable_out.pptx` entsteht. Die Abmessungen sind in Punkten angegeben. Das Argument `False` deaktiviert das Entfernen angrenzender zusammengeführter Zeilen oder Spalten; diese Tabelle hat keine zusammengeführten Zellen.
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
+
     column_widths = [100, 50, 30]
     row_heights = [30, 50, 30]
-
     table = slide.shapes.add_table(100, 100, column_widths, row_heights)
+
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
 
     presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Textformatierung auf Zeilenebene festlegen**
 
-Wenden Sie konsistente Textstile auf eine gesamte Tabellenzeile in einem Schritt an. Mit Aspose.Slides für Python können Sie Schriftfamilie, Größe, Gewicht, Farbe und Ausrichtung für alle Zellen der Zeile gleichzeitig festlegen, um Überschriften oder Datenbänder einheitlich zu halten.
+Wenden Sie Textformatierung auf eine gesamte Zeile an, um deren Zellen einheitlich zu halten. Sie können Schriftarteigenschaften, Absatzformatierung und Textausrichtung festlegen, ohne jede Zelle einzeln zu formatieren.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation.  
-1. Greifen Sie über den Index auf die Folie zu.  
-1. Greifen Sie auf das relevante [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)‑Objekt auf der Folie zu.  
-1. Setzen Sie die Schriftgröße für die Zellen der ersten Zeile.  
-1. Legen Sie die Ausrichtung und den rechten Rand für die Zellen der ersten Zeile fest.  
-1. Definieren Sie den vertikalen Texttyp für die Zellen der zweiten Zeile.  
-1. Speichern Sie die geänderte Präsentation.  
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Greifen Sie auf die Tabelle auf der ersten Folie zu.
+3. Setzen Sie [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) für die erste Zeile.
+4. Setzen Sie [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) und [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) für die erste Zeile.
+5. Setzen Sie [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) für die zweite Zeile.
+6. Speichern Sie die geänderte Präsentation.
 
-Der folgende Python‑Code demonstriert die Vorgehensweise.  
+Das Beispiel benötigt `table.pptx` mit einer Tabelle als erste Form auf der ersten Folie und mindestens zwei Zeilen. Es wendet 25‑Punkt‑Text, rechtsbündige Ausrichtung und einen 20‑Punkt‑Rechts‑Absatzabstand auf die erste Zeile an und setzt dann vertikalen Text in der zweiten Zeile.
+
 ```python
 import aspose.slides as slides
 
-# Instanz der Presentation-Klasse erstellen.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Schriftgröße für die Zellen der ersten Zeile festlegen.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.rows[0].set_text_format(portion_format)
 
-    # Textausrichtung und rechten Rand der Zellen der ersten Zeile festlegen.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.rows[0].set_text_format(paragraph_format)
 
-    # Vertikalen Texttyp der Zellen der zweiten Zeile festlegen.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.rows[1].set_text_format(text_frame_format)
-	
-    # Präsentation auf der Festplatte speichern.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
-```
 
+    presentation.save("row_formatting.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **Textformatierung auf Spaltenebene festlegen**
 
-Wenden Sie konsistente Textstile auf eine gesamte Tabellenspalte gleichzeitig an. Mit Aspose.Slides für Python können Sie Schriftfamilie, Größe, Gewicht, Farbe und Ausrichtung für alle Zellen einer Spalte festlegen, um einheitliche vertikale Bänder für Überschriften oder Daten zu erzeugen.
+Wenden Sie Textformatierung auf eine gesamte Spalte an, um deren Zellen einheitlich zu halten. Sie können Schriftarteigenschaften, Absatzformatierung und Textausrichtung festlegen, ohne jede Zelle einzeln zu formatieren.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑Klasse und laden Sie die Präsentation.  
-1. Greifen Sie über den Index auf die Folie zu.  
-1. Greifen Sie auf das relevante [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)‑Objekt auf der Folie zu.  
-1. Setzen Sie die Schriftgröße für die Zellen der ersten Spalte.  
-1. Legen Sie die Ausrichtung und den rechten Rand für die Zellen der ersten Spalte fest.  
-1. Definieren Sie den vertikalen Texttyp für die Zellen der zweiten Spalte.  
-1. Speichern Sie die geänderte Präsentation.  
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Greifen Sie auf die Tabelle auf der ersten Folie zu.
+3. Setzen Sie [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/font_height/) für die erste Spalte.
+4. Setzen Sie [alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) und [margin_right](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/margin_right/) für die erste Spalte.
+5. Setzen Sie [text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) für die zweite Spalte.
+6. Speichern Sie die geänderte Präsentation.
 
-Der nachfolgende Python‑Code demonstriert die Vorgehensweise:  
+Das Beispiel benötigt `table.pptx` mit einer Tabelle als erste Form auf der ersten Folie und mindestens zwei Spalten. Es wendet 25‑Punkt‑Text, rechtsbündige Ausrichtung und einen 20‑Punkt‑Rechts‑Absatzabstand auf die erste Spalte an und setzt dann vertikalen Text in der zweiten Spalte.
+
 ```python
 import aspose.slides as slides
 
-# Instanz der Presentation-Klasse erstellen.
-with slides.Presentation() as presentation:
+with slides.Presentation("table.pptx") as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes[0]
 
-    # Schrifthöhe für die Zellen der ersten Spalte festlegen.
     portion_format = slides.PortionFormat()
     portion_format.font_height = 25
     table.columns[0].set_text_format(portion_format)
 
-    # Textausrichtung und rechten Rand für die Zellen der ersten Spalte festlegen.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.columns[0].set_text_format(paragraph_format)
 
-    # Vertikalen Texttyp für die Zellen der zweiten Spalte festlegen.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.columns[1].set_text_format(text_frame_format)
 
-    # Präsentation auf der Festplatte speichern.
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("column_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Tabellenstil‑Eigenschaften abrufen**
 
-Aspose.Slides ermöglicht das Abrufen von Stil‑Eigenschaften einer Tabelle, sodass Sie diese für eine andere Tabelle oder an anderer Stelle wiederverwenden können. Der folgende Python‑Code zeigt, wie Sie die Stil‑Eigenschaften aus einem vordefinierten Tabellenvorlagen‑Stil erhalten:  
+Verwenden Sie die Eigenschaft [style_preset](https://reference.aspose.com/slides/python-net/aspose.slides/table/style_preset/), um das auf eine Tabelle angewendete Preset abzurufen und es in einer anderen Tabelle wiederzuverwenden. Dies identifiziert das Preset statt einzelner Zellformat‑Überschreibungen.
+
+Das Beispiel erstellt eine Tabelle, wendet [TableStylePreset.DARK_STYLE1](https://reference.aspose.com/slides/python-net/aspose.slides/tablestylepreset/) an und liest das Preset wieder aus. Es gibt `True` aus, wenn das abgerufene Preset dem angewendeten entspricht, und speichert die Tabelle in `table.pptx`.
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    column_widths = [100, 150]
+    row_heights = [5, 5, 5]
+    table = slide.shapes.add_table(10, 10, column_widths, row_heights)
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    style_preset = table.style_preset
+    print(style_preset == slides.TableStylePreset.DARK_STYLE1)
 
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **FAQ**
 
-**Kann ich PowerPoint‑Designs/‑Stile auf eine bereits erstellte Tabelle anwenden?**  
-Ja. Die Tabelle erbt das Design der Folie/Layout/Master und Sie können trotzdem Füllungen, Rahmen und Textfarben über diesem Design überschreiben.
+**Kann ich PowerPoint‑Themen/‑Stile auf eine bereits erstellte Tabelle anwenden?**
 
-**Kann ich Tabell Zeilen wie in Excel sortieren?**  
-Nein, Aspose.Slides‑Tabellen besitzen keine integrierte Sortier‑ oder Filterfunktion. Sortieren Sie Ihre Daten zunächst im Speicher und fügen Sie die Tabellenzeilen anschließend in dieser Reihenfolge wieder ein.
+Ja. Die Tabelle erbt das Folien‑/Layout‑/Master‑Thema, und Sie können weiterhin Füllungen, Rahmen und Textfarben über diesem Thema überschreiben.
 
-**Kann ich gestreifte (banded) Spalten haben und gleichzeitig benutzerdefinierte Farben für einzelne Zellen beibehalten?**  
-Ja. Aktivieren Sie gestreifte Spalten und überschreiben Sie dann einzelne Zellen mit lokaler Formatierung; die Formatierung auf Zellenebene hat Vorrang vor dem Tabellenstil.
+**Kann ich Tabellenzeilen wie in Excel sortieren?**
+
+Nein, Aspose.Slides‑Tabellen besitzen keine integrierte Sortierung oder Filter. Sortieren Sie Ihre Daten zuerst im Speicher und füllen Sie dann die Tabellenzeilen in dieser Reihenfolge erneut.
+
+**Kann ich gestreifte Spalten haben und gleichzeitig benutzerdefinierte Farben für bestimmte Zellen beibehalten?**
+
+Ja. Aktivieren Sie gestreifte Spalten und überschreiben Sie anschließend bestimmte Zellen mit lokaler Formatierung; die Zellformatierung hat Vorrang vor dem Tabellenstil.

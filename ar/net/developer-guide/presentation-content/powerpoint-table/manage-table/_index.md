@@ -7,94 +7,87 @@ url: /ar/net/manage-table/
 keywords:
 - "إضافة جدول"
 - "إنشاء جدول"
-- "الوصول إلى جدول"
+- "الوصول إلى الجدول"
 - "نسبة الأبعاد"
 - "محاذاة النص"
 - "تنسيق النص"
 - "نمط الجدول"
-- PowerPoint
+- "PowerPoint"
 - "عرض تقديمي"
-- .NET
-- C#
-- Aspose.Slides
-description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides للـ .NET. اكتشف أمثلة كود C# بسيطة لتبسيط سير عمل الجداول الخاص بك."
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "إنشاء وتعديل الجداول في شرائح PowerPoint باستخدام Aspose.Slides لـ .NET. اكتشف أمثلة بسيطة بلغة C# لتيسير عمليات الجدول الخاصة بك."
 ---
 ## **المقدمة**
 
-الجدول في PowerPoint طريقة فعّالة لعرض وتصوير المعلومات. المعلومات في شبكة من الخلايا (المرتبة في صفوف وأعمدة) تكون مباشرة وسهلة الفهم.
+تنظم الجداول في PowerPoint المعلومات في صفوف وأعمدة، مما يجعل من السهل قراءة القيم ومقارنتها.
 
-توفر Aspose.Slides الفئة [Table](https://reference.aspose.com/slides/ar/net/aspose.slides/table/)، الواجهة [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/)، الفئة [Cell](https://reference.aspose.com/slides/ar/net/aspose.slides/cell/)، الواجهة [ICell](https://reference.aspose.com/slides/ar/net/aspose.slides/icell/) وأنواع أخرى لتتيح لك إنشاء وتحديث وإدارة الجداول في جميع أنواع العروض التقديمية.
+توفر Aspose.Slides فئة [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) وواجهة [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) وفئة [Cell](https://reference.aspose.com/slides/net/aspose.slides/cell/) وواجهة [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) وأنواع أخرى لتتيح لك إنشاء الجداول وتحديثها وإدارتها في العروض التقديمية.
 
 ## **إنشاء جدول من الصفر**
 
-1. أنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. عرّف مصفوفة `columnWidth`.
-4. عرّف مصفوفة `rowHeight`.
-5. أضف كائنًا من النوع [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/) إلى الشريحة عبر طريقة [AddTable](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addtable/) .
-6. كرّر على كل [ICell](https://reference.aspose.com/slides/ar/net/aspose.slides/icell/) لتطبيق التنسيق على الحدود العليا، السفلية، اليمنى واليسرى.
-7. دمج الخلايا الأولى الاثنين في الصف الأول للجدول. 
-8. للوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/) الخاص بـ [ICell](https://reference.aspose.com/slides/ar/net/aspose.slides/icell/). 
-9. أضف بعض النص إلى [TextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/) .
-10. احفظ العرض التقديمي المعدّل.
+أنشئ جدولًا بتحديد موقعه وعرض الأعمدة وارتفاع الصفوف. بعد إضافته إلى الشريحة، يمكنك تنسيق حدود الخلايا، دمج الخلايا، وإدراج النص.
 
-هذا الكود C# يوضح لك كيفية إنشاء جدول في عرض تقديمي:
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة بواسطة فهرسها.
+3. عرّف مصفوفة من عرض الأعمدة بالنقاط.
+4. عرّف مصفوفة من ارتفاع الصفوف بالنقاط.
+5. أضف كائنًا من نوع [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) إلى الشريحة عبر الطريقة [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+6. استعرض كل [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) لتطبيق تنسيق على الحدود العليا والسفلى واليمينية واليسرى.
+7. دمج الخليتين الأوليين في الصف الأول للجدول.
+8. احصل على الخلية المدمجة من خلال خاصية [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/).
+9. عيّن النص في الخلية المدمجة.
+10. احفظ العرض التقديمي المعدل.
 
-```c#
+المثال أدناه ينشئ جدولًا بثلاثة أعمدة وخمسة صفوف عند النقطة (100, 50). يطبق حدودًا حمراء بعرض 5 نقاط، يدمج الخليتين الأوليين في الصف الأول، ويحفظ النتيجة كملف `table.pptx`.
+
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-Presentation pres = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// يصل إلى الشريحة الأولى
-ISlide sld = pres.Slides[0];
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
 
-// يحدد الأعمدة بعرضها والصفوف بارتفاعها
-double[] dblCols = { 50, 50, 50 };
-double[] dblRows = { 50, 30, 30, 30, 30 };
-
-// يضيف شكل جدول إلى الشريحة
-ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-// يضبط تنسيق الحدود لكل خلية
-for (int row = 0; row < tbl.Rows.Count; row++)
+foreach (var row in table.Rows)
 {
-	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
-	{
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderTop.Width = 5;
+    foreach (var cell in row)
+    {
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.FillType = (FillType.Solid);
-		tbl.Rows[row][cell].CellFormat.BorderBottom.FillFormat.SolidFillColor.Color= Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderBottom.Width =5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.FillFormat.SolidFillColor.Color =Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-		tbl.Rows[row][cell].CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
-	}
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
+    }
 }
-// يدمج الخلايا 1 و 2 من الصف 1
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
-// يضيف بعض النص إلى الخلية المدمجة
-tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
+table.MergeCells(table[0, 0], table[1, 0], false);
+table[0, 0].TextFrame.Text = "Merged Cells";
 
-// يحفظ العرض التقديمي على القرص
-pres.Save("table.pptx", SaveFormat.Pptx);
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-## **الترقيم في جدول قياسي**
+## **ترقيم في جدول قياسي**
 
-في جدول قياسي، ترقيم الخلايا مباشر ويبدأ من الصفر. الخلية الأولى في الجدول تُرقم كـ 0,0 (العمود 0، الصف 0). 
+في جدول قياسي، تكون فهارس الخلايا صفرية وتُستخدم الصيغة (عمود, صف). تُرقم أول خلية كـ (0, 0).
 
-على سبيل المثال، تُرقم الخلايا في جدول مكوّن من 4 أعمدة و4 صفوف بهذه الصيغة:
+على سبيل المثال، تُرقم الخلايا في جدول يحتوي على 4 أعمدة و4 صفوف بهذه الطريقة:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,255 +95,231 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-هذا الكود C# ينشئ جدولًا قياسيًا 4 × 4 بالترقيم أعلاه ويضبط تنسيق الحدود لكل خلية:
+هذا المثال ينشئ جدول 4 × 4 الموضح أعلاه، بعرض أعمدة وارتفاع صفوف قدره 70 نقطة وحدود خلايا حمراء بعرض 5 نقاط. تُظهر الإحداثيات فهارس الخلايا؛ يترك المثال الخلايا فارغة ويحفظ الجدول كملف `StandardTables_out.pptx`.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 70, 70, 70, 70 };
+var rowHeights = new double[] { 70, 70, 70, 70 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+foreach (var row in table.Rows)
 {
-    // يصل إلى الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-
-    // يحدد الأعمدة بعرضها والصفوف بارتفاعها
-    double[] dblCols = { 70, 70, 70, 70 };
-    double[] dblRows = { 70, 70, 70, 70 };
-
-    // يضيف شكل جدول إلى الشريحة
-    ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
-
-    // يضبط تنسيق الحدود لكل خلية
-    foreach (IRow row in tbl.Rows)
+    foreach (var cell in row)
     {
-        foreach (ICell cell in row)
-        {
-            cell.CellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderTop.Width = 5;
+        var cellFormat = cell.CellFormat;
+        cellFormat.BorderTop.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderTop.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderTop.Width = 5;
 
-            cell.CellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderBottom.Width = 5;
+        cellFormat.BorderBottom.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderBottom.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderBottom.Width = 5;
 
-            cell.CellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderLeft.Width = 5;
+        cellFormat.BorderLeft.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderLeft.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderLeft.Width = 5;
 
-            cell.CellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
-            cell.CellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
-            cell.CellFormat.BorderRight.Width = 5;
-        }
+        cellFormat.BorderRight.FillFormat.FillType = FillType.Solid;
+        cellFormat.BorderRight.FillFormat.SolidFillColor.Color = Color.Red;
+        cellFormat.BorderRight.Width = 5;
     }
-
-    // يحفظ العرض التقديمي على القرص
-    pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **الوصول إلى جدول موجود**
 
-1. أنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. احصل على مرجع الشريحة التي تحتوي على الجدول من خلال فهرسها. 
-3. أنشئ كائنًا من النوع [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/) وعيّن قيمته `null`. 
-4. كرّر عبر جميع كائنات [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) حتى يتم العثور على الجدول.
+تُخزن الجداول في مجموعة الأشكال الخاصة بالشريحة. استعرض الأشكال لتحديد جدول، ثم استخدم واجهة [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) لقراءة خلاياه أو تحديثها.
 
-   إذا كنت تعتقد أن الشريحة التي تتعامل معها تحتوي على جدول واحد فقط، يمكنك ببساطة فحص جميع الأشكال التي تحتويها. عندما يتم التعرف على شكل على أنه جدول، يمكنك تحويل النوع إلى كائن [Table](https://reference.aspose.com/slides/ar/net/aspose.slides/table/) . أما إذا كانت الشريحة تحتوي على عدة جداول، فمن الأفضل البحث عن الجدول المطلوب عبر خاصية [AlternativeText](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/alternativetext/) الخاصة به.
+1. حمّل العرض التقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة التي تحتوي على الجدول بواسطة فهرسها.
+3. استعرض كائنات [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) وتوقف عند العثور على جدول. إذا احتوت الشريحة على عدة جداول، استخدم خاصية [AlternativeText](https://reference.aspose.com/slides/net/aspose.slides/ishape/alternativetext/) لتحديد الجدول المطلوب.
+4. حدّث النص في الخلية المستهدفة.
+5. احفظ العرض التقديمي المعدل.
 
-5. استخدم كائن [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/) للعمل مع الجدول. في المثال أدناه، أضفنا صفًا جديدًا إلى الجدول.
-6. احفظ العرض التقديمي المعدّل.
+المثال أدناه يفتح الملف `UpdateExistingTable.pptx` ويجد أول جدول على الشريحة الأولى. يعيّن الخلية في العمود 0، الصف 1 إلى `New` ويحفظ النتيجة كملف `table1_out.pptx`. يجب أن يحتوي الإدخال على شريحة واحدة على الأقل، ويجب أن يحتوي الجدول الأول على عمود واحد على الأقل وصفين.
 
-هذا الكود C# يوضح لك كيفية الوصول إلى جدول موجود والعمل معه:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
+using var presentation = new Presentation("UpdateExistingTable.pptx");
+var slide = presentation.Slides[0];
+ITable? table = null;
+
+foreach (var shape in slide.Shapes)
 {
-
-    // يصل إلى الشريحة الأولى
-    ISlide sld = pres.Slides[0];
-
-    // يهيئ TableEx إلى null
-    ITable tbl = null;
-
-    // يتنقل عبر الأشكال ويضع مرجعًا للجدول المكتشف
-    foreach (IShape shp in sld.Shapes)
-        if (shp is ITable)
-            tbl = (ITable)shp;
-
-    // يحدد النص للعمود الأول من الصف الثاني
-    tbl[0, 1].TextFrame.Text = "New";
-
-    // يحفظ العرض التقديمي المعدل على القرص
-    pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+    if (shape is ITable candidateTable)
+    {
+        table = candidateTable;
+        break;
+    }
 }
+
+table![0, 1].TextFrame.Text = "New";
+
+presentation.Save("table1_out.pptx", SaveFormat.Pptx);
 ```
+
+لتغيير حجم صف في جدول موجود وفهم سبب تجاوز ارتفاعه الفعلي للحد الأدنى المطلوب، راجع [Control Row Height](/slides/ar/net/manage-rows-and-columns/#control-row-height).
 
 ## **العثور على الخلية التي تملك إطار نص**
 
-عند استلام كود معالجة نص عام كائن [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) من جدول، استخدم الخاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentcell/) لاسترجاع الـ [ICell](https://reference.aspose.com/slides/ar/net/aspose.slides/icell/) المالكة. بالنسبة لإطار نص داخل خلية جدول، تُعيّن الخاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentcell/) وتكون الخاصية [ITextFrame.ParentShape](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentshape/) `null`، رغم أن الجدول نفسه يُعد شكلاً.
+عند استقبال شفرة معالجة نص عامة لكائن [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) من جدول، استخدم خاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) لاسترداد [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) المالك. بالنسبة لإطار نص خلية جدول، تُحدد خاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) وتكون خاصية [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) `null`، رغم أن الجدول نفسه يُعتبر شكلاً.
 
-إحداثيات الخلية متاحة عبر الخاصيتين للقراءة فقط [ICell.FirstColumnIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/icell/firstcolumnindex/) و[ICell.FirstRowIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/icell/firstrowindex/). كما أن الخاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentcell/) للقراءة فقط: فهي تُوفر التنقل إلى المالك دون تعديل الملكية. احرص دائمًا على فحص ما إذا كانت الخلية المرجعة `null` قبل استخدامها.
+تتوفر إحداثيات الخلية عبر الخاصيتين القابلتين للقراءة فقط [ICell.FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) و[ICell.FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/). خاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) هي أيضًا للقراءة فقط: توفر التنقل إلى المالك دون تغيير الملكية. تحقق دائمًا من أن الخلية المرجعية ليست `null` قبل استخدامها.
 
-لمثال كامل يحدد مالكي خلايا الجدول والأشكال، بما في ذلك الأشكال المرتبطة بعناصر SmartArt، راجع [Search and Replace Text](/slides/ar/net/search-and-replace-text/).
+لمثال كامل يحدد مالكي خلايا الجداول والأشكال، بما في ذلك الأشكال المرتبطة بعناصر SmartArt، راجع [Search and Replace Text](/slides/ar/net/search-and-replace-text/).
 
-## **محاذاة النص داخل جدول**
+## **محاذاة النص في جدول**
 
-1. أنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) .
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. أضف كائنًا من النوع [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/) إلى الشريحة. 
-4. احصل على كائن [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) من الجدول. 
-5. احصل على [IParagraph](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraph/) الخاص بـ [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) .
-6. محاذاة النص عموديًا.
-7. احفظ العرض التقديمي المعدّل.
+يمكنك التحكم في التثبيت العمودي واتجاه النص لخلايا الجدول الفردية. المثال في هذا القسم يوسّط النص داخل الخلية الأولى ويدورها بزاوية 270 درجة.
 
-هذا الكود C# يوضح لك كيفية محاذاة النص داخل جدول:
+1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة بواسطة فهرسها.
+3. أضف كائنًا من نوع [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) إلى الشريحة.
+4. احصل على كائن [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) من الجدول.
+5. احصل على أول [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) واضبط نصه ولونه.
+6. اضبط خاصيتَي [TextAnchorType](https://reference.aspose.com/slides/net/aspose.slides/icell/textanchortype/) و[TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/icell/textverticaltype/).
+7. احفظ العرض التقديمي المعدل.
 
-```c#
+هذا المثال ينشئ جدولًا 4 × 4 بعرض أعمدة 120 نقطة وارتفاع صفوف 100 نقطة. ينسق النص في الخلية (0, 0)، يضيف قيمًا إلى الخلايا المتبقية في الصف الأول، ويحفظ النتيجة كملف `Vertical_Align_Text_out.pptx`.
+
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// ينشئ كائنًا من فئة Presentation
-Presentation presentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// يحصل على الشريحة الأولى 
-ISlide slide = presentation.Slides[0];
+var columnWidths = new double[] { 120, 120, 120, 120 };
+var rowHeights = new double[] { 100, 100, 100, 100 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+table[1, 0].TextFrame.Text = "10";
+table[2, 0].TextFrame.Text = "20";
+table[3, 0].TextFrame.Text = "30";
 
-// يحدد الأعمدة بعرضها والصفوف بارتفاعها
-double[] dblCols = { 120, 120, 120, 120 };
-double[] dblRows = { 100, 100, 100, 100 };
-
-// يضيف شكل الجدول إلى الشريحة
-ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
-tbl[1, 0].TextFrame.Text = "10";
-tbl[2, 0].TextFrame.Text = "20";
-tbl[3, 0].TextFrame.Text = "30";
-
-// Accesses the text frame
-ITextFrame txtFrame = tbl[0, 0].TextFrame;
-
-// Creates the Paragraph object for the text frame
-IParagraph paragraph = txtFrame.Paragraphs[0];
-
-// Creates the Portion object for paragraph
-IPortion portion = paragraph.Portions[0];
+var cell = table[0, 0];
+var paragraph = cell.TextFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 portion.Text = "Text here";
 portion.PortionFormat.FillFormat.FillType = FillType.Solid;
 portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-// Aligns the text vertically
-ICell cell = tbl[0, 0];
 cell.TextAnchorType = TextAnchorType.Center;
 cell.TextVerticalType = TextVerticalType.Vertical270;
 
-// Saves the presentation to disk
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ضبط تنسيق النص على مستوى الجدول**
+## **تعيين تنسيق النص على مستوى الجدول**
 
-1. أنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
-2. احصل على مرجع الشريحة من خلال فهرسها. 
-3. احصل على كائن [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/) من الشريحة.
-4. اضبط خاصية [FontHeight](https://reference.aspose.com/slides/ar/net/aspose.slides/baseportionformat/fontheight/) للنص. 
-5. اضبط [Alignment](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/alignment/) و[MarginRight](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/marginright/) . 
-6. اضبط [TextVerticalType](https://reference.aspose.com/slides/ar/net/aspose.slides/textframeformat/textverticaltype/) .
-7. احفظ العرض التقديمي المعدّل. 
+استخدم [SetTextFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulktextformattable/settextformat/) لتطبيق تنسيق النص على جميع خلايا الجدول. تتقبل التحميلات تنسيقات الجزء والفقرة وإطار النص، لذا يمكنك ضبط هذه الخصائص دون استعراض الخلايا فرديًا.
 
-هذا الكود C# يوضح لك كيفية تطبيق خيارات التنسيق المفضلة على النص داخل جدول:
+1. حمّل العرض التقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. احصل على مرجع إلى الشريحة بواسطة فهرسها.
+3. احصل على كائن [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) من الشريحة.
+4. اضبط خاصية [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) للنص.
+5. اضبط خاصيتي [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) و[MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/).
+6. اضبط خاصية [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/).
+7. احفظ العرض التقديمي المعدل.
 
-```c#
+المثال أدناه يفتح الملف `table.pptx`، والذي يجب أن يحتوي على شريحة واحدة على الأقل وشكل جدول كأول شكل. يضبط حجم الخط إلى 25 نقطة، يحقّق محاذاة فقرة إلى اليمين بهامش يميني 20 نقطة، ويجعل النص عموديًا. تُحفظ النسخة المُنسّقة كملف `result.pptx`.
+
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// ينشئ كائنًا من فئة Presentation
-Presentation presentation = new Presentation();
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // لنفترض أن الشكل الأول في الشريحة الأولى هو جدول
+var table = (ITable)slide.Shapes[0];
 
-// يضبط ارتفاع خط خلايا الجدول
-PortionFormat portionFormat = new PortionFormat();
+var portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
-someTable.SetTextFormat(portionFormat);
+table.SetTextFormat(portionFormat);
 
-// يضبط محاذاة نص خلايا الجدول والهوامش اليمنى في استدعاء واحد
-ParagraphFormat paragraphFormat = new ParagraphFormat();
+var paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
-someTable.SetTextFormat(paragraphFormat);
+table.SetTextFormat(paragraphFormat);
 
-// يضبط نوع الاتجاه العمودي للنص في خلايا الجدول
-TextFrameFormat textFrameFormat = new TextFrameFormat();
+var textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.SetTextFormat(textFrameFormat);
+table.SetTextFormat(textFrameFormat);
 
-
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("result.pptx", SaveFormat.Pptx);
 ```
 
 ## **الحصول على خصائص نمط الجدول**
 
-تتيح لك Aspose.Slides استرداد خصائص النمط لجدول بحيث يمكنك استخدام هذه التفاصيل لجدول آخر أو في مكان آخر. يوضح هذا الكود C# كيفية الحصول على خصائص النمط من نمط جدول مُعد مسبقًا:
+استخدم [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) لقراءة أو تعيين نمط جدول مسبق. يطبق هذا المثال [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/) على جدول واحد، يطبع اسم النمط المسبق، ويعيّن نفس النمط لجدول ثانٍ. يُحفظ كلا الجدولين في الملف `table-style.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // تغيير نمط الإعداد الافتراضي
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // احصل على نمط الإعداد للجدول.
-    TableStylePreset stylePreset = table.StylePreset;
-    Console.WriteLine($"Table style preset: {stylePreset}");
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
 
-    // تطبيق نمط الإعداد المسترجع على جدول آخر.
-    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    anotherTable.StylePreset = stylePreset;
+var stylePreset = table.StylePreset;
+Console.WriteLine($"Table style preset: {stylePreset}");
 
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+var anotherTable = slide.Shapes.AddTable(10, 100, columnWidths, rowHeights);
+anotherTable.StylePreset = stylePreset;
+
+presentation.Save("table-style.pptx", SaveFormat.Pptx);
 ```
 
-## **قفل نسبة الأبعاد للجدول**
+## **قفل نسبة أبعاد الجدول**
 
-نسبة أبعاد الشكل الهندسي هي نسبة أحجامه في أبعاد مختلفة. توفر Aspose.Slides الخاصية `AspectRatioLocked` لتتيح لك قفل إعداد نسبة الأبعاد للجداول والأشكال الأخرى. 
+نسبة أبعاد الجدول هي نسبة عرضه إلى ارتفاعه. استخدم [AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/aspectratiolocked/) لقفل هذه النسبة للجدول.
 
-هذا الكود C# يوضح لك كيفية قفل نسبة الأبعاد لجدول:
+المثال أدناه يفتح الملف `pres.pptx`، والذي يجب أن يحتوي على شريحة واحدة على الأقل وشكل جدول كأول شكل. يطبع الحالة الحالية للقفل، يفعّل قفل نسبة الأبعاد، يطبع الحالة المحدثة (`True`)، ويحفظ النتيجة كملف `pres-out.pptx`.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ITable table = (ITable)pres.Slides[0].Shapes[0];
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+using var presentation = new Presentation("pres.pptx");
+var slide = presentation.Slides[0];
 
-    table.ShapeLock.AspectRatioLocked = !table.ShapeLock.AspectRatioLocked; // عكس
+var table = (ITable)slide.Shapes[0];
 
-    Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+table.ShapeLock.AspectRatioLocked = true;
+Console.WriteLine($"Lock aspect ratio set: {table.ShapeLock.AspectRatioLocked}");
+
+presentation.Save("pres-out.pptx", SaveFormat.Pptx);
 ```
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**هل يمكنني تمكين اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
+**هل يمكنني تفعيل اتجاه القراءة من اليمين إلى اليسار (RTL) لجدول كامل والنص داخل خلاياه؟**
 
-نعم. يوفّر الجدول الخاصية [RightToLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/table/righttoleft/) ، وتملك الفقرات الخاصية [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/ar/net/aspose.slides/paragraphformat/righttoleft/) . استخدامهما معًا يضمن الترتيب والعرض الصحيح للـ RTL داخل الخلايا.
+نعم. يعرض الجدول خاصية [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/)، وتحتوي الفقرات على خاصية [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/). يضمن استخدامهما معًا الترتيب الصحيح للـ RTL وعرضه داخل الخلايا.
 
-**كيف يمكنني منع المستخدمين من تحريك أو تغيير حجم الجدول في الملف النهائي؟**
+**كيف يمكنني منع المستخدمين من تحريك أو تغيير حجم جدول في الملف النهائي؟**
 
-استخدم [shape locks](/slides/ar/net/applying-protection-to-presentation/) لتعطيل التحريك، تغيير الحجم، التحديد، وغيرها. تُطبق هذه الأقفال على الجداول أيضًا.
+استخدم [shape locks](/slides/ar/net/applying-protection-to-presentation/) لتعطيل التحريك، تغيير الحجم، التحديد، إلخ. تُطبق هذه الأقفال على الجداول أيضًا.
 
-**هل يُدعم إدراج صورة داخل خلية كخلفية؟**
+**هل يدعم إدراج صورة داخل خلية كخلفية؟**
 
-نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/ar/net/aspose.slides/picturefillformat/) للخلية؛ ستغطي الصورة مساحة الخلية وفق الوضع المحدد (تمدد أو تجانس).
+نعم. يمكنك تعيين [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) لخلية؛ ستغطي الصورة مساحة الخلية وفق الوضع المختار (تمديد أو تجانب).

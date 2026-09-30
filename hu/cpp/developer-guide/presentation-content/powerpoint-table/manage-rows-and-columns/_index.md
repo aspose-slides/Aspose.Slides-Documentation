@@ -1,299 +1,356 @@
 ---
-title: "Sorok és oszlopok kezelése PowerPoint táblázatokban C++ segítségével"
-linktitle: "Sorok és oszlopok"
+title: Sorok és oszlopok kezelése PowerPoint táblázatokban C++ használatával
+linktitle: Sorok és oszlopok
 type: docs
 weight: 20
 url: /hu/cpp/manage-rows-and-columns/
 keywords:
-- "táblázat sor"
-- "táblázat oszlop"
-- "első sor"
-- "táblázat fejléc"
-- "sor klónozása"
-- "oszlop klónozása"
-- "sor másolása"
-- "oszlop másolása"
-- "sor eltávolítása"
-- "oszlop eltávolítása"
-- "sor szövegformázás"
-- "oszlop szövegformázás"
-- "táblázat stílus"
-- "PowerPoint"
-- "prezentáció"
-- "C++"
-- "Aspose.Slides"
-description: "Kezelje a táblázat sorait és oszlopait PowerPointban az Aspose.Slides for C++ segítségével, és gyorsítsa fel a prezentációk szerkesztését és az adatok frissítését."
+- táblázat sor
+- táblázat oszlop
+- első sor
+- táblázat fejléc
+- sor klónozása
+- oszlop klónozása
+- sor másolása
+- oszlop másolása
+- sor eltávolítása
+- oszlop eltávolítása
+- sor szövegformázás
+- oszlop szövegformázás
+- táblázat stílus
+- PowerPoint
+- prezentáció
+- C++
+- Aspose.Slides
+description: "Kezelete a táblázat sorait és oszlopait PowerPoint-ban az Aspose.Slides for C++ segítségével, és felgyorsítja a prezentáció szerkesztését és az adatok frissítését."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides lehetővé teszi, hogy egy PowerPoint‑prezentáció táblázatának sorait és oszlopait kezelje, a [Table](https://reference.aspose.com/slides/hu/cpp/aspose.slides/table/) osztályt, az [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) interfészt és sok más típust biztosít. 
+Az Aspose.Slides for C++ lehetővé teszi, hogy a PowerPoint‑prezentációk táblázat‑szerkezetét és formázását a [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) osztály és az [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) interfész segítségével kezelje. Megjelölhet egy fejlécsorát, klónozhat vagy eltávolíthat sorokat és oszlopokat, valamint szövegformázást alkalmazhat egy teljes sorra vagy oszlopra.
 
-## **Az első sor beállítása fejlécnek**
+Ez a cikk elmagyarázza ezeket a műveleteket C++ példákkal. Továbbá bemutatja, hogyan lehet lekérni egy táblázat stílus‑előbeállítását, hogy újból felhasználhassa. A táblázat sor‑ és oszlopindexei 0‑bázisúak.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, és töltse be a prezentációt. 
-2. Szerezze meg a dia hivatkozását az indexe alapján. 
-3. Hozzon létre egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) objektumot, és állítsa null értékre. 
-4. Iteráljon az összes [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) objektumon, hogy megtalálja a megfelelő táblázatot. 
-5. Állítsa be a táblázat első sorát fejlécnek. 
+## **Sormagasság vezérlése**
 
-Ez a C++ kód megmutatja, hogyan állítható be a táblázat első sora fejlécnek:
+Használja az [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) metódust a sor minimális magasságának pontban való beállításához. Ez egy alsó határ, nem fix magasság. Az [IRow::get_Height](https://reference.aspose.com/slides/cpp/aspose.slides/irow/get_height/) visszaadja a tényleges magasságot; ezt az értéket nem lehet közvetlenül beállítani. A sor eléréséhez használja az [ITable::get_Rows](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_rows/) metódust.
 
-```c++
-// Példányosítja a Presentation osztályt 
-auto pres = System::MakeObject<Presentation>(u"table.pptx");
+Az példa betölti a [row-height-input.pptx](row-height-input.pptx) fájlt, amelyben a táblázat az első dián az első alakzatként szerepel. Az első sor 70 pontnál kezdődik. A cellák 18 pontos Arial szöveget, sortörést és 6 pontos felső és alsó margót használnak; a második oszlopban a hosszabb szöveg több sorra törik. A példa a minimumot 100 pontra növeli, majd 20 pontra csökkenti, minden módosítás után kiírja a tényleges magasságot, és elmenti mindkét eredményt.
 
-// Eléri az első diát
-auto sld = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRow.h>
+#include <system/console.h>
 
-// Inicializálja a null TableEx-et
-SharedPtr<ITable> tbl;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Végigiterál a formákon és beállít egy hivatkozást a táblázatra
-for (const auto& shp : sld->get_Shapes())
-{
-    if (ObjectExt::Is<ITable>(shp))
-    {
-        tbl = System::ExplicitCast<ITable>(shp);
-    }
-}
+auto presentation = MakeObject<Presentation>(u"row-height-input.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Beállítja egy táblázat első sorát fejlécnek 
-tbl->set_FirstRow(true);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+auto row = table->get_Rows()->idx_get(0);
+
+row->set_MinimalHeight(100);
+Console::WriteLine(u"Increased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-increased.pptx", SaveFormat::Pptx);
+
+row->set_MinimalHeight(20);
+Console::WriteLine(u"Decreased: minimum = {0:F1}, actual = {1:F1} pt", row->get_MinimalHeight(), row->get_Height());
+presentation->Save(u"row-height-decreased.pptx", SaveFormat::Pptx);
 ```
 
-## **Táblázat sor vagy oszlop klónozása**
+A mellékelt prezentációval a minimum növelése helyet ad a sornak. A csökkentés eltávolítja ezt a felesleges helyet, de a tényleges magasság továbbra is nagyobb, mint 20 pont, mivel a szöveg és a cellamargók több helyet igényelnek. A minimum önmagában csökkentése nem képes a sort a tartalom által igényelt hely alá kényszeríteni.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, és töltse be a prezentációt, 
-2. Szerezze meg a dia hivatkozását az indexe alapján. 
-3. Határozzon meg egy `columnWidth` tömböt. 
-4. Határozzon meg egy `rowHeight` tömböt. 
-5. Adjon hozzá egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) objektumot a diára a [AddTable()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addtable/) metódus segítségével. 
-6. Klónozza a táblázat sorát. 
-7. Klónozza a táblázat oszlopát. 
-8. Mentse el a módosított prezentációt. 
+Több tényező befolyásolja a tényleges magasságot:
 
-Ez a C++ kód megmutatja, hogyan lehet klónozni egy PowerPoint‑táblázat sorát vagy oszlopát:
+- **Szöveg és betűméret:** a hosszabb szöveg, a kifejezett sortörések vagy a nagyobb betűméret több függőleges helyet igényelhet.
+- **Sortörés és oszlopszélesség:** a sortörés engedélyezése esetén az oszlopszélesség csökkentése az [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) metódussal több sort eredményezhet. Egy szélesebb oszlop csökkentheti a függőleges helyigényt.
+- **Cellamargók:** az [ICell::set_MarginTop](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_margintop/) és az [ICell::set_MarginBottom](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginbottom/) szabályozzák a függőleges helyet növelő margókat. Az [ICell::set_MarginLeft](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginleft/) és az [ICell::set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_marginright/) a szöveg számára elérhető szélességet csökkentő margókat szabályozzák, és további sortörést okozhatnak.
 
-```c++
- // A dokumentumok könyvtárának elérési útja.
-const String outPath = u"../out/CloningInTable_out.pptx";
+Egy, egyesített cellákat nem tartalmazó táblázatnál az a cella, amelyik a legtöbb függőleges helyet igényli, meghatározza a sor egészének tartalom‑alapú alsó határát. A sor rövidebbé tételéhez esetleg rövidíteni kell a szöveget, csökkenteni a betűméretet vagy a margókat, vagy szélesíteni egy oszlopot.
 
-// Példányosítja a Presentation osztályt
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Az alábbi képek ugyanazt a táblázatot ugyanabban a méretezésben mutatják. A bemutatott .NET futtatásban a tényleges magasságok 70, 100 és 55,2 pont voltak: az utolsó sor továbbra is magasabb maradt, mint a 20 pontos minimum. A pontos szövegméretezés a környezetben elérhető betűtípusoktól függően változhat. Töltse le a mentett eredményeket: [növelt minimum](row-height-increased.pptx) és [csökkentett minimum](row-height-decreased.pptx).
 
-// Eléri az első diát
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+| Eredeti: minimum 70 pt, tényleges 70 pt | Növelt: minimum 100 pt, tényleges 100 pt | Csökkentett: minimum 20 pt, tényleges 55.2 pt |
+| --- | --- | --- |
+| ![Eredeti táblázat 70 pontos első sorral.](row-height-before.png) | ![Táblázat az első sor minimum 100 pontra növelése után.](row-height-increased.png) | ![Táblázat az első sor minimum 20 pontra csökkentése után; a sortörött szöveg a sort magasabbá teszi a minimumnál.](row-height-decreased.png) |
 
-// Meghatározza az oszlopok szélességét és a sorok magasságát
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+## **Az első sor beállítása fejlécként**
 
-// Táblázat alakzatot ad a diára
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+Használja a [set_FirstRow](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_firstrow/) metódust az első sor fejlécre formázásra való megjelöléséhez. A megjelenése a táblázatra alkalmazott táblastílustól függ.
 
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztállyal.
+2. Szerezze meg az első diát.
+3. Szerezze meg a táblázatot, amely az első alakzatként van tárolva a dián.
+4. Engedélyezze a fejlécformázást az első sorra.
+5. Mentse el a módosított prezentációt.
 
-// Beállítja a szegély formátumát minden cellához
-for (int x = 0; x < table->get_Rows()->get_Count(); x++)
-{
-	SharedPtr<IRow> row = table->get_Rows()->idx_get(x);
-	for (int y = 0; y < row->get_Count(); y++)
-	{
-		SharedPtr<ICell> cell = row->idx_get(y);
+A példához `table.pptx` fájl szükséges, amelyben a táblázat az első dián az első alakzatként szerepel. Engedélyezi a fejlécformázást az első sorra, és elmenti a `First_row_header.pptx` fájlt.
 
-		cell->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderTop()->set_Width(5);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
 
-		cell->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderBottom()->set_Width(5);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		cell->get_BorderLeft()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderLeft()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderLeft()->set_Width(5);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-		cell->get_BorderRight()->get_FillFormat()->set_FillType(FillType::Solid);
-		cell->get_BorderRight()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-		cell->get_BorderRight()->set_Width(5);
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+table->set_FirstRow(true);
 
-	}
+presentation->Save(u"First_row_header.pptx", SaveFormat::Pptx);
+```
 
-}
+## **Táblázatsor vagy oszlop klónozása**
 
-table->idx_get(0, 0)->get_TextFrame()->set_Text(u"00");
-table->idx_get(0, 1)->get_TextFrame()->set_Text(u"01");
-table->idx_get(0, 2)->get_TextFrame()->set_Text(u"02");
-table->idx_get(0, 3)->get_TextFrame()->set_Text(u"03");
-table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-table->idx_get(1, 1)->get_TextFrame()->set_Text(u"11");
-table->idx_get(2, 1)->get_TextFrame()->set_Text(u"21");
+Klónozzon sorokat vagy oszlopokat a tartalmuk és formázásuk újbóli felhasználásához. A másolatot hozzáfűzheti a táblázat végéhez vagy beszúrhatja egy adott pozícióba.
 
-// Az AddClone egy sort ad a táblázat végéhez
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztállyal.
+2. Szerezze meg az első diát.
+3. Határozza meg az oszlopok szélességét és a sorok magasságát.
+4. Adjon hozzá egy táblázatot a [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) metódussal.
+5. Klónozza a szükséges sorokat.
+6. Klónozza a szükséges oszlopokat.
+7. Mentse el a módosított prezentációt.
+
+A példához `Test.pptx` fájl szükséges, amely legalább egy diát tartalmaz. Létrehoz egy három oszlopos és öt soros táblázatot, a méreteket pontban megadva. Hozzáfűzi az első sor és oszlop másolatait, majd a második sor és oszlop másolatait a 3‑as indexnél (a negyedik pozíció) szúrja be. Az eredményül kapott táblázat hét sorral és öt oszloppal rendelkezik. A `false` argumentum letiltja a klónozást a szomszédos egyesített sorokba vagy oszlopokba; ez a táblázat nem tartalmaz egyesített cellákat.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 50, columnWidths, rowHeights);
+
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 1");
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"Row 1 Cell 2");
 table->get_Rows()->AddClone(table->get_Rows()->idx_get(0), false);
 
-// Az InsertClone egy sort ad a táblázat adott pozíciójába
-table->get_Rows()->InsertClone(2, table->get_Rows()->idx_get(0), false);
+table->idx_get(0, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 1");
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Row 2 Cell 2");
+table->get_Rows()->InsertClone(3, table->get_Rows()->idx_get(1), false);
 
-// Az AddClone egy oszlopot ad a táblázat végéhez
 table->get_Columns()->AddClone(table->get_Columns()->idx_get(0), false);
+table->get_Columns()->InsertClone(3, table->get_Columns()->idx_get(1), false);
 
-// Az InsertClone egy oszlopot ad a táblázat adott pozíciójába
-table->get_Columns()->InsertClone(2, table->get_Columns()->idx_get(0), false);
-
-
-// Mentés a prezentációt a lemezre
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"table_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Sor vagy oszlop eltávolítása a táblázatból**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, és töltse be a prezentációt, 
-2. Szerezze meg a dia hivatkozását az indexe alapján. 
-3. Határozzon meg egy `columnWidth` tömböt. 
-4. Határozzon meg egy `rowHeight` tömböt. 
-5. Adjon hozzá egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) objektumot a diára a [AddTable()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addtable/) metódus segítségével. 
-6. Távolítsa el a táblázat sorát. 
-7. Távolítsa el a táblázat oszlopát. 
-8. Mentse el a módosított prezentációt. 
+Távolítsa el a táblázatban már nem szükséges sorokat vagy oszlopokat. Egy elem eltávolítása eltolja a mögötte lévő sorok vagy oszlopok indexeit.
 
-Ez a C++ kód megmutatja, hogyan távolítható el egy sor vagy oszlop a táblázatból:
+1. Hozzon létre egy prezentációt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztállyal.
+2. Szerezze meg az első diát.
+3. Határozza meg az oszlopok szélességét és a sorok magasságát.
+4. Adjon hozzá egy táblázatot a [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) metódussal.
+5. Távolítsa el a második sort és a második oszlopot.
+6. Mentse el a módosított prezentációt.
 
-```c++
-// A dokumentumok könyvtárának elérési útja.
-const String outPath = u"../out/RemovingRowColumn_out.pptx";
+Ez a példa egy három‑háromas táblázatot hoz létre, és az 1‑es indexű sort és oszlopot eltávolítja, így egy két‑kétas táblázat marad a `TestTable_out.pptx` fájlban. A méretek pontban vannak. A `false` argumentum letiltja a szomszédos egyesített sorok vagy oszlopok eltávolítását; ez a táblázat nem tartalmaz egyesített cellákat.
 
-// Példányosítja a Presentation osztályt
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <system/array.h>
 
-// Eléri az első diát
-SharedPtr<ISlide> islide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Meghatározza az oszlopok szélességét és a sorok magasságát
-System::ArrayPtr<double> dblCols = System::MakeObject<System::Array<double>>(4, 70);
-System::ArrayPtr<double> dblRows = System::MakeObject<System::Array<double>>(4, 70);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Táblázat alakzatot ad a diára
-SharedPtr<ITable> table = islide->get_Shapes()->AddTable(100, 50, dblCols, dblRows);
+auto columnWidths = MakeArray<double>({ 100, 50, 30 });
+auto rowHeights = MakeArray<double>({ 30, 50, 30 });
+auto table = slide->get_Shapes()->AddTable(100, 100, columnWidths, rowHeights);
 
 table->get_Rows()->RemoveAt(1, false);
 table->get_Columns()->RemoveAt(1, false);
 
-
-// Egyesíti a (1, 1) és (2, 1) cellákat
-table->MergeCells(table->idx_get(1, 1), table->idx_get(2, 1), false);
-
-// Egyesíti a (1, 2) és (2, 2) cellákat
-table->MergeCells(table->idx_get(1, 2), table->idx_get(2, 2), false);
-
-
-// Mentés a prezentációt a lemezre
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"TestTable_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Szövegformázás beállítása a táblázat sor szintjén**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, és töltse be a prezentációt, 
-2. Szerezze meg a dia hivatkozását az indexe alapján. 
-3. Érje el a megfelelő [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) objektumot a diáról. 
-4. Állítsa be az első sor celláinak [set_FontHeight()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Állítsa be az első sor celláinak [set_Alignment()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/set_alignment/) és [set_MarginRight()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Állítsa be a második sor celláinak [set_TextVerticalType()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Mentse el a módosított prezentációt. 
+Alkalmazzon szövegformázást egy teljes sorra, hogy a cellák egységesek legyenek. Beállíthatja a betűtulajdonságokat, bekezdésformázást és a szövegirányt anélkül, hogy egyesével formázná a cellákat.
 
-Ez a C++ kód bemutatja a műveletet.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztállyal.
+2. Szerezze meg a táblázatot az első dián.
+3. Állítsa be a betűmagasságot a [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) metódussal az első sorra.
+4. Állítsa be az igazítást és a jobb bekezdésmargót a [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) és a [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) metódusokkal az első sorra.
+5. Állítsa be a szövegirányt a [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) metódussal a második sorra.
+6. Mentse el a módosított prezentációt.
 
-```c++
-// Példányosítja a Presentation osztályt
-auto presentation = System::MakeObject<Presentation>();
+A példához `table.pptx` fájl szükséges, amelyben a táblázat az első dián az első alakzatként szerepel, és legalább két sor van. 25 pontos szöveget, jobb igazítást és 20 pontos jobb bekezdésmargót alkalmaz az első sorra, majd a második sorra függőleges szöveget állít be.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IRow.h>
 
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Tegyük fel, hogy az első dia első alakzata egy táblázat
-// Beállítja az első sor celláinak betűmagasságát
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Beállítja az első sor celláinak szövegigazítását és jobb margóját
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Rows()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Rows()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Beállítja a második sor celláinak függőleges szövegtípust
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Rows()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-// Mentés a prezentációt a lemezre
-presentation->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"row_formatting.pptx", SaveFormat::Pptx);
 ```
 
 ## **Szövegformázás beállítása a táblázat oszlop szintjén**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, és töltse be a prezentációt, 
-2. Szerezze meg a dia hivatkozását az indexe alapján. 
-3. Érje el a megfelelő [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) objektumot a diáról. 
-4. Állítsa be az első oszlop celláinak [set_FontHeight()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/baseportionformat/set_fontheight/). 
-5. Állítsa be az első oszlop celláinak [set_Alignment()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/set_alignment/) és [set_MarginRight()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Állítsa be a második oszlop celláinak [set_TextVerticalType()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/textframeformat/set_textverticaltype/). 
-7. Mentse el a módosított prezentációt. 
+Alkalmazzon szövegformázást egy teljes oszlopra, hogy a cellák egységesek legyenek. Beállíthatja a betűtulajdonságokat, bekezdésformázást és a szövegirányt anélkül, hogy egyesével formázná a cellákat.
 
-Ez a C++ kód bemutatja a műveletet: 
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) osztállyal.
+2. Szerezze meg a táblázatot az első dián.
+3. Állítsa be a betűmagasságot a [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) metódussal az első oszlopra.
+4. Állítsa be az igazítást és a jobb bekezdésmargót a [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) és a [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/) metódusokkal az első oszlopra.
+5. Állítsa be a szövegirányt a [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/) metódussal a második oszlopra.
+6. Mentse el a módosított prezentációt.
 
-```c++
-// Példányosítja a Presentation osztályt
-auto pres = System::MakeObject<Presentation>();
+A példához `table.pptx` fájl szükséges, amelyben a táblázat az első dián az első alakzatként szerepel, és legalább két oszlop van. 25 pontos szöveget, jobb igazítást és 20 pontos jobb bekezdésmargót alkalmaz az első oszlopra, majd a második oszlopra függőleges szöveget állít be.
 
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <DOM/Table/IColumn.h>
 
-auto someTable = System::AsCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-// Tegyük fel, hogy az első dia első alakzata egy táblázat
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Beállítja az első oszlop celláinak betűmagasságát
-auto portionFormat = System::MakeObject<PortionFormat>();
-portionFormat->set_FontHeight(25.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+auto presentation = MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Beállítja az első oszlop celláinak szövegigazítását és jobb margóját egy hívásban
-auto paragraphFormat = System::MakeObject<ParagraphFormat>();
+auto table = ExplicitCast<ITable>(slide->get_Shape(0));
+
+auto portionFormat = MakeObject<PortionFormat>();
+portionFormat->set_FontHeight(25);
+table->get_Columns()->idx_get(0)->SetTextFormat(portionFormat);
+
+auto paragraphFormat = MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
-paragraphFormat->set_MarginRight(20.0f);
-someTable->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
+paragraphFormat->set_MarginRight(20);
+table->get_Columns()->idx_get(0)->SetTextFormat(paragraphFormat);
 
-// Beállítja a második oszlop celláinak függőleges szövegtípusát
-auto textFrameFormat = System::MakeObject<TextFrameFormat>();
+auto textFrameFormat = MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
+table->get_Columns()->idx_get(1)->SetTextFormat(textFrameFormat);
 
-pres->Save(u"result.pptx", SaveFormat::Pptx);
+presentation->Save(u"column_formatting.pptx", SaveFormat::Pptx);
 ```
 
-## **Táblázat stílus tulajdonságainak lekérése**
+## **Táblázat stílusjellemzőinek lekérése**
 
-Aspose.Slides lehetővé teszi, hogy lekérje egy táblázat stílus tulajdonságait, hogy ezeket az adatokat egy másik táblázathoz vagy máshová felhasználhassa. Ez a C++ kód megmutatja, hogyan kell lekérni a stílus tulajdonságokat egy táblázat előre beállított stílusából:
+Használja a [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) metódust egy táblázatra alkalmazott előbeállítás lekéréséhez és annak egy másik táblázaton való újrahasználatához. Ez az előbeállítást azonosítja, nem pedig az egyedi cellaformázási felülírásokat.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+A példa létrehoz egy táblázatot, alkalmazza a [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) előbeállítást, és visszaolvassa azt. Kiírja a `DarkStyle1` értéket, és elmenti a táblázatot a `table.pptx` fájlba.
 
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <DOM/TableStylePreset.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({ 100, 150 });
+auto rowHeights = MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+Console::WriteLine(u"{0}", table->get_StylePreset());
+
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **GYIK**
 
 **Alkalmazhatok PowerPoint témákat/stílusokat egy már létrehozott táblázatra?**
 
-Igen. A táblázat örökli a dia/layout/mester témát, és továbbra is felülírhatja a kitöltéseket, szegélyeket és szövegszíneket a téma felett.
+Igen. A táblázat örökli a dia/oldal/mester téma beállításait, és továbbra is felülírhatja a kitöltéseket, szegélyeket és szövegszíneket a téma fölött.
 
-**Rendezhetem a táblázat sorait, mint Excelben?**
+**Rendezhetem a táblázatsorokat úgy, mint az Excelben?**
 
-Nem, az Aspose.Slides táblázatok nem rendelkeznek beépített rendezéssel vagy szűrőkkel. Először rendezze az adatokat a memóriában, majd töltse újra a táblázat sorait ebben a sorrendben.
+Nem, az Aspose.Slides táblázatok nem rendelkeznek beépített rendezéssel vagy szűrőkkel. Először rendezze az adatokat a memóriában, majd töltse újra a táblázatsorokat ebben a sorrendben.
 
-**Lehetnek csíkatmintás oszlopok, miközben egyedi színeket tartok meg bizonyos cellákban?**
+**Lehetnek csíkos (sávos) oszlopok, miközben egyedi színeket tartok meg bizonyos cellákban?**
 
-Igen. Kapcsolja be a csíkatmintás oszlopokat, majd felülírja a konkrét cellákat helyi formázással; a cellaszintű formázás precedálja a táblázat stílusát.
+Igen. Kapcsolja be a csíkos oszlopokat, majd felülírja a specifikus cellákat helyi formázással; a cellaszintű formázás előnyben részesül a táblastílus felett.

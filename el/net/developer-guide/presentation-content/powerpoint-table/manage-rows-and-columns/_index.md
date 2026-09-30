@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση γραμμών και στηλών σε πίνακες PowerPoint σε .NET
-linktitle: Γραμμές και Στήλες
+title: Διαχείριση Σειρών και Στηλών σε Πίνακες PowerPoint στο .NET
+linktitle: Σειρές και Στήλες
 type: docs
 weight: 20
 url: /el/net/manage-rows-and-columns/
@@ -23,234 +23,250 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Διαχειριστείτε τις γραμμές και τις στήλες των πινάκων σε PowerPoint με το Aspose.Slides για .NET και επιταχύνετε την επεξεργασία παρουσιάσεων και την ενημέρωση δεδομένων."
+description: "Διαχειριστείτε τις γραμμές και στήλες πίνακα σε PowerPoint με το Aspose.Slides για .NET και επιταχύνετε την επεξεργασία παρουσιάσεων και την ενημέρωση δεδομένων."
 ---
 ## **Εισαγωγή**
 
-Για να μπορείτε να διαχειρίζεστε τις γραμμές και τις στήλες ενός πίνακα σε μια παρουσίαση PowerPoint, το Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/net/aspose.slides/table/) , το interface [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) και πολλούς άλλους τύπους. 
+Το Aspose.Slides for .NET σάς επιτρέπει να διαχειρίζεστε τη δομή και τη μορφοποίηση πινάκων σε παρουσιάσεις PowerPoint μέσω της κλάσης [Table](https://reference.aspose.com/slides/net/aspose.slides/table/) και της διεπαφής [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Μπορείτε να ορίσετε μια γραμμή κεφαλίδας, να κλωνοποιήσετε ή να αφαιρέσετε γραμμές και στήλες και να εφαρμόσετε μορφοποίηση κειμένου σε ολόκληρη τη γραμμή ή τη στήλη.
 
-## **Ορισμός της πρώτης γραμμής ως κεφαλίδα**
+Αυτό το άρθρο εξηγεί αυτές τις λειτουργίες με παραδείγματα C#. Επίσης δείχνει πώς να ανακτήσετε το προεπιλεγμένο στυλ ενός πίνακα ώστε να το επαναχρησιμοποιήσετε. Οι δείκτες γραμμών και στηλών του πίνακα είναι μηδενικής βάσης.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) και φορτώστε την παρουσίαση. 
-2. Αποκτήστε αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) και θέστε το σε null. 
-4. Περιηγηθείτε σε όλα τα αντικείμενα [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/) για να βρείτε τον σχετικό πίνακα. 
-5. Ορίστε την πρώτη γραμμή του πίνακα ως κεφαλίδα του. 
+## **Έλεγχος Ύψους Γραμμής**
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε την πρώτη γραμμή ενός πίνακα ως κεφαλίδα:
+Χρησιμοποιήστε το [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) για να ορίσετε το ελάχιστο ύψος μιας γραμμής σε πόντους. Είναι ένα κατώτερο όριο, όχι σταθερό ύψος. Το [IRow.Height](https://reference.aspose.com/slides/net/aspose.slides/irow/height/) επιστρέφει το πραγματικό ύψος και είναι μόνο για ανάγνωση. Πρόσβαση στη γραμμή μέσω του [ITable.Rows](https://reference.aspose.com/slides/net/aspose.slides/itable/rows/).
 
-```c#
-// Δημιουργεί ένα αντικείμενο της κλάσης Presentation
-Presentation pres = new Presentation("table.pptx");
+Το παράδειγμα φορτώνει το αρχείο [row-height-input.pptx](row-height-input.pptx), το οποίο έχει έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη της γραμμή ξεκινά στα 70 πόντους. Τα κελιά χρησιμοποιούν κείμενο Arial 18‑πόντων, περιτύλιξη και περιθώρια 6 πόντων επάνω και κάτω· το πιο μακρύ κείμενο στη δεύτερη στήλη τυλίγεται σε πολλαπλές γραμμές. Το παράδειγμα αυξάνει το ελάχιστο σε 100 πόντους, στη συνέχεια το μειώνει σε 20 πόντους, εκτυπώνει το πραγματικό ύψος μετά από κάθε αλλαγή και αποθηκεύει και τα δύο αποτελέσματα.
 
-// Αποκτά την πρώτη διαφάνεια
-ISlide sld = pres.Slides[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Αρχικοποιεί το null TableEx
-ITable tbl = null;
+using var presentation = new Presentation("row-height-input.pptx");
+var table = (ITable)presentation.Slides[0].Shapes[0];
+var row = table.Rows[0];
 
-// Διέρχεται μέσα από τα σχήματα και ορίζει μια αναφορά στον πίνακα
-foreach (IShape shp in sld.Shapes)
-{
-    if (shp is ITable)
-    {
-        tbl = (ITable)shp;
-    }
-}
+row.MinimalHeight = 100;
+Console.WriteLine($"Increased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-increased.pptx", SaveFormat.Pptx);
 
-// Ορίζει την πρώτη γραμμή του πίνακα ως κεφαλίδα
-tbl.FirstRow = true;
-
-// Αποθηκεύει την παρουσίαση στο δίσκο
-pres.Save("First_row_header.pptx", SaveFormat.Pptx);
+row.MinimalHeight = 20;
+Console.WriteLine($"Decreased: minimum = {row.MinimalHeight:F1}, actual = {row.Height:F1} pt");
+presentation.Save("row-height-decreased.pptx", SaveFormat.Pptx);
 ```
 
-## **Κλωνοποίηση γραμμής ή στήλης πίνακα**
+Με την παρεχόμενη παρουσίαση, η αύξηση του ελάχιστου προσθέτει χώρο στη γραμμή. Η μείωση του αφαιρεί αυτό το επιπλέον χώρο, αλλά το πραγματικό ύψος παραμένει μεγαλύτερο από 20 πόντους επειδή το κείμενο και τα περιθώρια των κελιών χρειάζονται περισσότερο χώρο. Η μείωση του ελάχιστου μόνη της δεν μπορεί να αναγκάσει τη γραμμή να είναι κάτω από τον χώρο που απαιτεί το περιεχόμενό της.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) και φορτώστε την παρουσίαση, 
-2. Αποκτήστε αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα των `columnWidth`. 
-4. Ορίστε έναν πίνακα των `rowHeight`. 
-5. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) στη διαφάνεια μέσω της μεθόδου [AddTable](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addtable/). 
-6. Κλωνοποιήστε τη γραμμή του πίνακα. 
-7. Κλωνοποιήστε τη στήλη του πίνακα. 
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
+Several factors affect the actual height:
 
-Αυτός ο κώδικας C# δείχνει πώς να κλωνοποιήσετε τη γραμμή ή τη στήλη ενός πίνακα PowerPoint:
+- **Κείμενο και μέγεθος γραμματοσειράς:** το μεγαλύτερο κείμενο, ρητοί αλλαγές γραμμής ή μεγαλύτερη γραμματοσειρά μπορεί να απαιτούν περισσότερο κάθετο χώρο.
+- **Τυλίξιμο και πλάτος στήλης:** με ενεργό τυλίξιμο, μια πιο στενή [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) μπορεί να δημιουργήσει περισσότερες γραμμές. Μια πιο πλατιά στήλη μπορεί να μειώσει τον κάθετο χώρο που απαιτείται.
+- **Περιθώρια κελιού:** τα [ICell.MarginTop](https://reference.aspose.com/slides/net/aspose.slides/icell/margintop/) και [ICell.MarginBottom](https://reference.aspose.com/slides/net/aspose.slides/icell/marginbottom/) προσθέτουν κάθετο χώρο. Τα [ICell.MarginLeft](https://reference.aspose.com/slides/net/aspose.slides/icell/marginleft/) και [ICell.MarginRight](https://reference.aspose.com/slides/net/aspose.slides/icell/marginright/) μειώνουν το πλάτος διαθέσιμο για κείμενο και μπορούν να προκαλέσουν επιπλέον τυλίξιμο.
 
-```c#
- // Δημιουργεί ένα αντικείμενο της κλάσης Presentation
-using (Presentation presentation = new Presentation("Test.pptx"))
-{
-    // Αποκτά την πρώτη διαφάνεια
-    ISlide sld = presentation.Slides[0];
+Για αυτόν τον πίνακα χωρίς συγχωνευμένα κελιά, το κελί που χρειάζεται τον περισσότερο κάθετο χώρο καθορίζει το όριο κλειδώματος του περιεχομένου για ολόκληρη τη γραμμή. Για να μικρύνετε τη γραμμή, ίσως χρειαστεί επίσης να συντομεύσετε το κείμενο, να μειώσετε το μέγεθος της γραμματοσειράς ή τα περιθώρια, ή να διευρύνετε μια στήλη.
 
-    // Ορίζει στήλες με πλάτη και γραμμές με ύψη
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+Οι εικόνες παρακάτω δείχνουν τον ίδιο πίνακα στην ίδια κλίμακα. Σε αυτήν την εκτέλεση, τα πραγματικά ύψη ήταν 70, 100 και 55,2 πόντοι: η τελική γραμμή παρέμεινε ψηλότερη από το ελάχιστο των 20 πόντων. Οι ακριβείς μετρήσεις κειμένου μπορούν να διαφέρουν ανάλογα με τις γραμματοσειρές που είναι διαθέσιμες στο περιβάλλον σας. Κατεβάστε τα αποθηκευμένα αποτελέσματα: [increased minimum](row-height-increased.pptx) και [decreased minimum](row-height-decreased.pptx).
 
-    // Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
-    ITable table = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
+| Αρχικό: ελάχιστο 70 pt, πραγματικό 70 pt | Αυξημένο: ελάχιστο 100 pt, πραγματικό 100 pt | Μειωμένο: ελάχιστο 20 pt, πραγματικό 55.2 pt |
+| --- | --- | --- |
+| ![Αρχικός πίνακας με πρώτη γραμμή 70 πόντων.](row-height-before.png) | ![Πίνακας μετά την αύξηση του ελάχιστου της πρώτης γραμμής σε 100 πόντους.](row-height-increased.png) | ![Πίνακας μετά τη μείωση του ελάχιστου της πρώτης γραμμής σε 20 πόντους· το τυλιγμένο κείμενο κρατά τη γραμμή ψηλότερη από το ελάχιστο.](row-height-decreased.png) |
 
-    // Προσθέτει κείμενο στο κελί 1 της γραμμής 1
-    table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+## **Ορισμός της Πρώτης Γραμμής ως Κεφαλίδα**
 
-    // Προσθέτει κείμενο στο κελί 2 της γραμμής 1
-    table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+Χρησιμοποιήστε την ιδιότητα [FirstRow](https://reference.aspose.com/slides/net/aspose.slides/itable/firstrow/) για να χαρακτηριστεί η πρώτη γραμμή ως κεφαλίδα. Η εμφάνισή της εξαρτάται από το στυλ πίνακα που εφαρμόζεται.
 
-    // Κλωνοποιεί τη γραμμή 1 στο τέλος του πίνακα
-    table.Rows.AddClone(table.Rows[0], false);
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Πρόσβαση στον πίνακα που αποθηκεύεται ως το πρώτο σχήμα στη διαφάνεια.
+4. Ενεργοποιήστε τη μορφοποίηση κεφαλίδας για την πρώτη της γραμμή.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-    // Προσθέτει κείμενο στο κελί 1 της γραμμής 2
-    table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια. Ενεργοποιεί τη μορφοποίηση κεφαλίδας για την πρώτη γραμμή και αποθηκεύει το `First_row_header.pptx`.
 
-    // Προσθέτει κείμενο στο κελί 2 της γραμμής 2
-    table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Κλωνοποιεί τη γραμμή 2 ως τέταρτη γραμμή του πίνακα
-    table.Rows.InsertClone(3,table.Rows[1], false);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-    // Κλωνοποιεί την πρώτη στήλη στο τέλος
-    table.Columns.AddClone(table.Columns[0], false);
+var table = (ITable)slide.Shapes[0];
+table.FirstRow = true;
 
-    // Κλωνοποιεί τη δεύτερη στήλη στη θέση της τέταρτης στήλης
-    table.Columns.InsertClone(3,table.Columns[1], false);
-    
-    // Αποθηκεύει την παρουσίαση στο δίσκο 
-    presentation.Save("table_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("First_row_header.pptx", SaveFormat.Pptx);
 ```
 
-## **Αφαίρεση γραμμής ή στήλης από πίνακα**
+## **Κλωνοποίηση Γραμμής ή Στήλης Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) και φορτώστε την παρουσίαση, 
-2. Αποκτήστε αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα των `columnWidth`. 
-4. Ορίστε έναν πίνακα των `rowHeight`. 
-5. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) στη διαφάνεια μέσω της μεθόδου [AddTable](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addtable/). 
-6. Αφαιρέστε τη γραμμή του πίνακα. 
-7. Αφαιρέστε τη στήλη του πίνακα. 
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
+Κλωνοποιήστε γραμμές ή στήλες για να επαναχρησιμοποιήσετε το περιεχόμενο και τη μορφοποίησή τους. Μπορείτε να προσθέσετε ένα αντίγραφο στο τέλος του πίνακα ή να το εισάγετε σε συγκεκριμένη θέση.
 
-Αυτός ο κώδικας C# δείχνει πώς να αφαιρέσετε μια γραμμή ή μια στήλη από έναν πίνακα:
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Ορίστε τα πλάτη στήλης και τα ύψη γραμμής.
+4. Προσθέστε έναν πίνακα με τη μέθοδο [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+5. Κλωνοποιήστε τις απαιτούμενες γραμμές.
+6. Κλωνοποιήστε τις απαιτούμενες στήλες.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```c#
-Presentation pres = new Presentation();
+Το παράδειγμα απαιτεί το `Test.pptx` με τουλάχιστον μία διαφάνεια. Δημιουργεί έναν πίνακα με τρεις στήλες και πέντε γραμμές, με διαστάσεις καθορισμένες σε πόντους. Προσθέτει αντίγραφα της πρώτης γραμμής και στήλης, στη συνέχεια εισάγει αντίγραφα της δεύτερης γραμμής και στήλης στη θέση 3 (την τέταρτη θέση). Ο τελικός πίνακας έχει επτά γραμμές και πέντε στήλες. Το όρισμα `false` απενεργοποιεί την κλωνοποίηση σε γειτονικά συγχωνευμένα κελιά· αυτός ο πίνακας δεν έχει συγχωνευμένα κελιά.
 
-ISlide slide = pres.Slides[0];
-double[] colWidth = { 100, 50, 30 };
-double[] rowHeight = { 30, 50, 30 };
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-ITable table = slide.Shapes.AddTable(100, 100, colWidth, rowHeight);
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 50, 50, 50 };
+var rowHeights = new double[] { 50, 30, 30, 30, 30 };
+var table = slide.Shapes.AddTable(100, 50, columnWidths, rowHeights);
+
+table[0, 0].TextFrame.Text = "Row 1 Cell 1";
+table[1, 0].TextFrame.Text = "Row 1 Cell 2";
+table.Rows.AddClone(table.Rows[0], false);
+
+table[0, 1].TextFrame.Text = "Row 2 Cell 1";
+table[1, 1].TextFrame.Text = "Row 2 Cell 2";
+table.Rows.InsertClone(3, table.Rows[1], false);
+
+table.Columns.AddClone(table.Columns[0], false);
+table.Columns.InsertClone(3, table.Columns[1], false);
+
+presentation.Save("table_out.pptx", SaveFormat.Pptx);
+```
+
+## **Αφαίρεση Γραμμής ή Στήλης από Πίνακα**
+
+Αφαιρέστε γραμμές ή στήλες που δεν χρειάζονται πλέον σε ένα πίνακα. Η αφαίρεση ενός στοιχείου μετατοπίζει τους δείκτες των γραμμών ή στηλών που το ακολουθούν.
+
+1. Δημιουργήστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Ορίστε τα πλάτη στήλης και τα ύψη γραμμής.
+4. Προσθέστε έναν πίνακα με τη μέθοδο [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/).
+5. Αφαιρέστε τη δεύτερη γραμμή και τη δεύτερη στήλη.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα 3x3 και αφαιρεί τη γραμμή και τη στήλη στη θέση 1, αφήνοντας έναν πίνακα 2x2 στο `TestTable_out.pptx`. Οι διαστάσεις είναι σε πόντους. Το όρισμα `false` απενεργοποιεί την αφαίρεση γειτονικών συγχωνευμένων γραμμών ή στηλών· αυτός ο πίνακας δεν έχει συγχωνευμένα κελιά.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 50, 30 };
+var rowHeights = new double[] { 30, 50, 30 };
+var table = slide.Shapes.AddTable(100, 100, columnWidths, rowHeights);
+
 table.Rows.RemoveAt(1, false);
 table.Columns.RemoveAt(1, false);
-pres.Save("TestTable_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+
+presentation.Save("TestTable_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός μορφοποίησης κειμένου σε επίπεδο γραμμής πίνακα**
+## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Γραμμής Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) και φορτώστε την παρουσίαση, 
-2. Αποκτήστε αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Προσπελάστε το σχετικό αντικείμενο [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) από τη διαφάνεια. 
-4. Ορίστε το [FontHeight](https://reference.aspose.com/slides/el/net/aspose.slides/baseportionformat/fontheight/) των κυττάρων της πρώτης γραμμής. 
-5. Ορίστε το [Alignment](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/alignment/) και το [MarginRight](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/marginright/) των κυττάρων της πρώτης γραμμής. 
-6. Ορίστε το [TextVerticalType](https://reference.aspose.com/slides/el/net/aspose.slides/textframeformat/textverticaltype/) των κυττάρων της δεύτερης γραμμής. 
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
+Εφαρμόστε μορφοποίηση κειμένου σε ολόκληρη τη γραμμή ώστε να διατηρηθούν τα κελιά της συνεπή. Μπορείτε να ορίσετε ιδιότητες γραμματοσειράς, μορφοποίηση παραγράφου και κατεύθυνση κειμένου χωρίς να μορφοποιήσετε κάθε κελί ξεχωριστά.
 
-Αυτός ο κώδικας C# επιδεικνύει τη λειτουργία.
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Πρόσβαση στον πίνακα στην πρώτη διαφάνεια.
+3. Ορίστε το [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) για την πρώτη γραμμή.
+4. Ορίστε το [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) και το [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) για την πρώτη γραμμή.
+5. Ορίστε το [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) για τη δεύτερη γραμμή.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```c#
-// Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation presentation = new Presentation();
-           
-ISlide slide = presentation.Slides[0];
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον δύο γραμμές. Εφαρμόζει κείμενο 25‑πόντων, ευθυγράμμιση δεξιά και περιθώριο δεξιάς παραγράφου 20‑πόντων στην πρώτη γραμμή, στη συνέχεια ορίζει κάθετο κείμενο στη δεύτερη γραμμή.
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Ας υποθέσουμε ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι πίνακας
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Ορίζει το ύψος γραμματοσειράς των κυττάρων της πρώτης γραμμής
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Rows[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// Ορίζει την στοίχιση κειμένου και το δεξιό περιθώριο των κυττάρων της πρώτης γραμμής
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Rows[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// Ορίζει τον κάθετο τύπο κειμένου των κυττάρων της δεύτερης γραμμής
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Rows[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Rows[0].SetTextFormat(portionFormat);
 
-// Αποθηκεύει την παρουσίαση στο δίσκο
-presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Rows[0].SetTextFormat(paragraphFormat);
+
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Rows[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("row_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός μορφοποίησης κειμένου σε επίπεδο στήλης πίνακα**
+## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Στήλης Πίνακα**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) και φορτώστε την παρουσίαση, 
-2. Αποκτήστε αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Προσπελάστε το σχετικό αντικείμενο [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) από τη διαφάνεια. 
-4. Ορίστε το [FontHeight](https://reference.aspose.com/slides/el/net/aspose.slides/baseportionformat/fontheight/) των κυττάρων της πρώτης στήλης. 
-5. Ορίστε το [Alignment](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/alignment/) και το [MarginRight](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/marginright/) των κυττάρων της πρώτης στήλης. 
-6. Ορίστε το [TextVerticalType](https://reference.aspose.com/slides/el/net/aspose.slides/textframeformat/textverticaltype/) των κυττάρων της δεύτερης στήλης. 
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
+Εφαρμόστε μορφοποίηση κειμένου σε ολόκληρη τη στήλη ώστε να διατηρηθούν τα κελιά της συνεπή. Μπορείτε να ορίσετε ιδιότητες γραμματοσειράς, μορφοποίηση παραγράφου και κατεύθυνση κειμένου χωρίς να μορφοποιήσετε κάθε κελί ξεχωριστά.
 
-Αυτός ο κώδικας C# επιδεικνύει τη λειτουργία: 
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+2. Πρόσβαση στον πίνακα στην πρώτη διαφάνεια.
+3. Ορίστε το [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) για την πρώτη στήλη.
+4. Ορίστε το [Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) και το [MarginRight](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/marginright/) για την πρώτη στήλη.
+5. Ορίστε το [TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/textverticaltype/) για τη δεύτερη στήλη.
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```c#
- // Δημιουργεί μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
-           
-ISlide slide = pres.Slides[0];
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον δύο στήλες. Εφαρμόζει κείμενο 25‑πόντων, ευθυγράμμιση δεξιά και περιθώριο δεξιάς παραγράφου 20‑πόντων στην πρώτη στήλη, στη συνέχεια ορίζει κάθετο κείμενο στη δεύτερη στήλη.
 
-ITable someTable = pres.Slides[0].Shapes[0] as ITable; // Ας υποθέσουμε ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι πίνακας
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Ορίζει το ύψος γραμματοσειράς των κυττάρων της πρώτης στήλης
-PortionFormat portionFormat = new PortionFormat();
-portionFormat.FontHeight = 25;
-someTable.Columns[0].SetTextFormat(portionFormat);
+using var presentation = new Presentation("table.pptx");
+var slide = presentation.Slides[0];
 
-// Ορίζει την στοίχιση κειμένου και το δεξιό περιθώριο των κυττάρων της πρώτης στήλης σε μία κλήση
-ParagraphFormat paragraphFormat = new ParagraphFormat();
-paragraphFormat.Alignment = TextAlignment.Right;
-paragraphFormat.MarginRight = 20;
-someTable.Columns[0].SetTextFormat(paragraphFormat);
+var table = (ITable)slide.Shapes[0];
 
-// Ορίζει τον κάθετο τύπο κειμένου των κυττάρων της δεύτερης στήλης
-TextFrameFormat textFrameFormat = new TextFrameFormat();
-textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
-someTable.Columns[1].SetTextFormat(textFrameFormat);
+var portionFormat = new PortionFormat { FontHeight = 25 };
+table.Columns[0].SetTextFormat(portionFormat);
 
-// Αποθηκεύει την παρουσίαση στο δίσκο
-pres.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var paragraphFormat = new ParagraphFormat { Alignment = TextAlignment.Right, MarginRight = 20 };
+table.Columns[0].SetTextFormat(paragraphFormat);
 
+var textFrameFormat = new TextFrameFormat { TextVerticalType = TextVerticalType.Vertical };
+table.Columns[1].SetTextFormat(textFrameFormat);
+
+presentation.Save("column_formatting.pptx", SaveFormat.Pptx);
 ```
 
-## **Λήψη ιδιοτήτων στυλ πίνακα**
+## **Ανάκτηση Ιδιοτήτων Στυλ Πίνακα**
 
-Το Aspose.Slides σας επιτρέπει να ανακτήσετε τις ιδιότητες στυλ για έναν πίνακα ώστε να μπορείτε να χρησιμοποιήσετε αυτές τις λεπτομέρειες για άλλο πίνακα ή κάπου αλλού. Αυτός ο κώδικας C# δείχνει πώς να λάβετε τις ιδιότητες στυλ από ένα προρυθμισμένο στυλ πίνακα: 
+Χρησιμοποιήστε την ιδιότητα [StylePreset](https://reference.aspose.com/slides/net/aspose.slides/itable/stylepreset/) για να ανακτήσετε το προεπιλεγμένο στυλ που εφαρμόζεται σε έναν πίνακα και να το επαναχρησιμοποιήσετε σε άλλο πίνακα. Αυτό προσδιορίζει το προεπιλεγμένο στυλ αντί για τις ατομικές παρακάμψεις μορφοποίησης κελιού.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // αλλάζει το προεπιλεγμένο θέμα προεπιλογής στυλ
-    pres.Save("table.pptx", SaveFormat.Pptx);
-}
+Το παράδειγμα δημιουργεί έναν πίνακα, εφαρμόζει το [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/net/aspose.slides/tablestylepreset/), και διαβάζει το προεπιλεγμένο στυλ. Εκτυπώνει το `DarkStyle1` και αποθηκεύει τον πίνακα στο `table.pptx`.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var columnWidths = new double[] { 100, 150 };
+var rowHeights = new double[] { 5, 5, 5 };
+var table = slide.Shapes.AddTable(10, 10, columnWidths, rowHeights);
+table.StylePreset = TableStylePreset.DarkStyle1;
+
+Console.WriteLine(table.StylePreset);
+
+presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να εφαρμόσω θέματα/στυλ PowerPoint σε έναν πίνακα που έχει ήδη δημιουργηθεί;**
+**Μπορώ να εφαρμόσω θέματα/στυλ PowerPoint σε έναν ήδη δημιουργημένο πίνακα;**
 
-Ναι. Ο πίνακας κληρονομεί το θέμα της διαφάνειας/διάταξης/κύριας παρουσίασης, και μπορείτε ακόμα να αντικαταστήσετε τα γεμίσματα, τα περιθώρια και τα χρώματα κειμένου πάνω από αυτό το θέμα.
+Ναι. Ο πίνακας κληρονομεί το θέμα της διαφάνειας/διάταξης/πρωτεύοντος, και μπορείτε ακόμη να παρακάμψετε τα γέμιστρα, τα περιγράμματα και τα χρώματα κειμένου πάνω από το θέμα.
 
 **Μπορώ να ταξινομήσω τις γραμμές του πίνακα όπως στο Excel;**
 
-Όχι, οι πίνακες του Aspose.Slides δεν διαθέτουν ενσωματωμένη ταξινόμηση ή φίλτρα. Ταξινομήστε πρώτα τα δεδομένα στη μνήμη και, στη συνέχεια, ξαναγεμίστε τις γραμμές του πίνακα με τη σειρά αυτή.
+Όχι, οι πίνακες Aspose.Slides δεν διαθέτουν ενσωματωμένη ταξινόμηση ή φίλτρα. Ταξινομήστε τα δεδομένα στη μνήμη πρώτα, έπειτα επανασυμπληρώστε τις γραμμές του πίνακα με αυτή τη σειρά.
 
-**Μπορώ να έχω ταινιασμένες (striped) στήλες διατηρώντας προσαρμοσμένα χρώματα σε συγκεκριμένα κελιά;**
+**Μπορώ να έχω λωρίδες (striped) στήλες ενώ διατηρώ προσαρμοσμένα χρώματα σε συγκεκριμένα κελιά;**
 
-Ναι. Ενεργοποιήστε τις ταινιασμένες στήλες, στη συνέχεια αντικαταστήστε συγκεκριμένα κελιά με τοπική μορφοποίηση· η μορφοποίηση επιπέδου κελιού έχει προτεραιότητα έναντι του στυλ πίνακα.
+Ναι. Ενεργοποιήστε τις λωρίδες στις στήλες, έπειτα παρακάμψτε συγκεκριμένα κελιά με τοπική μορφοποίηση· η μορφοποίηση επιπέδου κελιού έχει προτεραιότητα πάνω από το στυλ πίνακα.

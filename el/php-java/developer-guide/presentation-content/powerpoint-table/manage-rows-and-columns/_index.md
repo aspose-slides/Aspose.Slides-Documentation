@@ -1,6 +1,6 @@
 ---
-title: "Διαχείριση γραμμών και στηλών σε πίνακες PowerPoint χρησιμοποιώντας PHP"
-linktitle: "Γραμμές και Στήλες"
+title: Διαχείριση Γραμμών και Στηλών σε Πίνακες PowerPoint με PHP
+linktitle: Γραμμές και Στήλες
 type: docs
 weight: 20
 url: /el/php-java/manage-rows-and-columns/
@@ -22,233 +22,297 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Διαχειριστείτε τις γραμμές και τις στήλες πίνακα στο PowerPoint με το Aspose.Slides για PHP μέσω Java και επιταχύνετε την επεξεργασία παρουσιάσεων και την ενημέρωση δεδομένων."
+description: "Διαχειριστείτε τις γραμμές και στήλες των πινάκων σε PowerPoint με Aspose.Slides για PHP μέσω Java και επιταχύνετε την επεξεργασία παρουσιάσεων και την ενημέρωση δεδομένων."
 ---
 ## **Εισαγωγή**
 
-Για να μπορείτε να διαχειρίζεστε τις γραμμές και τις στήλες ενός πίνακα σε μια παρουσίαση PowerPoint, το Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/table/) και πολλούς άλλους τύπους.
+Το Aspose.Slides for PHP μέσω Java σάς επιτρέπει να διαχειρίζεστε τη δομή και τη μορφοποίηση πινάκων σε παρουσιάσεις PowerPoint μέσω της κλάσης [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Μπορείτε να ορίσετε μια γραμμή κεφαλίδας, να κλωνοποιήσετε ή να αφαιρέσετε γραμμές και στήλες, και να εφαρμόσετε μορφοποίηση κειμένου σε ολόκληρη τη γραμμή ή στήλη.
 
-## **Ορισμός της πρώτης γραμμής ως κεφαλίδα**
+Αυτό το άρθρο εξηγεί αυτές τις λειτουργίες με παραδείγματα PHP. Επίσης δείχνει πώς να ανακτήσετε το προεπιλεγμένο στυλ ενός πίνακα ώστε να το επαναχρησιμοποιήσετε. Οι δείκτες γραμμών και στηλών του πίνακα είναι μηδενικής βάσης.
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση.
-2. Αποκτήστε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Δημιουργήστε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/Table) και ορίστε το σε null.
-4. Περιηγηθείτε σε όλα τα αντικείμενα [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) για να βρείτε τον σχετικό πίνακα.
-5. Ορίστε την πρώτη γραμμή του πίνακα ως κεφαλίδα. 
+## **Έλεγχος Ύψους Γραμμής**
 
-Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε την πρώτη γραμμή ενός πίνακα ως κεφαλίδα:
+Χρησιμοποιήστε [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/) για να ορίσετε το ελάχιστο ύψος μιας γραμμής σε σημεία. Είναι ένα κατώτερο όριο, όχι σταθερό ύψος. Η μέθοδος [Row::getHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/getheight/) επιστρέφει το πραγματικό ύψος. Πρόσβαση στη γραμμή μέσω της [Table::getRows](https://reference.aspose.com/slides/php-java/aspose.slides/table/getrows/).
+
+Το παράδειγμα φορτώνει το [row-height-input.pptx](row-height-input.pptx), το οποίο έχει έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη του σειρά ξεκινά στα 70 σημεία. Τα κελιά χρησιμοποιούν κείμενο Arial 18 σημείων, με αναδίπλωση και περιθώρια 6 σημεία πάνω και κάτω· το μεγαλύτερο κείμενο στη δεύτερη στήλη αναδιπλώνεται σε πολλαπλές γραμμές. Το παράδειγμα αυξάνει το ελάχιστο σε 100 σημεία, έπειτα το μειώνει σε 20 σημεία, εκτυπώνει το πραγματικό ύψος μετά από κάθε αλλαγή, και αποθηκεύει και τα δύο αποτελέσματα.
 
 ```php
-  # Δημιουργεί μια παρουσίαση της κλάσης Presentation
-  $pres = new Presentation("table.pptx");
-  try {
-    # Πρόσβαση στην πρώτη διαφάνεια
-    $sld = $pres->getSlides()->get_Item(0);
-    # Αρχικοποιεί το null TableEx
-    $tbl = null;
-    # Διασχίζει τα σχήματα και ορίζει μια αναφορά στον πίνακα
-    foreach($sld->getShapes() as $shp) {
-      if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
-        $tbl = $shp;
-        # Ορίζει την πρώτη γραμμή του πίνακα ως κεφαλίδα
-        $tbl->setFirstRow(true);
-      }
-    }
-    # Αποθηκεύει την παρουσίαση στον δίσκο
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("row-height-input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $row = $table->getRows()->get_Item(0);
+
+    $row->setMinimalHeight(100);
+    printf("Increased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-increased.pptx", SaveFormat::Pptx);
+
+    $row->setMinimalHeight(20);
+    printf("Decreased: minimum = %.1f, actual = %.1f pt\n", java_values($row->getMinimalHeight()), java_values($row->getHeight()));
+    $presentation->save("row-height-decreased.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Κλωνοποίηση γραμμής ή στήλης πίνακα**
+Με την παρεχόμενη παρουσίαση, η αύξηση του ελάχιστου προσθέτει χώρο στη γραμμή. Η μείωση αφαιρεί αυτόν τον επιπλέον χώρο, αλλά το πραγματικό ύψος παραμένει μεγαλύτερο από 20 σημεία επειδή το κείμενο και τα περιθώρια των κελιών χρειάζονται περισσότερο χώρο. Η μόνο μείωση του ελάχιστου δεν μπορεί να οδηγήσει τη γραμμή κάτω από το χώρο που απαιτεί το περιεχόμενό της.
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση,
-2. Αποκτήστε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα `columnWidth`.
-4. Ορίστε έναν πίνακα `rowHeight`.
-5. Προσθέστε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/Table) στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addtable/).
-6. Κλωνοποιήστε τη γραμμή του πίνακα.
-7. Κλωνοποιήστε τη στήλη του πίνακα.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Πολλοί παράγοντες επηρεάζουν το πραγματικό ύψος:
+- **Κείμενο και μέγεθος γραμματοσειράς:** το μεγαλύτερο κείμενο, οι ρητοί αλλαγές γραμμής ή μια μεγαλύτερη γραμματοσειρά μπορεί να απαιτούν περισσότερη κάθετη διάστημα.
+- **Αναδίπλωση και πλάτος στήλης:** με ενεργοποιημένη την αναδίπλωση, η μείωση του πλάτους της στήλης με τη μέθοδο [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) μπορεί να δημιουργήσει περισσότερες γραμμές. Μια πιο ευρεία στήλη μπορεί να μειώσει το απαιτούμενο κάθετο διάστημα.
+- **Περιθώρια κελιού:** οι μέθοδοι [Cell::setMarginTop](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmargintop/) και [Cell::setMarginBottom](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginbottom/) προσθέτουν κάθετο διάστημα. Οι [Cell::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginleft/) και [Cell::setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/setmarginright/) μειώνουν το διαθέσιμο πλάτος για το κείμενο και μπορούν να προκαλέσουν πρόσθετη αναδίπλωση.
 
-Αυτός ο κώδικας PHP δείχνει πώς να κλωνοποιήσετε τη γραμμή ή τη στήλη ενός πίνακα PowerPoint:
+Για αυτόν τον πίνακα χωρίς συγχωνευμένα κελιά, το κελί που χρειάζεται το περισσότερο κάθετο διάστημα καθορίζει το όριο κατώτερου επιπέδου για ολόκληρη τη γραμμή. Για να μειώσετε το ύψος της γραμμής, ίσως χρειαστεί να συντομεύσετε το κείμενο, να μειώσετε το μέγεθος γραμματοσειράς ή τα περιθώρια, ή να διευρύνετε μια στήλη.
+
+Τα παρακάτω εικόνες δείχνουν τον ίδιο πίνακα στην ίδια κλίμακα. Σ τα παραδειγμένα αποτελέσματα, τα πραγματικά ύψη ήταν 70, 100 και 55,2 σημεία: η τελική γραμμή παρέμεινε ψηλότερη από το ελάχιστο των 20 σημείων. Οι ακριβείς μετρήσεις κειμένου μπορεί να διαφέρουν ανάλογα με τις γραμματοσειρές που είναι διαθέσιμες στο περιβάλλον σας. Κατεβάστε τα αποθηκευμένα αποτελέσματα: [αυξημένο ελάχιστο](row-height-increased.pptx) και [μειωμένο ελάχιστο](row-height-decreased.pptx).
+
+| Αρχικό: ελάχιστο 70 pt, πραγματικό 70 pt | Αυξημένο: ελάχιστο 100 pt, πραγματικό 100 pt | Μειωμένο: ελάχιστο 20 pt, πραγματικό 55.2 pt |
+| --- | --- | --- |
+| ![Αρχικός πίνακας με πρώτη σειρά 70 σημείων.](row-height-before.png) | ![Πίνακας μετά την αύξηση του ελάχιστου της πρώτης σειράς σε 100 σημεία.](row-height-increased.png) | ![Πίνακας μετά τη μείωση του ελάχιστου της πρώτης σειράς σε 20 σημεία· το αναδιπλωμένο κείμενο κρατά τη σειρά ψηλότερη από το ελάχιστο.](row-height-decreased.png) |
+
+## **Ορισμός της Πρώτης Γραμμής ως Κεφαλίδα**
+
+Χρησιμοποιήστε τη μέθοδο [setFirstRow](https://reference.aspose.com/slides/php-java/aspose.slides/table/setfirstrow/) για να σημαδέψετε την πρώτη γραμμή για μορφοποίηση κεφαλίδας. Η εμφάνισή της εξαρτάται από το στυλ πίνακα που εφαρμόζεται στον πίνακα.
+
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Πρόσβαση στον πίνακα που αποθηκεύεται ως το πρώτο σχήμα στη διαφάνεια.
+4. Ενεργοποίηση της μορφοποίησης κεφαλίδας για την πρώτη του γραμμή.
+5. Αποθήκευση της τροποποιημένης παρουσίασης.
+
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια. Ενεργοποιεί τη μορφοποίηση κεφαλίδας για την πρώτη γραμμή και αποθηκεύει το `First_row_header.pptx`.
 
 ```php
-  # Δημιουργεί μια παρουσίαση της κλάσης Presentation
-  $pres = new Presentation("Test.pptx");
-  try {
-    # Πρόσβαση στην πρώτη διαφάνεια
-    $sld = $pres->getSlides()->get_Item(0);
-    # Ορίζει στήλες με πλάτη και γραμμές με ύψη
-    $dblCols = array(50, 50, 50 );
-    $dblRows = array(50, 30, 30, 30, 30 );
-    # Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
-    $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Προσθέτει κείμενο στο κελί 1 της γραμμής 1
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+    $table->setFirstRow(true);
+
+    $presentation->save("First_row_header.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Κλωνοποίηση Γραμμής ή Στήλης Πίνακα**
+
+Κλωνοποιήστε γραμμές ή στήλες για να επαναχρησιμοποιήσετε το περιεχόμενό τους και τη μορφοποίησή τους. Μπορείτε να προσαρτήσετε ένα αντίγραφο στο τέλος του πίνακα ή να το εισάγετε σε συγκεκριμένη θέση.
+
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Ορισμός του πλάτους των στηλών και του ύψους των γραμμών.
+4. Προσθήκη πίνακα με τη μέθοδο [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+5. Κλωνοποίηση των απαιτούμενων γραμμών.
+6. Κλωνοποίηση των απαιτούμενων στηλών.
+7. Αποθήκευση της τροποποιημένης παρουσίασης.
+
+Το παράδειγμα απαιτεί το `Test.pptx` με τουλάχιστον μία διαφάνεια. Δημιουργεί έναν πίνακα με τρεις στήλες και πέντε γραμμές, με διαστάσεις καθορισμένες σε σημεία. Προσθέτει αντίγραφα της πρώτης γραμμής και στήλης, έπειτα εισάγει αντίγραφα της δεύτερης γραμμής και στήλης στην θέση 3 (στην τέταρτη θέση). Ο resulting πίνακας έχει επτά γραμμές και πέντε στήλες. Το επιχείρημα `false` απενεργοποιεί την κλωνοποίηση σε γειτονικές συγχωνευμένες γραμμές ή στήλες· αυτός ο πίνακας δεν έχει συγχωνευμένα κελιά.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [50, 50, 50];
+    $rowHeights = [50, 30, 30, 30, 30];
+    $table = $slide->getShapes()->addTable(100, 50, $columnWidths, $rowHeights);
+
     $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
-    # Προσθέτει κείμενο στο κελί 2 της γραμμής 1
     $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
-    # Κλωνοποιεί τη γραμμή 1 στο τέλος του πίνακα
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    # Προσθέτει κείμενο στο κελί 1 της γραμμής 2
+
     $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
-    # Προσθέτει κείμενο στο κελί 2 της γραμμής 2
     $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
-    # Κλωνοποιεί τη γραμμή 2 ως 4η γραμμή του πίνακα
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
-    # Κλωνοποιεί την πρώτη στήλη στο τέλος
+
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    # Κλωνοποιεί τη 2η στήλη στη θέση της 4ης στήλης
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
-    # Αποθηκεύει την παρουσίαση στον δίσκο
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("table_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Αφαίρεση γραμμής ή στήλης από πίνακα**
+## **Αφαίρεση Γραμμής ή Στήλης από Πίνακα**
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση,
-2. Αποκτήστε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα `columnWidth`.
-4. Ορίστε έναν πίνακα `rowHeight`.
-5. Προσθέστε ένα αντικείμενο [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/Table) στη διαφάνεια μέσω της μεθόδου [addTable](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addtable/).
-6. Αφαιρέστε τη γραμμή του πίνακα.
-7. Αφαιρέστε τη στήλη του πίνακα.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
+Αφαιρέστε γραμμές ή στήλες που δεν χρειάζονται πλέον σε έναν πίνακα. Η αφαίρεση ενός στοιχείου μετατοπίζει τους δείκτες των γραμμών ή στηλών που ακολουθούν.
 
-Αυτός ο κώδικας PHP δείχνει πώς να αφαιρέσετε μια γραμμή ή στήλη από πίνακα:
+1. Δημιουργία παρουσίασης με την κλάση [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στην πρώτη διαφάνεια.
+3. Ορισμός του πλάτους των στηλών και του ύψους των γραμμών.
+4. Προσθήκη πίνακα με τη μέθοδο [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/).
+5. Αφαίρεση της δεύτερης γραμμής και της δεύτερης στήλης.
+6. Αποθήκευση της τροποποιημένης παρουσίασης.
+
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα τριών επί τριών και αφαιρεί τη γραμμή και τη στήλη στη θέση 1, αφήνοντας έναν πίνακα δύο επί δύο στο `TestTable_out.pptx`. Οι διαστάσεις είναι σε σημεία. Το επιχείρημα `false` απενεργοποιεί την αφαίρεση γειτονικών συγχωνευμένων γραμμών ή στηλών· αυτός ο πίνακας δεν έχει συγχωνευμένα κελιά.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $colWidth = array(100, 50, 30 );
-    $rowHeight = array(30, 50, 30 );
-    $table = $slide->getShapes()->addTable(100, 100, $colWidth, $rowHeight);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 50, 30];
+    $rowHeights = [30, 50, 30];
+    $table = $slide->getShapes()->addTable(100, 100, $columnWidths, $rowHeights);
+
     $table->getRows()->removeAt(1, false);
     $table->getColumns()->removeAt(1, false);
-    $pres->save("TestTable_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TestTable_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ορισμός μορφοποίησης κειμένου σε επίπεδο γραμμής πίνακα**
+## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Γραμμής Πίνακα**
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση,
-2. Αποκτήστε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσπελάστε το σχετικό αντικείμενο [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/Table) από τη διαφάνεια.
-4. Ορίστε το [setFontHeight(float value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setFontHeight) των κελιών της πρώτης γραμμής.
-5. Ορίστε το [setAlignment(int value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setalignment/) και το [setMarginRight(float value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setmarginright/) των κελιών της πρώτης γραμμής.
-6. Ορίστε το [setTextVerticalType(byte value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/settextverticaltype/) των κελιών της δεύτερης γραμμής.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Εφαρμόστε μορφοποίηση κειμένου σε ολόκληρη τη γραμμή για να διατηρήσετε τα κελιά της συνεπή. Μπορείτε να ορίσετε ιδιότητες γραμματοσειράς, μορφοποίηση παραγράφου και κατεύθυνση κειμένου χωρίς να μορφοποιήσετε κάθε κελί ξεχωριστά.
 
-Αυτός ο κώδικας PHP επιδεικνύει τη λειτουργία.
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στον πίνακα στην πρώτη διαφάνεια.
+3. Χρησιμοποιήστε το [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) για την πρώτη γραμμή.
+4. Χρησιμοποιήστε τα [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) και [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) για την πρώτη γραμμή.
+5. Χρησιμοποιήστε το [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) για τη δεύτερη γραμμή.
+6. Αποθήκευση της τροποποιημένης παρουσίασης.
+
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον δύο γραμμές. Εφαρμόζει κείμενο 25 σημείων, δεξιά στοίχιση και περιθώριο παραγράφου 20 σημειών στα δεξιά στην πρώτη γραμμή, και στη συνέχεια ορίζει κάθετο κείμενο στη δεύτερη γραμμή.
 
 ```php
-  # Δημιουργεί ένα αντίτυπο της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    # Ας υποθέσουμε ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένας πίνακας
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Ορίζει το ύψος γραμματοσειράς των κελιών της πρώτης γραμμής
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
-    # Ορίζει την ευθυγράμμιση κειμένου και το δεξί περιθώριο των κελιών της πρώτης γραμμής
+    $portionFormat->setFontHeight(25);
+    $table->getRows()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Ορίζει τον κατακόρυφο τύπο κειμένου των κελιών της δεύτερης γραμμής
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    # Αποθηκεύει την παρουσίαση στον δίσκο
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("row_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ορισμός μορφοποίησης κειμένου σε επίπεδο στήλης πίνακα**
+## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Στήλης Πίνακα**
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση,
-2. Αποκτήστε τη αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσπελάστε το σχετικό αντικείμενο [Table](https://reference.aspose.com/slides/el/php-java/aspose.slides/Table) από τη διαφάνεια.
-4. Ορίστε το [setFontHeight(float value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setFontHeight) των κελιών της πρώτης στήλης.
-5. Ορίστε το [setAlignment(int value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setalignment/) και το [setMarginRight(float value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setmarginright/) των κελιών της πρώτης στήλης.
-6. Ορίστε το [setTextVerticalType(byte value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/settextverticaltype/) των κελιών της δεύτερης στήλης.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση. 
+Εφαρμόστε μορφοποίηση κειμένου σε ολόκληρη τη στήλη για να διατηρήσετε τα κελιά της συνεπή. Μπορείτε να ορίσετε ιδιότητες γραμματοσειράς, μορφοποίηση παραγράφου και κατεύθυνση κειμένου χωρίς να μορφοποιήσετε κάθε κελί ξεχωριστά.
 
-Αυτός ο κώδικας PHP επιδεικνύει τη λειτουργία:
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στον πίνακα στην πρώτη διαφάνεια.
+3. Χρησιμοποιήστε το [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) για την πρώτη στήλη.
+4. Χρησιμοποιήστε τα [setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) και [setMarginRight](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginright/) για την πρώτη στήλη.
+5. Χρησιμοποιήστε το [setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/settextverticaltype/) για τη δεύτερη στήλη.
+6. Αποθήκευση της τροποποιημένης παρουσίασης.
+
+Το παράδειγμα απαιτεί το `table.pptx` με έναν πίνακα ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον δύο στήλες. Εφαρμόζει κείμενο 25 σημείων, δεξιά στοίχιση και περιθώριο παραγράφου 20 σημείων στα δεξιά στην πρώτη στήλη, και στη συνέχεια ορίζει κάθετο κείμενο στη δεύτερη στήλη.
 
 ```php
-  # Δημιουργεί ένα αντίτυπο της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    # Ας υποθέσουμε ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένας πίνακας
-    $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Ορίζει το ύψος γραμματοσειράς των κελιών της πρώτης στήλης
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\PortionFormat;
+use aspose\slides\ParagraphFormat;
+use aspose\slides\TextFrameFormat;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation("table.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $table = $slide->getShapes()->get_Item(0);
+
     $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(25);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
-    # Ορίζει την ευθυγράμμιση κειμένου και το δεξί περιθώριο των κελιών της πρώτης στήλης σε μία κλήση
+    $portionFormat->setFontHeight(25);
+    $table->getColumns()->get_Item(0)->setTextFormat($portionFormat);
+
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat::setAlignment(TextAlignment->Right);
-    $paragraphFormat::setMarginRight(20);
-    $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    # Ορίζει τον κατακόρυφο τύπο κειμένου των κελιών της δεύτερης στήλης
+    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setMarginRight(20);
+    $table->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
+
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
-    $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $table->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
+
+    $presentation->save("column_formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Λήψη ιδιοτήτων στυλ πίνακα**
+## **Λήψη Ιδιοτήτων Στυλ Πίνακα**
 
-Το Aspose.Slides σας επιτρέπει να ανακτάτε τις ιδιότητες στυλ για έναν πίνακα ώστε να μπορείτε να χρησιμοποιήσετε αυτές τις λεπτομέρειες για άλλο πίνακα ή σε άλλο σημείο. Αυτός ο κώδικας PHP δείχνει πώς να λάβετε τις ιδιότητες στυλ από ένα προεπιλεγμένο στυλ πίνακα:
+Χρησιμοποιήστε τη μέθοδο [getStylePreset](https://reference.aspose.com/slides/php-java/aspose.slides/table/getstylepreset/) για να ανακτήσετε το προεπιλεγμένο στυλ που εφαρμόζεται σε έναν πίνακα και να το επαναχρησιμοποιήσετε σε άλλο πίνακα. Αυτό εντοπίζει το προεπιλεγμένο στυλ αντί για τις ατομικές παρακάμψεις μορφοποίησης κελιών.
+
+Το παράδειγμα δημιουργεί έναν πίνακα, εφαρμόζει το [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/php-java/aspose.slides/tablestylepreset/#DarkStyle1), και διαβάζει το προεπιλεγμένο στυλ πίσω. Εκτυπώνει την ακέραια τιμή που αντιστοιχεί στο `DarkStyle1` και αποθηκεύει τον πίνακα στο `table.pptx`.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset->DarkStyle1);// αλλάζει το προεπιλεγμένο στυλ θέματος
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 150];
+    $rowHeights = [5, 5, 5];
+    $table = $slide->getShapes()->addTable(10, 10, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::DarkStyle1);
+
+    $stylePreset = $table->getStylePreset();
+    echo java_values($stylePreset) . PHP_EOL;
+
+    $presentation->save("table.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Μπορώ να εφαρμόσω θέματα/στυλ PowerPoint σε έναν πίνακα που έχει ήδη δημιουργηθεί;**
 
-Ναι. Ο πίνακας κληρονομεί το θέμα της διαφάνειας/διάταξης/κύριου, και μπορείτε ακόμη να παρακάμψετε τα γέμιστρα, τα περιγράμματα και τα χρώματα κειμένου πάνω από αυτό το θέμα.
+Ναι. Ο πίνακας κληρονομεί το θέμα της διαφάνειας/διάταξης/κύριου, και μπορείτε ακόμη να παρακάμψετε τις γεμές, τα περιγράμματα και τα χρώματα κειμένου πάνω από αυτό το θέμα.
 
 **Μπορώ να ταξινομήσω τις γραμμές του πίνακα όπως στο Excel;**
 
-Όχι, οι πίνακες Aspose.Slides δεν διαθέτουν ενσωματωμένη ταξινόμηση ή φίλτρα. Ταξινομήστε τα δεδομένα στη μνήμη πρώτα, κατόπιν επαναπληρώστε τις γραμμές του πίνακα με αυτή τη σειρά.
+Όχι, οι πίνακες Aspose.Slides δεν διαθέτουν ενσωματωμένη ταξινόμηση ή φίλτρα. Ταξινομήστε τα δεδομένα σας στη μνήμη πρώτα, και στη συνέχεια επανασυμπληρώστε τις γραμμές του πίνακα με αυτή τη σειρά.
 
-**Μπορώ να έχω εναλλασσόμενες (striped) στήλες διατηρώντας προσαρμοσμένα χρώματα σε συγκεκριμένα κελιά;**
+**Μπορώ να έχω ενωμένες (striped) στήλες ενώ διατηρώ προσαρμοσμένα χρώματα σε συγκεκριμένα κελιά;**
 
-Ναι. Ενεργοποιήστε τις εναλλασσόμενες στήλες, στη συνέχεια παρακάμψτε συγκεκριμένα κελιά με τοπική μορφοποίηση· η μορφοποίηση σε επίπεδο κελιού έχει προτεραιότητα πάνω από το στυλ του πίνακα.
+Ναι. Ενεργοποιήστε τις ενωμένες στήλες, έπειτα παρακάμψτε συγκεκριμένα κελιά με τοπική μορφοποίηση· η μορφοποίηση επιπέδου κελιού έχει προτεραιότητα πάνω από το στυλ του πίνακα.

@@ -1,5 +1,5 @@
 ---
-title: Quản lý các hàng và cột trong bảng PowerPoint trên Android
+title: Quản lý hàng và cột trong bảng PowerPoint trên Android
 linktitle: Hàng và Cột
 type: docs
 weight: 20
@@ -8,9 +8,9 @@ keywords:
 - hàng bảng
 - cột bảng
 - hàng đầu tiên
-- tiêu đề bảng
-- sao chép hàng
-- sao chép cột
+- đầu đề bảng
+- nhân bản hàng
+- nhân bản cột
 - sao chép hàng
 - sao chép cột
 - xóa hàng
@@ -19,255 +19,284 @@ keywords:
 - định dạng văn bản cột
 - kiểu bảng
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Quản lý các hàng và cột của bảng trong PowerPoint bằng Aspose.Slides cho Android thông qua Java và tăng tốc việc chỉnh sửa bài thuyết trình cũng như cập nhật dữ liệu."
+description: "Quản lý các hàng và cột của bảng trong PowerPoint bằng Aspose.Slides cho Android qua Java và tăng tốc việc chỉnh sửa bản trình bày và cập nhật dữ liệu."
 ---
 ## **Giới thiệu**
 
-Để cho phép bạn quản lý các hàng và cột của bảng trong một bài thuyết trình PowerPoint, Aspose.Slides cung cấp lớp [Table](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/table/) , giao diện [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) và nhiều loại khác.
+Aspose.Slides cho Android qua Java cho phép bạn quản lý cấu trúc và định dạng bảng trong các bản trình bày PowerPoint thông qua lớp [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) và giao diện [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Bạn có thể chỉ định hàng tiêu đề, sao chép hoặc xóa các hàng và cột, và áp dụng định dạng văn bản cho toàn bộ hàng hoặc cột.
 
-## **Đặt hàng đầu tiên làm tiêu đề**
+Bài viết này giải thích các thao tác này bằng các ví dụ Java. Nó cũng chỉ ra cách lấy preset kiểu bảng để bạn có thể tái sử dụng. Chỉ mục hàng và cột của bảng được tính từ 0.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình chiếu.  
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.  
-3. Tạo một đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) và gán nó thành null.  
-4. Duyệt qua tất cả các đối tượng [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) để tìm bảng liên quan.  
-5. Đặt hàng đầu tiên của bảng làm tiêu đề.  
+## **Kiểm soát chiều cao hàng**
 
-Đoạn mã Java này cho bạn thấy cách đặt hàng đầu tiên của bảng làm tiêu đề:
+Sử dụng [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) để đặt chiều cao tối thiểu của một hàng tính bằng point. Đây là giới hạn dưới, không phải chiều cao cố định. [IRow.getHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#getHeight--) trả về chiều cao thực tế. Truy cập hàng thông qua [ITable.getRows](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getRows--).
+
+Ví dụ tải [row-height-input.pptx](row-height-input.pptx), trong đó bảng là hình dạng đầu tiên trên slide đầu tiên. Hàng đầu tiên bắt đầu ở 70 point. Các ô sử dụng văn bản Arial 18-point, có ngắt dòng và lề trên dưới 6-point; văn bản dài hơn ở cột thứ hai được ngắt dòng thành nhiều dòng. Ví dụ tăng tối thiểu lên 100 point, sau đó giảm xuống 20 point, in ra chiều cao thực tế sau mỗi lần thay đổi, và lưu cả hai kết quả.
 
 ```java
-// Khởi tạo lớp Presentation
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
 try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Khởi tạo TableEx null
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
 
-    // Duyệt qua các shape và đặt tham chiếu tới bảng
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Đặt hàng đầu tiên của bảng làm tiêu đề
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Sao chép một hàng hoặc cột bảng**
+Với bản trình bày được cung cấp, tăng tối thiểu sẽ thêm không gian cho hàng. Giảm nó sẽ loại bỏ không gian thừa, nhưng chiều cao thực tế vẫn lớn hơn 20 point vì văn bản và lề ô cần thêm chỗ. Chỉ giảm tối thiểu không thể buộc hàng xuống dưới không gian cần thiết cho nội dung của nó.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình chiếu,  
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.  
-3. Xác định một mảng `columnWidth`.  
-4. Xác định một mảng `rowHeight`.  
-5. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Sao chép hàng bảng.  
-7. Sao chép cột bảng.  
-8. Lưu bản trình chiếu đã sửa đổi.  
+Một số yếu tố ảnh hưởng đến chiều cao thực tế:
 
-Đoạn mã Java này cho bạn thấy cách sao chép một hàng hoặc cột của bảng PowerPoint:
+- **Văn bản và kích thước phông chữ:** văn bản dài hơn, ngắt dòng rõ ràng, hoặc phông chữ lớn hơn có thể yêu cầu nhiều không gian dọc hơn.
+- **Ngắt dòng và độ rộng cột:** với ngắt dòng bật, giảm độ rộng cột bằng [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) có thể tạo ra nhiều dòng hơn. Cột rộng hơn có thể giảm không gian cần thiết theo chiều dọc.
+- **Lề ô:** [ICell.setMarginTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginTop-double-) và [ICell.setMarginBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginBottom-double-) thêm không gian dọc. [ICell.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginLeft-double-) và [ICell.setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginRight-double-) giảm độ rộng khả dụng cho văn bản và có thể gây ngắt dòng bổ sung.
+
+Đối với bảng này không có ô hợp nhất, ô cần không gian dọc nhiều nhất sẽ xác định giới hạn dưới dựa trên nội dung cho toàn bộ hàng. Để làm hàng ngắn hơn, bạn cũng có thể cần rút ngắn văn bản, giảm kích thước phông chữ hoặc lề, hoặc làm rộng một cột.
+
+Các hình ảnh bên dưới hiển thị cùng một bảng ở cùng tỷ lệ. Trong các kết quả minh họa, chiều cao thực tế là 70, 100 và 55.2 point: hàng cuối vẫn cao hơn tối thiểu 20 point. Các đo lường văn bản chính xác có thể thay đổi tùy vào phông chữ có trong môi trường của bạn. Tải về các kết quả đã lưu: [increased minimum](row-height-increased.pptx) và [decreased minimum](row-height-decreased.pptx).
+
+| Gốc: tối thiểu 70 pt, thực tế 70 pt | Tăng: tối thiểu 100 pt, thực tế 100 pt | Giảm: tối thiểu 20 pt, thực tế 55.2 pt |
+| --- | --- | --- |
+| ![Bảng gốc với hàng đầu tiên 70 point.](row-height-before.png) | ![Bảng sau khi tăng tối thiểu hàng đầu tiên lên 100 point.](row-height-increased.png) | ![Bảng sau khi giảm tối thiểu hàng đầu tiên xuống 20 point; văn bản ngắt dòng giữ cho hàng cao hơn mức tối thiểu.](row-height-decreased.png) |
+
+## **Đặt Hàng Đầu tiên làm Tiêu đề**
+
+Sử dụng phương thức [setFirstRow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setFirstRow-boolean-) để đánh dấu hàng đầu tiên cho định dạng tiêu đề. Hiển thị của nó phụ thuộc vào kiểu bảng được áp dụng cho bảng.
+
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Truy cập bảng được lưu làm hình dạng đầu tiên trên slide.
+4. Bật định dạng tiêu đề cho hàng đầu tiên.
+5. Lưu bản trình bày đã chỉnh sửa.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên. Nó bật định dạng tiêu đề cho hàng đầu tiên và lưu `First_row_header.pptx`.
 
 ```java
- // Khởi tạo lớp Presentation
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Xác định các cột với độ rộng và các hàng với độ cao
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Thêm một shape bảng vào slide
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    // Thêm một số văn bản vào ô hàng 1 cột 1
+## **Sao chép Hàng hoặc Cột Bảng**
+
+Sao chép các hàng hoặc cột để tái sử dụng nội dung và định dạng của chúng. Bạn có thể thêm một bản sao vào cuối bảng hoặc chèn vào vị trí xác định.
+
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Xác định độ rộng cột và chiều cao hàng.
+4. Thêm bảng bằng phương thức [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Sao chép các hàng cần thiết.
+6. Sao chép các cột cần thiết.
+7. Lưu bản trình bày đã chỉnh sửa.
+
+Ví dụ yêu cầu `Test.pptx` có ít nhất một slide. Nó tạo một bảng với ba cột và năm hàng, với kích thước được chỉ định bằng point. Nó thêm các bản sao của hàng và cột đầu tiên, sau đó chèn các bản sao của hàng và cột thứ hai ở chỉ số 3 (vị trí thứ tư). Bảng kết quả có bảy hàng và năm cột. Tham số `false` tắt việc sao chép vào các hàng hoặc cột hợp nhất liền kề; bảng này không có ô hợp nhất.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Thêm một số văn bản vào ô hàng 1 cột 2
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Nhân bản hàng 1 ở cuối bảng
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Thêm một số văn bản vào ô hàng 2 cột 1
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Thêm một số văn bản vào ô hàng 2 cột 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Nhân bản hàng 2 làm hàng thứ 4 của bảng
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Nhân bản cột đầu tiên ở cuối
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Nhân bản cột thứ 2 tại vị trí cột thứ 4
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Xóa một hàng hoặc cột khỏi bảng**
+## **Xóa Hàng hoặc Cột khỏi Bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình chiếu,  
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.  
-3. Xác định một mảng `columnWidth`.  
-4. Xác định một mảng `rowHeight`.  
-5. Thêm một đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) vào slide thông qua phương thức [addTable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Xóa hàng bảng.  
-7. Xóa cột bảng.  
-8. Lưu bản trình chiếu đã sửa đổi.  
+Xóa các hàng hoặc cột không còn cần thiết trong bảng. Khi xóa một mục, chỉ mục của các hàng hoặc cột phía sau nó sẽ dịch chuyển.
 
-Đoạn mã Java này cho bạn thấy cách xóa một hàng hoặc cột khỏi bảng:
+1. Tạo một bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Truy cập slide đầu tiên.
+3. Xác định độ rộng cột và chiều cao hàng.
+4. Thêm bảng bằng phương thức [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Xóa hàng thứ hai và cột thứ hai.
+6. Lưu bản trình bày đã chỉnh sửa.
+
+Ví dụ này tạo một bảng ba‑by‑ba và xóa hàng và cột ở chỉ số 1, để lại một bảng hai‑by‑hai trong `TestTable_out.pptx`. Các kích thước được tính bằng point. Tham số `false` tắt việc xóa các hàng hoặc cột hợp nhất liền kề; bảng này không có ô hợp nhất.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt định dạng văn bản ở mức hàng bảng**
+## **Đặt Định dạng Văn bản ở Cấp độ Hàng Bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình chiếu,  
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.  
-3. Truy cập đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) liên quan từ slide.  
-4. Thiết lập [setFontHeight(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) cho các ô của hàng đầu tiên.  
-5. Thiết lập [setAlignment(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) và [setMarginRight(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) cho các ô của hàng đầu tiên.  
-6. Thiết lập [setTextVerticalType(byte value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) cho các ô của hàng thứ hai.  
-7. Lưu bản trình chiếu đã sửa đổi.  
+Áp dụng định dạng văn bản cho toàn bộ hàng để giữ cho các ô của nó đồng nhất. Bạn có thể đặt thuộc tính phông chữ, định dạng đoạn văn và hướng văn bản mà không cần định dạng từng ô riêng lẻ.
 
-Đoạn mã Java này minh họa thao tác.
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Truy cập bảng trên slide đầu tiên.
+3. Sử dụng [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) cho hàng đầu tiên.
+4. Sử dụng [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) và [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) cho hàng đầu tiên.
+5. Sử dụng [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) cho hàng thứ hai.
+6. Lưu bản trình bày đã chỉnh sửa.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên và ít nhất hai hàng. Nó áp dụng văn bản 25‑point, căn phải và lề đoạn văn phải 20‑point cho hàng đầu tiên, sau đó đặt văn bản dọc cho hàng thứ hai.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Giả sử shape đầu tiên trên slide đầu tiên là một bảng
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Đặt độ cao phông chữ cho các ô của hàng đầu tiên
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Đặt căn chỉnh văn bản và lề phải cho các ô của hàng đầu tiên
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Đặt kiểu văn bản đứng dọc cho các ô của hàng thứ hai
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Lưu bản trình chiếu vào đĩa
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt định dạng văn bản ở mức cột bảng**
+## **Đặt Định dạng Văn bản ở Cấp độ Cột Bảng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải bản trình chiếu,  
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.  
-3. Truy cập đối tượng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITable) liên quan từ slide.  
-4. Thiết lập [setFontHeight(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) cho các ô của cột đầu tiên.  
-5. Thiết lập [setAlignment(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) và [setMarginRight(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) cho các ô của cột đầu tiên.  
-6. Thiết lập [setTextVerticalType(byte value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) cho các ô của cột thứ hai.  
-7. Lưu bản trình chiếu đã sửa đổi.  
+Áp dụng định dạng văn bản cho toàn bộ cột để giữ cho các ô của nó đồng nhất. Bạn có thể đặt thuộc tính phông chữ, định dạng đoạn văn và hướng văn bản mà không cần định dạng từng ô riêng lẻ.
 
-Đoạn mã Java này minh họa thao tác: 
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Truy cập bảng trên slide đầu tiên.
+3. Sử dụng [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) cho cột đầu tiên.
+4. Sử dụng [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) và [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) cho cột đầu tiên.
+5. Sử dụng [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) cho cột thứ hai.
+6. Lưu bản trình bày đã chỉnh sửa.
+
+Ví dụ yêu cầu `table.pptx` có một bảng là hình dạng đầu tiên trên slide đầu tiên và ít nhất hai cột. Nó áp dụng văn bản 25‑point, căn phải và lề đoạn văn phải 20‑point cho cột đầu tiên, sau đó đặt văn bản dọc cho cột thứ hai.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
-try {
-    // Giả sử shape đầu tiên trên slide đầu tiên là một bảng
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Đặt độ cao phông chữ cho các ô của cột đầu tiên
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Đặt căn chỉnh văn bản và lề phải cho các ô của cột đầu tiên trong một lần gọi
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Đặt kiểu văn bản đứng dọc cho các ô của cột thứ hai
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lấy thuộc tính kiểu bảng**
+## **Lấy Thuộc tính Kiểu Bảng**
 
-Aspose.Slides cho phép bạn truy xuất các thuộc tính kiểu cho một bảng để bạn có thể sử dụng các chi tiết đó cho bảng khác hoặc nơi khác. Đoạn mã Java này cho bạn cách lấy các thuộc tính kiểu từ một kiểu bảng đã định sẵn:
+Sử dụng phương thức [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) để lấy preset được áp dụng cho một bảng và tái sử dụng nó cho bảng khác. Điều này xác định preset thay vì các ghi đè định dạng riêng lẻ của ô.
+
+Ví dụ tạo một bảng, áp dụng [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/#DarkStyle1), và đọc lại preset. Nó in ra giá trị nguyên tương ứng với `DarkStyle1` và lưu bảng trong `table.pptx`.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // thay đổi preset kiểu mẫu mặc định
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Can I apply PowerPoint themes/styles to a table that’s already created?**  
-Có. Bảng sẽ kế thừa giao diện slide/layout/master, và bạn vẫn có thể ghi đè màu nền, viền và màu văn bản trên giao diện đó.
+**Có thể áp dụng chủ đề/kiểu PowerPoint cho một bảng đã được tạo không?**
 
-**Can I sort table rows like in Excel?**  
-Không, các bảng trong Aspose.Slides không có tính năng sắp xếp hoặc lọc tích hợp. Hãy sắp xếp dữ liệu trong bộ nhớ trước, sau đó điền lại các hàng bảng theo thứ tự đó.
+Có. Bảng sẽ kế thừa chủ đề slide/layout/master, và bạn vẫn có thể ghi đè màu nền, viền và màu văn bản bên trên chủ đề đó.
 
-**Can I have banded (striped) columns while keeping custom colors on specific cells?**  
-Có. Bật các cột sọc, sau đó ghi đè các ô cụ thể với định dạng cục bộ; định dạng ở mức ô sẽ ưu tiên hơn kiểu bảng.
+**Có thể sắp xếp các hàng của bảng giống như trong Excel không?**
+
+Không, các bảng Aspose.Slides không có tính năng sắp xếp hoặc bộ lọc tích hợp. Hãy sắp xếp dữ liệu trong bộ nhớ trước, sau đó điền lại các hàng bảng theo thứ tự đó.
+
+**Có thể có các cột sọc (banded) trong khi vẫn giữ màu tùy chỉnh cho các ô cụ thể không?**
+
+Có. Bật các cột sọc, sau đó ghi đè các ô cụ thể bằng định dạng cục bộ; định dạng ở cấp độ ô sẽ có ưu tiên hơn kiểu bảng.

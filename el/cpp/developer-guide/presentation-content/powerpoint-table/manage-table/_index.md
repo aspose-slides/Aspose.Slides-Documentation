@@ -1,52 +1,53 @@
 ---
-title: "Διαχείριση Πινάκων Παρουσίασης σε C++"
-linktitle: "Διαχείριση Πίνακα"
+title: Διαχείριση Πινάκων Παρουσίασης σε C++
+linktitle: Διαχείριση Πίνακα
 type: docs
 weight: 10
 url: /el/cpp/manage-table/
 keywords:
-- "προσθήκη πίνακα"
-- "δημιουργία πίνακα"
-- "πρόσβαση σε πίνακα"
-- "αναλογία διαστάσεων"
-- "στοίχιση κειμένου"
-- "μορφοποίηση κειμένου"
-- "στυλ πίνακα"
-- "PowerPoint"
-- "παρουσίαση"
-- "C++"
-- "Aspose.Slides"
-description: "Δημιουργήστε και επεξεργαστείτε πίνακες σε διαφάνειες PowerPoint με το Aspose.Slides για C++. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιστοποιήσετε τις ροές εργασίας με τους πίνακες."
+- προσθήκη πίνακα
+- δημιουργία πίνακα
+- πρόσβαση σε πίνακα
+- αναλογία διαστάσεων
+- στοίχιση κειμένου
+- μορφοποίηση κειμένου
+- στυλ πίνακα
+- PowerPoint
+- παρουσίαση
+- C++
+- Aspose.Slides
+description: "Δημιουργήστε και επεξεργαστείτε πίνακες σε διαφάνειες PowerPoint με το Aspose.Slides για C++. Ανακαλύψτε απλά παραδείγματα κώδικα για να βελτιώσετε τη ροή εργασίας με τους πίνακες."
 ---
 ## **Εισαγωγή**
 
-Ένας πίνακας στο PowerPoint είναι ένας αποδοτικός τρόπος εμφάνισης και απεικόνισης πληροφοριών. Οι πληροφορίες σε ένα πλέγμα κελιών (διατεταγμένα σε σειρές και στήλες) είναι απλές και εύκολα κατανοητές.
+Οι πίνακες στο PowerPoint οργανώνουν τις πληροφορίες σε γραμμές και στήλες, καθιστώντας πιο εύκολο το ανάγνωση και τη σύγκριση των τιμών.
 
-Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.com/slides/el/cpp/aspose.slides/table/) , το interface [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) , την κλάση [Cell](https://reference.aspose.com/slides/el/cpp/aspose.slides/cell/) , το interface [ICell](https://reference.aspose.com/slides/el/cpp/aspose.slides/icell/) και άλλους τύπους που σας επιτρέπουν να δημιουργείτε, ενημερώνετε και διαχειρίζεστε πίνακες σε κάθε είδους παρουσιάσεις. 
+Το Aspose.Slides παρέχει την κλάση [Πίνακας](https://reference.aspose.com/slides/cpp/aspose.slides/table/) (Table), τη διασύνδεση [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/), την κλάση [Κελί](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) (Cell), τη διασύνδεση [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) και άλλους τύπους για να δημιουργείτε, ενημερώνετε και διαχειρίζεστε πίνακες σε παρουσιάσεις.
 
 ## **Δημιουργία Πίνακα από το Μηδέν**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Ορίστε έναν πίνακα `columnWidth`.
-4. Ορίστε έναν πίνακα `rowHeight`.
-5. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) στη διαφάνεια μέσω της μεθόδου [AddTable()](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/addtable/).
-6. Επαναλάβετε για κάθε [ICell](https://reference.aspose.com/slides/el/cpp/aspose.slides/icell/) για να εφαρμόσετε μορφοποίηση στα επάνω, κάτω, δεξιά και αριστερά σύνορα.
-7. Συγχωνεύστε τα πρώτα δύο κελιά της πρώτης γραμμής του πίνακα. 
-8. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/textframe/) ενός [ICell](https://reference.aspose.com/slides/el/cpp/aspose.slides/icell/). 
-9. Προσθέστε κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/textframe/).
-10. Αποθηκεύστε την τροποποιημένη παρουσία.
+Δημιουργήστε έναν πίνακα καθορίζοντας τη θέση του, το πλάτος των στηλών και το ύψος των γραμμών. Μετά την προσθήκη του σε μια διαφάνεια, μπορείτε να διαμορφώσετε τα περιθώρια των κελιών, να συγχωνεύσετε κελιά και να εισάγετε κείμενο.
 
-Αυτός ο κώδικας C++ δείχνει πώς να δημιουργήσετε έναν πίνακα σε μια παρουσίαση:
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Ορίστε έναν πίνακα με το πλάτος των στηλών σε points.
+4. Ορίστε έναν πίνακα με το ύψος των γραμμών σε points.
+5. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) στη διαφάνεια μέσω της μεθόδου [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/).
+6. Διέρνετε κάθε [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) για να εφαρμόσετε μορφοποίηση στα άνω, κάτω, δεξιά και αριστερά περιγράμματα.
+7. Συγχωνεύστε τα πρώτα δύο κελιά της πρώτης γραμμής του πίνακα.
+8. Προσπελάστε το συγχωνευμένο κελί μέσω της μεθόδου [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/).
+9. Ορίστε το κείμενο στο συγχωνευμένο κελί.
+10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```c++
+Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα με τρεις στήλες και πέντε γραμμές στο (100, 50) points. Εφαρμόζει κόκκινα περιγράμματα με πλάτος 5 points, συγχωνεύει τα πρώτα δύο κελιά στην πρώτη γραμμή και αποθηκεύει το αποτέλεσμα ως `table.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/ILineFillFormat.h>
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -56,35 +57,29 @@ Aspose.Slides παρέχει την κλάση [Table](https://reference.aspose.
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Δημιουργεί ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Πρόσβαση στην πρώτη διαφάνεια
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 50, 50, 50 });
+auto rowHeights = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Ορίζει στήλες με πλάτη και σειρές με ύψη
-auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
-auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
-
-// Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Ορίζει τη μορφοποίηση του περιγράμματος για κάθε κελί
-for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
+for (const auto& row : table->get_Rows())
 {
-    for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
+    for (const auto& cell : row)
     {
-        auto cellFormat = tbl->get_Rows()->idx_get(row)->idx_get(cell)->get_CellFormat();
+        auto cellFormat = cell->get_CellFormat();
 
         cellFormat->get_BorderTop()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderTop()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderTop()->set_Width(5);
 
-        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType((FillType::Solid));
+        cellFormat->get_BorderBottom()->get_FillFormat()->set_FillType(FillType::Solid);
         cellFormat->get_BorderBottom()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
         cellFormat->get_BorderBottom()->set_Width(5);
 
@@ -97,21 +92,18 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// Συγχωνεύει τα κελιά 1 και 2 της γραμμής 1
-tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// Προσθέτει κείμενο στο συγχωνευμένο κελί
-tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
+table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 0), false);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// Αποθηκεύει την παρουσίαση στο δίσκο
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **Αρίθμηση σε έναν Κανονικό Πίνακα**
+## **Αρίθμηση σε Κανονικό Πίνακα**
 
-Σε έναν κανονικό πίνακα, η αρίθμηση των κελιών είναι απλή και βασίζεται στο μηδέν. Το πρώτο κελί ενός πίνακα έχει δείκτη 0,0 (στήλη 0, σειρά 0). 
+Σε έναν κανονικό πίνακα, οι δείκτες των κελιών είναι μηδενικής βάσης και χρησιμοποιούν τη σειρά (στήλη, γραμμή). Το πρώτο κελί έχει δείκτη (0, 0).
 
-Για παράδειγμα, τα κελιά σε έναν πίνακα με 4 στήλες και 4 σειρές αριθμούνται ως εξής:
+Για παράδειγμα, τα κελιά σε έναν πίνακα με 4 στήλες και 4 γραμμές αριθμούνται ως εξής:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -119,9 +111,9 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Αυτός ο κώδικας C++ δείχνει πώς να καθορίσετε την αρίθμηση για κελιά σε έναν πίνακα:
+Αυτό το παράδειγμα δημιουργεί τον πίνακα 4 × 4 που φαίνεται παραπάνω, με πλάτος στηλών και ύψος γραμμών 70 points και κόκκινα περιγράμματα κελιών πλάτους 5 points. Οι συντεταγμένες απεικονίζουν τους δείκτες των κελιών· το παράδειγμα αφήνει τα κελιά κενά και αποθηκεύει τον πίνακα ως `StandardTables_out.pptx`.
 
-```c++
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -129,7 +121,6 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 #include <DOM/ILineFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
 #include <DOM/Table/ICellFormat.h>
@@ -138,25 +129,19 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Πρόσβαση στην πρώτη διαφάνεια
-auto sld = pres->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto rowHeights = System::MakeArray<double>({ 70, 70, 70, 70 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Ορίζει στήλες με πλάτη και σειρές με ύψη
-auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
-auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
-
-// Προσθέτει ένα σχήμα πίνακα στη διαφάνεια
-auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-
-// Ορίζει τη μορφοποίηση του περιγράμματος για κάθε κελί
-for (const auto& row : tbl->get_Rows())
+for (const auto& row : table->get_Rows())
 {
     for (const auto& cell : row)
     {
@@ -179,32 +164,24 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// Αποθηκεύει την παρουσίαση στο δίσκο
-pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Πρόσβαση σε Υπάρχον Πίνακα**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+Οι πίνακες αποθηκεύονται στη συλλογή σχημάτων μιας διαφάνειας. Διατρέξτε τα σχήματα για να εντοπίσετε έναν πίνακα, έπειτα χρησιμοποιήστε τη διασύνδεση [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) για να διαβάσετε ή να ενημερώσετε τα κελιά του.
 
-2. Αποκτήστε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα μέσω του δείκτη της. 
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια που περιέχει τον πίνακα με το δείκτη της.
+3. Διατρέξτε τα αντικείμενα [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) και σταματήστε όταν βρεθεί ένας πίνακας. Αν η διαφάνεια περιέχει πολλούς πίνακες, χρησιμοποιήστε το [get_AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) για να εντοπίσετε αυτόν που χρειάζεστε.
+4. Ενημερώστε το κείμενο στο επιθυμητό κελί.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-3. Δημιουργήστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) και ορίστε το σε `null`.
+Το παρακάτω παράδειγμα ανοίγει το `UpdateExistingTable.pptx` και εντοπίζει τον πρώτο πίνακα στην πρώτη διαφάνεια. Ορίζει το κελί στη στήλη 0, γραμμή 1 σε `New` και αποθηκεύει το αποτέλεσμα ως `table1_out.pptx`. Το εισερχόμενο αρχείο πρέπει να περιέχει τουλάχιστον μία διαφάνεια, και ο πρώτος πίνακας σε αυτή τη διαφάνεια πρέπει να έχει τουλάχιστον μία στήλη και δύο γραμμές.
 
-4. Επαναλάβετε μέσω όλων των αντικειμένων [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/) έως ότου βρεθεί ο πίνακας.
-
-   Αν υποπτεύεστε ότι η διαφάνεια που επεξεργάζεστε περιέχει μόνο έναν πίνακα, μπορείτε απλώς να ελέγξετε όλα τα σχήματα που περιέχει. Όταν ένα σχήμα αναγνωρίζεται ως πίνακας, μπορείτε να το μετατρέψετε σε αντικείμενο [Table](https://reference.aspose.com/slides/el/cpp/aspose.slides/table/). Αν όμως η διαφάνεια περιέχει πολλούς πίνακες, είναι καλύτερο να ψάξετε για τον απαιτούμενο πίνακα μέσω του [set_AlternativeText()](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/set_alternativetext/).
-
-5. Χρησιμοποιήστε το αντικείμενο [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) για να εργαστείτε με τον πίνακα. Στο παρακάτω παράδειγμα προσθέσαμε μια νέα σειρά στον πίνακα.
-
-6. Αποθηκεύστε την τροποποιημένη παρουσία.
-
-Αυτός ο κώδικας C++ δείχνει πώς να προσπελάσετε και να εργαστείτε με έναν υπάρχοντα πίνακα:
-
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -212,55 +189,56 @@ pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX
-auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto presentation = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<ITable> table;
 
-// Πρόσβαση στην πρώτη διαφάνεια
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Αρχικοποιεί έναν μηδενικό Table
-System::SharedPtr<ITable> tbl;
-
-// Διατρέχει τα σχήματα και θέτει μια αναφορά στον εντοπισμένο πίνακα
-for (const auto& shp : System::IterateOver(sld->get_Shapes()))
+for (const auto& shape : System::IterateOver(slide->get_Shapes()))
 {
-    if (System::ObjectExt::Is<ITable>(shp))
+    if (System::ObjectExt::Is<ITable>(shape))
     {
-        tbl = System::ExplicitCast<ITable>(shp);
+        table = System::ExplicitCast<ITable>(shape);
+        break;
     }
 }
 
-// Θέτει το κείμενο για την πρώτη στήλη της δεύτερης γραμμής
-tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
-
-// Αποθηκεύει την τροποποιημένη παρουσίαση στο δίσκο
-pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
+if (table != nullptr)
+{
+    table->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
+    presentation->Save(u"table1_out.pptx", SaveFormat::Pptx);
+}
 ```
 
-## **Εντοπισμός του Κελιού που Κατέχει ένα Πλαίσιο Κειμένου**
+Για να αλλάξετε το μέγεθος μιας γραμμής σε υπάρχον πίνακα και να κατανοήσετε γιατί το πραγματικό του ύψος μπορεί να υπερβαίνει το ελάχιστο που ζητήθηκε, δείτε [Έλεγχος Ύψους Γραμμής](/slides/el/cpp/manage-rows-and-columns/#control-row-height).
 
-Όταν γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [ITextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/) από έναν πίνακα, χρησιμοποιήστε το [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/get_parentcell/) για να εντοπίσετε το ιδιοκτήτη [ICell](https://reference.aspose.com/slides/el/cpp/aspose.slides/icell/). Για ένα πλαίσιο κειμένου κελιού πίνακα, το [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/get_parentcell/) επιστρέφει τον κάτοχο και το [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/get_parentshape/) επιστρέφει `nullptr`, παρόλο που ο πίνακας είναι ένα σχήμα.
+## **Εύρεση του Κελιού που Κατέχει ένα Πλαίσιο Κειμένου**
 
-Οι συντεταγμένες του κελιού είναι διαθέσιμες μέσω των μόνο για ανάγνωση μεθόδων [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/el/cpp/aspose.slides/icell/get_firstcolumnindex/) και [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/el/cpp/aspose.slides/icell/get_firstrowindex/). Το [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/get_parentcell/) παρέχει επίσης μόνο για ανάγνωση πλοήγηση: επιστρέφει τον ιδιοκτήτη χωρίς να αλλάζει την κυριότητα. Πάντα ελέγχετε αν το επιστρεφόμενο κελί είναι `nullptr` πριν το χρησιμοποιήσετε.
+Όταν γενικός κώδικας επεξεργασίας κειμένου λαμβάνει ένα [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) από πίνακα, χρησιμοποιήστε το [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) για να ανακτήσετε το ιδιοκτήτη [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/). Για πλαίσιο κειμένου κελιού πίνακα, το [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) επιστρέφει τον ιδιοκτήτη και το [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) επιστρέφει `nullptr`, ακόμη και αν ο πίνακας είναι ίδιο το σχήμα.
 
-Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες κελιών πίνακα και σχήματος, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/cpp/search-and-replace-text/).
+Οι συντεταγμένες του κελιού είναι διαθέσιμες μέσω των μόνο για ανάγνωση μεθόδων [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) και [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/). Το [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) παρέχει επίσης μόνο‑ανάγνωση πλοήγηση: επιστρέφει τον ιδιοκτήτη αλλά δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε αν το επιστρεφόμενο κελί είναι `nullptr` πριν το χρησιμοποιήσετε.
+
+Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες κελιών πίνακα και σχημάτων, συμπεριλαμβανομένων σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/cpp/search-and-replace-text/).
 
 ## **Στοίχιση Κειμένου σε Πίνακα**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) στη διαφάνεια. 
-4. Προσπελάστε ένα αντικείμενο [ITextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/) από τον πίνακα. 
-5. Προσπελάστε το [IParagraph](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraph/) του [ITextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/).
-6. Στοίχνετε το κείμενο κάθετα.
-7. Αποθηκεύστε την τροποποιημένη παρουσία.
+Μπορείτε να ελέγξετε την κάθετη αγκύρωση και την κατεύθυνση κειμένου των μεμονωμένων κελιών πίνακα. Το παράδειγμα σε αυτήν την ενότητα κεντράρει το κείμενο στο πρώτο κελί και το περιστρέφει κατά 270 μοίρες.
 
-Αυτός ο κώδικας C++ δείχνει πώς να στοίχειτε το κείμενο σε έναν πίνακα:
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Προσθέστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) στη διαφάνεια.
+4. Προσπελάστε ένα αντικείμενο [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) από τον πίνακα.
+5. Προσπελάστε το πρώτο [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) και ορίστε το κείμενο και το χρώμα του.
+6. Ορίστε την κάθετη αγκύρωση του κελιού και την κατεύθυνση κειμένου χρησιμοποιώντας τις μεθόδους [set_TextAnchorType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textanchortype/) και [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/icell/set_textverticaltype/).
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```c++
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα 4 × 4 με πλάτος στηλών 120 points και ύψος γραμμών 100 points. Διαμορφώνει το κείμενο στο κελί (0, 0), προσθέτει τιμές στα υπόλοιπα κελιά της πρώτης γραμμής και αποθηκεύει το αποτέλεσμα ως `Vertical_Align_Text_out.pptx`.
+
+```cpp
 #include <DOM/FillType.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -271,7 +249,6 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ICell.h>
@@ -280,63 +257,53 @@ pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
 
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Αποκτά την πρώτη διαφάνεια
-auto slide = presentation->get_Slides()->idx_get(0);
+auto columnWidths = System::MakeArray<double>({ 120, 120, 120, 120 });
+auto rowHeights = System::MakeArray<double>({ 100, 100, 100, 100 });
+auto table = slide->get_Shapes()->AddTable(100.0f, 50.0f, columnWidths, rowHeights);
 
-// Ορίζει στήλες με πλάτη και σειρές με ύψη
-auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
-auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
+table->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
+table->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
+table->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// Προσθέτει το σχήμα πίνακα στη διαφάνεια
-auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
-tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
-tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
-tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
+auto cell = table->idx_get(0, 0);
+auto paragraph = cell->get_TextFrame()->get_Paragraphs()->idx_get(0);
 
-// Πρόσβαση στο πλαίσιο κειμένου
-auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
-
-// Δημιουργεί το αντικείμενο Paragraph για το πλαίσιο κειμένου
-auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Δημιουργεί το αντικείμενο Portion για την παράγραφο
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Στοίχει το κείμενο κάθετα
-auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// Αποθηκεύει την παρουσίαση στο δίσκο
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ορισμός Μορφοποίησης Κειμένου σε Επίπεδο Πίνακα**
 
-1. Δημιουργήστε ένα αντικείμενο της [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) κλάσης.
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της. 
-3. Προσπελάστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/) από τη Διαφάνεια.
-4. Ορίστε το [set_FontHeight()](https://reference.aspose.com/slides/el/cpp/aspose.slides/baseportionformat/set_fontheight/) για το κείμενο. 
-5. Ορίστε το [set_Alignment()](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/set_alignment/) και το [set_MarginRight()](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/set_marginright/). 
-6. Ορίστε το [set_TextVerticalType()](https://reference.aspose.com/slides/el/cpp/aspose.slides/textframeformat/set_textverticaltype/).
-7. Αποθηκεύστε την τροποποιημένη παρουσία. 
+Χρησιμοποιήστε τη μέθοδο [SetTextFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibulktextformattable/settextformat/) για να εφαρμόσετε μορφοποίηση κειμένου σε όλα τα κελιά ενός πίνακα. Οι υπερφορτώσεις της δέχονται μορφοποίηση τμήματος, παραγράφου και πλαισίου κειμένου, ώστε να μπορείτε να ορίσετε αυτές τις ιδιότητες χωρίς να διατρέχετε ξεχωριστά κάθε κελί.
 
-Αυτός ο κώδικας C++ δείχνει πώς να εφαρμόσετε τις προτιμώμενες επιλογές μορφοποίησης στο κείμενο ενός πίνακα:
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά στη διαφάνεια με το δείκτη της.
+3. Προσπελάστε ένα αντικείμενο [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) από τη διαφάνεια.
+4. Ορίστε το μέγεθος γραμματοσειράς χρησιμοποιώντας τη μέθοδο [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) για το κείμενο.
+5. Ορίστε την στοίχιση παραγράφου και το δεξί περιθώριο χρησιμοποιώντας τις μεθόδους [set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) και [set_MarginRight](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/).
+6. Ορίστε την κατεύθυνση κειμένου χρησιμοποιώντας τη μέθοδο [set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/).
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-```c++
+Το παρακάτω παράδειγμα ανοίγει το `table.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια με πίνακα ως πρώτο σχήμα. Ορίζει το μέγεθος γραμματοσειράς σε 25 points, στοιχίζει τις παραγράφους δεξιά με δεξιό περιθώριο 20 points και κάνει το κείμενο κάθετο. Η μορφοποιημένη παρουσίαση αποθηκεύεται ως `result.pptx`.
+
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ParagraphFormat.h>
 #include <DOM/PortionFormat.h>
 #include <DOM/Presentation.h>
@@ -345,99 +312,106 @@ presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 #include <DOM/TextFrameFormat.h>
 #include <DOM/TextVerticalType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>(u"table.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Έστω ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι πίνακας
-auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
-// Ορίζει το ύψος γραμματοσειράς των κελιών του πίνακα
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
-someTable->SetTextFormat(portionFormat);
+table->SetTextFormat(portionFormat);
 
-// Ορίζει τη στοίχιση κειμένου και το δεξί περιθώριο των κελιών του πίνακα με μία κλήση
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
-someTable->SetTextFormat(paragraphFormat);
+table->SetTextFormat(paragraphFormat);
 
-// Ορίζει τον κάθετο τύπο κειμένου των κελιών του πίνακα
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
-someTable->SetTextFormat(textFrameFormat);
+table->SetTextFormat(textFrameFormat);
 
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
 ## **Λήψη Ιδιοτήτων Στυλ Πίνακα**
 
-Το Aspose.Slides σας επιτρέπει να ανακτήσετε τις ιδιότητες στυλ για έναν πίνακα ώστε να τις χρησιμοποιήσετε σε άλλον πίνακα ή αλλού. Αυτός ο κώδικας C++ δείχνει πώς να λάβετε τις ιδιότητες στυλ από ένα προεπιλεγμένο στυλ πίνακα:
+Χρησιμοποιήστε τη μέθοδο [get_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/get_stylepreset/) για να διαβάσετε το προεπιλεγμένο στυλ ενός πίνακα και τη μέθοδο [set_StylePreset](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_stylepreset/) για να το ορίσετε. Αυτό το παράδειγμα εφαρμόζει το [TableStylePreset::DarkStyle1](https://reference.aspose.com/slides/cpp/aspose.slides/tablestylepreset/) σε έναν πίνακα, εκτυπώνει το όνομα του προεπιλεγμένου στυλ και το εφαρμόζει στον δεύτερο πίνακα. Και οι δύο πίνακες αποθηκεύονται στο `table-style.pptx`.
 
-```c++
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <DOM/TableStylePreset.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slide(0)->get_Shapes();
-auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto columnWidths = System::MakeArray<double>({ 100, 150 });
+auto rowHeights = System::MakeArray<double>({ 5, 5, 5 });
+auto table = slide->get_Shapes()->AddTable(10, 10, columnWidths, rowHeights);
 table->set_StylePreset(TableStylePreset::DarkStyle1);
-pres->Save(u"table.pptx", SaveFormat::Pptx);
+
+auto stylePreset = table->get_StylePreset();
+System::Console::WriteLine(u"Table style preset: {0}", stylePreset);
+
+auto anotherTable = slide->get_Shapes()->AddTable(10, 100, columnWidths, rowHeights);
+anotherTable->set_StylePreset(stylePreset);
+
+presentation->Save(u"table-style.pptx", SaveFormat::Pptx);
 ```
 
-## **Κλείδωμα Αναλογίας Διαστάσεων ενός Πίνακα**
+## **Κλείδωμα Αναλογίας Διαστάσεων Πίνακα**
 
-Η αναλογία διαστάσεων ενός γεωμετρικού σχήματος είναι η σχέση των μεγεθών του σε διαφορετικές διαστάσεις. Το Aspose.Slides παρέχει την ιδιότητα `AspectRatioLocked()` για να κλειδώνετε τη ρύθμιση της αναλογίας διαστάσεων για πίνακες και άλλα σχήματα. 
+Η αναλογία διαστάσεων ενός πίνακα είναι ο λόγος του πλάτους προς το ύψος του. Χρησιμοποιήστε τη μέθοδο [set_AspectRatioLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/set_aspectratiolocked/) για να κλειδώσετε αυτήν την αναλογία για έναν πίνακα.
 
-Αυτός ο κώδικας C++ δείχνει πώς να κλειδώσετε την αναλογία διαστάσεων για έναν πίνακα:
+Το παρακάτω παράδειγμα ανοίγει το `pres.pptx`, το οποίο πρέπει να περιέχει τουλάχιστον μία διαφάνεια με πίνακα ως πρώτο σχήμα. Εκτυπώνει την τρέχουσα κατάσταση κλειδώματος, ενεργοποιεί το κλείδωμα της αναλογίας διαστάσεων, εκτυπώνει την ενημερωμένη κατάσταση (`True`) και αποθηκεύει το αποτέλεσμα ως `pres-out.pptx`.
 
-```c++
+```cpp
 #include <DOM/IGraphicalObjectLock.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/Table/ITable.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
 
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-
-table->get_GraphicalObjectLock()->set_AspectRatioLocked(!table->get_GraphicalObjectLock()->get_AspectRatioLocked());
-
+table->get_GraphicalObjectLock()->set_AspectRatioLocked(true);
 Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock()->get_AspectRatioLocked());
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ενεργοποιήσω την ανάγνωση από δεξιά προς αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στα κελιά του;**
+**Μπορώ να ενεργοποιήσω την κατεύθυνση ανάγνωσης από δεξιά προς αριστερά (RTL) για ολόκληρο τον πίνακα και το κείμενο στα κελιά του;**
 
-Ναι. Ο πίνακας διαθέτει τη μέθοδο [set_RightToLeft](https://reference.aspose.com/slides/el/cpp/aspose.slides/table/set_righttoleft/) και οι παράγραφοι έχουν τη μέθοδο [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/el/cpp/aspose.slides/paragraphformat/set_righttoleft/). Η χρήση και των δύο εξασφαλίζει τη σωστή σειρά RTL και την απόδοση μέσα στα κελιά.
+Ναι. Ο πίνακας εκθέτει τη μέθοδο [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) και οι παράγραφοι διαθέτουν τη μέθοδο [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/). Η χρήση και των δύο εξασφαλίζει τη σωστή σειρά RTL και την απόδοση μέσα στα κελιά.
 
-**Πώς μπορώ να εμποδίσω τους χρήστες να μετακινήσουν ή να αλλάξουν το μέγεθος ενός πίνακα στο τελικό αρχείο;**
+**Πώς μπορώ να αποτρέψω τους χρήστες από το να μετακινούν ή να αλλάζουν το μέγεθος ενός πίνακα στο τελικό αρχείο;**
 
-Χρησιμοποιήστε τις [shape locks](/slides/el/cpp/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, την αλλαγή μεγέθους, την επιλογή κλπ. Αυτά τα κλειδώματα ισχύουν και για πίνακες.
+Χρησιμοποιήστε τα [κλειδώματα σχήματος](/slides/el/cpp/applying-protection-to-presentation/) για να απενεργοποιήσετε τη μετακίνηση, την αλλαγή μεγέθους, την επιλογή κ.λπ. Αυτά τα κλειδώματα εφαρμόζονται και σε πίνακες.
 
-**Υποστηρίζεται η εισαγωγή εικόνας μέσα σε κελί ως φόντο;**
+**Υποστηρίζεται η εισαγωγή εικόνας ως φόντο μέσα σε κελί;**
 
-Ναι. Μπορείτε να ορίσετε μια [picture fill](https://reference.aspose.com/slides/el/cpp/aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύπτει την περιοχή του κελιού ανάλογα με την επιλεγμένη λειτουργία (stretch ή tile).
+Ναι. Μπορείτε να ορίσετε μια [συμπλήρωση εικόνας](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) για ένα κελί· η εικόνα θα καλύψει την περιοχή του κελιού σύμφωνα με την επιλεγμένη λειτουργία (stretch ή tile).

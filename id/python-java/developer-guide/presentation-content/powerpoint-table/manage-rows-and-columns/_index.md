@@ -9,8 +9,8 @@ keywords:
 - kolom tabel
 - baris pertama
 - header tabel
-- kloning baris
-- kloning kolom
+- gandakan baris
+- gandakan kolom
 - salin baris
 - salin kolom
 - hapus baris
@@ -22,21 +22,19 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Kelola baris dan kolom tabel pada PowerPoint dengan Aspose.Slides untuk Python melalui Java dan percepat penyuntingan presentasi serta pembaruan data."
+description: "Kelola baris dan kolom tabel di PowerPoint dengan Aspose.Slides untuk Python via Java dan percepat pengeditan presentasi serta pembaruan data."
 ---
 ## **Pendahuluan**
 
-Untuk memungkinkan Anda mengelola baris dan kolom tabel dalam presentasi PowerPoint, Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/) dan banyak tipe lainnya.
+Aspose.Slides for Python via Java memungkinkan Anda mengelola struktur tabel dan pemformatan dalam presentasi PowerPoint melalui kelas [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). Anda dapat menetapkan baris header, menggandakan atau menghapus baris dan kolom, serta menerapkan pemformatan teks ke seluruh baris atau kolom.
 
-## **Set Baris Pertama sebagai Header**
+Artikel ini menjelaskan operasi tersebut dengan contoh Python. Artikel ini juga menunjukkan cara mengambil preset gaya tabel sehingga Anda dapat menggunakannya kembali. Indeks baris dan kolom tabel mulai dari nol.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan muat presentasi.  
-2. Dapatkan referensi ke slide berdasarkan indeksnya.  
-3. Buat referensi [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/) dan setel menjadi `None`.  
-4. Iterasi semua objek [Shape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/) untuk menemukan tabel yang relevan.  
-5. Setel baris pertama tabel sebagai header.
+## **Mengontrol Tinggi Baris**
 
-Kode Python berikut menunjukkan cara menyetel baris pertama tabel sebagai header:
+Gunakan [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight) untuk menetapkan tinggi minimum sebuah baris dalam poin. Ini merupakan batas bawah, bukan tinggi tetap. [Row.getHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#getHeight) mengembalikan tinggi sebenarnya. Akses baris melalui [Table.getRows](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getRows).
+
+Contoh memuat [row-height-input.pptx](row-height-input.pptx), yang berisi tabel sebagai bentuk pertama pada slide pertama. Baris pertamanya dimulai pada 70 poin. Sel‑sel menggunakan teks Arial 18 poin, membungkus, dan margin atas serta bawah 6 poin; teks yang lebih panjang pada kolom kedua membungkus menjadi beberapa baris. Contoh meningkatkan minimum menjadi 100 poin, lalu menurunkannya menjadi 20 poin, mencetak tinggi sebenarnya setelah setiap perubahan, dan menyimpan kedua hasilnya.
 
 ```python
 import jpype
@@ -45,33 +43,88 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, Table
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("table.pptx")
+presentation = Presentation("row-height-input.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    table = None
-    for shape in slide.getShapes():
-        if isinstance(shape, Table):
-            table = shape
-            table.setFirstRow(True)
-    presentation.save("presentation.pptx", SaveFormat.Pptx)
+
+    table = slide.getShapes().get_Item(0)
+    row = table.getRows().get_Item(0)
+
+    row.setMinimalHeight(100)
+    print(f"Increased: minimum = {row.getMinimalHeight():.1f}, actual = {row.getHeight():.1f} pt")
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx)
+
+    row.setMinimalHeight(20)
+    print(f"Decreased: minimum = {row.getMinimalHeight():.1f}, actual = {row.getHeight():.1f} pt")
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Kloning Baris atau Kolom Tabel**
+Dengan presentasi yang disediakan, meningkatkan minimum menambah ruang pada baris. Menurunkannya menghapus ruang tambahan tersebut, tetapi tinggi sebenarnya tetap lebih besar dari 20 poin karena teks dan margin sel memerlukan ruang lebih. Mengurangi minimum saja tidak dapat memaksa baris berada di bawah ruang yang dibutuhkan oleh isinya.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan muat presentasi.  
-2. Dapatkan referensi ke slide berdasarkan indeksnya.  
-3. Definisikan daftar lebar kolom.  
-4. Definisikan daftar tinggi baris.  
-5. Tambahkan objek [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/) ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addTable).  
-6. Kloning baris tabel.  
-7. Kloning kolom tabel.  
-8. Simpan presentasi yang telah dimodifikasi.
+Beberapa faktor memengaruhi tinggi sebenarnya:
 
-Kode Python berikut menunjukkan cara mengkloning baris atau kolom tabel PowerPoint:
+- **Teks dan ukuran font:** teks yang lebih panjang, jeda baris eksplisit, atau font yang lebih besar dapat memerlukan lebih banyak ruang vertikal.  
+- **Pembungkus dan lebar kolom:** dengan pembungkus diaktifkan, mengurangi lebar kolom menggunakan [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) dapat menghasilkan lebih banyak baris. Kolom yang lebih lebar dapat mengurangi ruang yang diperlukan secara vertikal.  
+- **Margin sel:** [Cell.setMarginTop](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setMarginTop) dan [Cell.setMarginBottom](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setMarginBottom) menambah ruang vertikal. [Cell.setMarginLeft](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setMarginLeft) dan [Cell.setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#setMarginRight) mengurangi lebar yang tersedia untuk teks dan dapat menyebabkan pembungkus tambahan.
+
+Untuk tabel ini tanpa sel yang digabung, sel yang membutuhkan ruang vertikal paling banyak menentukan batas bawah yang ditentukan konten untuk seluruh baris. Agar baris menjadi lebih pendek, Anda mungkin juga perlu memendekkan teks, mengurangi ukuran font atau margin, atau memperlebar kolom.
+
+Gambar di bawah menunjukkan tabel yang sama pada skala yang sama. Pada hasil yang diilustrasikan, tinggi sebenarnya adalah 70, 100, dan 55,2 poin: baris terakhir tetap lebih tinggi daripada minimum 20 poin. Pengukuran teks yang tepat dapat bervariasi tergantung pada font yang tersedia di lingkungan Anda. Unduh hasil yang disimpan: [increased minimum](row-height-increased.pptx) dan [decreased minimum](row-height-decreased.pptx).
+
+| Asli: minimum 70 pt, aktual 70 pt | Ditambah: minimum 100 pt, aktual 100 pt | Dikurangi: minimum 20 pt, aktual 55.2 pt |
+| --- | --- | --- |
+| ![Tabel asli dengan baris pertama 70 poin.](row-height-before.png) | ![Tabel setelah menambah minimum baris pertama menjadi 100 poin.](row-height-increased.png) | ![Tabel setelah mengurangi minimum baris pertama menjadi 20 poin; teks yang dibungkus membuat baris tetap lebih tinggi dari minimum.](row-height-decreased.png) |
+
+## **Menetapkan Baris Pertama sebagai Header**
+
+Gunakan metode [setFirstRow](https://reference.aspose.com/slides/python-java/aspose.slides/table/#setFirstRow) untuk menandai baris pertama agar diformat sebagai header. Penampilannya tergantung pada gaya tabel yang diterapkan pada tabel.
+
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).  
+2. Akses slide pertama.  
+3. Akses tabel yang disimpan sebagai bentuk pertama pada slide.  
+4. Aktifkan pemformatan header untuk baris pertamanya.  
+5. Simpan presentasi yang telah dimodifikasi.
+
+Contoh memerlukan `table.pptx` dengan tabel sebagai bentuk pertama pada slide pertama. Contoh mengaktifkan pemformatan header untuk baris pertama dan menyimpan `First_row_header.pptx`.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("table.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().get_Item(0)
+    table.setFirstRow(True)
+
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Menggandakan Baris atau Kolom Tabel**
+
+Gandakan baris atau kolom untuk menggunakan kembali konten dan pemformatannya. Anda dapat menambahkan salinan ke akhir tabel atau menyisipkannya pada posisi tertentu.
+
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).  
+2. Akses slide pertama.  
+3. Tentukan lebar kolom dan tinggi baris.  
+4. Tambahkan tabel dengan metode [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable).  
+5. Gandakan baris yang diperlukan.  
+6. Gandakan kolom yang diperlukan.  
+7. Simpan presentasi yang telah dimodifikasi.
+
+Contoh memerlukan `Test.pptx` dengan setidaknya satu slide. Contoh membuat tabel dengan tiga kolom dan lima baris, dengan dimensi yang ditentukan dalam poin. Contoh menambahkan salinan baris pertama dan kolom pertama, kemudian menyisipkan salinan baris kedua dan kolom kedua pada indeks 3 (posisi keempat). Tabel yang dihasilkan memiliki tujuh baris dan lima kolom. Argumen `False` menonaktifkan penggandaan ke baris atau kolom yang digabung berdekatan; tabel ini tidak memiliki sel yang digabung.
 
 ```python
 import jpype
@@ -85,34 +138,39 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("Test.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    column_widths = [50, 50, 50]
-    row_heights = [50, 30, 30, 30, 30]
+
+    column_widths = jpype.JArray(jpype.JDouble)([50, 50, 50])
+    row_heights = jpype.JArray(jpype.JDouble)([50, 30, 30, 30, 30])
     table = slide.getShapes().addTable(100, 50, column_widths, row_heights)
+
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1")
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2")
     table.getRows().addClone(table.getRows().get_Item(0), False)
+
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1")
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2")
     table.getRows().insertClone(3, table.getRows().get_Item(1), False)
+
     table.getColumns().addClone(table.getColumns().get_Item(0), False)
     table.getColumns().insertClone(3, table.getColumns().get_Item(1), False)
+
     presentation.save("table_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Hapus Baris atau Kolom dari Tabel**
+## **Menghapus Baris atau Kolom dari Tabel**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).  
-2. Dapatkan referensi ke slide berdasarkan indeksnya.  
-3. Definisikan daftar lebar kolom.  
-4. Definisikan daftar tinggi baris.  
-5. Tambahkan objek [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/) ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addTable).  
-6. Hapus baris tabel.  
-7. Hapus kolom tabel.  
-8. Simpan presentasi yang telah dimodifikasi.
+Hapus baris atau kolom yang tidak lagi diperlukan dalam sebuah tabel. Menghapus sebuah item menggeser indeks baris atau kolom yang mengikutinya.
 
-Kode Python berikut menunjukkan cara menghapus baris atau kolom dari tabel:
+1. Buat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).  
+2. Akses slide pertama.  
+3. Tentukan lebar kolom dan tinggi baris.  
+4. Tambahkan tabel dengan metode [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable).  
+5. Hapus baris kedua dan kolom kedua.  
+6. Simpan presentasi yang telah dimodifikasi.
+
+Contoh ini membuat tabel tiga‑by‑tiga dan menghapus baris serta kolom pada indeks 1, menghasilkan tabel dua‑by‑dua dalam `TestTable_out.pptx`. Dimensi dalam poin. Argumen `False` menonaktifkan penghapusan pada baris atau kolom yang digabung berdekatan; tabel ini tidak memiliki sel yang digabung.
 
 ```python
 import jpype
@@ -126,70 +184,31 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    column_widths = [100, 50, 30]
-    row_heights = [30, 50, 30]
+
+    column_widths = jpype.JArray(jpype.JDouble)([100, 50, 30])
+    row_heights = jpype.JArray(jpype.JDouble)([30, 50, 30])
     table = slide.getShapes().addTable(100, 100, column_widths, row_heights)
+
     table.getRows().removeAt(1, False)
     table.getColumns().removeAt(1, False)
+
     presentation.save("TestTable_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Setel Pemformatan Teks pada Tingkat Baris Tabel**
+## **Menetapkan Pemformatan Teks pada Tingkat Baris Tabel**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan muat presentasi.  
-2. Dapatkan referensi ke slide berdasarkan indeksnya.  
-3. Akses objek [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/) yang relevan dari slide.  
-4. Setel tinggi font sel baris pertama menggunakan [setFontHeight](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseportionformat/#setFontHeight).  
-5. Setel perataan teks dan margin kanan sel baris pertama menggunakan [setAlignment](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setAlignment) dan [setMarginRight](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setMarginRight).  
-6. Setel tipe teks vertikal sel baris kedua menggunakan [setTextVerticalType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setTextVerticalType).  
-7. Simpan presentasi yang telah dimodifikasi.
+Terapkan pemformatan teks ke seluruh baris agar sel‑selnya konsisten. Anda dapat mengatur properti font, pemformatan paragraf, dan arah teks tanpa harus memformat setiap sel secara terpisah.
 
-Kode Python berikut mendemonstrasikan operasi tersebut.
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).  
+2. Akses tabel pada slide pertama.  
+3. Gunakan [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) untuk baris pertama.  
+4. Gunakan [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) dan [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight) untuk baris pertama.  
+5. Gunakan [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) untuk baris kedua.  
+6. Simpan presentasi yang telah dimodifikasi.
 
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, SaveFormat, Table, PortionFormat, ParagraphFormat, TextFrameFormat, TextAlignment, TextVerticalType
-
-presentation = Presentation("table.pptx")
-try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.getRows().get_Item(0).setTextFormat(portion_format)
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.getRows().get_Item(0).setTextFormat(paragraph_format)
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.getRows().get_Item(1).setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
-finally:
-    presentation.dispose()
-```
-
-## **Setel Pemformatan Teks pada Tingkat Kolom Tabel**
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan muat presentasi.  
-2. Dapatkan referensi ke slide berdasarkan indeksnya.  
-3. Akses objek [Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/table/) yang relevan dari slide.  
-4. Setel tinggi font sel kolom pertama menggunakan [setFontHeight](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseportionformat/#setFontHeight).  
-5. Setel perataan teks dan margin kanan sel kolom pertama menggunakan [setAlignment](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setAlignment) dan [setMarginRight](https://reference.aspose.com/slides/id/python-java/aspose.slides/paragraphformat/#setMarginRight).  
-6. Setel tipe teks vertikal sel kolom kedua menggunakan [setTextVerticalType](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframeformat/#setTextVerticalType).  
-7. Simpan presentasi yang telah dimodifikasi.
-
-Kode Python berikut mendemonstrasikan operasi tersebut:
+Contoh memerlukan `table.pptx` dengan tabel sebagai bentuk pertama pada slide pertama dan setidaknya dua baris. Contoh menerapkan teks 25 poin, perataan kanan, dan margin paragraf kanan 20 poin pada baris pertama, kemudian mengatur teks vertikal pada baris kedua.
 
 ```python
 import jpype
@@ -198,33 +217,83 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, Table, PortionFormat, ParagraphFormat, TextFrameFormat, TextAlignment, TextVerticalType
+from asposeslides.api import Presentation, SaveFormat, PortionFormat, ParagraphFormat, TextFrameFormat, TextAlignment, TextVerticalType
 
 presentation = Presentation("table.pptx")
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(shape, Table):
-        table = shape
-        portion_format = PortionFormat()
-        portion_format.setFontHeight(25)
-        table.getColumns().get_Item(0).setTextFormat(portion_format)
-        paragraph_format = ParagraphFormat()
-        paragraph_format.setAlignment(TextAlignment.Right)
-        paragraph_format.setMarginRight(20)
-        table.getColumns().get_Item(0).setTextFormat(paragraph_format)
-        text_frame_format = TextFrameFormat()
-        text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
-        table.getColumns().get_Item(1).setTextFormat(text_frame_format)
-        presentation.save("result.pptx", SaveFormat.Pptx)
-    else:
-        print("The first shape is not a table.")
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().get_Item(0)
+
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.getRows().get_Item(0).setTextFormat(portion_format)
+
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.getRows().get_Item(0).setTextFormat(paragraph_format)
+
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.getRows().get_Item(1).setTextFormat(text_frame_format)
+
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Dapatkan Properti Gaya Tabel**
+## **Menetapkan Pemformatan Teks pada Tingkat Kolom Tabel**
 
-Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode Python berikut menunjukkan cara mendapatkan properti gaya dari gaya preset tabel:
+Terapkan pemformatan teks ke seluruh kolom agar sel‑selnya konsisten. Anda dapat mengatur properti font, pemformatan paragraf, dan arah teks tanpa harus memformat setiap sel secara terpisah.
+
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).  
+2. Akses tabel pada slide pertama.  
+3. Gunakan [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) untuk kolom pertama.  
+4. Gunakan [setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) dan [setMarginRight](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setMarginRight) untuk kolom pertama.  
+5. Gunakan [setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) untuk kolom kedua.  
+6. Simpan presentasi yang telah dimodifikasi.
+
+Contoh memerlukan `table.pptx` dengan tabel sebagai bentuk pertama pada slide pertama dan setidaknya dua kolom. Contoh menerapkan teks 25 poin, perataan kanan, dan margin paragraf kanan 20 poin pada kolom pertama, kemudian mengatur teks vertikal pada kolom kedua.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, PortionFormat, ParagraphFormat, TextFrameFormat, TextAlignment, TextVerticalType
+
+presentation = Presentation("table.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().get_Item(0)
+
+    portion_format = PortionFormat()
+    portion_format.setFontHeight(25)
+    table.getColumns().get_Item(0).setTextFormat(portion_format)
+
+    paragraph_format = ParagraphFormat()
+    paragraph_format.setAlignment(TextAlignment.Right)
+    paragraph_format.setMarginRight(20)
+    table.getColumns().get_Item(0).setTextFormat(paragraph_format)
+
+    text_frame_format = TextFrameFormat()
+    text_frame_format.setTextVerticalType(TextVerticalType.Vertical)
+    table.getColumns().get_Item(1).setTextFormat(text_frame_format)
+
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Mendapatkan Properti Gaya Tabel**
+
+Gunakan metode [getStylePreset](https://reference.aspose.com/slides/python-java/aspose.slides/table/#getStylePreset) untuk mengambil preset yang diterapkan pada sebuah tabel dan menggunakannya kembali pada tabel lain. Ini mengidentifikasi preset alih‑alih format‑override sel individu.
+
+Contoh membuat tabel, menerapkan [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/python-java/aspose.slides/tablestylepreset/#DarkStyle1), dan membaca kembali preset tersebut. Contoh mencetak nilai integer yang sesuai dengan `DarkStyle1` dan menyimpan tabel dalam `table.pptx`.
 
 ```python
 import jpype
@@ -237,12 +306,16 @@ from asposeslides.api import Presentation, SaveFormat, TableStylePreset
 
 presentation = Presentation()
 try:
-    column_widths = [100, 150]
-    row_heights = [5, 5, 5]
-    table = presentation.getSlides().get_Item(0).getShapes().addTable(10, 10, column_widths, row_heights)
+    slide = presentation.getSlides().get_Item(0)
+
+    column_widths = jpype.JArray(jpype.JDouble)([100, 150])
+    row_heights = jpype.JArray(jpype.JDouble)([5, 5, 5])
+    table = slide.getShapes().addTable(10, 10, column_widths, row_heights)
     table.setStylePreset(TableStylePreset.DarkStyle1)
+
     style_preset = table.getStylePreset()
     print(style_preset)
+
     presentation.save("table.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -254,10 +327,10 @@ finally:
 
 Ya. Tabel mewarisi tema slide/layout/master, dan Anda masih dapat menimpa isian, batas, dan warna teks di atas tema tersebut.
 
-**Apakah saya dapat menyortir baris tabel seperti di Excel?**
+**Apakah saya dapat mengurutkan baris tabel seperti di Excel?**
 
-Tidak, tabel Aspose.Slides tidak memiliki penyortiran atau filter bawaan. Urutkan data Anda di memori terlebih dahulu, lalu isi kembali baris tabel dalam urutan tersebut.
+Tidak, tabel Aspose.Slides tidak memiliki penyortiran atau filter bawaan. Urutkan data di memori terlebih dahulu, kemudian isi kembali baris tabel dalam urutan tersebut.
 
-**Apakah saya dapat memiliki kolom berpita (bergaris) sambil mempertahankan warna khusus pada sel tertentu?**
+**Apakah saya dapat memiliki kolom berpita (striped) sambil mempertahankan warna khusus pada sel tertentu?**
 
-Ya. Aktifkan kolom berpita, kemudian timpa sel tertentu dengan pemformatan lokal; pemformatan tingkat sel memiliki prioritas lebih tinggi daripada gaya tabel.
+Ya. Aktifkan kolom berpita, lalu timpa sel‑sel tertentu dengan format lokal; format pada tingkat sel memiliki prioritas lebih tinggi daripada gaya tabel.

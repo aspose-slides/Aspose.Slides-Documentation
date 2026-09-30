@@ -15,249 +15,275 @@ keywords:
 - oszlop másolása
 - sor eltávolítása
 - oszlop eltávolítása
-- sor szövegformázás
-- oszlop szövegformázás
+- sor szövegformázása
+- oszlop szövegformázása
 - táblázat stílus
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Kezelje a táblázatok sorait és oszlopait PowerPointban az Aspose.Slides for Android segítségével Java nyelven, és gyorsítsa fel a bemutató szerkesztését és az adatok frissítését."
+description: "Ke​zelje a táblázat sorait és oszlopait a PowerPointban az Aspose.Slides for Android via Java segítségével, és gyorsítsa a prezentáció szerkesztését és az adatok frissítését."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides lehetővé teszi, hogy a PowerPoint‑prezentációban kezelje egy táblázat sorait és oszlopait, és biztosítja a [Table](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/table/) osztályt, a [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITable) interfészt, valamint számos egyéb típust.
+Az Aspose.Slides for Android via Java lehetővé teszi a táblázat szerkezetének és formázásának kezelését a PowerPoint‑prezentációkban a [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) osztály és az [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) interfész segítségével. Megjelölhet egy fejlécsort, másolhat vagy eltávolíthat sorokat és oszlopokat, valamint szövegformázást alkalmazhat egy teljes sorra vagy oszlopra.
 
-## **Az első sort fejlécként beállítása**
+Ez a cikk elmagyarázza ezeket a műveleteket Java‑példákkal. Emellett bemutatja, hogyan lehet lekérni egy táblázat stílus‑presetjét, hogy újra felhasználhassa. A táblázat sor- és oszlopindexei 0‑alapúak.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a prezentációt.  
-2. Szerezze meg egy dia referenciáját az indexével.  
-3. Hozzon létre egy [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITable) objektumot, és állítsa null értékre.  
-4. Iteráljon az összes [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) objektumon, hogy megtalálja a megfelelő táblát.  
-5. Állítsa a táblázat első sorát fejlécként.  
+## **Sormagasság vezérlése**
 
-Ez a Java kód bemutatja, hogyan állítható be a táblázat első sorát fejlécként:
+Használja az [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) metódust a sor minimális magasságának pontban történő beállításához. Ez egy alsó határ, nem rögzített magasság. Az [IRow.getHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#getHeight--) lekéri a tényleges magasságot. A sorhoz az [ITable.getRows](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getRows--) segítségével férhet hozzá.
+
+A példa betölti a [row-height-input.pptx](row-height-input.pptx) fájlt, amelyben a táblázat az első dián az első alakzatként szerepel. Az első sor 70 pontnál kezdődik. A cellák 18 pontos Arial szöveget, sortörést és 6 pontos felső és alsó margót használnak; a második oszlopban a hosszabb szöveg több sorba törik. A példa megnöveli a minimumot 100 pontra, majd lecsökkenti 20 pontra, minden változtatás után kiírja a tényleges magasságot, és elmenti mindkét eredményt.
 
 ```java
-// Létrehozza a Presentation osztályt
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
 try {
-    // Eléri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Inicializálja a null TableEx-et
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
 
-    // Végig iterál a formákon és beállít egy hivatkozást a táblázatra
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Beállítja a táblázat első sorát fejlécként
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Mentse a prezentációt a lemezen
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Táblázatsor vagy -oszlop klónozása**
+A mellékelt prezentációval a minimum növelése helyet ad a sorban. A csökkentés eltávolítja ezt a plusz helyet, de a tényleges magasság továbbra is nagyobb lesz, mint 20 pont, mivel a szöveg és a cellamargók több helyet igényelnek. A minimum csak önmagában nem tudja alácsökkenteni a sort a tartalom által igényelt hely alá.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a prezentációt,  
-2. Szerezze meg egy dia referenciáját az indexével.  
-3. Határozzon meg egy `columnWidth` tömböt.  
-4. Határozzon meg egy `rowHeight` tömböt.  
-5. Adjon egy [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITable) objektumot a diára az [addTable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metódus segítségével.  
-6. Klónozza a táblázatsort.  
-7. Klónozza a táblázatoszlopot.  
-8. Mentse a módosított prezentációt.  
+Több tényező befolyásolja a tényleges magasságot:
 
-Ez a Java kód bemutatja, hogyan klónozható egy PowerPoint táblázat sorát vagy oszlopát:
+- **Szöveg és betűméret:** a hosszabb szöveg, explicite sortörések vagy nagyobb betűméret több függőleges helyet igényelhet.  
+- **Sortörés és oszlopszélesség:** sortörés engedélyezésekor az oszlopszélesség csökkentése az [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) metódussal több sort eredményezhet. Egy szélesebb oszlop csökkentheti a függőlegesen szükséges helyet.  
+- **Cellamargók:** az [ICell.setMarginTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginTop-double-) és [ICell.setMarginBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginBottom-double-) függőleges helyet adnak hozzá. az [ICell.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginLeft-double-) és [ICell.setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginRight-double-) csökkentik a szöveg számára elérhető szélességet, ami további sortörést eredményezhet.
+
+Ezen a táblázaton, amelyben nincs egyesített cella, a legtöbb függőleges helyet igénylő cella határozza meg a tartalom által vezérelt alsó határt a teljes sorra. A sor rövidebbé tételéhez esetleg a szöveget kell rövidíteni, a betűméretet vagy a margókat csökkenteni, vagy egy oszlopot szélesebbre tenni.
+
+Az alábbi képek ugyanazt a táblázatot mutatják azonos méretben. A bemutatott eredményekben a tényleges magasságok 70, 100 és 55,2 pont voltak: az utolsó sor magasabb maradt, mint a 20 pontos minimum. A pontos szövegmérések a környezetben rendelkezésre álló betűtípusoktól függően változhatnak. Töltse le a mentett eredményeket: [increased minimum](row-height-increased.pptx) és [decreased minimum](row-height-decreased.pptx).
+
+| Eredeti: minimum 70 pt, tényleges 70 pt | Növelve: minimum 100 pt, tényleges 100 pt | Csökkentve: minimum 20 pt, tényleges 55.2 pt |
+| --- | --- | --- |
+| ![Eredeti táblázat 70 pontos első sorral.](row-height-before.png) | ![Táblázat a első sor minimum 100 pontra növelése után.](row-height-increased.png) | ![Táblázat a első sor minimum 20 pontra csökkentése után; a sortörés a sort a minimumnál magasabbra tartja.](row-height-decreased.png) |
+
+## **Állítsa be az első sort fejlécként**
+
+Használja a [setFirstRow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setFirstRow-boolean-) metódust, hogy megjelölje az első sort fejlécként. A megjelenése a táblázatra alkalmazott táblastílustól függ.
+
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztállyal.  
+2. Hozzáférés az első diához.  
+3. Hozzáférés a dián az első alakzatként tárolt táblázathoz.  
+4. Engedélyezze a fejlécek formázását az első sorra.  
+5. Mentse a módosított prezentációt.
+
+A példához `table.pptx` fájlra van szükség, amelyben a táblázat az első dián az első alakzatként szerepel. Engedélyezi az első sor fejlécek formázását, és elmenti a `First_row_header.pptx` fájlt.
 
 ```java
- // Létrehozza a Presentation osztályt
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Eléri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Meghatározza az oszlopok szélességét és a sorok magasságát
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Táblázat alakzatot ad a diára
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    // Szöveget ad a 1. sor 1. cellájába
+## **Klónozzon táblázatsort vagy oszlopot**
+
+Klónozza a sorokat vagy oszlopokat, hogy újra felhasználja a tartalmukat és formázásukat. A másolatot hozzáfűzheti a táblázat végéhez, vagy egy adott pozícióra beillesztheti.
+
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztállyal.  
+2. Hozzáférés az első diához.  
+3. Határozza meg az oszlopszélességeket és sormagasságokat.  
+4. Adjon hozzá egy táblázatot az [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metódussal.  
+5. Klónozza a szükséges sorokat.  
+6. Klónozza a szükséges oszlopokat.  
+7. Mentse a módosított prezentációt.
+
+A példához `Test.pptx` fájlra van szükség, amely legalább egy diát tartalmaz. Létrehoz egy három oszlopos és öt soros táblázatot, a méreteket pontban megadva. Az első sor és oszlop másolatait a végére fűzi, majd a második sor és oszlop másolatait a 3‑as indexnél (a negyedik pozíció) illeszti be. Az eredményül kapott táblázat hét sorból és öt oszlopból áll. A `false` argumentum megakadályozza a klónozást a szomszédos egyesített sorok vagy oszlopok esetén; ez a táblázat nem tartalmaz egyesített cellákat.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Szöveget ad a 1. sor 2. cellájába
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Klónozza az 1. sort a táblázat végén
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Szöveget ad a 2. sor 1. cellájába
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Szöveget ad a 2. sor 2. cellájába
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Klónozza a 2. sort a táblázat 4. soraként
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Klónozza az első oszlopot a végén
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Klónozza a 2. oszlopot a 4. oszlop indexén
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Mentse a prezentációt a lemezen
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Sor vagy oszlop eltávolítása a táblázatból**
+## **Táblázat sorának vagy oszlopának eltávolítása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a prezentációt,  
-2. Szerezze meg egy dia referenciáját az indexével.  
-3. Határozzon meg egy `columnWidth` tömböt.  
-4. Határozzon meg egy `rowHeight` tömböt.  
-5. Adjon egy [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITable) objektumot a diára az [addTable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metódus segítségével.  
-6. Távolítsa el a táblázat sorát.  
-7. Távolítsa el a táblázat oszlopát.  
-8. Mentse a módosított prezentációt.  
+Távolítsa el a már nem szükséges sorokat vagy oszlopokat a táblázatból. Egy elem eltávolítása eltolja az azt követő sorok vagy oszlopok indexeit.
 
-Ez a Java kód bemutatja, hogyan távolítható el egy sor vagy oszlop a táblázatból:
+1. Hozzon létre egy prezentációt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztállyal.  
+2. Hozzáférés az első diához.  
+3. Határozza meg az oszlopszélességeket és sormagasságokat.  
+4. Adjon hozzá egy táblázatot az [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) metódussal.  
+5. Távolítsa el a második sort és a második oszlopot.  
+6. Mentse a módosított prezentációt.
+
+Ez a példa egy három‑három táblázatot hoz létre, és eltávolítja az 1‑es indexű sort és oszlopot, így egy két‑két táblázat marad a `TestTable_out.pptx` fájlban. A méretek pontban vannak megadva. A `false` argumentum megakadályozza a szomszédos egyesített sorok vagy oszlopok eltávolítását; ez a táblázat nem tartalmaz egyesített cellákat.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Szövegformázás beállítása a táblázatsor szintjén**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a prezentációt,  
-2. Szerezze meg egy dia referenciáját az indexével.  
-3. Hozzáférés a megfelelő [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITable) objektumhoz a diáról.  
-4. Állítsa be az első sor celláinak [setFontHeight(float value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Állítsa be az első sor celláinak [setAlignment(int value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) és [setMarginRight(float value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) attribútumait.  
-6. Állítsa be a második sor celláinak [setTextVerticalType(byte value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Mentse a módosított prezentációt.  
+Alkalmazzon szövegformázást egy teljes sorra, hogy a cellák egységesek legyenek. Beállíthat betűtulajdonságokat, bekezdésformázást és szövegirányt anélkül, hogy egyesével formázná a cellákat.
 
-Ez a Java kód demonstrálja a műveletet.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztállyal.  
+2. Hozzáférés az első dián lévő táblázathoz.  
+3. Használja a [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódust az első sorra.  
+4. Használja a [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) és a [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) metódusokat az első sorra.  
+5. Használja a [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) metódust a második sorra.  
+6. Mentse a módosított prezentációt.
+
+A példához `table.pptx` fájlra van szükség, amelyben a táblázat az első dián az első alakzatként szerepel, és legalább két sor van. Az első sorra 25 pontos szöveget, jobb igazítást és 20 pontos jobb bekezdésmargót alkalmaz, majd a második sorra függőleges szöveget állít be.
 
 ```java
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Tegyük fel, hogy az első dián az első alakzat egy táblázat
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Beállítja az első sor celláinak betűmagasságát
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Beállítja az első sor celláinak szövegigazítását és jobb margóját
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Beállítja a második sor celláinak függőleges szövegtípust
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Mentse a prezentációt a lemezen
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Szövegformázás beállítása a táblázatoszlop szintjén**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a prezentációt,  
-2. Szerezze meg egy dia referenciáját az indexével.  
-3. Hozzáférés a megfelelő [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITable) objektumhoz a diáról.  
-4. Állítsa be az első oszlop celláinak [setFontHeight(float value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Állítsa be az első oszlop celláinak [setAlignment(int value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) és [setMarginRight(float value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) attribútumait.  
-6. Állítsa be a második oszlop celláinak [setTextVerticalType(byte value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Mentse a módosított prezentációt.  
+Alkalmazzon szövegformázást egy teljes oszlopra, hogy a cellák egységesek legyenek. Beállíthat betűtulajdonságokat, bekezdésformázást és szövegirányt anélkül, hogy egyesével formázná a cellákat.
 
-Ez a Java kód demonstrálja a műveletet: 
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) osztállyal.  
+2. Hozzáférés az első dián lévő táblázathoz.  
+3. Használja a [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódust az első oszlopra.  
+4. Használja a [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) és a [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) metódusokat az első oszlopra.  
+5. Használja a [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) metódust a második oszlopra.  
+6. Mentse a módosított prezentációt.
+
+A példához `table.pptx` fájlra van szükség, amelyben a táblázat az első dián az első alakzatként szerepel, és legalább két oszlop van. Az első oszlopra 25 pontos szöveget, jobb igazítást és 20 pontos jobb bekezdésmargót alkalmaz, majd a második oszlopra függőleges szöveget állít be.
 
 ```java
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation();
-try {
-    // Tegyük fel, hogy az első dián az első alakzat egy táblázat
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Beállítja az első oszlop celláinak betűmagasságát
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Beállítja az első oszlop celláinak szövegigazítását és jobb margóját egy hívásban
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Beállítja a második oszlop celláinak függőleges szövegtípust
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **A táblázat stílusjellemzőinek lekérése**
+## **Táblázat stílus tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy egy táblázat stílusjellemzőit lekérje, így ezeket az adatokat egy másik táblázatnál vagy máshol felhasználhatja. Ez a Java kód bemutatja, hogyan lehet a táblázat előre beállított stílusából lekérni a stílusjellemzőket:
+Használja a [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) metódust, hogy lekérje egy táblázatra alkalmazott presetet, és újra felhasználja egy másik táblázaton. Ez a presetet azonosítja, nem az egyes cellák formázási felülírásait.
+
+A példa létrehoz egy táblázatot, a [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/#DarkStyle1) presetet alkalmazza, és visszaolvassa a presetet. Kiírja a `DarkStyle1`-nek megfelelő egész értéket, majd elmenti a táblázatot a `table.pptx` fájlba.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // módosítja az alapértelmezett stíluselőre beállított témát
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -265,12 +291,12 @@ try {
 
 **Alkalmazhatok PowerPoint témákat/stílusokat egy már létrehozott táblázatra?**
 
-Igen. A táblázat örökli a dia/elrendezés/mester téma beállításait, és továbbra is felülírhatja a kitöltéseket, szegélyeket és szövegszíneket a téma felett.
+Igen. A táblázat örökli a dia/elrendezés/mester téma beállításait, és továbbra is felülírhatja a kitöltéseket, szegélyeket és a szövegszíneket a téma felett.
 
-**Rendezhetem-e a táblázat sorait úgy, mint Excelben?**
+**Rendezhetem a táblázat sorait úgy, mint az Excelben?**
 
-Nem, az Aspose.Slides táblázatokban nincs beépített rendezés vagy szűrő. Először rendezze az adatokat a memóriában, majd töltse újra a táblázat sorait a kívánt sorrendben.
+Nem, az Aspose.Slides táblázatokban nincs beépített rendezés vagy szűrő. Először rendezd a adatokat a memóriában, majd töltsd fel a táblázat sorait a kívánt sorrendben.
 
-**Lehet-e csíkozott (csíkozott) oszlopokat alkalmazni, miközben egyedi színeket tartok meg bizonyos cellákban?**
+**Lehet színes (csíkozott) oszlopok, miközben bizonyos cellákra egyedi színeket tartok fenn?**
 
-Igen. Kapcsolja be a csíkozott oszlopokat, majd felülírja a konkrét cellákat helyi formázással; a cellaszintű formázás felülbírálja a táblázat stílusát.
+Igen. Kapcsold be a csíkozott oszlopokat, majd felülírd a konkrét cellákat helyi formázással; a cellaszintű formázás felülírja a táblastílust.

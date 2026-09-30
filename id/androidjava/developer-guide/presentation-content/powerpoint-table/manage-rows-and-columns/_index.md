@@ -9,8 +9,8 @@ keywords:
 - kolom tabel
 - baris pertama
 - header tabel
-- duplikat baris
-- duplikat kolom
+- gandakan baris
+- gandakan kolom
 - salin baris
 - salin kolom
 - hapus baris
@@ -23,241 +23,267 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Kelola baris dan kolom tabel dalam PowerPoint dengan Aspose.Slides untuk Android melalui Java dan percepat penyuntingan presentasi serta pembaruan data."
+description: "Kelola baris dan kolom tabel dalam PowerPoint dengan Aspose.Slides untuk Android via Java serta percepat penyuntingan presentasi dan pembaruan data."
 ---
 ## **Pendahuluan**
 
-Untuk memungkinkan Anda mengelola baris dan kolom tabel dalam presentasi PowerPoint, Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/table/), antarmuka [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable), dan banyak tipe lainnya.
+Aspose.Slides for Android via Java memungkinkan Anda mengelola struktur tabel dan pemformatan dalam presentasi PowerPoint melalui kelas [Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/) dan antarmuka [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Anda dapat menandai baris header, menggandakan atau menghapus baris dan kolom, serta menerapkan pemformatan teks pada seluruh baris atau kolom.
 
-## **Atur Baris Pertama sebagai Header**
+Artikel ini menjelaskan operasi tersebut dengan contoh Java. Artikel ini juga menunjukkan cara mengambil preset gaya tabel sehingga Anda dapat menggunakannya kembali. Indeks baris dan kolom tabel dimulai dari nol.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi.  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Buat objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) dan atur menjadi null.  
-4. Iterasi semua objek [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) untuk menemukan tabel yang relevan.  
-5. Atur baris pertama tabel sebagai header.  
+## **Mengatur Tinggi Baris**
 
-Kode Java ini menunjukkan cara mengatur baris pertama tabel sebagai header:
+Gunakan [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) untuk menetapkan tinggi minimum baris dalam poin. Ini merupakan batas bawah, bukan tinggi tetap. [IRow.getHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#getHeight--) mengembalikan tinggi aktual. Akses baris melalui [ITable.getRows](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getRows--).
+
+Contoh memuat [row-height-input.pptx](row-height-input.pptx), yang memiliki tabel sebagai bentuk pertama pada slide pertama. Baris pertamanya dimulai pada 70 poin. Sel‑sel menggunakan teks Arial 18 poin, dengan pembungkus teks, dan margin atas serta bawah 6 poin; teks yang lebih panjang di kolom kedua terbungkus ke beberapa baris. Contoh meningkatkan minimum menjadi 100 poin, kemudian menurunkannya menjadi 20 poin, mencetak tinggi aktual setelah setiap perubahan, dan menyimpan kedua hasilnya.
 
 ```java
-// Menginstansiasi kelas Presentation
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
 try {
-    // Mengakses slide pertama
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Menginisialisasi TableEx yang null
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
 
-    // Mengiterasi shape-shape dan menetapkan referensi ke tabel
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Setel baris pertama tabel sebagai headernya
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Menyimpan presentasi ke disk
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Duplikasi Baris atau Kolom Tabel**
+Dengan presentasi yang disediakan, meningkatkan minimum menambah ruang pada baris. Menurunkannya menghapus ruang tambahan tersebut, tetapi tinggi aktual tetap lebih besar dari 20 poin karena teks dan margin sel memerlukan ruang lebih. Mengurangi minimum saja tidak dapat memaksa baris berada di bawah ruang yang diperlukan oleh isinya.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi,  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Definisikan array `columnWidth`.  
-4. Definisikan array `rowHeight`.  
-5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Duplikat baris tabel.  
-7. Duplikat kolom tabel.  
-8. Simpan presentasi yang telah dimodifikasi.  
+Beberapa faktor memengaruhi tinggi aktual:
 
-Kode Java ini menunjukkan cara menduplikasi baris atau kolom tabel PowerPoint:
+- **Teks dan ukuran font:** teks yang lebih panjang, jeda baris eksplisit, atau font yang lebih besar dapat membutuhkan lebih banyak ruang vertikal.
+- **Pembungkus teks dan lebar kolom:** dengan pembungkus diaktifkan, mengurangi lebar kolom menggunakan [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) dapat menghasilkan lebih banyak baris. Kolom yang lebih lebar dapat mengurangi ruang yang dibutuhkan secara vertikal.
+- **Margin sel:** [ICell.setMarginTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginTop-double-) dan [ICell.setMarginBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginBottom-double-) menambah ruang vertikal. [ICell.setMarginLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginLeft-double-) dan [ICell.setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#setMarginRight-double-) mengurangi lebar yang tersedia untuk teks dan dapat menyebabkan pembungkus tambahan.
+
+Untuk tabel ini tanpa sel yang digabung, sel yang membutuhkan ruang vertikal terbanyak menentukan batas bawah berbasis konten untuk seluruh baris. Untuk membuat baris lebih pendek, Anda mungkin juga perlu memendekkan teks, mengurangi ukuran font atau margin, atau memperlebar kolom.
+
+Gambar di bawah menunjukkan tabel yang sama dengan skala yang sama. Pada hasil yang diilustrasikan, tinggi aktual adalah 70, 100, dan 55,2 poin: baris terakhir tetap lebih tinggi daripada minimum 20 poin. Pengukuran teks yang tepat dapat bervariasi tergantung pada font yang tersedia di lingkungan Anda. Unduh hasil yang disimpan: [minimum meningkat](row-height-increased.pptx) dan [minimum berkurang](row-height-decreased.pptx).
+
+| Asli: minimum 70 pt, aktual 70 pt | Meningkat: minimum 100 pt, aktual 100 pt | Berkurang: minimum 20 pt, aktual 55.2 pt |
+| --- | --- | --- |
+| ![Tabel asli dengan baris pertama 70 poin.](row-height-before.png) | ![Tabel setelah meningkatkan minimum baris pertama menjadi 100 poin.](row-height-increased.png) | ![Tabel setelah menurunkan minimum baris pertama menjadi 20 poin; teks yang terbungkus membuat baris tetap lebih tinggi daripada minimum.](row-height-decreased.png) |
+
+## **Menetapkan Baris Pertama sebagai Header**
+
+Gunakan metode [setFirstRow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#setFirstRow-boolean-) untuk menandai baris pertama sebagai header. Penampilannya bergantung pada gaya tabel yang diterapkan pada tabel.
+
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Akses slide pertama.
+3. Akses tabel yang disimpan sebagai bentuk pertama pada slide.
+4. Aktifkan pemformatan header untuk baris pertamanya.
+5. Simpan presentasi yang telah dimodifikasi.
+
+Contoh memerlukan `table.pptx` dengan tabel sebagai bentuk pertama pada slide pertama. Contoh ini mengaktifkan pemformatan header untuk baris pertama dan menyimpan `First_row_header.pptx`.
 
 ```java
- // Menginstansiasi kelas Presentation
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Mengakses slide pertama
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Mendefinisikan kolom dengan lebar dan baris dengan tinggi
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Menambahkan bentuk tabel ke slide
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    // Menambahkan teks ke baris 1 sel 1
+## **Menggandakan Baris atau Kolom Tabel**
+
+Gandakan baris atau kolom untuk menggunakan kembali konten dan pemformatannya. Anda dapat menambahkan salinan ke akhir tabel atau menyisipkannya pada posisi tertentu.
+
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Akses slide pertama.
+3. Tentukan lebar kolom dan tinggi baris.
+4. Tambahkan tabel dengan metode [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Gandakan baris yang diperlukan.
+6. Gandakan kolom yang diperlukan.
+7. Simpan presentasi yang telah dimodifikasi.
+
+Contoh memerlukan `Test.pptx` dengan setidaknya satu slide. Contoh ini membuat tabel dengan tiga kolom dan lima baris, dengan dimensi yang ditentukan dalam poin. Ia menambahkan salinan baris pertama dan kolom pertama, lalu menyisipkan salinan baris kedua dan kolom kedua pada indeks 3 (posisi keempat). Tabel yang dihasilkan memiliki tujuh baris dan lima kolom. Argumen `false` menonaktifkan penggandaan ke dalam baris atau kolom yang berdekatan yang digabung; tabel ini tidak memiliki sel yang digabung.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
+
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Menambahkan teks ke baris 1 sel 2
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Menduplikasi Baris 1 di akhir tabel
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Menambahkan teks ke baris 2 sel 1
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Menambahkan teks ke baris 2 sel 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Menduplikasi Baris 2 sebagai baris ke-4 tabel
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Menduplikasi kolom pertama di akhir
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Menduplikasi kolom ke-2 pada indeks kolom ke-4
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Menyimpan presentasi ke disk
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Hapus Baris atau Kolom dari Tabel**
+## **Menghapus Baris atau Kolom dari Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi,  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Definisikan array `columnWidth`.  
-4. Definisikan array `rowHeight`.  
-5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).  
-6. Hapus baris tabel.  
-7. Hapus kolom tabel.  
-8. Simpan presentasi yang telah dimodifikasi.  
+Hapus baris atau kolom yang tidak lagi diperlukan dalam tabel. Menghapus suatu item menggeser indeks baris atau kolom yang mengikutinya.
 
-Kode Java ini menunjukkan cara menghapus baris atau kolom dari tabel:
+1. Buat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Akses slide pertama.
+3. Tentukan lebar kolom dan tinggi baris.
+4. Tambahkan tabel dengan metode [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Hapus baris kedua dan kolom kedua.
+6. Simpan presentasi yang telah dimodifikasi.
+
+Contoh ini membuat tabel tiga‑by‑tiga dan menghapus baris serta kolom pada indeks 1, menghasilkan tabel dua‑by‑dua dalam `TestTable_out.pptx`. Dimensi dalam poin. Argumen `false` menonaktifkan penghapusan baris atau kolom yang berdekatan yang digabung; tabel ini tidak memiliki sel yang digabung.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Atur Pemformatan Teks pada Tingkat Baris Tabel**
+## **Menerapkan Pemformatan Teks pada Tingkat Baris Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi,  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Akses objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) yang relevan dari slide.  
-4. Atur sel baris pertama dengan [setFontHeight(float value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Atur sel baris pertama dengan [setAlignment(int value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) dan [setMarginRight(float value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Atur sel baris kedua dengan [setTextVerticalType(byte value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Simpan presentasi yang telah dimodifikasi.  
+Terapkan pemformatan teks pada seluruh baris untuk menjaga konsistensi sel‑selnya. Anda dapat mengatur properti font, pemformatan paragraf, dan arah teks tanpa harus memformat setiap sel secara terpisah.
 
-Kode Java ini mendemonstrasikan operasi tersebut.
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Akses tabel pada slide pertama.
+3. Gunakan [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) untuk baris pertama.
+4. Gunakan [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) dan [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) untuk baris pertama.
+5. Gunakan [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) untuk baris kedua.
+6. Simpan presentasi yang telah dimodifikasi.
+
+Contoh membutuhkan `table.pptx` dengan tabel sebagai bentuk pertama pada slide pertama dan setidaknya dua baris. Contoh ini menerapkan teks 25 poin, perataan kanan, dan margin paragraf kanan 20 poin pada baris pertama, lalu mengatur teks vertikal pada baris kedua.
 
 ```java
-// Membuat instance dari kelas Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Misalkan shape pertama pada slide pertama adalah tabel
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Mengatur tinggi font sel baris pertama
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Mengatur perataan teks dan margin kanan sel baris pertama
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Mengatur tipe vertikal teks sel baris kedua
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-  // Menyimpan presentasi ke disk
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Atur Pemformatan Teks pada Tingkat Kolom Tabel**
+## **Menerapkan Pemformatan Teks pada Tingkat Kolom Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi,  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Akses objek [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ITable) yang relevan dari slide.  
-4. Atur sel kolom pertama dengan [setFontHeight(float value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-).  
-5. Atur sel kolom pertama dengan [setAlignment(int value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) dan [setMarginRight(float value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Atur sel kolom kedua dengan [setTextVerticalType(byte value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
-7. Simpan presentasi yang telah dimodifikasi.  
+Terapkan pemformatan teks pada seluruh kolom untuk menjaga konsistensi sel‑selnya. Anda dapat mengatur properti font, pemformatan paragraf, dan arah teks tanpa harus memformat setiap sel secara terpisah.
 
-Kode Java ini mendemonstrasikan operasi tersebut:
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
+2. Akses tabel pada slide pertama.
+3. Gunakan [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) untuk kolom pertama.
+4. Gunakan [setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) dan [setMarginRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setMarginRight-float-) untuk kolom pertama.
+5. Gunakan [setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) untuk kolom kedua.
+6. Simpan presentasi yang telah dimodifikasi.
+
+Contoh membutuhkan `table.pptx` dengan tabel sebagai bentuk pertama pada slide pertama dan setidaknya dua kolom. Contoh ini menerapkan teks 25 poin, perataan kanan, dan margin paragraf kanan 20 poin pada kolom pertama, lalu mengatur teks vertikal pada kolom kedua.
 
 ```java
-// Membuat instance dari kelas Presentation
-Presentation pres = new Presentation();
-try {
-    // Misalkan shape pertama pada slide pertama adalah tabel
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Mengatur tinggi font sel kolom pertama
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Mengatur perataan teks dan margin kanan sel kolom pertama dalam satu panggilan
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Mengatur tipe vertikal teks sel kolom kedua
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Dapatkan Properti Gaya Tabel**
+## **Mendapatkan Properti Gaya Tabel**
 
-Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode Java ini menunjukkan cara mendapatkan properti gaya dari gaya preset tabel:
+Gunakan metode [getStylePreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#getStylePreset--) untuk mengambil preset yang diterapkan pada tabel dan menggunakannya kembali pada tabel lain. Metode ini mengidentifikasi preset, bukan penimpaan pemformatan sel individu.
+
+Contoh membuat tabel, menerapkan [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tablestylepreset/#DarkStyle1), dan membaca kembali preset tersebut. Contoh mencetak nilai integer yang mewakili `DarkStyle1` dan menyimpan tabel dalam `table.pptx`.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // ubah tema preset gaya default
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -265,12 +291,12 @@ try {
 
 **Apakah saya dapat menerapkan tema/gaya PowerPoint ke tabel yang sudah dibuat?**
 
-Ya. Tabel mewarisi tema slide/layout/master, dan Anda tetap dapat menimpa isian, border, serta warna teks di atas tema tersebut.
+Ya. Tabel mewarisi tema slide/layout/master, dan Anda masih dapat menimpa isian, tepi, dan warna teks di atas tema tersebut.
 
 **Apakah saya dapat mengurutkan baris tabel seperti di Excel?**
 
-Tidak, tabel Aspose.Slides tidak memiliki penyortiran atau filter bawaan. Urutkan data di memori terlebih dahulu, lalu isi kembali baris tabel sesuai urutan tersebut.
+Tidak, tabel Aspose.Slides tidak memiliki fungsi pengurutan atau penyaringan bawaan. Urutkan data di memori terlebih dahulu, kemudian isi kembali baris tabel dalam urutan tersebut.
 
 **Apakah saya dapat memiliki kolom bergaris (striped) sambil mempertahankan warna khusus pada sel tertentu?**
 
-Ya. Aktifkan kolom bergaris, lalu timpa sel tertentu dengan pemformatan lokal; pemformatan tingkat sel memiliki prioritas lebih tinggi daripada gaya tabel.
+Ya. Aktifkan kolom bergaris, kemudian timpa sel‑sel tertentu dengan pemformatan lokal; pemformatan tingkat sel memiliki prioritas lebih tinggi dibandingkan gaya tabel.

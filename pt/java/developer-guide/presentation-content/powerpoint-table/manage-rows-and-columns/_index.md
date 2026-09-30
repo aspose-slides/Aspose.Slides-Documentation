@@ -1,5 +1,5 @@
 ---
-title: Gerenciar linhas e colunas em tabelas PowerPoint usando Java
+title: Gerenciar Linhas e Colunas em Tabelas do PowerPoint Usando Java
 linktitle: Linhas e Colunas
 type: docs
 weight: 20
@@ -22,241 +22,267 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Gerencie linhas e colunas de tabelas no PowerPoint com Aspose.Slides for Java e agilize a edição de apresentações e atualizações de dados."
+description: "Gerencie linhas e colunas de tabelas no PowerPoint com Aspose.Slides for Java e acelere a edição de apresentações e a atualização de dados."
 ---
 ## **Introdução**
 
-Para permitir que você gerencie as linhas e colunas de uma tabela em uma apresentação PowerPoint, o Aspose.Slides fornece a classe [Table](https://reference.aspose.com/slides/pt/java/com.aspose.slides/table/), a interface [ITable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ITable) e muitos outros tipos. 
+Aspose.Slides for Java permite que você gerencie a estrutura e a formatação de tabelas em apresentações do PowerPoint por meio da classe [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) e da interface [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) . Você pode designar uma linha de cabeçalho, clonar ou remover linhas e colunas e aplicar formatação de texto a uma linha ou coluna inteira.
+
+Este artigo explica essas operações com exemplos em Java. Também mostra como recuperar o preset de estilo de uma tabela para que você possa reutilizá‑lo. Os índices de linhas e colunas da tabela são baseados em zero.
+
+## **Controlar a Altura da Linha**
+
+Use [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) para definir a altura mínima de uma linha em pontos. É um limite inferior, não uma altura fixa. [IRow.getHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#getHeight--) retorna a altura real. Acesse a linha através de [ITable.getRows](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getRows--).
+
+O exemplo carrega [row-height-input.pptx](row-height-input.pptx), que possui uma tabela como a primeira forma no primeiro slide. Sua primeira linha começa em 70 pontos. As células usam texto Arial de 18 pontos, com quebra de linha e margens superior e inferior de 6 pontos; o texto mais longo na segunda coluna quebra em várias linhas. O exemplo aumenta o mínimo para 100 pontos, depois o diminui para 20 pontos, imprime a altura real após cada alteração e salva ambos os resultados.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("row-height-input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    IRow row = table.getRows().get_Item(0);
+
+    row.setMinimalHeight(100);
+    System.out.printf("Increased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-increased.pptx", SaveFormat.Pptx);
+
+    row.setMinimalHeight(20);
+    System.out.printf("Decreased: minimum = %.1f, actual = %.1f pt%n", row.getMinimalHeight(), row.getHeight());
+    presentation.save("row-height-decreased.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Com a apresentação fornecida, aumentar o mínimo adiciona espaço à linha. Diminuí‑lo remove esse espaço extra, mas a altura real permanece maior que 20 pontos porque o texto e as margens das células precisam de mais espaço. Reduzir apenas o mínimo não pode forçar a linha abaixo do espaço exigido pelo seu conteúdo.
+
+Vários fatores afetam a altura real:
+
+- **Texto e tamanho da fonte:** texto mais longo, quebras de linha explícitas ou uma fonte maior podem exigir mais espaço vertical.
+- **Quebra de linha e largura da coluna:** com a quebra de linha habilitada, reduzir a largura da coluna com [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) pode gerar mais linhas. Uma coluna mais larga pode reduzir o espaço necessário na vertical.
+- **Margens da célula:** [ICell.setMarginTop](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginTop-double-) e [ICell.setMarginBottom](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginBottom-double-) adicionam espaço vertical. [ICell.setMarginLeft](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginLeft-double-) e [ICell.setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#setMarginRight-double-) reduzem a largura disponível para o texto e podem causar quebras adicionais.
+
+Para esta tabela sem células mescladas, a célula que precisa de mais espaço vertical determina o limite inferior impulsionado pelo conteúdo para toda a linha. Para encurtar a linha, talvez seja necessário encurtar o texto, reduzir o tamanho da fonte ou das margens, ou ampliar uma coluna.
+
+As imagens abaixo mostram a mesma tabela na mesma escala. Nos resultados ilustrados, as alturas reais foram 70, 100 e 55,2 pontos: a linha final permaneceu mais alta que seu mínimo de 20 pontos. Medições exatas de texto podem variar com as fontes disponíveis no seu ambiente. Baixe os resultados salvos: [increased minimum](row-height-increased.pptx) e [decreased minimum](row-height-decreased.pptx).
+
+| Original: mínimo 70 pt, real 70 pt | Aumentado: mínimo 100 pt, real 100 pt | Diminuído: mínimo 20 pt, real 55.2 pt |
+| --- | --- | --- |
+| ![Tabela original com a primeira linha de 70 pontos.](row-height-before.png) | ![Tabela após aumentar o mínimo da primeira linha para 100 pontos.](row-height-increased.png) | ![Tabela após diminuir o mínimo da primeira linha para 20 pontos; texto com quebra mantém a linha mais alta que o mínimo.](row-height-decreased.png) |
 
 ## **Definir a Primeira Linha como Cabeçalho**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) e carregue a apresentação. 
-2. Obtenha a referência de um slide através de seu índice. 
-3. Crie um objeto [ITable] e defina-o como nulo. 
-4. Itere por todos os objetos [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) para encontrar a tabela relevante. 
-5. Defina a primeira linha da tabela como seu cabeçalho. 
+Use o método [setFirstRow](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#setFirstRow-boolean-) para marcar a primeira linha para formatação de cabeçalho. Sua aparência depende do estilo de tabela aplicado à tabela.
 
-Este código Java mostra como definir a primeira linha de uma tabela como cabeçalho:
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Acesse o primeiro slide.
+3. Acesse a tabela armazenada como a primeira forma no slide.
+4. Habilite a formatação de cabeçalho para sua primeira linha.
+5. Salve a apresentação modificada.
+
+O exemplo requer `table.pptx` com uma tabela como a primeira forma no primeiro slide. Ele habilita a formatação de cabeçalho para a primeira linha e salva `First_row_header.pptx`.
 
 ```java
-// Instancia a classe Presentation
-Presentation pres = new Presentation("table.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Acessa o primeiro slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Inicializa a TableEx nula
-    ITable tbl = null;
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+    table.setFirstRow(true);
 
-    // Itera pelos shapes e define uma referência para a tabela
-    for (IShape shp : sld.getShapes())
-    {
-        if (shp instanceof ITable) 
-        {
-            tbl = (ITable)shp;
-            
-            //Define a primeira linha de uma tabela como seu cabeçalho
-            tbl.setFirstRow(true);
-        }
-    }
-    
-    // Salva a apresentação no disco
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("First_row_header.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Clonar uma Linha ou Coluna da Tabela**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) e carregue a apresentação, 
-2. Obtenha a referência de um slide através de seu índice. 
-3. Defina um array de `columnWidth`. 
-4. Defina um array de `rowHeight`. 
-5. Adicione um objeto [ITable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ITable) ao slide usando o método [addTable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). 
-6. Clone a linha da tabela. 
-7. Clone a coluna da tabela. 
-8. Salve a apresentação modificada. 
+Clone linhas ou colunas para reutilizar seu conteúdo e formatação. Você pode acrescentar uma cópia ao final da tabela ou inseri‑la em uma posição específica.
 
-Este código Java mostra como clonar a linha ou a coluna de uma tabela do PowerPoint:
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Acesse o primeiro slide.
+3. Defina as larguras das colunas e as alturas das linhas.
+4. Adicione uma tabela com o método [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Clone as linhas necessárias.
+6. Clone as colunas necessárias.
+7. Salve a apresentação modificada.
+
+O exemplo requer `Test.pptx` com pelo menos um slide. Ele cria uma tabela com três colunas e cinco linhas, com dimensões especificadas em pontos. Acrescenta cópias da primeira linha e da primeira coluna, depois insere cópias da segunda linha e da segunda coluna no índice 3 (a quarta posição). A tabela resultante tem sete linhas e cinco colunas. O argumento `false` desabilita a clonagem em linhas ou colunas mescladas adjacentes; esta tabela não possui células mescladas.
 
 ```java
- // Instancia a classe Presentation
-Presentation pres = new Presentation("Test.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    // Acessa o primeiro slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Define colunas com larguras e linhas com alturas
-    double[] dblCols = { 50, 50, 50 };
-    double[] dblRows = { 50, 30, 30, 30, 30 };
+    double[] columnWidths = new double[] { 50, 50, 50 };
+    double[] rowHeights = new double[] { 50, 30, 30, 30, 30 };
+    ITable table = slide.getShapes().addTable(100, 50, columnWidths, rowHeights);
 
-    // Adiciona uma forma de tabela ao slide
-    ITable table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-
-    // Adiciona texto à célula 1 da linha 1
     table.get_Item(0, 0).getTextFrame().setText("Row 1 Cell 1");
-
-    // Adiciona texto à célula 2 da linha 1
     table.get_Item(1, 0).getTextFrame().setText("Row 1 Cell 2");
-
-    // Clona a linha 1 no final da tabela
     table.getRows().addClone(table.getRows().get_Item(0), false);
 
-    // Adiciona texto à célula 1 da linha 2
     table.get_Item(0, 1).getTextFrame().setText("Row 2 Cell 1");
-
-    // Adiciona texto à célula 2 da linha 2
     table.get_Item(1, 1).getTextFrame().setText("Row 2 Cell 2");
-
-    // Clona a linha 2 como a quarta linha da tabela
     table.getRows().insertClone(3, table.getRows().get_Item(1), false);
 
-    // Clona a primeira coluna no final
     table.getColumns().addClone(table.getColumns().get_Item(0), false);
+    table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
 
-    // Clona a segunda coluna no índice da quarta coluna
-    table.getColumns().insertClone(3,table.getColumns().get_Item(1), false);
-    
-    // Salva a apresentação no disco
-    pres.save("table_out.pptx", SaveFormat.Pptx);
+    presentation.save("table_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Remover uma Linha ou Coluna de uma Tabela**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) e carregue a apresentação, 
-2. Obtenha a referência de um slide através de seu índice. 
-3. Defina um array de `columnWidth`. 
-4. Defina um array de `rowHeight`. 
-5. Adicione um objeto [ITable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ITable) ao slide usando o método [addTable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). 
-6. Remova a linha da tabela. 
-7. Remova a coluna da tabela. 
-8. Salve a apresentação modificada. 
+Remova linhas ou colunas que não são mais necessárias em uma tabela. Remover um item desloca os índices das linhas ou colunas que o seguem.
 
-Este código Java mostra como remover uma linha ou coluna de uma tabela:
+1. Crie uma apresentação com a classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Acesse o primeiro slide.
+3. Defina as larguras das colunas e as alturas das linhas.
+4. Adicione uma tabela com o método [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---).
+5. Remova a segunda linha e a segunda coluna.
+6. Salve a apresentação modificada.
+
+Este exemplo cria uma tabela de três por três e remove a linha e a coluna no índice 1, deixando uma tabela de dois por dois em `TestTable_out.pptx`. As dimensões estão em pontos. O argumento `false` desabilita a remoção de linhas ou colunas mescladas adjacentes; esta tabela não possui células mescladas.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    double[] colWidth = { 100, 50, 30 };
-    double[] rowHeight = { 30, 50, 30 };
+import com.aspose.slides.*;
 
-    ITable table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 50, 30 };
+    double[] rowHeights = new double[] { 30, 50, 30 };
+    ITable table = slide.getShapes().addTable(100, 100, columnWidths, rowHeights);
+
     table.getRows().removeAt(1, false);
     table.getColumns().removeAt(1, false);
-    
-    pres.save("TestTable_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("TestTable_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Definir Formatação de Texto no Nível de Linha da Tabela**
+## **Definir Formatação de Texto no Nível da Linha da Tabela**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) e carregue a apresentação, 
-2. Obtenha a referência de um slide através de seu índice. 
-3. Acesse o objeto [ITable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ITable) relevante do slide. 
-4. Defina a altura da fonte das células da primeira linha usando [setFontHeight(float value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/baseportionformat/#setFontHeight-float-). 
-5. Defina o alinhamento das células da primeira linha com [setAlignment(int value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) e a margem direita com [setMarginRight(float value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Defina o tipo de orientação vertical do texto das células da segunda linha com [setTextVerticalType(byte value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-). 
-7. Salve a apresentação modificada. 
+Aplique formatação de texto a uma linha inteira para manter suas células consistentes. Você pode definir propriedades de fonte, formatação de parágrafo e direção do texto sem formatar cada célula individualmente.
 
-Este código Java demonstra a operação:
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Acesse a tabela no primeiro slide.
+3. Use [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) para a primeira linha.
+4. Use [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) e [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) para a primeira linha.
+5. Use [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) para a segunda linha.
+6. Salve a apresentação modificada.
+
+O exemplo requer `table.pptx` com uma tabela como a primeira forma no primeiro slide e pelo menos duas linhas. Ele aplica texto de 25 pontos, alinhamento à direita e margem de parágrafo direita de 20 pontos à primeira linha, depois define texto vertical na segunda linha.
 
 ```java
-// Cria uma instância da classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("table.pptx");
 try {
-    // Vamos supor que a primeira forma no primeiro slide seja uma tabela
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0); 
-    
-    // Define a altura da fonte das células da primeira linha
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getRows().get_Item(0).setTextFormat(portionFormat);
-    
-    // Define o alinhamento de texto e a margem direita das células da primeira linha
+    table.getRows().get_Item(0).setTextFormat(portionFormat);
+
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
-    
-    // Define o tipo de orientação vertical do texto das células da segunda linha
+    table.getRows().get_Item(0).setTextFormat(paragraphFormat);
+
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
+    table.getRows().get_Item(1).setTextFormat(textFrameFormat);
 
-    // Salva a apresentação no disco
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("row_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Definir Formatação de Texto no Nível de Coluna da Tabela**
+## **Definir Formatação de Texto no Nível da Coluna da Tabela**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) e carregue a apresentação, 
-2. Obtenha a referência de um slide através de seu índice. 
-3. Acesse o objeto [ITable](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ITable) relevante do slide. 
-4. Defina a altura da fonte das células da primeira coluna usando [setFontHeight(float value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/baseportionformat/#setFontHeight-float-). 
-5. Defina o alinhamento das células da primeira coluna com [setAlignment(int value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) e a margem direita com [setMarginRight(float value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Defina o tipo de orientação vertical do texto das células da segunda coluna com [setTextVerticalType(byte value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-). 
-7. Salve a apresentação modificada. 
+Aplique formatação de texto a uma coluna inteira para manter suas células consistentes. Você pode definir propriedades de fonte, formatação de parágrafo e direção do texto sem formatar cada célula individualmente.
 
-Este código Java demonstra a operação: 
+1. Carregue a apresentação com a classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
+2. Acesse a tabela no primeiro slide.
+3. Use [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) para a primeira coluna.
+4. Use [setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) e [setMarginRight](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-) para a primeira coluna.
+5. Use [setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-) para a segunda coluna.
+6. Salve a apresentação modificada.
+
+O exemplo requer `table.pptx` com uma tabela como a primeira forma no primeiro slide e pelo menos duas colunas. Ele aplica texto de 25 pontos, alinhamento à direita e margem de parágrafo direita de 20 pontos à primeira coluna, depois define texto vertical na segunda coluna.
 
 ```java
-// Cria uma instância da classe Presentation
-Presentation pres = new Presentation();
-try {
-    // Vamos supor que a primeira forma no primeiro slide seja uma tabela
-    ITable someTable = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0)];
+import com.aspose.slides.*;
 
-    // Define a altura da fonte das células da primeira coluna
+Presentation presentation = new Presentation("table.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ITable table = (ITable)slide.getShapes().get_Item(0);
+
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
+    table.getColumns().get_Item(0).setTextFormat(portionFormat);
 
-    // Define o alinhamento de texto e a margem direita das células da primeira coluna em uma única chamada
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
-	
-    someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
+    table.getColumns().get_Item(0).setTextFormat(paragraphFormat);
 
-    // Define o tipo de orientação vertical do texto das células da segunda coluna
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
-	
-    someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
+    table.getColumns().get_Item(1).setTextFormat(textFrameFormat);
 
-    pres.save("result.pptx", SaveFormat.Pptx);
+    presentation.save("column_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Obter Propriedades de Estilo da Tabela**
+## **Obter Propriedades do Estilo da Tabela**
 
-O Aspose.Slides permite que você recupere as propriedades de estilo de uma tabela para que possa usar esses detalhes em outra tabela ou em outro local. Este código Java mostra como obter as propriedades de estilo a partir de um estilo predefinido de tabela:
+Use o método [getStylePreset](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#getStylePreset--) para recuperar o preset aplicado a uma tabela e reutilizá‑lo em outra tabela. Isso identifica o preset em vez de substituições de formatação individuais de células.
+
+O exemplo cria uma tabela, aplica [TableStylePreset.DarkStyle1](https://reference.aspose.com/slides/java/com.aspose.slides/tablestylepreset/#DarkStyle1) e lê o preset de volta. Ele imprime o valor inteiro correspondente a `DarkStyle1` e salva a tabela em `table.pptx`.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // altera o tema de estilo predefinido padrão
-    pres.save("table.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = new double[] { 100, 150 };
+    double[] rowHeights = new double[] { 5, 5, 5 };
+    ITable table = slide.getShapes().addTable(10, 10, columnWidths, rowHeights);
+    table.setStylePreset(TableStylePreset.DarkStyle1);
+
+    int stylePreset = table.getStylePreset();
+    System.out.println(stylePreset);
+
+    presentation.save("table.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -264,12 +290,12 @@ try {
 
 **Posso aplicar temas/estilos do PowerPoint a uma tabela que já foi criada?**
 
-Sim. A tabela herda o tema do slide/layout/master e ainda é possível sobrescrever preenchimentos, bordas e cores de texto sobre esse tema.
+Sim. A tabela herda o tema do slide/layout/master e ainda assim você pode sobrescrever preenchimentos, bordas e cores de texto sobre esse tema.
 
-**Posso classificar linhas da tabela como no Excel?**
+**Posso ordenar linhas de tabela como no Excel?**
 
-Não, as tabelas do Aspose.Slides não possuem classificação ou filtros internos. Classifique seus dados na memória primeiro e, em seguida, repopule as linhas da tabela nessa ordem.
+Não, as tabelas do Aspose.Slides não possuem ordenação ou filtros integrados. Ordene seus dados em memória primeiro e, em seguida, recarregue as linhas da tabela nessa ordem.
 
-**Posso ter colunas em faixas (listradas) mantendo cores personalizadas em células específicas?**
+**Posso ter colunas em faixa (listradas) mantendo cores personalizadas em células específicas?**
 
-Sim. Ative colunas em faixas e, depois, sobrescreva células específicas com formatação local; a formatação ao nível da célula tem precedência sobre o estilo da tabela.
+Sim. Ative colunas em faixa e, em seguida, sobrescreva células específicas com formatação local; a formatação ao nível da célula tem precedência sobre o estilo da tabela.
