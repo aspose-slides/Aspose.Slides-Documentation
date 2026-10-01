@@ -1,5 +1,5 @@
 ---
-title: Grafiekassen aanpassen in presentaties met JavaScript
+title: Diagramassen aanpassen in presentaties met JavaScript
 linktitle: Grafiekas
 type: docs
 url: /nl/nodejs-java/chart-axis/
@@ -10,13 +10,13 @@ keywords:
 - as aanpassen
 - as manipuleren
 - as beheren
-- as eigenschappen
-- maximale waarde
-- minimale waarde
+- as-eigenschappen
+- maximumwaarde
+- minimumwaarde
 - aslijn
 - datumnotatie
-- as titel
-- aspositie
+- as-titel
+- as-positie
 - PowerPoint
 - presentatie
 - Node.js
@@ -26,224 +26,325 @@ description: "Ontdek hoe u JavaScript met Aspose.Slides voor Node.js via Java ku
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je de assen van een grafiek kunt aanpassen in Aspose.Slides. Het laat zien hoe je de werkelijke aswaarden kunt ophalen, gegevens tussen assen kunt verwisselen, de verticale of horizontale as kunt verbergen voor lijndiagrammen, het type categorie‑as kunt wijzigen, de datumnotatie voor categorie‑aswaarden kunt instellen, een as‑titel kunt roteren, de aspositie kunt instellen en een eenheidslabel op de waardenas kunt weergeven.
+Dit artikel legt uit hoe u diagramassen kunt aanpassen met Aspose.Slides voor Node.js via Java. Het behandelt berekende aswaarden, het verwisselen van rijen en kolommen in diagrammen, aszichtbaarheid, interval van categorie‑labels en tick‑marks, datumcategorieën en opmaak, titelrotatie, aspositionering en weergave‑eenheden.
 
-## **De maximale waarden op de verticale as van grafieken ophalen**
+## **De maximale waarden op de verticale as van diagrammen verkrijgen**
 
-Aspose.Slides voor Node.js via Java stelt je in staat om de minimum- en maximumwaarden op een verticale as te verkrijgen. Volg deze stappen:
+Maak een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) en voeg een vlakdiagram toe met standaardgegevens. Roep [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) aan voordat u berekende aswaarden uitleest, zodat de diagramlay-out up‑to‑date is.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse.
-1. Open de eerste dia.
-1. Voeg een grafiek toe met standaardgegevens.
-1. Haal de werkelijke maximale waarde van de as op.
-1. Haal de werkelijke minimumwaarde van de as op.
-1. Haal de werkelijke hoofd eenheid van de as op.
-1. Haal de werkelijke subeenheid van de as op.
-1. Haal de werkelijke schaal van de hoofd eenheid van de as op.
-1. Haal de werkelijke schaal van de subeenheid van de as op.
-
-Deze voorbeeldcode — een implementatie van de bovenstaande stappen — laat zien hoe je de benodigde waarden in JavaScript kunt verkrijgen:
+Lees [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) en [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) voor de aslimieten, en [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) en [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) voor de tick‑intervallen. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) en [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) geven tijd‑eenheidsschaalwaarden, die relevant zijn voor datumassen. Het voorbeeld slaat deze waarden op in lokale variabelen en slaat het diagram op.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
     chart.validateChartLayout();
+
     var maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
     var minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
-    var majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-    var minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
-    // Slaat de presentatie op
-    pres.save("MaxValuesVerticalAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    var majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    var minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    var majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    var minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Gegevens tussen assen verwisselen**
+## **Gegevens tussen assen omwisselen**
 
-Aspose.Slides maakt het mogelijk om snel de gegevens tussen assen te verwisselen — de gegevens die op de verticale as (y-as) staan, worden verplaatst naar de horizontale as (x-as) en omgekeerd. 
-
-Deze JavaScript‑code laat zien hoe je de gegevens‑verwisseling tussen assen op een grafiek kunt uitvoeren:
+Gebruik [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) om de rollen van series en categorieën in diagramgegevens om te wisselen. Elke voormalige categorie wordt een serie, en elke voormalige serie wordt een categorie. Dit verandert hoe de gegevens worden gegroepeerd; het wisselt de horizontale en verticale assen niet uit. Het voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) om de standaardgegevens te koppelen aan `Sheet1!A1:D5`, inclusief de koprij en categoriekolom, vóór het verwisselen van rijen en kolommen. Het slaat een diagram op met vier series en drie categorieën.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    // Wisselt rijen en kolommen
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
     chart.getChartData().switchRowColumn();
-    // Slaat presentatie op
-    pres.save("SwitchChartRowColumns_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("SwitchChartRowColumns_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **De verticale as uitschakelen voor lijndiagrammen**
 
-Deze JavaScript‑code laat zien hoe je de verticale as voor een lijndiagram kunt verbergen:
+Roep [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) aan met `false` op de verticale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de verticale as verborgen.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
     chart.getAxes().getVerticalAxis().setVisible(false);
-    pres.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("HiddenVerticalAxis.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **De horizontale as uitschakelen voor lijndiagrammen**
 
-Deze code laat zien hoe je de horizontale as voor een lijndiagram kunt verbergen:
+Roep [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) aan met `false` op de horizontale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de horizontale as verborgen.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
     chart.getAxes().getHorizontalAxis().setVisible(false);
-    pres.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("HiddenHorizontalAxis.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Categorie‑as wijzigen**
+## **Een categorie‑as wijzigen**
 
-Met de eigenschap **CategoryAxisType** kun je het gewenste type van de categorie‑as aangeven (**date** of **text**). Deze JavaScript‑code demonstreert de bewerking: 
+Gebruik [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) om een datum‑ of tekst‑categorieas te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een diagram als de eerste vorm op de eerste dia en categoriecellen die numerieke Excel‑datums bevatten. Het verandert de horizontale as in een datumas. Het aanroepen van [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) met `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) met `1`, en [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) met `TimeUnitType.Months` plaatst hoofd‑ticks op een‑maand‑intervallen.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    var chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().get_Item(0);
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getHorizontalAxis().setMajorUnit(1);
     chart.getAxes().getHorizontalAxis().setMajorUnitScale(aspose.slides.TimeUnitType.Months);
+
     presentation.save("ChangeChartCategoryAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Datumnotatie instellen voor categorie‑aswaarde**
+## **Intervallen van categorie‑as‑labels beheren**
 
-Aspose.Slides voor Node.js via Java stelt je in staat om de datumnotatie voor een categorie‑aswaarde in te stellen. De bewerking wordt aangetoond in deze JavaScript‑code:
+Wanneer een diagram veel categorieën bevat, kunt u het aantal zichtbare as‑labels verminderen zonder categorieën of gegevenspunten te verwijderen. Roep [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) aan met `false`, en geef vervolgens het gewenste categorie‑interval door aan [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Voor tekst‑categorieën in hun normale volgorde begint de telling bij de eerste categorie:
+
+| Interval | Labels die in het voorbeeld worden weergegeven |
+| --- | --- |
+| `1` | Categorie 1, Categorie 2, Categorie 3, ... Categorie 24 |
+| `2` | Categorie 1, Categorie 3, Categorie 5, ... Categorie 23 |
+| `3` | Categorie 1, Categorie 4, Categorie 7, ... Categorie 22 |
+
+Een interval van `3` toont elk derde label, waardoor twee labels verborgen blijven tussen de getoonde labels. Het verwijdert niet de overeenkomstige kolommen. Automatische spacing kiest een interval op basis van de beschikbare ruimte; het toont niet noodzakelijk elk label.
+
+Tick‑marks hebben aparte besturingselementen. Roep [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) aan met `false` en gebruik [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) om hun interval in te stellen. Bijvoorbeeld, `1` houdt een tick‑mark op elk categorie‑interval terwijl labels alleen elke derde categorie verschijnen. Gebruik [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) met een zichtbaar teken zodat u het resultaat kunt zien. Het aanroepen van een van de automatische‑spacing setters met `true` laat het diagram dat interval opnieuw kiezen.
+
+Het volgende zelfstandige voorbeeld maakt 24 categorieën en één serie, en slaat vervolgens drie dia's op in `CategoryAxisIntervals.pptx`: automatische spacing, handmatige label‑spacing met onafhankelijke tick‑marks, en herstelde automatische spacing. De twee kopieën behouden de oorspronkelijke diagramgegevens. Geen invoer‑presentatie is vereist. Horizontale labeltekst maakt het verschil in dichtheid duidelijk zichtbaar.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 50, 50, 450, 300);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(java.newInstanceSync("GregorianCalendar", 2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(java.newInstanceSync("GregorianCalendar", 2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(java.newInstanceSync("GregorianCalendar", 2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(java.newInstanceSync("GregorianCalendar", 2018, 1, 1))));
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.ClusteredColumn);
+    for (var i = 0; i < 24; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        var valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(aspose.slides.CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(aspose.slides.TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // Dia 2: toon elk derde label, maar behoud een tick‑mark voor elke categorie.
+    var manualSlide = presentation.getSlides().addClone(slide);
+    var manualChart = manualSlide.getShapes().get_Item(0);
+    var manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // Dia 3: laat het diagram beide intervallen opnieuw kiezen.
+    var restoredSlide = presentation.getSlides().addClone(manualSlide);
+    var restoredChart = restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Automatische spacing (dia 1):** In deze weergave wordt elk tweede categorie‑label weergegeven en wordt op twee regels afgebroken. Het automatische resultaat kan variëren met diagramgrootte, lettertypen en de renderer.
+
+![Automatische categorie‑label‑spacing met alle 24 kolommen zichtbaar](category-axis-automatic.png)
+
+**Handmatige spacing (dia 2):** Elk derde label wordt op één regel weergegeven, terwijl tick‑marks op elk categorie‑interval blijven. Alle 24 kolommen, inclusief die zonder labels, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de automatische weergave zoals hierboven getoond.
+
+![Handmatige categorie‑label‑interval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
+
+### **Kies de juiste as en interval**
+
+Gebruik dit categorie‑aantal‑interval voor een tekst‑categorieas, zoals de categorieas van een kolom‑, lijn‑, vlak‑ of staafdiagram. In een kolomdiagram is dit de horizontale as. In een horizontaal staafdiagram is de categorieas verticaal, dus pas deze instellingen toe op de as die wordt geretourneerd door [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Tick‑mark‑spacing geldt ook voor een serieas in diagrammen die die hebben.
+
+Gebruik geen categorie‑label‑spacing om de numerieke schaal van een waardenas in te stellen. Op een waardenas specificeert [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) een verschil in waarden: bijvoorbeeld, een hoofd‑eenheid van `10` produceert ticks op 0, 10, 20, enzovoort wanneer de as bij nul begint. Een categorie‑label‑interval van `3` telt in plaats daarvan categorie‑posities, ongeacht hun gegevenswaarden. Spreidings‑ en bubbel‑diagrammen gebruiken waardenassen in plaats van een tekst‑categorieas. Voor een datumas, gebruik tijd‑gebaseerde hoofd‑eenheden en schalen zoals beschreven in [Een categorie‑as wijzigen](#change-a-category-axis).
+
+## **Datumopmaak instellen voor waarden van de categorie‑as**
+
+Het voorbeeld vervangt de standaarddiagramgegevens door vier jaarlijkse waarden. Datums worden opgeslagen als OLE‑Automation‑serienummers in het eerste werkblad (index `0`), berekend als het aantal dagen sinds 30 december 1899 voor deze datums. De JavaScript‑berekening gebruikt UTC‑tijdstempels en deelt het verschil door 86.400.000 milliseconden per dag. Gebruik [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) met `CategoryAxisType.Date`, roep [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) aan met `false`, en geef `yyyy` door aan [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) zodat de categorie‑labels viercijferige jaartallen tonen, onafhankelijk van de celopmaak.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var baseDate = Date.UTC(1899, 11, 30);
+
     var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (var i = 0; i < 4; i++) {
+        var date = Date.UTC(2015 + i, 0, 1);
+        var categoryCell = workbook.getCell(0, i + 1, 0, (date - baseDate) / 86400000);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-const dayjs = require('dayjs');
-
-function convertToOADate(date) {
-    const baseDate = dayjs('1899-12-30');
-
-    const days = date.diff(baseDate, 'day');
-
-    const fractionalDay = (date.hour() / 24) +
-                          (date.minute() / (60 * 24)) +
-                          (date.second() / (60 * 24 * 60));
-
-    const oaDate = days + fractionalDay;
-
-    return String(oaDate);
+    presentation.dispose();
 }
 ```
 
-## **Rotatiehoek instellen voor grafiek‑as‑titel**
+## **Een rotatie‑hoek instellen voor een diagram‑as‑titel**
 
-Aspose.Slides voor Node.js via Java maakt het mogelijk om de rotatiehoek voor een grafiek‑as‑titel in te stellen. Deze JavaScript‑code demonstreert de bewerking:
+Roep [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) aan met `true` op de verticale as, geef titeltekst op, en gebruik [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) om de titel te roteren. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomdiagram op met de titel van de waardenas geroteerd met 90 graden.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("RotatedAxisTitle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **As‑positie instellen in een categorie‑ of waardenas**
+## **De aspositie instellen op een categorie‑ of waardenas**
 
-Aspose.Slides voor Node.js via Java maakt het mogelijk om de as‑positie in een categorie‑ of waardenas in te stellen. Deze JavaScript‑code laat zien hoe je de taak kunt uitvoeren:
+Gebruik [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) om te bepalen of de waardenas de categorieas tussen categorieën of op categorietick‑marks kruist. Deze instelling geldt voor categorieassen. Het voorbeeld zet deze op `true` op de horizontale categorieas van een kolomdiagram en slaat het resultaat op.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("AxisBetweenCategories.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Het eenheidslabel weergeven op de waardenas van een grafiek inschakelen**
+## **Weergave‑eenheid instellen op een diagram‑waardenas**
 
-Aspose.Slides voor Node.js via Java maakt het mogelijk om een grafiek zo te configureren dat een eenheidslabel op de waardenas wordt weergegeven. Deze JavaScript‑code demonstreert de bewerking:
+Gebruik [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) om de labels op een waardenas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) ingesteld op `Millions` wordt een waarde van 60.000.000 weergegeven als 60. Het voorbeeld maakt een kolomdiagram en past de miljoenen‑weergave‑eenheid toe op de verticale as.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Millions);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Hoe stel ik de waarde in waarop één as de andere kruist (as‑kruising)?**
 
-Assen bieden een [kruising‑instelling](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/axis/setcrosstype/): je kunt kiezen om te kruisen bij nul, bij de maximale categorie/waarde, of bij een specifieke numerieke waarde. Dit is handig om de X-as omhoog of omlaag te verplaatsen of om een basislijn te benadrukken.
+Gebruik [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) om het kruisgedrag te selecteren. Om een numerieke kruiswaarde op te geven, gebruik [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Deze instellingen laten u de as‑kruising naar een geschikte basislijn verplaatsen.
 
-**Hoe kan ik tick‑labels ten opzichte van de as positioneren (naast, buiten, binnen)?**
+**Hoe kan ik tick‑labels positioneren ten opzichte van de as?**
 
-Stel de [label‑positie](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/axis/setmajortickmark/) in op "cross", "outside" of "inside". Dit beïnvloedt de leesbaarheid en helpt ruimte te besparen, vooral bij kleine grafieken.
+Roep [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) aan met behulp van [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` of `None`. Om de tick‑marks zelf te sturen, gebruik [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) of [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); deze staan los van de label‑positionering.

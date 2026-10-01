@@ -8,240 +8,343 @@ keywords:
 - svislá osa
 - vodorovná osa
 - přizpůsobit osu
-- manipulovat osou
+- manipulovat s osou
 - spravovat osu
 - vlastnosti osy
 - maximální hodnota
 - minimální hodnota
 - čára osy
 - formát data
-- název osy
+- nadpis osy
 - pozice osy
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Objevte, jak pomocí JavaScriptu s Aspose.Slides pro Node.js přes Java přizpůsobit osy grafů v prezentacích PowerPoint pro zprávy a vizualizace."
+description: "Objevte, jak pomocí JavaScriptu a Aspose.Slides pro Node.js přes Javu přizpůsobit osy grafu v prezentacích PowerPoint pro zprávy a vizualizace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit osy grafu v Aspose.Slides. Ukazuje, jak získat skutečné hodnoty os, vyměnit data mezi osami, skrýt svislou nebo vodorovnou osu pro čárové grafy, změnit typ osy kategorií, nastavit formát data pro hodnoty osy kategorií, otočit název osy, nastavit polohu osy a zobrazit jednotkový popisek na ose hodnot.
+Tento článek vysvětluje, jak přizpůsobit osy grafu pomocí Aspose.Slides pro Node.js přes Java. Pokrývá vypočtené hodnoty os, přepínání řádků a sloupců grafu, viditelnost os, intervaly štítků kategorií a značek, datumové kategorie a formátování, otočení názvu, umístění osy a zobrazovací jednotky.
 
-## **Získání maximálních hodnot na svislé ose v grafech**
+## **Získání maximálních hodnot na svislé ose grafů**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje získat minimální a maximální hodnoty na svislé ose. Projděte následující kroky:
+Vytvořte [Prezentaci](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a přidejte plošný graf s výchozími daty. Zavolejte [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) před čtením vypočtených hodnot os, aby byl rozložení grafu aktuální.
 
-1. Vytvořte instanci třídy[Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Přistupte k prvnímu snímku.
-3. Přidejte graf s výchozími daty.
-4. Získejte skutečnou maximální hodnotu na ose.
-5. Získejte skutečnou minimální hodnotu na ose.
-6. Získejte skutečnou hlavní jednotku osy.
-7. Získejte skutečnou vedlejší jednotku osy.
-8. Získejte skutečné měřítko hlavní jednotky osy.
-9. Získejte skutečné měřítko vedlejší jednotky osy.
-
-Tento ukázkový kód — implementace výše uvedených kroků — ukazuje, jak získat požadované hodnoty v JavaScriptu:
+Přečtěte [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) a [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) pro limity os a [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) a [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) pro intervaly značek. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) a [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) poskytují časové jednotky, které jsou relevantní pro datumové osy. Příklad ukládá tyto hodnoty do lokálních proměnných a ukládá graf.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
     chart.validateChartLayout();
+
     var maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
     var minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
-    var majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-    var minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
-    // Uloží prezentaci
-    pres.save("MaxValuesVerticalAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    var majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    var minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    var majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    var minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Prohození dat mezi osami**
 
-Aspose.Slides vám umožňuje rychle prohodit data mezi osami — data zobrazená na svislé ose (y-osa) se přesunou na vodorovnou osu (x-osa) a naopak.
+Použijte [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) k výměně rolí řad a kategorií v datech grafu. Každá bývalá kategorie se stane řadou a každá bývalá řada se stane kategorií. Tím se změní způsob seskupení dat; neprohodí to vodorovnou a svislou osu. Příklad používá [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) k napojení výchozích dat na `Sheet1!A1:D5`, včetně řádku hlavičky a sloupce kategorií, před výměnou řádků a sloupců. Uloží graf se čtyřmi řadami a třemi kategoriemi.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    // Přepne řádky a sloupce
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
     chart.getChartData().switchRowColumn();
-    // Uloží prezentaci
-    pres.save("SwitchChartRowColumns_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("SwitchChartRowColumns_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zakázání svislé osy pro čárové grafy**
+## **Zakázání svislé osy u čárových grafů**
 
-Tento JavaScriptový kód ukazuje, jak skrýt svislou osu pro čárový graf:
+Zavolejte [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) s `false` na svislé ose, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou svislou osou.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
     chart.getAxes().getVerticalAxis().setVisible(false);
-    pres.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("HiddenVerticalAxis.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zakázání vodorovné osy pro čárové grafy**
+## **Zakázání vodorovné osy u čárových grafů**
 
-Tento kód ukazuje, jak skrýt vodorovnou osu pro čárový graf:
+Zavolejte [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) s `false` na vodorovné ose, aby byla skryta. Příklad vytvoří čárový graf s výchozími daty a uloží jej se skrytou vodorovnou osou.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
     chart.getAxes().getHorizontalAxis().setVisible(false);
-    pres.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("HiddenHorizontalAxis.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Změna osy kategorií**
 
-Pomocí vlastnosti **CategoryAxisType** můžete určit preferovaný typ osy kategorií (**date** nebo **text**). Tento kód v JavaScriptu demonstruje operaci: 
+Použijte [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) k výběru datumové nebo textové osy kategorií. Tento příklad vyžaduje `ExistingChart.pptx`, kde je graf prvním tvarem na první snímku a buňky kategorií obsahují číselné datumové hodnoty Excelu. Změní vodorovnou osu na datumovou osu. Voláním [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) s `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) s `1` a [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) s `TimeUnitType.Months` umístíte hlavní značky v měsíčních intervalech.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    var chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().get_Item(0);
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getHorizontalAxis().setMajorUnit(1);
     chart.getAxes().getHorizontalAxis().setMajorUnitScale(aspose.slides.TimeUnitType.Months);
+
     presentation.save("ChangeChartCategoryAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Nastavení formátu data pro hodnotu osy kategorií**
+## **Řízení intervalů popisků osy kategorií**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje nastavit formát data pro hodnotu osy kategorií. Operace je demonstrována v tomto JavaScriptovém kódu:
+Když má graf mnoho kategorií, můžete snížit počet viditelných popisků osy, aniž byste odstraňovali kategorie nebo datové body. Zavolejte [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) s `false` a poté předávejte požadovaný interval kategorií metodě [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Pro textové kategorie v jejich normálním pořadí se číslování začne od první kategorie:
+
+| Interval | Popisky zobrazené v příkladu |
+| --- | --- |
+| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
+| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
+| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
+
+Interval `3` zobrazí každou třetí popisku a mezi zobrazenými popisky jsou skryty dvě další. Nepřidává to sloupce. Automatické rozestupy zvolí interval podle dostupného prostoru; nemusí zobrazit každou popisku.
+
+Značky mají samostatná nastavení. Zavolejte [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) s `false` a použijte [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) k nastavení jejich intervalu. Například `1` zachová značku na každém intervalu kategorie, zatímco popisky se objeví jen každou třetí kategorii. Použijte [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) s viditelným stylem, abyste výsledek viděli. Opětovné nastavení automatického rozestupu na `true` umožní grafu znovu vybrat vhodný interval.
+
+Následující samostatný příklad vytvoří 24 kategorií a jednu řadu, pak uloží tři snímky do `CategoryAxisIntervals.pptx`: automatické rozestupy, ruční rozestupy popisků s nezávislými značkami a obnovené automatické rozestupy. Obě kopie zachovávají původní data grafu. Vstupní prezentace není vyžadována. Vodorovný text popisků usnadňuje rozeznání hustoty.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 50, 50, 450, 300);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(java.newInstanceSync("GregorianCalendar", 2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(java.newInstanceSync("GregorianCalendar", 2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(java.newInstanceSync("GregorianCalendar", 2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(java.newInstanceSync("GregorianCalendar", 2018, 1, 1))));
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.ClusteredColumn);
+    for (var i = 0; i < 24; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        var valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(aspose.slides.CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(aspose.slides.TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // Snímek 2: zobrazit každou třetí popisku, ale zachovat značku pro každou kategorii.
+    var manualSlide = presentation.getSlides().addClone(slide);
+    var manualChart = manualSlide.getShapes().get_Item(0);
+    var manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // Snímek 3: nechat graf znovu zvolit oba intervaly.
+    var restoredSlide = presentation.getSlides().addClone(manualSlide);
+    var restoredChart = restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Automatické rozestupy (snímek 1):** V tomto zobrazení je každá druhá popiska kategorie zobrazena a zalamována do dvou řádků. Automatický výsledek může záviset na velikosti grafu, písmech a vykreslovači.
+
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+
+**Manuální rozestupy (snímek 2):** Každá třetí popiska je zobrazena v jednom řádku, zatímco značky zůstávají na každém intervalu kategorie. Všechny 24 sloupců, včetně těch bez popisků, zůstávají viditelné se stejnými hodnotami. Snímek 3 obnoví automatický vzhled zobrazený výše.
+
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+
+### **Vyberte správnou osu a interval**
+
+Použijte tento interval počtu kategorií pro textovou osu kategorií, například pro osu kategorií sloupcového, čárového, plošného nebo pruhového grafu. Ve sloupcovém grafu je to vodorovná osa. Ve vodorovném pruhovém grafu je osa kategorií svislá, takže tato nastavení aplikujte na osu vrácenou metodou [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Rozestupy značek platí také pro osu řad v grafech, které ji mají.
+
+Na nastavení číselné stupnice hodnotové osy nepoužívejte rozestup popisků kategorií. Na hodnotové ose metoda [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) určuje rozdíl v hodnotách: například hlavní jednotka `10` vytvoří značky při 0, 10, 20 atd., pokud osa začíná od nuly. Interval popisků kategorií `3` však počítá pozice kategorií, bez ohledu na jejich hodnoty. Rozptýlené a bublinové grafy používají hodnotové osy místo textové osy kategorií. Pro datumovou osu používejte časové jednotky a stupnice, jak je popsáno v [Change a Category Axis](#change-a-category-axis).
+
+## **Nastavení formátu data pro hodnoty osy kategorií**
+
+Příklad nahradí výchozí data grafu čtyřmi ročními hodnotami. Data jsou uložena jako sériová čísla OLE Automation v prvním listu (index `0`), vypočtená jako počet dní od 30. prosince 1899. Výpočet v JavaScriptu používá časové razítko UTC a dělí rozdíl 86 400 000 milisekundami za den. Použijte [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) s `CategoryAxisType.Date`, zavolejte [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) s `false` a předávejte `yyyy` metodě [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/), aby popisky kategorií zobrazovaly čtyřciferné roky nezávisle na formátování buňky.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var baseDate = Date.UTC(1899, 11, 30);
+
     var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (var i = 0; i < 4; i++) {
+        var date = Date.UTC(2015 + i, 0, 1);
+        var categoryCell = workbook.getCell(0, i + 1, 0, (date - baseDate) / 86400000);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-const dayjs = require('dayjs');
-
-function convertToOADate(date) {
-    const baseDate = dayjs('1899-12-30');
-
-    const days = date.diff(baseDate, 'day');
-
-    const fractionalDay = (date.hour() / 24) +
-                          (date.minute() / (60 * 24)) +
-                          (date.second() / (60 * 24 * 60));
-
-    const oaDate = days + fractionalDay;
-
-    return String(oaDate);
+    presentation.dispose();
 }
 ```
 
-## **Nastavení úhlu otáčení názvu osy grafu**
+## **Nastavení úhlu otočení pro nadpis osy grafu**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje nastavit úhel otáčení názvu osy grafu. Tento JavaScriptový kód demonstruje operaci:
+Zavolejte [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) s `true` na svislé ose, zadejte text nadpisu a použijte [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) k otočení nadpisu. Úhel je měřen ve stupních; tento příklad uloží sloupcový graf s nadpisem hodnotové osy otočeným o 90 stupňů.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("RotatedAxisTitle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Nastavení polohy osy v ose kategorií nebo hodnot**
+## **Nastavení pozice osy na ose kategorií nebo hodnot**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje nastavit polohu osy v ose kategorií nebo hodnot. Tento JavaScriptový kód ukazuje, jak úkol provést:
+Použijte [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) k určení, zda hodnotová osa protíná osu kategorií mezi kategoriemi nebo na značkách kategorií. Toto nastavení platí pro osy kategorií. Příklad nastaví tuto hodnotu na `true` na vodorovné ose kategorií sloupcového grafu a uloží výsledek.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("AxisBetweenCategories.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Povolení zobrazování jednotkového popisku na ose hodnot grafu**
+## **Nastavení jednotky zobrazení na hodnotové ose grafu**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje nakonfigurovat graf tak, aby zobrazoval jednotkový popisek na své ose hodnot. Tento JavaScriptový kód demonstruje operaci:
+Použijte [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) k měřítku popisků na hodnotové ose bez změny podkladových dat. S [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) nastaveným na `Millions` se hodnota 60 000 000 zobrazí jako 60. Příklad vytvoří sloupcový graf a použije jednotku zobrazení miliony na jeho svislé ose.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Millions);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Často kladené otázky**
 
-**Jak nastavit hodnotu, při které se jedna osa protíná s druhou (průsečík osy)?**
+**Jak nastavit hodnotu, kde se jedna osa protíná s druhou (průsečík os)?**
 
-Osové poskytují [nastavení průsečíku](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/axis/setcrosstype/): můžete zvolit průsečík v nule, na maximální hodnotě kategorie/hodnoty nebo na konkrétní číselné hodnotě. To je užitečné pro posunutí osy X nahoru nebo dolů nebo pro zdůraznění základní linie.
+Použijte [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) k výběru chování průsečíku. Pro zadání číselné hodnoty průsečíku použijte [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Tato nastavení vám umožní přesunout průsečík os na vhodnou základní úroveň.
 
-**Jak mohu umístit popisky značek relativně k ose (vedle, vně, uvnitř)?**
+**Jak mohu umístit popisky značek vzhledem k ose?**
 
-Nastavte [polohu popisků](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/axis/setmajortickmark/) na "cross", "outside" nebo "inside". To ovlivňuje čitelnost a pomáhá šetřit místo, zejména u malých grafů.
+Zavolejte [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) s použitím [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` nebo `None`. Pro řízení samotných značek použijte [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) nebo [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); jsou oddělené od umístění popisků.

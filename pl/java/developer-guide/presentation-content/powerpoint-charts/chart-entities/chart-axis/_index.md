@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie osi wykresu w prezentacjach przy użyciu Java
+title: Dostosowywanie osi wykresów w prezentacjach przy użyciu Javy
 linktitle: Oś wykresu
 type: docs
 url: /pl/java/chart-axis/
@@ -8,11 +8,11 @@ keywords:
 - oś pionowa
 - oś pozioma
 - dostosowywanie osi
-- manipulacja osią
+- manipulowanie osią
 - zarządzanie osią
 - właściwości osi
-- maksymalna wartość
-- minimalna wartość
+- wartość maksymalna
+- wartość minimalna
 - linia osi
 - format daty
 - tytuł osi
@@ -21,216 +21,320 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak używać Aspose.Slides for Java do dostosowywania osi wykresu w prezentacjach PowerPoint dla raportów i wizualizacji."
+description: "Dowiedz się, jak używać Aspose.Slides for Java do dostosowywania osi wykresów w prezentacjach PowerPoint dla raportów i wizualizacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dostosować osie wykresu w Aspose.Slides. Pokazuje, jak uzyskać rzeczywiste wartości osi, wymienić dane między osiami, ukryć pionową lub poziomą oś w wykresach liniowych, zmienić typ osi kategorii, ustawić format daty dla wartości osi kategorii, obrócić tytuł osi, ustawić pozycję osi oraz wyświetlić etykietę jednostki na osi wartości.
+Ten artykuł wyjaśnia, jak dostosować osie wykresu za pomocą Aspose.Slides for Java. Omówione są obliczone wartości osi, zamiana wierszy i kolumn wykresu, widoczność osi, interwały etykiet kategorii i znaczników podziałek, kategorie dat i formatowanie, rotacja tytułu, położenie osi oraz jednostki wyświetlania.
 
-## **Uzyskaj maksymalne wartości na osi pionowej wykresów**
-Aspose.Slides for Java umożliwia uzyskanie minimalnych i maksymalnych wartości na osi pionowej. Postępuj zgodnie z następującymi krokami:
+## **Uzyskaj maksymalne wartości na pionowej osi wykresów**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Dodaj wykres z domyślnymi danymi.
-1. Pobierz rzeczywistą maksymalną wartość na osi.
-1. Pobierz rzeczywistą minimalną wartość na osi.
-1. Pobierz rzeczywistą główną jednostkę osi.
-1. Pobierz rzeczywistą pomocniczą jednostkę osi.
-1. Pobierz rzeczywistą skalę głównej jednostki osi.
-1. Pobierz rzeczywistą skalę pomocniczej jednostki osi.
+Utwórz [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) i dodaj wykres obszarowy z danymi domyślnymi. Wywołaj [validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#validateChartLayout--) przed odczytaniem obliczonych wartości osi, aby układ wykresu był aktualny.
 
-Ten przykładowy kod — implementacja powyższych kroków — pokazuje, jak uzyskać wymagane wartości w Javie:
+Odczytaj [getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMaxValue--) i [getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinValue--) dla limitów osi oraz [getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnit--) i [getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnit--) dla interwałów znaczników. [getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnitScale--) i [getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnitScale--) dostarczają skali jednostek czasu, co jest istotne dla osi dat. Przykład zapisuje te wartości w zmiennych lokalnych i zapisuje wykres.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
-	chart.validateChartLayout();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
-	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
+    IChart chart = slide.getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
+    chart.validateChartLayout();
 
-	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+    double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
+    double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-	// Zapisuje prezentację
-	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
+    double majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    double minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    int majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    int minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Zamień dane między osiami**
-Aspose.Slides umożliwia szybkie zamienienie danych między osiami — dane przedstawione na osi pionowej (y) przechodzą na oś poziomą (x) i odwrotnie.
 
-Ten kod w Javie pokazuje, jak wykonać zamianę danych między osiami wykresu:
+Użyj [switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--) aby zamienić role serii i kategorii w danych wykresu. Każda poprzednia kategoria staje się serią, a każda poprzednia seria staje się kategorią. Zmienia to sposób grupowania danych; nie zamienia to osi poziomej i pionowej. Przykład używa [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setRange-java.lang.String-) aby powiązać dane domyślne z `Sheet1!A1:D5`, włączając wiersz nagłówka i kolumnę kategorii, przed zamianą wierszy i kolumn. Zapisuje wykres z czterema seriami i trzema kategoriami.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-	//Przełącza wiersze i kolumny
-	chart.getChartData().switchRowColumn();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
+    chart.getChartData().switchRowColumn();
 
-	// Zapisuje prezentację
-	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+    presentation.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ukryj oś pionową w wykresach liniowych**
+## **Ukryj pionową oś w wykresach liniowych**
 
-Ten kod w Javie pokazuje, jak ukryć oś pionową w wykresie liniowym:
+Wywołaj [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) z wartością `false` na pionowej osi, aby ją ukryć. Przykład tworzy wykres liniowy z danymi domyślnymi i zapisuje go z ukrytą pionową osią.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getVerticalAxis().setVisible(false);
+import com.aspose.slides.*;
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getVerticalAxis().setVisible(false);
+
+    presentation.save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ukryj oś poziomą w wykresach liniowych**
+## **Ukryj poziomą oś w wykresach liniowych**
 
-Ten kod pokazuje, jak ukryć oś poziomą w wykresie liniowym:
+Wywołaj [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) z wartością `false` na poziomej osi, aby ją ukryć. Przykład tworzy wykres liniowy z danymi domyślnymi i zapisuje go z ukrytą poziomą osią.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getHorizontalAxis().setVisible(false);
+import com.aspose.slides.*;
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getHorizontalAxis().setVisible(false);
+
+    presentation.save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Zmień oś kategorii**
 
-Korzystając z właściwości **CategoryAxisType**, możesz określić preferowany typ osi kategorii (**date** lub **text**). Ten kod w Javie demonstruje tę operację:
+Użyj [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) aby wybrać oś dat lub tekstową oś kategorii. Ten przykład wymaga `ExistingChart.pptx`, w którym wykres jest pierwszym kształtem na pierwszym slajdzie, a komórki kategorii zawierają liczbowe wartości dat Excel. Zmienia on poziomą oś na oś dat. Wywołanie [setAutomaticMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) z wartością `false`, [setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnit-double-) z wartością `1` oraz [setMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnitScale-int-) z `TimeUnitType.Months` ustawia główne znaczniki w odstępach jednego miesiąca.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
-	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-	chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
-	chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
-	chart.getAxes().getHorizontalAxis().setMajorUnit(1);
-	chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
-	presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = (IChart) slide.getShapes().get_Item(0);
+    chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
+    chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getHorizontalAxis().setMajorUnit(1);
+    chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
+
+    presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustaw format daty dla wartości osi kategorii**
-Aspose.Slides for Java umożliwia ustawienie formatu daty dla wartości osi kategorii. Operację przedstawiono w poniższym kodzie Java:
+## **Kontroluj interwały etykiet osi kategorii**
+
+Gdy wykres ma wiele kategorii, zmniejsz liczbę widocznych etykiet osi bez usuwania kategorii ani punktów danych. Wywołaj [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) z wartością `false`, a następnie przekaż żądany interwał kategorii do [setTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickLabelSpacing-int-). Dla tekstowych kategorii w ich normalnym kolejności liczenie zaczyna się od pierwszej kategorii:
+
+| Interwał | Etykiety wyświetlane w przykładzie |
+| --- | --- |
+| `1` | Kategoria 1, Kategoria 2, Kategoria 3, ... Kategoria 24 |
+| `2` | Kategoria 1, Kategoria 3, Kategoria 5, ... Kategoria 23 |
+| `3` | Kategoria 1, Kategoria 4, Kategoria 7, ... Kategoria 22 |
+
+Interwał `3` wyświetla co trzecią etykietę, pozostawiając dwie ukryte między wyświetlanymi. Nie usuwa to odpowiadających kolumn. Automatyczne rozmieszczanie wybiera interwał na podstawie dostępnej przestrzeni; niekoniecznie wyświetla wszystkie etykiety.
+
+Znaczniki podziałek mają oddzielne kontrolki. Wywołaj [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) z wartością `false` i użyj [setTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickMarksSpacing-int-) aby ustawić ich interwał. Na przykład `1` zachowuje znacznik przy każdym interwale kategorii, podczas gdy etykiety pojawiają się co trzecią kategorię. Użyj [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorTickMark-int-) z widocznym stylem, aby zobaczyć rezultat. Ponowne wywołanie któregokolwiek z automatycznych setterów z wartością `true` pozwala wykresowi ponownie wybrać ten interwał.
+
+Poniższy samodzielny przykład tworzy 24 kategorie i jedną serię, a następnie zapisuje trzy slajdy w `CategoryAxisIntervals.pptx`: automatyczne rozmieszczanie, ręczne rozmieszczanie etykiet z niezależnymi znacznikami oraz przywrócone automatyczne rozmieszczanie. Dwie kopie zachowują oryginalne dane wykresu. Nie wymaga żadnej prezentacji wejściowej. Poziomy tekst etykiet ułatwia dostrzeżenie różnicy w gęstości.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredColumn);
+    for (int i = 0; i < 24; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // Slajd 2: pokaż co trzecią etykietę, ale zachowaj znacznik podziałki dla każdej kategorii.
+    ISlide manualSlide = presentation.getSlides().addClone(slide);
+    IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
+    IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // Slajd 3: pozwól wykresowi ponownie wybrać oba interwały.
+    ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
+    IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Automatic spacing (slide 1):** W tym renderowaniu co druga etykieta kategorii jest wyświetlana i łamie się na dwie linie. Wynik automatyczny może się różnić w zależności od rozmiaru wykresu, czcionek i renderera.
+
+![Automatyczne rozmieszczanie etykiet kategorii przy wszystkich 24 kolumnach widocznych](category-axis-automatic.png)
+
+**Manual spacing (slide 2):** Co trzecia etykieta jest wyświetlana w jednej linii, podczas gdy znaczniki podziałek pozostają przy każdym interwale kategorii. Wszystkie 24 kolumny, w tym te bez etykiet, pozostają widoczne z tymi samymi wartościami. Slajd 3 przywraca automatyczny wygląd pokazany powyżej.
+
+![Ręczny interwał etykiet kategorii wynoszący trzy przy wszystkich 24 kolumnach widocznych](category-axis-manual.png)
+
+### **Wybierz właściwą oś i interwał**
+
+Użyj tego interwału liczby kategorii dla tekstowej osi kategorii, takiej jak oś kategorii wykresu kolumnowego, liniowego, obszarowego lub słupkowego. W wykresie kolumnowym jest to oś pozioma. W wykresie słupkowym poziomym oś kategorii jest pionowa, więc zastosuj te ustawienia do osi zwróconej przez [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Odstęp znaczników podziałek ma zastosowanie także do osi serii w wykresach, które taką posiadają.
+
+Nie używaj rozmieszczania etykiet kategorii do ustawiania numerycznej skali osi wartości. Na osi wartości [setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorUnit-double-) określa różnicę w wartościach: na przykład jednostka główna `10` powoduje znaczniki w punktach 0, 10, 20 itd., gdy oś zaczyna się od zera. Interwał etykiet kategorii `3` liczy pozycje kategorii, niezależnie od ich wartości danych. Wykresy punktowe i bąbelkowe używają osi wartości, a nie tekstowej osi kategorii. Dla osi dat używaj jednostek głównych i skal opartych na czasie, jak opisano w [Change a Category Axis](#change-a-category-axis).
+
+## **Ustaw format daty dla wartości osi kategorii**
+
+Przykład zastępuje domyślne dane wykresu czterema rocznymi wartościami. Daty są przechowywane jako liczby seryjne OLE Automation w pierwszym arkuszu (indeks `0`), obliczane jako liczba dni od 30 grudnia 1899 dla tych dat. Użyj [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) z `CategoryAxisType.Date`, wywołaj [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) z wartością `false` i przekaż `yyyy` do [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormat-java.lang.String-), aby etykiety kategorii wyświetlały czterocyfrowe lata niezależnie od formatowania komórek.
+
+```java
+import com.aspose.slides.*;
+import java.time.LocalDate;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(new GregorianCalendar(2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(new GregorianCalendar(2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(new GregorianCalendar(2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(new GregorianCalendar(2018, 1, 1))));
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    LocalDate baseDate = LocalDate.of(1899, 12, 30);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (int i = 0; i < 4; i++) {
+        LocalDate date = LocalDate.of(2015 + i, 1, 1);
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, date.toEpochDay() - baseDate.toEpochDay());
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-	
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-public static String convertToOADate(GregorianCalendar date) throws ParseException
-{
-    double oaDate;
-    SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-    java.util.Date baseDate = myFormat.parse("30 12 1899");
-    Long days = TimeUnit.DAYS.convert(date.getTimeInMillis() - baseDate.getTime(), TimeUnit.MILLISECONDS);
-    oaDate = (double) days + ((double) date.get(Calendar.HOUR_OF_DAY) / 24) + ((double) date.get(Calendar.MINUTE) / (60 * 24)) + ((double) date.get(Calendar.SECOND) / (60 * 24 * 60));
-    return String.valueOf(oaDate);
+    presentation.dispose();
 }
 ```
 
 ## **Ustaw kąt obrotu tytułu osi wykresu**
-Aspose.Slides for Java umożliwia ustawienie kąta obrotu tytułu osi wykresu. Ten kod w Javie demonstruje tę operację:
+
+Wywołaj [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTitle-boolean-) z wartością `true` na pionowej osi, podaj tekst tytułu i użyj [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) aby obrócić tytuł. Kąt jest mierzony w stopniach; ten przykład zapisuje wykres kolumnowy z tytułem osi wartości obróconym o 90 stopni.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 
 ## **Ustaw pozycję osi na osi kategorii lub wartości**
-Aspose.Slides for Java umożliwia ustawienie pozycji osi w osi kategorii lub wartości. Ten kod w Javie pokazuje, jak wykonać to zadanie:
+
+Użyj [setAxisBetweenCategories](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) aby kontrolować, czy oś wartości przecina oś kategorii między kategoriami, czy na znacznikach kategorii. To ustawienie dotyczy osi kategorii. Przykład ustawia je na `true` na poziomej osi kategorii wykresu kolumnowego i zapisuje wynik.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Włącz wyświetlanie etykiety jednostki na osi wartości wykresu**
-Aspose.Slides for Java umożliwia skonfigurowanie wykresu tak, aby wyświetlał etykietę jednostki na osi wartości. Ten kod w Javie demonstruje tę operację:
+## **Ustaw jednostkę wyświetlania na osi wartości wykresu**
+
+Użyj [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setDisplayUnit-int-) aby skalować etykiety na osi wartości bez zmiany danych podstawowych. Przy [DisplayUnitType](https://reference.aspose.com/slides/java/com.aspose.slides/displayunittype/) ustawionym na `Millions`, wartość 60 000 000 jest wyświetlana jako 60. Przykład tworzy wykres kolumnowy i stosuje jednostkę wyświetlania „miliony” do jego pionowej osi.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Millions);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Jak ustawić wartość, w której jedna oś przecina drugą (przecięcie osi)?**
+**Jak ustawić wartość, przy której jedna oś przecina drugą (przecięcie osi)?**
 
-Osie udostępniają [crossing setting](https://reference.aspose.com/slides/pl/java/com.aspose.slides/axis/#setCrossType-int-): możesz wybrać przecięcie w zerze, na maksymalnej kategorii/wartości lub w określonej wartości numerycznej. Jest to przydatne przy podnoszeniu lub opuszczaniu osi X lub podkreślaniu linii bazowej.
+Użyj [setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) aby wybrać zachowanie przecięcia. Aby określić numeryczną wartość przecięcia, użyj [setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-). Te ustawienia pozwalają przenieść przecięcie osi do odpowiedniej linii bazowej.
 
-**Jak mogę ustawić położenie etykiet znaczników względem osi (obok, na zewnątrz, wewnątrz)?**
+**Jak mogę ustawić położenie etykiet znaczników względem osi?**
 
-Ustaw [label position](https://reference.aspose.com/slides/pl/java/com.aspose.slides/axis/#setMajorTickMark-int-) na „cross”, „outside” lub „inside”. Ma to wpływ na czytelność i pomaga oszczędzić miejsce, szczególnie w małych wykresach.
+Wywołaj [setTickLabelPosition](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTickLabelPosition-int-) używając [TickLabelPositionType](https://reference.aspose.com/slides/java/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` lub `None`. Aby kontrolować same znaczniki podziałek, użyj [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) lub [setMinorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMinorTickMark-int-); są one oddzielne od pozycjonowania etykiet.

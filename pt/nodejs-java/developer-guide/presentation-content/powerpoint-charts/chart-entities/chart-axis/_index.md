@@ -1,6 +1,6 @@
 ---
-title: Personalizar eixos de gráfico em apresentações usando JavaScript
-linktitle: Eixo de Gráfico
+title: Personalizar eixos de gráficos em apresentações usando JavaScript
+linktitle: Eixo do Gráfico
 type: docs
 url: /pt/nodejs-java/chart-axis/
 keywords:
@@ -22,228 +22,329 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Descubra como usar JavaScript com Aspose.Slides para Node.js via Java para personalizar eixos de gráficos em apresentações do PowerPoint para relatórios e visualizações."
+description: "Descubra como usar JavaScript com Aspose.Slides para Node.js via Java para personalizar eixos de gráficos em apresentações PowerPoint para relatórios e visualizações."
 ---
 ## **Visão geral**
 
-Este artigo explica como personalizar os eixos de gráficos no Aspose.Slides. Ele mostra como obter os valores reais dos eixos, trocar dados entre eixos, ocultar o eixo vertical ou horizontal para gráficos de linhas, alterar o tipo de eixo de categoria, definir o formato de data para os valores do eixo de categoria, girar o título de um eixo, definir a posição do eixo e exibir um rótulo de unidade no eixo de valores.
+Este artigo explica como personalizar os eixos de gráficos com Aspose.Slides para Node.js via Java. Ele abrange valores calculados dos eixos, troca de linhas e colunas do gráfico, visibilidade dos eixos, intervalos de rótulos de categoria e marcas de marcação, categorias de data e formatação, rotação do título, posicionamento do eixo e unidades de exibição.
 
-## **Obtendo os valores máximos no eixo vertical em gráficos**
+## **Obter os valores máximos no eixo vertical dos gráficos**
 
-O Aspose.Slides para Node.js via Java permite obter os valores mínimo e máximo em um eixo vertical. Siga estes passos:
+Crie uma [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) e adicione um gráfico de área com dados padrão. Chame [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) antes de ler os valores calculados dos eixos para que o layout do gráfico esteja atualizado.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation).
-2. Acesse o primeiro slide.
-3. Adicione um gráfico com dados padrão.
-4. Obtenha o valor máximo real no eixo.
-5. Obtenha o valor mínimo real no eixo.
-6. Obtenha a unidade principal real do eixo.
-7. Obtenha a unidade secundária real do eixo.
-8. Obtenha a escala da unidade principal real do eixo.
-9. Obtenha a escala da unidade secundária real do eixo.
-
-Este código de exemplo — uma implementação dos passos acima — mostra como obter os valores necessários em JavaScript:
+Leia [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) e [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) para obter os limites do eixo, e [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) e [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) para os intervalos das marcas. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) e [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) fornecem escalas de unidades de tempo, que são relevantes para eixos de data. O exemplo armazena esses valores em variáveis locais e salva o gráfico.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
     chart.validateChartLayout();
+
     var maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
     var minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
-    var majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-    var minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
-    // Salva a apresentação
-    pres.save("MaxValuesVerticalAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    var majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    var minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    var majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    var minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Troca de dados entre eixos**
+## **Trocar os dados entre os eixos**
 
-O Aspose.Slides permite trocar rapidamente os dados entre os eixos — os dados representados no eixo vertical (eixo y) são movidos para o eixo horizontal (eixo x) e vice‑versa.
-
-Este código JavaScript mostra como executar a troca de dados entre eixos em um gráfico:
+Use [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) para trocar os papéis de séries e categorias nos dados do gráfico. Cada categoria anterior torna‑se uma série, e cada série anterior torna‑se uma categoria. Isso altera como os dados são agrupados; não troca os eixos horizontal e vertical. O exemplo usa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) para vincular os dados padrão a `Sheet1!A1:D5`, incluindo a linha de cabeçalho e a coluna de categoria, antes de trocar linhas e colunas. Ele salva um gráfico com quatro séries e três categorias.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    // Troca linhas e colunas
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
     chart.getChartData().switchRowColumn();
-    // Salva a apresentação
-    pres.save("SwitchChartRowColumns_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("SwitchChartRowColumns_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Desativando o eixo vertical para gráficos de linhas**
+## **Desabilitar o eixo vertical para gráficos de linha**
 
-Este código JavaScript mostra como ocultar o eixo vertical em um gráfico de linhas:
+Chame [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) com `false` no eixo vertical para ocultá‑lo. O exemplo cria um gráfico de linha com dados padrão e o salva com o eixo vertical oculto.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
     chart.getAxes().getVerticalAxis().setVisible(false);
-    pres.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("HiddenVerticalAxis.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Desativando o eixo horizontal para gráficos de linhas**
+## **Desabilitar o eixo horizontal para gráficos de linha**
 
-Este código mostra como ocultar o eixo horizontal em um gráfico de linhas:
+Chame [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) com `false` no eixo horizontal para ocultá‑lo. O exemplo cria um gráfico de linha com dados padrão e o salva com o eixo horizontal oculto.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
     chart.getAxes().getHorizontalAxis().setVisible(false);
-    pres.save("chart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("HiddenHorizontalAxis.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Alterando o eixo de categoria**
+## **Alterar um eixo de categoria**
 
-Usando a propriedade **CategoryAxisType**, você pode especificar o tipo de eixo de categoria desejado (**date** ou **text**). Este código em JavaScript demonstra a operação:
+Use [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) para escolher um eixo de categoria de data ou de texto. Este exemplo requer `ExistingChart.pptx`, com um gráfico como a primeira forma no primeiro slide e células de categoria contendo valores de data do Excel numéricos. Ele altera o eixo horizontal para um eixo de data. Chamando [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) com `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) com `1` e [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) com `TimeUnitType.Months` posiciona as marcas maiores em intervalos de um mês.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    var chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().get_Item(0);
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getHorizontalAxis().setMajorUnit(1);
     chart.getAxes().getHorizontalAxis().setMajorUnitScale(aspose.slides.TimeUnitType.Months);
+
     presentation.save("ChangeChartCategoryAxis_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Definindo o formato de data para o valor do eixo de categoria**
+## **Controlar intervalos de rótulo do eixo de categoria**
 
-O Aspose.Slides para Node.js via Java permite definir o formato de data para um valor de eixo de categoria. A operação é demonstrada neste código JavaScript:
+Quando um gráfico possui muitas categorias, reduza o número de rótulos de eixo visíveis sem remover categorias ou pontos de dados. Chame [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) com `false`, depois passe o intervalo de categoria desejado para [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Para categorias de texto em sua ordem normal, a contagem começa na primeira categoria:
+
+| Intervalo | Rótulos exibidos no exemplo |
+| --- | --- |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+
+Um intervalo de `3` exibe cada terceiro rótulo, deixando dois rótulos ocultos entre os rótulos exibidos. Ele não remove as colunas correspondentes. O espaçamento automático escolhe um intervalo com base no espaço disponível; não exibe necessariamente todos os rótulos.
+
+As marcas de marcação têm controles separados. Chame [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) com `false` e use [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) para definir seu intervalo. Por exemplo, `1` mantém uma marca em cada intervalo de categoria enquanto os rótulos aparecem apenas a cada terceira categoria. Use [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) com um estilo visível para que você possa ver o resultado. Chamar novamente qualquer configurador de espaçamento automático com `true` permite que o gráfico escolha esse intervalo novamente.
+
+O exemplo autocontido a seguir cria 24 categorias e uma série, então salva três slides em `CategoryAxisIntervals.pptx`: espaçamento automático, espaçamento manual de rótulos com marcas de marcação independentes e restauração do espaçamento automático. As duas cópias mantêm os dados originais do gráfico. Não é necessária nenhuma apresentação de entrada. O texto do rótulo horizontal facilita a visualização da densidade.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 50, 50, 450, 300);
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(java.newInstanceSync("GregorianCalendar", 2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(java.newInstanceSync("GregorianCalendar", 2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(java.newInstanceSync("GregorianCalendar", 2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(java.newInstanceSync("GregorianCalendar", 2018, 1, 1))));
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.ClusteredColumn);
+    for (var i = 0; i < 24; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        var valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(aspose.slides.CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(aspose.slides.TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // Slide 2: exibir cada terceiro rótulo, mas manter uma marca de marcação para cada categoria.
+    var manualSlide = presentation.getSlides().addClone(slide);
+    var manualChart = manualSlide.getShapes().get_Item(0);
+    var manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // Slide 3: deixar o gráfico escolher ambos os intervalos novamente.
+    var restoredSlide = presentation.getSlides().addClone(manualSlide);
+    var restoredChart = restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Espaçamento automático (slide 1):** Nesta renderização, cada segundo rótulo de categoria é exibido e quebra em duas linhas. O resultado automático pode variar com o tamanho do gráfico, fontes e renderizador.
+
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+
+**Espaçamento manual (slide 2):** Cada terceiro rótulo é exibido em uma linha, enquanto as marcas de marcação permanecem em cada intervalo de categoria. Todas as 24 colunas, incluindo as que não possuem rótulos, permanecem visíveis com os mesmos valores. O slide 3 restaura a aparência automática mostrada acima.
+
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+
+### **Escolher o eixo e o intervalo corretos**
+
+Use este intervalo de contagem de categorias para um eixo de categoria de texto, como o eixo de categoria de um gráfico de colunas, linhas, áreas ou barras. Em um gráfico de colunas, ele é o eixo horizontal. Em um gráfico de barras horizontal, o eixo de categoria é vertical, portanto aplique essas configurações ao eixo retornado por [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). O espaçamento de marca de marcação também se aplica a um eixo de série em gráficos que o possuam.
+
+Não use o espaçamento de rótulo de categoria para definir a escala numérica de um eixo de valor. Em um eixo de valor, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) especifica uma diferença em valores: por exemplo, uma unidade maior de `10` produz marcas em 0, 10, 20 e assim por diante quando o eixo começa em zero. Um intervalo de rótulo de categoria de `3` conta posições de categoria, independentemente de seus valores de dados. Gráficos de dispersão e bolha usam eixos de valor em vez de um eixo de categoria de texto. Para um eixo de data, use unidades maiores e escalas baseadas em tempo conforme descrito em [Alterar um eixo de categoria](#alterar-um-eixo-de-categoria).
+
+## **Definir o formato de data para valores do eixo de categoria**
+
+O exemplo substitui os dados padrão do gráfico por quatro valores anuais. As datas são armazenadas como números seriais de OLE Automation na primeira planilha (índice `0`), calculados como o número de dias desde 30 de dezembro de 1899, para essas datas. O cálculo JavaScript usa timestamps UTC e divide a diferença por 86 400 000 milissegundos por dia. Use [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) com `CategoryAxisType.Date`, chame [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) com `false` e passe `yyyy` para [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) para que os rótulos de categoria exibam anos de quatro dígitos independentemente da formatação da célula.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var baseDate = Date.UTC(1899, 11, 30);
+
     var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (var i = 0; i < 4; i++) {
+        var date = Date.UTC(2015 + i, 0, 1);
+        var categoryCell = workbook.getCell(0, i + 1, 0, (date - baseDate) / 86400000);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-const dayjs = require('dayjs');
-
-function convertToOADate(date) {
-    const baseDate = dayjs('1899-12-30');
-
-    const days = date.diff(baseDate, 'day');
-
-    const fractionalDay = (date.hour() / 24) +
-                          (date.minute() / (60 * 24)) +
-                          (date.second() / (60 * 24 * 60));
-
-    const oaDate = days + fractionalDay;
-
-    return String(oaDate);
+    presentation.dispose();
 }
 ```
 
-## **Definindo o ângulo de rotação para o título do eixo do gráfico**
+## **Definir um ângulo de rotação para o título de um eixo de gráfico**
 
-O Aspose.Slides para Node.js via Java permite definir o ângulo de rotação para o título de um eixo de gráfico. Este código JavaScript demonstra a operação:
+Chame [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) com `true` no eixo vertical, forneça o texto do título e use [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) para girar o título. O ângulo é medido em graus; este exemplo salva um gráfico de colunas com o título do eixo de valores girado em 90 graus.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("RotatedAxisTitle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Definindo a posição do eixo em um eixo de categoria ou de valor**
+## **Definir a posição do eixo em um eixo de categoria ou de valor**
 
-O Aspose.Slides para Node.js via Java permite definir a posição do eixo em um eixo de categoria ou de valor. Este código JavaScript mostra como executar a tarefa:
+Use [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) para controlar se o eixo de valor cruza o eixo de categoria entre as categorias ou nos marcadores de categoria. Essa configuração se aplica a eixos de categoria. O exemplo define isso como `true` no eixo de categoria horizontal de um gráfico de colunas e salva o resultado.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("AxisBetweenCategories.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ativando o rótulo de unidade de exibição no eixo de valores do gráfico**
+## **Definir a unidade de exibição em um eixo de valor de gráfico**
 
-O Aspose.Slides para Node.js via Java permite configurar um gráfico para exibir um rótulo de unidade no seu eixo de valores. Este código JavaScript demonstra a operação:
+Use [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) para dimensionar os rótulos em um eixo de valor sem alterar os dados subjacentes. Com [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) definido como `Millions`, um valor de 60 000 000 é exibido como 60. O exemplo cria um gráfico de colunas e aplica a unidade de exibição de milhões ao seu eixo vertical.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Millions);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Como definir o valor em que um eixo cruza o outro (cruzamento de eixos)?**
+**Como definir o valor no qual um eixo cruza o outro (cruzamento de eixo)?**
 
-Os eixos oferecem uma [configuração de cruzamento](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/axis/setcrosstype/): você pode escolher cruzar em zero, no valor máximo de categoria/valor ou em um valor numérico específico. Isso é útil para deslocar o eixo X para cima ou para baixo ou para enfatizar uma linha de base.
+Use [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) para selecionar o comportamento de cruzamento. Para especificar um valor de cruzamento numérico, use [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Essas configurações permitem mover o cruzamento do eixo para uma linha de base adequada.
 
-**Como posicionar os rótulos de marcações em relação ao eixo (ao lado, fora, dentro)?**
+**Como posicionar os rótulos de marca em relação ao eixo?**
 
-Defina a [posição do rótulo](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/axis/setmajortickmark/) como "cross", "outside" ou "inside". Isso afeta a legibilidade e ajuda a economizar espaço, especialmente em gráficos pequenos.
+Chame [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) usando [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` ou `None`. Para controlar as próprias marcas de marca, use [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) ou [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); estes são independentes do posicionamento dos rótulos.

@@ -1,5 +1,5 @@
 ---
-title: Android에서 프레젠테이션의 차트 축 사용자 지정
+title: Android에서 프레젠테이션 차트 축 사용자 지정
 linktitle: 차트 축
 type: docs
 url: /ko/androidjava/chart-axis/
@@ -22,216 +22,328 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: 보고서와 시각화를 위한 PowerPoint 프레젠테이션에서 차트 축을 사용자 지정하기 위해 Aspose.Slides for Android via Java를 사용하는 방법을 알아보세요.
+description: "Aspose.Slides for Android를 Java와 함께 사용하여 PowerPoint 프레젠테이션의 차트 축을 맞춤 설정하고 보고서와 시각화를 만드는 방법을 알아보세요."
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides에서 차트 축을 사용자 지정하는 방법을 설명합니다. 실제 축 값을 가져오는 방법, 축 간 데이터 교환, 선 차트에서 수직 또는 수평 축 숨기기, 범주 축 유형 변경, 범주 축 값에 대한 날짜 형식 설정, 축 제목 회전, 축 위치 설정 및 값 축에 단위 레이블 표시 방법을 보여줍니다.
+이 문서는 Java를 통해 Android용 Aspose.Slides에서 차트 축을 사용자 지정하는 방법을 설명합니다. 계산된 축 값, 차트 행과 열 전환, 축 표시 여부, 범주 레이블 및 눈금 간격, 날짜 범주 및 서식 지정, 제목 회전, 축 위치 지정 및 표시 단위를 다룹니다.
 
-## **차트의 수직 축에서 최대값 가져오기**
-Aspose.Slides for Android via Java를 사용하면 수직 축의 최소값과 최대값을 얻을 수 있습니다. 다음 단계를 진행하십시오:
+## **차트 수직 축의 최대값 가져오기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 첫 번째 슬라이드에 액세스합니다.
-1. 기본 데이터가 있는 차트를 추가합니다.
-1. 축의 실제 최대값을 가져옵니다.
-1. 축의 실제 최소값을 가져옵니다.
-1. 축의 실제 주요 단위를 가져옵니다.
-1. 축의 실제 보조 단위를 가져옵니다.
-1. 축의 실제 주요 단위 눈금을 가져옵니다.
-1. 축의 실제 보조 단위 눈금을 가져옵니다.
+Create a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) and add an area chart with default data. Call [validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) before reading calculated axis values so that the chart layout is up to date.
 
-위 단계의 구현 예시인 이 샘플 코드는 Java에서 필요한 값을 가져오는 방법을 보여줍니다:
+Read [getActualMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMaxValue--) and [getActualMinValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinValue--) for the axis limits, and [getActualMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnit--) and [getActualMinorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnit--) for the tick intervals. [getActualMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMajorUnitScale--) and [getActualMinorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#getActualMinorUnitScale--) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
-	chart.validateChartLayout();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-	double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
-	double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
+    IChart chart = slide.getShapes().addChart(ChartType.Area, 100, 100, 500, 350);
+    chart.validateChartLayout();
 
-	double majorUnit = chart.getAxes().getHorizontalAxis().getActualMajorUnit();
-	double minorUnit = chart.getAxes().getHorizontalAxis().getActualMinorUnit();
+    double maxValue = chart.getAxes().getVerticalAxis().getActualMaxValue();
+    double minValue = chart.getAxes().getVerticalAxis().getActualMinValue();
 
-	// 프레젠테이션을 저장합니다
-	pres.save("MaxValuesVerticalAxis_out.pptx", SaveFormat.Pptx);
+    double majorUnit = chart.getAxes().getVerticalAxis().getActualMajorUnit();
+    double minorUnit = chart.getAxes().getVerticalAxis().getActualMinorUnit();
+
+    int majorUnitScale = chart.getAxes().getVerticalAxis().getActualMajorUnitScale();
+    int minorUnitScale = chart.getAxes().getVerticalAxis().getActualMinorUnitScale();
+
+    presentation.save("AxisValues_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **축 사이의 데이터 교환**
-Aspose.Slides를 사용하면 축 간 데이터를 빠르게 교환할 수 있습니다—수직 축(y축)에서 표시되는 데이터가 수평 축(x축)으로 이동하고 그 반대도 마찬가지입니다.
+## **축 사이 데이터 교환**
 
-다음 Java 코드는 차트에서 축 간 데이터 교환 작업을 수행하는 방법을 보여줍니다:
+Use [switchRowColumn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#switchRowColumn--) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#setRange-java.lang.String-) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-	//행과 열을 전환합니다
-	chart.getChartData().switchRowColumn();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
+    chart.getChartData().setRange("Sheet1!A1:D5");
+    chart.getChartData().switchRowColumn();
 
-	// 프레젠테이션 저장
-	pres.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
+    presentation.save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **선 차트에서 수직 축 비활성화**
 
-다음 Java 코드는 선 차트에서 수직 축을 숨기는 방법을 보여줍니다:
+Call [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getVerticalAxis().setVisible(false);
+import com.aspose.slides.*;
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getVerticalAxis().setVisible(false);
+
+    presentation.save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **선 차트에서 수평 축 비활성화**
 
-다음 코드는 선 차트에서 수평 축을 숨기는 방법을 보여줍니다:
+Call [setVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setVisible-boolean-) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
-	chart.getAxes().getHorizontalAxis().setVisible(false);
+import com.aspose.slides.*;
 
-	pres.save("chart.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 100, 100, 400, 300);
+    chart.getAxes().getHorizontalAxis().setVisible(false);
+
+    presentation.save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **범주 축 변경**
 
-**CategoryAxisType** 속성을 사용하여 원하는 범주 축 유형(**date** 또는 **text**)을 지정할 수 있습니다. 다음 Java 코드는 해당 작업을 시연합니다:
+Use [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) with `false`, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnit-double-) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorUnitScale-int-) with `TimeUnitType.Months` places major ticks at one-month intervals.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ExistingChart.pptx");
 try {
-	IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-	chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
-	chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
-	chart.getAxes().getHorizontalAxis().setMajorUnit(1);
-	chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
-	presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = (IChart) slide.getShapes().get_Item(0);
+    chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
+    chart.getAxes().getHorizontalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getHorizontalAxis().setMajorUnit(1);
+    chart.getAxes().getHorizontalAxis().setMajorUnitScale(TimeUnitType.Months);
+
+    presentation.save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 } finally {
-	if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **범주 축 값에 대한 날짜 형식 설정**
-Aspose.Slides for Android via Java를 사용하면 범주 축 값에 대한 날짜 형식을 설정할 수 있습니다. 다음 Java 코드에서 이 작업을 시연합니다:
+## **범주 축 레이블 간격 제어**
+
+When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickLabelSpacing-int-). For text categories in their normal order, counting starts at the first category:
+
+| 간격 | 예시에서 표시된 레이블 |
+| --- | --- |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+
+An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
+
+Tick marks have separate controls. Call [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) with `false` and use [setTickMarksSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setTickMarksSpacing-int-) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorTickMark-int-) with a visible style so you can see the result. Calling either automatic-spacing setter with `true` again lets the chart choose that interval again.
+
+The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Area, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
-    IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.setLegend(false);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartSeries series = chart.getChartData().getSeries().add(ChartType.ClusteredColumn);
+    for (int i = 0; i < 24; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, 10 + i % 6 * 5);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisType(CategoryAxisType.Text);
+    axis.getTextFormat().getTextBlockFormat().setRotationAngle(0);
+    axis.getTextFormat().getPortionFormat().setFontHeight(12);
+    axis.setMajorTickMark(TickMarkType.Outside);
+    axis.setAutomaticTickLabelSpacing(true);
+    axis.setAutomaticTickMarksSpacing(true);
+
+    // 슬라이드 2: 매 세 번째 레이블을 표시하지만, 각 범주마다 눈금표시는 유지합니다.
+    ISlide manualSlide = presentation.getSlides().addClone(slide);
+    IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
+    IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
+    manualAxis.setAutomaticTickLabelSpacing(false);
+    manualAxis.setTickLabelSpacing(3);
+    manualAxis.setAutomaticTickMarksSpacing(false);
+    manualAxis.setTickMarksSpacing(1);
+
+    // 슬라이드 3: 차트가 두 간격을 다시 선택하도록 합니다.
+    ISlide restoredSlide = presentation.getSlides().addClone(manualSlide);
+    IChart restoredChart = (IChart)restoredSlide.getShapes().get_Item(0);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
+    restoredChart.getAxes().getHorizontalAxis().setAutomaticTickMarksSpacing(true);
+
+    presentation.save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**자동 간격 (슬라이드 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
+
+![자동 범주 레이블 간격 (전체 24열 표시)](category-axis-automatic.png)
+
+**수동 간격 (슬라이드 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
+
+![수동 범주 레이블 간격 3 (전체 24열 표시)](category-axis-manual.png)
+
+### **올바른 축 및 간격 선택**
+
+Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to the axis returned by [getVerticalAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Tick-mark spacing also applies to a series axis in charts that have one.
+
+Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [setMajorUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMajorUnit-double-) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
+
+## **범주 축 값의 날짜 형식 설정**
+
+The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`), calculated as the number of days since December 30, 1899, for these dates. Both calendars use UTC and are cleared before setting the dates so daylight saving time and the current time of day do not affect the calculation. Use [setCategoryAxisType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCategoryAxisType-int-) with `CategoryAxisType.Date`, call [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) with `false`, and pass `yyyy` to [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setNumberFormat-java.lang.String-) so the category labels display four-digit years independently of the cell formatting.
+
+```java
+import com.aspose.slides.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().add(wb.getCell(0, "A2", convertToOADate(new GregorianCalendar(2015, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A3", convertToOADate(new GregorianCalendar(2016, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A4", convertToOADate(new GregorianCalendar(2017, 1, 1))));
-    chart.getChartData().getCategories().add(wb.getCell(0, "A5", convertToOADate(new GregorianCalendar(2018, 1, 1))));
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    TimeZone timeZone = TimeZone.getTimeZone("UTC");
+    Calendar baseDate = new GregorianCalendar(timeZone);
+    baseDate.clear();
+    baseDate.set(1899, Calendar.DECEMBER, 30);
 
     IChartSeries series = chart.getChartData().getSeries().add(ChartType.Line);
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B2", 1));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B3", 2));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B4", 3));
-    series.getDataPoints().addDataPointForLineSeries(wb.getCell(0, "B5", 4));
+    for (int i = 0; i < 4; i++) {
+        Calendar date = new GregorianCalendar(timeZone);
+        date.clear();
+        date.set(2015 + i, Calendar.JANUARY, 1);
+        double serialDate = (date.getTimeInMillis() - baseDate.getTimeInMillis()) / 86400000.0;
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, serialDate);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, i + 1);
+        series.getDataPoints().addDataPointForLineSeries(valueCell);
+    }
+
     chart.getAxes().getHorizontalAxis().setCategoryAxisType(CategoryAxisType.Date);
     chart.getAxes().getHorizontalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getHorizontalAxis().setNumberFormat("yyyy");
-	
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DateAxisFormat.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-public static String convertToOADate(GregorianCalendar date) throws ParseException
-{
-    double oaDate;
-    SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
-    java.util.Date baseDate = myFormat.parse("30 12 1899");
-    Long days = TimeUnit.DAYS.convert(date.getTimeInMillis() - baseDate.getTime(), TimeUnit.MILLISECONDS);
-    oaDate = (double) days + ((double) date.get(Calendar.HOUR_OF_DAY) / 24) + ((double) date.get(Calendar.MINUTE) / (60 * 24)) + ((double) date.get(Calendar.SECOND) / (60 * 24 * 60));
-    return String.valueOf(oaDate);
+    presentation.dispose();
 }
 ```
 
-## **차트 축 제목의 회전 각도 설정**
-Aspose.Slides for Android via Java를 사용하면 차트 축 제목의 회전 각도를 설정할 수 있습니다. 다음 Java 코드가 이 작업을 보여줍니다:
+## **차트 축 제목 회전 각도 설정**
+
+Call [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTitle-boolean-) with `true` on the vertical axis, provide title text, and use [setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
     chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 
-## **범주 또는 값 축에서 축 위치 설정**
-Aspose.Slides for Android via Java를 사용하면 범주 축 또는 값 축에서 축 위치를 설정할 수 있습니다. 다음 Java 코드는 작업 수행 방법을 보여줍니다:
+## **범주 또는 값 축에 축 위치 설정**
+
+Use [setAxisBetweenCategories](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) to control whether the value axis crosses the category axis between categories or at category tick marks. This setting applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **차트 값 축에 단위 레이블 표시 활성화**
-Aspose.Slides for Android via Java를 사용하면 차트 값 축에 단위 레이블을 표시하도록 차트를 구성할 수 있습니다. 다음 Java 코드가 이 작업을 시연합니다:
+## **차트 값 축에 표시 단위 설정**
+
+Use [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setDisplayUnit-int-) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 300);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Millions);
-    
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("Result.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **자주 묻는 질문**
 
 **축이 다른 축과 교차하는 값을 어떻게 설정합니까?**
 
-축은 [crossing setting](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/axis/#setCrossType-int-)을 제공하며, 0에서 교차하도록 하거나, 최대 범주/값에서 교차하도록 하거나, 특정 숫자값에서 교차하도록 선택할 수 있습니다. 이는 X축을 위아래로 이동하거나 기준선을 강조할 때 유용합니다.
+Use [setCrossType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossType-int-) to select the crossing behavior. To specify a numeric crossing value, use [setCrossAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setCrossAt-float-). These settings let you move the axis crossing to a suitable baseline.
 
-**축에 대한 눈금 레이블 위치를 어떻게 지정합니까(축 옆, 외부, 내부)?**
+**축에 대해 눈금 레이블을 어떻게 배치합니까?**
 
-[label position](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-)을 "cross", "outside", "inside" 중 하나로 설정합니다. 이는 가독성에 영향을 주며 특히 작은 차트에서 공간 절약에 도움이 됩니다.
+Call [setTickLabelPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setTickLabelPosition-int-) using [TickLabelPositionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [setMajorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMajorTickMark-int-) or [setMinorTickMark](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axis/#setMinorTickMark-int-); these are separate from label positioning.

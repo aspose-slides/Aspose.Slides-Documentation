@@ -10,7 +10,7 @@ keywords:
 - anpassa axel
 - manipulera axel
 - hantera axel
-- axelegenskaper
+- axelns egenskaper
 - maxvärde
 - minvärde
 - axellinje
@@ -26,194 +26,285 @@ description: "Upptäck hur du använder Aspose.Slides för Python via .NET för 
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du anpassar diagramaxlar i Aspose.Slides. Den visar hur du får faktiska axelvärden, byter data mellan axlar, döljer den vertikala eller horisontella axeln för linjediagram, ändrar kategoriaxeltypen, ställer in datumformatet för kategoriaxelvärden, roterar en axeltitel, anger axelns position och visar en enhetsetikett på värdeaxeln.
+Denna artikel förklarar hur man anpassar diagramaxlar med Aspose.Slides för Python via .NET. Den täcker beräknade axelvärden, byte av diagramrader och -kolumner, axelns synlighet, kategorietikett- och streckmärkespunktsintervall, datumkategorier och formatering, titelrotation, axelpositionering och displayenheter.
 
 ## **Hämta maxvärdena på den vertikala axeln i diagram**
-Aspose.Slides for Python via .NET låter dig hämta de minsta och största värdena på en vertikal axel. Följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Öppna den första bilden.
-1. Lägg till ett diagram med standarddata.
-1. Hämta det faktiska maximala värdet på axeln.
-1. Hämta det faktiska minsta värdet på axeln.
-1. Hämta den faktiska huvudenheten för axeln.
-1. Hämta den faktiska underenheten för axeln.
-1. Hämta den faktiska skalan för huvudenheten på axeln.
-1. Hämta den faktiska skalan för underenheten på axeln.
+Skapa en [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) och lägg till ett områdesdiagram med standarddata. Anropa [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) innan du läser beräknade axelvärden så att diagrammets layout är uppdaterad.
 
-Denna exempelkod—en implementering av stegen ovan—visar hur du får de nödvändiga värdena i Python:
+Läs [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) och [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) för axelgränserna, samt [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) och [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) för streckintervallerna. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) och [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) ger tidsenhetsskala, vilket är relevant för datumaxlar. Exemplet lagrar dessa värden i lokala variabler och sparar diagrammet.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.AREA, 100, 100, 500, 350)
-	chart.validate_chart_layout()
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	maxValue = chart.axes.vertical_axis.actual_max_value
-	minValue = chart.axes.vertical_axis.actual_min_value
+    chart = slide.shapes.add_chart(charts.ChartType.AREA, 100, 100, 500, 350)
+    chart.validate_chart_layout()
 
-	majorUnit = chart.axes.horizontal_axis.actual_major_unit
-	minorUnit = chart.axes.horizontal_axis.actual_minor_unit
-	
-	# Sparar presentationen
-	pres.save("ErrorBars_out.pptx", slides.export.SaveFormat.PPTX)
+    max_value = chart.axes.vertical_axis.actual_max_value
+    min_value = chart.axes.vertical_axis.actual_min_value
+
+    major_unit = chart.axes.vertical_axis.actual_major_unit
+    minor_unit = chart.axes.vertical_axis.actual_minor_unit
+
+    major_unit_scale = chart.axes.vertical_axis.actual_major_unit_scale
+    minor_unit_scale = chart.axes.vertical_axis.actual_minor_unit_scale
+
+    presentation.save("AxisValues_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Byta data mellan axlar**
-Aspose.Slides låter dig snabbt byta data mellan axlar—data som visas på den vertikala axeln (y-axeln) flyttas till den horisontella axeln (x-axeln) och vice versa. 
+## **Byt data mellan axlar**
 
-Denna Python‑kod visar hur du utför datautbytesuppgiften mellan axlar i ett diagram:
+Använd [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) för att byta rollerna för serier och kategorier i diagramdata. Varje tidigare kategori blir en serie och varje tidigare serie blir en kategori. Detta ändrar hur data grupperas; det byter inte horisontella och vertikala axlar. Exemplet använder [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att binda standarddata till `Sheet1!A1:D5`, inklusive rubrikraden och kategorikolumnen, innan rader och kolumner byts. Det sparar ett diagram med fyra serier och tre kategorier.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-# Skapar tom presentation
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    #Byter rader och kolumner
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
+
+    chart.chart_data.set_range("Sheet1!A1:D5")
     chart.chart_data.switch_row_column()
-            
-    # Sparar presentationen
-    pres.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Inaktivera den vertikala axeln för linjediagram**
 
-Denna Python‑kod visar hur du döljer den vertikala axeln för ett linjediagram:
+Ställ in [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) till `False` på den vertikala axeln för att dölja den. Exemplet skapar ett linjediagram med standarddata och sparar det med den vertikala axeln dold.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.LINE, 100, 100, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 100, 100, 400, 300)
     chart.axes.vertical_axis.is_visible = False
-    
-    pres.save("chart-is_visible.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("HiddenVerticalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Inaktivera den horisontella axeln för linjediagram**
 
-Denna kod visar hur du döljer den horisontella axeln för ett linjediagram:
+Ställ in [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) till `False` på den horisontella axeln för att dölja den. Exemplet skapar ett linjediagram med standarddata och sparar det med den horisontella axeln dold.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
- 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.LINE, 100, 100, 400, 300)
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 100, 100, 400, 300)
     chart.axes.horizontal_axis.is_visible = False
 
-    pres.save("chart-2.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ändra kategoriaxel**
+## **Ändra en kategori‑axel**
 
-Med egenskapen **CategoryAxisType** kan du specificera önskad kategoriaxeltyp (**date** eller **text**). Denna kod i Python demonstrerar operationen: 
+Ställ in [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) för att välja en datum‑ eller text‑kategori‑axel. Detta exempel kräver `ExistingChart.pptx`, med ett diagram som den första formen på den första bilden och kategoriceller som innehåller numeriska Excel‑datumvärden. Det ändrar den horisontella axeln till en datumaxel. Genom att sätta [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) till `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) till `1` och [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) till månader placeras huvudstrecken med en‑månads intervall.
 
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation(path + "ExistingChart.pptx") as presentation:
-    chart = presentation.slides[0].shapes[0]
+with slides.Presentation("ExistingChart.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes[0]
     chart.axes.horizontal_axis.category_axis_type = charts.CategoryAxisType.DATE
     chart.axes.horizontal_axis.is_automatic_major_unit = False
     chart.axes.horizontal_axis.major_unit = 1
     chart.axes.horizontal_axis.major_unit_scale = charts.TimeUnitType.MONTHS
+
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ställa in datumformatet för kategoriaxelvärde**
-Aspose.Slides for Python via .NET låter dig ange datumformatet för ett kategoriaxelvärde. Operationen demonstreras i denna Python‑kod:
+## **Styr intervallen för kategori‑axelns etiketter**
 
-```py
-import aspose.slides.charts as charts
+När ett diagram har många kategorier, minska antalet synliga axel­etiketter utan att ta bort kategorier eller datapunkter. Ställ in [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) till `False`, och sedan [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) till önskat kategoriintervall. För textkategorier i deras normala ordning börjar räknandet på den första kategorin:
+
+| Intervall | Etiketter som visas i exempel |
+| --- | --- |
+| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
+| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
+| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
+
+Ett intervall på `3` visar var tredje etikett och lämnar två etiketter dolda mellan de visade etiketterna. Det tar inte bort motsvarande kolumner. Automatisk spacing väljer ett intervall baserat på tillgängligt utrymme; det visar inte nödvändigtvis varje etikett.
+
+Streckmarkeringar har separata kontroller. Ställ in [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) till `False` och använd [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) för att sätta deras intervall. Till exempel behåller `1` en streckmarkering vid varje kategoriintervall medan etiketter bara visas var tredje kategori. Ställ in [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) till en synlig stil så att du kan se resultatet. Om du återställer någon av de automatiska spacing‑egenskaperna till `True` låter diagrammet välja det intervallet igen.
+
+Följande fristående exempel skapar 24 kategorier och en serie, och sparar sedan tre bilder i `CategoryAxisIntervals.pptx`: automatisk spacing, manuell etikettspacing med oberoende streckmarkeringar och återställd automatisk spacing. De två kopiorna behåller den ursprungliga diagramdatan. Ingen inmatningspresentation krävs. Horisontell etiketttext gör skillnaden i densitet lätt att se.
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.has_legend = False
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series = chart.chart_data.series.add(charts.ChartType.CLUSTERED_COLUMN)
+    for i in range(24):
+        category_cell = workbook.get_cell(0, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+        value_cell = workbook.get_cell(0, i + 1, 1, 10 + i % 6 * 5)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.category_axis_type = charts.CategoryAxisType.TEXT
+    axis.text_format.text_block_format.rotation_angle = 0
+    axis.text_format.portion_format.font_height = 12
+    axis.major_tick_mark = charts.TickMarkType.OUTSIDE
+    axis.is_automatic_tick_label_spacing = True
+    axis.is_automatic_tick_marks_spacing = True
+
+    # Slide 2: visa var tredje etikett, men behåll ett streck för varje kategori.
+    manual_slide = presentation.slides.add_clone(slide)
+    manual_chart = manual_slide.shapes[0]
+    manual_axis = manual_chart.axes.horizontal_axis
+    manual_axis.is_automatic_tick_label_spacing = False
+    manual_axis.tick_label_spacing = 3
+    manual_axis.is_automatic_tick_marks_spacing = False
+    manual_axis.tick_marks_spacing = 1
+
+    # Slide 3: låt diagrammet välja båda intervallen igen.
+    restored_slide = presentation.slides.add_clone(manual_slide)
+    restored_chart = restored_slide.shapes[0]
+    restored_chart.axes.horizontal_axis.is_automatic_tick_label_spacing = True
+    restored_chart.axes.horizontal_axis.is_automatic_tick_marks_spacing = True
+
+    presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
+```
+
+**Automatisk spacing (bild 1):** I denna rendering visas varje andra kategorietikett och radbryts till två rader. Det automatiska resultatet kan variera med diagramstorlek, teckensnitt och renderaren.
+
+![Automatisk kategori‑etikettspacing med alla 24 kolumner synliga](category-axis-automatic.png)
+
+**Manuell spacing (bild 2):** Varje tredje etikett visas på en rad, medan streckmarkeringar förblir vid varje kategoriintervall. Alla 24 kolumner, inklusive de utan etiketter, förblir synliga med samma värden. Bild 3 återställer den automatiska utseendet som visas ovan.
+
+![Manuellt kategori‑etikettintervall på tre med alla 24 kolumner synliga](category-axis-manual.png)
+
+### **Välj rätt axel och intervall**
+
+Använd detta kategori‑räkningsintervall för en text‑kategori‑axel, såsom kategori‑axeln i ett stapeldiagram, linjediagram, områdesdiagram eller stapeldiagram. I ett stapeldiagram är det den horisontella axeln. I ett horisontellt stapeldiagram är kategori‑axeln vertikal, så tillämpa dessa inställningar på [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Streckmarkering‑spacing gäller även för en serie‑axel i diagram som har en.
+
+Använd inte kategori‑etikettspacing för att ställa in den numeriska skalan på en värde‑axel. På en värde‑axel anger [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) en skillnad i värden: till exempel ger en huvudenhet på `10` streck vid 0, 10, 20 osv när axeln börjar på noll. Ett kategori‑etikettintervall på `3` räknar istället kategori­positioner, oavsett deras datavärden. Spridnings‑ och bubbeldiagram använder värde‑axlar snarare än en text‑kategori‑axel. För en datumaxel, använd tidsbaserade huvud­enheter och skalor som beskrivs i [Change a Category Axis](#change-a-category-axis).
+
+## **Ange datumformat för kategori‑axelvärden**
+
+Exemplet ersätter standarddiagramdata med fyra årliga värden. Datum lagras som OLE Automation‑serienummer i det första kalkylbladet (index `0`). Ställ in [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) till en datumaxel, inaktivera [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/), och tilldela `yyyy` till [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) så att kategori‑etiketterna visar fyrsiffriga år oberoende av cellformateringen.
+
+```python
 from datetime import date
 
-def to_oadate(dt):
-    delta = dt - date(1899, 12, 30)
-    return delta.days + (delta.seconds + delta.microseconds / 1e6) / (24 * 3600)
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.AREA, 50, 50, 450, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    wb = chart.chart_data.chart_data_workbook
-
-    wb.clear(0)
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
 
     chart.chart_data.categories.clear()
     chart.chart_data.series.clear()
 
-    chart.chart_data.categories.add(wb.get_cell(0, "A2", to_oadate(date(2015, 1, 1))))
-    chart.chart_data.categories.add(wb.get_cell(0, "A3", to_oadate(date(2016, 1, 1))))
-    chart.chart_data.categories.add(wb.get_cell(0, "A4", to_oadate(date(2017, 1, 1))))
-    chart.chart_data.categories.add(wb.get_cell(0, "A5", to_oadate(date(2018, 1, 1))))
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
     series = chart.chart_data.series.add(charts.ChartType.LINE)
-    series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B2", 1))
-    series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B3", 2))
-    series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B4", 3))
-    series.data_points.add_data_point_for_line_series(wb.get_cell(0, "B5", 4))
+    for i in range(4):
+        category_date = date(2015 + i, 1, 1)
+        serial_date = (category_date - date(1899, 12, 30)).days
+        category_cell = workbook.get_cell(0, i + 1, 0, serial_date)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, i + 1)
+        series.data_points.add_data_point_for_line_series(value_cell)
+
     chart.axes.horizontal_axis.category_axis_type = charts.CategoryAxisType.DATE
     chart.axes.horizontal_axis.is_number_format_linked_to_source = False
     chart.axes.horizontal_axis.number_format = "yyyy"
-    pres.save("test.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("DateAxisFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ställa in rotationsvinkeln för diagramaxeltitel**
-Aspose.Slides for Python via .NET låter dig ange rotationsvinkeln för en diagramaxeltitel. Denna Python‑kod demonstrerar operationen:
+## **Ange en rotationsvinkel för ett diagramaxeltitel**
 
-```py
-import aspose.slides.charts as charts
+Aktivera [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) på den vertikala axeln, ange titeltext och sätt [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) för att rotera titeln. Vinkeln mäts i grader; detta exempel sparar ett stapeldiagram med dess värde‑axeltitel roterad 90 grader.
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
     chart.axes.vertical_axis.has_title = True
+    chart.axes.vertical_axis.title.add_text_frame_for_overriding("Value")
     chart.axes.vertical_axis.title.text_format.text_block_format.rotation_angle = 90
 
-    pres.save("test.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RotatedAxisTitle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ställa in positionsaxeln i en kategori‑ eller värdeaxel**
-Aspose.Slides for Python via .NET låter dig ange positionsaxeln i en kategori‑ eller värdeaxel. Denna Python‑kod visar hur du utför uppgiften:
+## **Ställ in axelpositionen på en kategori‑ eller värde‑axel**
 
-```py
-import aspose.slides.charts as charts
+Använd [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) för att kontrollera om värde‑axeln korsar kategori‑axeln mellan kategorier eller vid kategori‑streckmarkeringar. Denna egenskap gäller kategori‑axlar. Exemplet sätter den till `True` på den horisontella kategori‑axeln i ett stapeldiagram och sparar resultatet.
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
-	chart.axes.horizontal_axis.axis_between_categories = True
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	pres.save("AsposeScatterChart.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
+    chart.axes.horizontal_axis.axis_between_categories = True
+
+    presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aktivera visning av enhetsetikett på diagrammets värdeaxel**
-Aspose.Slides for Python via .NET låter dig konfigurera ett diagram så att det visar en enhetsetikett på dess värdeaxel. Denna Python‑kod demonstrerar operationen:
+## **Ange display‑enhet på en diagramvärde‑axel**
 
-```py
-import aspose.slides.charts as charts
+Ställ in [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) för att skala etiketterna på en värde‑axel utan att ändra underliggande data. Med [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) satt till `MILLIONS` visas ett värde på 60 000 000 som 60. Exemplet skapar ett stapeldiagram och tillämpar miljon‑display‑enheten på dess vertikala axel.
+
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
-	chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
-	pres.save("Result.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 450, 300)
+    chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.MILLIONS
+
+    presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Vanliga frågor**
 
-**Hur ställer jag in värdet där en axel korsar den andra (axelkorsning)?**
+**Hur anger jag värdet där en axel korsar den andra (axelkorsning)?**
 
-Axlar erbjuder en korsningsinställning: du kan välja att korsa vid noll, vid den maximala kategori-/värdet, eller vid ett specifikt numeriskt värde. Detta är användbart för att flytta X-axeln upp eller ner eller för att framhäva en baslinje.
+Använd [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) för att välja korsningsbeteende. För att ange ett numeriskt korsningsvärde, sätt [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Dessa inställningar låter dig flytta axel‑korsningen till en lämplig baslinje.
 
-**Hur kan jag positionera tics‑etiketterna i förhållande till axeln (bredvid, utanför, innanför)?**
+**Hur kan jag placera strecketiketterna relativt axeln?**
 
-Ställ in etikettpositionen till "cross", "outside" eller "inside". Detta påverkar läsbarheten och hjälper till att spara utrymme, särskilt i små diagram.
+Ställ in [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) med hjälp av [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO` eller `NONE`. För att kontrollera själva streckmarkeringarna, använd [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) eller [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); dessa är separata från etikettpositionering.
