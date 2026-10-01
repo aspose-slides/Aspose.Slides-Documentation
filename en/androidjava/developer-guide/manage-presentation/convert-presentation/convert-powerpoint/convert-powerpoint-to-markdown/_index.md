@@ -78,6 +78,140 @@ try {
 }
 ```
 
+## **Control Repeated Spaces**
+
+When preparing slide text for documentation, text processing, or publication, use [MarkdownSaveOptions.setHandleRepeatedSpaces](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/#setHandleRepeatedSpaces-int-) to control consecutive regular spaces.
+
+Single spaces remain regular spaces in all three modes. The following self-contained example creates text with one, two, and three consecutive spaces and exports the same slide using each mode.
+
+```java
+import com.aspose.slides.Flavor;
+import com.aspose.slides.HandleRepeatedSpaces;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 600, 100);
+    shape.getTextFrame().setText("One space; two  spaces; three   spaces.");
+
+    int[] modes = {
+        HandleRepeatedSpaces.None,
+        HandleRepeatedSpaces.AlternateSpacesToNbsp,
+        HandleRepeatedSpaces.MultipleSpacesToNbsp
+    };
+    
+    String[] modeNames = {"None", "AlternateSpacesToNbsp", "MultipleSpacesToNbsp"};
+
+    for (int i = 0; i < modes.length; i++) {
+        MarkdownSaveOptions options = new MarkdownSaveOptions();
+        options.setFlavor(Flavor.CommonMark);
+        options.setHandleRepeatedSpaces(modes[i]);
+
+        presentation.save("spaces-" + modeNames[i] + ".md", SaveFormat.Md, options);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The exported text lines are shown below. These excerpts omit the slide separator and the two trailing spaces added by the exporter.
+
+`None`:
+
+```markdown
+One space; two  spaces; three   spaces.
+```
+
+`AlternateSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp; spaces.
+```
+
+`MultipleSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp;&nbsp;spaces.
+```
+
+In a typical HTML-based Markdown viewer, consecutive regular spaces collapse visually even though they remain in the source. Both replacement modes preserve the visible spacing in this example; their source differs for the three-space sequence.
+
+Choose `None` when downstream tools need ordinary space characters without HTML entities. Choose a replacement mode when visible spacing matters more. A text-processing pipeline consuming that output may need to decode `&nbsp;` and normalize the resulting nonbreaking spaces. Nonbreaking spaces also affect where a viewer can wrap text.
+
+## **Remove Empty Lines**
+
+The [MarkdownSaveOptions.setRemoveEmptyLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/#setRemoveEmptyLines-boolean-) method controls whether empty or whitespace-only lines are removed during export. The default value is `false`. This controls vertical separation, independently of how repeated spaces within text are represented.
+
+The following example creates two text paragraphs separated by an empty paragraph and a paragraph containing three regular spaces. It exports both settings. The `\r` characters create paragraph boundaries in the text frame; [HandleRepeatedSpaces.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/handlerepeatedspaces/#None) makes the treatment of ordinary spaces easier to inspect.
+
+```java
+import com.aspose.slides.Flavor;
+import com.aspose.slides.HandleRepeatedSpaces;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 600, 300);
+
+    // Include an empty paragraph and a paragraph containing three regular spaces.
+    shape.getTextFrame().setText("First paragraph.\r\r   \rSecond paragraph.");
+
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setFlavor(Flavor.CommonMark);
+    options.setHandleRepeatedSpaces(HandleRepeatedSpaces.None);
+    options.setRemoveEmptyLines(false);
+
+    presentation.save("empty-lines-kept.md", SaveFormat.Md, options);
+
+    options.setRemoveEmptyLines(true);
+    presentation.save("empty-lines-removed.md", SaveFormat.Md, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+With `false`, the generated Markdown is:
+
+```markdown
+---  
+
+First paragraph.  
+
+&nbsp;
+  
+     
+Second paragraph.  
+```
+
+With `true`, it becomes:
+
+```markdown
+---  
+
+First paragraph.  
+Second paragraph.  
+```
+
+When [setRemoveEmptyLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/#setRemoveEmptyLines-boolean-) is set to `false`, the exported Markdown preserves the empty and whitespace-only paragraphs. The `&nbsp;` line represents an empty paragraph.
+
+When [setRemoveEmptyLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/#setRemoveEmptyLines-boolean-) is set to `true`, these blank paragraphs are removed. The two text paragraphs become a single Markdown paragraph with a line break between them. This line break is preserved by two trailing spaces after `First paragraph.`—Markdown syntax for a hard line break.
+
+The slide separator (`---`) remains in both outputs. Keep [setRemoveEmptyLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/#setRemoveEmptyLines-boolean-) set to `false` when you need to preserve paragraph separation. If your presentation contains lists or code blocks, check the exported result in your target Markdown viewer, since blank lines can affect how that content is interpreted.
+
 ## **Export Images Using the Default Local-Saving Behavior**
 
 The [MarkdownSaveOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/markdownsaveoptions/) class provides two methods for configuring locally saved images:

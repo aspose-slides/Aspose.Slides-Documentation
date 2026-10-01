@@ -81,6 +81,136 @@ try {
 }
 ```
 
+## **Control Repeated Spaces**
+
+When preparing slide text for documentation, text processing, or publication, use [MarkdownSaveOptions::setHandleRepeatedSpaces](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/#setHandleRepeatedSpaces) to control consecutive regular spaces.
+
+Single spaces remain regular spaces in all three modes. The following self-contained example creates text with one, two, and three consecutive spaces and exports the same slide using each mode.
+
+```php
+use aspose\slides\Flavor;
+use aspose\slides\HandleRepeatedSpaces;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 600, 100);
+    $shape->getTextFrame()->setText("One space; two  spaces; three   spaces.");
+
+    $modes = [
+        HandleRepeatedSpaces::None,
+        HandleRepeatedSpaces::AlternateSpacesToNbsp,
+        HandleRepeatedSpaces::MultipleSpacesToNbsp
+    ];
+
+    $modeNames = ["None", "AlternateSpacesToNbsp", "MultipleSpacesToNbsp"];
+
+    for ($i = 0; $i < count($modes); $i++) {
+        $options = new MarkdownSaveOptions();
+        $options->setFlavor(Flavor::CommonMark);
+        $options->setHandleRepeatedSpaces($modes[$i]);
+
+        $presentation->save("spaces-" . $modeNames[$i] . ".md", SaveFormat::Md, $options);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The exported text lines are shown below. These excerpts omit the slide separator and the two trailing spaces added by the exporter.
+
+`None`:
+
+```markdown
+One space; two  spaces; three   spaces.
+```
+
+`AlternateSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp; spaces.
+```
+
+`MultipleSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp;&nbsp;spaces.
+```
+
+In a typical HTML-based Markdown viewer, consecutive regular spaces collapse visually even though they remain in the source. Both replacement modes preserve the visible spacing in this example; their source differs for the three-space sequence.
+
+Choose `None` when downstream tools need ordinary space characters without HTML entities. Choose a replacement mode when visible spacing matters more. A text-processing pipeline consuming that output may need to decode `&nbsp;` and normalize the resulting nonbreaking spaces. Nonbreaking spaces also affect where a viewer can wrap text.
+
+## **Remove Empty Lines**
+
+The [MarkdownSaveOptions::setRemoveEmptyLines](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/#setRemoveEmptyLines) method controls whether empty or whitespace-only lines are removed during export. The default value is `false`. This controls vertical separation, independently of how repeated spaces within text are represented.
+
+The following example creates two text paragraphs separated by an empty paragraph and a paragraph containing three regular spaces. It exports both settings. The `\r` characters create paragraph boundaries in the text frame; [HandleRepeatedSpaces::None](https://reference.aspose.com/slides/php-java/aspose.slides/handlerepeatedspaces/) makes the treatment of ordinary spaces easier to inspect.
+
+```php
+use aspose\slides\Flavor;
+use aspose\slides\HandleRepeatedSpaces;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 600, 300);
+
+    // Include an empty paragraph and a paragraph containing three regular spaces.
+    $shape->getTextFrame()->setText("First paragraph.\r\r   \rSecond paragraph.");
+
+    $options = new MarkdownSaveOptions();
+    $options->setFlavor(Flavor::CommonMark);
+    $options->setHandleRepeatedSpaces(HandleRepeatedSpaces::None);
+    $options->setRemoveEmptyLines(false);
+
+    $presentation->save("empty-lines-kept.md", SaveFormat::Md, $options);
+
+    $options->setRemoveEmptyLines(true);
+    $presentation->save("empty-lines-removed.md", SaveFormat::Md, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+With `false`, the generated Markdown is:
+
+```markdown
+---  
+
+First paragraph.  
+
+&nbsp;
+  
+     
+Second paragraph.  
+```
+
+With `true`, it becomes:
+
+```markdown
+---  
+
+First paragraph.  
+Second paragraph.  
+```
+
+When [setRemoveEmptyLines](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/#setRemoveEmptyLines) is set to `false`, the exported Markdown preserves the empty and whitespace-only paragraphs. The `&nbsp;` line represents an empty paragraph.
+
+When [setRemoveEmptyLines](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/#setRemoveEmptyLines) is set to `true`, these blank paragraphs are removed. The two text paragraphs become a single Markdown paragraph with a line break between them. This line break is preserved by two trailing spaces after `First paragraph.`—Markdown syntax for a hard line break.
+
+The slide separator (`---`) remains in both outputs. Keep [setRemoveEmptyLines](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/#setRemoveEmptyLines) set to `false` when you need to preserve paragraph separation. If your presentation contains lists or code blocks, check the exported result in your target Markdown viewer, since blank lines can affect how that content is interpreted.
+
 ## **Export Images Using the Default Local-Saving Behavior**
 
 The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) class provides two methods for configuring locally saved images:
@@ -122,7 +252,7 @@ This behavior also serves as the fallback when a custom image-saving handler ret
 
 Use the [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method to register a callback for non-SVG bitmap and metafile resources emitted during Markdown export. Its `MarkdownImageSavingHandler` callback receives the [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) object, its [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) value, and the generated Markdown link as a one-element Java string array. Save or upload the image with the supplied format, and replace `$link[0]` with the reference that must appear in the Markdown output.
 
-Resources emitted in SVG format are handled separately. Register a callback with the [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method. Its `MarkdownSvgImageSavingHandler` callback receives an [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/) object and the one-element Java string array `$link`. An SVG has no `ImageFormat` argument; write or upload its XML data from the [ISvgImage::getSvgData](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/) method instead. Depending on the export mode and visual grouping, an SVG in the source presentation can be rasterized or combined with other content; the resulting non-SVG resource is then passed to the image-saving callback. Register both callbacks when every exported visual resource requires custom processing.
+Resources emitted in SVG format are handled separately. Register a callback with the [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method. Its `MarkdownSvgImageSavingHandler` callback receives an [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/) object and the one-element Java string array `$link`. An SVG has no `ImageFormat` argument; write or upload its XML data from the [SvgImage::getSvgData](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/#getSvgData) method instead. Depending on the export mode and visual grouping, an SVG in the source presentation can be rasterized or combined with other content; the resulting non-SVG resource is then passed to the image-saving callback. Register both callbacks when every exported visual resource requires custom processing.
 
 In PHP via Java, implement each callback in a PHP class and use `java_closure` to expose that object as the corresponding Java interface.
 
@@ -262,7 +392,7 @@ The bitmap handler deliberately returns `false` for images smaller than 128 × 1
 
 **Can one handler process both raster images and SVG images?**
 
-No. Use [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) for emitted bitmap and metafile resources and [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) for resources emitted as SVG. The former provides an [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) object and an [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) value; the latter provides an [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/) object whose SVG data can be read with [ISvgImage::getSvgData](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/). A source SVG that is rasterized during export is processed by the image-saving callback instead.
+No. Use [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) for emitted bitmap and metafile resources and [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) for resources emitted as SVG. The former provides an [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) object and an [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) value; the latter provides an [SvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/) object whose SVG data can be read with [SvgImage::getSvgData](https://reference.aspose.com/slides/php-java/aspose.slides/svgimage/#getSvgData). A source SVG that is rasterized during export is processed by the image-saving callback instead.
 
 **What happens when an image-saving handler returns `false`?**
 

@@ -66,6 +66,115 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation.md", slides.export.SaveFormat.MD, options)
 ```
 
+## **Control Repeated Spaces**
+
+When preparing slide text for documentation, text processing, or publication, use [MarkdownSaveOptions.handle_repeated_spaces](https://reference.aspose.com/slides/python-net/aspose.slides.export/markdownsaveoptions/handle_repeated_spaces/) to control consecutive regular spaces.
+
+Single spaces remain regular spaces in all three modes. The following self-contained example creates text with one, two, and three consecutive spaces and exports the same slide using each mode.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 600, 100)
+    shape.text_frame.text = "One space; two  spaces; three   spaces."
+
+    modes = [
+        slides.export.HandleRepeatedSpaces.NONE,
+        slides.export.HandleRepeatedSpaces.ALTERNATE_SPACES_TO_NBSP,
+        slides.export.HandleRepeatedSpaces.MULTIPLE_SPACES_TO_NBSP
+    ]
+
+    for mode in modes:
+        options = slides.export.MarkdownSaveOptions()
+        options.flavor = slides.export.Flavor.COMMON_MARK
+        options.handle_repeated_spaces = mode
+
+        presentation.save(f"spaces-{mode.name}.md", slides.export.SaveFormat.MD, options)
+```
+
+The exported text lines are shown below. These excerpts omit the slide separator and the two trailing spaces added by the exporter.
+
+`NONE`:
+
+```markdown
+One space; two  spaces; three   spaces.
+```
+
+`ALTERNATE_SPACES_TO_NBSP`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp; spaces.
+```
+
+`MULTIPLE_SPACES_TO_NBSP`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp;&nbsp;spaces.
+```
+
+In a typical HTML-based Markdown viewer, consecutive regular spaces collapse visually even though they remain in the source. Both replacement modes preserve the visible spacing in this example; their source differs for the three-space sequence.
+
+Choose `NONE` when downstream tools need ordinary space characters without HTML entities. Choose a replacement mode when visible spacing matters more. A text-processing pipeline consuming that output may need to decode `&nbsp;` and normalize the resulting nonbreaking spaces. Nonbreaking spaces also affect where a viewer can wrap text.
+
+## **Remove Empty Lines**
+
+The [MarkdownSaveOptions.remove_empty_lines](https://reference.aspose.com/slides/python-net/aspose.slides.export/markdownsaveoptions/remove_empty_lines/) property controls whether empty or whitespace-only lines are removed during export. Its default value is `False`. This controls vertical separation, independently of how repeated spaces within text are represented.
+
+The following example creates two text paragraphs separated by an empty paragraph and a paragraph containing three regular spaces. It exports both settings. The `\r` characters create paragraph boundaries in the text frame; `HandleRepeatedSpaces.NONE` makes the treatment of ordinary spaces easier to inspect.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 600, 300)
+
+    # Include an empty paragraph and a paragraph containing three regular spaces.
+    shape.text_frame.text = "First paragraph.\r\r   \rSecond paragraph."
+
+    options = slides.export.MarkdownSaveOptions()
+    options.flavor = slides.export.Flavor.COMMON_MARK
+    options.handle_repeated_spaces = slides.export.HandleRepeatedSpaces.NONE
+    options.remove_empty_lines = False
+
+    presentation.save("empty-lines-kept.md", slides.export.SaveFormat.MD, options)
+
+    options.remove_empty_lines = True
+    presentation.save("empty-lines-removed.md", slides.export.SaveFormat.MD, options)
+```
+
+With `False`, the generated Markdown is:
+
+```markdown
+---  
+
+First paragraph.  
+
+&nbsp;
+  
+     
+Second paragraph.  
+```
+
+With `True`, it becomes:
+
+```markdown
+---  
+
+First paragraph.  
+Second paragraph.  
+```
+
+With `remove_empty_lines = False`, the exported Markdown preserves the empty and whitespace-only paragraphs. The `&nbsp;` line represents an empty paragraph.
+
+With `remove_empty_lines = True`, these blank paragraphs are removed. The two text paragraphs become a single Markdown paragraph with a line break between them. This line break is preserved by two trailing spaces after `First paragraph.`—Markdown syntax for a hard line break.
+
+The slide separator (`---`) remains in both outputs. Keep `remove_empty_lines = False` when you need to preserve paragraph separation. If your presentation contains lists or code blocks, check the exported result in your target Markdown viewer, since blank lines can affect how that content is interpreted.
+
 ## **Export Images Using the Default Local-Saving Behavior**
 
 The [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/markdownsaveoptions/) class provides two properties for locally saved images:

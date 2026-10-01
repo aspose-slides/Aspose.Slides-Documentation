@@ -62,6 +62,7 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("presentation.pptx");
+
 var options = new MarkdownSaveOptions
 {
     Flavor = Flavor.CommonMark
@@ -69,6 +70,124 @@ var options = new MarkdownSaveOptions
 
 presentation.Save("presentation.md", SaveFormat.Md, options);
 ```
+
+## **Control Repeated Spaces**
+
+When preparing slide text for documentation, text processing, or publication, use [MarkdownSaveOptions.HandleRepeatedSpaces](https://reference.aspose.com/slides/net/aspose.slides.export/markdownsaveoptions/handlerepeatedspaces/) to control consecutive regular spaces.
+
+Single spaces remain regular spaces in all three modes. The following self-contained example creates text with one, two, and three consecutive spaces and exports the same slide using each mode.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 600, 100);
+shape.TextFrame.Text = "One space; two  spaces; three   spaces.";
+
+var modes = new[]
+{
+    HandleRepeatedSpaces.None,
+    HandleRepeatedSpaces.AlternateSpacesToNbsp,
+    HandleRepeatedSpaces.MultipleSpacesToNbsp
+};
+
+foreach (var mode in modes)
+{
+    var options = new MarkdownSaveOptions
+    {
+        Flavor = Flavor.CommonMark,
+        HandleRepeatedSpaces = mode
+    };
+
+    presentation.Save($"spaces-{mode}.md", SaveFormat.Md, options);
+}
+```
+
+The exported text lines are shown below. These excerpts omit the slide separator and the two trailing spaces added by the exporter.
+
+`None`:
+
+```markdown
+One space; two  spaces; three   spaces.
+```
+
+`AlternateSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp; spaces.
+```
+
+`MultipleSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp;&nbsp;spaces.
+```
+
+In a typical HTML-based Markdown viewer, consecutive regular spaces collapse visually even though they remain in the source. Both replacement modes preserve the visible spacing in this example; their source differs for the three-space sequence.
+
+Choose `None` when downstream tools need ordinary space characters without HTML entities. Choose a replacement mode when visible spacing matters more. A text-processing pipeline consuming that output may need to decode `&nbsp;` and normalize the resulting nonbreaking spaces. Nonbreaking spaces also affect where a viewer can wrap text.
+
+## **Remove Empty Lines**
+
+The [MarkdownSaveOptions.RemoveEmptyLines](https://reference.aspose.com/slides/net/aspose.slides.export/markdownsaveoptions/removeemptylines/) property controls whether empty or whitespace-only lines are removed during export. Its default value is `false`. This controls vertical separation, independently of how repeated spaces within text are represented.
+
+The following example creates two text paragraphs separated by an empty paragraph and a paragraph containing three regular spaces. It exports both settings. The `\r` characters create paragraph boundaries in the text frame; `HandleRepeatedSpaces.None` makes the treatment of ordinary spaces easier to inspect.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 600, 300);
+
+// Include an empty paragraph and a paragraph containing three regular spaces.
+shape.TextFrame.Text = "First paragraph.\r\r   \rSecond paragraph.";
+
+var options = new MarkdownSaveOptions
+{
+    Flavor = Flavor.CommonMark,
+    HandleRepeatedSpaces = HandleRepeatedSpaces.None,
+    RemoveEmptyLines = false
+};
+
+presentation.Save("empty-lines-kept.md", SaveFormat.Md, options);
+
+options.RemoveEmptyLines = true;
+presentation.Save("empty-lines-removed.md", SaveFormat.Md, options);
+```
+
+With `false`, the generated Markdown is:
+
+```markdown
+---  
+
+First paragraph.  
+
+&nbsp;
+  
+     
+Second paragraph.  
+```
+
+With `true`, it becomes:
+
+```markdown
+---  
+
+First paragraph.  
+Second paragraph.  
+```
+
+With `RemoveEmptyLines = false`, the exported Markdown preserves the empty and whitespace-only paragraphs. The `&nbsp;` line represents an empty paragraph.
+
+With `RemoveEmptyLines = true`, these blank paragraphs are removed. The two text paragraphs become a single Markdown paragraph with a line break between them. This line break is preserved by two trailing spaces after `First paragraph.`—Markdown syntax for a hard line break.
+
+The slide separator (`---`) remains in both outputs. Keep `RemoveEmptyLines = false` when you need to preserve paragraph separation. If your presentation contains lists or code blocks, check the exported result in your target Markdown viewer, since blank lines can affect how that content is interpreted.
 
 ## **Export Images Using the Default Local-Saving Behavior**
 
@@ -88,6 +207,7 @@ const string outputDirectory = "output";
 Directory.CreateDirectory(outputDirectory);
 
 using var presentation = new Presentation("presentation.pptx");
+
 var options = new MarkdownSaveOptions
 {
     ExportType = MarkdownExportType.Visual,
@@ -146,6 +266,7 @@ static string BuildPublicUrl(string baseUrl, string fileName)
 }
 
 using var presentation = new Presentation("presentation.pptx");
+
 var options = new MarkdownSaveOptions
 {
     ExportType = MarkdownExportType.Visual,

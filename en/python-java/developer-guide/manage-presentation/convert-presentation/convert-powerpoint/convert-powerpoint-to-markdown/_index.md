@@ -59,7 +59,7 @@ finally:
     presentation.dispose()
 ```
 
-Each example reads `presentation.pptx` from the current working directory. Install Aspose.Slides for Python via Java and a compatible Java runtime before running the examples. Start the JVM once per Python process.
+The file-based examples read `presentation.pptx` from the current working directory. Install Aspose.Slides for Python via Java and a compatible Java runtime before running the examples. Start the JVM once per Python process.
 
 ## **Select a Markdown Flavor**
 
@@ -85,6 +85,133 @@ try:
 finally:
     presentation.dispose()
 ```
+
+## **Control Repeated Spaces**
+
+When preparing slide text for documentation, text processing, or publication, use [MarkdownSaveOptions.setHandleRepeatedSpaces](https://reference.aspose.com/slides/python-java/aspose.slides/markdownsaveoptions/) to control consecutive regular spaces.
+
+Single spaces remain regular spaces in all three modes. The following self-contained example creates text with one, two, and three consecutive spaces and exports the same slide using each mode.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Flavor, HandleRepeatedSpaces, MarkdownSaveOptions, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 600, 100)
+    shape.getTextFrame().setText("One space; two  spaces; three   spaces.")
+
+    modes = [
+        (HandleRepeatedSpaces.None_, "None"),
+        (HandleRepeatedSpaces.AlternateSpacesToNbsp, "AlternateSpacesToNbsp"),
+        (HandleRepeatedSpaces.MultipleSpacesToNbsp, "MultipleSpacesToNbsp"),
+    ]
+
+    for mode, mode_name in modes:
+        options = MarkdownSaveOptions()
+        options.setFlavor(Flavor.CommonMark)
+        options.setHandleRepeatedSpaces(mode)
+
+        presentation.save(f"spaces-{mode_name}.md", SaveFormat.Md, options)
+finally:
+    presentation.dispose()
+```
+
+The exported text lines are shown below. These excerpts omit the slide separator and the two trailing spaces added by the exporter.
+
+`None`:
+
+```markdown
+One space; two  spaces; three   spaces.
+```
+
+`AlternateSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp; spaces.
+```
+
+`MultipleSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp;&nbsp;spaces.
+```
+
+In a typical HTML-based Markdown viewer, consecutive regular spaces collapse visually even though they remain in the source. Both replacement modes preserve the visible spacing in this example; their source differs for the three-space sequence.
+
+Choose `None` when downstream tools need ordinary space characters without HTML entities. Choose a replacement mode when visible spacing matters more. A text-processing pipeline consuming that output may need to decode `&nbsp;` and normalize the resulting nonbreaking spaces. Nonbreaking spaces also affect where a viewer can wrap text.
+
+## **Remove Empty Lines**
+
+The [MarkdownSaveOptions.setRemoveEmptyLines](https://reference.aspose.com/slides/python-java/aspose.slides/markdownsaveoptions/) method controls whether empty or whitespace-only lines are removed during export. The default value is `False`. This controls vertical separation, independently of how repeated spaces within text are represented.
+
+The following example creates two text paragraphs separated by an empty paragraph and a paragraph containing three regular spaces. It exports both settings. The `\r` characters create paragraph boundaries in the text frame; the `None` value of `HandleRepeatedSpaces` makes the treatment of ordinary spaces easier to inspect.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Flavor, HandleRepeatedSpaces, MarkdownSaveOptions, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 600, 300)
+
+    # Include an empty paragraph and a paragraph containing three regular spaces.
+    shape.getTextFrame().setText("First paragraph.\r\r   \rSecond paragraph.")
+
+    options = MarkdownSaveOptions()
+    options.setFlavor(Flavor.CommonMark)
+    options.setHandleRepeatedSpaces(HandleRepeatedSpaces.None_)
+    options.setRemoveEmptyLines(False)
+
+    presentation.save("empty-lines-kept.md", SaveFormat.Md, options)
+
+    options.setRemoveEmptyLines(True)
+    presentation.save("empty-lines-removed.md", SaveFormat.Md, options)
+finally:
+    presentation.dispose()
+```
+
+With `False`, the generated Markdown is:
+
+```markdown
+---  
+
+First paragraph.  
+
+&nbsp;
+  
+     
+Second paragraph.  
+```
+
+With `True`, it becomes:
+
+```markdown
+---  
+
+First paragraph.  
+Second paragraph.  
+```
+
+When [setRemoveEmptyLines](https://reference.aspose.com/slides/python-java/aspose.slides/markdownsaveoptions/) is set to `False`, the exported Markdown preserves the empty and whitespace-only paragraphs. The `&nbsp;` line represents an empty paragraph.
+
+When [setRemoveEmptyLines](https://reference.aspose.com/slides/python-java/aspose.slides/markdownsaveoptions/) is set to `True`, these blank paragraphs are removed. The two text paragraphs become a single Markdown paragraph with a line break between them. This line break is preserved by two trailing spaces after `First paragraph.`—Markdown syntax for a hard line break.
+
+The slide separator (`---`) remains in both outputs. Keep [setRemoveEmptyLines](https://reference.aspose.com/slides/python-java/aspose.slides/markdownsaveoptions/) set to `False` when you need to preserve paragraph separation. If your presentation contains lists or code blocks, check the exported result in your target Markdown viewer, since blank lines can affect how that content is interpreted.
 
 ## **Export Images Using the Default Local-Saving Behavior**
 
