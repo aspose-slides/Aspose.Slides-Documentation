@@ -1,5 +1,5 @@
 ---
-title: Converter apresentações PowerPoint para PDF com notas em C++
+title: Converter apresentações do PowerPoint para PDF com notas em C++
 linktitle: PowerPoint para PDF com notas
 type: docs
 weight: 50
@@ -20,39 +20,49 @@ keywords:
 - salvar PPTX como PDF
 - exportar PPT para PDF
 - exportar PPTX para PDF
-- notas do apresentador
+- notas do palestrante
 - PDF com notas
 - C++
 - Aspose.Slides
-description: "Converta formatos PPT e PPTX para PDF com notas usando Aspose.Slides para C++. Preserve layouts e notas do apresentador para apresentações profissionais."
+description: "Converter formatos PPT e PPTX para PDF com notas usando Aspose.Slides para C++. Preserve layouts e notas do palestrante para apresentações profissionais."
 ---
 ## **Visão geral**
 
-Neste artigo, você aprenderá como converter apresentações do PowerPoint para o formato PDF com notas do apresentador usando Aspose.Slides. Este guia abordará as etapas necessárias e fornecerá exemplos de código para ajudá-lo a concluir essa tarefa de forma eficiente. Ao final deste artigo, você será capaz de:
+Neste artigo, você aprenderá como converter apresentações do PowerPoint para o formato PDF com notas do palestrante usando o Aspose.Slides. Este guia abordará as etapas necessárias e fornecerá exemplos de código para ajudá-lo a concluir esta tarefa de forma eficiente. Ao final deste artigo, você será capaz de:
 
-- Implementar o processo de conversão para transformar slides do PowerPoint em documentos PDF mantendo as notas do apresentador.
-- Personalizar o PDF de saída para garantir que as notas do apresentador sejam incluídas e formatadas de acordo com seus requisitos.
+- Implementar o processo de conversão para transformar slides do PowerPoint em documentos PDF preservando as notas do palestrante.
+- Customizar o PDF de saída para garantir que as notas do palestrante estejam incluídas e formatadas de acordo com seus requisitos.
 
-## **Converter PowerPoint para PDF com notas**
+Para definir as dimensões e a orientação da página de notas antes da exportação, veja [Tamanho da página de notas](/slides/pt/cpp/notes-size/).
 
-O método `Save` na classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) pode ser usado para converter uma apresentação PPT ou PPTX em PDF com notas do apresentador. Com Aspose.Slides, você simplesmente carrega a apresentação, configura as opções de layout usando a classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/notescommentslayoutingoptions/) para incluir as notas do apresentador e, em seguida, salva o arquivo como PDF. O trecho de código a seguir demonstra como converter uma apresentação de exemplo para PDF na visualização de Slides com Notas.
+## **Converter PowerPoint para PDF com Notas**
+
+O método `Save` na classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) pode ser usado para converter uma apresentação PPT ou PPTX em um PDF com notas do palestrante. Com o Aspose.Slides, basta carregar a apresentação, configurar as opções de layout usando a classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/notescommentslayoutingoptions/) para incluir notas do palestrante e, em seguida, salvar o arquivo como PDF. O trecho de código a seguir demonstra como converter uma apresentação de exemplo para PDF na visualização de Slides de Notas.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Configurar opções de PDF para renderizar notas do apresentador.
+// Configure PDF options for rendering speaker notes.
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Renderizar notas do apresentador abaixo do slide.
+notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Renderizar notas do palestrante abaixo do slide.
     
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-// Salvar a apresentação em PDF com notas do apresentador.
+// Save the presentation to PDF with speaker notes.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-{{% alert color="primary" %}} 
-
-Você pode querer conferir o Conversor Online de PowerPoint para PDF da Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pt/conversion). 
-
+{{% alert color="info" %}} 
+Talvez você queira conferir o Aspose [Conversor Online de PowerPoint para PDF](https://products.aspose.app/slides/pt/conversion).
 {{% /alert %}}

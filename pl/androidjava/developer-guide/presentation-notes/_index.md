@@ -1,35 +1,39 @@
 ---
-title: Zarządzaj notatkami w prezentacji na Androidzie
+title: Zarządzanie notatkami prezentacji na Androidzie
 linktitle: Notatki prezentacji
 type: docs
 weight: 110
 url: /pl/androidjava/presentation-notes/
 keywords:
 - notatki
-- slajd z notatkami
+- slajd notatek
 - dodaj notatki
 - usuń notatki
 - styl notatek
-- notatki główne
+- główne notatki
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Dostosuj notatki w prezentacji za pomocą Aspose.Slides dla Androida w Java. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
+description: "Dostosuj notatki prezentacji za pomocą Aspose.Slides dla Androida w języku Java. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
 ---
 ## **Przegląd**
 
-Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym sposób usuwania notatek oraz stosowania stylu do slajdów z notatkami w prezentacji. Aspose.Slides pozwala usunąć notatki z dowolnego slajdu oraz zastosować formatowanie do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
+Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides pozwala usuwać notatki z dowolnego slajdu oraz stosować formatowanie do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
 
-- Usuwanie notatek z określonego slajdu w prezentacji.
+- Usuwanie notatek z konkretnego slajdu w prezentacji.  
 - Usuwanie notatek ze wszystkich slajdów w prezentacji.
 
-## **Usuwanie notatek z slajdu**
-Notatki wybranego slajdu można usunąć, jak pokazano w poniższym przykładzie:
+Aby odczytać lub zmienić wymiary strony notatek, przełączyć orientację i sprawdzić zachowanie przy eksporcie, zobacz [Rozmiar strony notatek](/slides/pl/androidjava/notes-size/).
+
+## **Usuwanie notatek ze slajdu**
+Notatki z konkretnego slajdu mogą być usunięte, jak pokazano w poniższym przykładzie:
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -37,7 +41,7 @@ try {
     INotesSlideManager mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
 
-    // Zapisywanie prezentacji na dysku
+    // Zapisanie prezentacji na dysku
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -45,9 +49,11 @@ try {
 ```
 
 ## **Usuwanie notatek z prezentacji**
-Notatki ze wszystkich slajdów prezentacji można usunąć, jak pokazano w poniższym przykładzie:
+Notatki ze wszystkich slajdów w prezentacji mogą być usunięte, jak pokazano w poniższym przykładzie:
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -65,10 +71,12 @@ try {
 }
 ```
 
-## **Dodanie stylu notatek**
-[getNotesStyle](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metoda została dodana do interfejsu [IMasterNotesSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IMasterNotesSlide) oraz klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/MasterNotesSlide). Ta właściwość określa styl tekstu notatek. Implementacja jest przedstawiona w poniższym przykładzie.
+## **Dodaj styl notatek**
+Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) została dodana do interfejsu [IMasterNotesSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IMasterNotesSlide) oraz klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/MasterNotesSlide). Ta właściwość określa styl tekstu notatek. Implementacja jest przedstawiona w poniższym przykładzie.
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -79,7 +87,7 @@ try {
         // Pobierz styl tekstu MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // Ustaw symbol wypunktowania dla akapitów pierwszego poziomu
+        //Set Ustaw symbol wypunktowania dla akapitów pierwszego poziomu
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -91,10 +99,10 @@ try {
 
 ## **FAQ**
 
-**Który element API zapewnia dostęp do notatek określonego slajdu?**
+**Która jednostka API zapewnia dostęp do notatek konkretnego slajdu?**
 
-Notatki są dostępne poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notesslidemanager/) oraz [method](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) zwracającą obiekt notatek lub `null`, jeśli notatki nie istnieją.
+Notatki są dostępne poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notesslidemanager/) oraz [method](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) zwracający obiekt notatek lub `null`, jeśli notatki nie istnieją.
 
-**Czy istnieją różnice w obsłudze notatek w zależności od wersji PowerPoint, z którymi współpracuje biblioteka?**
+**Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi biblioteka współpracuje?**
 
-Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97‑nowsze) oraz ODP; notatki są wspierane w tych formatach bez zależności od zainstalowanej kopii PowerPoint.
+Biblioteka obsługuje szeroką gamę formatów Microsoft PowerPoint (97‑nowsze) oraz ODP; notatki są wspierane w tych formatach bez zależności od zainstalowanej kopii PowerPoint.

@@ -1,14 +1,14 @@
 ---
-title: Konwertowanie prezentacji PowerPoint w trybie materiału przy użyciu Pythona
-linktitle: Tryb materiału
+title: Konwertuj prezentacje PowerPoint w trybie rozdania przy użyciu Pythona
+linktitle: Tryb rozdania
 type: docs
 weight: 150
 url: /pl/python-java/convert-powerpoint-in-handout-mode/
 keywords:
 - konwertuj PowerPoint
 - konwertuj prezentację
-- tryb materiału
-- materiały
+- tryb rozdania
+- rozdanie
 - PPT
 - PPTX
 - PowerPoint
@@ -16,19 +16,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konwertuj prezentacje PowerPoint na materiały w Pythonie za pośrednictwem Javy. Układaj wiele slajdów na jednej stronie i eksportuj do PDF przy użyciu Aspose.Slides."
+description: "Konwertuj prezentacje PowerPoint na rozdania w Pythonie za pośrednictwem Javy. Układaj wiele slajdów na jednej stronie i eksportuj do PDF przy użyciu Aspose.Slides."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Aspose.Slides for Python via Java umożliwia eksport prezentacji w trybie materiału, rozmieszczając wiele slajdów na jednej stronie. Jest to przydatne przy drukowaniu materiałów prezentacyjnych na konferencje, seminaria i podobne wydarzenia.
+Aspose.Slides for Python via Java umożliwia eksportowanie prezentacji w trybie rozdania, układając wiele slajdów na jednej stronie. Jest to przydatne przy drukowaniu materiałów prezentacyjnych na konferencje, seminaria i podobne wydarzenia.
 
-Skonfiguruj układ za pomocą metody [setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Layouty materiałów są obsługiwane przez [PdfOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/htmloptions/) i [TiffOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/tiffoptions/). Użyj obiektu [HandoutLayoutingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handoutlayoutingoptions/), aby określić ustawienia układu i wyświetlania.
+Układ można skonfigurować za pomocą metody [setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Układy rozdania są obsługiwane przez [PdfOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/htmloptions/) i [TiffOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/tiffoptions/). Użyj obiektu [HandoutLayoutingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handoutlayoutingoptions/) aby określić ustawienia układu i wyświetlania.
 
-## **Eksport w trybie materiału**
+Aby ustawić wymiary i orientację strony rozdania przed eksportem, zobacz [Rozmiar strony notatek](/slides/pl/python-java/notes-size/).
 
-Aby wyeksportować prezentację w trybie materiału, utwórz instancję [HandoutLayoutingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handoutlayoutingoptions/) i przypisz ją do docelowych opcji eksportu za pomocą [setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Eksport w trybie rozdania**
 
-Poniższy przykład ładuje `sample.pptx` i eksportuje go do PDF z czterema slajdami na stronę w kolejności poziomej. Zawiera numery slajdów i ramki wokół slajdów oraz pomija komentarze.
+Aby wyeksportować prezentację w trybie rozdania, utwórz instancję [HandoutLayoutingOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handoutlayoutingoptions/) i przypisz ją do docelowych opcji eksportu za pomocą [setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+Poniższy przykład ładuje `sample.pptx` i eksportuje go do PDF z czterema slajdami na stronie w kolejności poziomej. Zawiera numerację slajdów i ramki wokół slajdów oraz pomija komentarze.
 
 ```python
 import jpype
@@ -39,10 +41,10 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import HandoutLayoutingOptions, HandoutType, PdfOptions, Presentation, SaveFormat
 
-# Wczytaj prezentację.
+# Załaduj prezentację.
 presentation = Presentation("sample.pptx")
 try:
-    # Skonfiguruj układ materiału.
+    # Skonfiguruj układ rozdania.
     slides_layout_options = HandoutLayoutingOptions()
     slides_layout_options.setHandout(HandoutType.Handouts4Horizontal)
     slides_layout_options.setPrintSlideNumbers(True)
@@ -59,19 +61,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Ustawienia układu materiału mają zastosowanie do obsługiwanych formatów wyjściowych, takich jak PDF, HTML, TIFF i renderowane obrazy. Nie zmieniają kolejności slajdów w prezentacji źródłowej.
+Ustawienia układu rozdania dotyczą obsługiwanych formatów wyjściowych, takich jak PDF, HTML, TIFF i renderowane obrazy. Nie przestawiają one slajdów w źródłowej prezentacji.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Jaka jest maksymalna liczba miniatur slajdów na stronę w trybie materiału?**
+**Jaka jest maksymalna liczba miniatur slajdów na stronę w trybie rozdania?**
 
-Aspose.Slides obsługuje maksymalnie dziewięć miniatur na stronę. Predefiniowane ustawienia [HandoutType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handouttype/) zapewniają jedną, dwie, trzy, cztery, sześć lub dziewięć slajdów na stronę. Predefinicje czterech, sześciu i dziewięciu slajdów oferują kolejność poziomą i pionową.
+Aspose.Slides obsługuje maksymalnie dziewięć miniatur na stronę. Predefiniowane ustawienia [HandoutType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handouttype/) oferują jedną, dwie, trzy, cztery, sześć lub dziewięć slajdów na stronę. Ustawienia czterech, sześciu i dziewięciu slajdów umożliwiają kolejność poziomą i pionową.
 
 **Czy mogę zdefiniować własną siatkę, np. pięć lub osiem slajdów na stronę?**
 
-Nie. Liczba i kolejność miniatur są kontrolowane przez predefiniowane wartości [HandoutType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handouttype/). Niestandardowe układy nie są obsługiwane w tych ustawieniach układu materiału.
+Nie. Liczba i kolejność miniatur są kontrolowane przez predefiniowane wartości [HandoutType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/handouttype/). Losowe siatki nie są obsługiwane przez te ustawienia układu rozdania.
 
-**Czy mogę uwzględnić ukryte slajdy w wyjściu materiału?**
+**Czy mogę uwzględnić ukryte slajdy w wyjściu rozdania?**
 
 Tak. Włącz ukryte slajdy w ustawieniach eksportu dla docelowego formatu. Dla PDF wywołaj [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) z wartością `True` przed zapisaniem prezentacji.

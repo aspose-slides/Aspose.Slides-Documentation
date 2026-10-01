@@ -1,34 +1,36 @@
 ---
-title: PowerPoint bemutatók konvertálása kiosztási módban Python használatával
-linktitle: Kiosztási mód
+title: PowerPoint prezentációk konvertálása kézbeosztási módban Python használatával
+linktitle: Kézbeosztási mód
 type: docs
 weight: 150
 url: /hu/python-java/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint konvertálása
-- bemutató konvertálása
-- kiosztási mód
-- kiosztás
+- prezentáció konvertálása
+- kézbeosztási mód
+- kézbeosztás
 - PPT
 - PPTX
 - PowerPoint
-- bemutató
+- prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint bemutatókat konvertál kézikönyvekké Python via Java segítségével. Több diát helyez el egy oldalon, majd PDF-be exportálja az Aspose.Slides használatával."
+description: "PowerPoint prezentációkat kézbeosztássá konvertálja Pythonon keresztül Java-ban. Több diát rendez oldalanként, és exportál PDF-be az Aspose.Slides segítségével."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Python via Java lehetővé teszi, hogy a bemutatókat kiosztási módban exportálja, több diát egyetlen oldalon elrendezve. Ez hasznos a bemutató anyagok nyomtatásához konferenciákon, szemináriumokon és hasonló eseményeken.
+Az Aspose.Slides for Python via Java lehetővé teszi, hogy a prezentációkat kézbeosztású módban exportálja, több diát egyetlen oldalra rendezve. Ez hasznos a prezentációs anyagok nyomtatásához konferenciákon, szemináriumokon és hasonló eseményeken.
 
-A elrendezést a [setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) metódussal állíthatja be. A kiosztási elrendezéseket támogatja a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/htmloptions/) és a [TiffOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/tiffoptions/). Használjon [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handoutlayoutingoptions/) objektumot az elrendezés és a megjelenítési beállítások megadásához.
+Állítsa be az elrendezést a [setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) metóduson keresztül. A kézbeosztási elrendezéseket támogatja a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/), a [RenderingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/renderingoptions/), a [HtmlOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/htmloptions/) és a [TiffOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/tiffoptions/). Használjon egy [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handoutlayoutingoptions/) objektumot az elrendezés és a megjelenítési beállítások megadásához.
 
-## **Kiosztási módú exportálás**
+A kézbeosztási oldal méreteinek és tájolásának export előtt történő beállításához lásd a [Megjegyzés oldal mérete](/slides/hu/python-java/notes-size/) oldalt.
 
-A bemutató kiosztási módban való exportálásához hozzon létre egy [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handoutlayoutingoptions/) példányt, és a [setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) használatával rendelje hozzá a cél exportálási beállításokhoz.
+## **Kézbeosztási módú exportálás**
 
-Az alábbi példa betölti a `sample.pptx` fájlt, és PDF‑ként exportálja négy dia oldalanként vízszintes sorrendben. Tartalmazza a diaszámokat és kereteket a diák körül, valamint kizárja a megjegyzéseket.
+A prezentáció kézbeosztási módban történő exportálásához hozza létre a [HandoutLayoutingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handoutlayoutingoptions/) példányt, és rendelje hozzá a cél exportálási beállításokhoz a [setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) használatával.
+
+Az alábbi példa betölti a `sample.pptx` fájlt, és PDF‑ként exportálja négy diát oldalanként vízszintes sorrendben. Tartalmaz diaszámokat és kereteket a diák körül, és kizárja a megjegyzéseket.
 
 ```python
 import jpype
@@ -39,10 +41,10 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import HandoutLayoutingOptions, HandoutType, PdfOptions, Presentation, SaveFormat
 
-# Betölti a bemutatót.
+# Töltsön be egy prezentációt.
 presentation = Presentation("sample.pptx")
 try:
-    # Konfigurálja a kiosztási elrendezést.
+    # Állítsa be a kézbeosztási elrendezést.
     slides_layout_options = HandoutLayoutingOptions()
     slides_layout_options.setHandout(HandoutType.Handouts4Horizontal)
     slides_layout_options.setPrintSlideNumbers(True)
@@ -52,26 +54,26 @@ try:
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(slides_layout_options)
 
-    # Exportálja a bemutatót PDF-be a kiválasztott elrendezéssel.
+    # Exportálja a prezentációt PDF-be a kiválasztott elrendezéssel.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="warning" title="Warning" %}}
-A kiosztási elrendezési beállítások a támogatott kimeneti formátumokra, például PDF, HTML, TIFF és a renderelt képekre vonatkoznak. Nem rendezik át a diákat a forrásbemutatóban.
+A kézbeosztási elrendezési beállítások a támogatott kimeneti formátumokra, például PDF, HTML, TIFF és renderelt képek esetén vonatkoznak. Nem rendezik át a diák sorrendjét a forrás prezentációban.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Mi a maximális diaképkockák száma oldalanként a kiosztási módban?**
+**Mi a maximális diaképek száma oldalanként a kézbeosztási módban?**
 
-Az Aspose.Slides legfeljebb kilenc diaképkockát támogat oldalanként. A [HandoutType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handouttype/) előre beállítottak egy, két, három, négy, hat vagy kilenc dia oldalanként kínálnak. A négy, hat és kilenc diás előre beállítások vízszintes és függőleges elrendezést is lehetővé teszik.
+Az Aspose.Slides legfeljebb kilenc képet támogat oldalanként. A [HandoutType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handouttype/) előbeállításai egy, két, három, négy, hat vagy kilenc diát kínálnak oldalanként. A négy, hat és kilenc diás előbeállítások vízszintes és függőleges sorrendet is biztosítanak.
 
-**Definiálhatok egy egyedi rácsot, például öt vagy nyolc dia oldalanként?**
+**Definiálhatok egy egyéni rácsot, például öt vagy nyolc diát oldalanként?**
 
-Nem. A diaképkockák száma és sorrendje az előre meghatározott [HandoutType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handouttype/) értékekkel van szabályozva. Az egyedi rácsok nem támogatottak ezen kiosztási elrendezési beállításokkal.
+Nem. A képek számát és sorrendjét a beépített [HandoutType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/handouttype/) értékek határozzák meg. Az egyéni rácsok nincsenek támogatva ezekkel a kézbeosztási elrendezési beállításokkal.
 
-**Tartalmazhatok rejtett diákat a kiosztási kimenetben?**
+**Tartalmazhatok rejtett diákat a kézbeosztási kimenetben?**
 
-Igen. A rejtett diákat engedélyezheti a célformátum exportálási beállításaiban. PDF esetén hívja meg a [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust `True` értékkel a bemutató mentése előtt.
+Igen. Engedélyezze a rejtett diák megjelenítését az exportálási beállításokban a cél formátumhoz. PDF esetén hívja meg a [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust `True` értékkel a prezentáció mentése előtt.

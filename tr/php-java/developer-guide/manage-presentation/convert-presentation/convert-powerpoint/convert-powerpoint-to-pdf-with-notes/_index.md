@@ -1,6 +1,6 @@
 ---
 title: PowerPoint Sunumlarını Notlarla PDF'e Dönüştürme (PHP)
-linktitle: Notlu PowerPoint PDF'e
+linktitle: PowerPoint'ten Notlarla PDF'e
 type: docs
 weight: 50
 url: /tr/php-java/convert-powerpoint-to-pdf-with-notes/
@@ -17,32 +17,34 @@ keywords:
 - PPTX PDF'e
 - sunumu PDF olarak kaydet
 - PPT'yi PDF olarak kaydet
-- PPTX'yi PDF olarak kaydet
+- PPTX'i PDF olarak kaydet
 - PPT'yi PDF'e dışa aktar
-- PPTX'yi PDF'e dışa aktar
+- PPTX'i PDF'e dışa aktar
 - konuşmacı notları
 - notlu PDF
 - PHP
 - Aspose.Slides
-description: "Java üzerinden PHP için Aspose.Slides kullanarak PPT ve PPTX formatlarını notlu PDF'e dönüştürün. Profesyonel sunumlar için düzenleri ve konuşmacı notlarını koruyun."
+description: "PPT ve PPTX formatlarını Java aracılığıyla PHP için Aspose.Slides kullanarak notlarla PDF'e dönüştürür. Profesyonel sunumlar için sayfa düzenlerini ve konuşmacı notlarını korur."
 ---
 ## **Genel Bakış**
 
-Bu makalede, Aspose.Slides kullanarak PowerPoint sunumlarını konuşmacı notlarıyla PDF formatına nasıl dönüştüreceğinizi öğreneceksiniz. Bu rehber gerekli adımları kapsar ve görevi verimli bir şekilde tamamlamanıza yardımcı olacak kod örnekleri sunar. Makalenin sonunda şunları yapabilecek duruma geleceksiniz:
+Bu makalede, Aspose.Slides kullanarak PowerPoint sunumlarını konuşmacı notlarıyla birlikte PDF formatına nasıl dönüştüreceğinizi öğreneceksiniz. Bu kılavuz gerekli adımları açıklayacak ve görevi verimli bir şekilde tamamlamanıza yardımcı olacak kod örnekleri sunacak. Makalenin sonunda şunları yapabilecek duruma geleceksiniz:
 
-- Konuşmacı notlarını koruyarak PowerPoint slaytlarını PDF belgelerine dönüştürme sürecini uygulamak.
-- Çıktı PDF'sini, konuşmacı notlarının dahil edilmesini ve gereksinimlerinize göre biçimlendirilmesini sağlamak için özelleştirmek.
+- Konuşmacı notlarını koruyarak PowerPoint slaytlarını PDF belgelerine dönüştürme işlemini uygulamak.
+- Çıktı PDF'yi, konuşmacı notlarının dahil edilmesini ve istediğiniz biçimde düzenlenmesini sağlayacak şekilde özelleştirmek.
 
-## **Notlu PowerPoint'i PDF'e Dönüştürme**
+Not sayfasının boyutlarını ve yönünü dışa aktarmadan önce ayarlamak için [Notes Page Size](/slides/tr/php-java/notes-size/) bölümüne bakın.
 
-`save` yöntemi, [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfında PPT veya PPTX sunumunu konuşmacı notları içeren bir PDF'ye dönüştürmek için kullanılabilir. Aspose.Slides ile sadece sunumu yüklersiniz, konuşmacı notlarını dahil etmek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notescommentslayoutingoptions/) sınıfını kullanarak düzen seçeneklerini yapılandırırsınız ve ardından dosyayı PDF olarak kaydedersiniz. Aşağıdaki kod parçacığı, örnek bir sunumu Notlu Slayt görünümünde PDF'ye nasıl dönüştüreceğinizi gösterir.
+## **Notlarla PowerPoint'i PDF'e Dönüştür**
+
+[Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfındaki `save` yöntemi, bir PPT veya PPTX sunumunu konuşmacı notlarıyla birlikte PDF'e dönüştürmek için kullanılabilir. Aspose.Slides ile sadece sunumu yükleyip, konuşmacı notlarını içerecek şekilde [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notescommentslayoutingoptions/) sınıfını kullanarak düzen seçeneklerini yapılandırır ve ardından dosyayı PDF olarak kaydedersiniz. Aşağıdaki kod parçacığı, bir örnek sunumu Not Slaytı görünümünde PDF'e nasıl dönüştüreceğinizi gösterir.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 
-// Konuşmacı notlarını render etmek için PDF seçeneklerini yapılandır.
+// Konuşmacı notlarını oluşturmak için PDF seçeneklerini yapılandır.
 $notesOptions = new NotesCommentsLayoutingOptions();
-$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Konuşmacı notlarını slaytın altında render et.
+$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Konuşmacı notlarını slaytın altında oluştur.
 
 $pdfOptions = new PdfOptions();
 $pdfOptions->setSlidesLayoutOptions($notesOptions);
@@ -52,6 +54,6 @@ $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/tr/conversion) aracını incelemek isteyebilirsiniz. 
+{{% alert color="info" title="Not" %}}
+Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/tr/conversion) adresini incelemek isteyebilirsiniz.
 {{% /alert %}}

@@ -1,55 +1,59 @@
 ---
-title: تحويل PowerPoint إلى PDF مع الملاحظات
+title: تحويل عروض PowerPoint إلى PDF مع الملاحظات في PHP
+linktitle: PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
 url: /ar/php-java/convert-powerpoint-to-pdf-with-notes/
-keywords: "تحويل PowerPoint إلى PDF مع الملاحظات في جافا"
-description: "تحويل PowerPoint إلى PDF مع الملاحظات "
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى PDF
+- العرض التقديمي إلى PDF
+- الشريحة إلى PDF
+- PPT إلى PDF
+- PPTX إلى PDF
+- حفظ العرض التقديمي كـ PDF
+- حفظ PPT كـ PDF
+- حفظ PPTX كـ PDF
+- تصدير PPT إلى PDF
+- تصدير PPTX إلى PDF
+- ملاحظات المتحدث
+- PDF مع ملاحظات
+- PHP
+- Aspose.Slides
+description: "تحويل صيغ PPT و PPTX إلى PDF مع ملاحظات باستخدام Aspose.Slides للـ PHP عبر Java. الحفاظ على التخطيطات وملاحظات المتحدث للعروض التقديمية الاحترافية."
 ---
+## **نظرة عامة**
 
-## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
-يوضح المثال التالي كيفية تحويل عرض تقديمي إلى مستند PDF يحتوي على ملاحظات بحجم شريحة مخصص. حيث تعادل كل بوصة 72.
+في هذه المقالة، ستتعلم كيفية تحويل عروض PowerPoint إلى صيغة PDF مع ملاحظات المتحدث باستخدام Aspose.Slides. سيغطي هذا الدليل الخطوات الضرورية ويقدّم أمثلة على الشيفرة لمساعدتك على إنجاز هذه المهمة بفعالية. بنهاية هذه المقالة، ستكون قادرًا على:
 
-```php
-// إنشاء كائن Presentation يمثل ملف عرض تقديمي
-  $presIn = new Presentation("SelectedSlides.pptx");
-  $presOut = new Presentation();
-  try {
-    $slide = $presIn->getSlides()->get_Item(0);
-    $presOut->getSlides()->insertClone(0, $slide);
-    # تعيين نوع وحجم الشريحة
-    $presOut->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
-    $pdfOptions = new PdfOptions();
-    $pdfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $presOut->save("PDF-SelectedSlide.pdf", SaveFormat::Pdf, $pdfOptions);
-  } finally {
-    if (!java_is_null($presIn)) {
-      $presIn->dispose();
-    }
-    if (!java_is_null($presOut)) {
-      $presOut->dispose();
-    }
-  }
-```
+- تنفيذ عملية التحويل لتحويل شرائح PowerPoint إلى مستندات PDF مع الحفاظ على ملاحظات المتحدث.
+- تخصيص ملف PDF الناتج لضمان تضمين ملاحظات المتحدث وتنسيقها وفقًا لمتطلباتك.
 
-## **تحويل PowerPoint إلى PDF في عرض شريحة الملاحظات**
-يمكن استخدام طريقة [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) المكشوفة بواسطة فئة [**Presentation**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) لتحويل العرض التقديمي الكامل في عرض شريحة الملاحظات إلى PDF. تحديث الشفرات أدناه العرض التقديمي النموذجي إلى PDF في عرض شريحة الملاحظات.
+لتحديد أبعاد صفحة الملاحظات واتجاهها قبل التصدير، راجع [حجم صفحة الملاحظات](/slides/ar/php-java/notes-size/).
+
+## **تحويل PowerPoint إلى PDF مع الملاحظات**
+
+يمكن استخدام طريقة `save` في فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) لتحويل عرض PPT أو PPTX إلى PDF مع ملاحظات المتحدث. مع Aspose.Slides، تقوم بتحميل العرض، وتكوين خيارات التخطيط باستخدام فئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/notescommentslayoutingoptions/) لتضمين ملاحظات المتحدث، ثم حفظ الملف كـ PDF. يوضح المقتطف البرمجي التالي كيفية تحويل عرض تقديمي نموذجي إلى PDF في وضع ملاحظات الشريحة.
 
 ```php
-  $pres = new Presentation("presentation.pptx");
-  try {
-    $pdfOptions = new PdfOptions();
-    $pdfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $pres->save($resourcesOutputPath . "PDF-Notes.pdf", SaveFormat::Pdf, $pdfOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+
+// تكوين خيارات PDF لتصوير ملاحظات المتحدث.
+$notesOptions = new NotesCommentsLayoutingOptions();
+$notesOptions->setNotesPosition(NotesPositions::BottomFull); // تصوير ملاحظات المتحدث أسفل الشريحة.
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setSlidesLayoutOptions($notesOptions);
+
+// حفظ العرض التقديمي كـ PDF مع ملاحظات المتحدث.
+$presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
+$presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-
-يمكنك الاطلاع على محول Aspose [PowerPoint إلى PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) أو [PPT إلى PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
+{{% alert color="info" title="Note" %}}
+قد ترغب في تجربة [محول PowerPoint إلى PDF عبر الإنترنت]https://products.aspose.app/slides/ar/conversion.
 {{% /alert %}}

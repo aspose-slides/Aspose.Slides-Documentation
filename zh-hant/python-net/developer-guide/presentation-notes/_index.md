@@ -1,39 +1,41 @@
 ---
-title: 在 Python 中管理簡報備註
-linktitle: 簡報備註
+title: 在 Python 中管理簡報筆記
+linktitle: 簡報筆記
 type: docs
 weight: 110
 url: /zh-hant/python-net/presentation-notes/
 keywords:
-- 備註
-- 備註投影片
-- 新增備註
-- 移除備註
-- 備註樣式
-- 主備註
+- 筆記
+- 筆記投影片
+- 新增筆記
+- 移除筆記
+- 筆記樣式
+- 母版筆記
 - PowerPoint
 - OpenDocument
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 自訂簡報備註。無縫處理 PowerPoint 與 OpenDocument 的備註，提高工作效率。"
+description: "使用 Aspose.Slides for Python 透過 .NET 自訂簡報筆記。無縫處理 PowerPoint 與 OpenDocument 筆記，提升您的工作效率。"
 ---
-## **概觀**
+## **概述**
 
-Aspose.Slides 支援從簡報中移除備註投影片。本節將介紹此功能，包括如何移除備註以及如何為簡報中的備註投影片套用樣式。Aspose.Slides 允許您從任意投影片移除備註，亦可對現有備註套用樣式。開發人員可以透過以下方式移除備註：
+Aspose.Slides 支援從簡報中移除筆記投影片。本主題將介紹此功能，包括如何移除筆記以及如何在簡報中對筆記投影片套用樣式。Aspose.Slides 允許您從任何投影片中移除筆記，並且對現有筆記套用樣式。開發人員可以透過以下方式移除筆記：
 
-- 從簡報中特定的投影片移除備註。
-- 從簡報中所有投影片移除備註。
+- 從簡報中的特定投影片移除筆記。
+- 從簡報中的所有投影片移除筆記。
 
-## **從投影片移除備註**
-以下範例示範如何移除特定投影片的備註：
+若要閱讀或變更筆記頁面的尺寸、切換方向，以及檢查匯出行為，請參閱 [Notes Page Size](/slides/zh-hant/python-net/notes-size/)。
+
+## **從投影片中移除筆記**
+如以下範例所示，可移除特定投影片的筆記：
 
 ```py
 import aspose.slides as slides
 
-# 實例化一個表示簡報檔案的 Presentation 物件 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # 移除第一張投影片的備註
+# 實例化一個代表簡報檔案的 Presentation 物件
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # 移除第一張投影片的筆記
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
 
@@ -42,15 +44,15 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 ```
 
 
-## **從全部投影片移除備註**
-以下範例示範如何移除簡報中所有投影片的備註：
+## **從所有投影片中移除筆記**
+如以下範例所示，可移除簡報中所有投影片的筆記：
 
 ```py
 import aspose.slides as slides
 
-# 實例化一個表示簡報檔案的 Presentation 物件 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # 移除所有投影片的備註
+# 實例化一個代表簡報檔案的 Presentation 物件 
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # 移除所有投影片的筆記
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
         mgr.remove_notes_slide()
@@ -59,20 +61,20 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 ```
 
 
-## **新增 NotesStyle**
-已在 [MasterNotesSlide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/masternotesslide/) 類別中加入 [notes_style](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/masternotesslide/notes_style/) 屬性。此屬性指定備註文字的樣式。以下範例示範其實作方式。
+## **套用筆記樣式**
+[notes_style](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/masternotesslide/notes_style/) 屬性已新增至 [MasterNotesSlide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/masternotesslide/) 類別。此屬性指定筆記文字的樣式。以下範例示範了此實作。
 
 ```py
 import aspose.slides as slides
 
-# 實例化 Presentation 類別以表示簡報檔案
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# 實例化代表簡報檔案的 Presentation 類別
+with slides.Presentation("AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
         # 取得 MasterNotesSlide 文字樣式
         notesStyle = notesMaster.notes_style
 
-        #Set 為第一層段落設定符號項目符號
+        #設定第一層段落的符號項目符號
         paragraphFormat = notesStyle.get_level(0)
         paragraphFormat.bullet.type = slides.BulletType.SYMBOL
 
@@ -80,12 +82,12 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("AddNotesSlideWithNotesStyle_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **常見問題**
 
-**哪個 API 實體提供對特定投影片備註的存取？**
+**哪個 API 實體提供對特定投影片筆記的存取？**
 
-備註透過投影片的備註管理員存取：投影片具有 [NotesSlideManager](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/notesslidemanager/) 並提供返回備註物件的 [property](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/notesslidemanager/notes_slide/)，若沒有備註則返回 `None`。
+筆記可透過投影片的筆記管理器取得：投影片具有 [NotesSlideManager](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/notesslidemanager/)，以及返回筆記物件的 [property](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/notesslidemanager/notes_slide/)，若無筆記則返回 `None`。
 
-**在不同 PowerPoint 版本間，備註支援有差異嗎？**
+**在不同 PowerPoint 版本中，筆記支援有何差異？**
 
-此函式庫支援廣泛的 Microsoft PowerPoint 格式（97 版至更新版）以及 ODP；備註在這些格式中皆受支援，且不需安裝 PowerPoint。
+此函式庫支援廣泛的 Microsoft PowerPoint 格式（97 版及更新版本）以及 ODP；在這些格式中均支援筆記，且不需依賴已安裝的 PowerPoint 版本。

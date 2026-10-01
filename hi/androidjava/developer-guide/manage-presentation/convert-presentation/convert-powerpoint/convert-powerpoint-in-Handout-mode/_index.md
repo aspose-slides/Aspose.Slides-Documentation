@@ -1,68 +1,72 @@
 ---
 title: Android पर Handout मोड में PowerPoint प्रस्तुतियों को परिवर्तित करें
-linktitle: Handout मोड
+linktitle: हैंडआउट मोड
 type: docs
 weight: 150
-url: /hi/androidjava/convert-powerpoint-in-Handout-mode/
+url: /hi/androidjava/convert-powerpoint-in-handout-mode/
 keywords:
-- PowerPoint रूपांतरण
-- प्रेजेंटेशन रूपांतरण
-- Handout मोड
-- Handout
+- PowerPoint परिवर्तित करें
+- प्रस्तुति परिवर्तित करें
+- हैंडआउट मोड
+- हैंडआउट
 - PPT
 - PPTX
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "Java में प्रस्तुतियों को Handout में बदलें। पृष्ठ पर स्लाइड्स सेट करें, नोट्स रखें, Aspose.Slides for Android के साथ PDF या छवियों में निर्यात करें, नमूना कोड के साथ। इसे मुफ्त में आज़माएँ।"
+description: "Java में प्रस्तुतियों को हैंडआउट में बदलें। प्रति पृष्ठ स्लाइड सेट करें, नोट्स रखें, Aspose.Slides for Android के साथ PDF या इमेजेज में निर्यात करें, नमूना कोड के साथ। इसे मुफ्त में आज़माएँ।"
 ---
 ## **परिचय**
 
-Aspose.Slides विभिन्न फ़ॉर्मैट में प्रस्तुतियों को कनवर्ट करने की क्षमता प्रदान करता है, जिसमें Handout मोड में प्रिंटिंग के लिए हैंडआउट बनाना शामिल है। यह मोड आपको कई स्लाइड्स को एक पेज पर कैसे दिखाया जाए, इसे कॉन्फ़िगर करने देता है, जिससे यह सम्मेलन, सेमिनार और अन्य कार्यक्रमों के लिए उपयोगी होता है। आप इस मोड को `setSlidesLayoutOptions` मेथड को सेट करके सक्रिय कर सकते हैं, जो [IPdfOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ihtmloptions/) और [ITiffOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itiffoptions/) इंटरफ़ेस में है।
+Aspose.Slides प्रस्तुतियों को विभिन्न फ़ॉर्मैट में परिवर्तित करने की सुविधा प्रदान करता है, जिसमें Handout मोड में प्रिंटिंग के लिए हैंडआउट बनाना भी शामिल है। यह मोड आपको एक पृष्ठ पर कई स्लाइड्स कैसे प्रदर्शित हों, इसे कॉन्फ़िगर करने देता है, जो सम्मेलन, सेमिनार और अन्य घटनाओं के लिए उपयोगी है। आप `setSlidesLayoutOptions` मेथड को [IPdfOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ihtmloptions/), और [ITiffOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itiffoptions/) इंटरफ़ेसेज़ में सेट करके इस मोड को सक्षम कर सकते हैं।
 
-## **हैंडआउट मोड निर्यात**
+एक्सपोर्ट के पहले हैंडआउट पेज का आकार और अभिविन्यास सेट करने के लिए, देखें [Notes Page Size](/slides/hi/androidjava/notes-size/)।
 
-Handout मोड को कॉन्फ़िगर करने के लिए, आप [HandoutLayoutingOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/handoutlayoutingoptions/) ऑब्जेक्ट का उपयोग कर सकते हैं, जो निर्धारित करता है कि एक पेज पर कितनी स्लाइड्स रखी जाएँगी और अन्य प्रदर्शन पैरामीटर।
+## **Handout मोड एक्सपोर्ट**
 
-नीचे एक कोड उदाहरण दिया गया है जो दिखाता है कि Handout मोड में प्रस्तुति को PDF में कैसे बदलें।
+Handout मोड को कॉन्फ़िगर करने के लिए, [HandoutLayoutingOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/handoutlayoutingoptions/) ऑब्जेक्ट का उपयोग करें, जो निर्धारित करता है कि एक पृष्ठ पर कितनी स्लाइड्स रखी जाएँगी और अन्य प्रदर्शन पैरामीटर।
+
+नीचे एक कोड उदाहरण दिया गया है जो Handout मोड में प्रस्तुति को PDF में परिवर्तित करता है।
 
 ```java
-// एक प्रस्तुति लोड करें।
+import com.aspose.slides.*;
+
+// प्रस्तुति लोड करें.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// निर्यात विकल्प सेट करें।
+	// निर्यात विकल्प सेट करें.
 	HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
-	slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // एक पृष्ठ पर क्षैतिज रूप से 4 स्लाइड्स
+	slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // एक पृष्ठ पर 4 स्लाइड्स क्षैतिज रूप से
 	slidesLayoutOptions.setPrintSlideNumbers(true);                   // स्लाइड नंबर प्रिंट करें
-	slidesLayoutOptions.setPrintFrameSlide(true);                     // स्लाइड्स के चारों ओर एक फ्रेम प्रिंट करें
+	slidesLayoutOptions.setPrintFrameSlide(true);                     // स्लाइड्स के आसपास फ्रेम प्रिंट करें
 	slidesLayoutOptions.setPrintComments(false);                      // कोई टिप्पणी नहीं
 
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-	// चुने हुए लेआउट के साथ प्रस्तुति को PDF में निर्यात करें।
+	// चयनित लेआउट के साथ प्रस्तुति को PDF में निर्यात करें।
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-ध्यान रखें कि `setSlidesLayoutOptions` मेथड केवल कुछ आउटपुट फ़ॉर्मैट के लिए उपलब्ध है, जैसे PDF, HTML, TIFF, और जब छवियों के रूप में रेंडर किया जाता है। 
+{{% alert color="warning" title="Warning" %}}
+ध्यान रखें कि `setSlidesLayoutOptions` मेथड केवल कुछ आउटपुट फ़ॉर्मैट जैसे PDF, HTML, TIFF, तथा इमेज़ रूप में रेंडरिंग के लिए उपलब्ध है।
 {{% /alert %}} 
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**हैंडआउट मोड में प्रति पृष्ठ अधिकतम स्लाइड थंबनेल की संख्या क्या है?**
+**Handout मोड में प्रति पृष्ठ अधिकतम स्लाइड थंबनेल की संख्या क्या है?**
 
-Aspose.Slides [presets](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/handouttype/) का समर्थन करता है जो एक पृष्ठ पर अधिकतम 9 थंबनेल तक हो सकते हैं, क्षैतिज या लंबवत क्रम में: 1, 2, 3, 4 (क्षैतिज/लंबवत), 6 (क्षैतिज/लंबवत), और 9 (क्षैतिज/लंबवत).  
+Aspose.Slides [presets](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/handouttype/) को समर्थन देता है, जो प्रति पृष्ठ अधिकतम 9 थंबनेल तक हो सकते हैं, क्षैतिज या लंबवत क्रम में: 1, 2, 3, 4 (क्षैतिज/लंबवत), 6 (क्षैतिज/लंबवत), और 9 (क्षैतिज/लंबवत)।
 
-**क्या मैं 5 या 8 स्लाइड्स प्रति पृष्ठ जैसी कस्टम ग्रिड निर्धारित कर सकता/सकती हूँ?**
+**क्या मैं 5 या 8 स्लाइड्स प्रति पृष्ठ जैसी कस्टम ग्रिड परिभाषित कर सकता हूँ?**
 
-नहीं। थंबनेल की संख्या और क्रम पूरी तरह से [HandoutType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/handouttype/) क्लास द्वारा नियंत्रित होते हैं; मनमाने लेआउट समर्थित नहीं हैं।  
+नहीं। थंबनेल की संख्या और क्रम को केवल [HandoutType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/handouttype/) क्लास द्वारा नियंत्रित किया जाता है; मनमाना लेआउट समर्थित नहीं है।
 
-**क्या मैं Handout आउटपुट में छिपी हुई स्लाइड्स शामिल कर सकता/सकती हूँ?**
+**क्या मैं Handout आउटपुट में छिपी स्लाइड्स शामिल कर सकता हूँ?**
 
-हाँ। लक्ष्य फ़ॉर्मैट के लिए निर्यात सेटिंग्स में `setShowHiddenSlides` मेथड का उपयोग करके छिपी हुई स्लाइड्स को सक्रिय करें, जैसे कि [PdfOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/htmloptions/) या [TiffOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/tiffoptions/).
+हाँ। लक्ष्य फ़ॉर्मैट के एक्सपोर्ट सेटिंग्स में `setShowHiddenSlides` मेथड को सक्षम करके छिपी स्लाइड्स को शामिल करें, जैसे कि [PdfOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/htmloptions/), या [TiffOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/tiffoptions/)।

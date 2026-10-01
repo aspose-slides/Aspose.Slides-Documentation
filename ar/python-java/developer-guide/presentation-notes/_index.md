@@ -1,5 +1,5 @@
 ---
-title: إدارة ملاحظات العرض التقديمي في Python عبر Java
+title: إدارة ملاحظات العرض التقديمي في بايثون عبر جافا
 linktitle: ملاحظات العرض التقديمي
 type: docs
 weight: 110
@@ -10,21 +10,23 @@ keywords:
 - إضافة ملاحظات
 - إزالة ملاحظات
 - نمط الملاحظات
-- الملاحظات الرئيسية
+- ملاحظات رئيسية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "قم بتخصيص ملاحظات العرض التقديمي باستخدام Aspose.Slides لـ Python عبر Java. اعمل بسلاسة مع ملاحظات PowerPoint وOpenDocument لتعزيز إنتاجيتك."
+description: "تخصيص ملاحظات العرض التقديمي باستخدام Aspose.Slides للبايثون عبر جافا. العمل بسلاسة مع ملاحظات PowerPoint و OpenDocument لتعزيز إنتاجيتك."
 ---
 ## **نظرة عامة**
 
-يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. يقدم هذا الموضوع هذه الميزة، بما في ذلك كيفية إزالة الملاحظات وكيفية تطبيق نمط على شرائح الملاحظات في العرض التقديمي. يتيح Aspose.Slides لك إزالة الملاحظات من أي شريحة وتطبيق تنسيق على الملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
+Aspose.Slides يدعم إزالة شرائح الملاحظات من عرض تقديمي. يقدم هذا الموضوع هذه الميزة، بما في ذلك كيفية إزالة الملاحظات وكيفية تطبيق نمط على شرائح الملاحظات في عرض تقديمي. يتيح Aspose.Slides لك إزالة الملاحظات من أي شريحة وتطبيق تنسيق على الملاحظات الحالية. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
 
 - إزالة الملاحظات من شريحة محددة في عرض تقديمي.
 - إزالة الملاحظات من جميع الشرائح في عرض تقديمي.
+
+لقراءة أو تعديل أبعاد صفحة الملاحظات، وتبديل الاتجاه، والتحقق من سلوك التصدير، راجع [حجم صفحة الملاحظات](/slides/ar/python-java/notes-size/).
 
 ## **إزالة الملاحظات من شريحة**
 
@@ -81,7 +83,7 @@ finally:
 
 ## **إضافة نمط ملاحظات**
 
-توفر طريقة [getNotesStyle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masternotesslide/#getNotesStyle) في صنف [MasterNotesSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masternotesslide/) إمكانية الوصول إلى نمط نص الملاحظات. يتم عرض التطبيق في المثال أدناه.
+توفر طريقة [getNotesStyle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masternotesslide/#getNotesStyle) في فئة [MasterNotesSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/masternotesslide/) إمكانية الوصول إلى نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
 
 ```python
 import jpype
@@ -101,7 +103,7 @@ try:
         # الحصول على نمط نص شريحة الملاحظات الرئيسية.
         notes_style = notes_master.getNotesStyle()
 
-        # تعيين رموز نقطية للفقرة من المستوى الأول.
+        # تعيين نقاط رمزية للفقرات من المستوى الأول.
         paragraph_format = notes_style.getLevel(0)
         paragraph_format.getBullet().setType(BulletType.Symbol)
 
@@ -110,12 +112,12 @@ finally:
     presentation.dispose()
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما الكيان API الذي يتيح الوصول إلى ملاحظات شريحة محددة؟**
+**ما الكيان API الذي يوفر الوصول إلى ملاحظات شريحة محددة؟**
 
-يتم الوصول إلى الملاحظات عبر مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notesslidemanager/) وطريقة [getNotesSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notesslidemanager/#getNotesSlide) التي تُعيد كائن الملاحظات، أو `None` إذا لم توجد ملاحظات.
+يتم الوصول إلى الملاحظات من خلال مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notesslidemanager/) وطريقة [getNotesSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notesslidemanager/#getNotesSlide) التي تُعيد كائن الملاحظات، أو `None` إذا لم تكن هناك ملاحظات.
 
 **هل هناك اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي يعمل معها المكتبة؟**
 
-تستهدف المكتبة مجموعة واسعة من تنسيقات Microsoft PowerPoint (الإصدار 97 وما بعده) وODP؛ يتم دعم الملاحظات داخل هذه التنسيقات دون الاعتماد على نسخة مثبتة من PowerPoint.
+تستهدف المكتبة مجموعة واسعة من صيغ Microsoft PowerPoint (من الإصدار 97 وما بعده) وODP؛ يتم دعم الملاحظات داخل هذه الصيغ دون الاعتماد على نسخة مثبتة من PowerPoint.

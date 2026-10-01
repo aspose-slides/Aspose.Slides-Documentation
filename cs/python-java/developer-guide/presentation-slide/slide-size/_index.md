@@ -19,7 +19,7 @@ keywords:
 - snímek v plné velikosti
 - typ obrazovky
 - neškálovat
-- zajistit vložení
+- zajistit přizpůsobení
 - maximalizovat
 - PowerPoint
 - OpenDocument
@@ -27,22 +27,24 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Zjistěte, jak rychle změnit velikost snímků v souborech PPT, PPTX a ODP pomocí Pythonu přes Java a Aspose.Slides a optimalizovat prezentace pro jakoukoli obrazovku bez ztráty kvality."
+description: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí Pythonu přes Java a Aspose.Slides a optimalizovat prezentace pro jakoukoli obrazovku bez ztráty kvality."
 ---
 ## **Úvod**
 
-Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je klíčové jak pro tisk, tak pro zobrazení na obrazovce.
+Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je důležité jak pro tisk, tak pro zobrazení na obrazovce.
 
 Oblíbené velikosti snímků a poměry:
 
-- **Standard (poměr stran 4:3)**: Ideální pro starší monitory a zařízení.
-- **Širokoúhlý (poměr stran 16:9)**: Doporučeno pro moderní projektory a displeje.
+- **Standard (4:3 poměr stran)**: Ideální pro starší monitory a zařízení.
+- **Širokoúhlý (16:9 poměr stran)**: Doporučeno pro moderní projektory a displeje.
 
-Zajistěte konzistenci v celé prezentaci, protože jediná velikost snímku a poměr stran se vztahují na všechny snímky. Pro optimální výsledky nastavte rozměry snímku na začátku tvorby prezentace, abyste se vyhnuli komplikacím.
+Zajistěte konzistenci v celé prezentaci, protože jednotná velikost snímku a poměr stran se vztahuje na všechny snímky. Pro optimální výsledky nastavte rozměry snímku na začátku procesu vytváření prezentace, abyste předešli komplikacím.
 
-{{% alert color="info" title="Poznámka" %}}
+{{% alert color="info" title="Note" %}}
 Ve výchozím nastavení používají prezentace vytvořené pomocí Aspose.Slides standardní poměr stran 4:3.
 {{% /alert %}}
+
+Stránky poznámek a podkladů mají odlišné rozměry od běžných snímků. Viz [Notes Page Size](/slides/cs/python-java/notes-size/) pro změnu jejich velikosti a orientace.
 
 ## **Změna velikosti snímku v prezentacích**
 
@@ -67,9 +69,9 @@ finally:
 
 ## **Určení vlastních velikostí snímků v prezentacích**
 
-Pokud vám běžné velikosti snímků (4:3 a 16:9) nevyhovují, můžete se rozhodnout použít specifickou nebo unikátní velikost snímku. Například pokud plánujete tisknout snímky v plné velikosti na vlastní rozvržení stránky nebo pokud chcete prezentaci zobrazit na určitých typech obrazovek, pravděpodobně budete těžit z nastavení vlastní velikosti pro vaši prezentaci.
+Pokud považujete běžné velikosti snímků (4:3 a 16:9) za nevhodné pro svou práci, můžete se rozhodnout použít konkrétní nebo jedinečnou velikost snímku. Například pokud plánujete tisknout snímky v plné velikosti z prezentace na vlastní rozvržení stránky nebo pokud chcete prezentaci zobrazit na určitých typech obrazovek, pravděpodobně vám prospěje použití vlastního nastavení velikosti pro vaši prezentaci.
 
-Tento ukázkový kód ukazuje, jak pomocí Aspose.Slides pro Python přes Java specifikovat vlastní velikost snímku pro prezentaci:
+Tento ukázkový kód ukazuje, jak pomocí Aspose.Slides pro Python přes Java nastavit vlastní velikost snímku pro prezentaci:
 
 ```python
 import jpype
@@ -90,21 +92,21 @@ finally:
 
 ## **Zpracování obsahu snímku po změně velikosti**
 
-Po změně velikosti snímku v prezentaci se může obsah snímků (obrázky nebo objekty) zkreslit. Ve výchozím nastavení jsou objekty automaticky přizpůsobeny nové velikosti snímku. Při změně velikosti snímku prezentace však můžete zadat nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
+Po změně velikosti snímku v prezentaci může dojít k deformaci obsahu snímků (například obrázků nebo objektů). Ve výchozím nastavení se objekty automaticky přizpůsobí nové velikosti snímku. Při změně velikosti snímku však můžete určit nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
 
-Podle toho, co chcete dosáhnout, můžete použít kterékoliv z těchto nastavení:
+V závislosti na tom, co chcete dosáhnout, můžete použít kterékoliv z následujících nastavení:
 
 - [DoNotScale](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesizescaletype/#DoNotScale)
-
-  Pokud nechcete, aby byly objekty na snímcích změněny, použijte toto nastavení.
+  
+  Pokud NECHCETE, aby byly objekty na snímcích přizpůsobeny, použijte toto nastavení.
 
 - [EnsureFit](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesizescaletype/#EnsureFit)
-
-  Pokud chcete zmenšit na menší velikost snímku a potřebujete, aby Aspose.Slides zmenšil objekty snímků tak, aby se všechny vešly (tím se vyhnete ztrátě obsahu), použijte toto nastavení.
+  
+  Pokud chcete zmenšit velikost snímku a potřebujete, aby Aspose.Slides zmenšil objekty na snímcích tak, aby se všechny vešly (tím se vyhnete ztrátě obsahu), použijte toto nastavení.
 
 - [Maximize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesizescaletype/#Maximize)
-
-  Pokud chcete zvětšit na větší velikost snímku a potřebujete, aby Aspose.Slides zvětšil objekty snímků tak, aby byly úměrné nové velikosti, použijte toto nastavení.
+  
+  Pokud chcete zvětšit velikost snímku a potřebujete, aby Aspose.Slides zvětšil objekty na snímcích tak, aby byly proporciální nové velikosti snímku, použijte toto nastavení.
 
 Tento ukázkový kód ukazuje, jak použít nastavení [Maximize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesizescaletype/#Maximize) při změně velikosti snímku v prezentaci:
 
@@ -128,16 +130,16 @@ finally:
 
 **Mohu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?**
 
-Ano. Aspose.Slides interně používá body, kde 1 bod odpovídá 1/72 palce. Jakoukoli jednotku (například milimetry nebo centimetry) můžete převést na body a použít převedené hodnoty k definování šířky a výšky snímku.
+Ano. Aspose.Slides interně používá body, kde 1 bod je 1/72 palce. Můžete převést libovolnou jednotku (například milimetry nebo centimetry) na body a použít převedené hodnoty k určení šířky a výšky snímku.
 
-**Ovlivní velmi velká vlastní velikost snímku výkon a spotřebu paměti během renderování?**
+**Ovlivní velmi velká vlastní velikost snímku výkon a spotřebu paměti během vykreslování?**
 
-Ano. Větší rozměry snímků (v bodech) v kombinaci s vyšším měřítkem renderování vedou ke zvýšené spotřebě paměti a delším dobám zpracování. Cílem by měla být praktická velikost snímku a měřítko renderování upravovat jen podle potřeby pro dosažení požadované kvality výstupu.
+Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem vykreslování vedou ke zvýšené spotřebě paměti a delšímu času zpracování. Snažte se o praktickou velikost snímku a měřítko vykreslování upravujte jen podle potřeby, abyste dosáhli požadované kvality výstupu.
 
-**Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací s různými velikostmi?**
+**Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají různé velikosti?**
 
-Nemůžete [merge presentations](/slides/cs/python-java/merge-presentation/) když mají různé velikosti snímků — nejprve změňte velikost jedné prezentace tak, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak se zachází s existujícím obsahem pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesizescaletype/). Po vyrovnání velikostí můžete sloučit snímky při zachování formátování.
+Nemůžete [sloučit prezentace](/slides/cs/python-java/merge-presentation/) pokud mají různé velikosti snímků – nejprve změňte velikost jedné prezentace tak, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak se zachází s existujícím obsahem pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesizescaletype/). Po vyrovnání velikostí můžete sloučit snímky a zachovat formátování.
 
-**Mohu generovat miniatury pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?**
+**Mohu generovat náhledy pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?**
 
-Ano. Aspose.Slides může renderovat miniatury pro [entire slides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getImage) i pro [selected shapes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getImage). Výsledné obrázky odrážejí aktuální velikost a poměr stran snímku, což zajišťuje konzistentní ohraničení a geometrii.
+Ano. Aspose.Slides může vykreslovat náhledy pro [celé snímky](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getImage) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getImage). Výsledné obrázky odrážejí aktuální velikost a poměr stran snímku, čímž zajišťují konzistentní ohraničení a geometrii.

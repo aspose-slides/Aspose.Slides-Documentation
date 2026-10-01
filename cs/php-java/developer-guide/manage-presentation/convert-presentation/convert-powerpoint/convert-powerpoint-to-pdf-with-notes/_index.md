@@ -5,11 +5,11 @@ type: docs
 weight: 50
 url: /cs/php-java/convert-powerpoint-to-pdf-with-notes/
 keywords:
-- převést PowerPoint
-- převést prezentaci
-- převést snímek
-- převést PPT
-- převést PPTX
+- převod PowerPoint
+- převod prezentace
+- převod snímku
+- převod PPT
+- převod PPTX
 - PowerPoint do PDF
 - prezentace do PDF
 - snímek do PDF
@@ -24,34 +24,36 @@ keywords:
 - PDF s poznámkami
 - PHP
 - Aspose.Slides
-description: "Převést formáty PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro PHP přes Java. Zachovat rozvržení a poznámky přednášejícího pro profesionální prezentace."
+description: "Převod formátů PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro PHP přes Java. Zachování rozvržení a poznámek přednášejícího pro profesionální prezentace."
 ---
 ## **Přehled**
 
-V tomto článku se naučíte, jak převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího pomocí Aspose.Slides. Tento průvodce pokryje potřebné kroky a poskytne ukázky kódu, které vám pomohou úkol provést efektivně. Na konci článku budete schopni:
+V tomto článku se naučíte, jak převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího pomocí Aspose.Slides. Tento průvodce pokryje potřebné kroky a poskytne ukázky kódu, které vám pomohou úkol efektivně zvládnout. Na konci tohoto článku budete schopni:
 
-- Implementovat proces převodu, který změní snímky PowerPointu na PDF dokumenty a zachová poznámky přednášejícího.
-- Přizpůsobit výstupní PDF tak, aby obsahovalo a formátovalo poznámky podle vašich požadavků.
+- Implementovat proces konverze, který převede snímky PowerPointu do PDF dokumentů a zároveň zachová poznámky přednášejícího.
+- Přizpůsobit výstupní PDF tak, aby byly poznámky přednášejícího zahrnuty a formátovány podle vašich požadavků.
 
-## **Převod PowerPointu na PDF s poznámkami**
+Pro nastavení rozměrů a orientace stránky s poznámkami před exportem, viz [Velikost stránky s poznámkami](/slides/cs/php-java/notes-size/).
 
-Metoda `save` ve třídě [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) může být použita k převodu prezentace PPT nebo PPTX na PDF s poznámkami přednášejícího. S Aspose.Slides stačí načíst prezentaci, nakonfigurovat možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notescommentslayoutingoptions/) tak, aby zahrnovala poznámky, a poté soubor uložit jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci na PDF v zobrazení poznámek ke snímkům.
+## **Převod PowerPointu do PDF s poznámkami**
+
+Metoda `save` ve třídě [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) lze použít k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides jednoduše načtete prezentaci, nakonfigurujete možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notescommentslayoutingoptions/) tak, aby zahrnovala poznámky přednášejícího, a poté soubor uložíte jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci do PDF v zobrazení poznámek ke snímkům.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 
-// Nastavit možnosti PDF pro vykreslení poznámek přednášejícího.
+// Nastavte možnosti PDF pro vykreslení poznámek přednášejícího.
 $notesOptions = new NotesCommentsLayoutingOptions();
-$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Vykreslit poznámky přednášejícího pod snímkem.
+$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Vykreslí poznámky přednášejícího pod snímek.
 
 $pdfOptions = new PdfOptions();
 $pdfOptions->setSlidesLayoutOptions($notesOptions);
 
-// Uložit prezentaci do PDF s poznámkami přednášejícího.
+// Uložte prezentaci do PDF s poznámkami přednášejícího.
 $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-Možná budete chtít vyzkoušet Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/cs/conversion). 
+{{% alert color="info" title="Note" %}}
+Možná budete chtít vyzkoušet online konvertor Aspose [Online konvertor PowerPoint do PDF](https://products.aspose.app/slides/cs/conversion).
 {{% /alert %}}

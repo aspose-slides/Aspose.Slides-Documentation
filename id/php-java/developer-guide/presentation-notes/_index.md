@@ -1,5 +1,5 @@
 ---
-title: Kelola Catatan Presentasi dalam PHP
+title: Kelola Catatan Presentasi di PHP
 linktitle: Catatan Presentasi
 type: docs
 weight: 110
@@ -16,17 +16,19 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk PHP melalui Java. Bekerja secara mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
+description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk PHP melalui Java. Bekerja mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Pada topik ini, kami akan memperkenalkan fitur ini, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana saja serta menerapkan gaya pada catatan yang sudah ada. Pengembang dapat menghapus catatan dengan cara berikut:
+Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Pada topik ini, kami akan memperkenalkan fitur tersebut, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun serta menerapkan gaya pada catatan yang ada. Pengembang dapat menghapus catatan dengan cara berikut:
 
-- Menghapus catatan dari slide tertentu dalam sebuah presentasi.
-- Menghapus catatan dari semua slide dalam sebuah presentasi.
+- Hapus catatan dari slide tertentu dalam presentasi.
+- Hapus catatan dari semua slide dalam presentasi.
+
+Untuk membaca atau mengubah dimensi halaman catatan, mengubah orientasi, dan memeriksa perilaku ekspor, lihat [Ukuran Halaman Catatan](/slides/id/php-java/notes-size/).
 
 ## **Hapus Catatan dari Slide**
-Catatan dari slide tertentu dapat dihapus seperti pada contoh di bawah:
+Catatan dari slide tertentu dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
 
 ```php
   # Membuat objek Presentation yang mewakili file presentasi
@@ -45,7 +47,7 @@ Catatan dari slide tertentu dapat dihapus seperti pada contoh di bawah:
 ```
 
 ## **Hapus Catatan dari Presentasi**
-Catatan dari semua slide dalam presentasi dapat dihapus seperti pada contoh di bawah:
+Catatan dari semua slide dalam presentasi dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
 
 ```php
   # Membuat objek Presentation yang mewakili file presentasi
@@ -67,7 +69,7 @@ Catatan dari semua slide dalam presentasi dapat dihapus seperti pada contoh di b
 ```
 
 ## **Tambahkan Gaya Catatan**
-[getNotesStyle](https://reference.aspose.com/slides/id/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) method telah ditambahkan ke kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/MasterNotesSlide). Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan pada contoh di bawah.
+Metode [getNotesStyle](https://reference.aspose.com/slides/id/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) dari kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/MasterNotesSlide) menyediakan akses ke gaya teks catatan. Implementasinya ditunjukkan pada contoh di bawah ini.
 
 ```php
   # Membuat objek Presentation yang mewakili file presentasi
@@ -77,7 +79,7 @@ Catatan dari semua slide dalam presentasi dapat dihapus seperti pada contoh di b
     if (!java_is_null($notesMaster)) {
       # Dapatkan gaya teks MasterNotesSlide
       $notesStyle = $notesMaster->getNotesStyle();
-      # Atur bullet simbol untuk paragraf tingkat pertama
+      # Atur bullet simbol untuk paragraf level pertama
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -93,8 +95,8 @@ Catatan dari semua slide dalam presentasi dapat dihapus seperti pada contoh di b
 
 **Entitas API mana yang menyediakan akses ke catatan slide tertentu?**
 
-Catatan diakses melalui manajer catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/notesslidemanager/) dan [method](https://reference.aspose.com/slides/id/php-java/aspose.slides/notesslidemanager/getnotesslide/) yang mengembalikan objek catatan, atau `null` jika tidak ada catatan.
+Catatan diakses melalui pengelola catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/notesslidemanager/) dan sebuah [method](https://reference.aspose.com/slides/id/php-java/aspose.slides/notesslidemanager/getnotesslide/) yang mengembalikan objek catatan, atau `null` jika tidak ada catatan.
 
-**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung oleh perpustakaan ini?**
+**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung perpustakaan?**
 
-Perpustakaan ini menargetkan berbagai format Microsoft PowerPoint (97–terbaru) dan ODP; catatan didukung dalam format-format ini tanpa bergantung pada instalasi PowerPoint yang ada.
+Perpustakaan ini menargetkan berbagai format Microsoft PowerPoint (97–terbaru) dan ODP; catatan didukung dalam format-format ini tanpa bergantung pada salinan PowerPoint yang terpasang.

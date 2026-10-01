@@ -1,28 +1,41 @@
 ---
-title: Заметки презентации
+title: "Управление заметками презентации в JavaScript"
+linktitle: "Заметки презентации"
 type: docs
 weight: 110
 url: /ru/nodejs-java/presentation-notes/
-keywords: "Заметки докладчика PowerPoint в JavaScript"
-description: "Заметки презентации, заметки докладчика в JavaScript"
+keywords:
+- "заметки"
+- "слайд заметок"
+- "добавить заметки"
+- "удалить заметки"
+- "стиль заметок"
+- "основные заметки"
+- "PowerPoint"
+- "OpenDocument"
+- "презентация"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Настройте заметки презентации в JavaScript с помощью Aspose.Slides для Node.js. Бесшовно работайте с заметками PowerPoint и OpenDocument, чтобы повысить свою продуктивность."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+Aspose.Slides поддерживает удаление слайдов с заметками из презентации. В этой статье мы представим эту функцию, включая способы удаления заметок и применения стиля к слайдам с заметками в презентации. Aspose.Slides позволяет удалять заметки с любого слайда, а также применять стили к существующим заметкам. Разработчики могут удалять заметки следующими способами:
 
-Aspose.Slides поддерживает удаление слайдов с заметками из презентации. В этой статье мы представим новую возможность удаления заметок, а также добавления стилей заметок к любой презентации. 
+- Удалить заметки с определённого слайда в презентации.
+- Удалить заметки со всех слайдов в презентации.
 
-{{% /alert %}} 
-
-Aspose.Slides for Node.js via Java предоставляет возможность удалять заметки любого слайда, а также добавлять стиль к существующим заметкам. Разработчики могут удалять заметки следующими способами:
-
-* Убрать заметки конкретного слайда презентации.
-* Убрать заметки со всех слайдов презентации
-
+Чтобы прочитать или изменить размеры страницы заметок, переключить ориентацию и проверить поведение при экспорте, см. [Размер страницы заметок](/slides/ru/nodejs-java/notes-size/).
 
 ## **Удалить заметки со слайда**
-Заметки конкретного слайда можно удалить, как показано в примере ниже:
+Заметки с определённого слайда можно удалить, как показано в примере ниже:
+
 ```javascript
-// Создать объект Presentation, который представляет файл презентации
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Создать объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // Удаление заметок первого слайда
@@ -37,10 +50,13 @@ try {
 }
 ```
 
-
 ## **Удалить заметки из презентации**
-Заметки всех слайдов презентации можно удалить, как показано в примере ниже:
+Заметки со всех слайдов в презентации можно удалить, как показано в примере ниже:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Создать объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
@@ -59,10 +75,14 @@ try {
 }
 ```
 
+## **Добавить NotesStyle**
+Метод [getNotesStyle](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) был добавлен в класс [MasterNotesSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/MasterNotesSlide) и класс [MasterNotesSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/MasterNotesSlide) соответственно. Это свойство задаёт стиль текста заметок. Реализация продемонстрирована в примере ниже.
 
-## **Добавить стиль заметок**
-[getNotesStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) метод был добавлен в класс [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) и класс [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide). Это свойство определяет стиль текста заметок. Реализация продемонстрирована в примере ниже.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Создать объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -70,9 +90,9 @@ try {
     if (notesMaster != null) {
         // Получить стиль текста MasterNotesSlide
         var notesStyle = notesMaster.getNotesStyle();
-        // Установить символный маркер для абзацев первого уровня
+        // Установить маркировку символом для абзацев первого уровня
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -82,13 +102,12 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Какой объект API предоставляет доступ к заметкам конкретного слайда?**
+**Какой объект API предоставляет доступ к заметкам определённого слайда?**
 
-Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/) и [method](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), который возвращает объект заметок, или `null`, если заметок нет.
+Заметки доступны через менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/notesslidemanager/) и [метод](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), который возвращает объект заметок, или `null`, если заметок нет.
 
-**Есть ли различия в поддержке заметок в разных версиях PowerPoint, с которыми работает библиотека?**
+**Есть ли различия в поддержке заметок между версиями PowerPoint, с которыми работает библиотека?**
 
-Библиотека поддерживает широкий диапазон форматов Microsoft PowerPoint (97-newer) и ODP; заметки поддерживаются в этих форматах без необходимости установленной копии PowerPoint.
+Библиотека поддерживает широкий набор форматов Microsoft PowerPoint (97‑и новее) и ODP; заметки поддерживаются в этих форматах без необходимости установленной копии PowerPoint.

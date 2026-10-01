@@ -1,37 +1,39 @@
 ---
-title: แปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมบันทึกการพูดใน Python
-linktitle: PowerPoint เป็น PDF พร้อมบันทึกการพูด
+title: แปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมโน้ตใน Python
+linktitle: PowerPoint ไปเป็น PDF พร้อมโน้ต
 type: docs
 weight: 50
 url: /th/python-java/convert-powerpoint-to-pdf-with-notes/
 keywords:
 - แปลง PowerPoint
-- แปลงงานนำเสนอ
+- แปลงการนำเสนอ
 - แปลง PPT
 - แปลง PPTX
 - PowerPoint เป็น PDF
-- งานนำเสนอเป็น PDF
+- การนำเสนอเป็น PDF
 - PPT เป็น PDF
 - PPTX เป็น PDF
-- บันทึกงานนำเสนอเป็น PDF
+- บันทึกการนำเสนอเป็น PDF
 - ส่งออก PPT เป็น PDF
 - ส่งออก PPTX เป็น PDF
-- บันทึกการพูด
-- PDF พร้อมบันทึกการพูด
+- โน้ตผู้พูด
+- PDF พร้อมโน้ต
 - Python
 - Java
 - Aspose.Slides
-description: "แปลงงานนำเสนอ PPT และ PPTX เป็น PDF พร้อมบันทึกการพูดโดยใช้ Aspose.Slides สำหรับ Python ผ่าน Java. กำหนดตำแหน่งบันทึกและรักษาบันทึกที่ยาวไว้"
+description: "แปลงงานนำเสนอ PPT และ PPTX ไปเป็น PDF พร้อมโน้ตผู้พูดโดยใช้ Aspose.Slides สำหรับ Python ผ่าน Java. กำหนดตำแหน่งโน้ตและรักษาโน้ตยาวไว้."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีแปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมบันทึกการพูดโดยใช้ Aspose.Slides สำหรับ Python ผ่าน Java คุณสามารถใส่บันทึกไว้ใต้แต่ละสไลด์และอนุญาตให้บันทึกที่ยาวต่อเนื่องไปยังหน้าต่อไปได้ สำหรับการตั้งค่าอื่น ๆ ของการส่งออก PDF ดูที่ [Convert PowerPoint to PDF](/slides/th/python-java/convert-powerpoint-to-pdf/).
+บทความนี้อธิบายวิธีการแปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมโน้ตผู้พูดโดยใช้ Aspose.Slides สำหรับ Python ผ่าน Java คุณสามารถรวมโน้ตใต้แต่ละสไลด์และให้โน้ตที่ยาวต่อเนื่องไปยังหน้าเพิ่มเติม สำหรับการตั้งค่าอื่น ๆ ของการส่งออก PDF ดูที่ [แปลง PowerPoint เป็น PDF](/slides/th/python-java/convert-powerpoint-to-pdf/).
 
-## **แปลง PowerPoint เป็น PDF พร้อมบันทึกการพูด**
+หากต้องการตั้งค่าขนาดและแนวตั้งของหน้โน้ตก่อนการส่งออก ดูที่ [ขนาดหน้าบันทึก](/slides/th/python-java/notes-size/).
 
-ใช้เมธอด [save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อส่งออกงานนำเสนอ PPT หรือ PPTX เป็น PDF เพื่อรวมบันทึกการพูด ให้สร้างอ็อบเจกต์ [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/) และกำหนดตำแหน่งบันทึกด้วยเมธอด [setNotesPosition](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) กำหนดเลย์เอาต์นี้ให้กับ [PdfOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/pdfoptions/) โดยใช้ [setSlidesLayoutOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **แปลง PowerPoint เป็น PDF พร้อมโน้ต**
 
-ตัวอย่างต่อไปนี้โหลด `sample.pptx` และส่งออกเป็น `output.pdf` พร้อมบันทึกการพูดใต้สไลด์:
+ใช้เมธอด [save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เพื่อส่งออกงานนำเสนอ PPT หรือ PPTX เป็น PDF เพื่อรวมโน้ตผู้พูด ให้สร้างอ็อบเจ็กต์ [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/) และกำหนดตำแหน่งโน้ตด้วยเมธอด [setNotesPosition](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) จากนั้นกำหนดเค้าโครงนี้ให้กับ [PdfOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/pdfoptions/) ด้วยการใช้ [setSlidesLayoutOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+ตัวอย่างต่อไปนี้โหลดไฟล์ `sample.pptx` และส่งออกเป็น `output.pdf` พร้อมโน้ตผู้พูดที่อยู่ใต้สไลด์:
 
 ```python
 import jpype
@@ -44,14 +46,14 @@ from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfO
 
 presentation = Presentation("sample.pptx")
 try:
-    # กำหนดตัวเลือก PDF สำหรับการแสดงบันทึกการพูด.
+    # กำหนดตัวเลือก PDF สำหรับการแสดงโน้ตผู้พูด.
     notes_options = NotesCommentsLayoutingOptions()
     notes_options.setNotesPosition(NotesPositions.BottomFull)
 
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(notes_options)
 
-    # บันทึกงานนำเสนอเป็น PDF พร้อมบันทึกการพูด.
+    # บันทึกการนำเสนอเป็น PDF พร้อมโน้ตผู้พูด.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -63,14 +65,14 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้บันทึกการพูดที่ยาวถูกตัดออกได้อย่างไร?**
+**วิธีป้องกันไม่ให้โน้ตผู้พูดที่ยาวถูกตัดออก?**
 
-ใช้ [NotesPositions.BottomFull](https://reference.aspose.com/slides/th/python-java/aspose.slides/notespositions/#BottomFull) เช่นในตัวอย่างด้านบน การตั้งค่านี้จะแสดงบันทึกทั้งหมดโดยใช้หน้าพิเศษเมื่อจำเป็น
+ใช้ [NotesPositions.BottomFull](https://reference.aspose.com/slides/th/python-java/aspose.slides/notespositions/#BottomFull) เช่นในตัวอย่างข้างต้น การตั้งค่านี้จะแสดงโน้ตทั้งหมด โดยใช้หน้าพิเศษเพิ่มเติมเมื่อจำเป็น
 
-**ฉันสามารถเก็บสไลด์แต่ละสไลด์และบันทึกของมันไว้บนหน้าเดียวได้หรือไม่?**
+**ฉันสามารถเก็บแต่ละสไลด์และโน้ตของมันบนหน้าเดียวได้หรือไม่?**
 
-ใช้ [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/th/python-java/aspose.slides/notespositions/#BottomTruncated) การตั้งค่านี้จำกัดบันทึกให้อยู่บนหน้าเดียว ดังนั้นบันทึกที่ไม่พออาจถูกตัดทอน
+ใช้ [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/th/python-java/aspose.slides/notespositions/#BottomTruncated) การตั้งค่านี้จำกัดโน้ตให้แสดงบนหนึ่งหน้า ดังนั้นโน้ตที่ไม่พอดีอาจถูกตัดทอนได้
 
-**ฉันจะส่งออกสไลด์โดยไม่มีบันทึกการพูดได้อย่างไร?**
+**ฉันจะส่งออกสไลด์โดยไม่มีโน้ตผู้พูดได้อย่างไร?**
 
-ละเว้นการกำหนดค่าเลย์เอาต์บันทึกและใช้การส่งออก PDF มาตรฐานตามที่อธิบายใน [Convert PowerPoint to PDF](/slides/th/python-java/convert-powerpoint-to-pdf/).
+ละเว้นการกำหนดค่าเลเอาท์โน้ตและใช้การส่งออก PDF มาตรฐานที่อธิบายไว้ใน [แปลง PowerPoint เป็น PDF](/slides/th/python-java/convert-powerpoint-to-pdf/).

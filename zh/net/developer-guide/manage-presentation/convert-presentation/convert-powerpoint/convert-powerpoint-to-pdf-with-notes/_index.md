@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中将 PowerPoint 演示文稿转换为带备注的 PDF
+title: 将 PowerPoint 演示文稿转换为带备注的 PDF（.NET）
 linktitle: PowerPoint 转 PDF（带备注）
 type: docs
 weight: 50
@@ -25,21 +25,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 将 PPT 和 PPTX 格式转换为带备注的 PDF。保留布局和演讲者备注，以实现专业演示文稿。"
+description: "使用 Aspose.Slides for .NET 将 PPT 和 PPTX 格式转换为带备注的 PDF。保留布局和演讲者备注，以实现专业的演示文稿。"
 ---
-
 ## **概述**
 
-在本文中，您将学习如何使用 Aspose.Slides 将 PowerPoint 演示文稿转换为带有演讲者备注的 PDF 格式。本指南将涵盖必要的步骤并提供代码示例，帮助您高效完成此任务。阅读本文后，您将能够：
+在本文中，您将学习如何使用 Aspose.Slides 将 PowerPoint 演示文稿转换为带有演讲者备注的 PDF 格式。本指南将覆盖必要的步骤并提供代码示例，帮助您高效完成此任务。阅读本文结束时，您将能够：
 
 - 实现转换过程，将 PowerPoint 幻灯片转换为 PDF 文档，同时保留演讲者备注。
-- 自定义输出的 PDF，确保演讲者备注被包含并按照您的要求进行格式化。
+- 自定义输出的 PDF，以确保演讲者备注被包含并按照您的需求进行格式化。
+
+要在导出前设置备注页的尺寸和方向，请参阅 [备注页尺寸](/slides/zh/net/notes-size/)。
 
 ## **将 PowerPoint 转换为带备注的 PDF**
 
-`Save` 方法位于 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类中，可用于将 PPT 或 PPTX 演示文稿转换为带有演讲者备注的 PDF。使用 Aspose.Slides，您只需加载演示文稿，使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) 类配置布局选项以包含演讲者备注，然后将文件保存为 PDF。以下代码片段演示了如何将示例演示文稿转换为备注幻灯片视图下的 PDF。
+`Save` 方法位于 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 类中，可用于将 PPT 或 PPTX 演示文稿转换为带有演讲者备注的 PDF。使用 Aspose.Slides，您只需加载演示文稿，使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/notescommentslayoutingoptions/) 类配置布局选项以包含演讲者备注，然后将文件保存为 PDF。下面的代码片段演示了如何将示例演示文稿转换为备注幻灯片视图的 PDF。
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // 配置用于渲染演讲者备注的 PDF 选项。
@@ -56,7 +60,6 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
-{{% alert color="primary" %}} 
-您可能想了解 Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion)。 
+{{% alert color="info" %}} 
+您可能想要查看 Aspose [在线 PowerPoint 转 PDF 转换器](https://products.aspose.app/slides/zh/conversion)。 
 {{% /alert %}}

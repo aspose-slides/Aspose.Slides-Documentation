@@ -5,28 +5,31 @@ type: docs
 weight: 110
 url: /pl/php-java/presentation-notes/
 keywords:
-  - "notatki"
-  - "slajd z notatkami"
-  - "dodaj notatki"
-  - "usuń notatki"
-  - "styl notatek"
-  - "notatki główne"
-  - "PowerPoint"
-  - "OpenDocument"
-  - "prezentacja"
-  - "PHP"
-  - "Aspose.Slides"
-description: "Dostosuj notatki prezentacji przy użyciu Aspose.Slides dla PHP poprzez Java. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją produktywność."
+- notatki
+- slajd notatek
+- dodaj notatki
+- usuń notatki
+- styl notatek
+- główne notatki
+- PowerPoint
+- OpenDocument
+- prezentacja
+- PHP
+- Aspose.Slides
+description: "Dostosuj notatki prezentacji za pomocą Aspose.Slides dla PHP poprzez Java. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
 ---
 ## **Przegląd**
 
-Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki i jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides pozwala usunąć notatki z dowolnego slajdu oraz zastosować stylizację do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
+Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usunąć notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides pozwala usunąć notatki z dowolnego slajdu oraz zastosować formatowanie do istniejących notatek. Deweloperzy mogą usuwać notatki w następujący sposób:
 
-- Usunięcie notatek z określonego slajdu w prezentacji.
-- Usunięcie notatek ze wszystkich slajdów w prezentacji.
+- Usunąć notatki z określonego slajdu w prezentacji.
+- Usunąć notatki ze wszystkich slajdów w prezentacji.
+
+Aby odczytać lub zmienić wymiary strony notatek, zmienić orientację i sprawdzić zachowanie przy eksporcie, zobacz [Rozmiar strony notatek](/slides/pl/php-java/notes-size/).
 
 ## **Usuwanie notatek ze slajdu**
-Notatki z wybranego slajdu można usunąć, jak pokazano w przykładzie poniżej:
+
+Notatki z określonego slajdu można usunąć, jak pokazano w poniższym przykładzie:
 
 ```php
   # Utwórz obiekt Presentation, który reprezentuje plik prezentacji
@@ -45,7 +48,8 @@ Notatki z wybranego slajdu można usunąć, jak pokazano w przykładzie poniżej
 ```
 
 ## **Usuwanie notatek z prezentacji**
-Notatki ze wszystkich slajdów w prezentacji można usunąć, jak pokazano w przykładzie poniżej:
+
+Notatki ze wszystkich slajdów w prezentacji można usunąć, jak pokazano w poniższym przykładzie:
 
 ```php
   # Utwórz obiekt Presentation, który reprezentuje plik prezentacji
@@ -67,7 +71,8 @@ Notatki ze wszystkich slajdów w prezentacji można usunąć, jak pokazano w prz
 ```
 
 ## **Dodanie stylu notatek**
-Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) została dodana do klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/MasterNotesSlide). Ta właściwość określa styl tekstu notatek. Implementacja jest pokazana w poniższym przykładzie.
+
+Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/MasterNotesSlide) zapewnia dostęp do stylu tekstu notatek. Implementacja jest przedstawiona w poniższym przykładzie.
 
 ```php
   # Utwórz obiekt Presentation, który reprezentuje plik prezentacji
@@ -77,7 +82,7 @@ Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/php-java/aspose.sl
     if (!java_is_null($notesMaster)) {
       # Pobierz styl tekstu MasterNotesSlide
       $notesStyle = $notesMaster->getNotesStyle();
-      # Ustaw symbol wypunktowania dla paragrafów pierwszego poziomu
+      # Ustaw znak wypunktowania jako symbol dla paragrafów pierwszego poziomu
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -91,10 +96,10 @@ Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/php-java/aspose.sl
 
 ## **FAQ**
 
-**Jakie element API zapewnia dostęp do notatek określonego slajdu?**
+**Który element API zapewnia dostęp do notatek określonego slajdu?**
 
-Do notatek dostęp uzyskuje się poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/notesslidemanager/) oraz [method](https://reference.aspose.com/slides/pl/php-java/aspose.slides/notesslidemanager/getnotesslide/), który zwraca obiekt notatek lub `null`, jeśli notatek nie ma.
+Notatki są dostępne poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/notesslidemanager/) oraz [metodę](https://reference.aspose.com/slides/pl/php-java/aspose.slides/notesslidemanager/getnotesslide/), która zwraca obiekt notatek lub `null`, jeśli notatek nie ma.
 
-**Czy istnieją różnice w obsłudze notatek w zależności od wersji programu PowerPoint, z którymi działa biblioteka?**
+**Czy istnieją różnice w obsłudze notatek w zależności od wersji PowerPoint, z którymi działa biblioteka?**
 
-Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97‑nowsze) oraz ODP; notatki są obsługiwane w tych formatach bez potrzeby posiadania zainstalowanej kopii PowerPointa.
+Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97–nowsze) oraz ODP; notatki są wspierane w tych formatach bez konieczności posiadania zainstalowanej kopii programu PowerPoint.
