@@ -26,212 +26,341 @@ description: "Discover how to use Aspose.Slides for PHP via Java to customize ch
 
 ## **Overview**
 
-This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
+This article explains how to customize chart axes with Aspose.Slides for PHP via Java. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, and display units.
 
 ## **Get the Max Values on the Vertical Axis on Charts**
-Aspose.Slides for PHP via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-1. Access the first slide.
-1. Add a chart with default data.
-1. Get the actual maximum value on the axis.
-1. Get the actual minimum value on the axis.
-1. Get the actual major unit of the axis.
-1. Get the actual minor unit of the axis.
-1. Get the actual major unit scale of the axis.
-1. Get the actual minor unit scale of the axis.
+Create a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) and add an area chart with default data. Call [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) before reading calculated axis values so that the chart layout is up to date.
 
-This sample code—an implementation of the steps above—shows you how to get the required values :
+Read [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) and [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) for the axis limits, and [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) and [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) for the tick intervals. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) and [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Area, 100, 100, 500, 350);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Area, 100, 100, 500, 350);
     $chart->validateChartLayout();
+
     $maxValue = $chart->getAxes()->getVerticalAxis()->getActualMaxValue();
     $minValue = $chart->getAxes()->getVerticalAxis()->getActualMinValue();
-    $majorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMajorUnit();
-    $minorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMinorUnit();
-    # Saves the presentation
-    $pres->save("MaxValuesVerticalAxis_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $majorUnit = $chart->getAxes()->getVerticalAxis()->getActualMajorUnit();
+    $minorUnit = $chart->getAxes()->getVerticalAxis()->getActualMinorUnit();
+
+    $majorUnitScale = $chart->getAxes()->getVerticalAxis()->getActualMajorUnitScale();
+    $minorUnitScale = $chart->getAxes()->getVerticalAxis()->getActualMinorUnitScale();
+
+    $presentation->save("AxisValues_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Swap the Data between Axes**
-Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
-This PHP code shows you how to perform the data swap task between axes on a chart:
+Use [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    # Switches rows and columns
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+    $chart->getChartData()->setRange("Sheet1!A1:D5");
     $chart->getChartData()->switchRowColumn();
-    # Saves presentation
-    $pres->save("SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Disable the Vertical Axis for Line Charts**
 
-This PHP code shows you how to hide the vertical axis for a line chart:
+Call [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 100, 100, 400, 300);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 100, 100, 400, 300);
     $chart->getAxes()->getVerticalAxis()->setVisible(false);
-    $pres->save("chart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("HiddenVerticalAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Disable the Horizontal Axis for Line Charts**
 
-This code shows you how to hide the horizontal axis for a line chart:
+Call [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 100, 100, 400, 300);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 100, 100, 400, 300);
     $chart->getAxes()->getHorizontalAxis()->setVisible(false);
-    $pres->save("chart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Change the Category Axis**
+## **Change a Category Axis**
 
-Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code  demonstrates the operation:
+Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) with `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) with `TimeUnitType::Months` places major ticks at one-month intervals.
 
 ```php
-  $presentation = new Presentation("ExistingChart.pptx");
-  try {
-    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+use aspose\slides\CategoryAxisType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TimeUnitType;
+
+$presentation = new Presentation("ExistingChart.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->get_Item(0);
     $chart->getAxes()->getHorizontalAxis()->setCategoryAxisType(CategoryAxisType::Date);
     $chart->getAxes()->getHorizontalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getHorizontalAxis()->setMajorUnit(1);
     $chart->getAxes()->getHorizontalAxis()->setMajorUnitScale(TimeUnitType::Months);
+
     $presentation->save("ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Set the Date Format for Category Axis Values**
-Aspose.Slides for PHP via Java allows you to set the date format for a category axis value. The operation is demonstrated in this PHP code:
+## **Control Category Axis Label Intervals**
+
+When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). For text categories in their normal order, counting starts at the first category:
+
+| Interval | Labels displayed in the example |
+| --- | --- |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+
+An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
+
+Tick marks have separate controls. Call [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) with `false` and use [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) with a visible style so you can see the result. Calling either automatic-spacing setter with `true` again lets the chart choose that interval again.
+
+The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
 
 ```php
-  # Converts a date to an OLE Automation date, the form a chart workbook stores dates in
-  function convertToOADate($year, $month, $day) {
-    $baseDate = gmmktime(0, 0, 0, 12, 30, 1899);
-    $date = gmmktime(0, 0, 0, $month, $day, $year);
-    return strval(($date - $baseDate) / 86400);
-  }
+use aspose\slides\CategoryAxisType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickMarkType;
 
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Area, 50, 50, 450, 300);
-    $wb = $chart->getChartData()->getChartDataWorkbook();
-    $wb->clear(0);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+    $chart->setLegend(false);
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A2", convertToOADate(2015, 2, 1)));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A3", convertToOADate(2016, 2, 1)));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", convertToOADate(2017, 2, 1)));
-    $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", convertToOADate(2018, 2, 1)));
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredColumn);
+    for ($i = 0; $i < 24; $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, 10 + $i % 6 * 5);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setCategoryAxisType(CategoryAxisType::Text);
+    $axis->getTextFormat()->getTextBlockFormat()->setRotationAngle(0);
+    $axis->getTextFormat()->getPortionFormat()->setFontHeight(12);
+    $axis->setMajorTickMark(TickMarkType::Outside);
+    $axis->setAutomaticTickLabelSpacing(true);
+    $axis->setAutomaticTickMarksSpacing(true);
+
+    // Slide 2: show every third label, but keep a tick mark for every category.
+    $manualSlide = $presentation->getSlides()->addClone($slide);
+    $manualChart = $manualSlide->getShapes()->get_Item(0);
+    $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
+    $manualAxis->setAutomaticTickLabelSpacing(false);
+    $manualAxis->setTickLabelSpacing(3);
+    $manualAxis->setAutomaticTickMarksSpacing(false);
+    $manualAxis->setTickMarksSpacing(1);
+
+    // Slide 3: let the chart choose both intervals again.
+    $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
+    $restoredChart = $restoredSlide->getShapes()->get_Item(0);
+    $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
+    $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickMarksSpacing(true);
+
+    $presentation->save("CategoryAxisIntervals.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+**Automatic spacing (slide 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
+
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+
+**Manual spacing (slide 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
+
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+
+### **Choose the Correct Axis and Interval**
+
+Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to the axis returned by [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Tick-mark spacing also applies to a series axis in charts that have one.
+
+Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
+
+## **Set the Date Format for Category Axis Values**
+
+The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`), calculated as the number of days since December 30, 1899, for these dates. Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) with `CategoryAxisType::Date`, call [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) with `false`, and pass `yyyy` to [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) so the category labels display four-digit years independently of the cell formatting.
+
+```php
+use aspose\slides\CategoryAxisType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $baseDate = gmmktime(0, 0, 0, 12, 30, 1899);
+
     $series = $chart->getChartData()->getSeries()->add(ChartType::Line);
-    $series->getDataPoints()->addDataPointForLineSeries($wb->getCell(0, "B2", 1));
-    $series->getDataPoints()->addDataPointForLineSeries($wb->getCell(0, "B3", 2));
-    $series->getDataPoints()->addDataPointForLineSeries($wb->getCell(0, "B4", 3));
-    $series->getDataPoints()->addDataPointForLineSeries($wb->getCell(0, "B5", 4));
+    for ($i = 0; $i < 4; $i++) {
+        $date = gmmktime(0, 0, 0, 1, 1, 2015 + $i);
+        $serialDate = ($date - $baseDate) / 86400;
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $serialDate);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $i + 1);
+        $series->getDataPoints()->addDataPointForLineSeries($valueCell);
+    }
+
     $chart->getAxes()->getHorizontalAxis()->setCategoryAxisType(CategoryAxisType::Date);
     $chart->getAxes()->getHorizontalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getHorizontalAxis()->setNumberFormat("yyyy");
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
 
-```
-```php
-
+    $presentation->save("DateAxisFormat.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Set the Rotation Angle for a Chart Axis Title**
-Aspose.Slides for PHP via Java allows you to set the rotation angle for a chart axis title. This PHP code demonstrates the operation:
+## **Set a Rotation Angle for a Chart Axis Title**
+
+Call [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) with `true` on the vertical axis, provide title text, and use [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
     $chart->getAxes()->getVerticalAxis()->setTitle(true);
+    $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("Value");
     $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFormat()->getTextBlockFormat()->setRotationAngle(90);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("RotatedAxisTitle.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Set the Axis Position on a Category or Value Axis**
-Aspose.Slides for PHP via Java allows you to set the position axis in a category or value axis. This PHP code shows how to perform the task:
+
+Use [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This setting applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
     $chart->getAxes()->getHorizontalAxis()->setAxisBetweenCategories(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("AxisBetweenCategories.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Enable the Display Unit Label on the Chart Value Axis**
-Aspose.Slides for PHP via Java allows you to configure a chart to show a unit label on its chart value axis. This PHP code demonstrates the operation:
+## **Set the Display Unit on a Chart Value Axis**
+
+Use [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Millions);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Result.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-### How do I set the value at which one axis crosses the other (axis crossing)?
+**How do I set the value at which one axis crosses the other (axis crossing)?**
 
-Axes provide a [crossing setting](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
+Use [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) to select the crossing behavior. To specify a numeric crossing value, use [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). These settings let you move the axis crossing to a suitable baseline.
 
-### How can I position tick labels relative to the axis (alongside, outside, inside)?
+**How can I position tick labels relative to the axis?**
 
-Set the [label position](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.
+Call [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) using [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) or [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); these are separate from label positioning.

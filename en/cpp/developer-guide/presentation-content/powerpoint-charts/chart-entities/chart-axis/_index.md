@@ -26,314 +26,419 @@ description: "Discover how to use Aspose.Slides for C++ to customize chart axes 
 
 ## **Overview**
 
-This article explains how to customize chart axes in Aspose.Slides. It shows how to get actual axis values, swap data between axes, hide the vertical or horizontal axis for line charts, change the category axis type, set the date format for category axis values, rotate an axis title, set the axis position, and display a unit label on the value axis.
+This article explains how to customize chart axes with Aspose.Slides for C++. It covers calculated axis values, switching chart rows and columns, axis visibility, category label and tick-mark intervals, date categories and formatting, title rotation, axis positioning, and display units.
 
-## **Get the Max Values on the Vertical Axis**
-Aspose.Slides for C++ allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
+## **Get the Max Values on the Vertical Axis on Charts**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Access the first slide.
-1. Add a chart with default data.
-1. Get the actual maximum value on the axis.
-1. Get the actual minimum value on the axis.
-1. Get the actual major unit of the axis.
-1. Get the actual minor unit of the axis.
-1. Get the actual major unit scale of the axis.
-1. Get the actual minor unit scale of the axis.
+Create a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) and add an area chart with default data. Call [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) before reading calculated axis values so that the chart layout is up to date.
 
-This sample code—an implementation of the steps above—shows you how to get the required values in C++:
+Read [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) and [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) for the axis limits, and [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) and [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) for the tick intervals. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) and [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
 
-``` cpp
-#include <DOM/Chart/Chart.h>
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = System::ExplicitCast<Chart>(shapes->AddChart(ChartType::Area, 100.0f, 100.0f, 500.0f, 350.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Area, 100, 100, 500, 350);
 chart->ValidateChartLayout();
 
-auto axes = chart->get_Axes();
+auto maxValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMaxValue();
+auto minValue = chart->get_Axes()->get_VerticalAxis()->get_ActualMinValue();
 
-double maxValue = axes->get_VerticalAxis()->get_ActualMaxValue();
-double minValue = axes->get_VerticalAxis()->get_ActualMinValue();
+auto majorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnit();
+auto minorUnit = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit();
 
-double majorUnit = axes->get_HorizontalAxis()->get_ActualMajorUnit();
-double minorUnit = axes->get_HorizontalAxis()->get_ActualMinorUnit();
+auto majorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMajorUnitScale();
+auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnitScale();
 
-// Saves the presentation
-pres->Save(u"ErrorBars_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Swap the Data between Axes**
-Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
-This C++ code shows you how to perform the data swap task between axes on a chart:
+Use [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
 
-``` cpp
-#include <DOM/Chart/ChartType.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+```cpp
 #include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
 #include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-// Creates empty presentation
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Switches rows and columns
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+
+chart->get_ChartData()->SetRange(u"Sheet1!A1:D5");
 chart->get_ChartData()->SwitchRowColumn();
 
-// Saves presentation
-pres->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Disable the Vertical Axis for Line Charts**
 
-This C++ code shows you how to hide the vertical axis for a line chart:
+Use [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
 
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
 ## **Disable the Horizontal Axis for Line Charts**
 
-This code shows you how to hide the horizontal axis for a line chart:
+Use [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
 
-``` cpp
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Line, 100.0f, 100.0f, 400.0f, 300.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 100, 100, 400, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 
-pres->Save(u"chart.pptx", SaveFormat::Pptx);
+presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
 ## **Change a Category Axis**
 
-Using the **set_CategoryAxisType()** method, you can specify your preferred category axis type (**date** or **text**). This code in C++ demonstrates the operation: 
+Use [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) with `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) with `1`, and [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) with months places major ticks at one-month intervals.
 
-``` cpp
-#include <DOM/Chart/CategoryAxisType.h>
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/Chart/TimeUnitType.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TimeUnitType.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"ExistingChart.pptx");
-auto chart = System::AsCast<IChart>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
+auto slide = presentation->get_Slide(0);
 
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsAutomaticMajorUnit(false);
-horizontalAxis->set_MajorUnit(1);
-horizontalAxis->set_MajorUnitScale(TimeUnitType::Months);
+auto chart = System::ExplicitCast<IChart>(slide->get_Shape(0));
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticMajorUnit(false);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnit(1);
+chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months);
 
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Set the Date Format for Category Axis Values**
-Aspose.Slides for C++ allows you to set the date format for a category axis value. The operation is demonstrated in this C++ code:
+## **Control Category Axis Label Intervals**
 
-``` cpp
-#include <DOM/Chart/CategoryAxisType.h>
+When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Use [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) with `false`, then use [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) with the desired category interval. For text categories in their normal order, counting starts at the first category:
+
+| Interval | Labels displayed in the example |
+| --- | --- |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+
+An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
+
+Tick marks have separate controls. Use [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) with `false` and use [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) with a visible style so you can see the result. Setting either automatic-spacing property back to `true` lets the chart choose that interval again.
+
+The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/Chart/IChartCategory.h>
-#include <DOM/Chart/IChartCategoryCollection.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataCell.h>
-#include <DOM/Chart/IChartDataPointCollection.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/date_time.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/TickMarkType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
 #include <system/object_ext.h>
+#include <DOM/ISlideCollection.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
-using namespace System;
 
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Area, 50.0f, 50.0f, 450.0f, 300.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
 
-wb->Clear(0);
-
+chart->set_HasLegend(false);
+chart->get_ChartData()->get_Categories()->Clear();
 chart->get_ChartData()->get_Series()->Clear();
-auto areaCategories = chart->get_ChartData()->get_Categories();
-areaCategories->Clear();
-areaCategories->Add(wb->GetCell(0, u"A2", ObjectExt::Box<double>(DateTime(2015, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A3", ObjectExt::Box<double>(DateTime(2016, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A4", ObjectExt::Box<double>(DateTime(2017, 1, 1).ToOADate())));
-areaCategories->Add(wb->GetCell(0, u"A5", ObjectExt::Box<double>(DateTime(2018, 1, 1).ToOADate())));
 
-auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
-auto dataPoints = series->get_DataPoints();
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B2", ObjectExt::Box<int32_t>(1)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B3", ObjectExt::Box<int32_t>(2)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B4", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForLineSeries(wb->GetCell(0, u"B5", ObjectExt::Box<int32_t>(4)));
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
 
-auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
-horizontalAxis->set_CategoryAxisType(CategoryAxisType::Date);
-horizontalAxis->set_IsNumberFormatLinkedToSource(false);
-horizontalAxis->set_NumberFormat(u"yyyy");
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::ClusteredColumn);
+for (auto i = 0; i < 24; i++)
+{
+    auto categoryName = System::String::Format(u"Category {0}", i + 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(categoryName));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(10 + i % 6 * 5));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->set_CategoryAxisType(CategoryAxisType::Text);
+axis->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(0);
+axis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+axis->set_MajorTickMark(TickMarkType::Outside);
+axis->set_IsAutomaticTickLabelSpacing(true);
+axis->set_IsAutomaticTickMarksSpacing(true);
+
+// Slide 2: show every third label, but keep a tick mark for every category.
+auto manualSlide = presentation->get_Slides()->AddClone(slide);
+auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
+auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
+manualAxis->set_IsAutomaticTickLabelSpacing(false);
+manualAxis->set_TickLabelSpacing(3);
+manualAxis->set_IsAutomaticTickMarksSpacing(false);
+manualAxis->set_TickMarksSpacing(1);
+
+// Slide 3: let the chart choose both intervals again.
+auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
+auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
+restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing(true);
+
+presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
 ```
 
-## **Set the Rotation Angle for an Axis Title**
-Aspose.Slides for C++ allows you to set the rotation angle for a chart axis title. This C++ code demonstrates the operation:
+**Automatic spacing (slide 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
 
-``` cpp
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+
+**Manual spacing (slide 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
+
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+
+### **Choose the Correct Axis and Interval**
+
+Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Tick-mark spacing also applies to a series axis in charts that have one.
+
+Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
+
+## **Set the Date Format for Category Axis Values**
+
+The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`). Use [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) to select a date axis, disable source-linked formatting with [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), and assign `yyyy` with [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) so the category labels display four-digit years independently of the cell formatting.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/Chart/IChartTextBlockFormat.h>
-#include <DOM/Chart/IChartTextFormat.h>
-#include <DOM/Chart/IChartTitle.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
-auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
-verticalAxis->set_HasTitle(true);
-verticalAxis->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-pres->Save(u"test.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto series = chart->get_ChartData()->get_Series()->Add(ChartType::Line);
+for (auto i = 0; i < 4; i++)
+{
+    auto date = System::DateTime(2015 + i, 1, 1);
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(date.ToOADate()));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box(i + 1));
+    series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
+}
+
+chart->get_Axes()->get_HorizontalAxis()->set_CategoryAxisType(CategoryAxisType::Date);
+chart->get_Axes()->get_HorizontalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
+
+presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
+```
+
+## **Set a Rotation Angle for a Chart Axis Title**
+
+Enable the vertical-axis title with [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), provide title text, and use [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTextBlockFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
+chart->get_Axes()->get_VerticalAxis()->set_HasTitle(true);
+chart->get_Axes()->get_VerticalAxis()->get_Title()->AddTextFrameForOverriding(u"Value");
+chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBlockFormat()->set_RotationAngle(90);
+
+presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
 ## **Set the Axis Position on a Category or Value Axis**
-Aspose.Slides for C++ allows you to set the position axis in a category or value axis. This C++ code shows how to perform the task:
 
-``` cpp
+Use [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This property applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 
-pres->Save(u"AsposeScatterChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Enable the Display Unit Label on a Chart Value Axis**
-Aspose.Slides for C++ allows you to configure a chart to show a unit label on its chart value axis. This C++ code demonstrates the operation:
+## **Set the Display Unit on a Chart Value Axis**
 
-``` cpp
+Use [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
 #include <DOM/Chart/ChartType.h>
-#include <DOM/Chart/DisplayUnitType.h>
 #include <DOM/Chart/IAxesManager.h>
 #include <DOM/Chart/IAxis.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <DOM/Chart/DisplayUnitType.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 450.0f, 300.0f);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
 chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions);
 
-pres->Save(u"Result.pptx", SaveFormat::Pptx);
+presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-### How do I set the value at which one axis crosses the other (axis crossing)?
+**How do I set the value at which one axis crosses the other (axis crossing)?**
 
-Axes provide a [crossing setting](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/): you can choose to cross at zero, at the maximum category/value, or at a specific numeric value. This is useful for shifting the X-axis up or down or for emphasizing a baseline.
+Use [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) to select the crossing behavior. To specify a numeric crossing value, use [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). These settings let you move the axis crossing to a suitable baseline.
 
-### How can I position tick labels relative to the axis (alongside, outside, inside)?
+**How can I position tick labels relative to the axis?**
 
-Set the [label position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) to "cross", "outside", or "inside". This affects readability and helps conserve space, especially on small charts.
+Use [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) with a value from [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) or [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); these are separate from label positioning.
