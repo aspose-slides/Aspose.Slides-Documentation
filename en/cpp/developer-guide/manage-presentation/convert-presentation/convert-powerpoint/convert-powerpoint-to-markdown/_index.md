@@ -69,11 +69,155 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
 auto options = System::MakeObject<MarkdownSaveOptions>();
 options->set_Flavor(Flavor::CommonMark);
 
 presentation->Save(u"presentation.md", SaveFormat::Md, options);
 ```
+
+## **Control Repeated Spaces**
+
+When preparing slide text for documentation, text processing, or publication, use [MarkdownSaveOptions::set_HandleRepeatedSpaces](https://reference.aspose.com/slides/cpp/aspose.slides.export/markdownsaveoptions/set_handlerepeatedspaces/) to control consecutive regular spaces.
+
+Single spaces remain regular spaces in all three modes. The following self-contained example creates text with one, two, and three consecutive spaces and exports the same slide using each mode.
+
+```cpp
+#include <DOM/AutoShape.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Slide.h>
+#include <DOM/TextFrame.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
+#include <Export/Markdown/SaveOptions/HandleRepeatedSpaces.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 600, 100);
+shape->get_TextFrame()->set_Text(u"One space; two  spaces; three   spaces.");
+
+const HandleRepeatedSpaces modes[] =
+{
+    HandleRepeatedSpaces::None,
+    HandleRepeatedSpaces::AlternateSpacesToNbsp,
+    HandleRepeatedSpaces::MultipleSpacesToNbsp
+};
+
+const System::String outputPaths[] =
+{
+    u"spaces-None.md",
+    u"spaces-AlternateSpacesToNbsp.md",
+    u"spaces-MultipleSpacesToNbsp.md"
+};
+
+for (auto i = 0; i < 3; ++i)
+{
+    auto options = System::MakeObject<MarkdownSaveOptions>();
+    options->set_Flavor(Flavor::CommonMark);
+    options->set_HandleRepeatedSpaces(modes[i]);
+
+    presentation->Save(outputPaths[i], SaveFormat::Md, options);
+}
+```
+
+The exported text lines are shown below. These excerpts omit the slide separator and the two trailing spaces added by the exporter.
+
+`None`:
+
+```markdown
+One space; two  spaces; three   spaces.
+```
+
+`AlternateSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp; spaces.
+```
+
+`MultipleSpacesToNbsp`:
+
+```markdown
+One space; two &nbsp;spaces; three &nbsp;&nbsp;spaces.
+```
+
+In a typical HTML-based Markdown viewer, consecutive regular spaces collapse visually even though they remain in the source. Both replacement modes preserve the visible spacing in this example; their source differs for the three-space sequence.
+
+Choose `None` when downstream tools need ordinary space characters without HTML entities. Choose a replacement mode when visible spacing matters more. A text-processing pipeline consuming that output may need to decode `&nbsp;` and normalize the resulting nonbreaking spaces. Nonbreaking spaces also affect where a viewer can wrap text.
+
+## **Remove Empty Lines**
+
+The [MarkdownSaveOptions::set_RemoveEmptyLines](https://reference.aspose.com/slides/cpp/aspose.slides.export/markdownsaveoptions/set_removeemptylines/) method controls whether empty or whitespace-only lines are removed during export. The default value is `false`. This controls vertical separation, independently of how repeated spaces within text are represented.
+
+The following example creates two text paragraphs separated by an empty paragraph and a paragraph containing three regular spaces. It exports both settings. The `\r` characters create paragraph boundaries in the text frame; `HandleRepeatedSpaces::None` makes the treatment of ordinary spaces easier to inspect.
+
+```cpp
+#include <DOM/AutoShape.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Slide.h>
+#include <DOM/TextFrame.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
+#include <Export/Markdown/SaveOptions/HandleRepeatedSpaces.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 600, 300);
+
+// Include an empty paragraph and a paragraph containing three regular spaces.
+shape->get_TextFrame()->set_Text(u"First paragraph.\r\r   \rSecond paragraph.");
+
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_Flavor(Flavor::CommonMark);
+options->set_HandleRepeatedSpaces(HandleRepeatedSpaces::None);
+options->set_RemoveEmptyLines(false);
+
+presentation->Save(u"empty-lines-kept.md", SaveFormat::Md, options);
+
+options->set_RemoveEmptyLines(true);
+presentation->Save(u"empty-lines-removed.md", SaveFormat::Md, options);
+```
+
+With `false`, the generated Markdown is:
+
+```markdown
+---  
+
+First paragraph.  
+
+&nbsp;
+  
+     
+Second paragraph.  
+```
+
+With `true`, it becomes:
+
+```markdown
+---  
+
+First paragraph.  
+Second paragraph.  
+```
+
+With `RemoveEmptyLines = false`, the exported Markdown preserves the empty and whitespace-only paragraphs. The `&nbsp;` line represents an empty paragraph.
+
+With `RemoveEmptyLines = true`, these blank paragraphs are removed. The two text paragraphs become a single Markdown paragraph with a line break between them. This line break is preserved by two trailing spaces after `First paragraph.`—Markdown syntax for a hard line break.
+
+The slide separator (`---`) remains in both outputs. Keep `RemoveEmptyLines = false` when you need to preserve paragraph separation. If your presentation contains lists or code blocks, check the exported result in your target Markdown viewer, since blank lines can affect how that content is interpreted.
 
 ## **Export Images Using the Default Local-Saving Behavior**
 
@@ -100,6 +244,7 @@ const System::String outputDirectory = u"output";
 Directory::CreateDirectory_(outputDirectory);
 
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
 auto options = System::MakeObject<MarkdownSaveOptions>();
 options->set_ExportType(MarkdownExportType::Visual);
 options->set_BasePath(outputDirectory);
@@ -157,6 +302,7 @@ Directory::CreateDirectory_(outputDirectory);
 Directory::CreateDirectory_(storageDirectory);
 
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+
 auto options = System::MakeObject<MarkdownSaveOptions>();
 options->set_ExportType(MarkdownExportType::Visual);
 options->set_BasePath(outputDirectory);
